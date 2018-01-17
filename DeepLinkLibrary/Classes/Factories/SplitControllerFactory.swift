@@ -9,12 +9,12 @@ import UIKit
 // TODO: Undone
 class SplitControllerFactory: ContainerFactory {
 
-    let action: Action
+    let action: Action?
 
     var detailFactories: [Factory] = []
     var masterFactories: [Factory] = []
 
-    init(action: Action = NilAction()) {
+    init(action: Action? = nil) {
         self.action = action
     }
 
@@ -44,7 +44,7 @@ class SplitControllerFactory: ContainerFactory {
             guard let viewController = factory.build() else {
                 return nil
             }
-            factory.action.applyMerged(viewController: viewController, in: splitController)
+            factory.action?.applyMerged(viewController: viewController, in: splitController)
             return viewController
         }.first
 
@@ -52,7 +52,7 @@ class SplitControllerFactory: ContainerFactory {
             guard let viewController = factory.build() else {
                 return nil
             }
-            factory.action.applyMerged(viewController: viewController, in: splitController)
+            factory.action?.applyMerged(viewController: viewController, in: splitController)
             return viewController
         }
 

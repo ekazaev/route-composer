@@ -7,7 +7,7 @@ import UIKit
 
 public class NavigationContainerStep: ChainableStep {
 
-    public init(factory: Factory? = nil, action: Action = NilAction()) {
+    public init(factory: Factory? = nil, action: Action? = nil) {
         super.init(factory: factory ?? NavigationControllerFactory(action: action))
     }
 

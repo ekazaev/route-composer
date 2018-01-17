@@ -7,13 +7,13 @@ import UIKit
 
 public class ViewControllerFromStoryboard: Factory {
 
-    public let action: Action
+    public let action: Action?
 
     private let storyboardName: String
 
     private let viewControllerID: String
 
-    public init(storyboardName: String, viewControllerID: String, action: Action = NilAction()) {
+    public init(storyboardName: String, viewControllerID: String, action: Action? = nil) {
         self.action = action
         self.storyboardName = storyboardName
         self.viewControllerID = viewControllerID

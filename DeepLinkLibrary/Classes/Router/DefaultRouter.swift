@@ -8,9 +8,9 @@ import UIKit
 public class DefaultRouter: Router {
 
     public init() {
-        
+
     }
-    
+
     @discardableResult
     public func deepLinkTo<A: DeepLinkDestination>(destination: A, completion: (() -> Void)? = nil) -> DeepLinkResult {
         // If currently visible view controller can not be dissmissed - then we cant deeplink anywhere because it will
@@ -118,12 +118,21 @@ public class DefaultRouter: Router {
 
         func buildScreens(_ screen: Factory, _ previousViewController: UIViewController) {
             if let newViewController = screen.build() {
-                screen.action.apply(viewController: newViewController, on: previousViewController) { viewController in
+                // If factory contains action - applying it
+                if let action = screen.action {
+                    action.apply(viewController: newViewController, on: previousViewController) { viewController in
+                        guard factories.count > 0 else {
+                            completion(viewController)
+                            return
+                        }
+                        buildScreens(factories.removeFirst(), viewController)
+                    }
+                } else {
                     guard factories.count > 0 else {
-                        completion(viewController)
+                        completion(newViewController)
                         return
                     }
-                    buildScreens(factories.removeFirst(), viewController)
+                    buildScreens(factories.removeFirst(), newViewController)
                 }
             } else {
                 completion(previousViewController)

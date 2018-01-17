@@ -18,20 +18,3 @@ public protocol Action {
     func apply(viewController: UIViewController, on existingController: UIViewController, completion: @escaping (_: UIViewController) -> Void)
 
 }
-
-
-public class NilAction: Action {
-
-    public init() {
-        
-    }
-    
-    public func applyMerged(viewController: UIViewController, in existingController: UIViewController) {
-
-    }
-
-    public func apply(viewController: UIViewController, on existingController: UIViewController, completion: @escaping(_: UIViewController) -> Void) {
-        return completion(existingController)
-    }
-
-}

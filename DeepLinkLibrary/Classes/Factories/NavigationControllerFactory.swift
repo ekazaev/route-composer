@@ -7,11 +7,11 @@ import UIKit
 
 class NavigationControllerFactory: ContainerFactory {
 
-    let action: Action
+    let action: Action?
 
     var screenFactories: [Factory] = []
 
-    init(action: Action = NilAction()) {
+    init(action: Action? = nil) {
         self.action = action
     }
 
@@ -39,7 +39,7 @@ class NavigationControllerFactory: ContainerFactory {
             guard let viewController = factory.build() else {
                 return nil
             }
-            factory.action.applyMerged(viewController: viewController, in: navigationController)
+            factory.action?.applyMerged(viewController: viewController, in: navigationController)
             return viewController
         }
 

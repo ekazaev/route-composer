@@ -7,7 +7,7 @@ import UIKit
 
 public protocol Factory: class {
 
-    var action: Action { get }
+    var action: Action? { get }
 
     func build() -> UIViewController?
 

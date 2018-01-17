@@ -30,11 +30,12 @@ class CityDetailsViewControllerFinder: FinderWithPolicy {
 }
 
 class CityDetailsViewControllerFactory: Factory, PreparableFactory {
-    let action: Action
+
+    let action: Action?
 
     var cityId: Int?
 
-    init(action: Action) {
+    init(action: Action? = nil) {
         self.action = action
     }
 

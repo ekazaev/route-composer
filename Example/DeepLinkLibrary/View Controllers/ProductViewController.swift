@@ -30,11 +30,12 @@ class ProductViewControllerFinder: FinderWithPolicy {
 }
 
 class ProductViewControllerFactory: Factory, PreparableFactory {
-    let action: Action
+
+    let action: Action?
 
     var model: ProductViewController.Model?
 
-    init(action: Action) {
+    init(action: Action? = nil) {
         self.action = action
     }
 
