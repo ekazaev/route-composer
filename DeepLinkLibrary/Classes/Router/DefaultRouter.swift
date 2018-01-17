@@ -41,7 +41,8 @@ public class DefaultRouter: Router {
         viewController.dismissAllPresentedControllers(animated: true) {
             self.runViewControllerBuildStack(rootViewController: viewController, factories: allFactories) { viewController in
 
-                self.makeRootActive(to: viewController, completion: completion)
+                self.makeContainersActive(toShow: viewController)
+                completion?()
             }
         }
 
@@ -104,6 +105,12 @@ public class DefaultRouter: Router {
 
         //If we haven't find a View Controller to start build stack from - it means that we can handle a deeplinking
         if let viewController = rootViewController {
+            // If view controller found but view is not loaded it means that it was just cached by container view controller
+            // like in UITabBarController it happens with a view controller in a tab that was never activated before,
+            // So we have to make it active first.
+            if !viewController.isViewLoaded {
+                makeContainersActive(toShow: viewController)
+            }
             return (rootViewController: viewController, factories: allFactories)
         }
 
@@ -146,12 +153,10 @@ public class DefaultRouter: Router {
         buildScreens(factories.removeFirst(), rootViewController)
     }
 
-    //This block fuction that all the container view controllers switched to show correctly last build view controller
-    private func makeRootActive(to lastViewController: UIViewController, completion: (() -> Void)?) {
+    //This block fuction that all the container view controllers switched to show correctly build view controller
+    private func makeContainersActive(toShow viewController: UIViewController) {
         if let container = UIWindow.key?.topmostViewController as? ContainerViewController {
-            container.makeActive(vc: lastViewController)
+            container.makeActive(vc: viewController)
         }
-
-        completion?()
     }
 }
