@@ -19,22 +19,25 @@ public class Screen: DeepLinkableScreen {
     public var step: Step {
         get {
             if let finder = finder {
-                return FinderStep(finder: finder, prevStep: originalStep, factory: factory)
+                return FinderStep(finder: finder, prevStep: originalStep, factory: factory, interceptor: interceptor)
             } else if let factory = factory {
-                return FactoryStep(prevStep: originalStep, factory: factory)
+                return FactoryStep(prevStep: originalStep, factory: factory, interceptor: interceptor)
             }
             return originalStep
         }
     }
 
-    let finder: DeepLinkFinder?
+    public let finder: DeepLinkFinder?
 
-    let factory: Factory?
+    public let factory: Factory?
 
-    public init(finder: DeepLinkFinder? = nil, factory: Factory? = nil, step: Step) {
+    let interceptor: RouterInterceptor?
+
+    public init(finder: DeepLinkFinder? = nil, factory: Factory? = nil, interceptor: RouterInterceptor? = nil, step: Step) {
         self.originalStep = step
         self.finder = finder
         self.factory = factory
+        self.interceptor = interceptor
     }
 
 }
@@ -45,9 +48,12 @@ class FactoryStep: Step {
 
     let prevStep: Step?
 
-    init(prevStep: Step?, factory: Factory) {
+    let interceptor: RouterInterceptor?
+
+    init(prevStep: Step?, factory: Factory, interceptor: RouterInterceptor? = nil) {
         self.prevStep = prevStep
         self.factory = factory
+        self.interceptor = interceptor
     }
 
     func getPresentationViewController(with arguments: Any?) -> UIViewController? {
@@ -79,16 +85,19 @@ class FinderStep: Step {
         }
     }
 
+    let interceptor: RouterInterceptor?
+
     let factory: Factory?
 
     let prevStep: Step?
 
     let finder: DeepLinkFinder
 
-    init(finder: DeepLinkFinder, prevStep: Step?, factory: Factory?) {
+    init(finder: DeepLinkFinder, prevStep: Step?, factory: Factory?, interceptor: RouterInterceptor? = nil) {
         self.finder = finder
         self.prevStep = prevStep
         self.factory = factory ?? FinderFactory(finder: finder)
+        self.interceptor = interceptor
     }
 
     func getPresentationViewController(with arguments: Any?) -> UIViewController? {

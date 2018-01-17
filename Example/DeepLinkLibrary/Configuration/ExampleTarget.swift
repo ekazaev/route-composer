@@ -28,6 +28,8 @@ enum ExampleTarget: Target {
 
     case cityDetail
 
+    case login
+
     case superModal
 
     case welcome

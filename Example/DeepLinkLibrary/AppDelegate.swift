@@ -35,10 +35,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         let config = ExampleConfiguration()
 
+        // Login
+        let loginScreen = Screen(
+                finder: LoginViewControllerFinder(),
+                factory: ViewControllerFromStoryboard(storyboardName: "Login", action: PresentModallyAction()),
+                step: TopMostViewControllerStep())
+        config.register(screen: loginScreen, for: ExampleTarget.login)
+
         // Home Tab Bar Screen
         let homeScreen = Screen(
                 finder: ViewControllerClassFinder(containerType: UITabBarController.self),
-                factory: ViewControllerFromStoryboard(storyboardName: "Main", viewControllerID: "ExampleTabBarController", action: ReplaceRootAction()),
+                factory: ViewControllerFromStoryboard(storyboardName: "Main", action: ReplaceRootAction()),
                 step: chain([
                     RootViewControllerStep()
                 ]))
@@ -58,7 +65,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let circleScreen = Screen(
                 finder: ViewControllerClassFinder(containerType: CircleViewController.self, policy: .currentLevel),
                 step: chain([
-                    RequireScreenStep(screenProvider: config.provider(for:ExampleTarget.home))
+                    RequireScreenStep(screenProvider: config.provider(for: ExampleTarget.home))
                 ]))
 
         config.register(screen: circleScreen, for: ExampleTarget.circle)
@@ -85,8 +92,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Empty Screen
         let emptyScreen = Screen(finder: ViewControllerClassFinder(containerType: EmptyViewController.self),
                 factory: ViewControllerFromStoryboard(storyboardName: "Main", viewControllerID: "EmptyViewController", action: PushAction()),
+                interceptor: LoginInterceptor(screen: loginScreen),
                 step: chain([
-                    RequireScreenStep(screenProvider: config.provider(for:ExampleTarget.circle))
+                    RequireScreenStep(screenProvider: config.provider(for: ExampleTarget.circle))
                 ]))
 
         config.register(screen: emptyScreen, for: ExampleTarget.empty)
@@ -96,7 +104,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 finder: ProductViewControllerFinder(),
                 factory: ProductViewControllerFactory(action: PushAction()),
                 step: chain([
-                    RequireScreenStep(screenProvider: config.provider(for:ExampleTarget.circle))
+                    RequireScreenStep(screenProvider: config.provider(for: ExampleTarget.circle))
                 ]))
 
         config.register(screen: productScreen, urlTranslator: ProductURLTranslator(), for: ExampleTarget.product)
@@ -107,14 +115,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 factory: ViewControllerFromClassFactory(viewControllerName: NSStringFromClass(ColorViewController.self), action: PushAction()),
                 step: chain([
                     NavigationContainerStep(action: PresentModallyAction()),
-                    RequireScreenStep(screenProvider: config.provider(for:ExampleTarget.ruleSupport))
+                    RequireScreenStep(screenProvider: config.provider(for: ExampleTarget.ruleSupport))
                 ]))
         config.register(screen: superModlaScreen, for: ExampleTarget.superModal)
 
         // Welcome Screen
         let welcomeScreen = Screen(
                 finder: ViewControllerClassFinder(containerType: PromptViewController.self),
-                factory: ViewControllerFromStoryboard(storyboardName: "PromptScreen", viewControllerID: "PromptViewController", action: ReplaceRootAction()),
+                factory: ViewControllerFromStoryboard(storyboardName: "PromptScreen", action: ReplaceRootAction()),
                 step: chain([
                     RootViewControllerStep()
                 ]))
@@ -123,7 +131,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // Split View Controller
         let splitScreen = Screen(finder: ViewControllerClassFinder(containerType: UISplitViewController.self),
-                factory: ViewControllerFromStoryboard(storyboardName: "Split", viewControllerID: "UISplitViewController", action: ReplaceRootAction()),
+                factory: ViewControllerFromStoryboard(storyboardName: "Split", action: ReplaceRootAction()),
+                interceptor: LoginInterceptor(screen: loginScreen),
                 step: chain([
                     RootViewControllerStep()
                 ]))
@@ -133,7 +142,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let ciliesListScreen = Screen(
                 finder: CityTableViewControllerFinder(),
                 step: chain([
-                    RequireScreenStep(screenProvider: config.provider(for:ExampleTarget.split))
+                    RequireScreenStep(screenProvider: config.provider(for: ExampleTarget.split))
                 ]))
         config.register(screen: ciliesListScreen, for: ExampleTarget.citiesList)
 
@@ -142,7 +151,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 finder: CityDetailsViewControllerFinder(),
                 factory: CityDetailsViewControllerFactory(action: PresentDetailsAction()),
                 step: chain([
-                    RequireScreenStep(screenProvider: config.provider(for:ExampleTarget.citiesList))
+                    RequireScreenStep(screenProvider: config.provider(for: ExampleTarget.citiesList))
                 ]))
         config.register(screen: ciryDetailsScreen, urlTranslator: CityURLTranslator(), for: ExampleTarget.cityDetail)
 

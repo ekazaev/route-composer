@@ -34,6 +34,8 @@
 		8479E31C200E7A7F00320380 /* ColorURLTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8479E30A200E7A7F00320380 /* ColorURLTranslator.swift */; };
 		8479E31D200E7A7F00320380 /* ExampleURLTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8479E30B200E7A7F00320380 /* ExampleURLTranslator.swift */; };
 		8479E31E200E7A7F00320380 /* ProductURLTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8479E30C200E7A7F00320380 /* ProductURLTranslator.swift */; };
+		8479E320200F7D1E00320380 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8479E31F200F7D1E00320380 /* Login.storyboard */; };
+		9AFBC3A95B8DDF048DC02F5D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC283673464E0A23A39DD /* LoginViewController.swift */; };
 		D611D285DB9C77E5E7D8FBF7 /* Pods_DeepLinkLibrary_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD8FADE9265A4CD86A75FD85 /* Pods_DeepLinkLibrary_Example.framework */; };
 /* End PBXBuildFile section */
 
@@ -82,8 +84,10 @@
 		8479E30A200E7A7F00320380 /* ColorURLTranslator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorURLTranslator.swift; sourceTree = "<group>"; };
 		8479E30B200E7A7F00320380 /* ExampleURLTranslator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleURLTranslator.swift; sourceTree = "<group>"; };
 		8479E30C200E7A7F00320380 /* ProductURLTranslator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductURLTranslator.swift; sourceTree = "<group>"; };
+		8479E31F200F7D1E00320380 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		84C1D86390083DF185C460C2 /* Pods-DeepLinkLibrary_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeepLinkLibrary_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DeepLinkLibrary_Tests/Pods-DeepLinkLibrary_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		99737A56A3D37A621574DCAB /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		9AFBC283673464E0A23A39DD /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		AD8FADE9265A4CD86A75FD85 /* Pods_DeepLinkLibrary_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DeepLinkLibrary_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7AC8603E217ACA9BCF1FAC2 /* Pods-DeepLinkLibrary_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeepLinkLibrary_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-DeepLinkLibrary_Example/Pods-DeepLinkLibrary_Example.release.xcconfig"; sourceTree = "<group>"; };
 		EE3371C14DEE61C1E517B2F9 /* Pods-DeepLinkLibrary_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeepLinkLibrary_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DeepLinkLibrary_Example/Pods-DeepLinkLibrary_Example.debug.xcconfig"; sourceTree = "<group>"; };
@@ -151,6 +155,7 @@
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
+				8479E31F200F7D1E00320380 /* Login.storyboard */,
 				8479E2F3200E7A4400320380 /* PromptScreen.storyboard */,
 				8479E2F1200E7A4400320380 /* Split.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
@@ -227,6 +232,7 @@
 				8479E305200E7A7F00320380 /* PromptViewController.swift */,
 				8479E306200E7A7F00320380 /* RoutingRuleSupportViewController.swift */,
 				8479E307200E7A7F00320380 /* SquareViewController.swift */,
+				9AFBC283673464E0A23A39DD /* LoginViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -342,6 +348,7 @@
 			files = (
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
+				8479E320200F7D1E00320380 /* Login.storyboard in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 				8479E2F6200E7A4400320380 /* PromptScreen.storyboard in Resources */,
 				8479E2F5200E7A4400320380 /* Split.storyboard in Resources */,
@@ -484,6 +491,7 @@
 				8479E315200E7A7F00320380 /* ColorViewController.swift in Sources */,
 				8479E318200E7A7F00320380 /* PromptViewController.swift in Sources */,
 				8479E30F200E7A7F00320380 /* ExampleTargetArguments.swift in Sources */,
+				9AFBC3A95B8DDF048DC02F5D /* LoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

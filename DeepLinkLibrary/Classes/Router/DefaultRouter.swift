@@ -24,7 +24,7 @@ public class DefaultRouter: Router {
             return .unhandled
         }
 
-        let viewController = stack.rootViewController, allFactories = stack.factories
+        let viewController = stack.rootViewController, factoriesStack = stack.factories, interceptor = InterceptorMultiplex(stack.interceptors)
 
 
         // Let find is we are eligible to dismiss view controllers in stack to show target view controller
@@ -36,20 +36,33 @@ public class DefaultRouter: Router {
             return .unhandled
         }
 
-        // If we found a view controller to start from - lets close all the presented view controllers above to be able
-        // to build new stack in needed.
-        viewController.dismissAllPresentedControllers(animated: true) {
-            self.runViewControllerBuildStack(rootViewController: viewController, factories: allFactories) { viewController in
-
-                self.makeContainersActive(toShow: viewController)
+        // Lets run the interceptor chain. All of interceptor must succeed to continue routing.
+        interceptor.apply { result in
+            guard result == .success else {
                 completion?()
+                return
             }
+
+            self.startDeepLinking(viewController: viewController, factories: factoriesStack, completion: completion)
         }
 
         return .handled
     }
 
-    private func prepareFactoriesStack<A: DeepLinkDestination>(destination: A) -> (rootViewController: UIViewController, factories: [Factory])? {
+    private func startDeepLinking(viewController: UIViewController, factories: [Factory], completion: (() -> Void)?) {
+
+        // If we found a view controller to start from - lets close all the presented view controllers above to be able
+        // to build new stack in needed.
+        // We already checked that they can be dissmissed.
+        viewController.dismissAllPresentedControllers(animated: true) {
+            self.runViewControllerBuildStack(rootViewController: viewController, factories: factories) { viewController in
+                self.makeContainersActive(toShow: viewController)
+                completion?()
+            }
+        }
+    }
+
+    private func prepareFactoriesStack<A: DeepLinkDestination>(destination: A) -> (rootViewController: UIViewController, factories: [Factory], interceptors: [RouterInterceptor])? {
         var step: Step? = destination.screen.step
 
         var rootViewController: UIViewController?
@@ -58,6 +71,8 @@ public class DefaultRouter: Router {
 
         var allFactories: [Factory] = []
 
+        var interceptors: [RouterInterceptor] = []
+
         // Build stack until we have steps and view controller to present from has not been found
         repeat {
 
@@ -65,6 +80,11 @@ public class DefaultRouter: Router {
             if let viewController = step?.getPresentationViewController(with: destination.arguments) {
                 rootViewController = viewController
                 break
+            }
+
+            // If step contain an action that needs to be done, add it it in to interceptors array
+            if let interceptor = step?.interceptor {
+                interceptors.append(interceptor)
             }
 
             // If view controller has not been found, but screen has a factroy to build itself - add factory to the stack
@@ -111,7 +131,7 @@ public class DefaultRouter: Router {
             if !viewController.isViewLoaded {
                 makeContainersActive(toShow: viewController)
             }
-            return (rootViewController: viewController, factories: allFactories)
+            return (rootViewController: viewController, factories: allFactories, interceptors: interceptors)
         }
 
         return nil

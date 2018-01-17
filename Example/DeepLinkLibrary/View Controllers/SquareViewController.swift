@@ -27,5 +27,9 @@ class SquareViewController: UIViewController {
         DefaultRouter().deepLinkTo(destination: configuration.destination(for: ExampleTarget.split)!)
     }
 
+    @IBAction func goToLoginTapped() {
+        DefaultRouter().deepLinkTo(destination: configuration.destination(for: ExampleTarget.login)!)
+    }
+
 }
 

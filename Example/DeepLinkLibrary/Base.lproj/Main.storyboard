@@ -14,7 +14,7 @@
         <!--Circle-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" customClass="CircleViewController" customModule="CircumferenceKit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9pv-A4-QxB" customClass="CircleViewController" customModule="DeepLinkLibrary_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -84,7 +84,7 @@
         <!--Empty View Controller-->
         <scene sceneID="Ddb-Tz-bjB">
             <objects>
-                <viewController storyboardIdentifier="EmptyViewController" id="Gon-vP-zBB" customClass="EmptyViewController" customModule="CircumferenceKit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EmptyViewController" id="Gon-vP-zBB" customClass="EmptyViewController" customModule="DeepLinkLibrary_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cCs-CP-LuG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -131,7 +131,7 @@
         <!--Routing Rule Support View Controller-->
         <scene sceneID="slh-u5-km9">
             <objects>
-                <viewController storyboardIdentifier="RoutingRuleSupportViewController" id="1IK-g0-E80" customClass="RoutingRuleSupportViewController" customModule="CircumferenceKit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RoutingRuleSupportViewController" id="1IK-g0-E80" customClass="RoutingRuleSupportViewController" customModule="DeepLinkLibrary_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3Sz-AV-vzj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -172,7 +172,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ecO-Gb-PsB">
                                         <rect key="frame" x="0.0" y="124" width="197.5" height="30"/>
-                                        <state key="normal" title="Go to Moscow"/>
+                                        <state key="normal" title="Go to Moscow*"/>
                                         <connections>
                                             <action selector="goToMoscowTapped" destination="1IK-g0-E80" eventType="touchUpInside" id="rIm-aL-VNK"/>
                                         </connections>
@@ -198,35 +198,48 @@
         <!--Square-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController id="8rJ-Kc-sve" customClass="SquareViewController" customModule="CircumferenceKit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8rJ-Kc-sve" customClass="SquareViewController" customModule="DeepLinkLibrary_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="aCi-8Q-H9E">
-                                <rect key="frame" x="129.5" y="263" width="116" height="112"/>
+                                <rect key="frame" x="126" y="232.5" width="123" height="174"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Itu-Vw-ee6">
-                                        <rect key="frame" x="0.0" y="0.0" width="116" height="30"/>
-                                        <state key="normal" title="Go push to circle"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="123" height="30"/>
+                                        <state key="normal" title="Go push to circle*"/>
                                         <connections>
                                             <action selector="goToHomeTapped" destination="8rJ-Kc-sve" eventType="touchUpInside" id="2vG-vl-TjY"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ah5-V3-Bcg">
-                                        <rect key="frame" x="0.0" y="41" width="116" height="30"/>
+                                        <rect key="frame" x="0.0" y="41" width="123" height="30"/>
                                         <state key="normal" title="Go to Circle"/>
                                         <connections>
                                             <action selector="goToCircleTapped" destination="8rJ-Kc-sve" eventType="touchUpInside" id="24a-4I-H6w"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oOA-2s-xxU">
-                                        <rect key="frame" x="0.0" y="82" width="116" height="30"/>
-                                        <state key="normal" title="Go to Split"/>
+                                        <rect key="frame" x="0.0" y="82" width="123" height="30"/>
+                                        <state key="normal" title="Go to Split*"/>
                                         <connections>
                                             <action selector="goToSplitTapped" destination="8rJ-Kc-sve" eventType="touchUpInside" id="8Mh-q7-kMY"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PVg-zY-i55">
+                                        <rect key="frame" x="0.0" y="123" width="123" height="30"/>
+                                        <state key="normal" title="Go to Login"/>
+                                        <connections>
+                                            <action selector="goToLoginTapped" destination="8rJ-Kc-sve" eventType="touchUpInside" id="3Br-6G-ONF"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="* - login required" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iw0-rc-3xm">
+                                        <rect key="frame" x="0.0" y="164" width="123" height="10"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="8"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -246,7 +259,7 @@
         <!--Product View Controller-->
         <scene sceneID="OfK-c7-F8L">
             <objects>
-                <viewController storyboardIdentifier="ProductViewController" id="xt5-6D-ZK0" customClass="ProductViewController" customModule="CircumferenceKit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProductViewController" id="xt5-6D-ZK0" customClass="ProductViewController" customModule="DeepLinkLibrary_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kE8-WZ-EcD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -282,7 +295,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dya-OG-PLs">
                                         <rect key="frame" x="0.0" y="145" width="116" height="30"/>
-                                        <state key="normal" title="Go to Split"/>
+                                        <state key="normal" title="Go to Split*"/>
                                         <connections>
                                             <action selector="goToSplitTapped" destination="xt5-6D-ZK0" eventType="touchUpInside" id="R2S-1W-MAu"/>
                                         </connections>

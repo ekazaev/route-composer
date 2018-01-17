@@ -9,6 +9,8 @@ public protocol Step {
 
     var factory: Factory? { get }
 
+    var interceptor: RouterInterceptor? { get }
+
     var prevStep: Step? { get }
 
     func getPresentationViewController(with arguments: Any?) -> UIViewController?
@@ -18,10 +20,14 @@ public protocol Step {
 public class ChainableStep: Step {
 
     private(set) public var prevStep: Step? = nil
+
     public let factory: Factory?
 
-    internal init(factory: Factory? = nil) {
+    public let interceptor: RouterInterceptor?
+
+    internal init(factory: Factory? = nil, interceptor: RouterInterceptor? = nil) {
         self.factory = factory
+        self.interceptor = interceptor
     }
 
     public func getPresentationViewController(with arguments: Any?) -> UIViewController? {

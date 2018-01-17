@@ -11,9 +11,9 @@ public class ViewControllerFromStoryboard: Factory {
 
     private let storyboardName: String
 
-    private let viewControllerID: String
+    private let viewControllerID: String?
 
-    public init(storyboardName: String, viewControllerID: String, action: ViewControllerAction? = nil) {
+    public init(storyboardName: String, viewControllerID: String? = nil, action: ViewControllerAction? = nil) {
         self.action = action
         self.storyboardName = storyboardName
         self.viewControllerID = viewControllerID
@@ -21,8 +21,11 @@ public class ViewControllerFromStoryboard: Factory {
 
     public func build() -> UIViewController? {
         let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
-        let viewController = storyboard.instantiateViewController(withIdentifier: viewControllerID)
-        return viewController
+        if let viewControllerID = viewControllerID {
+            return storyboard.instantiateViewController(withIdentifier: viewControllerID)
+        } else {
+            return storyboard.instantiateInitialViewController()
+        }
     }
 
 }
