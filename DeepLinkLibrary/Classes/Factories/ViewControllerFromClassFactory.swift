@@ -7,11 +7,11 @@ import UIKit
 
 public class ViewControllerFromClassFactory: Factory {
 
-    public let action: Action?
+    public let action: ViewControllerAction?
 
     private let viewControllerName: String
 
-    public init(viewControllerName: String, action: Action? = nil) {
+    public init(viewControllerName: String, action: ViewControllerAction? = nil) {
         self.action = action
         self.viewControllerName = viewControllerName
     }

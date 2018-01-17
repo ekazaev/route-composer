@@ -29,11 +29,11 @@ class ColorViewControllerFinder: FinderWithPolicy {
 
 class ColorViewControllerFactory: Factory, PreparableFactory {
 
-    let action: Action?
+    let action: ViewControllerAction?
 
     var model: ColorViewController.ColorDisplayModel?
 
-    init(action: Action? = nil) {
+    init(action: ViewControllerAction? = nil) {
         self.action = action
     }
 

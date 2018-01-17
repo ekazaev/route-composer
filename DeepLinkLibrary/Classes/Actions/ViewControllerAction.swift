@@ -5,7 +5,7 @@
 
 import UIKit
 
-public protocol Action {
+public protocol ViewControllerAction {
 
     // If view controller that action should apply to has been merged in Container View Controller,
     // it will call this action instead so Action can apply it action without changing view controller stack.

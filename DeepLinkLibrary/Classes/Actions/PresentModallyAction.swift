@@ -5,7 +5,7 @@
 
 import UIKit
 
-public class PresentModallyAction: Action {
+public class PresentModallyAction: ViewControllerAction {
 
     public init() {
         

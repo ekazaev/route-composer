@@ -6,7 +6,7 @@
 import Foundation
 import UIKit
 
-public class ReplaceRootAction: Action {
+public class ReplaceRootAction: ViewControllerAction {
 
     public init() {
         

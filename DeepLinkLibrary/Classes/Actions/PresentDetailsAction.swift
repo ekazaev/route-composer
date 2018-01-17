@@ -7,7 +7,7 @@ import Foundation
 import UIKit
 
 // TODO: Undone
-public class PresentMasterAction: Action {
+public class PresentMasterAction: ViewControllerAction {
 
     public init() {
         
@@ -29,7 +29,7 @@ public class PresentMasterAction: Action {
     }
 }
 
-public class PresentDetailsAction: Action {
+public class PresentDetailsAction: ViewControllerAction {
 
     public init() {
         

@@ -5,7 +5,7 @@
 
 import UIKit
 
-public class PushAction: Action {
+public class PushAction: ViewControllerAction {
     public init() {
         
     }

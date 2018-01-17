@@ -7,11 +7,11 @@ import UIKit
 
 class NavigationControllerFactory: ContainerFactory {
 
-    let action: Action?
+    let action: ViewControllerAction?
 
     var screenFactories: [Factory] = []
 
-    init(action: Action? = nil) {
+    init(action: ViewControllerAction? = nil) {
         self.action = action
     }
 

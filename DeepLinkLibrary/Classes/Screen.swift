@@ -59,7 +59,7 @@ class FinderStep: Step {
 
     class FinderFactory: Factory, PreparableFactory {
 
-        var action: Action? = nil
+        var action: ViewControllerAction? = nil
 
         let finder: DeepLinkFinder
 

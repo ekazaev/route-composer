@@ -11,7 +11,7 @@
 		1F59D8574F42FA760F3AB476CCD40AD6 /* Finder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316FDD0361726EF7F64D85C0D06AB2BD /* Finder.swift */; };
 		2CBE0D080B270CC23DCEF3785B47137A /* ViewControllerFromStoryboardFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4237BCAB02458D4632E1870279938902 /* ViewControllerFromStoryboardFactory.swift */; };
 		2DC843D6AE38DA7D4A0E8222C7A67782 /* NavigationContainerStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2AE73C16D1B6D9BDB676DAA8253E66 /* NavigationContainerStep.swift */; };
-		3929D704C2590F1300C0C5E0AFCFD19F /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203EDF8F7EE14C061C1C9305FB885F5C /* Action.swift */; };
+		3929D704C2590F1300C0C5E0AFCFD19F /* ViewControllerAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203EDF8F7EE14C061C1C9305FB885F5C /* ViewControllerAction.swift */; };
 		3C07CBBE3D2840BB93A02469971C2F1A /* RootViewControllerStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF72080C0D12B63E695F93A201E55B4A /* RootViewControllerStep.swift */; };
 		4243512C38FFF01BDFCA5B46F917B0E3 /* ReplaceMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74553AF84A0BAAF6051861A915341D85 /* ReplaceMe.swift */; };
 		48E94FCB7EA2DA3777DDCC5A6EF85F4B /* ViewControllerClassFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6924FE15FE4DE73F96F64E1A99E56711 /* ViewControllerClassFinder.swift */; };
@@ -70,7 +70,7 @@
 		11D9FF9317FE5F7E3D153A45619CB15A /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1772F86C300049E690E4107695F20266 /* Pods-DeepLinkLibrary_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-DeepLinkLibrary_Example-umbrella.h"; sourceTree = "<group>"; };
 		1D765DE1941044C0293D819A59A4E7AA /* UIWindowExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UIWindowExtension.swift; sourceTree = "<group>"; };
-		203EDF8F7EE14C061C1C9305FB885F5C /* Action.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
+		203EDF8F7EE14C061C1C9305FB885F5C /* ViewControllerAction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ViewControllerAction.swift; sourceTree = "<group>"; };
 		21480E8E1B226E0B3392DEEB21FC8ED9 /* Pods-DeepLinkLibrary_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-DeepLinkLibrary_Tests-dummy.m"; sourceTree = "<group>"; };
 		22963A066E25C2E28C782C30F6BD17E7 /* ViewControllerFromClassFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ViewControllerFromClassFactory.swift; sourceTree = "<group>"; };
 		24D666AC708EB09D5CECCCE679FCDC80 /* DeepLinkLibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = DeepLinkLibrary.framework; path = DeepLinkLibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -220,7 +220,7 @@
 				74553AF84A0BAAF6051861A915341D85 /* ReplaceMe.swift */,
 				8DCC313F0697137E21F2E4155A481047 /* Screen.swift */,
 				109132ECDB26DC15EB9AE3F11EA7E037 /* Target.swift */,
-				D09B3F40A528ECBCCADDE9FF98E42306 /* Actions */,
+				D09B3F40A528ECBCCADDE9FF98E42306 /* ViewControllerAction */,
 				83A0B6A6DADCDF43811E1B167C762CB8 /* Configuration */,
 				2877EE9094E288926B6D5295B217BEF0 /* Extensions */,
 				508DB985B948EA6A34A74F488EF9DFD7 /* Factories */,
@@ -317,16 +317,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		D09B3F40A528ECBCCADDE9FF98E42306 /* Actions */ = {
+		D09B3F40A528ECBCCADDE9FF98E42306 /* ViewControllerAction */ = {
 			isa = PBXGroup;
 			children = (
-				203EDF8F7EE14C061C1C9305FB885F5C /* Action.swift */,
+				203EDF8F7EE14C061C1C9305FB885F5C /* ViewControllerAction.swift */,
 				D79144EDB8026E7153DD1CAFC5BFD900 /* PresentDetailsAction.swift */,
 				6E2ECCCB1C81898A6F16F54BA45E656D /* PresentModallyAction.swift */,
 				D2B266FC299A6FD8A07BCDDC25A58634 /* PushAction.swift */,
 				7F89786B85666E640833AAF76FED3934 /* ReplaceRootAction.swift */,
 			);
-			name = Actions;
+			name = ViewControllerAction;
 			path = DeepLinkLibrary/Classes/Actions;
 			sourceTree = "<group>";
 		};
@@ -485,7 +485,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3929D704C2590F1300C0C5E0AFCFD19F /* Action.swift in Sources */,
+				3929D704C2590F1300C0C5E0AFCFD19F /* ViewControllerAction.swift in Sources */,
 				D91DB18F930122A9C93CBBF262496890 /* DeepLinkDestination.swift in Sources */,
 				BD02F94553D4D64314C2F3F5F07157F0 /* DeepLinkLibrary-dummy.m in Sources */,
 				7954A738B6F7D619C1743EBF97D7A600 /* DeepLinkResult.swift in Sources */,

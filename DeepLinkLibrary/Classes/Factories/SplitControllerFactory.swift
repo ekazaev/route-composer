@@ -9,12 +9,12 @@ import UIKit
 // TODO: Undone
 class SplitControllerFactory: ContainerFactory {
 
-    let action: Action?
+    let action: ViewControllerAction?
 
     var detailFactories: [Factory] = []
     var masterFactories: [Factory] = []
 
-    init(action: Action? = nil) {
+    init(action: ViewControllerAction? = nil) {
         self.action = action
     }
 
