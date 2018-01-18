@@ -11,9 +11,9 @@ public class TopMostViewControllerStep: ChainableStep {
         super.init()
     }
 
-    public override func getPresentationViewController(with arguments: Any?) -> UIViewController? {
+    public override func getPresentationViewController(with arguments: Any?) -> StepResult {
         let window = UIWindow.key
-        return window?.topmostViewController
+        return StepResult(window?.topmostViewController)
     }
 }
 

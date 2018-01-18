@@ -74,12 +74,22 @@ public class DefaultRouter: Router {
         var interceptors: [RouterInterceptor] = []
 
         // Build stack until we have steps and view controller to present from has not been found
-        repeat {
+        buildCycle: repeat {
 
             // Trying to find a view controller to start building stack from
-            if let viewController = step?.getPresentationViewController(with: destination.arguments) {
+            guard let result = step?.getPresentationViewController(with: destination.arguments) else {
+                return nil
+            }
+
+            switch result {
+            case .found(let viewController):
+                // If found we should finish cycle and start building factories if necessary.
                 rootViewController = viewController
+                break buildCycle
+            case .continueRouting:
                 break
+            case .failure:
+                return nil
             }
 
             // If step contain an action that needs to be done, add it it in to interceptors array

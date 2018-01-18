@@ -5,6 +5,24 @@
 
 import UIKit
 
+public enum StepResult {
+
+    case found(UIViewController)
+
+    case continueRouting
+
+    case failure
+
+    init(_ viewController: UIViewController?) {
+        guard let viewController = viewController else {
+            self = .continueRouting
+            return
+        }
+
+        self = .found(viewController)
+    }
+}
+
 public protocol Step {
 
     var factory: Factory? { get }
@@ -13,7 +31,7 @@ public protocol Step {
 
     var prevStep: Step? { get }
 
-    func getPresentationViewController(with arguments: Any?) -> UIViewController?
+    func getPresentationViewController(with arguments: Any?) -> StepResult
 
 }
 
@@ -30,8 +48,8 @@ public class ChainableStep: Step {
         self.interceptor = interceptor
     }
 
-    public func getPresentationViewController(with arguments: Any?) -> UIViewController? {
-        return nil
+    public func getPresentationViewController(with arguments: Any?) -> StepResult {
+        return .continueRouting
     }
 
     func previous(continue step: Step) {

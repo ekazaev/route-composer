@@ -56,8 +56,8 @@ class FactoryStep: Step {
         self.interceptor = interceptor
     }
 
-    func getPresentationViewController(with arguments: Any?) -> UIViewController? {
-        return nil
+    func getPresentationViewController(with arguments: Any?) -> StepResult {
+        return .continueRouting
     }
 }
 
@@ -100,8 +100,8 @@ class FinderStep: Step {
         self.interceptor = interceptor
     }
 
-    func getPresentationViewController(with arguments: Any?) -> UIViewController? {
-        return finder.findViewController(with: arguments)
+    func getPresentationViewController(with arguments: Any?) -> StepResult {
+        return StepResult(finder.findViewController(with: arguments))
     }
 }
 
