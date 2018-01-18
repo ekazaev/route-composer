@@ -27,7 +27,7 @@ class CityTableViewControllerFinder: FinderWithPolicy {
     }
 
     func isTarget(viewController: UIViewController, arguments: Any?) -> Bool {
-        guard let viewController = viewController as? CitiesTableViewController else {
+        guard let _ = viewController as? CitiesTableViewController else {
             return false
         }
 

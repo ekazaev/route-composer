@@ -21,23 +21,16 @@ class ExampleConfiguration {
         }
     }
 
-    func screen(for target: ExampleTarget) -> DeepLinkableScreen? {
-        guard let target = target as? AnyHashable else {
-            fatalError("containerType should be hashable")
-        }
-
+    func screen<T: Hashable>(for target: T) -> DeepLinkableScreen? {
         return screens[target]?.screen
     }
 
-    func register(screen: DeepLinkableScreen, urlTranslator: ExampleURLTranslator? = nil, for target: ExampleTarget) {
-        guard let target = target as? AnyHashable else {
-            fatalError("containerType should be hashable")
-        }
+    func register<T: Hashable>(screen: DeepLinkableScreen, urlTranslator: ExampleURLTranslator? = nil, for target: T) {
         screens[target] = Box(screen: screen, urlTranslator: urlTranslator)
     }
 
 
-    func destination(for target: ExampleTarget, arguments: ExampleTargetArguments? = nil) -> ExampleDestination? {
+    func destination<T: Hashable>(for target: T, arguments: ExampleTargetArguments? = nil) -> ExampleDestination? {
         guard let screen = screen(for: target) else {
             return nil
         }

@@ -39,7 +39,8 @@ struct ExampleTargetArguments {
 
 struct ExampleDestination: DeepLinkDestination {
     typealias A = ExampleTargetArguments
-    let screen: DeepLinkableScreen
-    let arguments: A?
 
+    let screen: DeepLinkableScreen
+
+    let arguments: A?
 }
