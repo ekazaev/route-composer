@@ -6,7 +6,7 @@
 import Foundation
 import DeepLinkLibrary
 
-enum ExampleTarget: Target {
+enum ExampleTarget {
 
     case circle
 

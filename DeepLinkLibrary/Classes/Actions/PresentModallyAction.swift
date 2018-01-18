@@ -11,7 +11,7 @@ public class PresentModallyAction: ViewControllerAction {
         
     }
     
-    public func applyMerged(viewController: UIViewController, in existingController: UIViewController) {
+    public func applyMerged(viewController: UIViewController) {
 
     }
 

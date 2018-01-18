@@ -16,20 +16,16 @@ class CityDetailsViewControllerFinder: FinderWithPolicy {
     }
 
     func isTarget(viewController: UIViewController, arguments: Any?) -> Bool {
-        guard let viewController = viewController as? CityDetailViewController,
-              let arguments = arguments as? ExampleTargetArguments,
-              let destinationCityId = arguments[Argument.cityId] as? Int else {
+        guard let viewContr_oller = viewController as? CityDetailViewController else {
             return false
         }
-
-        viewController.cityId = destinationCityId
 
         return true
     }
 
 }
 
-class CityDetailsViewControllerFactory: Factory, PreparableFactory {
+class CityDetailsViewControllerFactory: Factory {
 
     let action: ViewControllerAction?
 
@@ -40,23 +36,23 @@ class CityDetailsViewControllerFactory: Factory, PreparableFactory {
     }
 
     func build() -> UIViewController? {
-        guard let viewController = UIStoryboard(name: "Split", bundle: nil).instantiateViewController(withIdentifier: "CityDetailViewController") as? CityDetailViewController else {
-            return nil
-        }
-        viewController.cityId = cityId
-
-        return viewController
+        return UIStoryboard(name: "Split", bundle: nil).instantiateViewController(withIdentifier: "CityDetailViewController")
     }
 
-    func prepare(with arguments: Any?) -> DeepLinkResult {
-        guard let argumetns = arguments as? ExampleTargetArguments,
-              let cityId = argumetns[Argument.cityId] as? Int else {
-            return .unhandled
+}
+
+class CityDetailPostTask: PostRoutingTask {
+
+    func execute(on viewController: UIViewController, with arguments: Any?) {
+        guard let viewController = viewController as? CityDetailViewController,
+              let arguments = arguments as? ExampleTargetArguments,
+              let destinationCityId = arguments[Argument.cityId] as? Int else {
+            return
         }
 
-        self.cityId = cityId
-        return .handled
+        viewController.cityId = destinationCityId
     }
+
 }
 
 class CityDetailViewController: UIViewController {

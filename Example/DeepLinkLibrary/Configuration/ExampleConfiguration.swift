@@ -15,13 +15,13 @@ class ExampleConfiguration {
 
     private var screens: [AnyHashable: Box] = [:]
 
-    func provider(for target: Target) -> RequiredScreenProvider {
+    func provider(for target: ExampleTarget) -> RequiredScreenProvider {
         return {
             self.screen(for: target)
         }
     }
 
-    func screen(for target: Target) -> DeepLinkableScreen? {
+    func screen(for target: ExampleTarget) -> DeepLinkableScreen? {
         guard let target = target as? AnyHashable else {
             fatalError("containerType should be hashable")
         }
@@ -29,7 +29,7 @@ class ExampleConfiguration {
         return screens[target]?.screen
     }
 
-    func register(screen: DeepLinkableScreen, urlTranslator: ExampleURLTranslator? = nil, for target: Target) {
+    func register(screen: DeepLinkableScreen, urlTranslator: ExampleURLTranslator? = nil, for target: ExampleTarget) {
         guard let target = target as? AnyHashable else {
             fatalError("containerType should be hashable")
         }
@@ -37,7 +37,7 @@ class ExampleConfiguration {
     }
 
 
-    func destination(for target: Target, arguments: ExampleTargetArguments? = nil) -> ExampleDestination? {
+    func destination(for target: ExampleTarget, arguments: ExampleTargetArguments? = nil) -> ExampleDestination? {
         guard let screen = screen(for: target) else {
             return nil
         }

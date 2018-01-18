@@ -10,7 +10,7 @@ public class PushAction: ViewControllerAction {
         
     }
     
-    public func applyMerged(viewController: UIViewController, in existingController: UIViewController) {
+    public func applyMerged(viewController: UIViewController) {
 
     }
 

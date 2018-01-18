@@ -31,16 +31,25 @@ class CityTableViewControllerFinder: FinderWithPolicy {
             return false
         }
 
-        if let arguments = arguments as? ExampleTargetArguments,
-           let destinationCityId = arguments[Argument.cityId] as? Int {
-            viewController.cityId = destinationCityId
-            return true
-        }
-
         return true
     }
 
 }
+
+class CityTablePostTask: PostRoutingTask {
+
+    func execute(on viewController: UIViewController, with arguments: Any?) {
+        guard let viewController = viewController as? CitiesTableViewController,
+              let arguments = arguments as? ExampleTargetArguments,
+              let destinationCityId = arguments[Argument.cityId] as? Int else {
+            return
+        }
+
+        viewController.cityId = destinationCityId
+    }
+
+}
+
 
 class CitiesTableViewController: UITableViewController {
 
@@ -57,7 +66,6 @@ class CitiesTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.clearsSelectionOnViewWillAppear = true
         self.splitViewController?.delegate = self
         self.splitViewController?.preferredDisplayMode = .allVisible
     }

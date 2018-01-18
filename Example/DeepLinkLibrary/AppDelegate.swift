@@ -141,6 +141,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Cities List
         let ciliesListScreen = Screen(
                 finder: CityTableViewControllerFinder(),
+                postTask: CityTablePostTask(),
                 step: chain([
                     RequireScreenStep(screenProvider: config.provider(for: ExampleTarget.split))
                 ]))
@@ -150,6 +151,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let ciryDetailsScreen = Screen(
                 finder: CityDetailsViewControllerFinder(),
                 factory: CityDetailsViewControllerFactory(action: PresentDetailsAction()),
+                postTask: CityDetailPostTask(),
                 step: chain([
                     RequireScreenStep(screenProvider: config.provider(for: ExampleTarget.citiesList))
                 ]))

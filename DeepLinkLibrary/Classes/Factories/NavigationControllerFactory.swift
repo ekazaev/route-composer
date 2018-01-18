@@ -39,7 +39,7 @@ class NavigationControllerFactory: ContainerFactory {
             guard let viewController = factory.build() else {
                 return nil
             }
-            factory.action?.applyMerged(viewController: viewController, in: navigationController)
+            factory.action?.applyMerged(viewController: viewController)
             return viewController
         }
 

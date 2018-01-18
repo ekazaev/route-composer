@@ -12,7 +12,7 @@ public class ReplaceRootAction: ViewControllerAction {
         
     }
     
-    public func applyMerged(viewController: UIViewController, in existingController: UIViewController) {
+    public func applyMerged(viewController: UIViewController) {
 
     }
 

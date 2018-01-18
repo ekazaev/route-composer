@@ -13,7 +13,7 @@ public class PresentMasterAction: ViewControllerAction {
         
     }
     
-    public func applyMerged(viewController: UIViewController, in existingController: UIViewController) {
+    public func applyMerged(viewController: UIViewController) {
 
     }
 
@@ -35,7 +35,7 @@ public class PresentDetailsAction: ViewControllerAction {
         
     }
     
-    public func applyMerged(viewController: UIViewController, in existingController: UIViewController) {
+    public func applyMerged(viewController: UIViewController) {
 
     }
 

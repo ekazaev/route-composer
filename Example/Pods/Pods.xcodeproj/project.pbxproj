@@ -17,7 +17,6 @@
 		540745E3404737F9AC1CE5EF100A6AB4 /* ViewControllerClassFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2E96B5EA5CAD586085667ADF41DA7F /* ViewControllerClassFinder.swift */; };
 		5B663E5C1840E4C7B40FFC685BB78E89 /* Pods-DeepLinkLibrary_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CDD22B66940803BE69EBE374EBFEF99 /* Pods-DeepLinkLibrary_Example-dummy.m */; };
 		6CFC15863A62DDABFF4332EEB0C4120C /* UIWindowExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE6AE3DE1A971D045EF7CDDA0A48246 /* UIWindowExtension.swift */; };
-		6D84738DFF9643CCF9EF8805A812B766 /* Target.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAED251128904196872F74AF32D4E2DE /* Target.swift */; };
 		722D81428F8C2C0818AED20F80C0AA66 /* SplitViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AAC35407A96EFBB99EEAB9C73F001B /* SplitViewControllerExtension.swift */; };
 		72F781AD8894767F7EA5E71AA969368E /* PushAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB8BB030905A10D74ACC452F5BC89F9 /* PushAction.swift */; };
 		74AA52F01BA63D6C0C67F0A54C451403 /* FiderWithPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506C02E157AE9BCE3B46EED9A35242DF /* FiderWithPolicy.swift */; };
@@ -108,7 +107,6 @@
 		9D05FC597821A7DEC1EEA6EA4A06F2E1 /* Pods-DeepLinkLibrary_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-DeepLinkLibrary_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		9E016EF6DA1E45CD07F3074D89749AD5 /* TopMostViewControllerStep.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TopMostViewControllerStep.swift; sourceTree = "<group>"; };
 		A1AAC35407A96EFBB99EEAB9C73F001B /* SplitViewControllerExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SplitViewControllerExtension.swift; sourceTree = "<group>"; };
-		AAED251128904196872F74AF32D4E2DE /* Target.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Target.swift; path = DeepLinkLibrary/Classes/Target.swift; sourceTree = "<group>"; };
 		ADF76CB003A653A72F4CD57F77CB6978 /* Pods_DeepLinkLibrary_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DeepLinkLibrary_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B20F1379B17A539D15B7AA39AB5D67CA /* Pods-DeepLinkLibrary_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DeepLinkLibrary_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		B4DF6492D4A6508B8268BB0E32852A79 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
@@ -252,7 +250,6 @@
 				08D7CDA09BA06C61B4877F9CAC321227 /* NewHope.swift */,
 				1594CCE0AC4F25382D46F630864E29A8 /* ReplaceMe.swift */,
 				E4754D0081A08D84AB3223FB7448C8EE /* Screen.swift */,
-				AAED251128904196872F74AF32D4E2DE /* Target.swift */,
 				3DA1F293A4F16196EAD0AFBA333EDD09 /* Actions */,
 				B14CBE41833B62DBB1BEBBE152AD9ABC /* Configuration */,
 				E841ED51DD27D8E22EB0BFF7701E071F /* Extensions */,
@@ -518,7 +515,6 @@
 				722D81428F8C2C0818AED20F80C0AA66 /* SplitViewControllerExtension.swift in Sources */,
 				E677AC18828C14B3F480E338C5996C75 /* Step.swift in Sources */,
 				97716570C95B8C8B810384B7CE715FA3 /* TabBarViewControllerExtension.swift in Sources */,
-				6D84738DFF9643CCF9EF8805A812B766 /* Target.swift in Sources */,
 				AFFC8511F140A52D5AAD302EFAFDB2F5 /* TopMostViewControllerStep.swift in Sources */,
 				91FD28B23BBDB06E980A15D56C48FADA /* UIViewControllerExtension.swift in Sources */,
 				6CFC15863A62DDABFF4332EEB0C4120C /* UIWindowExtension.swift in Sources */,

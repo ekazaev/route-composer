@@ -5,6 +5,50 @@
 
 import UIKit
 
+private struct PostTaskSlip {
+    let viewController: UIViewController
+    let postTask: PostRoutingTask
+}
+
+private class FactoryDecorator: Factory {
+    var action: ViewControllerAction? {
+        get {
+            return factory.action
+        }
+    }
+
+    let factory: Factory
+
+    weak var postTaskRunner: PostTaskRunner?
+
+    var postTask: PostRoutingTask?
+
+    init(factory: Factory, postTask: PostRoutingTask?, postTaskRunner: PostTaskRunner) {
+        self.factory = factory
+        self.postTaskRunner = postTaskRunner
+        self.postTask = postTask
+    }
+
+    func build() -> UIViewController? {
+        guard let viewController = factory.build() else {
+            return nil
+        }
+        if let postTask = postTask {
+            postTaskRunner?.taskSlips.append(PostTaskSlip(viewController: viewController, postTask: postTask))
+        }
+        return viewController
+    }
+}
+
+private class PostTaskRunner {
+
+    var taskSlips: [PostTaskSlip] = []
+
+    func run<A: DeepLinkDestination>(for destinaion: A) {
+        taskSlips.forEach({ $0.postTask.execute(on: $0.viewController, with: destinaion.arguments) })
+    }
+}
+
 public class DefaultRouter: Router {
 
     public init() {
@@ -13,14 +57,16 @@ public class DefaultRouter: Router {
 
     @discardableResult
     public func deepLinkTo<A: DeepLinkDestination>(destination: A, completion: (() -> Void)? = nil) -> DeepLinkResult {
+
         // If currently visible view controller can not be dissmissed - then we cant deeplink anywhere because it will
         // disappear as a result of deeplinking.
         if let topMostViewControler = UIWindow.key?.topmostViewController as? RouterRulesViewController, !topMostViewControler.canBeDismissed {
             return .unhandled
         }
 
+        let postTaskRunner = PostTaskRunner()
         // Build stack of factories and find view controller to start presentation process from.
-        guard let stack = prepareStack(destination: destination) else {
+        guard let stack = prepareStack(destination: destination, postTaskRunner: postTaskRunner) else {
             return .unhandled
         }
 
@@ -44,7 +90,7 @@ public class DefaultRouter: Router {
 
             self.startDeepLinking(viewController: viewController, factories: factoriesStack) { viewController in
                 self.makeContainersActive(toShow: viewController)
-                self.runTasks(for: destination)
+                postTaskRunner.run(for: destination)
                 completion?()
             }
         }
@@ -52,7 +98,7 @@ public class DefaultRouter: Router {
         return .handled
     }
 
-    private func prepareStack<A: DeepLinkDestination>(destination: A) -> (rootViewController: UIViewController, factories: [Factory], interceptors: [RouterInterceptor])? {
+    private func prepareStack<A: DeepLinkDestination>(destination: A, postTaskRunner: PostTaskRunner) -> (rootViewController: UIViewController, factories: [Factory], interceptors: [RouterInterceptor])? {
         var step: Step? = destination.screen.step
 
         var rootViewController: UIViewController?
@@ -64,7 +110,7 @@ public class DefaultRouter: Router {
         var interceptors: [RouterInterceptor] = []
 
         // Build stack until we have steps and view controller to present from has not been found
-        buildCycle: repeat {
+        repeat {
 
             // Trying to find a view controller to start building stack from
             guard let result = step?.getPresentationViewController(with: destination.arguments) else {
@@ -73,9 +119,13 @@ public class DefaultRouter: Router {
 
             switch result {
             case .found(let viewController):
-                // If found we should finish cycle and start building factories if necessary.
-                rootViewController = viewController
-                break buildCycle
+                if rootViewController == nil {
+                    rootViewController = viewController
+                }
+                if let postTask = step?.postTask {
+                    postTaskRunner.taskSlips.append(PostTaskSlip(viewController: viewController, postTask: postTask))
+                }
+                break
             case .continueRouting:
                 break
             case .failure:
@@ -83,43 +133,48 @@ public class DefaultRouter: Router {
             }
 
             // If step contain an action that needs to be done, add it it in to interceptors array
-            if let interceptor = step?.interceptor {
+            if let interceptor = step?.interceptor, rootViewController == nil {
                 interceptors.append(interceptor)
             }
 
-            // If view controller has not been found, but screen has a factroy to build itself - add factory to the stack
-            if let factory = step?.factory {
-                factories.insert(factory, at: 0)
+            //Building factory stack only if we havent find a view controllers to start from
+            if rootViewController == nil {
+                // If view controller has not been found, but screen has a factroy to build itself - add factory to the stack
+                if let factory = step?.factory {
+                    let factoryDecorator = FactoryDecorator(factory: factory, postTask: step?.postTask, postTaskRunner: postTaskRunner)
+                    factories.insert(factoryDecorator, at: 0)
 
-                // If some factory can not prepare itself (eg doe not have enough data in arguments) then deep link stack
-                // can not be build
-                if let preparableFactory = factory as? PreparableFactory,
-                   preparableFactory.prepare(with: destination.arguments) == .unhandled {
-                    return nil
-                }
-
-                // If current factory actually creates Contanier then it should now how to deal with factories that
-                // should be in this container, based on an action attached to the factory.
-                // For example navigationController factory should use factories to build navigation controller stack.
-                if let container = factory as? ContainerFactory {
-                    if tempFactories.count > 0 {
-                        let rest = container.merge(tempFactories)
-                        let merged = tempFactories.filter { screen in
-                            !rest.contains { factory in
-                                screen === factory
-                            }
-                        }
-                        factories = factories.filter { screen in
-                            !merged.contains { factory in
-                                factory === screen
-                            }
-                        }
-
+                    // If some factory can not prepare itself (eg doe not have enough data in arguments) then deep link stack
+                    // can not be build
+                    if let preparableFactory = factory as? PreparableFactory,
+                       preparableFactory.prepare(with: destination.arguments) == .unhandled {
+                        return nil
                     }
-                    tempFactories = []
+
+                    // If current factory actually creates Contanier then it should now how to deal with factories that
+                    // should be in this container, based on an action attached to the factory.
+                    // For example navigationController factory should use factories to build navigation controller stack.
+                    if let container = factory as? ContainerFactory {
+                        if tempFactories.count > 0 {
+                            let rest = container.merge(tempFactories)
+                            let merged = tempFactories.filter { screen in
+                                !rest.contains { factory in
+                                    screen === factory
+                                }
+                            }
+                            factories = factories.filter { screen in
+                                !merged.contains { factory in
+                                    factory === screen
+                                }
+                            }
+
+                        }
+                        tempFactories = []
+                    }
+                    tempFactories.insert(factoryDecorator, at: 0)
                 }
-                tempFactories.insert(factory, at: 0)
             }
+
             step = step?.prevStep
         } while step != nil
 
@@ -191,11 +246,4 @@ public class DefaultRouter: Router {
         }
     }
 
-    private func runTasks<A: DeepLinkDestination>(for destinaion: A) {
-        var step: Step? = destinaion.screen.step
-        repeat{
-            step?.postTask?.execute(with: destinaion.arguments)
-            step = step?.prevStep
-        } while step != nil
-    }
 }

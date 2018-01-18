@@ -11,8 +11,6 @@ class RoutingRuleSupportViewController: UIViewController, RouterRulesViewControl
 
     private(set) var canBeDismissed: Bool = true
 
-    let target: Target = ExampleTarget.ruleSupport
-
     @IBOutlet private var switchControl: UISwitch!
 
     override func viewDidLoad() {

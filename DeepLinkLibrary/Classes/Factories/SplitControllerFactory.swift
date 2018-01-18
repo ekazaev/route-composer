@@ -44,7 +44,7 @@ class SplitControllerFactory: ContainerFactory {
             guard let viewController = factory.build() else {
                 return nil
             }
-            factory.action?.applyMerged(viewController: viewController, in: splitController)
+            factory.action?.applyMerged(viewController: viewController)
             return viewController
         }.first
 
@@ -52,7 +52,7 @@ class SplitControllerFactory: ContainerFactory {
             guard let viewController = factory.build() else {
                 return nil
             }
-            factory.action?.applyMerged(viewController: viewController, in: splitController)
+            factory.action?.applyMerged(viewController: viewController)
             return viewController
         }
 
