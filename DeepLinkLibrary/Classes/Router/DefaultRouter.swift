@@ -26,7 +26,6 @@ public class DefaultRouter: Router {
 
         let viewController = stack.rootViewController, factoriesStack = stack.factories, interceptor = InterceptorMultiplex(stack.interceptors)
 
-
         // Let find is we are eligible to dismiss view controllers in stack to show target view controller
         if let _ = UIViewController.findAllPresentedViewControllers(starting: viewController).flatMap({
             $0 as? RouterRulesViewController
@@ -37,7 +36,7 @@ public class DefaultRouter: Router {
         }
 
         // Lets run the interceptor chain. All of interceptor must succeed to continue routing.
-        interceptor.apply { result in
+        interceptor.apply(with: destination.arguments) { result in
             guard result == .success else {
                 completion?()
                 return

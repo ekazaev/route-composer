@@ -20,7 +20,7 @@ public enum InterceptorResult {
 
 public protocol RouterInterceptor {
 
-    func apply(completion: @escaping (_: InterceptorResult) -> Void)
+    func apply(with arguments: Any?, completion: @escaping (_: InterceptorResult) -> Void)
 
 }
 
@@ -32,7 +32,7 @@ public class InterceptorMultiplex: RouterInterceptor {
         self.interceptors = interceptors
     }
 
-    public func apply(completion: @escaping (InterceptorResult) -> Void) {
+    public func apply(with arguments: Any?, completion: @escaping (InterceptorResult) -> Void) {
         guard self.interceptors.count > 0 else {
             completion(.success)
             return
@@ -41,7 +41,7 @@ public class InterceptorMultiplex: RouterInterceptor {
         var interceptor = self.interceptors
 
         func runInterceptor(action: RouterInterceptor) {
-            action.apply { result in
+            action.apply(with:arguments) { result in
                 if result == .failure || interceptor.count == 0 {
                     completion(result)
                 } else {

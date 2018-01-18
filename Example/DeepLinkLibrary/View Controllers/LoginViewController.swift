@@ -18,7 +18,7 @@ class LoginInterceptor: RouterInterceptor {
         self.screen = screen
     }
 
-    func apply(completion: @escaping (_: InterceptorResult) -> Void) {
+    func apply(with arguments: Any?, completion: @escaping (_: InterceptorResult) -> Void) {
         guard !isLoggedIn else {
             completion(.success)
             return
