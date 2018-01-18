@@ -24,6 +24,7 @@
 		77EBEFB8B1678763AB7C727B7435A29C /* DefaultRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6538A0A6A45496E69D298A2EF452FFF7 /* DefaultRouter.swift */; };
 		7827B75739A854B1A7E0A419B0BC9A1C /* NavigationContainerStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21021BAFDFF3DD9BD9573063E3DE4F9E /* NavigationContainerStep.swift */; };
 		8479E323200FC85F00320380 /* RouterInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8479E322200FC85F00320380 /* RouterInterceptor.swift */; };
+		8479E3252010C30500320380 /* PostRoutingTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8479E3242010C30500320380 /* PostRoutingTask.swift */; };
 		8ACEDBEC17AC82D842DE626659D76590 /* Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4754D0081A08D84AB3223FB7448C8EE /* Screen.swift */; };
 		8FAF4CE1F0233DE165689D41DCEDEB88 /* NewHope.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D7CDA09BA06C61B4877F9CAC321227 /* NewHope.swift */; };
 		91FD28B23BBDB06E980A15D56C48FADA /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DF6492D4A6508B8268BB0E32852A79 /* UIViewControllerExtension.swift */; };
@@ -99,6 +100,7 @@
 		7AB8BB030905A10D74ACC452F5BC89F9 /* PushAction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PushAction.swift; sourceTree = "<group>"; };
 		7CF42A6B00064DD9B4DDB71EE4496B2D /* RootViewControllerStep.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RootViewControllerStep.swift; sourceTree = "<group>"; };
 		8479E322200FC85F00320380 /* RouterInterceptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterInterceptor.swift; sourceTree = "<group>"; };
+		8479E3242010C30500320380 /* PostRoutingTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostRoutingTask.swift; sourceTree = "<group>"; };
 		8F52DCFCEA93BA275885B4A6285C7CF7 /* Pods-DeepLinkLibrary_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-DeepLinkLibrary_Tests.modulemap"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		98C18D3AFFA40DA89F915A6A673F49AA /* DefaultTargetArguments.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DefaultTargetArguments.swift; sourceTree = "<group>"; };
@@ -344,6 +346,7 @@
 		D8CC9ADED861BBFAD6111FC119C48C26 /* Router */ = {
 			isa = PBXGroup;
 			children = (
+				8479E3242010C30500320380 /* PostRoutingTask.swift */,
 				8479E322200FC85F00320380 /* RouterInterceptor.swift */,
 				6538A0A6A45496E69D298A2EF452FFF7 /* DefaultRouter.swift */,
 				CA6E4636B19E9D1DB5CB233F5043EF0B /* Router.swift */,
@@ -490,6 +493,7 @@
 			files = (
 				067143439B7C23F36C08B060BF2E5EE2 /* DeepLinkDestination.swift in Sources */,
 				BB61A3D60102B781BF42F43A1F77403C /* DeepLinkLibrary-dummy.m in Sources */,
+				8479E3252010C30500320380 /* PostRoutingTask.swift in Sources */,
 				39E3A706D8A333E78C62C15B3A6784F1 /* DeepLinkResult.swift in Sources */,
 				77EBEFB8B1678763AB7C727B7435A29C /* DefaultRouter.swift in Sources */,
 				0337D85456166F17813EDEB8E423A580 /* DefaultTargetArguments.swift in Sources */,

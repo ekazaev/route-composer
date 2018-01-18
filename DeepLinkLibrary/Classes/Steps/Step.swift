@@ -29,6 +29,8 @@ public protocol Step {
 
     var interceptor: RouterInterceptor? { get }
 
+    var postTask: PostRoutingTask? { get }
+
     var prevStep: Step? { get }
 
     func getPresentationViewController(with arguments: Any?) -> StepResult
@@ -43,9 +45,12 @@ public class ChainableStep: Step {
 
     public let interceptor: RouterInterceptor?
 
-    internal init(factory: Factory? = nil, interceptor: RouterInterceptor? = nil) {
+    public let postTask: PostRoutingTask?
+
+    internal init(factory: Factory? = nil, interceptor: RouterInterceptor? = nil, postTask: PostRoutingTask? = nil) {
         self.factory = factory
         self.interceptor = interceptor
+        self.postTask = postTask
     }
 
     public func getPresentationViewController(with arguments: Any?) -> StepResult {

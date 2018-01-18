@@ -20,7 +20,7 @@ public class DefaultRouter: Router {
         }
 
         // Build stack of factories and find view controller to start presentation process from.
-        guard let stack = prepareFactoriesStack(destination: destination) else {
+        guard let stack = prepareStack(destination: destination) else {
             return .unhandled
         }
 
@@ -42,33 +42,24 @@ public class DefaultRouter: Router {
                 return
             }
 
-            self.startDeepLinking(viewController: viewController, factories: factoriesStack, completion: completion)
+            self.startDeepLinking(viewController: viewController, factories: factoriesStack) { viewController in
+                self.makeContainersActive(toShow: viewController)
+                self.runTasks(for: destination)
+                completion?()
+            }
         }
 
         return .handled
     }
 
-    private func startDeepLinking(viewController: UIViewController, factories: [Factory], completion: (() -> Void)?) {
-
-        // If we found a view controller to start from - lets close all the presented view controllers above to be able
-        // to build new stack in needed.
-        // We already checked that they can be dissmissed.
-        viewController.dismissAllPresentedControllers(animated: true) {
-            self.runViewControllerBuildStack(rootViewController: viewController, factories: factories) { viewController in
-                self.makeContainersActive(toShow: viewController)
-                completion?()
-            }
-        }
-    }
-
-    private func prepareFactoriesStack<A: DeepLinkDestination>(destination: A) -> (rootViewController: UIViewController, factories: [Factory], interceptors: [RouterInterceptor])? {
+    private func prepareStack<A: DeepLinkDestination>(destination: A) -> (rootViewController: UIViewController, factories: [Factory], interceptors: [RouterInterceptor])? {
         var step: Step? = destination.screen.step
 
         var rootViewController: UIViewController?
 
         var tempFactories: [Factory] = []
 
-        var allFactories: [Factory] = []
+        var factories: [Factory] = []
 
         var interceptors: [RouterInterceptor] = []
 
@@ -98,7 +89,7 @@ public class DefaultRouter: Router {
 
             // If view controller has not been found, but screen has a factroy to build itself - add factory to the stack
             if let factory = step?.factory {
-                allFactories.insert(factory, at: 0)
+                factories.insert(factory, at: 0)
 
                 // If some factory can not prepare itself (eg doe not have enough data in arguments) then deep link stack
                 // can not be build
@@ -118,7 +109,7 @@ public class DefaultRouter: Router {
                                 screen === factory
                             }
                         }
-                        allFactories = allFactories.filter { screen in
+                        factories = factories.filter { screen in
                             !merged.contains { factory in
                                 factory === screen
                             }
@@ -140,10 +131,21 @@ public class DefaultRouter: Router {
             if !viewController.isViewLoaded {
                 makeContainersActive(toShow: viewController)
             }
-            return (rootViewController: viewController, factories: allFactories, interceptors: interceptors)
+            return (rootViewController: viewController, factories: factories, interceptors: interceptors)
         }
 
         return nil
+    }
+
+    private func startDeepLinking(viewController: UIViewController, factories: [Factory], completion: @escaping ((_: UIViewController) -> Void)) {
+        // If we found a view controller to start from - lets close all the presented view controllers above to be able
+        // to build new stack in needed.
+        // We already checked that they can be dissmissed.
+        viewController.dismissAllPresentedControllers(animated: true) {
+            self.runViewControllerBuildStack(rootViewController: viewController, factories: factories) { viewController in
+                completion(viewController)
+            }
+        }
     }
 
     // This function loops through the list of factories and build them in sequence.
@@ -152,10 +154,10 @@ public class DefaultRouter: Router {
     private func runViewControllerBuildStack(rootViewController: UIViewController, factories: [Factory], completion: @escaping ((_: UIViewController) -> Void)) {
         var factories = factories
 
-        func buildScreens(_ screen: Factory, _ previousViewController: UIViewController) {
-            if let newViewController = screen.build() {
+        func buildScreens(_ factory: Factory, _ previousViewController: UIViewController) {
+            if let newViewController = factory.build() {
                 // If factory contains action - applying it
-                if let action = screen.action {
+                if let action = factory.action {
                     action.apply(viewController: newViewController, on: previousViewController) { viewController in
                         guard factories.count > 0 else {
                             completion(viewController)
@@ -187,5 +189,13 @@ public class DefaultRouter: Router {
         if let container = UIWindow.key?.topmostViewController as? ContainerViewController {
             container.makeActive(vc: viewController)
         }
+    }
+
+    private func runTasks<A: DeepLinkDestination>(for destinaion: A) {
+        var step: Step? = destinaion.screen.step
+        repeat{
+            step?.postTask?.execute(with: destinaion.arguments)
+            step = step?.prevStep
+        } while step != nil
     }
 }
