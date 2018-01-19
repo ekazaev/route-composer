@@ -9,8 +9,7 @@ public protocol ViewControllerAction {
 
     // If view controller that action should apply to has been merged in Container View Controller,
     // it will call this action instead so Action can apply it action without changing view controller stack.
-    // NB: Haven't been implemented yet so possibly will be removed in future.
-    func applyMerged(viewController: UIViewController)
+    func applyMerged(viewController: UIViewController, containerViewControllers: inout [UIViewController])
 
     // Applies implemented action to the view controller.
     // Calls completion with view controller to apply action if it was successfully build in view controller stack, wit exiction otherwise.

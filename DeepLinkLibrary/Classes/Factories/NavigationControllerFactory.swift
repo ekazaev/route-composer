@@ -35,12 +35,12 @@ class NavigationControllerFactory: ContainerFactory {
 
         let navigationController = UINavigationController()
 
-        let viewControllers = self.screenFactories.flatMap { factory -> UIViewController? in
+        var viewControllers: [UIViewController] = []
+        self.screenFactories.forEach { factory in
             guard let viewController = factory.build() else {
-                return nil
+                return
             }
-            factory.action?.applyMerged(viewController: viewController)
-            return viewController
+            factory.action?.applyMerged(viewController: viewController, containerViewControllers: &viewControllers)
         }
 
         guard viewControllers.count > 0 else {

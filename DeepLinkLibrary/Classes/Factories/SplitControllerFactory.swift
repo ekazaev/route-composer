@@ -40,28 +40,35 @@ class SplitControllerFactory: ContainerFactory {
 
         let splitController = UISplitViewController(nibName: nil, bundle: nil)
 
-        let masterController = self.masterFactories.flatMap { factory -> UIViewController? in
+        var masterViewControllers = Array<UIViewController>()
+        self.masterFactories.forEach { factory in
             guard let viewController = factory.build() else {
-                return nil
+                return
             }
-            factory.action?.applyMerged(viewController: viewController)
-            return viewController
-        }.first
-
-        let detailsControllers = self.detailFactories.flatMap { factory -> UIViewController? in
-            guard let viewController = factory.build() else {
-                return nil
-            }
-            factory.action?.applyMerged(viewController: viewController)
-            return viewController
+            factory.action?.applyMerged(viewController: viewController, containerViewControllers: &masterViewControllers)
         }
 
-        guard let master = masterController, detailsControllers.count > 0 else {
+        guard masterViewControllers.count > 0 else {
+            return nil
+        }
+        let masterViewController = masterViewControllers.removeFirst()
+
+
+        var detailsViewControllers = Array<UIViewController>()
+        detailsViewControllers.append(contentsOf: masterViewControllers)
+        self.detailFactories.forEach { factory in
+            guard let viewController = factory.build() else {
+                return
+            }
+            factory.action?.applyMerged(viewController: viewController, containerViewControllers: &detailsViewControllers)
+        }
+
+        guard detailsViewControllers.count > 0 else {
             return nil
         }
 
-        var controllers = [master]
-        controllers.append(contentsOf: detailsControllers)
+        var controllers = [masterViewController]
+        controllers.append(contentsOf: detailsViewControllers)
         splitController.viewControllers = controllers
         return splitController
     }

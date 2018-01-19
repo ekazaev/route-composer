@@ -32,11 +32,12 @@
 		8479E31D200E7A7F00320380 /* ExampleURLTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8479E30B200E7A7F00320380 /* ExampleURLTranslator.swift */; };
 		8479E31E200E7A7F00320380 /* ProductURLTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8479E30C200E7A7F00320380 /* ProductURLTranslator.swift */; };
 		8479E320200F7D1E00320380 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8479E31F200F7D1E00320380 /* Login.storyboard */; };
-		9AFBC3A95B8DDF048DC02F5D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC283673464E0A23A39DD /* LoginViewController.swift */; };
+		9AFBC11AB0BE495D5E2959C1 /* LoginConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC6DBFF899EA9831D84D2 /* LoginConfiguration.swift */; };
 		9AFBC3DB63861EB552A2CD2E /* ExampleUniversalLinksManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCE44839BD245D30ED19C /* ExampleUniversalLinksManager.swift */; };
 		9AFBC5E76937F58BE685F4E7 /* CityArguments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC78B188F55C0198B5007 /* CityArguments.swift */; };
 		9AFBC82E50CBF47FB0A0F2D1 /* CityURLTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCE5527D371C559C69F9E /* CityURLTranslator.swift */; };
 		9AFBCAFFB71568FAE9054699 /* CitiesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCA4291DB4A6D2A47E5F2 /* CitiesTableViewController.swift */; };
+		9AFBCBB5F4DDE646EAFA437B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCCCF499676D25E68FECA /* LoginViewController.swift */; };
 		9AFBCDDD13172281D4368E6C /* CitiesConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC94CF26AB11E181F7B00 /* CitiesConfiguration.swift */; };
 		9AFBCF519040E699D130072D /* CityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC949B2D2D4B8D636B565 /* CityDetailViewController.swift */; };
 		D611D285DB9C77E5E7D8FBF7 /* Pods_DeepLinkLibrary_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD8FADE9265A4CD86A75FD85 /* Pods_DeepLinkLibrary_Example.framework */; };
@@ -87,11 +88,12 @@
 		8479E31F200F7D1E00320380 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		84C1D86390083DF185C460C2 /* Pods-DeepLinkLibrary_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeepLinkLibrary_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DeepLinkLibrary_Tests/Pods-DeepLinkLibrary_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		99737A56A3D37A621574DCAB /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		9AFBC283673464E0A23A39DD /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		9AFBC6DBFF899EA9831D84D2 /* LoginConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginConfiguration.swift; sourceTree = "<group>"; };
 		9AFBC78B188F55C0198B5007 /* CityArguments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityArguments.swift; sourceTree = "<group>"; };
 		9AFBC949B2D2D4B8D636B565 /* CityDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityDetailViewController.swift; sourceTree = "<group>"; };
 		9AFBC94CF26AB11E181F7B00 /* CitiesConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CitiesConfiguration.swift; sourceTree = "<group>"; };
 		9AFBCA4291DB4A6D2A47E5F2 /* CitiesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CitiesTableViewController.swift; sourceTree = "<group>"; };
+		9AFBCCCF499676D25E68FECA /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		9AFBCE44839BD245D30ED19C /* ExampleUniversalLinksManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleUniversalLinksManager.swift; sourceTree = "<group>"; };
 		9AFBCE5527D371C559C69F9E /* CityURLTranslator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityURLTranslator.swift; sourceTree = "<group>"; };
 		AD8FADE9265A4CD86A75FD85 /* Pods_DeepLinkLibrary_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DeepLinkLibrary_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -236,8 +238,8 @@
 				8479E305200E7A7F00320380 /* PromptViewController.swift */,
 				8479E306200E7A7F00320380 /* RoutingRuleSupportViewController.swift */,
 				8479E307200E7A7F00320380 /* SquareViewController.swift */,
-				9AFBC283673464E0A23A39DD /* LoginViewController.swift */,
 				9AFBC47AB52EB65AC08C0A93 /* Cities */,
+				9AFBC98664CF07654A83DF67 /* Login */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -272,6 +274,15 @@
 				9AFBC78B188F55C0198B5007 /* CityArguments.swift */,
 			);
 			path = Cities;
+			sourceTree = "<group>";
+		};
+		9AFBC98664CF07654A83DF67 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				9AFBCCCF499676D25E68FECA /* LoginViewController.swift */,
+				9AFBC6DBFF899EA9831D84D2 /* LoginConfiguration.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -505,13 +516,14 @@
 				8479E315200E7A7F00320380 /* ColorViewController.swift in Sources */,
 				8479E318200E7A7F00320380 /* PromptViewController.swift in Sources */,
 				8479E30F200E7A7F00320380 /* ExampleTargetArguments.swift in Sources */,
-				9AFBC3A95B8DDF048DC02F5D /* LoginViewController.swift in Sources */,
 				9AFBC82E50CBF47FB0A0F2D1 /* CityURLTranslator.swift in Sources */,
 				9AFBCF519040E699D130072D /* CityDetailViewController.swift in Sources */,
 				9AFBCAFFB71568FAE9054699 /* CitiesTableViewController.swift in Sources */,
 				9AFBCDDD13172281D4368E6C /* CitiesConfiguration.swift in Sources */,
 				9AFBC5E76937F58BE685F4E7 /* CityArguments.swift in Sources */,
 				9AFBC3DB63861EB552A2CD2E /* ExampleUniversalLinksManager.swift in Sources */,
+				9AFBCBB5F4DDE646EAFA437B /* LoginViewController.swift in Sources */,
+				9AFBC11AB0BE495D5E2959C1 /* LoginConfiguration.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

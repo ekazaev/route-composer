@@ -12,12 +12,6 @@ var isLoggedIn: Bool = false
 
 class LoginInterceptor: RouterInterceptor {
 
-    private let screen: Screen
-
-    init(screen: Screen) {
-        self.screen = screen
-    }
-
     func apply(with arguments: Any?, completion: @escaping (_: InterceptorResult) -> Void) {
         guard !isLoggedIn else {
             completion(.success)
@@ -28,8 +22,10 @@ class LoginInterceptor: RouterInterceptor {
         // login screen then he will receive a deep linking to some part which requires a login screen.
         // It will help to avoid opening of another login view controller and will help you not to have your own
         // boilerplate code that will help you to avoid this rare, but possible situation.
-        let result = DefaultRouter().deepLinkTo(destination: ExampleDestination(screen: screen, arguments: nil)) {
-            guard let loginViewController = self.screen.finder?.findViewController(with: nil) as? LoginViewController else {
+        let destination = LoginConfiguration.login()
+        let result = DefaultRouter().deepLinkTo(destination: destination) {
+            guard let screen = destination.screen as? Screen,
+                  let loginViewController = screen.finder?.findViewController(with: nil) as? LoginViewController else {
                 completion(.failure)
                 return
             }

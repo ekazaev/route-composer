@@ -41,7 +41,7 @@ class CityTablePostTask: PostRoutingTask {
     func execute(on viewController: UIViewController, with arguments: Any?) {
         guard let viewController = viewController as? CitiesTableViewController,
               let arguments = arguments as? CityArguments,
-              let destinationCityId = arguments.cityId as? Int else {
+              let destinationCityId = arguments.cityId else {
             return
         }
 

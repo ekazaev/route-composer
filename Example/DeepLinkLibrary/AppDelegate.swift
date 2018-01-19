@@ -92,7 +92,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Empty Screen
         let emptyScreen = Screen(finder: ViewControllerClassFinder(containerType: EmptyViewController.self),
                 factory: ViewControllerFromStoryboard(storyboardName: "Main", viewControllerID: "EmptyViewController", action: PushAction()),
-                interceptor: LoginInterceptor(screen: loginScreen),
+                interceptor: LoginInterceptor(),
                 step: chain([
                     RequireScreenStep(screen: circleScreen)
                 ]))

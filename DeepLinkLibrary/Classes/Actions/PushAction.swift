@@ -10,8 +10,8 @@ public class PushAction: ViewControllerAction {
         
     }
     
-    public func applyMerged(viewController: UIViewController) {
-
+    public func applyMerged(viewController: UIViewController, containerViewControllers: inout [UIViewController]) {
+        containerViewControllers.append(viewController)
     }
 
     public func apply(viewController: UIViewController, on existingController: UIViewController, completion: @escaping(_: UIViewController) -> Void) {

@@ -20,7 +20,7 @@ class CitiesConfiguration {
         // Split View Controller
         cityScreen = Screen(finder: ViewControllerClassFinder(containerType: UISplitViewController.self),
                 factory: ViewControllerFromStoryboard(storyboardName: "Split", action: ReplaceRootAction()),
-                //interceptor: LoginInterceptor(screen: loginScreen),
+                interceptor: LoginInterceptor(),
                 step: chain([
                     RootViewControllerStep()
                 ]))
