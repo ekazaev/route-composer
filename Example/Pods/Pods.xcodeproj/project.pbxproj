@@ -47,7 +47,6 @@
 		F0D3EF655703197B8DF22E5EEFB9F85B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		F340A6A051663014C4BCDD1D436C6F1F /* Pods-DeepLinkLibrary_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 11C14C20DD7AEA1AC90C190FF460D2F4 /* Pods-DeepLinkLibrary_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F48E191D8F991B535E8E0D79FFD66D82 /* Finder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D582D4D3BA4EBB473EA064295B6A70 /* Finder.swift */; };
-		F669D6608815F17E3D63A5B3F9518AF2 /* ReplaceMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1594CCE0AC4F25382D46F630864E29A8 /* ReplaceMe.swift */; };
 		F7D9DBDB0DA3FC6ABECAAB6AB3A3EA96 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
@@ -70,7 +69,6 @@
 		0D2E96B5EA5CAD586085667ADF41DA7F /* ViewControllerClassFinder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ViewControllerClassFinder.swift; sourceTree = "<group>"; };
 		11C14C20DD7AEA1AC90C190FF460D2F4 /* Pods-DeepLinkLibrary_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-DeepLinkLibrary_Tests-umbrella.h"; sourceTree = "<group>"; };
 		11D9FF9317FE5F7E3D153A45619CB15A /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1594CCE0AC4F25382D46F630864E29A8 /* ReplaceMe.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReplaceMe.swift; path = DeepLinkLibrary/Classes/ReplaceMe.swift; sourceTree = "<group>"; };
 		1772F86C300049E690E4107695F20266 /* Pods-DeepLinkLibrary_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-DeepLinkLibrary_Example-umbrella.h"; sourceTree = "<group>"; };
 		189F60DD939244066D222B39E64041DD /* ViewControllerFromClassFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ViewControllerFromClassFactory.swift; sourceTree = "<group>"; };
 		21021BAFDFF3DD9BD9573063E3DE4F9E /* NavigationContainerStep.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NavigationContainerStep.swift; sourceTree = "<group>"; };
@@ -248,7 +246,6 @@
 				F128358DEA41B4A8F464DBEAA47FC381 /* DeepLinkDestination.swift */,
 				4890CF4AE8B90C5636FD0EEE5385CE3A /* DeepLinkResult.swift */,
 				08D7CDA09BA06C61B4877F9CAC321227 /* NewHope.swift */,
-				1594CCE0AC4F25382D46F630864E29A8 /* ReplaceMe.swift */,
 				E4754D0081A08D84AB3223FB7448C8EE /* Screen.swift */,
 				3DA1F293A4F16196EAD0AFBA333EDD09 /* Actions */,
 				B14CBE41833B62DBB1BEBBE152AD9ABC /* Configuration */,
@@ -505,7 +502,6 @@
 				B8606AEF691D234231077A944F6215B0 /* PresentDetailsAction.swift in Sources */,
 				941091737AF1C281A432D47B17D16C43 /* PresentModallyAction.swift in Sources */,
 				72F781AD8894767F7EA5E71AA969368E /* PushAction.swift in Sources */,
-				F669D6608815F17E3D63A5B3F9518AF2 /* ReplaceMe.swift in Sources */,
 				A788DF8B8E18C25F6A2DBA89090495CB /* ReplaceRootAction.swift in Sources */,
 				084381065C1867BA56E502FEDCD07E20 /* RequireScreenStep.swift in Sources */,
 				CDAD9DA74FFCB88B05808253AD334348 /* RootViewControllerStep.swift in Sources */,
