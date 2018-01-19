@@ -5,17 +5,17 @@
 
 import UIKit
 
-class NavigationControllerFactory: ContainerFactory {
+public class NavigationControllerFactory: ContainerFactory {
 
-    let action: ViewControllerAction?
+    public let action: ViewControllerAction?
 
     var screenFactories: [Factory] = []
 
-    init(action: ViewControllerAction? = nil) {
+    public init(action: ViewControllerAction? = nil) {
         self.action = action
     }
 
-    func merge(_ screenFactories: [Factory]) -> [Factory] {
+    public func merge(_ screenFactories: [Factory]) -> [Factory] {
         var rest: [Factory] = []
         self.screenFactories = screenFactories.filter { factory in
             guard let _ = factory.action as? PushAction else {
@@ -28,7 +28,7 @@ class NavigationControllerFactory: ContainerFactory {
         return rest
     }
 
-    func build() -> UIViewController? {
+    public func build() -> UIViewController? {
         guard screenFactories.count > 0 else {
             return nil
         }

@@ -7,18 +7,18 @@ import Foundation
 import UIKit
 
 // TODO: Undone
-class SplitControllerFactory: ContainerFactory {
+public class SplitControllerFactory: ContainerFactory {
 
-    let action: ViewControllerAction?
+    public let action: ViewControllerAction?
 
     var detailFactories: [Factory] = []
     var masterFactories: [Factory] = []
 
-    init(action: ViewControllerAction? = nil) {
+    public init(action: ViewControllerAction? = nil) {
         self.action = action
     }
 
-    func merge(_ screenFactories: [Factory]) -> [Factory] {
+    public func merge(_ screenFactories: [Factory]) -> [Factory] {
         var rest: [Factory] = []
         screenFactories.forEach { factory in
             if let _ = factory.action as? PresentMasterAction {
@@ -33,7 +33,7 @@ class SplitControllerFactory: ContainerFactory {
         return rest
     }
 
-    func build() -> UIViewController? {
+    public func build() -> UIViewController? {
         guard masterFactories.count > 0, detailFactories.count > 0 else {
             return nil
         }
