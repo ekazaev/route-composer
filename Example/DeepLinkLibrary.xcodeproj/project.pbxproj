@@ -36,10 +36,13 @@
 		9AFBC3DB63861EB552A2CD2E /* ExampleUniversalLinksManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCE44839BD245D30ED19C /* ExampleUniversalLinksManager.swift */; };
 		9AFBC5E76937F58BE685F4E7 /* CityArguments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC78B188F55C0198B5007 /* CityArguments.swift */; };
 		9AFBC82E50CBF47FB0A0F2D1 /* CityURLTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCE5527D371C559C69F9E /* CityURLTranslator.swift */; };
+		9AFBCA32BF0E6A5C2D643915 /* ExampleAnalyticsPostAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC0097861297B7686ADAA /* ExampleAnalyticsPostAction.swift */; };
 		9AFBCAFFB71568FAE9054699 /* CitiesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCA4291DB4A6D2A47E5F2 /* CitiesTableViewController.swift */; };
+		9AFBCB1EA868F677EA54C083 /* ExampleAnalyticsParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCEB028743A7AC55E1CA6 /* ExampleAnalyticsParameters.swift */; };
 		9AFBCBB5F4DDE646EAFA437B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCCCF499676D25E68FECA /* LoginViewController.swift */; };
 		9AFBCDDD13172281D4368E6C /* CitiesConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC94CF26AB11E181F7B00 /* CitiesConfiguration.swift */; };
 		9AFBCF519040E699D130072D /* CityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC949B2D2D4B8D636B565 /* CityDetailViewController.swift */; };
+		9AFBCF8AAEE1E2E0D3B6D83E /* ExampleAnalyticsInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCD4279BBCCCACECDB352 /* ExampleAnalyticsInterceptor.swift */; };
 		D611D285DB9C77E5E7D8FBF7 /* Pods_DeepLinkLibrary_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD8FADE9265A4CD86A75FD85 /* Pods_DeepLinkLibrary_Example.framework */; };
 /* End PBXBuildFile section */
 
@@ -88,14 +91,17 @@
 		8479E31F200F7D1E00320380 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		84C1D86390083DF185C460C2 /* Pods-DeepLinkLibrary_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeepLinkLibrary_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DeepLinkLibrary_Tests/Pods-DeepLinkLibrary_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		99737A56A3D37A621574DCAB /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		9AFBC0097861297B7686ADAA /* ExampleAnalyticsPostAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleAnalyticsPostAction.swift; sourceTree = "<group>"; };
 		9AFBC6DBFF899EA9831D84D2 /* LoginConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginConfiguration.swift; sourceTree = "<group>"; };
 		9AFBC78B188F55C0198B5007 /* CityArguments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityArguments.swift; sourceTree = "<group>"; };
 		9AFBC949B2D2D4B8D636B565 /* CityDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityDetailViewController.swift; sourceTree = "<group>"; };
 		9AFBC94CF26AB11E181F7B00 /* CitiesConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CitiesConfiguration.swift; sourceTree = "<group>"; };
 		9AFBCA4291DB4A6D2A47E5F2 /* CitiesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CitiesTableViewController.swift; sourceTree = "<group>"; };
 		9AFBCCCF499676D25E68FECA /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		9AFBCD4279BBCCCACECDB352 /* ExampleAnalyticsInterceptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleAnalyticsInterceptor.swift; sourceTree = "<group>"; };
 		9AFBCE44839BD245D30ED19C /* ExampleUniversalLinksManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleUniversalLinksManager.swift; sourceTree = "<group>"; };
 		9AFBCE5527D371C559C69F9E /* CityURLTranslator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityURLTranslator.swift; sourceTree = "<group>"; };
+		9AFBCEB028743A7AC55E1CA6 /* ExampleAnalyticsParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleAnalyticsParameters.swift; sourceTree = "<group>"; };
 		AD8FADE9265A4CD86A75FD85 /* Pods_DeepLinkLibrary_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DeepLinkLibrary_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7AC8603E217ACA9BCF1FAC2 /* Pods-DeepLinkLibrary_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeepLinkLibrary_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-DeepLinkLibrary_Example/Pods-DeepLinkLibrary_Example.release.xcconfig"; sourceTree = "<group>"; };
 		EE3371C14DEE61C1E517B2F9 /* Pods-DeepLinkLibrary_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeepLinkLibrary_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DeepLinkLibrary_Example/Pods-DeepLinkLibrary_Example.debug.xcconfig"; sourceTree = "<group>"; };
@@ -215,6 +221,9 @@
 				8479E2F8200E7A7F00320380 /* ExampleConfiguration.swift */,
 				8479E2F9200E7A7F00320380 /* ExampleTarget.swift */,
 				8479E2FA200E7A7F00320380 /* ExampleTargetArguments.swift */,
+				9AFBCEB028743A7AC55E1CA6 /* ExampleAnalyticsParameters.swift */,
+				9AFBCD4279BBCCCACECDB352 /* ExampleAnalyticsInterceptor.swift */,
+				9AFBC0097861297B7686ADAA /* ExampleAnalyticsPostAction.swift */,
 			);
 			path = Configuration;
 			sourceTree = "<group>";
@@ -524,6 +533,9 @@
 				9AFBC3DB63861EB552A2CD2E /* ExampleUniversalLinksManager.swift in Sources */,
 				9AFBCBB5F4DDE646EAFA437B /* LoginViewController.swift in Sources */,
 				9AFBC11AB0BE495D5E2959C1 /* LoginConfiguration.swift in Sources */,
+				9AFBCB1EA868F677EA54C083 /* ExampleAnalyticsParameters.swift in Sources */,
+				9AFBCF8AAEE1E2E0D3B6D83E /* ExampleAnalyticsInterceptor.swift in Sources */,
+				9AFBCA32BF0E6A5C2D643915 /* ExampleAnalyticsPostAction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

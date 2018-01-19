@@ -9,26 +9,29 @@
 import UIKit
 import DeepLinkLibrary
 
-class SquareViewController: UIViewController {
+class SquareViewController: UIViewController , AnalyticsSupportViewController {
+
+    let  analyticParameters = ExampleAnalyticsParameters(source: .square)
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
     @IBAction func goToCircleTapped() {
-        DefaultRouter().deepLinkTo(destination: configuration.destination(for: ExampleTarget.circle)!)
+        DefaultRouter().deepLinkTo(destination: configuration.destination(for: ExampleSource.circle)!)
     }
 
     @IBAction func goToHomeTapped() {
-        DefaultRouter().deepLinkTo(destination: configuration.destination(for: ExampleTarget.empty)!)
+        DefaultRouter().deepLinkTo(destination: configuration.destination(for: ExampleSource.empty)!)
     }
 
     @IBAction func goToSplitTapped() {
-        DefaultRouter().deepLinkTo(destination: configuration.destination(for: ExampleTarget.split)!)
+        DefaultRouter().deepLinkTo(destination: CitiesConfiguration.citiesList())
     }
 
     @IBAction func goToLoginTapped() {
-        DefaultRouter().deepLinkTo(destination: configuration.destination(for: ExampleTarget.login)!)
+        DefaultRouter().deepLinkTo(destination: configuration.destination(for: ExampleSource.login)!)
     }
 
 }

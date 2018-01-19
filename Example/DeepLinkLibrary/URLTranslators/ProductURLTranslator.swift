@@ -18,12 +18,12 @@ class ProductURLTranslator: ExampleURLTranslator {
               let queryItems = urlComponents.queryItems,
               let item = queryItems.first(where: { $0.name == "product" }),
               let productIdValue = item.value,
-              let screen = config.screen(for: ExampleTarget.product) else {
+              let screen = config.screen(for: ExampleSource.product) else {
             return nil
         }
 
         return ExampleDestination(screen: screen,
-                arguments: ExampleDictionaryArguments(originalUrl: url, arguments: [Argument.productId: productIdValue]))
+                arguments: ExampleDictionaryArguments(arguments: [Argument.productId: productIdValue], ExampleAnalyticsParameters(source: .appLink, webpageURL: url, referrerURL: nil)))
     }
 
 }

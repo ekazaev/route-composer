@@ -55,7 +55,9 @@ class ColorViewControllerFactory: Factory, PreparableFactory {
     }
 }
 
-class ColorViewController: UIViewController {
+class ColorViewController: UIViewController, AnalyticsSupportViewController {
+
+    let  analyticParameters = ExampleAnalyticsParameters(source: .color)
 
     typealias ColorDisplayModel = String
 
@@ -80,6 +82,5 @@ class ColorViewController: UIViewController {
 
     @objc func doneTapped() {
         self.dismiss(animated: true)
-//        DefaultRouter().deepLinkTo(destination: configuration.destination(for: ExampleTarget.home)!)
     }
 }

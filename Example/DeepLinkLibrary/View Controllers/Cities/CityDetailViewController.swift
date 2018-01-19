@@ -55,7 +55,9 @@ class CityDetailPostTask: PostRoutingTask {
 
 }
 
-class CityDetailViewController: UIViewController {
+class CityDetailViewController: UIViewController, AnalyticsSupportViewController {
+
+    let  analyticParameters = ExampleAnalyticsParameters(source: .cityDetail)
 
     @IBOutlet private var detailsTextView: UITextView!
 

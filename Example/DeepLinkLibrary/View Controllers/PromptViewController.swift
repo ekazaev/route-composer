@@ -7,10 +7,13 @@ import Foundation
 import UIKit
 import DeepLinkLibrary
 
-class PromptViewController: UIViewController {
+class PromptViewController: UIViewController, AnalyticsSupportViewController {
+
+    let  analyticParameters = ExampleAnalyticsParameters(source: .welcome)
+
 
     @IBAction func goToHomeTapped() {
-        DefaultRouter().deepLinkTo(destination: configuration.destination(for: ExampleTarget.home)!)
+        DefaultRouter().deepLinkTo(destination: configuration.destination(for: ExampleSource.home)!)
     }
 
 }

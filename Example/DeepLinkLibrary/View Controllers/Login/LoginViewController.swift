@@ -57,7 +57,9 @@ class LoginViewControllerFinder: FinderWithPolicy {
 
 }
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, AnalyticsSupportViewController {
+
+    let  analyticParameters = ExampleAnalyticsParameters(source: .login)
 
     @IBOutlet private var loginTextField: UITextField!
 

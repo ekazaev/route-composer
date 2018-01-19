@@ -12,20 +12,20 @@ enum Argument {
     case productId
 }
 
-protocol ExampleArguments {
+protocol ExampleArguments: class {
 
-    var url: URL? { get }
+    var analyticParameters: ExampleAnalyticsParameters? { set get }
 
 }
 
-struct ExampleDictionaryArguments: ExampleArguments {
+class ExampleDictionaryArguments: ExampleArguments {
 
-    let url: URL?
+    var analyticParameters: ExampleAnalyticsParameters?
 
     var arguments: [Argument: Any] = [:]
 
-    init(originalUrl: URL? = nil, arguments: [Argument: Any]? = nil) {
-        self.url = originalUrl
+    init(arguments: [Argument: Any]? = nil, _ analyticParameters: ExampleAnalyticsParameters? = nil) {
+        self.analyticParameters = analyticParameters
         if let arguments = arguments {
             self.arguments.merge(arguments, uniquingKeysWith: { (_, last) in last })
         }

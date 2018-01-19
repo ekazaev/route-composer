@@ -18,12 +18,12 @@ class ColorURLTranslator: ExampleURLTranslator {
               let queryItems = urlComponents.queryItems,
               let colorItem = queryItems.first(where: { $0.name == "color" }),
               let colorValue = colorItem.value,
-              let screen = config.screen(for: ExampleTarget.color) else {
+              let screen = config.screen(for: ExampleSource.color) else {
             return nil
         }
 
         return ExampleDestination(screen: screen,
-                arguments: ExampleDictionaryArguments(originalUrl: url, arguments: [Argument.color: colorValue]))
+                arguments: ExampleDictionaryArguments( arguments: [Argument.color: colorValue], ExampleAnalyticsParameters(source: .appLink, webpageURL: url, referrerURL: nil)))
     }
 
 }

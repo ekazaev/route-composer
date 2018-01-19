@@ -16,7 +16,8 @@ class CityURLTranslator: ExampleURLTranslator {
             return nil
         }
 
-        return CitiesConfiguration.cityDetail(cityId: cityId)
+        let cityDestination = CitiesConfiguration.cityDetail(cityId: cityId)
+        return cityDestination
     }
 
 }

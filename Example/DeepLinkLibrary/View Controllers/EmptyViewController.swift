@@ -7,22 +7,24 @@ import Foundation
 import UIKit
 import DeepLinkLibrary
 
-class EmptyViewController: UIViewController {
+class EmptyViewController: UIViewController, AnalyticsSupportViewController {
+
+    let analyticParameters = ExampleAnalyticsParameters(source: .empty)
 
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
     @IBAction func goToCircleTapped() {
-        DefaultRouter().deepLinkTo(destination: configuration.destination(for: ExampleTarget.circle)!)
+        DefaultRouter().deepLinkTo(destination: configuration.destination(for: ExampleSource.circle)!)
     }
 
     @IBAction func goToSquareTapped() {
-        DefaultRouter().deepLinkTo(destination: configuration.destination(for: ExampleTarget.square)!)
+        DefaultRouter().deepLinkTo(destination: configuration.destination(for: ExampleSource.square)!)
     }
 
     @IBAction func goToSelfTapped() {
-        DefaultRouter().deepLinkTo(destination: configuration.destination(for: ExampleTarget.empty)!)
+        DefaultRouter().deepLinkTo(destination: configuration.destination(for: ExampleSource.empty)!)
     }
 
 }

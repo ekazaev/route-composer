@@ -70,7 +70,9 @@ public class DefaultRouter: Router {
             return .unhandled
         }
 
-        let viewController = stack.rootViewController, factoriesStack = stack.factories, interceptor = InterceptorMultiplex(stack.interceptors)
+        let viewController = stack.rootViewController,
+                factoriesStack = stack.factories,
+                interceptor = InterceptorMultiplex(stack.interceptors)
 
         // Let find is we are eligible to dismiss view controllers in stack to show target view controller
         if let _ = UIViewController.findAllPresentedViewControllers(starting: viewController).flatMap({
@@ -117,6 +119,11 @@ public class DefaultRouter: Router {
                 return nil
             }
 
+            // If step contain an action that needs to be done, add it it in to interceptors array
+            if let interceptor = step?.interceptor, rootViewController == nil {
+                interceptors.append(interceptor)
+            }
+
             switch result {
             case .found(let viewController):
                 if rootViewController == nil {
@@ -130,11 +137,6 @@ public class DefaultRouter: Router {
                 break
             case .failure:
                 return nil
-            }
-
-            // If step contain an action that needs to be done, add it it in to interceptors array
-            if let interceptor = step?.interceptor, rootViewController == nil {
-                interceptors.append(interceptor)
             }
 
             //Building factory stack only if we havent find a view controllers to start from

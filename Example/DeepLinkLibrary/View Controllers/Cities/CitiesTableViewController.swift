@@ -65,7 +65,9 @@ class CityTablePostTask: PostRoutingTask {
 }
 
 
-class CitiesTableViewController: UITableViewController {
+class CitiesTableViewController: UITableViewController, AnalyticsSupportViewController {
+
+    let analyticParameters = ExampleAnalyticsParameters(source: .citiesList)
 
     var cityId: Int? {
         didSet {
@@ -103,7 +105,7 @@ class CitiesTableViewController: UITableViewController {
     }
 
     @IBAction func goToSquareTapped() {
-        DefaultRouter().deepLinkTo(destination: configuration.destination(for: ExampleTarget.square)!)
+        DefaultRouter().deepLinkTo(destination: configuration.destination(for: ExampleSource.square)!)
     }
 }
 

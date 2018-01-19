@@ -6,7 +6,7 @@
 import Foundation
 import DeepLinkLibrary
 
-enum ExampleTarget {
+enum ExampleSource {
 
     case circle
 
@@ -33,4 +33,6 @@ enum ExampleTarget {
     case superModal
 
     case welcome
+
+    case appLink
 }

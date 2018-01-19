@@ -5,14 +5,14 @@
 
 import Foundation
 
-struct CityArguments: ExampleArguments {
+class CityArguments: ExampleArguments {
 
-    let url: URL?
+    var analyticParameters: ExampleAnalyticsParameters?
 
     let cityId: Int?
 
-    init(url: URL? = nil, cityId: Int?) {
-        self.url = url
+    init(cityId: Int?, _ analyticParameters: ExampleAnalyticsParameters? = nil) {
+        self.analyticParameters = analyticParameters
         self.cityId = cityId
     }
 }

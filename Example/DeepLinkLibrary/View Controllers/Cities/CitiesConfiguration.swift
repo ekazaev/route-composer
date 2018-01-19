@@ -28,7 +28,8 @@ class CitiesConfiguration {
         // Cities List
         citiesListScreen = Screen(
                 finder: CityTableViewControllerFinder(),
-                postTask: CityTablePostTask(),
+                interceptor: ExampleAnalyticsInterceptor(),
+                postTask: PostRoutingTaskMultiplex([CityTablePostTask(), ExampleAnalyticsPostAction()]),
                 step: chain([
                     RequireScreenStep(screen: self.cityScreen)
                 ]))
@@ -37,18 +38,19 @@ class CitiesConfiguration {
         cityDetailsScreen = Screen(
                 finder: CityDetailsViewControllerFinder(),
                 factory: CityDetailsViewControllerFactory(action: PresentDetailsAction()),
-                postTask: CityDetailPostTask(),
+                interceptor: ExampleAnalyticsInterceptor(),
+                postTask: PostRoutingTaskMultiplex([CityDetailPostTask(), ExampleAnalyticsPostAction()]),
                 step: chain([
                     RequireScreenStep(screen: self.citiesListScreen)
                 ]))
     }
 
 
-    static func citiesList(cityId: Int? = nil) -> ExampleDestination {
-        return ExampleDestination(screen: shared.citiesListScreen, arguments: CityArguments(cityId: cityId))
+    static func citiesList(cityId: Int? = nil, _ analyticParameters: ExampleAnalyticsParameters? = nil) -> ExampleDestination {
+        return ExampleDestination(screen: shared.citiesListScreen, arguments: CityArguments(cityId: cityId, analyticParameters))
     }
 
-    static func cityDetail(cityId: Int) -> ExampleDestination {
-        return ExampleDestination(screen: shared.cityDetailsScreen, arguments: CityArguments(cityId: cityId))
+    static func cityDetail(cityId: Int, _ analyticParameters: ExampleAnalyticsParameters? = nil) -> ExampleDestination {
+        return ExampleDestination(screen: shared.cityDetailsScreen, arguments: CityArguments(cityId: cityId,analyticParameters))
     }
 }

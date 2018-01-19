@@ -24,7 +24,7 @@ class ExampleConfiguration {
             return nil
         }
 
-        return ExampleDestination(screen: screen, arguments: arguments)
+        return ExampleDestination(screen: screen, arguments: arguments ?? ExampleDictionaryArguments())
     }
 }
 

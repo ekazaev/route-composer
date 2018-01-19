@@ -62,7 +62,9 @@ class ProductViewControllerFactory: Factory, PreparableFactory {
 }
 
 
-class ProductViewController: UIViewController {
+class ProductViewController: UIViewController, AnalyticsSupportViewController {
+
+    let  analyticParameters = ExampleAnalyticsParameters(source: .product)
 
     typealias Model = String
 
@@ -88,15 +90,15 @@ class ProductViewController: UIViewController {
     }
 
     @IBAction func goToCircleTapped() {
-        DefaultRouter().deepLinkTo(destination: configuration.destination(for: ExampleTarget.circle)!)
+        DefaultRouter().deepLinkTo(destination: configuration.destination(for: ExampleSource.circle)!)
     }
 
     @IBAction func goToSplitTapped() {
-        DefaultRouter().deepLinkTo(destination: configuration.destination(for: ExampleTarget.split)!)
+        DefaultRouter().deepLinkTo(destination: CitiesConfiguration.citiesList())
     }
 
     @IBAction func goToProductTapped() {
-        DefaultRouter().deepLinkTo(destination: configuration.destination(for: ExampleTarget.product, arguments: ExampleDictionaryArguments(arguments: [Argument.productId: "01"]))!)
+        DefaultRouter().deepLinkTo(destination: configuration.destination(for: ExampleSource.product, arguments: ExampleDictionaryArguments(arguments: [Argument.productId: "01"]))!)
     }
 
 }

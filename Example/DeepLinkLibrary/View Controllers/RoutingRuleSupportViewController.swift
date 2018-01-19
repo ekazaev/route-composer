@@ -7,7 +7,9 @@ import Foundation
 import UIKit
 import DeepLinkLibrary
 
-class RoutingRuleSupportViewController: UIViewController, RouterRulesViewController {
+class RoutingRuleSupportViewController: UIViewController, RouterRulesViewController, AnalyticsSupportViewController {
+
+    let  analyticParameters = ExampleAnalyticsParameters(source: .ruleSupport)
 
     private(set) var canBeDismissed: Bool = true
 
@@ -30,11 +32,11 @@ class RoutingRuleSupportViewController: UIViewController, RouterRulesViewControl
     }
 
     @IBAction func goToColorTapped() {
-        DefaultRouter().deepLinkTo(destination: configuration.destination(for: ExampleTarget.color, arguments: ExampleDictionaryArguments(arguments: [Argument.color: "FFFF00"]))!)
+        DefaultRouter().deepLinkTo(destination: configuration.destination(for: ExampleSource.color, arguments: ExampleDictionaryArguments(arguments: [Argument.color: "FFFF00"], ExampleAnalyticsParameters(source: .ruleSupport)))!)
     }
 
     @IBAction func goToSquareTapped() {
-        DefaultRouter().deepLinkTo(destination: configuration.destination(for: ExampleTarget.square)!)
+        DefaultRouter().deepLinkTo(destination: configuration.destination(for: ExampleSource.square)!)
     }
 
     @IBAction func goToMoscowTapped() {
