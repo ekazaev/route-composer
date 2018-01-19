@@ -40,8 +40,8 @@ class CityTablePostTask: PostRoutingTask {
 
     func execute(on viewController: UIViewController, with arguments: Any?) {
         guard let viewController = viewController as? CitiesTableViewController,
-              let arguments = arguments as? ExampleTargetArguments,
-              let destinationCityId = arguments[Argument.cityId] as? Int else {
+              let arguments = arguments as? CityArguments,
+              let destinationCityId = arguments.cityId as? Int else {
             return
         }
 
@@ -85,8 +85,7 @@ class CitiesTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let city = CitiesDataModel.cities[indexPath.row]
-        DefaultRouter().deepLinkTo(destination: configuration.destination(for: ExampleTarget.cityDetail,
-                arguments: ExampleTargetArguments(arguments: [Argument.cityId: city.cityId]))!)
+        DefaultRouter().deepLinkTo(destination: CitiesConfiguration.cityDetail(cityId: city.cityId))
     }
 
     @IBAction func goToSquareTapped() {

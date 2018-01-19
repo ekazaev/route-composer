@@ -17,7 +17,7 @@ class ProductViewControllerFinder: FinderWithPolicy {
 
     func isTarget(viewController: UIViewController, arguments: Any?) -> Bool {
         guard let controller = viewController as? ProductViewController,
-              let arguments = arguments as? ExampleTargetArguments,
+              let arguments = arguments as? ExampleDictionaryArguments,
               let destinationModel = arguments[Argument.productId] as? ProductViewController.Model,
               let controllerModel = controller.model,
               destinationModel == controllerModel  else {
@@ -51,7 +51,7 @@ class ProductViewControllerFactory: Factory, PreparableFactory {
     }
 
     func prepare(with arguments: Any?) -> DeepLinkResult {
-        guard let argumetns = arguments as? ExampleTargetArguments,
+        guard let argumetns = arguments as? ExampleDictionaryArguments,
               let destinationModel = argumetns[Argument.productId] as? ProductViewController.Model else {
             return .unhandled
         }
@@ -96,7 +96,7 @@ class ProductViewController: UIViewController {
     }
 
     @IBAction func goToProductTapped() {
-        DefaultRouter().deepLinkTo(destination: configuration.destination(for: ExampleTarget.product, arguments: ExampleTargetArguments(arguments: [Argument.productId: "01"]))!)
+        DefaultRouter().deepLinkTo(destination: configuration.destination(for: ExampleTarget.product, arguments: ExampleDictionaryArguments(arguments: [Argument.productId: "01"]))!)
     }
 
 }

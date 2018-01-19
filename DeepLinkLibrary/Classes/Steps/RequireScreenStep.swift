@@ -9,23 +9,19 @@ public typealias RequiredScreenProvider = (() -> DeepLinkableScreen?)
 
 public class RequireScreenStep: ChainableStep {
 
-    let screenProvider: RequiredScreenProvider
+    let screen: DeepLinkableScreen
 
     override public var prevStep: Step? {
-        guard let screen = screenProvider() else {
-            return nil
-        }
-
         return screen.step
     }
 
-    public init(screenProvider: @escaping RequiredScreenProvider) {
-        self.screenProvider = screenProvider
+    public init(screen: DeepLinkableScreen) {
+        self.screen = screen
         super.init()
     }
 
     override func previous(continue presenter: Step) {
-        fatalError("RequireScreenPresenter cant have any further steps chains. Steps will be build from required target")
+        fatalError("RequireScreenStep cant have any further steps chains. Steps will be build from required target")
     }
 
 }

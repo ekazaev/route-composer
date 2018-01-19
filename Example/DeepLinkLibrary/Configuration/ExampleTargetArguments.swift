@@ -12,14 +12,20 @@ enum Argument {
     case productId
 }
 
-struct ExampleTargetArguments {
+protocol ExampleArguments {
 
-    let originalUrl: URL?
+    var url: URL? { get }
+
+}
+
+struct ExampleDictionaryArguments: ExampleArguments {
+
+    let url: URL?
 
     var arguments: [Argument: Any] = [:]
 
     init(originalUrl: URL? = nil, arguments: [Argument: Any]? = nil) {
-        self.originalUrl = originalUrl
+        self.url = originalUrl
         if let arguments = arguments {
             self.arguments.merge(arguments, uniquingKeysWith: { (_, last) in last })
         }
@@ -38,9 +44,9 @@ struct ExampleTargetArguments {
 }
 
 struct ExampleDestination: DeepLinkDestination {
-    typealias A = ExampleTargetArguments
 
     let screen: DeepLinkableScreen
 
-    let arguments: A?
+    let arguments: Any?
+
 }

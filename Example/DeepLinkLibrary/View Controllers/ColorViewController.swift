@@ -17,7 +17,7 @@ class ColorViewControllerFinder: FinderWithPolicy {
 
     func isTarget(viewController: UIViewController, arguments: Any?) -> Bool {
         guard let controller = viewController as? ColorViewController,
-              let arguments = arguments as? ExampleTargetArguments,
+              let arguments = arguments as? ExampleDictionaryArguments,
               let destinationColorHex = arguments[Argument.color] as? ColorViewController.ColorDisplayModel else {
             return false
         }
@@ -45,7 +45,7 @@ class ColorViewControllerFactory: Factory, PreparableFactory {
     }
 
     func prepare(with arguments: Any?) -> DeepLinkResult {
-        guard let argumetns = arguments as? ExampleTargetArguments,
+        guard let argumetns = arguments as? ExampleDictionaryArguments,
               let model = argumetns[Argument.color] as? ColorViewController.ColorDisplayModel else {
             return .unhandled
         }

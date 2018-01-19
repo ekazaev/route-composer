@@ -56,7 +56,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let squareScreen = Screen(
                 finder: ViewControllerClassFinder(containerType: SquareViewController.self, policy: .currentLevel),
                 step: chain([
-                    RequireScreenStep(screenProvider: config.provider(for: ExampleTarget.home))
+                    RequireScreenStep(screen: homeScreen)
                 ]))
 
         config.register(screen: squareScreen, for: ExampleTarget.square)
@@ -65,7 +65,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let circleScreen = Screen(
                 finder: ViewControllerClassFinder(containerType: CircleViewController.self, policy: .currentLevel),
                 step: chain([
-                    RequireScreenStep(screenProvider: config.provider(for: ExampleTarget.home))
+                    RequireScreenStep(screen: homeScreen)
                 ]))
 
         config.register(screen: circleScreen, for: ExampleTarget.circle)
@@ -78,13 +78,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     TopMostViewControllerStep(),
                 ]))
 
-        config.register(screen: colorScreen, urlTranslator: ColorURLTranslator(), for: ExampleTarget.color)
+        config.register(screen: colorScreen, for: ExampleTarget.color)
 
         //Sceen with Routing support
         let routingSuportScreen = Screen(finder: ViewControllerClassFinder(containerType: RoutingRuleSupportViewController.self, policy: .currentLevel),
                 factory: ViewControllerFromStoryboard(storyboardName: "Main", viewControllerID: "RoutingRuleSupportViewController", action: PushAction()),
                 step: chain([
-                    RequireScreenStep(screenProvider: config.provider(for: ExampleTarget.color))
+                    RequireScreenStep(screen: colorScreen)
                 ]))
         config.register(screen: routingSuportScreen,
                 for: ExampleTarget.ruleSupport)
@@ -94,7 +94,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 factory: ViewControllerFromStoryboard(storyboardName: "Main", viewControllerID: "EmptyViewController", action: PushAction()),
                 interceptor: LoginInterceptor(screen: loginScreen),
                 step: chain([
-                    RequireScreenStep(screenProvider: config.provider(for: ExampleTarget.circle))
+                    RequireScreenStep(screen: circleScreen)
                 ]))
 
         config.register(screen: emptyScreen, for: ExampleTarget.empty)
@@ -104,10 +104,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 finder: ProductViewControllerFinder(),
                 factory: ProductViewControllerFactory(action: PushAction()),
                 step: chain([
-                    RequireScreenStep(screenProvider: config.provider(for: ExampleTarget.circle))
+                    RequireScreenStep(screen: circleScreen)
                 ]))
 
-        config.register(screen: productScreen, urlTranslator: ProductURLTranslator(), for: ExampleTarget.product)
+        config.register(screen: productScreen, for: ExampleTarget.product)
 
         // Two modal presentations screen
         let superModlaScreen = Screen(
@@ -115,7 +115,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 factory: ViewControllerFromClassFactory(viewControllerName: NSStringFromClass(ColorViewController.self), action: PushAction()),
                 step: chain([
                     NavigationContainerStep(action: PresentModallyAction()),
-                    RequireScreenStep(screenProvider: config.provider(for: ExampleTarget.ruleSupport))
+                    RequireScreenStep(screen: routingSuportScreen)
                 ]))
         config.register(screen: superModlaScreen, for: ExampleTarget.superModal)
 
@@ -129,35 +129,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         config.register(screen: welcomeScreen, for: ExampleTarget.welcome)
 
-        // Split View Controller
-        let splitScreen = Screen(finder: ViewControllerClassFinder(containerType: UISplitViewController.self),
-                factory: ViewControllerFromStoryboard(storyboardName: "Split", action: ReplaceRootAction()),
-                interceptor: LoginInterceptor(screen: loginScreen),
-                step: chain([
-                    RootViewControllerStep()
-                ]))
-        config.register(screen: splitScreen, for: ExampleTarget.split)
-
-        // Cities List
-        let ciliesListScreen = Screen(
-                finder: CityTableViewControllerFinder(),
-                postTask: CityTablePostTask(),
-                step: chain([
-                    RequireScreenStep(screenProvider: config.provider(for: ExampleTarget.split))
-                ]))
-        config.register(screen: ciliesListScreen, for: ExampleTarget.citiesList)
-
-        // City Details
-        let ciryDetailsScreen = Screen(
-                finder: CityDetailsViewControllerFinder(),
-                factory: CityDetailsViewControllerFactory(action: PresentDetailsAction()),
-                postTask: CityDetailPostTask(),
-                step: chain([
-                    RequireScreenStep(screenProvider: config.provider(for: ExampleTarget.citiesList))
-                ]))
-        config.register(screen: ciryDetailsScreen, urlTranslator: CityURLTranslator(), for: ExampleTarget.cityDetail)
-
         self.config = config
+
+        ExampleUniversalLinksManager.register(translator: ColorURLTranslator(config))
+        ExampleUniversalLinksManager.register(translator: ProductURLTranslator(config))
+        ExampleUniversalLinksManager.register(translator: CityURLTranslator())
 
         return true
     }
@@ -166,7 +142,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                      open url: URL,
                      sourceApplication: String?,
                      annotation: Any) -> Bool {
-        guard let destination = config?.destination(for: url) else {
+        guard let destination = ExampleUniversalLinksManager.destination(for: url) else {
             return false
         }
 

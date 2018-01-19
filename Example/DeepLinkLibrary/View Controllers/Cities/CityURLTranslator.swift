@@ -7,7 +7,7 @@ import Foundation
 
 class CityURLTranslator: ExampleURLTranslator {
 
-    func arguments(from url: URL) -> ExampleTargetArguments? {
+    func destination(from url: URL) -> ExampleDestination? {
         guard let urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false),
               let queryItems = urlComponents.queryItems,
               let cityItem = queryItems.first(where: { $0.name == "city" }),
@@ -16,7 +16,7 @@ class CityURLTranslator: ExampleURLTranslator {
             return nil
         }
 
-        return ExampleTargetArguments(originalUrl: url, arguments: [Argument.cityId: cityId])
+        return CitiesConfiguration.cityDetail(cityId: cityId)
     }
 
 }

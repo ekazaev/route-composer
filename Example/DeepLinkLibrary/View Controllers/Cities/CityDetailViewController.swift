@@ -45,8 +45,8 @@ class CityDetailPostTask: PostRoutingTask {
 
     func execute(on viewController: UIViewController, with arguments: Any?) {
         guard let viewController = viewController as? CityDetailViewController,
-              let arguments = arguments as? ExampleTargetArguments,
-              let destinationCityId = arguments[Argument.cityId] as? Int else {
+              let arguments = arguments as? CityArguments,
+              let destinationCityId = arguments.cityId else {
             return
         }
 
@@ -79,6 +79,6 @@ class CityDetailViewController: UIViewController {
     }
 
     @IBAction func backProgrammaticalyTapped() {
-        DefaultRouter().deepLinkTo(destination: configuration.destination(for: ExampleTarget.citiesList)!)
+        DefaultRouter().deepLinkTo(destination: CitiesConfiguration.citiesList(cityId: nil))
     }
 }

@@ -7,10 +7,8 @@ import Foundation
 
 public protocol DeepLinkDestination {
 
-    associatedtype A
-
     var screen: DeepLinkableScreen { get }
 
-    var arguments: A? { get }
+    var arguments: Any? { get }
 
 }
