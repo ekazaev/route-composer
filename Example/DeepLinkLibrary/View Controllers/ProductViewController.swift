@@ -90,15 +90,15 @@ class ProductViewController: UIViewController, AnalyticsSupportViewController {
     }
 
     @IBAction func goToCircleTapped() {
-        DefaultRouter().deepLinkTo(destination: configuration.destination(for: ExampleSource.circle)!)
+        router.deepLinkTo(destination: ExampleConfiguration.destination(for: ExampleSource.circle)!)
     }
 
     @IBAction func goToSplitTapped() {
-        DefaultRouter().deepLinkTo(destination: CitiesConfiguration.citiesList())
+        router.deepLinkTo(destination: CitiesConfiguration.citiesList())
     }
 
     @IBAction func goToProductTapped() {
-        DefaultRouter().deepLinkTo(destination: configuration.destination(for: ExampleSource.product, arguments: ExampleDictionaryArguments(arguments: [Argument.productId: "01"]))!)
+        router.deepLinkTo(destination: ExampleConfiguration.destination(for: ExampleSource.product, arguments: ExampleDictionaryArguments(arguments: [Argument.productId: "01"]))!)
     }
 
 }

@@ -81,6 +81,6 @@ class CityDetailViewController: UIViewController, AnalyticsSupportViewController
     }
 
     @IBAction func backProgrammaticalyTapped() {
-        DefaultRouter().deepLinkTo(destination: CitiesConfiguration.citiesList(cityId: nil))
+        router.deepLinkTo(destination: CitiesConfiguration.citiesList(cityId: nil))
     }
 }

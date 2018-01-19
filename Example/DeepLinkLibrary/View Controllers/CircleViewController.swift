@@ -18,27 +18,27 @@ class CircleViewController: UIViewController, AnalyticsSupportViewController {
     }
 
     @IBAction func goToSquareTapped() {
-        DefaultRouter().deepLinkTo(destination: configuration.destination(for: ExampleSource.square)!)
+        router.deepLinkTo(destination: ExampleConfiguration.destination(for: ExampleSource.square)!)
     }
 
     @IBAction func goToRandomColorTapped() {
-        DefaultRouter().deepLinkTo(destination: configuration.destination(for: ExampleSource.color, arguments: ExampleDictionaryArguments(arguments: [Argument.color: "0000FF"]))!)
+        router.deepLinkTo(destination: ExampleConfiguration.destination(for: ExampleSource.color, arguments: ExampleDictionaryArguments(arguments: [Argument.color: "0000FF"]))!)
     }
 
     @IBAction func goToDeepModalTapped() {
-        DefaultRouter().deepLinkTo(destination: configuration.destination(for: ExampleSource.ruleSupport, arguments: ExampleDictionaryArguments(arguments: [Argument.color: "00FF00"]))!)
+        router.deepLinkTo(destination: ExampleConfiguration.destination(for: ExampleSource.ruleSupport, arguments: ExampleDictionaryArguments(arguments: [Argument.color: "00FF00"]))!)
     }
 
     @IBAction func goToSuperModalTapped() {
-        DefaultRouter().deepLinkTo(destination: configuration.destination(for: ExampleSource.superModal, arguments: ExampleDictionaryArguments(arguments: [Argument.color: "0000FF"]))!)
+        router.deepLinkTo(destination: ExampleConfiguration.destination(for: ExampleSource.superModal, arguments: ExampleDictionaryArguments(arguments: [Argument.color: "0000FF"]))!)
     }
 
     @IBAction func goToProductTapped() {
-        DefaultRouter().deepLinkTo(destination: configuration.destination(for: ExampleSource.product, arguments: ExampleDictionaryArguments(arguments: [Argument.productId: "01"]))!)
+        router.deepLinkTo(destination: ExampleConfiguration.destination(for: ExampleSource.product, arguments: ExampleDictionaryArguments(arguments: [Argument.productId: "01"]))!)
     }
 
     @IBAction func goToWelcomeTapped() {
-        DefaultRouter().deepLinkTo(destination: configuration.destination(for: ExampleSource.welcome)!)
+        router.deepLinkTo(destination: ExampleConfiguration.destination(for: ExampleSource.welcome)!)
     }
 }
 

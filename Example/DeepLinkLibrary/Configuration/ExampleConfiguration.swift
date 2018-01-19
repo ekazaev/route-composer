@@ -8,18 +8,18 @@ import DeepLinkLibrary
 
 class ExampleConfiguration {
 
-    private var screens: [AnyHashable: DeepLinkableScreen] = [:]
+    private static var screens: [AnyHashable: DeepLinkableScreen] = [:]
 
-    func screen<T: Hashable>(for target: T) -> DeepLinkableScreen? {
+    static func screen<T: Hashable>(for target: T) -> DeepLinkableScreen? {
         return screens[target]
     }
 
-    func register<T: Hashable>(screen: DeepLinkableScreen, for target: T) {
+    static func register<T: Hashable>(screen: DeepLinkableScreen, for target: T) {
         screens[target] = screen
     }
 
 
-    func destination<T: Hashable>(for target: T, arguments: ExampleDictionaryArguments? = nil) -> ExampleDestination? {
+    static func destination<T: Hashable>(for target: T, arguments: ExampleDictionaryArguments? = nil) -> ExampleDestination? {
         guard let screen = screen(for: target) else {
             return nil
         }

@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		4F7CDDB480A0D4FAB88D9CDA /* Pods_DeepLinkLibrary_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D5D44CE2FD3DEAA3108C874 /* Pods_DeepLinkLibrary_Tests.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
-		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
@@ -20,7 +19,7 @@
 		8479E30E200E7A7F00320380 /* ExampleTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8479E2F9200E7A7F00320380 /* ExampleTarget.swift */; };
 		8479E30F200E7A7F00320380 /* ExampleTargetArguments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8479E2FA200E7A7F00320380 /* ExampleTargetArguments.swift */; };
 		8479E310200E7A7F00320380 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8479E2FC200E7A7F00320380 /* UIColor.swift */; };
-		8479E311200E7A7F00320380 /* ViewControllerWithConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8479E2FD200E7A7F00320380 /* ViewControllerWithConfiguration.swift */; };
+		8479E311200E7A7F00320380 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8479E2FD200E7A7F00320380 /* ViewController.swift */; };
 		8479E312200E7A7F00320380 /* CircleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8479E2FF200E7A7F00320380 /* CircleViewController.swift */; };
 		8479E315200E7A7F00320380 /* ColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8479E302200E7A7F00320380 /* ColorViewController.swift */; };
 		8479E316200E7A7F00320380 /* EmptyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8479E303200E7A7F00320380 /* EmptyViewController.swift */; };
@@ -64,7 +63,6 @@
 		607FACD01AFB9204008FA782 /* DeepLinkLibrary_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeepLinkLibrary_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		607FACD71AFB9204008FA782 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		607FACDA1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -77,7 +75,7 @@
 		8479E2F9200E7A7F00320380 /* ExampleTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleTarget.swift; sourceTree = "<group>"; };
 		8479E2FA200E7A7F00320380 /* ExampleTargetArguments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleTargetArguments.swift; sourceTree = "<group>"; };
 		8479E2FC200E7A7F00320380 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
-		8479E2FD200E7A7F00320380 /* ViewControllerWithConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerWithConfiguration.swift; sourceTree = "<group>"; };
+		8479E2FD200E7A7F00320380 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8479E2FF200E7A7F00320380 /* CircleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleViewController.swift; sourceTree = "<group>"; };
 		8479E302200E7A7F00320380 /* ColorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorViewController.swift; sourceTree = "<group>"; };
 		8479E303200E7A7F00320380 /* EmptyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyViewController.swift; sourceTree = "<group>"; };
@@ -167,7 +165,6 @@
 				8479E308200E7A7F00320380 /* URLTranslators */,
 				8479E2FE200E7A7F00320380 /* View Controllers */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
-				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				8479E31F200F7D1E00320380 /* Login.storyboard */,
 				8479E2F3200E7A4400320380 /* PromptScreen.storyboard */,
@@ -232,7 +229,7 @@
 			isa = PBXGroup;
 			children = (
 				8479E2FC200E7A7F00320380 /* UIColor.swift */,
-				8479E2FD200E7A7F00320380 /* ViewControllerWithConfiguration.swift */,
+				8479E2FD200E7A7F00320380 /* ViewController.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -511,13 +508,12 @@
 				8479E317200E7A7F00320380 /* ProductViewController.swift in Sources */,
 				8479E30D200E7A7F00320380 /* ExampleConfiguration.swift in Sources */,
 				8479E310200E7A7F00320380 /* UIColor.swift in Sources */,
-				8479E311200E7A7F00320380 /* ViewControllerWithConfiguration.swift in Sources */,
+				8479E311200E7A7F00320380 /* ViewController.swift in Sources */,
 				8479E31A200E7A7F00320380 /* SquareViewController.swift in Sources */,
 				8479E319200E7A7F00320380 /* RoutingRuleSupportViewController.swift in Sources */,
 				8479E31C200E7A7F00320380 /* ColorURLTranslator.swift in Sources */,
 				8479E30E200E7A7F00320380 /* ExampleTarget.swift in Sources */,
 				8479E316200E7A7F00320380 /* EmptyViewController.swift in Sources */,
-				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				8479E31D200E7A7F00320380 /* ExampleURLTranslator.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				8479E31E200E7A7F00320380 /* ProductURLTranslator.swift in Sources */,

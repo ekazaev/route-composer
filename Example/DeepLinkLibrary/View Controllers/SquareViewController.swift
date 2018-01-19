@@ -19,19 +19,19 @@ class SquareViewController: UIViewController , AnalyticsSupportViewController {
     }
 
     @IBAction func goToCircleTapped() {
-        DefaultRouter().deepLinkTo(destination: configuration.destination(for: ExampleSource.circle)!)
+        router.deepLinkTo(destination: ExampleConfiguration.destination(for: ExampleSource.circle)!)
     }
 
     @IBAction func goToHomeTapped() {
-        DefaultRouter().deepLinkTo(destination: configuration.destination(for: ExampleSource.empty)!)
+        router.deepLinkTo(destination: ExampleConfiguration.destination(for: ExampleSource.empty)!)
     }
 
     @IBAction func goToSplitTapped() {
-        DefaultRouter().deepLinkTo(destination: CitiesConfiguration.citiesList())
+        router.deepLinkTo(destination: CitiesConfiguration.citiesList())
     }
 
     @IBAction func goToLoginTapped() {
-        DefaultRouter().deepLinkTo(destination: configuration.destination(for: ExampleSource.login)!)
+        router.deepLinkTo(destination: ExampleConfiguration.destination(for: ExampleSource.login)!)
     }
 
 }

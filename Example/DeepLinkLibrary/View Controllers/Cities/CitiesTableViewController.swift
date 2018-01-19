@@ -101,11 +101,11 @@ class CitiesTableViewController: UITableViewController, AnalyticsSupportViewCont
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let city = CitiesDataModel.cities[indexPath.row]
-        DefaultRouter().deepLinkTo(destination: CitiesConfiguration.cityDetail(cityId: city.cityId))
+        router.deepLinkTo(destination: CitiesConfiguration.cityDetail(cityId: city.cityId))
     }
 
     @IBAction func goToSquareTapped() {
-        DefaultRouter().deepLinkTo(destination: configuration.destination(for: ExampleSource.square)!)
+        router.deepLinkTo(destination: ExampleConfiguration.destination(for: ExampleSource.square)!)
     }
 }
 

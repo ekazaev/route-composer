@@ -28,18 +28,17 @@ class RoutingRuleSupportViewController: UIViewController, RouterRulesViewControl
 
     @objc func doneTapped() {
         self.dismiss(animated: true)
-        //DefaultRouter().deepLinkTo(destination: configuration.destination(for: ExampleTarget.home)!)
     }
 
     @IBAction func goToColorTapped() {
-        DefaultRouter().deepLinkTo(destination: configuration.destination(for: ExampleSource.color, arguments: ExampleDictionaryArguments(arguments: [Argument.color: "FFFF00"], ExampleAnalyticsParameters(source: .ruleSupport)))!)
+        router.deepLinkTo(destination: ExampleConfiguration.destination(for: ExampleSource.color, arguments: ExampleDictionaryArguments(arguments: [Argument.color: "FFFF00"], ExampleAnalyticsParameters(source: .ruleSupport)))!)
     }
 
     @IBAction func goToSquareTapped() {
-        DefaultRouter().deepLinkTo(destination: configuration.destination(for: ExampleSource.square)!)
+        router.deepLinkTo(destination: ExampleConfiguration.destination(for: ExampleSource.square)!)
     }
 
     @IBAction func goToMoscowTapped() {
-        DefaultRouter().deepLinkTo(destination: CitiesConfiguration.cityDetail(cityId: 2))
+        router.deepLinkTo(destination: CitiesConfiguration.cityDetail(cityId: 2))
     }
 }

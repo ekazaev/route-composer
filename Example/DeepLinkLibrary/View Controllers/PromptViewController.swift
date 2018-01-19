@@ -13,7 +13,7 @@ class PromptViewController: UIViewController, AnalyticsSupportViewController {
 
 
     @IBAction func goToHomeTapped() {
-        DefaultRouter().deepLinkTo(destination: configuration.destination(for: ExampleSource.home)!)
+        router.deepLinkTo(destination: ExampleConfiguration.destination(for: ExampleSource.home)!)
     }
 
 }

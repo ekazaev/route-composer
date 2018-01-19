@@ -7,18 +7,12 @@ import Foundation
 
 class ColorURLTranslator: ExampleURLTranslator {
 
-    let config: ExampleConfiguration
-
-    init(_ config: ExampleConfiguration) {
-        self.config = config
-    }
-
     func destination(from url: URL) -> ExampleDestination? {
         guard let urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false),
               let queryItems = urlComponents.queryItems,
               let colorItem = queryItems.first(where: { $0.name == "color" }),
               let colorValue = colorItem.value,
-              let screen = config.screen(for: ExampleSource.color) else {
+              let screen = ExampleConfiguration.screen(for: ExampleSource.color) else {
             return nil
         }
 

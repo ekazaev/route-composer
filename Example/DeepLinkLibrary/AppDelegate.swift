@@ -29,11 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    var config: ExampleConfiguration?
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-
-        let config = ExampleConfiguration()
 
         // Login
         let loginScreen = Screen(
@@ -42,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 interceptor: ExampleAnalyticsInterceptor(),
                 postTask: ExampleAnalyticsPostAction(),
                 step: TopMostViewControllerStep())
-        config.register(screen: loginScreen, for: ExampleSource.login)
+        ExampleConfiguration.register(screen: loginScreen, for: ExampleSource.login)
 
         // Home Tab Bar Screen
         let homeScreen = Screen(
@@ -54,7 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     RootViewControllerStep()
                 ]))
 
-        config.register(screen: homeScreen, for: ExampleSource.home)
+        ExampleConfiguration.register(screen: homeScreen, for: ExampleSource.home)
 
         // Square Tab Bar Screen
         let squareScreen = Screen(
@@ -65,7 +61,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     RequireScreenStep(screen: homeScreen)
                 ]))
 
-        config.register(screen: squareScreen, for: ExampleSource.square)
+        ExampleConfiguration.register(screen: squareScreen, for: ExampleSource.square)
 
         // Circle Tab Bar screen
         let circleScreen = Screen(
@@ -76,7 +72,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     RequireScreenStep(screen: homeScreen)
                 ]))
 
-        config.register(screen: circleScreen, for: ExampleSource.circle)
+        ExampleConfiguration.register(screen: circleScreen, for: ExampleSource.circle)
 
         //Color screen
         let colorScreen = Screen(
@@ -88,7 +84,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     TopMostViewControllerStep(),
                 ]))
 
-        config.register(screen: colorScreen, for: ExampleSource.color)
+        ExampleConfiguration.register(screen: colorScreen, for: ExampleSource.color)
 
         //Sceen with Routing support
         let routingSuportScreen = Screen(finder: ViewControllerClassFinder(containerType: RoutingRuleSupportViewController.self, policy: .currentLevel),
@@ -98,7 +94,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 step: chain([
                     RequireScreenStep(screen: colorScreen)
                 ]))
-        config.register(screen: routingSuportScreen,
+        ExampleConfiguration.register(screen: routingSuportScreen,
                 for: ExampleSource.ruleSupport)
 
         // Empty Screen
@@ -110,7 +106,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     RequireScreenStep(screen: circleScreen)
                 ]))
 
-        config.register(screen: emptyScreen, for: ExampleSource.empty)
+        ExampleConfiguration.register(screen: emptyScreen, for: ExampleSource.empty)
 
         // Product Screen
         let productScreen = Screen(
@@ -122,7 +118,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     RequireScreenStep(screen: circleScreen)
                 ]))
 
-        config.register(screen: productScreen, for: ExampleSource.product)
+        ExampleConfiguration.register(screen: productScreen, for: ExampleSource.product)
 
         // Two modal presentations screen
         let superModlaScreen = Screen(
@@ -134,7 +130,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     NavigationContainerStep(action: PresentModallyAction()),
                     RequireScreenStep(screen: routingSuportScreen)
                 ]))
-        config.register(screen: superModlaScreen, for: ExampleSource.superModal)
+        ExampleConfiguration.register(screen: superModlaScreen, for: ExampleSource.superModal)
 
         // Welcome Screen
         let welcomeScreen = Screen(
@@ -146,12 +142,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     RootViewControllerStep()
                 ]))
 
-        config.register(screen: welcomeScreen, for: ExampleSource.welcome)
+        ExampleConfiguration.register(screen: welcomeScreen, for: ExampleSource.welcome)
 
-        self.config = config
-
-        ExampleUniversalLinksManager.register(translator: ColorURLTranslator(config))
-        ExampleUniversalLinksManager.register(translator: ProductURLTranslator(config))
+        ExampleUniversalLinksManager.register(translator: ColorURLTranslator())
+        ExampleUniversalLinksManager.register(translator: ProductURLTranslator())
         ExampleUniversalLinksManager.register(translator: CityURLTranslator())
 
         return true
