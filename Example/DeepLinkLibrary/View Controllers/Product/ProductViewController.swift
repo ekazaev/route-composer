@@ -17,13 +17,12 @@ class ProductViewControllerFinder: FinderWithPolicy {
 
     func isTarget(viewController: UIViewController, arguments: Any?) -> Bool {
         guard let controller = viewController as? ProductViewController,
-              let arguments = arguments as? ExampleDictionaryArguments,
-              let destinationModel = arguments[Argument.productId] as? ProductViewController.Model,
-              let controllerModel = controller.model,
-              destinationModel == controllerModel  else {
+              let arguments = arguments as? ProductArguments,
+              let controllerProductId = controller.productId,
+              controllerProductId == arguments.productId else {
             return false
         }
-        controller.model = destinationModel
+        controller.productId = arguments.productId
         return true
     }
 
@@ -33,7 +32,7 @@ class ProductViewControllerFactory: Factory, PreparableFactory {
 
     let action: ViewControllerAction?
 
-    var model: ProductViewController.Model?
+    var arguments: ProductArguments?
 
     init(action: ViewControllerAction? = nil) {
         self.action = action
@@ -45,18 +44,17 @@ class ProductViewControllerFactory: Factory, PreparableFactory {
             return nil
         }
 
-        viewController.model = model
+        viewController.productId = arguments?.productId
 
         return viewController
     }
 
     func prepare(with arguments: Any?) -> DeepLinkResult {
-        guard let arguments = arguments as? ExampleDictionaryArguments,
-              let destinationModel = arguments[Argument.productId] as? ProductViewController.Model else {
+        guard let arguments = arguments as? ProductArguments else {
             return .unhandled
         }
 
-        self.model = destinationModel
+        self.arguments = arguments
         return .handled
     }
 }
@@ -68,7 +66,7 @@ class ProductViewController: UIViewController, AnalyticsSupportViewController {
 
     typealias Model = String
 
-    var model: Model? {
+    var productId: Model? {
         didSet {
             reloadData()
         }
@@ -86,7 +84,7 @@ class ProductViewController: UIViewController, AnalyticsSupportViewController {
             return
         }
 
-        productIdLabel.text = model
+        productIdLabel.text = productId
     }
 
     @IBAction func goToCircleTapped() {
@@ -98,7 +96,7 @@ class ProductViewController: UIViewController, AnalyticsSupportViewController {
     }
 
     @IBAction func goToProductTapped() {
-        router.deepLinkTo(destination: ExampleConfiguration.destination(for: ExampleSource.product, arguments: ExampleDictionaryArguments(arguments: [Argument.productId: "01"]))!)
+        router.deepLinkTo(destination: ProductConfiguration.productDestination(productId: "01"))
     }
 
 }

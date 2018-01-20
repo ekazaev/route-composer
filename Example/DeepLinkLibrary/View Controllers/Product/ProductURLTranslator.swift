@@ -11,13 +11,11 @@ class ProductURLTranslator: ExampleURLTranslator {
         guard let urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false),
               let queryItems = urlComponents.queryItems,
               let item = queryItems.first(where: { $0.name == "product" }),
-              let productIdValue = item.value,
-              let screen = ExampleConfiguration.screen(for: ExampleSource.product) else {
+              let productIdValue = item.value else {
             return nil
         }
 
-        return ExampleDestination(screen: screen,
-                arguments: ExampleDictionaryArguments(arguments: [Argument.productId: productIdValue], ExampleAnalyticsParameters(source: .appLink, webpageURL: url, referrerURL: nil)))
+        return ProductConfiguration.productDestination(productId: productIdValue, ExampleAnalyticsParameters(source: .appLink, webpageURL: url, referrerURL: nil))
     }
 
 }

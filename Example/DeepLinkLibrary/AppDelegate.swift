@@ -31,7 +31,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
-        //As one of exapmples configuration can be stored in configuration object.
+        configureNavigationUsingDictionaryConfig()
+
+        return true
+    }
+
+    private func configureNavigationUsingDictionaryConfig() {
+        //As one of examples configuration can be stored in one configuration object. Other configs are in CitiesConfiguration, Product cofiguration and LoginConfiguration as static objects
 
         // Login
         let loginScreen = Screen(
@@ -110,18 +116,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         ExampleConfiguration.register(screen: emptyScreen, for: ExampleSource.empty)
 
-        // Product Screen
-        let productScreen = Screen(
-                finder: ProductViewControllerFinder(),
-                factory: ProductViewControllerFactory(action: PushAction()),
-                interceptor: ExampleAnalyticsInterceptor(),
-                postTask: ExampleAnalyticsPostAction(),
-                step: chain([
-                    RequireScreenStep(screen: circleScreen)
-                ]))
-
-        ExampleConfiguration.register(screen: productScreen, for: ExampleSource.product)
-
         // Two modal presentations screen
         let superModlaScreen = Screen(
                 finder: ViewControllerClassFinder(containerType: ColorViewController.self),
@@ -149,8 +143,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ExampleUniversalLinksManager.register(translator: ColorURLTranslator())
         ExampleUniversalLinksManager.register(translator: ProductURLTranslator())
         ExampleUniversalLinksManager.register(translator: CityURLTranslator())
-
-        return true
     }
 
     func application(_ application: UIApplication,
