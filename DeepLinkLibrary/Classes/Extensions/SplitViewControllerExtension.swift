@@ -14,7 +14,7 @@ extension UISplitViewController: ContainerViewController {
         let viewControllers = self.viewControllers
 
         for viewController in viewControllers {
-            if let _ = UIViewController.findViewControllerDeep(in: viewController, oneLevelOnly: true, using: { controller in
+            if let _ = UIViewController.findViewController(in: viewController, options: .sameLevel, using: { controller in
                 if let container = controller as? ContainerViewController {
                     container.makeActive(vc: vc)
                 }

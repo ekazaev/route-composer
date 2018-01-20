@@ -11,7 +11,7 @@ class CityDetailsViewControllerFinder: FinderWithPolicy {
 
     let policy: FinderPolicy
 
-    init(policy: FinderPolicy = .allStack) {
+    init(policy: FinderPolicy = .allStackUp) {
         self.policy = policy
     }
 

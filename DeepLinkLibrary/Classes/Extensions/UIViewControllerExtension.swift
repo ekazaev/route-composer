@@ -7,54 +7,72 @@
 
 import UIKit
 
+public enum ViewControllerSearchOptions {
+
+    case sameLevel
+
+    case sameAndUp
+
+    case sameAndDown
+}
+
 public extension UIViewController {
 
-    public static func findViewControllerUp(from vc: UIViewController, using equator: (UIViewController) -> Bool) -> UIViewController? {
-        if equator(vc) {
+    public static func findParentViewController(from vc: UIViewController, using comparator: (UIViewController) -> Bool) -> UIViewController? {
+        if comparator(vc) {
             return vc
         }
 
         if let parentVC = vc.parent {
-            return findViewControllerUp(from: parentVC, using: equator)
+            return findParentViewController(from: parentVC, using: comparator)
         }
 
         return nil
     }
 
-    public static func findViewControllerDeep(in vc: UIViewController, oneLevelOnly: Bool = false, using equator: (UIViewController) -> Bool) -> UIViewController? {
-        if equator(vc) {
+    public static func findViewController(in vc: UIViewController, options: ViewControllerSearchOptions = .sameAndUp, using comparator: (UIViewController) -> Bool) -> UIViewController? {
+        if comparator(vc) {
             return vc
         }
 
         if let nc = vc as? UINavigationController {
             for selected in nc.viewControllers {
-                if let found = findViewControllerDeep(in: selected, oneLevelOnly: oneLevelOnly, using: equator) {
+                if let found = findViewController(in: selected, options: options, using: comparator) {
                     return found
                 }
             }
         } else if let tbc = vc as? UITabBarController, let viewControllers = tbc.viewControllers {
             for selected in viewControllers {
-                if let found = findViewControllerDeep(in: selected, oneLevelOnly: oneLevelOnly, using: equator) {
+                if let found = findViewController(in: selected, options: options, using: comparator) {
                     return found
                 }
             }
         } else if let svc = vc as? UISplitViewController {
             let viewControllers = svc.viewControllers
             for selected in viewControllers {
-                if let found = findViewControllerDeep(in: selected, oneLevelOnly: oneLevelOnly, using: equator) {
+                if let found = findViewController(in: selected, options: options, using: comparator) {
+                    return found
+                }
+            }
+        } else {
+            for child in vc.childViewControllers {
+                if let found = findViewController(in: child, options: options, using: comparator) {
                     return found
                 }
             }
         }
 
-        if !oneLevelOnly,
+        if options == .sameAndUp,
            let presented = vc.presentedViewController,
-           !presented.isBeingDismissed && presented.popoverPresentationController == nil {
-            return findViewControllerDeep(in: presented, oneLevelOnly: oneLevelOnly, using: equator)
-        }
-
-        for child in vc.childViewControllers {
-            return findViewControllerDeep(in: child, oneLevelOnly: oneLevelOnly, using: equator)
+           !presented.isBeingDismissed && presented.popoverPresentationController == nil,
+           let found = findViewController(in: presented, options: options, using: comparator) {
+            return found
+        } else if options == .sameAndDown {
+            if let presenting = vc.presentingViewController,
+               !vc.isBeingDismissed && vc.popoverPresentationController == nil,
+                let found = findViewController(in: presenting, options: options, using: comparator) {
+                return found
+            }
         }
 
         return nil

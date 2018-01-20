@@ -12,7 +12,7 @@ public class ViewControllerClassFinder: FinderWithPolicy {
 
     public let policy: FinderPolicy
 
-    public init(containerType: UIViewController.Type, policy: FinderPolicy = .allStack) {
+    public init(containerType: UIViewController.Type, policy: FinderPolicy = .allStackUp) {
         self.containerType = containerType
         self.policy = policy
     }

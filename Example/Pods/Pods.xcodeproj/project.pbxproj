@@ -36,6 +36,7 @@
 		908EAC0292110686B7C5BFB4652B355D /* RootViewControllerStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2927B10D5F98348B3DB41432FE81DED7 /* RootViewControllerStep.swift */; };
 		964A1BA7B5E320AF426C7F42A7EA6A9D /* SplitViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8399660453670D15723A562886E0404 /* SplitViewControllerExtension.swift */; };
 		994235B566C7716F199E2E54FEF455EB /* ReplaceRootAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CBFD86D98E5727FBE4AEE99D2A4F65 /* ReplaceRootAction.swift */; };
+		9AFBCD981E8C6526C1C387B9 /* NilFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC2811CC4E431CF845F85 /* NilFinder.swift */; };
 		A9EDF9BE3DA4456BD9FAEEE632177B32 /* DefaultLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CC96AE4C9D1B9E77B0F105C838211A /* DefaultLogger.swift */; };
 		B5F46514B8FEF76853BDAAC69CDBA39F /* DeepLinkLibrary-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8F0B51378D152707A013DA7AC5D6CE32 /* DeepLinkLibrary-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B78AD61FE38FF3397586E495F93C987B /* DeepLinkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB77DCC3C2B89464B3ECBB40D422588 /* DeepLinkResult.swift */; };
@@ -104,6 +105,7 @@
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		94D6A72797958BA477611D680DBA8214 /* Router.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		9AA6B860E68A680C799678E75FEDCFFF /* ViewControllerFromClassFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ViewControllerFromClassFactory.swift; sourceTree = "<group>"; };
+		9AFBC2811CC4E431CF845F85 /* NilFinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NilFinder.swift; sourceTree = "<group>"; };
 		9CDD22B66940803BE69EBE374EBFEF99 /* Pods-DeepLinkLibrary_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-DeepLinkLibrary_Example-dummy.m"; sourceTree = "<group>"; };
 		9D05FC597821A7DEC1EEA6EA4A06F2E1 /* Pods-DeepLinkLibrary_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-DeepLinkLibrary_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		A4C5C51C0611CB84D8B2AD861D45C913 /* Screen.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Screen.swift; path = DeepLinkLibrary/Classes/Screen.swift; sourceTree = "<group>"; };
@@ -281,6 +283,7 @@
 				EFC68CAEF625CD6171D36C8B40792A7F /* FiderWithPolicy.swift */,
 				5DABE423134C0680322E685AC89F47E2 /* Finder.swift */,
 				F873648C1EF901293A08BA06570891F4 /* ViewControllerClassFinder.swift */,
+				9AFBC2811CC4E431CF845F85 /* NilFinder.swift */,
 			);
 			name = Finders;
 			path = DeepLinkLibrary/Classes/Finders;
@@ -518,6 +521,7 @@
 				658F6FE92457341424EF0AF325B9468A /* ViewControllerClassFinder.swift in Sources */,
 				8E3AA88903536A601BE37BFBA5DFE1A3 /* ViewControllerFromClassFactory.swift in Sources */,
 				4D3922C8ADB6398375DA886ABF8E7926 /* ViewControllerFromStoryboardFactory.swift in Sources */,
+				9AFBCD981E8C6526C1C387B9 /* NilFinder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
