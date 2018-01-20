@@ -33,7 +33,7 @@ public class SplitControllerFactory: ContainerFactory {
         return rest
     }
 
-    public func build() -> UIViewController? {
+    public func build(with logger: Logger?) -> UIViewController? {
         guard masterFactories.count > 0, detailFactories.count > 0 else {
             return nil
         }
@@ -42,13 +42,14 @@ public class SplitControllerFactory: ContainerFactory {
 
         var masterViewControllers = Array<UIViewController>()
         self.masterFactories.forEach { factory in
-            guard let viewController = factory.build() else {
+            guard let viewController = factory.build(with: logger) else {
                 return
             }
-            factory.action?.applyMerged(viewController: viewController, containerViewControllers: &masterViewControllers)
+            factory.action?.applyMerged(viewController: viewController, containerViewControllers: &masterViewControllers, logger: logger)
         }
 
         guard masterViewControllers.count > 0 else {
+            logger?.log(.error("Master View Controller is mandatory to build UISplitViewController"))
             return nil
         }
         let masterViewController = masterViewControllers.removeFirst()
@@ -57,13 +58,14 @@ public class SplitControllerFactory: ContainerFactory {
         var detailsViewControllers = Array<UIViewController>()
         detailsViewControllers.append(contentsOf: masterViewControllers)
         self.detailFactories.forEach { factory in
-            guard let viewController = factory.build() else {
+            guard let viewController = factory.build(with: logger) else {
                 return
             }
-            factory.action?.applyMerged(viewController: viewController, containerViewControllers: &detailsViewControllers)
+            factory.action?.applyMerged(viewController: viewController, containerViewControllers: &detailsViewControllers, logger: logger)
         }
 
         guard detailsViewControllers.count > 0 else {
+            logger?.log(.error("At least 1 Details View Controller is mandatory to build UISplitViewController"))
             return nil
         }
 

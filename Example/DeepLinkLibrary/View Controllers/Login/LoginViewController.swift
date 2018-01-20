@@ -12,7 +12,7 @@ var isLoggedIn: Bool = false
 
 class LoginInterceptor: RouterInterceptor {
 
-    func apply(with arguments: Any?, completion: @escaping (_: InterceptorResult) -> Void) {
+    func apply(with arguments: Any?, logger: Logger?, completion: @escaping (_: InterceptorResult) -> Void) {
         guard !isLoggedIn else {
             completion(.success)
             return
@@ -23,7 +23,7 @@ class LoginInterceptor: RouterInterceptor {
         // It will help to avoid opening of another login view controller and will help you not to have your own
         // boilerplate code that will help you to avoid this rare, but possible situation.
         let destination = LoginConfiguration.login()
-        let result = router.deepLinkTo(destination: destination) {
+        let result = DefaultRouter().deepLinkTo(destination: destination) {
             guard let screen = destination.screen as? Screen,
                   let loginViewController = screen.finder?.findViewController(with: nil) as? LoginViewController else {
                 completion(.failure)

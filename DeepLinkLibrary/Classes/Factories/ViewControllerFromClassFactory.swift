@@ -16,9 +16,10 @@ public class ViewControllerFromClassFactory: Factory {
         self.viewControllerName = viewControllerName
     }
 
-    public func build() -> UIViewController? {
+    public func build(with logger: Logger?) -> UIViewController? {
         guard let myClass = NSClassFromString(self.viewControllerName) as? UIViewController.Type else {
-            fatalError("Can not find \(self.viewControllerName) in bundle")
+            logger?.log(.error("Can not find \(self.viewControllerName) in bundle"))
+            return nil
         }
 
         return myClass.init(nibName: nil, bundle: nil)

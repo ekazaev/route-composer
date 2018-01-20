@@ -28,7 +28,7 @@ public class NavigationControllerFactory: ContainerFactory {
         return rest
     }
 
-    public func build() -> UIViewController? {
+    public func build(with logger: Logger?) -> UIViewController? {
         guard screenFactories.count > 0 else {
             return nil
         }
@@ -37,13 +37,14 @@ public class NavigationControllerFactory: ContainerFactory {
 
         var viewControllers: [UIViewController] = []
         self.screenFactories.forEach { factory in
-            guard let viewController = factory.build() else {
+            guard let viewController = factory.build(with: logger) else {
                 return
             }
-            factory.action?.applyMerged(viewController: viewController, containerViewControllers: &viewControllers)
+            factory.action?.applyMerged(viewController: viewController, containerViewControllers: &viewControllers, logger: logger)
         }
 
         guard viewControllers.count > 0 else {
+            logger?.log(.error("Unable to build UINavigationController due to 0 amount of child view controllers"))
             return nil
         }
 

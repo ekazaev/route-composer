@@ -21,7 +21,7 @@ public class RequireScreenStep: ChainableStep {
     }
 
     override func previous(continue presenter: Step) {
-        fatalError("RequireScreenStep cant have any further steps chains. Steps will be build from required target")
+        fatalError("RequireScreenStep cant have any further step chains. Next steps will be build from required target")
     }
 
 }

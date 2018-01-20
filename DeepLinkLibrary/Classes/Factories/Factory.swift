@@ -9,7 +9,7 @@ public protocol Factory: class {
 
     var action: ViewControllerAction? { get }
 
-    func build() -> UIViewController?
+    func build(with logger: Logger?) -> UIViewController?
 
 }
 

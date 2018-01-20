@@ -66,7 +66,7 @@ public class ChainableStep: Step {
 
 public func chain(_ chains: [ChainableStep])  -> ChainableStep {
     guard let firstStep = chains.first else {
-        fatalError()
+        fatalError("No steps provided to chain.")
     }
 
     var restSteps = chains

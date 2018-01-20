@@ -86,7 +86,7 @@ class FinderStep: Step {
             return .handled
         }
 
-        func build() -> UIViewController? {
+        func build(with logger: Logger?) -> UIViewController? {
             return finder.findViewController(with: arguments)
         }
     }

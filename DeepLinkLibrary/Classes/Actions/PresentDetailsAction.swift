@@ -13,13 +13,14 @@ public class PresentMasterAction: ViewControllerAction {
         
     }
     
-    public func applyMerged(viewController: UIViewController, containerViewControllers: inout [UIViewController]) {
+    public func applyMerged(viewController: UIViewController, containerViewControllers: inout [UIViewController], logger: Logger?) {
         containerViewControllers.append(viewController)
     }
 
-    public func apply(viewController: UIViewController, on existingController: UIViewController, completion: @escaping (_: UIViewController) -> Void) {
+    public func apply(viewController: UIViewController, on existingController: UIViewController, logger: Logger?, completion: @escaping (_: UIViewController) -> Void) {
         guard let splitViewController = existingController as? UISplitViewController ?? existingController.splitViewController,
               splitViewController.viewControllers.count > 0 else {
+            logger?.log(.error("Could not find UISplitViewController in \(existingController) to present master view controller \(viewController)."))
             completion(existingController)
             return
         }
@@ -35,13 +36,14 @@ public class PresentDetailsAction: ViewControllerAction {
         
     }
     
-    public func applyMerged(viewController: UIViewController, containerViewControllers: inout [UIViewController]) {
+    public func applyMerged(viewController: UIViewController, containerViewControllers: inout [UIViewController], logger: Logger?) {
 
     }
 
-    public func apply(viewController: UIViewController, on existingController: UIViewController, completion: @escaping (_: UIViewController) -> Void) {
+    public func apply(viewController: UIViewController, on existingController: UIViewController, logger: Logger?, completion: @escaping (_: UIViewController) -> Void) {
         guard let splitViewController = existingController as? UISplitViewController ?? existingController.splitViewController,
               splitViewController.viewControllers.count > 0 else {
+            logger?.log(.error("Could not find UISplitViewController in \(existingController) to present details view controller \(viewController)."))
             completion(existingController)
             return
         }

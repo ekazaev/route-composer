@@ -76,7 +76,7 @@ class CitiesTableViewController: UITableViewController, AnalyticsSupportViewCont
             }
             let indexPath = IndexPath(row: cityId - 1, section: 0)
 
-            tableView.selectRow(at: indexPath, animated: true, scrollPosition: .top)
+            tableView.selectRow(at: indexPath, animated: true, scrollPosition: .none)
         }
     }
 
@@ -92,7 +92,7 @@ class CitiesTableViewController: UITableViewController, AnalyticsSupportViewCont
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CityCell") else {
-            fatalError()
+            fatalError("Unable to dequeue reusable cell.")
         }
         cell.textLabel?.text = CitiesDataModel.cities[indexPath.row].city
 
@@ -109,10 +109,9 @@ class CitiesTableViewController: UITableViewController, AnalyticsSupportViewCont
     }
 }
 
-// To show master firet in compact mode
+// To show master first in compact mode
 // https://stackoverflow.com/questions/29506713/open-uisplitviewcontroller-to-master-view-rather-than-detail
 extension CitiesTableViewController: UISplitViewControllerDelegate {
-
 
     func splitViewController(
             _ splitViewController: UISplitViewController,

@@ -19,12 +19,16 @@ public class ViewControllerFromStoryboard: Factory {
         self.viewControllerID = viewControllerID
     }
 
-    public func build() -> UIViewController? {
+    public func build(with logger: Logger?) -> UIViewController? {
         let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
         if let viewControllerID = viewControllerID {
             return storyboard.instantiateViewController(withIdentifier: viewControllerID)
         } else {
-            return storyboard.instantiateInitialViewController()
+            let viewController = storyboard.instantiateInitialViewController()
+            if viewController == nil {
+                logger?.log(.error("Unable to instantiate initial UIViewController in \(storyboardName) storyboard"))
+            }
+            return viewController
         }
     }
 

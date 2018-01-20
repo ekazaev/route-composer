@@ -35,7 +35,7 @@ class CityDetailsViewControllerFactory: Factory {
         self.action = action
     }
 
-    func build() -> UIViewController? {
+    func build(with logger: Logger?) -> UIViewController? {
         return UIStoryboard(name: "Split", bundle: nil).instantiateViewController(withIdentifier: "CityDetailViewController")
     }
 

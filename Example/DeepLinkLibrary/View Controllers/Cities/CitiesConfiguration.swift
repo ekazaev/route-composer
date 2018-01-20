@@ -21,18 +21,14 @@ class CitiesConfiguration {
         cityScreen = Screen(finder: ViewControllerClassFinder(containerType: UISplitViewController.self),
                 factory: ViewControllerFromStoryboard(storyboardName: "Split", action: ReplaceRootAction()),
                 interceptor: LoginInterceptor(),
-                step: chain([
-                    RootViewControllerStep()
-                ]))
+                step: RootViewControllerStep())
 
         // Cities List
         citiesListScreen = Screen(
                 finder: CityTableViewControllerFinder(),
                 interceptor: ExampleAnalyticsInterceptor(),
                 postTask: PostRoutingTaskMultiplex([CityTablePostTask(), ExampleAnalyticsPostAction()]),
-                step: chain([
-                    RequireScreenStep(screen: self.cityScreen)
-                ]))
+                step: RequireScreenStep(screen: self.cityScreen))
 
         // City Details
         cityDetailsScreen = Screen(
@@ -40,9 +36,7 @@ class CitiesConfiguration {
                 factory: CityDetailsViewControllerFactory(action: PresentDetailsAction()),
                 interceptor: ExampleAnalyticsInterceptor(),
                 postTask: PostRoutingTaskMultiplex([CityDetailPostTask(), ExampleAnalyticsPostAction()]),
-                step: chain([
-                    RequireScreenStep(screen: self.citiesListScreen)
-                ]))
+                step: RequireScreenStep(screen: self.citiesListScreen))
     }
 
 
@@ -51,6 +45,6 @@ class CitiesConfiguration {
     }
 
     static func cityDetail(cityId: Int, _ analyticParameters: ExampleAnalyticsParameters? = nil) -> ExampleDestination {
-        return ExampleDestination(screen: shared.cityDetailsScreen, arguments: CityArguments(cityId: cityId,analyticParameters))
+        return ExampleDestination(screen: shared.cityDetailsScreen, arguments: CityArguments(cityId: cityId, analyticParameters))
     }
 }

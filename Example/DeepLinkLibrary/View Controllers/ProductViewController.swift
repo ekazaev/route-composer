@@ -39,7 +39,7 @@ class ProductViewControllerFactory: Factory, PreparableFactory {
         self.action = action
     }
 
-    func build() -> UIViewController? {
+    func build(with logger: Logger?) -> UIViewController? {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let viewController = storyboard.instantiateViewController(withIdentifier: "ProductViewController") as? ProductViewController else {
             return nil
@@ -51,8 +51,8 @@ class ProductViewControllerFactory: Factory, PreparableFactory {
     }
 
     func prepare(with arguments: Any?) -> DeepLinkResult {
-        guard let argumetns = arguments as? ExampleDictionaryArguments,
-              let destinationModel = argumetns[Argument.productId] as? ProductViewController.Model else {
+        guard let arguments = arguments as? ExampleDictionaryArguments,
+              let destinationModel = arguments[Argument.productId] as? ProductViewController.Model else {
             return .unhandled
         }
 

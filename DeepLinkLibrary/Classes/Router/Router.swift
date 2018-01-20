@@ -21,6 +21,8 @@ import Foundation
 
 public protocol Router {
 
+    var logger: Logger? { get }
+
     @discardableResult
     func deepLinkTo<A: DeepLinkDestination>(destination: A, completion: (() -> Void)?) -> DeepLinkResult
 }

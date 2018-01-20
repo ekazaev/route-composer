@@ -29,8 +29,8 @@ private class FactoryDecorator: Factory {
         self.postTask = postTask
     }
 
-    func build() -> UIViewController? {
-        guard let viewController = factory.build() else {
+    func build(with logger: Logger?) -> UIViewController? {
+        guard let viewController = factory.build(with: logger) else {
             return nil
         }
         if let postTask = postTask {
@@ -51,8 +51,10 @@ private class PostTaskRunner {
 
 public class DefaultRouter: Router {
 
-    public init() {
+    public let logger: Logger?
 
+    public init(logger: Logger? = nil) {
+        self.logger = logger
     }
 
     @discardableResult
@@ -61,6 +63,7 @@ public class DefaultRouter: Router {
         // If currently visible view controller can not be dissmissed - then we cant deeplink anywhere because it will
         // disappear as a result of deeplinking.
         if let topMostViewControler = UIWindow.key?.topmostViewController as? RouterRulesViewController, !topMostViewControler.canBeDismissed {
+            logger?.log(.warning("Topmost view controller can not be dismissed."))
             return .unhandled
         }
 
@@ -72,20 +75,22 @@ public class DefaultRouter: Router {
 
         let viewController = stack.rootViewController,
                 factoriesStack = stack.factories,
-                interceptor = InterceptorMultiplex(stack.interceptors)
+                interceptor = stack.interceptor
 
         // Let find is we are eligible to dismiss view controllers in stack to show target view controller
-        if let _ = UIViewController.findAllPresentedViewControllers(starting: viewController).flatMap({
+        if let viewController = UIViewController.findAllPresentedViewControllers(starting: viewController).flatMap({
             $0 as? RouterRulesViewController
         }).first(where: {
             !$0.canBeDismissed
         }) {
+            logger?.log(.warning("\(viewController) view controller can not be dismissed."))
             return .unhandled
         }
 
         // Lets run the interceptor chain. All of interceptor must succeed to continue routing.
-        interceptor.apply(with: destination.arguments) { result in
+        interceptor.apply(with: destination.arguments, logger: logger) { result in
             guard result == .success else {
+                self.logger?.log(.warning("\(interceptor) interceptor has stopped routing."))
                 completion?()
                 return
             }
@@ -100,7 +105,7 @@ public class DefaultRouter: Router {
         return .handled
     }
 
-    private func prepareStack<A: DeepLinkDestination>(destination: A, postTaskRunner: PostTaskRunner) -> (rootViewController: UIViewController, factories: [Factory], interceptors: [RouterInterceptor])? {
+    private func prepareStack<A: DeepLinkDestination>(destination: A, postTaskRunner: PostTaskRunner) -> (rootViewController: UIViewController, factories: [Factory], interceptor: RouterInterceptor)? {
         var step: Step? = destination.screen.step
 
         var rootViewController: UIViewController?
@@ -136,6 +141,7 @@ public class DefaultRouter: Router {
             case .continueRouting:
                 break
             case .failure:
+                logger?.log(.error("Step has return an error while looking for a view controller to present from."))
                 return nil
             }
 
@@ -188,7 +194,7 @@ public class DefaultRouter: Router {
             if !viewController.isViewLoaded {
                 makeContainersActive(toShow: viewController)
             }
-            return (rootViewController: viewController, factories: factories, interceptors: interceptors)
+            return (rootViewController: viewController, factories: factories, interceptor: interceptors.count == 1 ? interceptors.removeFirst() : InterceptorMultiplex(interceptors))
         }
 
         return nil
@@ -212,10 +218,10 @@ public class DefaultRouter: Router {
         var factories = factories
 
         func buildScreens(_ factory: Factory, _ previousViewController: UIViewController) {
-            if let newViewController = factory.build() {
+            if let newViewController = factory.build(with: logger) {
                 // If factory contains action - applying it
                 if let action = factory.action {
-                    action.apply(viewController: newViewController, on: previousViewController) { viewController in
+                    action.apply(viewController: newViewController, on: previousViewController, logger: self.logger) { viewController in
                         guard factories.count > 0 else {
                             completion(viewController)
                             return

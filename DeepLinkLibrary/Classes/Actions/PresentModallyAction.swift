@@ -11,11 +11,16 @@ public class PresentModallyAction: ViewControllerAction {
         
     }
     
-    public func applyMerged(viewController: UIViewController, containerViewControllers: inout [UIViewController]) {
+    public func applyMerged(viewController: UIViewController, containerViewControllers: inout [UIViewController], logger: Logger?) {
 
     }
 
-    public func apply(viewController: UIViewController, on existingController: UIViewController, completion: @escaping (_: UIViewController) -> Void) {
+    public func apply(viewController: UIViewController, on existingController: UIViewController, logger: Logger?, completion: @escaping (_: UIViewController) -> Void) {
+        guard existingController.presentedViewController == nil else {
+            logger?.log(.error("Could not present modally \(viewController) from \(existingController) because it has already presented a view controller."))
+            completion(existingController)
+            return
+        }
         existingController.present(viewController, animated: true, completion: {
             completion(viewController)
         })

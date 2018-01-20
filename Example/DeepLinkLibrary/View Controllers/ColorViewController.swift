@@ -37,7 +37,7 @@ class ColorViewControllerFactory: Factory, PreparableFactory {
         self.action = action
     }
 
-    func build() -> UIViewController? {
+    func build(with logger: Logger?) -> UIViewController? {
         let colorViewController = ColorViewController(nibName: nil, bundle: nil)
         colorViewController.colorHex = model
 

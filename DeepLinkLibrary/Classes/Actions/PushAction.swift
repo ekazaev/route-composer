@@ -10,17 +10,18 @@ public class PushAction: ViewControllerAction {
         
     }
     
-    public func applyMerged(viewController: UIViewController, containerViewControllers: inout [UIViewController]) {
+    public func applyMerged(viewController: UIViewController, containerViewControllers: inout [UIViewController], logger: Logger?) {
         containerViewControllers.append(viewController)
     }
 
-    public func apply(viewController: UIViewController, on existingController: UIViewController, completion: @escaping(_: UIViewController) -> Void) {
-        if let nv = existingController as? UINavigationController ?? existingController.navigationController {
-            nv.pushViewController(viewController, animated: true)
-            return completion(viewController)
+    public func apply(viewController: UIViewController, on existingController: UIViewController, logger: Logger?, completion: @escaping(_: UIViewController) -> Void) {
+        guard let nv = existingController as? UINavigationController ?? existingController.navigationController else {
+            logger?.log(.error("Could not find UINavigationController in \(existingController) to present view controller \(viewController)."))
+            return completion(existingController)
         }
 
-        return completion(existingController)
+        nv.pushViewController(viewController, animated: true)
+        return completion(viewController)
     }
 
 }
