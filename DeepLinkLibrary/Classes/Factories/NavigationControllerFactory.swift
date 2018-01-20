@@ -5,7 +5,7 @@
 
 import UIKit
 
-public class NavigationControllerFactory: ContainerFactory {
+open class NavigationControllerFactory: ContainerFactory {
 
     public let action: ViewControllerAction?
 
@@ -28,7 +28,7 @@ public class NavigationControllerFactory: ContainerFactory {
         return rest
     }
 
-    public func build(with logger: Logger?) -> UIViewController? {
+    open func build(with logger: Logger?) -> UIViewController? {
         guard screenFactories.count > 0 else {
             return nil
         }

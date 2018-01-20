@@ -31,6 +31,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
+        //As one of exapmples configuration can be stored in configuration object.
+
         // Login
         let loginScreen = Screen(
                 finder: LoginViewControllerFinder(),
