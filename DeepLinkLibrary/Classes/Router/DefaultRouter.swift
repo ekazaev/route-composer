@@ -58,7 +58,7 @@ public class DefaultRouter: Router {
     }
 
     @discardableResult
-    public func deepLinkTo<A: DeepLinkDestination>(destination: A, completion: (() -> Void)? = nil) -> DeepLinkResult {
+    public func deepLinkTo<A: DeepLinkDestination>(destination: A, animated: Bool = true, completion: (() -> Void)? = nil) -> DeepLinkResult {
 
         // If currently visible view controller can not be dissmissed - then we cant deeplink anywhere because it will
         // disappear as a result of deeplinking.
@@ -95,8 +95,8 @@ public class DefaultRouter: Router {
                 return
             }
 
-            self.startDeepLinking(viewController: viewController, factories: factoriesStack) { viewController in
-                self.makeContainersActive(toShow: viewController)
+            self.startDeepLinking(viewController: viewController, animated: animated, factories: factoriesStack) { viewController in
+                self.makeContainersActive(toShow: viewController, animated: animated)
                 postTaskRunner.run(for: destination)
                 completion?()
             }
@@ -133,12 +133,14 @@ public class DefaultRouter: Router {
             case .found(let viewController):
                 if rootViewController == nil {
                     rootViewController = viewController
+                    logger?.log(.info("Step \(step!) has found a \(viewController) to start presentation from."))
                 }
                 if let postTask = step?.postTask {
                     postTaskRunner.taskSlips.append(PostTaskSlip(viewController: viewController, postTask: postTask))
                 }
                 break
             case .continueRouting:
+                logger?.log(.info("Step \(step!) has not found its view controller is stack, so router will continue search."))
                 break
             case .failure:
                 logger?.log(.error("Step has return an error while looking for a view controller to present from."))
@@ -147,7 +149,7 @@ public class DefaultRouter: Router {
 
             //Building factory stack only if we havent find a view controllers to start from
             if rootViewController == nil {
-                // If view controller has not been found, but screen has a factroy to build itself - add factory to the stack
+                // If view controller has not been found, but screen has a factory to build itself - add factory to the stack
                 if let factory = step?.factory {
                     let factoryDecorator = FactoryDecorator(factory: factory, postTask: step?.postTask, postTaskRunner: postTaskRunner)
                     factories.insert(factoryDecorator, at: 0)
@@ -156,6 +158,7 @@ public class DefaultRouter: Router {
                     // can not be build
                     if let preparableFactory = factory as? PreparableFactory,
                        preparableFactory.prepare(with: destination.arguments) == .unhandled {
+                        logger?.log(.error("Factory \(factory) could not prepare itself to be ready to build a View Controller."))
                         return nil
                     }
 
@@ -188,24 +191,25 @@ public class DefaultRouter: Router {
 
         //If we haven't find a View Controller to start build stack from - it means that we can handle a deeplinking
         if let viewController = rootViewController {
-            // If view controller found but view is not loaded it means that it was just cached by container view controller
-            // like in UITabBarController it happens with a view controller in a tab that was never activated before,
-            // So we have to make it active first.
-            if !viewController.isViewLoaded {
-                makeContainersActive(toShow: viewController)
-            }
             return (rootViewController: viewController, factories: factories, interceptor: interceptors.count == 1 ? interceptors.removeFirst() : InterceptorMultiplex(interceptors))
         }
 
         return nil
     }
 
-    private func startDeepLinking(viewController: UIViewController, factories: [Factory], completion: @escaping ((_: UIViewController) -> Void)) {
+    private func startDeepLinking(viewController: UIViewController, animated: Bool, factories: [Factory], completion: @escaping ((_: UIViewController) -> Void)) {
+        // If view controller found but view is not loaded it means that it was just cached by container view controller
+        // like in UITabBarController it happens with a view controller in a tab that was never activated before,
+        // So we have to make it active first.
+        if !viewController.isViewLoaded {
+            makeContainersActive(toShow: viewController, animated: animated)
+        }
+
         // If we found a view controller to start from - lets close all the presented view controllers above to be able
         // to build new stack in needed.
         // We already checked that they can be dissmissed.
-        viewController.dismissAllPresentedControllers(animated: true) {
-            self.runViewControllerBuildStack(rootViewController: viewController, factories: factories) { viewController in
+        viewController.dismissAllPresentedControllers(animated: animated) {
+            self.runViewControllerBuildStack(rootViewController: viewController, factories: factories, animated: animated) { viewController in
                 completion(viewController)
             }
         }
@@ -214,14 +218,15 @@ public class DefaultRouter: Router {
     // This function loops through the list of factories and build them in sequence.
     // Because some actions can be asynchronous, like push, modal or presentations,
     // it does it builds asynchronously
-    private func runViewControllerBuildStack(rootViewController: UIViewController, factories: [Factory], completion: @escaping ((_: UIViewController) -> Void)) {
+    private func runViewControllerBuildStack(rootViewController: UIViewController, factories: [Factory], animated: Bool, completion: @escaping ((_: UIViewController) -> Void)) {
         var factories = factories
 
         func buildScreens(_ factory: Factory, _ previousViewController: UIViewController) {
             if let newViewController = factory.build(with: logger) {
+                logger?.log(.info("Factory \(factory) has built a \(newViewController) to start presentation from."))
                 // If factory contains action - applying it
                 if let action = factory.action {
-                    action.apply(viewController: newViewController, on: previousViewController, logger: self.logger) { viewController in
+                    action.apply(viewController: newViewController, on: previousViewController, animated: animated, logger: self.logger) { viewController in
                         guard factories.count > 0 else {
                             completion(viewController)
                             return
@@ -248,9 +253,9 @@ public class DefaultRouter: Router {
     }
 
     //This block fuction that all the container view controllers switched to show correctly build view controller
-    private func makeContainersActive(toShow viewController: UIViewController) {
+    private func makeContainersActive(toShow viewController: UIViewController, animated: Bool) {
         if let container = UIWindow.key?.topmostViewController as? ContainerViewController {
-            container.makeActive(vc: viewController)
+            container.makeActive(vc: viewController, animated: animated)
         }
     }
 

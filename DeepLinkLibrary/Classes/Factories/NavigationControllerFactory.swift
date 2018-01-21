@@ -5,6 +5,10 @@
 
 import UIKit
 
+public protocol NavigationControllerFactoryAction: ViewControllerAction {
+
+}
+
 open class NavigationControllerFactory: ContainerFactory {
 
     public let action: ViewControllerAction?
@@ -18,7 +22,7 @@ open class NavigationControllerFactory: ContainerFactory {
     public func merge(_ screenFactories: [Factory]) -> [Factory] {
         var rest: [Factory] = []
         self.screenFactories = screenFactories.filter { factory in
-            guard let _ = factory.action as? PushAction else {
+            guard let _ = factory.action as? NavigationControllerFactoryAction else {
                 rest.append(factory)
                 return false
             }

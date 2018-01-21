@@ -5,7 +5,8 @@
 
 import UIKit
 
-public class PushAction: ViewControllerAction {
+public class PushAction: NavigationControllerFactoryAction {
+
     public init() {
         
     }
@@ -14,13 +15,13 @@ public class PushAction: ViewControllerAction {
         containerViewControllers.append(viewController)
     }
 
-    public func apply(viewController: UIViewController, on existingController: UIViewController, logger: Logger?, completion: @escaping(_: UIViewController) -> Void) {
+    public func apply(viewController: UIViewController, on existingController: UIViewController, animated: Bool, logger: Logger?, completion: @escaping(_: UIViewController) -> Void) {
         guard let nv = existingController as? UINavigationController ?? existingController.navigationController else {
             logger?.log(.error("Could not find UINavigationController in \(existingController) to present view controller \(viewController)."))
             return completion(existingController)
         }
 
-        nv.pushViewController(viewController, animated: true)
+        nv.pushViewController(viewController, animated: animated)
         return completion(viewController)
     }
 

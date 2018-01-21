@@ -7,7 +7,7 @@ import Foundation
 import UIKit
 
 // TODO: Undone
-public class PresentMasterAction: ViewControllerAction {
+public class PresentMasterAction: SplitViewControllerMasterAction {
 
     public init() {
         
@@ -17,7 +17,7 @@ public class PresentMasterAction: ViewControllerAction {
         containerViewControllers.append(viewController)
     }
 
-    public func apply(viewController: UIViewController, on existingController: UIViewController, logger: Logger?, completion: @escaping (_: UIViewController) -> Void) {
+    public func apply(viewController: UIViewController, on existingController: UIViewController, animated: Bool, logger: Logger?, completion: @escaping (_: UIViewController) -> Void) {
         guard let splitViewController = existingController as? UISplitViewController ?? existingController.splitViewController,
               splitViewController.viewControllers.count > 0 else {
             logger?.log(.error("Could not find UISplitViewController in \(existingController) to present master view controller \(viewController)."))
@@ -30,7 +30,7 @@ public class PresentMasterAction: ViewControllerAction {
     }
 }
 
-public class PresentDetailsAction: ViewControllerAction {
+public class PresentDetailsAction: SplitViewControllerDetailAction {
 
     public init() {
         
@@ -40,7 +40,7 @@ public class PresentDetailsAction: ViewControllerAction {
 
     }
 
-    public func apply(viewController: UIViewController, on existingController: UIViewController, logger: Logger?, completion: @escaping (_: UIViewController) -> Void) {
+    public func apply(viewController: UIViewController, on existingController: UIViewController, animated: Bool, logger: Logger?, completion: @escaping (_: UIViewController) -> Void) {
         guard let splitViewController = existingController as? UISplitViewController ?? existingController.splitViewController,
               splitViewController.viewControllers.count > 0 else {
             logger?.log(.error("Could not find UISplitViewController in \(existingController) to present details view controller \(viewController)."))

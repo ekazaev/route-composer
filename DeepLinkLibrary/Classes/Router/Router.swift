@@ -15,7 +15,7 @@ import Foundation
 @objc public protocol ContainerViewController: RouterRulesViewController {
 
     @discardableResult
-    func makeActive(vc: UIViewController) -> UIViewController?
+    func makeActive(vc: UIViewController, animated: Bool) -> UIViewController?
 
 }
 
@@ -24,5 +24,5 @@ public protocol Router {
     var logger: Logger? { get }
 
     @discardableResult
-    func deepLinkTo<A: DeepLinkDestination>(destination: A, completion: (() -> Void)?) -> DeepLinkResult
+    func deepLinkTo<A: DeepLinkDestination>(destination: A, animated: Bool, completion: (() -> Void)?) -> DeepLinkResult
 }

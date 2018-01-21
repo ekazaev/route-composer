@@ -14,6 +14,6 @@ public protocol ViewControllerAction {
     // Applies implemented action to the view controller.
     // Calls completion with view controller to apply action if it was successfully build in view controller stack, wit exiction otherwise.
     // NB: completion block is mandatory to be called in implementation.
-    func apply(viewController: UIViewController, on existingController: UIViewController, logger: Logger?, completion: @escaping (_: UIViewController) -> Void)
+    func apply(viewController: UIViewController, on existingController: UIViewController, animated: Bool, logger: Logger?, completion: @escaping (_: UIViewController) -> Void)
 
 }

@@ -6,6 +6,14 @@
 import Foundation
 import UIKit
 
+public protocol SplitViewControllerMasterAction: ViewControllerAction {
+
+}
+
+public protocol SplitViewControllerDetailAction: ViewControllerAction {
+
+}
+
 // TODO: Undone
 public class SplitControllerFactory: ContainerFactory {
 
@@ -21,10 +29,10 @@ public class SplitControllerFactory: ContainerFactory {
     public func merge(_ screenFactories: [Factory]) -> [Factory] {
         var rest: [Factory] = []
         screenFactories.forEach { factory in
-            if let _ = factory.action as? PresentMasterAction {
+            if let _ = factory.action as? SplitViewControllerMasterAction {
                 masterFactories.append(factory)
             }
-            if let _ = factory.action as? PresentDetailsAction {
+            if let _ = factory.action as? SplitViewControllerDetailAction {
                 detailFactories.append(factory)
             }
             rest.append(factory)

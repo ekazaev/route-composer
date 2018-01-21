@@ -16,7 +16,7 @@ public class ReplaceRootAction: ViewControllerAction {
 
     }
 
-    public func apply(viewController: UIViewController, on existingController: UIViewController, logger: Logger?, completion: @escaping(_: UIViewController) -> Void) {
+    public func apply(viewController: UIViewController, on existingController: UIViewController, animated: Bool, logger: Logger?, completion: @escaping(_: UIViewController) -> Void) {
         guard let window = UIWindow.key else {
             completion(existingController)
             return
