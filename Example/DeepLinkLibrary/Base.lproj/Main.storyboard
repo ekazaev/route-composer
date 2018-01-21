@@ -52,7 +52,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kwx-n4-hcV">
                                         <rect key="frame" x="0.0" y="164" width="188" height="30"/>
-                                        <state key="normal" title="Go to product 01"/>
+                                        <state key="normal" title="Go to product 00"/>
                                         <connections>
                                             <action selector="goToProductTapped" destination="9pv-A4-QxB" eventType="touchUpInside" id="6vI-rd-uep"/>
                                         </connections>

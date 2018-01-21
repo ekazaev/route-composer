@@ -34,7 +34,7 @@ class CircleViewController: UIViewController, AnalyticsSupportViewController {
     }
 
     @IBAction func goToProductTapped() {
-        router.deepLinkTo(destination: ProductConfiguration.productDestination(productId: "01"))
+        router.deepLinkTo(destination: ProductConfiguration.productDestination(productId: "00"))
     }
 
     @IBAction func goToWelcomeTapped() {

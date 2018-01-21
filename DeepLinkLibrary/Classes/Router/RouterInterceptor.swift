@@ -43,7 +43,7 @@ public class InterceptorMultiplex: RouterInterceptor {
         func runInterceptor(interceptor: RouterInterceptor) {
             interceptor.apply(with: arguments, logger: logger) { result in
                 if result == .failure {
-                    logger?.log(.info("\(interceptor) interceptor has stopped routing."))
+                    logger?.log(.warning("\(interceptor) interceptor has stopped routing."))
                     completion(result)
                 } else if interceptors.count == 0 {
                     completion(result)

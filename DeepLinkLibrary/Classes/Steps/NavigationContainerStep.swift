@@ -7,8 +7,12 @@ import UIKit
 
 public class NavigationContainerStep: ChainableStep {
 
-    public init(factory: Factory? = nil, action: ViewControllerAction? = nil) {
-        super.init(factory: factory ?? NavigationControllerFactory(action: action))
+    public init(action: ViewControllerAction? = nil) {
+        super.init(factory:NavigationControllerFactory(action: action))
+    }
+
+    public init(factory: Factory? = nil) {
+        super.init(factory: factory)
     }
 
 }

@@ -8,8 +8,6 @@ import DeepLinkLibrary
 
 enum Argument {
     case color
-    case cityId
-    case productId
 }
 
 protocol ExampleArguments: class {

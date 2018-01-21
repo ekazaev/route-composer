@@ -37,26 +37,26 @@ public extension UIViewController {
 
         if let nc = vc as? UINavigationController {
             for selected in nc.viewControllers {
-                if let found = findViewController(in: selected, options: options, using: comparator) {
+                if let found = findViewController(in: selected, options: .sameLevel, using: comparator) {
                     return found
                 }
             }
         } else if let tbc = vc as? UITabBarController, let viewControllers = tbc.viewControllers {
             for selected in viewControllers {
-                if let found = findViewController(in: selected, options: options, using: comparator) {
+                if let found = findViewController(in: selected, options: .sameLevel, using: comparator) {
                     return found
                 }
             }
         } else if let svc = vc as? UISplitViewController {
             let viewControllers = svc.viewControllers
             for selected in viewControllers {
-                if let found = findViewController(in: selected, options: options, using: comparator) {
+                if let found = findViewController(in: selected, options: .sameLevel, using: comparator) {
                     return found
                 }
             }
         } else {
             for child in vc.childViewControllers {
-                if let found = findViewController(in: child, options: options, using: comparator) {
+                if let found = findViewController(in: child, options: .sameLevel, using: comparator) {
                     return found
                 }
             }
