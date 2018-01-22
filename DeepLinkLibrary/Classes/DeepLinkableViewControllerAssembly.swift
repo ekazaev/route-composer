@@ -6,13 +6,13 @@
 import Foundation
 import UIKit
 
-public protocol DeepLinkableScreen {
+public protocol DeepLinkableViewControllerAssembly {
 
     var step: Step { get }
 
 }
 
-public class Screen: DeepLinkableScreen {
+public class ViewControllerAssembly: DeepLinkableViewControllerAssembly {
 
     let originalStep: Step
 

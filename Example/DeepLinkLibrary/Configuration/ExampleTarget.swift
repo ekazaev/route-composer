@@ -30,7 +30,7 @@ enum ExampleSource {
 
     case login
 
-    case superModal
+    case secondLevelModal
 
     case welcome
 

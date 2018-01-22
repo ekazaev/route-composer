@@ -21,15 +21,15 @@ class ProductArguments: ExampleArguments {
 class ProductConfiguration {
 
     static func productDestination(productId: String, _ analyticParameters: ExampleAnalyticsParameters? = nil) -> ExampleDestination {
-        let productScreen = Screen(
+        let productAssembly = ViewControllerAssembly(
                 finder: ProductViewControllerFinder(),
                 factory: ProductViewControllerFactory(action: PushAction()),
                 interceptor: ExampleAnalyticsInterceptor(),
                 postTask: ExampleAnalyticsPostAction(),
                 step: chain([
-                    RequireScreenStep(screen: ExampleConfiguration.screen(for: ExampleSource.circle)!)
+                    RequireAssemblyStep(assembly: ExampleConfiguration.assembly(for: ExampleSource.circle)!)
                 ]))
 
-        return ExampleDestination(screen: productScreen, arguments: ProductArguments(productId: productId, analyticParameters))
+        return ExampleDestination(assembly: productAssembly, arguments: ProductArguments(productId: productId, analyticParameters))
     }
 }

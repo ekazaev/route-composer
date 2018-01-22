@@ -8,23 +8,23 @@ import DeepLinkLibrary
 
 class ExampleConfiguration {
 
-    private static var screens: [AnyHashable: DeepLinkableScreen] = [:]
+    private static var assemblies: [AnyHashable: DeepLinkableViewControllerAssembly] = [:]
 
-    static func screen<T: Hashable>(for target: T) -> DeepLinkableScreen? {
-        return screens[target]
+    static func assembly<T: Hashable>(for target: T) -> DeepLinkableViewControllerAssembly? {
+        return assemblies[target]
     }
 
-    static func register<T: Hashable>(screen: DeepLinkableScreen, for target: T) {
-        screens[target] = screen
+    static func register<T: Hashable>(assembly: DeepLinkableViewControllerAssembly, for target: T) {
+        assemblies[target] = assembly
     }
 
 
     static func destination<T: Hashable>(for target: T, arguments: ExampleDictionaryArguments? = nil) -> ExampleDestination? {
-        guard let screen = screen(for: target) else {
+        guard let assembly = assembly(for: target) else {
             return nil
         }
 
-        return ExampleDestination(screen: screen, arguments: arguments ?? ExampleDictionaryArguments())
+        return ExampleDestination(assembly: assembly, arguments: arguments ?? ExampleDictionaryArguments())
     }
 }
 

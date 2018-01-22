@@ -5,18 +5,16 @@
 
 import UIKit
 
-public typealias RequiredScreenProvider = (() -> DeepLinkableScreen?)
+public class RequireAssemblyStep: ChainableStep {
 
-public class RequireScreenStep: ChainableStep {
-
-    let screen: DeepLinkableScreen
+    let assembly: DeepLinkableViewControllerAssembly
 
     override public var prevStep: Step? {
-        return screen.step
+        return assembly.step
     }
 
-    public init(screen: DeepLinkableScreen) {
-        self.screen = screen
+    public init(assembly: DeepLinkableViewControllerAssembly) {
+        self.assembly = assembly
         super.init()
     }
 

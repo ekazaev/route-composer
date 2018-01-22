@@ -12,39 +12,39 @@ class CitiesConfiguration {
 
     static let shared = CitiesConfiguration()
 
-    private let cityScreen: Screen
-    private let citiesListScreen: Screen
-    private let cityDetailsScreen: Screen
+    private let cityAssembly: ViewControllerAssembly
+    private let citiesListAssembly: ViewControllerAssembly
+    private let cityDetailsAssembly: ViewControllerAssembly
 
     private init() {
         // Split View Controller
-        cityScreen = Screen(finder: ViewControllerClassFinder(containerType: UISplitViewController.self),
+        cityAssembly = ViewControllerAssembly(finder: ViewControllerClassFinder(containerType: UISplitViewController.self),
                 factory: ViewControllerFromStoryboard(storyboardName: "Split", action: ReplaceRootAction()),
                 interceptor: LoginInterceptor(),
                 step: RootViewControllerStep())
 
         // Cities List
-        citiesListScreen = Screen(
+        citiesListAssembly = ViewControllerAssembly(
                 finder: CityTableViewControllerFinder(),
                 interceptor: ExampleAnalyticsInterceptor(),
                 postTask: PostRoutingTaskMultiplex([CityTablePostTask(), ExampleAnalyticsPostAction()]),
-                step: RequireScreenStep(screen: self.cityScreen))
+                step: RequireAssemblyStep(assembly: self.cityAssembly))
 
         // City Details
-        cityDetailsScreen = Screen(
+        cityDetailsAssembly = ViewControllerAssembly(
                 finder: CityDetailsViewControllerFinder(),
                 factory: CityDetailsViewControllerFactory(action: PresentDetailsAction()),
                 interceptor: ExampleAnalyticsInterceptor(),
                 postTask: PostRoutingTaskMultiplex([CityDetailPostTask(), ExampleAnalyticsPostAction()]),
-                step: RequireScreenStep(screen: self.citiesListScreen))
+                step: RequireAssemblyStep(assembly: self.citiesListAssembly))
     }
 
 
     static func citiesList(cityId: Int? = nil, _ analyticParameters: ExampleAnalyticsParameters? = nil) -> ExampleDestination {
-        return ExampleDestination(screen: shared.citiesListScreen, arguments: CityArguments(cityId: cityId, analyticParameters))
+        return ExampleDestination(assembly: shared.citiesListAssembly, arguments: CityArguments(cityId: cityId, analyticParameters))
     }
 
     static func cityDetail(cityId: Int, _ analyticParameters: ExampleAnalyticsParameters? = nil) -> ExampleDestination {
-        return ExampleDestination(screen: shared.cityDetailsScreen, arguments: CityArguments(cityId: cityId, analyticParameters))
+        return ExampleDestination(assembly: shared.cityDetailsAssembly, arguments: CityArguments(cityId: cityId, analyticParameters))
     }
 }

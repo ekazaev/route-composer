@@ -84,8 +84,10 @@ public extension UIViewController {
 
     public static func dismissAllPresentedViewControllers(starting vc: UIViewController, animated: Bool, completion: (() -> Void)?) {
         if let presentedViewController = vc.presentedViewController {
-            presentedViewController.dismiss(animated: animated) {
-                completion?()
+            presentedViewController.dismissAllPresentedControllers(animated: animated) {
+                presentedViewController.dismiss(animated: animated) {
+                    completion?()
+                }
             }
         } else {
             completion?()

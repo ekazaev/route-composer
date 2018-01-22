@@ -13,15 +13,15 @@ open class NavigationControllerFactory: ContainerFactory {
 
     public let action: ViewControllerAction?
 
-    var screenFactories: [Factory] = []
+    var factories: [Factory] = []
 
     public init(action: ViewControllerAction? = nil) {
         self.action = action
     }
 
-    public func merge(_ screenFactories: [Factory]) -> [Factory] {
+    public func merge(_ factories: [Factory]) -> [Factory] {
         var rest: [Factory] = []
-        self.screenFactories = screenFactories.filter { factory in
+        self.factories = factories.filter { factory in
             guard let _ = factory.action as? NavigationControllerFactoryAction else {
                 rest.append(factory)
                 return false
@@ -33,14 +33,14 @@ open class NavigationControllerFactory: ContainerFactory {
     }
 
     open func build(with logger: Logger?) -> UIViewController? {
-        guard screenFactories.count > 0 else {
+        guard factories.count > 0 else {
             return nil
         }
 
         let navigationController = UINavigationController()
 
         var viewControllers: [UIViewController] = []
-        self.screenFactories.forEach { factory in
+        self.factories.forEach { factory in
             guard let viewController = factory.build(with: logger) else {
                 return
             }

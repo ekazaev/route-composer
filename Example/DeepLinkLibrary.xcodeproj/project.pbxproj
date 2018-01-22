@@ -36,6 +36,7 @@
 		9AFBC466CF915E3C0F137958 /* ProductConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC7FF9D27A17E57FE525C /* ProductConfiguration.swift */; };
 		9AFBC5E76937F58BE685F4E7 /* CityArguments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC78B188F55C0198B5007 /* CityArguments.swift */; };
 		9AFBC82E50CBF47FB0A0F2D1 /* CityURLTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCE5527D371C559C69F9E /* CityURLTranslator.swift */; };
+		9AFBC915C2F461136B5C1B0D /* SecondModalLevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCAF24C0CD80E0D369EEA /* SecondModalLevelViewController.swift */; };
 		9AFBCA32BF0E6A5C2D643915 /* ExampleAnalyticsPostAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC0097861297B7686ADAA /* ExampleAnalyticsPostAction.swift */; };
 		9AFBCAFFB71568FAE9054699 /* CitiesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCA4291DB4A6D2A47E5F2 /* CitiesTableViewController.swift */; };
 		9AFBCB1EA868F677EA54C083 /* ExampleAnalyticsParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCEB028743A7AC55E1CA6 /* ExampleAnalyticsParameters.swift */; };
@@ -97,6 +98,7 @@
 		9AFBC94AAA83C5D160B00A8D /* ProductURLTranslator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductURLTranslator.swift; sourceTree = "<group>"; };
 		9AFBC94CF26AB11E181F7B00 /* CitiesConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CitiesConfiguration.swift; sourceTree = "<group>"; };
 		9AFBCA4291DB4A6D2A47E5F2 /* CitiesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CitiesTableViewController.swift; sourceTree = "<group>"; };
+		9AFBCAF24C0CD80E0D369EEA /* SecondModalLevelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondModalLevelViewController.swift; sourceTree = "<group>"; };
 		9AFBCCCF499676D25E68FECA /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		9AFBCD4279BBCCCACECDB352 /* ExampleAnalyticsInterceptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleAnalyticsInterceptor.swift; sourceTree = "<group>"; };
 		9AFBCE44839BD245D30ED19C /* ExampleUniversalLinksManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleUniversalLinksManager.swift; sourceTree = "<group>"; };
@@ -248,6 +250,7 @@
 				9AFBC47AB52EB65AC08C0A93 /* Cities */,
 				9AFBC98664CF07654A83DF67 /* Login */,
 				9AFBCD38844C488B1FC57B15 /* Product */,
+				9AFBCAF24C0CD80E0D369EEA /* SecondModalLevelViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -544,6 +547,7 @@
 				9AFBC466CF915E3C0F137958 /* ProductConfiguration.swift in Sources */,
 				9AFBC0ADE4D123DD36E06972 /* ProductViewController.swift in Sources */,
 				9AFBC22EF26E1F76942AC44D /* ProductURLTranslator.swift in Sources */,
+				9AFBC915C2F461136B5C1B0D /* SecondModalLevelViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

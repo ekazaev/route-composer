@@ -30,7 +30,7 @@ class CircleViewController: UIViewController, AnalyticsSupportViewController {
     }
 
     @IBAction func goToSuperModalTapped() {
-        router.deepLinkTo(destination: ExampleConfiguration.destination(for: ExampleSource.superModal, arguments: ExampleDictionaryArguments(arguments: [Argument.color: "0000FF"]))!)
+        router.deepLinkTo(destination: ExampleConfiguration.destination(for: ExampleSource.secondLevelModal, arguments: ExampleDictionaryArguments(arguments: [Argument.color: "0000FF"]))!)
     }
 
     @IBAction func goToProductTapped() {

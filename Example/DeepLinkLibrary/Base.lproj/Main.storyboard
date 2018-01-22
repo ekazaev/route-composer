@@ -353,6 +353,53 @@
             </objects>
             <point key="canvasLocation" x="-343" y="-24"/>
         </scene>
+        <!--Second Level Modal-->
+        <scene sceneID="deM-Xa-Uh7">
+            <objects>
+                <viewController storyboardIdentifier="SecondModalLevelViewController" title="Second Level Modal" id="d3F-lt-WVe" customClass="SecondModalLevelViewController" customModule="DeepLinkLibrary_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="h93-FI-JTL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="xWu-jP-mDA">
+                                <rect key="frame" x="133" y="287.5" width="109" height="112"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vhF-nb-9hm">
+                                        <rect key="frame" x="0.0" y="0.0" width="109" height="30"/>
+                                        <state key="normal" title="Go to Red Color"/>
+                                        <connections>
+                                            <action selector="goToColorTapped" destination="d3F-lt-WVe" eventType="touchUpInside" id="YtE-Tc-X2t"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nla-A9-GJh">
+                                        <rect key="frame" x="0.0" y="41" width="109" height="30"/>
+                                        <state key="normal" title="Go to Home"/>
+                                        <connections>
+                                            <action selector="goToHomeTapped" destination="d3F-lt-WVe" eventType="touchUpInside" id="HVJ-ze-Mv5"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SSQ-ca-n7i">
+                                        <rect key="frame" x="0.0" y="82" width="109" height="30"/>
+                                        <state key="normal" title="Go to Minsk*"/>
+                                        <connections>
+                                            <action selector="goToMinskTapped" destination="d3F-lt-WVe" eventType="touchUpInside" id="GXr-Hb-iBh"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xWu-jP-mDA" firstAttribute="centerX" secondItem="15u-Ul-5Ie" secondAttribute="centerX" id="iLX-ci-njF"/>
+                            <constraint firstItem="xWu-jP-mDA" firstAttribute="centerY" secondItem="15u-Ul-5Ie" secondAttribute="centerY" id="qBy-9J-afc"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="15u-Ul-5Ie"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Kx-5K-keE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3559" y="-309"/>
+        </scene>
     </scenes>
     <resources>
         <image name="first" width="30" height="30"/>

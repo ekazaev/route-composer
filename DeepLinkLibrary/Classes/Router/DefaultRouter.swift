@@ -106,7 +106,7 @@ public class DefaultRouter: Router {
     }
 
     private func prepareStack<A: DeepLinkDestination>(destination: A, postTaskRunner: PostTaskRunner) -> (rootViewController: UIViewController, factories: [Factory], interceptor: RouterInterceptor)? {
-        var step: Step? = destination.screen.step
+        var step: Step? = destination.assembly.step
 
         var rootViewController: UIViewController?
 
@@ -149,7 +149,7 @@ public class DefaultRouter: Router {
 
             //Building factory stack only if we havent find a view controllers to start from
             if rootViewController == nil {
-                // If view controller has not been found, but screen has a factory to build itself - add factory to the stack
+                // If view controller has not been found, but step has a factory to build itself - add factory to the stack
                 if let factory = step?.factory {
                     let factoryDecorator = FactoryDecorator(factory: factory, postTask: step?.postTask, postTaskRunner: postTaskRunner)
                     factories.insert(factoryDecorator, at: 0)
@@ -168,14 +168,14 @@ public class DefaultRouter: Router {
                     if let container = factory as? ContainerFactory {
                         if tempFactories.count > 0 {
                             let rest = container.merge(tempFactories)
-                            let merged = tempFactories.filter { screen in
-                                !rest.contains { factory in
-                                    screen === factory
+                            let merged = tempFactories.filter { factory in
+                                !rest.contains { restFactory in
+                                    factory === restFactory
                                 }
                             }
-                            factories = factories.filter { screen in
-                                !merged.contains { factory in
-                                    factory === screen
+                            factories = factories.filter { factory in
+                                !merged.contains { mergedFactory in
+                                    mergedFactory === factory
                                 }
                             }
 
@@ -221,7 +221,7 @@ public class DefaultRouter: Router {
     private func runViewControllerBuildStack(rootViewController: UIViewController, factories: [Factory], animated: Bool, completion: @escaping ((_: UIViewController) -> Void)) {
         var factories = factories
 
-        func buildScreens(_ factory: Factory, _ previousViewController: UIViewController) {
+        func buildViewController(_ factory: Factory, _ previousViewController: UIViewController) {
             if let newViewController = factory.build(with: logger) {
                 logger?.log(.info("Factory \(factory) has built a \(newViewController) to start presentation from."))
                 // If factory contains action - applying it
@@ -231,14 +231,14 @@ public class DefaultRouter: Router {
                             completion(viewController)
                             return
                         }
-                        buildScreens(factories.removeFirst(), viewController)
+                        buildViewController(factories.removeFirst(), viewController)
                     }
                 } else {
                     guard factories.count > 0 else {
                         completion(newViewController)
                         return
                     }
-                    buildScreens(factories.removeFirst(), newViewController)
+                    buildViewController(factories.removeFirst(), newViewController)
                 }
             } else {
                 completion(previousViewController)
@@ -249,7 +249,7 @@ public class DefaultRouter: Router {
             completion(rootViewController)
             return
         }
-        buildScreens(factories.removeFirst(), rootViewController)
+        buildViewController(factories.removeFirst(), rootViewController)
     }
 
     //This block fuction that all the container view controllers switched to show correctly build view controller

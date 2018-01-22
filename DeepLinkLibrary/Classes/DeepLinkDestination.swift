@@ -7,7 +7,7 @@ import Foundation
 
 public protocol DeepLinkDestination {
 
-    var screen: DeepLinkableScreen { get }
+    var assembly: DeepLinkableViewControllerAssembly { get }
 
     var arguments: Any? { get }
 
