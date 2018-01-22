@@ -40,12 +40,14 @@
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="REX-He-OrB">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="30"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="loginTextField"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1VT-Jw-lSz">
                                         <rect key="frame" x="0.0" y="40" width="300" height="30"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="passwordTextField"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -70,6 +72,7 @@
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <accessibility key="accessibilityConfiguration" identifier="loginViewController"/>
                         <constraints>
                             <constraint firstItem="bw7-LY-ord" firstAttribute="centerY" secondItem="mne-2J-rvy" secondAttribute="centerY" multiplier="0.7" id="3O0-yf-vYU"/>
                             <constraint firstItem="mne-2J-rvy" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="bw7-LY-ord" secondAttribute="trailing" id="Uc2-1b-ySW"/>

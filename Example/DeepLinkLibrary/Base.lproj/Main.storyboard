@@ -68,6 +68,7 @@
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <accessibility key="accessibilityConfiguration" identifier="circleViewController"/>
                         <constraints>
                             <constraint firstItem="Q5I-E8-ltG" firstAttribute="centerX" secondItem="PQr-Ze-W5v" secondAttribute="centerX" id="g43-qS-fNM"/>
                             <constraint firstItem="Q5I-E8-ltG" firstAttribute="centerY" secondItem="PQr-Ze-W5v" secondAttribute="centerY" id="gQU-Kd-4o3"/>
@@ -117,6 +118,7 @@
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <accessibility key="accessibilityConfiguration" identifier="emptyViewController"/>
                         <constraints>
                             <constraint firstItem="9gN-ny-h5L" firstAttribute="centerY" secondItem="u2I-ee-Ul6" secondAttribute="centerY" id="Tv7-pu-KVc"/>
                             <constraint firstItem="9gN-ny-h5L" firstAttribute="centerX" secondItem="u2I-ee-Ul6" secondAttribute="centerX" id="dqd-I7-4QQ"/>
@@ -150,6 +152,7 @@
                                             </label>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CSL-4b-ZSF">
                                                 <rect key="frame" x="148.5" y="0.0" width="51" height="31"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="dissmissalSwitchControl"/>
                                                 <connections>
                                                     <action selector="switchValueChangedWithSender:" destination="1IK-g0-E80" eventType="valueChanged" id="i1r-rl-4F6"/>
                                                 </connections>
@@ -158,7 +161,7 @@
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="stj-9m-zaF">
                                         <rect key="frame" x="0.0" y="42" width="197.5" height="30"/>
-                                        <state key="normal" title="Go to yelow color"/>
+                                        <state key="normal" title="Go to yellow color"/>
                                         <connections>
                                             <action selector="goToColorTapped" destination="1IK-g0-E80" eventType="touchUpInside" id="a6j-wA-zBy"/>
                                         </connections>
@@ -181,6 +184,7 @@
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <accessibility key="accessibilityConfiguration" identifier="routingRuleViewController"/>
                         <constraints>
                             <constraint firstItem="qmT-KF-0TS" firstAttribute="centerY" secondItem="HFO-eO-IAH" secondAttribute="centerY" id="5Kb-6J-3fS"/>
                             <constraint firstItem="qmT-KF-0TS" firstAttribute="centerX" secondItem="HFO-eO-IAH" secondAttribute="centerX" id="JOP-Y5-eyb"/>
@@ -244,6 +248,7 @@
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <accessibility key="accessibilityConfiguration" identifier="squareViewController"/>
                         <constraints>
                             <constraint firstItem="aCi-8Q-H9E" firstAttribute="centerX" secondItem="O1u-W8-tvY" secondAttribute="centerX" id="vJR-Yq-6xy"/>
                             <constraint firstItem="aCi-8Q-H9E" firstAttribute="centerY" secondItem="O1u-W8-tvY" secondAttribute="centerY" id="za3-cu-ecg"/>
@@ -306,7 +311,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Gr7-65-ful" firstAttribute="centerX" secondItem="xjU-av-cfp" secondAttribute="centerX" id="4cY-qu-dYu"/>
-                            <constraint firstItem="Gr7-65-ful" firstAttribute="centerY" secondItem="xjU-av-cfp" secondAttribute="centerY" multiplier="0.5" id="zwt-4q-1K6"/>
+                            <constraint firstItem="Gr7-65-ful" firstAttribute="top" relation="greaterThanOrEqual" secondItem="xjU-av-cfp" secondAttribute="top" constant="30" id="9jv-Jn-mVD"/>
+                            <constraint firstItem="Gr7-65-ful" firstAttribute="centerY" secondItem="xjU-av-cfp" secondAttribute="centerY" multiplier="0.5" priority="999" id="zwt-4q-1K6"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xjU-av-cfp"/>
                     </view>
@@ -344,6 +350,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="view.accessibilityIdentifier" value="homeViewController"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="Va8-mh-Xia" kind="relationship" relationship="viewControllers" id="iGa-tS-M5T"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="BWS-A3-Ibt"/>
@@ -389,6 +398,7 @@
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <accessibility key="accessibilityConfiguration" identifier="secondLevelViewController"/>
                         <constraints>
                             <constraint firstItem="xWu-jP-mDA" firstAttribute="centerX" secondItem="15u-Ul-5Ie" secondAttribute="centerX" id="iLX-ci-njF"/>
                             <constraint firstItem="xWu-jP-mDA" firstAttribute="centerY" secondItem="15u-Ul-5Ie" secondAttribute="centerY" id="qBy-9J-afc"/>

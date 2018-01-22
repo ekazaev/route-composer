@@ -44,6 +44,7 @@
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <accessibility key="accessibilityConfiguration" identifier="promptViewController"/>
                         <constraints>
                             <constraint firstItem="HTB-lH-AdJ" firstAttribute="centerX" secondItem="MjU-JW-fuy" secondAttribute="centerX" id="04Z-Kh-Y9X"/>
                             <constraint firstItem="MjU-JW-fuy" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="HTB-lH-AdJ" secondAttribute="trailing" id="8rh-SS-MHE"/>

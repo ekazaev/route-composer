@@ -78,6 +78,11 @@ class CityDetailViewController: UIViewController, AnalyticsSupportViewController
         }
 
         detailsTextView.text = city.city + "\n\n" + city.description
+        if let cityId = cityId {
+            self.view.accessibilityIdentifier = "cityDetailsViewController+\(cityId)"
+        } else {
+            self.view.accessibilityIdentifier = "cityDetailsViewController"
+        }
     }
 
     @IBAction func backProgrammaticalyTapped() {

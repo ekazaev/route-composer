@@ -71,6 +71,7 @@ class ColorViewController: UIViewController, AnalyticsSupportViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.accessibilityIdentifier = "colorViewController"
         if let colorHex = colorHex {
             self.view.backgroundColor = UIColor(hexString: colorHex)
         } else {

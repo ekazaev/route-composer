@@ -13,7 +13,7 @@
         <!--City Detail View Controller-->
         <scene sceneID="YGp-ao-Ulq">
             <objects>
-                <viewController storyboardIdentifier="CityDetailViewController" id="dzi-Yh-QPj" customClass="CityDetailViewController" customModule="CircumferenceKit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CityDetailViewController" id="dzi-Yh-QPj" customClass="CityDetailViewController" customModule="DeepLinkLibrary_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4sM-Kr-LRe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -34,6 +34,7 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <accessibility key="accessibilityConfiguration" identifier="cityDetailsViewController"/>
                         <constraints>
                             <constraint firstItem="xtZ-Bm-1SM" firstAttribute="top" secondItem="Xzs-EE-beg" secondAttribute="bottom" id="UGP-wI-5Uh"/>
                             <constraint firstItem="xtZ-Bm-1SM" firstAttribute="bottom" secondItem="5zf-5r-Blw" secondAttribute="bottom" id="YT1-8x-Tz2"/>
@@ -55,7 +56,7 @@
         <!--Cities-->
         <scene sceneID="fsz-ya-x4D">
             <objects>
-                <tableViewController storyboardIdentifier="CitiesTableViewController" clearsSelectionOnViewWillAppear="NO" id="zAP-El-pN4" customClass="CitiesTableViewController" customModule="CircumferenceKit" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="CitiesTableViewController" clearsSelectionOnViewWillAppear="NO" id="zAP-El-pN4" customClass="CitiesTableViewController" customModule="DeepLinkLibrary_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="iRe-69-aln">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -53,6 +53,16 @@
                ReferencedContainer = "container:DeepLinkLibrary.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "84B6D46420163CC700B70FF7"
+               BuildableName = "DeepLinkLibrary_ExampleUITests.xctest"
+               BlueprintName = "DeepLinkLibrary_ExampleUITests"
+               ReferencedContainer = "container:DeepLinkLibrary.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

@@ -85,6 +85,11 @@ class ProductViewController: UIViewController, AnalyticsSupportViewController {
         }
 
         productIdLabel.text = productId
+        if let productId = productId {
+            self.view.accessibilityIdentifier = "productViewController+\(productId)"
+        } else {
+            self.view.accessibilityIdentifier = "productViewController"
+        }
     }
 
     @IBAction func goToCircleTapped() {

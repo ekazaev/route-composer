@@ -84,6 +84,8 @@ class CitiesTableViewController: UITableViewController, AnalyticsSupportViewCont
         super.viewDidLoad()
         self.splitViewController?.delegate = self
         self.splitViewController?.preferredDisplayMode = .allVisible
+        self.splitViewController?.view.accessibilityIdentifier = "citiesSplitViewController"
+        self.view.accessibilityIdentifier = "citiesViewController"
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
