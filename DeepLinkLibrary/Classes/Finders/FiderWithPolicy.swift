@@ -18,6 +18,9 @@ public enum FinderPolicy {
 
 }
 
+/// Simplifies creation of finders for a hosting app. If there is nothing special about finder, hosting app should
+/// extend this finder which will just follow the findein policy and just ask extending instacec if this particular
+/// view controller is the one that Router looking for or no.
 public protocol FinderWithPolicy: DeepLinkFinder {
 
     var policy: FinderPolicy { get }

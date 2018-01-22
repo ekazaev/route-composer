@@ -5,6 +5,11 @@
 
 import UIKit
 
+/// Result of step execution.
+///
+/// - found: Step found it view controller.
+/// - continueRouting: Step havent find it view controller and router can try to execute previous step if it exists.
+/// - failure: Step tells router to stop routing and retunr .unhanled to a caller.
 public enum StepResult {
 
     case found(UIViewController)
@@ -13,6 +18,10 @@ public enum StepResult {
 
     case failure
 
+    /// Default init of StepResult enum
+    ///
+    /// - Parameter viewController: if passed it will init .found case. .continueRouting otherwise. .failure case
+    ///   should be instantiated malually.
     init(_ viewController: UIViewController?) {
         guard let viewController = viewController else {
             self = .continueRouting
@@ -23,16 +32,25 @@ public enum StepResult {
     }
 }
 
+/// Represents sptep of a router.
 public protocol Step {
 
+    /// Factory instance to be used by Router to build a UIViewController for this step.
     var factory: Factory? { get }
 
+    /// Interceptor instnce to be executed by router before routing to this step.
     var interceptor: RouterInterceptor? { get }
 
+    /// PostRoutingTask instance to be executed by a router after routing to this step.
     var postTask: PostRoutingTask? { get }
 
+    /// Step to be made by a router before getting to this step.
     var prevStep: Step? { get }
 
+    /// Returns a directions to a Router how to deal with this step
+    ///
+    /// - Parameter arguments: Arguments that Router has started with.
+    /// - Returns: StepResult enum value.
     func getPresentationViewController(with arguments: Any?) -> StepResult
 
 }
@@ -64,6 +82,10 @@ public class ChainableStep: Step {
 }
 
 
+/// Chains arrai of step in to schain of steps.
+///
+/// - Parameter chains: Array of chainable ChainableStep
+/// - Returns: Last step to be made by a Router. The resta re chained to that one.
 public func chain(_ chains: [ChainableStep])  -> ChainableStep {
     guard let firstStep = chains.first else {
         fatalError("No steps provided to chain.")

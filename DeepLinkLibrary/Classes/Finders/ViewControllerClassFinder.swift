@@ -6,6 +6,9 @@
 import Foundation
 import UIKit
 
+/// Simple class that helps in implementation of finders that are looking for view controllers that can only
+/// have one instance in view controller stack. So it enough just to look for this UIViewControllers just by a
+/// class name that represets them. (Example: Home, account, login view controller e.t.c have only one instance)
 public class ViewControllerClassFinder: FinderWithPolicy {
 
     let containerType: UIViewController.Type

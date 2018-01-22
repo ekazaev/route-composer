@@ -5,6 +5,7 @@
 
 import UIKit
 
+/// Returns root view controller of the window.
 public class RootViewControllerStep: ChainableStep {
 
     public init() {

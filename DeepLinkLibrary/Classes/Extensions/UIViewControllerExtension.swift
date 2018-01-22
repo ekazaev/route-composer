@@ -7,6 +7,12 @@
 
 import UIKit
 
+/// findViewController methods search options
+///
+/// - sameLevel: Search on the a current level but do not look in presented or presenting stacks.
+/// - sameAndUp: Start to search on the current level an go all the way down to the root view controller of the window
+/// - sameAndDown: Start at the root view controller of the window and search all the way up to the last
+///   presented stack
 public enum ViewControllerSearchOptions {
 
     case sameLevel

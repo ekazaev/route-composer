@@ -6,18 +6,24 @@
 import Foundation
 import UIKit
 
+/// Assembly helps to abstract from a step's strategy for one particular UIViewController and wrap up all together
+/// that is necessary to build it in the exact implementation of an assembly. Router actually only cares about the
+/// step is should do so the rest is hidden in a default implementation.
 public protocol DeepLinkableViewControllerAssembly {
 
     var step: Step { get }
 
 }
 
+/// Default implementation of an assebly. Accepts in constructor everything is needed to be done to transform it
+/// in to actual router step.
 public class ViewControllerAssembly: DeepLinkableViewControllerAssembly {
 
     let originalStep: Step
 
     public var step: Step {
         get {
+            //  Here assembly transforms properties it has to a Step instance that can be executed by Router.
             if let finder = finder {
                 return FinderStep(finder: finder, prevStep: originalStep, factory: factory, interceptor: interceptor, postTask: postTask)
             } else if let factory = factory {
@@ -35,6 +41,19 @@ public class ViewControllerAssembly: DeepLinkableViewControllerAssembly {
 
     let interceptor: RouterInterceptor?
 
+    /// ViewControllerAssembly constructor
+    ///
+    /// - Parameters:
+    ///   - finder: Finder instance to be used by Router to find if this UIViewController is already exist in
+    ///     view controller stack.
+    ///   - factory: Factory instance to be user by Router to build this view controller if it does not exist.
+    ///   - interceptor: Interceptor that Router has to run before even try to route to a UIViewController
+    ///     represented by this assembly.
+    ///   - postTask: A PostRoutingTask instance that has to be run by Router after routing to this assembly, or
+    ///     any assemblies (UIViewControllers) that are dependent on this one.
+    ///   - step: Step instance contains action that has to be executed by router after it creates assembly's
+    ///     UIViewController to make it imtegrated in to view controller stack whis also represtents a starting point
+    ///     of rounting or a dependency.
     public init(finder: DeepLinkFinder? = nil, factory: Factory? = nil, interceptor: RouterInterceptor? = nil, postTask: PostRoutingTask? = nil, step: Step) {
         self.originalStep = step
         self.postTask = postTask
@@ -45,6 +64,7 @@ public class ViewControllerAssembly: DeepLinkableViewControllerAssembly {
 
 }
 
+/// Internal class that represents for Router assembly's actions that have to be done to build its UIViewController
 class FactoryStep: Step {
 
     let factory: Factory?
@@ -67,6 +87,8 @@ class FactoryStep: Step {
     }
 }
 
+/// Internal class that represents for router asseblie's action that has to be done if it knows how to find itself
+/// in a view controller stack.
 class FinderStep: Step {
 
     class FinderFactory: Factory, PreparableFactory {
