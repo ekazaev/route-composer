@@ -11,7 +11,7 @@ public protocol PostRoutingTask {
 
 }
 
-public class PostRoutingTaskMultiplex: PostRoutingTask {
+public class PostRoutingTaskMultiplexer: PostRoutingTask {
 
     private let tasks: [PostRoutingTask]
 

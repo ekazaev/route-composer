@@ -108,7 +108,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Empty Screen
         let emptyAssembly = ViewControllerAssembly(finder: ViewControllerClassFinder(containerType: EmptyViewController.self),
                 factory: ViewControllerFromStoryboard(storyboardName: "Main", viewControllerID: "EmptyViewController", action: PushAction()),
-                interceptor: InterceptorMultiplex([LoginInterceptor(), ExampleAnalyticsInterceptor()]),
+                interceptor: InterceptorMultiplexer([LoginInterceptor(), ExampleAnalyticsInterceptor()]),
                 postTask: ExampleAnalyticsPostAction(),
                 step: chain([
                     RequireAssemblyStep(assembly: circleAssembly)

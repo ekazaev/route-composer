@@ -191,7 +191,7 @@ public class DefaultRouter: Router {
 
         //If we haven't find a View Controller to start build stack from - it means that we can handle a deeplinking
         if let viewController = rootViewController {
-            return (rootViewController: viewController, factories: factories, interceptor: interceptors.count == 1 ? interceptors.removeFirst() : InterceptorMultiplex(interceptors))
+            return (rootViewController: viewController, factories: factories, interceptor: interceptors.count == 1 ? interceptors.removeFirst() : InterceptorMultiplexer(interceptors))
         }
 
         return nil

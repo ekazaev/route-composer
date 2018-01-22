@@ -24,7 +24,7 @@ public protocol RouterInterceptor {
 
 }
 
-public class InterceptorMultiplex: RouterInterceptor {
+public class InterceptorMultiplexer: RouterInterceptor {
 
     private let interceptors: [RouterInterceptor]
 

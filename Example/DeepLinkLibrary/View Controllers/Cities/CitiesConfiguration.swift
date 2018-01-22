@@ -27,7 +27,7 @@ class CitiesConfiguration {
         citiesListAssembly = ViewControllerAssembly(
                 finder: CityTableViewControllerFinder(),
                 interceptor: ExampleAnalyticsInterceptor(),
-                postTask: PostRoutingTaskMultiplex([CityTablePostTask(), ExampleAnalyticsPostAction()]),
+                postTask: PostRoutingTaskMultiplexer([CityTablePostTask(), ExampleAnalyticsPostAction()]),
                 step: RequireAssemblyStep(assembly: self.cityAssembly))
 
         // City Details
@@ -35,7 +35,7 @@ class CitiesConfiguration {
                 finder: CityDetailsViewControllerFinder(),
                 factory: CityDetailsViewControllerFactory(action: PresentDetailsAction()),
                 interceptor: ExampleAnalyticsInterceptor(),
-                postTask: PostRoutingTaskMultiplex([CityDetailPostTask(), ExampleAnalyticsPostAction()]),
+                postTask: PostRoutingTaskMultiplexer([CityDetailPostTask(), ExampleAnalyticsPostAction()]),
                 step: RequireAssemblyStep(assembly: self.citiesListAssembly))
     }
 
