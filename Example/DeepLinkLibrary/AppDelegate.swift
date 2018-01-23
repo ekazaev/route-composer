@@ -39,15 +39,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func configureNavigationUsingDictionaryConfig() {
         //As one of examples configuration can be stored in one configuration object. Other configs are in CitiesConfiguration, Product cofiguration and LoginConfiguration as static objects
 
-        // Login
-        let loginAssembly = ViewControllerAssembly(
-                finder: LoginViewControllerFinder(),
-                factory: ViewControllerFromStoryboard(storyboardName: "Login", action: PresentModallyAction()),
-                interceptor: ExampleAnalyticsInterceptor(),
-                postTask: ExampleAnalyticsPostAction(),
-                step: TopMostViewControllerStep())
-        ExampleConfiguration.register(assembly: loginAssembly, for: ExampleSource.login)
-
         // Home Tab Bar Screen
         let homeAssembly = ViewControllerAssembly(
                 finder: ViewControllerClassFinder(containerType: UITabBarController.self),

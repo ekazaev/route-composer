@@ -31,7 +31,7 @@ class SquareViewController: UIViewController , AnalyticsSupportViewController {
     }
 
     @IBAction func goToLoginTapped() {
-        router.deepLinkTo(destination: ExampleConfiguration.destination(for: ExampleSource.login)!)
+        router.deepLinkTo(destination: LoginConfiguration.login())
     }
 
 }

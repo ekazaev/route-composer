@@ -11,7 +11,7 @@ struct LoginConfiguration {
     static func login() -> ExampleDestination {
         let loginAssembly = ViewControllerAssembly(
                 finder: LoginViewControllerFinder(),
-                factory: ViewControllerFromStoryboard(storyboardName: "Login", action: PresentModallyAction()),
+                factory: ViewControllerFromStoryboard(storyboardName: "Login", action: PresentModallyAction(presentationStyle: .formSheet)),
                 step: TopMostViewControllerStep())
 
         return ExampleDestination(assembly: loginAssembly, arguments: nil)

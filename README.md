@@ -11,6 +11,9 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Requirements
 
+There are no actual requirements to use a library. But if you are going to implement your custom containers 
+and actions you have to be familiar with library concepts and UIKit's view controllers stack laws.
+
 ## Installation
 
 DeepLinkLibrary is available through [CocoaPods](http://cocoapods.org). To install

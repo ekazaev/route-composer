@@ -7,8 +7,16 @@ import UIKit
 
 public class PresentModallyAction: ViewControllerAction {
 
-    public init() {
-        
+    let presentationStyle: UIModalPresentationStyle
+
+    let transitionStyle: UIModalTransitionStyle
+
+    let transitioningDelegate: UIViewControllerTransitioningDelegate?
+
+    public init(presentationStyle: UIModalPresentationStyle = .fullScreen, transitionStyle: UIModalTransitionStyle = .coverVertical, transitioningDelegate: UIViewControllerTransitioningDelegate? = nil) {
+        self.presentationStyle = presentationStyle
+        self.transitionStyle = transitionStyle
+        self.transitioningDelegate = transitioningDelegate
     }
     
     public func applyMerged(viewController: UIViewController, containerViewControllers: inout [UIViewController], logger: Logger?) {
@@ -21,6 +29,9 @@ public class PresentModallyAction: ViewControllerAction {
             completion(existingController)
             return
         }
+        viewController.modalPresentationStyle = presentationStyle
+        viewController.modalTransitionStyle = transitionStyle
+        viewController.transitioningDelegate = transitioningDelegate
         existingController.present(viewController, animated: animated, completion: {
             completion(viewController)
         })
