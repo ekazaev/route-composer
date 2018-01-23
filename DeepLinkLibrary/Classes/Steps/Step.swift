@@ -9,7 +9,7 @@ import UIKit
 ///
 /// - found: Step found it view controller.
 /// - continueRouting: Step havent find it view controller and router can try to execute previous step if it exists.
-/// - failure: Step tells router to stop routing and retunr .unhanled to a caller.
+/// - failure: Step tells router to stop routing and retunr .unhandled to a caller.
 public enum StepResult {
 
     case found(UIViewController)
@@ -21,7 +21,7 @@ public enum StepResult {
     /// Default init of StepResult enum
     ///
     /// - Parameter viewController: if passed it will init .found case. .continueRouting otherwise. .failure case
-    ///   should be instantiated malually.
+    ///   should be instantiated manually.
     init(_ viewController: UIViewController?) {
         guard let viewController = viewController else {
             self = .continueRouting
