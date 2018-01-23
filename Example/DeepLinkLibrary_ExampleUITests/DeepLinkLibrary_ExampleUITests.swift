@@ -114,6 +114,18 @@ class DeepLinkLibrary_ExampleUITests: XCTestCase {
         app.buttons["Square"].tap()
         XCTAssertTrue(app.otherElements["squareViewController"].exists)
 
+        app.buttons["Go push to circle*"].tap()
+        XCTAssertTrue(app.otherElements["emptyViewController"].exists)
+
+        app.buttons["Go to Self!"].tap()
+        XCTAssertTrue(app.otherElements["emptyViewController"].exists)
+
+        app.buttons["Go to Circle"].tap()
+        XCTAssertTrue(app.otherElements["circleViewController"].exists)
+
+        app.buttons["Go to square"].tap()
+        XCTAssertTrue(app.otherElements["squareViewController"].exists)
+
         app.buttons["Go to Circle"].tap()
         XCTAssertTrue(app.otherElements["circleViewController"].exists)
 

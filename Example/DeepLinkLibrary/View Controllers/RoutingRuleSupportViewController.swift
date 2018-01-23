@@ -31,7 +31,7 @@ class RoutingRuleSupportViewController: UIViewController, RouterRulesViewControl
     }
 
     @IBAction func goToColorTapped() {
-        router.deepLinkTo(destination: ExampleConfiguration.destination(for: ExampleSource.color, arguments: ExampleDictionaryArguments(arguments: [Argument.color: "FFFF00"], ExampleAnalyticsParameters(source: .ruleSupport)))!)
+        router.deepLinkTo(destination: ExampleConfiguration.destination(for: ExampleSource.color, arguments: ExampleDictionaryArguments(arguments: [Argument.color: "FFFF00"]))!)
     }
 
     @IBAction func goToSquareTapped() {

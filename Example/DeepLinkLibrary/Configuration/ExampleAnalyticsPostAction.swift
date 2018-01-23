@@ -11,7 +11,8 @@ class ExampleAnalyticsPostAction: PostRoutingTask {
 
     func execute(on viewController: UIViewController, with arguments: Any?) {
         guard let arguments = arguments as? ExampleArguments,
-              let topMostNonContainer = UIWindow.key?.rootViewController?.topmostNonContainerViewController, viewController == topMostNonContainer,
+              let topMostNonContainer = UIWindow.key?.rootViewController?.topmostNonContainerViewController,
+              viewController == topMostNonContainer,
               let source = arguments.analyticParameters?.source else {
             return
         }

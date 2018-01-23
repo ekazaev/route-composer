@@ -198,13 +198,6 @@ public class DefaultRouter: Router {
     }
 
     private func startDeepLinking(viewController: UIViewController, animated: Bool, factories: [Factory], completion: @escaping ((_: UIViewController) -> Void)) {
-        // If view controller found but view is not loaded it means that it was just cached by container view controller
-        // like in UITabBarController it happens with a view controller in a tab that was never activated before,
-        // So we have to make it active first.
-        if !viewController.isViewLoaded {
-            makeContainersActive(toShow: viewController, animated: animated)
-        }
-
         // If we found a view controller to start from - lets close all the presented view controllers above to be able
         // to build new stack in needed.
         // We already checked that they can be dissmissed.
@@ -222,6 +215,13 @@ public class DefaultRouter: Router {
         var factories = factories
 
         func buildViewController(_ factory: Factory, _ previousViewController: UIViewController) {
+            // If view controller found but view is not loaded it means that it was just cached by container view controller
+            // like in UITabBarController it happens with a view controller in a tab that was never activated before,
+            // So we have to make it active first.
+            if !previousViewController.isViewLoaded {
+                makeContainersActive(toShow: previousViewController, animated: animated)
+            }
+
             if let newViewController = factory.build(with: logger) {
                 logger?.log(.info("Factory \(factory) has built a \(newViewController) to start presentation from."))
                 // If factory contains action - applying it

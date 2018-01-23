@@ -7,7 +7,9 @@ import Foundation
 import UIKit
 import DeepLinkLibrary
 
-class SecondModalLevelViewController: UIViewController {
+class SecondModalLevelViewController: UIViewController, AnalyticsSupportViewController {
+
+    let  analyticParameters = ExampleAnalyticsParameters(source: .secondLevelModal)
 
     @IBAction func goToColorTapped() {
         router.deepLinkTo(destination: ExampleConfiguration.destination(for: ExampleSource.color, arguments: ExampleDictionaryArguments(arguments: [Argument.color: "FF0000"]))!)

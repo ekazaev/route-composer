@@ -8,7 +8,7 @@ import Foundation
 
 
 /// UIViewController's protocol exposed outside of library. If UIViewController extending this protocol wants to
-/// overtake a controll of view controllers stack from router and forbid router to dismiss it or cover with another
+/// overtake a control of view controllers stack from router and forbid router to dismiss it or cover with another
 /// UIViewController is has to retourn false when Router will ask this UIViewController if it can be dismissed.
 @objc public  protocol RouterRulesViewController where Self: UIViewController {
 
