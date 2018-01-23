@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'DeepLinkLibrary'
   s.version          = '0.1.0'
-  s.summary          = 'Standalone UIViewController's routing library.'
+  s.summary          = 'Standalone UIViewController\'s routing library.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?

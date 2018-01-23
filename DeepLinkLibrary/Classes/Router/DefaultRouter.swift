@@ -92,7 +92,7 @@ public class DefaultRouter: Router {
         }
 
         // Lets run the interceptor chain. All of interceptor must succeed to continue routing.
-        interceptor.apply(with: destination.arguments, logger: logger) { result in
+        interceptor.execute(with: destination.arguments, logger: logger) { result in
             guard result == .success else {
                 self.logger?.log(.warning("\(interceptor) interceptor has stopped routing."))
                 completion?()

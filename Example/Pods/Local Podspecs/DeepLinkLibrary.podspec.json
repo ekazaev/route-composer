@@ -1,7 +1,7 @@
 {
   "name": "DeepLinkLibrary",
   "version": "0.1.0",
-  "summary": "A short description of DeepLinkLibrary.",
+  "summary": "Standalone UIViewController's routing library.",
   "description": "TODO: Add long description of the pod here.",
   "homepage": "https://github.com/ekazaev/DeepLinkLibrary",
   "license": {

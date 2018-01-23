@@ -12,7 +12,7 @@ var isLoggedIn: Bool = false
 
 class LoginInterceptor: RouterInterceptor {
 
-    func apply(with arguments: Any?, logger: Logger?, completion: @escaping (_: InterceptorResult) -> Void) {
+    func execute(with arguments: Any?, logger: Logger?, completion: @escaping (_: InterceptorResult) -> Void) {
         guard !isLoggedIn else {
             completion(.success)
             return

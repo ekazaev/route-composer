@@ -20,39 +20,6 @@ public enum InterceptorResult {
 
 public protocol RouterInterceptor {
 
-    func apply(with arguments: Any?, logger: Logger?, completion: @escaping (_: InterceptorResult) -> Void)
+    func execute(with arguments: Any?, logger: Logger?, completion: @escaping (_: InterceptorResult) -> Void)
 
-}
-
-public class InterceptorMultiplexer: RouterInterceptor {
-
-    private let interceptors: [RouterInterceptor]
-
-    public init(_ interceptors: [RouterInterceptor]) {
-        self.interceptors = interceptors
-    }
-
-    public func apply(with arguments: Any?, logger: Logger?, completion: @escaping (InterceptorResult) -> Void) {
-        guard self.interceptors.count > 0 else {
-            completion(.success)
-            return
-        }
-
-        var interceptors = self.interceptors
-
-        func runInterceptor(interceptor: RouterInterceptor) {
-            interceptor.apply(with: arguments, logger: logger) { result in
-                if result == .failure {
-                    logger?.log(.warning("\(interceptor) interceptor has stopped routing."))
-                    completion(result)
-                } else if interceptors.count == 0 {
-                    completion(result)
-                } else {
-                    runInterceptor(interceptor: interceptors.removeFirst())
-                }
-            }
-        }
-
-        runInterceptor(interceptor: interceptors.removeFirst())
-    }
 }
