@@ -5,7 +5,7 @@
 
 import UIKit
 
-/// Returns topmost currently visible view controller.
+/// - getPresentationViewController: Returns topmost presented view controller.
 public class TopMostViewControllerStep: ChainableStep {
 
     public init() {

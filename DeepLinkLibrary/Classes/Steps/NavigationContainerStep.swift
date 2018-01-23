@@ -8,16 +8,16 @@ import UIKit
 /// Default navigation container step
 public class NavigationContainerStep: ChainableStep {
 
-    /// Created a default UINavigationController and applies an action if it was provided.
+    /// Creats a default UINavigationController and applies an action if it is provided.
     ///
-    /// - Parameter action: action to be applied to a created UIVanigationController
+    /// - parameter action: action to be applied to the created UINavigationController
     public init(action: ViewControllerAction? = nil) {
-        super.init(factory:NavigationControllerFactory(action: action))
+        super.init(factory: NavigationControllerFactory(action: action))
     }
 
     /// NavigationContainerStep init method
     ///
-    /// - Parameter factory: Factory that creates UINavigationViewController
+    /// - parameter factory: Factory that provides a UINavigationViewController
     public init(factory: Factory? = nil) {
         super.init(factory: factory)
     }

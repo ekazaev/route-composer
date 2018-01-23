@@ -69,14 +69,14 @@ class FactoryStep: Step {
 
     let factory: Factory?
 
-    let prevStep: Step?
+    let previousStep: Step?
 
     let interceptor: RouterInterceptor?
 
     let postTask: PostRoutingTask?
 
     init(prevStep: Step?, factory: Factory, interceptor: RouterInterceptor? = nil, postTask: PostRoutingTask? = nil) {
-        self.prevStep = prevStep
+        self.previousStep = prevStep
         self.factory = factory
         self.postTask = postTask
         self.interceptor = interceptor
@@ -117,7 +117,7 @@ class FinderStep: Step {
 
     let factory: Factory?
 
-    let prevStep: Step?
+    let previousStep: Step?
 
     let finder: DeepLinkFinder
 
@@ -126,7 +126,7 @@ class FinderStep: Step {
     init(finder: DeepLinkFinder, prevStep: Step?, factory: Factory?, interceptor: RouterInterceptor? = nil, postTask: PostRoutingTask? = nil) {
         self.finder = finder
         self.postTask = postTask
-        self.prevStep = prevStep
+        self.previousStep = prevStep
         self.factory = factory ?? FinderFactory(finder: finder)
         self.interceptor = interceptor
     }

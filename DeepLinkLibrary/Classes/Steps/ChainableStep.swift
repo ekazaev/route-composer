@@ -5,9 +5,14 @@
 import Foundation
 import UIKit
 
+
+/// Chainable step.
+/// Identifies that the step can be a part of the chain,
+/// e.g. when it comes to the presentation of multiple view controllers to reach destination.
+
 public class ChainableStep: Step {
 
-    private(set) public var prevStep: Step? = nil
+    private(set) public var previousStep: Step? = nil
 
     public let factory: Factory?
 
@@ -26,24 +31,22 @@ public class ChainableStep: Step {
     }
 
     func previous(continue step: Step) {
-        prevStep = step
+        previousStep = step
     }
-
 }
 
-
-/// Chains array of step in to chain of steps.
+/// Connects array of steps into a chain of steps.
 ///
-/// - Parameter chains: Array of chainable ChainableStep
-/// - Returns: Last step to be made by a Router. The resta re chained to that one.
-public func chain(_ chains: [ChainableStep])  -> ChainableStep {
-    guard let firstStep = chains.first else {
+/// - parameter chains: Array of chainable steps.
+/// - returns: Last step to be made by a Router. The rest are linked to the last one.
+public func chain(_ links: [ChainableStep])  -> ChainableStep {
+    guard let firstStep = links.first else {
         fatalError("No steps provided to chain.")
     }
 
-    var restSteps = chains
+    var restSteps = links
     var currentStep = firstStep
-    restSteps.remove(at: 0)
+    restSteps.removeFirst()
 
     for presenter in restSteps {
         currentStep.previous(continue: presenter)

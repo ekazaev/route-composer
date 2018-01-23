@@ -10,23 +10,23 @@ public class RequireAssemblyStep: ChainableStep {
 
     let assembly: DeepLinkableViewControllerAssembly
 
-    override public var prevStep: Step? {
+    override public var previousStep: Step? {
         return assembly.step
     }
 
     /// Default constructor
     ///
-    /// - Parameter assembly: A required screen asseblie to execute this step.
+    /// - Parameter assembly: The screen assebly required to execute this step.
     public init(assembly: DeepLinkableViewControllerAssembly) {
         self.assembly = assembly
         super.init()
     }
 
-    /// Required step can not be chainded. It will provide previous step itself based on required assemblie.
+    /// Required step can not be chained. It will provide previous step itself based on required assembly.
     ///
-    /// - Parameter presenter: Previous step to make by Router.
+    /// - Parameter presenter: Previous step that to be executed by Router.
     override func previous(continue presenter: Step) {
-        fatalError("RequireScreenStep cant have any further step chains. Next steps will be build from required target")
+        fatalError("RequireScreenStep can't have any further step chains. Next steps will be build from the required target")
     }
 
 }
