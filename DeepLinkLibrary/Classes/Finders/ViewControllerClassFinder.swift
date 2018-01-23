@@ -6,7 +6,7 @@
 import Foundation
 import UIKit
 
-/// Default implementation of the unique view controller finder.
+/// Default implementation of the unique view controller finder, where view controller can be found by name.
 /// (Example: Home, account, login, etc supposed to be in the view stack just once)
 
 public class ViewControllerClassFinder: FinderWithPolicy {

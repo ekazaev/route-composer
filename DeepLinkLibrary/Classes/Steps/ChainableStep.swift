@@ -39,12 +39,12 @@ public class ChainableStep: Step {
 ///
 /// - parameter chains: Array of chainable steps.
 /// - returns: Last step to be made by a Router. The rest are linked to the last one.
-public func chain(_ links: [ChainableStep])  -> ChainableStep {
-    guard let firstStep = links.first else {
+public func chain(_ steps: [ChainableStep])  -> ChainableStep {
+    guard let firstStep = steps.first else {
         fatalError("No steps provided to chain.")
     }
 
-    var restSteps = links
+    var restSteps = steps
     var currentStep = firstStep
     restSteps.removeFirst()
 
