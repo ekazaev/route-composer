@@ -19,15 +19,67 @@ public protocol DeepLinkableViewControllerAssembly {
 /// in to actual router step.
 public class ViewControllerAssembly: DeepLinkableViewControllerAssembly {
 
+    /// Internal class that represents for routerstep that has to be done if it knows how to find itself
+    /// in a view controller stack.
+    internal class AssemblyStep: Step {
+
+        let interceptor: RouterInterceptor?
+
+        let factory: Factory?
+
+        let previousStep: Step?
+
+        let finder: DeepLinkFinder?
+
+        let postTask: PostRoutingTask?
+
+        init(finder: DeepLinkFinder?, previousStep: Step?, factory: Factory?, interceptor: RouterInterceptor? = nil, postTask: PostRoutingTask? = nil) {
+            self.finder = finder
+            self.postTask = postTask
+            self.previousStep = previousStep
+            self.factory = factory ?? FinderFactory(finder: finder)
+            self.interceptor = interceptor
+        }
+
+        func getPresentationViewController(with arguments: Any?) -> StepResult {
+            guard let finder = finder else  {
+                return .continueRouting
+            }
+            return StepResult(finder.findViewController(with: arguments))
+        }
+    }
+
+    /// Assembly internal factory that uses finder result as a factory result. Used with things that do not have actual
+    /// factories like UIViewControllers that were build as a result of storyboard loading.
+    internal class FinderFactory: Factory, PreparableFactory {
+
+        var action: ViewControllerAction? = nil
+
+        let finder: DeepLinkFinder?
+
+        var arguments: Any?
+
+        init(finder: DeepLinkFinder?) {
+            self.finder = finder
+        }
+
+        func prepare(with arguments: Any?) -> DeepLinkResult {
+            self.arguments = arguments
+            return .handled
+        }
+
+        func build(with logger: Logger?) -> UIViewController? {
+            return finder?.findViewController(with: arguments)
+        }
+    }
+
     let originalStep: Step
 
     public var step: Step {
         get {
             //  Here assembly transforms properties it has to a Step instance that can be executed by Router.
-            if let finder = finder {
-                return FinderStep(finder: finder, prevStep: originalStep, factory: factory, interceptor: interceptor, postTask: postTask)
-            } else if let factory = factory {
-                return FactoryStep(prevStep: originalStep, factory: factory, interceptor: interceptor, postTask: postTask)
+            if finder != nil || factory != nil {
+                return AssemblyStep(finder: finder, previousStep: originalStep, factory: factory, interceptor: interceptor, postTask: postTask)
             }
             return originalStep
         }
@@ -63,76 +115,3 @@ public class ViewControllerAssembly: DeepLinkableViewControllerAssembly {
     }
 
 }
-
-/// Internal class that represents for Router assembly's actions that have to be done to build its UIViewController
-class FactoryStep: Step {
-
-    let factory: Factory?
-
-    let previousStep: Step?
-
-    let interceptor: RouterInterceptor?
-
-    let postTask: PostRoutingTask?
-
-    init(prevStep: Step?, factory: Factory, interceptor: RouterInterceptor? = nil, postTask: PostRoutingTask? = nil) {
-        self.previousStep = prevStep
-        self.factory = factory
-        self.postTask = postTask
-        self.interceptor = interceptor
-    }
-
-    func getPresentationViewController(with arguments: Any?) -> StepResult {
-        return .continueRouting
-    }
-}
-
-/// Internal class that represents for router asseblie's action that has to be done if it knows how to find itself
-/// in a view controller stack.
-class FinderStep: Step {
-
-    class FinderFactory: Factory, PreparableFactory {
-
-        var action: ViewControllerAction? = nil
-
-        let finder: DeepLinkFinder
-
-        var arguments: Any?
-
-        init(finder: DeepLinkFinder) {
-            self.finder = finder
-        }
-
-        func prepare(with arguments: Any?) -> DeepLinkResult {
-            self.arguments = arguments
-            return .handled
-        }
-
-        func build(with logger: Logger?) -> UIViewController? {
-            return finder.findViewController(with: arguments)
-        }
-    }
-
-    let interceptor: RouterInterceptor?
-
-    let factory: Factory?
-
-    let previousStep: Step?
-
-    let finder: DeepLinkFinder
-
-    let postTask: PostRoutingTask?
-
-    init(finder: DeepLinkFinder, prevStep: Step?, factory: Factory?, interceptor: RouterInterceptor? = nil, postTask: PostRoutingTask? = nil) {
-        self.finder = finder
-        self.postTask = postTask
-        self.previousStep = prevStep
-        self.factory = factory ?? FinderFactory(finder: finder)
-        self.interceptor = interceptor
-    }
-
-    func getPresentationViewController(with arguments: Any?) -> StepResult {
-        return StepResult(finder.findViewController(with: arguments))
-    }
-}
-

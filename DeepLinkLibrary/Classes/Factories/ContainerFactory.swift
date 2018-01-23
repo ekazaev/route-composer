@@ -7,7 +7,7 @@
 import Foundation
 
 /// ContainerFactory protocol should be extended by Factories that produces any type of view controllers
-/// that can be considered as Contaners (eg: UINavigationController, UITabBarController e.t.c) that want to
+/// that can be considered as Containers (eg: UINavigationController, UITabBarController e.t.c) that want to
 /// apply one merged actions and then populate a full stack of view controllers that were build by factories
 /// in one go. Example: Steps require to populate n view controllers in UINavigationController stack and it can do so.
 /// Merge action implementation is mandatory for any actions and should be implemented if it can be done.

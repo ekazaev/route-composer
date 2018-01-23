@@ -9,7 +9,6 @@ import UIKit
 /// Chainable step.
 /// Identifies that the step can be a part of the chain,
 /// e.g. when it comes to the presentation of multiple view controllers to reach destination.
-
 public class ChainableStep: Step {
 
     private(set) public var previousStep: Step? = nil
