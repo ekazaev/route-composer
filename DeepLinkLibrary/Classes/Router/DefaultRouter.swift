@@ -61,7 +61,7 @@ private class PostTaskRunner {
             guard let viewController = slip.viewController else {
                 return
             }
-            slip.postTask.execute(on: viewController, routingStack: viewControllers, with: destinaion.arguments)
+            slip.postTask.execute(on: viewController, with: destinaion.arguments, routingStack: viewControllers)
         })
     }
 }

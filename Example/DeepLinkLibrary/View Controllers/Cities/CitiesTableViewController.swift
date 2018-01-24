@@ -52,7 +52,7 @@ class CityTableViewControllerFinder: FinderWithPolicy {
 
 class CityTablePostTask: PostRoutingTask {
 
-    func execute(on viewController: UIViewController, routingStack: [UIViewController], with arguments: Any?) {
+    func execute(on viewController: UIViewController, with arguments: Any?, routingStack: [UIViewController]) {
         guard let viewController = viewController as? CitiesTableViewController,
               let arguments = arguments as? CityArguments,
               let destinationCityId = arguments.cityId else {

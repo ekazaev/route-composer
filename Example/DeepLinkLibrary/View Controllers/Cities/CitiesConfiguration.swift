@@ -18,7 +18,7 @@ class CitiesConfiguration {
 
     private init() {
         // Split View Controller
-        cityAssembly = ViewControllerAssembly(finder: ViewControllerClassFinder(containerType: UISplitViewController.self),
+        cityAssembly = ViewControllerAssembly(finder: ViewControllerClassFinder(classType: UISplitViewController.self),
                 factory: ViewControllerFromStoryboard(storyboardName: "Split", action: ReplaceRootAction()),
                 interceptor: LoginInterceptor(),
                 step: RootViewControllerStep())

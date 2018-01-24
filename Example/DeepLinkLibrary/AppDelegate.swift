@@ -41,7 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // Home Tab Bar Screen
         let homeAssembly = ViewControllerAssembly(
-                finder: ViewControllerClassFinder(containerType: UITabBarController.self),
+                finder: ViewControllerClassFinder(classType: UITabBarController.self),
                 factory: ViewControllerFromStoryboard(storyboardName: "Main", action: ReplaceRootAction()),
                 interceptor: ExampleAnalyticsInterceptor(),
                 postTask: ExampleAnalyticsPostAction(),
@@ -53,7 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // Square Tab Bar Screen
         let squareAssembly = ViewControllerAssembly(
-                finder: ViewControllerClassFinder(containerType: SquareViewController.self, policy: .currentLevel),
+                finder: ViewControllerClassFinder(classType: SquareViewController.self, policy: .currentLevel),
                 interceptor: ExampleAnalyticsInterceptor(),
                 postTask: ExampleAnalyticsPostAction(),
                 step: chain([
@@ -64,7 +64,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // Circle Tab Bar screen
         let circleAssembly = ViewControllerAssembly(
-                finder: ViewControllerClassFinder(containerType: CircleViewController.self, policy: .currentLevel),
+                finder: ViewControllerClassFinder(classType: CircleViewController.self, policy: .currentLevel),
                 interceptor: ExampleAnalyticsInterceptor(),
                 postTask: ExampleAnalyticsPostAction(),
                 step: chain([
@@ -86,7 +86,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ExampleConfiguration.register(assembly: colorAssembly, for: ExampleSource.color)
 
         //Sceen with Routing support
-        let routingSupportAssembly = ViewControllerAssembly(finder: ViewControllerClassFinder(containerType: RoutingRuleSupportViewController.self, policy: .currentLevel),
+        let routingSupportAssembly = ViewControllerAssembly(finder: ViewControllerClassFinder(classType: RoutingRuleSupportViewController.self, policy: .currentLevel),
                 factory: ViewControllerFromStoryboard(storyboardName: "Main", viewControllerID: "RoutingRuleSupportViewController", action: PushAction()),
                 interceptor: ExampleAnalyticsInterceptor(),
                 postTask: ExampleAnalyticsPostAction(),
@@ -97,7 +97,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 for: ExampleSource.ruleSupport)
 
         // Empty Screen
-        let emptyAssembly = ViewControllerAssembly(finder: ViewControllerClassFinder(containerType: EmptyViewController.self),
+        let emptyAssembly = ViewControllerAssembly(finder: ViewControllerClassFinder(classType: EmptyViewController.self),
                 factory: ViewControllerFromStoryboard(storyboardName: "Main", viewControllerID: "EmptyViewController", action: PushAction()),
                 interceptor: InterceptorMultiplexer([LoginInterceptor(), ExampleAnalyticsInterceptor()]),
                 postTask: ExampleAnalyticsPostAction(),
@@ -109,7 +109,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // Two modal presentations screen
         let superModalAssembly = ViewControllerAssembly(
-                finder: ViewControllerClassFinder(containerType: SecondModalLevelViewController.self),
+                finder: ViewControllerClassFinder(classType: SecondModalLevelViewController.self),
                 factory: ViewControllerFromStoryboard(storyboardName: "Main", viewControllerID: "SecondModalLevelViewController", action: PushAction()),
                 interceptor: ExampleAnalyticsInterceptor(),
                 postTask: ExampleAnalyticsPostAction(),
@@ -121,7 +121,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // Welcome Screen
         let welcomeAssembly = ViewControllerAssembly(
-                finder: ViewControllerClassFinder(containerType: PromptViewController.self),
+                finder: ViewControllerClassFinder(classType: PromptViewController.self),
                 factory: ViewControllerFromStoryboard(storyboardName: "PromptScreen", action: ReplaceRootAction()),
                 interceptor: ExampleAnalyticsInterceptor(),
                 postTask: ExampleAnalyticsPostAction(),
