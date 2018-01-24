@@ -9,10 +9,10 @@ import DeepLinkLibrary
 
 class ExampleAnalyticsPostAction: PostRoutingTask {
 
-    func execute(on viewController: UIViewController, with arguments: Any?) {
+    func execute(on viewController: UIViewController, routingStack: [UIViewController], with arguments: Any?) {
         guard let arguments = arguments as? ExampleArguments,
-              let topMostNonContainer = UIWindow.key?.rootViewController?.topmostNonContainerViewController,
-              viewController == topMostNonContainer,
+              let lastViewController = routingStack.last,
+              viewController == lastViewController,
               let source = arguments.analyticParameters?.source else {
             return
         }

@@ -6,7 +6,12 @@
 import UIKit
 
 private struct PostTaskSlip {
-    let viewController: UIViewController
+    // This reference is weak because even though this view controller was created by a fabric but then some other
+    // view controller in the chain can have an action that will actually remove this view controller from the stack.
+    // we do not want to keep a strong reference to it and prevent it from deallocation. Potentially it's a very rare
+    // issue but must be kept in mind.
+    weak var viewController: UIViewController?
+
     let postTask: PostRoutingTask
 }
 
@@ -49,7 +54,13 @@ private class PostTaskRunner {
     var taskSlips: [PostTaskSlip] = []
 
     func run<A: DeepLinkDestination>(for destinaion: A) {
-        taskSlips.forEach({ $0.postTask.execute(on: $0.viewController, with: destinaion.arguments) })
+        let viewControllers = taskSlips.flatMap({ $0.viewController })
+        taskSlips.forEach({ slip in
+            guard let viewController = slip.viewController else {
+                return
+            }
+            slip.postTask.execute(on: viewController, routingStack: viewControllers, with: destinaion.arguments)
+        })
     }
 }
 
@@ -62,7 +73,7 @@ public class DefaultRouter: Router {
     }
 
     @discardableResult
-    public func deepLinkTo<A: DeepLinkDestination>(destination: A, animated: Bool = true, completion: (() -> Void)? = nil) -> DeepLinkResult {
+    public func deepLinkTo<A: DeepLinkDestination>(destination: A, animated: Bool = true, completion: ((_: Bool) -> Void)? = nil) -> DeepLinkResult {
 
         // If currently visible view controller can not be dissmissed then we can't deeplink anywhere, because it will
         // disappear as a result of deeplinking.
@@ -94,17 +105,24 @@ public class DefaultRouter: Router {
         }
 
         // Execute interceptors associated to the each view in the chain. All of interceptors must succeed to continue routing.
-        interceptor.execute(with: destination.arguments, logger: logger) { result in
+        interceptor.execute(with: destination.arguments, logger: logger) { [weak viewController] result in
             guard result == .success else {
                 self.logger?.log(.warning("\(interceptor) interceptor has stopped routing."))
-                completion?()
+                completion?(false)
+                return
+            }
+
+            guard let viewController = viewController else {
+                self.logger?.log(.error("View controller that been chosen as a starting point of rooting been " +
+                        "destroyed while router was waiting for interceptor's result."))
+                completion?(false)
                 return
             }
             
             self.startDeepLinking(viewController: viewController, animated: animated, factories: factoriesStack) { viewController in
                 self.makeContainersActive(toShow: viewController, animated: animated)
                 postTaskRunner.run(for: destination)
-                completion?()
+                completion?(true)
             }
         }
 
