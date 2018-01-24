@@ -163,7 +163,7 @@ public class DefaultRouter: Router {
                     logger?.log(.info("Step \(step!) has found a \(viewController) to start presentation from."))
                 }
                 if let postTask = step?.postTask {
-                    postTaskRunner.taskSlips.append(PostTaskSlip(viewController: viewController, postTask: postTask))
+                    postTaskRunner.taskSlips.insert(PostTaskSlip(viewController: viewController, postTask: postTask), at: 0)
                 }
                 break
             case .continueRouting:
