@@ -8,16 +8,16 @@ import UIKit
 /// Default step that builds a dependency from another screen assembly
 public class RequireAssemblyStep: ChainableStep {
 
-    let assembly: DeepLinkableViewControllerAssembly
+    let assembly: Step
 
     override public var previousStep: Step? {
-        return assembly.step
+        return assembly
     }
 
     /// Default constructor
     ///
     /// - Parameter assembly: The screen assebly required to execute this step.
-    public init(assembly: DeepLinkableViewControllerAssembly) {
+    public init(assembly: Step) {
         self.assembly = assembly
         super.init()
     }

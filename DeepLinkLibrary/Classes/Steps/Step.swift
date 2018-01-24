@@ -20,10 +20,8 @@ public protocol Step {
     /// Step to be made by a router before getting to this step.
     var previousStep: Step? { get }
 
-    /// Think about another name. (perform/execute/..)
-    ///
     /// - Parameter arguments: Arguments that Router has started with.
     /// - Returns: StepResult enum value, which may contain a view controller in case of .found scenario.
-    func getPresentationViewController(with arguments: Any?) -> StepResult
+    func perform(with arguments: Any?) -> StepResult
 
 }

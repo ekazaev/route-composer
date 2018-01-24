@@ -16,7 +16,7 @@ class ColorURLTranslator: ExampleURLTranslator {
             return nil
         }
 
-        return ExampleDestination(assembly: screen,
+        return ExampleDestination(finalStep: screen,
                 arguments: ExampleDictionaryArguments( arguments: [Argument.color: colorValue], ExampleAnalyticsParameters(source: .appLink, webpageURL: url, referrerURL: nil)))
     }
 

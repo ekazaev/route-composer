@@ -12,7 +12,7 @@ public class RootViewControllerStep: ChainableStep {
         super.init()
     }
 
-    override public func getPresentationViewController(with arguments: Any?) -> StepResult {
+    override public func perform(with arguments: Any?) -> StepResult {
         return StepResult(UIWindow.key?.rootViewController)
     }
 

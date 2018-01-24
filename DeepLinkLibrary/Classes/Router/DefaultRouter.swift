@@ -112,7 +112,8 @@ public class DefaultRouter: Router {
     }
 
     private func prepareStack<A: DeepLinkDestination>(destination: A, postTaskRunner: PostTaskRunner) -> (rootViewController: UIViewController, factories: [Factory], interceptor: RouterInterceptor)? {
-        var step: Step? = destination.assembly.step
+
+        var step: Step? = destination.finalStep
 
         var rootViewController: UIViewController?
 
@@ -126,7 +127,7 @@ public class DefaultRouter: Router {
         repeat {
 
             // Trying to find a view controller to start building the stack from
-            guard let result = step?.getPresentationViewController(with: destination.arguments) else {
+            guard let result = step?.perform(with: destination.arguments) else {
                 return nil
             }
 

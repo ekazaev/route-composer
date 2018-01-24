@@ -30,6 +30,6 @@ class ProductConfiguration {
                     RequireAssemblyStep(assembly: ExampleConfiguration.assembly(for: ExampleSource.circle)!)
                 ]))
 
-        return ExampleDestination(assembly: productAssembly, arguments: ProductArguments(productId: productId, analyticParameters))
+        return ExampleDestination(finalStep: productAssembly, arguments: ProductArguments(productId: productId, analyticParameters))
     }
 }

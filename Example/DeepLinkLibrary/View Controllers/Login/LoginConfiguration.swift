@@ -14,7 +14,7 @@ struct LoginConfiguration {
                 factory: ViewControllerFromStoryboard(storyboardName: "Login", action: PresentModallyAction(presentationStyle: .formSheet)),
                 step: TopMostViewControllerStep())
 
-        return ExampleDestination(assembly: loginAssembly, arguments: nil)
+        return ExampleDestination(finalStep: loginAssembly, arguments: nil)
     }
 
 }

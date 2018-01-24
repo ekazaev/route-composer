@@ -43,7 +43,7 @@ class ExampleDictionaryArguments: ExampleArguments {
 
 struct ExampleDestination: DeepLinkDestination {
 
-    let assembly: DeepLinkableViewControllerAssembly
+    let finalStep: Step
 
     let arguments: Any?
 

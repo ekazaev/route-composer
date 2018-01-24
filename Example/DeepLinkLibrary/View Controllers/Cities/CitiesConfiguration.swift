@@ -41,10 +41,10 @@ class CitiesConfiguration {
 
 
     static func citiesList(cityId: Int? = nil, _ analyticParameters: ExampleAnalyticsParameters? = nil) -> ExampleDestination {
-        return ExampleDestination(assembly: shared.citiesListAssembly, arguments: CityArguments(cityId: cityId, analyticParameters))
+        return ExampleDestination(finalStep: shared.citiesListAssembly, arguments: CityArguments(cityId: cityId, analyticParameters))
     }
 
     static func cityDetail(cityId: Int, _ analyticParameters: ExampleAnalyticsParameters? = nil) -> ExampleDestination {
-        return ExampleDestination(assembly: shared.cityDetailsAssembly, arguments: CityArguments(cityId: cityId, analyticParameters))
+        return ExampleDestination(finalStep: shared.cityDetailsAssembly, arguments: CityArguments(cityId: cityId, analyticParameters))
     }
 }

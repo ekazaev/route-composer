@@ -25,7 +25,7 @@ public class ChainableStep: Step {
         self.postTask = postTask
     }
 
-    public func getPresentationViewController(with arguments: Any?) -> StepResult {
+    public func perform(with arguments: Any?) -> StepResult {
         return .continueRouting
     }
 

@@ -8,13 +8,13 @@ import DeepLinkLibrary
 
 class ExampleConfiguration {
 
-    private static var assemblies: [AnyHashable: DeepLinkableViewControllerAssembly] = [:]
+    private static var assemblies: [AnyHashable: Step] = [:]
 
-    static func assembly<T: Hashable>(for target: T) -> DeepLinkableViewControllerAssembly? {
+    static func assembly<T: Hashable>(for target: T) -> Step? {
         return assemblies[target]
     }
 
-    static func register<T: Hashable>(assembly: DeepLinkableViewControllerAssembly, for target: T) {
+    static func register<T: Hashable>(assembly: Step, for target: T) {
         assemblies[target] = assembly
     }
 
@@ -24,7 +24,7 @@ class ExampleConfiguration {
             return nil
         }
 
-        return ExampleDestination(assembly: assembly, arguments: arguments ?? ExampleDictionaryArguments())
+        return ExampleDestination(finalStep: assembly, arguments: arguments ?? ExampleDictionaryArguments())
     }
 }
 
