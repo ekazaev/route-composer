@@ -23,8 +23,8 @@ class LoginInterceptor: RouterInterceptor {
         // It will help to avoid opening of another login view controller and will help you not to have your own
         // boilerplate code that will help you to avoid this rare, but possible situation.
         let destination = LoginConfiguration.login()
-        let result = DefaultRouter().deepLinkTo(destination: destination) {
-            guard let assembly = destination.finalStep as? ViewControllerAssembly,
+        let result = DefaultRouter().deepLinkTo(destination: destination) { success in
+            guard success, let assembly = destination.finalStep as? ViewControllerAssembly,
                   let loginViewController = assembly.finder?.findViewController(with: nil) as? LoginViewController else {
                 completion(.failure)
                 return
@@ -59,7 +59,7 @@ class LoginViewControllerFinder: FinderWithPolicy {
 
 class LoginViewController: UIViewController, AnalyticsSupportViewController {
 
-    let  analyticParameters = ExampleAnalyticsParameters(source: .login)
+    let analyticParameters = ExampleAnalyticsParameters(source: .login)
 
     @IBOutlet private var loginTextField: UITextField!
 
