@@ -26,9 +26,9 @@ public class SplitControllerFactory: ContainerFactory {
         self.action = action
     }
 
-    public func merge(_ screenFactories: [Factory]) -> [Factory] {
+    public func merge(_ factories: [Factory]) -> [Factory] {
         var rest: [Factory] = []
-        screenFactories.forEach { factory in
+        factories.forEach { factory in
             if let _ = factory.action as? SplitViewControllerMasterAction {
                 masterFactories.append(factory)
             }

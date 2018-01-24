@@ -6,21 +6,22 @@
 
 import Foundation
 
-/// ContainerFactory protocol should be extended by Factories that produces any type of view controllers
-/// that can be considered as Containers (eg: UINavigationController, UITabBarController e.t.c) that want to
-/// apply one merged actions and then populate a full stack of view controllers that were build by factories
-/// in one go. Example: Steps require to populate n view controllers in UINavigationController stack and it can do so.
+/// ContainerFactory protocol should be implemented by Factories that produce any type of the view controllers
+/// that can be considered as Containers (eg: UINavigationController, UITabBarController, etc)
+///
+/// Container apply one merged action and then populate a full stack of view controllers that was built by the associated factories in one go.
+/// Example: Steps require to populate n view controllers in UINavigationController stack and it can do so.
 /// Merge action implementation is mandatory for any actions and should be implemented if it can be done.
 public protocol ContainerFactory: Factory {
 
-    /// Receives an array of fabrics whis view controllers should be merged in to implementing container
-    /// factory before it actually build container UIViewController with a children inside.
-    /// Example: UINavvigationController with N pushed in to it UIViewControllers.
+    /// Receives an array of factories whose view controllers should be merged into current container
+    /// factory before it actually builds a container view controller with child view controllers inside.
+    /// Example: UINavigationController with N pushed into it UIViewControllers.
     ///
-    /// - Parameter screenFactories: Array of factories that were are sits in router to be handled by any container.
-    /// - Returns: Array of factories that are not supported by this container type. Router should decide how to deal
-    /// with them. Example: Fabrics that have to be pushed in a UINavigationController by a push action, but it cant
-    /// deal with action that asks to present UIViewController modally. That view controller has to be returned back.
-    func merge(_ screenFactories: [Factory]) -> [Factory]
+    /// - Parameter factories: Array of factories to be handled by container factory.
+    /// - Returns: Array of factories that are not supported by this container type. Router should decide how to deal with them.
+    /// Example: UINavigationController as a container expects push action of any kind.
+    /// If a factory from factories array contains one with a present modally action, it will be retruned back as an unsuppported one.
+    func merge(_ factories: [Factory]) -> [Factory]
 
 }

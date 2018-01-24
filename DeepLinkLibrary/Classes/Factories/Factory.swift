@@ -5,8 +5,9 @@
 
 import UIKit
 
-/// Factory's only responcibility is to  build a UIViewController on routers demand and then router uses a
-///factory action to integrate UIViewController that has been built by a factory in to existant view controller stack
+/// Factory
+/// action: router applies action to integrate view controller created by build() in the existing view controller stack
+/// build(): builds a view controller that will be pushed to the viw stack
 public protocol Factory: class {
 
     var action: ViewControllerAction? { get }
