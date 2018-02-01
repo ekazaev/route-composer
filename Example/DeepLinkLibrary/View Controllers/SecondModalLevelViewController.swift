@@ -11,6 +11,11 @@ class SecondModalLevelViewController: UIViewController, AnalyticsSupportViewCont
 
     let  analyticParameters = ExampleAnalyticsParameters(source: .secondLevelModal)
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneTapped))
+    }
+
     @IBAction func goToColorTapped() {
         router.deepLinkTo(destination: ExampleConfiguration.destination(for: ExampleSource.color, arguments: ExampleDictionaryArguments(arguments: [Argument.color: "FF0000"]))!)
     }
@@ -21,5 +26,10 @@ class SecondModalLevelViewController: UIViewController, AnalyticsSupportViewCont
 
     @IBAction func goToMinskTapped() {
         router.deepLinkTo(destination: CitiesConfiguration.cityDetail(cityId: 18), animated: false)
+    }
+
+
+    @objc func doneTapped() {
+        self.dismiss(animated: true)
     }
 }
