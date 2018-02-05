@@ -77,6 +77,14 @@ class ProductViewController: UIViewController, AnalyticsSupportViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         reloadData()
+
+        if self.navigationController?.viewControllers.count == 1 {
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneTapped))
+        }
+    }
+
+    @objc func doneTapped() {
+        self.dismiss(animated: true)
     }
 
     private func reloadData() {

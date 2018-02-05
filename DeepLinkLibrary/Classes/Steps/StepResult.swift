@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 /// Result of step execution.
 ///

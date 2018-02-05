@@ -21,14 +21,32 @@ class ProductArguments: ExampleArguments {
 class ProductConfiguration {
 
     static func productDestination(productId: String, _ analyticParameters: ExampleAnalyticsParameters? = nil) -> ExampleDestination {
-        let productAssembly = ViewControllerAssembly(
+        let productAssembly = ViewControllerAssemblyBuilder(
                 finder: ProductViewControllerFinder(),
                 factory: ProductViewControllerFactory(action: PushAction()),
-                interceptor: ExampleAnalyticsInterceptor(),
-                postTask: ExampleAnalyticsPostAction(),
-                step: chain([
-                    RequireAssemblyStep(assembly: ExampleConfiguration.assembly(for: ExampleSource.circle)!)
-                ]))
+                from:
+                SmartStepBuilder()
+                        .addCase { arguments in
+                            // If routing requested by Universal Link - Presenting modally
+                            // Try in Mobile Safari dll://productView?product=123
+                            guard let arguments = arguments as? ExampleArguments, arguments.analyticParameters?.webpageURL != nil else {
+                                return nil
+                            }
+
+                            return chain([
+                                NavigationContainerStep(action: PresentModallyAction()),
+                                TopMostViewControllerStep(),
+                            ])
+                            // If UINavigationController exists on current level - just push
+                        }.addCase(when: ViewControllerClassFinder(classType: UINavigationController.self, policy: .currentLevel))
+                        .addCase { _ in
+                            // Otherwise - presenting in Circle Tab
+                            return RequireAssemblyStep(assembly: ExampleConfiguration.assembly(for: ExampleSource.circle)!)
+                        }.build())
+                .add(ExampleAnalyticsInterceptor())
+                .add(ExampleAnalyticsPostAction())
+                .build()
+
 
         return ExampleDestination(finalStep: productAssembly, arguments: ProductArguments(productId: productId, analyticParameters))
     }

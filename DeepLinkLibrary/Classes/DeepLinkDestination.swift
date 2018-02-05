@@ -9,7 +9,7 @@ import Foundation
 public protocol DeepLinkDestination {
 
     /// Assembly instance that represents end point of routing.
-    var finalStep: Step { get }
+    var finalStep: RoutingStep { get }
 
     /// Arguments to be passed to any UIViewController to be build or presented.
     var arguments: Any? { get }

@@ -43,7 +43,7 @@ class ExampleDictionaryArguments: ExampleArguments {
 
 struct ExampleDestination: DeepLinkDestination {
 
-    let finalStep: Step
+    let finalStep: RoutingStep
 
     let arguments: Any?
 

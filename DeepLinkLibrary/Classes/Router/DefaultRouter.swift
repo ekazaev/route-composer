@@ -133,7 +133,7 @@ public class DefaultRouter: Router {
 
     private func prepareStack<A: DeepLinkDestination>(destination: A, postTaskRunner: PostTaskRunner) -> (rootViewController: UIViewController, factories: [Factory], interceptor: RouterInterceptor)? {
 
-        var step: Step? = destination.finalStep
+        var step: RoutingStep? = destination.finalStep
 
         var rootViewController: UIViewController?
 

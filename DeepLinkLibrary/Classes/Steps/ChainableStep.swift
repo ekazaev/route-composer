@@ -9,9 +9,9 @@ import UIKit
 /// Chainable step.
 /// Identifies that the step can be a part of the chain,
 /// e.g. when it comes to the presentation of multiple view controllers to reach destination.
-public class ChainableStep: Step {
+public class ChainableStep: RoutingStep {
 
-    private(set) public var previousStep: Step? = nil
+    private(set) public var previousStep: RoutingStep? = nil
 
     public let factory: Factory?
 
@@ -29,7 +29,7 @@ public class ChainableStep: Step {
         return .continueRouting
     }
 
-    func previous(continue step: Step) {
+    func previous(continue step: RoutingStep) {
         previousStep = step
     }
 }

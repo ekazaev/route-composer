@@ -45,9 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 factory: ViewControllerFromStoryboard(storyboardName: "Main", action: ReplaceRootAction()),
                 interceptor: ExampleAnalyticsInterceptor(),
                 postTask: ExampleAnalyticsPostAction(),
-                step: chain([
-                    RootViewControllerStep()
-                ]))
+                step: RootViewControllerStep())
 
         ExampleConfiguration.register(assembly: homeAssembly, for: ExampleSource.home)
 
@@ -56,9 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 finder: ViewControllerClassFinder(classType: SquareViewController.self, policy: .currentLevel),
                 interceptor: ExampleAnalyticsInterceptor(),
                 postTask: ExampleAnalyticsPostAction(),
-                step: chain([
-                    RequireAssemblyStep(assembly: homeAssembly)
-                ]))
+                step: RequireAssemblyStep(assembly: homeAssembly))
 
         ExampleConfiguration.register(assembly: squareAssembly, for: ExampleSource.square)
 
@@ -67,9 +63,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 finder: ViewControllerClassFinder(classType: CircleViewController.self, policy: .currentLevel),
                 interceptor: ExampleAnalyticsInterceptor(),
                 postTask: ExampleAnalyticsPostAction(),
-                step: chain([
-                    RequireAssemblyStep(assembly: homeAssembly)
-                ]))
+                step: RequireAssemblyStep(assembly: homeAssembly))
 
         ExampleConfiguration.register(assembly: circleAssembly, for: ExampleSource.circle)
 
@@ -90,9 +84,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 factory: ViewControllerFromStoryboard(storyboardName: "Main", viewControllerID: "RoutingRuleSupportViewController", action: PushAction()),
                 interceptor: ExampleAnalyticsInterceptor(),
                 postTask: ExampleAnalyticsPostAction(),
-                step: chain([
-                    RequireAssemblyStep(assembly: colorAssembly)
-                ]))
+                step: RequireAssemblyStep(assembly: colorAssembly))
+
         ExampleConfiguration.register(assembly: routingSupportAssembly,
                 for: ExampleSource.ruleSupport)
 
@@ -101,9 +94,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 factory: ViewControllerFromStoryboard(storyboardName: "Main", viewControllerID: "EmptyViewController", action: PushAction()),
                 interceptor: InterceptorMultiplexer([LoginInterceptor(), ExampleAnalyticsInterceptor()]),
                 postTask: ExampleAnalyticsPostAction(),
-                step: chain([
-                    RequireAssemblyStep(assembly: circleAssembly)
-                ]))
+                step: RequireAssemblyStep(assembly: circleAssembly))
 
         ExampleConfiguration.register(assembly: emptyAssembly, for: ExampleSource.empty)
 
@@ -125,9 +116,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 factory: ViewControllerFromStoryboard(storyboardName: "PromptScreen", action: ReplaceRootAction()),
                 interceptor: ExampleAnalyticsInterceptor(),
                 postTask: ExampleAnalyticsPostAction(),
-                step: chain([
-                    RootViewControllerStep()
-                ]))
+                step: RootViewControllerStep())
 
         ExampleConfiguration.register(assembly: welcomeAssembly, for: ExampleSource.welcome)
 

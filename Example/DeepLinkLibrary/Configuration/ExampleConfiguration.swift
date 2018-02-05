@@ -8,13 +8,13 @@ import DeepLinkLibrary
 
 class ExampleConfiguration {
 
-    private static var assemblies: [AnyHashable: Step] = [:]
+    private static var assemblies: [AnyHashable: RoutingStep] = [:]
 
-    static func assembly<T: Hashable>(for target: T) -> Step? {
+    static func assembly<T: Hashable>(for target: T) -> RoutingStep? {
         return assemblies[target]
     }
 
-    static func register<T: Hashable>(assembly: Step, for target: T) {
+    static func register<T: Hashable>(assembly: RoutingStep, for target: T) {
         assemblies[target] = assembly
     }
 

@@ -6,7 +6,7 @@
 import UIKit
 
 /// Represents step for the router.
-public protocol Step {
+public protocol RoutingStep {
 
     /// Factory instance to be used by Router to build a UIViewController for this step.
     var factory: Factory? { get }
@@ -18,7 +18,7 @@ public protocol Step {
     var postTask: PostRoutingTask? { get }
 
     /// Step to be made by a router before getting to this step.
-    var previousStep: Step? { get }
+    var previousStep: RoutingStep? { get }
 
     /// - Parameter arguments: Arguments that Router has started with.
     /// - Returns: StepResult enum value, which may contain a view controller in case of .found scenario.
