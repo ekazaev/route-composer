@@ -253,7 +253,7 @@ public class DefaultRouter: Router {
                 logger?.log(.info("Factory \(factory) has built a \(newViewController) to start presentation from."))
                 // If factory contains action - applying it
                 if let action = factory.action {
-                    action.apply(viewController: newViewController, on: previousViewController, animated: animated, logger: self.logger) { viewController in
+                    action.perform(viewController: newViewController, on: previousViewController, animated: animated, logger: self.logger) { viewController in
                         guard factories.count > 0 else {
                             completion(viewController)
                             return

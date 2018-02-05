@@ -44,7 +44,7 @@ open class NavigationControllerFactory: ContainerFactory {
             guard let viewController = factory.build(with: logger) else {
                 return
             }
-            factory.action?.applyMerged(viewController: viewController, containerViewControllers: &viewControllers, logger: logger)
+            factory.action?.performMerged(viewController: viewController, containerViewControllers: &viewControllers, logger: logger)
         }
 
         guard viewControllers.count > 0 else {

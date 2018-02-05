@@ -53,7 +53,7 @@ public class SplitControllerFactory: ContainerFactory {
             guard let viewController = factory.build(with: logger) else {
                 return
             }
-            factory.action?.applyMerged(viewController: viewController, containerViewControllers: &masterViewControllers, logger: logger)
+            factory.action?.performMerged(viewController: viewController, containerViewControllers: &masterViewControllers, logger: logger)
         }
 
         guard masterViewControllers.count > 0 else {
@@ -69,7 +69,7 @@ public class SplitControllerFactory: ContainerFactory {
             guard let viewController = factory.build(with: logger) else {
                 return
             }
-            factory.action?.applyMerged(viewController: viewController, containerViewControllers: &detailsViewControllers, logger: logger)
+            factory.action?.performMerged(viewController: viewController, containerViewControllers: &detailsViewControllers, logger: logger)
         }
 
         guard detailsViewControllers.count > 0 else {

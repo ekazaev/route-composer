@@ -18,12 +18,8 @@ public class PresentModallyAction: ViewControllerAction {
         self.transitionStyle = transitionStyle
         self.transitioningDelegate = transitioningDelegate
     }
-    
-    public func applyMerged(viewController: UIViewController, containerViewControllers: inout [UIViewController], logger: Logger?) {
 
-    }
-
-    public func apply(viewController: UIViewController, on existingController: UIViewController, animated: Bool, logger: Logger?, completion: @escaping (_: UIViewController) -> Void) {
+    public func perform(viewController: UIViewController, on existingController: UIViewController, animated: Bool, logger: Logger?, completion: @escaping (_: UIViewController) -> Void) {
         guard existingController.presentedViewController == nil else {
             logger?.log(.error("Could not present modally \(viewController) from \(existingController) because it has already presented a view controller."))
             completion(existingController)
