@@ -25,8 +25,7 @@ class LoginInterceptor: RouterInterceptor {
         let destination = LoginConfiguration.login()
         let result = DefaultRouter().deepLinkTo(destination: destination) { success in
             guard success,
-                  let step = destination.finalStep as? ViewControllerStep,
-                  case .success(let viewController) = step.perform(with: nil),
+                  case .success(let viewController) = destination.finalStep.perform(with: nil),
                   let loginViewController = viewController as? LoginViewController else {
                 completion(.failure)
                 return

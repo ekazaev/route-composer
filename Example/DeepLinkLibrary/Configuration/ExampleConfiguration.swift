@@ -10,7 +10,7 @@ class ExampleConfiguration {
 
     private static var screens: [AnyHashable: RoutingStep] = [:]
 
-    static func assembly<T: Hashable>(for target: T) -> RoutingStep? {
+    static func step<T: Hashable>(for target: T) -> RoutingStep? {
         return screens[target]
     }
 
@@ -20,7 +20,7 @@ class ExampleConfiguration {
 
 
     static func destination<T: Hashable>(for target: T, arguments: ExampleDictionaryArguments? = nil) -> ExampleDestination? {
-        guard let assembly = assembly(for: target) else {
+        guard let assembly = step(for: target) else {
             return nil
         }
 

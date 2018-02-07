@@ -4,15 +4,15 @@
 
 import Foundation
 
-public class InterceptorMultiplexer: RouterInterceptor {
+class InterceptorMultiplexer: RouterInterceptor {
 
     private let interceptors: [RouterInterceptor]
 
-    public init(_ interceptors: [RouterInterceptor]) {
+    init(_ interceptors: [RouterInterceptor]) {
         self.interceptors = interceptors
     }
 
-    public func execute(with arguments: Any?, logger: Logger?, completion: @escaping (InterceptorResult) -> Void) {
+    func execute(with arguments: Any?, logger: Logger?, completion: @escaping (InterceptorResult) -> Void) {
         guard self.interceptors.count > 0 else {
             completion(.success)
             return

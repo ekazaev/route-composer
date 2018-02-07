@@ -12,7 +12,7 @@ class ColorURLTranslator: ExampleURLTranslator {
               let queryItems = urlComponents.queryItems,
               let colorItem = queryItems.first(where: { $0.name == "color" }),
               let colorValue = colorItem.value,
-              let screen = ExampleConfiguration.assembly(for: ExampleSource.color) else {
+              let screen = ExampleConfiguration.step(for: ExampleSource.color) else {
             return nil
         }
 

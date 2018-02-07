@@ -14,8 +14,6 @@ public class SmartStep: RoutingStep {
 
     private(set) public var previousStep: RoutingStep? = nil
 
-    let factory: Factory? = nil
-
     public let interceptor: RouterInterceptor? = nil
 
     public let postTask: PostRoutingTask? = nil
@@ -31,7 +29,7 @@ public class SmartStep: RoutingStep {
             previousStep = step
         })
 
-        return .continueRouting(factory)
+        return .continueRouting(nil)
     }
 
     public init(resolvers: [SmartStepResolver]) {
@@ -55,7 +53,6 @@ public class SmartStepAssembly {
     }
 
     private struct FinderStep: RoutingStep {
-        var factory: Factory? = nil
         var interceptor: RouterInterceptor? = nil
         var postTask: PostRoutingTask? = nil
         var previousStep: RoutingStep? = nil

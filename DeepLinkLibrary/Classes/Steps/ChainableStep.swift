@@ -13,13 +13,13 @@ public class ChainableStep: RoutingStep {
 
     private(set) public var previousStep: RoutingStep? = nil
 
-    let factory: Factory?
-
     public let interceptor: RouterInterceptor?
 
     public let postTask: PostRoutingTask?
 
-    internal init(factory: Factory? = nil, interceptor: RouterInterceptor? = nil, postTask: PostRoutingTask? = nil) {
+    let factory: Factory
+
+    init(factory: Factory, interceptor: RouterInterceptor? = nil, postTask: PostRoutingTask? = nil) {
         self.factory = factory
         self.interceptor = interceptor
         self.postTask = postTask
@@ -32,28 +32,4 @@ public class ChainableStep: RoutingStep {
     func from(_ step: RoutingStep) {
         previousStep = step
     }
-}
-
-/// Connects array of steps into a chain of steps.
-///
-/// - parameter chains: Array of chainable steps.
-/// - returns: Last step to be made by a Router. The rest are linked to the last one.
-public func chain(_ steps: [RoutingStep])  -> RoutingStep {
-    guard let firstStep = steps.first else {
-        fatalError("No steps provided to chain.")
-    }
-
-    var restSteps = steps
-    var currentStep = firstStep
-    restSteps.removeFirst()
-
-    for presentingStep in restSteps {
-        guard let step = currentStep as? ChainableStep else {
-            fatalError("\(presentingStep) can not be chained to non chainable step \(currentStep)")
-        }
-        step.from(presentingStep)
-        currentStep = presentingStep
-    }
-
-    return firstStep
 }

@@ -19,7 +19,7 @@ public protocol FinderWithPolicy: DeepLinkFinder {
 
 public extension FinderWithPolicy {
 
-    func findViewController(with arguments: Any?) -> UIKit.UIViewController? {
+    func findViewController(with arguments: Any?) -> UIViewController? {
         switch policy {
         case .allStackUp:
             guard let rootViewController = UIWindow.key?.rootViewController else {

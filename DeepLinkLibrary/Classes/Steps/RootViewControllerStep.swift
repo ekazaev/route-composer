@@ -6,13 +6,15 @@
 import UIKit
 
 /// Returns root view controller of the window.
-public class RootViewControllerStep: ChainableStep {
+public class RootViewControllerStep: RoutingStep {
+    public let interceptor: RouterInterceptor? = nil
+    public let postTask: PostRoutingTask? = nil
+    public let previousStep: RoutingStep? = nil
 
     public init() {
-        super.init()
     }
 
-    override public func perform(with arguments: Any?) -> StepResult {
+    public func perform(with arguments: Any?) -> StepResult {
         return StepResult(UIWindow.key?.rootViewController)
     }
 

@@ -9,7 +9,7 @@ import DeepLinkLibrary
 struct LoginConfiguration {
 
     static func login() -> ExampleDestination {
-        let loginScreen = ViewControllerAssembly(finder: LoginViewControllerFinder(),
+        let loginScreen = ScreenStepAssembly(finder: LoginViewControllerFinder(),
                 factory: ViewControllerFromStoryboard(storyboardName: "Login", action: PresentModallyAction(presentationStyle: .formSheet)))
                 .from(TopMostViewControllerStep())
                 .assemble()

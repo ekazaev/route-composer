@@ -109,7 +109,6 @@ public class DefaultRouter: Router {
         // Execute interceptors associated to the each view in the chain. All of interceptors must succeed to continue routing.
         interceptor.execute(with: destination.arguments, logger: logger) { [weak viewController] result in
             guard result == .success else {
-                self.logger?.log(.warning("\(interceptor) interceptor has stopped routing."))
                 completion?(false)
                 return
             }

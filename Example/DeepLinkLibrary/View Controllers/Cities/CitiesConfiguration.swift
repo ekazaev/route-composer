@@ -12,34 +12,34 @@ class CitiesConfiguration {
 
     static let shared = CitiesConfiguration()
 
-    private let city: ViewControllerStep
-    private let citiesList: ViewControllerStep
-    private let cityDetails: ViewControllerStep
+    private let city: RoutingStep
+    private let citiesList: RoutingStep
+    private let cityDetails: RoutingStep
 
     private init() {
         // Split View Controller
-        city = ViewControllerAssembly(finder: ViewControllerClassFinder(classType: UISplitViewController.self),
+        city = ScreenStepAssembly(finder: ViewControllerClassFinder(classType: UISplitViewController.self),
                 factory: ViewControllerFromStoryboard(storyboardName: "Split", action: ReplaceRootAction()))
                 .add(LoginInterceptor())
                 .from(RootViewControllerStep())
                 .assemble()
 
         // Cities List
-        citiesList = ViewControllerAssembly(finder: CityTableViewControllerFinder())
+        citiesList = ScreenStepAssembly(finder: CityTableViewControllerFinder())
                 .add(ExampleAnalyticsInterceptor())
                 .add(CityTablePostTask())
                 .add(ExampleAnalyticsPostAction())
-                .from(RequireAssemblyStep(assembly: self.city))
+                .from(RequireStep(self.city))
                 .assemble()
 
         // City Details
-        cityDetails = ViewControllerAssembly(
+        cityDetails = ScreenStepAssembly(
                 finder: CityDetailsViewControllerFinder(),
                 factory: CityDetailsViewControllerFactory(action: PresentDetailsAction()))
                 .add(ExampleAnalyticsInterceptor())
                 .add(CityDetailPostTask())
                 .add(ExampleAnalyticsPostAction())
-                .from(RequireAssemblyStep(assembly: self.citiesList))
+                .from(RequireStep(self.citiesList))
                 .assemble()
     }
 

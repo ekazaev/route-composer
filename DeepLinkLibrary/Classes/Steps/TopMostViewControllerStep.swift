@@ -6,13 +6,18 @@
 import UIKit
 
 /// - getPresentationViewController: Returns topmost presented view controller.
-public class TopMostViewControllerStep: ChainableStep {
+public class TopMostViewControllerStep: RoutingStep {
 
+    public let interceptor: RouterInterceptor? = nil
+    
+    public let postTask: PostRoutingTask? = nil
+    
+    public var previousStep: RoutingStep? = nil
+    
     public init() {
-        super.init()
     }
 
-    public override func perform(with arguments: Any?) -> StepResult {
+    public func perform(with arguments: Any?) -> StepResult {
         let window = UIWindow.key
         return StepResult(window?.topmostViewController)
     }

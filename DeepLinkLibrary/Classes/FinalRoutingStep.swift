@@ -6,9 +6,7 @@
 import Foundation
 import UIKit
 
-/// Step wrapper for a final step of deep linking. Accepts in constructor everything is needed to be done to transform it
-/// in to actual router step.
-public class ViewControllerStep: RoutingStep {
+class FinalRoutingStep: RoutingStep {
 
     /// Assembly internal factory that uses finder result as a factory result. Used with things that do not have actual
     /// factories like UIViewControllers that were build as a result of storyboard loading.
@@ -40,7 +38,7 @@ public class ViewControllerStep: RoutingStep {
 
     let finder: DeepLinkFinder?
 
-    let factory: Factory?
+    let factory: Factory
 
     public let interceptor: RouterInterceptor?
 
@@ -55,7 +53,7 @@ public class ViewControllerStep: RoutingStep {
     ///   - postTask: A PostRoutingTask instance that has to be run by Router after routing to this assembly, or
     ///     any assemblies (UIViewControllers) that are dependent on this one.
     ///   - step: Step instance contains action that has to be executed by router after it creates assembly's
-    ///     UIViewController to make it imtegrated in to view controller stack whis also represtents a starting point
+    ///     UIViewController to make it integrated in to view controller stack which also represtents a starting point
     ///     of rounting or a dependency.
     init(finder: DeepLinkFinder? = nil, factory: Factory? = nil, interceptor: RouterInterceptor? = nil, postTask: PostRoutingTask? = nil, step: RoutingStep) {
         self.previousStep = step
