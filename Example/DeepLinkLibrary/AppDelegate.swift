@@ -81,6 +81,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         ExampleConfiguration.register(screen: colorScreen, for: ExampleSource.color)
 
+        //Star screen
+        let starScreen = ScreenStepAssembly(
+                finder: ViewControllerClassFinder(classType: StarViewController.self, policy: .currentLevel), factory: StarViewControllerFactory(action: AddTabAction()))
+                .add(ExampleAnalyticsInterceptor())
+                .add(ExampleAnalyticsPostAction())
+                .from(RequireStep(homeScreen))
+                .assemble()
+
+        ExampleConfiguration.register(screen: starScreen, for: ExampleSource.star)
+
         //Screen with Routing support
         let routingSupportScreen = ScreenStepAssembly(finder: ViewControllerClassFinder(classType: RoutingRuleSupportViewController.self, policy: .currentLevel),
                 factory: ViewControllerFromStoryboard(storyboardName: "Main", viewControllerID: "RoutingRuleSupportViewController", action: PushAction()))

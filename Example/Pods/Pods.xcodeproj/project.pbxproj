@@ -38,6 +38,8 @@
 		97289020755041A90974DB254F848F0C /* ViewControllerAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AC1BDB7EA9C8C69B10DA7D550EC6FB /* ViewControllerAction.swift */; };
 		9AFBC34FA917AB302C73AC3E /* ScreenStepAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC620E9733F1C06C3CE97 /* ScreenStepAssembly.swift */; };
 		9AFBC58C0BCD501BE994E45C /* StepChainAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC16B9A88D2CC94547992 /* StepChainAssembly.swift */; };
+		9AFBC7CE72DD90A24A1A3A7A /* TabBarControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCBDC7B2F4B050783B80F /* TabBarControllerFactory.swift */; };
+		9AFBCC1CE932BBC9C5E1311D /* AddTabAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC22F1E664AEABB7594F6 /* AddTabAction.swift */; };
 		9AFBCCE38104DD5C166CA4DF /* SmartStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC32CE892CBE295186C74 /* SmartStep.swift */; };
 		9AFBCD623831BFD0E782A1F9 /* PushAsRootAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC84390897374B6A08D5D /* PushAsRootAction.swift */; };
 		9AFBCEF2CC916A99780CE2C6 /* FinalRoutingStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCA4D9542C2C99C6F7738 /* FinalRoutingStep.swift */; };
@@ -123,10 +125,12 @@
 		93C2670674717C796D6864E7D47441DE /* TabBarViewControllerExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TabBarViewControllerExtension.swift; sourceTree = "<group>"; };
 		9856AC8B2CBDFB2DD318762DE5B780AC /* DeepLinkLibrary-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DeepLinkLibrary-prefix.pch"; sourceTree = "<group>"; };
 		9AFBC16B9A88D2CC94547992 /* StepChainAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepChainAssembly.swift; sourceTree = "<group>"; };
+		9AFBC22F1E664AEABB7594F6 /* AddTabAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTabAction.swift; sourceTree = "<group>"; };
 		9AFBC32CE892CBE295186C74 /* SmartStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmartStep.swift; sourceTree = "<group>"; };
 		9AFBC620E9733F1C06C3CE97 /* ScreenStepAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenStepAssembly.swift; sourceTree = "<group>"; };
 		9AFBC84390897374B6A08D5D /* PushAsRootAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushAsRootAction.swift; sourceTree = "<group>"; };
 		9AFBCA4D9542C2C99C6F7738 /* FinalRoutingStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FinalRoutingStep.swift; path = ../FinalRoutingStep.swift; sourceTree = "<group>"; };
+		9AFBCBDC7B2F4B050783B80F /* TabBarControllerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarControllerFactory.swift; sourceTree = "<group>"; };
 		9CDD22B66940803BE69EBE374EBFEF99 /* Pods-DeepLinkLibrary_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-DeepLinkLibrary_Example-dummy.m"; sourceTree = "<group>"; };
 		9D05FC597821A7DEC1EEA6EA4A06F2E1 /* Pods-DeepLinkLibrary_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-DeepLinkLibrary_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		A237FF70D7E6A1D148DD05C8917E1996 /* NilFinder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NilFinder.swift; sourceTree = "<group>"; };
@@ -276,6 +280,7 @@
 				E487297D1931FEC194A2488D5ACEACF3 /* SplitControllerFactory.swift */,
 				E9F186F4F015212A7D24AD3DF7676880 /* ViewControllerFromClassFactory.swift */,
 				F51761E9E7B9F9154CDDB095EDFEB149 /* ViewControllerFromStoryboardFactory.swift */,
+				9AFBCBDC7B2F4B050783B80F /* TabBarControllerFactory.swift */,
 			);
 			name = Factories;
 			path = DeepLinkLibrary/Classes/Factories;
@@ -381,6 +386,7 @@
 				CBFAD313873B4D01B6C14B5C4EC4BA63 /* ReplaceRootAction.swift */,
 				B5AC1BDB7EA9C8C69B10DA7D550EC6FB /* ViewControllerAction.swift */,
 				9AFBC84390897374B6A08D5D /* PushAsRootAction.swift */,
+				9AFBC22F1E664AEABB7594F6 /* AddTabAction.swift */,
 			);
 			name = Actions;
 			path = DeepLinkLibrary/Classes/Actions;
@@ -595,6 +601,8 @@
 				9AFBC58C0BCD501BE994E45C /* StepChainAssembly.swift in Sources */,
 				9AFBCEF2CC916A99780CE2C6 /* FinalRoutingStep.swift in Sources */,
 				9AFBCD623831BFD0E782A1F9 /* PushAsRootAction.swift in Sources */,
+				9AFBCC1CE932BBC9C5E1311D /* AddTabAction.swift in Sources */,
+				9AFBC7CE72DD90A24A1A3A7A /* TabBarControllerFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

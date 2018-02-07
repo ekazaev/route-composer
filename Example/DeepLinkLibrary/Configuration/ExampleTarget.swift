@@ -20,6 +20,8 @@ enum ExampleSource {
 
     case empty
 
+    case star
+
     case product
 
     case split

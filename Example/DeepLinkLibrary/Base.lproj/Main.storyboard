@@ -208,7 +208,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="aCi-8Q-H9E">
-                                <rect key="frame" x="126" y="232.5" width="123" height="174"/>
+                                <rect key="frame" x="126" y="212" width="123" height="215"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Itu-Vw-ee6">
                                         <rect key="frame" x="0.0" y="0.0" width="123" height="30"/>
@@ -238,8 +238,15 @@
                                             <action selector="goToLoginTapped" destination="8rJ-Kc-sve" eventType="touchUpInside" id="3Br-6G-ONF"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jWi-4X-90Y">
+                                        <rect key="frame" x="0.0" y="164" width="123" height="30"/>
+                                        <state key="normal" title="Go to Star"/>
+                                        <connections>
+                                            <action selector="goToStarTapped" destination="8rJ-Kc-sve" eventType="touchUpInside" id="c1Z-eB-EQt"/>
+                                        </connections>
+                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="* - login required" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iw0-rc-3xm">
-                                        <rect key="frame" x="0.0" y="164" width="123" height="10"/>
+                                        <rect key="frame" x="0.0" y="205" width="123" height="10"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="8"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>

@@ -29,6 +29,7 @@
 		8479E31C200E7A7F00320380 /* ColorURLTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8479E30A200E7A7F00320380 /* ColorURLTranslator.swift */; };
 		8479E31D200E7A7F00320380 /* ExampleURLTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8479E30B200E7A7F00320380 /* ExampleURLTranslator.swift */; };
 		8479E320200F7D1E00320380 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8479E31F200F7D1E00320380 /* Login.storyboard */; };
+		847D2870202B7DCC004C1EAF /* StarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 847D286E202B7DCC004C1EAF /* StarViewController.xib */; };
 		84B6D46820163CC700B70FF7 /* DeepLinkLibrary_ExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B6D46720163CC700B70FF7 /* DeepLinkLibrary_ExampleUITests.swift */; };
 		9AFBC0ADE4D123DD36E06972 /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC8F9D2DC7F0960891380 /* ProductViewController.swift */; };
 		9AFBC11AB0BE495D5E2959C1 /* LoginConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC6DBFF899EA9831D84D2 /* LoginConfiguration.swift */; };
@@ -39,6 +40,7 @@
 		9AFBC82E50CBF47FB0A0F2D1 /* CityURLTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCE5527D371C559C69F9E /* CityURLTranslator.swift */; };
 		9AFBC915C2F461136B5C1B0D /* SecondModalLevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCAF24C0CD80E0D369EEA /* SecondModalLevelViewController.swift */; };
 		9AFBCA32BF0E6A5C2D643915 /* ExampleAnalyticsPostAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC0097861297B7686ADAA /* ExampleAnalyticsPostAction.swift */; };
+		9AFBCA728DF14FD91F5AC570 /* StarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC0A54CF3E1EFC4DB61C0 /* StarViewController.swift */; };
 		9AFBCAFFB71568FAE9054699 /* CitiesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCA4291DB4A6D2A47E5F2 /* CitiesTableViewController.swift */; };
 		9AFBCB1EA868F677EA54C083 /* ExampleAnalyticsParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCEB028743A7AC55E1CA6 /* ExampleAnalyticsParameters.swift */; };
 		9AFBCBB5F4DDE646EAFA437B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCCCF499676D25E68FECA /* LoginViewController.swift */; };
@@ -95,12 +97,14 @@
 		8479E30A200E7A7F00320380 /* ColorURLTranslator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorURLTranslator.swift; sourceTree = "<group>"; };
 		8479E30B200E7A7F00320380 /* ExampleURLTranslator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleURLTranslator.swift; sourceTree = "<group>"; };
 		8479E31F200F7D1E00320380 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		847D286F202B7DCC004C1EAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/StarViewController.xib; sourceTree = "<group>"; };
 		84B6D46520163CC700B70FF7 /* DeepLinkLibrary_ExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DeepLinkLibrary_ExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84B6D46720163CC700B70FF7 /* DeepLinkLibrary_ExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkLibrary_ExampleUITests.swift; sourceTree = "<group>"; };
 		84B6D46920163CC700B70FF7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84C1D86390083DF185C460C2 /* Pods-DeepLinkLibrary_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeepLinkLibrary_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DeepLinkLibrary_Tests/Pods-DeepLinkLibrary_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		99737A56A3D37A621574DCAB /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		9AFBC0097861297B7686ADAA /* ExampleAnalyticsPostAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleAnalyticsPostAction.swift; sourceTree = "<group>"; };
+		9AFBC0A54CF3E1EFC4DB61C0 /* StarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarViewController.swift; sourceTree = "<group>"; };
 		9AFBC6DBFF899EA9831D84D2 /* LoginConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginConfiguration.swift; sourceTree = "<group>"; };
 		9AFBC78B188F55C0198B5007 /* CityArguments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityArguments.swift; sourceTree = "<group>"; };
 		9AFBC7FF9D27A17E57FE525C /* ProductConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductConfiguration.swift; sourceTree = "<group>"; };
@@ -196,6 +200,7 @@
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
+				847D286E202B7DCC004C1EAF /* StarViewController.xib */,
 			);
 			name = "Example for DeepLinkLibrary";
 			path = DeepLinkLibrary;
@@ -271,6 +276,7 @@
 				9AFBC98664CF07654A83DF67 /* Login */,
 				9AFBCD38844C488B1FC57B15 /* Product */,
 				9AFBCAF24C0CD80E0D369EEA /* SecondModalLevelViewController.swift */,
+				9AFBC0A54CF3E1EFC4DB61C0 /* StarViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -450,6 +456,7 @@
 			files = (
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
+				847D2870202B7DCC004C1EAF /* StarViewController.xib in Resources */,
 				8479E320200F7D1E00320380 /* Login.storyboard in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 				8479E2F6200E7A4400320380 /* PromptScreen.storyboard in Resources */,
@@ -609,6 +616,7 @@
 				9AFBC0ADE4D123DD36E06972 /* ProductViewController.swift in Sources */,
 				9AFBC22EF26E1F76942AC44D /* ProductURLTranslator.swift in Sources */,
 				9AFBC915C2F461136B5C1B0D /* SecondModalLevelViewController.swift in Sources */,
+				9AFBCA728DF14FD91F5AC570 /* StarViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -674,6 +682,14 @@
 				8479E2F4200E7A4400320380 /* Base */,
 			);
 			name = PromptScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		847D286E202B7DCC004C1EAF /* StarViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				847D286F202B7DCC004C1EAF /* Base */,
+			);
+			name = StarViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
