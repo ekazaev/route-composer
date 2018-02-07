@@ -13,7 +13,7 @@ public class ChainableStep: RoutingStep {
 
     private(set) public var previousStep: RoutingStep? = nil
 
-    public let factory: Factory?
+    let factory: Factory?
 
     public let interceptor: RouterInterceptor?
 
@@ -26,7 +26,7 @@ public class ChainableStep: RoutingStep {
     }
 
     public func perform(with arguments: Any?) -> StepResult {
-        return .continueRouting
+        return .continueRouting(factory)
     }
 
     func from(_ step: RoutingStep) {

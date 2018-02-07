@@ -8,9 +8,6 @@ import UIKit
 /// Represents step for the router.
 public protocol RoutingStep {
 
-    /// Factory instance to be used by Router to build a UIViewController for this step.
-    var factory: Factory? { get }
-
     /// Interceptor instance to be executed by router before routing to this step.
     var interceptor: RouterInterceptor? { get }
 

@@ -14,7 +14,7 @@ public class SmartStep: RoutingStep {
 
     private(set) public var previousStep: RoutingStep? = nil
 
-    public let factory: Factory? = nil
+    let factory: Factory? = nil
 
     public let interceptor: RouterInterceptor? = nil
 
@@ -31,7 +31,7 @@ public class SmartStep: RoutingStep {
             previousStep = step
         })
 
-        return .continueRouting
+        return .continueRouting(factory)
     }
 
     public init(resolvers: [SmartStepResolver]) {

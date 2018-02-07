@@ -38,9 +38,9 @@ public class ViewControllerStep: RoutingStep {
 
     public let postTask: PostRoutingTask?
 
-    public let finder: DeepLinkFinder?
+    let finder: DeepLinkFinder?
 
-    public let factory: Factory?
+    let factory: Factory?
 
     public let interceptor: RouterInterceptor?
 
@@ -66,10 +66,10 @@ public class ViewControllerStep: RoutingStep {
     }
 
     public func perform(with arguments: Any?) -> StepResult {
-        guard let finder = finder else  {
-            return .continueRouting
+        guard let viewController = finder?.findViewController(with: arguments) else  {
+            return .continueRouting(factory)
         }
-        return StepResult(finder.findViewController(with: arguments))
+        return .success(viewController)
     }
 
 }

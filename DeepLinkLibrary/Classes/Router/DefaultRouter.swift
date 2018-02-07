@@ -93,8 +93,8 @@ public class DefaultRouter: Router {
         }
 
         let viewController = stack.rootViewController,
-            factoriesStack = stack.factories,
-            interceptor = stack.interceptor
+                factoriesStack = stack.factories,
+                interceptor = stack.interceptor
 
         // check if the view controllers, that are currently presented from the origin view controller for a given destination, can be dismissed.
         if let viewController = UIViewController.findAllPresentedViewControllers(starting: viewController).flatMap({
@@ -120,7 +120,7 @@ public class DefaultRouter: Router {
                 completion?(false)
                 return
             }
-            
+
             self.startDeepLinking(viewController: viewController, animated: animated, factories: factoriesStack) { viewController in
                 self.makeContainersActive(toShow: viewController, animated: animated)
                 postTaskRunner.run(for: destination)
@@ -166,18 +166,11 @@ public class DefaultRouter: Router {
                     postTaskRunner.taskSlips.insert(PostTaskSlip(viewController: viewController, postTask: postTask), at: 0)
                 }
                 break
-            case .continueRouting:
+            case .continueRouting(let factory):
                 logger?.log(.info("Step \(step!) has not found its view controller is stack, so router will continue search."))
-                break
-            case .failure:
-                logger?.log(.error("Step has return an error while looking for a view controller to present from."))
-                return nil
-            }
 
-            //Building factory stack only if we haven't found the view controller to start from
-            if rootViewController == nil {
                 // If view controller has not been found, but step has a factory to build itself - add factory to the stack
-                if let factory = step?.factory {
+                if rootViewController == nil, let factory = factory {
                     let factoryDecorator = FactoryDecorator(factory: factory, postTask: step?.postTask, postTaskRunner: postTaskRunner)
                     factories.insert(factoryDecorator, at: 0)
 
@@ -211,6 +204,10 @@ public class DefaultRouter: Router {
                     }
                     tempFactories.insert(factoryDecorator, at: 0)
                 }
+                break
+            case .failure:
+                logger?.log(.error("Step has return an error while looking for a view controller to present from."))
+                return nil
             }
 
             step = step?.previousStep
