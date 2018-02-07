@@ -29,7 +29,7 @@ public class ChainableStep: RoutingStep {
         return .continueRouting
     }
 
-    func previous(continue step: RoutingStep) {
+    func from(_ step: RoutingStep) {
         previousStep = step
     }
 }
@@ -38,7 +38,7 @@ public class ChainableStep: RoutingStep {
 ///
 /// - parameter chains: Array of chainable steps.
 /// - returns: Last step to be made by a Router. The rest are linked to the last one.
-public func chain(_ steps: [ChainableStep])  -> ChainableStep {
+public func chain(_ steps: [RoutingStep])  -> RoutingStep {
     guard let firstStep = steps.first else {
         fatalError("No steps provided to chain.")
     }
@@ -47,9 +47,12 @@ public func chain(_ steps: [ChainableStep])  -> ChainableStep {
     var currentStep = firstStep
     restSteps.removeFirst()
 
-    for presenter in restSteps {
-        currentStep.previous(continue: presenter)
-        currentStep = presenter
+    for presentingStep in restSteps {
+        guard let step = currentStep as? ChainableStep else {
+            fatalError("\(presentingStep) can not be chained to non chainable step \(currentStep)")
+        }
+        step.from(presentingStep)
+        currentStep = presentingStep
     }
 
     return firstStep

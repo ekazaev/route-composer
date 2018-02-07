@@ -39,7 +39,7 @@ public class SmartStep: RoutingStep {
     }
 }
 
-public class SmartStepBuilder {
+public class SmartStepAssembly {
 
     private class BlockResolver: SmartStepResolver {
 
@@ -110,7 +110,7 @@ public class SmartStepBuilder {
         return self
     }
 
-    public func build() -> SmartStep {
+    public func assemble() -> SmartStep {
         return SmartStep(resolvers: resolvers)
     }
 }

@@ -8,14 +8,14 @@ import DeepLinkLibrary
 
 class ExampleConfiguration {
 
-    private static var assemblies: [AnyHashable: RoutingStep] = [:]
+    private static var screens: [AnyHashable: RoutingStep] = [:]
 
     static func assembly<T: Hashable>(for target: T) -> RoutingStep? {
-        return assemblies[target]
+        return screens[target]
     }
 
-    static func register<T: Hashable>(assembly: RoutingStep, for target: T) {
-        assemblies[target] = assembly
+    static func register<T: Hashable>(screen: RoutingStep, for target: T) {
+        screens[target] = screen
     }
 
 

@@ -24,8 +24,8 @@ public class RequireAssemblyStep: ChainableStep {
 
     /// Required step can not be chained. It will provide previous step itself based on required assembly.
     ///
-    /// - Parameter presenter: Previous step that to be executed by Router.
-    override func previous(continue presenter: RoutingStep) {
+    /// - Parameter step: Previous step that to be executed by Router.
+    override func from(_ step: RoutingStep) {
         fatalError("RequireScreenStep can't have any further step chains. Next steps will be build from the required target")
     }
 

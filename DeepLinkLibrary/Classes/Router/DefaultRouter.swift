@@ -249,8 +249,12 @@ public class DefaultRouter: Router {
                 makeContainersActive(toShow: previousViewController, animated: animated)
             }
 
+            var factoryToLog = factory
+            if let factory = factory as? FactoryDecorator {
+                factoryToLog = factory.factory
+            }
             if let newViewController = factory.build(with: logger) {
-                logger?.log(.info("Factory \(factory) has built a \(newViewController) to start presentation from."))
+                logger?.log(.info("Factory \(factoryToLog) has built a \(newViewController) to start presentation from."))
                 // If factory contains action - applying it
                 if let action = factory.action {
                     action.perform(viewController: newViewController, on: previousViewController, animated: animated, logger: self.logger) { viewController in
@@ -268,6 +272,7 @@ public class DefaultRouter: Router {
                     buildViewController(factories.removeFirst(), newViewController)
                 }
             } else {
+                logger?.log(.warning("Factory \(factoryToLog) has not built any view controller."))
                 completion(previousViewController)
             }
         }

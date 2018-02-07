@@ -24,7 +24,7 @@ class LoginInterceptor: RouterInterceptor {
         // boilerplate code that will help you to avoid this rare, but possible situation.
         let destination = LoginConfiguration.login()
         let result = DefaultRouter().deepLinkTo(destination: destination) { success in
-            guard success, let assembly = destination.finalStep as? ViewControllerAssembly,
+            guard success, let assembly = destination.finalStep as? ViewControllerStep,
                   let loginViewController = assembly.finder?.findViewController(with: nil) as? LoginViewController else {
                 completion(.failure)
                 return

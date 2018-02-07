@@ -40,85 +40,90 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //As one of examples configuration can be stored in one configuration object. Other configs are in CitiesConfiguration, Product cofiguration and LoginConfiguration as static objects
 
         // Home Tab Bar Screen
-        let homeAssembly = ViewControllerAssembly(
+        let homeScreen = ViewControllerAssembly(
                 finder: ViewControllerClassFinder(classType: UITabBarController.self),
-                factory: ViewControllerFromStoryboard(storyboardName: "Main", action: ReplaceRootAction()),
-                interceptor: ExampleAnalyticsInterceptor(),
-                postTask: ExampleAnalyticsPostAction(),
-                step: RootViewControllerStep())
+                factory: ViewControllerFromStoryboard(storyboardName: "Main", action: ReplaceRootAction()))
+                .add(ExampleAnalyticsInterceptor())
+                .add(ExampleAnalyticsPostAction())
+                .from(RootViewControllerStep())
+                .assemble()
 
-        ExampleConfiguration.register(assembly: homeAssembly, for: ExampleSource.home)
+        ExampleConfiguration.register(screen: homeScreen, for: ExampleSource.home)
 
         // Square Tab Bar Screen
-        let squareAssembly = ViewControllerAssembly(
-                finder: ViewControllerClassFinder(classType: SquareViewController.self, policy: .currentLevel),
-                interceptor: ExampleAnalyticsInterceptor(),
-                postTask: ExampleAnalyticsPostAction(),
-                step: RequireAssemblyStep(assembly: homeAssembly))
+        let squareScreen = ViewControllerAssembly(
+                finder: ViewControllerClassFinder(classType: SquareViewController.self, policy: .currentLevel))
+                .add(ExampleAnalyticsInterceptor())
+                .add(ExampleAnalyticsPostAction())
+                .from(RequireAssemblyStep(assembly: homeScreen))
+                .assemble()
 
-        ExampleConfiguration.register(assembly: squareAssembly, for: ExampleSource.square)
+        ExampleConfiguration.register(screen: squareScreen, for: ExampleSource.square)
 
         // Circle Tab Bar screen
-        let circleAssembly = ViewControllerAssembly(
-                finder: ViewControllerClassFinder(classType: CircleViewController.self, policy: .currentLevel),
-                interceptor: ExampleAnalyticsInterceptor(),
-                postTask: ExampleAnalyticsPostAction(),
-                step: RequireAssemblyStep(assembly: homeAssembly))
+        let circleScreen = ViewControllerAssembly(
+                finder: ViewControllerClassFinder(classType: CircleViewController.self, policy: .currentLevel))
+                .add(ExampleAnalyticsInterceptor())
+                .add(ExampleAnalyticsPostAction())
+                .from(RequireAssemblyStep(assembly: homeScreen))
+                .assemble()
 
-        ExampleConfiguration.register(assembly: circleAssembly, for: ExampleSource.circle)
+        ExampleConfiguration.register(screen: circleScreen, for: ExampleSource.circle)
 
         //Color screen
-        let colorAssembly = ViewControllerAssembly(
-                finder: ColorViewControllerFinder(), factory: ColorViewControllerFactory(action: PushAction()),
-                interceptor: ExampleAnalyticsInterceptor(),
-                postTask: ExampleAnalyticsPostAction(),
-                step: chain([
-                    NavigationContainerStep(action: PresentModallyAction()),
-                    TopMostViewControllerStep(),
-                ]))
+        let colorScreen = ViewControllerAssembly(
+                finder: ColorViewControllerFinder(), factory: ColorViewControllerFactory(action: PushAction()))
+                .add(ExampleAnalyticsInterceptor())
+                .add(ExampleAnalyticsPostAction())
+                .from(NavigationContainerStep(action: PresentModallyAction()))
+                .from(TopMostViewControllerStep())
+                .assemble()
 
-        ExampleConfiguration.register(assembly: colorAssembly, for: ExampleSource.color)
+        ExampleConfiguration.register(screen: colorScreen, for: ExampleSource.color)
 
-        //Sceen with Routing support
-        let routingSupportAssembly = ViewControllerAssembly(finder: ViewControllerClassFinder(classType: RoutingRuleSupportViewController.self, policy: .currentLevel),
-                factory: ViewControllerFromStoryboard(storyboardName: "Main", viewControllerID: "RoutingRuleSupportViewController", action: PushAction()),
-                interceptor: ExampleAnalyticsInterceptor(),
-                postTask: ExampleAnalyticsPostAction(),
-                step: RequireAssemblyStep(assembly: colorAssembly))
+        //Screen with Routing support
+        let routingSupportScreen = ViewControllerAssembly(finder: ViewControllerClassFinder(classType: RoutingRuleSupportViewController.self, policy: .currentLevel),
+                factory: ViewControllerFromStoryboard(storyboardName: "Main", viewControllerID: "RoutingRuleSupportViewController", action: PushAction()))
+                .add(ExampleAnalyticsInterceptor())
+                .add(ExampleAnalyticsPostAction())
+                .from(RequireAssemblyStep(assembly: colorScreen))
+                .assemble()
 
-        ExampleConfiguration.register(assembly: routingSupportAssembly,
+        ExampleConfiguration.register(screen: routingSupportScreen,
                 for: ExampleSource.ruleSupport)
 
         // Empty Screen
-        let emptyAssembly = ViewControllerAssembly(finder: ViewControllerClassFinder(classType: EmptyViewController.self),
-                factory: ViewControllerFromStoryboard(storyboardName: "Main", viewControllerID: "EmptyViewController", action: PushAction()),
-                interceptor: InterceptorMultiplexer([LoginInterceptor(), ExampleAnalyticsInterceptor()]),
-                postTask: ExampleAnalyticsPostAction(),
-                step: RequireAssemblyStep(assembly: circleAssembly))
+        let emptyScreen = ViewControllerAssembly(finder: ViewControllerClassFinder(classType: EmptyViewController.self),
+                factory: ViewControllerFromStoryboard(storyboardName: "Main", viewControllerID: "EmptyViewController", action: PushAction()))
+                .add(LoginInterceptor())
+                .add(ExampleAnalyticsInterceptor())
+                .add(ExampleAnalyticsPostAction())
+                .from(RequireAssemblyStep(assembly: circleScreen))
+                .assemble()
 
-        ExampleConfiguration.register(assembly: emptyAssembly, for: ExampleSource.empty)
+        ExampleConfiguration.register(screen: emptyScreen, for: ExampleSource.empty)
 
         // Two modal presentations screen
-        let superModalAssembly = ViewControllerAssembly(
+        let superModalScreen = ViewControllerAssembly(
                 finder: ViewControllerClassFinder(classType: SecondModalLevelViewController.self),
-                factory: ViewControllerFromStoryboard(storyboardName: "Main", viewControllerID: "SecondModalLevelViewController", action: PushAction()),
-                interceptor: ExampleAnalyticsInterceptor(),
-                postTask: ExampleAnalyticsPostAction(),
-                step: chain([
-                    NavigationContainerStep(action: PresentModallyAction()),
-                    RequireAssemblyStep(assembly: routingSupportAssembly)
-                ]))
-        ExampleConfiguration.register(assembly: superModalAssembly, for: ExampleSource.secondLevelModal)
+                factory: ViewControllerFromStoryboard(storyboardName: "Main", viewControllerID: "SecondModalLevelViewController", action: PushAction()))
+                .add(ExampleAnalyticsInterceptor())
+                .add(ExampleAnalyticsPostAction())
+                .from(NavigationContainerStep(action: PresentModallyAction()))
+                .from(RequireAssemblyStep(assembly: routingSupportScreen))
+                .assemble()
+        ExampleConfiguration.register(screen: superModalScreen, for: ExampleSource.secondLevelModal)
 
         // Welcome Screen
-        let welcomeAssembly = ViewControllerAssembly(
+        let welcomeScreen = ViewControllerAssembly(
                 finder: ViewControllerClassFinder(classType: PromptViewController.self),
-                factory: ViewControllerFromStoryboard(storyboardName: "PromptScreen", action: ReplaceRootAction()),
-                interceptor: ExampleAnalyticsInterceptor(),
-                postTask: ExampleAnalyticsPostAction(),
-                step: RootViewControllerStep())
+                factory: ViewControllerFromStoryboard(storyboardName: "PromptScreen", action: ReplaceRootAction()))
+                .add(ExampleAnalyticsInterceptor())
+                .add(ExampleAnalyticsPostAction())
+                .from(RootViewControllerStep())
+                .assemble()
 
-        ExampleConfiguration.register(assembly: welcomeAssembly, for: ExampleSource.welcome)
+        ExampleConfiguration.register(screen: welcomeScreen, for: ExampleSource.welcome)
 
         ExampleUniversalLinksManager.register(translator: ColorURLTranslator())
         ExampleUniversalLinksManager.register(translator: ProductURLTranslator())
