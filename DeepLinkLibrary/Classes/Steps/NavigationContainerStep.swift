@@ -11,7 +11,7 @@ public class NavigationContainerStep: ChainableStep {
     /// Creats a default UINavigationController and applies an action if it is provided.
     ///
     /// - parameter action: action to be applied to the created UINavigationController
-    public init(action: ViewControllerAction? = nil) {
+    public init(action: ViewControllerAction) {
         super.init(factory: NavigationControllerFactory(action: action))
     }
 

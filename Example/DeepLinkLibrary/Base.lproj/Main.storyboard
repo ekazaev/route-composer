@@ -240,7 +240,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jWi-4X-90Y">
                                         <rect key="frame" x="0.0" y="164" width="123" height="30"/>
-                                        <state key="normal" title="Go to Star"/>
+                                        <state key="normal" title="Go to Star*"/>
                                         <connections>
                                             <action selector="goToStarTapped" destination="8rJ-Kc-sve" eventType="touchUpInside" id="c1Z-eB-EQt"/>
                                         </connections>

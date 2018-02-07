@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--City Detail View Controller-->
+        <!--Title-->
         <scene sceneID="YGp-ao-Ulq">
             <objects>
                 <viewController storyboardIdentifier="CityDetailViewController" id="dzi-Yh-QPj" customClass="CityDetailViewController" customModule="DeepLinkLibrary_Example" customModuleProvider="target" sceneMemberID="viewController">
@@ -45,6 +45,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5zf-5r-Blw"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="fTF-XV-eAw">
+                        <barButtonItem key="rightBarButtonItem" title="Star" id="S58-YY-jEn">
+                            <connections>
+                                <action selector="goToStarTapped" destination="dzi-Yh-QPj" id="zct-0d-7KA"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="detailsTextView" destination="Xzs-EE-beg" id="GFZ-mG-nDC"/>
                     </connections>

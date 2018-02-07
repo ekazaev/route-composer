@@ -17,12 +17,12 @@ public protocol SplitViewControllerDetailAction: ViewControllerAction {
 // TODO: Undone
 public class SplitControllerFactory: ContainerFactory {
 
-    public let action: ViewControllerAction?
+    public let action: ViewControllerAction
 
     var detailFactories: [Factory] = []
     var masterFactories: [Factory] = []
 
-    public init(action: ViewControllerAction? = nil) {
+    public init(action: ViewControllerAction) {
         self.action = action
     }
 
@@ -53,7 +53,7 @@ public class SplitControllerFactory: ContainerFactory {
             guard let viewController = factory.build(with: logger) else {
                 return
             }
-            factory.action?.performMerged(viewController: viewController, containerViewControllers: &masterViewControllers, logger: logger)
+            factory.action.performMerged(viewController: viewController, containerViewControllers: &masterViewControllers, logger: logger)
         }
 
         guard masterViewControllers.count > 0 else {
@@ -69,7 +69,7 @@ public class SplitControllerFactory: ContainerFactory {
             guard let viewController = factory.build(with: logger) else {
                 return
             }
-            factory.action?.performMerged(viewController: viewController, containerViewControllers: &detailsViewControllers, logger: logger)
+            factory.action.performMerged(viewController: viewController, containerViewControllers: &detailsViewControllers, logger: logger)
         }
 
         guard detailsViewControllers.count > 0 else {

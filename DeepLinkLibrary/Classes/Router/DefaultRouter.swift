@@ -21,7 +21,7 @@ private struct PostTaskSlip {
 /// controllers without Router's help.
 private class FactoryDecorator: Factory {
 
-    var action: ViewControllerAction? {
+    var action: ViewControllerAction {
         get {
             return factory.action
         }
@@ -251,21 +251,12 @@ public class DefaultRouter: Router {
             }
             if let newViewController = factory.build(with: logger) {
                 logger?.log(.info("Factory \(factoryToLog) has built a \(newViewController) to start presentation from."))
-                // If factory contains action - applying it
-                if let action = factory.action {
-                    action.perform(viewController: newViewController, on: previousViewController, animated: animated, logger: self.logger) { viewController in
-                        guard factories.count > 0 else {
-                            completion(viewController)
-                            return
-                        }
-                        buildViewController(factories.removeFirst(), viewController)
-                    }
-                } else {
+                factory.action.perform(viewController: newViewController, on: previousViewController, animated: animated, logger: self.logger) { viewController in
                     guard factories.count > 0 else {
-                        completion(newViewController)
+                        completion(viewController)
                         return
                     }
-                    buildViewController(factories.removeFirst(), newViewController)
+                    buildViewController(factories.removeFirst(), viewController)
                 }
             } else {
                 logger?.log(.warning("Factory \(factoryToLog) has not built any view controller."))

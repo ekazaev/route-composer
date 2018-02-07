@@ -10,7 +10,7 @@ public class AddTabAction: TabBarControllerFactoryAction {
     let tabIndex:Int?
     let replacing: Bool
 
-    public init(after tabIndex:Int? = nil, replacing: Bool = false) {
+    public init(at tabIndex:Int? = nil, replacing: Bool = false) {
         self.tabIndex = tabIndex
         self.replacing = replacing
     }

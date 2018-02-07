@@ -35,7 +35,7 @@ class CitiesConfiguration {
         // City Details
         cityDetails = ScreenStepAssembly(
                 finder: CityDetailsViewControllerFinder(),
-                factory: CityDetailsViewControllerFactory(action: PresentDetailsAction()))
+                factory: ViewControllerFromStoryboard(storyboardName: "Split", viewControllerID: "CityDetailViewController", action: PresentDetailsAction()))
                 .add(ExampleAnalyticsInterceptor())
                 .add(CityDetailPostTask())
                 .add(ExampleAnalyticsPostAction())

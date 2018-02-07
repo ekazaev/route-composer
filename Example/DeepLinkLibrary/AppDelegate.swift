@@ -86,6 +86,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 finder: ViewControllerClassFinder(classType: StarViewController.self, policy: .currentLevel), factory: StarViewControllerFactory(action: AddTabAction()))
                 .add(ExampleAnalyticsInterceptor())
                 .add(ExampleAnalyticsPostAction())
+                .add(LoginInterceptor())
                 .from(RequireStep(homeScreen))
                 .assemble()
 

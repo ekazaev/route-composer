@@ -154,7 +154,7 @@ class DeepLinkLibrary_ExampleUITests: XCTestCase {
         app.buttons["Go to square"].tap()
         XCTAssertTrue(app.otherElements["squareViewController"].exists)
 
-        app.buttons["Go to Star"].tap()
+        app.buttons["Go to Star*"].tap()
         XCTAssertTrue(app.otherElements["starViewController"].exists)
 
         app.buttons["Go to Circle"].tap()
@@ -163,7 +163,7 @@ class DeepLinkLibrary_ExampleUITests: XCTestCase {
         app.buttons["Go to square"].tap()
         XCTAssertTrue(app.otherElements["squareViewController"].exists)
 
-        app.buttons["Go to Star"].tap()
+        app.buttons["Go to Star*"].tap()
         XCTAssertTrue(app.otherElements["starViewController"].exists)
 
         app.buttons["Dismiss Star Tab*"].tap()

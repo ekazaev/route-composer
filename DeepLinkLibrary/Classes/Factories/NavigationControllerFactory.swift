@@ -11,11 +11,11 @@ public protocol NavigationControllerFactoryAction: ViewControllerAction {
 
 open class NavigationControllerFactory: ContainerFactory {
 
-    public let action: ViewControllerAction?
+    public let action: ViewControllerAction
 
     var factories: [Factory] = []
 
-    public init(action: ViewControllerAction? = nil) {
+    public init(action: ViewControllerAction) {
         self.action = action
     }
 
@@ -44,7 +44,7 @@ open class NavigationControllerFactory: ContainerFactory {
             guard let viewController = factory.build(with: logger) else {
                 return
             }
-            factory.action?.performMerged(viewController: viewController, containerViewControllers: &viewControllers, logger: logger)
+            factory.action.performMerged(viewController: viewController, containerViewControllers: &viewControllers, logger: logger)
         }
 
         guard viewControllers.count > 0 else {

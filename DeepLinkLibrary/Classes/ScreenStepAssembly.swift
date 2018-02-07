@@ -64,8 +64,8 @@ public extension ScreenStepAssembly {
         return FinalRoutingStep(
                 finder: finder,
                 factory: factory,
-                interceptor: InterceptorMultiplexer(interceptors),
-                postTask: PostRoutingTaskMultiplexer(postTasks),
+                interceptor: interceptors.count == 1 ? interceptors.first : InterceptorMultiplexer(interceptors),
+                postTask: postTasks.count == 1 ? postTasks.first : PostRoutingTaskMultiplexer(postTasks),
                 step: step)
     }
 }

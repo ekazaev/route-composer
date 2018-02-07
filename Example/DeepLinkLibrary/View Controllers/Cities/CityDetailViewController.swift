@@ -25,22 +25,6 @@ class CityDetailsViewControllerFinder: FinderWithPolicy {
 
 }
 
-class CityDetailsViewControllerFactory: Factory {
-
-    let action: ViewControllerAction?
-
-    var cityId: Int?
-
-    init(action: ViewControllerAction? = nil) {
-        self.action = action
-    }
-
-    func build(with logger: Logger?) -> UIViewController? {
-        return UIStoryboard(name: "Split", bundle: nil).instantiateViewController(withIdentifier: "CityDetailViewController")
-    }
-
-}
-
 class CityDetailPostTask: PostRoutingTask {
 
     func execute(on viewController: UIViewController, with arguments: Any?, routingStack: [UIViewController]) {
@@ -83,6 +67,10 @@ class CityDetailViewController: UIViewController, AnalyticsSupportViewController
         } else {
             self.view.accessibilityIdentifier = "cityDetailsViewController"
         }
+    }
+
+    @IBAction func goToStarTapped() {
+        router.deepLinkTo(destination: ExampleConfiguration.destination(for: ExampleSource.star)!)
     }
 
     @IBAction func backProgrammaticalyTapped() {
