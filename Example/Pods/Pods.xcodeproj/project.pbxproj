@@ -39,6 +39,7 @@
 		9AFBC34FA917AB302C73AC3E /* ScreenStepAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC620E9733F1C06C3CE97 /* ScreenStepAssembly.swift */; };
 		9AFBC58C0BCD501BE994E45C /* StepChainAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC16B9A88D2CC94547992 /* StepChainAssembly.swift */; };
 		9AFBCCE38104DD5C166CA4DF /* SmartStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC32CE892CBE295186C74 /* SmartStep.swift */; };
+		9AFBCD623831BFD0E782A1F9 /* PushAsRootAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC84390897374B6A08D5D /* PushAsRootAction.swift */; };
 		9AFBCEF2CC916A99780CE2C6 /* FinalRoutingStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCA4D9542C2C99C6F7738 /* FinalRoutingStep.swift */; };
 		A2EAAB7654A7FC33804755F96DA65881 /* SplitViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DC932CC7AFD44599CFC7B9D877C86B /* SplitViewControllerExtension.swift */; };
 		A478902E1EBBF6B511A048AF260BAA40 /* NavigationContainerStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E4F3D03367B5CB5910E31BE389D7F7 /* NavigationContainerStep.swift */; };
@@ -124,6 +125,7 @@
 		9AFBC16B9A88D2CC94547992 /* StepChainAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepChainAssembly.swift; sourceTree = "<group>"; };
 		9AFBC32CE892CBE295186C74 /* SmartStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmartStep.swift; sourceTree = "<group>"; };
 		9AFBC620E9733F1C06C3CE97 /* ScreenStepAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenStepAssembly.swift; sourceTree = "<group>"; };
+		9AFBC84390897374B6A08D5D /* PushAsRootAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushAsRootAction.swift; sourceTree = "<group>"; };
 		9AFBCA4D9542C2C99C6F7738 /* FinalRoutingStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FinalRoutingStep.swift; path = ../FinalRoutingStep.swift; sourceTree = "<group>"; };
 		9CDD22B66940803BE69EBE374EBFEF99 /* Pods-DeepLinkLibrary_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-DeepLinkLibrary_Example-dummy.m"; sourceTree = "<group>"; };
 		9D05FC597821A7DEC1EEA6EA4A06F2E1 /* Pods-DeepLinkLibrary_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-DeepLinkLibrary_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -378,6 +380,7 @@
 				E4AF31F2516D405E0F9CA97182F60577 /* PushAction.swift */,
 				CBFAD313873B4D01B6C14B5C4EC4BA63 /* ReplaceRootAction.swift */,
 				B5AC1BDB7EA9C8C69B10DA7D550EC6FB /* ViewControllerAction.swift */,
+				9AFBC84390897374B6A08D5D /* PushAsRootAction.swift */,
 			);
 			name = Actions;
 			path = DeepLinkLibrary/Classes/Actions;
@@ -591,6 +594,7 @@
 				9AFBCCE38104DD5C166CA4DF /* SmartStep.swift in Sources */,
 				9AFBC58C0BCD501BE994E45C /* StepChainAssembly.swift in Sources */,
 				9AFBCEF2CC916A99780CE2C6 /* FinalRoutingStep.swift in Sources */,
+				9AFBCD623831BFD0E782A1F9 /* PushAsRootAction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

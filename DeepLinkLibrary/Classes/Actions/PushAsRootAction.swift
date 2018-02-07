@@ -1,16 +1,17 @@
 //
-// Created by Eugene Kazaev on 15/01/2018.
-// Copyright (c) 2018 Gilt Groupe. All rights reserved.
+// Created by Eugene Kazaev on 07/02/2018.
 //
 
+import Foundation
 import UIKit
 
-public class PushAction: NavigationControllerFactoryAction {
+class PushAsRootAction: NavigationControllerFactoryAction {
 
     public init() {
     }
-    
+
     public func performMerged(viewController: UIViewController, containerViewControllers: inout [UIViewController], logger: Logger?) {
+        containerViewControllers.removeAll()
         containerViewControllers.append(viewController)
     }
 
@@ -20,7 +21,7 @@ public class PushAction: NavigationControllerFactoryAction {
             return completion(existingController)
         }
 
-        nv.pushViewController(viewController, animated: animated)
+        nv.setViewControllers([viewController], animated: animated)
         return completion(viewController)
     }
 
