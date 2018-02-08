@@ -23,7 +23,7 @@ public class RequireStep: RoutingStep {
 
     /// Default constructor
     ///
-    /// - Parameter assembly: The screen assebly required to execute this step.
+    /// - Parameter assembly: The screen assembly required to execute this step.
     public init(_ step: RoutingStep) {
         self.assembly = step
     }

@@ -45,8 +45,8 @@ class ColorViewControllerFactory: PreparableFactory {
     }
 
     func prepare(with arguments: Any?) -> DeepLinkResult {
-        guard let argumetns = arguments as? ExampleDictionaryArguments,
-              let model = argumetns[Argument.color] as? ColorViewController.ColorDisplayModel else {
+        guard let arguments = arguments as? ExampleDictionaryArguments,
+              let model = arguments[Argument.color] as? ColorViewController.ColorDisplayModel else {
             return .unhandled
         }
 

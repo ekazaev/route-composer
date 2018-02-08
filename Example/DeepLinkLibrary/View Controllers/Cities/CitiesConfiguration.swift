@@ -7,7 +7,7 @@ import Foundation
 import UIKit
 import DeepLinkLibrary
 
-// Another example to provide a deeplinking destination
+// Another example to provide a deep linking destination
 class CitiesConfiguration {
 
     static let shared = CitiesConfiguration()

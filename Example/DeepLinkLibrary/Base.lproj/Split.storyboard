@@ -29,7 +29,7 @@
                                 <rect key="frame" x="111" y="748" width="153" height="30"/>
                                 <state key="normal" title="Back programmaticaly"/>
                                 <connections>
-                                    <action selector="backProgrammaticalyTapped" destination="dzi-Yh-QPj" eventType="touchUpInside" id="hQk-Bd-JeV"/>
+                                    <action selector="backProgrammaticallyTapped" destination="dzi-Yh-QPj" eventType="touchUpInside" id="XuW-AG-Kl9"/>
                                 </connections>
                             </button>
                         </subviews>

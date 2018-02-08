@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-// Mostly for internal use but can be usefull outside of the library in combination with FinderFactory
+// Mostly for internal use but can be useful outside of the library in combination with FinderFactory
 public class NilAction: ViewControllerAction {
     public init() {
         

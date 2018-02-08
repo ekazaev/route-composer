@@ -11,7 +11,7 @@ import UIKit
 /// Result of step execution.
 ///
 /// - success: Step found it view controller.
-/// - continueRouting: Step hasn't foundnd the view controller and router can try to execute previous step if it exists.
+/// - continueRouting: Step hasn't been found the view controller and router can try to execute previous step if it exists.
 /// - failure: Step failed to execute.
 public enum StepResult {
 

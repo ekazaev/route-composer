@@ -73,7 +73,7 @@ class LoginViewController: UIViewController, AnalyticsSupportViewController {
         // area and he taps on another deeplink to another restricted area. Interceptor will replace this completion block
         // without dismissing a view controller. By a contract interceptor implementation MUST call completion block
         // always. It means that we must call previous completion block if it was here to help router to know that
-        // previous login interceptor has not succeded.
+        // previous login interceptor has not succeed.
         willSet {
             guard let completion = interceptorCompletionBlock else {
                 return

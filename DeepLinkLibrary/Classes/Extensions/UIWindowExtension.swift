@@ -14,9 +14,9 @@ extension UIWindow {
     }
 
     private func findPresentedViewController(_ viewController: UIViewController) -> UIViewController {
-        if let presentedViewContorller = viewController.presentedViewController,
-           !presentedViewContorller.isBeingDismissed && presentedViewContorller.popoverPresentationController == nil {
-            return findPresentedViewController(presentedViewContorller)
+        if let presentedViewController = viewController.presentedViewController,
+           !presentedViewController.isBeingDismissed && presentedViewController.popoverPresentationController == nil {
+            return findPresentedViewController(presentedViewController)
         }
 
         return viewController

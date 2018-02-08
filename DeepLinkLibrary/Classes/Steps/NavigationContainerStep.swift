@@ -8,7 +8,7 @@ import UIKit
 /// Default navigation container step
 public class NavigationContainerStep: ChainableStep {
 
-    /// Creats a default UINavigationController and applies an action if it is provided.
+    /// Creates a default UINavigationController and applies an action if it is provided.
     ///
     /// - parameter action: action to be applied to the created UINavigationController
     public init(action: ViewControllerAction) {

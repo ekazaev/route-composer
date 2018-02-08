@@ -9,21 +9,6 @@
 import UIKit
 import DeepLinkLibrary
 
-/*
-
-CONTAINERS: (Can be named and anonimus)
-Window
-TabBar
-NavigationController
-Child?
-Empty
-
-PRESENTATIONS:
-Modal
-Custom?
-
-*/
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -37,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     private func configureNavigationUsingDictionaryConfig() {
-        //As one of examples configuration can be stored in one configuration object. Other configs are in CitiesConfiguration, Product cofiguration and LoginConfiguration as static objects
+        //As one of examples configuration can be stored in one configuration object. Other configs are in CitiesConfiguration, Product configuration and LoginConfiguration as static objects
 
         // Home Tab Bar Screen
         let homeScreen = ScreenStepAssembly(

@@ -16,7 +16,7 @@ public class AddTabAction: TabBarControllerFactoryAction {
     }
 
     public func performMerged(viewController: UIViewController, containerViewControllers: inout [UIViewController], logger: Logger?) {
-        procesViewController(viewController: viewController, containerViewControllers: &containerViewControllers, logger: logger)
+        processViewController(viewController: viewController, containerViewControllers: &containerViewControllers, logger: logger)
     }
 
     public func perform(viewController: UIViewController, on existingController: UIViewController, animated: Bool, logger: Logger?, completion: @escaping(_: UIViewController) -> Void) {
@@ -26,13 +26,13 @@ public class AddTabAction: TabBarControllerFactoryAction {
         }
 
         var tabViewControllers = tv.viewControllers ?? []
-        procesViewController(viewController: viewController, containerViewControllers: &tabViewControllers, logger: logger)
+        processViewController(viewController: viewController, containerViewControllers: &tabViewControllers, logger: logger)
         tv.setViewControllers(tabViewControllers, animated: animated)
 
         return completion(viewController)
     }
 
-    private func procesViewController(viewController: UIViewController, containerViewControllers: inout [UIViewController], logger: Logger?) {
+    private func processViewController(viewController: UIViewController, containerViewControllers: inout [UIViewController], logger: Logger?) {
         if let tabIndex = tabIndex, tabIndex < containerViewControllers.count {
             if replacing {
                 containerViewControllers[tabIndex] = viewController

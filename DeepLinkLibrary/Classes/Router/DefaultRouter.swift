@@ -55,13 +55,13 @@ private class PostTaskRunner {
 
     var taskSlips: [PostTaskSlip] = []
 
-    func run<A: DeepLinkDestination>(for destinaion: A) {
+    func run<A: DeepLinkDestination>(for destination: A) {
         let viewControllers = taskSlips.flatMap({ $0.viewController })
         taskSlips.forEach({ slip in
             guard let viewController = slip.viewController else {
                 return
             }
-            slip.postTask.execute(on: viewController, with: destinaion.arguments, routingStack: viewControllers)
+            slip.postTask.execute(on: viewController, with: destination.arguments, routingStack: viewControllers)
         })
     }
 }
@@ -77,9 +77,9 @@ public class DefaultRouter: Router {
     @discardableResult
     public func deepLinkTo<A: DeepLinkDestination>(destination: A, animated: Bool = true, completion: ((_: Bool) -> Void)? = nil) -> DeepLinkResult {
 
-        // If currently visible view controller can not be dissmissed then we can't deeplink anywhere, because it will
+        // If currently visible view controller can not be dismissed then we can't deeplink anywhere, because it will
         // disappear as a result of deeplinking.
-        if let topMostViewControler = UIWindow.key?.topmostViewController as? RouterRulesViewController, !topMostViewControler.canBeDismissed {
+        if let topMostViewController = UIWindow.key?.topmostViewController as? RouterRulesViewController, !topMostViewController.canBeDismissed {
             logger?.log(.warning("Topmost view controller can not be dismissed."))
             return .unhandled
         }
@@ -181,7 +181,7 @@ public class DefaultRouter: Router {
                         return nil
                     }
 
-                    // If current factory actually creates Contanier then it should know how to deal with the factories that
+                    // If current factory actually creates Container then it should know how to deal with the factories that
                     // should be in this container, based on an action attached to the factory.
                     // For example navigationController factory should use factories to build navigation controller stack.
                     if let container = factory as? ContainerFactory {
@@ -223,7 +223,7 @@ public class DefaultRouter: Router {
     private func startDeepLinking(viewController: UIViewController, animated: Bool, factories: [Factory], completion: @escaping ((_: UIViewController) -> Void)) {
         // If we found a view controller to start from - lets close all the presented view controllers above to be able
         // to build a new stack if needed.
-        // We already checked that they can be dissmissed.
+        // We already checked that they can be dismissed.
         viewController.dismissAllPresentedControllers(animated: animated) {
             self.runViewControllerBuildStack(rootViewController: viewController, factories: factories, animated: animated) { viewController in
                 completion(viewController)
