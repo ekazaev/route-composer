@@ -23,7 +23,7 @@ class LoginInterceptor: RouterInterceptor {
         // It will help to avoid opening of another login view controller and will help you not to have your own
         // boilerplate code that will help you to avoid this rare, but possible situation.
         let destination = LoginConfiguration.login()
-        let result = DefaultRouter().deepLinkTo(destination: destination) { success in
+        let result = DefaultRouter(logger: DefaultLogger(.warnings)).deepLinkTo(destination: destination) { success in
             guard success,
                   case .success(let viewController) = destination.finalStep.perform(with: nil),
                   let loginViewController = viewController as? LoginViewController else {
@@ -43,16 +43,16 @@ class LoginInterceptor: RouterInterceptor {
 
 class LoginViewControllerFinder: FinderWithPolicy {
 
+    public typealias V = LoginViewController
+    public typealias A = Any
+
     let policy: FinderPolicy
 
     init(policy: FinderPolicy = .allStackUp) {
         self.policy = policy
     }
 
-    func isTarget(viewController: UIViewController, arguments: Any?) -> Bool {
-        guard let _ = viewController as? LoginViewController else {
-            return false
-        }
+    func isTarget(viewController: V, arguments: A?) -> Bool {
         return true
     }
 

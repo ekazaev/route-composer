@@ -9,17 +9,16 @@ import DeepLinkLibrary
 
 class CityDetailsViewControllerFinder: FinderWithPolicy {
 
+    public typealias V = CityDetailViewController
+    public typealias A = CityArguments
+
     let policy: FinderPolicy
 
     init(policy: FinderPolicy = .allStackUp) {
         self.policy = policy
     }
 
-    func isTarget(viewController: UIViewController, arguments: Any?) -> Bool {
-        guard let _ = viewController as? CityDetailViewController else {
-            return false
-        }
-
+    func isTarget(viewController: V, arguments: A?) -> Bool {
         return true
     }
 

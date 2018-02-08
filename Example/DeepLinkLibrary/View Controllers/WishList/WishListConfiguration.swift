@@ -10,7 +10,7 @@ import DeepLinkLibrary
 struct WishListConfiguration {
 
     static let wishListScreen = ScreenStepAssembly(
-            finder: ViewControllerClassFinder(classType: WishListViewController.self),
+            finder: ViewControllerClassFinder(),
             factory: WishListFactory(action: PushAction()))
             .add(LoginInterceptor())
             .add(ExampleAnalyticsInterceptor())

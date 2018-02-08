@@ -8,6 +8,8 @@ import UIKit
 import DeepLinkLibrary
 
 class ProductViewControllerFinder: FinderWithPolicy {
+    public typealias V = ProductViewController
+    public typealias A = ProductArguments
 
     let policy: FinderPolicy
 
@@ -15,32 +17,33 @@ class ProductViewControllerFinder: FinderWithPolicy {
         self.policy = policy
     }
 
-    func isTarget(viewController: UIViewController, arguments: Any?) -> Bool {
-        guard let controller = viewController as? ProductViewController,
-              let arguments = arguments as? ProductArguments,
-              let controllerProductId = controller.productId,
+    func isTarget(viewController: V, arguments: A?) -> Bool {
+        guard let arguments = arguments,
+              let controllerProductId = viewController.productId,
               controllerProductId == arguments.productId else {
             return false
         }
-        controller.productId = arguments.productId
+        viewController.productId = arguments.productId
         return true
     }
 
 }
 
 class ProductViewControllerFactory: Factory {
+    public typealias V = ProductViewController
+    public typealias A = ProductArguments
 
     let action: Action
 
-    var arguments: ProductArguments?
+    var arguments: A?
 
     init(action: Action) {
         self.action = action
     }
 
-    func build(with logger: Logger?) -> UIViewController? {
+    func build(with logger: Logger?) -> V? {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        guard let viewController = storyboard.instantiateViewController(withIdentifier: "ProductViewController") as? ProductViewController else {
+        guard let viewController = storyboard.instantiateViewController(withIdentifier: "ProductViewController") as? V else {
             return nil
         }
 
@@ -49,16 +52,11 @@ class ProductViewControllerFactory: Factory {
         return viewController
     }
 
-    func prepare(with arguments: Any?) -> RoutingResult {
-        guard let arguments = arguments as? ProductArguments else {
-            return .unhandled
-        }
-
+    func prepare(with arguments: A?) -> RoutingResult {
         self.arguments = arguments
         return .handled
     }
 }
-
 
 class ProductViewController: UIViewController, AnalyticsSupportViewController {
 

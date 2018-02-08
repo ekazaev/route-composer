@@ -19,7 +19,7 @@ private struct PostTaskSlip {
 /// This decorator adds functionality of storing UIViewControllers created by the factory and frees custom factories
 /// implementations from dealing with it. Mostly it is important for ContainerFactories which create merged view
 /// controllers without Router's help.
-private class FactoryDecorator: Factory {
+private class FactoryDecorator: AbstractFactory {
 
     var action: Action {
         get {
@@ -27,16 +27,24 @@ private class FactoryDecorator: Factory {
         }
     }
 
-    let factory: Factory
+    let factory: AbstractFactory
 
     weak var postTaskRunner: PostTaskRunner?
 
     var postTask: PostRoutingTask?
 
-    init(factory: Factory, postTask: PostRoutingTask?, postTaskRunner: PostTaskRunner) {
+    init(factory: AbstractFactory, postTask: PostRoutingTask?, postTaskRunner: PostTaskRunner) {
         self.factory = factory
         self.postTaskRunner = postTaskRunner
         self.postTask = postTask
+    }
+
+    func hasContainer() -> ContainerFactory? {
+        return factory.hasContainer()
+    }
+
+    func prepare(with arguments: Any?) -> RoutingResult {
+        return factory.prepare(with: arguments)
     }
 
     func build(with logger: Logger?) -> UIViewController? {
@@ -130,15 +138,15 @@ public class DefaultRouter: Router {
         return .handled
     }
 
-    private func prepareStack<A: RoutingDestination>(destination: A, postTaskRunner: PostTaskRunner) -> (rootViewController: UIViewController, factories: [Factory], interceptor: RouterInterceptor)? {
+    private func prepareStack<A: RoutingDestination>(destination: A, postTaskRunner: PostTaskRunner) -> (rootViewController: UIViewController, factories: [AbstractFactory], interceptor: RouterInterceptor)? {
 
         var step: RoutingStep? = destination.finalStep
 
         var rootViewController: UIViewController?
 
-        var tempFactories: [Factory] = []
+        var tempFactories: [AbstractFactory] = []
 
-        var factories: [Factory] = []
+        var factories: [AbstractFactory] = []
 
         var interceptors: [RouterInterceptor] = []
 
@@ -183,7 +191,7 @@ public class DefaultRouter: Router {
                     // If current factory actually creates Container then it should know how to deal with the factories that
                     // should be in this container, based on an action attached to the factory.
                     // For example navigationController factory should use factories to build navigation controller stack.
-                    if let container = factory as? ContainerFactory {
+                    if let container = factory.hasContainer() {
                         if tempFactories.count > 0 {
                             let rest = container.merge(tempFactories)
                             let merged = tempFactories.filter { factory in
@@ -219,8 +227,7 @@ public class DefaultRouter: Router {
         return nil
     }
 
-    private func startDeepLinking(viewController: UIViewController, animated: Bool, factories: [Factory], completion: @escaping ((_: UIViewController) -> Void)) {
-
+    private func startDeepLinking(viewController: UIViewController, animated: Bool, factories: [AbstractFactory], completion: @escaping ((_: UIViewController) -> Void)) {
         // If we found a view controller to start from - lets close all the presented view controllers above to be able
         // to build a new stack if needed.
         // We already checked that they can be dismissed.
@@ -234,10 +241,10 @@ public class DefaultRouter: Router {
     // This function loops through the list of factories and build views in sequence.
     // Because some actions can be asynchronous, like push, modal or presentations,
     // it builds asynchronously
-    private func runViewControllerBuildStack(rootViewController: UIViewController, factories: [Factory], animated: Bool, completion: @escaping ((_: UIViewController) -> Void)) {
+    private func runViewControllerBuildStack(rootViewController: UIViewController, factories: [AbstractFactory], animated: Bool, completion: @escaping ((_: UIViewController) -> Void)) {
         var factories = factories
 
-        func buildViewController(_ factory: Factory, _ previousViewController: UIViewController) {
+        func buildViewController(_ factory: AbstractFactory, _ previousViewController: UIViewController) {
             // If view controller found but view is not loaded or has no window that it belongs, it means that it was just cached by container view controller
             // like in UITabBarController it happens with a view controller in a tab that was never activated before,
             // So we have to make it active first.

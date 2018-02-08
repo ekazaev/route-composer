@@ -10,8 +10,8 @@ struct LoginConfiguration {
 
     static func login() -> ExampleDestination {
         let loginScreen = ScreenStepAssembly(finder: LoginViewControllerFinder(),
-                factory: ViewControllerFromStoryboard(storyboardName: "Login", action: PresentModallyAction(presentationStyle: .formSheet)))
-                .from(TopMostViewControllerStep())
+                factory: NilFactory()) //Its actually funny here. You have to be persize in abstraction. You can not load here LoginViewController from a storyboard - because it UINavigation coler first. So all this fancy abstraction involves a lot of cpding
+                .from(ScreenStepAssembly(finder: NilFinder(), factory: ViewControllerFromStoryboard<UINavigationController, Any>(storyboardName: "Login", action: PresentModallyAction(presentationStyle: .formSheet))).assemble(from: TopMostViewControllerStep()))
                 .assemble()
 
         return ExampleDestination(finalStep: loginScreen, arguments: nil)

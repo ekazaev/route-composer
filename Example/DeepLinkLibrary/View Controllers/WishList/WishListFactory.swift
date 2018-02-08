@@ -7,27 +7,29 @@ import Foundation
 import UIKit
 import DeepLinkLibrary
 
-class WishListFactory: Factory {
+class FakeContainerFactory: Factory {
+    public typealias V = WishListViewController
+    public typealias A = WishListArguments
 
     let action: Action
 
-    var arguments: WishListArguments = WishListArguments(content: .favorites)
+    var arguments: A = WishListArguments(content: .favorites)
 
     init(action: Action) {
         self.action = action
     }
 
-    func prepare(with arguments: Any?) -> RoutingResult {
-        guard let arguments = arguments as? WishListArguments else {
+    func prepare(with arguments: A?) -> RoutingResult {
+        guard let arguments = arguments else {
             return .unhandled
         }
         self.arguments = arguments
         return .handled
     }
 
-    func build(with logger: Logger?) -> UIViewController? {
+    func build(with logger: Logger?) -> V? {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        guard let viewController = storyboard.instantiateViewController(withIdentifier: "WishListViewController") as? WishListViewController else {
+        guard let viewController = storyboard.instantiateViewController(withIdentifier: "WishListViewController") as? V else {
             return nil
         }
         viewController.content = arguments.content

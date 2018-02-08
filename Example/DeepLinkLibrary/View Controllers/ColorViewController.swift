@@ -8,6 +8,8 @@ import UIKit
 import DeepLinkLibrary
 
 class ColorViewControllerFinder: FinderWithPolicy {
+    public typealias V = ColorViewController
+    public typealias A = ExampleDictionaryArguments
 
     let policy: FinderPolicy
 
@@ -15,13 +17,12 @@ class ColorViewControllerFinder: FinderWithPolicy {
         self.policy = policy
     }
 
-    func isTarget(viewController: UIViewController, arguments: Any?) -> Bool {
-        guard let controller = viewController as? ColorViewController,
-              let arguments = arguments as? ExampleDictionaryArguments,
+    func isTarget(viewController: V, arguments: A?) -> Bool {
+        guard let arguments = arguments,
               let destinationColorHex = arguments[Argument.color] as? ColorViewController.ColorDisplayModel else {
             return false
         }
-        controller.colorHex = destinationColorHex
+        viewController.colorHex = destinationColorHex
         return true
     }
 
@@ -29,28 +30,31 @@ class ColorViewControllerFinder: FinderWithPolicy {
 
 class ColorViewControllerFactory: Factory {
 
+    public typealias V = ColorViewController
+    public typealias A = ExampleDictionaryArguments
+
     let action: Action
 
-    var model: ColorViewController.ColorDisplayModel?
+    var arguments: ColorViewController.ColorDisplayModel?
 
     init(action: Action) {
         self.action = action
     }
 
-    func build(with logger: Logger?) -> UIViewController? {
+    func build(with logger: Logger?) -> V? {
         let colorViewController = ColorViewController(nibName: nil, bundle: nil)
-        colorViewController.colorHex = model
+        colorViewController.colorHex = arguments
 
         return colorViewController
     }
 
-    func prepare(with arguments: Any?) -> RoutingResult {
-        guard let arguments = arguments as? ExampleDictionaryArguments,
+    func prepare(with arguments: A?) -> RoutingResult {
+        guard let arguments = arguments,
               let model = arguments[Argument.color] as? ColorViewController.ColorDisplayModel else {
             return .unhandled
         }
 
-        self.model = model
+        self.arguments = model
         return .handled
     }
 }

@@ -9,13 +9,16 @@ import DeepLinkLibrary
 
 class StarViewControllerFactory: Factory {
 
+    public typealias V = StarViewController
+    public typealias A = Any
+
     let action: Action
 
     init(action: Action) {
         self.action = action
     }
 
-    func build(with logger: Logger?) -> UIViewController? {
+    func build(with logger: Logger?) -> V? {
         let starViewController = StarViewController(nibName: "StarViewController", bundle: nil)
         return starViewController
     }

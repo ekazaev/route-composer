@@ -9,18 +9,21 @@ public protocol TabBarControllerFactoryAction: Action {
 
 }
 
-public class TabBarControllerFactory: ContainerFactory {
+public class TabBarControllerFactory: Factory, ContainerFactory {
+
+    public typealias V = UITabBarController
+    public typealias A = Any
 
     public let action: Action
 
-    var factories: [Factory] = []
+    var factories: [AbstractFactory] = []
 
     public init(action: Action) {
         self.action = action
     }
 
-    public func merge(_ factories: [Factory]) -> [Factory] {
-        var rest: [Factory] = []
+    public func merge(_ factories: [AbstractFactory]) -> [AbstractFactory] {
+        var rest: [AbstractFactory] = []
         self.factories = factories.filter { factory in
             guard let _ = factory.action as? TabBarControllerFactoryAction else {
                 rest.append(factory)
@@ -32,7 +35,7 @@ public class TabBarControllerFactory: ContainerFactory {
         return rest
     }
 
-    open func build(with logger: Logger?) -> UIViewController? {
+    open func build(with logger: Logger?) -> V? {
         guard factories.count > 0 else {
             return nil
         }

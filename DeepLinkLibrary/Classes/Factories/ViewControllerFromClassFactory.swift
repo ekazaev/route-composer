@@ -5,7 +5,10 @@
 
 import UIKit
 
-public class ViewControllerFromClassFactory: Factory {
+public class ViewControllerFromClassFactory<VV: UIViewController, AA>: Factory {
+
+    public typealias V = VV
+    public typealias A = AA
 
     public let action: Action
 
@@ -16,13 +19,13 @@ public class ViewControllerFromClassFactory: Factory {
         self.viewControllerName = viewControllerName
     }
 
-    public func build(with logger: Logger?) -> UIViewController? {
-        guard let myClass = NSClassFromString(self.viewControllerName) as? UIViewController.Type else {
+    public func build(with logger: Logger?) -> V? {
+        guard let myClass = NSClassFromString(self.viewControllerName) as? V.Type else {
             logger?.log(.error("Can not find \(self.viewControllerName) in bundle"))
             return nil
         }
 
-        return myClass.init(nibName: nil, bundle: nil)
+        return  myClass.init(nibName: nil, bundle: nil)
     }
 
 }

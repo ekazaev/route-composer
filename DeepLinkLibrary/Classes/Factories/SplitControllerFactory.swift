@@ -15,19 +15,22 @@ public protocol SplitViewControllerDetailAction: Action {
 }
 
 // TODO: Undone
-public class SplitControllerFactory: ContainerFactory {
+public class SplitControllerFactory: Factory, ContainerFactory {
+
+    public typealias V = UISplitViewController
+    public typealias A = Any
 
     public let action: Action
 
-    var detailFactories: [Factory] = []
-    var masterFactories: [Factory] = []
+    var detailFactories: [AbstractFactory] = []
+    var masterFactories: [AbstractFactory] = []
 
     public init(action: Action) {
         self.action = action
     }
 
-    public func merge(_ factories: [Factory]) -> [Factory] {
-        var rest: [Factory] = []
+    public func merge(_ factories: [AbstractFactory]) -> [AbstractFactory] {
+        var rest: [AbstractFactory] = []
         factories.forEach { factory in
             if let _ = factory.action as? SplitViewControllerMasterAction {
                 masterFactories.append(factory)
@@ -41,7 +44,7 @@ public class SplitControllerFactory: ContainerFactory {
         return rest
     }
 
-    public func build(with logger: Logger?) -> UIViewController? {
+    public func build(with logger: Logger?) -> V? {
         guard masterFactories.count > 0, detailFactories.count > 0 else {
             return nil
         }

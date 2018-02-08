@@ -21,25 +21,28 @@ public class NilAction: Action {
 
 /// Assembly uses finder result as a factory result. Used with things that do not have actual
 /// factories like UIViewControllers that were build as a result of storyboard loading.
-public class FinderFactory: Factory {
+public class FinderFactory<F: Finder>: Factory {
+
+    public typealias V = F.V
+    public typealias A = F.A
 
     public var action: Action
 
-    let finder: Finder?
+    let finder: F?
 
-    var arguments: Any?
+    var arguments: A?
 
-    public init(finder: Finder?, action: Action = NilAction()) {
+    public init(finder: F?, action: Action = NilAction()) {
         self.finder = finder
         self.action = action
     }
 
-    public func prepare(with arguments: Any?) -> RoutingResult {
+    public func prepare(with arguments: A?) -> RoutingResult {
         self.arguments = arguments
         return .handled
     }
 
-    public func build(with logger: Logger?) -> UIViewController? {
+    public func build(with logger: Logger?) -> V? {
         return finder?.findViewController(with: arguments)
     }
 }

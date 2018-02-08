@@ -5,6 +5,7 @@
 
 import Foundation
 import DeepLinkLibrary
+import UIKit
 
 class ProductArguments: ExampleArguments {
 
@@ -21,7 +22,7 @@ class ProductArguments: ExampleArguments {
 class ProductConfiguration {
 
     static func productDestination(productId: String, _ analyticParameters: ExampleAnalyticsParameters? = nil) -> ExampleDestination {
-        let productScreen = ScreenStepAssembly(finder: ProductViewControllerFinder(), factory: ProductViewControllerFactory(action: PushAction()))
+       let productScreen = ScreenStepAssembly(finder: ProductViewControllerFinder(), factory: ProductViewControllerFactory(action: PushAction()))
                 .add(ExampleAnalyticsInterceptor())
                 .add(ExampleAnalyticsPostAction())
                 .from(SmartStepAssembly()
@@ -38,7 +39,7 @@ class ProductConfiguration {
 
                         }
                         // If UINavigationController exists on current level - just push
-                        .addCase(when: ViewControllerClassFinder(classType: UINavigationController.self, policy: .currentLevel))
+                        .addCase(when: ViewControllerClassFinder<UINavigationController, Any>(policy: .currentLevel))
                         .addCase { _ in
                             // Otherwise - presenting in Circle Tab
                             return ExampleConfiguration.step(for: ExampleTarget.circle)!

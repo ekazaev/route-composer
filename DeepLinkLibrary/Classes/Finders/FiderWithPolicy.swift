@@ -13,34 +13,53 @@ public protocol FinderWithPolicy: Finder {
 
     var policy: FinderPolicy { get }
 
-    func isTarget(viewController: UIViewController, arguments: Any?) -> Bool
+    func isTarget(viewController: V, arguments: A?) -> Bool
 
 }
 
 public extension FinderWithPolicy {
 
-    func findViewController(with arguments: Any?) -> UIViewController? {
+    func findViewController(with arguments: A?) -> V? {
         switch policy {
         case .allStackUp:
-            guard let rootViewController = UIWindow.key?.rootViewController else {
+            guard let rootViewController = UIWindow.key?.rootViewController,
+                  let viewController = UIViewController.findViewController(in: rootViewController, options: .sameAndUp, using: {
+                      guard let vc = $0 as? V else {
+                          return false
+                      }
+                      return isTarget(viewController: vc, arguments: arguments)
+                  }) as? V else {
                 return nil
             }
-            return UIViewController.findViewController(in: rootViewController, options: .sameAndUp, using: { isTarget(viewController: $0, arguments: arguments) })
+            return viewController
         case .allStackDown:
-            guard let rootViewController = UIWindow.key?.topmostViewController else {
+            guard let rootViewController = UIWindow.key?.topmostViewController,
+                  let viewController = UIViewController.findViewController(in: rootViewController, options: .sameAndDown, using: {
+                      guard let vc = $0 as? V else {
+                          return false
+                      }
+                      return isTarget(viewController: vc, arguments: arguments)
+                  }) as? V else {
                 return nil
             }
-            return UIViewController.findViewController(in: rootViewController, options: .sameAndDown, using: { isTarget(viewController: $0, arguments: arguments) })
+            return viewController
         case .currentLevel:
-            guard let topMostViewController = UIWindow.key?.topmostViewController else {
+            guard let topMostViewController = UIWindow.key?.topmostViewController,
+                  let viewController = UIViewController.findViewController(in: topMostViewController, options: .sameLevel, using: {
+                      guard let vc = $0 as? V else {
+                          return false
+                      }
+                      return isTarget(viewController: vc, arguments: arguments)
+                  }) as? V else {
                 return nil
             }
-            return UIViewController.findViewController(in: topMostViewController, options: .sameLevel, using: { isTarget(viewController: $0, arguments: arguments) })
+            return viewController
         case .topMost:
-            guard let topMostViewController = UIWindow.key?.topmostViewController else {
+            guard let topMostViewController = UIWindow.key?.topmostViewController as? V,
+                  let viewController = (isTarget(viewController: topMostViewController, arguments: arguments) ? topMostViewController : nil) else {
                 return nil
             }
-            return isTarget(viewController: topMostViewController, arguments: arguments) ? topMostViewController : nil
+            return viewController
         }
     }
 }

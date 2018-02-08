@@ -24,9 +24,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func configureNavigationUsingDictionaryConfig() {
         //As one of examples configuration can be stored in one configuration object. Other configs are in CitiesConfiguration, Product configuration and LoginConfiguration as static objects
 
+
         // Home Tab Bar Screen
         let homeScreen = ScreenStepAssembly(
-                finder: ViewControllerClassFinder(classType: UITabBarController.self),
+                finder: ViewControllerClassFinder<UITabBarController, Any>(),
                 factory: ViewControllerFromStoryboard(storyboardName: "Main", action: ReplaceRootAction()))
                 .add(ExampleAnalyticsInterceptor())
                 .add(ExampleAnalyticsPostAction())
@@ -37,7 +38,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // Square Tab Bar Screen
         let squareScreen = ScreenStepAssembly(
-                finder: ViewControllerClassFinder(classType: SquareViewController.self, policy: .currentLevel))
+                finder: ViewControllerClassFinder<SquareViewController, ExampleDictionaryArguments>(policy: .currentLevel),
+                factory: NilFactory())
                 .add(ExampleAnalyticsInterceptor())
                 .add(ExampleAnalyticsPostAction())
                 .from(homeScreen)
@@ -47,7 +49,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // Circle Tab Bar screen
         let circleScreen = ScreenStepAssembly(
-                finder: ViewControllerClassFinder(classType: CircleViewController.self, policy: .currentLevel))
+                finder: ViewControllerClassFinder<CircleViewController, ExampleDictionaryArguments>(policy: .currentLevel),
+                factory:  NilFactory())
                 .add(ExampleAnalyticsInterceptor())
                 .add(ExampleAnalyticsPostAction())
                 .from(homeScreen)
@@ -68,7 +71,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         //Star screen
         let starScreen = ScreenStepAssembly(
-                finder: ViewControllerClassFinder(classType: StarViewController.self, policy: .currentLevel), factory: StarViewControllerFactory(action: AddTabAction()))
+                finder: ViewControllerClassFinder(policy: .currentLevel),
+                factory: StarViewControllerFactory(action: AddTabAction()))
                 .add(ExampleAnalyticsInterceptor())
                 .add(ExampleAnalyticsPostAction())
                 .add(LoginInterceptor())
@@ -78,7 +82,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ExampleConfiguration.register(screen: starScreen, for: ExampleTarget.star)
 
         //Screen with Routing support
-        let routingSupportScreen = ScreenStepAssembly(finder: ViewControllerClassFinder(classType: RoutingRuleSupportViewController.self, policy: .currentLevel),
+        let routingSupportScreen = ScreenStepAssembly(finder: ViewControllerClassFinder<RoutingRuleSupportViewController, Any>(policy: .currentLevel),
                 factory: ViewControllerFromStoryboard(storyboardName: "Main", viewControllerID: "RoutingRuleSupportViewController", action: PushAction()))
                 .add(ExampleAnalyticsInterceptor())
                 .add(ExampleAnalyticsPostAction())
@@ -89,7 +93,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 for: ExampleTarget.ruleSupport)
 
         // Empty Screen
-        let emptyScreen = ScreenStepAssembly(finder: ViewControllerClassFinder(classType: EmptyViewController.self),
+        let emptyScreen = ScreenStepAssembly(finder: ViewControllerClassFinder<EmptyViewController, Any>(),
                 factory: ViewControllerFromStoryboard(storyboardName: "Main", viewControllerID: "EmptyViewController", action: PushAction()))
                 .add(LoginInterceptor())
                 .add(ExampleAnalyticsInterceptor())
@@ -101,7 +105,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // Two modal presentations screen
         let superModalScreen = ScreenStepAssembly(
-                finder: ViewControllerClassFinder(classType: SecondModalLevelViewController.self),
+                finder: ViewControllerClassFinder<SecondModalLevelViewController, Any>(),
                 factory: ViewControllerFromStoryboard(storyboardName: "Main", viewControllerID: "SecondModalLevelViewController", action: PushAction()))
                 .add(ExampleAnalyticsInterceptor())
                 .add(ExampleAnalyticsPostAction())
@@ -112,7 +116,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // Welcome Screen
         let welcomeScreen = ScreenStepAssembly(
-                finder: ViewControllerClassFinder(classType: PromptViewController.self),
+                finder: ViewControllerClassFinder<PromptViewController, Any>(),
                 factory: ViewControllerFromStoryboard(storyboardName: "PromptScreen", action: ReplaceRootAction()))
                 .add(ExampleAnalyticsInterceptor())
                 .add(ExampleAnalyticsPostAction())

@@ -6,7 +6,7 @@
 import UIKit
 import DeepLinkLibrary
 
-private let appRouter = DefaultRouter(logger: DefaultLogger())
+private let appRouter = DefaultRouter(logger: DefaultLogger(.verbose))
 
 extension UIViewController {
 

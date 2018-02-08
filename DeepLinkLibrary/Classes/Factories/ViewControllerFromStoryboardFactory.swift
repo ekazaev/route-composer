@@ -5,7 +5,9 @@
 
 import UIKit
 
-public class ViewControllerFromStoryboard: Factory {
+public class ViewControllerFromStoryboard<VV: UIViewController, AA>: Factory {
+    public typealias V = VV
+    public typealias A = AA
 
     public let action: Action
 
@@ -19,15 +21,23 @@ public class ViewControllerFromStoryboard: Factory {
         self.viewControllerID = viewControllerID
     }
 
-    public func build(with logger: Logger?) -> UIViewController? {
+    public func build(with logger: Logger?) -> V? {
         let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
         if let viewControllerID = viewControllerID {
-            return storyboard.instantiateViewController(withIdentifier: viewControllerID)
-        } else {
-            let viewController = storyboard.instantiateInitialViewController()
-            if viewController == nil {
-                logger?.log(.error("Unable to instantiate initial UIViewController in \(storyboardName) storyboard"))
+            guard let viewController = storyboard.instantiateViewController(withIdentifier: viewControllerID) as? V else {
+                return nil
             }
+            return viewController
+        } else {
+            guard let abstractViewController = storyboard.instantiateInitialViewController() else {
+                logger?.log(.error("Unable to instantiate initial UIViewController in \(storyboardName) storyboard"))
+                return nil
+            }
+            guard let viewController = abstractViewController as? V else {
+                logger?.log(.error("Unable to instantiate initial UIViewController in \(storyboardName) storyboard as \(String(describing: type(of: V.self))), got \(String(describing: abstractViewController)) instead."))
+                return nil
+            }
+
             return viewController
         }
     }
