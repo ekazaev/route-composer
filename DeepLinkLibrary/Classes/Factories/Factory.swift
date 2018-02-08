@@ -12,6 +12,21 @@ public protocol Factory: class {
 
     var action: Action { get }
 
+    /// If factory can tell to router before it will actually start to route to this view controller
+    /// if it can be build ot not - it should overload this method - router will call it before the routing
+    /// process and if factory is not able to build a view controller (example: it has to build a product view
+    /// controller but there is no product code in arguments) it can stop router from routing to this destination
+    /// and the result of routing will be .unhandled without any changes in view controller stack.
+    func prepare(with arguments: Any?) -> RoutingResult
+
     func build(with logger: Logger?) -> UIViewController?
+
+}
+
+extension Factory {
+
+    public func prepare(with arguments: Any?) -> RoutingResult {
+        return .handled
+    }
 
 }

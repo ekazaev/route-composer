@@ -14,7 +14,6 @@
 		136942F6116129DAE71D8BE14B66F488 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B63C6A64CF66340668996F78DA6BB482 /* UIKit.framework */; };
 		1E7CBEF1856037C9CF2E1C57D9D50846 /* ScreenStepAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734673371B76F242BD1CB17987135B4D /* ScreenStepAssembly.swift */; };
 		295DD9A62C014B1D30684F39990D2AAF /* PostRoutingTaskMultiplexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6B61110374DB309433D00BFD9F433A /* PostRoutingTaskMultiplexer.swift */; };
-		31299F26700DA1E82BE5EDF2F8394230 /* PreparableFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E568734DFEDC354145A375E5A90D59EF /* PreparableFactory.swift */; };
 		36591954B06690B196C49B2554A747A3 /* PresentMasterAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC97FEADA56A98AE5E91E9CDFA294FB9 /* PresentMasterAction.swift */; };
 		3F5E6007074AE3CD040A493C6B592983 /* FinderFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF6DF04F9F8AEC4BD5FB294960D7912 /* FinderFactory.swift */; };
 		45412A8BCD35BC5654EF79EFE15A748B /* Finder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5DD0E8F89735979851724BABD9F634 /* Finder.swift */; };
@@ -154,7 +153,6 @@
 		D837FCA223683782A222EE4D95B919E5 /* RouterInterceptor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RouterInterceptor.swift; sourceTree = "<group>"; };
 		D88AAE1F92055A60CC2FC970D7D34634 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		D89BD760DEBF1E99F5DE5BD570E327DD /* Factory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
-		E568734DFEDC354145A375E5A90D59EF /* PreparableFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PreparableFactory.swift; sourceTree = "<group>"; };
 		E58385B2F2E3A647A1170F1CFE2C4326 /* ViewControllerClassFinder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ViewControllerClassFinder.swift; sourceTree = "<group>"; };
 		E9DCA449B041A5A16EB128338339CB9D /* NilFinder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NilFinder.swift; sourceTree = "<group>"; };
 		EB71F4A4F0759F1B5A98C8940FAE5AB2 /* SmartStep.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SmartStep.swift; sourceTree = "<group>"; };
@@ -363,7 +361,6 @@
 				D89BD760DEBF1E99F5DE5BD570E327DD /* Factory.swift */,
 				1AF6DF04F9F8AEC4BD5FB294960D7912 /* FinderFactory.swift */,
 				8F60D7CE99FF8B802DCE9CC384CB53F6 /* NavigationControllerFactory.swift */,
-				E568734DFEDC354145A375E5A90D59EF /* PreparableFactory.swift */,
 				1CC0E1BD67495AFA7C1BD97F2A88467C /* SplitControllerFactory.swift */,
 				83721AFD3E20F845EBB81B35F0201CB8 /* TabBarControllerFactory.swift */,
 				2AF15F4385CD00626CFFD4C848034E9E /* ViewControllerFromClassFactory.swift */,
@@ -571,7 +568,6 @@
 				C47380D5CA4EB91DD9764FF63E959207 /* NilFinder.swift in Sources */,
 				D4B80175CBDE79820F1C141965266535 /* PostRoutingTask.swift in Sources */,
 				295DD9A62C014B1D30684F39990D2AAF /* PostRoutingTaskMultiplexer.swift in Sources */,
-				31299F26700DA1E82BE5EDF2F8394230 /* PreparableFactory.swift in Sources */,
 				D5672E274C74CE9B151148D7EB7DEA1B /* PresentDetailsAction.swift in Sources */,
 				36591954B06690B196C49B2554A747A3 /* PresentMasterAction.swift in Sources */,
 				4AEEF1CB7AF306404E1F3D64B01C047E /* PresentModallyAction.swift in Sources */,

@@ -27,7 +27,7 @@ class ColorViewControllerFinder: FinderWithPolicy {
 
 }
 
-class ColorViewControllerFactory: PreparableFactory {
+class ColorViewControllerFactory: Factory {
 
     let action: Action
 

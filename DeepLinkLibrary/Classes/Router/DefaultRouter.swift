@@ -175,8 +175,7 @@ public class DefaultRouter: Router {
 
                     // If some factory can not prepare itself (e.g. does not have enough data in arguments) then deep link stack
                     // can not be built
-                    if let preparableFactory = factory as? PreparableFactory,
-                       preparableFactory.prepare(with: destination.arguments) == .unhandled {
+                    if factory.prepare(with: destination.arguments) == .unhandled {
                         logger?.log(.error("Factory \(factory) could not prepare itself to be ready to build a View Controller."))
                         return nil
                     }
@@ -221,10 +220,18 @@ public class DefaultRouter: Router {
     }
 
     private func startDeepLinking(viewController: UIViewController, animated: Bool, factories: [Factory], completion: @escaping ((_: UIViewController) -> Void)) {
+
         // If we found a view controller to start from - lets close all the presented view controllers above to be able
         // to build a new stack if needed.
         // We already checked that they can be dismissed.
         viewController.dismissAllPresentedControllers(animated: animated) {
+            // To get rid of lacks of animation - force anything that may contain view controller we are going to start with to
+            // make it visible first.
+            // Example: TabBar contains navigation controller in the tab that was never opened and we are going to push in to
+            // it, UINavigationController in this case will not update it content properly. Possible to reproduce in clean project
+            // without DeepLinkLibrary.
+            self.makeContainersActive(toShow: viewController, animated: animated)
+
             self.runViewControllerBuildStack(rootViewController: viewController, factories: factories, animated: animated) { viewController in
                 completion(viewController)
             }

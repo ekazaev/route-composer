@@ -21,7 +21,7 @@ public class PushAction: NavigationControllerFactoryAction {
         }
 
         nv.pushViewController(viewController, animated: animated)
-        return completion(.failure)
+        return completion(.continueRouting)
     }
 
 }

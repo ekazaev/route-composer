@@ -21,7 +21,7 @@ public class NilAction: Action {
 
 /// Assembly uses finder result as a factory result. Used with things that do not have actual
 /// factories like UIViewControllers that were build as a result of storyboard loading.
-public class FinderFactory: PreparableFactory {
+public class FinderFactory: Factory {
 
     public var action: Action
 

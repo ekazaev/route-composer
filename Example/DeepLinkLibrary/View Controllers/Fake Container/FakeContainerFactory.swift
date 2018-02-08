@@ -7,7 +7,7 @@ import Foundation
 import UIKit
 import DeepLinkLibrary
 
-class FakeContainerFactory: PreparableFactory {
+class FakeContainerFactory: Factory {
 
     let action: Action
 

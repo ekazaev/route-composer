@@ -28,7 +28,7 @@ class ProductViewControllerFinder: FinderWithPolicy {
 
 }
 
-class ProductViewControllerFactory: PreparableFactory {
+class ProductViewControllerFactory: Factory {
 
     let action: Action
 
