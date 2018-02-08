@@ -16,15 +16,15 @@ class EmptyViewController: UIViewController, AnalyticsSupportViewController {
     }
 
     @IBAction func goToCircleTapped() {
-        router.deepLinkTo(destination: ExampleConfiguration.destination(for: ExampleSource.circle)!)
+        router.deepLinkTo(destination: ExampleConfiguration.destination(for: ExampleTarget.circle)!)
     }
 
     @IBAction func goToSquareTapped() {
-        router.deepLinkTo(destination: ExampleConfiguration.destination(for: ExampleSource.square)!)
+        router.deepLinkTo(destination: ExampleConfiguration.destination(for: ExampleTarget.square)!)
     }
 
     @IBAction func goToSelfTapped() {
-        router.deepLinkTo(destination: ExampleConfiguration.destination(for: ExampleSource.empty)!)
+        router.deepLinkTo(destination: ExampleConfiguration.destination(for: ExampleTarget.empty)!)
     }
 
 }

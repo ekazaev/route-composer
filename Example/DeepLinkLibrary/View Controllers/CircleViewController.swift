@@ -18,19 +18,19 @@ class CircleViewController: UIViewController, AnalyticsSupportViewController {
     }
 
     @IBAction func goToSquareTapped() {
-        router.deepLinkTo(destination: ExampleConfiguration.destination(for: ExampleSource.square)!)
+        router.deepLinkTo(destination: ExampleConfiguration.destination(for: ExampleTarget.square)!)
     }
 
     @IBAction func goToRandomColorTapped() {
-        router.deepLinkTo(destination: ExampleConfiguration.destination(for: ExampleSource.color, arguments: ExampleDictionaryArguments(arguments: [Argument.color: "0000FF"]))!)
+        router.deepLinkTo(destination: ExampleConfiguration.destination(for: ExampleTarget.color, arguments: ExampleDictionaryArguments(arguments: [Argument.color: "0000FF"]))!)
     }
 
     @IBAction func goToDeepModalTapped() {
-        router.deepLinkTo(destination: ExampleConfiguration.destination(for: ExampleSource.ruleSupport, arguments: ExampleDictionaryArguments(arguments: [Argument.color: "00FF00"]))!)
+        router.deepLinkTo(destination: ExampleConfiguration.destination(for: ExampleTarget.ruleSupport, arguments: ExampleDictionaryArguments(arguments: [Argument.color: "00FF00"]))!)
     }
 
     @IBAction func goToSuperModalTapped() {
-        router.deepLinkTo(destination: ExampleConfiguration.destination(for: ExampleSource.secondLevelModal, arguments: ExampleDictionaryArguments(arguments: [Argument.color: "0000FF"]))!)
+        router.deepLinkTo(destination: ExampleConfiguration.destination(for: ExampleTarget.secondLevelModal, arguments: ExampleDictionaryArguments(arguments: [Argument.color: "0000FF"]))!)
     }
 
     @IBAction func goToProductTapped() {
@@ -38,7 +38,7 @@ class CircleViewController: UIViewController, AnalyticsSupportViewController {
     }
 
     @IBAction func goToWelcomeTapped() {
-        router.deepLinkTo(destination: ExampleConfiguration.destination(for: ExampleSource.welcome)!)
+        router.deepLinkTo(destination: ExampleConfiguration.destination(for: ExampleTarget.welcome)!)
     }
 }
 

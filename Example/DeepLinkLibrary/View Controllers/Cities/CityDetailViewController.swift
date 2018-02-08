@@ -70,7 +70,7 @@ class CityDetailViewController: UIViewController, AnalyticsSupportViewController
     }
 
     @IBAction func goToStarTapped() {
-        router.deepLinkTo(destination: ExampleConfiguration.destination(for: ExampleSource.star)!)
+        router.deepLinkTo(destination: ExampleConfiguration.destination(for: ExampleTarget.star)!)
     }
 
     @IBAction func backProgrammaticalyTapped() {

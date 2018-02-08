@@ -19,11 +19,11 @@ class SquareViewController: UIViewController , AnalyticsSupportViewController {
     }
 
     @IBAction func goToCircleTapped() {
-        router.deepLinkTo(destination: ExampleConfiguration.destination(for: ExampleSource.circle)!)
+        router.deepLinkTo(destination: ExampleConfiguration.destination(for: ExampleTarget.circle)!)
     }
 
     @IBAction func goToHomeTapped() {
-        router.deepLinkTo(destination: ExampleConfiguration.destination(for: ExampleSource.empty)!)
+        router.deepLinkTo(destination: ExampleConfiguration.destination(for: ExampleTarget.empty)!)
     }
 
     @IBAction func goToSplitTapped() {
@@ -35,7 +35,11 @@ class SquareViewController: UIViewController , AnalyticsSupportViewController {
     }
 
     @IBAction func goToStarTapped() {
-        router.deepLinkTo(destination: ExampleConfiguration.destination(for: ExampleSource.star)!)
+        router.deepLinkTo(destination: ExampleConfiguration.destination(for: ExampleTarget.star)!)
+    }
+
+    @IBAction func goToFakeContainerTapped() {
+        router.deepLinkTo(destination: FakeContainerConfiguration.collections())
     }
 
 }

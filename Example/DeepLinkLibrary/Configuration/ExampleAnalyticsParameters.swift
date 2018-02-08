@@ -8,13 +8,13 @@ import UIKit
 
 struct ExampleAnalyticsParameters {
 
-    let source: ExampleSource
+    let source: ExampleTarget
 
     let webpageURL: URL?
 
     let referrerURL: URL?
 
-    init(source: ExampleSource, webpageURL: URL? = nil, referrerURL: URL? = nil) {
+    init(source: ExampleTarget, webpageURL: URL? = nil, referrerURL: URL? = nil) {
         self.source = source
         self.webpageURL = webpageURL
         self.referrerURL = referrerURL

@@ -208,45 +208,52 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="aCi-8Q-H9E">
-                                <rect key="frame" x="126" y="212" width="123" height="215"/>
+                                <rect key="frame" x="125" y="191.5" width="125" height="256"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Itu-Vw-ee6">
-                                        <rect key="frame" x="0.0" y="0.0" width="123" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="125" height="30"/>
                                         <state key="normal" title="Go push to circle*"/>
                                         <connections>
                                             <action selector="goToHomeTapped" destination="8rJ-Kc-sve" eventType="touchUpInside" id="2vG-vl-TjY"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ah5-V3-Bcg">
-                                        <rect key="frame" x="0.0" y="41" width="123" height="30"/>
+                                        <rect key="frame" x="0.0" y="41" width="125" height="30"/>
                                         <state key="normal" title="Go to Circle"/>
                                         <connections>
                                             <action selector="goToCircleTapped" destination="8rJ-Kc-sve" eventType="touchUpInside" id="24a-4I-H6w"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oOA-2s-xxU">
-                                        <rect key="frame" x="0.0" y="82" width="123" height="30"/>
+                                        <rect key="frame" x="0.0" y="82" width="125" height="30"/>
                                         <state key="normal" title="Go to Split*"/>
                                         <connections>
                                             <action selector="goToSplitTapped" destination="8rJ-Kc-sve" eventType="touchUpInside" id="8Mh-q7-kMY"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PVg-zY-i55">
-                                        <rect key="frame" x="0.0" y="123" width="123" height="30"/>
+                                        <rect key="frame" x="0.0" y="123" width="125" height="30"/>
                                         <state key="normal" title="Go to Login"/>
                                         <connections>
                                             <action selector="goToLoginTapped" destination="8rJ-Kc-sve" eventType="touchUpInside" id="3Br-6G-ONF"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jWi-4X-90Y">
-                                        <rect key="frame" x="0.0" y="164" width="123" height="30"/>
+                                        <rect key="frame" x="0.0" y="164" width="125" height="30"/>
                                         <state key="normal" title="Go to Star*"/>
                                         <connections>
                                             <action selector="goToStarTapped" destination="8rJ-Kc-sve" eventType="touchUpInside" id="c1Z-eB-EQt"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mpK-1U-eeR">
+                                        <rect key="frame" x="0.0" y="205" width="125" height="30"/>
+                                        <state key="normal" title="Go to Collections*"/>
+                                        <connections>
+                                            <action selector="goToFakeContainerTapped" destination="8rJ-Kc-sve" eventType="touchUpInside" id="sfZ-Sr-PRB"/>
+                                        </connections>
+                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="* - login required" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iw0-rc-3xm">
-                                        <rect key="frame" x="0.0" y="205" width="123" height="10"/>
+                                        <rect key="frame" x="0.0" y="246" width="125" height="10"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="8"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -416,6 +423,34 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Kx-5K-keE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3559" y="-309"/>
+        </scene>
+        <!--Fake Container View Controller-->
+        <scene sceneID="CLb-At-fWy">
+            <objects>
+                <tableViewController storyboardIdentifier="FakeContainerViewController" id="V3e-pC-6aX" customClass="FakeContainerViewController" customModule="DeepLinkLibrary_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="7uF-ik-Q47">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FakeCell" id="3vM-kN-1dP">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3vM-kN-1dP" id="JYC-op-J0q">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="V3e-pC-6aX" id="31M-Gg-ES2"/>
+                            <outlet property="delegate" destination="V3e-pC-6aX" id="Teu-dz-4nJ"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XNM-Ah-VJg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4523" y="-211"/>
         </scene>
     </scenes>
     <resources>

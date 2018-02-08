@@ -82,7 +82,7 @@ class CitiesTableViewController: UITableViewController, AnalyticsSupportViewCont
     }
 
     @IBAction func goToSquareTapped() {
-        router.deepLinkTo(destination: ExampleConfiguration.destination(for: ExampleSource.square)!)
+        router.deepLinkTo(destination: ExampleConfiguration.destination(for: ExampleTarget.square)!)
     }
 }
 

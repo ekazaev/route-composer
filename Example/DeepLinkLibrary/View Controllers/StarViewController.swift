@@ -38,7 +38,7 @@ class StarViewController: UIViewController, AnalyticsSupportViewController {
     }
 
     @IBAction func goToCircleTapped() {
-        router.deepLinkTo(destination: ExampleConfiguration.destination(for: ExampleSource.circle)!)
+        router.deepLinkTo(destination: ExampleConfiguration.destination(for: ExampleTarget.circle)!)
     }
 
     @IBAction func dismissStarTapped() {

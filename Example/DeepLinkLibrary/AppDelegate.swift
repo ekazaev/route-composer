@@ -48,7 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 .from(RootViewControllerStep())
                 .assemble()
 
-        ExampleConfiguration.register(screen: homeScreen, for: ExampleSource.home)
+        ExampleConfiguration.register(screen: homeScreen, for: ExampleTarget.home)
 
         // Square Tab Bar Screen
         let squareScreen = ScreenStepAssembly(
@@ -58,7 +58,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 .from(RequireStep(homeScreen))
                 .assemble()
 
-        ExampleConfiguration.register(screen: squareScreen, for: ExampleSource.square)
+        ExampleConfiguration.register(screen: squareScreen, for: ExampleTarget.square)
 
         // Circle Tab Bar screen
         let circleScreen = ScreenStepAssembly(
@@ -68,7 +68,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 .from(RequireStep(homeScreen))
                 .assemble()
 
-        ExampleConfiguration.register(screen: circleScreen, for: ExampleSource.circle)
+        ExampleConfiguration.register(screen: circleScreen, for: ExampleTarget.circle)
 
         //Color screen
         let colorScreen = ScreenStepAssembly(
@@ -79,7 +79,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 .from(TopMostViewControllerStep())
                 .assemble()
 
-        ExampleConfiguration.register(screen: colorScreen, for: ExampleSource.color)
+        ExampleConfiguration.register(screen: colorScreen, for: ExampleTarget.color)
 
         //Star screen
         let starScreen = ScreenStepAssembly(
@@ -90,7 +90,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 .from(RequireStep(homeScreen))
                 .assemble()
 
-        ExampleConfiguration.register(screen: starScreen, for: ExampleSource.star)
+        ExampleConfiguration.register(screen: starScreen, for: ExampleTarget.star)
 
         //Screen with Routing support
         let routingSupportScreen = ScreenStepAssembly(finder: ViewControllerClassFinder(classType: RoutingRuleSupportViewController.self, policy: .currentLevel),
@@ -101,7 +101,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 .assemble()
 
         ExampleConfiguration.register(screen: routingSupportScreen,
-                for: ExampleSource.ruleSupport)
+                for: ExampleTarget.ruleSupport)
 
         // Empty Screen
         let emptyScreen = ScreenStepAssembly(finder: ViewControllerClassFinder(classType: EmptyViewController.self),
@@ -112,7 +112,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 .from(RequireStep(circleScreen))
                 .assemble()
 
-        ExampleConfiguration.register(screen: emptyScreen, for: ExampleSource.empty)
+        ExampleConfiguration.register(screen: emptyScreen, for: ExampleTarget.empty)
 
         // Two modal presentations screen
         let superModalScreen = ScreenStepAssembly(
@@ -123,7 +123,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 .from(NavigationContainerStep(action: PresentModallyAction()))
                 .from(RequireStep(routingSupportScreen))
                 .assemble()
-        ExampleConfiguration.register(screen: superModalScreen, for: ExampleSource.secondLevelModal)
+        ExampleConfiguration.register(screen: superModalScreen, for: ExampleTarget.secondLevelModal)
 
         // Welcome Screen
         let welcomeScreen = ScreenStepAssembly(
@@ -134,7 +134,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 .from(RootViewControllerStep())
                 .assemble()
 
-        ExampleConfiguration.register(screen: welcomeScreen, for: ExampleSource.welcome)
+        ExampleConfiguration.register(screen: welcomeScreen, for: ExampleTarget.welcome)
 
         ExampleUniversalLinksManager.register(translator: ColorURLTranslator())
         ExampleUniversalLinksManager.register(translator: ProductURLTranslator())

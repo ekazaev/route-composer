@@ -6,7 +6,7 @@
 import Foundation
 import DeepLinkLibrary
 
-enum ExampleSource {
+enum ExampleTarget {
 
     case circle
 
@@ -29,6 +29,10 @@ enum ExampleSource {
     case citiesList
 
     case cityDetail
+
+    case collections
+
+    case favorites
 
     case login
 

@@ -187,6 +187,36 @@ class DeepLinkLibrary_ExampleUITests: XCTestCase {
         app.terminate()
     }
     
+    func testCollectionsAndReturnHome() {
+        app.launch()
+        
+        XCTAssertTrue(app.otherElements["promptViewController"].exists)
+        app.buttons["Continue"].tap()
+        XCTAssertTrue(app.otherElements["homeViewController"].exists)
+
+        app.buttons["Go to square"].tap()
+        XCTAssertTrue(app.otherElements["squareViewController"].exists)
+
+        app.buttons["Go to Collections*"].tap()
+        XCTAssertTrue(app.otherElements["loginViewController"].exists)
+        
+        app.textFields["loginTextField"].tap()
+        app.textFields["loginTextField"].typeText("abc")
+        
+        app.textFields["passwordTextField"].tap()
+        app.textFields["passwordTextField"].typeText("abc")
+        
+        app.buttons["Login"].tap()
+        sleep(3)
+
+        XCTAssertTrue(app.tables["collectionsViewController"].exists)
+
+        app.buttons["Done"].tap()
+        XCTAssertTrue(app.otherElements["homeViewController"].exists)
+
+        app.terminate()
+    }
+    
     func testDenieLoginScreenAndReturnHome() {
         app.launch()
         XCTAssertTrue(app.otherElements["promptViewController"].exists)

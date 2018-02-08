@@ -28,7 +28,7 @@ class ProductViewControllerFinder: FinderWithPolicy {
 
 }
 
-class ProductViewControllerFactory: Factory, PreparableFactory {
+class ProductViewControllerFactory: PreparableFactory {
 
     let action: ViewControllerAction
 
@@ -101,7 +101,7 @@ class ProductViewController: UIViewController, AnalyticsSupportViewController {
     }
 
     @IBAction func goToCircleTapped() {
-        router.deepLinkTo(destination: ExampleConfiguration.destination(for: ExampleSource.circle)!)
+        router.deepLinkTo(destination: ExampleConfiguration.destination(for: ExampleTarget.circle)!)
     }
 
     @IBAction func goToSplitTapped() {

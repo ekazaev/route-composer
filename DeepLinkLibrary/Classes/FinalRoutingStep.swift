@@ -6,36 +6,8 @@
 import Foundation
 import UIKit
 
+
 class FinalRoutingStep: RoutingStep {
-
-    internal class NilAction: ViewControllerAction {
-        func perform(viewController: UIViewController, on existingController: UIViewController, animated: Bool, logger: Logger?, completion: @escaping (UIViewController) -> Void) {
-            completion(viewController)
-        }
-    }
-    /// Assembly internal factory that uses finder result as a factory result. Used with things that do not have actual
-    /// factories like UIViewControllers that were build as a result of storyboard loading.
-    internal class FinderFactory: Factory, PreparableFactory {
-
-        var action: ViewControllerAction = NilAction()
-
-        let finder: DeepLinkFinder?
-
-        var arguments: Any?
-
-        init(finder: DeepLinkFinder?) {
-            self.finder = finder
-        }
-
-        func prepare(with arguments: Any?) -> DeepLinkResult {
-            self.arguments = arguments
-            return .handled
-        }
-
-        func build(with logger: Logger?) -> UIViewController? {
-            return finder?.findViewController(with: arguments)
-        }
-    }
 
     public let previousStep: RoutingStep?
 

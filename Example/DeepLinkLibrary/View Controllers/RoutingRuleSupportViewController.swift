@@ -31,11 +31,11 @@ class RoutingRuleSupportViewController: UIViewController, RouterRulesViewControl
     }
 
     @IBAction func goToColorTapped() {
-        router.deepLinkTo(destination: ExampleConfiguration.destination(for: ExampleSource.color, arguments: ExampleDictionaryArguments(arguments: [Argument.color: "FFFF00"]))!)
+        router.deepLinkTo(destination: ExampleConfiguration.destination(for: ExampleTarget.color, arguments: ExampleDictionaryArguments(arguments: [Argument.color: "FFFF00"]))!)
     }
 
     @IBAction func goToSquareTapped() {
-        router.deepLinkTo(destination: ExampleConfiguration.destination(for: ExampleSource.square)!)
+        router.deepLinkTo(destination: ExampleConfiguration.destination(for: ExampleTarget.square)!)
     }
 
     @IBAction func goToMoscowTapped() {
