@@ -20,6 +20,6 @@ import UIKit
     /// - returns: UIViewController that actually been made active. Containers can be nested, e.g. UITabBarControllers
     ///   or UISplitViewController can contain UINavigationController and vise versa, so Router will ask to make
     ///   returned view controller to make a view controller that it make contain after.
-    func makeActive(vc: UIViewController, animated: Bool) -> UIViewController?
+    func makeActive(viewController: UIViewController, animated: Bool) -> UIViewController?
     
 }

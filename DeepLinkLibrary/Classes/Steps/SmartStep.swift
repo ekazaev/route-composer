@@ -56,9 +56,9 @@ public class SmartStepAssembly {
         var interceptor: RouterInterceptor? = nil
         var postTask: PostRoutingTask? = nil
         var previousStep: RoutingStep? = nil
-        var finder: DeepLinkFinder
+        var finder: Finder
 
-        init(finder: DeepLinkFinder) {
+        init(finder: Finder) {
             self.finder = finder
         }
 
@@ -72,11 +72,11 @@ public class SmartStepAssembly {
 
     private class FinderResolver: SmartStepResolver {
 
-        private let finder: DeepLinkFinder
+        private let finder: Finder
 
         private let step: RoutingStep
 
-        init(finder: DeepLinkFinder, step: RoutingStep?) {
+        init(finder: Finder, step: RoutingStep?) {
             self.step = step ?? FinderStep(finder: finder)
             self.finder = finder
         }
@@ -102,7 +102,7 @@ public class SmartStepAssembly {
         return self
     }
 
-    public func addCase(when finder: DeepLinkFinder, do step: RoutingStep? = nil) -> Self {
+    public func addCase(when finder: Finder, do step: RoutingStep? = nil) -> Self {
         resolvers.append(FinderResolver(finder: finder, step: step))
         return self
     }

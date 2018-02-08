@@ -9,20 +9,20 @@ import UIKit
 extension UITabBarController: ContainerViewController {
 
     @discardableResult
-    public func makeActive(vc: UIViewController, animated: Bool) -> UIViewController? {
+    public func makeActive(viewController: UIViewController, animated: Bool) -> UIViewController? {
         guard let viewControllers = self.viewControllers else {
             return nil
         }
 
-        for viewController in viewControllers {
-            if let _ = UIViewController.findViewController(in: viewController, options: .sameLevel, using: { controller in
+        for vc in viewControllers {
+            if let _ = UIViewController.findViewController(in: vc, options: .sameLevel, using: { controller in
                 if let container = controller as? ContainerViewController {
-                    container.makeActive(vc: vc, animated: animated)
+                    container.makeActive(viewController: viewController, animated: animated)
                 }
-                return controller == vc
+                return controller == viewController
             }) {
-                self.selectedViewController = viewController
-                return viewController
+                self.selectedViewController = vc
+                return vc
             }
         }
 

@@ -5,17 +5,17 @@
 import Foundation
 import UIKit
 
-public protocol TabBarControllerFactoryAction: ViewControllerAction {
+public protocol TabBarControllerFactoryAction: Action {
 
 }
 
 public class TabBarControllerFactory: ContainerFactory {
 
-    public let action: ViewControllerAction
+    public let action: Action
 
     var factories: [Factory] = []
 
-    public init(action: ViewControllerAction) {
+    public init(action: Action) {
         self.action = action
     }
 

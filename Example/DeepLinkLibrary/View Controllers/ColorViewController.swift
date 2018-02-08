@@ -29,11 +29,11 @@ class ColorViewControllerFinder: FinderWithPolicy {
 
 class ColorViewControllerFactory: PreparableFactory {
 
-    let action: ViewControllerAction
+    let action: Action
 
     var model: ColorViewController.ColorDisplayModel?
 
-    init(action: ViewControllerAction) {
+    init(action: Action) {
         self.action = action
     }
 
@@ -44,7 +44,7 @@ class ColorViewControllerFactory: PreparableFactory {
         return colorViewController
     }
 
-    func prepare(with arguments: Any?) -> DeepLinkResult {
+    func prepare(with arguments: Any?) -> RoutingResult {
         guard let arguments = arguments as? ExampleDictionaryArguments,
               let model = arguments[Argument.color] as? ColorViewController.ColorDisplayModel else {
             return .unhandled

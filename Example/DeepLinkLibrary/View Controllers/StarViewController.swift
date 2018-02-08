@@ -9,9 +9,9 @@ import DeepLinkLibrary
 
 class StarViewControllerFactory: Factory {
 
-    let action: ViewControllerAction
+    let action: Action
 
-    init(action: ViewControllerAction) {
+    init(action: Action) {
         self.action = action
     }
 

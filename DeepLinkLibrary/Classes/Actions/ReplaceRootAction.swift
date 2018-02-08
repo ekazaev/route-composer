@@ -6,20 +6,20 @@
 import Foundation
 import UIKit
 
-public class ReplaceRootAction: ViewControllerAction {
+public class ReplaceRootAction: Action {
 
     public init() {
         
     }
 
-    public func perform(viewController: UIViewController, on existingController: UIViewController, animated: Bool, logger: Logger?, completion: @escaping(_: UIViewController) -> Void) {
+    public func perform(viewController: UIViewController, on existingController: UIViewController, animated: Bool, logger: Logger?, completion: @escaping(_: ActionResult) -> Void) {
         guard let window = UIWindow.key else {
-            completion(existingController)
+            completion(.failure)
             return
         }
 
         window.rootViewController = viewController
         window.makeKeyAndVisible()
-        return completion(viewController)
+        return completion(.continueRouting)
     }
 }

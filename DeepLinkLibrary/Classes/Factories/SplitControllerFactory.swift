@@ -6,23 +6,23 @@
 import Foundation
 import UIKit
 
-public protocol SplitViewControllerMasterAction: ViewControllerAction {
+public protocol SplitViewControllerMasterAction: Action {
 
 }
 
-public protocol SplitViewControllerDetailAction: ViewControllerAction {
+public protocol SplitViewControllerDetailAction: Action {
 
 }
 
 // TODO: Undone
 public class SplitControllerFactory: ContainerFactory {
 
-    public let action: ViewControllerAction
+    public let action: Action
 
     var detailFactories: [Factory] = []
     var masterFactories: [Factory] = []
 
-    public init(action: ViewControllerAction) {
+    public init(action: Action) {
         self.action = action
     }
 

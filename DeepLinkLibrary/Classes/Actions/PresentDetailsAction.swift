@@ -12,15 +12,15 @@ public class PresentDetailsAction: SplitViewControllerDetailAction {
         
     }
 
-    public func perform(viewController: UIViewController, on existingController: UIViewController, animated: Bool, logger: Logger?, completion: @escaping (_: UIViewController) -> Void) {
+    public func perform(viewController: UIViewController, on existingController: UIViewController, animated: Bool, logger: Logger?, completion: @escaping (_: ActionResult) -> Void) {
         guard let splitViewController = existingController as? UISplitViewController ?? existingController.splitViewController,
               splitViewController.viewControllers.count > 0 else {
             logger?.log(.error("Could not find UISplitViewController in \(existingController) to present details view controller \(viewController)."))
-            completion(existingController)
+            completion(.failure)
             return
         }
 
         splitViewController.showDetailViewController(viewController, sender: nil)
-        completion(viewController)
+        completion(.continueRouting)
     }
 }

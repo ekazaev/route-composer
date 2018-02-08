@@ -10,7 +10,7 @@ import UIKit
 /// build(): builds a view controller that will be pushed to the viw stack
 public protocol Factory: class {
 
-    var action: ViewControllerAction { get }
+    var action: Action { get }
 
     func build(with logger: Logger?) -> UIViewController?
 

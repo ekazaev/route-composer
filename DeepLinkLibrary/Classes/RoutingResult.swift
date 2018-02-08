@@ -5,7 +5,7 @@
 
 import Foundation
 
-public enum DeepLinkResult {
+public enum RoutingResult {
     /** The request to process the deep link resulted in a successful
     navigation to the destination. */
     case handled

@@ -9,15 +9,15 @@ import DeepLinkLibrary
 
 class FakeContainerFactory: PreparableFactory {
 
-    let action: ViewControllerAction
+    let action: Action
 
     var arguments: FakeContainerArguments = FakeContainerArguments(content: .favorites)
 
-    init(action: ViewControllerAction) {
+    init(action: Action) {
         self.action = action
     }
 
-    func prepare(with arguments: Any?) -> DeepLinkResult {
+    func prepare(with arguments: Any?) -> RoutingResult {
         guard let arguments = arguments as? FakeContainerArguments else {
             return .unhandled
         }

@@ -5,7 +5,7 @@
 
 import UIKit
 
-public class PresentModallyAction: ViewControllerAction {
+public class PresentModallyAction: Action {
 
     let presentationStyle: UIModalPresentationStyle
 
@@ -19,17 +19,17 @@ public class PresentModallyAction: ViewControllerAction {
         self.transitioningDelegate = transitioningDelegate
     }
 
-    public func perform(viewController: UIViewController, on existingController: UIViewController, animated: Bool, logger: Logger?, completion: @escaping (_: UIViewController) -> Void) {
+    public func perform(viewController: UIViewController, on existingController: UIViewController, animated: Bool, logger: Logger?, completion: @escaping (_: ActionResult) -> Void) {
         guard existingController.presentedViewController == nil else {
             logger?.log(.error("Could not present modally \(viewController) from \(existingController) because it has already presented a view controller."))
-            completion(existingController)
+            completion(.failure)
             return
         }
         viewController.modalPresentationStyle = presentationStyle
         viewController.modalTransitionStyle = transitionStyle
         viewController.transitioningDelegate = transitioningDelegate
         existingController.present(viewController, animated: animated, completion: {
-            completion(viewController)
+            completion(.continueRouting)
         })
     }
 

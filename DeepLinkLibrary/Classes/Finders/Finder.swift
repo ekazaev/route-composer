@@ -7,7 +7,7 @@ import Foundation
 import UIKit
 
 /// Finder to be used by Router to find out if this UIViewController is in view controller stack
-public protocol DeepLinkFinder {
+public protocol Finder {
 
     /// Method to be extended to implement Finder functionality.
     ///

@@ -13,6 +13,6 @@ import Foundation
 /// and the result of routing will be .unhandled without any changes in view controller stack.
 public protocol PreparableFactory: Factory {
 
-    func prepare(with arguments: Any?) -> DeepLinkResult
+    func prepare(with arguments: Any?) -> RoutingResult
 
 }

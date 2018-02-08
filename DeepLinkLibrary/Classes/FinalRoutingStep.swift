@@ -13,7 +13,7 @@ class FinalRoutingStep: RoutingStep {
 
     public let postTask: PostRoutingTask?
 
-    let finder: DeepLinkFinder?
+    let finder: Finder?
 
     let factory: Factory
 
@@ -32,7 +32,7 @@ class FinalRoutingStep: RoutingStep {
     ///   - step: Step instance contains action that has to be executed by router after it creates assembly's
     ///     UIViewController to make it integrated in to view controller stack which also represents a starting point
     ///     of routing or a dependency.
-    init(finder: DeepLinkFinder? = nil, factory: Factory? = nil, interceptor: RouterInterceptor? = nil, postTask: PostRoutingTask? = nil, step: RoutingStep) {
+    init(finder: Finder? = nil, factory: Factory? = nil, interceptor: RouterInterceptor? = nil, postTask: PostRoutingTask? = nil, step: RoutingStep) {
         self.previousStep = step
         self.postTask = postTask
         self.finder = finder

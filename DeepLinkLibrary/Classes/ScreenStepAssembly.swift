@@ -29,11 +29,11 @@ public class ScreenStepAssembly {
 
     private var postTasks: [PostRoutingTask] = []
 
-    private var finder: DeepLinkFinder?
+    private var finder: Finder?
 
     private weak var stepBuilder: ScreenStepChainAssembly?
 
-    public init(finder: DeepLinkFinder? = nil, factory: Factory? = nil) {
+    public init(finder: Finder? = nil, factory: Factory? = nil) {
         self.finder = finder
         self.factory = factory
     }

@@ -41,7 +41,7 @@ class ExampleDictionaryArguments: ExampleArguments {
 
 }
 
-struct ExampleDestination: DeepLinkDestination {
+struct ExampleDestination: RoutingDestination {
 
     let finalStep: RoutingStep
 

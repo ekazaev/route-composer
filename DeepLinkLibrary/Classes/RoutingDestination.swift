@@ -6,7 +6,7 @@
 import Foundation
 
 /// Router will use assembly provided by a destination as a starting point to build steps for routing to it.
-public protocol DeepLinkDestination {
+public protocol RoutingDestination {
 
     /// Assembly instance that represents end point of routing.
     var finalStep: RoutingStep { get }

@@ -21,7 +21,7 @@ private struct PostTaskSlip {
 /// controllers without Router's help.
 private class FactoryDecorator: Factory {
 
-    var action: ViewControllerAction {
+    var action: Action {
         get {
             return factory.action
         }
@@ -55,7 +55,7 @@ private class PostTaskRunner {
 
     var taskSlips: [PostTaskSlip] = []
 
-    func run<A: DeepLinkDestination>(for destination: A) {
+    func run<A: RoutingDestination>(for destination: A) {
         let viewControllers = taskSlips.flatMap({ $0.viewController })
         taskSlips.forEach({ slip in
             guard let viewController = slip.viewController else {
@@ -75,7 +75,7 @@ public class DefaultRouter: Router {
     }
 
     @discardableResult
-    public func deepLinkTo<A: DeepLinkDestination>(destination: A, animated: Bool = true, completion: ((_: Bool) -> Void)? = nil) -> DeepLinkResult {
+    public func deepLinkTo<A: RoutingDestination>(destination: A, animated: Bool = true, completion: ((_: Bool) -> Void)? = nil) -> RoutingResult {
 
         // If currently visible view controller can not be dismissed then we can't deeplink anywhere, because it will
         // disappear as a result of deeplinking.
@@ -130,7 +130,7 @@ public class DefaultRouter: Router {
         return .handled
     }
 
-    private func prepareStack<A: DeepLinkDestination>(destination: A, postTaskRunner: PostTaskRunner) -> (rootViewController: UIViewController, factories: [Factory], interceptor: RouterInterceptor)? {
+    private func prepareStack<A: RoutingDestination>(destination: A, postTaskRunner: PostTaskRunner) -> (rootViewController: UIViewController, factories: [Factory], interceptor: RouterInterceptor)? {
 
         var step: RoutingStep? = destination.finalStep
 
@@ -251,12 +251,17 @@ public class DefaultRouter: Router {
             }
             if let newViewController = factory.build(with: logger) {
                 logger?.log(.info("Factory \(factoryToLog) has built a \(newViewController) to start presentation from."))
-                factory.action.perform(viewController: newViewController, on: previousViewController, animated: animated, logger: self.logger) { viewController in
-                    guard factories.count > 0 else {
-                        completion(viewController)
+                factory.action.perform(viewController: newViewController, on: previousViewController, animated: animated, logger: self.logger) { result in
+                    guard result == .continueRouting else {
+                        self.logger?.log(.error("Action \(factory.action) has stopped routing as it was not able to build a view controller in to a stack."))
+                        completion(newViewController)
                         return
                     }
-                    buildViewController(factories.removeFirst(), viewController)
+                    guard factories.count > 0 else {
+                        completion(newViewController)
+                        return
+                    }
+                    buildViewController(factories.removeFirst(), newViewController)
                 }
             } else {
                 logger?.log(.warning("Factory \(factoryToLog) has not built any view controller."))
@@ -274,7 +279,7 @@ public class DefaultRouter: Router {
     // this function activates the origin view controller of viewController
     private func makeContainersActive(toShow viewController: UIViewController, animated: Bool) {
         if let container = UIWindow.key?.topmostViewController as? ContainerViewController {
-            container.makeActive(vc: viewController, animated: animated)
+            container.makeActive(viewController: viewController, animated: animated)
         }
     }
 

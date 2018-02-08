@@ -9,18 +9,18 @@ import UIKit
 extension UINavigationController: ContainerViewController {
 
     @discardableResult
-    public func makeActive(vc: UIViewController, animated: Bool) -> UIViewController? {
+    public func makeActive(viewController: UIViewController, animated: Bool) -> UIViewController? {
         let viewControllers = self.viewControllers
 
-        for viewController in viewControllers {
-            if let _ = UIViewController.findViewController(in: viewController, options: .sameLevel, using: { controller in
+        for vc in viewControllers {
+            if let _ = UIViewController.findViewController(in: vc, options: .sameLevel, using: { controller in
                 if let container = controller as? ContainerViewController {
-                    container.makeActive(vc: vc, animated: animated)
+                    container.makeActive(viewController: viewController, animated: animated)
                 }
-                return controller == vc
+                return controller == viewController
             }) {
-                self.popToViewController(viewController, animated: animated)
-                return viewController
+                self.popToViewController(vc, animated: animated)
+                return vc
             }
         }
 

@@ -30,11 +30,11 @@ class ProductViewControllerFinder: FinderWithPolicy {
 
 class ProductViewControllerFactory: PreparableFactory {
 
-    let action: ViewControllerAction
+    let action: Action
 
     var arguments: ProductArguments?
 
-    init(action: ViewControllerAction) {
+    init(action: Action) {
         self.action = action
     }
 
@@ -49,7 +49,7 @@ class ProductViewControllerFactory: PreparableFactory {
         return viewController
     }
 
-    func prepare(with arguments: Any?) -> DeepLinkResult {
+    func prepare(with arguments: Any?) -> RoutingResult {
         guard let arguments = arguments as? ProductArguments else {
             return .unhandled
         }

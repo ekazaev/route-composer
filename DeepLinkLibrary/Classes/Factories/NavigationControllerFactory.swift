@@ -5,17 +5,17 @@
 
 import UIKit
 
-public protocol NavigationControllerFactoryAction: ViewControllerAction {
+public protocol NavigationControllerFactoryAction: Action {
 
 }
 
 open class NavigationControllerFactory: ContainerFactory {
 
-    public let action: ViewControllerAction
+    public let action: Action
 
     var factories: [Factory] = []
 
-    public init(action: ViewControllerAction) {
+    public init(action: Action) {
         self.action = action
     }
 

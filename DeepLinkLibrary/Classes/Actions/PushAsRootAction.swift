@@ -15,14 +15,14 @@ class PushAsRootAction: NavigationControllerFactoryAction {
         containerViewControllers.append(viewController)
     }
 
-    public func perform(viewController: UIViewController, on existingController: UIViewController, animated: Bool, logger: Logger?, completion: @escaping(_: UIViewController) -> Void) {
+    public func perform(viewController: UIViewController, on existingController: UIViewController, animated: Bool, logger: Logger?, completion: @escaping(_: ActionResult) -> Void) {
         guard let nv = existingController as? UINavigationController ?? existingController.navigationController else {
             logger?.log(.error("Could not find UINavigationController in \(existingController) to present view controller \(viewController)."))
-            return completion(existingController)
+            return completion(.failure)
         }
 
         nv.setViewControllers([viewController], animated: animated)
-        return completion(viewController)
+        return completion(.continueRouting)
     }
 
 }
