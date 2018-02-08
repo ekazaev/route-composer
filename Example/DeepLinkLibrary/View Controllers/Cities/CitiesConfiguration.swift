@@ -29,7 +29,7 @@ class CitiesConfiguration {
                 .add(ExampleAnalyticsInterceptor())
                 .add(CityTablePostTask())
                 .add(ExampleAnalyticsPostAction())
-                .from(RequireStep(self.city))
+                .from(city)
                 .assemble()
 
         // City Details
@@ -39,7 +39,7 @@ class CitiesConfiguration {
                 .add(ExampleAnalyticsInterceptor())
                 .add(CityDetailPostTask())
                 .add(ExampleAnalyticsPostAction())
-                .from(RequireStep(self.citiesList))
+                .from(citiesList)
                 .assemble()
     }
 

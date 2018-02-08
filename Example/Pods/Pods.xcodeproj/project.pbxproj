@@ -63,7 +63,6 @@
 		E7A12DF499C7FF266F9155120C726371 /* Pods-DeepLinkLibrary_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 21480E8E1B226E0B3392DEEB21FC8ED9 /* Pods-DeepLinkLibrary_Tests-dummy.m */; };
 		EBA9B7985CFA3B66D0295664E1A18CC1 /* StepResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B04FFB5541A70B39A0381CFF4CCB81 /* StepResult.swift */; };
 		F03172472AFFD22EB0280D0B2F73F880 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5157A8DB326118D1271B052017C6373B /* Logger.swift */; };
-		F0423494ECF5C71E15CE84BB2B2210FD /* RequireStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BFBE762443D45BFA21AEA62D09AB6F /* RequireStep.swift */; };
 		F0D3EF655703197B8DF22E5EEFB9F85B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D88AAE1F92055A60CC2FC970D7D34634 /* Foundation.framework */; };
 		F340A6A051663014C4BCDD1D436C6F1F /* Pods-DeepLinkLibrary_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 11C14C20DD7AEA1AC90C190FF460D2F4 /* Pods-DeepLinkLibrary_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F7C9A5EEAB7F5C594220CCEB87EAF9DC /* RoutingStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C4FDA80CE9FA19F4A7FD1B08C87EBF /* RoutingStep.swift */; };
@@ -139,7 +138,6 @@
 		905BD862105317E99A789058D0AB19CF /* DefaultRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DefaultRouter.swift; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9573B8757AE57D746EE904A0D1DC1F5C /* FinderPolicy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FinderPolicy.swift; sourceTree = "<group>"; };
-		96BFBE762443D45BFA21AEA62D09AB6F /* RequireStep.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RequireStep.swift; sourceTree = "<group>"; };
 		99B50B3E3DA35B500750816319F7C6FD /* DefaultLogger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DefaultLogger.swift; sourceTree = "<group>"; };
 		9CDD22B66940803BE69EBE374EBFEF99 /* Pods-DeepLinkLibrary_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-DeepLinkLibrary_Example-dummy.m"; sourceTree = "<group>"; };
 		9D05FC597821A7DEC1EEA6EA4A06F2E1 /* Pods-DeepLinkLibrary_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-DeepLinkLibrary_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -388,7 +386,6 @@
 			children = (
 				EADBDA8B8B241D19E65C52BA9FDB9DEE /* ChainableStep.swift */,
 				32C8F5158816AC72DABE11A13DC12C7B /* NavigationContainerStep.swift */,
-				96BFBE762443D45BFA21AEA62D09AB6F /* RequireStep.swift */,
 				62B18987A1FE4C351D2A4198D37E3388 /* RootViewControllerStep.swift */,
 				84C4FDA80CE9FA19F4A7FD1B08C87EBF /* RoutingStep.swift */,
 				564E213BA0CC7EF3B35E49CEB6DCFFE8 /* SmartStep.swift */,
@@ -586,7 +583,6 @@
 				65F04E9AA871BFDA5895479FAE8B0BBD /* PushAction.swift in Sources */,
 				63126AE8A03D2E25CD4C044B793FC9F2 /* PushAsRootAction.swift in Sources */,
 				51D92CE6B636D13A145D054D10467060 /* ReplaceRootAction.swift in Sources */,
-				F0423494ECF5C71E15CE84BB2B2210FD /* RequireStep.swift in Sources */,
 				822B0160F9E231ABA0466C67A719FA17 /* RootViewControllerStep.swift in Sources */,
 				D8164AF8EE66E77AFC5C91C63D2DC501 /* Router.swift in Sources */,
 				8DB6D9B15887EDD4763E079309A053E1 /* RouterInterceptor.swift in Sources */,

@@ -40,7 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 finder: ViewControllerClassFinder(classType: SquareViewController.self, policy: .currentLevel))
                 .add(ExampleAnalyticsInterceptor())
                 .add(ExampleAnalyticsPostAction())
-                .from(RequireStep(homeScreen))
+                .from(homeScreen)
                 .assemble()
 
         ExampleConfiguration.register(screen: squareScreen, for: ExampleTarget.square)
@@ -50,7 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 finder: ViewControllerClassFinder(classType: CircleViewController.self, policy: .currentLevel))
                 .add(ExampleAnalyticsInterceptor())
                 .add(ExampleAnalyticsPostAction())
-                .from(RequireStep(homeScreen))
+                .from(homeScreen)
                 .assemble()
 
         ExampleConfiguration.register(screen: circleScreen, for: ExampleTarget.circle)
@@ -72,7 +72,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 .add(ExampleAnalyticsInterceptor())
                 .add(ExampleAnalyticsPostAction())
                 .add(LoginInterceptor())
-                .from(RequireStep(homeScreen))
+                .from(homeScreen)
                 .assemble()
 
         ExampleConfiguration.register(screen: starScreen, for: ExampleTarget.star)
@@ -82,7 +82,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 factory: ViewControllerFromStoryboard(storyboardName: "Main", viewControllerID: "RoutingRuleSupportViewController", action: PushAction()))
                 .add(ExampleAnalyticsInterceptor())
                 .add(ExampleAnalyticsPostAction())
-                .from(RequireStep(colorScreen))
+                .from(colorScreen)
                 .assemble()
 
         ExampleConfiguration.register(screen: routingSupportScreen,
@@ -94,7 +94,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 .add(LoginInterceptor())
                 .add(ExampleAnalyticsInterceptor())
                 .add(ExampleAnalyticsPostAction())
-                .from(RequireStep(circleScreen))
+                .from(circleScreen)
                 .assemble()
 
         ExampleConfiguration.register(screen: emptyScreen, for: ExampleTarget.empty)
@@ -106,7 +106,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 .add(ExampleAnalyticsInterceptor())
                 .add(ExampleAnalyticsPostAction())
                 .from(NavigationContainerStep(action: PresentModallyAction()))
-                .from(RequireStep(routingSupportScreen))
+                .from(routingSupportScreen)
                 .assemble()
         ExampleConfiguration.register(screen: superModalScreen, for: ExampleTarget.secondLevelModal)
 

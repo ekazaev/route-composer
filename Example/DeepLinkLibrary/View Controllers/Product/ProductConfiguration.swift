@@ -41,7 +41,7 @@ class ProductConfiguration {
                         .addCase(when: ViewControllerClassFinder(classType: UINavigationController.self, policy: .currentLevel))
                         .addCase { _ in
                             // Otherwise - presenting in Circle Tab
-                            return RequireStep(ExampleConfiguration.step(for: ExampleTarget.circle)!)
+                            return ExampleConfiguration.step(for: ExampleTarget.circle)!
                         }.assemble()
                 ).assemble()
 
