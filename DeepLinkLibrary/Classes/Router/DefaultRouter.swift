@@ -225,13 +225,6 @@ public class DefaultRouter: Router {
         // to build a new stack if needed.
         // We already checked that they can be dismissed.
         viewController.dismissAllPresentedControllers(animated: animated) {
-            // To get rid of lacks of animation - force anything that may contain view controller we are going to start with to
-            // make it visible first.
-            // Example: TabBar contains navigation controller in the tab that was never opened and we are going to push in to
-            // it, UINavigationController in this case will not update it content properly. Possible to reproduce in clean project
-            // without DeepLinkLibrary.
-            self.makeContainersActive(toShow: viewController, animated: animated)
-
             self.runViewControllerBuildStack(rootViewController: viewController, factories: factories, animated: animated) { viewController in
                 completion(viewController)
             }
@@ -245,11 +238,14 @@ public class DefaultRouter: Router {
         var factories = factories
 
         func buildViewController(_ factory: Factory, _ previousViewController: UIViewController) {
-            // If view controller found but view is not loaded it means that it was just cached by container view controller
+            // If view controller found but view is not loaded or has no window that it belongs, it means that it was just cached by container view controller
             // like in UITabBarController it happens with a view controller in a tab that was never activated before,
             // So we have to make it active first.
-            if !previousViewController.isViewLoaded {
-                makeContainersActive(toShow: previousViewController, animated: animated)
+            // Example: TabBar contains navigation controller in the tab that was never opened and we are going to push in to
+            // it, UINavigationController in this case will not update it content properly. Possible to reproduce in clean project
+            // without DeepLinkLibrary.
+            if !previousViewController.isViewLoaded || previousViewController.view.window == nil {
+                makeContainersActive(toShow: previousViewController, animated: false)
             }
 
             var factoryToLog = factory
@@ -285,8 +281,12 @@ public class DefaultRouter: Router {
 
     // this function activates the origin view controller of viewController
     private func makeContainersActive(toShow viewController: UIViewController, animated: Bool) {
-        if let container = UIWindow.key?.topmostViewController as? ContainerViewController {
-            container.makeActive(viewController: viewController, animated: animated)
+        var iterationViewController = viewController
+        while let parent = iterationViewController.parent {
+            if let container = parent as? ContainerViewController {
+                container.makeVisible(viewController: iterationViewController, animated: animated)
+            }
+            iterationViewController = parent
         }
     }
 
