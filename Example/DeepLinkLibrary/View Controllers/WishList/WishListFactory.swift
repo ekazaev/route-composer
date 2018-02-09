@@ -7,7 +7,7 @@ import Foundation
 import UIKit
 import DeepLinkLibrary
 
-class FakeContainerFactory: Factory {
+class WishListFactory: Factory {
     public typealias V = WishListViewController
     public typealias A = WishListArguments
 

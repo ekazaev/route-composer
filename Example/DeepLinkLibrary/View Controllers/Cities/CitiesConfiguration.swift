@@ -25,7 +25,7 @@ class CitiesConfiguration {
                 .assemble()
 
         // Cities List
-        citiesList = ScreenStepAssembly(finder: CityTableViewControllerFinder(),
+        citiesList = ScreenStepAssembly(finder: ViewControllerClassFinder<CitiesTableViewController, CityArguments>(),
                 factory: NilFactory())
                 .add(ExampleAnalyticsInterceptor())
                 .add(CityTablePostTask())
@@ -35,7 +35,7 @@ class CitiesConfiguration {
 
         // City Details
         cityDetails = ScreenStepAssembly(
-                finder: CityDetailsViewControllerFinder(),
+                finder: ViewControllerClassFinder<CityDetailViewController, CityArguments>(),
                 factory: ViewControllerFromStoryboard(storyboardName: "Split", viewControllerID: "CityDetailViewController", action: PresentDetailsAction()))
                 .add(ExampleAnalyticsInterceptor())
                 .add(CityDetailPostTask())

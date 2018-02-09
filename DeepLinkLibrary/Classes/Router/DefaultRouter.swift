@@ -106,7 +106,7 @@ public class DefaultRouter: Router {
         }).first(where: {
             !$0.canBeDismissed
         }) {
-            logger?.log(.warning("\(viewController) view controller can not be dismissed."))
+            logger?.log(.warning("\(String(describing: viewController)) view controller can not be dismissed."))
             return .unhandled
         }
 
@@ -163,14 +163,14 @@ public class DefaultRouter: Router {
             case .success(let viewController):
                 if rootViewController == nil {
                     rootViewController = viewController
-                    logger?.log(.info("Step \(step!) has found a \(viewController) to start presentation from."))
+                    logger?.log(.info("Step \(String(describing: step!)) has found a \(String(describing: viewController)) to start presentation from."))
                 }
                 if let postTask = step?.postTask {
                     postTaskRunner.taskSlips.insert(PostTaskSlip(viewController: viewController, postTask: postTask), at: 0)
                 }
                 break
             case .continueRouting(let factory):
-                logger?.log(.info("Step \(step!) has not found its view controller is stack, so router will continue search."))
+                logger?.log(.info("Step \(String(describing: step!)) has not found its view controller is stack, so router will continue search."))
 
                 // If view controller has not been found, but step has a factory to build itself - add factory to the stack
                 if rootViewController == nil, let factory = factory {
@@ -180,7 +180,7 @@ public class DefaultRouter: Router {
                     // If some factory can not prepare itself (e.g. does not have enough data in arguments) then deep link stack
                     // can not be built
                     if factory.prepare(with: destination.arguments) == .unhandled {
-                        logger?.log(.error("Factory \(factory) could not prepare itself to be ready to build a View Controller."))
+                        logger?.log(.error("Factory \(String(describing: factory)) could not prepare itself to be ready to build a View Controller."))
                         return nil
                     }
 
@@ -208,7 +208,7 @@ public class DefaultRouter: Router {
                 }
                 break
             case .failure:
-                logger?.log(.error("Step has return an error while looking for a view controller to present from."))
+                logger?.log(.error("Step \(String(describing: step)) has return an error while looking for a view controller to present from."))
                 return nil
             }
 
@@ -256,10 +256,10 @@ public class DefaultRouter: Router {
                 factoryToLog = factory.factory
             }
             if let newViewController = factory.build(with: logger) {
-                logger?.log(.info("Factory \(factoryToLog) has built a \(newViewController) to start presentation from."))
+                logger?.log(.info("Factory \(String(describing: factoryToLog)) has built a \(String(describing: newViewController)) to start presentation from."))
                 factory.action.perform(viewController: newViewController, on: previousViewController, animated: animated, logger: self.logger) { result in
                     guard result == .continueRouting else {
-                        self.logger?.log(.error("Action \(factory.action) has stopped routing as it was not able to build a view controller in to a stack."))
+                        self.logger?.log(.error("Action \(String(describing: factory.action)) has stopped routing as it was not able to build a view controller in to a stack."))
                         completion(newViewController)
                         return
                     }
@@ -270,7 +270,7 @@ public class DefaultRouter: Router {
                     buildViewController(factories.removeFirst(), newViewController)
                 }
             } else {
-                logger?.log(.warning("Factory \(factoryToLog) has not built any view controller."))
+                logger?.log(.warning("Factory \(String(describing: factoryToLog)) has not built any view controller."))
                 completion(previousViewController)
             }
         }

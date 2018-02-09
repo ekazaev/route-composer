@@ -7,23 +7,6 @@ import Foundation
 import UIKit
 import DeepLinkLibrary
 
-class CityTableViewControllerFinder: FinderWithPolicy {
-
-    public typealias V = CitiesTableViewController
-    public typealias A = CityArguments
-
-    let policy: FinderPolicy
-
-    init(policy: FinderPolicy = .allStackUp) {
-        self.policy = policy
-    }
-
-    func isTarget(viewController: V, arguments: A?) -> Bool {
-        return true
-    }
-
-}
-
 class CityTablePostTask: PostRoutingTask {
 
     func execute(on viewController: UIViewController, with arguments: Any?, routingStack: [UIViewController]) {

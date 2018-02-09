@@ -30,6 +30,7 @@
 		7C6EED3C9FDA515C47C3A8E67308790C /* PushAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4753E7F48FBBA404F1D5FE8F01CE31 /* PushAction.swift */; };
 		83EA5D52CFCC6A7CD1BEC880CC200737 /* RoutingDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0082AA2CAFC816348E4D9203988AC16E /* RoutingDestination.swift */; };
 		8407AA36CB942F87CDFDE8E51D7FD504 /* SplitControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC0E1BD67495AFA7C1BD97F2A88467C /* SplitControllerFactory.swift */; };
+		840C1E65202D2EC20032CFD1 /* ViewControllerFromXibFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840C1E64202D2EC20032CFD1 /* ViewControllerFromXibFactory.swift */; };
 		8481BB35202CCD6900174ECB /* NilFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8481BB34202CCD6900174ECB /* NilFactory.swift */; };
 		8B543728D4525AA125A4555983ACE3B3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D88AAE1F92055A60CC2FC970D7D34634 /* Foundation.framework */; };
 		8F2D99F0468A7383D13A8E7A179B309B /* StepResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A6865B1C67231A4B87485265D96BC6 /* StepResult.swift */; };
@@ -122,6 +123,7 @@
 		734673371B76F242BD1CB17987135B4D /* ScreenStepAssembly.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ScreenStepAssembly.swift; path = DeepLinkLibrary/Classes/ScreenStepAssembly.swift; sourceTree = "<group>"; };
 		79F2424E674992F875552C3580DF2C72 /* PushAsRootAction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PushAsRootAction.swift; sourceTree = "<group>"; };
 		83721AFD3E20F845EBB81B35F0201CB8 /* TabBarControllerFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TabBarControllerFactory.swift; sourceTree = "<group>"; };
+		840C1E64202D2EC20032CFD1 /* ViewControllerFromXibFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFromXibFactory.swift; sourceTree = "<group>"; };
 		8481BB34202CCD6900174ECB /* NilFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NilFactory.swift; sourceTree = "<group>"; };
 		8F281F5E5B47B8DC5CBCAAF8A280E5B6 /* RootViewControllerStep.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RootViewControllerStep.swift; sourceTree = "<group>"; };
 		8F52DCFCEA93BA275885B4A6285C7CF7 /* Pods-DeepLinkLibrary_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-DeepLinkLibrary_Tests.modulemap"; sourceTree = "<group>"; };
@@ -368,6 +370,7 @@
 				2AF15F4385CD00626CFFD4C848034E9E /* ViewControllerFromClassFactory.swift */,
 				5730FD420294295BB09818017BE7E079 /* ViewControllerFromStoryboardFactory.swift */,
 				8481BB34202CCD6900174ECB /* NilFactory.swift */,
+				840C1E64202D2EC20032CFD1 /* ViewControllerFromXibFactory.swift */,
 			);
 			name = Factories;
 			path = DeepLinkLibrary/Classes/Factories;
@@ -563,6 +566,7 @@
 				3F5E6007074AE3CD040A493C6B592983 /* FinderFactory.swift in Sources */,
 				DADACE6298EEDED9CBA5590527A44E05 /* FinderPolicy.swift in Sources */,
 				028B716EC7081ECF0EEBEF6806EF601A /* InterceptorMultiplexer.swift in Sources */,
+				840C1E65202D2EC20032CFD1 /* ViewControllerFromXibFactory.swift in Sources */,
 				DDBB91D2C01D88B22162EFDFAABBDDE8 /* InterceptorResult.swift in Sources */,
 				A2D0D3B4292A561F2D1C76548D363444 /* Logger.swift in Sources */,
 				D36D157F66319BAD739CB96D3F7219C4 /* NavigationContainerStep.swift in Sources */,

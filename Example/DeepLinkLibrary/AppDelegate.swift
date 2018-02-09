@@ -71,8 +71,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         //Star screen
         let starScreen = ScreenStepAssembly(
-                finder: ViewControllerClassFinder(policy: .currentLevel),
-                factory: StarViewControllerFactory(action: AddTabAction()))
+                finder: ViewControllerClassFinder<StarViewController, Any>(policy: .currentLevel),
+                factory: ViewControllerFromXibFactory(action: AddTabAction()))
                 .add(ExampleAnalyticsInterceptor())
                 .add(ExampleAnalyticsPostAction())
                 .add(LoginInterceptor())
