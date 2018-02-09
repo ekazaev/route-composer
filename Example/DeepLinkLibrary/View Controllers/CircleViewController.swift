@@ -40,5 +40,9 @@ class CircleViewController: UIViewController, AnalyticsSupportViewController {
     @IBAction func goToWelcomeTapped() {
         router.deepLinkTo(destination: ExampleConfiguration.destination(for: ExampleTarget.welcome)!)
     }
+
+    @IBAction func goToCategoryTapped() {
+        router.deepLinkTo(destination: MainApp.category(id: "3"))
+    }
 }
 

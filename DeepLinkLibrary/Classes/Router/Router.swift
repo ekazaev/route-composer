@@ -11,5 +11,5 @@ public protocol Router {
     var logger: Logger? { get }
 
     @discardableResult
-    func deepLinkTo<A: RoutingDestination>(destination: A, animated: Bool, completion: ((_: Bool) -> Void)?) -> RoutingResult
+    func deepLinkTo(destination: RoutingDestination, animated: Bool, completion: ((_: Bool) -> Void)?) -> RoutingResult
 }

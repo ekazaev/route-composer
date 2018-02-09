@@ -37,6 +37,7 @@ open class NavigationControllerFactory: Factory, ContainerFactory {
 
     open func build(with logger: Logger?) -> V? {
         guard factories.count > 0 else {
+            logger?.log(.error("Unable to build UINavigationController due to 0 amount of child factories"))
             return nil
         }
 

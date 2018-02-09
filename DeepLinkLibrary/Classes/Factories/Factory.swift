@@ -39,13 +39,13 @@ public protocol AnyFactory: class {
     func build(with logger: Logger?) -> UIViewController?
 }
 
-protocol AnyContainerFactory: AnyFactory {
+protocol ContainerFactoryHolder: AnyFactory {
 
     func hasContainer() -> ContainerFactory?
 
 }
 
-class FactoryBox<F:Factory>: AnyContainerFactory {
+class FactoryBox<F:Factory>: ContainerFactoryHolder {
 
     let factory: F
 

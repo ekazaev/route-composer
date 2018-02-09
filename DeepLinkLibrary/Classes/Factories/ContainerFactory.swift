@@ -25,3 +25,20 @@ public protocol ContainerFactory {
     func merge(_ factories: [AnyFactory]) -> [AnyFactory]
 
 }
+
+public extension ContainerFactory {
+
+    func filter<T:Action>(_ factories: [AnyFactory], accept: [T.Type]) -> (accepted: [AnyFactory], rest: [AnyFactory]) {
+        var rest: [AnyFactory] = []
+        let inFactories = factories.filter { factory in
+            guard accept.contains(where: { type(of: factory.action) == $0  }) else {
+                rest.append(factory)
+                return false
+            }
+            return true
+        }
+
+        return (accepted: inFactories, rest: rest)
+    }
+
+}

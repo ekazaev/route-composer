@@ -59,7 +59,7 @@ private class PostTaskRunner {
 
     var taskSlips: [PostTaskSlip] = []
 
-    func run<A: RoutingDestination>(for destination: A) {
+    func run(for destination: RoutingDestination) {
         let viewControllers = taskSlips.flatMap({ $0.viewController })
         taskSlips.forEach({ slip in
             guard let viewController = slip.viewController else {
@@ -79,7 +79,7 @@ public class DefaultRouter: Router {
     }
 
     @discardableResult
-    public func deepLinkTo<A: RoutingDestination>(destination: A, animated: Bool = true, completion: ((_: Bool) -> Void)? = nil) -> RoutingResult {
+    public func deepLinkTo(destination: RoutingDestination, animated: Bool = true, completion: ((_: Bool) -> Void)? = nil) -> RoutingResult {
 
         // If currently visible view controller can not be dismissed then we can't deeplink anywhere, because it will
         // disappear as a result of deeplinking.
@@ -134,7 +134,7 @@ public class DefaultRouter: Router {
         return .handled
     }
 
-    private func prepareStack<A: RoutingDestination>(destination: A, postTaskRunner: PostTaskRunner) -> (rootViewController: UIViewController, factories: [AnyFactory], interceptor: RouterInterceptor)? {
+    private func prepareStack(destination: RoutingDestination, postTaskRunner: PostTaskRunner) -> (rootViewController: UIViewController, factories: [AnyFactory], interceptor: RouterInterceptor)? {
 
         var step: RoutingStep? = destination.finalStep
 
@@ -187,7 +187,7 @@ public class DefaultRouter: Router {
                     // If current factory actually creates Container then it should know how to deal with the factories that
                     // should be in this container, based on an action attached to the factory.
                     // For example navigationController factory should use factories to build navigation controller stack.
-                    if let factory = factory as? AnyContainerFactory, let container = factory.hasContainer() {
+                    if let factory = factory as? ContainerFactoryHolder, let container = factory.hasContainer() {
                         if tempFactories.count > 0 {
                             let rest = container.merge(tempFactories)
                             let merged = tempFactories.filter { factory in
@@ -238,6 +238,10 @@ public class DefaultRouter: Router {
     // Because some actions can be asynchronous, like push, modal or presentations,
     // it builds asynchronously
     private func runViewControllerBuildStack(rootViewController: UIViewController, factories: [AnyFactory], animated: Bool, completion: @escaping ((_: UIViewController) -> Void)) {
+        guard factories.count > 0 else {
+            completion(rootViewController)
+            return
+        }
         var factories = factories
 
         func buildViewController(_ factory: AnyFactory, _ previousViewController: UIViewController) {
@@ -275,10 +279,6 @@ public class DefaultRouter: Router {
             }
         }
 
-        guard factories.count > 0 else {
-            completion(rootViewController)
-            return
-        }
         buildViewController(factories.removeFirst(), rootViewController)
     }
 
