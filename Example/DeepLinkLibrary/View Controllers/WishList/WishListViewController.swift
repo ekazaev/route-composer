@@ -7,13 +7,13 @@ import Foundation
 import UIKit
 import DeepLinkLibrary
 
-class FakeContainerViewController: UITableViewController, AnalyticsSupportViewController {
+class WishListViewController: UITableViewController, AnalyticsSupportViewController {
 
     var analyticParameters = ExampleAnalyticsParameters(source: .favorites)
 
     var segmentController = UISegmentedControl(items: ["Favorites", "Collections"])
 
-    var content: FakeContainerContent = .favorites {
+    var content: WishListContent = .favorites {
         didSet {
             reloadData()
         }
@@ -38,21 +38,21 @@ class FakeContainerViewController: UITableViewController, AnalyticsSupportViewCo
     }
 
     @IBAction func segmentChanged() {
-        guard let selectedContent = FakeContainerContent(rawValue: segmentController.selectedSegmentIndex) else {
+        guard let selectedContent = WishListContent(rawValue: segmentController.selectedSegmentIndex) else {
             return
         }
         content = selectedContent
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return FakeContainerDataModel.data[content]?.count ?? 0
+        return WishListDataModel.data[content]?.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "FakeCell") else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "WishListCell") else {
             fatalError("Unable to dequeue reusable cell.")
         }
-        cell.textLabel?.text = FakeContainerDataModel.data[content]?[indexPath.row]
+        cell.textLabel?.text = WishListDataModel.data[content]?[indexPath.row]
         return cell
     }
 

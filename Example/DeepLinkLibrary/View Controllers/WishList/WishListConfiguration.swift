@@ -7,11 +7,11 @@ import Foundation
 import UIKit
 import DeepLinkLibrary
 
-struct FakeContainerConfiguration {
+struct WishListConfiguration {
 
-    static let fakeContainerScreen = ScreenStepAssembly(
-            finder: ViewControllerClassFinder(classType: FakeContainerViewController.self),
-            factory: FakeContainerFactory(action: PushAction()))
+    static let wishListScreen = ScreenStepAssembly(
+            finder: ViewControllerClassFinder(classType: WishListViewController.self),
+            factory: WishListFactory(action: PushAction()))
             .add(LoginInterceptor())
             .add(ExampleAnalyticsInterceptor())
             .add(ExampleAnalyticsPostAction())
@@ -20,11 +20,11 @@ struct FakeContainerConfiguration {
             .assemble()
 
     static func favorites() -> ExampleDestination {
-        return ExampleDestination(finalStep: fakeContainerScreen, arguments: FakeContainerArguments(content: FakeContainerContent.favorites))
+        return ExampleDestination(finalStep: wishListScreen, arguments: WishListArguments(content: WishListContent.favorites))
     }
 
     static func collections() -> ExampleDestination {
-        return ExampleDestination(finalStep: fakeContainerScreen, arguments: FakeContainerArguments(content: FakeContainerContent.collections))
+        return ExampleDestination(finalStep: wishListScreen, arguments: WishListArguments(content: WishListContent.collections))
     }
 
 }

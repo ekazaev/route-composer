@@ -39,7 +39,7 @@ class SquareViewController: UIViewController , AnalyticsSupportViewController {
     }
 
     @IBAction func goToFakeContainerTapped() {
-        router.deepLinkTo(destination: FakeContainerConfiguration.collections())
+        router.deepLinkTo(destination: WishListConfiguration.collections())
     }
 
 }

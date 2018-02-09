@@ -5,28 +5,28 @@
 
 import Foundation
 
-class FakeContainerArguments: ExampleArguments {
+class WishListArguments: ExampleArguments {
 
     var analyticParameters: ExampleAnalyticsParameters?
 
-    var content: FakeContainerContent
+    var content: WishListContent
 
-    init(content: FakeContainerContent, analyticParameters: ExampleAnalyticsParameters? = nil) {
+    init(content: WishListContent, analyticParameters: ExampleAnalyticsParameters? = nil) {
         self.content = content
         self.analyticParameters = analyticParameters
     }
 
 }
 
-enum FakeContainerContent: Int {
+enum WishListContent: Int {
     case favorites = 0
     case collections
 }
 
-struct FakeContainerDataModel {
+struct WishListDataModel {
 
     static let data = [
-        FakeContainerContent.favorites: ["Gucci", "Dolce & Gabbana", "Anna Valentine", "Lacoste"],
+        WishListContent.favorites: ["Gucci", "Dolce & Gabbana", "Anna Valentine", "Lacoste"],
         .collections: ["Shoes", "Dresses", "Hats"]
     ]
 
