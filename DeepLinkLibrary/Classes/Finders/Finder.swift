@@ -20,11 +20,11 @@ public protocol Finder {
 
 }
 
-protocol AbstractFinder {
+protocol AnyFinder {
     func findViewController(with arguments: Any?) -> UIViewController?
 }
 
-class FinderWrapper<F: Finder>: AbstractFinder {
+class FinderBox<F: Finder>: AnyFinder {
 
     let finder: F
 
@@ -34,7 +34,7 @@ class FinderWrapper<F: Finder>: AbstractFinder {
 
     func findViewController(with arguments: Any?) -> UIViewController? {
         guard let typedArguments = arguments as? F.A? else {
-            print("\(finder) does not accept \(String(describing: arguments)) as a parameter.")
+            print("\(String(describing:finder)) does not accept \(String(describing: arguments)) as a parameter.")
             return nil
         }
         return finder.findViewController(with: typedArguments)

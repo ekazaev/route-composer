@@ -19,7 +19,7 @@ public enum StepResult {
     case success(UIViewController)
 
     /// Factory instance to be used by Router to build a UIViewController for this step.
-    case continueRouting(AbstractFactory?)
+    case continueRouting(AnyFactory?)
     
     case failure
     

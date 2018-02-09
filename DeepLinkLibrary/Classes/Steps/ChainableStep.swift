@@ -17,10 +17,10 @@ public class ChainableStep: RoutingStep {
 
     public let postTask: PostRoutingTask?
 
-    let factory: AbstractFactory
+    let factory: AnyFactory
 
     public init<F:Factory>(factory: F, interceptor: RouterInterceptor? = nil, postTask: PostRoutingTask? = nil) {
-        self.factory = FactoryWrapper(factory)
+        self.factory = FactoryBox(factory)
         self.interceptor = interceptor
         self.postTask = postTask
     }

@@ -16,14 +16,14 @@ open class NavigationControllerFactory: Factory, ContainerFactory {
 
     public let action: Action
 
-    var factories: [AbstractFactory] = []
+    var factories: [AnyFactory] = []
 
     public init(action: Action) {
         self.action = action
     }
 
-    public func merge(_ factories: [AbstractFactory]) -> [AbstractFactory] {
-        var rest: [AbstractFactory] = []
+    public func merge(_ factories: [AnyFactory]) -> [AnyFactory] {
+        var rest: [AnyFactory] = []
         self.factories = factories.filter { factory in
             guard let _ = factory.action as? NavigationControllerFactoryAction else {
                 rest.append(factory)

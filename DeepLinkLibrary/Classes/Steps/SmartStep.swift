@@ -56,10 +56,10 @@ public class SmartStepAssembly {
         var interceptor: RouterInterceptor? = nil
         var postTask: PostRoutingTask? = nil
         var previousStep: RoutingStep? = nil
-        var finder: AbstractFinder
+        var finder: AnyFinder
 
         init<F: Finder>(finder: F) {
-            self.finder = FinderWrapper(finder)
+            self.finder = FinderBox(finder)
         }
 
         func perform(with arguments: Any?) -> StepResult {
@@ -72,13 +72,13 @@ public class SmartStepAssembly {
 
     private class FinderResolver: SmartStepResolver {
 
-        private let finder: AbstractFinder
+        private let finder: AnyFinder
 
         private let step: RoutingStep
 
         init<F: Finder>(finder: F, step: RoutingStep?) {
             self.step = step ?? FinderStep(finder: finder)
-            self.finder = FinderWrapper(finder)
+            self.finder = FinderBox(finder)
         }
 
         func resolve(with arguments: Any?) -> RoutingStep? {

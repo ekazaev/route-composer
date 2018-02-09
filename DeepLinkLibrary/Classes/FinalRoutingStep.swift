@@ -13,9 +13,9 @@ class FinalRoutingStep: RoutingStep {
 
     public let postTask: PostRoutingTask?
 
-    let finder: AbstractFinder?
+    let finder: AnyFinder?
 
-    let factory: AbstractFactory?
+    let factory: AnyFactory?
 
     public let interceptor: RouterInterceptor?
 
@@ -36,14 +36,14 @@ class FinalRoutingStep: RoutingStep {
         self.previousStep = step
         self.postTask = postTask
         if let finder = finder {
-            self.finder = FinderWrapper(finder)
+            self.finder = FinderBox(finder)
         } else {
             self.finder = nil
         }
         if let factory = factory {
-            self.factory = FactoryWrapper(factory)
+            self.factory = FactoryBox(factory)
         } else {
-            self.factory = FactoryWrapper(FinderFactory(finder: finder))
+            self.factory = FactoryBox(FinderFactory(finder: finder))
         }
         self.interceptor = interceptor
     }

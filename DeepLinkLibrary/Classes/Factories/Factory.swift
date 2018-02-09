@@ -33,14 +33,19 @@ extension Factory {
 
 }
 
-public protocol AbstractFactory: class {
+public protocol AnyFactory: class {
     var action: Action { get }
     func prepare(with arguments: Any?) -> RoutingResult
-    func hasContainer() -> ContainerFactory?
     func build(with logger: Logger?) -> UIViewController?
 }
 
-class FactoryWrapper<F:Factory>: AbstractFactory {
+protocol AnyContainerFactory: AnyFactory {
+
+    func hasContainer() -> ContainerFactory?
+
+}
+
+class FactoryBox<F:Factory>: AnyContainerFactory {
 
     let factory: F
 
@@ -60,7 +65,7 @@ class FactoryWrapper<F:Factory>: AbstractFactory {
 
     func prepare(with arguments: Any?) -> RoutingResult {
         guard let typedArguments = arguments as? F.A? else {
-            print("\(factory) does not accept \(String(describing: arguments)) as a parameter.")
+            print("\(String(describing:factory)) does not accept \(String(describing: arguments)) as a parameter.")
             return .unhandled
         }
         return factory.prepare(with: typedArguments)
