@@ -9,30 +9,17 @@ public protocol NavigationControllerFactoryAction: Action {
 
 }
 
-open class NavigationControllerFactory: Factory, ContainerFactory {
-
+open class NavigationControllerFactory: MergingContainerFactory {
     public typealias V = UINavigationController
     public typealias A = Any
+    public typealias ActionType = NavigationControllerFactoryAction
 
     public let action: Action
 
-    var factories: [AnyFactory] = []
+    public var factories: [AnyFactory] = []
 
     public init(action: Action) {
         self.action = action
-    }
-
-    public func merge(_ factories: [AnyFactory]) -> [AnyFactory] {
-        var rest: [AnyFactory] = []
-        self.factories = factories.filter { factory in
-            guard let _ = factory.action as? NavigationControllerFactoryAction else {
-                rest.append(factory)
-                return false
-            }
-            return true
-        }
-
-        return rest
     }
 
     open func build(with logger: Logger?) -> V? {

@@ -25,6 +25,18 @@ public class ChainableStep: RoutingStep {
         self.postTask = postTask
     }
 
+    public init<F:ContainerFactory>(factory: F, interceptor: RouterInterceptor? = nil, postTask: PostRoutingTask? = nil) {
+        self.factory = ContainerFactoryBox(factory)
+        self.interceptor = interceptor
+        self.postTask = postTask
+    }
+
+    public init<F:AnyFactory>(factory: F, interceptor: RouterInterceptor? = nil, postTask: PostRoutingTask? = nil) {
+        self.factory = factory
+        self.interceptor = interceptor
+        self.postTask = postTask
+    }
+
     public func perform(with arguments: Any?) -> StepResult {
         return .continueRouting(factory)
     }

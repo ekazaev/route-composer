@@ -12,7 +12,7 @@ import Foundation
 /// Container apply one merged action and then populate a full stack of view controllers that was built by the associated factories in one go.
 /// Example: Steps require to populate n view controllers in UINavigationController stack and it can do so.
 /// Merge action implementation is mandatory for any actions and should be implemented if it can be done.
-public protocol ContainerFactory {
+public protocol ContainerFactory: Factory {
 
     /// Receives an array of factories whose view controllers should be merged into current container
     /// factory before it actually builds a container view controller with child view controllers inside.
@@ -26,19 +26,26 @@ public protocol ContainerFactory {
 
 }
 
-public extension ContainerFactory {
+public protocol MergingContainerFactory: ContainerFactory {
+    associatedtype ActionType
 
-    func filter<T:Action>(_ factories: [AnyFactory], accept: [T.Type]) -> (accepted: [AnyFactory], rest: [AnyFactory]) {
-        var rest: [AnyFactory] = []
-        let inFactories = factories.filter { factory in
-            guard accept.contains(where: { type(of: factory.action) == $0  }) else {
-                rest.append(factory)
+    var factories: [AnyFactory] { get set }
+
+}
+
+public extension MergingContainerFactory {
+
+    public func merge(_ factories: [AnyFactory]) -> [AnyFactory] {
+        var otherFactories: [AnyFactory] = []
+        self.factories = factories.filter { factory in
+            guard let _ = factory.action as? ActionType else {
+                otherFactories.append(factory)
                 return false
             }
             return true
         }
 
-        return (accepted: inFactories, rest: rest)
+        return otherFactories
     }
 
 }

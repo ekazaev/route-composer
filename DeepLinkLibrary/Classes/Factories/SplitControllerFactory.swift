@@ -14,8 +14,7 @@ public protocol SplitViewControllerDetailAction: Action {
 
 }
 
-// TODO: Undone
-public class SplitControllerFactory: Factory, ContainerFactory {
+public class SplitControllerFactory: ContainerFactory {
 
     public typealias V = UISplitViewController
     public typealias A = Any

@@ -7,7 +7,7 @@ import UIKit
 
 /// Represents action that has to be applied to a view controller after it has been built (eg: push to navigation stack,
 /// present modally, push to tab, etc)
-public protocol Action {
+public protocol Action: class {
     
     /// If current view controller needs to be pushed/added/etc to the exciting collection of view controllers,
     /// this method should be called instead.

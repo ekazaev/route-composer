@@ -39,13 +39,13 @@ public protocol AnyFactory: class {
     func build(with logger: Logger?) -> UIViewController?
 }
 
-protocol ContainerFactoryHolder: AnyFactory {
+protocol AnyContainerFactory {
 
-    func hasContainer() -> ContainerFactory?
+    func merge(_ factories: [AnyFactory]) -> [AnyFactory]
 
 }
 
-class FactoryBox<F:Factory>: ContainerFactoryHolder {
+class FactoryBox<F:Factory>:AnyFactory {
 
     let factory: F
 
@@ -56,11 +56,31 @@ class FactoryBox<F:Factory>: ContainerFactoryHolder {
         self.action = factory.action
     }
 
-    func hasContainer() -> ContainerFactory? {
-        guard let container = factory as? ContainerFactory else {
-            return nil
+    func prepare(with arguments: Any?) -> RoutingResult {
+        guard let typedArguments = arguments as? F.A? else {
+            print("\(String(describing:factory)) does not accept \(String(describing: arguments)) as a parameter.")
+            return .unhandled
         }
-        return container
+        return factory.prepare(with: typedArguments)
+    }
+
+    func build(with logger: Logger?) -> UIViewController? {
+        return factory.build(with: logger)
+    }
+}
+
+class ContainerFactoryBox<F: Factory&ContainerFactory>: AnyFactory, AnyContainerFactory {
+
+    let factory: F
+    let action: Action
+
+    init(_ factory: F) {
+        self.factory = factory
+        self.action = factory.action
+    }
+
+    func merge(_ factories: [AnyFactory]) -> [AnyFactory] {
+        return factory.merge(factories)
     }
 
     func prepare(with arguments: Any?) -> RoutingResult {

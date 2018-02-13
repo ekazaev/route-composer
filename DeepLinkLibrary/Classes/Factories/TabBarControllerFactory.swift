@@ -9,30 +9,18 @@ public protocol TabBarControllerFactoryAction: Action {
 
 }
 
-public class TabBarControllerFactory: Factory, ContainerFactory {
+public class TabBarControllerFactory: MergingContainerFactory {
 
     public typealias V = UITabBarController
     public typealias A = Any
+    public typealias ActionType = TabBarControllerFactoryAction
 
     public let action: Action
 
-    var factories: [AnyFactory] = []
+    public var factories: [AnyFactory] = []
 
     public init(action: Action) {
         self.action = action
-    }
-
-    public func merge(_ factories: [AnyFactory]) -> [AnyFactory] {
-        var rest: [AnyFactory] = []
-        self.factories = factories.filter { factory in
-            guard let _ = factory.action as? TabBarControllerFactoryAction else {
-                rest.append(factory)
-                return false
-            }
-            return true
-        }
-
-        return rest
     }
 
     open func build(with logger: Logger?) -> V? {
