@@ -7,7 +7,7 @@ import Foundation
 import UIKit
 import DeepLinkLibrary
 
-class CityDetailPostTask: PostRoutingTask {
+class CityDetailPostTask: AnyPostRoutingTask {
 
     func execute(on viewController: UIViewController, with arguments: Any?, routingStack: [UIViewController]) {
         guard let viewController = viewController as? CityDetailViewController,

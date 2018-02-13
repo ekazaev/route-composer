@@ -5,11 +5,11 @@
 import Foundation
 import UIKit
 
-class PostRoutingTaskMultiplexer: PostRoutingTask {
+class PostRoutingTaskMultiplexer: AnyPostRoutingTask {
 
-    private let tasks: [PostRoutingTask]
+    private let tasks: [AnyPostRoutingTask]
 
-    init(_ tasks: [PostRoutingTask]) {
+    init(_ tasks: [AnyPostRoutingTask]) {
         self.tasks = tasks
     }
 

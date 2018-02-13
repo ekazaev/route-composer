@@ -10,9 +10,11 @@ import DeepLinkLibrary
 // I do not want to create login service for demo so it is just a variable
 var isLoggedIn: Bool = false
 
-class LoginInterceptor: RouterInterceptor {
+class LoginInterceptor: ConcreteRouterInterceptor {
 
-    func execute(with arguments: Any?, logger: Logger?, completion: @escaping (_: InterceptorResult) -> Void) {
+    typealias A = Any
+
+    func execute(with arguments: A?, logger: Logger?, completion: @escaping (_: InterceptorResult) -> Void) {
         guard !isLoggedIn else {
             completion(.success)
             return

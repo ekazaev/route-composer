@@ -4,11 +4,11 @@
 
 import Foundation
 
-class InterceptorMultiplexer: RouterInterceptor {
+class InterceptorMultiplexer: AnyRouterInterceptor {
 
-    private let interceptors: [RouterInterceptor]
+    private let interceptors: [AnyRouterInterceptor]
 
-    init(_ interceptors: [RouterInterceptor]) {
+    init(_ interceptors: [AnyRouterInterceptor]) {
         self.interceptors = interceptors
     }
 
@@ -20,7 +20,7 @@ class InterceptorMultiplexer: RouterInterceptor {
 
         var interceptors = self.interceptors
 
-        func runInterceptor(interceptor: RouterInterceptor) {
+        func runInterceptor(interceptor: AnyRouterInterceptor) {
             interceptor.execute(with: arguments, logger: logger) { result in
                 if result == .failure {
                     logger?.log(.warning("\(interceptor) interceptor has stopped routing."))

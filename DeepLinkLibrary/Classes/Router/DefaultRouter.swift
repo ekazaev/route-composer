@@ -12,7 +12,7 @@ private struct PostTaskSlip {
     // issue but must be kept in mind.
     weak var viewController: UIViewController?
 
-    let postTask: PostRoutingTask
+    let postTask: AnyPostRoutingTask
 }
 
 /// Each post action needs to know a view controller is should be applied to.
@@ -31,9 +31,9 @@ private class FactoryDecorator: AnyFactory {
 
     weak var postTaskRunner: PostTaskRunner?
 
-    var postTask: PostRoutingTask?
+    var postTask: AnyPostRoutingTask?
 
-    init(factory: AnyFactory, postTask: PostRoutingTask?, postTaskRunner: PostTaskRunner) {
+    init(factory: AnyFactory, postTask: AnyPostRoutingTask?, postTaskRunner: PostTaskRunner) {
         self.factory = factory
         self.postTaskRunner = postTaskRunner
         self.postTask = postTask
@@ -134,7 +134,7 @@ public class DefaultRouter: Router {
         return .handled
     }
 
-    private func prepareStack(destination: RoutingDestination, postTaskRunner: PostTaskRunner) -> (rootViewController: UIViewController, factories: [AnyFactory], interceptor: RouterInterceptor)? {
+    private func prepareStack(destination: RoutingDestination, postTaskRunner: PostTaskRunner) -> (rootViewController: UIViewController, factories: [AnyFactory], interceptor: AnyRouterInterceptor)? {
 
         var step: RoutingStep? = destination.finalStep
 
@@ -144,7 +144,7 @@ public class DefaultRouter: Router {
 
         var factories: [AnyFactory] = []
 
-        var interceptors: [RouterInterceptor] = []
+        var interceptors: [AnyRouterInterceptor] = []
 
         // Build stack until we have steps and the view controller to present from has not been found
         repeat {

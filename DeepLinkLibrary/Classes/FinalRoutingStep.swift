@@ -11,13 +11,13 @@ class FinalRoutingStep: RoutingStep {
 
     public let previousStep: RoutingStep?
 
-    public let postTask: PostRoutingTask?
+    public let postTask: AnyPostRoutingTask?
 
     let finder: AnyFinder?
 
     let factory: AnyFactory?
 
-    public let interceptor: RouterInterceptor?
+    public let interceptor: AnyRouterInterceptor?
 
     /// ViewControllerAssembly constructor
     ///
@@ -32,7 +32,7 @@ class FinalRoutingStep: RoutingStep {
     ///   - step: Step instance contains action that has to be executed by router after it creates assembly's
     ///     UIViewController to make it integrated in to view controller stack which also represents a starting point
     ///     of routing or a dependency.
-    init<F: Finder, FF: Factory>(finder: F?, factory: FF?, interceptor: RouterInterceptor? = nil, postTask: PostRoutingTask? = nil, step: RoutingStep) where F.V == FF.V, F.A == FF.A {
+    init<F: Finder, FF: Factory>(finder: F?, factory: FF?, interceptor: AnyRouterInterceptor? = nil, postTask: AnyPostRoutingTask? = nil, step: RoutingStep) where F.V == FF.V, F.A == FF.A {
         self.previousStep = step
         self.postTask = postTask
         if let finder = finder {

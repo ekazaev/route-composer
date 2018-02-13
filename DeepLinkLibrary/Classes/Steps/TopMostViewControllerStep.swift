@@ -8,9 +8,9 @@ import UIKit
 /// - getPresentationViewController: Returns topmost presented view controller.
 public class TopMostViewControllerStep: RoutingStep {
 
-    public let interceptor: RouterInterceptor? = nil
+    public let interceptor: AnyRouterInterceptor? = nil
     
-    public let postTask: PostRoutingTask? = nil
+    public let postTask: AnyPostRoutingTask? = nil
     
     public var previousStep: RoutingStep? = nil
     

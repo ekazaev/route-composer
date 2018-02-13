@@ -27,9 +27,9 @@ public class ScreenStepAssembly<F: Finder, FF: Factory> where F.V == FF.V, F.A =
 
     private var factory: FF
 
-    private var interceptors: [RouterInterceptor] = []
+    private var interceptors: [AnyRouterInterceptor] = []
 
-    private var postTasks: [PostRoutingTask] = []
+    private var postTasks: [AnyPostRoutingTask] = []
 
     private weak var stepBuilder: ScreenStepChainAssembly?
 
@@ -42,13 +42,23 @@ public class ScreenStepAssembly<F: Finder, FF: Factory> where F.V == FF.V, F.A =
 
 public extension ScreenStepAssembly {
 
-    func add(_ interceptor: RouterInterceptor) -> Self {
+    func add(_ interceptor: AnyRouterInterceptor) -> Self {
         self.interceptors.append(interceptor)
         return self
     }
 
-    func add(_ postTask: PostRoutingTask) -> Self {
+    func add<R: ConcreteRouterInterceptor>(_ interceptor: R) -> Self {
+        self.interceptors.append(RouterInterceptorBox(interceptor))
+        return self
+    }
+
+    func add(_ postTask: AnyPostRoutingTask) -> Self {
         self.postTasks.append(postTask)
+        return self
+    }
+
+    func add<P: ConcretePostRoutingTask>(_ postTask: P) -> Self {
+        self.postTasks.append(PostRoutingTaskBox(postTask))
         return self
     }
 

@@ -7,7 +7,7 @@ import Foundation
 import UIKit
 import DeepLinkLibrary
 
-class ExampleAnalyticsPostAction: PostRoutingTask {
+class ExampleAnalyticsPostAction: AnyPostRoutingTask {
 
     func execute(on viewController: UIViewController, with arguments: Any?, routingStack: [UIViewController]) {
         guard let arguments = arguments as? ExampleArguments,

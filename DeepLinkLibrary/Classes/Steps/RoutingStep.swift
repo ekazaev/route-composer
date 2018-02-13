@@ -9,10 +9,10 @@ import UIKit
 public protocol RoutingStep {
 
     /// Interceptor instance to be executed by router before routing to this step.
-    var interceptor: RouterInterceptor? { get }
+    var interceptor: AnyRouterInterceptor? { get }
 
     /// PostRoutingTask instance to be executed by a router after routing to this step.
-    var postTask: PostRoutingTask? { get }
+    var postTask: AnyPostRoutingTask? { get }
 
     /// Step to be made by a router before getting to this step.
     var previousStep: RoutingStep? { get }
