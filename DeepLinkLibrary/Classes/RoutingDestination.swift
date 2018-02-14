@@ -8,7 +8,7 @@ import Foundation
 /// Router will use assembly provided by a destination as a starting point to build steps for routing to it.
 public protocol RoutingDestination {
 
-    /// Assembly instance that represents end point of routing.
+    /// Routing step instance that represents end point of routing.
     var finalStep: RoutingStep { get }
 
     /// Arguments to be passed to any UIViewController to be build or presented.

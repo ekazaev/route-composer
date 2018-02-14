@@ -5,6 +5,14 @@
 
 import UIKit
 
+internal protocol DefaultRouterStep {
+
+    var interceptor: AnyRouterInterceptor? { get }
+
+    var postTask: AnyPostRoutingTask? { get }
+
+}
+
 private struct PostTaskSlip {
     // This reference is weak because even though this view controller was created by a fabric but then some other
     // view controller in the chain can have an action that will actually remove this view controller from the stack.
@@ -155,7 +163,7 @@ public class DefaultRouter: Router {
             }
 
             // If step contain an action that needs to be done, add it in the interceptors array
-            if let interceptor = step?.interceptor, rootViewController == nil {
+            if let internalStep = step as? DefaultRouterStep, let interceptor = internalStep.interceptor, rootViewController == nil {
                 interceptors.append(interceptor)
             }
 
@@ -165,7 +173,7 @@ public class DefaultRouter: Router {
                     rootViewController = viewController
                     logger?.log(.info("Step \(String(describing: step!)) has found a \(String(describing: viewController)) to start presentation from."))
                 }
-                if let postTask = step?.postTask {
+                if let internalStep = step as? DefaultRouterStep, let postTask = internalStep.postTask {
                     postTaskRunner.taskSlips.insert(PostTaskSlip(viewController: viewController, postTask: postTask), at: 0)
                 }
                 break
@@ -174,8 +182,13 @@ public class DefaultRouter: Router {
 
                 // If view controller has not been found, but step has a factory to build itself - add factory to the stack
                 if rootViewController == nil, let factory = factory {
-                    let factoryDecorator = FactoryDecorator(factory: factory, postTask: step?.postTask, postTaskRunner: postTaskRunner)
-                    factories.insert(factoryDecorator, at: 0)
+                    let factoryTosave: AnyFactory
+                    if  let internalStep = step as? DefaultRouterStep {
+                        factoryTosave = FactoryDecorator(factory: factory, postTask: internalStep.postTask, postTaskRunner: postTaskRunner)
+                    } else {
+                        factoryTosave = factory
+                    }
+                    factories.insert(factoryTosave, at: 0)
 
                     // If some factory can not prepare itself (e.g. does not have enough data in arguments) then deep link stack
                     // can not be built
@@ -204,7 +217,7 @@ public class DefaultRouter: Router {
                         }
                         tempFactories = []
                     }
-                    tempFactories.insert(factoryDecorator, at: 0)
+                    tempFactories.insert(factoryTosave, at: 0)
                 }
                 break
             case .failure:

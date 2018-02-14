@@ -7,12 +7,12 @@ import Foundation
 import UIKit
 import DeepLinkLibrary
 
-class CityTablePostTask: AnyPostRoutingTask {
+class CityTablePostTask: PostRoutingTask {
+    typealias V = CitiesTableViewController
+    typealias A = CityArguments
 
-    func execute(on viewController: UIViewController, with arguments: Any?, routingStack: [UIViewController]) {
-        guard let viewController = viewController as? CitiesTableViewController,
-              let arguments = arguments as? CityArguments,
-              let destinationCityId = arguments.cityId else {
+    func execute(on viewController: V, with arguments: A?, routingStack: [UIViewController]) {
+        guard let destinationCityId = arguments?.cityId else {
             return
         }
 

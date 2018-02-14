@@ -4,6 +4,7 @@
 
 import Foundation
 
+/// Connects array of steps into a chain of steps.
 public class StepChainAssembly {
     private var previousSteps: [RoutingStep] = []
 
@@ -21,10 +22,6 @@ public class StepChainAssembly {
     }
 }
 
-/// Connects array of steps into a chain of steps.
-///
-/// - parameter chains: Array of chainable steps.
-/// - returns: Last step to be made by a Router. The rest are linked to the last one.
 func chain(_ steps: [RoutingStep]) -> RoutingStep {
     guard let firstStep = steps.first else {
         fatalError("No steps provided to chain.")

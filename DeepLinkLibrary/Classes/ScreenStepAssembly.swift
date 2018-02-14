@@ -42,22 +42,14 @@ public class ScreenStepAssembly<F: Finder, FF: Factory> where F.V == FF.V, F.A =
 
 public extension ScreenStepAssembly {
 
-    func add(_ interceptor: AnyRouterInterceptor) -> Self {
-        self.interceptors.append(interceptor)
-        return self
-    }
-
-    func add<R: ConcreteRouterInterceptor>(_ interceptor: R) -> Self {
+    /// Interceptor instance to be executed by router before routing to this step.
+    func add<R: RouterInterceptor>(_ interceptor: R) -> Self {
         self.interceptors.append(RouterInterceptorBox(interceptor))
         return self
     }
 
-    func add(_ postTask: AnyPostRoutingTask) -> Self {
-        self.postTasks.append(postTask)
-        return self
-    }
-
-    func add<P: ConcretePostRoutingTask>(_ postTask: P) -> Self {
+    /// PostRoutingTask instance to be executed by a router after routing to this step.
+    func add<P: PostRoutingTask>(_ postTask: P) -> Self {
         self.postTasks.append(PostRoutingTaskBox(postTask))
         return self
     }
@@ -85,7 +77,7 @@ public extension ScreenStepAssembly {
                 factory: finalFactory,
                 interceptor: interceptors.count == 1 ? interceptors.first : InterceptorMultiplexer(interceptors),
                 postTask: postTasks.count == 1 ? postTasks.first : PostRoutingTaskMultiplexer(postTasks),
-                step: step)
+                previousStep: step)
     }
 }
 

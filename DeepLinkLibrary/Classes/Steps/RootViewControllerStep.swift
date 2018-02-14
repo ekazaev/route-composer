@@ -7,8 +7,7 @@ import UIKit
 
 /// Returns root view controller of the window.
 public class RootViewControllerStep: RoutingStep {
-    public let interceptor: AnyRouterInterceptor? = nil
-    public let postTask: AnyPostRoutingTask? = nil
+
     public let previousStep: RoutingStep? = nil
 
     public init() {

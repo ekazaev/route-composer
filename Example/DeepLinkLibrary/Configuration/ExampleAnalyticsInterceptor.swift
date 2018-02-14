@@ -7,7 +7,7 @@ import Foundation
 import UIKit
 import DeepLinkLibrary
 
-class ExampleAnalyticsInterceptor: ConcreteRouterInterceptor {
+class ExampleAnalyticsInterceptor: RouterInterceptor {
     typealias A = ExampleArguments
 
 

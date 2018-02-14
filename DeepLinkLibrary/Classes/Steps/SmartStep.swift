@@ -14,10 +14,6 @@ public class SmartStep: RoutingStep {
 
     private(set) public var previousStep: RoutingStep? = nil
 
-    public let interceptor: AnyRouterInterceptor? = nil
-
-    public let postTask: AnyPostRoutingTask? = nil
-
     private var resolvers: [SmartStepResolver]
 
     public func perform(with arguments: Any?) -> StepResult {

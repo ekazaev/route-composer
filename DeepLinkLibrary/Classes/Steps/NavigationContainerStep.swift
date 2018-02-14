@@ -15,11 +15,4 @@ public class NavigationContainerStep: ChainableStep {
         super.init(factory: NavigationControllerFactory(action: action))
     }
 
-    /// NavigationContainerStep init method
-    ///
-    /// - parameter factory: Factory that provides a UINavigationViewController
-    public init<F: Factory>(factory: F) {
-        super.init(factory: factory)
-    }
-
 }

@@ -10,7 +10,7 @@ import DeepLinkLibrary
 // I do not want to create login service for demo so it is just a variable
 var isLoggedIn: Bool = false
 
-class LoginInterceptor: ConcreteRouterInterceptor {
+class LoginInterceptor: RouterInterceptor {
 
     typealias A = Any
 

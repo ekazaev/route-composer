@@ -7,12 +7,12 @@ import Foundation
 import UIKit
 import DeepLinkLibrary
 
-class CityDetailPostTask: AnyPostRoutingTask {
+class CityDetailPostTask: PostRoutingTask {
+    typealias V = CityDetailViewController
+    typealias A = CityArguments
 
-    func execute(on viewController: UIViewController, with arguments: Any?, routingStack: [UIViewController]) {
-        guard let viewController = viewController as? CityDetailViewController,
-              let arguments = arguments as? CityArguments,
-              let destinationCityId = arguments.cityId else {
+    func execute(on viewController: V, with arguments: A?, routingStack: [UIViewController]) {
+        guard let destinationCityId = arguments?.cityId else {
             return
         }
 
@@ -23,7 +23,7 @@ class CityDetailPostTask: AnyPostRoutingTask {
 
 class CityDetailViewController: UIViewController, AnalyticsSupportViewController {
 
-    let  analyticParameters = ExampleAnalyticsParameters(source: .cityDetail)
+    let analyticParameters = ExampleAnalyticsParameters(source: .cityDetail)
 
     @IBOutlet private var detailsTextView: UITextView!
 
