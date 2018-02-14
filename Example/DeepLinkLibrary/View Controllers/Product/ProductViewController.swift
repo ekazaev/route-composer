@@ -29,7 +29,7 @@ class ProductViewControllerFinder: FinderWithPolicy {
 
 }
 
-class ProductViewControllerFactory: Factory {
+class ProductViewControllerFactory: ArgumentSavingFactory {
     public typealias V = ProductViewController
     public typealias A = ProductArguments
 
@@ -52,10 +52,6 @@ class ProductViewControllerFactory: Factory {
         return viewController
     }
 
-    func prepare(with arguments: A?) -> RoutingResult {
-        self.arguments = arguments
-        return .handled
-    }
 }
 
 class ProductViewController: UIViewController, AnalyticsSupportViewController {

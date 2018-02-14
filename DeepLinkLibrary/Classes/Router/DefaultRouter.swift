@@ -5,14 +5,6 @@
 
 import UIKit
 
-internal protocol DefaultRouterStep {
-
-    var interceptor: AnyRouterInterceptor? { get }
-
-    var postTask: AnyPostRoutingTask? { get }
-
-}
-
 private struct PostTaskSlip {
     // This reference is weak because even though this view controller was created by a fabric but then some other
     // view controller in the chain can have an action that will actually remove this view controller from the stack.
@@ -47,8 +39,8 @@ private class FactoryDecorator: AnyFactory {
         self.postTask = postTask
     }
 
-    func prepare(with arguments: Any?) -> RoutingResult {
-        return factory.prepare(with: arguments)
+    func prepare(with arguments: Any?, logger: Logger?) -> RoutingResult {
+        return factory.prepare(with: arguments, logger: logger)
     }
 
     func build(with logger: Logger?) -> UIViewController? {
@@ -144,7 +136,7 @@ public class DefaultRouter: Router {
 
     private func prepareStack(destination: RoutingDestination, postTaskRunner: PostTaskRunner) -> (rootViewController: UIViewController, factories: [AnyFactory], interceptor: AnyRouterInterceptor)? {
 
-        var step: RoutingStep? = destination.finalStep
+        var currentStep: RoutingStep? = destination.finalStep
 
         var rootViewController: UIViewController?
 
@@ -156,77 +148,86 @@ public class DefaultRouter: Router {
 
         // Build stack until we have steps and the view controller to present from has not been found
         repeat {
-
-            // Trying to find a view controller to start building the stack from
-            guard let result = step?.perform(with: destination.arguments) else {
+            guard let performableStep = currentStep as? PerformableStep else {
                 return nil
             }
 
-            // If step contain an action that needs to be done, add it in the interceptors array
-            if let internalStep = step as? DefaultRouterStep, let interceptor = internalStep.interceptor, rootViewController == nil {
-                interceptors.append(interceptor)
-            }
+            let interceptableStep = currentStep as? InterceptableStep
 
-            switch result {
+            // Trying to find a view controller to start building the stack from
+            switch performableStep.perform(with: destination.arguments) {
             case .success(let viewController):
                 if rootViewController == nil {
                     rootViewController = viewController
-                    logger?.log(.info("Step \(String(describing: step!)) has found a \(String(describing: viewController)) to start presentation from."))
+                    logger?.log(.info("Step \(String(describing: currentStep!)) has found a \(String(describing: viewController)) to start presentation from."))
                 }
-                if let internalStep = step as? DefaultRouterStep, let postTask = internalStep.postTask {
+                if let postTask = interceptableStep?.postTask {
                     postTaskRunner.taskSlips.insert(PostTaskSlip(viewController: viewController, postTask: postTask), at: 0)
                 }
                 break
             case .continueRouting(let factory):
-                logger?.log(.info("Step \(String(describing: step!)) has not found its view controller is stack, so router will continue search."))
+                logger?.log(.info("Step \(String(describing: currentStep!)) has not found its view controller is stack, so router will continue search."))
 
                 // If view controller has not been found, but step has a factory to build itself - add factory to the stack
-                if rootViewController == nil, let factory = factory {
-                    let factoryTosave: AnyFactory
-                    if  let internalStep = step as? DefaultRouterStep {
-                        factoryTosave = FactoryDecorator(factory: factory, postTask: internalStep.postTask, postTaskRunner: postTaskRunner)
-                    } else {
-                        factoryTosave = factory
-                    }
-                    factories.insert(factoryTosave, at: 0)
-
-                    // If some factory can not prepare itself (e.g. does not have enough data in arguments) then deep link stack
-                    // can not be built
-                    if factory.prepare(with: destination.arguments) == .unhandled {
-                        logger?.log(.error("Factory \(String(describing: factory)) could not prepare itself to be ready to build a View Controller."))
-                        return nil
+                if rootViewController == nil{
+                    // If step contain an action that needs to be done, add it in the interceptors array
+                    if let interceptor = interceptableStep?.interceptor {
+                        interceptors.append(interceptor)
                     }
 
-                    // If current factory actually creates Container then it should know how to deal with the factories that
-                    // should be in this container, based on an action attached to the factory.
-                    // For example navigationController factory should use factories to build navigation controller stack.
-                    if let container = factory as? AnyContainerFactory {
-                        if tempFactories.count > 0 {
-                            let rest = container.merge(tempFactories)
-                            let merged = tempFactories.filter { factory in
-                                !rest.contains { restFactory in
-                                    factory === restFactory
-                                }
-                            }
-                            factories = factories.filter { factory in
-                                !merged.contains { mergedFactory in
-                                    mergedFactory === factory
-                                }
-                            }
-
+                    if let factory = factory {
+                        let factoryToSave: AnyFactory
+                        // If step contains post task, them lets create a factory decorator that will handle view
+                        // controller and post task chain after view controller creation.
+                        if let internalStep = interceptableStep {
+                            factoryToSave = FactoryDecorator(factory: factory, postTask: internalStep.postTask, postTaskRunner: postTaskRunner)
+                        } else {
+                            factoryToSave = factory
                         }
-                        tempFactories = []
+                        factories.insert(factoryToSave, at: 0)
+
+                        // If some factory can not prepare itself (e.g. does not have enough data in arguments) then deep link stack
+                        // can not be built
+                        if factory.prepare(with: destination.arguments, logger: logger) == .unhandled {
+                            logger?.log(.error("Factory \(String(describing: factory)) could not prepare itself to be ready to build a View Controller."))
+                            return nil
+                        }
+
+                        // If current factory actually creates Container then it should know how to deal with the factories that
+                        // should be in this container, based on an action attached to the factory.
+                        // For example navigationController factory should use factories to build navigation controller stack.
+                        if let container = factory as? AnyContainerFactory {
+                            if tempFactories.count > 0 {
+                                let rest = container.merge(tempFactories)
+                                let merged = tempFactories.filter { factory in
+                                    !rest.contains { restFactory in
+                                        factory === restFactory
+                                    }
+                                }
+                                factories = factories.filter { factory in
+                                    !merged.contains { mergedFactory in
+                                        mergedFactory === factory
+                                    }
+                                }
+
+                            }
+                            tempFactories = []
+                        }
+                        tempFactories.insert(factoryToSave, at: 0)
                     }
-                    tempFactories.insert(factoryTosave, at: 0)
                 }
                 break
             case .failure:
-                logger?.log(.error("Step \(String(describing: step)) has return an error while looking for a view controller to present from."))
+                logger?.log(.error("Step \(String(describing: currentStep)) has failed while looking for a view controller to present from."))
                 return nil
             }
 
-            step = step?.previousStep
-        } while step != nil
+            guard let chainingStep = currentStep as? ChainableStep,
+                  let previousStep = chainingStep.previousStep as? PerformableStep else {
+                break
+            }
+            currentStep = previousStep
+        } while currentStep != nil
 
         //If we haven't found a View Controller to build the stack from - it means that we can handle deeplinking
         if let viewController = rootViewController {
@@ -273,7 +274,7 @@ public class DefaultRouter: Router {
                 factoryToLog = factory.factory
             }
             if let newViewController = factory.build(with: logger) {
-                logger?.log(.info("Factory \(String(describing: factoryToLog)) has built a \(String(describing: newViewController)) to start presentation from."))
+                logger?.log(.info("Factory \(String(describing: factoryToLog)) has built a \(String(describing: newViewController))."))
                 factory.action.perform(viewController: newViewController, on: previousViewController, animated: animated, logger: self.logger) { result in
                     guard result == .continueRouting else {
                         self.logger?.log(.error("Action \(String(describing: factory.action)) has stopped routing as it was not able to build a view controller in to a stack."))

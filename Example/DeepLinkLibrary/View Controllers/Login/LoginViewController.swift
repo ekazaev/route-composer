@@ -26,14 +26,12 @@ class LoginInterceptor: RouterInterceptor {
         // boilerplate code that will help you to avoid this rare, but possible situation.
         let destination = LoginConfiguration.login()
         let result = DefaultRouter(logger: DefaultLogger(.warnings)).deepLinkTo(destination: destination) { success in
-            guard success,
-                  case .success(let viewController) = destination.finalStep.perform(with: nil),
-                  let loginViewController = viewController as? LoginViewController else {
+            guard success, let viewController = LoginViewControllerFinder().findViewController(with: nil) else {
                 completion(.failure)
                 return
             }
 
-            loginViewController.interceptorCompletionBlock = completion
+            viewController.interceptorCompletionBlock = completion
         }
 
         if result == .unhandled {

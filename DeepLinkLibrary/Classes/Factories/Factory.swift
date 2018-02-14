@@ -19,7 +19,7 @@ public protocol Factory: class {
     /// process and if factory is not able to build a view controller (example: it has to build a product view
     /// controller but there is no product code in arguments) it can stop router from routing to this destination
     /// and the result of routing will be .unhandled without any changes in view controller stack.
-    func prepare(with arguments: A?) -> RoutingResult
+    func prepare(with arguments: A?, logger: Logger?) -> RoutingResult
 
     func build(with logger: Logger?) -> V?
 
@@ -27,7 +27,7 @@ public protocol Factory: class {
 
 public extension Factory {
 
-    func prepare(with arguments: A?) -> RoutingResult {
+    func prepare(with arguments: A?, logger: Logger?) -> RoutingResult {
         return .handled
     }
 

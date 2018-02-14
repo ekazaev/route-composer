@@ -1,5 +1,5 @@
 //
-// Created by Eugene Kazaev on 23/01/2018.
+// Created by Eugene Kazaev on 14/02/2018.
 //
 
 import Foundation
@@ -8,29 +8,9 @@ import UIKit
 /// Chainable step.
 /// Identifies that the step can be a part of the chain,
 /// e.g. when it comes to the presentation of multiple view controllers to reach destination.
-public class ChainableStep: RoutingStep {
+protocol ChainableStep: RoutingStep {
 
-    private(set) public var previousStep: RoutingStep? = nil
+    /// Step to be made by a router before getting to this step.
+    var previousStep: RoutingStep? { get }
 
-    let factory: AnyFactory
-
-    public init<F:Factory>(factory: F) {
-        self.factory = FactoryBox(factory)
-    }
-
-    public init<F:ContainerFactory>(factory: F) {
-        self.factory = ContainerFactoryBox(factory)
-    }
-
-    public init<F:AnyFactory>(factory: F) {
-        self.factory = factory
-    }
-
-    public func perform(with arguments: Any?) -> StepResult {
-        return .continueRouting(factory)
-    }
-
-    func from(_ step: RoutingStep) {
-        previousStep = step
-    }
 }

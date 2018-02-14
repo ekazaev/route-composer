@@ -8,11 +8,4 @@ import UIKit
 /// Represents step for the router.
 public protocol RoutingStep {
 
-    /// Step to be made by a router before getting to this step.
-    var previousStep: RoutingStep? { get }
-
-    /// - Parameter arguments: Arguments that Router has started with.
-    /// - Returns: StepResult enum value, which may contain a view controller in case of .found scenario.
-    func perform(with arguments: Any?) -> StepResult
-
 }

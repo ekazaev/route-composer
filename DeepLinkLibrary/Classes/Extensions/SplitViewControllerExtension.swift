@@ -9,18 +9,15 @@ import UIKit
 
 extension UISplitViewController: ContainerViewController {
 
-    @discardableResult
-    public func makeVisible(viewController: UIViewController, animated: Bool) -> UIViewController? {
+    public func makeVisible(viewController: UIViewController, animated: Bool) {
         let viewControllers = self.viewControllers
 
         for vc in viewControllers {
             if vc == viewController {
                 vc.navigationController?.navigationController?.popToViewController(vc, animated: animated)
-                return vc
+                return
             }
         }
-
-        return nil
     }
 }
 

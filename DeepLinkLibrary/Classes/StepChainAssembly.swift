@@ -32,7 +32,7 @@ func chain(_ steps: [RoutingStep]) -> RoutingStep {
     restSteps.removeFirst()
 
     for presentingStep in restSteps {
-        guard let step = currentStep as? ChainableStep else {
+        guard let step = currentStep as? RouterStep else {
             fatalError("\(presentingStep) can not be chained to non chainable step \(currentStep)")
         }
         step.from(presentingStep)

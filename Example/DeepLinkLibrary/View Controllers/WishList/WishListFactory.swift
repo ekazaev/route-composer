@@ -19,7 +19,7 @@ class WishListFactory: Factory {
         self.action = action
     }
 
-    func prepare(with arguments: A?) -> RoutingResult {
+    func prepare(with arguments: A?, logger: Logger?) -> RoutingResult {
         guard let arguments = arguments else {
             return .unhandled
         }

@@ -16,7 +16,7 @@ public protocol ArgumentSavingFactory: Factory {
 
 public extension ArgumentSavingFactory {
 
-    public func prepare(with arguments: A?) -> RoutingResult {
+    public func prepare(with arguments: A?, logger: Logger?) -> RoutingResult {
         guard let arguments = arguments else {
             return .unhandled
         }

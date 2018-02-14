@@ -5,13 +5,13 @@
 import Foundation
 import UIKit
 
-internal protocol AnyRouterInterceptor {
+protocol AnyRouterInterceptor {
 
     func execute(with arguments: Any?, logger: Logger?, completion: @escaping (_: InterceptorResult) -> Void)
 
 }
 
-internal class RouterInterceptorBox<R: RouterInterceptor>: AnyRouterInterceptor {
+class RouterInterceptorBox<R: RouterInterceptor>: AnyRouterInterceptor {
 
     let routerInterceptor: R
 

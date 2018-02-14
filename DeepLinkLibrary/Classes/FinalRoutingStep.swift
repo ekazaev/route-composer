@@ -6,13 +6,13 @@
 import Foundation
 import UIKit
 
-class FinalRoutingStep: RoutingStep, DefaultRouterStep {
+class FinalRoutingStep: InterceptableStep, PerformableStep, ChainableStep {
 
-    public let interceptor: AnyRouterInterceptor?
+    let interceptor: AnyRouterInterceptor?
 
-    public let previousStep: RoutingStep?
+    let previousStep: RoutingStep?
 
-    public let postTask: AnyPostRoutingTask?
+    let postTask: AnyPostRoutingTask?
 
     let finder: AnyFinder?
 
@@ -47,7 +47,7 @@ class FinalRoutingStep: RoutingStep, DefaultRouterStep {
         self.interceptor = interceptor
     }
 
-    public func perform(with arguments: Any?) -> StepResult {
+    func perform(with arguments: Any?) -> StepResult {
         guard let viewController = finder?.findViewController(with: arguments) else  {
             return .continueRouting(factory)
         }

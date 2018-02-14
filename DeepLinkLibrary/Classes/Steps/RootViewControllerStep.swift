@@ -6,14 +6,12 @@
 import UIKit
 
 /// Returns root view controller of the window.
-public class RootViewControllerStep: RoutingStep {
-
-    public let previousStep: RoutingStep? = nil
+public class RootViewControllerStep: PerformableStep {
 
     public init() {
     }
 
-    public func perform(with arguments: Any?) -> StepResult {
+    func perform(with arguments: Any?) -> StepResult {
         return StepResult(UIWindow.key?.rootViewController)
     }
 

@@ -8,20 +8,17 @@ import UIKit
 
 extension UITabBarController: ContainerViewController {
 
-    @discardableResult
-    public func makeVisible(viewController: UIViewController, animated: Bool) -> UIViewController? {
+    public func makeVisible(viewController: UIViewController, animated: Bool){
         guard let viewControllers = self.viewControllers else {
-            return nil
+            return
         }
 
         for vc in viewControllers {
             if vc == viewController {
                 self.selectedViewController = vc
-                return vc
+                return
             }
         }
-
-        return nil
     }
 }
 

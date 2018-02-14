@@ -5,15 +5,13 @@
 
 import UIKit
 
-/// - getPresentationViewController: Returns topmost presented view controller.
-public class TopMostViewControllerStep: RoutingStep {
+/// Returns topmost presented view controller.
+public class TopMostViewControllerStep: PerformableStep {
 
-    public var previousStep: RoutingStep? = nil
-    
     public init() {
     }
 
-    public func perform(with arguments: Any?) -> StepResult {
+    func perform(with arguments: Any?) -> StepResult {
         let window = UIWindow.key
         return StepResult(window?.topmostViewController)
     }

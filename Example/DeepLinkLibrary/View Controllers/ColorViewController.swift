@@ -48,7 +48,7 @@ class ColorViewControllerFactory: Factory {
         return colorViewController
     }
 
-    func prepare(with arguments: A?) -> RoutingResult {
+    func prepare(with arguments: A?, logger: Logger?) -> RoutingResult {
         guard let arguments = arguments,
               let model = arguments[Argument.color] as? ColorViewController.ColorDisplayModel else {
             return .unhandled
