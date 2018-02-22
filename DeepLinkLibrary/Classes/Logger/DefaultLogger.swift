@@ -6,9 +6,13 @@ import Foundation
 import os.log
 
 public enum DefaultLoggerLevel {
+
     case verbose
+
     case warnings
+
     case errors
+
 }
 
 public class DefaultLogger: Logger {

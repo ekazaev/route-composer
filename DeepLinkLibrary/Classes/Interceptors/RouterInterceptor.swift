@@ -12,6 +12,6 @@ public protocol RouterInterceptor {
 
     associatedtype Context
 
-    func execute(with context: Context?, logger: Logger?, completion: @escaping (_: InterceptorResult) -> Void)
+    func execute(with context: Context?, completion: @escaping (_: InterceptorResult) -> Void)
 
 }

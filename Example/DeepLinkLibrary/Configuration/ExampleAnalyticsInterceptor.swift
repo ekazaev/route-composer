@@ -14,7 +14,7 @@ class ExampleAnalyticsInterceptor: RouterInterceptor {
     // We have to set source in interceptor and not in post action because by the time routing happened, source
     // UIViewController may not exist any more. We do not want to keep any strong reference to it and prevent it's
     // normal life cycle, so we will use it's parameters in analytics before any routing happen.
-    func execute(with context: Context?, logger: Logger?, completion: @escaping (InterceptorResult) -> Void) {
+    func execute(with context: Context?, completion: @escaping (InterceptorResult) -> Void) {
         guard context?.analyticParameters == nil,
               let viewController = UIWindow.key?.rootViewController?.topmostNonContainerViewController as? AnalyticsSupportViewController else {
             completion(.success)

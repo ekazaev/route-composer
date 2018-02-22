@@ -7,33 +7,32 @@ import UIKit
 
 public class AddTabAction: TabBarControllerFactoryAction {
 
-    let tabIndex:Int?
+    let tabIndex: Int?
 
     let replacing: Bool
 
-    public init(at tabIndex:Int? = nil, replacing: Bool = false) {
+    public init(at tabIndex: Int? = nil, replacing: Bool = false) {
         self.tabIndex = tabIndex
         self.replacing = replacing
     }
 
-    public func performMerged(viewController: UIViewController, containerViewControllers: inout [UIViewController], logger: Logger?) {
-        processViewController(viewController: viewController, containerViewControllers: &containerViewControllers, logger: logger)
+    public func performMerged(viewController: UIViewController, containerViewControllers: inout [UIViewController]) -> ActionResult {
+        return processViewController(viewController: viewController, containerViewControllers: &containerViewControllers)
     }
 
-    public func perform(viewController: UIViewController, on existingController: UIViewController, animated: Bool, logger: Logger?, completion: @escaping(_: ActionResult) -> Void) {
+    public func perform(viewController: UIViewController, on existingController: UIViewController, animated: Bool, completion: @escaping(_: ActionResult) -> Void) {
         guard let tv = existingController as? UITabBarController ?? existingController.tabBarController else {
-            logger?.log(.error("Could not find UITabBarController in \(existingController) to present view controller \(viewController)."))
-            return completion(.failure)
+            return completion(.failure("Could not find UITabBarController in \(existingController) to present view controller \(viewController)."))
         }
 
         var tabViewControllers = tv.viewControllers ?? []
-        processViewController(viewController: viewController, containerViewControllers: &tabViewControllers, logger: logger)
+        let result = processViewController(viewController: viewController, containerViewControllers: &tabViewControllers)
         tv.setViewControllers(tabViewControllers, animated: animated)
 
-        return completion(.continueRouting)
+        return completion(result)
     }
 
-    private func processViewController(viewController: UIViewController, containerViewControllers: inout [UIViewController], logger: Logger?) {
+    private func processViewController(viewController: UIViewController, containerViewControllers: inout [UIViewController]) -> ActionResult {
         if let tabIndex = tabIndex, tabIndex < containerViewControllers.count {
             if replacing {
                 containerViewControllers[tabIndex] = viewController
@@ -43,6 +42,7 @@ public class AddTabAction: TabBarControllerFactoryAction {
         } else {
             containerViewControllers.append(viewController)
         }
+        return .continueRouting
     }
 
 }

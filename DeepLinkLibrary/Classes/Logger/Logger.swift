@@ -7,9 +7,13 @@ import Foundation
 import UIKit
 
 public enum LoggerMessage {
+
     case info(String)
+
     case warning(String)
+
     case error(String)
+
 }
 
 public protocol Logger {

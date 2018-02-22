@@ -4,12 +4,12 @@
 
 import Foundation
 
-public enum FactoryResult {
+public enum FactoryPreparationResult {
 
     /** Factory will be able to build its view controller with a context provided. */
-    case continueRouting
+    case success
 
     /** Factory will not be able to build view controller with a context provided. Routing should not continue */
-    case failure
+    case failure(String?)
 
 }

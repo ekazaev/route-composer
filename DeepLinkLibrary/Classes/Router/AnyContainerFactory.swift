@@ -25,16 +25,15 @@ class ContainerFactoryBox<F: Factory&ContainerFactory>: AnyFactory, AnyContainer
         return factory.merge(factories)
     }
 
-    func prepare(with context: Any?, logger: Logger?) -> FactoryResult {
+    func prepare(with context: Any?) -> FactoryPreparationResult {
         guard let typedContext = context as? F.Context? else {
-            logger?.log(.warning("\(String(describing:factory)) does not accept \(String(describing: context)) as a context."))
-            return .failure
+            return .failure("\(String(describing:factory)) does not accept \(String(describing: context)) as a context.")
         }
-        return factory.prepare(with: typedContext, logger: logger)
+        return factory.prepare(with: typedContext)
     }
 
-    func build(with logger: Logger?) -> UIViewController? {
-        return factory.build(logger: logger)
+    func build() -> FactoryBuildResult {
+        return factory.build()
     }
 }
 

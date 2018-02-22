@@ -12,7 +12,7 @@ class InterceptorMultiplexer: AnyRouterInterceptor {
         self.interceptors = interceptors
     }
 
-    func execute(with context: Any?, logger: Logger?, completion: @escaping (InterceptorResult) -> Void) {
+    func execute(with context: Any?, completion: @escaping (InterceptorResult) -> Void) {
         guard self.interceptors.count > 0 else {
             completion(.success)
             return
@@ -21,9 +21,8 @@ class InterceptorMultiplexer: AnyRouterInterceptor {
         var interceptors = self.interceptors
 
         func runInterceptor(interceptor: AnyRouterInterceptor) {
-            interceptor.execute(with: context, logger: logger) { result in
-                if result == .failure {
-                    logger?.log(.warning("\(interceptor) interceptor has stopped routing."))
+            interceptor.execute(with: context) { result in
+                if case .failure(_) = result  {
                     completion(result)
                 } else if interceptors.count == 0 {
                     completion(result)

@@ -45,24 +45,23 @@ public class SplitControllerFactory: ContainerFactory {
         return rest
     }
 
-    public func build(logger: Logger?) -> ViewController? {
+    public func build() -> FactoryBuildResult {
         guard masterFactories.count > 0, detailFactories.count > 0 else {
-            return nil
+            return .failure("No master or derails view controllers provided")
         }
 
         let splitController = UISplitViewController(nibName: nil, bundle: nil)
 
         var masterViewControllers = Array<UIViewController>()
         self.masterFactories.forEach { factory in
-            guard let viewController = factory.build(with: logger) else {
+            guard case let .success(viewController) = factory.build() else {
                 return
             }
-            factory.action.performMerged(viewController: viewController, containerViewControllers: &masterViewControllers, logger: logger)
+            factory.action.performMerged(viewController: viewController, containerViewControllers: &masterViewControllers)
         }
 
         guard masterViewControllers.count > 0 else {
-            logger?.log(.error("Master View Controller is mandatory to build UISplitViewController"))
-            return nil
+            return .failure("Master View Controller is mandatory to build UISplitViewController")
         }
         let masterViewController = masterViewControllers.removeFirst()
 
@@ -70,20 +69,19 @@ public class SplitControllerFactory: ContainerFactory {
         var detailsViewControllers = Array<UIViewController>()
         detailsViewControllers.append(contentsOf: masterViewControllers)
         self.detailFactories.forEach { factory in
-            guard let viewController = factory.build(with: logger) else {
+            guard  case let .success(viewController) = factory.build() else {
                 return
             }
-            factory.action.performMerged(viewController: viewController, containerViewControllers: &detailsViewControllers, logger: logger)
+            factory.action.performMerged(viewController: viewController, containerViewControllers: &detailsViewControllers)
         }
 
         guard detailsViewControllers.count > 0 else {
-            logger?.log(.error("At least 1 Details View Controller is mandatory to build UISplitViewController"))
-            return nil
+            return .failure("At least 1 Details View Controller is mandatory to build UISplitViewController")
         }
 
         var controllers = [masterViewController]
         controllers.append(contentsOf: detailsViewControllers)
         splitController.viewControllers = controllers
-        return splitController
+        return .success(splitController)
     }
 }

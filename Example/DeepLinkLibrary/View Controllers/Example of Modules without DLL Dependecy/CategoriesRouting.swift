@@ -9,9 +9,9 @@ import UIKit
 
 class PushChildCategoryAction: Action {
 
-    func perform(viewController: UIViewController, on existingController: UIViewController, animated: Bool, logger: Logger?, completion: @escaping (ActionResult) -> Void) {
+    func perform(viewController: UIViewController, on existingController: UIViewController, animated: Bool, completion: @escaping (ActionResult) -> Void) {
         guard let categoriesViewController = existingController as? CategoriesViewController else {
-            return completion(.failure)
+            return completion(.failure("Can not find CategoriesViewController to set a child."))
         }
 
         let currentViewController = categoriesViewController.childViewControllers.first
@@ -79,16 +79,16 @@ class CategoriesFactory: ContextSavingFactory {
         self.delegate = delegate
     }
 
-    func build(logger: Logger?) -> ViewController? {
+    func build() -> FactoryBuildResult {
         guard let categoriesViewController = UIStoryboard(name: "Categories", bundle: nil).instantiateInitialViewController() as? ViewController else {
-            return nil
+            return .failure(nil)
         }
 
         categoriesViewController.categoryId = context?.categoryId
         categoriesViewController.delegate = delegate
         categoriesViewController.fetcher = fetcher
 
-        return categoriesViewController
+        return .success(categoriesViewController)
     }
 
 }

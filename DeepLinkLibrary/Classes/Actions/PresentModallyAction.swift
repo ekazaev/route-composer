@@ -19,10 +19,9 @@ public class PresentModallyAction: Action {
         self.transitioningDelegate = transitioningDelegate
     }
 
-    public func perform(viewController: UIViewController, on existingController: UIViewController, animated: Bool, logger: Logger?, completion: @escaping (_: ActionResult) -> Void) {
+    public func perform(viewController: UIViewController, on existingController: UIViewController, animated: Bool, completion: @escaping (_: ActionResult) -> Void) {
         guard existingController.presentedViewController == nil else {
-            logger?.log(.error("Could not present modally \(viewController) from \(existingController) because it has already presented a view controller."))
-            completion(.failure)
+            completion(.failure("\(existingController) has already presented view controller."))
             return
         }
         viewController.modalPresentationStyle = presentationStyle

@@ -16,12 +16,12 @@ public protocol ContextSavingFactory: Factory {
 
 public extension ContextSavingFactory {
 
-    public func prepare(with context: Context?, logger: Logger?) -> RoutingResult {
+    public func prepare(with context: Context?) -> FactoryPreparationResult {
         guard let context = context else {
-            return .unhandled
+            return .failure("Unable to prepare factory \(String(describing: self)) for routing as provided context is nil.")
         }
         self.context = context
-        return .handled
+        return .success
     }
 
 }

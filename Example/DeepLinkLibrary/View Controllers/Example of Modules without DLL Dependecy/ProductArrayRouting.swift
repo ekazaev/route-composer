@@ -45,14 +45,14 @@ class ProductArrayFactory: ContextSavingFactory {
         self.fetcher = fetcher
     }
 
-    func build(logger: Logger?) -> ViewController? {
+    func build() -> FactoryBuildResult {
         let storyboard = UIStoryboard(name: "ProductArray", bundle: nil)
         guard let viewController = storyboard.instantiateInitialViewController() as? ViewController else {
-            return nil
+            return .failure(nil)
         }
         viewController.fetcher = fetcher
         viewController.categoryId = context?.categoryId
-        return viewController
+        return .success(viewController)
     }
 
 }

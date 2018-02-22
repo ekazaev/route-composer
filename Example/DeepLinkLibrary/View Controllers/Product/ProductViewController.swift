@@ -45,15 +45,15 @@ class ProductViewControllerFactory: ContextSavingFactory {
         self.action = action
     }
 
-    func build(logger: Logger?) -> ViewController? {
+    func build() -> FactoryBuildResult {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let viewController = storyboard.instantiateViewController(withIdentifier: "ProductViewController") as? ViewController else {
-            return nil
+            return .failure(nil)
         }
 
         viewController.productId = context?.productId
 
-        return viewController
+        return .success(viewController)
     }
 
 }

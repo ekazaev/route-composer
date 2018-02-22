@@ -44,14 +44,14 @@ class ColorViewControllerFactory: Factory {
         self.action = action
     }
 
-    func build(logger: Logger?) -> ViewController? {
+    func build() -> FactoryBuildResult {
         let colorViewController = ColorViewController(nibName: nil, bundle: nil)
         colorViewController.colorHex = context
 
-        return colorViewController
+        return .success(colorViewController)
     }
 
-    func prepare(with context: Context?, logger: Logger?) -> RoutingResult {
+    func prepare(with context: Context?) -> RoutingResult {
         guard let context = context,
               let model = context[Argument.color] as? ColorViewController.ColorDisplayModel else {
             return .unhandled

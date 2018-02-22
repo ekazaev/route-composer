@@ -18,22 +18,25 @@ public class FinderFactory<F: Finder>: Factory {
 
     public var action: Action
 
-    let finder: F?
+    let finder: F
 
     var context: Context?
 
-    public init(finder: F?, action: Action = NilAction()) {
+    public init(finder: F, action: Action = NilAction()) {
         self.finder = finder
         self.action = action
     }
 
-    public func prepare(with context: Context?, logger: Logger?) -> RoutingResult {
+    public func prepare(with context: Context?) -> RoutingResult {
         self.context = context
         return .handled
     }
 
-    public func build(logger: Logger?) -> ViewController? {
-        return finder?.findViewController(with: context)
+    public func build() -> FactoryBuildResult {
+        if let viewController = finder.findViewController(with: context) {
+            return .success(viewController)
+        }
+        return .failure("Finder \(String(describing: finder)) not found its view controller in stack.")
     }
 
 }

@@ -25,25 +25,25 @@ public class TabBarControllerFactory: MergingContainerFactory {
         self.action = action
     }
 
-    open func build(logger: Logger?) -> ViewController? {
+    open func build() -> FactoryBuildResult {
         guard factories.count > 0 else {
-            return nil
+            return .failure("No child view controllers provided.")
         }
 
         let tabBarController = UITabBarController()
 
         var viewControllers: [UIViewController] = []
         self.factories.forEach { factory in
-            guard let viewController = factory.build(with: logger) else {
+            guard case let .success(viewController) = factory.build() else {
                 return
             }
-            factory.action.performMerged(viewController: viewController, containerViewControllers: &viewControllers, logger: logger)
+            factory.action.performMerged(viewController: viewController, containerViewControllers: &viewControllers)
         }
 
         if viewControllers.count > 0 {
             tabBarController.viewControllers = viewControllers
         }
 
-        return tabBarController
+        return .success(tabBarController)
     }
 }

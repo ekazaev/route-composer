@@ -20,8 +20,8 @@ public class NilFactory<VC: UIViewController, C>: Factory {
         self.action = NilAction()
     }
 
-    public func build(logger: Logger?) -> ViewController? {
-        return nil
+    public func build() -> FactoryBuildResult {
+        return .failure("This factory should never reach router.")
     }
     
 }

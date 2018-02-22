@@ -46,14 +46,15 @@ public class DefaultRouter: Router {
         }
 
         // Execute interceptors associated to the each view in the chain. All of interceptors must succeed to continue routing.
-        interceptor.execute(with: destination.context, logger: logger) { [weak viewController] result in
-            guard result == .success else {
+        interceptor.execute(with: destination.context) { [weak viewController] result in
+            if case let .failure(message) = result {
+                self.logger?.log(.warning(message ?? "\(interceptor) interceptor has stopped routing."))
                 completion?(false)
                 return
             }
 
             guard let viewController = viewController else {
-                self.logger?.log(.error("View controller that been chosen as a starting point of rooting been " +
+                self.logger?.log(.warning("View controller that been chosen as a starting point of rooting been " +
                         "destroyed while router was waiting for interceptor's result."))
                 completion?(false)
                 return
@@ -104,7 +105,7 @@ public class DefaultRouter: Router {
                 logger?.log(.info("Step \(String(describing: currentStep!)) has not found its view controller is stack, so router will continue search."))
 
                 // If view controller has not been found, but step has a factory to build itself - add factory to the stack
-                if rootViewController == nil{
+                if rootViewController == nil {
                     // If step contain an action that needs to be done, add it in the interceptors array
                     if let interceptor = interceptableStep?.interceptor {
                         interceptors.append(interceptor)
@@ -123,8 +124,8 @@ public class DefaultRouter: Router {
 
                         // If some factory can not prepare itself (e.g. does not have enough data in context) then deep link stack
                         // can not be built
-                        if factory.prepare(with: destination.context, logger: logger) == .failure {
-                            logger?.log(.error("Factory \(String(describing: factory)) could not prepare itself to build its view controller."))
+                        if case let .failure(message) = factory.prepare(with: destination.context) {
+                            logger?.log(.error(message ?? "Factory \(String(describing: factory)) could not prepare itself to build its view controller."))
                             return nil
                         }
 
@@ -208,11 +209,13 @@ public class DefaultRouter: Router {
             if let factory = factory as? FactoryDecorator {
                 factoryToLog = factory.factory
             }
-            if let newViewController = factory.build(with: logger) {
+
+            switch factory.build() {
+            case .success(let newViewController):
                 logger?.log(.info("Factory \(String(describing: factoryToLog)) has built a \(String(describing: newViewController))."))
-                factory.action.perform(viewController: newViewController, on: previousViewController, animated: animated, logger: self.logger) { result in
-                    guard result == .continueRouting else {
-                        self.logger?.log(.error("Action \(String(describing: factory.action)) has stopped routing as it was not able to build a view controller in to a stack."))
+                factory.action.perform(viewController: newViewController, on: previousViewController, animated: animated) { result in
+                    if case let .failure(message) = result {
+                        self.logger?.log(.error(message ?? "Action \(String(describing: factory.action)) has stopped routing as it was not able to build a view controller in to a stack."))
                         completion(newViewController)
                         return
                     }
@@ -222,9 +225,11 @@ public class DefaultRouter: Router {
                     }
                     buildViewController(factories.removeFirst(), newViewController)
                 }
-            } else {
-                logger?.log(.warning("Factory \(String(describing: factoryToLog)) has not built any view controller."))
+                break
+            case .failure(let message):
+                logger?.log(.error(message ?? "Factory \(String(describing: factoryToLog)) has not built any view controller."))
                 completion(previousViewController)
+                break
             }
         }
 
@@ -276,18 +281,16 @@ public class DefaultRouter: Router {
             self.postTask = postTask
         }
 
-        func prepare(with context: Any?, logger: Logger?) -> FactoryResult {
-            return factory.prepare(with: context, logger: logger)
+        func prepare(with context: Any?) -> FactoryPreparationResult {
+            return factory.prepare(with: context)
         }
 
-        func build(with logger: Logger?) -> UIViewController? {
-            guard let viewController = factory.build(with: logger) else {
-                return nil
-            }
-            if let postTask = postTask {
+        func build() -> FactoryBuildResult {
+            let result = factory.build()
+            if case let .success(viewController) = result, let postTask = postTask {
                 postTaskRunner?.taskSlips.append(PostTaskSlip(viewController: viewController, postTask: postTask))
             }
-            return viewController
+            return result
         }
 
     }

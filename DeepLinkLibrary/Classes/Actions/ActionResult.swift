@@ -13,6 +13,6 @@ public enum ActionResult {
     case continueRouting
 
     /** Action was able to build view controller in to stack. Routing should not continue */
-    case failure
+    case failure(String?)
 
 }

@@ -13,6 +13,6 @@ public enum InterceptorResult {
     case success
     
     /// Interceptor finished its task with failure. Router should stop deep linking.
-    case failure
+    case failure(String?)
     
 }

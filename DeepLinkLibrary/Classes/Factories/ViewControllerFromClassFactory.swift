@@ -20,13 +20,12 @@ public class ViewControllerFromClassFactory<VC: UIViewController, C>: Factory {
         self.viewControllerName = viewControllerName
     }
 
-    public func build(logger: Logger?) -> ViewController? {
+    public func build() -> FactoryBuildResult {
         guard let myClass = NSClassFromString(self.viewControllerName) as? ViewController.Type else {
-            logger?.log(.error("Can not find \(self.viewControllerName) in bundle"))
-            return nil
+            return .failure("Can not find \(self.viewControllerName) in bundle")
         }
 
-        return  myClass.init(nibName: nil, bundle: nil)
+        return .success(myClass.init(nibName: nil, bundle: nil))
     }
 
 }

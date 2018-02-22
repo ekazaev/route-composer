@@ -14,7 +14,7 @@ class LoginInterceptor: RouterInterceptor {
 
     typealias Context = Any
 
-    func execute(with context: Context?, logger: Logger?, completion: @escaping (_: InterceptorResult) -> Void) {
+    func execute(with context: Context?, completion: @escaping (_: InterceptorResult) -> Void) {
         guard !isLoggedIn else {
             completion(.success)
             return
@@ -27,7 +27,7 @@ class LoginInterceptor: RouterInterceptor {
         let destination = LoginConfiguration.login()
         let result = DefaultRouter(logger: DefaultLogger(.warnings)).deepLinkTo(destination: destination) { success in
             guard success, let viewController = LoginViewControllerFinder().findViewController(with: nil) else {
-                completion(.failure)
+                completion(.failure("LoginViewController not found."))
                 return
             }
 
@@ -35,7 +35,7 @@ class LoginInterceptor: RouterInterceptor {
         }
 
         if result == .unhandled {
-            completion(.failure)
+            completion(.failure(nil))
         }
     }
 
@@ -80,7 +80,7 @@ class LoginViewController: UIViewController, AnalyticsSupportViewController {
                 return
             }
 
-            completion(.failure)
+            completion(.failure("New completion block was set. Previous routing should not continue."))
         }
     }
 
@@ -118,7 +118,7 @@ class LoginViewController: UIViewController, AnalyticsSupportViewController {
     }
 
     @IBAction func closeTapped() {
-        interceptorCompletionBlock?(.failure)
+        interceptorCompletionBlock?(.failure("User tapped close button."))
         self.dismiss(animated: true)
     }
 

@@ -11,15 +11,15 @@ public class PresentMasterAction: SplitViewControllerMasterAction {
     public init() {
     }
 
-    public func performMerged(viewController: UIViewController, containerViewControllers: inout [UIViewController], logger: Logger?) {
+    public func performMerged(viewController: UIViewController, containerViewControllers: inout [UIViewController]) -> ActionResult {
         containerViewControllers.append(viewController)
+        return .continueRouting
     }
 
-    public func perform(viewController: UIViewController, on existingController: UIViewController, animated: Bool, logger: Logger?, completion: @escaping (_: ActionResult) -> Void) {
+    public func perform(viewController: UIViewController, on existingController: UIViewController, animated: Bool, completion: @escaping (_: ActionResult) -> Void) {
         guard let splitViewController = existingController as? UISplitViewController ?? existingController.splitViewController,
               splitViewController.viewControllers.count > 0 else {
-            logger?.log(.error("Could not find UISplitViewController in \(existingController) to present master view controller \(viewController)."))
-            completion(.failure)
+            completion(.failure("Could not find UISplitViewController in \(existingController) to present master view controller \(viewController)."))
             return
         }
 
