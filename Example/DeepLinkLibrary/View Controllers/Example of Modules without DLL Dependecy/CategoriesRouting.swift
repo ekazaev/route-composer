@@ -59,7 +59,7 @@ class CategoriesFinder: FinderWithPolicy {
     }
 }
 
-class CategoriesFactory: ContextSavingFactory {
+class CategoriesFactory: MandatoryContextFactory {
 
     public typealias ViewController = CategoriesViewController
 
@@ -69,8 +69,6 @@ class CategoriesFactory: ContextSavingFactory {
 
     let fetcher: CategoriesFetching
 
-    var context: Context?
-
     weak var delegate: CategoriesViewControllerDelegate?
 
     init(delegate: CategoriesViewControllerDelegate, fetcher: CategoriesFetching, action: Action) {
@@ -79,12 +77,12 @@ class CategoriesFactory: ContextSavingFactory {
         self.delegate = delegate
     }
 
-    func build() -> FactoryBuildResult {
+    func build(with context: Context) -> FactoryBuildResult {
         guard let categoriesViewController = UIStoryboard(name: "Categories", bundle: nil).instantiateInitialViewController() as? ViewController else {
             return .failure(nil)
         }
 
-        categoriesViewController.categoryId = context?.categoryId
+        categoriesViewController.categoryId = context.categoryId
         categoriesViewController.delegate = delegate
         categoriesViewController.fetcher = fetcher
 

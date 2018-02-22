@@ -38,15 +38,15 @@ class ColorViewControllerFactory: Factory {
 
     let action: Action
 
-    var context: ColorViewController.ColorDisplayModel?
+    var model: ColorViewController.ColorDisplayModel?
 
     init(action: Action) {
         self.action = action
     }
 
-    func build() -> FactoryBuildResult {
+    func build(with context: Context?) -> FactoryBuildResult {
         let colorViewController = ColorViewController(nibName: nil, bundle: nil)
-        colorViewController.colorHex = context
+        colorViewController.colorHex = model
 
         return .success(colorViewController)
     }
@@ -57,7 +57,7 @@ class ColorViewControllerFactory: Factory {
             return .unhandled
         }
 
-        self.context = model
+        self.model = model
         return .handled
     }
 }

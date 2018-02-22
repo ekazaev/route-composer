@@ -31,7 +31,7 @@ class ProductViewControllerFinder: FinderWithPolicy {
 
 }
 
-class ProductViewControllerFactory: ContextSavingFactory {
+class ProductViewControllerFactory: MandatoryContextFactory {
 
     typealias ViewController = ProductViewController
 
@@ -39,19 +39,17 @@ class ProductViewControllerFactory: ContextSavingFactory {
 
     let action: Action
 
-    var context: Context?
-
     init(action: Action) {
         self.action = action
     }
 
-    func build() -> FactoryBuildResult {
+    func build(with context: Context) -> FactoryBuildResult {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let viewController = storyboard.instantiateViewController(withIdentifier: "ProductViewController") as? ViewController else {
             return .failure(nil)
         }
 
-        viewController.productId = context?.productId
+        viewController.productId = context.productId
 
         return .success(viewController)
     }

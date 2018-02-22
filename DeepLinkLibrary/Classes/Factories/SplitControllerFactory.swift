@@ -45,7 +45,7 @@ public class SplitControllerFactory: ContainerFactory {
         return rest
     }
 
-    public func build() -> FactoryBuildResult {
+    public func build(with context: Context?) -> FactoryBuildResult {
         guard masterFactories.count > 0, detailFactories.count > 0 else {
             return .failure("No master or derails view controllers provided")
         }
@@ -54,7 +54,7 @@ public class SplitControllerFactory: ContainerFactory {
 
         var masterViewControllers = Array<UIViewController>()
         self.masterFactories.forEach { factory in
-            guard case let .success(viewController) = factory.build() else {
+            guard case let .success(viewController) = factory.build(with: context) else {
                 return
             }
             factory.action.performMerged(viewController: viewController, containerViewControllers: &masterViewControllers)
@@ -69,7 +69,7 @@ public class SplitControllerFactory: ContainerFactory {
         var detailsViewControllers = Array<UIViewController>()
         detailsViewControllers.append(contentsOf: masterViewControllers)
         self.detailFactories.forEach { factory in
-            guard  case let .success(viewController) = factory.build() else {
+            guard  case let .success(viewController) = factory.build(with: context) else {
                 return
             }
             factory.action.performMerged(viewController: viewController, containerViewControllers: &detailsViewControllers)

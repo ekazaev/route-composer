@@ -23,7 +23,7 @@ public protocol Factory: class {
     /// and the result of routing will be .unhandled without any changes in view controller stack.
     func prepare(with context: Context?) -> FactoryPreparationResult
 
-    func build() -> FactoryBuildResult
+    func build(with context: Context?) -> FactoryBuildResult
 
 }
 

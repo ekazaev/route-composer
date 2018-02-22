@@ -60,7 +60,7 @@ public class DefaultRouter: Router {
                 return
             }
 
-            self.startDeepLinking(viewController: viewController, animated: animated, factories: factoriesStack) { viewController in
+            self.startDeepLinking(viewController: viewController, context: destination.context, animated: animated, factories: factoriesStack) { viewController in
                 self.makeContainersActive(toShow: viewController, animated: animated)
                 postTaskRunner.run(for: destination)
                 completion?(true)
@@ -173,12 +173,12 @@ public class DefaultRouter: Router {
         return nil
     }
 
-    private func startDeepLinking(viewController: UIViewController, animated: Bool, factories: [AnyFactory], completion: @escaping ((_: UIViewController) -> Void)) {
+    private func startDeepLinking(viewController: UIViewController, context: Any?, animated: Bool, factories: [AnyFactory], completion: @escaping ((_: UIViewController) -> Void)) {
         // If we found a view controller to start from - lets close all the presented view controllers above to be able
         // to build a new stack if needed.
         // We already checked that they can be dismissed.
         viewController.dismissAllPresentedControllers(animated: animated) {
-            self.runViewControllerBuildStack(rootViewController: viewController, factories: factories, animated: animated) { viewController in
+            self.runViewControllerBuildStack(rootViewController: viewController, context: context, factories: factories, animated: animated) { viewController in
                 completion(viewController)
             }
         }
@@ -187,7 +187,7 @@ public class DefaultRouter: Router {
     // This function loops through the list of factories and build views in sequence.
     // Because some actions can be asynchronous, like push, modal or presentations,
     // it builds asynchronously
-    private func runViewControllerBuildStack(rootViewController: UIViewController, factories: [AnyFactory], animated: Bool, completion: @escaping ((_: UIViewController) -> Void)) {
+    private func runViewControllerBuildStack(rootViewController: UIViewController, context: Any?, factories: [AnyFactory], animated: Bool, completion: @escaping ((_: UIViewController) -> Void)) {
         guard factories.count > 0 else {
             completion(rootViewController)
             return
@@ -210,7 +210,7 @@ public class DefaultRouter: Router {
                 factoryToLog = factory.factory
             }
 
-            switch factory.build() {
+            switch factory.build(with: context) {
             case .success(let newViewController):
                 logger?.log(.info("Factory \(String(describing: factoryToLog)) has built a \(String(describing: newViewController))."))
                 factory.action.perform(viewController: newViewController, on: previousViewController, animated: animated) { result in
@@ -285,8 +285,8 @@ public class DefaultRouter: Router {
             return factory.prepare(with: context)
         }
 
-        func build() -> FactoryBuildResult {
-            let result = factory.build()
+        func build(with context: Any?) -> FactoryBuildResult {
+            let result = factory.build(with: context)
             if case let .success(viewController) = result, let postTask = postTask {
                 postTaskRunner?.taskSlips.append(PostTaskSlip(viewController: viewController, postTask: postTask))
             }

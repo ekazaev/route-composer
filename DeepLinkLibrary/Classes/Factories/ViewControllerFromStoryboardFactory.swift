@@ -23,7 +23,7 @@ public class ViewControllerFromStoryboard<VC: UIViewController, C>: Factory {
         self.viewControllerID = viewControllerID
     }
 
-    public func build() -> FactoryBuildResult {
+    public func build(with context: Context?) -> FactoryBuildResult {
         let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
         if let viewControllerID = viewControllerID {
             guard let viewController = storyboard.instantiateViewController(withIdentifier: viewControllerID) as? VC else {

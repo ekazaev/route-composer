@@ -28,15 +28,13 @@ class ProductArrayFinder: FinderWithPolicy {
     }
 }
 
-class ProductArrayFactory: ContextSavingFactory {
+class ProductArrayFactory: MandatoryContextFactory {
 
     typealias ViewController = ProductArrayViewController
 
     typealias Context = ProductArrayContext
 
     let action: Action
-
-    var context: Context?
 
     let fetcher: ProductArrayProductFetching
 
@@ -45,13 +43,13 @@ class ProductArrayFactory: ContextSavingFactory {
         self.fetcher = fetcher
     }
 
-    func build() -> FactoryBuildResult {
+    func build(with context: Context) -> FactoryBuildResult {
         let storyboard = UIStoryboard(name: "ProductArray", bundle: nil)
         guard let viewController = storyboard.instantiateInitialViewController() as? ViewController else {
             return .failure(nil)
         }
         viewController.fetcher = fetcher
-        viewController.categoryId = context?.categoryId
+        viewController.categoryId = context.categoryId
         return .success(viewController)
     }
 

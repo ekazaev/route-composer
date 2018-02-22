@@ -25,7 +25,7 @@ open class NavigationControllerFactory: MergingContainerFactory {
         self.action = action
     }
 
-    open func build() -> FactoryBuildResult {
+    open func build(with context: Context?) -> FactoryBuildResult {
         guard factories.count > 0 else {
             return .failure("Unable to build UINavigationController due to 0 amount of child factories")
         }
@@ -34,7 +34,7 @@ open class NavigationControllerFactory: MergingContainerFactory {
 
         var viewControllers: [UIViewController] = []
         self.factories.forEach { factory in
-            guard case let .success(viewController) = factory.build() else {
+            guard case let .success(viewController) = factory.build(with: context) else {
                 return
             }
             factory.action.performMerged(viewController: viewController, containerViewControllers: &viewControllers)

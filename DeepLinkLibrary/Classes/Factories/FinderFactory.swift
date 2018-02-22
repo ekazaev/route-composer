@@ -20,19 +20,12 @@ public class FinderFactory<F: Finder>: Factory {
 
     let finder: F
 
-    var context: Context?
-
     public init(finder: F, action: Action = NilAction()) {
         self.finder = finder
         self.action = action
     }
 
-    public func prepare(with context: Context?) -> RoutingResult {
-        self.context = context
-        return .handled
-    }
-
-    public func build() -> FactoryBuildResult {
+    public func build(with context: Context?) -> FactoryBuildResult {
         if let viewController = finder.findViewController(with: context) {
             return .success(viewController)
         }

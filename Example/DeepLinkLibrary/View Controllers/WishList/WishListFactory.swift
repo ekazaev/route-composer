@@ -7,7 +7,7 @@ import Foundation
 import UIKit
 import DeepLinkLibrary
 
-class WishListFactory: ContextSavingFactory {
+class WishListFactory: MandatoryContextFactory {
 
     typealias ViewController = WishListViewController
 
@@ -15,16 +15,13 @@ class WishListFactory: ContextSavingFactory {
 
     let action: Action
 
-    var context: Context? = WishListContext(content: .favorites)
-
     init(action: Action) {
         self.action = action
     }
 
-    func build() -> FactoryBuildResult {
+    func build(with context: Context) -> FactoryBuildResult {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        guard let viewController = storyboard.instantiateViewController(withIdentifier: "WishListViewController") as? ViewController,
-              let context = context else {
+        guard let viewController = storyboard.instantiateViewController(withIdentifier: "WishListViewController") as? ViewController else {
             return .failure(nil)
         }
         viewController.content = context.content

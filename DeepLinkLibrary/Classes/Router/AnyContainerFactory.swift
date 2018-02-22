@@ -32,8 +32,11 @@ class ContainerFactoryBox<F: Factory&ContainerFactory>: AnyFactory, AnyContainer
         return factory.prepare(with: typedContext)
     }
 
-    func build() -> FactoryBuildResult {
-        return factory.build()
+    func build(with context: Any?) -> FactoryBuildResult {
+        guard let typedContext = context as? F.Context? else {
+            return .failure("\(String(describing:factory)) does not accept \(String(describing: context)) as a context.")
+        }
+        return factory.build(with: typedContext)
     }
 }
 
