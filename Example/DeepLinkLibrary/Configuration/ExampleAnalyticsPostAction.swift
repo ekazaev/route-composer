@@ -9,11 +9,11 @@ import DeepLinkLibrary
 
 class ExampleAnalyticsPostAction: PostRoutingTask {
 
-    typealias V = UIViewController
+    typealias ViewController = UIViewController
 
-    typealias C = ExampleContext
+    typealias Context = ExampleContext
 
-    func execute(on viewController: V, with context: C?, routingStack: [UIViewController]) {
+    func execute(on viewController: ViewController, with context: Context?, routingStack: [UIViewController]) {
         guard let lastViewController = routingStack.last,
               viewController == lastViewController,
               let source = context?.analyticParameters?.source else {

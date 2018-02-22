@@ -12,9 +12,9 @@ var isLoggedIn: Bool = false
 
 class LoginInterceptor: RouterInterceptor {
 
-    typealias C = Any
+    typealias Context = Any
 
-    func execute(with context: C?, logger: Logger?, completion: @escaping (_: InterceptorResult) -> Void) {
+    func execute(with context: Context?, logger: Logger?, completion: @escaping (_: InterceptorResult) -> Void) {
         guard !isLoggedIn else {
             completion(.success)
             return
@@ -43,9 +43,9 @@ class LoginInterceptor: RouterInterceptor {
 
 class LoginViewControllerFinder: FinderWithPolicy {
 
-    typealias V = LoginViewController
+    typealias ViewController = LoginViewController
 
-    typealias C = Any
+    typealias Context = Any
 
     let policy: FinderPolicy
 
@@ -53,7 +53,7 @@ class LoginViewControllerFinder: FinderWithPolicy {
         self.policy = policy
     }
 
-    func isTarget(viewController: V, context: C?) -> Bool {
+    func isTarget(viewController: ViewController, context: Context?) -> Bool {
         return true
     }
 

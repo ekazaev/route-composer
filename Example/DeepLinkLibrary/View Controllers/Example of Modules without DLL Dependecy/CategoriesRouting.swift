@@ -44,8 +44,8 @@ class PushChildCategoryAction: Action {
 
 class CategoriesFinder: FinderWithPolicy {
 
-    public typealias V = CategoriesViewController
-    public typealias C = CategoriesContext
+    public typealias ViewController = CategoriesViewController
+    public typealias Context = CategoriesContext
 
     let policy: FinderPolicy
 
@@ -53,7 +53,7 @@ class CategoriesFinder: FinderWithPolicy {
         self.policy = policy
     }
 
-    func isTarget(viewController: V, context: C?) -> Bool {
+    func isTarget(viewController: ViewController, context: Context?) -> Bool {
         viewController.categoryId = context?.categoryId
         return true
     }
@@ -61,15 +61,15 @@ class CategoriesFinder: FinderWithPolicy {
 
 class CategoriesFactory: ContextSavingFactory {
 
-    public typealias V = CategoriesViewController
+    public typealias ViewController = CategoriesViewController
 
-    public typealias C = CategoriesContext
+    public typealias Context = CategoriesContext
 
     let action: Action
 
     let fetcher: CategoriesFetching
 
-    var context: C?
+    var context: Context?
 
     weak var delegate: CategoriesViewControllerDelegate?
 
@@ -79,8 +79,8 @@ class CategoriesFactory: ContextSavingFactory {
         self.delegate = delegate
     }
 
-    func build(logger: Logger?) -> V? {
-        guard let categoriesViewController = UIStoryboard(name: "Categories", bundle: nil).instantiateInitialViewController() as? V else {
+    func build(logger: Logger?) -> ViewController? {
+        guard let categoriesViewController = UIStoryboard(name: "Categories", bundle: nil).instantiateInitialViewController() as? ViewController else {
             return nil
         }
 

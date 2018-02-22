@@ -5,11 +5,11 @@
 
 import UIKit
 
-public class ViewControllerFromStoryboard<VV: UIViewController, CC>: Factory {
+public class ViewControllerFromStoryboard<VC: UIViewController, C>: Factory {
 
-    public typealias V = VV
+    public typealias ViewController = VC
 
-    public typealias C = CC
+    public typealias Context = C
 
     public let action: Action
 
@@ -23,10 +23,10 @@ public class ViewControllerFromStoryboard<VV: UIViewController, CC>: Factory {
         self.viewControllerID = viewControllerID
     }
 
-    public func build(logger: Logger?) -> V? {
+    public func build(logger: Logger?) -> ViewController? {
         let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
         if let viewControllerID = viewControllerID {
-            guard let viewController = storyboard.instantiateViewController(withIdentifier: viewControllerID) as? VV else {
+            guard let viewController = storyboard.instantiateViewController(withIdentifier: viewControllerID) as? VC else {
                 return nil
             }
             return viewController
@@ -35,8 +35,8 @@ public class ViewControllerFromStoryboard<VV: UIViewController, CC>: Factory {
                 logger?.log(.error("Unable to instantiate initial UIViewController in \(storyboardName) storyboard"))
                 return nil
             }
-            guard let viewController = abstractViewController as? V else {
-                logger?.log(.error("Unable to instantiate initial UIViewController in \(storyboardName) storyboard as \(String(describing: type(of: V.self))), got \(String(describing: abstractViewController)) instead."))
+            guard let viewController = abstractViewController as? ViewController else {
+                logger?.log(.error("Unable to instantiate initial UIViewController in \(storyboardName) storyboard as \(String(describing: type(of: ViewController.self))), got \(String(describing: abstractViewController)) instead."))
                 return nil
             }
 

@@ -9,9 +9,9 @@ import DeepLinkLibrary
 
 class ProductArrayFinder: FinderWithPolicy {
 
-    typealias V = ProductArrayViewController
+    typealias ViewController = ProductArrayViewController
 
-    typealias C = ProductArrayContext
+    typealias Context = ProductArrayContext
 
     let policy: FinderPolicy
 
@@ -19,7 +19,7 @@ class ProductArrayFinder: FinderWithPolicy {
         self.policy = policy
     }
 
-    func isTarget(viewController: V, context: C?) -> Bool {
+    func isTarget(viewController: ViewController, context: Context?) -> Bool {
         guard let viewControllerCategoryId = viewController.categoryId,
               let categoryId = context?.categoryId else {
             return false
@@ -30,13 +30,13 @@ class ProductArrayFinder: FinderWithPolicy {
 
 class ProductArrayFactory: ContextSavingFactory {
 
-    typealias V = ProductArrayViewController
+    typealias ViewController = ProductArrayViewController
 
-    typealias C = ProductArrayContext
+    typealias Context = ProductArrayContext
 
     let action: Action
 
-    var context: C?
+    var context: Context?
 
     let fetcher: ProductArrayProductFetching
 
@@ -45,9 +45,9 @@ class ProductArrayFactory: ContextSavingFactory {
         self.fetcher = fetcher
     }
 
-    func build(logger: Logger?) -> V? {
+    func build(logger: Logger?) -> ViewController? {
         let storyboard = UIStoryboard(name: "ProductArray", bundle: nil)
-        guard let viewController = storyboard.instantiateInitialViewController() as? V else {
+        guard let viewController = storyboard.instantiateInitialViewController() as? ViewController else {
             return nil
         }
         viewController.fetcher = fetcher

@@ -20,8 +20,8 @@ class PostRoutingTaskBox<P: PostRoutingTask>: AnyPostRoutingTask {
     }
 
     func execute(on viewController: UIViewController, with context: Any?, routingStack: [UIViewController]) {
-        guard let typedViewController = viewController as? P.V,
-              let typedContext = context as? P.C? else {
+        guard let typedViewController = viewController as? P.ViewController,
+              let typedContext = context as? P.Context? else {
             print("\(String(describing:postRoutingTask)) does not accept \(String(describing: viewController)) and \(String(describing: context)) as a context.")
             return
         }

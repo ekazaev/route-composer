@@ -11,9 +11,9 @@ public protocol NavigationControllerFactoryAction: Action {
 
 open class NavigationControllerFactory: MergingContainerFactory {
 
-    public typealias V = UINavigationController
+    public typealias ViewController = UINavigationController
 
-    public typealias C = Any
+    public typealias Context = Any
 
     public typealias ActionType = NavigationControllerFactoryAction
 
@@ -25,7 +25,7 @@ open class NavigationControllerFactory: MergingContainerFactory {
         self.action = action
     }
 
-    open func build(logger: Logger?) -> V? {
+    open func build(logger: Logger?) -> ViewController? {
         guard factories.count > 0 else {
             logger?.log(.error("Unable to build UINavigationController due to 0 amount of child factories"))
             return nil

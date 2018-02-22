@@ -9,19 +9,19 @@ import DeepLinkLibrary
 
 class WishListFactory: Factory {
 
-    typealias V = WishListViewController
+    typealias ViewController = WishListViewController
 
-    typealias C = WishListContext
+    typealias Context = WishListContext
 
     let action: Action
 
-    var context: C = WishListContext(content: .favorites)
+    var context: Context = WishListContext(content: .favorites)
 
     init(action: Action) {
         self.action = action
     }
 
-    func prepare(with context: C?, logger: Logger?) -> RoutingResult {
+    func prepare(with context: Context?, logger: Logger?) -> RoutingResult {
         guard let context = context else {
             return .unhandled
         }
@@ -29,9 +29,9 @@ class WishListFactory: Factory {
         return .handled
     }
 
-    func build(logger: Logger?) -> V? {
+    func build(logger: Logger?) -> ViewController? {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        guard let viewController = storyboard.instantiateViewController(withIdentifier: "WishListViewController") as? V else {
+        guard let viewController = storyboard.instantiateViewController(withIdentifier: "WishListViewController") as? ViewController else {
             return nil
         }
         viewController.content = context.content

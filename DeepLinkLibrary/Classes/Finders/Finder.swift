@@ -9,15 +9,15 @@ import UIKit
 /// Finder to be used by Router to find out if this UIViewController is in view controller stack
 public protocol Finder {
 
-    associatedtype V: UIViewController
+    associatedtype ViewController: UIViewController
 
-    associatedtype C
+    associatedtype Context
 
     /// Method to be extended to implement Finder functionality.
     ///
     /// - Parameter context: Context object passed to the router to be presented in a final destination.
     /// - Returns: UIViewController instance that Router is looking for if it has already been built in to
     ///   view controller stack, nil otherwise.
-    func findViewController(with context: C?) -> V?
+    func findViewController(with context: Context?) -> ViewController?
 
 }

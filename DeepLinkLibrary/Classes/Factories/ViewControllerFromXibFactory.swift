@@ -8,11 +8,11 @@
 import Foundation
 import UIKit
 
-public class ViewControllerFromXibFactory<VV: UIViewController, CC>: Factory {
+public class ViewControllerFromXibFactory<VC: UIViewController, C>: Factory {
 
-    public typealias V = VV
+    public typealias ViewController = VC
 
-    public typealias C = CC
+    public typealias Context = C
 
     public let action: Action
 
@@ -25,8 +25,8 @@ public class ViewControllerFromXibFactory<VV: UIViewController, CC>: Factory {
         self.bundle = bundle
     }
 
-    public func build(logger: Logger?) -> V? {
-        let viewController = VV(nibName: nibName, bundle: bundle)
+    public func build(logger: Logger?) -> ViewController? {
+        let viewController = ViewController(nibName: nibName, bundle: bundle)
         return viewController
     }
 

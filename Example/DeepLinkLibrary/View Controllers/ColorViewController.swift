@@ -9,9 +9,9 @@ import DeepLinkLibrary
 
 class ColorViewControllerFinder: FinderWithPolicy {
 
-    typealias V = ColorViewController
+    typealias ViewController = ColorViewController
 
-    typealias C = ExampleDictionaryContext
+    typealias Context = ExampleDictionaryContext
 
     let policy: FinderPolicy
 
@@ -19,7 +19,7 @@ class ColorViewControllerFinder: FinderWithPolicy {
         self.policy = policy
     }
 
-    func isTarget(viewController: V, context: C?) -> Bool {
+    func isTarget(viewController: ViewController, context: Context?) -> Bool {
         guard let context = context,
               let destinationColorHex = context[Argument.color] as? ColorViewController.ColorDisplayModel else {
             return false
@@ -32,9 +32,9 @@ class ColorViewControllerFinder: FinderWithPolicy {
 
 class ColorViewControllerFactory: Factory {
 
-    typealias V = ColorViewController
+    typealias ViewController = ColorViewController
 
-    typealias C = ExampleDictionaryContext
+    typealias Context = ExampleDictionaryContext
 
     let action: Action
 
@@ -44,14 +44,14 @@ class ColorViewControllerFactory: Factory {
         self.action = action
     }
 
-    func build(logger: Logger?) -> V? {
+    func build(logger: Logger?) -> ViewController? {
         let colorViewController = ColorViewController(nibName: nil, bundle: nil)
         colorViewController.colorHex = context
 
         return colorViewController
     }
 
-    func prepare(with context: C?, logger: Logger?) -> RoutingResult {
+    func prepare(with context: Context?, logger: Logger?) -> RoutingResult {
         guard let context = context,
               let model = context[Argument.color] as? ColorViewController.ColorDisplayModel else {
             return .unhandled

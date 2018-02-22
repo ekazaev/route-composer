@@ -27,7 +27,7 @@ class FactoryBox<F:Factory>:AnyFactory {
     }
 
     func prepare(with context: Any?, logger: Logger?) -> RoutingResult {
-        guard let typedContext = context as? F.C? else {
+        guard let typedContext = context as? F.Context? else {
             logger?.log(.warning("\(String(describing:factory)) does not accept \(String(describing: context)) as a context."))
             return .unhandled
         }

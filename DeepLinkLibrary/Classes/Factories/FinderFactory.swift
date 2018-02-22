@@ -12,27 +12,27 @@ import UIKit
 /// factories like UIViewControllers that were build as a result of storyboard loading.
 public class FinderFactory<F: Finder>: Factory {
 
-    public typealias V = F.V
+    public typealias ViewController = F.ViewController
 
-    public typealias C = F.C
+    public typealias Context = F.Context
 
     public var action: Action
 
     let finder: F?
 
-    var context: C?
+    var context: Context?
 
     public init(finder: F?, action: Action = NilAction()) {
         self.finder = finder
         self.action = action
     }
 
-    public func prepare(with context: C?, logger: Logger?) -> RoutingResult {
+    public func prepare(with context: Context?, logger: Logger?) -> RoutingResult {
         self.context = context
         return .handled
     }
 
-    public func build(logger: Logger?) -> V? {
+    public func build(logger: Logger?) -> ViewController? {
         return finder?.findViewController(with: context)
     }
 

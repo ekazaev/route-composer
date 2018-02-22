@@ -20,7 +20,7 @@ class RouterInterceptorBox<R: RouterInterceptor>: AnyRouterInterceptor {
     }
 
     func execute(with context: Any?, logger: Logger?, completion: @escaping (InterceptorResult) -> Void) {
-        guard let typedContext = context as? R.C? else {
+        guard let typedContext = context as? R.Context? else {
             logger?.log(.warning("\(String(describing:routerInterceptor)) does not accept \(String(describing: context)) as a context."))
             completion(.failure)
             return

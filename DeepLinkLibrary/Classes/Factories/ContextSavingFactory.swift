@@ -10,13 +10,13 @@ import UIKit
 
 public protocol ContextSavingFactory: Factory {
 
-    var context: C? { get set }
+    var context: Context? { get set }
 
 }
 
 public extension ContextSavingFactory {
 
-    public func prepare(with context: C?, logger: Logger?) -> RoutingResult {
+    public func prepare(with context: Context?, logger: Logger?) -> RoutingResult {
         guard let context = context else {
             return .unhandled
         }

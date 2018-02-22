@@ -4,7 +4,7 @@
 
 import Foundation
 
-public class ScreenStepAssembly<F: Finder, FC: Factory> where F.V == FC.V, F.C == FC.C {
+public class ScreenStepAssembly<F: Finder, FC: Factory> where F.ViewController == FC.ViewController, F.Context == FC.Context {
 
     public class ScreenStepChainAssembly {
 
@@ -65,12 +65,12 @@ public extension ScreenStepAssembly {
 
     func assemble(from step: RoutingStep) -> RoutingStep {
         var finalFinder:F? = finder
-        if let _ = finder as? NilFinder<F.V, F.C> {
+        if let _ = finder as? NilFinder<F.ViewController, F.Context> {
             finalFinder = nil
         }
 
         var finalFactory: FC? = factory
-        if let _ = factory as? NilFactory<FC.V, FC.C> {
+        if let _ = factory as? NilFactory<FC.ViewController, FC.Context> {
             finalFactory = nil
         }
 

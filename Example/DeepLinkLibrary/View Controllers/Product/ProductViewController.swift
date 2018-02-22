@@ -8,8 +8,10 @@ import UIKit
 import DeepLinkLibrary
 
 class ProductViewControllerFinder: FinderWithPolicy {
-    public typealias V = ProductViewController
-    public typealias C = ProductContext
+
+    typealias ViewController = ProductViewController
+
+    typealias Context = ProductContext
 
     let policy: FinderPolicy
 
@@ -17,7 +19,7 @@ class ProductViewControllerFinder: FinderWithPolicy {
         self.policy = policy
     }
 
-    func isTarget(viewController: V, context: C?) -> Bool {
+    func isTarget(viewController: ViewController, context: Context?) -> Bool {
         guard let context = context,
               let controllerProductId = viewController.productId,
               controllerProductId == context.productId else {
@@ -31,21 +33,21 @@ class ProductViewControllerFinder: FinderWithPolicy {
 
 class ProductViewControllerFactory: ContextSavingFactory {
 
-    typealias V = ProductViewController
+    typealias ViewController = ProductViewController
 
-    typealias C = ProductContext
+    typealias Context = ProductContext
 
     let action: Action
 
-    var context: C?
+    var context: Context?
 
     init(action: Action) {
         self.action = action
     }
 
-    func build(logger: Logger?) -> V? {
+    func build(logger: Logger?) -> ViewController? {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        guard let viewController = storyboard.instantiateViewController(withIdentifier: "ProductViewController") as? V else {
+        guard let viewController = storyboard.instantiateViewController(withIdentifier: "ProductViewController") as? ViewController else {
             return nil
         }
 

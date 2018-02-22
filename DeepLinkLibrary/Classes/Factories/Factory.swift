@@ -10,9 +10,9 @@ import UIKit
 /// build(): builds a view controller that will be pushed to the viw stack
 public protocol Factory: class {
 
-    associatedtype V: UIViewController
+    associatedtype ViewController: UIViewController
 
-    associatedtype C
+    associatedtype Context
 
     var action: Action { get }
 
@@ -21,15 +21,15 @@ public protocol Factory: class {
     /// process and if factory is not able to build a view controller (example: it has to build a product view
     /// controller but there is no product code in context) it can stop router from routing to this destination
     /// and the result of routing will be .unhandled without any changes in view controller stack.
-    func prepare(with context: C?, logger: Logger?) -> RoutingResult
+    func prepare(with context: Context?, logger: Logger?) -> RoutingResult
 
-    func build(logger: Logger?) -> V?
+    func build(logger: Logger?) -> ViewController?
 
 }
 
 public extension Factory {
 
-    func prepare(with context: C?, logger: Logger?) -> RoutingResult {
+    func prepare(with context: Context?, logger: Logger?) -> RoutingResult {
         return .handled
     }
 

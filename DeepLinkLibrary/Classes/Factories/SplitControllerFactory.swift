@@ -16,9 +16,9 @@ public protocol SplitViewControllerDetailAction: Action {
 
 public class SplitControllerFactory: ContainerFactory {
 
-    public typealias V = UISplitViewController
+    public typealias ViewController = UISplitViewController
 
-    public typealias C = Any
+    public typealias Context = Any
 
     public let action: Action
 
@@ -45,7 +45,7 @@ public class SplitControllerFactory: ContainerFactory {
         return rest
     }
 
-    public func build(logger: Logger?) -> V? {
+    public func build(logger: Logger?) -> ViewController? {
         guard masterFactories.count > 0, detailFactories.count > 0 else {
             return nil
         }

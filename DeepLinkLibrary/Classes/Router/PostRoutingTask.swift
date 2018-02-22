@@ -9,10 +9,10 @@ import UIKit
 /// The task to be executed after deep linking happened.
 public protocol PostRoutingTask {
 
-    associatedtype V: UIViewController
+    associatedtype ViewController: UIViewController
 
-    associatedtype C
+    associatedtype Context
 
-    func execute(on viewController: V, with context: C?, routingStack: [UIViewController])
+    func execute(on viewController: ViewController, with context: Context?, routingStack: [UIViewController])
 
 }

@@ -8,11 +8,11 @@
 import Foundation
 import UIKit
 
-public class NilFactory<VV: UIViewController, CC>: Factory {
+public class NilFactory<VC: UIViewController, C>: Factory {
 
-    public typealias V = VV
+    public typealias ViewController = VC
 
-    public typealias C = CC
+    public typealias Context = C
 
     public let action: Action
 
@@ -20,7 +20,7 @@ public class NilFactory<VV: UIViewController, CC>: Factory {
         self.action = NilAction()
     }
 
-    public func build(logger: Logger?) -> V? {
+    public func build(logger: Logger?) -> ViewController? {
         return nil
     }
     
