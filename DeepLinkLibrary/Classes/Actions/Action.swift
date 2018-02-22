@@ -16,8 +16,7 @@ public protocol Action: class {
     /// containerViewControllers: view controllers stack in the current context container
     /// viewController: view controller to be added to the stack of views that are in the container already
     /// logger: logger
-    @discardableResult
-    func performMerged(viewController: UIViewController, containerViewControllers: inout [UIViewController]) -> ActionResult
+    func performMerged(viewController: UIViewController, containerViewControllers: inout [UIViewController])
 
     /// Performs provided action to the view controller.
     /// parameters:
@@ -34,8 +33,7 @@ public protocol Action: class {
 
 public extension Action {
 
-    public func performMerged(viewController: UIViewController, containerViewControllers: inout [UIViewController]) -> ActionResult {
-        return .continueRouting
+    public func performMerged(viewController: UIViewController, containerViewControllers: inout [UIViewController]) {
     }
 
 }

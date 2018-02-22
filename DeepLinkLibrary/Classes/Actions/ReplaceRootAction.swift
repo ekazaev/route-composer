@@ -21,4 +21,5 @@ public class ReplaceRootAction: Action {
         window.makeKeyAndVisible()
         return completion(.continueRouting)
     }
+
 }

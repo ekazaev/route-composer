@@ -5,9 +5,9 @@
 import Foundation
 import UIKit
 
-public class SmartStepAssembly {
+public class SwitcherStepAssembly {
 
-    private class BlockResolver: SmartStepResolver {
+    private class BlockResolver: StepCaseResolver {
 
         let resolverBlock: ((_: Any?) -> RoutingStep?)
 
@@ -40,7 +40,7 @@ public class SmartStepAssembly {
         }
     }
 
-    private class FinderResolver: SmartStepResolver {
+    private class FinderResolver: StepCaseResolver {
 
         private let finder: AnyFinder
 
@@ -56,13 +56,13 @@ public class SmartStepAssembly {
         }
     }
 
-    private var resolvers: [SmartStepResolver] = []
+    private var resolvers: [StepCaseResolver] = []
 
     public init() {
 
     }
 
-    public func addCase(_ resolver: SmartStepResolver) -> Self {
+    public func addCase(_ resolver: StepCaseResolver) -> Self {
         resolvers.append(resolver)
         return self
     }
@@ -78,6 +78,14 @@ public class SmartStepAssembly {
     }
 
     public func assemble() -> RoutingStep {
-        return SmartStep(resolvers: resolvers)
+        return SwitcherStep(resolvers: resolvers)
     }
+
+    public func assemble(default resolverBlock: @escaping (() -> RoutingStep?)) -> RoutingStep {
+        resolvers.append(BlockResolver(resolverBlock: { _ in
+            return resolverBlock()
+        }))
+        return SwitcherStep(resolvers: resolvers)
+    }
+
 }

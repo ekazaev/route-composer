@@ -30,7 +30,7 @@ public class DefaultLogger: Logger {
                 if #available(iOS 10, *) {
                     os_log("%@", log: OSLog.default, type: .error, message)
                 } else {
-                    print("WARNING: \(message)")
+                    NSLog("WARNING: \(message)")
                 }
             }
         case .info(let message):
@@ -38,14 +38,14 @@ public class DefaultLogger: Logger {
                 if #available(iOS 10, *) {
                     os_log("%@", log: OSLog.default, type: .info, message)
                 } else {
-                    print("INFO: \(message)")
+                    NSLog("INFO: \(message)")
                 }
             }
         case .error(let message):
             if #available(iOS 10, *) {
                 os_log("%@", log: OSLog.default, type: .fault, message)
             } else {
-                print("ERROR: \(message)")
+                NSLog("ERROR: \(message)")
             }
         }
     }

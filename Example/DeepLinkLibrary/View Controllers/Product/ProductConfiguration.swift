@@ -17,15 +17,16 @@ class ProductContext: ExampleContext {
         self.analyticParameters = analyticParameters
         self.productId = productId
     }
+
 }
 
 class ProductConfiguration {
 
     static func productDestination(productId: String, _ analyticParameters: ExampleAnalyticsParameters? = nil) -> ExampleDestination {
-       let productScreen = ScreenStepAssembly(finder: ProductViewControllerFinder(), factory: ProductViewControllerFactory(action: PushAction()))
+        let productScreen = ScreenStepAssembly(finder: ProductViewControllerFinder(), factory: ProductViewControllerFactory(action: PushAction()))
                 .add(ExampleAnalyticsInterceptor())
                 .add(ExampleAnalyticsPostAction())
-                .from(SmartStepAssembly()
+                .from(SwitcherStepAssembly()
                         .addCase { context in
                             // If routing requested by Universal Link - Presenting modally
                             // Try in Mobile Safari dll://productView?product=123
@@ -40,13 +41,14 @@ class ProductConfiguration {
                         }
                         // If UINavigationController exists on current level - just push
                         .addCase(when: ViewControllerClassFinder<UINavigationController, Any>(policy: .currentLevel))
-                        .addCase { _ in
+                        .assemble(default: {
                             // Otherwise - presenting in Circle Tab
                             return ExampleConfiguration.step(for: ExampleTarget.circle)!
-                        }.assemble()
+                        })
                 ).assemble()
 
 
         return ExampleDestination(finalStep: productScreen, context: ProductContext(productId: productId, analyticParameters))
     }
+
 }

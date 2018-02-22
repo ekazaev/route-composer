@@ -6,13 +6,34 @@ import Foundation
 
 /// Connects array of steps into a chain of steps.
 public class StepChainAssembly {
-    private var previousSteps: [RoutingStep] = []
+
+    public class LastStepInChainAssembly {
+
+        fileprivate var assembly: StepChainAssembly
+
+        // Internal init protects from instantiating builder outside of the library
+        init(assembly: StepChainAssembly) {
+            self.assembly = assembly
+        }
+
+        public func assemble() -> RoutingStep {
+            return assembly.assemble()
+        }
+
+    }
+
+    var previousSteps: [RoutingStep] = []
 
     public init(from previousStep: RoutingStep) {
         self.previousSteps.append(previousStep)
     }
 
-    public func from(_ previousStep: RoutingStep) -> StepChainAssembly {
+    public func from(_ previousStep: RoutingStep) -> LastStepInChainAssembly {
+        self.previousSteps.append(previousStep)
+        return LastStepInChainAssembly(assembly: self)
+    }
+
+    public func from(_ previousStep: ChainingStep) -> Self {
         self.previousSteps.append(previousStep)
         return self
     }
@@ -32,7 +53,7 @@ func chain(_ steps: [RoutingStep]) -> RoutingStep {
     restSteps.removeFirst()
 
     for presentingStep in restSteps {
-        guard let step = currentStep as? RouterStep else {
+        guard let step = currentStep as? ChainingStep else {
             fatalError("\(presentingStep) can not be chained to non chainable step \(currentStep)")
         }
         step.from(presentingStep)

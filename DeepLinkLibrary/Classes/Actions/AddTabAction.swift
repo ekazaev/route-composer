@@ -16,23 +16,23 @@ public class AddTabAction: TabBarControllerFactoryAction {
         self.replacing = replacing
     }
 
-    public func performMerged(viewController: UIViewController, containerViewControllers: inout [UIViewController]) -> ActionResult {
-        return processViewController(viewController: viewController, containerViewControllers: &containerViewControllers)
+    public func performMerged(viewController: UIViewController, containerViewControllers: inout [UIViewController]){
+        processViewController(viewController: viewController, containerViewControllers: &containerViewControllers)
     }
 
     public func perform(viewController: UIViewController, on existingController: UIViewController, animated: Bool, completion: @escaping(_: ActionResult) -> Void) {
-        guard let tv = existingController as? UITabBarController ?? existingController.tabBarController else {
+        guard let tabBarController = existingController as? UITabBarController ?? existingController.tabBarController else {
             return completion(.failure("Could not find UITabBarController in \(existingController) to present view controller \(viewController)."))
         }
 
-        var tabViewControllers = tv.viewControllers ?? []
-        let result = processViewController(viewController: viewController, containerViewControllers: &tabViewControllers)
-        tv.setViewControllers(tabViewControllers, animated: animated)
+        var tabViewControllers = tabBarController.viewControllers ?? []
+        processViewController(viewController: viewController, containerViewControllers: &tabViewControllers)
+        tabBarController.setViewControllers(tabViewControllers, animated: animated)
 
-        return completion(result)
+        return completion(.continueRouting)
     }
 
-    private func processViewController(viewController: UIViewController, containerViewControllers: inout [UIViewController]) -> ActionResult {
+    private func processViewController(viewController: UIViewController, containerViewControllers: inout [UIViewController]){
         if let tabIndex = tabIndex, tabIndex < containerViewControllers.count {
             if replacing {
                 containerViewControllers[tabIndex] = viewController
@@ -42,7 +42,6 @@ public class AddTabAction: TabBarControllerFactoryAction {
         } else {
             containerViewControllers.append(viewController)
         }
-        return .continueRouting
     }
 
 }

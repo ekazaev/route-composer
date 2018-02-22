@@ -11,9 +11,8 @@ public class PresentMasterAction: SplitViewControllerMasterAction {
     public init() {
     }
 
-    public func performMerged(viewController: UIViewController, containerViewControllers: inout [UIViewController]) -> ActionResult {
+    public func performMerged(viewController: UIViewController, containerViewControllers: inout [UIViewController]) {
         containerViewControllers.append(viewController)
-        return .continueRouting
     }
 
     public func perform(viewController: UIViewController, on existingController: UIViewController, animated: Bool, completion: @escaping (_: ActionResult) -> Void) {

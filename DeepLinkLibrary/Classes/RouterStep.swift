@@ -5,7 +5,7 @@
 import Foundation
 import UIKit
 
-public class RouterStep: ChainableStep, PerformableStep {
+public class RouterStep: ChainableStep, PerformableStep, ChainingStep {
 
     private(set) public var previousStep: RoutingStep? = nil
 
@@ -31,7 +31,7 @@ public class RouterStep: ChainableStep, PerformableStep {
         return .continueRouting(factory)
     }
 
-    func from(_ step: RoutingStep) {
+    public func from(_ step: RoutingStep) {
         previousStep = step
     }
 

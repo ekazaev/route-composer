@@ -10,19 +10,17 @@ class PushAsRootAction: NavigationControllerFactoryAction {
     public init() {
     }
 
-    @discardableResult
-    public func performMerged(viewController: UIViewController, containerViewControllers: inout [UIViewController]) -> ActionResult {
+    public func performMerged(viewController: UIViewController, containerViewControllers: inout [UIViewController]) {
         containerViewControllers.removeAll()
         containerViewControllers.append(viewController)
-        return .continueRouting
     }
 
     public func perform(viewController: UIViewController, on existingController: UIViewController, animated: Bool, completion: @escaping(_: ActionResult) -> Void) {
-        guard let nv = existingController as? UINavigationController ?? existingController.navigationController else {
+        guard let navigationController = existingController as? UINavigationController ?? existingController.navigationController else {
             return completion(.failure("Could not find UINavigationController in \(existingController) to present view controller \(viewController)."))
         }
 
-        nv.setViewControllers([viewController], animated: animated)
+        navigationController.setViewControllers([viewController], animated: animated)
         return completion(.continueRouting)
     }
 

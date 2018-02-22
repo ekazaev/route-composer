@@ -21,6 +21,34 @@ public class ScreenStepAssembly<F: Finder, FC: Factory> where F.ViewController =
         public func assemble() -> RoutingStep {
             return assembly.assemble(from: chain(previousSteps))
         }
+
+        public func from(_ previousStep: ChainingStep) -> Self {
+            self.previousSteps.append(previousStep)
+            return self
+        }
+
+        public func from(_ previousStep: RoutingStep) -> ScreenStepAssembly.LastStepInChainAssembly {
+            self.previousSteps.append(previousStep)
+            return ScreenStepAssembly.LastStepInChainAssembly(assembly: assembly, previousSteps: previousSteps)
+        }
+    }
+
+    public class LastStepInChainAssembly {
+
+        private var previousSteps: [RoutingStep]
+
+        fileprivate var assembly: ScreenStepAssembly
+
+        // Internal init protects from instantiating builder outside of the library
+        init(assembly: ScreenStepAssembly, previousSteps: [RoutingStep]) {
+            self.assembly = assembly
+            self.previousSteps = previousSteps
+        }
+
+        public func assemble() -> RoutingStep {
+            return assembly.assemble(from: chain(previousSteps))
+        }
+
     }
 
     private var finder: F
@@ -31,40 +59,34 @@ public class ScreenStepAssembly<F: Finder, FC: Factory> where F.ViewController =
 
     private var postTasks: [AnyPostRoutingTask] = []
 
-    private weak var stepBuilder: ScreenStepChainAssembly?
-
     public init(finder: F, factory: FC) {
         self.factory = factory
         self.finder = finder
     }
 
-}
-
-public extension ScreenStepAssembly {
-
     /// Interceptor instance to be executed by router before routing to this step.
-    func add<R: RouterInterceptor>(_ interceptor: R) -> Self {
+    public func add<R: RouterInterceptor>(_ interceptor: R) -> Self {
         self.interceptors.append(RouterInterceptorBox(interceptor))
         return self
     }
 
     /// PostRoutingTask instance to be executed by a router after routing to this step.
-    func add<P: PostRoutingTask>(_ postTask: P) -> Self {
+    public func add<P: PostRoutingTask>(_ postTask: P) -> Self {
         self.postTasks.append(PostRoutingTaskBox(postTask))
         return self
     }
 
-    func from(_ previousStep: RoutingStep) -> ScreenStepChainAssembly {
-        guard let stepBuilder = stepBuilder else {
-            let stepBuilder = ScreenStepChainAssembly(assembly: self, firstStep: previousStep)
-            self.stepBuilder = stepBuilder
-            return stepBuilder
-        }
+    public func from(_ previousStep: RoutingStep) -> LastStepInChainAssembly {
+        return LastStepInChainAssembly(assembly: self, previousSteps: [previousStep])
+    }
+
+    public func from(_ previousStep: ChainingStep) -> ScreenStepChainAssembly {
+        let stepBuilder = ScreenStepChainAssembly(assembly: self, firstStep: previousStep)
         return stepBuilder
     }
 
-    func assemble(from step: RoutingStep) -> RoutingStep {
-        var finalFinder:F? = finder
+    public func assemble(from step: RoutingStep) -> RoutingStep {
+        var finalFinder: F? = finder
         if let _ = finder as? NilFinder<F.ViewController, F.Context> {
             finalFinder = nil
         }
@@ -81,13 +103,4 @@ public extension ScreenStepAssembly {
                 postTask: postTasks.count == 1 ? postTasks.first : PostRoutingTaskMultiplexer(postTasks),
                 previousStep: step)
     }
-}
-
-public extension ScreenStepAssembly.ScreenStepChainAssembly {
-
-    func from(_ previousStep: RoutingStep) -> Self {
-        self.previousSteps.append(previousStep)
-        return self
-    }
-
 }

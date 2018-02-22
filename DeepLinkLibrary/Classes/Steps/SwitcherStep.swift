@@ -5,17 +5,17 @@
 import Foundation
 import UIKit
 
-public protocol SmartStepResolver {
+public protocol StepCaseResolver {
 
     func resolve(with context: Any?) -> RoutingStep?
 
 }
 
-class SmartStep: ChainableStep, PerformableStep {
+final class SwitcherStep: ChainableStep, PerformableStep {
 
     private(set) public var previousStep: RoutingStep? = nil
 
-    private var resolvers: [SmartStepResolver]
+    private var resolvers: [StepCaseResolver]
 
     func perform(with context: Any?) -> StepResult {
         previousStep = nil
@@ -29,7 +29,7 @@ class SmartStep: ChainableStep, PerformableStep {
         return .continueRouting(nil)
     }
 
-    public init(resolvers: [SmartStepResolver]) {
+    public init(resolvers: [StepCaseResolver]) {
         self.resolvers = resolvers
     }
 }
