@@ -123,8 +123,8 @@ public class DefaultRouter: Router {
 
                         // If some factory can not prepare itself (e.g. does not have enough data in context) then deep link stack
                         // can not be built
-                        if factory.prepare(with: destination.context, logger: logger) == .unhandled {
-                            logger?.log(.error("Factory \(String(describing: factory)) could not prepare itself to be ready to build a View Controller."))
+                        if factory.prepare(with: destination.context, logger: logger) == .failure {
+                            logger?.log(.error("Factory \(String(describing: factory)) could not prepare itself to build its view controller."))
                             return nil
                         }
 
@@ -276,7 +276,7 @@ public class DefaultRouter: Router {
             self.postTask = postTask
         }
 
-        func prepare(with context: Any?, logger: Logger?) -> RoutingResult {
+        func prepare(with context: Any?, logger: Logger?) -> FactoryResult {
             return factory.prepare(with: context, logger: logger)
         }
 
