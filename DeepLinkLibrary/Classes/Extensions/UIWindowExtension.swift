@@ -13,15 +13,6 @@ extension UIWindow {
         return UIApplication.shared.keyWindow
     }
 
-    private func findPresentedViewController(_ viewController: UIViewController) -> UIViewController {
-        if let presentedViewController = viewController.presentedViewController,
-           !presentedViewController.isBeingDismissed && presentedViewController.popoverPresentationController == nil {
-            return findPresentedViewController(presentedViewController)
-        }
-
-        return viewController
-    }
-
     public var topmostViewController: UIViewController? {
         guard let rootViewController = rootViewController else {
             return nil
@@ -30,5 +21,13 @@ extension UIWindow {
         return findPresentedViewController(rootViewController)
     }
 
+    private func findPresentedViewController(_ viewController: UIViewController) -> UIViewController {
+        if let presentedViewController = viewController.presentedViewController,
+           !presentedViewController.isBeingDismissed && presentedViewController.popoverPresentationController == nil {
+            return findPresentedViewController(presentedViewController)
+        }
+
+        return viewController
+    }
 
 }

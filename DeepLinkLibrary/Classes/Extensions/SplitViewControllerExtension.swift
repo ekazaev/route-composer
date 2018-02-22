@@ -19,6 +19,7 @@ extension UISplitViewController: ContainerViewController {
             }
         }
     }
+
 }
 
 extension UISplitViewController: RouterRulesViewController {

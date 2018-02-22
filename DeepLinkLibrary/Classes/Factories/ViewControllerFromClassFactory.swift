@@ -8,6 +8,7 @@ import UIKit
 public class ViewControllerFromClassFactory<VV: UIViewController, AA>: Factory {
 
     public typealias V = VV
+
     public typealias A = AA
 
     public let action: Action

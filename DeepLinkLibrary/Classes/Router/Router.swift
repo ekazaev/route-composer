@@ -12,4 +12,5 @@ public protocol Router {
 
     @discardableResult
     func deepLinkTo(destination: RoutingDestination, animated: Bool, completion: ((_: Bool) -> Void)?) -> RoutingResult
+
 }

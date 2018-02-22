@@ -11,6 +11,7 @@ import UIKit
 public class NilFactory<VV: UIViewController, AA>: Factory {
 
     public typealias V = VV
+
     public typealias A = AA
 
     public let action: Action

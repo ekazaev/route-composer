@@ -17,11 +17,13 @@ public protocol SplitViewControllerDetailAction: Action {
 public class SplitControllerFactory: ContainerFactory {
 
     public typealias V = UISplitViewController
+
     public typealias A = Any
 
     public let action: Action
 
     var detailFactories: [AnyFactory] = []
+
     var masterFactories: [AnyFactory] = []
 
     public init(action: Action) {

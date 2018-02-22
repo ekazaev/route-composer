@@ -16,4 +16,5 @@ import UIKit
     
     /// returns true: if a view controller can be dismissed or covered by the Router, false otherwise.
     var canBeDismissed: Bool { get }
+
 }

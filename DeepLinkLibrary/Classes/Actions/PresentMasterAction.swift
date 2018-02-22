@@ -9,7 +9,6 @@ import UIKit
 public class PresentMasterAction: SplitViewControllerMasterAction {
 
     public init() {
-
     }
 
     public func performMerged(viewController: UIViewController, containerViewControllers: inout [UIViewController], logger: Logger?) {

@@ -9,7 +9,9 @@ import UIKit
 /// Default implementation of the unique view controller finder, where view controller can be found by name.
 /// (Example: Home, account, login, etc supposed to be in the view stack just once)
 public class ViewControllerClassFinder<VV:UIViewController, AA>: FinderWithPolicy {
+
     public typealias V = VV
+
     public typealias A = AA
 
     public let policy: FinderPolicy

@@ -68,10 +68,12 @@ public extension ScreenStepAssembly {
         if let _ = finder as? NilFinder<F.V, F.A> {
             finalFinder = nil
         }
+
         var finalFactory:FF? = factory
         if let _ = factory as? NilFactory<FF.V, FF.A> {
             finalFactory = nil
         }
+
         return FinalRoutingStep(
                 finder: finalFinder,
                 factory: finalFactory,

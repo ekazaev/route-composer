@@ -9,7 +9,9 @@ import UIKit
 /// action: router applies action to integrate view controller created by build() in the existing view controller stack
 /// build(): builds a view controller that will be pushed to the viw stack
 public protocol Factory: class {
+
     associatedtype V: UIViewController
+
     associatedtype A
 
     var action: Action { get }

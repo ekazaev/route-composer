@@ -48,6 +48,7 @@
 		9AFBC95D2B5E5714BE08EE8E /* NilAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCA9A0ED6594AA39CE70A /* NilAction.swift */; };
 		9AFBC9D8BD69B19F154F3D68 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC97B8C912C8393CF766C /* ContainerViewController.swift */; };
 		9AFBCAF6536210A2BB74DB8D /* ChainableStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCDE5B965A08290779CAB /* ChainableStep.swift */; };
+		9AFBCB309639D23F2921484A /* MergingContainerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC35DA6963D837D16ED04 /* MergingContainerFactory.swift */; };
 		9AFBCC7A9E59940D402FE010 /* Finder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCC4238C34EC1F2321152 /* Finder.swift */; };
 		9AFBCD7A6E8F79F3E209D774 /* AnyPostRoutingTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCB035CCD701E789F84A8 /* AnyPostRoutingTask.swift */; };
 		9AFBCE8AFB86C20DF90C55A1 /* PerformableStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCC18C269BC4FC7C25EEE /* PerformableStep.swift */; };
@@ -141,6 +142,7 @@
 		98BAD2D5D44D93F7D8FEB315CE95C74A /* InterceptorMultiplexer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = InterceptorMultiplexer.swift; sourceTree = "<group>"; };
 		9AFBC12E6DA2D2F64FAC07B8 /* SmartStepAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmartStepAssembly.swift; sourceTree = "<group>"; };
 		9AFBC1774438EFA8BE6B8750 /* StepChainAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StepChainAssembly.swift; path = DeepLinkLibrary/Classes/StepChainAssembly.swift; sourceTree = "<group>"; };
+		9AFBC35DA6963D837D16ED04 /* MergingContainerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MergingContainerFactory.swift; sourceTree = "<group>"; };
 		9AFBC4BC05C6A013147C36AD /* RouterRulesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RouterRulesViewController.swift; path = DeepLinkLibrary/Classes/Router/RouterRulesViewController.swift; sourceTree = "<group>"; };
 		9AFBC4D3DCD11F16539A9004 /* PostRoutingTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostRoutingTask.swift; path = DeepLinkLibrary/Classes/Router/PostRoutingTask.swift; sourceTree = "<group>"; };
 		9AFBC58581ABA97F797C7B39 /* ScreenStepAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScreenStepAssembly.swift; path = DeepLinkLibrary/Classes/ScreenStepAssembly.swift; sourceTree = "<group>"; };
@@ -406,6 +408,7 @@
 				8481BB34202CCD6900174ECB /* NilFactory.swift */,
 				840C1E64202D2EC20032CFD1 /* ViewControllerFromXibFactory.swift */,
 				848F3464202DEAF800F2A959 /* ArgumentSavingFactory.swift */,
+				9AFBC35DA6963D837D16ED04 /* MergingContainerFactory.swift */,
 			);
 			name = Factories;
 			path = DeepLinkLibrary/Classes/Factories;
@@ -655,6 +658,7 @@
 				9AFBCE8AFB86C20DF90C55A1 /* PerformableStep.swift in Sources */,
 				9AFBC8A3F7E9B450C65767D3 /* AnyContainerFactory.swift in Sources */,
 				9AFBC95D2B5E5714BE08EE8E /* NilAction.swift in Sources */,
+				9AFBCB309639D23F2921484A /* MergingContainerFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

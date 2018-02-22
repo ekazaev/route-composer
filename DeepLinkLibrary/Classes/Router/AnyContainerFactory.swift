@@ -5,7 +5,7 @@
 import Foundation
 import UIKit
 
-protocol AnyContainerFactory {
+public protocol AnyContainerFactory {
 
     func merge(_ factories: [AnyFactory]) -> [AnyFactory]
 

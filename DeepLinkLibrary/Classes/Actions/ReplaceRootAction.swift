@@ -9,7 +9,6 @@ import UIKit
 public class ReplaceRootAction: Action {
 
     public init() {
-        
     }
 
     public func perform(viewController: UIViewController, on existingController: UIViewController, animated: Bool, logger: Logger?, completion: @escaping(_: ActionResult) -> Void) {

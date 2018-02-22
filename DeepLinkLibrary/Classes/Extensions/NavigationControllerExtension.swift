@@ -21,7 +21,6 @@ extension UINavigationController: ContainerViewController {
 
 }
 
-
 extension UINavigationController: RouterRulesViewController {
 
     public var canBeDismissed: Bool {

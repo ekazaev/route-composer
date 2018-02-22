@@ -13,4 +13,5 @@ public enum RoutingResult {
     /** The request to process the deep link was not handled and therefore
     did not result in any navigation. */
     case unhandled
+
 }

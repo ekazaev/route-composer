@@ -3,6 +3,7 @@
 //
 
 import Foundation
+import os.log
 
 public enum DefaultLoggerLevel {
     case verbose
@@ -22,14 +23,26 @@ public class DefaultLogger: Logger {
         switch message {
         case .warning(let message):
             if logLevel == .verbose || logLevel == .warnings {
-                print("WARNING: \(message)")
+                if #available(iOS 10, *) {
+                    os_log("%@", log: OSLog.default, type: .error, message)
+                } else {
+                    print("WARNING: \(message)")
+                }
             }
         case .info(let message):
             if logLevel == .verbose {
-                print("INFO: \(message)")
+                if #available(iOS 10, *) {
+                    os_log("%@", log: OSLog.default, type: .info, message)
+                } else {
+                    print("INFO: \(message)")
+                }
             }
         case .error(let message):
-            print("ERROR: \(message)")
+            if #available(iOS 10, *) {
+                os_log("%@", log: OSLog.default, type: .fault, message)
+            } else {
+                print("ERROR: \(message)")
+            }
         }
     }
 

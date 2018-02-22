@@ -8,6 +8,7 @@ import UIKit
 public class AddTabAction: TabBarControllerFactoryAction {
 
     let tabIndex:Int?
+
     let replacing: Bool
 
     public init(at tabIndex:Int? = nil, replacing: Bool = false) {

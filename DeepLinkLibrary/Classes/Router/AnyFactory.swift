@@ -6,9 +6,13 @@ import Foundation
 import UIKit
 
 public protocol AnyFactory: class {
+
     var action: Action { get }
+
     func prepare(with arguments: Any?, logger: Logger?) -> RoutingResult
+
     func build(with logger: Logger?) -> UIViewController?
+
 }
 
 class FactoryBox<F:Factory>:AnyFactory {

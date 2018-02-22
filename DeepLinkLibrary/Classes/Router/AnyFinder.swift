@@ -5,7 +5,7 @@
 import Foundation
 import UIKit
 
-protocol AnyFinder {
+public protocol AnyFinder {
 
     func findViewController(with arguments: Any?) -> UIViewController?
 

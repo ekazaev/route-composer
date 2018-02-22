@@ -10,6 +10,7 @@ import UIKit
 public protocol PostRoutingTask {
 
     associatedtype V: UIViewController
+
     associatedtype A
 
     func execute(on viewController: V, with arguments: A?, routingStack: [UIViewController])

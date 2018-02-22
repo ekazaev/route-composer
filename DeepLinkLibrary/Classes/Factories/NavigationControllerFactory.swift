@@ -10,8 +10,11 @@ public protocol NavigationControllerFactoryAction: Action {
 }
 
 open class NavigationControllerFactory: MergingContainerFactory {
+
     public typealias V = UINavigationController
+
     public typealias A = Any
+
     public typealias ActionType = NavigationControllerFactoryAction
 
     public let action: Action

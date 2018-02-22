@@ -5,71 +5,6 @@
 
 import UIKit
 
-private struct PostTaskSlip {
-    // This reference is weak because even though this view controller was created by a fabric but then some other
-    // view controller in the chain can have an action that will actually remove this view controller from the stack.
-    // we do not want to keep a strong reference to it and prevent it from deallocation. Potentially it's a very rare
-    // issue but must be kept in mind.
-    weak var viewController: UIViewController?
-
-    let postTask: AnyPostRoutingTask
-}
-
-/// Each post action needs to know a view controller is should be applied to.
-/// This decorator adds functionality of storing UIViewControllers created by the factory and frees custom factories
-/// implementations from dealing with it. Mostly it is important for ContainerFactories which create merged view
-/// controllers without Router's help.
-private class FactoryDecorator: AnyFactory {
-
-    var action: Action {
-        get {
-            return factory.action
-        }
-    }
-
-    let factory: AnyFactory
-
-    weak var postTaskRunner: PostTaskRunner?
-
-    var postTask: AnyPostRoutingTask?
-
-    init(factory: AnyFactory, postTask: AnyPostRoutingTask?, postTaskRunner: PostTaskRunner) {
-        self.factory = factory
-        self.postTaskRunner = postTaskRunner
-        self.postTask = postTask
-    }
-
-    func prepare(with arguments: Any?, logger: Logger?) -> RoutingResult {
-        return factory.prepare(with: arguments, logger: logger)
-    }
-
-    func build(with logger: Logger?) -> UIViewController? {
-        guard let viewController = factory.build(with: logger) else {
-            return nil
-        }
-        if let postTask = postTask {
-            postTaskRunner?.taskSlips.append(PostTaskSlip(viewController: viewController, postTask: postTask))
-        }
-        return viewController
-    }
-
-}
-
-private class PostTaskRunner {
-
-    var taskSlips: [PostTaskSlip] = []
-
-    func run(for destination: RoutingDestination) {
-        let viewControllers = taskSlips.flatMap({ $0.viewController })
-        taskSlips.forEach({ slip in
-            guard let viewController = slip.viewController else {
-                return
-            }
-            slip.postTask.execute(on: viewController, with: destination.arguments, routingStack: viewControllers)
-        })
-    }
-}
-
 public class DefaultRouter: Router {
 
     public let logger: Logger?
@@ -307,4 +242,68 @@ public class DefaultRouter: Router {
         }
     }
 
+    private struct PostTaskSlip {
+        // This reference is weak because even though this view controller was created by a fabric but then some other
+        // view controller in the chain can have an action that will actually remove this view controller from the stack.
+        // we do not want to keep a strong reference to it and prevent it from deallocation. Potentially it's a very rare
+        // issue but must be kept in mind.
+        weak var viewController: UIViewController?
+
+        let postTask: AnyPostRoutingTask
+    }
+
+    /// Each post action needs to know a view controller is should be applied to.
+    /// This decorator adds functionality of storing UIViewControllers created by the factory and frees custom factories
+    /// implementations from dealing with it. Mostly it is important for ContainerFactories which create merged view
+    /// controllers without Router's help.
+    private class FactoryDecorator: AnyFactory {
+
+        var action: Action {
+            get {
+                return factory.action
+            }
+        }
+
+        let factory: AnyFactory
+
+        weak var postTaskRunner: PostTaskRunner?
+
+        var postTask: AnyPostRoutingTask?
+
+        init(factory: AnyFactory, postTask: AnyPostRoutingTask?, postTaskRunner: PostTaskRunner) {
+            self.factory = factory
+            self.postTaskRunner = postTaskRunner
+            self.postTask = postTask
+        }
+
+        func prepare(with arguments: Any?, logger: Logger?) -> RoutingResult {
+            return factory.prepare(with: arguments, logger: logger)
+        }
+
+        func build(with logger: Logger?) -> UIViewController? {
+            guard let viewController = factory.build(with: logger) else {
+                return nil
+            }
+            if let postTask = postTask {
+                postTaskRunner?.taskSlips.append(PostTaskSlip(viewController: viewController, postTask: postTask))
+            }
+            return viewController
+        }
+
+    }
+
+    private class PostTaskRunner {
+
+        var taskSlips: [PostTaskSlip] = []
+
+        func run(for destination: RoutingDestination) {
+            let viewControllers = taskSlips.flatMap({ $0.viewController })
+            taskSlips.forEach({ slip in
+                guard let viewController = slip.viewController else {
+                    return
+                }
+                slip.postTask.execute(on: viewController, with: destination.arguments, routingStack: viewControllers)
+            })
+        }
+    }
 }

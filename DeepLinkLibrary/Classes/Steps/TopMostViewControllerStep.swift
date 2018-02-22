@@ -15,5 +15,6 @@ public class TopMostViewControllerStep: PerformableStep {
         let window = UIWindow.key
         return StepResult(window?.topmostViewController)
     }
+
 }
 
