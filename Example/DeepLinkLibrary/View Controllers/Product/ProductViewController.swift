@@ -9,7 +9,7 @@ import DeepLinkLibrary
 
 class ProductViewControllerFinder: FinderWithPolicy {
     public typealias V = ProductViewController
-    public typealias A = ProductArguments
+    public typealias C = ProductContext
 
     let policy: FinderPolicy
 
@@ -17,37 +17,39 @@ class ProductViewControllerFinder: FinderWithPolicy {
         self.policy = policy
     }
 
-    func isTarget(viewController: V, arguments: A?) -> Bool {
-        guard let arguments = arguments,
+    func isTarget(viewController: V, context: C?) -> Bool {
+        guard let context = context,
               let controllerProductId = viewController.productId,
-              controllerProductId == arguments.productId else {
+              controllerProductId == context.productId else {
             return false
         }
-        viewController.productId = arguments.productId
+        viewController.productId = context.productId
         return true
     }
 
 }
 
-class ProductViewControllerFactory: ArgumentSavingFactory {
-    public typealias V = ProductViewController
-    public typealias A = ProductArguments
+class ProductViewControllerFactory: ContextSavingFactory {
+
+    typealias V = ProductViewController
+
+    typealias C = ProductContext
 
     let action: Action
 
-    var arguments: A?
+    var context: C?
 
     init(action: Action) {
         self.action = action
     }
 
-    func build(with logger: Logger?) -> V? {
+    func build(logger: Logger?) -> V? {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let viewController = storyboard.instantiateViewController(withIdentifier: "ProductViewController") as? V else {
             return nil
         }
 
-        viewController.productId = arguments?.productId
+        viewController.productId = context?.productId
 
         return viewController
     }

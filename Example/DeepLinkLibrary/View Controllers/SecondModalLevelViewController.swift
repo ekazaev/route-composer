@@ -17,7 +17,7 @@ class SecondModalLevelViewController: UIViewController, AnalyticsSupportViewCont
     }
 
     @IBAction func goToColorTapped() {
-        router.deepLinkTo(destination: ExampleConfiguration.destination(for: ExampleTarget.color, arguments: ExampleDictionaryArguments(arguments: [Argument.color: "FF0000"]))!)
+        router.deepLinkTo(destination: ExampleConfiguration.destination(for: ExampleTarget.color, context: ExampleDictionaryContext(arguments: [Argument.color: "FF0000"]))!)
     }
 
     @IBAction func goToHomeTapped() {

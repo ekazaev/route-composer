@@ -12,7 +12,9 @@ public protocol TabBarControllerFactoryAction: Action {
 public class TabBarControllerFactory: MergingContainerFactory {
 
     public typealias V = UITabBarController
-    public typealias A = Any
+
+    public typealias C = Any
+
     public typealias ActionType = TabBarControllerFactoryAction
 
     public let action: Action
@@ -23,7 +25,7 @@ public class TabBarControllerFactory: MergingContainerFactory {
         self.action = action
     }
 
-    open func build(with logger: Logger?) -> V? {
+    open func build(logger: Logger?) -> V? {
         guard factories.count > 0 else {
             return nil
         }

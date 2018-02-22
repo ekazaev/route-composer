@@ -13,13 +13,13 @@ public protocol FinderWithPolicy: Finder {
 
     var policy: FinderPolicy { get }
 
-    func isTarget(viewController: V, arguments: A?) -> Bool
+    func isTarget(viewController: V, context: C?) -> Bool
 
 }
 
 public extension FinderWithPolicy {
 
-    func findViewController(with arguments: A?) -> V? {
+    func findViewController(with context: C?) -> V? {
         switch policy {
         case .allStackUp:
             guard let rootViewController = UIWindow.key?.rootViewController,
@@ -27,7 +27,7 @@ public extension FinderWithPolicy {
                       guard let vc = $0 as? V else {
                           return false
                       }
-                      return isTarget(viewController: vc, arguments: arguments)
+                      return isTarget(viewController: vc, context: context)
                   }) as? V else {
                 return nil
             }
@@ -38,7 +38,7 @@ public extension FinderWithPolicy {
                       guard let vc = $0 as? V else {
                           return false
                       }
-                      return isTarget(viewController: vc, arguments: arguments)
+                      return isTarget(viewController: vc, context: context)
                   }) as? V else {
                 return nil
             }
@@ -49,14 +49,14 @@ public extension FinderWithPolicy {
                       guard let vc = $0 as? V else {
                           return false
                       }
-                      return isTarget(viewController: vc, arguments: arguments)
+                      return isTarget(viewController: vc, context: context)
                   }) as? V else {
                 return nil
             }
             return viewController
         case .topMost:
             guard let topMostViewController = UIWindow.key?.topmostViewController as? V,
-                  let viewController = (isTarget(viewController: topMostViewController, arguments: arguments) ? topMostViewController : nil) else {
+                  let viewController = (isTarget(viewController: topMostViewController, context: context) ? topMostViewController : nil) else {
                 return nil
             }
             return viewController

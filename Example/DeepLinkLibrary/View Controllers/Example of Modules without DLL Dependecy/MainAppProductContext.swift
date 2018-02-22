@@ -6,7 +6,7 @@
 import Foundation
 import DeepLinkLibrary
 
-class MainAppProductContext: ExampleArguments, ProductArrayContext, CategoriesContext {
+class MainAppProductContext: ExampleContext, ProductArrayContext, CategoriesContext {
 
     var analyticParameters: ExampleAnalyticsParameters?
 

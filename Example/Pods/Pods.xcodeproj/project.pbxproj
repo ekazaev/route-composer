@@ -26,7 +26,7 @@
 		8407AA36CB942F87CDFDE8E51D7FD504 /* SplitControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC0E1BD67495AFA7C1BD97F2A88467C /* SplitControllerFactory.swift */; };
 		840C1E65202D2EC20032CFD1 /* ViewControllerFromXibFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840C1E64202D2EC20032CFD1 /* ViewControllerFromXibFactory.swift */; };
 		8481BB35202CCD6900174ECB /* NilFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8481BB34202CCD6900174ECB /* NilFactory.swift */; };
-		848F3465202DEAF800F2A959 /* ArgumentSavingFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848F3464202DEAF800F2A959 /* ArgumentSavingFactory.swift */; };
+		848F3465202DEAF800F2A959 /* ContextSavingFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848F3464202DEAF800F2A959 /* ContextSavingFactory.swift */; };
 		84D14DE9203C899C00F3FF9A /* RouterStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D14DE8203C899C00F3FF9A /* RouterStep.swift */; };
 		84D14DEB203C8A7100F3FF9A /* InterceptableStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D14DEA203C8A7100F3FF9A /* InterceptableStep.swift */; };
 		8B543728D4525AA125A4555983ACE3B3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D88AAE1F92055A60CC2FC970D7D34634 /* Foundation.framework */; };
@@ -130,7 +130,7 @@
 		83721AFD3E20F845EBB81B35F0201CB8 /* TabBarControllerFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TabBarControllerFactory.swift; sourceTree = "<group>"; };
 		840C1E64202D2EC20032CFD1 /* ViewControllerFromXibFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFromXibFactory.swift; sourceTree = "<group>"; };
 		8481BB34202CCD6900174ECB /* NilFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NilFactory.swift; sourceTree = "<group>"; };
-		848F3464202DEAF800F2A959 /* ArgumentSavingFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArgumentSavingFactory.swift; sourceTree = "<group>"; };
+		848F3464202DEAF800F2A959 /* ContextSavingFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextSavingFactory.swift; sourceTree = "<group>"; };
 		84D14DE8203C899C00F3FF9A /* RouterStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RouterStep.swift; path = DeepLinkLibrary/Classes/RouterStep.swift; sourceTree = "<group>"; };
 		84D14DEA203C8A7100F3FF9A /* InterceptableStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterceptableStep.swift; sourceTree = "<group>"; };
 		8F281F5E5B47B8DC5CBCAAF8A280E5B6 /* RootViewControllerStep.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RootViewControllerStep.swift; sourceTree = "<group>"; };
@@ -407,7 +407,7 @@
 				5730FD420294295BB09818017BE7E079 /* ViewControllerFromStoryboardFactory.swift */,
 				8481BB34202CCD6900174ECB /* NilFactory.swift */,
 				840C1E64202D2EC20032CFD1 /* ViewControllerFromXibFactory.swift */,
-				848F3464202DEAF800F2A959 /* ArgumentSavingFactory.swift */,
+				848F3464202DEAF800F2A959 /* ContextSavingFactory.swift */,
 				9AFBC35DA6963D837D16ED04 /* MergingContainerFactory.swift */,
 			);
 			name = Factories;
@@ -627,7 +627,7 @@
 				A32ACBA420EE3C98D1062F3202C9235C /* SmartStep.swift in Sources */,
 				8407AA36CB942F87CDFDE8E51D7FD504 /* SplitControllerFactory.swift in Sources */,
 				582BBC48DD46C7DEEF0070CB2924F531 /* SplitViewControllerExtension.swift in Sources */,
-				848F3465202DEAF800F2A959 /* ArgumentSavingFactory.swift in Sources */,
+				848F3465202DEAF800F2A959 /* ContextSavingFactory.swift in Sources */,
 				8F2D99F0468A7383D13A8E7A179B309B /* StepResult.swift in Sources */,
 				63A4C55A2FA274DACB8F2A7661A8F42A /* TabBarControllerFactory.swift in Sources */,
 				84D14DE9203C899C00F3FF9A /* RouterStep.swift in Sources */,

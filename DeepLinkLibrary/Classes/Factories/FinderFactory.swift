@@ -13,25 +13,27 @@ import UIKit
 public class FinderFactory<F: Finder>: Factory {
 
     public typealias V = F.V
-    public typealias A = F.A
+
+    public typealias C = F.C
 
     public var action: Action
 
     let finder: F?
 
-    var arguments: A?
+    var context: C?
 
     public init(finder: F?, action: Action = NilAction()) {
         self.finder = finder
         self.action = action
     }
 
-    public func prepare(with arguments: A?, logger: Logger?) -> RoutingResult {
-        self.arguments = arguments
+    public func prepare(with context: C?, logger: Logger?) -> RoutingResult {
+        self.context = context
         return .handled
     }
 
-    public func build(with logger: Logger?) -> V? {
-        return finder?.findViewController(with: arguments)
+    public func build(logger: Logger?) -> V? {
+        return finder?.findViewController(with: context)
     }
+
 }

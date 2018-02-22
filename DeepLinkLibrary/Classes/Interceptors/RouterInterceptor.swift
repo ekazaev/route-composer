@@ -10,8 +10,8 @@ import Foundation
 /// Otherwise router will stay in limbo state waiting for interceptor to finish its action.
 public protocol RouterInterceptor {
 
-    associatedtype A
+    associatedtype C
 
-    func execute(with arguments: A?, logger: Logger?, completion: @escaping (_: InterceptorResult) -> Void)
+    func execute(with context: C?, logger: Logger?, completion: @escaping (_: InterceptorResult) -> Void)
 
 }

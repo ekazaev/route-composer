@@ -20,11 +20,11 @@ struct WishListConfiguration {
             .assemble()
 
     static func favorites() -> ExampleDestination {
-        return ExampleDestination(finalStep: wishListScreen, arguments: WishListArguments(content: WishListContent.favorites))
+        return ExampleDestination(finalStep: wishListScreen, context: WishListContext(content: WishListContent.favorites))
     }
 
     static func collections() -> ExampleDestination {
-        return ExampleDestination(finalStep: wishListScreen, arguments: WishListArguments(content: WishListContent.collections))
+        return ExampleDestination(finalStep: wishListScreen, context: WishListContext(content: WishListContent.collections))
     }
 
 }

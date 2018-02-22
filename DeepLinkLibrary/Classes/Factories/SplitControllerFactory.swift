@@ -18,7 +18,7 @@ public class SplitControllerFactory: ContainerFactory {
 
     public typealias V = UISplitViewController
 
-    public typealias A = Any
+    public typealias C = Any
 
     public let action: Action
 
@@ -45,7 +45,7 @@ public class SplitControllerFactory: ContainerFactory {
         return rest
     }
 
-    public func build(with logger: Logger?) -> V? {
+    public func build(logger: Logger?) -> V? {
         guard masterFactories.count > 0, detailFactories.count > 0 else {
             return nil
         }

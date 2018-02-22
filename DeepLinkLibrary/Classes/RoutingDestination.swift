@@ -11,7 +11,7 @@ public protocol RoutingDestination {
     /// Routing step instance that represents end point of routing.
     var finalStep: RoutingStep { get }
 
-    /// Arguments to be passed to any UIViewController to be build or presented.
-    var arguments: Any? { get }
+    /// Context object to be passed to any UIViewController to be build or presented.
+    var context: Any? { get }
 
 }

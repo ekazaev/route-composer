@@ -23,11 +23,11 @@ public class RouterStep: ChainableStep, PerformableStep {
         self.factory = factory
     }
 
-    public func viewController(with arguments: Any?) -> UIViewController? {
+    public func viewController(with context: Any?) -> UIViewController? {
         return nil
     }
 
-    func perform(with arguments: Any?) -> StepResult {
+    func perform(with context: Any?) -> StepResult {
         return .continueRouting(factory)
     }
 

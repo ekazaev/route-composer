@@ -19,12 +19,12 @@ class ExampleConfiguration {
     }
 
 
-    static func destination<T: Hashable>(for target: T, arguments: ExampleDictionaryArguments? = nil) -> ExampleDestination? {
+    static func destination<T: Hashable>(for target: T, context: ExampleDictionaryContext? = nil) -> ExampleDestination? {
         guard let assembly = step(for: target) else {
             return nil
         }
 
-        return ExampleDestination(finalStep: assembly, arguments: arguments ?? ExampleDictionaryArguments())
+        return ExampleDestination(finalStep: assembly, context: context ?? ExampleDictionaryContext())
     }
 }
 

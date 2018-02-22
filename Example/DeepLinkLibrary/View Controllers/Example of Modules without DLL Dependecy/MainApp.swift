@@ -24,7 +24,7 @@ class MainApp {
             config = config.add(LoginInterceptor())
         }
         return ExampleDestination(finalStep: config.from(MainApp.categoryContainer).assemble(),
-                arguments: MainAppProductContext(categoryId: categoryId, nil))
+                context: MainAppProductContext(categoryId: categoryId, nil))
     }
 
 }

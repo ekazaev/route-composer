@@ -46,7 +46,7 @@ public class DefaultRouter: Router {
         }
 
         // Execute interceptors associated to the each view in the chain. All of interceptors must succeed to continue routing.
-        interceptor.execute(with: destination.arguments, logger: logger) { [weak viewController] result in
+        interceptor.execute(with: destination.context, logger: logger) { [weak viewController] result in
             guard result == .success else {
                 completion?(false)
                 return
@@ -90,7 +90,7 @@ public class DefaultRouter: Router {
             let interceptableStep = currentStep as? InterceptableStep
 
             // Trying to find a view controller to start building the stack from
-            switch performableStep.perform(with: destination.arguments) {
+            switch performableStep.perform(with: destination.context) {
             case .success(let viewController):
                 if rootViewController == nil {
                     rootViewController = viewController
@@ -121,9 +121,9 @@ public class DefaultRouter: Router {
                         }
                         factories.insert(factoryToSave, at: 0)
 
-                        // If some factory can not prepare itself (e.g. does not have enough data in arguments) then deep link stack
+                        // If some factory can not prepare itself (e.g. does not have enough data in context) then deep link stack
                         // can not be built
-                        if factory.prepare(with: destination.arguments, logger: logger) == .unhandled {
+                        if factory.prepare(with: destination.context, logger: logger) == .unhandled {
                             logger?.log(.error("Factory \(String(describing: factory)) could not prepare itself to be ready to build a View Controller."))
                             return nil
                         }
@@ -276,8 +276,8 @@ public class DefaultRouter: Router {
             self.postTask = postTask
         }
 
-        func prepare(with arguments: Any?, logger: Logger?) -> RoutingResult {
-            return factory.prepare(with: arguments, logger: logger)
+        func prepare(with context: Any?, logger: Logger?) -> RoutingResult {
+            return factory.prepare(with: context, logger: logger)
         }
 
         func build(with logger: Logger?) -> UIViewController? {
@@ -302,7 +302,7 @@ public class DefaultRouter: Router {
                 guard let viewController = slip.viewController else {
                     return
                 }
-                slip.postTask.execute(on: viewController, with: destination.arguments, routingStack: viewControllers)
+                slip.postTask.execute(on: viewController, with: destination.context, routingStack: viewControllers)
             })
         }
     }

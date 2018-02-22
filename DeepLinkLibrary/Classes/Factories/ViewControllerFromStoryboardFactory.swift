@@ -5,11 +5,11 @@
 
 import UIKit
 
-public class ViewControllerFromStoryboard<VV: UIViewController, AA>: Factory {
+public class ViewControllerFromStoryboard<VV: UIViewController, CC>: Factory {
 
     public typealias V = VV
 
-    public typealias A = AA
+    public typealias C = CC
 
     public let action: Action
 
@@ -23,10 +23,10 @@ public class ViewControllerFromStoryboard<VV: UIViewController, AA>: Factory {
         self.viewControllerID = viewControllerID
     }
 
-    public func build(with logger: Logger?) -> V? {
+    public func build(logger: Logger?) -> V? {
         let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
         if let viewControllerID = viewControllerID {
-            guard let viewController = storyboard.instantiateViewController(withIdentifier: viewControllerID) as? V else {
+            guard let viewController = storyboard.instantiateViewController(withIdentifier: viewControllerID) as? VV else {
                 return nil
             }
             return viewController

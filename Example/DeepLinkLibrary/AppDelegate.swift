@@ -38,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // Square Tab Bar Screen
         let squareScreen = ScreenStepAssembly(
-                finder: ViewControllerClassFinder<SquareViewController, ExampleDictionaryArguments>(policy: .currentLevel),
+                finder: ViewControllerClassFinder<SquareViewController, ExampleDictionaryContext>(policy: .currentLevel),
                 factory: NilFactory())
                 .add(ExampleAnalyticsInterceptor())
                 .add(ExampleAnalyticsPostAction())
@@ -49,7 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // Circle Tab Bar screen
         let circleScreen = ScreenStepAssembly(
-                finder: ViewControllerClassFinder<CircleViewController, ExampleDictionaryArguments>(policy: .currentLevel),
+                finder: ViewControllerClassFinder<CircleViewController, ExampleDictionaryContext>(policy: .currentLevel),
                 factory:  NilFactory())
                 .add(ExampleAnalyticsInterceptor())
                 .add(ExampleAnalyticsPostAction())

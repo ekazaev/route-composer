@@ -17,7 +17,7 @@
 		8479E2F6200E7A4400320380 /* PromptScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8479E2F3200E7A4400320380 /* PromptScreen.storyboard */; };
 		8479E30D200E7A7F00320380 /* ExampleConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8479E2F8200E7A7F00320380 /* ExampleConfiguration.swift */; };
 		8479E30E200E7A7F00320380 /* ExampleTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8479E2F9200E7A7F00320380 /* ExampleTarget.swift */; };
-		8479E30F200E7A7F00320380 /* ExampleTargetArguments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8479E2FA200E7A7F00320380 /* ExampleTargetArguments.swift */; };
+		8479E30F200E7A7F00320380 /* ExampleContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8479E2FA200E7A7F00320380 /* ExampleContext.swift */; };
 		8479E310200E7A7F00320380 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8479E2FC200E7A7F00320380 /* UIColor.swift */; };
 		8479E311200E7A7F00320380 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8479E2FD200E7A7F00320380 /* ViewController.swift */; };
 		8479E312200E7A7F00320380 /* CircleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8479E2FF200E7A7F00320380 /* CircleViewController.swift */; };
@@ -46,7 +46,7 @@
 		9AFBC48BEC2CCE8F4BC2DE76 /* ProductArrayContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCD69F79DF50A7F46AF10 /* ProductArrayContext.swift */; };
 		9AFBC51B9F55F66B1A5028DD /* CategoriesContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC9E2D2115CF366BA8ADE /* CategoriesContext.swift */; };
 		9AFBC53392657942D199D598 /* WishListConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCE40215C25D16CA6A1FB /* WishListConfiguration.swift */; };
-		9AFBC5E76937F58BE685F4E7 /* CityArguments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC78B188F55C0198B5007 /* CityArguments.swift */; };
+		9AFBC5E76937F58BE685F4E7 /* CityContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC78B188F55C0198B5007 /* CityContext.swift */; };
 		9AFBC61E3F1322003BEF1F40 /* CategoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCD3120EF72F339F9FE7C /* CategoryProtocol.swift */; };
 		9AFBC62E659FF1B8D75CD301 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCDF7838A23CCA7400CF2 /* CategoriesViewController.swift */; };
 		9AFBC66443B697ADCC7BB6B7 /* WishListContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC16A7AED73A4F3C744F7 /* WishListContent.swift */; };
@@ -105,7 +105,7 @@
 		8479E2F4200E7A4400320380 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/PromptScreen.storyboard; sourceTree = "<group>"; };
 		8479E2F8200E7A7F00320380 /* ExampleConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleConfiguration.swift; sourceTree = "<group>"; };
 		8479E2F9200E7A7F00320380 /* ExampleTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleTarget.swift; sourceTree = "<group>"; };
-		8479E2FA200E7A7F00320380 /* ExampleTargetArguments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleTargetArguments.swift; sourceTree = "<group>"; };
+		8479E2FA200E7A7F00320380 /* ExampleContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleContext.swift; sourceTree = "<group>"; };
 		8479E2FC200E7A7F00320380 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		8479E2FD200E7A7F00320380 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8479E2FF200E7A7F00320380 /* CircleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleViewController.swift; sourceTree = "<group>"; };
@@ -133,7 +133,7 @@
 		9AFBC336235D192B08706FA2 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		9AFBC4700ACD202B6C4A1205 /* CitiesDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CitiesDataModel.swift; sourceTree = "<group>"; };
 		9AFBC6DBFF899EA9831D84D2 /* LoginConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginConfiguration.swift; sourceTree = "<group>"; };
-		9AFBC78B188F55C0198B5007 /* CityArguments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityArguments.swift; sourceTree = "<group>"; };
+		9AFBC78B188F55C0198B5007 /* CityContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityContext.swift; sourceTree = "<group>"; };
 		9AFBC7FF9D27A17E57FE525C /* ProductConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductConfiguration.swift; sourceTree = "<group>"; };
 		9AFBC80C4D57303B27914E81 /* WishListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WishListViewController.swift; sourceTree = "<group>"; };
 		9AFBC8363191B3E17EAEEDC4 /* MainAppProductContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainAppProductContext.swift; sourceTree = "<group>"; };
@@ -286,7 +286,7 @@
 			children = (
 				8479E2F8200E7A7F00320380 /* ExampleConfiguration.swift */,
 				8479E2F9200E7A7F00320380 /* ExampleTarget.swift */,
-				8479E2FA200E7A7F00320380 /* ExampleTargetArguments.swift */,
+				8479E2FA200E7A7F00320380 /* ExampleContext.swift */,
 				9AFBCEB028743A7AC55E1CA6 /* ExampleAnalyticsParameters.swift */,
 				9AFBCD4279BBCCCACECDB352 /* ExampleAnalyticsInterceptor.swift */,
 				9AFBC0097861297B7686ADAA /* ExampleAnalyticsPostAction.swift */,
@@ -372,7 +372,7 @@
 				9AFBC949B2D2D4B8D636B565 /* CityDetailViewController.swift */,
 				9AFBCA4291DB4A6D2A47E5F2 /* CitiesTableViewController.swift */,
 				9AFBC94CF26AB11E181F7B00 /* CitiesConfiguration.swift */,
-				9AFBC78B188F55C0198B5007 /* CityArguments.swift */,
+				9AFBC78B188F55C0198B5007 /* CityContext.swift */,
 				9AFBC4700ACD202B6C4A1205 /* CitiesDataModel.swift */,
 			);
 			path = Cities;
@@ -694,12 +694,12 @@
 				8479E312200E7A7F00320380 /* CircleViewController.swift in Sources */,
 				8479E315200E7A7F00320380 /* ColorViewController.swift in Sources */,
 				8479E318200E7A7F00320380 /* PromptViewController.swift in Sources */,
-				8479E30F200E7A7F00320380 /* ExampleTargetArguments.swift in Sources */,
+				8479E30F200E7A7F00320380 /* ExampleContext.swift in Sources */,
 				9AFBC82E50CBF47FB0A0F2D1 /* CityURLTranslator.swift in Sources */,
 				9AFBCF519040E699D130072D /* CityDetailViewController.swift in Sources */,
 				9AFBCAFFB71568FAE9054699 /* CitiesTableViewController.swift in Sources */,
 				9AFBCDDD13172281D4368E6C /* CitiesConfiguration.swift in Sources */,
-				9AFBC5E76937F58BE685F4E7 /* CityArguments.swift in Sources */,
+				9AFBC5E76937F58BE685F4E7 /* CityContext.swift in Sources */,
 				9AFBC3DB63861EB552A2CD2E /* ExampleUniversalLinksManager.swift in Sources */,
 				9AFBCBB5F4DDE646EAFA437B /* LoginViewController.swift in Sources */,
 				9AFBC11AB0BE495D5E2959C1 /* LoginConfiguration.swift in Sources */,

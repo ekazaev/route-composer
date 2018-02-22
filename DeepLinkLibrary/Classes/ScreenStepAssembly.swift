@@ -4,7 +4,7 @@
 
 import Foundation
 
-public class ScreenStepAssembly<F: Finder, FF: Factory> where F.V == FF.V, F.A == FF.A {
+public class ScreenStepAssembly<F: Finder, FC: Factory> where F.V == FC.V, F.C == FC.C {
 
     public class ScreenStepChainAssembly {
 
@@ -25,7 +25,7 @@ public class ScreenStepAssembly<F: Finder, FF: Factory> where F.V == FF.V, F.A =
 
     private var finder: F
 
-    private var factory: FF
+    private var factory: FC
 
     private var interceptors: [AnyRouterInterceptor] = []
 
@@ -33,7 +33,7 @@ public class ScreenStepAssembly<F: Finder, FF: Factory> where F.V == FF.V, F.A =
 
     private weak var stepBuilder: ScreenStepChainAssembly?
 
-    public init(finder: F, factory: FF) {
+    public init(finder: F, factory: FC) {
         self.factory = factory
         self.finder = finder
     }
@@ -65,12 +65,12 @@ public extension ScreenStepAssembly {
 
     func assemble(from step: RoutingStep) -> RoutingStep {
         var finalFinder:F? = finder
-        if let _ = finder as? NilFinder<F.V, F.A> {
+        if let _ = finder as? NilFinder<F.V, F.C> {
             finalFinder = nil
         }
 
-        var finalFactory:FF? = factory
-        if let _ = factory as? NilFactory<FF.V, FF.A> {
+        var finalFactory: FC? = factory
+        if let _ = factory as? NilFactory<FC.V, FC.C> {
             finalFactory = nil
         }
 

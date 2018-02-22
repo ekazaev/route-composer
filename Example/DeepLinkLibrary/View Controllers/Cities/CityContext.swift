@@ -5,7 +5,7 @@
 
 import Foundation
 
-class CityArguments: ExampleArguments {
+class CityContext: ExampleContext {
 
     var analyticParameters: ExampleAnalyticsParameters?
 

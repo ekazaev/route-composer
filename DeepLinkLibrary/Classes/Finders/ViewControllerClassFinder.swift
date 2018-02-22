@@ -8,11 +8,11 @@ import UIKit
 
 /// Default implementation of the unique view controller finder, where view controller can be found by name.
 /// (Example: Home, account, login, etc supposed to be in the view stack just once)
-public class ViewControllerClassFinder<VV:UIViewController, AA>: FinderWithPolicy {
+public class ViewControllerClassFinder<VV:UIViewController, CC>: FinderWithPolicy {
 
     public typealias V = VV
 
-    public typealias A = AA
+    public typealias C = CC
 
     public let policy: FinderPolicy
 
@@ -20,7 +20,7 @@ public class ViewControllerClassFinder<VV:UIViewController, AA>: FinderWithPolic
         self.policy = policy
     }
 
-    public func isTarget(viewController: V, arguments: A?) -> Bool {
+    public func isTarget(viewController: V, context: C?) -> Bool {
         return true
     }
 

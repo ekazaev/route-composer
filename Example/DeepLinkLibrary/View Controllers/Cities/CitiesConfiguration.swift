@@ -25,7 +25,7 @@ class CitiesConfiguration {
                 .assemble()
 
         // Cities List
-        citiesList = ScreenStepAssembly(finder: ViewControllerClassFinder<CitiesTableViewController, CityArguments>(),
+        citiesList = ScreenStepAssembly(finder: ViewControllerClassFinder<CitiesTableViewController, CityContext>(),
                 factory: NilFactory())
                 .add(ExampleAnalyticsInterceptor())
                 .add(CityTablePostTask())
@@ -35,7 +35,7 @@ class CitiesConfiguration {
 
         // City Details
         cityDetails = ScreenStepAssembly(
-                finder: ViewControllerClassFinder<CityDetailViewController, CityArguments>(),
+                finder: ViewControllerClassFinder<CityDetailViewController, CityContext>(),
                 factory: ViewControllerFromStoryboard(storyboardName: "Split", viewControllerID: "CityDetailViewController", action: PresentDetailsAction()))
                 .add(ExampleAnalyticsInterceptor())
                 .add(CityDetailPostTask())
@@ -46,10 +46,10 @@ class CitiesConfiguration {
 
 
     static func citiesList(cityId: Int? = nil, _ analyticParameters: ExampleAnalyticsParameters? = nil) -> ExampleDestination {
-        return ExampleDestination(finalStep: shared.citiesList, arguments: CityArguments(cityId: cityId, analyticParameters))
+        return ExampleDestination(finalStep: shared.citiesList, context: CityContext(cityId: cityId, analyticParameters))
     }
 
     static func cityDetail(cityId: Int, _ analyticParameters: ExampleAnalyticsParameters? = nil) -> ExampleDestination {
-        return ExampleDestination(finalStep: shared.cityDetails, arguments: CityArguments(cityId: cityId, analyticParameters))
+        return ExampleDestination(finalStep: shared.cityDetails, context: CityContext(cityId: cityId, analyticParameters))
     }
 }

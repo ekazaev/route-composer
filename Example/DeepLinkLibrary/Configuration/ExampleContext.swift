@@ -10,13 +10,13 @@ enum Argument {
     case color
 }
 
-protocol ExampleArguments: class {
+protocol ExampleContext: class {
 
     var analyticParameters: ExampleAnalyticsParameters? { set get }
 
 }
 
-class ExampleDictionaryArguments: ExampleArguments {
+class ExampleDictionaryContext: ExampleContext {
 
     var analyticParameters: ExampleAnalyticsParameters?
 
@@ -45,6 +45,6 @@ struct ExampleDestination: RoutingDestination {
 
     let finalStep: RoutingStep
 
-    let arguments: Any?
+    let context: Any?
 
 }

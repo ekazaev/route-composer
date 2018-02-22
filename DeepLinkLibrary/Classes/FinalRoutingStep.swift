@@ -31,7 +31,7 @@ class FinalRoutingStep: InterceptableStep, PerformableStep, ChainableStep {
     ///   - step: Step instance contains action that has to be executed by router after it creates assembly's
     ///     UIViewController to make it integrated in to view controller stack which also represents a starting point
     ///     of routing or a dependency.
-    init<F: Finder, FF: Factory>(finder: F?, factory: FF?, interceptor: AnyRouterInterceptor? = nil, postTask: AnyPostRoutingTask? = nil, previousStep: RoutingStep) where F.V == FF.V, F.A == FF.A {
+    init<F: Finder, FC: Factory>(finder: F?, factory: FC?, interceptor: AnyRouterInterceptor? = nil, postTask: AnyPostRoutingTask? = nil, previousStep: RoutingStep) where F.V == FC.V, F.C == FC.C {
         self.previousStep = previousStep
         self.postTask = postTask
         if let finder = finder {
@@ -47,8 +47,8 @@ class FinalRoutingStep: InterceptableStep, PerformableStep, ChainableStep {
         self.interceptor = interceptor
     }
 
-    func perform(with arguments: Any?) -> StepResult {
-        guard let viewController = finder?.findViewController(with: arguments) else  {
+    func perform(with context: Any?) -> StepResult {
+        guard let viewController = finder?.findViewController(with: context) else  {
             return .continueRouting(factory)
         }
         return .success(viewController)

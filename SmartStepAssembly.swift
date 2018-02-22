@@ -15,8 +15,8 @@ public class SmartStepAssembly {
             self.resolverBlock = resolverBlock
         }
 
-        func resolve(with arguments: Any?) -> RoutingStep? {
-            return resolverBlock(arguments)
+        func resolve(with context: Any?) -> RoutingStep? {
+            return resolverBlock(context)
         }
     }
 
@@ -28,12 +28,12 @@ public class SmartStepAssembly {
             self.finder = FinderBox(finder)
         }
 
-        func viewController(with arguments: Any?) -> UIViewController? {
-            return finder.findViewController(with: arguments)
+        func viewController(with context: Any?) -> UIViewController? {
+            return finder.findViewController(with: context)
         }
 
-        func perform(with arguments: Any?) -> StepResult {
-            guard let viewController = viewController(with: arguments) else {
+        func perform(with context: Any?) -> StepResult {
+            guard let viewController = viewController(with: context) else {
                 return .failure
             }
             return .success(viewController)
@@ -51,8 +51,8 @@ public class SmartStepAssembly {
             self.finder = FinderBox(finder)
         }
 
-        func resolve(with arguments: Any?) -> RoutingStep? {
-            return finder.findViewController(with: arguments) != nil ? step : nil
+        func resolve(with context: Any?) -> RoutingStep? {
+            return finder.findViewController(with: context) != nil ? step : nil
         }
     }
 

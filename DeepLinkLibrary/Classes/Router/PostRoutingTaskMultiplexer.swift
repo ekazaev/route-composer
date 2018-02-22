@@ -13,7 +13,7 @@ class PostRoutingTaskMultiplexer: AnyPostRoutingTask {
         self.tasks = tasks
     }
 
-    func execute(on viewController: UIViewController, with arguments: Any?, routingStack: [UIViewController]) {
-        self.tasks.forEach({ $0.execute(on: viewController, with: arguments, routingStack: routingStack) })
+    func execute(on viewController: UIViewController, with context: Any?, routingStack: [UIViewController]) {
+        self.tasks.forEach({ $0.execute(on: viewController, with: context, routingStack: routingStack) })
     }
 }

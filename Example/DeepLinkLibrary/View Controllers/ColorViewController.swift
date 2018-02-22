@@ -8,8 +8,10 @@ import UIKit
 import DeepLinkLibrary
 
 class ColorViewControllerFinder: FinderWithPolicy {
-    public typealias V = ColorViewController
-    public typealias A = ExampleDictionaryArguments
+
+    typealias V = ColorViewController
+
+    typealias C = ExampleDictionaryContext
 
     let policy: FinderPolicy
 
@@ -17,9 +19,9 @@ class ColorViewControllerFinder: FinderWithPolicy {
         self.policy = policy
     }
 
-    func isTarget(viewController: V, arguments: A?) -> Bool {
-        guard let arguments = arguments,
-              let destinationColorHex = arguments[Argument.color] as? ColorViewController.ColorDisplayModel else {
+    func isTarget(viewController: V, context: C?) -> Bool {
+        guard let context = context,
+              let destinationColorHex = context[Argument.color] as? ColorViewController.ColorDisplayModel else {
             return false
         }
         viewController.colorHex = destinationColorHex
@@ -30,31 +32,32 @@ class ColorViewControllerFinder: FinderWithPolicy {
 
 class ColorViewControllerFactory: Factory {
 
-    public typealias V = ColorViewController
-    public typealias A = ExampleDictionaryArguments
+    typealias V = ColorViewController
+
+    typealias C = ExampleDictionaryContext
 
     let action: Action
 
-    var arguments: ColorViewController.ColorDisplayModel?
+    var context: ColorViewController.ColorDisplayModel?
 
     init(action: Action) {
         self.action = action
     }
 
-    func build(with logger: Logger?) -> V? {
+    func build(logger: Logger?) -> V? {
         let colorViewController = ColorViewController(nibName: nil, bundle: nil)
-        colorViewController.colorHex = arguments
+        colorViewController.colorHex = context
 
         return colorViewController
     }
 
-    func prepare(with arguments: A?, logger: Logger?) -> RoutingResult {
-        guard let arguments = arguments,
-              let model = arguments[Argument.color] as? ColorViewController.ColorDisplayModel else {
+    func prepare(with context: C?, logger: Logger?) -> RoutingResult {
+        guard let context = context,
+              let model = context[Argument.color] as? ColorViewController.ColorDisplayModel else {
             return .unhandled
         }
 
-        self.arguments = model
+        self.context = model
         return .handled
     }
 }

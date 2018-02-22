@@ -7,7 +7,7 @@ import UIKit
 
 public protocol SmartStepResolver {
 
-    func resolve(with arguments: Any?) -> RoutingStep?
+    func resolve(with context: Any?) -> RoutingStep?
 
 }
 
@@ -17,10 +17,10 @@ class SmartStep: ChainableStep, PerformableStep {
 
     private var resolvers: [SmartStepResolver]
 
-    func perform(with arguments: Any?) -> StepResult {
+    func perform(with context: Any?) -> StepResult {
         previousStep = nil
         resolvers.forEach({ resolver in
-            guard previousStep == nil, let step = resolver.resolve(with: arguments) else {
+            guard previousStep == nil, let step = resolver.resolve(with: context) else {
                 return
             }
             previousStep = step

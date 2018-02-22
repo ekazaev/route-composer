@@ -7,7 +7,7 @@ import UIKit
 
 protocol AnyRouterInterceptor {
 
-    func execute(with arguments: Any?, logger: Logger?, completion: @escaping (_: InterceptorResult) -> Void)
+    func execute(with context: Any?, logger: Logger?, completion: @escaping (_: InterceptorResult) -> Void)
 
 }
 
@@ -19,12 +19,12 @@ class RouterInterceptorBox<R: RouterInterceptor>: AnyRouterInterceptor {
         self.routerInterceptor = routerInterceptor
     }
 
-    func execute(with arguments: Any?, logger: Logger?, completion: @escaping (InterceptorResult) -> Void) {
-        guard let typedArguments = arguments as? R.A? else {
-            logger?.log(.warning("\(String(describing:routerInterceptor)) does not accept \(String(describing: arguments)) as a parameter."))
+    func execute(with context: Any?, logger: Logger?, completion: @escaping (InterceptorResult) -> Void) {
+        guard let typedContext = context as? R.C? else {
+            logger?.log(.warning("\(String(describing:routerInterceptor)) does not accept \(String(describing: context)) as a context."))
             completion(.failure)
             return
         }
-        routerInterceptor.execute(with: typedArguments, logger: logger, completion: completion)
+        routerInterceptor.execute(with: typedContext, logger: logger, completion: completion)
     }
 }

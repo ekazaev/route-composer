@@ -5,7 +5,7 @@
 
 import Foundation
 
-class WishListArguments: ExampleArguments {
+class WishListContext: ExampleContext {
 
     var analyticParameters: ExampleAnalyticsParameters?
 

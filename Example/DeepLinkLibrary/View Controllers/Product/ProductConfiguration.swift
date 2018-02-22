@@ -7,7 +7,7 @@ import Foundation
 import DeepLinkLibrary
 import UIKit
 
-class ProductArguments: ExampleArguments {
+class ProductContext: ExampleContext {
 
     var analyticParameters: ExampleAnalyticsParameters?
 
@@ -26,10 +26,10 @@ class ProductConfiguration {
                 .add(ExampleAnalyticsInterceptor())
                 .add(ExampleAnalyticsPostAction())
                 .from(SmartStepAssembly()
-                        .addCase { arguments in
+                        .addCase { context in
                             // If routing requested by Universal Link - Presenting modally
                             // Try in Mobile Safari dll://productView?product=123
-                            guard let arguments = arguments as? ExampleArguments, arguments.analyticParameters?.webpageURL != nil else {
+                            guard let context = context as? ExampleContext, context.analyticParameters?.webpageURL != nil else {
                                 return nil
                             }
 
@@ -47,6 +47,6 @@ class ProductConfiguration {
                 ).assemble()
 
 
-        return ExampleDestination(finalStep: productScreen, arguments: ProductArguments(productId: productId, analyticParameters))
+        return ExampleDestination(finalStep: productScreen, context: ProductContext(productId: productId, analyticParameters))
     }
 }

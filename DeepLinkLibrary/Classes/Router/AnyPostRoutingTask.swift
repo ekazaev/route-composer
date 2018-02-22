@@ -7,7 +7,7 @@ import UIKit
 
 protocol AnyPostRoutingTask {
 
-    func execute(on viewController: UIViewController, with arguments: Any?, routingStack: [UIViewController])
+    func execute(on viewController: UIViewController, with context: Any?, routingStack: [UIViewController])
 
 }
 
@@ -19,13 +19,13 @@ class PostRoutingTaskBox<P: PostRoutingTask>: AnyPostRoutingTask {
         self.postRoutingTask = postRoutingTask
     }
 
-    func execute(on viewController: UIViewController, with arguments: Any?, routingStack: [UIViewController]) {
+    func execute(on viewController: UIViewController, with context: Any?, routingStack: [UIViewController]) {
         guard let typedViewController = viewController as? P.V,
-              let typedArguments = arguments as? P.A? else {
-            print("\(String(describing:postRoutingTask)) does not accept \(String(describing: viewController)) and \(String(describing: arguments)) as a parameters.")
+              let typedContext = context as? P.C? else {
+            print("\(String(describing:postRoutingTask)) does not accept \(String(describing: viewController)) and \(String(describing: context)) as a context.")
             return
         }
-        postRoutingTask.execute(on: typedViewController, with: typedArguments, routingStack: routingStack)
+        postRoutingTask.execute(on: typedViewController, with: typedContext, routingStack: routingStack)
     }
 
 }

@@ -11,7 +11,7 @@ public class TopMostViewControllerStep: PerformableStep {
     public init() {
     }
 
-    func perform(with arguments: Any?) -> StepResult {
+    func perform(with context: Any?) -> StepResult {
         let window = UIWindow.key
         return StepResult(window?.topmostViewController)
     }

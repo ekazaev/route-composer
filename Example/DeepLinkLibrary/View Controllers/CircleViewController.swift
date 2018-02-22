@@ -22,15 +22,15 @@ class CircleViewController: UIViewController, AnalyticsSupportViewController {
     }
 
     @IBAction func goToRandomColorTapped() {
-        router.deepLinkTo(destination: ExampleConfiguration.destination(for: ExampleTarget.color, arguments: ExampleDictionaryArguments(arguments: [Argument.color: "0000FF"]))!)
+        router.deepLinkTo(destination: ExampleConfiguration.destination(for: ExampleTarget.color, context: ExampleDictionaryContext(arguments: [Argument.color: "0000FF"]))!)
     }
 
     @IBAction func goToDeepModalTapped() {
-        router.deepLinkTo(destination: ExampleConfiguration.destination(for: ExampleTarget.ruleSupport, arguments: ExampleDictionaryArguments(arguments: [Argument.color: "00FF00"]))!)
+        router.deepLinkTo(destination: ExampleConfiguration.destination(for: ExampleTarget.ruleSupport, context: ExampleDictionaryContext(arguments: [Argument.color: "00FF00"]))!)
     }
 
     @IBAction func goToSuperModalTapped() {
-        router.deepLinkTo(destination: ExampleConfiguration.destination(for: ExampleTarget.secondLevelModal, arguments: ExampleDictionaryArguments(arguments: [Argument.color: "0000FF"]))!)
+        router.deepLinkTo(destination: ExampleConfiguration.destination(for: ExampleTarget.secondLevelModal, context: ExampleDictionaryContext(arguments: [Argument.color: "0000FF"]))!)
     }
 
     @IBAction func goToProductTapped() {

@@ -15,7 +15,7 @@ struct LoginConfiguration {
                 .from(TopMostViewControllerStep())
                 .assemble()
 
-        return ExampleDestination(finalStep: loginScreen, arguments: nil)
+        return ExampleDestination(finalStep: loginScreen, context: nil)
     }
 
 }

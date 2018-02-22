@@ -11,13 +11,13 @@ public protocol Finder {
 
     associatedtype V: UIViewController
 
-    associatedtype A
+    associatedtype C
 
     /// Method to be extended to implement Finder functionality.
     ///
-    /// - Parameter arguments: Arguments passed to the router to be presented in a final destination.
+    /// - Parameter context: Context object passed to the router to be presented in a final destination.
     /// - Returns: UIViewController instance that Router is looking for if it has already been built in to
     ///   view controller stack, nil otherwise.
-    func findViewController(with arguments: A?) -> V?
+    func findViewController(with context: C?) -> V?
 
 }

@@ -7,16 +7,16 @@ import UIKit
 
 /// Simple finders for targets that never should be found in a view controller stack and should always be created
 /// from scratch.
-public class NilFinder<VV: UIViewController, AA>: Finder {
+public class NilFinder<VV: UIViewController, CC>: Finder {
 
     public typealias V = VV
 
-    public typealias A = AA
+    public typealias C = CC
 
     public init() {
     }
 
-    public func findViewController(with arguments: A?) -> V? {
+    public func findViewController(with context: C?) -> V? {
         return nil
     }
 
