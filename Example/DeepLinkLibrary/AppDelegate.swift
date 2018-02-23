@@ -24,9 +24,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func configureNavigationUsingDictionaryConfig() {
         //As one of examples configuration can be stored in one configuration object. Other configs are in CitiesConfiguration, Product configuration and LoginConfiguration as static objects
 
-
         // Home Tab Bar Screen
         let homeScreen = ScreenStepAssembly(
+                // Because both factory and finder are Generic, You have to provide to at least one instance
+                // what type of view controller and context to expect. You do not need to do so if you are using at
+                // least one custom factory of finder that have set typealias for ViewController and Context.
                 finder: ViewControllerClassFinder<UITabBarController, Any>(),
                 factory: ViewControllerFromStoryboard(storyboardName: "Main", action: ReplaceRootAction()))
                 .add(ExampleAnalyticsInterceptor())
@@ -60,7 +62,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         //Color screen
         let colorScreen = ScreenStepAssembly(
-                finder: ColorViewControllerFinder(), factory: ColorViewControllerFactory(action: PushAction()))
+                finder: ColorViewControllerFinder(),
+                factory: ColorViewControllerFactory(action: PushAction()))
                 .add(ExampleAnalyticsInterceptor())
                 .add(ExampleAnalyticsPostAction())
                 .from(NavigationContainerStep(action: PresentModallyAction()))
@@ -82,7 +85,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ExampleConfiguration.register(screen: starScreen, for: ExampleTarget.star)
 
         //Screen with Routing support
-        let routingSupportScreen = ScreenStepAssembly(finder: ViewControllerClassFinder<RoutingRuleSupportViewController, Any>(policy: .currentLevel),
+        let routingSupportScreen = ScreenStepAssembly(
+                finder: ViewControllerClassFinder<RoutingRuleSupportViewController, Any>(policy: .currentLevel),
                 factory: ViewControllerFromStoryboard(storyboardName: "Main", viewControllerID: "RoutingRuleSupportViewController", action: PushAction()))
                 .add(ExampleAnalyticsInterceptor())
                 .add(ExampleAnalyticsPostAction())
@@ -93,7 +97,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 for: ExampleTarget.ruleSupport)
 
         // Empty Screen
-        let emptyScreen = ScreenStepAssembly(finder: ViewControllerClassFinder<EmptyViewController, Any>(),
+        let emptyScreen = ScreenStepAssembly(
+                finder: ViewControllerClassFinder<EmptyViewController, Any>(),
                 factory: ViewControllerFromStoryboard(storyboardName: "Main", viewControllerID: "EmptyViewController", action: PushAction()))
                 .add(LoginInterceptor())
                 .add(ExampleAnalyticsInterceptor())
@@ -103,7 +108,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         ExampleConfiguration.register(screen: emptyScreen, for: ExampleTarget.empty)
 
-        // Two modal presentations screen
+        // Two modal presentations in a row screen
         let superModalScreen = ScreenStepAssembly(
                 finder: ViewControllerClassFinder<SecondModalLevelViewController, Any>(),
                 factory: ViewControllerFromStoryboard(storyboardName: "Main", viewControllerID: "SecondModalLevelViewController", action: PushAction()))
@@ -112,6 +117,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 .from(NavigationContainerStep(action: PresentModallyAction()))
                 .from(routingSupportScreen)
                 .assemble()
+
         ExampleConfiguration.register(screen: superModalScreen, for: ExampleTarget.secondLevelModal)
 
         // Welcome Screen

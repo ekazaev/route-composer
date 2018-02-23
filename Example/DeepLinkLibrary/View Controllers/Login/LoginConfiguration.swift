@@ -10,7 +10,7 @@ struct LoginConfiguration {
 
     static func login() -> ExampleDestination {
         let loginScreen = ScreenStepAssembly(finder: LoginViewControllerFinder(),
-                factory: NilFactory()) //Its actually funny here. You can not load here LoginViewController from a storyboard - because it UINavigationController will be created first. So all this fancy abstraction involves more coding.
+                factory: NilFactory()) //Login view controller will be created when UINavigationController will be loaded from storyboard.
                 .from(RouterStep(factory: ViewControllerFromStoryboard<UINavigationController, Any>(storyboardName: "Login", action: PresentModallyAction(presentationStyle: .formSheet))))
                 .from(TopMostViewControllerStep())
                 .assemble()

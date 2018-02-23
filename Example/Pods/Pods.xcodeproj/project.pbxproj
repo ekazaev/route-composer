@@ -27,6 +27,9 @@
 		840C1E65202D2EC20032CFD1 /* ViewControllerFromXibFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840C1E64202D2EC20032CFD1 /* ViewControllerFromXibFactory.swift */; };
 		8481BB35202CCD6900174ECB /* NilFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8481BB34202CCD6900174ECB /* NilFactory.swift */; };
 		848F3465202DEAF800F2A959 /* MandatoryContextFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848F3464202DEAF800F2A959 /* MandatoryContextFactory.swift */; };
+		84B76A6220404DDB00D865B1 /* ScreenStepAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B76A5F20404DDA00D865B1 /* ScreenStepAssembly.swift */; };
+		84B76A6320404DDB00D865B1 /* StepChainAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B76A6020404DDA00D865B1 /* StepChainAssembly.swift */; };
+		84B76A6420404DDB00D865B1 /* SwitcherStepAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B76A6120404DDA00D865B1 /* SwitcherStepAssembly.swift */; };
 		84D14DE9203C899C00F3FF9A /* RouterStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D14DE8203C899C00F3FF9A /* RouterStep.swift */; };
 		84D14DEB203C8A7100F3FF9A /* InterceptableStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D14DEA203C8A7100F3FF9A /* InterceptableStep.swift */; };
 		8B543728D4525AA125A4555983ACE3B3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D88AAE1F92055A60CC2FC970D7D34634 /* Foundation.framework */; };
@@ -38,13 +41,10 @@
 		9AFBC1582157BEF5799E0116 /* ContainerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC6DF76571AE956905149 /* ContainerFactory.swift */; };
 		9AFBC1756AD13667D6701A34 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC648DD35ED6B5FD62D5F /* Action.swift */; };
 		9AFBC19BAE311EB9D6A5BA03 /* AnyRouterInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCEE024728B7F1A92F75D /* AnyRouterInterceptor.swift */; };
-		9AFBC1E12D672EEA4C3630B5 /* StepChainAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC1774438EFA8BE6B8750 /* StepChainAssembly.swift */; };
 		9AFBC26069234206508F64CD /* PostRoutingTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC4D3DCD11F16539A9004 /* PostRoutingTask.swift */; };
-		9AFBC45E9DCAD765CDB30133 /* SwitcherStepAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC12E6DA2D2F64FAC07B8 /* SwitcherStepAssembly.swift */; };
 		9AFBC56E1B186400D6805EFF /* FactoryBuildResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCE1F15266EB9C21A97C9 /* FactoryBuildResult.swift */; };
 		9AFBC5921437E6E6524F6231 /* FinalRoutingStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCBA79DD7EEED735368BE /* FinalRoutingStep.swift */; };
 		9AFBC6A20AAA06B3CB493E8F /* AnyFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCE9A8356BE7AC22D14F9 /* AnyFactory.swift */; };
-		9AFBC8349667E9FFF8373291 /* ScreenStepAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC58581ABA97F797C7B39 /* ScreenStepAssembly.swift */; };
 		9AFBC864F1E33DBCDB43525F /* AnyFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCA52E257FBFFF7046041 /* AnyFinder.swift */; };
 		9AFBC8A3F7E9B450C65767D3 /* AnyContainerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC62FAA8A6D0B15D72263 /* AnyContainerFactory.swift */; };
 		9AFBC95D2B5E5714BE08EE8E /* NilAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCA9A0ED6594AA39CE70A /* NilAction.swift */; };
@@ -134,6 +134,9 @@
 		840C1E64202D2EC20032CFD1 /* ViewControllerFromXibFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFromXibFactory.swift; sourceTree = "<group>"; };
 		8481BB34202CCD6900174ECB /* NilFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NilFactory.swift; sourceTree = "<group>"; };
 		848F3464202DEAF800F2A959 /* MandatoryContextFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MandatoryContextFactory.swift; sourceTree = "<group>"; };
+		84B76A5F20404DDA00D865B1 /* ScreenStepAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenStepAssembly.swift; sourceTree = "<group>"; };
+		84B76A6020404DDA00D865B1 /* StepChainAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepChainAssembly.swift; sourceTree = "<group>"; };
+		84B76A6120404DDA00D865B1 /* SwitcherStepAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitcherStepAssembly.swift; sourceTree = "<group>"; };
 		84D14DE8203C899C00F3FF9A /* RouterStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RouterStep.swift; path = DeepLinkLibrary/Classes/RouterStep.swift; sourceTree = "<group>"; };
 		84D14DEA203C8A7100F3FF9A /* InterceptableStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterceptableStep.swift; sourceTree = "<group>"; };
 		8F281F5E5B47B8DC5CBCAAF8A280E5B6 /* RootViewControllerStep.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RootViewControllerStep.swift; sourceTree = "<group>"; };
@@ -143,13 +146,10 @@
 		93E17B12148ABB499C46A481A29CDA83 /* PresentDetailsAction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PresentDetailsAction.swift; sourceTree = "<group>"; };
 		984D6A863BFDF29FD0ABFE6F18005A4A /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		98BAD2D5D44D93F7D8FEB315CE95C74A /* InterceptorMultiplexer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = InterceptorMultiplexer.swift; sourceTree = "<group>"; };
-		9AFBC12E6DA2D2F64FAC07B8 /* SwitcherStepAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitcherStepAssembly.swift; sourceTree = "<group>"; };
-		9AFBC1774438EFA8BE6B8750 /* StepChainAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StepChainAssembly.swift; path = DeepLinkLibrary/Classes/StepChainAssembly.swift; sourceTree = "<group>"; };
 		9AFBC35DA6963D837D16ED04 /* MergingContainerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MergingContainerFactory.swift; sourceTree = "<group>"; };
 		9AFBC414EDFBE97D267512C5 /* FactoryPreparationResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FactoryPreparationResult.swift; sourceTree = "<group>"; };
 		9AFBC4BC05C6A013147C36AD /* RouterRulesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RouterRulesViewController.swift; path = DeepLinkLibrary/Classes/Router/RouterRulesViewController.swift; sourceTree = "<group>"; };
 		9AFBC4D3DCD11F16539A9004 /* PostRoutingTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostRoutingTask.swift; path = DeepLinkLibrary/Classes/Router/PostRoutingTask.swift; sourceTree = "<group>"; };
-		9AFBC58581ABA97F797C7B39 /* ScreenStepAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScreenStepAssembly.swift; path = DeepLinkLibrary/Classes/ScreenStepAssembly.swift; sourceTree = "<group>"; };
 		9AFBC62FAA8A6D0B15D72263 /* AnyContainerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyContainerFactory.swift; sourceTree = "<group>"; };
 		9AFBC648DD35ED6B5FD62D5F /* Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Action.swift; path = DeepLinkLibrary/Classes/Actions/Action.swift; sourceTree = "<group>"; };
 		9AFBC6DF76571AE956905149 /* ContainerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContainerFactory.swift; path = DeepLinkLibrary/Classes/Factories/ContainerFactory.swift; sourceTree = "<group>"; };
@@ -333,6 +333,17 @@
 			);
 			sourceTree = "<group>";
 		};
+		84B76A5E20404DDA00D865B1 /* Assemblies */ = {
+			isa = PBXGroup;
+			children = (
+				84B76A5F20404DDA00D865B1 /* ScreenStepAssembly.swift */,
+				84B76A6020404DDA00D865B1 /* StepChainAssembly.swift */,
+				84B76A6120404DDA00D865B1 /* SwitcherStepAssembly.swift */,
+			);
+			name = Assemblies;
+			path = DeepLinkLibrary/Classes/Assemblies;
+			sourceTree = "<group>";
+		};
 		84C3ADDCFFA0F8B733166E2D9EEED7C6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -359,16 +370,6 @@
 			);
 			name = "Pods-DeepLinkLibrary_Example";
 			path = "Target Support Files/Pods-DeepLinkLibrary_Example";
-			sourceTree = "<group>";
-		};
-		9AFBCC55F39EEC200073FF8E /* Assemblies */ = {
-			isa = PBXGroup;
-			children = (
-				9AFBC1774438EFA8BE6B8750 /* StepChainAssembly.swift */,
-				9AFBC58581ABA97F797C7B39 /* ScreenStepAssembly.swift */,
-				9AFBC12E6DA2D2F64FAC07B8 /* SwitcherStepAssembly.swift */,
-			);
-			name = Assemblies;
 			sourceTree = "<group>";
 		};
 		AA61ADAE9877B598D49DE51F64BBB063 /* Extensions */ = {
@@ -426,6 +427,7 @@
 		D816E0B88198585FD01F626300EB87D6 /* DeepLinkLibrary */ = {
 			isa = PBXGroup;
 			children = (
+				84B76A5E20404DDA00D865B1 /* Assemblies */,
 				84D14DE8203C899C00F3FF9A /* RouterStep.swift */,
 				0082AA2CAFC816348E4D9203988AC16E /* RoutingDestination.swift */,
 				07CC664F0334FF9BD33853BE12A6EC3A /* RoutingResult.swift */,
@@ -444,7 +446,6 @@
 				9AFBC648DD35ED6B5FD62D5F /* Action.swift */,
 				9AFBC8A4F12BC519DE66C4E0 /* Factory.swift */,
 				9AFBCC4238C34EC1F2321152 /* Finder.swift */,
-				9AFBCC55F39EEC200073FF8E /* Assemblies */,
 				9AFBC6DF76571AE956905149 /* ContainerFactory.swift */,
 				9AFBC97B8C912C8393CF766C /* ContainerViewController.swift */,
 			);
@@ -625,6 +626,7 @@
 				8481BB35202CCD6900174ECB /* NilFactory.swift in Sources */,
 				4AEEF1CB7AF306404E1F3D64B01C047E /* PresentModallyAction.swift in Sources */,
 				7C6EED3C9FDA515C47C3A8E67308790C /* PushAction.swift in Sources */,
+				84B76A6420404DDB00D865B1 /* SwitcherStepAssembly.swift in Sources */,
 				D5565F94DA190616E1EFABE46E18BE35 /* PushAsRootAction.swift in Sources */,
 				E67AAA53D85C1702772C8CBC0BAB4E1E /* ReplaceRootAction.swift in Sources */,
 				C29B76208EB0E9EC5C61B5046E6C83EE /* RootViewControllerStep.swift in Sources */,
@@ -644,12 +646,14 @@
 				A780859DC49FE5AC6385AA69E8C3339E /* TopMostViewControllerStep.swift in Sources */,
 				FAAA5255D3EF2D1857F563CA34F79E5F /* UIViewControllerExtension.swift in Sources */,
 				5319208FD9F296B5F7EAB4C42ADE4411 /* UIWindowExtension.swift in Sources */,
+				84B76A6320404DDB00D865B1 /* StepChainAssembly.swift in Sources */,
 				B683F9ABF63A06EE61BC20AA3BF935A0 /* ViewControllerClassFinder.swift in Sources */,
 				CD32C5F6142C425BA7C69A4541B30FCC /* ViewControllerFromClassFactory.swift in Sources */,
 				B75AB3F3CC59A49BE840930B8F9104CA /* ViewControllerFromStoryboardFactory.swift in Sources */,
 				9AFBC5921437E6E6524F6231 /* FinalRoutingStep.swift in Sources */,
 				9AFBC19BAE311EB9D6A5BA03 /* AnyRouterInterceptor.swift in Sources */,
 				9AFBCFC09C8F54EFF6355B64 /* Router.swift in Sources */,
+				84B76A6220404DDB00D865B1 /* ScreenStepAssembly.swift in Sources */,
 				9AFBCEC22030B8B7116AB55B /* RouterRulesViewController.swift in Sources */,
 				9AFBCD7A6E8F79F3E209D774 /* AnyPostRoutingTask.swift in Sources */,
 				9AFBC864F1E33DBCDB43525F /* AnyFinder.swift in Sources */,
@@ -658,9 +662,6 @@
 				9AFBC1756AD13667D6701A34 /* Action.swift in Sources */,
 				9AFBC0FB072F6B4F309A4F2A /* Factory.swift in Sources */,
 				9AFBCC7A9E59940D402FE010 /* Finder.swift in Sources */,
-				9AFBC1E12D672EEA4C3630B5 /* StepChainAssembly.swift in Sources */,
-				9AFBC8349667E9FFF8373291 /* ScreenStepAssembly.swift in Sources */,
-				9AFBC45E9DCAD765CDB30133 /* SwitcherStepAssembly.swift in Sources */,
 				9AFBC1582157BEF5799E0116 /* ContainerFactory.swift in Sources */,
 				9AFBC9D8BD69B19F154F3D68 /* ContainerViewController.swift in Sources */,
 				9AFBCAF6536210A2BB74DB8D /* ChainableStep.swift in Sources */,

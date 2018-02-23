@@ -6,7 +6,5 @@ target 'DeepLinkLibrary_Example' do
 
   target 'DeepLinkLibrary_Tests' do
     inherit! :search_paths
-
-    
   end
 end
