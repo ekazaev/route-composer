@@ -5,14 +5,27 @@
 
 import UIKit
 import DeepLinkLibrary
+import os.log
 
-private let appRouter = DefaultRouter(logger: DefaultLogger(.verbose))
 
 extension UIViewController {
 
+    private static var appRouter: DefaultRouter?
+
     var router: DefaultRouter {
         get {
-            return appRouter
+            guard let router = UIViewController.appRouter else {
+                let appRouterLogger: DefaultLogger
+                if #available(iOS 10, *) {
+                    appRouterLogger = DefaultLogger(.verbose, osLog: OSLog(subsystem: "org.cocoapods.demo.DeepLinkLibrary-Example", category: "Router"))
+                } else {
+                    appRouterLogger = DefaultLogger(.verbose)
+                }
+                let router = DefaultRouter(logger: appRouterLogger)
+                UIViewController.appRouter = router
+                return router
+            }
+            return router
         }
     }
 }

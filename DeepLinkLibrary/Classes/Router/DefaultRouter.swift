@@ -15,11 +15,12 @@ public class DefaultRouter: Router {
 
     @discardableResult
     public func deepLinkTo(destination: RoutingDestination, animated: Bool = true, completion: ((_: Bool) -> Void)? = nil) -> RoutingResult {
-
+        logger?.routingWillStart()
         // If currently visible view controller can not be dismissed then we can't deeplink anywhere, because it will
         // disappear as a result of deeplinking.
         if let topMostViewController = UIWindow.key?.topmostViewController as? RouterRulesViewController, !topMostViewController.canBeDismissed {
             logger?.log(.warning("Topmost view controller can not be dismissed."))
+            logger?.routingDidFinish()
             return .unhandled
         }
 
@@ -28,6 +29,7 @@ public class DefaultRouter: Router {
         // Returns (rootViewController, factories, interceptor) tuple
         // where rootViewController is the origin of the chain of views to be built for a given destination.
         guard let stack = prepareStack(destination: destination, postTaskRunner: postTaskRunner) else {
+            logger?.routingDidFinish()
             return .unhandled
         }
 
@@ -42,6 +44,7 @@ public class DefaultRouter: Router {
             !$0.canBeDismissed
         }) {
             logger?.log(.warning("\(String(describing: viewController)) view controller can not be dismissed."))
+            logger?.routingDidFinish()
             return .unhandled
         }
 
@@ -49,6 +52,7 @@ public class DefaultRouter: Router {
         interceptor.execute(with: destination.context) { [weak viewController] result in
             if case let .failure(message) = result {
                 self.logger?.log(.warning(message ?? "\(interceptor) interceptor has stopped routing."))
+                self.logger?.routingDidFinish()
                 completion?(false)
                 return
             }
@@ -56,6 +60,7 @@ public class DefaultRouter: Router {
             guard let viewController = viewController else {
                 self.logger?.log(.warning("View controller that been chosen as a starting point of rooting been " +
                         "destroyed while router was waiting for interceptor's result."))
+                self.logger?.routingDidFinish()
                 completion?(false)
                 return
             }
@@ -63,6 +68,7 @@ public class DefaultRouter: Router {
             self.startDeepLinking(viewController: viewController, context: destination.context, animated: animated, factories: factoriesStack) { viewController in
                 self.makeContainersActive(toShow: viewController, animated: animated)
                 postTaskRunner.run(for: destination)
+                self.logger?.routingDidFinish()
                 completion?(true)
             }
         }

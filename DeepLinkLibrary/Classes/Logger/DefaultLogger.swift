@@ -19,8 +19,21 @@ public class DefaultLogger: Logger {
 
     private let logLevel: DefaultLoggerLevel
 
+    private let osLog: OSLog?
+    
     public init(_ logLevel: DefaultLoggerLevel = .warnings) {
         self.logLevel = logLevel
+        if #available(iOS 10.0, *) {
+            self.osLog = OSLog.default
+        } else {
+            self.osLog = nil
+        }
+    }
+
+    @available(iOS 10, *)
+    public init(_ logLevel: DefaultLoggerLevel = .warnings, osLog: OSLog = OSLog.default) {
+        self.logLevel = logLevel
+        self.osLog = osLog
     }
 
     public func log(_ message: LoggerMessage) {
@@ -28,7 +41,7 @@ public class DefaultLogger: Logger {
         case .warning(let message):
             if logLevel == .verbose || logLevel == .warnings {
                 if #available(iOS 10, *) {
-                    os_log("%@", log: OSLog.default, type: .error, message)
+                    os_log("%@", log: self.osLog ?? OSLog.default, type: .error, message)
                 } else {
                     NSLog("WARNING: \(message)")
                 }
@@ -36,14 +49,14 @@ public class DefaultLogger: Logger {
         case .info(let message):
             if logLevel == .verbose {
                 if #available(iOS 10, *) {
-                    os_log("%@", log: OSLog.default, type: .info, message)
+                    os_log("%@", log: self.osLog ?? OSLog.default, type: .info, message)
                 } else {
                     NSLog("INFO: \(message)")
                 }
             }
         case .error(let message):
             if #available(iOS 10, *) {
-                os_log("%@", log: OSLog.default, type: .fault, message)
+                os_log("%@", log: self.osLog ?? OSLog.default, type: .fault, message)
             } else {
                 NSLog("ERROR: \(message)")
             }

@@ -18,6 +18,20 @@ public enum LoggerMessage {
 
 public protocol Logger {
 
+    func routingWillStart()
+
     func log(_ message: LoggerMessage)
+
+    func routingDidFinish()
+
+}
+
+public extension Logger {
+
+    func routingWillStart() {
+    }
+
+    func routingDidFinish() {
+    }
 
 }

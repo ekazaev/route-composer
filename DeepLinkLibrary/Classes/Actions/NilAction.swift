@@ -14,5 +14,5 @@ public class NilAction: Action {
     public func perform(viewController: UIViewController, on existingController: UIViewController, animated: Bool, completion: @escaping (ActionResult) -> Void) {
         completion(.continueRouting)
     }
-    
+
 }
