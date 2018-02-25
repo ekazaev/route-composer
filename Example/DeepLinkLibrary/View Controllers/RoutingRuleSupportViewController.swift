@@ -9,7 +9,7 @@ import DeepLinkLibrary
 
 class RoutingRuleSupportViewController: UIViewController, RouterRulesViewController, AnalyticsSupportViewController {
 
-    let  analyticParameters = ExampleAnalyticsParameters(source: .ruleSupport)
+    let analyticParameters = ExampleAnalyticsParameters(source: .ruleSupport)
 
     private(set) var canBeDismissed: Bool = true
 

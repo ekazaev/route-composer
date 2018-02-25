@@ -9,7 +9,7 @@ import DeepLinkLibrary
 
 class StarViewController: UIViewController, AnalyticsSupportViewController {
 
-    let  analyticParameters = ExampleAnalyticsParameters(source: .star)
+    let analyticParameters = ExampleAnalyticsParameters(source: .star)
 
     override func viewDidLoad() {
         super.viewDidLoad()

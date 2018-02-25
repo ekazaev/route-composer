@@ -3,21 +3,22 @@
 //
 
 import Foundation
+import UIKit
 
-public protocol MergingContainerFactory: Factory, Container {
+public protocol SingleActionContainerFactory: Factory, Container {
 
-    associatedtype ActionType
+    associatedtype SupportedAction
 
     var factories: [AnyFactory] { get set }
 
 }
 
-public extension MergingContainerFactory {
+public extension SingleActionContainerFactory {
 
     public func merge(_ factories: [AnyFactory]) -> [AnyFactory] {
         var otherFactories: [AnyFactory] = []
         self.factories = factories.filter { factory in
-            guard let _ = factory.action as? ActionType else {
+            guard let _ = factory.action as? SupportedAction else {
                 otherFactories.append(factory)
                 return false
             }

@@ -7,9 +7,9 @@ import Foundation
 import UIKit
 import DeepLinkLibrary
 
-class CustomContainerFactory: MergingContainerFactory {
+class CustomContainerFactory: SingleActionContainerFactory {
 
-    typealias ActionType = CustomContainerChildAction
+    typealias SupportedAction = CustomContainerChildAction
 
     typealias ViewController = CustomContainerController
 

@@ -58,7 +58,7 @@ class ProductViewControllerFactory: MandatoryContextFactory {
 
 class ProductViewController: UIViewController, AnalyticsSupportViewController {
 
-    let  analyticParameters = ExampleAnalyticsParameters(source: .product)
+    let analyticParameters = ExampleAnalyticsParameters(source: .product)
 
     typealias Model = String
 

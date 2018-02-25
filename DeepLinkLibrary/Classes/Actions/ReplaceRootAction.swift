@@ -11,6 +11,10 @@ public class ReplaceRootAction: Action {
     public init() {
     }
 
+    public func performMerged(viewController: UIViewController, containerViewControllers: inout [UIViewController]) {
+        fatalError("Can not be merged")
+    }
+
     public func perform(viewController: UIViewController, on existingController: UIViewController, animated: Bool, completion: @escaping(_: ActionResult) -> Void) {
         guard let window = UIWindow.key else {
             completion(.failure("Key window not found."))

@@ -9,13 +9,13 @@ public protocol TabBarControllerFactoryAction: Action {
 
 }
 
-public class TabBarControllerFactory: MergingContainerFactory {
+public class TabBarControllerFactory: SingleActionContainerFactory {
 
     public typealias ViewController = UITabBarController
 
     public typealias Context = Any
 
-    public typealias ActionType = TabBarControllerFactoryAction
+    public typealias SupportedAction = TabBarControllerFactoryAction
 
     public let action: Action
 

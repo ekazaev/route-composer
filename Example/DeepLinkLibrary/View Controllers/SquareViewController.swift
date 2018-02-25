@@ -9,10 +9,9 @@
 import UIKit
 import DeepLinkLibrary
 
-class SquareViewController: UIViewController , AnalyticsSupportViewController {
+class SquareViewController: UIViewController, AnalyticsSupportViewController {
 
-    let  analyticParameters = ExampleAnalyticsParameters(source: .square)
-
+    let analyticParameters = ExampleAnalyticsParameters(source: .square)
 
     override func viewDidLoad() {
         super.viewDidLoad()

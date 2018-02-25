@@ -11,7 +11,7 @@ import DeepLinkLibrary
 
 class CircleViewController: UIViewController, AnalyticsSupportViewController {
 
-    let  analyticParameters = ExampleAnalyticsParameters(source: .circle)
+    let analyticParameters = ExampleAnalyticsParameters(source: .circle)
 
     override func viewDidLoad() {
         super.viewDidLoad()

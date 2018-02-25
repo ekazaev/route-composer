@@ -50,7 +50,7 @@
 		9AFBC95D2B5E5714BE08EE8E /* NilAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCA9A0ED6594AA39CE70A /* NilAction.swift */; };
 		9AFBC9D8BD69B19F154F3D68 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC97B8C912C8393CF766C /* ContainerViewController.swift */; };
 		9AFBCAF6536210A2BB74DB8D /* ChainableStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCDE5B965A08290779CAB /* ChainableStep.swift */; };
-		9AFBCB309639D23F2921484A /* MergingContainerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC35DA6963D837D16ED04 /* MergingContainerFactory.swift */; };
+		9AFBCB309639D23F2921484A /* SingleActionContainerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC35DA6963D837D16ED04 /* SingleActionContainerFactory.swift */; };
 		9AFBCC113DC2E8D3C521183F /* ChainingStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC76D64DD80BA1E71A0DE /* ChainingStep.swift */; };
 		9AFBCC7A9E59940D402FE010 /* Finder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCC4238C34EC1F2321152 /* Finder.swift */; };
 		9AFBCD7A6E8F79F3E209D774 /* AnyPostRoutingTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCB035CCD701E789F84A8 /* AnyPostRoutingTask.swift */; };
@@ -146,7 +146,7 @@
 		93E17B12148ABB499C46A481A29CDA83 /* PresentDetailsAction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PresentDetailsAction.swift; sourceTree = "<group>"; };
 		984D6A863BFDF29FD0ABFE6F18005A4A /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		98BAD2D5D44D93F7D8FEB315CE95C74A /* InterceptorMultiplexer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = InterceptorMultiplexer.swift; sourceTree = "<group>"; };
-		9AFBC35DA6963D837D16ED04 /* MergingContainerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MergingContainerFactory.swift; sourceTree = "<group>"; };
+		9AFBC35DA6963D837D16ED04 /* SingleActionContainerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleActionContainerFactory.swift; sourceTree = "<group>"; };
 		9AFBC414EDFBE97D267512C5 /* FactoryPreparationResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FactoryPreparationResult.swift; sourceTree = "<group>"; };
 		9AFBC4BC05C6A013147C36AD /* RouterRulesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RouterRulesViewController.swift; path = DeepLinkLibrary/Classes/Router/RouterRulesViewController.swift; sourceTree = "<group>"; };
 		9AFBC4D3DCD11F16539A9004 /* PostRoutingTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostRoutingTask.swift; path = DeepLinkLibrary/Classes/Router/PostRoutingTask.swift; sourceTree = "<group>"; };
@@ -416,7 +416,7 @@
 				8481BB34202CCD6900174ECB /* NilFactory.swift */,
 				840C1E64202D2EC20032CFD1 /* ViewControllerFromXibFactory.swift */,
 				848F3464202DEAF800F2A959 /* MandatoryContextFactory.swift */,
-				9AFBC35DA6963D837D16ED04 /* MergingContainerFactory.swift */,
+				9AFBC35DA6963D837D16ED04 /* SingleActionContainerFactory.swift */,
 				9AFBC414EDFBE97D267512C5 /* FactoryPreparationResult.swift */,
 				9AFBCE1F15266EB9C21A97C9 /* FactoryBuildResult.swift */,
 			);
@@ -668,7 +668,7 @@
 				9AFBCE8AFB86C20DF90C55A1 /* PerformableStep.swift in Sources */,
 				9AFBC8A3F7E9B450C65767D3 /* AnyContainer.swift in Sources */,
 				9AFBC95D2B5E5714BE08EE8E /* NilAction.swift in Sources */,
-				9AFBCB309639D23F2921484A /* MergingContainerFactory.swift in Sources */,
+				9AFBCB309639D23F2921484A /* SingleActionContainerFactory.swift in Sources */,
 				9AFBC0131B96CBB842346932 /* FactoryPreparationResult.swift in Sources */,
 				9AFBC56E1B186400D6805EFF /* FactoryBuildResult.swift in Sources */,
 				9AFBCC113DC2E8D3C521183F /* ChainingStep.swift in Sources */,

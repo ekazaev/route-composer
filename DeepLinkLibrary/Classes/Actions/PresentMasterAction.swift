@@ -11,10 +11,6 @@ public class PresentMasterAction: SplitViewControllerMasterAction {
     public init() {
     }
 
-    public func performMerged(viewController: UIViewController, containerViewControllers: inout [UIViewController]) {
-        containerViewControllers.append(viewController)
-    }
-
     public func perform(viewController: UIViewController, on existingController: UIViewController, animated: Bool, completion: @escaping (_: ActionResult) -> Void) {
         guard let splitViewController = existingController as? UISplitViewController ?? existingController.splitViewController,
               splitViewController.viewControllers.count > 0 else {

@@ -34,6 +34,7 @@ public protocol Action: class {
 public extension Action {
 
     public func performMerged(viewController: UIViewController, containerViewControllers: inout [UIViewController]) {
+        containerViewControllers.append(viewController)
     }
 
 }

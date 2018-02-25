@@ -64,7 +64,7 @@ class ColorViewControllerFactory: Factory {
 
 class ColorViewController: UIViewController, AnalyticsSupportViewController {
 
-    let  analyticParameters = ExampleAnalyticsParameters(source: .color)
+    let analyticParameters = ExampleAnalyticsParameters(source: .color)
 
     typealias ColorDisplayModel = String
 

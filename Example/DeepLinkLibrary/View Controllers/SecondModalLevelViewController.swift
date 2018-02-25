@@ -9,7 +9,7 @@ import DeepLinkLibrary
 
 class SecondModalLevelViewController: UIViewController, AnalyticsSupportViewController {
 
-    let  analyticParameters = ExampleAnalyticsParameters(source: .secondLevelModal)
+    let analyticParameters = ExampleAnalyticsParameters(source: .secondLevelModal)
 
     override func viewDidLoad() {
         super.viewDidLoad()

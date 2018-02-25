@@ -9,13 +9,13 @@ public protocol NavigationControllerFactoryAction: Action {
 
 }
 
-open class NavigationControllerFactory: MergingContainerFactory {
+open class NavigationControllerFactory: SingleActionContainerFactory {
 
     public typealias ViewController = UINavigationController
 
     public typealias Context = Any
 
-    public typealias ActionType = NavigationControllerFactoryAction
+    public typealias SupportedAction = NavigationControllerFactoryAction
 
     public let action: Action
 
