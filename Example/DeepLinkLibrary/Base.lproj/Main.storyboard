@@ -20,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="Q5I-E8-ltG">
-                                <rect key="frame" x="93.5" y="223.5" width="188" height="235"/>
+                                <rect key="frame" x="93.5" y="182.5" width="188" height="317"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hDe-vG-fzh">
                                         <rect key="frame" x="0.0" y="0.0" width="188" height="30"/>
@@ -62,6 +62,20 @@
                                         <state key="normal" title="Go to square"/>
                                         <connections>
                                             <action selector="goToSquareTapped" destination="9pv-A4-QxB" eventType="touchUpInside" id="1tB-LU-1M0"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PFn-cU-kf3">
+                                        <rect key="frame" x="0.0" y="246" width="188" height="30"/>
+                                        <state key="normal" title="Go to Images"/>
+                                        <connections>
+                                            <action selector="goToImagesTapped" destination="9pv-A4-QxB" eventType="touchUpInside" id="G2C-Hw-IH0"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bEk-Wo-cIC">
+                                        <rect key="frame" x="0.0" y="287" width="188" height="30"/>
+                                        <state key="normal" title="Go to Images (No Library)"/>
+                                        <connections>
+                                            <action selector="goToImagesNoLibraryTapped" destination="9pv-A4-QxB" eventType="touchUpInside" id="mfe-kl-vOd"/>
                                         </connections>
                                     </button>
                                 </subviews>

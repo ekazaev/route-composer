@@ -138,7 +138,7 @@ public class DefaultRouter: Router {
                         // If current factory actually creates Container then it should know how to deal with the factories that
                         // should be in this container, based on an action attached to the factory.
                         // For example navigationController factory should use factories to build navigation controller stack.
-                        if let container = factory as? AnyContainerFactory {
+                        if let container = factory as? AnyContainer {
                             if tempFactories.count > 0 {
                                 let rest = container.merge(tempFactories)
                                 let merged = tempFactories.filter { factory in

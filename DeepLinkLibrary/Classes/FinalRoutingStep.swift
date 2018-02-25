@@ -40,7 +40,11 @@ class FinalRoutingStep: InterceptableStep, PerformableStep, ChainableStep {
             self.finder = nil
         }
         if let factory = factory {
-            self.factory = FactoryBox(factory)
+            if let _ = factory as? Container {
+                self.factory = ContainerFactoryBox(factory)
+            } else {
+                self.factory = FactoryBox(factory)
+            }
         } else if let finder = finder {
             self.factory = FactoryBox(FinderFactory(finder: finder))
         } else {

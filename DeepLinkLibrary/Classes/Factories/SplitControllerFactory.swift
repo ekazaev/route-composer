@@ -14,7 +14,7 @@ public protocol SplitViewControllerDetailAction: Action {
 
 }
 
-public class SplitControllerFactory: ContainerFactory {
+public class SplitControllerFactory: Factory, Container {
 
     public typealias ViewController = UISplitViewController
 

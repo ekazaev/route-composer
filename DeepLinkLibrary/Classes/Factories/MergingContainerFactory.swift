@@ -4,7 +4,7 @@
 
 import Foundation
 
-public protocol MergingContainerFactory: ContainerFactory {
+public protocol MergingContainerFactory: Factory, Container {
 
     associatedtype ActionType
 

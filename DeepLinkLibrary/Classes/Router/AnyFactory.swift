@@ -40,3 +40,14 @@ class FactoryBox<F:Factory>:AnyFactory {
         return factory.build(with: typedContext)
     }
 }
+
+class ContainerFactoryBox<F: Factory>: FactoryBox<F>, AnyContainer {
+
+    func merge(_ factories: [AnyFactory]) -> [AnyFactory] {
+        guard let container = factory as? Container else {
+            return factories
+        }
+        return container.merge(factories)
+    }
+
+}

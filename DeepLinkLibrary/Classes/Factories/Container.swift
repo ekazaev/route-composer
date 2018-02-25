@@ -6,13 +6,13 @@
 
 import Foundation
 
-/// ContainerFactory protocol should be implemented by Factories that produce any type of the view controllers
+/// Container protocol should be implemented by Factories that produce any type of the view controllers
 /// that can be considered as Containers (eg: UINavigationController, UITabBarController, etc)
 ///
 /// Container apply one merged action and then populate a full stack of view controllers that was built by the associated factories in one go.
 /// Example: Steps require to populate n view controllers in UINavigationController stack and it can do so.
 /// Merge action implementation is mandatory for any actions and should be implemented if it can be done.
-public protocol ContainerFactory: Factory {
+public protocol Container {
 
     /// Receives an array of factories whose view controllers should be merged into current container
     /// factory before it actually builds a container view controller with child view controllers inside.

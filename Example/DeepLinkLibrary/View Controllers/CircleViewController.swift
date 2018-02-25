@@ -41,5 +41,13 @@ class CircleViewController: UIViewController, AnalyticsSupportViewController {
         router.deepLinkTo(destination: ExampleConfiguration.destination(for: ExampleTarget.welcome)!)
     }
 
+    @IBAction func goToImagesTapped() {
+        router.deepLinkTo(destination: ImagesConfigurationWithLibrary.images())
+    }
+
+    @IBAction func goToImagesNoLibraryTapped() {
+        ImagesConfigurationWithoutLibrary.shared.showCustomController()
+    }
+
 }
 

@@ -123,7 +123,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Welcome Screen
         let welcomeScreen = ScreenStepAssembly(
                 finder: ViewControllerClassFinder<PromptViewController, Any>(),
-                factory: ViewControllerFromStoryboard(storyboardName: "PromptScreen", action: ReplaceRootAction()))
+                factory: ViewControllerFromStoryboard<PromptViewController, Any>(storyboardName: "PromptScreen", action: ReplaceRootAction()))
                 .add(ExampleAnalyticsInterceptor())
                 .add(ExampleAnalyticsPostAction())
                 .from(RootViewControllerStep())

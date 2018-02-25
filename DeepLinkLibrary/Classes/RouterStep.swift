@@ -15,7 +15,7 @@ public class RouterStep: ChainableStep, PerformableStep, ChainingStep {
         self.factory = FactoryBox(factory)
     }
 
-    public init<F: ContainerFactory>(factory: F) {
+    public init<F: Factory & Container>(factory: F) {
         self.factory = ContainerFactoryBox(factory)
     }
 

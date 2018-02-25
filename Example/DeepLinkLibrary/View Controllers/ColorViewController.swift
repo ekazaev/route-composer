@@ -51,14 +51,14 @@ class ColorViewControllerFactory: Factory {
         return .success(colorViewController)
     }
 
-    func prepare(with context: Context?) -> RoutingResult {
+    func prepare(with context: Context?) -> FactoryPreparationResult {
         guard let context = context,
               let model = context[Argument.color] as? ColorViewController.ColorDisplayModel else {
-            return .unhandled
+            return .failure("Color has not been set in context")
         }
 
         self.model = model
-        return .handled
+        return .success
     }
 }
 
