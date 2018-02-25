@@ -5,14 +5,11 @@
 [![License](https://img.shields.io/cocoapods/l/DeepLinkLibrary.svg?style=flat)](http://cocoapods.org/pods/DeepLinkLibrary)
 [![Platform](https://img.shields.io/cocoapods/p/DeepLinkLibrary.svg?style=flat)](http://cocoapods.org/pods/DeepLinkLibrary)
 
-## Example
+### License
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+DeepLinkLibrary is distributed under [the MIT license](https://github.com/saksdirect/DeepLinkLibrary/blob/master/LICENSE).
 
-## Requirements
-
-There are no actual requirements to use a library. But if you are going to implement your custom containers 
-and actions you have to be familiar with library concepts and UIKit's view controllers stack laws.
+DeepLinkLibrary is provided for your use—free-of-charge—on an as-is basis. We make no guarantees, promises or apologies. *Caveat developer.*
 
 ## Installation
 
@@ -23,10 +20,33 @@ it, simply add the following line to your Podfile:
 pod 'DeepLinkLibrary'
 ```
 
+And then run `pod install`. 
+
+Once successfully integrated, just add the following statement to any Swift file where you want to use DeepLinkLibrary:
+
+```swift
+import DeepLinkLibrary
+```
+
+Please, check an Example app, it covers most cases you can come across.
+
+## Example
+
+To run the example project, clone the repo, and run `pod install` from the Example directory first.
+
+## Requirements
+
+There are no actual requirements to use a library. But if you are going to implement your custom containers 
+and actions you have to be familiar with library concepts and UIKit's view controllers stack laws.
+
+### Contributing
+
+DeepLinkLibrary is in active development, and we welcome your contributions.
+
+If you’d like to contribute to this repo, please read [the contribution guidelines](https://github.com/gilt/Cleanroom#contributing-to-the-cleanroom-project).
+
+
 ## Author
 
-ekazaev, ekazaev@gilt.com
+Evgeny Kazaev, ekazaev@gilt.com
 
-## License
-
-DeepLinkLibrary is available under the MIT license. See the LICENSE file for more info.
