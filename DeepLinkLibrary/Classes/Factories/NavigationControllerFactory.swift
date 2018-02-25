@@ -30,21 +30,16 @@ open class NavigationControllerFactory: SingleActionContainerFactory {
             return .failure("Unable to build UINavigationController due to 0 amount of child factories")
         }
 
-        let navigationController = UINavigationController()
-
-        var viewControllers: [UIViewController] = []
-        self.factories.forEach { factory in
-            guard case let .success(viewController) = factory.build(with: context) else {
-                return
+        switch buildChildrenViewControllers(with: context) {
+        case .success(let viewControllers):
+            guard viewControllers.count > 0 else {
+                return .failure("Unable to build UINavigationController due to 0 amount of child view controllers")
             }
-            factory.action.performMerged(viewController: viewController, containerViewControllers: &viewControllers)
+            let navigationController = UINavigationController()
+            navigationController.viewControllers = viewControllers
+            return .success(navigationController)
+        case .failure(let message):
+            return .failure(message)
         }
-
-        guard viewControllers.count > 0 else {
-            return .failure("Unable to build UINavigationController due to 0 amount of child view controllers")
-        }
-
-        navigationController.viewControllers = viewControllers
-        return .success(navigationController)
     }
 }

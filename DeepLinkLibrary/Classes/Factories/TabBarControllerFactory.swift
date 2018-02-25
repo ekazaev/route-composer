@@ -26,24 +26,16 @@ public class TabBarControllerFactory: SingleActionContainerFactory {
     }
 
     open func build(with context: Context?) -> FactoryBuildResult {
-        guard factories.count > 0 else {
-            return .failure("No child view controllers provided.")
-        }
-
-        let tabBarController = UITabBarController()
-
-        var viewControllers: [UIViewController] = []
-        self.factories.forEach { factory in
-            guard case let .success(viewController) = factory.build(with: context) else {
-                return
+        switch buildChildrenViewControllers(with: context) {
+        case .success(let viewControllers):
+            guard viewControllers.count > 0 else {
+                return .failure("Unable to build UITabBarController due to 0 amount of child view controllers")
             }
-            factory.action.performMerged(viewController: viewController, containerViewControllers: &viewControllers)
-        }
-
-        if viewControllers.count > 0 {
+            let tabBarController = UITabBarController()
             tabBarController.viewControllers = viewControllers
+            return .success(tabBarController)
+        case .failure(let message):
+            return .failure(message)
         }
-
-        return .success(tabBarController)
     }
 }

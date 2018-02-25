@@ -5,6 +5,7 @@
 
 
 import Foundation
+import UIKit
 
 /// Container protocol should be implemented by Factories that produce any type of the view controllers
 /// that can be considered as Containers (eg: UINavigationController, UITabBarController, etc)

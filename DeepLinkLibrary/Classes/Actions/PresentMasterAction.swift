@@ -5,7 +5,6 @@
 import Foundation
 import UIKit
 
-// TODO: Undone
 public class PresentMasterAction: SplitViewControllerMasterAction {
 
     public init() {

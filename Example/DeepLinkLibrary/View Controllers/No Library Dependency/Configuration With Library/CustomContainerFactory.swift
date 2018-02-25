@@ -33,11 +33,14 @@ class CustomContainerFactory: SingleActionContainerFactory {
         }
         containerController.delegate = delegate
 
-        // Our custom view controller can present only one child. So we have to create only last one if it exist.
-        if let childFactory = factories.last, case let .success(viewController) = childFactory.build(with: context) {
-            containerController.rootViewController = viewController
+        // Our custom view controller can present only one child. So we will use only the last one if it exist.
+        switch buildChildrenViewControllers(with: context) {
+        case .success(let viewControllers):
+            containerController.rootViewController = viewControllers.last
+            return .success(containerController)
+        case .failure(let message):
+            return .failure(message)
         }
-        return .success(containerController)
     }
 
 }

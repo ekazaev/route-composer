@@ -49,6 +49,7 @@
 		9AFBC8A3F7E9B450C65767D3 /* AnyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC62FAA8A6D0B15D72263 /* AnyContainer.swift */; };
 		9AFBC95D2B5E5714BE08EE8E /* NilAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCA9A0ED6594AA39CE70A /* NilAction.swift */; };
 		9AFBC9D8BD69B19F154F3D68 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC97B8C912C8393CF766C /* ContainerViewController.swift */; };
+		9AFBC9EB4F9394E6237E0177 /* ChildrenBuildResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC7FF8FBE94668D676E27 /* ChildrenBuildResult.swift */; };
 		9AFBCAF6536210A2BB74DB8D /* ChainableStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCDE5B965A08290779CAB /* ChainableStep.swift */; };
 		9AFBCB309639D23F2921484A /* SingleActionContainerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC35DA6963D837D16ED04 /* SingleActionContainerFactory.swift */; };
 		9AFBCC113DC2E8D3C521183F /* ChainingStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC76D64DD80BA1E71A0DE /* ChainingStep.swift */; };
@@ -154,6 +155,7 @@
 		9AFBC648DD35ED6B5FD62D5F /* Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Action.swift; path = DeepLinkLibrary/Classes/Actions/Action.swift; sourceTree = "<group>"; };
 		9AFBC6DF76571AE956905149 /* Container.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Container.swift; path = DeepLinkLibrary/Classes/Factories/Container.swift; sourceTree = "<group>"; };
 		9AFBC76D64DD80BA1E71A0DE /* ChainingStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChainingStep.swift; sourceTree = "<group>"; };
+		9AFBC7FF8FBE94668D676E27 /* ChildrenBuildResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChildrenBuildResult.swift; sourceTree = "<group>"; };
 		9AFBC8A4F12BC519DE66C4E0 /* Factory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Factory.swift; path = DeepLinkLibrary/Classes/Factories/Factory.swift; sourceTree = "<group>"; };
 		9AFBC97B8C912C8393CF766C /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContainerViewController.swift; path = DeepLinkLibrary/Classes/Router/ContainerViewController.swift; sourceTree = "<group>"; };
 		9AFBCA52E257FBFFF7046041 /* AnyFinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyFinder.swift; sourceTree = "<group>"; };
@@ -419,6 +421,7 @@
 				9AFBC35DA6963D837D16ED04 /* SingleActionContainerFactory.swift */,
 				9AFBC414EDFBE97D267512C5 /* FactoryPreparationResult.swift */,
 				9AFBCE1F15266EB9C21A97C9 /* FactoryBuildResult.swift */,
+				9AFBC7FF8FBE94668D676E27 /* ChildrenBuildResult.swift */,
 			);
 			name = Factories;
 			path = DeepLinkLibrary/Classes/Factories;
@@ -672,6 +675,7 @@
 				9AFBC0131B96CBB842346932 /* FactoryPreparationResult.swift in Sources */,
 				9AFBC56E1B186400D6805EFF /* FactoryBuildResult.swift in Sources */,
 				9AFBCC113DC2E8D3C521183F /* ChainingStep.swift in Sources */,
+				9AFBC9EB4F9394E6237E0177 /* ChildrenBuildResult.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -50,38 +50,24 @@ public class SplitControllerFactory: Factory, Container {
             return .failure("No master or derails view controllers provided")
         }
 
-        let splitController = UISplitViewController(nibName: nil, bundle: nil)
-
-        var masterViewControllers = Array<UIViewController>()
-        self.masterFactories.forEach { factory in
-            guard case let .success(viewController) = factory.build(with: context) else {
-                return
+        switch (buildChildrenViewControllers(from: masterFactories, with: context), buildChildrenViewControllers(from: detailFactories, with: context)) {
+        case (.success(let masterViewControllers), .success(let detailsViewControllers)):
+            guard masterViewControllers.count > 0 else {
+                return .failure("Master View Controller is mandatory to build UISplitViewController")
             }
-            factory.action.performMerged(viewController: viewController, containerViewControllers: &masterViewControllers)
-        }
-
-        guard masterViewControllers.count > 0 else {
-            return .failure("Master View Controller is mandatory to build UISplitViewController")
-        }
-        let masterViewController = masterViewControllers.removeFirst()
-
-
-        var detailsViewControllers = Array<UIViewController>()
-        detailsViewControllers.append(contentsOf: masterViewControllers)
-        self.detailFactories.forEach { factory in
-            guard  case let .success(viewController) = factory.build(with: context) else {
-                return
+            guard detailsViewControllers.count > 0 else {
+                return .failure("At least 1 Details View Controller is mandatory to build UISplitViewController")
             }
-            factory.action.performMerged(viewController: viewController, containerViewControllers: &detailsViewControllers)
-        }
 
-        guard detailsViewControllers.count > 0 else {
-            return .failure("At least 1 Details View Controller is mandatory to build UISplitViewController")
+            let splitController = UISplitViewController(nibName: nil, bundle: nil)
+            var childrenViewControllers = masterViewControllers
+            childrenViewControllers.append(contentsOf: detailsViewControllers)
+            splitController.viewControllers = childrenViewControllers
+            return .success(splitController)
+        case (.failure(let message), _):
+            return .failure(message)
+        case (_, .failure(let message)):
+            return .failure(message)
         }
-
-        var controllers = [masterViewController]
-        controllers.append(contentsOf: detailsViewControllers)
-        splitController.viewControllers = controllers
-        return .success(splitController)
     }
 }

@@ -10,5 +10,3 @@ public protocol AnyContainer {
     func merge(_ factories: [AnyFactory]) -> [AnyFactory]
 
 }
-
-
