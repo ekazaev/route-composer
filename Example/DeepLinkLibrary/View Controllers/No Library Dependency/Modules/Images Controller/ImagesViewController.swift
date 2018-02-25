@@ -20,6 +20,8 @@ class ImagesViewController: UITableViewController {
     }
 
     private func reloadData() {
+        self.view.accessibilityIdentifier = "imagesViewController"
+
         imageFetcher?.loadImages { imagesNames in
             self.imagesNames = imagesNames
             self.tableView.reloadData()

@@ -242,4 +242,43 @@ class DeepLinkLibrary_ExampleUITests: XCTestCase {
         app.terminate()
         
     }
+
+    func testImagesModule() {
+        app.launch()
+        XCTAssertTrue(app.otherElements["promptViewController"].exists)
+
+        app.buttons["Continue"].tap()
+        XCTAssertTrue(app.otherElements["homeViewController"].exists)
+        
+        app.buttons["Go to Images"].tap()
+        XCTAssertTrue(app.tables["imagesViewController"].exists)
+        sleep(1)
+
+        self.app.tables.cells.element(boundBy: 2).tap()
+        XCTAssertTrue(app.otherElements["imagestarViewController"].exists)
+        sleep(1)
+
+        app.buttons["Dismiss"].tap()
+        XCTAssertTrue(app.tables["imagesViewController"].exists)
+
+        app.buttons["Done"].tap()
+        XCTAssertTrue(app.otherElements["homeViewController"].exists)
+
+        app.buttons["Go to Images (No Library)"].tap()
+        XCTAssertTrue(app.tables["imagesViewController"].exists)
+        sleep(1)
+
+        self.app.tables.cells.element(boundBy: 1).tap()
+        XCTAssertTrue(app.otherElements["imagesecondViewController"].exists)
+        sleep(1)
+
+        app.buttons["Dismiss"].tap()
+        XCTAssertTrue(app.tables["imagesViewController"].exists)
+        
+        app.buttons["Done"].tap()
+        XCTAssertTrue(app.otherElements["homeViewController"].exists)
+
+        app.terminate()
+    
+    }
 }

@@ -100,7 +100,7 @@
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sdb-SU-FpI">
                                         <rect key="frame" x="0.0" y="150" width="150" height="30"/>
-                                        <state key="normal" title="Dismis"/>
+                                        <state key="normal" title="Dismiss"/>
                                         <connections>
                                             <action selector="doneTapped" destination="sLm-SE-AeG" eventType="touchUpInside" id="aWr-gH-u2O"/>
                                         </connections>

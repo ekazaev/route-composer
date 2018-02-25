@@ -29,6 +29,8 @@ class ImageDetailsViewController: UIViewController {
         guard isViewLoaded, let imageID = imageID else {
             return
         }
+        self.view.accessibilityIdentifier = "image\(imageID)ViewController"
+
         imageFetcher?.details(for: imageID) { image in
             self.imageView.image = image
         }
