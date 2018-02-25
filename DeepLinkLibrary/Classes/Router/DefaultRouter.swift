@@ -82,8 +82,6 @@ public class DefaultRouter: Router {
 
         var rootViewController: UIViewController?
 
-        var tempFactories: [AnyFactory] = []
-
         var factories: [AnyFactory] = []
 
         var interceptors: [AnyRouterInterceptor] = []
@@ -126,7 +124,6 @@ public class DefaultRouter: Router {
                         } else {
                             factoryToSave = factory
                         }
-                        factories.insert(factoryToSave, at: 0)
 
                         // If some factory can not prepare itself (e.g. does not have enough data in context) then deep link stack
                         // can not be built
@@ -139,23 +136,12 @@ public class DefaultRouter: Router {
                         // should be in this container, based on an action attached to the factory.
                         // For example navigationController factory should use factories to build navigation controller stack.
                         if let container = factory as? AnyContainer {
-                            if tempFactories.count > 0 {
-                                let rest = container.merge(tempFactories)
-                                let merged = tempFactories.filter { factory in
-                                    !rest.contains { restFactory in
-                                        factory === restFactory
-                                    }
-                                }
-                                factories = factories.filter { factory in
-                                    !merged.contains { mergedFactory in
-                                        mergedFactory === factory
-                                    }
-                                }
-
-                            }
-                            tempFactories = []
+                            let rest = container.merge(factories)
+                            factories = [factoryToSave]
+                            factories.append(contentsOf: rest)
+                        } else  {
+                            factories.insert(factoryToSave, at: 0)
                         }
-                        tempFactories.insert(factoryToSave, at: 0)
                     }
                 }
                 break
