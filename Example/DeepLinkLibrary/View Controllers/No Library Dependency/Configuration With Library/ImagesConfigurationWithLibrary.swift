@@ -11,7 +11,7 @@ struct ImagesConfigurationWithLibrary {
 
     private static let imagesContainer = ScreenStepAssembly(
             finder: ViewControllerClassFinder(),
-            factory: CustomContainerFactory(delegate: ConfigurationWithLibrary.shared, action: PushAction()))
+            factory: CustomContainerFactory(delegate: ImagesWithLibraryHandler.shared, action: PushAction()))
             .from(NavigationContainerStep(action: PresentModallyAction()))
             .from(TopMostViewControllerStep())
             .assemble()
@@ -19,7 +19,7 @@ struct ImagesConfigurationWithLibrary {
     static func images() -> ExampleDestination {
         return ExampleDestination(finalStep: ScreenStepAssembly(
                 finder: ViewControllerClassFinder(),
-                factory: ImagesFactory(delegate: ConfigurationWithLibrary.shared, action: CustomContainerChildAction()))
+                factory: ImagesFactory(delegate: ImagesWithLibraryHandler.shared, action: CustomContainerChildAction()))
                 .from(imagesContainer)
                 .assemble(),
                 context: nil)
@@ -28,7 +28,7 @@ struct ImagesConfigurationWithLibrary {
     static func imageDetails(for imageID: String) -> ExampleDestination {
         return ExampleDestination(finalStep: ScreenStepAssembly(
                 finder: ViewControllerClassFinder(),
-                factory: ImageDetailsFactory(delegate: ConfigurationWithLibrary.shared, action: CustomContainerChildAction()))
+                factory: ImageDetailsFactory(delegate: ImagesWithLibraryHandler.shared, action: CustomContainerChildAction()))
                 .from(imagesContainer)
                 .assemble(),
                 context: imageID)

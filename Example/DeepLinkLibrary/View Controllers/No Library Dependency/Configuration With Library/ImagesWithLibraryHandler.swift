@@ -8,9 +8,9 @@ import UIKit
 import DeepLinkLibrary
 import os.log
 
-class ConfigurationWithLibrary: CustomViewControllerDelegate, ImagesControllerDelegate, ImageDetailsControllerDelegate {
+class ImagesWithLibraryHandler: CustomViewControllerDelegate, ImagesControllerDelegate, ImageDetailsControllerDelegate {
 
-    static let shared = ConfigurationWithLibrary()
+    static let shared = ImagesWithLibraryHandler()
 
     var router: DefaultRouter {
         get {

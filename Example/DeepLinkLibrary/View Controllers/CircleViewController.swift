@@ -46,7 +46,7 @@ class CircleViewController: UIViewController, AnalyticsSupportViewController {
     }
 
     @IBAction func goToImagesNoLibraryTapped() {
-        ImagesConfigurationWithoutLibrary.shared.showCustomController()
+        ImagesWithoutLibraryConfiguration.shared.showCustomController()
     }
 
 }

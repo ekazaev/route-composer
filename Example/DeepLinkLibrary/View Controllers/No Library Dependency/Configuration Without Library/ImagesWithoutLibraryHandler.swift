@@ -9,37 +9,7 @@ import UIKit
 // This is an example how you can implement same routing without dependency to DeepLinkLibrary.
 // It may seem les complicated, but adding login/analytics/universal links support will make this implementation
 // much more complicated.
-class ImagesConfigurationWithoutLibrary: CustomViewControllerDelegate, ImagesControllerDelegate, ImageDetailsControllerDelegate {
-
-    static let shared = ImagesConfigurationWithoutLibrary()
-
-    func showCustomController() {
-        // Handled by CustomContainerFactory
-        guard let containerController = UIStoryboard(name: "Images", bundle: nil).instantiateViewController(withIdentifier: "CustomContainerController") as? CustomContainerController,
-        // Handled by ImagesFactory
-              let viewController = UIStoryboard(name: "Images", bundle: Bundle.main).instantiateViewController(withIdentifier: "ImagesViewController") as? ImagesViewController else {
-            return
-        }
-
-        // Handled by ImagesFactory
-        viewController.delegate = self
-        viewController.imageFetcher = ImageFetcherImpl()
-
-        // Handled by CustomContainerFactory
-        containerController.delegate = self
-
-        // Handled by CustomContainerChildAction
-        containerController.rootViewController = viewController
-
-        // Handled by NavigationContainerStep
-        let navigationController = UINavigationController(rootViewController: containerController)
-
-        // Handled by TopMostViewControllerStep
-        let rootController = UIApplication.shared.keyWindow?.rootViewController
-
-        // Handled by PresentModallyAction
-        rootController?.present(navigationController, animated: true, completion: nil)
-    }
+class ImagesWithoutLibraryHandler: CustomViewControllerDelegate, ImagesControllerDelegate, ImageDetailsControllerDelegate {
 
     func dismissCustomContainer(controller: CustomContainerController) {
         controller.dismiss(animated: true)
