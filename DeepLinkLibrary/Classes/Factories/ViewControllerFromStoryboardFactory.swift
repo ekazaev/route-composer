@@ -23,22 +23,22 @@ public class ViewControllerFromStoryboard<VC: UIViewController, C>: Factory {
         self.viewControllerID = viewControllerID
     }
 
-    public func build(with context: Context?) -> FactoryBuildResult {
+    public func build(with context: Context?) throws -> UIViewController {
         let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
         if let viewControllerID = viewControllerID {
             guard let viewController = storyboard.instantiateViewController(withIdentifier: viewControllerID) as? VC else {
-                return .failure("Unable to instantiate UIViewController with identifier \(viewControllerID) in \(storyboardName) storyboard")
+                throw RoutingError.message("Unable to instantiate UIViewController with identifier \(viewControllerID) in \(storyboardName) storyboard")
             }
-            return .success(viewController)
+            return viewController
         } else {
             guard let abstractViewController = storyboard.instantiateInitialViewController() else {
-                return .failure(("Unable to instantiate initial UIViewController in \(storyboardName) storyboard"))
+                throw RoutingError.message("Unable to instantiate initial UIViewController in \(storyboardName) storyboard")
             }
             guard let viewController = abstractViewController as? ViewController else {
-                return .failure("Unable to instantiate initial UIViewController in \(storyboardName) storyboard as \(String(describing: type(of: ViewController.self))), got \(String(describing: abstractViewController)) instead.")
+                throw RoutingError.message("Unable to instantiate initial UIViewController in \(storyboardName) storyboard as \(String(describing: type(of: ViewController.self))), got \(String(describing: abstractViewController)) instead.")
             }
 
-            return .success(viewController)
+            return viewController
         }
     }
 

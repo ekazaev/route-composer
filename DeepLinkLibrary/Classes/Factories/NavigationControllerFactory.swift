@@ -25,21 +25,17 @@ open class NavigationControllerFactory: SingleActionContainerFactory {
         self.action = action
     }
 
-    open func build(with context: Context?) -> FactoryBuildResult {
+    public func build(with context: Context?) throws -> UIViewController {
         guard factories.count > 0 else {
-            return .failure("Unable to build UINavigationController due to 0 amount of child factories")
+            throw RoutingError.message("Unable to build UINavigationController due to 0 amount of child factories")
         }
 
-        switch buildChildrenViewControllers(with: context) {
-        case .success(let viewControllers):
-            guard viewControllers.count > 0 else {
-                return .failure("Unable to build UINavigationController due to 0 amount of child view controllers")
-            }
-            let navigationController = UINavigationController()
-            navigationController.viewControllers = viewControllers
-            return .success(navigationController)
-        case .failure(let message):
-            return .failure(message)
+        let viewControllers = try buildChildrenViewControllers(with: context)
+        guard viewControllers.count > 0 else {
+            throw RoutingError.message("Unable to build UINavigationController due to 0 amount of child view controllers")
         }
+        let navigationController = UINavigationController()
+        navigationController.viewControllers = viewControllers
+        return navigationController
     }
 }

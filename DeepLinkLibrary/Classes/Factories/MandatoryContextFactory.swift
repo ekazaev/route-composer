@@ -10,25 +10,24 @@ import UIKit
 
 public protocol MandatoryContextFactory: Factory {
 
-    func build(with context: Context) -> FactoryBuildResult
+    func build(with context: Context) throws -> UIViewController
 
 }
 
 public extension MandatoryContextFactory {
 
-    public func prepare(with context: Context?) -> FactoryPreparationResult {
+    public func prepare(with context: Context?) throws {
         guard let _ = context else {
-            return .failure("Context for factory \(String(describing: self)) must be set.")
+            throw RoutingError.message("Context for factory \(String(describing: self)) must be set.")
         }
-        return .success
     }
 
-    public func build(with context: Context?) -> FactoryBuildResult {
+    public func build(with context: Context?) throws -> UIViewController {
         guard let context = context else {
-            return .failure("Context for factory \(String(describing: self)) must be set.")
+            throw RoutingError.message("Context for factory \(String(describing: self)) must be set.")
         }
 
-        return self.build(with: context)
+        return try build(with: context)
     }
 
 }

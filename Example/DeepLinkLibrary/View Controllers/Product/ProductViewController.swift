@@ -43,15 +43,15 @@ class ProductViewControllerFactory: MandatoryContextFactory {
         self.action = action
     }
 
-    func build(with context: Context) -> FactoryBuildResult {
+    func build(with context: Context) throws -> UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let viewController = storyboard.instantiateViewController(withIdentifier: "ProductViewController") as? ViewController else {
-            return .failure(nil)
+            throw RoutingError.message("Unable to load ProductViewController")
         }
 
         viewController.productId = context.productId
 
-        return .success(viewController)
+        return viewController
     }
 
 }

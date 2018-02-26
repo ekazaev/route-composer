@@ -19,13 +19,13 @@ class WishListFactory: MandatoryContextFactory {
         self.action = action
     }
 
-    func build(with context: Context) -> FactoryBuildResult {
+    func build(with context: Context) throws -> UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let viewController = storyboard.instantiateViewController(withIdentifier: "WishListViewController") as? ViewController else {
-            return .failure(nil)
+            throw RoutingError.message("Unable to load WishListViewController")
         }
         viewController.content = context.content
-        return .success(viewController)
+        return viewController
     }
 
 }

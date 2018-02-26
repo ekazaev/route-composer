@@ -127,8 +127,13 @@ public class DefaultRouter: Router {
 
                         // If some factory can not prepare itself (e.g. does not have enough data in context) then deep link stack
                         // can not be built
-                        if case let .failure(message) = factory.prepare(with: destination.context) {
-                            logger?.log(.error(message ?? "Factory \(String(describing: factory)) could not prepare itself to build its view controller."))
+                        do {
+                            try factory.prepare(with: destination.context)
+                        } catch RoutingError.message(let message) {
+                            logger?.log(.error(message))
+                            return nil
+                        } catch {
+                            logger?.log(.error("Factory \(String(describing: factory)) could not prepare itself to build its view controller. Underlying error: \(error)"))
                             return nil
                         }
 
@@ -139,7 +144,7 @@ public class DefaultRouter: Router {
                             let rest = container.merge(factories)
                             factories = [factoryToSave]
                             factories.append(contentsOf: rest)
-                        } else  {
+                        } else {
                             factories.insert(factoryToSave, at: 0)
                         }
                     }
@@ -202,9 +207,8 @@ public class DefaultRouter: Router {
                 factoryToLog = factory.factory
             }
 
-            switch factory.build(with: context) {
-            case .success(let newViewController):
-                logger?.log(.info("Factory \(String(describing: factoryToLog)) has built a \(String(describing: newViewController))."))
+            do {
+                let newViewController = try factory.build(with: context)
                 factory.action.perform(viewController: newViewController, on: previousViewController, animated: animated) { result in
                     if case let .failure(message) = result {
                         self.logger?.log(.error(message ?? "Action \(String(describing: factory.action)) has stopped routing as it was not able to build a view controller in to a stack."))
@@ -217,11 +221,12 @@ public class DefaultRouter: Router {
                     }
                     buildViewController(factories.removeFirst(), newViewController)
                 }
-                break
-            case .failure(let message):
-                logger?.log(.error(message ?? "Factory \(String(describing: factoryToLog)) has not built any view controller."))
+            } catch RoutingError.message(let message) {
+                logger?.log(.error(message))
                 completion(previousViewController)
-                break
+            } catch {
+                logger?.log(.error("Factory \(String(describing: factoryToLog)) has not built any view controller. Underlying error: \(error)"))
+                completion(previousViewController)
             }
         }
 
@@ -273,16 +278,16 @@ public class DefaultRouter: Router {
             self.postTask = postTask
         }
 
-        func prepare(with context: Any?) -> FactoryPreparationResult {
-            return factory.prepare(with: context)
+        func prepare(with context: Any?) throws {
+            return try factory.prepare(with: context)
         }
 
-        func build(with context: Any?) -> FactoryBuildResult {
-            let result = factory.build(with: context)
-            if case let .success(viewController) = result, let postTask = postTask {
+        func build(with context: Any?) throws -> UIViewController {
+            let viewController = try factory.build(with: context)
+            if let postTask = postTask {
                 postTaskRunner?.taskSlips.append(PostTaskSlip(viewController: viewController, postTask: postTask))
             }
-            return result
+            return viewController
         }
 
     }

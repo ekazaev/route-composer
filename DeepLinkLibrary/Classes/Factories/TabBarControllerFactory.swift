@@ -25,17 +25,14 @@ public class TabBarControllerFactory: SingleActionContainerFactory {
         self.action = action
     }
 
-    open func build(with context: Context?) -> FactoryBuildResult {
-        switch buildChildrenViewControllers(with: context) {
-        case .success(let viewControllers):
-            guard viewControllers.count > 0 else {
-                return .failure("Unable to build UITabBarController due to 0 amount of child view controllers")
-            }
-            let tabBarController = UITabBarController()
-            tabBarController.viewControllers = viewControllers
-            return .success(tabBarController)
-        case .failure(let message):
-            return .failure(message)
+    public func build(with context: Context?) throws -> UIViewController {
+        let viewControllers = try buildChildrenViewControllers(with: context)
+        guard viewControllers.count > 0 else {
+            throw RoutingError.message("Unable to build UITabBarController due to 0 amount of child view controllers")
         }
+        let tabBarController = UITabBarController()
+        tabBarController.viewControllers = viewControllers
+        return tabBarController
     }
+    
 }

@@ -25,9 +25,9 @@ public class ViewControllerFromXibFactory<VC: UIViewController, C>: Factory {
         self.bundle = bundle
     }
 
-    public func build(with context: Context?) -> FactoryBuildResult {
+    public func build(with context: Context?) throws -> UIViewController {
         let viewController = ViewController(nibName: nibName, bundle: bundle)
-        return .success(viewController)
+        return viewController
     }
 
 }

@@ -44,21 +44,20 @@ class ColorViewControllerFactory: Factory {
         self.action = action
     }
 
-    func build(with context: Context?) -> FactoryBuildResult {
+    func build(with context: Context?) throws -> UIViewController {
         let colorViewController = ColorViewController(nibName: nil, bundle: nil)
         colorViewController.colorHex = model
 
-        return .success(colorViewController)
+        return colorViewController
     }
 
-    func prepare(with context: Context?) -> FactoryPreparationResult {
+    func prepare(with context: Context?) throws {
         guard let context = context,
               let model = context[Argument.color] as? ColorViewController.ColorDisplayModel else {
-            return .failure("Color has not been set in context")
+            throw RoutingError.message("Color has not been set in context")
         }
 
         self.model = model
-        return .success
     }
 }
 

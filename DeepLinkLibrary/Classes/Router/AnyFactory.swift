@@ -9,9 +9,9 @@ public protocol AnyFactory: class {
 
     var action: Action { get }
 
-    func prepare(with context: Any?) -> FactoryPreparationResult
+    func prepare(with context: Any?) throws
 
-    func build(with context: Any?) -> FactoryBuildResult
+    func build(with context: Any?) throws -> UIViewController
 
 }
 
@@ -26,18 +26,18 @@ class FactoryBox<F:Factory>:AnyFactory {
         self.action = factory.action
     }
 
-    func prepare(with context: Any?) -> FactoryPreparationResult {
+    func prepare(with context: Any?) throws {
         guard let typedContext = context as? F.Context? else {
-            return .failure("\(String(describing:factory)) does not accept \(String(describing: context)) as a context.")
+            throw RoutingError.message("\(String(describing:factory)) does not accept \(String(describing: context)) as a context.")
         }
-        return factory.prepare(with: typedContext)
+        return try factory.prepare(with: typedContext)
     }
 
-    func build(with context: Any?) -> FactoryBuildResult {
+    func build(with context: Any?) throws -> UIViewController {
         guard let typedContext = context as? F.Context? else {
-            return .failure("\(String(describing:factory)) does not accept \(String(describing: context)) as a context.")
+            throw RoutingError.message("\(String(describing:factory)) does not accept \(String(describing: context)) as a context.")
         }
-        return factory.build(with: typedContext)
+        return try factory.build(with: typedContext)
     }
 }
 

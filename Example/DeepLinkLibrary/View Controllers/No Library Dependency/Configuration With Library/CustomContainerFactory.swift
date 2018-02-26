@@ -26,21 +26,17 @@ class CustomContainerFactory: SingleActionContainerFactory {
         self.delegate = delegate
     }
 
-    func build(with context: Context?) -> FactoryBuildResult {
+    func build(with context: Context?) throws -> UIViewController {
         guard let containerController = UIStoryboard(name: "Images", bundle: nil)
                 .instantiateViewController(withIdentifier: "CustomContainerController") as? ViewController else {
-            return .failure("Could not load CustomContainerController from storyboard.")
+            throw RoutingError.message("Could not load CustomContainerController from storyboard.")
         }
         containerController.delegate = delegate
 
         // Our custom view controller can present only one child. So we will use only the last one if it exist.
-        switch buildChildrenViewControllers(with: context) {
-        case .success(let viewControllers):
-            containerController.rootViewController = viewControllers.last
-            return .success(containerController)
-        case .failure(let message):
-            return .failure(message)
-        }
+        let viewControllers = try buildChildrenViewControllers(with: context)
+        containerController.rootViewController = viewControllers.last
+        return containerController
     }
 
 }

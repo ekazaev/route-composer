@@ -45,29 +45,24 @@ public class SplitControllerFactory: Factory, Container {
         return rest
     }
 
-    public func build(with context: Context?) -> FactoryBuildResult {
+    public func build(with context: Context?) throws -> UIViewController {
         guard masterFactories.count > 0, detailFactories.count > 0 else {
-            return .failure("No master or derails view controllers provided")
+            throw RoutingError.message("No master or derails view controllers provided")
         }
 
-        switch (buildChildrenViewControllers(from: masterFactories, with: context), buildChildrenViewControllers(from: detailFactories, with: context)) {
-        case (.success(let masterViewControllers), .success(let detailsViewControllers)):
-            guard masterViewControllers.count > 0 else {
-                return .failure("Master View Controller is mandatory to build UISplitViewController")
-            }
-            guard detailsViewControllers.count > 0 else {
-                return .failure("At least 1 Details View Controller is mandatory to build UISplitViewController")
-            }
-
-            let splitController = UISplitViewController(nibName: nil, bundle: nil)
-            var childrenViewControllers = masterViewControllers
-            childrenViewControllers.append(contentsOf: detailsViewControllers)
-            splitController.viewControllers = childrenViewControllers
-            return .success(splitController)
-        case (.failure(let message), _):
-            return .failure(message)
-        case (_, .failure(let message)):
-            return .failure(message)
+        let masterViewControllers = try buildChildrenViewControllers(from: masterFactories, with: context)
+        let detailsViewControllers = try buildChildrenViewControllers(from: detailFactories, with: context)
+        guard masterViewControllers.count > 0 else {
+            throw RoutingError.message("No master or derails view controllers provided")
         }
+        guard detailsViewControllers.count > 0 else {
+            throw RoutingError.message("At least 1 Details View Controller is mandatory to build UISplitViewController")
+        }
+
+        let splitController = UISplitViewController(nibName: nil, bundle: nil)
+        var childrenViewControllers = masterViewControllers
+        childrenViewControllers.append(contentsOf: detailsViewControllers)
+        splitController.viewControllers = childrenViewControllers
+        return splitController
     }
 }
