@@ -12,7 +12,7 @@ extension UIViewController {
 
     private static var appRouter: DefaultRouter?
 
-    var router: DefaultRouter {
+    static var router: DefaultRouter {
         get {
             guard let router = UIViewController.appRouter else {
                 let appRouterLogger: DefaultLogger
@@ -26,6 +26,12 @@ extension UIViewController {
                 return router
             }
             return router
+        }
+    }
+
+    var router: DefaultRouter {
+        get {
+            return UIViewController.router
         }
     }
 }

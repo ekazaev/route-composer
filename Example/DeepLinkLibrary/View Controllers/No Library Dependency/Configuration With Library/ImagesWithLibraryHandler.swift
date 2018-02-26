@@ -12,21 +12,8 @@ class ImagesWithLibraryHandler: CustomViewControllerDelegate, ImagesControllerDe
 
     static let shared = ImagesWithLibraryHandler()
 
-    var router: DefaultRouter {
-        get {
-            let appRouterLogger: DefaultLogger
-            if #available(iOS 10, *) {
-                appRouterLogger = DefaultLogger(.verbose, osLog: OSLog(subsystem: "org.cocoapods.demo.DeepLinkLibrary-Example", category: "Router"))
-            } else {
-                appRouterLogger = DefaultLogger(.verbose)
-            }
-            let router = DefaultRouter(logger: appRouterLogger)
-            return router
-        }
-    }
-
     func didSelect(imageID: String, in controller: ImagesViewController) {
-        router.deepLinkTo(destination: ImagesConfigurationWithLibrary.imageDetails(for: imageID), animated: true, completion: nil)
+        UIViewController.router.deepLinkTo(destination: ImagesConfigurationWithLibrary.imageDetails(for: imageID), animated: true, completion: nil)
     }
 
     func dismissCustomContainer(controller: CustomContainerController) {
@@ -34,7 +21,7 @@ class ImagesWithLibraryHandler: CustomViewControllerDelegate, ImagesControllerDe
     }
 
     func dismiss(imageDetails: ImageDetailsViewController) {
-        router.deepLinkTo(destination: ImagesConfigurationWithLibrary.images(), animated: true, completion: nil)
+        UIViewController.router.deepLinkTo(destination: ImagesConfigurationWithLibrary.images(), animated: true, completion: nil)
     }
 
 }

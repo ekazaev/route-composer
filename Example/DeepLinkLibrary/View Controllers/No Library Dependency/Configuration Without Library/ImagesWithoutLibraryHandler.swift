@@ -7,8 +7,8 @@ import Foundation
 import UIKit
 
 // This is an example how you can implement same routing without dependency to DeepLinkLibrary.
-// It may seem les complicated, but adding login/analytics/universal links support will make this implementation
-// much more complicated.
+// It may seem les complicated, but adding login/analytics/universal links support/routing to the other parts of the app
+// will make this implementation much more complicated.
 class ImagesWithoutLibraryHandler: CustomViewControllerDelegate, ImagesControllerDelegate, ImageDetailsControllerDelegate {
 
     func dismissCustomContainer(controller: CustomContainerController) {
