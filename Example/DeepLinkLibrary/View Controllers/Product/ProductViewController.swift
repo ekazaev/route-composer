@@ -7,30 +7,6 @@ import Foundation
 import UIKit
 import DeepLinkLibrary
 
-class ProductViewControllerFinder: FinderWithPolicy {
-
-    typealias ViewController = ProductViewController
-
-    typealias Context = ProductContext
-
-    let policy: FinderPolicy
-
-    init(policy: FinderPolicy = .allStackUp) {
-        self.policy = policy
-    }
-
-    func isTarget(viewController: ViewController, context: Context?) -> Bool {
-        guard let context = context,
-              let controllerProductId = viewController.productId,
-              controllerProductId == context.productId else {
-            return false
-        }
-        viewController.productId = context.productId
-        return true
-    }
-
-}
-
 class ProductViewControllerFactory: MandatoryContextFactory {
 
     typealias ViewController = ProductViewController
@@ -106,6 +82,17 @@ class ProductViewController: UIViewController, AnalyticsSupportViewController {
 
     @IBAction func goToProductTapped() {
         router.deepLinkTo(destination: ProductConfiguration.productDestination(productId: "01"))
+    }
+
+}
+
+extension ProductViewController: ClassAndContextFinderSupport {
+
+    func isSuitableFor(context: ProductContext) -> Bool {
+        guard let productId = productId else {
+            return false
+        }
+        return productId == context.productId
     }
 
 }
