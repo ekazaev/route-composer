@@ -9,8 +9,10 @@ import UIKit
 /// Finder to be used by Router to find out if this UIViewController is in view controller stack
 public protocol Finder {
 
+    /// Type of UIViewController that Finder can find
     associatedtype ViewController: UIViewController
 
+    /// Type of Context object that finder can deal with
     associatedtype Context
 
     /// Method to be extended to implement Finder functionality.

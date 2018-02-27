@@ -11,8 +11,15 @@ import UIKit
 /// view controller is the one that Router looking for or no.
 public protocol FinderWithPolicy: Finder {
 
+    /// Policy to be used by FinderWithPolicy
     var policy: FinderPolicy { get }
 
+    /// Method to be implemented by FinderWithPolicy instance
+    ///
+    /// - Parameters:
+    ///   - viewController: Some view controller in the current view controller stack
+    ///   - context: Context object that was provided to the Router.
+    /// - Returns: true if this view controller is the one that finder is looking for, false otherwise.
     func isTarget(viewController: ViewController, context: Context?) -> Bool
 
 }

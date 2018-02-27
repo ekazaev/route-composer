@@ -5,22 +5,34 @@
 import Foundation
 import os.log
 
+/// Default Logger levels settings
+///
+/// - verbose: Log all the messages from Router
+/// - warnings: Log only warnings and errors
+/// - errors: Log only errors
 public enum DefaultLoggerLevel {
 
+    /// Log all the messages from Router
     case verbose
 
+    /// Log only warnings and errors
     case warnings
 
+    /// Log only errors
     case errors
 
 }
 
+/// Default Logger implementation
 public class DefaultLogger: Logger {
 
     private let logLevel: DefaultLoggerLevel
 
     private let osLog: OSLog?
     
+    /// Constructor
+    ///
+    /// - Parameter logLevel: DefaultLoggerLevel. Defaulted to warnings.
     public init(_ logLevel: DefaultLoggerLevel = .warnings) {
         self.logLevel = logLevel
         if #available(iOS 10.0, *) {
@@ -30,6 +42,11 @@ public class DefaultLogger: Logger {
         }
     }
 
+    /// Constructor available in iOS 10 and later.
+    ///
+    /// - Parameters:
+    ///   - logLevel: DefaultLoggerLevel. Defaulted to warnings.
+    ///   - osLog: OSLog instance of the app.
     @available(iOS 10, *)
     public init(_ logLevel: DefaultLoggerLevel = .warnings, osLog: OSLog = OSLog.default) {
         self.logLevel = logLevel

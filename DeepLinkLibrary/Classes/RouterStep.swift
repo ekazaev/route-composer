@@ -5,6 +5,7 @@
 import Foundation
 import UIKit
 
+/// Base router step implementation that handles all step protocols.
 public class RouterStep: ChainableStep, PerformableStep, ChainingStep {
 
     private(set) public var previousStep: RoutingStep? = nil

@@ -14,7 +14,7 @@ import UIKit
 /// Return false if the view controller can be dismissed.
 @objc public protocol RouterRulesSupport where Self: UIViewController {
 
-    /// returns true: if a view controller can be dismissed or covered by the Router, false otherwise.
+    /// true: if a view controller can be dismissed or covered by the Router, false otherwise.
     var canBeDismissed: Bool { get }
 
 }

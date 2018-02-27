@@ -5,6 +5,7 @@
 
 import UIKit
 
+/// Factory that creates UIViewController from storyboard.
 public class ViewControllerFromStoryboard<VC: UIViewController, C>: Factory {
 
     public typealias ViewController = VC
@@ -17,13 +18,20 @@ public class ViewControllerFromStoryboard<VC: UIViewController, C>: Factory {
 
     private let viewControllerID: String?
 
+    /// Constructor
+    ///
+    /// - Parameters:
+    ///   - storyboardName: Name of storyboard file
+    ///   - viewControllerID: UIViewController identifier in storyboard. If not set - factory will try
+    ///     to create storyboards's initial UIViewController
+    ///   - action: Action instance to integrate built UIViewController in to stack
     public init(storyboardName: String, viewControllerID: String? = nil, action: Action) {
         self.action = action
         self.storyboardName = storyboardName
         self.viewControllerID = viewControllerID
     }
 
-    public func build(with context: Context?) throws -> UIViewController {
+    public func build(with context: Context?) throws -> ViewController {
         let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
         if let viewControllerID = viewControllerID {
             guard let viewController = storyboard.instantiateViewController(withIdentifier: viewControllerID) as? VC else {

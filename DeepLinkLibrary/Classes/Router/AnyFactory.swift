@@ -5,6 +5,7 @@
 import Foundation
 import UIKit
 
+/// Non typesafe boxing wrapper for Factory protocol
 public protocol AnyFactory: class {
 
     var action: Action { get }

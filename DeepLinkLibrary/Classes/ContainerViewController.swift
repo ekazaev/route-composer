@@ -8,8 +8,11 @@
 import Foundation
 import UIKit
 
-// @objc is mandatory otherwise crashes in runtime everywhere where Self: UIViewController
-@objc public protocol ContainerViewController: RouterRulesSupport {
+/// All container view controllers should exten this protocol so if router would ask them to make visible
+/// one of the view controllers that they contain as each container can have custom implementations of this
+/// functionality.
+@objc public protocol ContainerViewController: RouterRulesSupport { // @objc is mandatory otherwise crashes in runtime everywhere where Self: UIViewController
+
 
     /// Each container view controller should conform to this protocol for the router to know how to make
     /// the particular child view controller visible.

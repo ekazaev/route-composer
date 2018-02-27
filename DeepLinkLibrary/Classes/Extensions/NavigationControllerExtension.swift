@@ -6,6 +6,7 @@
 import Foundation
 import UIKit
 
+// MARK: - UINavigationController extension to support ContainerViewController protocol
 extension UINavigationController: ContainerViewController {
 
     public func makeVisible(viewController: UIViewController, animated: Bool) {
@@ -21,6 +22,7 @@ extension UINavigationController: ContainerViewController {
 
 }
 
+// MARK: - Navigation controller extension to support RouterRulesSupport protocol
 extension UINavigationController: RouterRulesSupport {
 
     public var canBeDismissed: Bool {

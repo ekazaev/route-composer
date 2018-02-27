@@ -5,8 +5,10 @@
 
 import UIKit
 
+/// Deep Linking Library routing implementations
 public class DefaultRouter: Router {
 
+    /// Logger instance
     public let logger: Logger?
 
     public init(logger: Logger? = nil) {

@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+/// Non typesafe boxing wrapper for ContextTask protocol
 protocol AnyContextTask {
 
     func apply(on viewController: UIViewController, with context: Any)

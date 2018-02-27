@@ -4,6 +4,9 @@
 
 import Foundation
 
+/// Routing Error representation
+///
+/// - message: Message describing error that happened
 public enum RoutingError: Error {
     case message(String)
 }

@@ -7,6 +7,7 @@ import Foundation
 import UIKit
 
 
+// MARK: - UISplitViewController extension to support ContainerViewController protocol
 extension UISplitViewController: ContainerViewController {
 
     public func makeVisible(viewController: UIViewController, animated: Bool) {
@@ -22,6 +23,7 @@ extension UISplitViewController: ContainerViewController {
 
 }
 
+// MARK: - UISplitViewController extension to support RouterRulesSupport protocol
 extension UISplitViewController: RouterRulesSupport {
 
     public var canBeDismissed: Bool {

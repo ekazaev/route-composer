@@ -5,6 +5,7 @@
 import Foundation
 import UIKit
 
+/// Non typesafe boxing wrapper for PostRoutingTask protocol
 protocol AnyPostRoutingTask {
 
     func execute(on viewController: UIViewController, with context: Any?, routingStack: [UIViewController])

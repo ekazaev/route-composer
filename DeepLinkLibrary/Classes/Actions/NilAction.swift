@@ -5,7 +5,8 @@
 import Foundation
 import UIKit
 
-// Mostly for internal use but can be useful outside of the library in combination with FinderFactory
+/// Dummy action class mostly for internal use, but can be useful outside of the library in combination with Factories which view contollers,
+/// do not have to be integrated in to a view controller's stack.
 public class NilAction: Action {
 
     public init() {

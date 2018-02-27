@@ -6,8 +6,10 @@
 import Foundation
 import UIKit
 
+/// Replaces root view controller of key UIWindow.
 public class ReplaceRootAction: Action {
 
+    /// Constructor
     public init() {
     }
 

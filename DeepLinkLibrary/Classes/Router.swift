@@ -6,6 +6,7 @@
 import UIKit
 import Foundation
 
+/// Base router protocol.
 public protocol Router {
 
     var logger: Logger? { get }

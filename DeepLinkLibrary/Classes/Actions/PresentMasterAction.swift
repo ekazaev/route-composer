@@ -5,6 +5,7 @@
 import Foundation
 import UIKit
 
+/// Presents master view controller in UISplitViewController
 public class PresentMasterAction: SplitViewControllerMasterAction {
 
     public init() {

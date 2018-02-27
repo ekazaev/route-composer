@@ -9,6 +9,7 @@ public protocol NavigationControllerFactoryAction: Action {
 
 }
 
+/// Container Factory that creates UINavigationController
 open class NavigationControllerFactory: SingleActionContainerFactory {
 
     public typealias ViewController = UINavigationController
@@ -25,7 +26,7 @@ open class NavigationControllerFactory: SingleActionContainerFactory {
         self.action = action
     }
 
-    public func build(with context: Context?) throws -> UIViewController {
+    public func build(with context: Context?) throws -> ViewController {
         guard factories.count > 0 else {
             throw RoutingError.message("Unable to build UINavigationController due to 0 amount of child factories")
         }

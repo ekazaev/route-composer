@@ -5,10 +5,17 @@
 import Foundation
 import UIKit
 
+// MARK: - Conatiner Factory extension that helps to build properly child UIViewControllers from factories provided.
 public extension Container where Self: Factory {
 
     /// This function contains default implementation how Container should create it's children view controller
     /// before built them in to itself.
+    ///
+    /// - Parameters:
+    ///   - factories: Array of Factories
+    ///   - context: Context instance if any
+    /// - Returns: Array of build view controllers
+    /// - Throws: RoutingError
     func buildChildrenViewControllers(from factories: [AnyFactory], with context: Self.Context?) throws -> [UIViewController] {
         var childrenViewControllers: [UIViewController] = []
         for factory in factories {

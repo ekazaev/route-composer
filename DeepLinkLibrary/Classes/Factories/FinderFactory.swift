@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-/// Assembly uses finder result as a factory result. Used with things that do not have actual
+/// ScreenStepAssembly uses finder result as a factory result. Used with things that do not have actual
 /// factories like UIViewControllers that were build as a result of storyboard loading.
 public class FinderFactory<F: Finder>: Factory {
 
@@ -20,12 +20,17 @@ public class FinderFactory<F: Finder>: Factory {
 
     let finder: F
 
+    /// Constructor
+    ///
+    /// - Parameters:
+    ///   - finder: Finder instance to be used by factory
+    ///   - action: Action instance. In most cases has no sence, so defaulted to NilAction
     public init(finder: F, action: Action = NilAction()) {
         self.finder = finder
         self.action = action
     }
 
-    public func build(with context: Context?) throws -> UIViewController {
+    public func build(with context: Context?) throws -> ViewController {
         if let viewController = finder.findViewController(with: context) {
             return viewController
         }

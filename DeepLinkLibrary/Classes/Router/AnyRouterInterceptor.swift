@@ -5,6 +5,7 @@
 import Foundation
 import UIKit
 
+/// Non typesafe boxing wrapper for RouterInterceptor protocol
 protocol AnyRouterInterceptor {
 
     func execute(with context: Any?, completion: @escaping (_: InterceptorResult) -> Void)

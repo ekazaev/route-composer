@@ -53,7 +53,7 @@ class ColorViewControllerFactory: Factory {
         self.model = model
     }
 
-    func build(with context: Context?) throws -> UIViewController {
+    func build(with context: Context?) throws -> ViewController {
         let colorViewController = ColorViewController(nibName: nil, bundle: nil)
         colorViewController.colorHex = model
 

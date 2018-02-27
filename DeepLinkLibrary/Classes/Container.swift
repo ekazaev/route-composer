@@ -21,8 +21,10 @@ public protocol Container {
     ///
     /// - Parameter factories: Array of factories to be handled by container factory.
     /// - Returns: Array of factories that are not supported by this container type. Router should decide how to deal with them.
+    ///
     /// Example: UINavigationController as a container expects push action of any kind.
-    /// If a factory from factories array contains one with a present modally action, it will be returned back as an unsuppported one.
+    /// If a factory from factories array contains one with a present modally action, it will be returned
+    /// back as an unsuppported one.
     func merge(_ factories: [AnyFactory]) -> [AnyFactory]
 
 }

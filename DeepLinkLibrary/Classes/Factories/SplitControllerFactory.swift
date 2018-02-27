@@ -14,6 +14,7 @@ public protocol SplitViewControllerDetailAction: Action {
 
 }
 
+/// Container Factory that creates UISplitViewController
 public class SplitControllerFactory: Factory, Container {
 
     public typealias ViewController = UISplitViewController
@@ -45,7 +46,7 @@ public class SplitControllerFactory: Factory, Container {
         return rest
     }
 
-    public func build(with context: Context?) throws -> UIViewController {
+    public func build(with context: Context?) throws -> ViewController {
         guard masterFactories.count > 0, detailFactories.count > 0 else {
             throw RoutingError.message("No master or derails view controllers provided")
         }

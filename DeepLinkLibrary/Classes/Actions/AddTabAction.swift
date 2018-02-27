@@ -5,15 +5,30 @@
 import Foundation
 import UIKit
 
+/// Integrates UIViewController in to a UITabBarController
 public class AddTabAction: TabBarControllerFactoryAction {
 
     let tabIndex: Int?
 
     let replacing: Bool
 
-    public init(at tabIndex: Int? = nil, replacing: Bool = false) {
+    /// Constructor
+    ///
+    /// - Parameters:
+    ///   - tabIndex: index of the tab after which one view controller should be added.
+    ///   - replacing: instead of adding view controller after tabIndex - replace one at that index.
+    public init(at tabIndex: Int, replacing: Bool = false) {
         self.tabIndex = tabIndex
         self.replacing = replacing
+    }
+
+    /// Constructor
+    ///
+    ///   - tabIndex: index of the tab after which one view controller should be added. If not passes - view controller
+    ///   will be added after the latest one.
+    public init(at tabIndex: Int? = nil) {
+        self.tabIndex = tabIndex
+        self.replacing = false
     }
 
     public func performMerged(viewController: UIViewController, containerViewControllers: inout [UIViewController]){

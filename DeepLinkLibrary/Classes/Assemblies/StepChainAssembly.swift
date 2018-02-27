@@ -7,6 +7,7 @@ import Foundation
 /// Connects array of steps into a chain of steps.
 public class StepChainAssembly {
 
+    /// Nested builder that does not allow to add steps from non-chainable step
     public class LastStepInChainAssembly {
 
         fileprivate var assembly: StepChainAssembly
@@ -16,6 +17,9 @@ public class StepChainAssembly {
             self.assembly = assembly
         }
 
+        /// Assemble all the provided settings.
+        ///
+        /// - Returns: Instance of RoutingStep with all the settings provided inside.
         public func assemble() -> RoutingStep {
             return assembly.assemble()
         }
@@ -28,22 +32,31 @@ public class StepChainAssembly {
         self.previousSteps.append(previousStep)
     }
 
+    /// Previous step to start build current step from
+    ///
+    /// - Parameter previousStep: Instance of RoutingStep
     public func from(_ previousStep: RoutingStep) -> LastStepInChainAssembly {
         self.previousSteps.append(previousStep)
         return LastStepInChainAssembly(assembly: self)
     }
 
+    /// Previous step to start build current step from
+    ///
+    /// - Parameter previousStep: Instance of RoutingStep
     public func from(_ previousStep: ChainingStep) -> Self {
         self.previousSteps.append(previousStep)
         return self
     }
 
+    /// Assemble all the provided settings.
+    ///
+    /// - Returns: Instance of RoutingStep with all the settings provided inside.
     public func assemble() -> RoutingStep {
         return chain(previousSteps)
     }
 }
 
-func chain(_ steps: [RoutingStep]) -> RoutingStep {
+internal func chain(_ steps: [RoutingStep]) -> RoutingStep {
     guard let firstStep = steps.first else {
         fatalError("No steps provided to chain.")
     }

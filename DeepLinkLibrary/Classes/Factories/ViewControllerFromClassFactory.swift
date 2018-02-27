@@ -5,6 +5,7 @@
 
 import UIKit
 
+/// Factory that creates UIViewController of desired class
 public class ViewControllerFromClassFactory<VC: UIViewController, C>: Factory {
 
     public typealias ViewController = VC
@@ -15,12 +16,17 @@ public class ViewControllerFromClassFactory<VC: UIViewController, C>: Factory {
 
     private let viewControllerName: String
 
+    /// Constructor
+    ///
+    /// - Parameters:
+    ///   - viewControllerName: Name of UIViewController class to be built
+    ///   - action: Action instance to integrate built UIViewController in to stack
     public init(viewControllerName: String, action: Action) {
         self.action = action
         self.viewControllerName = viewControllerName
     }
 
-    public func build(with context: Context?) throws -> UIViewController {
+    public func build(with context: Context?) throws -> ViewController {
         guard let myClass = NSClassFromString(self.viewControllerName) as? ViewController.Type else {
             throw RoutingError.message("Can not find \(self.viewControllerName) in bundle")
         }

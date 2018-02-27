@@ -26,7 +26,7 @@ class CustomContainerFactory: SingleActionContainerFactory {
         self.delegate = delegate
     }
 
-    func build(with context: Context?) throws -> UIViewController {
+    func build(with context: Context?) throws -> ViewController {
         guard let containerController = UIStoryboard(name: "Images", bundle: nil)
                 .instantiateViewController(withIdentifier: "CustomContainerController") as? ViewController else {
             throw RoutingError.message("Could not load CustomContainerController from storyboard.")

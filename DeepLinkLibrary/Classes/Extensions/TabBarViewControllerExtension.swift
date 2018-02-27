@@ -6,6 +6,7 @@
 import Foundation
 import UIKit
 
+// MARK: - UITabBarController extension to support ContainerViewController protocol
 extension UITabBarController: ContainerViewController {
 
     public func makeVisible(viewController: UIViewController, animated: Bool){
@@ -23,6 +24,7 @@ extension UITabBarController: ContainerViewController {
 
 }
 
+// MARK: - UITabBarController extension to support RouterRulesSupport protocol
 extension UITabBarController: RouterRulesSupport {
 
     public var canBeDismissed: Bool {

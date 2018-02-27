@@ -5,6 +5,8 @@
 
 import UIKit
 
+/// Presents UIViewController using present(viewControllerToPresent, animated, completion) method of existing view
+/// controller
 public class PresentModallyAction: Action {
 
     let presentationStyle: UIModalPresentationStyle
@@ -13,6 +15,12 @@ public class PresentModallyAction: Action {
 
     let transitioningDelegate: UIViewControllerTransitioningDelegate?
 
+    /// Constructor
+    ///
+    /// - Parameters:
+    ///   - presentationStyle: UIModalPresentationStyle setting, default value: .fullScreen
+    ///   - transitionStyle: UIModalTransitionStyle setting, default value: .coverVertical
+    ///   - transitioningDelegate: UIViewControllerTransitioningDelegate instance to be used during transition
     public init(presentationStyle: UIModalPresentationStyle = .fullScreen, transitionStyle: UIModalTransitionStyle = .coverVertical, transitioningDelegate: UIViewControllerTransitioningDelegate? = nil) {
         self.presentationStyle = presentationStyle
         self.transitionStyle = transitionStyle

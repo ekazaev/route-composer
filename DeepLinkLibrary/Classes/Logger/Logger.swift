@@ -6,6 +6,11 @@
 import Foundation
 import UIKit
 
+/// Logger message representation
+///
+/// - info: info message
+/// - warning: warning message
+/// - error: error message
 public enum LoggerMessage {
 
     case info(String)
@@ -16,12 +21,18 @@ public enum LoggerMessage {
 
 }
 
+/// Routing logger protocol
 public protocol Logger {
 
+    /// Will be called by the Router when routing process starts
     func routingWillStart()
 
+    /// Will be called by the Router to log LoggerMessage instance
+    ///
+    /// - Parameter message: LoggerMessage instance
     func log(_ message: LoggerMessage)
 
+    /// Will be called by the Router when routing process finishes
     func routingDidFinish()
 
 }

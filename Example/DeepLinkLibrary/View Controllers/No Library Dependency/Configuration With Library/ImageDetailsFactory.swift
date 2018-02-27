@@ -22,7 +22,7 @@ class ImageDetailsFactory: MandatoryContextFactory {
         self.delegate = delegate
     }
 
-    func build(with context: Context) throws -> UIViewController {
+    func build(with context: Context) throws -> ViewController {
         guard let viewController = UIStoryboard(name: "Images", bundle: Bundle.main)
                 .instantiateViewController(withIdentifier: "ImageDetailsViewController") as? ViewController else {
             throw RoutingError.message("Could not load ImagesViewController from storyboard.")
