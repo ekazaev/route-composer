@@ -10,9 +10,10 @@ import DeepLinkLibrary
 struct WishListConfiguration {
 
     static let wishListScreen = ScreenStepAssembly(
-            finder: ViewControllerClassFinder(),
-            factory: WishListFactory(action: PushAction()))
+            finder: ViewControllerClassFinder<WishListViewController, WishListContext>(),
+            factory: ViewControllerFromStoryboard(storyboardName: "Main", viewControllerID: "WishListViewController", action: PushAction()))
             .add(LoginInterceptor())
+            .add(WishListContentTask())
             .add(ExampleAnalyticsInterceptor())
             .add(ExampleAnalyticsPostAction())
             .from(NavigationContainerStep(action: PresentModallyAction(presentationStyle: .formSheet)))

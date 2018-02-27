@@ -7,14 +7,10 @@ import Foundation
 import UIKit
 import DeepLinkLibrary
 
-class CityDetailPostTask: PostRoutingTask {
+class CityDetailContextTask: ContextTask {
 
-    typealias ViewController = CityDetailViewController
-
-    typealias Context = CityContext
-
-    func execute(on viewController: ViewController, with context: Context?, routingStack: [UIViewController]) {
-        guard let destinationCityId = context?.cityId else {
+    func apply(on viewController: CityDetailViewController, with context: CityContext) {
+        guard let destinationCityId = context.cityId else {
             return
         }
 

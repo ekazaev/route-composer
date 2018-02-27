@@ -7,84 +7,89 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		028B716EC7081ECF0EEBEF6806EF601A /* InterceptorMultiplexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BAD2D5D44D93F7D8FEB315CE95C74A /* InterceptorMultiplexer.swift */; };
-		0A3B5DAE4B9C3CD9B0343BDD4B49EB84 /* AddTabAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3489C4DB7CFFDD89FDEB50AAD67D74A5 /* AddTabAction.swift */; };
-		136942F6116129DAE71D8BE14B66F488 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B63C6A64CF66340668996F78DA6BB482 /* UIKit.framework */; };
-		295DD9A62C014B1D30684F39990D2AAF /* PostRoutingTaskMultiplexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6B61110374DB309433D00BFD9F433A /* PostRoutingTaskMultiplexer.swift */; };
-		36591954B06690B196C49B2554A747A3 /* PresentMasterAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC97FEADA56A98AE5E91E9CDFA294FB9 /* PresentMasterAction.swift */; };
-		3F5E6007074AE3CD040A493C6B592983 /* FinderFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF6DF04F9F8AEC4BD5FB294960D7912 /* FinderFactory.swift */; };
-		4AEEF1CB7AF306404E1F3D64B01C047E /* PresentModallyAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7440C9C538C4A753D26EC33891F4E0 /* PresentModallyAction.swift */; };
-		5319208FD9F296B5F7EAB4C42ADE4411 /* UIWindowExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E7F91735CD5D51CDCFD5684B41AF86 /* UIWindowExtension.swift */; };
-		534B0C3DC679410704A68C593454EE12 /* DeepLinkLibrary-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AB11B2414425299B2C06C060715E6B61 /* DeepLinkLibrary-dummy.m */; };
-		582BBC48DD46C7DEEF0070CB2924F531 /* SplitViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF80E9118803A29BA9A73EC0F10D3D2 /* SplitViewControllerExtension.swift */; };
-		59C595B4BB054AD60486B5FF29A11FBD /* RoutingStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = A991A2166CE865A7B9EF190901408E6E /* RoutingStep.swift */; };
+		0317D4874536D22D26B7B44DB9B84F3C /* TopMostViewControllerStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191620A5419C10B031B5962189921BB8 /* TopMostViewControllerStep.swift */; };
+		0B74F1892BAD18C5BC2992E384FF1CE0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D88AAE1F92055A60CC2FC970D7D34634 /* Foundation.framework */; };
+		1A3BF5BBE547C019169C5B198B1F00ED /* StepChainAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9811CE389AEC2DC50480659F64069EBF /* StepChainAssembly.swift */; };
+		2322883D2B4ABE4C39C5286785A1A356 /* FactoryPreparationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2442AB6D9ED507A5EE502E420B07906E /* FactoryPreparationResult.swift */; };
+		2EA81BF181A063259A6489EBCE081E7D /* AnyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ECFB65E45653FE7A21E18C4C26D79E /* AnyContainer.swift */; };
+		2EC21512F504ACCE0FA1EBF58CFFF671 /* ContainerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0154EE7311001A21D55157404D3B9C1 /* ContainerExtension.swift */; };
+		3085489CA48A7CAB8CC068EA6A9769F3 /* NilFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE5D9350B927E44B47897903AF271FD /* NilFinder.swift */; };
+		32CC496746734E8DA0E1631E58BD4208 /* FinalRoutingStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77072AF29BFDC8FEB1129B5CCEA41DE /* FinalRoutingStep.swift */; };
+		3BF422BF1276B956A3BBF3A20FBC2D59 /* ViewControllerFromXibFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673806C014936C9C15DF48F8CEB4FDA5 /* ViewControllerFromXibFactory.swift */; };
+		3F8A23D2FC0D02CE408F5A02525D2E40 /* StepResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A036CA1415472042D249B50ABD874E /* StepResult.swift */; };
+		41235578923FE5EA476CED7176B80769 /* FactoryBuildResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE9D28097D3C493CEC7402BC1E59E52 /* FactoryBuildResult.swift */; };
+		425F0FCF49B6A32520DD68E58E40B860 /* InterceptableStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270DEC638C203CEAE55DE2F33A4CC340 /* InterceptableStep.swift */; };
+		42B3C63D705806AB8AC898EA36D35D7D /* AnyFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A0AF5FDBE257AB8B4DA0F50C3D4338 /* AnyFactory.swift */; };
+		43E09AFD91338250D859F8ECBBAA1763 /* AnyFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5F6CBCA0DB796ABE0A807B0EDCA93C /* AnyFinder.swift */; };
+		477763BA0896A4C90543731F3237726D /* NavigationControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A140B957B8103D2B14C6F3CAE93FCC1 /* NavigationControllerFactory.swift */; };
+		4B7BC97E2B6C20E9B6D4058576705628 /* RoutingResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069DBECC7B7941E2E39259921EF02C09 /* RoutingResult.swift */; };
+		4F5802B192AC7552E83A37692CFD92C5 /* SwitcherStepAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97010F0322903A11D184F44EAD53E728 /* SwitcherStepAssembly.swift */; };
+		54434FFF42A6A7138C2DA443A0EBBF70 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C7902C7B13F95C4A6A1D509194E9D1 /* UIViewControllerExtension.swift */; };
+		549E44127B21794624744BFC0BA0CF84 /* DefaultRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF6069F21500D553E8A5840736D8B71 /* DefaultRouter.swift */; };
 		5B663E5C1840E4C7B40FFC685BB78E89 /* Pods-DeepLinkLibrary_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CDD22B66940803BE69EBE374EBFEF99 /* Pods-DeepLinkLibrary_Example-dummy.m */; };
-		63A4C55A2FA274DACB8F2A7661A8F42A /* TabBarControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83721AFD3E20F845EBB81B35F0201CB8 /* TabBarControllerFactory.swift */; };
-		7BACB3A381702777837D09DFA6C1B565 /* TabBarViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C824C958D6111A801004A73351D820A9 /* TabBarViewControllerExtension.swift */; };
-		7C6EED3C9FDA515C47C3A8E67308790C /* PushAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4753E7F48FBBA404F1D5FE8F01CE31 /* PushAction.swift */; };
-		83EA5D52CFCC6A7CD1BEC880CC200737 /* RoutingDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0082AA2CAFC816348E4D9203988AC16E /* RoutingDestination.swift */; };
-		8407AA36CB942F87CDFDE8E51D7FD504 /* SplitControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC0E1BD67495AFA7C1BD97F2A88467C /* SplitControllerFactory.swift */; };
-		840C1E65202D2EC20032CFD1 /* ViewControllerFromXibFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840C1E64202D2EC20032CFD1 /* ViewControllerFromXibFactory.swift */; };
-		8481BB35202CCD6900174ECB /* NilFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8481BB34202CCD6900174ECB /* NilFactory.swift */; };
-		848F3465202DEAF800F2A959 /* MandatoryContextFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848F3464202DEAF800F2A959 /* MandatoryContextFactory.swift */; };
-		84B76A6220404DDB00D865B1 /* ScreenStepAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B76A5F20404DDA00D865B1 /* ScreenStepAssembly.swift */; };
-		84B76A6320404DDB00D865B1 /* StepChainAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B76A6020404DDA00D865B1 /* StepChainAssembly.swift */; };
-		84B76A6420404DDB00D865B1 /* SwitcherStepAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B76A6120404DDA00D865B1 /* SwitcherStepAssembly.swift */; };
-		84D14DE9203C899C00F3FF9A /* RouterStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D14DE8203C899C00F3FF9A /* RouterStep.swift */; };
-		84D14DEB203C8A7100F3FF9A /* InterceptableStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D14DEA203C8A7100F3FF9A /* InterceptableStep.swift */; };
-		8B543728D4525AA125A4555983ACE3B3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D88AAE1F92055A60CC2FC970D7D34634 /* Foundation.framework */; };
-		8F2D99F0468A7383D13A8E7A179B309B /* StepResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A6865B1C67231A4B87485265D96BC6 /* StepResult.swift */; };
-		980514782AF4D07C64638290A59F6F9A /* ActionResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = F729E03A8C40FA54FCEB4F6B88607F89 /* ActionResult.swift */; };
-		9A3296BAE06D2C5AB27E230DEA305D77 /* NavigationControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B222DC53CA29240E3663F143D2E2AEDD /* NavigationControllerExtension.swift */; };
-		9AFBC0FB072F6B4F309A4F2A /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC8A4F12BC519DE66C4E0 /* Factory.swift */; };
-		9AFBC1582157BEF5799E0116 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC6DF76571AE956905149 /* Container.swift */; };
-		9AFBC1756AD13667D6701A34 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC648DD35ED6B5FD62D5F /* Action.swift */; };
-		9AFBC19BAE311EB9D6A5BA03 /* AnyRouterInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCEE024728B7F1A92F75D /* AnyRouterInterceptor.swift */; };
-		9AFBC26069234206508F64CD /* PostRoutingTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC4D3DCD11F16539A9004 /* PostRoutingTask.swift */; };
-		9AFBC3CF56848EA1B18D0079 /* ViewControllerClassAndContextFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCA572F63DE09D8081A4D /* ViewControllerClassAndContextFinder.swift */; };
-		9AFBC50DCC195C4A053A334C /* RoutingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC6E0F137B5DE706F605D /* RoutingError.swift */; };
-		9AFBC5921437E6E6524F6231 /* FinalRoutingStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCBA79DD7EEED735368BE /* FinalRoutingStep.swift */; };
-		9AFBC6A20AAA06B3CB493E8F /* AnyFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCE9A8356BE7AC22D14F9 /* AnyFactory.swift */; };
-		9AFBC864F1E33DBCDB43525F /* AnyFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCA52E257FBFFF7046041 /* AnyFinder.swift */; };
-		9AFBC8A3F7E9B450C65767D3 /* AnyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC62FAA8A6D0B15D72263 /* AnyContainer.swift */; };
-		9AFBC95D2B5E5714BE08EE8E /* NilAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCA9A0ED6594AA39CE70A /* NilAction.swift */; };
-		9AFBC9D8BD69B19F154F3D68 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC97B8C912C8393CF766C /* ContainerViewController.swift */; };
-		9AFBC9EB4F9394E6237E0177 /* ContainerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC7FF8FBE94668D676E27 /* ContainerExtension.swift */; };
-		9AFBCAF6536210A2BB74DB8D /* ChainableStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCDE5B965A08290779CAB /* ChainableStep.swift */; };
-		9AFBCB309639D23F2921484A /* SingleActionContainerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC35DA6963D837D16ED04 /* SingleActionContainerFactory.swift */; };
-		9AFBCC113DC2E8D3C521183F /* ChainingStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC76D64DD80BA1E71A0DE /* ChainingStep.swift */; };
-		9AFBCC7A9E59940D402FE010 /* Finder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCC4238C34EC1F2321152 /* Finder.swift */; };
-		9AFBCD7A6E8F79F3E209D774 /* AnyPostRoutingTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCB035CCD701E789F84A8 /* AnyPostRoutingTask.swift */; };
-		9AFBCE8AFB86C20DF90C55A1 /* PerformableStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCC18C269BC4FC7C25EEE /* PerformableStep.swift */; };
-		9AFBCEC22030B8B7116AB55B /* RouterRulesSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC4BC05C6A013147C36AD /* RouterRulesSupport.swift */; };
-		9AFBCFC09C8F54EFF6355B64 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCC2222D3139F9AC19E81 /* Router.swift */; };
-		A2D0D3B4292A561F2D1C76548D363444 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689D6FB05287FE7337391EAB2A6D8965 /* Logger.swift */; };
-		A32ACBA420EE3C98D1062F3202C9235C /* SwitcherStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB71F4A4F0759F1B5A98C8940FAE5AB2 /* SwitcherStep.swift */; };
-		A780859DC49FE5AC6385AA69E8C3339E /* TopMostViewControllerStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EA2199E66EC83ED41AAFB31A16451C /* TopMostViewControllerStep.swift */; };
-		A8A1769634D396792129FB3DCDAFA1E7 /* DeepLinkLibrary-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 52B57D964F0F8FF3CFBAD5ECCD4357BB /* DeepLinkLibrary-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AF4892C464C97791ABD89DE6F8AB7E36 /* FiderWithPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC78748E9825739EA6D6E69EAE9AF8F4 /* FiderWithPolicy.swift */; };
-		B683F9ABF63A06EE61BC20AA3BF935A0 /* ViewControllerClassFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58385B2F2E3A647A1170F1CFE2C4326 /* ViewControllerClassFinder.swift */; };
-		B75AB3F3CC59A49BE840930B8F9104CA /* ViewControllerFromStoryboardFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5730FD420294295BB09818017BE7E079 /* ViewControllerFromStoryboardFactory.swift */; };
-		B93A545B17CFDB13FF9D8C4F576F8E9A /* NavigationControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F60D7CE99FF8B802DCE9CC384CB53F6 /* NavigationControllerFactory.swift */; };
-		C29B76208EB0E9EC5C61B5046E6C83EE /* RootViewControllerStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F281F5E5B47B8DC5CBCAAF8A280E5B6 /* RootViewControllerStep.swift */; };
-		C47380D5CA4EB91DD9764FF63E959207 /* NilFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DCA449B041A5A16EB128338339CB9D /* NilFinder.swift */; };
-		CD32C5F6142C425BA7C69A4541B30FCC /* ViewControllerFromClassFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF15F4385CD00626CFFD4C848034E9E /* ViewControllerFromClassFactory.swift */; };
-		CF2F094BB4BF4FBC358E9720C7979B2F /* RouterInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D837FCA223683782A222EE4D95B919E5 /* RouterInterceptor.swift */; };
-		D1F13D26D5A83E44F664CB46FDEF2405 /* RoutingResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CC664F0334FF9BD33853BE12A6EC3A /* RoutingResult.swift */; };
-		D36D157F66319BAD739CB96D3F7219C4 /* NavigationContainerStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006EA8BE04F1D53557F4E2A4B0941783 /* NavigationContainerStep.swift */; };
-		D5565F94DA190616E1EFABE46E18BE35 /* PushAsRootAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F2424E674992F875552C3580DF2C72 /* PushAsRootAction.swift */; };
-		D5672E274C74CE9B151148D7EB7DEA1B /* PresentDetailsAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E17B12148ABB499C46A481A29CDA83 /* PresentDetailsAction.swift */; };
-		D6204F4C3A5E178045A3F215258DD7BD /* DefaultLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5A9DE7F41CAE25B55E5ADC74D402CA /* DefaultLogger.swift */; };
+		5D5471F9D89AC5B95E19A499109F8EEA /* DeepLinkLibrary-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B8601157730EF37C38B70CBD0EAAFFFF /* DeepLinkLibrary-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		674D8FC2218296185044569F22091B67 /* PresentDetailsAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB31F0572ABC7BE12D45B7213BD102C /* PresentDetailsAction.swift */; };
+		678D475A35159298A469207CC6DFFF67 /* NilFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E105772566386356E40AFB79430E20B4 /* NilFactory.swift */; };
+		69F5351AB077618256BCECEA029EC03A /* TabBarViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07318AA8829EF3DB8E0649D95275AE82 /* TabBarViewControllerExtension.swift */; };
+		6E163BE2D2F16509F479875F3EB79019 /* AnyRouterInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B530C0B5889B5005ED9F4A412800E696 /* AnyRouterInterceptor.swift */; };
+		6EABB0F88A7A851E8655A84F00712D47 /* DefaultLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9DEAB721D74A62E008A77692DCF059 /* DefaultLogger.swift */; };
+		76EE1F1496CA4496EC7A5AEE2AA04130 /* PushAsRootAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FAC038A682527EEB885BEAFA358EC87 /* PushAsRootAction.swift */; };
+		78840655C19630E20D7E17CEB242CB81 /* RoutingDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF3F292AE33A129B38C373B1BAD50E8 /* RoutingDestination.swift */; };
+		7C632033F91F1FA1411B8B11DC83D36A /* ContextTaskMultiplexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0A1DDB62E4DA9E9E9E45BD029BBB09 /* ContextTaskMultiplexer.swift */; };
+		7E79C5476858DE66B43D701F5E460A52 /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD85BE31A92DEC1A09583D4903835A7 /* Factory.swift */; };
+		8452E8DD2045031A0046773D /* PostRoutingTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8452E8D92045031A0046773D /* PostRoutingTask.swift */; };
+		8452E8DE2045031A0046773D /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8452E8DA2045031A0046773D /* Router.swift */; };
+		8452E8DF2045031A0046773D /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8452E8DB2045031A0046773D /* ContainerViewController.swift */; };
+		8452E8E02045031A0046773D /* RouterRulesSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8452E8DC2045031A0046773D /* RouterRulesSupport.swift */; };
+		882A7FB0AB0495537F2953A2EC5218AC /* PerformableStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9730E5CE511D1E736222A12A943E3482 /* PerformableStep.swift */; };
+		884591F3F3986DB9364469D110120AD1 /* SplitControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA5FC4E9167578CC0D60C40912AB529 /* SplitControllerFactory.swift */; };
+		8A2F549267DDB544C1A121078ACCB697 /* PushAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CE0B3BC9DE3CBF43656A96D72ABCA3 /* PushAction.swift */; };
+		9B4ED01A1927984742D56752E388D6F0 /* NavigationControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3423EED2DE439B81300FC1786DADE6 /* NavigationControllerExtension.swift */; };
+		9DFBB94AE642ABE1B8FAE7E43B729B2C /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9D1928734127D20339BBE7F5484A0C /* Logger.swift */; };
+		9EC2620E6C38C7C3C796CF54F7B3CCF6 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D4326CE94C310CBDFAA0A0ED446CB2 /* Action.swift */; };
+		A3961468BD30E40E908FE00497372EBB /* AnyContextTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66B4DB1A1DE12D233347BC2354783B0 /* AnyContextTask.swift */; };
+		A4689CE972ED17475578129BC56CE5D2 /* ReplaceRootAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30688FF70179314948A2F41E9E7DC2A3 /* ReplaceRootAction.swift */; };
+		A57A61E7E2D41B5FB9F58EB5AEF4EA56 /* UIWindowExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AC7CAFB646BF319AB859CCED7832D5 /* UIWindowExtension.swift */; };
+		A585176EB34D424F83B7A30A49EBACFA /* Finder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408EE5161732C343D5053D8D64E941C9 /* Finder.swift */; };
+		A9BD4C3E48BCA6506706A293BB8357ED /* FinderPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874886CF7C2C59E5A002D7E42C6B2D0E /* FinderPolicy.swift */; };
+		AB7B5A00FC3523043FC07ADB980068FD /* SwitcherStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E8913CEEB9C84757DFBA31F71C721D /* SwitcherStep.swift */; };
+		ACFA5CBE2478F3480F61096D1810E458 /* AnyPostRoutingTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C4188E1A27715516D9BFB5CCD72B5A /* AnyPostRoutingTask.swift */; };
+		ADC06AD312B6E96C530B97EA4B5E5E5C /* FinderFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731F8C2F61823D0DB3BFB4E4283D97EE /* FinderFactory.swift */; };
+		B0C46141858F7CB398AE5B349AE3780E /* MandatoryContextFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230C9493BC2B6A662C354A43A02B3B13 /* MandatoryContextFactory.swift */; };
+		B32C6C51F234F69E213F5918C21C1C82 /* ChainableStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FE79BAFCEE1F128BD89E08F1197D72 /* ChainableStep.swift */; };
+		B57B39AA476B5CF69A557FE1FA878063 /* SingleActionContainerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD36EC630BD9A24B095948270991AD5 /* SingleActionContainerFactory.swift */; };
+		B63D9C3499A42E005398C4D8DC874A74 /* FiderWithPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BB4BE77C7293FCC36CFD0E0E61D909 /* FiderWithPolicy.swift */; };
+		B68DC81259E3247B09B1AA80EF73CAE5 /* RouterInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506E26E6D1528AED1646D1C8BDE0476A /* RouterInterceptor.swift */; };
+		BA9C4A3EB666422B11E168802B14994E /* DeepLinkLibrary-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4375AF1EC57F7D361434EFC2BA837BC4 /* DeepLinkLibrary-dummy.m */; };
+		BDA4B1A654E5C51CE75108E7FAA7CB16 /* PostRoutingTaskMultiplexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972C08018528207283AA19D43ADFB1C6 /* PostRoutingTaskMultiplexer.swift */; };
+		C41AC55A2009778A539D51162A4922EA /* NavigationContainerStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A9FF9CAC01482CB58EBD90376F6C4C /* NavigationContainerStep.swift */; };
+		C430B2B44889929248378648EAEBF697 /* InterceptorResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D4400E9B7339F6C7D3CB4FBD3193CC /* InterceptorResult.swift */; };
+		C4DAB3D9AF62B3109A2EB7CFCA2338C0 /* ViewControllerClassAndContextFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57756A65FA9458EF8204345BD986C3E /* ViewControllerClassAndContextFinder.swift */; };
+		C5573D8282D0EAB3EA48FB97A5436541 /* RootViewControllerStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1166F46674C141AF57E2BF0C09AFA0 /* RootViewControllerStep.swift */; };
+		C81833DA06216CF129ED4A090D39C024 /* PresentModallyAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D2FA6EA9C848B3E5B82D8633144BA2 /* PresentModallyAction.swift */; };
+		CB67A72E243986B56B4DEBB445E5525B /* ChainingStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FF238069761ED1B2B834A0EE259CD7 /* ChainingStep.swift */; };
+		CBF295DAA1993759EE64A0E0F0A6E8E9 /* ViewControllerClassFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBEC162AF08F5B3B9913440EE95B237 /* ViewControllerClassFinder.swift */; };
+		CE3D4260125446D25E05D986D7C1C9C5 /* RouterStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149FC378391F2490D438E01703994DA9 /* RouterStep.swift */; };
+		D0C3AD46ABC9563864D5184CCA9EA14F /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0764043ED597896B3EB0D1967166D8A3 /* Container.swift */; };
+		D3A3327452A592674039CC7D00E3BC5E /* TabBarControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B0E32B1E995181EDB1014A17B321BB /* TabBarControllerFactory.swift */; };
+		D52F2E3C15BF6EB264C9707C7B28BD5E /* ScreenStepAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F54BC2899EC25C1201433FFC3362F5 /* ScreenStepAssembly.swift */; };
 		D72F05F770265A1B50CF5F1FB787B95E /* Pods-DeepLinkLibrary_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1772F86C300049E690E4107695F20266 /* Pods-DeepLinkLibrary_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DADACE6298EEDED9CBA5590527A44E05 /* FinderPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89D94E5E2F048B3C3512B5C8436C0D7 /* FinderPolicy.swift */; };
-		DDBB91D2C01D88B22162EFDFAABBDDE8 /* InterceptorResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A8997307E0C630DE6D35572119A2D6 /* InterceptorResult.swift */; };
-		E67AAA53D85C1702772C8CBC0BAB4E1E /* ReplaceRootAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE2F83CCC0FFDC17B61888B5AA4FF1A /* ReplaceRootAction.swift */; };
+		DB82A2D733977ADE4D997A6E4B4C5AA6 /* ActionResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9BBE2BD445E3B056550A9132EBFE7F /* ActionResult.swift */; };
+		DCB4663F473A7A52AB48FDF34617CA49 /* InterceptorMultiplexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B81FECF33FD24FB165A909DCB68EA60 /* InterceptorMultiplexer.swift */; };
+		E30876EB3A3A06113357253E6F3AD509 /* PresentMasterAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BFD4195B11FDDFF667A7CDA6CDAF5B /* PresentMasterAction.swift */; };
+		E42A9874D02A116076CF9FD74B3CE509 /* SplitViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF94E34D456117EE2838C2F7B59BC83 /* SplitViewControllerExtension.swift */; };
+		E63653BF0CF00F21C39DFB9E6D789589 /* RoutingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1EDD99397BAA58A925ACE2BBB97F0B5 /* RoutingError.swift */; };
 		E7A12DF499C7FF266F9155120C726371 /* Pods-DeepLinkLibrary_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 21480E8E1B226E0B3392DEEB21FC8ED9 /* Pods-DeepLinkLibrary_Tests-dummy.m */; };
+		ECE7C0F31F94FB9E772B9E34966FF849 /* RoutingStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0C996A69AADD280A2FF71FFE22D8B5 /* RoutingStep.swift */; };
+		EDC0CD39CF0091FFFD74FE824FC3385D /* AddTabAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42607A5DA22B50A98AAD0B70181C2852 /* AddTabAction.swift */; };
+		EF1E941EA53A175728A07BD37E3953F8 /* ContextTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70EE29AB775537FB8FE472B4D5CB5AEC /* ContextTask.swift */; };
 		F0D3EF655703197B8DF22E5EEFB9F85B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D88AAE1F92055A60CC2FC970D7D34634 /* Foundation.framework */; };
 		F340A6A051663014C4BCDD1D436C6F1F /* Pods-DeepLinkLibrary_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 11C14C20DD7AEA1AC90C190FF460D2F4 /* Pods-DeepLinkLibrary_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F487F64FB5B25EADFDA3F3E218AC80B4 /* DefaultRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1031242E1903A492C8A7B685A5F3BEEA /* DefaultRouter.swift */; };
 		F7D9DBDB0DA3FC6ABECAAB6AB3A3EA96 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D88AAE1F92055A60CC2FC970D7D34634 /* Foundation.framework */; };
-		FAAA5255D3EF2D1857F563CA34F79E5F /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB288902EE36DE44CB8E63C8C12FA60 /* UIViewControllerExtension.swift */; };
+		F94CA453B1A52652DFB4BECA08B4D35D /* ViewControllerFromStoryboardFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95933F6FA0D41CC2DF152FB53C95B73 /* ViewControllerFromStoryboardFactory.swift */; };
+		FCCD2361D85F7B6F915FDF9D495494F3 /* NilAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95EEC3E87C6B7769958E98E9A023CBE /* NilAction.swift */; };
+		FD842AF352D7D2E9F1EEE54BBC5BAA42 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B63C6A64CF66340668996F78DA6BB482 /* UIKit.framework */; };
+		FEA2CE8866BADDD6C36535BE501CFF8F /* ViewControllerFromClassFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DA302664FCEEC2456B88DB3471E03D /* ViewControllerFromClassFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,112 +97,117 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 8AB54C7A474488C1EFD57A87E63C4D7D;
+			remoteGlobalIDString = 3A496AA6D2EBA3C1278E5ADED24E5281;
 			remoteInfo = DeepLinkLibrary;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		006EA8BE04F1D53557F4E2A4B0941783 /* NavigationContainerStep.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NavigationContainerStep.swift; sourceTree = "<group>"; };
-		0082AA2CAFC816348E4D9203988AC16E /* RoutingDestination.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RoutingDestination.swift; path = DeepLinkLibrary/Classes/RoutingDestination.swift; sourceTree = "<group>"; };
+		04D4326CE94C310CBDFAA0A0ED446CB2 /* Action.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
 		04F12F217832AAB914ABAEDF605349BA /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0622A3D50FCAC8120A009A1F43B56ED2 /* Pods-DeepLinkLibrary_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DeepLinkLibrary_Example.release.xcconfig"; sourceTree = "<group>"; };
-		07CC664F0334FF9BD33853BE12A6EC3A /* RoutingResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RoutingResult.swift; path = DeepLinkLibrary/Classes/RoutingResult.swift; sourceTree = "<group>"; };
+		069DBECC7B7941E2E39259921EF02C09 /* RoutingResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RoutingResult.swift; path = DeepLinkLibrary/Classes/RoutingResult.swift; sourceTree = "<group>"; };
+		07318AA8829EF3DB8E0649D95275AE82 /* TabBarViewControllerExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TabBarViewControllerExtension.swift; sourceTree = "<group>"; };
+		0764043ED597896B3EB0D1967166D8A3 /* Container.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
 		090D7EBBEAE4119E50C6655F0C15DCDD /* Pods-DeepLinkLibrary_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-DeepLinkLibrary_Tests-resources.sh"; sourceTree = "<group>"; };
-		1031242E1903A492C8A7B685A5F3BEEA /* DefaultRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DefaultRouter.swift; sourceTree = "<group>"; };
+		0D2A4CB5ADF429B29B8559298823D0A4 /* DeepLinkLibrary-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DeepLinkLibrary-prefix.pch"; sourceTree = "<group>"; };
 		11C14C20DD7AEA1AC90C190FF460D2F4 /* Pods-DeepLinkLibrary_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-DeepLinkLibrary_Tests-umbrella.h"; sourceTree = "<group>"; };
 		11D9FF9317FE5F7E3D153A45619CB15A /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		14A6865B1C67231A4B87485265D96BC6 /* StepResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StepResult.swift; sourceTree = "<group>"; };
+		12A9FF9CAC01482CB58EBD90376F6C4C /* NavigationContainerStep.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NavigationContainerStep.swift; sourceTree = "<group>"; };
+		149FC378391F2490D438E01703994DA9 /* RouterStep.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RouterStep.swift; path = DeepLinkLibrary/Classes/RouterStep.swift; sourceTree = "<group>"; };
+		15FF238069761ED1B2B834A0EE259CD7 /* ChainingStep.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ChainingStep.swift; sourceTree = "<group>"; };
 		1772F86C300049E690E4107695F20266 /* Pods-DeepLinkLibrary_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-DeepLinkLibrary_Example-umbrella.h"; sourceTree = "<group>"; };
-		1AF6DF04F9F8AEC4BD5FB294960D7912 /* FinderFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FinderFactory.swift; sourceTree = "<group>"; };
-		1CC0E1BD67495AFA7C1BD97F2A88467C /* SplitControllerFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SplitControllerFactory.swift; sourceTree = "<group>"; };
-		1FDEF915FA6F1012A5552178B3CBBB1F /* DeepLinkLibrary.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DeepLinkLibrary.xcconfig; sourceTree = "<group>"; };
+		191620A5419C10B031B5962189921BB8 /* TopMostViewControllerStep.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TopMostViewControllerStep.swift; sourceTree = "<group>"; };
+		1A0C996A69AADD280A2FF71FFE22D8B5 /* RoutingStep.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RoutingStep.swift; sourceTree = "<group>"; };
+		1BD85BE31A92DEC1A09583D4903835A7 /* Factory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
+		20DA302664FCEEC2456B88DB3471E03D /* ViewControllerFromClassFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ViewControllerFromClassFactory.swift; sourceTree = "<group>"; };
+		20F54BC2899EC25C1201433FFC3362F5 /* ScreenStepAssembly.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ScreenStepAssembly.swift; sourceTree = "<group>"; };
 		21480E8E1B226E0B3392DEEB21FC8ED9 /* Pods-DeepLinkLibrary_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-DeepLinkLibrary_Tests-dummy.m"; sourceTree = "<group>"; };
+		230C9493BC2B6A662C354A43A02B3B13 /* MandatoryContextFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MandatoryContextFactory.swift; sourceTree = "<group>"; };
+		2442AB6D9ED507A5EE502E420B07906E /* FactoryPreparationResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FactoryPreparationResult.swift; sourceTree = "<group>"; };
 		24D666AC708EB09D5CECCCE679FCDC80 /* DeepLinkLibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DeepLinkLibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2AF15F4385CD00626CFFD4C848034E9E /* ViewControllerFromClassFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ViewControllerFromClassFactory.swift; sourceTree = "<group>"; };
+		270DEC638C203CEAE55DE2F33A4CC340 /* InterceptableStep.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = InterceptableStep.swift; sourceTree = "<group>"; };
 		2DD2B33E0198955265103341D0F8A170 /* Pods-DeepLinkLibrary_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-DeepLinkLibrary_Example.modulemap"; sourceTree = "<group>"; };
-		3489C4DB7CFFDD89FDEB50AAD67D74A5 /* AddTabAction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AddTabAction.swift; sourceTree = "<group>"; };
-		34E4B46CB1EA15499BA91ED8DA00F214 /* DeepLinkLibrary-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DeepLinkLibrary-prefix.pch"; sourceTree = "<group>"; };
-		36E7F91735CD5D51CDCFD5684B41AF86 /* UIWindowExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UIWindowExtension.swift; sourceTree = "<group>"; };
-		39A8997307E0C630DE6D35572119A2D6 /* InterceptorResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = InterceptorResult.swift; sourceTree = "<group>"; };
-		3BF80E9118803A29BA9A73EC0F10D3D2 /* SplitViewControllerExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SplitViewControllerExtension.swift; sourceTree = "<group>"; };
+		30688FF70179314948A2F41E9E7DC2A3 /* ReplaceRootAction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ReplaceRootAction.swift; sourceTree = "<group>"; };
 		3ED5D640B8D65E95268541F0F212CDA5 /* Pods-DeepLinkLibrary_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-DeepLinkLibrary_Tests-frameworks.sh"; sourceTree = "<group>"; };
+		408EE5161732C343D5053D8D64E941C9 /* Finder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Finder.swift; sourceTree = "<group>"; };
+		42607A5DA22B50A98AAD0B70181C2852 /* AddTabAction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AddTabAction.swift; sourceTree = "<group>"; };
 		42C3CEE555EDD8C62E1BD53F4931A764 /* Pods-DeepLinkLibrary_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-DeepLinkLibrary_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		42C4188E1A27715516D9BFB5CCD72B5A /* AnyPostRoutingTask.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AnyPostRoutingTask.swift; sourceTree = "<group>"; };
+		4375AF1EC57F7D361434EFC2BA837BC4 /* DeepLinkLibrary-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "DeepLinkLibrary-dummy.m"; sourceTree = "<group>"; };
+		49CE0B3BC9DE3CBF43656A96D72ABCA3 /* PushAction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PushAction.swift; sourceTree = "<group>"; };
+		4B9BBE2BD445E3B056550A9132EBFE7F /* ActionResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ActionResult.swift; sourceTree = "<group>"; };
 		4DACA3509B481377CD387F975B385743 /* Pods-DeepLinkLibrary_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-DeepLinkLibrary_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		4FE9D28097D3C493CEC7402BC1E59E52 /* FactoryBuildResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FactoryBuildResult.swift; sourceTree = "<group>"; };
+		506E26E6D1528AED1646D1C8BDE0476A /* RouterInterceptor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RouterInterceptor.swift; sourceTree = "<group>"; };
 		50ECFA710F97CD9A5434713F6E9A137D /* Pods-DeepLinkLibrary_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-DeepLinkLibrary_Example-resources.sh"; sourceTree = "<group>"; };
-		52B57D964F0F8FF3CFBAD5ECCD4357BB /* DeepLinkLibrary-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DeepLinkLibrary-umbrella.h"; sourceTree = "<group>"; };
 		532E1650F9338A351B58591D112F22AA /* Pods-DeepLinkLibrary_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DeepLinkLibrary_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		5730FD420294295BB09818017BE7E079 /* ViewControllerFromStoryboardFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ViewControllerFromStoryboardFactory.swift; sourceTree = "<group>"; };
+		58BFD4195B11FDDFF667A7CDA6CDAF5B /* PresentMasterAction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PresentMasterAction.swift; sourceTree = "<group>"; };
 		5B195D6736321E5B8BFDC3E359C1CD33 /* Pods-DeepLinkLibrary_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DeepLinkLibrary_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		689D6FB05287FE7337391EAB2A6D8965 /* Logger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
-		79F2424E674992F875552C3580DF2C72 /* PushAsRootAction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PushAsRootAction.swift; sourceTree = "<group>"; };
-		83721AFD3E20F845EBB81B35F0201CB8 /* TabBarControllerFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TabBarControllerFactory.swift; sourceTree = "<group>"; };
-		840C1E64202D2EC20032CFD1 /* ViewControllerFromXibFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFromXibFactory.swift; sourceTree = "<group>"; };
-		8481BB34202CCD6900174ECB /* NilFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NilFactory.swift; sourceTree = "<group>"; };
-		848F3464202DEAF800F2A959 /* MandatoryContextFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MandatoryContextFactory.swift; sourceTree = "<group>"; };
-		84B76A5F20404DDA00D865B1 /* ScreenStepAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenStepAssembly.swift; sourceTree = "<group>"; };
-		84B76A6020404DDA00D865B1 /* StepChainAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepChainAssembly.swift; sourceTree = "<group>"; };
-		84B76A6120404DDA00D865B1 /* SwitcherStepAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitcherStepAssembly.swift; sourceTree = "<group>"; };
-		84D14DE8203C899C00F3FF9A /* RouterStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RouterStep.swift; path = DeepLinkLibrary/Classes/RouterStep.swift; sourceTree = "<group>"; };
-		84D14DEA203C8A7100F3FF9A /* InterceptableStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterceptableStep.swift; sourceTree = "<group>"; };
-		8F281F5E5B47B8DC5CBCAAF8A280E5B6 /* RootViewControllerStep.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RootViewControllerStep.swift; sourceTree = "<group>"; };
+		5DF3F292AE33A129B38C373B1BAD50E8 /* RoutingDestination.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RoutingDestination.swift; path = DeepLinkLibrary/Classes/RoutingDestination.swift; sourceTree = "<group>"; };
+		5FAC038A682527EEB885BEAFA358EC87 /* PushAsRootAction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PushAsRootAction.swift; sourceTree = "<group>"; };
+		66F0D9DBDF44A28931CF7377B0469AAC /* DeepLinkLibrary.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DeepLinkLibrary.xcconfig; sourceTree = "<group>"; };
+		673806C014936C9C15DF48F8CEB4FDA5 /* ViewControllerFromXibFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ViewControllerFromXibFactory.swift; sourceTree = "<group>"; };
+		67FE79BAFCEE1F128BD89E08F1197D72 /* ChainableStep.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ChainableStep.swift; sourceTree = "<group>"; };
+		6B81FECF33FD24FB165A909DCB68EA60 /* InterceptorMultiplexer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = InterceptorMultiplexer.swift; sourceTree = "<group>"; };
+		6FA5FC4E9167578CC0D60C40912AB529 /* SplitControllerFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SplitControllerFactory.swift; sourceTree = "<group>"; };
+		70EE29AB775537FB8FE472B4D5CB5AEC /* ContextTask.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ContextTask.swift; path = DeepLinkLibrary/Classes/ContextTask.swift; sourceTree = "<group>"; };
+		731F8C2F61823D0DB3BFB4E4283D97EE /* FinderFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FinderFactory.swift; sourceTree = "<group>"; };
+		77E8913CEEB9C84757DFBA31F71C721D /* SwitcherStep.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SwitcherStep.swift; sourceTree = "<group>"; };
+		7A140B957B8103D2B14C6F3CAE93FCC1 /* NavigationControllerFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NavigationControllerFactory.swift; sourceTree = "<group>"; };
+		7CF94E34D456117EE2838C2F7B59BC83 /* SplitViewControllerExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SplitViewControllerExtension.swift; sourceTree = "<group>"; };
+		7F5F6CBCA0DB796ABE0A807B0EDCA93C /* AnyFinder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AnyFinder.swift; sourceTree = "<group>"; };
+		81A0AF5FDBE257AB8B4DA0F50C3D4338 /* AnyFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AnyFactory.swift; sourceTree = "<group>"; };
+		81D2FA6EA9C848B3E5B82D8633144BA2 /* PresentModallyAction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PresentModallyAction.swift; sourceTree = "<group>"; };
+		833947978BB406C3072613351B4F3C0E /* DeepLinkLibrary.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = DeepLinkLibrary.modulemap; sourceTree = "<group>"; };
+		8452E8D92045031A0046773D /* PostRoutingTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostRoutingTask.swift; path = DeepLinkLibrary/Classes/PostRoutingTask.swift; sourceTree = "<group>"; };
+		8452E8DA2045031A0046773D /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Router.swift; path = DeepLinkLibrary/Classes/Router.swift; sourceTree = "<group>"; };
+		8452E8DB2045031A0046773D /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContainerViewController.swift; path = DeepLinkLibrary/Classes/ContainerViewController.swift; sourceTree = "<group>"; };
+		8452E8DC2045031A0046773D /* RouterRulesSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RouterRulesSupport.swift; path = DeepLinkLibrary/Classes/RouterRulesSupport.swift; sourceTree = "<group>"; };
+		84BB4BE77C7293FCC36CFD0E0E61D909 /* FiderWithPolicy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FiderWithPolicy.swift; sourceTree = "<group>"; };
+		874886CF7C2C59E5A002D7E42C6B2D0E /* FinderPolicy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FinderPolicy.swift; sourceTree = "<group>"; };
+		8DD36EC630BD9A24B095948270991AD5 /* SingleActionContainerFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SingleActionContainerFactory.swift; sourceTree = "<group>"; };
 		8F52DCFCEA93BA275885B4A6285C7CF7 /* Pods-DeepLinkLibrary_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-DeepLinkLibrary_Tests.modulemap"; sourceTree = "<group>"; };
-		8F60D7CE99FF8B802DCE9CC384CB53F6 /* NavigationControllerFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NavigationControllerFactory.swift; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		93E17B12148ABB499C46A481A29CDA83 /* PresentDetailsAction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PresentDetailsAction.swift; sourceTree = "<group>"; };
-		984D6A863BFDF29FD0ABFE6F18005A4A /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		98BAD2D5D44D93F7D8FEB315CE95C74A /* InterceptorMultiplexer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = InterceptorMultiplexer.swift; sourceTree = "<group>"; };
-		9AFBC35DA6963D837D16ED04 /* SingleActionContainerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleActionContainerFactory.swift; sourceTree = "<group>"; };
-		9AFBC4BC05C6A013147C36AD /* RouterRulesSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RouterRulesSupport.swift; path = DeepLinkLibrary/Classes/Router/RouterRulesSupport.swift; sourceTree = "<group>"; };
-		9AFBC4D3DCD11F16539A9004 /* PostRoutingTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostRoutingTask.swift; path = DeepLinkLibrary/Classes/Router/PostRoutingTask.swift; sourceTree = "<group>"; };
-		9AFBC62FAA8A6D0B15D72263 /* AnyContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyContainer.swift; sourceTree = "<group>"; };
-		9AFBC648DD35ED6B5FD62D5F /* Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Action.swift; path = DeepLinkLibrary/Classes/Actions/Action.swift; sourceTree = "<group>"; };
-		9AFBC6DF76571AE956905149 /* Container.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Container.swift; path = DeepLinkLibrary/Classes/Factories/Container.swift; sourceTree = "<group>"; };
-		9AFBC6E0F137B5DE706F605D /* RoutingError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutingError.swift; sourceTree = "<group>"; };
-		9AFBC76D64DD80BA1E71A0DE /* ChainingStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChainingStep.swift; sourceTree = "<group>"; };
-		9AFBC7FF8FBE94668D676E27 /* ContainerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerExtension.swift; sourceTree = "<group>"; };
-		9AFBC8A4F12BC519DE66C4E0 /* Factory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Factory.swift; path = DeepLinkLibrary/Classes/Factories/Factory.swift; sourceTree = "<group>"; };
-		9AFBC97B8C912C8393CF766C /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContainerViewController.swift; path = DeepLinkLibrary/Classes/Router/ContainerViewController.swift; sourceTree = "<group>"; };
-		9AFBCA52E257FBFFF7046041 /* AnyFinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyFinder.swift; sourceTree = "<group>"; };
-		9AFBCA572F63DE09D8081A4D /* ViewControllerClassAndContextFinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerClassAndContextFinder.swift; sourceTree = "<group>"; };
-		9AFBCA9A0ED6594AA39CE70A /* NilAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NilAction.swift; sourceTree = "<group>"; };
-		9AFBCB035CCD701E789F84A8 /* AnyPostRoutingTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyPostRoutingTask.swift; sourceTree = "<group>"; };
-		9AFBCBA79DD7EEED735368BE /* FinalRoutingStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FinalRoutingStep.swift; path = ../FinalRoutingStep.swift; sourceTree = "<group>"; };
-		9AFBCC18C269BC4FC7C25EEE /* PerformableStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerformableStep.swift; sourceTree = "<group>"; };
-		9AFBCC2222D3139F9AC19E81 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Router.swift; path = DeepLinkLibrary/Classes/Router/Router.swift; sourceTree = "<group>"; };
-		9AFBCC4238C34EC1F2321152 /* Finder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Finder.swift; path = DeepLinkLibrary/Classes/Finders/Finder.swift; sourceTree = "<group>"; };
-		9AFBCDE5B965A08290779CAB /* ChainableStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChainableStep.swift; sourceTree = "<group>"; };
-		9AFBCE9A8356BE7AC22D14F9 /* AnyFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyFactory.swift; sourceTree = "<group>"; };
-		9AFBCEE024728B7F1A92F75D /* AnyRouterInterceptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyRouterInterceptor.swift; sourceTree = "<group>"; };
+		94AC7CAFB646BF319AB859CCED7832D5 /* UIWindowExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UIWindowExtension.swift; sourceTree = "<group>"; };
+		97010F0322903A11D184F44EAD53E728 /* SwitcherStepAssembly.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SwitcherStepAssembly.swift; sourceTree = "<group>"; };
+		972C08018528207283AA19D43ADFB1C6 /* PostRoutingTaskMultiplexer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PostRoutingTaskMultiplexer.swift; sourceTree = "<group>"; };
+		9730E5CE511D1E736222A12A943E3482 /* PerformableStep.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PerformableStep.swift; sourceTree = "<group>"; };
+		9811CE389AEC2DC50480659F64069EBF /* StepChainAssembly.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StepChainAssembly.swift; sourceTree = "<group>"; };
 		9CDD22B66940803BE69EBE374EBFEF99 /* Pods-DeepLinkLibrary_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-DeepLinkLibrary_Example-dummy.m"; sourceTree = "<group>"; };
 		9D05FC597821A7DEC1EEA6EA4A06F2E1 /* Pods-DeepLinkLibrary_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-DeepLinkLibrary_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		9E6B61110374DB309433D00BFD9F433A /* PostRoutingTaskMultiplexer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PostRoutingTaskMultiplexer.swift; sourceTree = "<group>"; };
-		9EB288902EE36DE44CB8E63C8C12FA60 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
-		A89D94E5E2F048B3C3512B5C8436C0D7 /* FinderPolicy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FinderPolicy.swift; sourceTree = "<group>"; };
-		A991A2166CE865A7B9EF190901408E6E /* RoutingStep.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RoutingStep.swift; sourceTree = "<group>"; };
-		AB11B2414425299B2C06C060715E6B61 /* DeepLinkLibrary-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "DeepLinkLibrary-dummy.m"; sourceTree = "<group>"; };
-		ABE2F83CCC0FFDC17B61888B5AA4FF1A /* ReplaceRootAction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ReplaceRootAction.swift; sourceTree = "<group>"; };
-		AC78748E9825739EA6D6E69EAE9AF8F4 /* FiderWithPolicy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FiderWithPolicy.swift; sourceTree = "<group>"; };
-		AC97FEADA56A98AE5E91E9CDFA294FB9 /* PresentMasterAction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PresentMasterAction.swift; sourceTree = "<group>"; };
+		9FBEC162AF08F5B3B9913440EE95B237 /* ViewControllerClassFinder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ViewControllerClassFinder.swift; sourceTree = "<group>"; };
+		AA9D1928734127D20339BBE7F5484A0C /* Logger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		AD3832EF4AE3E2218791690BB9005F62 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ADF76CB003A653A72F4CD57F77CB6978 /* Pods_DeepLinkLibrary_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DeepLinkLibrary_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B20F1379B17A539D15B7AA39AB5D67CA /* Pods-DeepLinkLibrary_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DeepLinkLibrary_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		B222DC53CA29240E3663F143D2E2AEDD /* NavigationControllerExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NavigationControllerExtension.swift; sourceTree = "<group>"; };
+		B3B0E32B1E995181EDB1014A17B321BB /* TabBarControllerFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TabBarControllerFactory.swift; sourceTree = "<group>"; };
+		B530C0B5889B5005ED9F4A412800E696 /* AnyRouterInterceptor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AnyRouterInterceptor.swift; sourceTree = "<group>"; };
+		B57756A65FA9458EF8204345BD986C3E /* ViewControllerClassAndContextFinder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ViewControllerClassAndContextFinder.swift; sourceTree = "<group>"; };
 		B63C6A64CF66340668996F78DA6BB482 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		B77072AF29BFDC8FEB1129B5CCEA41DE /* FinalRoutingStep.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FinalRoutingStep.swift; path = DeepLinkLibrary/Classes/FinalRoutingStep.swift; sourceTree = "<group>"; };
+		B8601157730EF37C38B70CBD0EAAFFFF /* DeepLinkLibrary-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DeepLinkLibrary-umbrella.h"; sourceTree = "<group>"; };
 		B86494330AB414C2EB26EC6263511DAE /* Pods-DeepLinkLibrary_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-DeepLinkLibrary_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		BAE5D9350B927E44B47897903AF271FD /* NilFinder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NilFinder.swift; sourceTree = "<group>"; };
 		C07CC75EF15807FA47D3159378399CFE /* Pods-DeepLinkLibrary_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-DeepLinkLibrary_Example-frameworks.sh"; sourceTree = "<group>"; };
-		C09157B877958B63DDCCF0EF44ECEF4E /* DeepLinkLibrary.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = DeepLinkLibrary.modulemap; sourceTree = "<group>"; };
-		C824C958D6111A801004A73351D820A9 /* TabBarViewControllerExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TabBarViewControllerExtension.swift; sourceTree = "<group>"; };
-		CA4753E7F48FBBA404F1D5FE8F01CE31 /* PushAction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PushAction.swift; sourceTree = "<group>"; };
-		D837FCA223683782A222EE4D95B919E5 /* RouterInterceptor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RouterInterceptor.swift; sourceTree = "<group>"; };
+		CCF6069F21500D553E8A5840736D8B71 /* DefaultRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DefaultRouter.swift; sourceTree = "<group>"; };
+		D0154EE7311001A21D55157404D3B9C1 /* ContainerExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ContainerExtension.swift; sourceTree = "<group>"; };
+		D0D4400E9B7339F6C7D3CB4FBD3193CC /* InterceptorResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = InterceptorResult.swift; sourceTree = "<group>"; };
+		D66B4DB1A1DE12D233347BC2354783B0 /* AnyContextTask.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AnyContextTask.swift; sourceTree = "<group>"; };
 		D88AAE1F92055A60CC2FC970D7D34634 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		E58385B2F2E3A647A1170F1CFE2C4326 /* ViewControllerClassFinder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ViewControllerClassFinder.swift; sourceTree = "<group>"; };
-		E9DCA449B041A5A16EB128338339CB9D /* NilFinder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NilFinder.swift; sourceTree = "<group>"; };
-		EB71F4A4F0759F1B5A98C8940FAE5AB2 /* SwitcherStep.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SwitcherStep.swift; sourceTree = "<group>"; };
+		DE3423EED2DE439B81300FC1786DADE6 /* NavigationControllerExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NavigationControllerExtension.swift; sourceTree = "<group>"; };
+		DEB31F0572ABC7BE12D45B7213BD102C /* PresentDetailsAction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PresentDetailsAction.swift; sourceTree = "<group>"; };
+		E0A036CA1415472042D249B50ABD874E /* StepResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StepResult.swift; sourceTree = "<group>"; };
+		E105772566386356E40AFB79430E20B4 /* NilFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NilFactory.swift; sourceTree = "<group>"; };
+		E1ECFB65E45653FE7A21E18C4C26D79E /* AnyContainer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AnyContainer.swift; sourceTree = "<group>"; };
+		E1EDD99397BAA58A925ACE2BBB97F0B5 /* RoutingError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RoutingError.swift; path = DeepLinkLibrary/Classes/RoutingError.swift; sourceTree = "<group>"; };
+		E5C7902C7B13F95C4A6A1D509194E9D1 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		E95EEC3E87C6B7769958E98E9A023CBE /* NilAction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NilAction.swift; sourceTree = "<group>"; };
+		EF0A1DDB62E4DA9E9E9E45BD029BBB09 /* ContextTaskMultiplexer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ContextTaskMultiplexer.swift; sourceTree = "<group>"; };
 		F140B6E60AD5E1B7252E053C9587553D /* Pods_DeepLinkLibrary_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DeepLinkLibrary_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F4EA2199E66EC83ED41AAFB31A16451C /* TopMostViewControllerStep.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TopMostViewControllerStep.swift; sourceTree = "<group>"; };
-		F729E03A8C40FA54FCEB4F6B88607F89 /* ActionResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ActionResult.swift; sourceTree = "<group>"; };
-		FC5A9DE7F41CAE25B55E5ADC74D402CA /* DefaultLogger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DefaultLogger.swift; sourceTree = "<group>"; };
-		FF7440C9C538C4A753D26EC33891F4E0 /* PresentModallyAction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PresentModallyAction.swift; sourceTree = "<group>"; };
+		F95933F6FA0D41CC2DF152FB53C95B73 /* ViewControllerFromStoryboardFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ViewControllerFromStoryboardFactory.swift; sourceTree = "<group>"; };
+		FA1166F46674C141AF57E2BF0C09AFA0 /* RootViewControllerStep.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RootViewControllerStep.swift; sourceTree = "<group>"; };
+		FB9DEAB721D74A62E008A77692DCF059 /* DefaultLogger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DefaultLogger.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,12 +219,12 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6DF748E6A4A7804F056DC0157E7AAEED /* Frameworks */ = {
+		97FA91DA2AD5B708902C18B5DA4A2006 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B543728D4525AA125A4555983ACE3B3 /* Foundation.framework in Frameworks */,
-				136942F6116129DAE71D8BE14B66F488 /* UIKit.framework in Frameworks */,
+				0B74F1892BAD18C5BC2992E384FF1CE0 /* Foundation.framework in Frameworks */,
+				FD842AF352D7D2E9F1EEE54BBC5BAA42 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,20 +239,45 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		09150A2398B03421109CB22D3FF636AD /* Router */ = {
+		13595ECC414D87A7F771BC671BC0F3EB /* Factories */ = {
 			isa = PBXGroup;
 			children = (
-				1031242E1903A492C8A7B685A5F3BEEA /* DefaultRouter.swift */,
-				98BAD2D5D44D93F7D8FEB315CE95C74A /* InterceptorMultiplexer.swift */,
-				9E6B61110374DB309433D00BFD9F433A /* PostRoutingTaskMultiplexer.swift */,
-				9AFBCEE024728B7F1A92F75D /* AnyRouterInterceptor.swift */,
-				9AFBCB035CCD701E789F84A8 /* AnyPostRoutingTask.swift */,
-				9AFBCA52E257FBFFF7046041 /* AnyFinder.swift */,
-				9AFBCE9A8356BE7AC22D14F9 /* AnyFactory.swift */,
-				9AFBC62FAA8A6D0B15D72263 /* AnyContainer.swift */,
+				0764043ED597896B3EB0D1967166D8A3 /* Container.swift */,
+				D0154EE7311001A21D55157404D3B9C1 /* ContainerExtension.swift */,
+				1BD85BE31A92DEC1A09583D4903835A7 /* Factory.swift */,
+				4FE9D28097D3C493CEC7402BC1E59E52 /* FactoryBuildResult.swift */,
+				2442AB6D9ED507A5EE502E420B07906E /* FactoryPreparationResult.swift */,
+				731F8C2F61823D0DB3BFB4E4283D97EE /* FinderFactory.swift */,
+				230C9493BC2B6A662C354A43A02B3B13 /* MandatoryContextFactory.swift */,
+				7A140B957B8103D2B14C6F3CAE93FCC1 /* NavigationControllerFactory.swift */,
+				E105772566386356E40AFB79430E20B4 /* NilFactory.swift */,
+				8DD36EC630BD9A24B095948270991AD5 /* SingleActionContainerFactory.swift */,
+				6FA5FC4E9167578CC0D60C40912AB529 /* SplitControllerFactory.swift */,
+				B3B0E32B1E995181EDB1014A17B321BB /* TabBarControllerFactory.swift */,
+				20DA302664FCEEC2456B88DB3471E03D /* ViewControllerFromClassFactory.swift */,
+				F95933F6FA0D41CC2DF152FB53C95B73 /* ViewControllerFromStoryboardFactory.swift */,
+				673806C014936C9C15DF48F8CEB4FDA5 /* ViewControllerFromXibFactory.swift */,
 			);
-			name = Router;
-			path = DeepLinkLibrary/Classes/Router;
+			name = Factories;
+			path = DeepLinkLibrary/Classes/Factories;
+			sourceTree = "<group>";
+		};
+		166E1C9DBB27476919CCD6AFA7E9DB6A /* Actions */ = {
+			isa = PBXGroup;
+			children = (
+				04D4326CE94C310CBDFAA0A0ED446CB2 /* Action.swift */,
+				4B9BBE2BD445E3B056550A9132EBFE7F /* ActionResult.swift */,
+				42607A5DA22B50A98AAD0B70181C2852 /* AddTabAction.swift */,
+				E95EEC3E87C6B7769958E98E9A023CBE /* NilAction.swift */,
+				DEB31F0572ABC7BE12D45B7213BD102C /* PresentDetailsAction.swift */,
+				58BFD4195B11FDDFF667A7CDA6CDAF5B /* PresentMasterAction.swift */,
+				81D2FA6EA9C848B3E5B82D8633144BA2 /* PresentModallyAction.swift */,
+				49CE0B3BC9DE3CBF43656A96D72ABCA3 /* PushAction.swift */,
+				5FAC038A682527EEB885BEAFA358EC87 /* PushAsRootAction.swift */,
+				30688FF70179314948A2F41E9E7DC2A3 /* ReplaceRootAction.swift */,
+			);
+			name = Actions;
+			path = DeepLinkLibrary/Classes/Actions;
 			sourceTree = "<group>";
 		};
 		1D33817485B89560176027B40F763DAE /* Targets Support Files */ = {
@@ -254,39 +289,22 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		324011A5F578C04B9B7B649BEA34D913 /* Development Pods */ = {
+		3F042FEF65443EADF133ACCA6414B66E /* Router */ = {
 			isa = PBXGroup;
 			children = (
-				D816E0B88198585FD01F626300EB87D6 /* DeepLinkLibrary */,
+				E1ECFB65E45653FE7A21E18C4C26D79E /* AnyContainer.swift */,
+				D66B4DB1A1DE12D233347BC2354783B0 /* AnyContextTask.swift */,
+				81A0AF5FDBE257AB8B4DA0F50C3D4338 /* AnyFactory.swift */,
+				7F5F6CBCA0DB796ABE0A807B0EDCA93C /* AnyFinder.swift */,
+				42C4188E1A27715516D9BFB5CCD72B5A /* AnyPostRoutingTask.swift */,
+				B530C0B5889B5005ED9F4A412800E696 /* AnyRouterInterceptor.swift */,
+				EF0A1DDB62E4DA9E9E9E45BD029BBB09 /* ContextTaskMultiplexer.swift */,
+				CCF6069F21500D553E8A5840736D8B71 /* DefaultRouter.swift */,
+				6B81FECF33FD24FB165A909DCB68EA60 /* InterceptorMultiplexer.swift */,
+				972C08018528207283AA19D43ADFB1C6 /* PostRoutingTaskMultiplexer.swift */,
 			);
-			name = "Development Pods";
-			sourceTree = "<group>";
-		};
-		40889D476499576F7E67F207663CA1FE /* Actions */ = {
-			isa = PBXGroup;
-			children = (
-				F729E03A8C40FA54FCEB4F6B88607F89 /* ActionResult.swift */,
-				3489C4DB7CFFDD89FDEB50AAD67D74A5 /* AddTabAction.swift */,
-				93E17B12148ABB499C46A481A29CDA83 /* PresentDetailsAction.swift */,
-				AC97FEADA56A98AE5E91E9CDFA294FB9 /* PresentMasterAction.swift */,
-				FF7440C9C538C4A753D26EC33891F4E0 /* PresentModallyAction.swift */,
-				CA4753E7F48FBBA404F1D5FE8F01CE31 /* PushAction.swift */,
-				79F2424E674992F875552C3580DF2C72 /* PushAsRootAction.swift */,
-				ABE2F83CCC0FFDC17B61888B5AA4FF1A /* ReplaceRootAction.swift */,
-				9AFBCA9A0ED6594AA39CE70A /* NilAction.swift */,
-			);
-			name = Actions;
-			path = DeepLinkLibrary/Classes/Actions;
-			sourceTree = "<group>";
-		};
-		409AE08B7068D7B8E96B405DB3AC7DEA /* Logger */ = {
-			isa = PBXGroup;
-			children = (
-				FC5A9DE7F41CAE25B55E5ADC74D402CA /* DefaultLogger.swift */,
-				689D6FB05287FE7337391EAB2A6D8965 /* Logger.swift */,
-			);
-			name = Logger;
-			path = DeepLinkLibrary/Classes/Logger;
+			name = Router;
+			path = DeepLinkLibrary/Classes/Router;
 			sourceTree = "<group>";
 		};
 		433CD3331B6C3787F473C941B61FC68F /* Frameworks */ = {
@@ -304,6 +322,32 @@
 				B63C6A64CF66340668996F78DA6BB482 /* UIKit.framework */,
 			);
 			name = iOS;
+			sourceTree = "<group>";
+		};
+		50FAC9C654E2F2C24A94152937D25BCD /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7867BE98F762E00B52446B10BB6DD262 /* DeepLinkLibrary */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		6E742FD594A559289D08C52E4E7D330D /* Steps */ = {
+			isa = PBXGroup;
+			children = (
+				67FE79BAFCEE1F128BD89E08F1197D72 /* ChainableStep.swift */,
+				15FF238069761ED1B2B834A0EE259CD7 /* ChainingStep.swift */,
+				270DEC638C203CEAE55DE2F33A4CC340 /* InterceptableStep.swift */,
+				12A9FF9CAC01482CB58EBD90376F6C4C /* NavigationContainerStep.swift */,
+				9730E5CE511D1E736222A12A943E3482 /* PerformableStep.swift */,
+				FA1166F46674C141AF57E2BF0C09AFA0 /* RootViewControllerStep.swift */,
+				1A0C996A69AADD280A2FF71FFE22D8B5 /* RoutingStep.swift */,
+				E0A036CA1415472042D249B50ABD874E /* StepResult.swift */,
+				77E8913CEEB9C84757DFBA31F71C721D /* SwitcherStep.swift */,
+				191620A5419C10B031B5962189921BB8 /* TopMostViewControllerStep.swift */,
+			);
+			name = Steps;
+			path = DeepLinkLibrary/Classes/Steps;
 			sourceTree = "<group>";
 		};
 		6F67B15FEEED0A30465D4CA4C5E582BB /* Pods-DeepLinkLibrary_Tests */ = {
@@ -324,26 +368,78 @@
 			path = "Target Support Files/Pods-DeepLinkLibrary_Tests";
 			sourceTree = "<group>";
 		};
+		6F7002E472E69D9F2E5BFFDC32F66891 /* Finders */ = {
+			isa = PBXGroup;
+			children = (
+				84BB4BE77C7293FCC36CFD0E0E61D909 /* FiderWithPolicy.swift */,
+				408EE5161732C343D5053D8D64E941C9 /* Finder.swift */,
+				874886CF7C2C59E5A002D7E42C6B2D0E /* FinderPolicy.swift */,
+				BAE5D9350B927E44B47897903AF271FD /* NilFinder.swift */,
+				B57756A65FA9458EF8204345BD986C3E /* ViewControllerClassAndContextFinder.swift */,
+				9FBEC162AF08F5B3B9913440EE95B237 /* ViewControllerClassFinder.swift */,
+			);
+			name = Finders;
+			path = DeepLinkLibrary/Classes/Finders;
+			sourceTree = "<group>";
+		};
+		737E7F23672C49691DA08E469B1542D0 /* Logger */ = {
+			isa = PBXGroup;
+			children = (
+				FB9DEAB721D74A62E008A77692DCF059 /* DefaultLogger.swift */,
+				AA9D1928734127D20339BBE7F5484A0C /* Logger.swift */,
+			);
+			name = Logger;
+			path = DeepLinkLibrary/Classes/Logger;
+			sourceTree = "<group>";
+		};
+		7832E731E9DE7A6F5C5947048DCB1053 /* Assemblies */ = {
+			isa = PBXGroup;
+			children = (
+				20F54BC2899EC25C1201433FFC3362F5 /* ScreenStepAssembly.swift */,
+				9811CE389AEC2DC50480659F64069EBF /* StepChainAssembly.swift */,
+				97010F0322903A11D184F44EAD53E728 /* SwitcherStepAssembly.swift */,
+			);
+			name = Assemblies;
+			path = DeepLinkLibrary/Classes/Assemblies;
+			sourceTree = "<group>";
+		};
+		7867BE98F762E00B52446B10BB6DD262 /* DeepLinkLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				8452E8DB2045031A0046773D /* ContainerViewController.swift */,
+				8452E8D92045031A0046773D /* PostRoutingTask.swift */,
+				8452E8DA2045031A0046773D /* Router.swift */,
+				8452E8DC2045031A0046773D /* RouterRulesSupport.swift */,
+				70EE29AB775537FB8FE472B4D5CB5AEC /* ContextTask.swift */,
+				B77072AF29BFDC8FEB1129B5CCEA41DE /* FinalRoutingStep.swift */,
+				149FC378391F2490D438E01703994DA9 /* RouterStep.swift */,
+				5DF3F292AE33A129B38C373B1BAD50E8 /* RoutingDestination.swift */,
+				E1EDD99397BAA58A925ACE2BBB97F0B5 /* RoutingError.swift */,
+				069DBECC7B7941E2E39259921EF02C09 /* RoutingResult.swift */,
+				166E1C9DBB27476919CCD6AFA7E9DB6A /* Actions */,
+				7832E731E9DE7A6F5C5947048DCB1053 /* Assemblies */,
+				EB254BF88264FBE0AE5CDB811AFF2A26 /* Extensions */,
+				13595ECC414D87A7F771BC671BC0F3EB /* Factories */,
+				6F7002E472E69D9F2E5BFFDC32F66891 /* Finders */,
+				B107E416A90DCC15C8B8B0911C6E041D /* Interceptors */,
+				737E7F23672C49691DA08E469B1542D0 /* Logger */,
+				3F042FEF65443EADF133ACCA6414B66E /* Router */,
+				6E742FD594A559289D08C52E4E7D330D /* Steps */,
+				F3223AAECA8DC592C532885AB90103EA /* Support Files */,
+			);
+			name = DeepLinkLibrary;
+			path = ../..;
+			sourceTree = "<group>";
+		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
-				324011A5F578C04B9B7B649BEA34D913 /* Development Pods */,
+				50FAC9C654E2F2C24A94152937D25BCD /* Development Pods */,
 				433CD3331B6C3787F473C941B61FC68F /* Frameworks */,
 				84C3ADDCFFA0F8B733166E2D9EEED7C6 /* Products */,
 				1D33817485B89560176027B40F763DAE /* Targets Support Files */,
 			);
-			sourceTree = "<group>";
-		};
-		84B76A5E20404DDA00D865B1 /* Assemblies */ = {
-			isa = PBXGroup;
-			children = (
-				84B76A5F20404DDA00D865B1 /* ScreenStepAssembly.swift */,
-				84B76A6020404DDA00D865B1 /* StepChainAssembly.swift */,
-				84B76A6120404DDA00D865B1 /* SwitcherStepAssembly.swift */,
-			);
-			name = Assemblies;
-			path = DeepLinkLibrary/Classes/Assemblies;
 			sourceTree = "<group>";
 		};
 		84C3ADDCFFA0F8B733166E2D9EEED7C6 /* Products */ = {
@@ -374,122 +470,41 @@
 			path = "Target Support Files/Pods-DeepLinkLibrary_Example";
 			sourceTree = "<group>";
 		};
-		AA61ADAE9877B598D49DE51F64BBB063 /* Extensions */ = {
+		B107E416A90DCC15C8B8B0911C6E041D /* Interceptors */ = {
 			isa = PBXGroup;
 			children = (
-				B222DC53CA29240E3663F143D2E2AEDD /* NavigationControllerExtension.swift */,
-				3BF80E9118803A29BA9A73EC0F10D3D2 /* SplitViewControllerExtension.swift */,
-				C824C958D6111A801004A73351D820A9 /* TabBarViewControllerExtension.swift */,
-				9EB288902EE36DE44CB8E63C8C12FA60 /* UIViewControllerExtension.swift */,
-				36E7F91735CD5D51CDCFD5684B41AF86 /* UIWindowExtension.swift */,
-			);
-			name = Extensions;
-			path = DeepLinkLibrary/Classes/Extensions;
-			sourceTree = "<group>";
-		};
-		C51A464D607FEF91AC39677605E910A0 /* Steps */ = {
-			isa = PBXGroup;
-			children = (
-				006EA8BE04F1D53557F4E2A4B0941783 /* NavigationContainerStep.swift */,
-				8F281F5E5B47B8DC5CBCAAF8A280E5B6 /* RootViewControllerStep.swift */,
-				A991A2166CE865A7B9EF190901408E6E /* RoutingStep.swift */,
-				EB71F4A4F0759F1B5A98C8940FAE5AB2 /* SwitcherStep.swift */,
-				14A6865B1C67231A4B87485265D96BC6 /* StepResult.swift */,
-				F4EA2199E66EC83ED41AAFB31A16451C /* TopMostViewControllerStep.swift */,
-				9AFBCBA79DD7EEED735368BE /* FinalRoutingStep.swift */,
-				9AFBCDE5B965A08290779CAB /* ChainableStep.swift */,
-				9AFBCC18C269BC4FC7C25EEE /* PerformableStep.swift */,
-				84D14DEA203C8A7100F3FF9A /* InterceptableStep.swift */,
-				9AFBC76D64DD80BA1E71A0DE /* ChainingStep.swift */,
-			);
-			name = Steps;
-			path = DeepLinkLibrary/Classes/Steps;
-			sourceTree = "<group>";
-		};
-		CE3666691DCD8BB5200ADBBCFD960F6F /* Factories */ = {
-			isa = PBXGroup;
-			children = (
-				1AF6DF04F9F8AEC4BD5FB294960D7912 /* FinderFactory.swift */,
-				8F60D7CE99FF8B802DCE9CC384CB53F6 /* NavigationControllerFactory.swift */,
-				1CC0E1BD67495AFA7C1BD97F2A88467C /* SplitControllerFactory.swift */,
-				83721AFD3E20F845EBB81B35F0201CB8 /* TabBarControllerFactory.swift */,
-				2AF15F4385CD00626CFFD4C848034E9E /* ViewControllerFromClassFactory.swift */,
-				5730FD420294295BB09818017BE7E079 /* ViewControllerFromStoryboardFactory.swift */,
-				8481BB34202CCD6900174ECB /* NilFactory.swift */,
-				840C1E64202D2EC20032CFD1 /* ViewControllerFromXibFactory.swift */,
-				848F3464202DEAF800F2A959 /* MandatoryContextFactory.swift */,
-				9AFBC35DA6963D837D16ED04 /* SingleActionContainerFactory.swift */,
-				9AFBC7FF8FBE94668D676E27 /* ContainerExtension.swift */,
-			);
-			name = Factories;
-			path = DeepLinkLibrary/Classes/Factories;
-			sourceTree = "<group>";
-		};
-		D816E0B88198585FD01F626300EB87D6 /* DeepLinkLibrary */ = {
-			isa = PBXGroup;
-			children = (
-				84B76A5E20404DDA00D865B1 /* Assemblies */,
-				84D14DE8203C899C00F3FF9A /* RouterStep.swift */,
-				0082AA2CAFC816348E4D9203988AC16E /* RoutingDestination.swift */,
-				07CC664F0334FF9BD33853BE12A6EC3A /* RoutingResult.swift */,
-				40889D476499576F7E67F207663CA1FE /* Actions */,
-				AA61ADAE9877B598D49DE51F64BBB063 /* Extensions */,
-				CE3666691DCD8BB5200ADBBCFD960F6F /* Factories */,
-				FEF6052EBFE0EF37916E61F31B24DAFB /* Finders */,
-				EB30B197794B999204A9F5493285E302 /* Interceptors */,
-				409AE08B7068D7B8E96B405DB3AC7DEA /* Logger */,
-				09150A2398B03421109CB22D3FF636AD /* Router */,
-				C51A464D607FEF91AC39677605E910A0 /* Steps */,
-				DCCA4BB1A831593A612F3999C22287E9 /* Support Files */,
-				9AFBCC2222D3139F9AC19E81 /* Router.swift */,
-				9AFBC4BC05C6A013147C36AD /* RouterRulesSupport.swift */,
-				9AFBC4D3DCD11F16539A9004 /* PostRoutingTask.swift */,
-				9AFBC648DD35ED6B5FD62D5F /* Action.swift */,
-				9AFBC8A4F12BC519DE66C4E0 /* Factory.swift */,
-				9AFBCC4238C34EC1F2321152 /* Finder.swift */,
-				9AFBC6DF76571AE956905149 /* Container.swift */,
-				9AFBC97B8C912C8393CF766C /* ContainerViewController.swift */,
-				9AFBC6E0F137B5DE706F605D /* RoutingError.swift */,
-			);
-			name = DeepLinkLibrary;
-			path = ../..;
-			sourceTree = "<group>";
-		};
-		DCCA4BB1A831593A612F3999C22287E9 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				C09157B877958B63DDCCF0EF44ECEF4E /* DeepLinkLibrary.modulemap */,
-				1FDEF915FA6F1012A5552178B3CBBB1F /* DeepLinkLibrary.xcconfig */,
-				AB11B2414425299B2C06C060715E6B61 /* DeepLinkLibrary-dummy.m */,
-				34E4B46CB1EA15499BA91ED8DA00F214 /* DeepLinkLibrary-prefix.pch */,
-				52B57D964F0F8FF3CFBAD5ECCD4357BB /* DeepLinkLibrary-umbrella.h */,
-				984D6A863BFDF29FD0ABFE6F18005A4A /* Info.plist */,
-			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/DeepLinkLibrary";
-			sourceTree = "<group>";
-		};
-		EB30B197794B999204A9F5493285E302 /* Interceptors */ = {
-			isa = PBXGroup;
-			children = (
-				39A8997307E0C630DE6D35572119A2D6 /* InterceptorResult.swift */,
-				D837FCA223683782A222EE4D95B919E5 /* RouterInterceptor.swift */,
+				D0D4400E9B7339F6C7D3CB4FBD3193CC /* InterceptorResult.swift */,
+				506E26E6D1528AED1646D1C8BDE0476A /* RouterInterceptor.swift */,
 			);
 			name = Interceptors;
 			path = DeepLinkLibrary/Classes/Interceptors;
 			sourceTree = "<group>";
 		};
-		FEF6052EBFE0EF37916E61F31B24DAFB /* Finders */ = {
+		EB254BF88264FBE0AE5CDB811AFF2A26 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				AC78748E9825739EA6D6E69EAE9AF8F4 /* FiderWithPolicy.swift */,
-				A89D94E5E2F048B3C3512B5C8436C0D7 /* FinderPolicy.swift */,
-				E9DCA449B041A5A16EB128338339CB9D /* NilFinder.swift */,
-				E58385B2F2E3A647A1170F1CFE2C4326 /* ViewControllerClassFinder.swift */,
-				9AFBCA572F63DE09D8081A4D /* ViewControllerClassAndContextFinder.swift */,
+				DE3423EED2DE439B81300FC1786DADE6 /* NavigationControllerExtension.swift */,
+				7CF94E34D456117EE2838C2F7B59BC83 /* SplitViewControllerExtension.swift */,
+				07318AA8829EF3DB8E0649D95275AE82 /* TabBarViewControllerExtension.swift */,
+				E5C7902C7B13F95C4A6A1D509194E9D1 /* UIViewControllerExtension.swift */,
+				94AC7CAFB646BF319AB859CCED7832D5 /* UIWindowExtension.swift */,
 			);
-			name = Finders;
-			path = DeepLinkLibrary/Classes/Finders;
+			name = Extensions;
+			path = DeepLinkLibrary/Classes/Extensions;
+			sourceTree = "<group>";
+		};
+		F3223AAECA8DC592C532885AB90103EA /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				833947978BB406C3072613351B4F3C0E /* DeepLinkLibrary.modulemap */,
+				66F0D9DBDF44A28931CF7377B0469AAC /* DeepLinkLibrary.xcconfig */,
+				4375AF1EC57F7D361434EFC2BA837BC4 /* DeepLinkLibrary-dummy.m */,
+				0D2A4CB5ADF429B29B8559298823D0A4 /* DeepLinkLibrary-prefix.pch */,
+				B8601157730EF37C38B70CBD0EAAFFFF /* DeepLinkLibrary-umbrella.h */,
+				AD3832EF4AE3E2218791690BB9005F62 /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/DeepLinkLibrary";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -511,17 +526,34 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8230211CA716FD00ED445883872CF2B0 /* Headers */ = {
+		FC1ED8CA1AE0792CF3D079D8EC9337D1 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A8A1769634D396792129FB3DCDAFA1E7 /* DeepLinkLibrary-umbrella.h in Headers */,
+				5D5471F9D89AC5B95E19A499109F8EEA /* DeepLinkLibrary-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		3A496AA6D2EBA3C1278E5ADED24E5281 /* DeepLinkLibrary */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 729E4E806D01D847F73EABB69E0F1BE2 /* Build configuration list for PBXNativeTarget "DeepLinkLibrary" */;
+			buildPhases = (
+				85F3AFC85B1E138592CED9322DE46B60 /* Sources */,
+				97FA91DA2AD5B708902C18B5DA4A2006 /* Frameworks */,
+				FC1ED8CA1AE0792CF3D079D8EC9337D1 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DeepLinkLibrary;
+			productName = DeepLinkLibrary;
+			productReference = 24D666AC708EB09D5CECCCE679FCDC80 /* DeepLinkLibrary.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		5770287263B96043B1AC65B48E1C4B16 /* Pods-DeepLinkLibrary_Example */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 573C76CB5FFE67F4BA3F8FCCA4B3920C /* Build configuration list for PBXNativeTarget "Pods-DeepLinkLibrary_Example" */;
@@ -557,23 +589,6 @@
 			productReference = ADF76CB003A653A72F4CD57F77CB6978 /* Pods_DeepLinkLibrary_Tests.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		8AB54C7A474488C1EFD57A87E63C4D7D /* DeepLinkLibrary */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 5A8AAD807C66136125A5EC941F857643 /* Build configuration list for PBXNativeTarget "DeepLinkLibrary" */;
-			buildPhases = (
-				3E04A98858E94EF26C5596C97FBA7A3B /* Sources */,
-				6DF748E6A4A7804F056DC0157E7AAEED /* Frameworks */,
-				8230211CA716FD00ED445883872CF2B0 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = DeepLinkLibrary;
-			productName = DeepLinkLibrary;
-			productReference = 24D666AC708EB09D5CECCCE679FCDC80 /* DeepLinkLibrary.framework */;
-			productType = "com.apple.product-type.framework";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -595,7 +610,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8AB54C7A474488C1EFD57A87E63C4D7D /* DeepLinkLibrary */,
+				3A496AA6D2EBA3C1278E5ADED24E5281 /* DeepLinkLibrary */,
 				5770287263B96043B1AC65B48E1C4B16 /* Pods-DeepLinkLibrary_Example */,
 				5B58680695D9E73853E54A65148DCDE6 /* Pods-DeepLinkLibrary_Tests */,
 			);
@@ -603,87 +618,92 @@
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		3E04A98858E94EF26C5596C97FBA7A3B /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				980514782AF4D07C64638290A59F6F9A /* ActionResult.swift in Sources */,
-				0A3B5DAE4B9C3CD9B0343BDD4B49EB84 /* AddTabAction.swift in Sources */,
-				534B0C3DC679410704A68C593454EE12 /* DeepLinkLibrary-dummy.m in Sources */,
-				D6204F4C3A5E178045A3F215258DD7BD /* DefaultLogger.swift in Sources */,
-				F487F64FB5B25EADFDA3F3E218AC80B4 /* DefaultRouter.swift in Sources */,
-				AF4892C464C97791ABD89DE6F8AB7E36 /* FiderWithPolicy.swift in Sources */,
-				3F5E6007074AE3CD040A493C6B592983 /* FinderFactory.swift in Sources */,
-				DADACE6298EEDED9CBA5590527A44E05 /* FinderPolicy.swift in Sources */,
-				028B716EC7081ECF0EEBEF6806EF601A /* InterceptorMultiplexer.swift in Sources */,
-				840C1E65202D2EC20032CFD1 /* ViewControllerFromXibFactory.swift in Sources */,
-				DDBB91D2C01D88B22162EFDFAABBDDE8 /* InterceptorResult.swift in Sources */,
-				A2D0D3B4292A561F2D1C76548D363444 /* Logger.swift in Sources */,
-				D36D157F66319BAD739CB96D3F7219C4 /* NavigationContainerStep.swift in Sources */,
-				9A3296BAE06D2C5AB27E230DEA305D77 /* NavigationControllerExtension.swift in Sources */,
-				B93A545B17CFDB13FF9D8C4F576F8E9A /* NavigationControllerFactory.swift in Sources */,
-				C47380D5CA4EB91DD9764FF63E959207 /* NilFinder.swift in Sources */,
-				295DD9A62C014B1D30684F39990D2AAF /* PostRoutingTaskMultiplexer.swift in Sources */,
-				D5672E274C74CE9B151148D7EB7DEA1B /* PresentDetailsAction.swift in Sources */,
-				36591954B06690B196C49B2554A747A3 /* PresentMasterAction.swift in Sources */,
-				8481BB35202CCD6900174ECB /* NilFactory.swift in Sources */,
-				4AEEF1CB7AF306404E1F3D64B01C047E /* PresentModallyAction.swift in Sources */,
-				7C6EED3C9FDA515C47C3A8E67308790C /* PushAction.swift in Sources */,
-				84B76A6420404DDB00D865B1 /* SwitcherStepAssembly.swift in Sources */,
-				D5565F94DA190616E1EFABE46E18BE35 /* PushAsRootAction.swift in Sources */,
-				E67AAA53D85C1702772C8CBC0BAB4E1E /* ReplaceRootAction.swift in Sources */,
-				C29B76208EB0E9EC5C61B5046E6C83EE /* RootViewControllerStep.swift in Sources */,
-				CF2F094BB4BF4FBC358E9720C7979B2F /* RouterInterceptor.swift in Sources */,
-				84D14DEB203C8A7100F3FF9A /* InterceptableStep.swift in Sources */,
-				83EA5D52CFCC6A7CD1BEC880CC200737 /* RoutingDestination.swift in Sources */,
-				D1F13D26D5A83E44F664CB46FDEF2405 /* RoutingResult.swift in Sources */,
-				59C595B4BB054AD60486B5FF29A11FBD /* RoutingStep.swift in Sources */,
-				A32ACBA420EE3C98D1062F3202C9235C /* SwitcherStep.swift in Sources */,
-				8407AA36CB942F87CDFDE8E51D7FD504 /* SplitControllerFactory.swift in Sources */,
-				582BBC48DD46C7DEEF0070CB2924F531 /* SplitViewControllerExtension.swift in Sources */,
-				848F3465202DEAF800F2A959 /* MandatoryContextFactory.swift in Sources */,
-				8F2D99F0468A7383D13A8E7A179B309B /* StepResult.swift in Sources */,
-				63A4C55A2FA274DACB8F2A7661A8F42A /* TabBarControllerFactory.swift in Sources */,
-				84D14DE9203C899C00F3FF9A /* RouterStep.swift in Sources */,
-				7BACB3A381702777837D09DFA6C1B565 /* TabBarViewControllerExtension.swift in Sources */,
-				A780859DC49FE5AC6385AA69E8C3339E /* TopMostViewControllerStep.swift in Sources */,
-				FAAA5255D3EF2D1857F563CA34F79E5F /* UIViewControllerExtension.swift in Sources */,
-				5319208FD9F296B5F7EAB4C42ADE4411 /* UIWindowExtension.swift in Sources */,
-				84B76A6320404DDB00D865B1 /* StepChainAssembly.swift in Sources */,
-				B683F9ABF63A06EE61BC20AA3BF935A0 /* ViewControllerClassFinder.swift in Sources */,
-				CD32C5F6142C425BA7C69A4541B30FCC /* ViewControllerFromClassFactory.swift in Sources */,
-				B75AB3F3CC59A49BE840930B8F9104CA /* ViewControllerFromStoryboardFactory.swift in Sources */,
-				9AFBC5921437E6E6524F6231 /* FinalRoutingStep.swift in Sources */,
-				9AFBC19BAE311EB9D6A5BA03 /* AnyRouterInterceptor.swift in Sources */,
-				9AFBCFC09C8F54EFF6355B64 /* Router.swift in Sources */,
-				84B76A6220404DDB00D865B1 /* ScreenStepAssembly.swift in Sources */,
-				9AFBCEC22030B8B7116AB55B /* RouterRulesSupport.swift in Sources */,
-				9AFBCD7A6E8F79F3E209D774 /* AnyPostRoutingTask.swift in Sources */,
-				9AFBC864F1E33DBCDB43525F /* AnyFinder.swift in Sources */,
-				9AFBC6A20AAA06B3CB493E8F /* AnyFactory.swift in Sources */,
-				9AFBC26069234206508F64CD /* PostRoutingTask.swift in Sources */,
-				9AFBC1756AD13667D6701A34 /* Action.swift in Sources */,
-				9AFBC0FB072F6B4F309A4F2A /* Factory.swift in Sources */,
-				9AFBCC7A9E59940D402FE010 /* Finder.swift in Sources */,
-				9AFBC1582157BEF5799E0116 /* Container.swift in Sources */,
-				9AFBC9D8BD69B19F154F3D68 /* ContainerViewController.swift in Sources */,
-				9AFBCAF6536210A2BB74DB8D /* ChainableStep.swift in Sources */,
-				9AFBCE8AFB86C20DF90C55A1 /* PerformableStep.swift in Sources */,
-				9AFBC8A3F7E9B450C65767D3 /* AnyContainer.swift in Sources */,
-				9AFBC95D2B5E5714BE08EE8E /* NilAction.swift in Sources */,
-				9AFBCB309639D23F2921484A /* SingleActionContainerFactory.swift in Sources */,
-				9AFBCC113DC2E8D3C521183F /* ChainingStep.swift in Sources */,
-				9AFBC9EB4F9394E6237E0177 /* ContainerExtension.swift in Sources */,
-				9AFBC50DCC195C4A053A334C /* RoutingError.swift in Sources */,
-				9AFBC3CF56848EA1B18D0079 /* ViewControllerClassAndContextFinder.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		524B0DDE398EB43DF40F2453E111FE32 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				E7A12DF499C7FF266F9155120C726371 /* Pods-DeepLinkLibrary_Tests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		85F3AFC85B1E138592CED9322DE46B60 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9EC2620E6C38C7C3C796CF54F7B3CCF6 /* Action.swift in Sources */,
+				DB82A2D733977ADE4D997A6E4B4C5AA6 /* ActionResult.swift in Sources */,
+				EDC0CD39CF0091FFFD74FE824FC3385D /* AddTabAction.swift in Sources */,
+				2EA81BF181A063259A6489EBCE081E7D /* AnyContainer.swift in Sources */,
+				A3961468BD30E40E908FE00497372EBB /* AnyContextTask.swift in Sources */,
+				42B3C63D705806AB8AC898EA36D35D7D /* AnyFactory.swift in Sources */,
+				43E09AFD91338250D859F8ECBBAA1763 /* AnyFinder.swift in Sources */,
+				ACFA5CBE2478F3480F61096D1810E458 /* AnyPostRoutingTask.swift in Sources */,
+				6E163BE2D2F16509F479875F3EB79019 /* AnyRouterInterceptor.swift in Sources */,
+				B32C6C51F234F69E213F5918C21C1C82 /* ChainableStep.swift in Sources */,
+				CB67A72E243986B56B4DEBB445E5525B /* ChainingStep.swift in Sources */,
+				D0C3AD46ABC9563864D5184CCA9EA14F /* Container.swift in Sources */,
+				2EC21512F504ACCE0FA1EBF58CFFF671 /* ContainerExtension.swift in Sources */,
+				EF1E941EA53A175728A07BD37E3953F8 /* ContextTask.swift in Sources */,
+				7C632033F91F1FA1411B8B11DC83D36A /* ContextTaskMultiplexer.swift in Sources */,
+				BA9C4A3EB666422B11E168802B14994E /* DeepLinkLibrary-dummy.m in Sources */,
+				6EABB0F88A7A851E8655A84F00712D47 /* DefaultLogger.swift in Sources */,
+				549E44127B21794624744BFC0BA0CF84 /* DefaultRouter.swift in Sources */,
+				7E79C5476858DE66B43D701F5E460A52 /* Factory.swift in Sources */,
+				41235578923FE5EA476CED7176B80769 /* FactoryBuildResult.swift in Sources */,
+				2322883D2B4ABE4C39C5286785A1A356 /* FactoryPreparationResult.swift in Sources */,
+				B63D9C3499A42E005398C4D8DC874A74 /* FiderWithPolicy.swift in Sources */,
+				32CC496746734E8DA0E1631E58BD4208 /* FinalRoutingStep.swift in Sources */,
+				A585176EB34D424F83B7A30A49EBACFA /* Finder.swift in Sources */,
+				ADC06AD312B6E96C530B97EA4B5E5E5C /* FinderFactory.swift in Sources */,
+				A9BD4C3E48BCA6506706A293BB8357ED /* FinderPolicy.swift in Sources */,
+				425F0FCF49B6A32520DD68E58E40B860 /* InterceptableStep.swift in Sources */,
+				DCB4663F473A7A52AB48FDF34617CA49 /* InterceptorMultiplexer.swift in Sources */,
+				C430B2B44889929248378648EAEBF697 /* InterceptorResult.swift in Sources */,
+				9DFBB94AE642ABE1B8FAE7E43B729B2C /* Logger.swift in Sources */,
+				B0C46141858F7CB398AE5B349AE3780E /* MandatoryContextFactory.swift in Sources */,
+				C41AC55A2009778A539D51162A4922EA /* NavigationContainerStep.swift in Sources */,
+				9B4ED01A1927984742D56752E388D6F0 /* NavigationControllerExtension.swift in Sources */,
+				8452E8DF2045031A0046773D /* ContainerViewController.swift in Sources */,
+				477763BA0896A4C90543731F3237726D /* NavigationControllerFactory.swift in Sources */,
+				FCCD2361D85F7B6F915FDF9D495494F3 /* NilAction.swift in Sources */,
+				678D475A35159298A469207CC6DFFF67 /* NilFactory.swift in Sources */,
+				3085489CA48A7CAB8CC068EA6A9769F3 /* NilFinder.swift in Sources */,
+				882A7FB0AB0495537F2953A2EC5218AC /* PerformableStep.swift in Sources */,
+				BDA4B1A654E5C51CE75108E7FAA7CB16 /* PostRoutingTaskMultiplexer.swift in Sources */,
+				8452E8E02045031A0046773D /* RouterRulesSupport.swift in Sources */,
+				674D8FC2218296185044569F22091B67 /* PresentDetailsAction.swift in Sources */,
+				8452E8DE2045031A0046773D /* Router.swift in Sources */,
+				E30876EB3A3A06113357253E6F3AD509 /* PresentMasterAction.swift in Sources */,
+				C81833DA06216CF129ED4A090D39C024 /* PresentModallyAction.swift in Sources */,
+				8A2F549267DDB544C1A121078ACCB697 /* PushAction.swift in Sources */,
+				76EE1F1496CA4496EC7A5AEE2AA04130 /* PushAsRootAction.swift in Sources */,
+				A4689CE972ED17475578129BC56CE5D2 /* ReplaceRootAction.swift in Sources */,
+				C5573D8282D0EAB3EA48FB97A5436541 /* RootViewControllerStep.swift in Sources */,
+				B68DC81259E3247B09B1AA80EF73CAE5 /* RouterInterceptor.swift in Sources */,
+				8452E8DD2045031A0046773D /* PostRoutingTask.swift in Sources */,
+				CE3D4260125446D25E05D986D7C1C9C5 /* RouterStep.swift in Sources */,
+				78840655C19630E20D7E17CEB242CB81 /* RoutingDestination.swift in Sources */,
+				E63653BF0CF00F21C39DFB9E6D789589 /* RoutingError.swift in Sources */,
+				4B7BC97E2B6C20E9B6D4058576705628 /* RoutingResult.swift in Sources */,
+				ECE7C0F31F94FB9E772B9E34966FF849 /* RoutingStep.swift in Sources */,
+				D52F2E3C15BF6EB264C9707C7B28BD5E /* ScreenStepAssembly.swift in Sources */,
+				B57B39AA476B5CF69A557FE1FA878063 /* SingleActionContainerFactory.swift in Sources */,
+				884591F3F3986DB9364469D110120AD1 /* SplitControllerFactory.swift in Sources */,
+				E42A9874D02A116076CF9FD74B3CE509 /* SplitViewControllerExtension.swift in Sources */,
+				1A3BF5BBE547C019169C5B198B1F00ED /* StepChainAssembly.swift in Sources */,
+				3F8A23D2FC0D02CE408F5A02525D2E40 /* StepResult.swift in Sources */,
+				AB7B5A00FC3523043FC07ADB980068FD /* SwitcherStep.swift in Sources */,
+				4F5802B192AC7552E83A37692CFD92C5 /* SwitcherStepAssembly.swift in Sources */,
+				D3A3327452A592674039CC7D00E3BC5E /* TabBarControllerFactory.swift in Sources */,
+				69F5351AB077618256BCECEA029EC03A /* TabBarViewControllerExtension.swift in Sources */,
+				0317D4874536D22D26B7B44DB9B84F3C /* TopMostViewControllerStep.swift in Sources */,
+				54434FFF42A6A7138C2DA443A0EBBF70 /* UIViewControllerExtension.swift in Sources */,
+				A57A61E7E2D41B5FB9F58EB5AEF4EA56 /* UIWindowExtension.swift in Sources */,
+				C4DAB3D9AF62B3109A2EB7CFCA2338C0 /* ViewControllerClassAndContextFinder.swift in Sources */,
+				CBF295DAA1993759EE64A0E0F0A6E8E9 /* ViewControllerClassFinder.swift in Sources */,
+				FEA2CE8866BADDD6C36535BE501CFF8F /* ViewControllerFromClassFactory.swift in Sources */,
+				F94CA453B1A52652DFB4BECA08B4D35D /* ViewControllerFromStoryboardFactory.swift in Sources */,
+				3BF422BF1276B956A3BBF3A20FBC2D59 /* ViewControllerFromXibFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -701,7 +721,7 @@
 		79F8C526C2F78BC1E207AD195CC9FBAD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = DeepLinkLibrary;
-			target = 8AB54C7A474488C1EFD57A87E63C4D7D /* DeepLinkLibrary */;
+			target = 3A496AA6D2EBA3C1278E5ADED24E5281 /* DeepLinkLibrary */;
 			targetProxy = D38516C56A75F8D78B7BE26BCB1F15C7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -863,9 +883,9 @@
 			};
 			name = Debug;
 		};
-		B42E7DC0C3D1D52365F0D016CD311B62 /* Debug */ = {
+		94C1EC66608024A7ED3F78CDC1AEB637 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1FDEF915FA6F1012A5552178B3CBBB1F /* DeepLinkLibrary.xcconfig */;
+			baseConfigurationReference = 66F0D9DBDF44A28931CF7377B0469AAC /* DeepLinkLibrary.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -886,13 +906,14 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
+			name = Release;
 		};
 		B57C09D404C607DDE283C5C44183B2A1 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -954,38 +975,6 @@
 			};
 			name = Debug;
 		};
-		CD78F228E9E92BDBA255AD7B1EBDC562 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1FDEF915FA6F1012A5552178B3CBBB1F /* DeepLinkLibrary.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/DeepLinkLibrary/DeepLinkLibrary-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/DeepLinkLibrary/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/DeepLinkLibrary/DeepLinkLibrary.modulemap";
-				PRODUCT_NAME = DeepLinkLibrary;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 		F2A85CD6CDC1D2B174827A2C7711EEBD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5B195D6736321E5B8BFDC3E359C1CD33 /* Pods-DeepLinkLibrary_Tests.debug.xcconfig */;
@@ -1012,6 +1001,37 @@
 				PRODUCT_NAME = Pods_DeepLinkLibrary_Tests;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		FA38AF51E880C413CEC43CDA4EC6FD7B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 66F0D9DBDF44A28931CF7377B0469AAC /* DeepLinkLibrary.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/DeepLinkLibrary/DeepLinkLibrary-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/DeepLinkLibrary/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/DeepLinkLibrary/DeepLinkLibrary.modulemap";
+				PRODUCT_NAME = DeepLinkLibrary;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1048,11 +1068,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5A8AAD807C66136125A5EC941F857643 /* Build configuration list for PBXNativeTarget "DeepLinkLibrary" */ = {
+		729E4E806D01D847F73EABB69E0F1BE2 /* Build configuration list for PBXNativeTarget "DeepLinkLibrary" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B42E7DC0C3D1D52365F0D016CD311B62 /* Debug */,
-				CD78F228E9E92BDBA255AD7B1EBDC562 /* Release */,
+				FA38AF51E880C413CEC43CDA4EC6FD7B /* Debug */,
+				94C1EC66608024A7ED3F78CDC1AEB637 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -101,6 +101,9 @@ public class DefaultRouter: Router {
                     rootViewController = viewController
                     logger?.log(.info("Step \(String(describing: currentStep!)) has found a \(String(describing: viewController)) to start presentation from."))
                 }
+                if let context = destination.context, let contextTask = interceptableStep?.contextTask {
+                    contextTask.apply(on: viewController, with: context)
+                }
                 if let postTask = interceptableStep?.postTask {
                     postTaskRunner.taskSlips.insert(PostTaskSlip(viewController: viewController, postTask: postTask), at: 0)
                 }
@@ -120,7 +123,7 @@ public class DefaultRouter: Router {
                         // If step contains post task, them lets create a factory decorator that will handle view
                         // controller and post task chain after view controller creation.
                         if let internalStep = interceptableStep {
-                            factoryToSave = FactoryDecorator(factory: factory, postTask: internalStep.postTask, postTaskRunner: postTaskRunner)
+                            factoryToSave = FactoryDecorator(factory: factory, contextTask: internalStep.contextTask, postTask: internalStep.postTask, postTaskRunner: postTaskRunner)
                         } else {
                             factoryToSave = factory
                         }
@@ -270,20 +273,29 @@ public class DefaultRouter: Router {
 
         weak var postTaskRunner: PostTaskRunner?
 
-        var postTask: AnyPostRoutingTask?
+        let contextTask: AnyContextTask?
 
-        init(factory: AnyFactory, postTask: AnyPostRoutingTask?, postTaskRunner: PostTaskRunner) {
+        let postTask: AnyPostRoutingTask?
+
+        init(factory: AnyFactory, contextTask: AnyContextTask?, postTask: AnyPostRoutingTask?, postTaskRunner: PostTaskRunner) {
             self.factory = factory
             self.postTaskRunner = postTaskRunner
             self.postTask = postTask
+            self.contextTask = contextTask
         }
 
         func prepare(with context: Any?) throws {
+            if contextTask != nil, context == nil {
+                throw RoutingError.message("Context for factory \(String(describing: self)) must be set.")
+            }
             return try factory.prepare(with: context)
         }
 
         func build(with context: Any?) throws -> UIViewController {
             let viewController = try factory.build(with: context)
+            if let context = context, let contextTask = contextTask {
+                contextTask.apply(on: viewController, with: context)
+            }
             if let postTask = postTask {
                 postTaskRunner?.taskSlips.append(PostTaskSlip(viewController: viewController, postTask: postTask))
             }

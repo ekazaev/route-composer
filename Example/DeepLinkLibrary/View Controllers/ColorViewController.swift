@@ -44,13 +44,6 @@ class ColorViewControllerFactory: Factory {
         self.action = action
     }
 
-    func build(with context: Context?) throws -> UIViewController {
-        let colorViewController = ColorViewController(nibName: nil, bundle: nil)
-        colorViewController.colorHex = model
-
-        return colorViewController
-    }
-
     func prepare(with context: Context?) throws {
         guard let context = context,
               let model = context[Argument.color] as? ColorViewController.ColorDisplayModel else {
@@ -59,6 +52,14 @@ class ColorViewControllerFactory: Factory {
 
         self.model = model
     }
+
+    func build(with context: Context?) throws -> UIViewController {
+        let colorViewController = ColorViewController(nibName: nil, bundle: nil)
+        colorViewController.colorHex = model
+
+        return colorViewController
+    }
+
 }
 
 class ColorViewController: UIViewController, ExampleAnalyticsSupport {

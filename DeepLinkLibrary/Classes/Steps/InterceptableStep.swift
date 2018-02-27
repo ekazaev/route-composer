@@ -13,4 +13,5 @@ protocol InterceptableStep: RoutingStep {
 
     var postTask: AnyPostRoutingTask? { get }
 
+    var contextTask: AnyContextTask? { get }
 }

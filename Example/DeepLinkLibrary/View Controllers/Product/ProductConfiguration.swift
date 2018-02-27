@@ -23,8 +23,10 @@ class ProductContext: ExampleContext {
 class ProductConfiguration {
 
     static func productDestination(productId: String, _ analyticParameters: ExampleAnalyticsParameters? = nil) -> ExampleDestination {
-        let productScreen = ScreenStepAssembly(finder: ViewControllerClassAndContextFinder(),
-                factory: ProductViewControllerFactory(action: PushAction()))
+        let productScreen = ScreenStepAssembly(
+                finder: ViewControllerClassAndContextFinder<ProductViewController, ProductContext>(),
+                factory: ViewControllerFromStoryboard(storyboardName: "Main", viewControllerID: "ProductViewController", action: PushAction()))
+                .add(ProductContentTask())
                 .add(ExampleAnalyticsInterceptor())
                 .add(ExampleAnalyticsPostAction())
                 .from(SwitcherStepAssembly()

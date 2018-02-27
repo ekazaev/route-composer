@@ -14,6 +14,8 @@ class FinalRoutingStep: InterceptableStep, PerformableStep, ChainableStep {
 
     let postTask: AnyPostRoutingTask?
 
+    let contextTask: AnyContextTask?
+
     let finder: AnyFinder?
 
     let factory: AnyFactory?
@@ -31,9 +33,10 @@ class FinalRoutingStep: InterceptableStep, PerformableStep, ChainableStep {
     ///   - step: Step instance contains action that has to be executed by router after it creates assembly's
     ///     UIViewController to make it integrated in to view controller stack which also represents a starting point
     ///     of routing or a dependency.
-    init<F: Finder, FC: Factory>(finder: F?, factory: FC?, interceptor: AnyRouterInterceptor? = nil, postTask: AnyPostRoutingTask? = nil, previousStep: RoutingStep) where F.ViewController == FC.ViewController, F.Context == FC.Context {
+    init<F: Finder, FC: Factory>(finder: F?, factory: FC?, interceptor: AnyRouterInterceptor? = nil, contextTask: AnyContextTask? = nil, postTask: AnyPostRoutingTask? = nil,  previousStep: RoutingStep) where F.ViewController == FC.ViewController, F.Context == FC.Context {
         self.previousStep = previousStep
         self.postTask = postTask
+        self.contextTask = contextTask
         if let finder = finder {
             self.finder = FinderBox(finder)
         } else {

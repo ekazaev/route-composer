@@ -7,27 +7,14 @@ import Foundation
 import UIKit
 import DeepLinkLibrary
 
-class ProductViewControllerFactory: MandatoryContextFactory {
+class ProductContentTask: ContextTask {
 
     typealias ViewController = ProductViewController
 
     typealias Context = ProductContext
 
-    let action: Action
-
-    init(action: Action) {
-        self.action = action
-    }
-
-    func build(with context: Context) throws -> UIViewController {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        guard let viewController = storyboard.instantiateViewController(withIdentifier: "ProductViewController") as? ViewController else {
-            throw RoutingError.message("Unable to load ProductViewController")
-        }
-
+    func apply(on viewController: ProductViewController, with context: ProductContext) {
         viewController.productId = context.productId
-
-        return viewController
     }
 
 }
