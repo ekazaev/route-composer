@@ -9,7 +9,7 @@
 import UIKit
 import DeepLinkLibrary
 
-class CircleViewController: UIViewController, AnalyticsSupportViewController {
+class CircleViewController: UIViewController, ExampleAnalyticsSupport {
 
     let analyticParameters = ExampleAnalyticsParameters(source: .circle)
 

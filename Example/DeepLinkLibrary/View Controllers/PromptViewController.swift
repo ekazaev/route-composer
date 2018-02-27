@@ -7,7 +7,7 @@ import Foundation
 import UIKit
 import DeepLinkLibrary
 
-class PromptViewController: UIViewController, AnalyticsSupportViewController {
+class PromptViewController: UIViewController, ExampleAnalyticsSupport {
 
     let analyticParameters = ExampleAnalyticsParameters(source: .welcome)
 

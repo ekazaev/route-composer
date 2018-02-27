@@ -61,7 +61,7 @@ class ColorViewControllerFactory: Factory {
     }
 }
 
-class ColorViewController: UIViewController, AnalyticsSupportViewController {
+class ColorViewController: UIViewController, ExampleAnalyticsSupport {
 
     let analyticParameters = ExampleAnalyticsParameters(source: .color)
 

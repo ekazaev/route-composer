@@ -24,7 +24,7 @@ class CityTablePostTask: PostRoutingTask {
 }
 
 
-class CitiesTableViewController: UITableViewController, AnalyticsSupportViewController {
+class CitiesTableViewController: UITableViewController, ExampleAnalyticsSupport {
 
     let analyticParameters = ExampleAnalyticsParameters(source: .citiesList)
 

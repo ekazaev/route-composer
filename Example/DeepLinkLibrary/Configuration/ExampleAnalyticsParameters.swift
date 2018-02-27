@@ -21,7 +21,7 @@ struct ExampleAnalyticsParameters {
     }
 }
 
-protocol AnalyticsSupportViewController {
+protocol ExampleAnalyticsSupport {
 
     var analyticParameters: ExampleAnalyticsParameters { get }
 

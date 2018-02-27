@@ -56,7 +56,7 @@
 		9AFBCC7A9E59940D402FE010 /* Finder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCC4238C34EC1F2321152 /* Finder.swift */; };
 		9AFBCD7A6E8F79F3E209D774 /* AnyPostRoutingTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCB035CCD701E789F84A8 /* AnyPostRoutingTask.swift */; };
 		9AFBCE8AFB86C20DF90C55A1 /* PerformableStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCC18C269BC4FC7C25EEE /* PerformableStep.swift */; };
-		9AFBCEC22030B8B7116AB55B /* RouterRulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC4BC05C6A013147C36AD /* RouterRulesViewController.swift */; };
+		9AFBCEC22030B8B7116AB55B /* RouterRulesSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC4BC05C6A013147C36AD /* RouterRulesSupport.swift */; };
 		9AFBCFC09C8F54EFF6355B64 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCC2222D3139F9AC19E81 /* Router.swift */; };
 		A2D0D3B4292A561F2D1C76548D363444 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689D6FB05287FE7337391EAB2A6D8965 /* Logger.swift */; };
 		A32ACBA420EE3C98D1062F3202C9235C /* SwitcherStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB71F4A4F0759F1B5A98C8940FAE5AB2 /* SwitcherStep.swift */; };
@@ -148,7 +148,7 @@
 		984D6A863BFDF29FD0ABFE6F18005A4A /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		98BAD2D5D44D93F7D8FEB315CE95C74A /* InterceptorMultiplexer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = InterceptorMultiplexer.swift; sourceTree = "<group>"; };
 		9AFBC35DA6963D837D16ED04 /* SingleActionContainerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleActionContainerFactory.swift; sourceTree = "<group>"; };
-		9AFBC4BC05C6A013147C36AD /* RouterRulesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RouterRulesViewController.swift; path = DeepLinkLibrary/Classes/Router/RouterRulesViewController.swift; sourceTree = "<group>"; };
+		9AFBC4BC05C6A013147C36AD /* RouterRulesSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RouterRulesSupport.swift; path = DeepLinkLibrary/Classes/Router/RouterRulesSupport.swift; sourceTree = "<group>"; };
 		9AFBC4D3DCD11F16539A9004 /* PostRoutingTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostRoutingTask.swift; path = DeepLinkLibrary/Classes/Router/PostRoutingTask.swift; sourceTree = "<group>"; };
 		9AFBC62FAA8A6D0B15D72263 /* AnyContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyContainer.swift; sourceTree = "<group>"; };
 		9AFBC648DD35ED6B5FD62D5F /* Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Action.swift; path = DeepLinkLibrary/Classes/Actions/Action.swift; sourceTree = "<group>"; };
@@ -442,7 +442,7 @@
 				C51A464D607FEF91AC39677605E910A0 /* Steps */,
 				DCCA4BB1A831593A612F3999C22287E9 /* Support Files */,
 				9AFBCC2222D3139F9AC19E81 /* Router.swift */,
-				9AFBC4BC05C6A013147C36AD /* RouterRulesViewController.swift */,
+				9AFBC4BC05C6A013147C36AD /* RouterRulesSupport.swift */,
 				9AFBC4D3DCD11F16539A9004 /* PostRoutingTask.swift */,
 				9AFBC648DD35ED6B5FD62D5F /* Action.swift */,
 				9AFBC8A4F12BC519DE66C4E0 /* Factory.swift */,
@@ -657,7 +657,7 @@
 				9AFBC19BAE311EB9D6A5BA03 /* AnyRouterInterceptor.swift in Sources */,
 				9AFBCFC09C8F54EFF6355B64 /* Router.swift in Sources */,
 				84B76A6220404DDB00D865B1 /* ScreenStepAssembly.swift in Sources */,
-				9AFBCEC22030B8B7116AB55B /* RouterRulesViewController.swift in Sources */,
+				9AFBCEC22030B8B7116AB55B /* RouterRulesSupport.swift in Sources */,
 				9AFBCD7A6E8F79F3E209D774 /* AnyPostRoutingTask.swift in Sources */,
 				9AFBC864F1E33DBCDB43525F /* AnyFinder.swift in Sources */,
 				9AFBC6A20AAA06B3CB493E8F /* AnyFactory.swift in Sources */,

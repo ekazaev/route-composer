@@ -7,7 +7,7 @@ import Foundation
 import UIKit
 import DeepLinkLibrary
 
-class SecondModalLevelViewController: UIViewController, AnalyticsSupportViewController {
+class SecondModalLevelViewController: UIViewController, ExampleAnalyticsSupport {
 
     let analyticParameters = ExampleAnalyticsParameters(source: .secondLevelModal)
 

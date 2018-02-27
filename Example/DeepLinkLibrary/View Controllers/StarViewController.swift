@@ -7,7 +7,7 @@ import Foundation
 import UIKit
 import DeepLinkLibrary
 
-class StarViewController: UIViewController, AnalyticsSupportViewController {
+class StarViewController: UIViewController, ExampleAnalyticsSupport {
 
     let analyticParameters = ExampleAnalyticsParameters(source: .star)
 

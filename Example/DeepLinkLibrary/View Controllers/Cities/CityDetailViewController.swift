@@ -23,7 +23,7 @@ class CityDetailPostTask: PostRoutingTask {
 
 }
 
-class CityDetailViewController: UIViewController, AnalyticsSupportViewController {
+class CityDetailViewController: UIViewController, ExampleAnalyticsSupport {
 
     let analyticParameters = ExampleAnalyticsParameters(source: .cityDetail)
 

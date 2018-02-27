@@ -59,7 +59,7 @@ class LoginViewControllerFinder: FinderWithPolicy {
 
 }
 
-class LoginViewController: UIViewController, AnalyticsSupportViewController {
+class LoginViewController: UIViewController, ExampleAnalyticsSupport {
 
     let analyticParameters = ExampleAnalyticsParameters(source: .login)
 

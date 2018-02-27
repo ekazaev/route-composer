@@ -22,12 +22,12 @@ extension UISplitViewController: ContainerViewController {
 
 }
 
-extension UISplitViewController: RouterRulesViewController {
+extension UISplitViewController: RouterRulesSupport {
 
     public var canBeDismissed: Bool {
         get {
             return viewControllers.flatMap {
-                $0 as? RouterRulesViewController
+                $0 as? RouterRulesSupport
             }.first {
                 !$0.canBeDismissed
             } == nil

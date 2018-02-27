@@ -23,7 +23,7 @@ extension UITabBarController: ContainerViewController {
 
 }
 
-extension UITabBarController: RouterRulesViewController {
+extension UITabBarController: RouterRulesSupport {
 
     public var canBeDismissed: Bool {
         get {
@@ -31,7 +31,7 @@ extension UITabBarController: RouterRulesViewController {
                 return true
             }
             return viewControllers.flatMap {
-                $0 as? RouterRulesViewController
+                $0 as? RouterRulesSupport
             }.first {
                 !$0.canBeDismissed
             } == nil

@@ -18,7 +18,7 @@ public class DefaultRouter: Router {
         logger?.routingWillStart()
         // If currently visible view controller can not be dismissed then we can't deeplink anywhere, because it will
         // disappear as a result of deeplinking.
-        if let topMostViewController = UIWindow.key?.topmostViewController as? RouterRulesViewController, !topMostViewController.canBeDismissed {
+        if let topMostViewController = UIWindow.key?.topmostViewController as? RouterRulesSupport, !topMostViewController.canBeDismissed {
             logger?.log(.warning("Topmost view controller can not be dismissed."))
             logger?.routingDidFinish()
             return .unhandled
@@ -39,7 +39,7 @@ public class DefaultRouter: Router {
 
         // check if the view controllers, that are currently presented from the origin view controller for a given destination, can be dismissed.
         if let viewController = UIViewController.findAllPresentedViewControllers(starting: viewController).flatMap({
-            $0 as? RouterRulesViewController
+            $0 as? RouterRulesSupport
         }).first(where: {
             !$0.canBeDismissed
         }) {

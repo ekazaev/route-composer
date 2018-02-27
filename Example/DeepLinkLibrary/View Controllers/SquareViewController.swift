@@ -9,7 +9,7 @@
 import UIKit
 import DeepLinkLibrary
 
-class SquareViewController: UIViewController, AnalyticsSupportViewController {
+class SquareViewController: UIViewController, ExampleAnalyticsSupport {
 
     let analyticParameters = ExampleAnalyticsParameters(source: .square)
 

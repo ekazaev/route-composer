@@ -7,7 +7,7 @@ import Foundation
 import UIKit
 import DeepLinkLibrary
 
-class WishListViewController: UITableViewController, AnalyticsSupportViewController {
+class WishListViewController: UITableViewController, ExampleAnalyticsSupport {
 
     var analyticParameters = ExampleAnalyticsParameters(source: .favorites)
 

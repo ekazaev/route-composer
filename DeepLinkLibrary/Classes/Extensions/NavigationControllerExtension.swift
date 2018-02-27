@@ -21,12 +21,12 @@ extension UINavigationController: ContainerViewController {
 
 }
 
-extension UINavigationController: RouterRulesViewController {
+extension UINavigationController: RouterRulesSupport {
 
     public var canBeDismissed: Bool {
         get {
             return viewControllers.flatMap {
-                $0 as? RouterRulesViewController
+                $0 as? RouterRulesSupport
             }.first {
                 !$0.canBeDismissed
             } == nil

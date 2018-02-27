@@ -32,7 +32,7 @@ class ProductViewControllerFactory: MandatoryContextFactory {
 
 }
 
-class ProductViewController: UIViewController, AnalyticsSupportViewController {
+class ProductViewController: UIViewController, ExampleAnalyticsSupport {
 
     let analyticParameters = ExampleAnalyticsParameters(source: .product)
 
