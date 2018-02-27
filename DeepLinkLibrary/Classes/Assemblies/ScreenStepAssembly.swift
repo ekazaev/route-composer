@@ -72,8 +72,8 @@ public class ScreenStepAssembly<F: Finder, FC: Factory> where F.ViewController =
         return self
     }
 
-    /// PostRoutingTask instance to be executed by a router after routing to this step.
-    public func add<CT: ContextTask>(_ contentTask: CT) -> Self {
+    /// ContextTask instance to be executed by a router immediately after it will find or create UIViewController.
+    public func add<CT: ContextTask>(_ contentTask: CT) -> Self where CT.ViewController == FC.ViewController,  CT.ViewController == F.ViewController, CT.Context == FC.Context, CT.Context == F.Context {
         self.contentTasks.append(ContextTaskBox(contentTask))
         return self
     }
