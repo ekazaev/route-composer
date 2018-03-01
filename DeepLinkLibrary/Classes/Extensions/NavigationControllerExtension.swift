@@ -6,13 +6,15 @@
 import Foundation
 import UIKit
 
-// MARK: - UINavigationController extension to support ContainerViewController protocol
+/// - UINavigationController extension to support ContainerViewController protocol
 extension UINavigationController: ContainerViewController {
 
-    public func makeVisible(viewController: UIViewController, animated: Bool) {
-        let viewControllers = self.viewControllers
+    public var containingViewControllers: [UIViewController] {
+        return viewControllers
+    }
 
-        for vc in viewControllers {
+    public func makeVisible(viewController: UIViewController, animated: Bool) {
+        for vc in containingViewControllers {
             if vc == viewController {
                 self.popToViewController(vc, animated: animated)
                 return
@@ -22,17 +24,11 @@ extension UINavigationController: ContainerViewController {
 
 }
 
-// MARK: - Navigation controller extension to support RouterRulesSupport protocol
+/// - Navigation controller extension to support RouterRulesSupport protocol
 extension UINavigationController: RouterRulesSupport {
 
     public var canBeDismissed: Bool {
-        get {
-            return viewControllers.flatMap {
-                $0 as? RouterRulesSupport
-            }.first {
-                !$0.canBeDismissed
-            } == nil
-        }
+        return containingViewControllers.canBeDismissed
     }
 
 }

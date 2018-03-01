@@ -36,6 +36,41 @@
       "warning": "undocumented"
     },
     {
+      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/ContainerViewController.swift",
+      "line": 16,
+      "symbol": "ContainerViewController.containerViewControllers",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Extensions/ArrayExtension.swift",
+      "line": 11,
+      "symbol": "Array.canBeDismissed",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Extensions/NavigationControllerExtension.swift",
+      "line": 12,
+      "symbol": "UINavigationController.containerViewControllers",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Extensions/SplitViewControllerExtension.swift",
+      "line": 13,
+      "symbol": "UISplitViewController.containerViewControllers",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Extensions/TabBarViewControllerExtension.swift",
+      "line": 12,
+      "symbol": "UITabBarController.containerViewControllers",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Extensions/UIViewControllerExtension.swift",
       "line": 18,
       "symbol": "ViewControllerSearchOptions.current",
@@ -72,14 +107,14 @@
     },
     {
       "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Extensions/UIViewControllerExtension.swift",
-      "line": 88,
+      "line": 69,
       "symbol": "UIViewController.dismissAllPresentedControllers(animated:completion:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Extensions/UIViewControllerExtension.swift",
-      "line": 98,
+      "line": 79,
       "symbol": "UIViewController.findAllPresentedViewControllers(starting:found:)",
       "symbol_kind": "source.lang.swift.decl.function.method.static",
       "warning": "undocumented"

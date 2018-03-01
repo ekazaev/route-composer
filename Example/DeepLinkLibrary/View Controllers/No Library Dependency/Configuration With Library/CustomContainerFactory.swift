@@ -43,15 +43,19 @@ class CustomContainerFactory: SingleActionContainerFactory {
 
 extension CustomContainerController: ContainerViewController {
 
+    public var containingViewControllers: [UIViewController] {
+        guard let rootViewController = rootViewController else {
+            return []
+        }
+        return [rootViewController]
+    }
+
     func makeVisible(viewController: UIViewController, animated: Bool) {
 
     }
 
     var canBeDismissed: Bool {
-        guard let routingSupportController = rootViewController as? RoutingRuleSupportViewController else {
-            return true
-        }
-        return routingSupportController.canBeDismissed
+        return containingViewControllers.canBeDismissed
     }
 
 }

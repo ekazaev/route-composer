@@ -7,13 +7,15 @@ import Foundation
 import UIKit
 
 
-// MARK: - UISplitViewController extension to support ContainerViewController protocol
+// - UISplitViewController extension to support ContainerViewController protocol
 extension UISplitViewController: ContainerViewController {
 
-    public func makeVisible(viewController: UIViewController, animated: Bool) {
-        let viewControllers = self.viewControllers
+    public var containingViewControllers: [UIViewController] {
+        return viewControllers
+    }
 
-        for vc in viewControllers {
+    public func makeVisible(viewController: UIViewController, animated: Bool) {
+        for vc in containingViewControllers {
             if vc == viewController {
                 vc.navigationController?.navigationController?.popToViewController(vc, animated: animated)
                 return
@@ -23,17 +25,11 @@ extension UISplitViewController: ContainerViewController {
 
 }
 
-// MARK: - UISplitViewController extension to support RouterRulesSupport protocol
+// - UISplitViewController extension to support RouterRulesSupport protocol
 extension UISplitViewController: RouterRulesSupport {
 
     public var canBeDismissed: Bool {
-        get {
-            return viewControllers.flatMap {
-                $0 as? RouterRulesSupport
-            }.first {
-                !$0.canBeDismissed
-            } == nil
-        }
+        return containingViewControllers.canBeDismissed
     }
 
 }

@@ -25,45 +25,14 @@ public enum ViewControllerSearchOptions {
 
 public extension UIViewController {
 
-    public static func findParentViewController(from vc: UIViewController, using comparator: (UIViewController) -> Bool) -> UIViewController? {
-        if comparator(vc) {
-            return vc
-        }
-
-        if let parentVC = vc.parent {
-            return findParentViewController(from: parentVC, using: comparator)
-        }
-
-        return nil
-    }
-
     public static func findViewController(in vc: UIViewController, options: ViewControllerSearchOptions = .currentAndUp, using comparator: (UIViewController) -> Bool) -> UIViewController? {
         if comparator(vc) {
             return vc
         }
 
-        if let nc = vc as? UINavigationController {
-            for selected in nc.viewControllers {
+        if let container = vc as? ContainerViewController {
+            for selected in container.containingViewControllers {
                 if let found = findViewController(in: selected, options: .current, using: comparator) {
-                    return found
-                }
-            }
-        } else if let tbc = vc as? UITabBarController, let viewControllers = tbc.viewControllers {
-            for selected in viewControllers {
-                if let found = findViewController(in: selected, options: .current, using: comparator) {
-                    return found
-                }
-            }
-        } else if let svc = vc as? UISplitViewController {
-            let viewControllers = svc.viewControllers
-            for selected in viewControllers {
-                if let found = findViewController(in: selected, options: .current, using: comparator) {
-                    return found
-                }
-            }
-        } else {
-            for child in vc.childViewControllers {
-                if let found = findViewController(in: child, options: .current, using: comparator) {
                     return found
                 }
             }
@@ -85,7 +54,23 @@ public extension UIViewController {
         return nil
     }
 
-    public func dismissAllPresentedControllers(animated: Bool, completion: (() -> Void)?) {
+    internal var allPresentedViewControllers: [UIViewController] {
+        return UIViewController.findAllPresentedViewControllers(starting: self)
+    }
+
+    private static func findParentViewController(from vc: UIViewController, using comparator: (UIViewController) -> Bool) -> UIViewController? {
+        if comparator(vc) {
+            return vc
+        }
+
+        if let parentVC = vc.parent {
+            return findParentViewController(from: parentVC, using: comparator)
+        }
+
+        return nil
+    }
+
+    internal func dismissAllPresentedControllers(animated: Bool, completion: (() -> Void)?) {
         if let _ = self.presentedViewController {
             self.dismiss(animated: animated) {
                 completion?()
@@ -95,7 +80,7 @@ public extension UIViewController {
         }
     }
 
-    public static func findAllPresentedViewControllers(starting vc: UIViewController, found: [UIViewController] = []) -> [UIViewController] {
+    private static func findAllPresentedViewControllers(starting vc: UIViewController, found: [UIViewController] = []) -> [UIViewController] {
         var found = found
         if let presentedViewController = vc.presentedViewController {
             found.append(presentedViewController)
