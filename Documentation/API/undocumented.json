@@ -38,48 +38,48 @@
     {
       "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Extensions/UIViewControllerExtension.swift",
       "line": 18,
-      "symbol": "ViewControllerSearchOptions.sameLevel",
+      "symbol": "ViewControllerSearchOptions.current",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Extensions/UIViewControllerExtension.swift",
       "line": 20,
-      "symbol": "ViewControllerSearchOptions.sameAndUp",
+      "symbol": "ViewControllerSearchOptions.currentAndUp",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Extensions/UIViewControllerExtension.swift",
       "line": 22,
-      "symbol": "ViewControllerSearchOptions.sameAndDown",
+      "symbol": "ViewControllerSearchOptions.currentAndDown",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Extensions/UIViewControllerExtension.swift",
-      "line": 27,
+      "line": 28,
       "symbol": "UIViewController.findParentViewController(from:using:)",
       "symbol_kind": "source.lang.swift.decl.function.method.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Extensions/UIViewControllerExtension.swift",
-      "line": 39,
+      "line": 40,
       "symbol": "UIViewController.findViewController(in:options:using:)",
       "symbol_kind": "source.lang.swift.decl.function.method.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Extensions/UIViewControllerExtension.swift",
-      "line": 87,
+      "line": 88,
       "symbol": "UIViewController.dismissAllPresentedControllers(animated:completion:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Extensions/UIViewControllerExtension.swift",
-      "line": 97,
+      "line": 98,
       "symbol": "UIViewController.findAllPresentedViewControllers(starting:found:)",
       "symbol_kind": "source.lang.swift.decl.function.method.static",
       "warning": "undocumented"
@@ -155,8 +155,15 @@
       "warning": "undocumented"
     },
     {
+      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Factories/ViewControllerFromStoryboardFactory.swift",
+      "line": 19,
+      "symbol": "ViewControllerFromStoryboard.bundle",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Factories/ViewControllerFromXibFactory.swift",
-      "line": 21,
+      "line": 22,
       "symbol": "ViewControllerFromXibFactory.bundle",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
@@ -191,21 +198,21 @@
     },
     {
       "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Logger/Logger.swift",
-      "line": 16,
+      "line": 17,
       "symbol": "LoggerMessage.info",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Logger/Logger.swift",
-      "line": 18,
+      "line": 20,
       "symbol": "LoggerMessage.warning",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Logger/Logger.swift",
-      "line": 20,
+      "line": 23,
       "symbol": "LoggerMessage.error",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"

@@ -18,6 +18,7 @@ public class ViewControllerFromXibFactory<VC: UIViewController, C>: Factory {
     public let action: Action
 
     private let nibName: String?
+
     public let bundle: Bundle?
 
     /// Constructor

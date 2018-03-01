@@ -16,23 +16,27 @@ public class ViewControllerFromStoryboard<VC: UIViewController, C>: Factory {
 
     private let storyboardName: String
 
+    public let bundle: Bundle?
+
     private let viewControllerID: String?
 
     /// Constructor
     ///
     /// - Parameters:
     ///   - storyboardName: Name of storyboard file
+    ///   - bundle: Bundle instance if needed
     ///   - viewControllerID: UIViewController identifier in storyboard. If not set - factory will try
     ///     to create storyboards's initial UIViewController
     ///   - action: Action instance to integrate built UIViewController in to stack
-    public init(storyboardName: String, viewControllerID: String? = nil, action: Action) {
+    public init(storyboardName: String, bundle: Bundle? = nil, viewControllerID: String? = nil, action: Action) {
         self.action = action
         self.storyboardName = storyboardName
+        self.bundle = bundle
         self.viewControllerID = viewControllerID
     }
 
     public func build(with context: Context?) throws -> ViewController {
-        let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
+        let storyboard = UIStoryboard(name: storyboardName, bundle: bundle)
         if let viewControllerID = viewControllerID {
             guard let viewController = storyboard.instantiateViewController(withIdentifier: viewControllerID) as? VC else {
                 throw RoutingError.message("Unable to instantiate UIViewController with identifier \(viewControllerID) in \(storyboardName) storyboard")

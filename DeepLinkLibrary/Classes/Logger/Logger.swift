@@ -9,14 +9,17 @@ import UIKit
 /// Logger message representation
 ///
 /// - info: info message
-/// - warning: warning message
+/// - `warning`: warning message
 /// - error: error message
 public enum LoggerMessage {
 
+    // info message
     case info(String)
 
+    // warning message
     case warning(String)
 
+    // error message
     case error(String)
 
 }

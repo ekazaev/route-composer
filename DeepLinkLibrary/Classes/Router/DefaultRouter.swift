@@ -224,7 +224,7 @@ public class DefaultRouter: Router {
                         completion(newViewController)
                         return
                     }
-                    self.logger?.log(.info("Action \(String(describing: factoryToLog.action)) been applied to a \(String(describing: previousViewController)) with \(String(describing: newViewController))."))
+                    self.logger?.log(.info("Action \(String(describing: factoryToLog.action)) applied to a \(String(describing: previousViewController)) with \(String(describing: newViewController))."))
                     guard factories.count > 0 else {
                         completion(newViewController)
                         return

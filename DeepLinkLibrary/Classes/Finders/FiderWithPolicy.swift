@@ -30,7 +30,7 @@ public extension FinderWithPolicy {
         switch policy {
         case .allStackUp:
             guard let rootViewController = UIWindow.key?.rootViewController,
-                  let viewController = UIViewController.findViewController(in: rootViewController, options: .sameAndUp, using: {
+                  let viewController = UIViewController.findViewController(in: rootViewController, options: .currentAndUp, using: {
                       guard let vc = $0 as? ViewController else {
                           return false
                       }
@@ -41,7 +41,7 @@ public extension FinderWithPolicy {
             return viewController
         case .allStackDown:
             guard let rootViewController = UIWindow.key?.topmostViewController,
-                  let viewController = UIViewController.findViewController(in: rootViewController, options: .sameAndDown, using: {
+                  let viewController = UIViewController.findViewController(in: rootViewController, options: .currentAndDown, using: {
                       guard let vc = $0 as? ViewController else {
                           return false
                       }
@@ -52,7 +52,7 @@ public extension FinderWithPolicy {
             return viewController
         case .currentLevel:
             guard let topMostViewController = UIWindow.key?.topmostViewController,
-                  let viewController = UIViewController.findViewController(in: topMostViewController, options: .sameLevel, using: {
+                  let viewController = UIViewController.findViewController(in: topMostViewController, options: .current, using: {
                       guard let vc = $0 as? ViewController else {
                           return false
                       }

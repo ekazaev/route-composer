@@ -9,7 +9,7 @@ import UIKit
 
 struct ImagesConfigurationWithLibrary {
 
-    private static let imagesContainer = ScreenStepAssembly(
+    private static let imagesContainerStep = ScreenStepAssembly(
             finder: ViewControllerClassFinder(),
             factory: CustomContainerFactory(delegate: ImagesWithLibraryHandler.shared, action: PushAction()))
             .from(NavigationContainerStep(action: PresentModallyAction()))
@@ -17,21 +17,21 @@ struct ImagesConfigurationWithLibrary {
             .assemble()
 
     static func images() -> ExampleDestination {
-        return ExampleDestination(finalStep: ScreenStepAssembly(
+        let imagesStep = ScreenStepAssembly(
                 finder: ViewControllerClassFinder(),
                 factory: ImagesFactory(delegate: ImagesWithLibraryHandler.shared, action: CustomContainerChildAction()))
-                .from(imagesContainer)
-                .assemble(),
-                context: nil)
+                .from(imagesContainerStep)
+                .assemble()
+        return ExampleDestination(finalStep: imagesStep, context: nil)
     }
 
     static func imageDetails(for imageID: String) -> ExampleDestination {
-        return ExampleDestination(finalStep: ScreenStepAssembly(
+        let imageDetailsStep = ScreenStepAssembly(
                 finder: ViewControllerClassFinder(),
                 factory: ImageDetailsFactory(delegate: ImagesWithLibraryHandler.shared, action: CustomContainerChildAction()))
-                .from(imagesContainer)
-                .assemble(),
-                context: imageID)
+                .from(imagesContainerStep)
+                .assemble()
+        return ExampleDestination(finalStep: imageDetailsStep, context: imageID)
     }
 
 }

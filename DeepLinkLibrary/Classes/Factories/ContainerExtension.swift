@@ -5,7 +5,7 @@
 import Foundation
 import UIKit
 
-// MARK: - Conatiner Factory extension that helps to build properly child UIViewControllers from factories provided.
+// MARK: - Container Factory extension that helps to build properly child UIViewControllers from factories provided.
 public extension Container where Self: Factory {
 
     /// This function contains default implementation how Container should create it's children view controller

@@ -9,17 +9,18 @@ import UIKit
 
 /// findViewController methods search options
 ///
-/// - sameLevel: Search on the a current level but do not look in presented or presenting stacks.
-/// - sameAndUp: Start to search on the current level an go all the way down to the root view controller of the window
-/// - sameAndDown: Start at the root view controller of the window and search all the way up to the last
+/// - current: Search on the a current level but do not look in presented or presenting stacks.
+/// - currentAndUp: Start to search on the current level an go all the way down to the root view controller of the window
+/// - currentAndDown: Start at the root view controller of the window and search all the way up to the last
 ///   presented stack
 public enum ViewControllerSearchOptions {
 
-    case sameLevel
+    case current
 
-    case sameAndUp
+    case currentAndUp
 
-    case sameAndDown
+    case currentAndDown
+
 }
 
 public extension UIViewController {
@@ -36,44 +37,44 @@ public extension UIViewController {
         return nil
     }
 
-    public static func findViewController(in vc: UIViewController, options: ViewControllerSearchOptions = .sameAndUp, using comparator: (UIViewController) -> Bool) -> UIViewController? {
+    public static func findViewController(in vc: UIViewController, options: ViewControllerSearchOptions = .currentAndUp, using comparator: (UIViewController) -> Bool) -> UIViewController? {
         if comparator(vc) {
             return vc
         }
 
         if let nc = vc as? UINavigationController {
             for selected in nc.viewControllers {
-                if let found = findViewController(in: selected, options: .sameLevel, using: comparator) {
+                if let found = findViewController(in: selected, options: .current, using: comparator) {
                     return found
                 }
             }
         } else if let tbc = vc as? UITabBarController, let viewControllers = tbc.viewControllers {
             for selected in viewControllers {
-                if let found = findViewController(in: selected, options: .sameLevel, using: comparator) {
+                if let found = findViewController(in: selected, options: .current, using: comparator) {
                     return found
                 }
             }
         } else if let svc = vc as? UISplitViewController {
             let viewControllers = svc.viewControllers
             for selected in viewControllers {
-                if let found = findViewController(in: selected, options: .sameLevel, using: comparator) {
+                if let found = findViewController(in: selected, options: .current, using: comparator) {
                     return found
                 }
             }
         } else {
             for child in vc.childViewControllers {
-                if let found = findViewController(in: child, options: .sameLevel, using: comparator) {
+                if let found = findViewController(in: child, options: .current, using: comparator) {
                     return found
                 }
             }
         }
 
-        if options == .sameAndUp,
+        if options == .currentAndUp,
            let presented = vc.presentedViewController,
            !presented.isBeingDismissed && presented.popoverPresentationController == nil,
            let found = findViewController(in: presented, options: options, using: comparator) {
             return found
-        } else if options == .sameAndDown {
+        } else if options == .currentAndDown {
             if let presenting = vc.presentingViewController,
                !vc.isBeingDismissed && vc.popoverPresentationController == nil,
                 let found = findViewController(in: presenting, options: options, using: comparator) {

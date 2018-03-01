@@ -274,10 +274,6 @@ present modally, push to tab, etc)</p>
                         <p>If current view controller needs to be pushed/added/etc to the exciting collection of view controllers,
 this method should be called instead.</p>
 
-<p>parameters:
-containerViewControllers: view controllers stack in the current context container
-viewController: view controller to be added to the stack of views that are in the container already</p>
-
                       </div>
                       <h4>Default Implementation</h4>
                       <div class="default_impl abstract">
@@ -290,6 +286,37 @@ viewController: view controller to be added to the stack of views that are in th
                           <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">performMerged</span><span class="p">(</span><span class="nv">viewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="nv">containerViewControllers</span><span class="p">:</span> <span class="k">inout</span> <span class="p">[</span><span class="kt">UIViewController</span><span class="p">])</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>viewController</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>view controller to be embedded to the stack of views that are in the container already</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>containerViewControllers</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>view controllers stack in the current context container</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -307,13 +334,9 @@ viewController: view controller to be added to the stack of views that are in th
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Performs provided action to the view controller.
-parameters:
-viewController: operated view controller. the one which should appear on top of the stack after the action is applied.
-existingController: presenting view controller.
-animated: animated
-completion: called once the action is applied. returns the view controller, which will appear on the top of the stack.
-In success scenario it will be viewController, existingController otherwise, if the action failed to add viewController to the stack.
+                        <p>Performs provided action to the view controller.</p>
+
+<p>In success scenario it will be viewController, existingController otherwise, if the action failed to add viewController to the stack.
 NB: completion MUST to be called in implementation.</p>
 
                       </div>
@@ -325,6 +348,61 @@ NB: completion MUST to be called in implementation.</p>
 
                         </div>
                       </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>viewController</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>operated view controller. the one which should appear on top of the stack after the action is applied.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>existingController</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>presenting view controller.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>animated</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>animated</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>called once the action is applied. returns the view controller, which will appear on the top of the stack.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
                     </section>
                   </div>
                 </li>
@@ -333,7 +411,7 @@ NB: completion MUST to be called in implementation.</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="http://tech.gilt.com" target="_blank" rel="external">Gilt Groupe</a>. All rights reserved. (Last updated: 2018-02-28)</p>
+          <p>&copy; 2018 <a class="link" href="http://tech.gilt.com" target="_blank" rel="external">Gilt Groupe</a>. All rights reserved. (Last updated: 2018-03-01)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
