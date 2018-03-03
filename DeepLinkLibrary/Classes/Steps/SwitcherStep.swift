@@ -31,6 +31,9 @@ final class SwitcherStep: ChainableStep, PerformableStep {
             previousStep = step
         })
 
+        guard let _ = previousStep else {
+            return .failure
+        }
         return .continueRouting(nil)
     }
 
