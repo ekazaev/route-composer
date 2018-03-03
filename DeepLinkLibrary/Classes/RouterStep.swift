@@ -13,15 +13,11 @@ public class RouterStep: ChainableStep, PerformableStep, ChainingStep, CustomStr
     let factory: AnyFactory
 
     public init<F: Factory>(factory: F) {
-        self.factory = FactoryBox(factory)
+        self.factory = FactoryBox.box(for: factory)
     }
 
     public init<F: Factory & Container>(factory: F) {
         self.factory = ContainerFactoryBox(factory)
-    }
-
-    public init<F: AnyFactory>(factory: F) {
-        self.factory = factory
     }
 
     public func viewController(with context: Any?) -> UIViewController? {

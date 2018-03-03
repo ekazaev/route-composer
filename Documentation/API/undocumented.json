@@ -36,37 +36,9 @@
       "warning": "undocumented"
     },
     {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/ContainerViewController.swift",
-      "line": 16,
-      "symbol": "ContainerViewController.containerViewControllers",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
       "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Extensions/ArrayExtension.swift",
       "line": 11,
       "symbol": "Array.canBeDismissed",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Extensions/NavigationControllerExtension.swift",
-      "line": 12,
-      "symbol": "UINavigationController.containerViewControllers",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Extensions/SplitViewControllerExtension.swift",
-      "line": 13,
-      "symbol": "UISplitViewController.containerViewControllers",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Extensions/TabBarViewControllerExtension.swift",
-      "line": 12,
-      "symbol": "UITabBarController.containerViewControllers",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
@@ -94,28 +66,7 @@
     {
       "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Extensions/UIViewControllerExtension.swift",
       "line": 28,
-      "symbol": "UIViewController.findParentViewController(from:using:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.static",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Extensions/UIViewControllerExtension.swift",
-      "line": 40,
       "symbol": "UIViewController.findViewController(in:options:using:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.static",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Extensions/UIViewControllerExtension.swift",
-      "line": 69,
-      "symbol": "UIViewController.dismissAllPresentedControllers(animated:completion:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Extensions/UIViewControllerExtension.swift",
-      "line": 79,
-      "symbol": "UIViewController.findAllPresentedViewControllers(starting:found:)",
       "symbol_kind": "source.lang.swift.decl.function.method.static",
       "warning": "undocumented"
     },
@@ -253,41 +204,6 @@
       "warning": "undocumented"
     },
     {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Router/AnyContainer.swift",
-      "line": 11,
-      "symbol": "AnyContainer.merge(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Router/AnyFactory.swift",
-      "line": 11,
-      "symbol": "AnyFactory.action",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Router/AnyFactory.swift",
-      "line": 13,
-      "symbol": "AnyFactory.prepare(with:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Router/AnyFactory.swift",
-      "line": 15,
-      "symbol": "AnyFactory.build(with:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Router/AnyFinder.swift",
-      "line": 11,
-      "symbol": "AnyFinder.findViewController(with:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
       "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Router/DefaultRouter.swift",
       "line": 14,
       "symbol": "DefaultRouter.init(logger:)",
@@ -332,13 +248,6 @@
     {
       "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/RouterStep.swift",
       "line": 23,
-      "symbol": "RouterStep.init(factory:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/RouterStep.swift",
-      "line": 27,
       "symbol": "RouterStep.viewController(with:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"

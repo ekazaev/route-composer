@@ -23,16 +23,16 @@ public class SplitControllerFactory: Factory, Container {
 
     public let action: Action
 
-    var detailFactories: [AnyFactory] = []
+    var detailFactories: [ChildFactory] = []
 
-    var masterFactories: [AnyFactory] = []
+    var masterFactories: [ChildFactory] = []
 
     public init(action: Action) {
         self.action = action
     }
 
-    public func merge(_ factories: [AnyFactory]) -> [AnyFactory] {
-        var rest: [AnyFactory] = []
+    public func merge(_ factories: [ChildFactory]) -> [ChildFactory] {
+        var rest: [ChildFactory] = []
         factories.forEach { factory in
             if let _ = factory.action as? SplitViewControllerMasterAction {
                 masterFactories.append(factory)

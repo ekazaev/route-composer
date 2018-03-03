@@ -6,7 +6,7 @@ import Foundation
 import UIKit
 
 /// Non typesafe boxing wrapper for Finder protocol
-public protocol AnyFinder {
+protocol AnyFinder {
 
     func findViewController(with context: Any?) -> UIViewController?
 

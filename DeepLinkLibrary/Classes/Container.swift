@@ -25,6 +25,27 @@ public protocol Container {
     /// Example: UINavigationController as a container expects push action of any kind.
     /// If a factory from factories array contains one with a present modally action, it will be returned
     /// back as an unsuppported one.
-    func merge(_ factories: [AnyFactory]) -> [AnyFactory]
+    func merge(_ factories: [ChildFactory]) -> [ChildFactory]
+
+}
+
+/// - Container Factory extension that helps to build properly child UIViewControllers from factories provided.
+public extension Container where Self: Factory {
+
+    /// This function contains default implementation how Container should create it's children view controller
+    /// before built them in to itself.
+    ///
+    /// - Parameters:
+    ///   - factories: Array of Factories
+    ///   - context: Context instance if any
+    /// - Returns: Array of build view controllers
+    /// - Throws: RoutingError
+    func buildChildrenViewControllers(from factories: [ChildFactory], with context: Self.Context?) throws -> [UIViewController] {
+        var childrenViewControllers: [UIViewController] = []
+        for factory in factories {
+            try factory.build(with: context, in: &childrenViewControllers)
+        }
+        return  childrenViewControllers
+    }
 
 }

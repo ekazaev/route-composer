@@ -20,7 +20,7 @@ public class TabBarControllerFactory: SingleActionContainerFactory {
 
     public let action: Action
 
-    public var factories: [AnyFactory] = []
+    public var factories: [ChildFactory] = []
 
     public init(action: Action) {
         self.action = action
