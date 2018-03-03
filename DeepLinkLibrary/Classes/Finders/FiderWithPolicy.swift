@@ -27,37 +27,30 @@ public protocol FinderWithPolicy: Finder {
 public extension FinderWithPolicy {
 
     func findViewController(with context: Context?) -> ViewController? {
+
+        let comparator: (UIViewController) -> Bool = {
+            guard let vc = $0 as? ViewController else {
+                return false
+            }
+            return self.isTarget(viewController: vc, context: context)
+        }
+
         switch policy {
         case .allStackUp:
             guard let rootViewController = UIWindow.key?.rootViewController,
-                  let viewController = UIViewController.findViewController(in: rootViewController, options: .currentAndUp, using: {
-                      guard let vc = $0 as? ViewController else {
-                          return false
-                      }
-                      return isTarget(viewController: vc, context: context)
-                  }) as? ViewController else {
+                  let viewController = UIViewController.findViewController(in: rootViewController, options: .currentAndUp, using: comparator) as? ViewController else {
                 return nil
             }
             return viewController
         case .allStackDown:
             guard let rootViewController = UIWindow.key?.topmostViewController,
-                  let viewController = UIViewController.findViewController(in: rootViewController, options: .currentAndDown, using: {
-                      guard let vc = $0 as? ViewController else {
-                          return false
-                      }
-                      return isTarget(viewController: vc, context: context)
-                  }) as? ViewController else {
+                  let viewController = UIViewController.findViewController(in: rootViewController, options: .currentAndDown, using: comparator) as? ViewController else {
                 return nil
             }
             return viewController
         case .currentLevel:
             guard let topMostViewController = UIWindow.key?.topmostViewController,
-                  let viewController = UIViewController.findViewController(in: topMostViewController, options: .current, using: {
-                      guard let vc = $0 as? ViewController else {
-                          return false
-                      }
-                      return isTarget(viewController: vc, context: context)
-                  }) as? ViewController else {
+                  let viewController = UIViewController.findViewController(in: topMostViewController, options: .current, using: comparator) as? ViewController else {
                 return nil
             }
             return viewController
