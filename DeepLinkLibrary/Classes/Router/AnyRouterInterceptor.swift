@@ -12,7 +12,7 @@ protocol AnyRouterInterceptor {
 
 }
 
-class RouterInterceptorBox<R: RouterInterceptor>: AnyRouterInterceptor {
+class RouterInterceptorBox<R: RouterInterceptor>: AnyRouterInterceptor, CustomStringConvertible {
 
     let routerInterceptor: R
 
@@ -27,4 +27,9 @@ class RouterInterceptorBox<R: RouterInterceptor>: AnyRouterInterceptor {
         }
         routerInterceptor.execute(with: typedContext, completion: completion)
     }
+
+    var description: String {
+        return String(describing: routerInterceptor)
+    }
+
 }

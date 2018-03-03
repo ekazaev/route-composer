@@ -6,7 +6,7 @@ import Foundation
 import UIKit
 
 /// Base router step implementation that handles all step protocols.
-public class RouterStep: ChainableStep, PerformableStep, ChainingStep {
+public class RouterStep: ChainableStep, PerformableStep, ChainingStep, CustomStringConvertible {
 
     private(set) public var previousStep: RoutingStep? = nil
 
@@ -34,6 +34,10 @@ public class RouterStep: ChainableStep, PerformableStep, ChainingStep {
 
     public func from(_ step: RoutingStep) {
         previousStep = step
+    }
+
+    public var description: String {
+        return "\(String(describing: type(of: self)))<\(String(describing: factory))>"
     }
 
 }

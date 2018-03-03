@@ -116,16 +116,12 @@ public class DefaultRouter: Router {
                         interceptors.append(interceptor)
                     }
 
-                    if let factory = factory {
-                        let factoryToSave: AnyFactory
+                    if var factory = factory {
                         // If step contains post task, them lets create a factory decorator that will handle view
                         // controller and post task chain after view controller creation.
                         if let internalStep = interceptableStep {
-                            factoryToSave = FactoryDecorator(factory: factory, contextTask: internalStep.contextTask, postTask: internalStep.postTask, postTaskRunner: postTaskRunner, logger: logger)
-                        } else {
-                            factoryToSave = factory
+                            factory = FactoryDecorator(factory: factory, contextTask: internalStep.contextTask, postTask: internalStep.postTask, postTaskRunner: postTaskRunner, logger: logger)
                         }
-
                         // If some factory can not prepare itself (e.g. does not have enough data in context) then deep link stack
                         // can not be built
                         do {
@@ -141,13 +137,8 @@ public class DefaultRouter: Router {
                         // If current factory actually creates Container then it should know how to deal with the factories that
                         // should be in this container, based on an action attached to the factory.
                         // For example navigationController factory should use factories to build navigation controller stack.
-                        if let container = factory as? AnyContainer {
-                            let rest = container.merge(factories)
-                            factories = [factoryToSave]
-                            factories.append(contentsOf: rest)
-                        } else {
-                            factories.insert(factoryToSave, at: 0)
-                        }
+                        factories = factory.scrapeChildren(from: factories)
+                        factories.insert(factory, at: 0)
                     }
                 }
                 break
@@ -203,24 +194,17 @@ public class DefaultRouter: Router {
                 makeContainersActive(toShow: previousViewController, animated: false)
             }
 
-            var factoryToLog = factory
-            if let factory = factory as? FactoryDecorator {
-                factoryToLog = factory.factory
-            }
-
             do {
                 let newViewController = try factory.build(with: context)
                 // Not to duplicate log message from wrapper
-                if factory === factoryToLog {
-                    logger?.log(.info("Factory \(String(describing: factoryToLog)) built a \(String(describing: newViewController))."))
-                }
+                logger?.log(.info("Factory \(String(describing: factory)) built a \(String(describing: newViewController))."))
                 factory.action.perform(viewController: newViewController, on: previousViewController, animated: animated) { result in
                     if case let .failure(message) = result {
                         self.logger?.log(.error(message ?? "Action \(String(describing: factory.action)) stopped routing as it was not able to build a view controller in to a stack."))
                         completion(newViewController)
                         return
                     }
-                    self.logger?.log(.info("Action \(String(describing: factoryToLog.action)) applied to a \(String(describing: previousViewController)) with \(String(describing: newViewController))."))
+                    self.logger?.log(.info("Action \(String(describing: factory.action)) applied to a \(String(describing: previousViewController)) with \(String(describing: newViewController))."))
                     guard factories.count > 0 else {
                         completion(newViewController)
                         return
@@ -231,7 +215,7 @@ public class DefaultRouter: Router {
                 logger?.log(.error(message))
                 completion(previousViewController)
             } catch {
-                logger?.log(.error("Factory \(String(describing: factoryToLog)) did not build any view controller. Underlying error: \(error)"))
+                logger?.log(.error("Factory \(String(describing: factory)) did not build any view controller. Underlying error: \(error)"))
                 completion(previousViewController)
             }
         }
@@ -264,7 +248,7 @@ public class DefaultRouter: Router {
     /// This decorator adds functionality of storing UIViewControllers created by the factory and frees custom factories
     /// implementations from dealing with it. Mostly it is important for ContainerFactories which create merged view
     /// controllers without Router's help.
-    private class FactoryDecorator: AnyFactory {
+    private class FactoryDecorator: AnyFactory, CustomStringConvertible {
 
         var action: Action {
             get {
@@ -299,7 +283,6 @@ public class DefaultRouter: Router {
 
         func build(with context: Any?) throws -> UIViewController {
             let viewController = try factory.build(with: context)
-            logger?.log(.info("Factory \(String(describing: factory)) built a \(String(describing: viewController))."))
             if let context = context, let contextTask = contextTask {
                 contextTask.apply(on: viewController, with: context)
             }
@@ -307,6 +290,14 @@ public class DefaultRouter: Router {
                 postTaskRunner?.taskSlips.append(PostTaskSlip(viewController: viewController, postTask: postTask))
             }
             return viewController
+        }
+
+        func scrapeChildren(from factories: [AnyFactory]) -> [AnyFactory] {
+            return factory.scrapeChildren(from: factories)
+        }
+
+        var description: String {
+            return String(describing: factory)
         }
 
     }

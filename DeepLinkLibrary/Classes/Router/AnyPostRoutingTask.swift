@@ -12,7 +12,7 @@ protocol AnyPostRoutingTask {
 
 }
 
-class PostRoutingTaskBox<P: PostRoutingTask>: AnyPostRoutingTask {
+class PostRoutingTaskBox<P: PostRoutingTask>: AnyPostRoutingTask, CustomStringConvertible {
 
     let postRoutingTask: P
 
@@ -27,6 +27,10 @@ class PostRoutingTaskBox<P: PostRoutingTask>: AnyPostRoutingTask {
             return
         }
         postRoutingTask.execute(on: typedViewController, with: typedContext, routingStack: routingStack)
+    }
+
+    var description: String {
+        return String(describing: postRoutingTask)
     }
 
 }

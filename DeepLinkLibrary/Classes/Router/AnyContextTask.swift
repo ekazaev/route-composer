@@ -15,7 +15,7 @@ protocol AnyContextTask {
 
 }
 
-class ContextTaskBox<CT: ContextTask>: AnyContextTask {
+class ContextTaskBox<CT: ContextTask>: AnyContextTask, CustomStringConvertible {
 
     let contextTask: CT
 
@@ -29,6 +29,10 @@ class ContextTaskBox<CT: ContextTask>: AnyContextTask {
             return
         }
         contextTask.apply(on: typedViewController, with: typedContext)
+    }
+
+    var description: String {
+        return String(describing: contextTask)
     }
 
 }

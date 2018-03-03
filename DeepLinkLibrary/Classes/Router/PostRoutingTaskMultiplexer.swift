@@ -5,7 +5,7 @@
 import Foundation
 import UIKit
 
-class PostRoutingTaskMultiplexer: AnyPostRoutingTask {
+class PostRoutingTaskMultiplexer: AnyPostRoutingTask, CustomStringConvertible {
 
     private let tasks: [AnyPostRoutingTask]
 
@@ -16,4 +16,9 @@ class PostRoutingTaskMultiplexer: AnyPostRoutingTask {
     func execute(on viewController: UIViewController, with context: Any?, routingStack: [UIViewController]) {
         self.tasks.forEach({ $0.execute(on: viewController, with: context, routingStack: routingStack) })
     }
+
+    var description: String {
+        return String(describing: tasks)
+    }
+
 }

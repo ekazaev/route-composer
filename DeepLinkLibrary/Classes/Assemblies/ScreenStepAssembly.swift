@@ -77,7 +77,7 @@ public class ScreenStepAssembly<F: Finder, FC: Factory> where F.ViewController =
     private var contentTasks: [AnyContextTask] = []
 
     private var postTasks: [AnyPostRoutingTask] = []
-    
+
     /// Constructor
     ///
     /// - Parameters:
@@ -99,7 +99,7 @@ public class ScreenStepAssembly<F: Finder, FC: Factory> where F.ViewController =
     /// Add context task instance
     ///
     /// - Parameter contentTask: ContextTask instance to be executed by a router immediately after it will find or create UIViewController.
-    public func add<CT: ContextTask>(_ contentTask: CT) -> Self where CT.ViewController == FC.ViewController,  CT.ViewController == F.ViewController, CT.Context == FC.Context, CT.Context == F.Context {
+    public func add<CT: ContextTask>(_ contentTask: CT) -> Self where CT.ViewController == FC.ViewController, CT.ViewController == F.ViewController, CT.Context == FC.Context, CT.Context == F.Context {
         self.contentTasks.append(ContextTaskBox(contentTask))
         return self
     }
@@ -145,9 +145,9 @@ public class ScreenStepAssembly<F: Finder, FC: Factory> where F.ViewController =
         return FinalRoutingStep(
                 finder: finalFinder,
                 factory: finalFactory,
-                interceptor: interceptors.count == 1 ? interceptors.first : InterceptorMultiplexer(interceptors),
-                contextTask: contentTasks.count == 1 ? contentTasks.first : ContextTaskMultiplexer(contentTasks),
-                postTask: postTasks.count == 1 ? postTasks.first : PostRoutingTaskMultiplexer(postTasks),
+                interceptor: interceptors.count > 0 ? interceptors.count == 1 ? interceptors.first : InterceptorMultiplexer(interceptors) : nil,
+                contextTask: contentTasks.count > 0 ? contentTasks.count == 1 ? contentTasks.first : ContextTaskMultiplexer(contentTasks) : nil,
+                postTask: postTasks.count > 0 ? postTasks.count == 1 ? postTasks.first : PostRoutingTaskMultiplexer(postTasks) : nil,
                 previousStep: step)
     }
 

@@ -30,7 +30,6 @@
 		35AD08E09AB40E45DFAA774873581B7F /* ChainingStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = B055F36B287187B2F45BCDF826BFE2B4 /* ChainingStep.swift */; };
 		3AC828FBAF8A585FBB83476CA8D3C139 /* StepResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74265C5B2F99C6EA9536FC9E92F9561 /* StepResult.swift */; };
 		42C91670E854DEEDAC0C740709AA7619 /* InterceptorResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF357ED0F8EA51B04730BF26BCEE585C /* InterceptorResult.swift */; };
-		432DCBEDE504967DF22D01C389B8E68C /* Finder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B0528946A41074CC0CD6A43BA5C2BC /* Finder.swift */; };
 		4627EB40B0EF8C713C7C9043D630CE35 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703E7B5FF5649E90280136A1B4332268 /* UIViewControllerExtension.swift */; };
 		4699D22FF05762143DAE2D4F5B0E8084 /* FinderFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626413E0FD8E23BC71621FB01E4FFD11 /* FinderFactory.swift */; };
 		4BDB642319CBEFDB480300DF059362E9 /* PushAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC8C32D982990BFDB5F5E6C0AE403AA /* PushAction.swift */; };
@@ -52,6 +51,7 @@
 		82C80E0AF133193E3043096DEA6D88F1 /* SwitcherStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12D12018F493D16DC9CA26A68FC2979 /* SwitcherStep.swift */; };
 		8406F74E2045DCBC00181D3A /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8406F74D2045DCBB00181D3A /* Factory.swift */; };
 		8406F7502045DCCB00181D3A /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8406F74F2045DCCA00181D3A /* Container.swift */; };
+		841C88EB204B01CB009A7FDC /* Finder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841C88EA204B01CB009A7FDC /* Finder.swift */; };
 		85BC68362FA7B09789046312E101CF16 /* SingleActionContainerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BC2A20C721E6AF204A3ECAE5326CAA /* SingleActionContainerFactory.swift */; };
 		89053A5BDE3FFE9076C7178D4581E154 /* MandatoryContextFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27CDEB2049D90680CB284F351C92DA7 /* MandatoryContextFactory.swift */; };
 		8BE5276B7D8D6315B4D1B54B22379BA2 /* RouterStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDFE09290B85F74B3093B5EE6DAE3C6 /* RouterStep.swift */; };
@@ -107,7 +107,6 @@
 		082A09492B78CB9507C2F41D2EDA25F4 /* AddTabAction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AddTabAction.swift; sourceTree = "<group>"; };
 		090D7EBBEAE4119E50C6655F0C15DCDD /* Pods-DeepLinkLibrary_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-DeepLinkLibrary_Tests-resources.sh"; sourceTree = "<group>"; };
 		0A1ADDCB2D860F98388DC0CEFE537096 /* PushAsRootAction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PushAsRootAction.swift; sourceTree = "<group>"; };
-		10B0528946A41074CC0CD6A43BA5C2BC /* Finder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Finder.swift; sourceTree = "<group>"; };
 		11C14C20DD7AEA1AC90C190FF460D2F4 /* Pods-DeepLinkLibrary_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-DeepLinkLibrary_Tests-umbrella.h"; sourceTree = "<group>"; };
 		11D9FF9317FE5F7E3D153A45619CB15A /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1594EC50E76DA1E5FA498F232242392E /* InterceptorMultiplexer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = InterceptorMultiplexer.swift; sourceTree = "<group>"; };
@@ -149,6 +148,7 @@
 		7777FDE247D34BACB0D22AF0FBCE3D93 /* FinalRoutingStep.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FinalRoutingStep.swift; path = DeepLinkLibrary/Classes/FinalRoutingStep.swift; sourceTree = "<group>"; };
 		8406F74D2045DCBB00181D3A /* Factory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Factory.swift; path = DeepLinkLibrary/Classes/Factory.swift; sourceTree = "<group>"; };
 		8406F74F2045DCCA00181D3A /* Container.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Container.swift; path = DeepLinkLibrary/Classes/Container.swift; sourceTree = "<group>"; };
+		841C88EA204B01CB009A7FDC /* Finder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Finder.swift; path = DeepLinkLibrary/Classes/Finder.swift; sourceTree = "<group>"; };
 		8E1634EE88E87AC9200324BAF9D4A88A /* ContextTaskMultiplexer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ContextTaskMultiplexer.swift; sourceTree = "<group>"; };
 		8E7B25639429E33256414D46F267330E /* AnyPostRoutingTask.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AnyPostRoutingTask.swift; sourceTree = "<group>"; };
 		8F52DCFCEA93BA275885B4A6285C7CF7 /* Pods-DeepLinkLibrary_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-DeepLinkLibrary_Tests.modulemap"; sourceTree = "<group>"; };
@@ -260,7 +260,6 @@
 			isa = PBXGroup;
 			children = (
 				49FF4E4BE7F30CE0BF5634641D8E3647 /* FiderWithPolicy.swift */,
-				10B0528946A41074CC0CD6A43BA5C2BC /* Finder.swift */,
 				6CD70197CDCED6642CE33C2553A0C3E1 /* FinderPolicy.swift */,
 				B6799A7527EF860D743EAD714B6CBD0C /* NilFinder.swift */,
 				386BCA30EF6027A3D51B22BA3F808810 /* ViewControllerClassAndContextFinder.swift */,
@@ -428,6 +427,7 @@
 			children = (
 				8406F74F2045DCCA00181D3A /* Container.swift */,
 				8406F74D2045DCBB00181D3A /* Factory.swift */,
+				841C88EA204B01CB009A7FDC /* Finder.swift */,
 				23216C70D6EAE55C3CC53B3DF6EDD3F3 /* ContainerViewController.swift */,
 				B2D2E932224C61A3226B9EC21F6A5DDC /* ContextTask.swift */,
 				7777FDE247D34BACB0D22AF0FBCE3D93 /* FinalRoutingStep.swift */,
@@ -629,6 +629,7 @@
 			files = (
 				7E0FDB46B15BD9E48108A755D53FDA98 /* Action.swift in Sources */,
 				255CD1FF9C06AE9B630EE6D5DD59ABF4 /* ActionResult.swift in Sources */,
+				841C88EB204B01CB009A7FDC /* Finder.swift in Sources */,
 				DC1A91C7309C80790DA8B24D532AE1F4 /* AddTabAction.swift in Sources */,
 				06AB0DCA83BFD29F91626CD7AD3DE72E /* AnyContainer.swift in Sources */,
 				3038EEE5C334A70C4A96C197DEDA0769 /* AnyContextTask.swift in Sources */,
@@ -648,7 +649,6 @@
 				8406F74E2045DCBC00181D3A /* Factory.swift in Sources */,
 				FDE88F7EFFF19C611683F6544DB63D3E /* FiderWithPolicy.swift in Sources */,
 				FA8CC0FB79E8A35D17A4B6A9652D0031 /* FinalRoutingStep.swift in Sources */,
-				432DCBEDE504967DF22D01C389B8E68C /* Finder.swift in Sources */,
 				4699D22FF05762143DAE2D4F5B0E8084 /* FinderFactory.swift in Sources */,
 				2E4CB8AEB1779032EB8930B1064ABF2A /* FinderPolicy.swift in Sources */,
 				12D2096FEE06A772E6F9705861F8727E /* InterceptableStep.swift in Sources */,

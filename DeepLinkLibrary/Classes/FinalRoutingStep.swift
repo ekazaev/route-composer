@@ -6,7 +6,7 @@
 import Foundation
 import UIKit
 
-class FinalRoutingStep: InterceptableStep, PerformableStep, ChainableStep {
+class FinalRoutingStep: InterceptableStep, PerformableStep, ChainableStep, CustomStringConvertible {
 
     let interceptor: AnyRouterInterceptor?
 
@@ -33,7 +33,7 @@ class FinalRoutingStep: InterceptableStep, PerformableStep, ChainableStep {
     ///   - step: Step instance contains action that has to be executed by router after it creates assembly's
     ///     UIViewController to make it integrated in to view controller stack which also represents a starting point
     ///     of routing or a dependency.
-    init<F: Finder, FC: Factory>(finder: F?, factory: FC?, interceptor: AnyRouterInterceptor? = nil, contextTask: AnyContextTask? = nil, postTask: AnyPostRoutingTask? = nil,  previousStep: RoutingStep) where F.ViewController == FC.ViewController, F.Context == FC.Context {
+    init<F: Finder, FC: Factory>(finder: F?, factory: FC?, interceptor: AnyRouterInterceptor? = nil, contextTask: AnyContextTask? = nil, postTask: AnyPostRoutingTask? = nil, previousStep: RoutingStep) where F.ViewController == FC.ViewController, F.Context == FC.Context {
         self.previousStep = previousStep
         self.postTask = postTask
         self.contextTask = contextTask
@@ -57,10 +57,22 @@ class FinalRoutingStep: InterceptableStep, PerformableStep, ChainableStep {
     }
 
     func perform(with context: Any?) -> StepResult {
-        guard let viewController = finder?.findViewController(with: context) else  {
+        guard let viewController = finder?.findViewController(with: context) else {
             return .continueRouting(factory)
         }
         return .success(viewController)
+    }
+
+    var description: String {
+        var finderDescription = "None"
+        var factoryDescription = "None"
+        if let finder = finder {
+            finderDescription = String(describing: finder)
+        }
+        if let factory = factory {
+            factoryDescription = String(describing: factory)
+        }
+        return "\(String(describing: type(of: self)))<\(finderDescription) : \(factoryDescription))>"
     }
 
 }

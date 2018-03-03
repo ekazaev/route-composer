@@ -4,7 +4,7 @@
 
 import Foundation
 
-class InterceptorMultiplexer: AnyRouterInterceptor {
+class InterceptorMultiplexer: AnyRouterInterceptor, CustomStringConvertible {
 
     private let interceptors: [AnyRouterInterceptor]
 
@@ -34,5 +34,9 @@ class InterceptorMultiplexer: AnyRouterInterceptor {
 
         runInterceptor(interceptor: interceptors.removeFirst())
     }
-    
+
+    var description: String {
+        return String(describing: interceptors)
+    }
+
 }

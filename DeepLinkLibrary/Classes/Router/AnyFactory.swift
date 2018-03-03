@@ -14,9 +14,10 @@ public protocol AnyFactory: class {
 
     func build(with context: Any?) throws -> UIViewController
 
+    func scrapeChildren(from factories: [AnyFactory]) -> [AnyFactory]
 }
 
-class FactoryBox<F:Factory>:AnyFactory {
+class FactoryBox<F:Factory>:AnyFactory, CustomStringConvertible {
 
     let factory: F
 
@@ -40,11 +41,27 @@ class FactoryBox<F:Factory>:AnyFactory {
         }
         return try factory.build(with: typedContext)
     }
+
+    func scrapeChildren(from factories: [AnyFactory]) -> [AnyFactory] {
+        return factories
+    }
+
+    var description: String {
+        return String(describing: factory)
+    }
+
 }
 
 class ContainerFactoryBox<F: Factory>: FactoryBox<F>, AnyContainer {
 
     func merge(_ factories: [AnyFactory]) -> [AnyFactory] {
+        guard let container = factory as? Container else {
+            return factories
+        }
+        return container.merge(factories)
+    }
+
+    override func scrapeChildren(from factories: [AnyFactory]) -> [AnyFactory] {
         guard let container = factory as? Container else {
             return factories
         }

@@ -12,7 +12,7 @@ public protocol AnyFinder {
 
 }
 
-class FinderBox<F: Finder>: AnyFinder {
+class FinderBox<F: Finder>: AnyFinder, CustomStringConvertible {
 
     let finder: F
 
@@ -22,10 +22,14 @@ class FinderBox<F: Finder>: AnyFinder {
 
     func findViewController(with context: Any?) -> UIViewController? {
         guard let typedContext = context as? F.Context? else {
-            print("\(String(describing:finder)) does not accept \(String(describing: context)) as a context.")
+            print("\(String(describing: finder)) does not accept \(String(describing: context)) as a context.")
             return nil
         }
         return finder.findViewController(with: typedContext)
+    }
+
+    var description: String {
+        return String(describing: finder)
     }
 
 }
