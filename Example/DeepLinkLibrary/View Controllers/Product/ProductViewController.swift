@@ -9,10 +9,6 @@ import DeepLinkLibrary
 
 class ProductContentTask: ContextTask {
 
-    typealias ViewController = ProductViewController
-
-    typealias Context = ProductContext
-
     func apply(on viewController: ProductViewController, with context: ProductContext) {
         viewController.productId = context.productId
     }
@@ -73,7 +69,7 @@ class ProductViewController: UIViewController, ExampleAnalyticsSupport {
 
 }
 
-extension ProductViewController: ClassAndContextFinderSupport {
+extension ProductViewController: ContextFinderSupport {
 
     func isSuitableFor(context: ProductContext) -> Bool {
         guard let productId = productId else {

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>ViewControllerClassAndContextFinder Class Reference</title>
+    <title>ViewControllerClassWithContextFinder Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Class/ViewControllerClassAndContextFinder" class="dashAnchor"></a>
-    <a title="ViewControllerClassAndContextFinder Class Reference"></a>
+    <a name="//apple_ref/swift/Class/ViewControllerClassWithContextFinder" class="dashAnchor"></a>
+    <a title="ViewControllerClassWithContextFinder Class Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">DeepLinkLibrary Docs</a> (83% documented)</p>
@@ -21,7 +21,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">DeepLinkLibrary Reference</a>
         <img id="carat" src="../img/carat.png" />
-        ViewControllerClassAndContextFinder Class Reference
+        ViewControllerClassWithContextFinder Class Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -109,10 +109,10 @@
                 <a href="../Classes.html#/s:15DeepLinkLibrary25TopMostViewControllerStepC">TopMostViewControllerStep</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/ViewControllerClassAndContextFinder.html">ViewControllerClassAndContextFinder</a>
+                <a href="../Classes/ViewControllerClassFinder.html">ViewControllerClassFinder</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/ViewControllerClassFinder.html">ViewControllerClassFinder</a>
+                <a href="../Classes/ViewControllerClassWithContextFinder.html">ViewControllerClassWithContextFinder</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/ViewControllerFromClassFactory.html">ViewControllerFromClassFactory</a>
@@ -235,15 +235,17 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>ViewControllerClassAndContextFinder</h1>
+            <h1>ViewControllerClassWithContextFinder</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">ViewControllerClassAndContextFinder</span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">:</span> <span class="kt">ClassAndContextFinderSupport</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span><span class="p">:</span> <span class="kt"><a href="../Protocols/FinderWithPolicy.html">FinderWithPolicy</a></span> <span class="k">where</span> <span class="kt">VC</span><span class="o">.</span><span class="kt">Context</span> <span class="o">==</span> <span class="kt">C</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">ViewControllerClassWithContextFinder</span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">:</span> <span class="kt">ContextFinderSupport</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span><span class="p">:</span> <span class="kt"><a href="../Protocols/FinderWithPolicy.html">FinderWithPolicy</a></span> <span class="k">where</span> <span class="kt">VC</span><span class="o">.</span><span class="kt">Context</span> <span class="o">==</span> <span class="kt">C</span></code></pre>
 
                 </div>
               </div>
-            <p>Default implementation of the unique view controller finder, where view controller can be found by name and it context object.
-Your view controller should extend ViewControllerClassAndContextFinderSupport to use this finder.</p>
+            <p>Default implementation of the unique view controller finder, where view controller can be found by name
+and it context object.</p>
+
+<p>Your view controller should extend ContextFinderSupport to use this finder.</p>
 
           </section>
           <section class="section task-group-section">

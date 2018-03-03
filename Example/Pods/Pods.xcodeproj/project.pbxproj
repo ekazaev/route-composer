@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		06AB0DCA83BFD29F91626CD7AD3DE72E /* AnyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A937F617B2B02C27735AB4977331F00E /* AnyContainer.swift */; };
 		0A75C67643FE5FDD2E254D94FB63C4E7 /* RootViewControllerStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997AEE968502722E956BBAD86499BA5D /* RootViewControllerStep.swift */; };
 		0B74F1892BAD18C5BC2992E384FF1CE0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D88AAE1F92055A60CC2FC970D7D34634 /* Foundation.framework */; };
 		1200F0D6DCEAD6BB34C4498639C1D865 /* PushAsRootAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1ADDCB2D860F98388DC0CEFE537096 /* PushAsRootAction.swift */; };
@@ -39,7 +38,7 @@
 		5B663E5C1840E4C7B40FFC685BB78E89 /* Pods-DeepLinkLibrary_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CDD22B66940803BE69EBE374EBFEF99 /* Pods-DeepLinkLibrary_Example-dummy.m */; };
 		5D5471F9D89AC5B95E19A499109F8EEA /* DeepLinkLibrary-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6AC0566FA966ED6F733B519F06AF651A /* DeepLinkLibrary-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		620AE1230E72D990E2091BBE75BD9720 /* NavigationControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D219C161B41A710CE570B08787A6B017 /* NavigationControllerExtension.swift */; };
-		623090CEB31A2E3D5C9B5402561F39BD /* ViewControllerClassAndContextFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386BCA30EF6027A3D51B22BA3F808810 /* ViewControllerClassAndContextFinder.swift */; };
+		623090CEB31A2E3D5C9B5402561F39BD /* ViewControllerClassWithContextFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386BCA30EF6027A3D51B22BA3F808810 /* ViewControllerClassWithContextFinder.swift */; };
 		66FB6E8818F03D8CDBE96434B758B17B /* DefaultLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB97FC3B92E1649CC002C9669F7AB4B /* DefaultLogger.swift */; };
 		71BC39FD43FEAACA6A06ECB27C9D29D8 /* RouterInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83AEC0E75D0181E9B5764FD1180C819 /* RouterInterceptor.swift */; };
 		74E8693D5615CB48E77C163873414251 /* ScreenStepAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD00E2927FC8EF2B799F30C5484F5979 /* ScreenStepAssembly.swift */; };
@@ -121,7 +120,7 @@
 		2DD2B33E0198955265103341D0F8A170 /* Pods-DeepLinkLibrary_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-DeepLinkLibrary_Example.modulemap"; sourceTree = "<group>"; };
 		303ADC609D8E6ED8F19D5BCE8D253951 /* RoutingStep.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RoutingStep.swift; sourceTree = "<group>"; };
 		369545A5AF9B0F3EF6703E5688EC7BA7 /* NavigationControllerFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NavigationControllerFactory.swift; sourceTree = "<group>"; };
-		386BCA30EF6027A3D51B22BA3F808810 /* ViewControllerClassAndContextFinder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ViewControllerClassAndContextFinder.swift; sourceTree = "<group>"; };
+		386BCA30EF6027A3D51B22BA3F808810 /* ViewControllerClassWithContextFinder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ViewControllerClassWithContextFinder.swift; sourceTree = "<group>"; };
 		3A6531BFFE0DE1BA5EC5295156AB2444 /* AnyRouterInterceptor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AnyRouterInterceptor.swift; sourceTree = "<group>"; };
 		3ED5D640B8D65E95268541F0F212CDA5 /* Pods-DeepLinkLibrary_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-DeepLinkLibrary_Tests-frameworks.sh"; sourceTree = "<group>"; };
 		42C3CEE555EDD8C62E1BD53F4931A764 /* Pods-DeepLinkLibrary_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-DeepLinkLibrary_Example-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -161,7 +160,6 @@
 		9D05FC597821A7DEC1EEA6EA4A06F2E1 /* Pods-DeepLinkLibrary_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-DeepLinkLibrary_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		A368617AA3CB62C1805A6898AE3960EA /* ViewControllerFromXibFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ViewControllerFromXibFactory.swift; sourceTree = "<group>"; };
 		A89A8489EEE4908B7E1D5053834BB327 /* TopMostViewControllerStep.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TopMostViewControllerStep.swift; sourceTree = "<group>"; };
-		A937F617B2B02C27735AB4977331F00E /* AnyContainer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AnyContainer.swift; sourceTree = "<group>"; };
 		ADF76CB003A653A72F4CD57F77CB6978 /* Pods_DeepLinkLibrary_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DeepLinkLibrary_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEBD842D7770D9924640AF2E1DA68F76 /* PostRoutingTaskMultiplexer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PostRoutingTaskMultiplexer.swift; sourceTree = "<group>"; };
 		AF067CCC9AAC272051DC9CC587CCBA79 /* UIWindowExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UIWindowExtension.swift; sourceTree = "<group>"; };
@@ -262,7 +260,7 @@
 				49FF4E4BE7F30CE0BF5634641D8E3647 /* FiderWithPolicy.swift */,
 				6CD70197CDCED6642CE33C2553A0C3E1 /* FinderPolicy.swift */,
 				B6799A7527EF860D743EAD714B6CBD0C /* NilFinder.swift */,
-				386BCA30EF6027A3D51B22BA3F808810 /* ViewControllerClassAndContextFinder.swift */,
+				386BCA30EF6027A3D51B22BA3F808810 /* ViewControllerClassWithContextFinder.swift */,
 				DDF28989EF3FB99A77F43C6A44DC68F3 /* ViewControllerClassFinder.swift */,
 			);
 			name = Finders;
@@ -457,7 +455,6 @@
 		E64C29F7BF2BE4678332CBA72D82214F /* Router */ = {
 			isa = PBXGroup;
 			children = (
-				A937F617B2B02C27735AB4977331F00E /* AnyContainer.swift */,
 				5370DCA92C65F0B8D79E5E9390080B3F /* AnyContextTask.swift */,
 				6DE85B926D775C998BE26C846E98F968 /* AnyFactory.swift */,
 				B64BF3F482214E8D1C2663EE2D3639A6 /* AnyFinder.swift */,
@@ -631,7 +628,6 @@
 				255CD1FF9C06AE9B630EE6D5DD59ABF4 /* ActionResult.swift in Sources */,
 				841C88EB204B01CB009A7FDC /* Finder.swift in Sources */,
 				DC1A91C7309C80790DA8B24D532AE1F4 /* AddTabAction.swift in Sources */,
-				06AB0DCA83BFD29F91626CD7AD3DE72E /* AnyContainer.swift in Sources */,
 				3038EEE5C334A70C4A96C197DEDA0769 /* AnyContextTask.swift in Sources */,
 				F7E6DAD5A2D641D95B021663E7E33342 /* AnyFactory.swift in Sources */,
 				4C51CBD28DF3F5ED0C9D895D7A34DF17 /* AnyFinder.swift in Sources */,
@@ -694,7 +690,7 @@
 				AB37DE325E2A51D414950A64E8D6945F /* TopMostViewControllerStep.swift in Sources */,
 				4627EB40B0EF8C713C7C9043D630CE35 /* UIViewControllerExtension.swift in Sources */,
 				DB9D71CA9860ACF82BAD6990F34555AB /* UIWindowExtension.swift in Sources */,
-				623090CEB31A2E3D5C9B5402561F39BD /* ViewControllerClassAndContextFinder.swift in Sources */,
+				623090CEB31A2E3D5C9B5402561F39BD /* ViewControllerClassWithContextFinder.swift in Sources */,
 				57D3976C7C49B3EF0BACA69D83F48AC6 /* ViewControllerClassFinder.swift in Sources */,
 				9708364275949BD6C95CFB289EDFBC9A /* ViewControllerFromClassFactory.swift in Sources */,
 				A1A5B573AA055392204F8ED2CDDD7113 /* ViewControllerFromStoryboardFactory.swift in Sources */,

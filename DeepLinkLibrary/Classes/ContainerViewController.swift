@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-/// All container view controllers should exten this protocol so if router would ask them to make visible
+/// All container view controllers should extend this protocol so if router would ask them to make visible
 /// one of the view controllers that they contain as each container can have custom implementations of this
 /// functionality.
 @objc public protocol ContainerViewController: RouterRulesSupport { // @objc is mandatory otherwise crashes in runtime everywhere where Self: UIViewController

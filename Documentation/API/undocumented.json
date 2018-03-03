@@ -162,24 +162,24 @@
       "warning": "undocumented"
     },
     {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Finders/ViewControllerClassAndContextFinder.swift",
-      "line": 18,
-      "symbol": "ViewControllerClassAndContextFinder.init(policy:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Finders/ViewControllerClassAndContextFinder.swift",
-      "line": 31,
-      "symbol": "ClassAndContextFinderSupport",
-      "symbol_kind": "source.lang.swift.decl.protocol",
-      "warning": "undocumented"
-    },
-    {
       "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Finders/ViewControllerClassFinder.swift",
       "line": 19,
       "symbol": "ViewControllerClassFinder.init(policy:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Finders/ViewControllerClassWithContextFinder.swift",
+      "line": 20,
+      "symbol": "ViewControllerClassWithContextFinder.init(policy:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Finders/ViewControllerClassWithContextFinder.swift",
+      "line": 33,
+      "symbol": "ContextFinderSupport",
+      "symbol_kind": "source.lang.swift.decl.protocol",
       "warning": "undocumented"
     },
     {

@@ -13,20 +13,20 @@ public protocol SingleActionContainerFactory: Factory, Container {
     associatedtype SupportedAction
 
     /// Factories that will build children view controllers when it will be needed.
-    var factories: [ChildFactory] { get set }
+    var factories: [ChildFactory<Context>] { get set }
 
 }
 
 public extension SingleActionContainerFactory {
 
-    public func merge(_ factories: [ChildFactory]) -> [ChildFactory] {
-        var otherFactories: [ChildFactory] = []
-        self.factories = factories.filter { factory in
+    public func merge<C>(_ factories: [ChildFactory<C>]) -> [ChildFactory<C>] {
+        var otherFactories: [ChildFactory<C>] = []
+        self.factories = factories.flatMap { factory -> ChildFactory<Context>? in
             guard let _ = factory.action as? SupportedAction else {
                 otherFactories.append(factory)
-                return false
+                return nil
             }
-            return true
+            return factory as? ChildFactory<Context>
         }
 
         return otherFactories

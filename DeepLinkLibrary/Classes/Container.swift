@@ -24,8 +24,8 @@ public protocol Container {
     ///
     /// Example: UINavigationController as a container expects push action of any kind.
     /// If a factory from factories array contains one with a present modally action, it will be returned
-    /// back as an unsuppported one.
-    func merge(_ factories: [ChildFactory]) -> [ChildFactory]
+    /// back as an unsupported one.
+    func merge<C>(_ factories: [ChildFactory<C>]) -> [ChildFactory<C>]
 
 }
 
@@ -36,11 +36,11 @@ public extension Container where Self: Factory {
     /// before built them in to itself.
     ///
     /// - Parameters:
-    ///   - factories: Array of Factories
+    ///   - factories: Array of child factories
     ///   - context: Context instance if any
     /// - Returns: Array of build view controllers
     /// - Throws: RoutingError
-    func buildChildrenViewControllers(from factories: [ChildFactory], with context: Self.Context?) throws -> [UIViewController] {
+    func buildChildrenViewControllers(from factories: [ChildFactory<Self.Context>], with context: Self.Context?) throws -> [UIViewController] {
         var childrenViewControllers: [UIViewController] = []
         for factory in factories {
             try factory.build(with: context, in: &childrenViewControllers)

@@ -109,10 +109,10 @@
                 <a href="../Classes.html#/s:15DeepLinkLibrary25TopMostViewControllerStepC">TopMostViewControllerStep</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/ViewControllerClassAndContextFinder.html">ViewControllerClassAndContextFinder</a>
+                <a href="../Classes/ViewControllerClassFinder.html">ViewControllerClassFinder</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/ViewControllerClassFinder.html">ViewControllerClassFinder</a>
+                <a href="../Classes/ViewControllerClassWithContextFinder.html">ViewControllerClassWithContextFinder</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/ViewControllerFromClassFactory.html">ViewControllerFromClassFactory</a>
@@ -238,11 +238,12 @@
             <h1>ChildFactory</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">ChildFactory</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">ChildFactory</span><span class="o">&lt;</span><span class="kt">Context</span><span class="o">&gt;</span></code></pre>
 
                 </div>
               </div>
-            <p>Instance that extends ChildFactory builds UIViewController that will be later integrated in to stack by contaner factory.</p>
+            <p>Instance that extends ChildFactory builds UIViewController that will be later integrated in to stack by
+container factory.</p>
 
           </section>
           <section class="section task-group-section">
@@ -278,9 +279,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:15DeepLinkLibrary12ChildFactoryC5buildyypSg4with_SaySo16UIViewControllerCGz2intKF"></a>
+                    <a name="/s:15DeepLinkLibrary12ChildFactoryC5buildyxSg4with_SaySo16UIViewControllerCGz2intKF"></a>
                     <a name="//apple_ref/swift/Method/build(with:in:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:15DeepLinkLibrary12ChildFactoryC5buildyypSg4with_SaySo16UIViewControllerCGz2intKF">build(with:in:)</a>
+                    <a class="token" href="#/s:15DeepLinkLibrary12ChildFactoryC5buildyxSg4with_SaySo16UIViewControllerCGz2intKF">build(with:in:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -295,7 +296,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">build</span><span class="p">(</span><span class="n">with</span> <span class="nv">context</span><span class="p">:</span> <span class="kt">Any</span><span class="p">?,</span> <span class="k">in</span> <span class="nv">containerViewControllers</span><span class="p">:</span> <span class="k">inout</span> <span class="p">[</span><span class="kt">UIViewController</span><span class="p">])</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">build</span><span class="p">(</span><span class="n">with</span> <span class="nv">context</span><span class="p">:</span> <span class="kt">Context</span><span class="p">?,</span> <span class="k">in</span> <span class="nv">containerViewControllers</span><span class="p">:</span> <span class="k">inout</span> <span class="p">[</span><span class="kt">UIViewController</span><span class="p">])</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>

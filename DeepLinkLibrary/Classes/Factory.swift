@@ -25,7 +25,7 @@ public protocol Factory: class {
     /// and the result of routing will be .unhandled without any changes in view controller stack.
     ///
     /// - Parameter context: Context instance if it was provided to the Router.
-    /// - Throws: RoutingException if factry can not prepare itself to build a view controller with context provided.
+    /// - Throws: RoutingException if factory can not prepare itself to build a view controller with context provided.
     func prepare(with context: Context?) throws
 
     /// Builds a UIViewController that will be built in to the stack

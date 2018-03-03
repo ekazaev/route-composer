@@ -24,7 +24,7 @@ public class FinderFactory<F: Finder>: Factory {
     ///
     /// - Parameters:
     ///   - finder: Finder instance to be used by factory
-    ///   - action: Action instance. In most cases has no sence, so defaulted to NilAction
+    ///   - action: Action instance. In most cases has no sense, so defaulted to NilAction
     public init(finder: F, action: Action = NilAction()) {
         self.finder = finder
         self.action = action

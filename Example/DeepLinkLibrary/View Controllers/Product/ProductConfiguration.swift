@@ -24,7 +24,7 @@ class ProductConfiguration {
 
     static func productDestination(productId: String, _ analyticParameters: ExampleAnalyticsParameters? = nil) -> ExampleDestination {
         let productScreen = ScreenStepAssembly(
-                finder: ViewControllerClassAndContextFinder<ProductViewController, ProductContext>(),
+                finder: ViewControllerClassWithContextFinder<ProductViewController, ProductContext>(),
                 factory: ViewControllerFromStoryboard(storyboardName: "Main", viewControllerID: "ProductViewController", action: PushAction()))
                 .add(ProductContentTask())
                 .add(ExampleAnalyticsInterceptor())

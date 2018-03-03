@@ -5,9 +5,11 @@
 import Foundation
 import UIKit
 
-/// Default implementation of the unique view controller finder, where view controller can be found by name and it context object.
-/// Your view controller should extend ViewControllerClassAndContextFinderSupport to use this finder.
-public class ViewControllerClassAndContextFinder<VC: ClassAndContextFinderSupport, C>: FinderWithPolicy where VC.Context == C {
+/// Default implementation of the unique view controller finder, where view controller can be found by name
+/// and it context object.
+///
+/// Your view controller should extend ContextFinderSupport to use this finder.
+public class ViewControllerClassWithContextFinder<VC: ContextFinderSupport, C>: FinderWithPolicy where VC.Context == C {
 
     public typealias ViewController = VC
 
@@ -28,7 +30,7 @@ public class ViewControllerClassAndContextFinder<VC: ClassAndContextFinderSuppor
 
 }
 
-public protocol ClassAndContextFinderSupport where Self: UIViewController {
+public protocol ContextFinderSupport where Self: UIViewController {
 
     associatedtype Context
 

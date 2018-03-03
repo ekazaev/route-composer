@@ -66,14 +66,14 @@ class FactoryBox<F: Factory>: AnyFactory, CustomStringConvertible {
 
 }
 
-class ContainerFactoryBox<F: Factory>: FactoryBox<F>, AnyContainer {
+class ContainerFactoryBox<F: Factory>: FactoryBox<F> {
 
     override func scrapeChildren(from factories: [AnyFactory]) -> [AnyFactory] {
         guard let container = factory as? Container else {
             return factories
         }
 
-        let children = factories.map({ f -> ChildFactory in ChildFactory(f) })
+        let children = factories.map({ f -> ChildFactory<F.Context> in ChildFactory<F.Context>(f) })
         let restChildren = container.merge(children)
         let restFactories = restChildren.map({ c -> AnyFactory in c.wrapAsAnyFactory() })
 

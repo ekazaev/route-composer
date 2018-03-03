@@ -15,7 +15,7 @@ class CustomContainerFactory: SingleActionContainerFactory {
 
     typealias Context = Any
 
-    var factories: [ChildFactory] = []
+    var factories: [ChildFactory<Context>] = []
 
     let action: Action
 

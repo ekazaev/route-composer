@@ -8,8 +8,9 @@
 import Foundation
 import UIKit
 
-/// Instance that extends ChildFactory builds UIViewController that will be later integrated in to stack by contaner factory.
-public final class ChildFactory  {
+/// Instance that extends ChildFactory builds UIViewController that will be later integrated in to stack by
+/// container factory.
+public final class ChildFactory<Context>  {
 
     let factory: AnyFactory
 
@@ -26,7 +27,7 @@ public final class ChildFactory  {
     /// - Parameter context: An instance of context provided by router.
     /// - Parameter containerViewControllers: Array of UIViewController instances to be later
     ///   integrated in to container's stack.
-    public func build(with context: Any?, in containerViewControllers: inout [UIViewController]) throws {
+    public func build(with context: Context?, in containerViewControllers: inout [UIViewController]) throws {
         let viewController = try factory.build(with: context)
         factory.action.performMerged(viewController: viewController, containerViewControllers: &containerViewControllers)
     }

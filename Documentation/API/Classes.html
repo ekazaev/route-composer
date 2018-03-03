@@ -108,10 +108,10 @@
                 <a href="Classes.html#/s:15DeepLinkLibrary25TopMostViewControllerStepC">TopMostViewControllerStep</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/ViewControllerClassAndContextFinder.html">ViewControllerClassAndContextFinder</a>
+                <a href="Classes/ViewControllerClassFinder.html">ViewControllerClassFinder</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/ViewControllerClassFinder.html">ViewControllerClassFinder</a>
+                <a href="Classes/ViewControllerClassWithContextFinder.html">ViewControllerClassWithContextFinder</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/ViewControllerFromClassFactory.html">ViewControllerFromClassFactory</a>
@@ -286,7 +286,8 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Instance that extends ChildFactory builds UIViewController that will be later integrated in to stack by contaner factory.</p>
+                        <p>Instance that extends ChildFactory builds UIViewController that will be later integrated in to stack by
+container factory.</p>
 
                         <a href="Classes/ChildFactory.html" class="slightly-smaller">See more</a>
                       </div>
@@ -294,7 +295,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">ChildFactory</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">ChildFactory</span><span class="o">&lt;</span><span class="kt">Context</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -479,8 +480,8 @@ factories like UIViewControllers that were build as a result of storyboard loadi
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Dummy action class mostly for internal use, but can be useful outside of the library in combination with Factories which view contollers,
-do not have to be integrated in to a view controller&rsquo;s stack.</p>
+                        <p>Dummy action class mostly for internal use, but can be useful outside of the library in combination with Factories
+which view controllers, do not have to be integrated in to a view controller&rsquo;s stack.</p>
 
                         <a href="Classes/NilAction.html" class="slightly-smaller">See more</a>
                       </div>
@@ -992,39 +993,6 @@ be taken.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:15DeepLinkLibrary35ViewControllerClassAndContextFinderC"></a>
-                    <a name="//apple_ref/swift/Class/ViewControllerClassAndContextFinder" class="dashAnchor"></a>
-                    <a class="token" href="#/s:15DeepLinkLibrary35ViewControllerClassAndContextFinderC">ViewControllerClassAndContextFinder</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Default implementation of the unique view controller finder, where view controller can be found by name and it context object.
-Your view controller should extend ViewControllerClassAndContextFinderSupport to use this finder.</p>
-
-                        <a href="Classes/ViewControllerClassAndContextFinder.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">ViewControllerClassAndContextFinder</span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">:</span> <span class="kt">ClassAndContextFinderSupport</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span><span class="p">:</span> <span class="kt"><a href="Protocols/FinderWithPolicy.html">FinderWithPolicy</a></span> <span class="k">where</span> <span class="kt">VC</span><span class="o">.</span><span class="kt">Context</span> <span class="o">==</span> <span class="kt">C</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
                     <a name="/s:15DeepLinkLibrary25ViewControllerClassFinderC"></a>
                     <a name="//apple_ref/swift/Class/ViewControllerClassFinder" class="dashAnchor"></a>
                     <a class="token" href="#/s:15DeepLinkLibrary25ViewControllerClassFinderC">ViewControllerClassFinder</a>
@@ -1045,6 +1013,41 @@ Your view controller should extend ViewControllerClassAndContextFinderSupport to
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">ViewControllerClassFinder</span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">:</span><span class="kt">UIViewController</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span><span class="p">:</span> <span class="kt"><a href="Protocols/FinderWithPolicy.html">FinderWithPolicy</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15DeepLinkLibrary36ViewControllerClassWithContextFinderC"></a>
+                    <a name="//apple_ref/swift/Class/ViewControllerClassWithContextFinder" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15DeepLinkLibrary36ViewControllerClassWithContextFinderC">ViewControllerClassWithContextFinder</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Default implementation of the unique view controller finder, where view controller can be found by name
+and it context object.</p>
+
+<p>Your view controller should extend ContextFinderSupport to use this finder.</p>
+
+                        <a href="Classes/ViewControllerClassWithContextFinder.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">ViewControllerClassWithContextFinder</span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">:</span> <span class="kt">ContextFinderSupport</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span><span class="p">:</span> <span class="kt"><a href="Protocols/FinderWithPolicy.html">FinderWithPolicy</a></span> <span class="k">where</span> <span class="kt">VC</span><span class="o">.</span><span class="kt">Context</span> <span class="o">==</span> <span class="kt">C</span></code></pre>
 
                         </div>
                       </div>
