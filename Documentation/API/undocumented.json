@@ -272,6 +272,20 @@
       "symbol": "TopMostViewControllerStep.init()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Tasks/MandatoryContextTask.swift",
+      "line": null,
+      "symbol": "MandatoryContextTask",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Tasks/MandatoryContextTask.swift",
+      "line": 8,
+      "symbol": "MandatoryContextTask",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
     }
   ],
   "source_directory": "/Users/ekazaev/Workplace/DeepLinkLibrary"

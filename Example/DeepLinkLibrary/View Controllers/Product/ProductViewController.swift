@@ -7,9 +7,19 @@ import Foundation
 import UIKit
 import DeepLinkLibrary
 
-class ProductContentTask: ContextTask {
+class ProductContentTask: MandatoryContextTask {
 
-    func apply(on viewController: ProductViewController, with context: ProductContext) {
+    typealias ViewController = ProductViewController
+
+    typealias Context = ProductContext
+
+    func prepare(with context: Context?) throws {
+        if context?.productId == nil {
+            throw RoutingError.message("Product ID must be set.")
+        }
+    }
+
+    func apply(on viewController: ViewController, with context: Context) {
         viewController.productId = context.productId
     }
 

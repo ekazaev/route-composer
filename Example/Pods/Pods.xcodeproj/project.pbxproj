@@ -51,6 +51,7 @@
 		8406F7502045DCCB00181D3A /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8406F74F2045DCCA00181D3A /* Container.swift */; };
 		841C88EB204B01CB009A7FDC /* Finder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841C88EA204B01CB009A7FDC /* Finder.swift */; };
 		841C88ED204B0592009A7FDC /* ChildFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841C88EC204B0592009A7FDC /* ChildFactory.swift */; };
+		841C88F0204C861C009A7FDC /* MandatoryContextTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841C88EF204C861C009A7FDC /* MandatoryContextTask.swift */; };
 		85BC68362FA7B09789046312E101CF16 /* SingleActionContainerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BC2A20C721E6AF204A3ECAE5326CAA /* SingleActionContainerFactory.swift */; };
 		89053A5BDE3FFE9076C7178D4581E154 /* MandatoryContextFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27CDEB2049D90680CB284F351C92DA7 /* MandatoryContextFactory.swift */; };
 		8BE5276B7D8D6315B4D1B54B22379BA2 /* RouterStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDFE09290B85F74B3093B5EE6DAE3C6 /* RouterStep.swift */; };
@@ -148,6 +149,7 @@
 		8406F74F2045DCCA00181D3A /* Container.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Container.swift; path = DeepLinkLibrary/Classes/Container.swift; sourceTree = "<group>"; };
 		841C88EA204B01CB009A7FDC /* Finder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Finder.swift; path = DeepLinkLibrary/Classes/Finder.swift; sourceTree = "<group>"; };
 		841C88EC204B0592009A7FDC /* ChildFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChildFactory.swift; path = DeepLinkLibrary/Classes/ChildFactory.swift; sourceTree = "<group>"; };
+		841C88EF204C861C009A7FDC /* MandatoryContextTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MandatoryContextTask.swift; sourceTree = "<group>"; };
 		8E1634EE88E87AC9200324BAF9D4A88A /* ContextTaskMultiplexer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ContextTaskMultiplexer.swift; sourceTree = "<group>"; };
 		8E7B25639429E33256414D46F267330E /* AnyPostRoutingTask.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AnyPostRoutingTask.swift; sourceTree = "<group>"; };
 		8F52DCFCEA93BA275885B4A6285C7CF7 /* Pods-DeepLinkLibrary_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-DeepLinkLibrary_Tests.modulemap"; sourceTree = "<group>"; };
@@ -337,6 +339,15 @@
 			path = DeepLinkLibrary/Classes/Interceptors;
 			sourceTree = "<group>";
 		};
+		841C88EE204C861C009A7FDC /* Tasks */ = {
+			isa = PBXGroup;
+			children = (
+				841C88EF204C861C009A7FDC /* MandatoryContextTask.swift */,
+			);
+			name = Tasks;
+			path = DeepLinkLibrary/Classes/Tasks;
+			sourceTree = "<group>";
+		};
 		84C3ADDCFFA0F8B733166E2D9EEED7C6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -446,6 +457,7 @@
 				E64C29F7BF2BE4678332CBA72D82214F /* Router */,
 				CADD839368FCF9EABCBF365871D689C3 /* Steps */,
 				ED218CA14B47E5AE45EC9FC829FF1C1C /* Support Files */,
+				841C88EE204C861C009A7FDC /* Tasks */,
 				841C88EC204B0592009A7FDC /* ChildFactory.swift */,
 			);
 			name = DeepLinkLibrary;
@@ -647,6 +659,7 @@
 				4699D22FF05762143DAE2D4F5B0E8084 /* FinderFactory.swift in Sources */,
 				2E4CB8AEB1779032EB8930B1064ABF2A /* FinderPolicy.swift in Sources */,
 				12D2096FEE06A772E6F9705861F8727E /* InterceptableStep.swift in Sources */,
+				841C88F0204C861C009A7FDC /* MandatoryContextTask.swift in Sources */,
 				9FDF1BCD5B50E3FA14BFB61F78623C6E /* InterceptorMultiplexer.swift in Sources */,
 				42C91670E854DEEDAC0C740709AA7619 /* InterceptorResult.swift in Sources */,
 				220FD6868FEE63C138AD35F0F743F43B /* Logger.swift in Sources */,

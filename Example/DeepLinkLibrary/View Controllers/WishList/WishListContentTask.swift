@@ -13,8 +13,12 @@ class WishListContentTask: ContextTask {
 
     typealias Context = WishListContext
 
-    func apply(on viewController: WishListViewController, with context: WishListContext) {
-        viewController.content = context.content
+    func apply(on viewController: WishListViewController, with context: WishListContext?) {
+        guard let content = context?.content else {
+            viewController.content = .favorites
+            return
+        }
+        viewController.content = content
     }
 
 }
