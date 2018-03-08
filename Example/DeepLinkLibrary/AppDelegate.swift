@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 // Because both factory and finder are Generic, You have to provide to at least one instance
                 // what type of view controller and context to expect. You do not need to do so if you are using at
                 // least one custom factory of finder that have set typealias for ViewController and Context.
-                finder: ViewControllerClassFinder<UITabBarController, Any>(),
+                finder: ViewControllerClassFinder<UITabBarController, Any?>(),
                 factory: ViewControllerFromStoryboard(storyboardName: "Main", action: ReplaceRootAction()))
                 .add(ExampleAnalyticsInterceptor())
                 .add(ExampleAnalyticsPostAction())
@@ -63,11 +63,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Color screen
         let colorScreen = ScreenStepAssembly(
                 finder: ColorViewControllerFinder(),
-                factory: ColorViewControllerFactory(action: PushAction()))
+                factory: ColorViewControllerFactory(action: PushToNavigationAction()))
                 .add(ExampleAnalyticsInterceptor())
                 .add(ExampleAnalyticsPostAction())
-                .from(NavigationContainerStep(action: PresentModallyAction()))
-                .from(TopMostViewControllerStep())
+                .from(NavigationControllerStep(action: PresentModallyAction()))
+                .from(CurrentViewControllerStep())
                 .assemble()
 
         ExampleConfiguration.register(screen: colorScreen, for: ExampleTarget.color)
@@ -86,8 +86,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         //Screen with Routing support
         let routingSupportScreen = ScreenStepAssembly(
-                finder: ViewControllerClassFinder<RoutingRuleSupportViewController, Any>(policy: .currentLevel),
-                factory: ViewControllerFromStoryboard(storyboardName: "Main", viewControllerID: "RoutingRuleSupportViewController", action: PushAction()))
+                finder: ViewControllerClassFinder<RoutingRuleSupportViewController, Any?>(policy: .currentLevel),
+                factory: ViewControllerFromStoryboard(storyboardName: "Main", viewControllerID: "RoutingRuleSupportViewController", action: PushToNavigationAction()))
                 .add(ExampleAnalyticsInterceptor())
                 .add(ExampleAnalyticsPostAction())
                 .from(colorScreen)
@@ -98,8 +98,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // Empty Screen
         let emptyScreen = ScreenStepAssembly(
-                finder: ViewControllerClassFinder<EmptyViewController, Any>(),
-                factory: ViewControllerFromStoryboard(storyboardName: "Main", viewControllerID: "EmptyViewController", action: PushAction()))
+                finder: ViewControllerClassFinder<EmptyViewController, Any?>(),
+                factory: ViewControllerFromStoryboard(storyboardName: "Main", viewControllerID: "EmptyViewController", action: PushToNavigationAction()))
                 .add(LoginInterceptor())
                 .add(ExampleAnalyticsInterceptor())
                 .add(ExampleAnalyticsPostAction())
@@ -110,11 +110,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // Two modal presentations in a row screen
         let superModalScreen = ScreenStepAssembly(
-                finder: ViewControllerClassFinder<SecondModalLevelViewController, Any>(),
-                factory: ViewControllerFromStoryboard(storyboardName: "Main", viewControllerID: "SecondModalLevelViewController", action: PushAction()))
+                finder: ViewControllerClassFinder<SecondModalLevelViewController, Any?>(),
+                factory: ViewControllerFromStoryboard(storyboardName: "Main", viewControllerID: "SecondModalLevelViewController", action: PushToNavigationAction()))
                 .add(ExampleAnalyticsInterceptor())
                 .add(ExampleAnalyticsPostAction())
-                .from(NavigationContainerStep(action: PresentModallyAction()))
+                .from(NavigationControllerStep(action: PresentModallyAction()))
                 .from(routingSupportScreen)
                 .assemble()
 
@@ -122,8 +122,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // Welcome Screen
         let welcomeScreen = ScreenStepAssembly(
-                finder: ViewControllerClassFinder<PromptViewController, Any>(),
-                factory: ViewControllerFromStoryboard<PromptViewController, Any>(storyboardName: "PromptScreen", action: ReplaceRootAction()))
+                finder: ViewControllerClassFinder<PromptViewController, Any?>(),
+                factory: ViewControllerFromStoryboard(storyboardName: "PromptScreen", action: ReplaceRootAction()))
                 .add(ExampleAnalyticsInterceptor())
                 .add(ExampleAnalyticsPostAction())
                 .from(RootViewControllerStep())

@@ -27,7 +27,7 @@ public final class ChildFactory<Context>  {
     /// - Parameter context: An instance of context provided by router.
     /// - Parameter containerViewControllers: Array of UIViewController instances to be later
     ///   integrated in to container's stack.
-    public func build(with context: Context?, in containerViewControllers: inout [UIViewController]) throws {
+    public func build(with context: Context, in containerViewControllers: inout [UIViewController]) throws {
         let viewController = try factory.build(with: context)
         factory.action.performMerged(viewController: viewController, containerViewControllers: &containerViewControllers)
     }

@@ -35,7 +35,7 @@ public class ViewControllerFromStoryboard<VC: UIViewController, C>: Factory {
         self.viewControllerID = viewControllerID
     }
 
-    public func build(with context: Context?) throws -> ViewController {
+    public func build(with context: Context) throws -> ViewController {
         let storyboard = UIStoryboard(name: storyboardName, bundle: bundle)
         if let viewControllerID = viewControllerID {
             guard let viewController = storyboard.instantiateViewController(withIdentifier: viewControllerID) as? VC else {

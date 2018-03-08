@@ -30,7 +30,7 @@ public class FinderFactory<F: Finder>: Factory {
         self.action = action
     }
 
-    public func build(with context: Context?) throws -> ViewController {
+    public func build(with context: Context) throws -> ViewController {
         if let viewController = finder.findViewController(with: context) {
             return viewController
         }

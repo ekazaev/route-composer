@@ -11,9 +11,9 @@ struct ImagesConfigurationWithLibrary {
 
     private static let imagesContainerStep = ScreenStepAssembly(
             finder: ViewControllerClassFinder(),
-            factory: CustomContainerFactory(delegate: ImagesWithLibraryHandler.shared, action: PushAction()))
-            .from(NavigationContainerStep(action: PresentModallyAction()))
-            .from(TopMostViewControllerStep())
+            factory: CustomContainerFactory(delegate: ImagesWithLibraryHandler.shared, action: PushToNavigationAction()))
+            .from(NavigationControllerStep(action: PresentModallyAction()))
+            .from(CurrentViewControllerStep())
             .assemble()
 
     static func images() -> ExampleDestination {

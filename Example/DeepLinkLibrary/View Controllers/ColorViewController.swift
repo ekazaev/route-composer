@@ -19,9 +19,8 @@ class ColorViewControllerFinder: FinderWithPolicy {
         self.policy = policy
     }
 
-    func isTarget(viewController: ViewController, context: Context?) -> Bool {
-        guard let context = context,
-              let destinationColorHex = context[Argument.color] as? ColorViewController.ColorDisplayModel else {
+    func isTarget(viewController: ViewController, context: Context) -> Bool {
+        guard let destinationColorHex = context[Argument.color] as? ColorViewController.ColorDisplayModel else {
             return false
         }
         viewController.colorHex = destinationColorHex
@@ -32,10 +31,6 @@ class ColorViewControllerFinder: FinderWithPolicy {
 
 class ColorViewControllerFactory: Factory {
 
-    typealias ViewController = ColorViewController
-
-    typealias Context = ExampleDictionaryContext
-
     let action: Action
 
     var model: ColorViewController.ColorDisplayModel?
@@ -44,16 +39,15 @@ class ColorViewControllerFactory: Factory {
         self.action = action
     }
 
-    func prepare(with context: Context?) throws {
-        guard let context = context,
-              let model = context[Argument.color] as? ColorViewController.ColorDisplayModel else {
+    func prepare(with context: ExampleDictionaryContext) throws {
+        guard let model = context[Argument.color] as? ColorViewController.ColorDisplayModel else {
             throw RoutingError.message("Color has not been set in context")
         }
 
         self.model = model
     }
 
-    func build(with context: Context?) throws -> ViewController {
+    func build(with context: ExampleDictionaryContext) throws -> ColorViewController {
         let colorViewController = ColorViewController(nibName: nil, bundle: nil)
         colorViewController.colorHex = model
 

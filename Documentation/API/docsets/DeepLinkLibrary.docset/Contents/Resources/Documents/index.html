@@ -13,7 +13,7 @@
     <a title="DeepLinkLibrary  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">DeepLinkLibrary Docs</a> (83% documented)</p>
+        <p><a href="index.html">DeepLinkLibrary Docs</a> (84% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -36,6 +36,9 @@
                 <a href="Classes/ChildFactory.html">ChildFactory</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes.html#/s:15DeepLinkLibrary25CurrentViewControllerStepC">CurrentViewControllerStep</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/DefaultLogger.html">DefaultLogger</a>
               </li>
               <li class="nav-group-task">
@@ -45,10 +48,10 @@
                 <a href="Classes/FinderFactory.html">FinderFactory</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/NavigationContainerStep.html">NavigationContainerStep</a>
+                <a href="Classes/NavigationControllerFactory.html">NavigationControllerFactory</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/NavigationControllerFactory.html">NavigationControllerFactory</a>
+                <a href="Classes/NavigationControllerStep.html">NavigationControllerStep</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/NilAction.html">NilAction</a>
@@ -60,16 +63,16 @@
                 <a href="Classes/NilFinder.html">NilFinder</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/PresentDetailsAction.html">PresentDetailsAction</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/PresentMasterAction.html">PresentMasterAction</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Classes/PresentModallyAction.html">PresentModallyAction</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/PushAction.html">PushAction</a>
+                <a href="Classes/PushToDetailsAction.html">PushToDetailsAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/PushToMasterAction.html">PushToMasterAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/PushToNavigationAction.html">PushToNavigationAction</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/ReplaceRootAction.html">ReplaceRootAction</a>
@@ -103,9 +106,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/TabBarControllerFactory.html">TabBarControllerFactory</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes.html#/s:15DeepLinkLibrary25TopMostViewControllerStepC">TopMostViewControllerStep</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/ViewControllerClassFinder.html">ViewControllerClassFinder</a>
@@ -201,22 +201,19 @@
                 <a href="Protocols/Logger.html">Logger</a>
               </li>
               <li class="nav-group-task">
-                <a href="Protocols/MandatoryContextFactory.html">MandatoryContextFactory</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Protocols/PostRoutingTask.html">PostRoutingTask</a>
               </li>
               <li class="nav-group-task">
                 <a href="Protocols.html#/s:15DeepLinkLibrary6RouterP">Router</a>
               </li>
               <li class="nav-group-task">
-                <a href="Protocols/RouterInterceptor.html">RouterInterceptor</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Protocols/RouterRulesSupport.html">RouterRulesSupport</a>
               </li>
               <li class="nav-group-task">
                 <a href="Protocols/RoutingDestination.html">RoutingDestination</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/RoutingInterceptor.html">RoutingInterceptor</a>
               </li>
               <li class="nav-group-task">
                 <a href="Protocols.html#/s:15DeepLinkLibrary11RoutingStepP">RoutingStep</a>
@@ -241,11 +238,34 @@
 <a href="http://cocoapods.org/pods/DeepLinkLibrary"><img src="https://img.shields.io/cocoapods/v/DeepLinkLibrary.svg?style=flat" alt="Version"></a>
 <a href="http://cocoapods.org/pods/DeepLinkLibrary"><img src="https://img.shields.io/cocoapods/l/DeepLinkLibrary.svg?style=flat" alt="License"></a>
 <a href="http://cocoapods.org/pods/DeepLinkLibrary"><img src="https://img.shields.io/cocoapods/p/DeepLinkLibrary.svg?style=flat" alt="Platform"></a></p>
-<h3 id='license' class='heading'>License</h3>
 
-<p>DeepLinkLibrary is distributed under <a href="https://github.com/saksdirect/DeepLinkLibrary/blob/master/LICENSE">the MIT license</a>.</p>
+<p>DeepLinkLibrary is library that helps to handle routing tasks in the IOs application and support deeplinking written in Swift.</p>
+<h2 id='table-of-contents' class='heading'>Table of contents</h2>
 
-<p>DeepLinkLibrary is provided for your use—free-of-charge—on an as-is basis. We make no guarantees, promises or apologies. <em>Caveat developer.</em></p>
+<ul>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#example">Example</a></li>
+<li><a href="#requirements">Requirements</a></li>
+<li><a href="#usage">Usage</a>
+
+<ul>
+<li><a href="#implementation">Implementation</a>
+
+<ul>
+<li><a href="#1-factory">Factory</a></li>
+<li><a href="#2-finder">Finder</a></li>
+<li><a href="#3-action">Action</a></li>
+<li><a href="#4-routing-interceptor">Routing Interceptor</a></li>
+<li><a href="#5-context-task">Context Task</a></li>
+<li><a href="#6-post-routing-task">Post Routing Task</a></li>
+</ul></li>
+<li><a href="#configuring-step">Configuring Step</a></li>
+<li><a href="#routing">Routing</a></li>
+</ul></li>
+<li><a href="#contributing">Contributing</a></li>
+<li><a href="#license">License</a></li>
+<li><a href="#author">Author</a></li>
+</ul>
 <h2 id='installation' class='heading'>Installation</h2>
 
 <p>DeepLinkLibrary is available through <a href="http://cocoapods.org">CocoaPods</a>. To install
@@ -267,11 +287,339 @@ it, simply add the following line to your Podfile:</p>
 
 <p>There are no actual requirements to use a library. But if you are going to implement your custom containers 
 and actions you have to be familiar with library concepts and UIKit&rsquo;s view controllers stack laws.</p>
-<h3 id='contributing' class='heading'>Contributing</h3>
+<h3 id='api-documentation' class='heading'>API documentation</h3>
+
+<p>For detailed information on using DeepLinkLibrary, see <code>Documentation/API</code> folder.</p>
+<h2 id='usage' class='heading'>Usage</h2>
+
+<p>DeepLinkingLibrary uses 3 main entities (<code><a href="Protocols/Factory.html">Factory</a></code>, <code><a href="Protocols/Finder.html">Finder</a></code>, <code><a href="Protocols/Action.html">Action</a></code>) that should be defined by a host application to support it.
+It also provides 3 helping (<code><a href="Protocols/RoutingInterceptor.html">RoutingInterceptor</a></code>, <code><a href="Protocols/ContextTask.html">ContextTask</a></code>, <code><a href="Protocols/PostRoutingTask.html">PostRoutingTask</a></code>) entities that you may implement to handle some
+default actions during routing process. Below in the description of each entity 2 main meaning will
+be used:</p>
+
+<ul>
+<li><code>ViewController</code> - Type of view controller. <em>UINavigationController, CustomViewController, etc.</em></li>
+<li><code>Context</code> - Type of context object that is passed to the router from the hosting application that router will pass to view controllers it
+is going to build.</li>
+<li><code>Destination</code> - Type of destination object that is passed to the router from the hosting application that router will pass
+to the helping entities.</li>
+</ul>
+
+<p><em>Example: if your view controllers requires productID to display it content and product id is a UUID in your app - then type of context is UUID</em></p>
+<h2 id='implementation' class='heading'>Implementation</h2>
+<h4 id='1-factory' class='heading'>1. Factory</h4>
+
+<p>Factory <strong>builds view controller</strong> router has to navigate to upon request. Every factory instance has to extend <code><a href="Protocols/Factory.html">Factory</a></code> protocol
+factory provided by a library:</p>
+<pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">Factory</span><span class="p">:</span> <span class="kd">class</span> <span class="p">{</span>
+
+    <span class="kd">associatedtype</span> <span class="kt">ViewController</span><span class="p">:</span> <span class="kt">UIViewController</span>
+
+    <span class="kd">associatedtype</span> <span class="kt">Context</span>
+
+    <span class="k">var</span> <span class="nv">action</span><span class="p">:</span> <span class="kt">Action</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span>
+
+    <span class="kd">func</span> <span class="nf">prepare</span><span class="p">(</span><span class="n">with</span> <span class="nv">context</span><span class="p">:</span> <span class="kt">Context</span><span class="p">)</span> <span class="k">throws</span>
+
+    <span class="kd">func</span> <span class="nf">build</span><span class="p">(</span><span class="n">with</span> <span class="nv">context</span><span class="p">:</span> <span class="kt">Context</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">ViewController</span>
+
+<span class="p">}</span>
+</code></pre>
+
+<p>The most important method method here is <code>build</code> which should actually create a view controller. For the detailed information
+see documentation. Method <code>prepare</code> helps router to know that routing can not be handled before it will actually start routing
+and find out that factory can not build a view controller without context. It may be handy if you are implementing Universal
+Links in your application and if routing can not be handled open provided URL in Safari instead.</p>
+
+<p><em>Example: Basic implementation of the factory for some custom *ProductViewController</em> view controller will look like:*</p>
+<pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">ProductViewControllerFactory</span><span class="p">:</span> <span class="kt">Factory</span> <span class="p">{</span>
+
+    <span class="k">let</span> <span class="nv">action</span><span class="p">:</span> <span class="kt">Action</span>
+
+    <span class="nf">init</span><span class="p">(</span><span class="nv">action</span><span class="p">:</span> <span class="kt">Action</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">action</span> <span class="o">=</span> <span class="n">action</span>
+    <span class="p">}</span>
+
+    <span class="kd">func</span> <span class="nf">build</span><span class="p">(</span><span class="n">with</span> <span class="nv">context</span><span class="p">:</span> <span class="kt">UUID</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">ProductViewController</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="nv">productViewController</span> <span class="o">=</span> <span class="kt">ProductViewController</span><span class="p">(</span><span class="nv">nibName</span><span class="p">:</span> <span class="s">"ProductViewController"</span><span class="p">,</span> <span class="nv">bundle</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
+        <span class="n">productViewController</span><span class="o">.</span><span class="n">productID</span> <span class="o">=</span> <span class="n">context</span> <span class="c1">// Parameter initialisation can be handled by a ContextAction, see below:</span>
+
+        <span class="k">return</span> <span class="n">productViewController</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre>
+<h4 id='2-finder' class='heading'>2. Finder</h4>
+
+<p>Finder helps router to <strong>find out if particular view controller already present</strong> in view controller stack. All the finder instances
+should extend <code><a href="Protocols/Finder.html">Finder</a></code> protocol.</p>
+<pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">Finder</span> <span class="p">{</span>
+
+    <span class="kd">associatedtype</span> <span class="kt">ViewController</span><span class="p">:</span> <span class="kt">UIViewController</span>
+
+    <span class="kd">associatedtype</span> <span class="kt">Context</span>
+
+    <span class="kd">func</span> <span class="nf">findViewController</span><span class="p">(</span><span class="n">with</span> <span class="nv">context</span><span class="p">:</span> <span class="kt">Context</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">ViewController</span><span class="p">?</span>
+
+<span class="p">}</span>
+</code></pre>
+
+<p>In some cases you may use default finders provided by a library. In other cases when you can have more then one view controller of
+the same type in the stack you should implement your own finder. There a version of this protocol called <code><a href="Protocols/FinderWithPolicy.html">FinderWithPolicy</a></code> that
+helps to solve iteration in view controller stack and handles it, you just have to implement method <code>isTarget</code> to answer if its a
+view controller router is looking for or not.</p>
+
+<p><em>Example of ProductViewController finder that can help router to find a ProductViewController that presents particular product in your
+view controller stack:</em></p>
+<pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">ProductViewControllerFinder</span><span class="p">:</span> <span class="kt">FinderWithPolicy</span> <span class="p">{</span>
+
+    <span class="kd">typealias</span> <span class="kt">ViewController</span> <span class="o">=</span> <span class="kt">ProductViewController</span>
+
+    <span class="kd">typealias</span> <span class="kt">Context</span> <span class="o">=</span> <span class="kt">UUID</span>
+
+    <span class="k">let</span> <span class="nv">policy</span><span class="p">:</span> <span class="kt">FinderPolicy</span>
+
+    <span class="nf">init</span><span class="p">(</span><span class="nv">policy</span><span class="p">:</span> <span class="kt">FinderPolicy</span> <span class="o">=</span> <span class="o">.</span><span class="n">currentLevel</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">policy</span> <span class="o">=</span> <span class="n">policy</span>
+    <span class="p">}</span>
+
+    <span class="kd">func</span> <span class="nf">isTarget</span><span class="p">(</span><span class="nv">viewController</span><span class="p">:</span> <span class="kt">ViewController</span><span class="p">,</span> <span class="nv">context</span><span class="p">:</span> <span class="kt">Context</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">viewController</span><span class="o">.</span><span class="n">productID</span> <span class="o">==</span> <span class="n">context</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre>
+
+<p><code><a href="Enums/FinderPolicy.html">FinderPolicy</a></code> here is an enum that explains <code><a href="Protocols/FinderWithPolicy.html">FinderWithPolicy</a></code> how it should iterate through the stack</p>
+
+<ul>
+<li><code>allStackUp</code> - start to search from <code>UIWindow</code>&lsquo;s root view controller and go up through the stack by all presented view controllers.</li>
+<li><code>allStackDown</code> - start to search from topmost presented view controller and go down through the stack by all presenting view controllers
+till it reaches <code>UIWindow</code>&rsquo;s root view controller.</li>
+<li><code>currentLevel</code> - start to search in topmost presented view controller and its child view controllers only</li>
+<li><code>topMost</code> - Just test if the topmost presented view controller is the one that router is looking for.</li>
+</ul>
+<h4 id='3-action' class='heading'>3. Action</h4>
+
+<p><code><a href="Protocols/Action.html">Action</a></code> instance explains router <strong>how view controller created by a <code><a href="Protocols/Factory.html">Factory</a></code> should be integrated in to a view controller stack</strong>. Most
+likely you will not need to implement your own actions because library provides actions for most of default action that can be done in
+<code>UIKit</code> like (<code><a href="Classes/PresentModallyAction.html">PresentModallyAction</a></code>, <code><a href="Classes/AddTabAction.html">AddTabAction</a></code>, <code><a href="Classes/PushToNavigationAction.html">PushToNavigationAction</a></code> etc.) , you may need to implement your own actions if you are
+implementing something unusual.</p>
+
+<p>Check example app to see custom action implementation.</p>
+
+<p><em>Example: As you most likely will not need to implement your own actions, lets look at the implementation of <code><a href="Classes/PresentModallyAction.html">PresentModallyAction</a></code> provided
+by a library:</em></p>
+<pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">PresentModallyAction</span><span class="p">:</span> <span class="kt">Action</span> <span class="p">{</span>
+
+    <span class="kd">func</span> <span class="nf">perform</span><span class="p">(</span><span class="nv">viewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="n">on</span> <span class="nv">existingController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="kt">ActionResult</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">guard</span> <span class="n">existingController</span><span class="o">.</span><span class="n">presentedViewController</span> <span class="o">==</span> <span class="kc">nil</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="nf">completion</span><span class="p">(</span><span class="o">.</span><span class="nf">failure</span><span class="p">(</span><span class="s">"</span><span class="se">\(</span><span class="n">existingController</span><span class="se">)</span><span class="s"> has already presented view controller."</span><span class="p">))</span>
+            <span class="k">return</span>
+        <span class="p">}</span>
+
+        <span class="n">existingController</span><span class="o">.</span><span class="nf">present</span><span class="p">(</span><span class="n">viewController</span><span class="p">,</span> <span class="nv">animated</span><span class="p">:</span> <span class="n">animated</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nf">completion</span><span class="p">(</span><span class="o">.</span><span class="n">continueRouting</span><span class="p">)</span>
+        <span class="p">})</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre>
+<h4 id='4-routing-interceptor' class='heading'>4. Routing Interceptor</h4>
+
+<p>Routing interceptor will be <strong>used by a router before it will start routing to the target</strong> view controller. For example to navigate to
+some particular view controller user should be logged in. You may implement your class that extends <code><a href="Protocols/RoutingInterceptor.html">RoutingInterceptor</a></code> protocol and
+if user is not logged in, it will present login view controller where user can login and if this process will finish successfully
+interceptor should inform router and it will continue routing and stop routing otherwise. See example app for details.</p>
+
+<p><em>Example: If user logged router can continue routing and should not continue if not</em></p>
+<pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">LoginInterceptor</span><span class="p">:</span> <span class="kt">RoutingInterceptor</span> <span class="p">{</span>
+
+    <span class="kd">func</span> <span class="nf">execute</span><span class="p">(</span><span class="k">for</span> <span class="nv">destination</span><span class="p">:</span> <span class="kt">AppDestination</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="kt">InterceptorResult</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">guard</span> <span class="o">!</span><span class="kt">LoginManager</span><span class="o">.</span><span class="n">sharedInstance</span><span class="o">.</span><span class="n">isUserLoggedIn</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="nf">completion</span><span class="p">(</span><span class="o">.</span><span class="nf">failure</span><span class="p">(</span><span class="s">"User has not been logged in."</span><span class="p">))</span>
+            <span class="k">return</span>
+        <span class="p">}</span>
+        <span class="nf">completion</span><span class="p">(</span><span class="o">.</span><span class="n">success</span><span class="p">)</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+
+</code></pre>
+<h4 id='5-context-task' class='heading'>5. Context Task</h4>
+
+<p>In case you are using one default <code><a href="Protocols/Factory.html">Factory</a></code> and <code><a href="Protocols/Finder.html">Finder</a></code> implementations provided by a library but you still need to <strong>set data in
+context to your view controller</strong> no mater if it already exist in the stack or just going to be created by a <code><a href="Protocols/Factory.html">Factory</a></code> or do any other
+actions at the moment when router found/created a view controller. Just extend <code><a href="Protocols/ContextTask.html">ContextTask</a></code> protocol.</p>
+
+<p><em>Example: No mater if <code>ProductViewController</code> is present on the screen or it is going to be created you have to set productID to
+present a product.</em></p>
+<pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">ProductViewControllerContentTask</span><span class="p">:</span> <span class="kt">ContextTask</span> <span class="p">{</span>
+
+    <span class="kd">func</span> <span class="nf">apply</span><span class="p">(</span><span class="n">on</span> <span class="nv">viewController</span><span class="p">:</span> <span class="kt">ProductViewController</span><span class="p">,</span> <span class="n">with</span> <span class="nv">context</span><span class="p">:</span> <span class="kt">UUID</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">viewController</span><span class="o">.</span><span class="n">productID</span> <span class="o">=</span> <span class="n">content</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre>
+
+<p>See example app for the details.</p>
+<h4 id='6-post-routing-task' class='heading'>6. Post Routing Task</h4>
+
+<p>Post routing task will be called by a router <strong>after it will successfully finish navigation to the target view controller</strong>.
+You should extend <code><a href="Protocols/PostRoutingTask.html">PostRoutingTask</a></code> protocol and implement all necessary actions there.</p>
+
+<p><em>Example: You need to log in to your analytics an event every time user lands on a product view controller:</em></p>
+<pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">ProductViewControllerPostTask</span><span class="p">:</span> <span class="kt">PostRoutingTask</span> <span class="p">{</span>
+
+    <span class="k">let</span> <span class="nv">analyticsManager</span><span class="p">:</span> <span class="kt">AnalyticsManager</span>
+
+    <span class="nf">init</span><span class="p">(</span><span class="nv">analyticsManager</span><span class="p">:</span> <span class="kt">AnalyticsManager</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">analyticsManager</span> <span class="o">=</span> <span class="n">analyticsManager</span>
+    <span class="p">}</span>
+
+    <span class="kd">func</span> <span class="nf">execute</span><span class="p">(</span><span class="n">on</span> <span class="nv">viewController</span><span class="p">:</span> <span class="kt">ProductViewController</span><span class="p">,</span> <span class="k">for</span> <span class="nv">destination</span><span class="p">:</span> <span class="kt">AppDestination</span><span class="p">,</span> <span class="nv">routingStack</span><span class="p">:</span> <span class="p">[</span><span class="kt">UIViewController</span><span class="p">])</span> <span class="p">{</span>
+        <span class="n">analyticsManager</span><span class="o">.</span><span class="nf">trackProductView</span><span class="p">(</span><span class="nv">productID</span><span class="p">:</span> <span class="n">viewController</span><span class="o">.</span><span class="n">productID</span><span class="p">)</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre>
+<h3 id='configuring-step' class='heading'>Configuring Step</h3>
+
+<p>Everything that router does is configured using <code><a href="Protocols.html#/s:15DeepLinkLibrary11RoutingStepP">RoutingStep</a></code> instance. There is no need to create your own implementation of this protocol,
+use <code><a href="Classes/ScreenStepAssembly.html">ScreenStepAssembly</a></code> provided by a library to configure andy step that router should execute during the routing.</p>
+
+<p><em>Example: <code>ProductViewController</code> step configuration that explains to router that it should be presented boxed in UINavigationController
+which should be presented modally from any currently visible view controller.</em></p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">colorScreen</span> <span class="o">=</span> <span class="kt">ScreenStepAssembly</span><span class="p">(</span><span class="nv">finder</span><span class="p">:</span> <span class="kt">ProductViewControllerFinder</span><span class="p">(),</span> <span class="nv">factory</span><span class="p">:</span> <span class="kt">ProductViewControllerFactory</span><span class="p">(</span><span class="nv">action</span><span class="p">:</span> <span class="kt">PushToNavigationAction</span><span class="p">()))</span>
+        <span class="o">.</span><span class="nf">add</span><span class="p">(</span><span class="kt">LoginInterceptor</span><span class="p">())</span>
+        <span class="o">.</span><span class="nf">add</span><span class="p">(</span><span class="kt">ProductViewControllerContentTask</span><span class="p">())</span>
+        <span class="o">.</span><span class="nf">add</span><span class="p">(</span><span class="kt">ProductViewControllerPostTask</span><span class="p">(</span><span class="nv">analyticsManager</span><span class="p">:</span> <span class="kt">AnalyticsManager</span><span class="o">.</span><span class="n">sharedInstance</span><span class="p">))</span>
+        <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="kt">NavigationControllerStep</span><span class="p">(</span><span class="nv">action</span><span class="p">:</span> <span class="kt">PresentModallyAction</span><span class="p">()))</span>
+        <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="kt">CurrentControllerStep</span><span class="p">())</span>
+        <span class="o">.</span><span class="nf">assemble</span><span class="p">()</span>
+</code></pre>
+
+<p>This configuration means:</p>
+
+<ul>
+<li>Use <code>ProductViewControllerFinder</code> to <strong>find</strong> view controller in stack and <strong>create</strong> it using <code>ProductViewControllerFactory</code> if it has not been found.</li>
+<li>If it was created <strong>push</strong> it in to navigation stack</li>
+<li>Navigation stack should be provided <strong>from</strong> another step <code><a href="Classes/NavigationControllerStep.html">NavigationControllerStep</a></code> that will create <code>UINavigationController</code> instance</li>
+<li><code>UINavigationController</code> instance should be presented modally <strong>from</strong> any currently visible view controller.</li>
+<li>Before routing run <code>LoginInterceptor</code></li>
+<li>After view controller been created or found run <code>ProductViewControllerContentTask</code></li>
+<li>After successful routing run <code>ProductViewControllerPostTask</code></li>
+</ul>
+
+<p><em>See example app to find out different ways to provide and store routing step configurations.</em></p>
+<h3 id='routing' class='heading'>Routing</h3>
+
+<p>After you implemented all necessary classes and configured routing step you can actually start to use a <code><a href="Protocols.html#/s:15DeepLinkLibrary6RouterP">Router</a></code> to navigate. Library provides
+a <code><a href="Classes/DefaultRouter.html">DefaultRouter</a></code> which is an instance of <code><a href="Protocols.html#/s:15DeepLinkLibrary6RouterP">Router</a></code> protocol to handle routing based on the configuration explained above. Router accept a
+destination instance that extends <code><a href="Protocols/RoutingDestination.html">RoutingDestination</a></code> protocol contains final step use has to land on a context object if its needed that
+contains data to be provided to a view controllers on its way.</p>
+
+<p><em>Example: User taps on cell in a <code>UITableView</code> that contains list of and it asks router to navigate user to <code>ProductViewController</code>. User
+should be logged in to see product details.</em></p>
+<pre class="highlight swift"><code><span class="kd">struct</span> <span class="kt">AppDestination</span><span class="p">:</span> <span class="kt">RoutingDestination</span> <span class="p">{</span>
+
+    <span class="k">let</span> <span class="nv">finalStep</span><span class="p">:</span> <span class="kt">RoutingStep</span>
+
+    <span class="k">let</span> <span class="nv">context</span><span class="p">:</span> <span class="kt">Any</span><span class="p">?</span>
+
+<span class="p">}</span>
+
+<span class="kd">struct</span> <span class="kt">Configuration</span> <span class="p">{</span>
+
+    <span class="kd">static</span> <span class="kd">func</span> <span class="nf">productDestination</span><span class="p">(</span><span class="n">with</span> <span class="nv">productID</span><span class="p">:</span> <span class="kt">UUID</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">AppDestination</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="nv">colorScreen</span> <span class="o">=</span> <span class="kt">ScreenStepAssembly</span><span class="p">(</span><span class="nv">finder</span><span class="p">:</span> <span class="kt">ProductViewControllerFinder</span><span class="p">(),</span> <span class="nv">factory</span><span class="p">:</span> <span class="kt">ProductViewControllerFactory</span><span class="p">(</span><span class="nv">action</span><span class="p">:</span> <span class="kt">PushToNavigationAction</span><span class="p">()))</span>
+                <span class="o">.</span><span class="nf">add</span><span class="p">(</span><span class="kt">LoginInterceptor</span><span class="p">())</span>
+                <span class="o">.</span><span class="nf">add</span><span class="p">(</span><span class="kt">ProductViewControllerContentTask</span><span class="p">())</span>
+                <span class="o">.</span><span class="nf">add</span><span class="p">(</span><span class="kt">ProductViewControllerPostTask</span><span class="p">(</span><span class="nv">analyticsManager</span><span class="p">:</span> <span class="kt">AnalyticsManager</span><span class="o">.</span><span class="n">sharedInstance</span><span class="p">))</span>
+                <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="kt">NavigationControllerStep</span><span class="p">(</span><span class="nv">action</span><span class="p">:</span> <span class="kt">PresentModallyAction</span><span class="p">()))</span>
+                <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="kt">CurrentViewControllerStep</span><span class="p">())</span>
+                <span class="o">.</span><span class="nf">assemble</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="kt">AppDestination</span><span class="p">(</span><span class="nv">finalStep</span><span class="p">:</span> <span class="n">colorScreen</span><span class="p">,</span> <span class="nv">context</span><span class="p">:</span> <span class="n">productID</span><span class="p">)</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="kt">ProductArrayViewController</span><span class="p">:</span> <span class="kt">UITableViewController</span> <span class="p">{</span>
+
+    <span class="k">let</span> <span class="nv">products</span><span class="p">:</span> <span class="p">[</span><span class="kt">UUID</span><span class="p">]?</span>
+
+    <span class="k">let</span> <span class="nv">router</span> <span class="o">=</span> <span class="kt">DefaultRouter</span><span class="p">()</span>
+
+    <span class="k">override</span> <span class="kd">func</span> <span class="nf">tableView</span><span class="p">(</span><span class="n">_</span> <span class="nv">tableView</span><span class="p">:</span> <span class="kt">UITableView</span><span class="p">,</span> <span class="n">didSelectRowAt</span> <span class="nv">indexPath</span><span class="p">:</span> <span class="kt">IndexPath</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">guard</span> <span class="k">let</span> <span class="nv">productID</span> <span class="o">=</span> <span class="n">products</span><span class="p">[</span><span class="n">indexPath</span><span class="o">.</span><span class="n">row</span><span class="p">]</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="k">return</span>
+        <span class="p">}</span>
+        <span class="n">router</span><span class="o">.</span><span class="nf">deepLinkTo</span><span class="p">(</span><span class="nv">destination</span><span class="p">:</span> <span class="kt">Configuration</span><span class="o">.</span><span class="nf">productDestination</span><span class="p">(</span><span class="nv">with</span><span class="p">:</span> <span class="n">productID</span><span class="p">))</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre>
+
+<p><em>Example below shows the same process without use of DeepLinkingLibrary</em></p>
+<pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">ProductArrayViewController</span><span class="p">:</span> <span class="kt">UITableViewController</span> <span class="p">{</span>
+
+    <span class="k">let</span> <span class="nv">products</span><span class="p">:</span> <span class="p">[</span><span class="kt">UUID</span><span class="p">]?</span>
+
+    <span class="k">let</span> <span class="nv">analyticsManager</span> <span class="o">=</span> <span class="kt">AnalyticsManager</span><span class="o">.</span><span class="n">sharedInstance</span>
+
+    <span class="k">override</span> <span class="kd">func</span> <span class="nf">tableView</span><span class="p">(</span><span class="n">_</span> <span class="nv">tableView</span><span class="p">:</span> <span class="kt">UITableView</span><span class="p">,</span> <span class="n">didSelectRowAt</span> <span class="nv">indexPath</span><span class="p">:</span> <span class="kt">IndexPath</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">guard</span> <span class="k">let</span> <span class="nv">productID</span> <span class="o">=</span> <span class="n">products</span><span class="p">[</span><span class="n">indexPath</span><span class="o">.</span><span class="n">row</span><span class="p">]</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="k">return</span>
+        <span class="p">}</span>
+
+        <span class="c1">// Handled by LoginInterceptor</span>
+        <span class="k">guard</span> <span class="o">!</span><span class="kt">LoginManager</span><span class="o">.</span><span class="n">sharedInstance</span><span class="o">.</span><span class="n">isUserLoggedIn</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="k">return</span>
+        <span class="p">}</span>
+
+        <span class="c1">// Handled by a ProductViewControllerFactory</span>
+        <span class="k">let</span> <span class="nv">productViewController</span> <span class="o">=</span> <span class="kt">ProductViewController</span><span class="p">(</span><span class="nv">nibName</span><span class="p">:</span> <span class="s">"ProductViewController"</span><span class="p">,</span> <span class="nv">bundle</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
+
+        <span class="c1">// Handled by ProductViewControllerContentTask</span>
+        <span class="n">productViewController</span><span class="o">.</span><span class="n">productID</span> <span class="o">=</span> <span class="n">productID</span>
+
+        <span class="c1">// Handled by NavigationControllerStep and PushToNavigationAction</span>
+        <span class="k">let</span> <span class="nv">navigationController</span> <span class="o">=</span> <span class="kt">UINavigationController</span><span class="p">(</span><span class="nv">rootViewController</span><span class="p">:</span> <span class="n">productViewController</span><span class="p">)</span>
+
+        <span class="c1">// handled by PresentModallyAction</span>
+        <span class="nf">present</span><span class="p">(</span><span class="n">alertController</span><span class="p">,</span> <span class="nv">animated</span><span class="p">:</span> <span class="n">navigationController</span><span class="p">)</span> <span class="p">{</span> <span class="p">[</span><span class="k">weak</span> <span class="k">self</span><span class="p">]</span>
+            <span class="c1">// Handled by ProductViewControllerPostTask</span>
+            <span class="k">self</span><span class="p">?</span><span class="o">.</span><span class="n">analyticsManager</span><span class="o">.</span><span class="nf">trackProductView</span><span class="p">(</span><span class="nv">productID</span><span class="p">:</span> <span class="n">productID</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre>
+
+<p>In the example without <code>DeepLinkingLibrary</code> code may seem simpler, but everything is hardcoded in the actual method implementation,
+when <code>DeepLinkingLibrary</code> allows you to split everything in to small reusable pieces and store navigation configuration separately from
+your view logic. Also, implementation above will grow dramatically when you&rsquo;ll try to add Universal Links support in to your app
+especially if you will have to decide should you open <code>ProductViewController</code> from a universal link if it is already present on the
+screen or not and so on. With library each of your view controller is deeplinkable by it&rsquo;s nature.</p>
+
+<p>As you can see from the examples above <code><a href="Protocols.html#/s:15DeepLinkLibrary6RouterP">Router</a></code> does not do anything that tweaks <code>UIKit</code> basis. It just allows you to break
+navigation process in to small reusable pieces and router will call them in a proper order based on the configuration provided.
+Library does not break the rules of VIPER or MVVM architectural patterns and can be used in parallel with them.</p>
+
+<p>See example app for other examples of defining routing configurations and instantiating router.</p>
+<h2 id='contributing' class='heading'>Contributing</h2>
 
 <p>DeepLinkLibrary is in active development, and we welcome your contributions.</p>
 
-<p>If you’d like to contribute to this repo, please read <a href="https://github.com/gilt/Cleanroom#contributing-to-the-cleanroom-project">the contribution guidelines</a>.</p>
+<p>If you’d like to contribute to this repo, please
+read <a href="https://github.com/gilt/Cleanroom#contributing-to-the-cleanroom-project">the contribution guidelines</a>.</p>
+<h3 id='license' class='heading'>License</h3>
+
+<p>DeepLinkLibrary is distributed under <a href="https://github.com/saksdirect/DeepLinkLibrary/blob/master/LICENSE">the MIT license</a>.</p>
+
+<p>DeepLinkLibrary is provided for your use—free-of-charge—on an as-is basis. We make no guarantees, promises or apologies. <em>Caveat developer.</em></p>
 <h2 id='author' class='heading'>Author</h2>
 
 <p>Evgeny Kazaev, <a href="mailto:ekazaev@gilt.com">ekazaev@gilt.com</a></p>
@@ -279,7 +627,7 @@ and actions you have to be familiar with library concepts and UIKit&rsquo;s view
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="http://tech.gilt.com" target="_blank" rel="external">Gilt Groupe</a>. All rights reserved. (Last updated: 2018-03-04)</p>
+          <p>&copy; 2018 <a class="link" href="http://tech.gilt.com" target="_blank" rel="external">Gilt Groupe</a>. All rights reserved. (Last updated: 2018-03-09)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

@@ -26,7 +26,7 @@ public class TabBarControllerFactory: SingleActionContainerFactory {
         self.action = action
     }
 
-    public func build(with context: Context?) throws -> ViewController {
+    public func build(with context: Context) throws -> ViewController {
         let viewControllers = try buildChildrenViewControllers(with: context)
         guard viewControllers.count > 0 else {
             throw RoutingError.message("Unable to build UITabBarController due to 0 amount of child view controllers")

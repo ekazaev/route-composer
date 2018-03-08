@@ -20,6 +20,6 @@ public protocol Finder {
     /// - Parameter context: Context object passed to the router to be presented in a final destination.
     /// - Returns: UIViewController instance that Router is looking for if it has already been built in to
     ///   view controller stack, nil otherwise.
-    func findViewController(with context: Context?) -> ViewController?
+    func findViewController(with context: Context) -> ViewController?
 
 }

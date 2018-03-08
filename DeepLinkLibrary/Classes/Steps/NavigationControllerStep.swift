@@ -6,7 +6,7 @@
 import UIKit
 
 /// Default navigation container step
-public class NavigationContainerStep: RouterStep {
+public class NavigationControllerStep: RouterStep {
 
     /// Creates a default UINavigationController and applies an action if it is provided.
     ///

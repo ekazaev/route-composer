@@ -24,7 +24,7 @@ public class NilFactory<VC: UIViewController, C>: Factory {
         self.action = NilAction()
     }
 
-    public func build(with context: Context?) throws -> ViewController {
+    public func build(with context: Context) throws -> ViewController {
         throw RoutingError.message("This factory should never reach router.")
     }
 

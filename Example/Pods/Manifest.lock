@@ -1,5 +1,5 @@
 PODS:
-  - DeepLinkLibrary (0.1.0)
+  - DeepLinkLibrary (0.9)
 
 DEPENDENCIES:
   - DeepLinkLibrary (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  DeepLinkLibrary: 879c93fd5d5d482dcb616e49eec5ccadcd2b3e4b
+  DeepLinkLibrary: 567aeff43ad89d083106c2adaed2fda4fe9ea4df
 
 PODFILE CHECKSUM: f25a1b107f05df392112563175d2dc11eb4856bd
 

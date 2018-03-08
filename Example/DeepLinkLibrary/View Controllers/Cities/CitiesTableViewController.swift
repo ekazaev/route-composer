@@ -7,18 +7,10 @@ import Foundation
 import UIKit
 import DeepLinkLibrary
 
-class CityTableContextTask: MandatoryContextTask {
+class CityTableContextTask: ContextTask {
 
-    typealias ViewController = CitiesTableViewController
-
-    typealias Context = CityContext
-
-    func apply(on viewController: ViewController, with context: Context) {
-        guard let destinationCityId = context.cityId else {
-            return
-        }
-
-        viewController.cityId = destinationCityId
+    func apply(on viewController: CitiesTableViewController, with context: Int?) {
+        viewController.cityId = context
     }
 
 }

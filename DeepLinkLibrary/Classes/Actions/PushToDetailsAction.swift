@@ -7,7 +7,7 @@ import Foundation
 import UIKit
 
 /// Presents detail view controller in UISplitViewController
-public class PresentDetailsAction: SplitViewControllerDetailAction {
+public class PushToDetailsAction: SplitViewControllerDetailAction {
 
     public init() {
     }

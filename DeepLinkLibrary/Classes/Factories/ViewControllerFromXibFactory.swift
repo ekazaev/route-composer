@@ -33,7 +33,7 @@ public class ViewControllerFromXibFactory<VC: UIViewController, C>: Factory {
         self.bundle = bundle
     }
 
-    public func build(with context: Context?) throws -> ViewController {
+    public func build(with context: Context) throws -> ViewController {
         let viewController = ViewController(nibName: nibName, bundle: bundle)
         return viewController
     }

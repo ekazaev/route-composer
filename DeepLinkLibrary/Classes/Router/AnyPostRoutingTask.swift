@@ -8,7 +8,7 @@ import UIKit
 /// Non typesafe boxing wrapper for PostRoutingTask protocol
 protocol AnyPostRoutingTask {
 
-    func execute(on viewController: UIViewController, with context: Any?, routingStack: [UIViewController])
+    func execute<D: RoutingDestination>(on viewController: UIViewController, for destination: D, routingStack: [UIViewController]) throws
 
 }
 
@@ -20,13 +20,12 @@ class PostRoutingTaskBox<P: PostRoutingTask>: AnyPostRoutingTask, CustomStringCo
         self.postRoutingTask = postRoutingTask
     }
 
-    func execute(on viewController: UIViewController, with context: Any?, routingStack: [UIViewController]) {
+    func execute<D: RoutingDestination>(on viewController: UIViewController, for destination: D, routingStack: [UIViewController]) throws {
         guard let typedViewController = viewController as? P.ViewController,
-              let typedContext = context as? P.Context? else {
-            print("\(String(describing:postRoutingTask)) does not accept \(String(describing: viewController)) and \(String(describing: context)) as a context.")
-            return
+              let typedDestination = destination as? P.Destination else {
+            throw RoutingError.message("\(String(describing: postRoutingTask)) does not support \(String(describing: viewController)) or \(String(describing: destination))")
         }
-        postRoutingTask.execute(on: typedViewController, with: typedContext, routingStack: routingStack)
+        postRoutingTask.execute(on: typedViewController, for: typedDestination, routingStack: routingStack)
     }
 
     var description: String {

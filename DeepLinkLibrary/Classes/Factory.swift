@@ -26,20 +26,20 @@ public protocol Factory: class {
     ///
     /// - Parameter context: Context instance if it was provided to the Router.
     /// - Throws: RoutingException if factory can not prepare itself to build a view controller with context provided.
-    func prepare(with context: Context?) throws
+    func prepare(with context: Context) throws
 
     /// Builds a UIViewController that will be built in to the stack
     ///
     /// - Parameter context: Context instance if it was provided to the Router.
     /// - Returns: Built UIViewController instance.
     /// - Throws: RoutingException if build was not succeed.
-    func build(with context: Context?) throws -> ViewController
+    func build(with context: Context) throws -> ViewController
 
 }
 
 public extension Factory {
 
-    func prepare(with context: Context?) throws {
+    func prepare(with context: Context) throws {
     }
 
 }

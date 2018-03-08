@@ -12,7 +12,7 @@ public protocol StepCaseResolver {
     ///
     /// - Parameter context: Context object that been passed to the Router
     /// - Returns: Step to be made by Router, nil if resolver could not decide when step should be previous
-    func resolve(with context: Any?) -> RoutingStep?
+    func resolve<D: RoutingDestination>(for destination: D) -> RoutingStep?
 
 }
 
@@ -22,10 +22,10 @@ final class SwitcherStep: ChainableStep, PerformableStep {
 
     private var resolvers: [StepCaseResolver]
 
-    func perform(with context: Any?) -> StepResult {
+    func perform<D: RoutingDestination>(for destination: D) -> StepResult {
         previousStep = nil
         resolvers.forEach({ resolver in
-            guard previousStep == nil, let step = resolver.resolve(with: context) else {
+            guard previousStep == nil, let step = resolver.resolve(for: destination) else {
                 return
             }
             previousStep = step

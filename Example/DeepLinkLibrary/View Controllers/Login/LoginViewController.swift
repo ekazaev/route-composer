@@ -10,11 +10,11 @@ import DeepLinkLibrary
 // I do not want to create login service for demo so it is just a variable
 var isLoggedIn: Bool = false
 
-class LoginInterceptor: RouterInterceptor {
+class LoginInterceptor: RoutingInterceptor {
 
-    typealias Context = Any
+    typealias Destination = ExampleDestination
 
-    func execute(with context: Context?, completion: @escaping (_: InterceptorResult) -> Void) {
+    func execute(for destination: Destination, completion: @escaping (_: InterceptorResult) -> Void) {
         guard !isLoggedIn else {
             completion(.success)
             return
@@ -26,7 +26,7 @@ class LoginInterceptor: RouterInterceptor {
         // boilerplate code that will help you to avoid this rare, but possible situation.
         let destination = LoginConfiguration.login()
         let result = DefaultRouter(logger: DefaultLogger(.warnings)).deepLinkTo(destination: destination) { success in
-            guard success, let viewController = LoginViewControllerFinder().findViewController(with: nil) else {
+            guard success, let viewController = ViewControllerClassFinder<LoginViewController, Any?>().findViewController(with: nil) else {
                 completion(.failure("LoginViewController not found."))
                 return
             }
@@ -37,24 +37,6 @@ class LoginInterceptor: RouterInterceptor {
         if result == .unhandled {
             completion(.failure(nil))
         }
-    }
-
-}
-
-class LoginViewControllerFinder: FinderWithPolicy {
-
-    typealias ViewController = LoginViewController
-
-    typealias Context = Any
-
-    let policy: FinderPolicy
-
-    init(policy: FinderPolicy = .allStackUp) {
-        self.policy = policy
-    }
-
-    func isTarget(viewController: ViewController, context: Context?) -> Bool {
-        return true
     }
 
 }

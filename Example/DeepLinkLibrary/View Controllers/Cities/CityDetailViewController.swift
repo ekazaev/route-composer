@@ -7,20 +7,10 @@ import Foundation
 import UIKit
 import DeepLinkLibrary
 
-class CityDetailContextTask: MandatoryContextTask {
+class CityDetailContextTask: ContextTask {
 
-    typealias ViewController = CityDetailViewController
-
-    typealias Context = CityContext
-
-    func prepare(with context: CityContext?) throws {
-        if context?.cityId == nil {
-            throw RoutingError.message("City ID must be set.")
-        }
-    }
-
-    func apply(on viewController: ViewController, with context: Context) {
-        viewController.cityId = context.cityId
+    func apply(on viewController: CityDetailViewController, with context: Int) {
+        viewController.cityId = context
     }
 
 }

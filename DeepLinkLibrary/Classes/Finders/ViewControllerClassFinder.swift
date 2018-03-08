@@ -20,7 +20,7 @@ public class ViewControllerClassFinder<VC:UIViewController, C>: FinderWithPolicy
         self.policy = policy
     }
 
-    public func isTarget(viewController: ViewController, context: Context?) -> Bool {
+    public func isTarget(viewController: ViewController, context: Context) -> Bool {
         return true
     }
 

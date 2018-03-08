@@ -11,12 +11,12 @@ class ExampleAnalyticsPostAction: PostRoutingTask {
 
     typealias ViewController = UIViewController
 
-    typealias Context = ExampleContext
+    typealias Destination = ExampleDestination
 
-    func execute(on viewController: ViewController, with context: Context?, routingStack: [UIViewController]) {
+    func execute(on viewController: ViewController, for destination: Destination, routingStack: [UIViewController]) {
         guard let lastViewController = routingStack.last,
               viewController == lastViewController,
-              let source = context?.analyticParameters?.source else {
+              let source = destination.analyticParameters?.source else {
             return
         }
 

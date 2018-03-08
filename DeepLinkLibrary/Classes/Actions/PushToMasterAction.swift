@@ -6,7 +6,7 @@ import Foundation
 import UIKit
 
 /// Presents master view controller in UISplitViewController
-public class PresentMasterAction: SplitViewControllerMasterAction {
+public class PushToMasterAction: SplitViewControllerMasterAction {
 
     public init() {
     }

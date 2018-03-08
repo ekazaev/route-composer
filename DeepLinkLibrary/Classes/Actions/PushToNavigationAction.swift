@@ -6,7 +6,7 @@
 import UIKit
 
 /// Pushes view controller in to UINavigation controller's child stack
-public class PushAction: NavigationControllerFactoryAction {
+public class PushToNavigationAction: NavigationControllerFactoryAction {
 
     public init() {
     }

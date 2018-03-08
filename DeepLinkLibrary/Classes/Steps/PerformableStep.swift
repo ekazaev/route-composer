@@ -8,6 +8,6 @@ protocol PerformableStep: RoutingStep {
 
     /// - Parameter context: Context object that Router has started with.
     /// - Returns: StepResult enum value, which may contain a view controller in case of .found scenario.
-    func perform(with context: Any?) -> StepResult
+    func perform<D: RoutingDestination>(for destination: D) -> StepResult
 
 }

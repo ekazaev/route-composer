@@ -7,20 +7,10 @@ import Foundation
 import UIKit
 import DeepLinkLibrary
 
-class ProductContentTask: MandatoryContextTask {
+class ProductContentTask: ContextTask {
 
-    typealias ViewController = ProductViewController
-
-    typealias Context = ProductContext
-
-    func prepare(with context: Context?) throws {
-        if context?.productId == nil {
-            throw RoutingError.message("Product ID must be set.")
-        }
-    }
-
-    func apply(on viewController: ViewController, with context: Context) {
-        viewController.productId = context.productId
+    func apply(on viewController: ProductViewController, with context: String) {
+        viewController.productId = context
     }
 
 }
@@ -81,11 +71,11 @@ class ProductViewController: UIViewController, ExampleAnalyticsSupport {
 
 extension ProductViewController: ContextFinderSupport {
 
-    func isSuitableFor(context: ProductContext) -> Bool {
+    func isSuitableFor(context: String) -> Bool {
         guard let productId = productId else {
             return false
         }
-        return productId == context.productId
+        return productId == context
     }
 
 }

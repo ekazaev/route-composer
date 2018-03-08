@@ -14,7 +14,7 @@
     <a title="ViewControllerClassWithContextFinder Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">DeepLinkLibrary Docs</a> (83% documented)</p>
+        <p><a href="../index.html">DeepLinkLibrary Docs</a> (84% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -37,6 +37,9 @@
                 <a href="../Classes/ChildFactory.html">ChildFactory</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes.html#/s:15DeepLinkLibrary25CurrentViewControllerStepC">CurrentViewControllerStep</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/DefaultLogger.html">DefaultLogger</a>
               </li>
               <li class="nav-group-task">
@@ -46,10 +49,10 @@
                 <a href="../Classes/FinderFactory.html">FinderFactory</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/NavigationContainerStep.html">NavigationContainerStep</a>
+                <a href="../Classes/NavigationControllerFactory.html">NavigationControllerFactory</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/NavigationControllerFactory.html">NavigationControllerFactory</a>
+                <a href="../Classes/NavigationControllerStep.html">NavigationControllerStep</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/NilAction.html">NilAction</a>
@@ -61,16 +64,16 @@
                 <a href="../Classes/NilFinder.html">NilFinder</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/PresentDetailsAction.html">PresentDetailsAction</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/PresentMasterAction.html">PresentMasterAction</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Classes/PresentModallyAction.html">PresentModallyAction</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/PushAction.html">PushAction</a>
+                <a href="../Classes/PushToDetailsAction.html">PushToDetailsAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PushToMasterAction.html">PushToMasterAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PushToNavigationAction.html">PushToNavigationAction</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/ReplaceRootAction.html">ReplaceRootAction</a>
@@ -104,9 +107,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/TabBarControllerFactory.html">TabBarControllerFactory</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes.html#/s:15DeepLinkLibrary25TopMostViewControllerStepC">TopMostViewControllerStep</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/ViewControllerClassFinder.html">ViewControllerClassFinder</a>
@@ -202,22 +202,19 @@
                 <a href="../Protocols/Logger.html">Logger</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols/MandatoryContextFactory.html">MandatoryContextFactory</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Protocols/PostRoutingTask.html">PostRoutingTask</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Protocols.html#/s:15DeepLinkLibrary6RouterP">Router</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols/RouterInterceptor.html">RouterInterceptor</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Protocols/RouterRulesSupport.html">RouterRulesSupport</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Protocols/RoutingDestination.html">RoutingDestination</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/RoutingInterceptor.html">RoutingInterceptor</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Protocols.html#/s:15DeepLinkLibrary11RoutingStepP">RoutingStep</a>
@@ -280,9 +277,9 @@ and it context object.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:15DeepLinkLibrary16FinderWithPolicyP8isTargetSb14ViewControllerQz04viewJ0_7ContextQzSg7contexttF"></a>
+                    <a name="/s:15DeepLinkLibrary16FinderWithPolicyP8isTargetSb14ViewControllerQz04viewJ0_7ContextQz7contexttF"></a>
                     <a name="//apple_ref/swift/Method/isTarget(viewController:context:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:15DeepLinkLibrary16FinderWithPolicyP8isTargetSb14ViewControllerQz04viewJ0_7ContextQzSg7contexttF">isTarget(viewController:context:)</a>
+                    <a class="token" href="#/s:15DeepLinkLibrary16FinderWithPolicyP8isTargetSb14ViewControllerQz04viewJ0_7ContextQz7contexttF">isTarget(viewController:context:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -296,7 +293,7 @@ and it context object.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">isTarget</span><span class="p">(</span><span class="nv">viewController</span><span class="p">:</span> <span class="kt">ViewController</span><span class="p">,</span> <span class="nv">context</span><span class="p">:</span> <span class="kt">Context</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">isTarget</span><span class="p">(</span><span class="nv">viewController</span><span class="p">:</span> <span class="kt">ViewController</span><span class="p">,</span> <span class="nv">context</span><span class="p">:</span> <span class="kt">Context</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
@@ -308,7 +305,7 @@ and it context object.</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="http://tech.gilt.com" target="_blank" rel="external">Gilt Groupe</a>. All rights reserved. (Last updated: 2018-03-04)</p>
+          <p>&copy; 2018 <a class="link" href="http://tech.gilt.com" target="_blank" rel="external">Gilt Groupe</a>. All rights reserved. (Last updated: 2018-03-09)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

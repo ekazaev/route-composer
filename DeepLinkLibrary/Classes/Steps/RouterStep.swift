@@ -24,7 +24,7 @@ public class RouterStep: ChainableStep, PerformableStep, ChainingStep, CustomStr
         return nil
     }
 
-    func perform(with context: Any?) -> StepResult {
+    func perform<D: RoutingDestination>(for destination: D) -> StepResult {
         return .continueRouting(factory)
     }
 

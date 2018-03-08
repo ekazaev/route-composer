@@ -4,15 +4,15 @@
 
 import Foundation
 
-class InterceptorMultiplexer: AnyRouterInterceptor, CustomStringConvertible {
+class InterceptorMultiplexer: AnyRoutingInterceptor, CustomStringConvertible {
 
-    private let interceptors: [AnyRouterInterceptor]
+    private let interceptors: [AnyRoutingInterceptor]
 
-    init(_ interceptors: [AnyRouterInterceptor]) {
+    init(_ interceptors: [AnyRoutingInterceptor]) {
         self.interceptors = interceptors
     }
 
-    func execute(with context: Any?, completion: @escaping (InterceptorResult) -> Void) {
+    func execute<D: RoutingDestination>(for destination: D, completion: @escaping (InterceptorResult) -> Void) {
         guard self.interceptors.count > 0 else {
             completion(.success)
             return
@@ -20,8 +20,8 @@ class InterceptorMultiplexer: AnyRouterInterceptor, CustomStringConvertible {
 
         var interceptors = self.interceptors
 
-        func runInterceptor(interceptor: AnyRouterInterceptor) {
-            interceptor.execute(with: context) { result in
+        func runInterceptor(interceptor: AnyRoutingInterceptor) {
+            interceptor.execute(for: destination) { result in
                 if case .failure(_) = result  {
                     completion(result)
                 } else if interceptors.count == 0 {

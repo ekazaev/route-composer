@@ -9,16 +9,19 @@ import UIKit
 /// be taken.
 public class SwitcherStepAssembly {
 
-    private class BlockResolver: StepCaseResolver {
+    private class BlockResolver<Destination>: StepCaseResolver {
 
-        let resolverBlock: ((_: Any?) -> RoutingStep?)
+        let resolverBlock: ((_: Destination) -> RoutingStep?)
 
-        init(resolverBlock: @escaping ((_: Any?) -> RoutingStep?)) {
+        init(resolverBlock: @escaping ((_: Destination) -> RoutingStep?)) {
             self.resolverBlock = resolverBlock
         }
 
-        func resolve(with context: Any?) -> RoutingStep? {
-            return resolverBlock(context)
+        func resolve<D: RoutingDestination>(for destination: D) -> RoutingStep? {
+            guard let typedDestination = destination as? Destination else {
+                return nil
+            }
+            return resolverBlock(typedDestination)
         }
     }
 
@@ -34,8 +37,8 @@ public class SwitcherStepAssembly {
             return finder.findViewController(with: context)
         }
 
-        func perform(with context: Any?) -> StepResult {
-            guard let viewController = viewController(with: context) else {
+        func perform<D: RoutingDestination>(for destination: D) -> StepResult {
+            guard let viewController = viewController(with: destination.context) else {
                 return .failure
             }
             return .success(viewController)
@@ -53,8 +56,8 @@ public class SwitcherStepAssembly {
             self.finder = FinderBox(finder)
         }
 
-        func resolve(with context: Any?) -> RoutingStep? {
-            return finder.findViewController(with: context) != nil ? step : nil
+        func resolve<D: RoutingDestination>(for destination: D) -> RoutingStep? {
+            return finder.findViewController(with: destination.context) != nil ? step : nil
         }
     }
 
@@ -76,7 +79,7 @@ public class SwitcherStepAssembly {
     /// Add block which will allow to write a decision case for the Router in the block
     ///
     /// - Parameter resolverBlock: case resolver block
-    public func addCase(_ resolverBlock: @escaping ((_: Any?) -> RoutingStep?)) -> Self {
+    public func addCase<D: RoutingDestination>(_ resolverBlock: @escaping ((_: D) -> RoutingStep?)) -> Self {
         resolvers.append(BlockResolver(resolverBlock: resolverBlock))
         return self
     }
@@ -105,7 +108,7 @@ public class SwitcherStepAssembly {
     /// - Parameter resolverBlock: default resolver block
     /// - Returns: instance of RoutingStep
     public func assemble(default resolverBlock: @escaping (() -> RoutingStep)) -> RoutingStep {
-        resolvers.append(BlockResolver(resolverBlock: { _ in
+        resolvers.append(BlockResolver<Any>(resolverBlock: { _ in
             return resolverBlock()
         }))
         return SwitcherStep(resolvers: resolvers)

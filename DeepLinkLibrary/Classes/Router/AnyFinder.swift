@@ -21,8 +21,7 @@ class FinderBox<F: Finder>: AnyFinder, CustomStringConvertible {
     }
 
     func findViewController(with context: Any?) -> UIViewController? {
-        guard let typedContext = context as? F.Context? else {
-            print("\(String(describing: finder)) does not accept \(String(describing: context)) as a context.")
+        guard let typedContext = context as? F.Context else {
             return nil
         }
         return finder.findViewController(with: typedContext)

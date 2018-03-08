@@ -26,7 +26,7 @@ public class ViewControllerFromClassFactory<VC: UIViewController, C>: Factory {
         self.viewControllerName = viewControllerName
     }
 
-    public func build(with context: Context?) throws -> ViewController {
+    public func build(with context: Context) throws -> ViewController {
         guard let myClass = NSClassFromString(self.viewControllerName) as? ViewController.Type else {
             throw RoutingError.message("Can not find \(self.viewControllerName) in bundle")
         }

@@ -72,7 +72,7 @@ public class ScreenStepAssembly<F: Finder, FC: Factory> where F.ViewController =
 
     private var factory: FC
 
-    private var interceptors: [AnyRouterInterceptor] = []
+    private var interceptors: [AnyRoutingInterceptor] = []
 
     private var contentTasks: [AnyContextTask] = []
 
@@ -91,8 +91,8 @@ public class ScreenStepAssembly<F: Finder, FC: Factory> where F.ViewController =
     /// Add routing interceptor instance
     ///
     /// - Parameter interceptor: Interceptor instance to be executed by router before routing to this step.
-    public func add<R: RouterInterceptor>(_ interceptor: R) -> Self {
-        self.interceptors.append(RouterInterceptorBox(interceptor))
+    public func add<R: RoutingInterceptor>(_ interceptor: R) -> Self {
+        self.interceptors.append(RoutingInterceptorBox(interceptor))
         return self
     }
 

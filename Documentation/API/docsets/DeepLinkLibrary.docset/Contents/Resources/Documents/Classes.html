@@ -13,7 +13,7 @@
     <a title="Classes  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">DeepLinkLibrary Docs</a> (83% documented)</p>
+        <p><a href="index.html">DeepLinkLibrary Docs</a> (84% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -36,6 +36,9 @@
                 <a href="Classes/ChildFactory.html">ChildFactory</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes.html#/s:15DeepLinkLibrary25CurrentViewControllerStepC">CurrentViewControllerStep</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/DefaultLogger.html">DefaultLogger</a>
               </li>
               <li class="nav-group-task">
@@ -45,10 +48,10 @@
                 <a href="Classes/FinderFactory.html">FinderFactory</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/NavigationContainerStep.html">NavigationContainerStep</a>
+                <a href="Classes/NavigationControllerFactory.html">NavigationControllerFactory</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/NavigationControllerFactory.html">NavigationControllerFactory</a>
+                <a href="Classes/NavigationControllerStep.html">NavigationControllerStep</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/NilAction.html">NilAction</a>
@@ -60,16 +63,16 @@
                 <a href="Classes/NilFinder.html">NilFinder</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/PresentDetailsAction.html">PresentDetailsAction</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/PresentMasterAction.html">PresentMasterAction</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Classes/PresentModallyAction.html">PresentModallyAction</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/PushAction.html">PushAction</a>
+                <a href="Classes/PushToDetailsAction.html">PushToDetailsAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/PushToMasterAction.html">PushToMasterAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/PushToNavigationAction.html">PushToNavigationAction</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/ReplaceRootAction.html">ReplaceRootAction</a>
@@ -103,9 +106,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/TabBarControllerFactory.html">TabBarControllerFactory</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes.html#/s:15DeepLinkLibrary25TopMostViewControllerStepC">TopMostViewControllerStep</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/ViewControllerClassFinder.html">ViewControllerClassFinder</a>
@@ -201,22 +201,19 @@
                 <a href="Protocols/Logger.html">Logger</a>
               </li>
               <li class="nav-group-task">
-                <a href="Protocols/MandatoryContextFactory.html">MandatoryContextFactory</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Protocols/PostRoutingTask.html">PostRoutingTask</a>
               </li>
               <li class="nav-group-task">
                 <a href="Protocols.html#/s:15DeepLinkLibrary6RouterP">Router</a>
               </li>
               <li class="nav-group-task">
-                <a href="Protocols/RouterInterceptor.html">RouterInterceptor</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Protocols/RouterRulesSupport.html">RouterRulesSupport</a>
               </li>
               <li class="nav-group-task">
                 <a href="Protocols/RoutingDestination.html">RoutingDestination</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/RoutingInterceptor.html">RoutingInterceptor</a>
               </li>
               <li class="nav-group-task">
                 <a href="Protocols.html#/s:15DeepLinkLibrary11RoutingStepP">RoutingStep</a>
@@ -296,6 +293,37 @@ container factory.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">ChildFactory</span><span class="o">&lt;</span><span class="kt">Context</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15DeepLinkLibrary25CurrentViewControllerStepC"></a>
+                    <a name="//apple_ref/swift/Class/CurrentViewControllerStep" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15DeepLinkLibrary25CurrentViewControllerStepC">CurrentViewControllerStep</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns topmost presented view controller.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">CurrentViewControllerStep</span><span class="p">:</span> <span class="kt">PerformableStep</span></code></pre>
 
                         </div>
                       </div>
@@ -406,38 +434,6 @@ factories like UIViewControllers that were build as a result of storyboard loadi
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:15DeepLinkLibrary23NavigationContainerStepC"></a>
-                    <a name="//apple_ref/swift/Class/NavigationContainerStep" class="dashAnchor"></a>
-                    <a class="token" href="#/s:15DeepLinkLibrary23NavigationContainerStepC">NavigationContainerStep</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Default navigation container step</p>
-
-                        <a href="Classes/NavigationContainerStep.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">NavigationContainerStep</span><span class="p">:</span> <span class="kt"><a href="Classes/RouterStep.html">RouterStep</a></span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
                     <a name="/s:15DeepLinkLibrary27NavigationControllerFactoryC"></a>
                     <a name="//apple_ref/swift/Class/NavigationControllerFactory" class="dashAnchor"></a>
                     <a class="token" href="#/s:15DeepLinkLibrary27NavigationControllerFactoryC">NavigationControllerFactory</a>
@@ -457,6 +453,38 @@ factories like UIViewControllers that were build as a result of storyboard loadi
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">class</span> <span class="kt">NavigationControllerFactory</span><span class="p">:</span> <span class="kt"><a href="Protocols/SingleActionContainerFactory.html">SingleActionContainerFactory</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15DeepLinkLibrary24NavigationControllerStepC"></a>
+                    <a name="//apple_ref/swift/Class/NavigationControllerStep" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15DeepLinkLibrary24NavigationControllerStepC">NavigationControllerStep</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Default navigation container step</p>
+
+                        <a href="Classes/NavigationControllerStep.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">NavigationControllerStep</span><span class="p">:</span> <span class="kt"><a href="Classes/RouterStep.html">RouterStep</a></span></code></pre>
 
                         </div>
                       </div>
@@ -574,70 +602,6 @@ The only purpose it exist is to provide type safety checks for ScreenStepAssembl
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:15DeepLinkLibrary20PresentDetailsActionC"></a>
-                    <a name="//apple_ref/swift/Class/PresentDetailsAction" class="dashAnchor"></a>
-                    <a class="token" href="#/s:15DeepLinkLibrary20PresentDetailsActionC">PresentDetailsAction</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Presents detail view controller in UISplitViewController</p>
-
-                        <a href="Classes/PresentDetailsAction.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">PresentDetailsAction</span><span class="p">:</span> <span class="kt">SplitViewControllerDetailAction</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:15DeepLinkLibrary19PresentMasterActionC"></a>
-                    <a name="//apple_ref/swift/Class/PresentMasterAction" class="dashAnchor"></a>
-                    <a class="token" href="#/s:15DeepLinkLibrary19PresentMasterActionC">PresentMasterAction</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Presents master view controller in UISplitViewController</p>
-
-                        <a href="Classes/PresentMasterAction.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">PresentMasterAction</span><span class="p">:</span> <span class="kt">SplitViewControllerMasterAction</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
                     <a name="/s:15DeepLinkLibrary20PresentModallyActionC"></a>
                     <a name="//apple_ref/swift/Class/PresentModallyAction" class="dashAnchor"></a>
                     <a class="token" href="#/s:15DeepLinkLibrary20PresentModallyActionC">PresentModallyAction</a>
@@ -671,9 +635,73 @@ controller</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:15DeepLinkLibrary10PushActionC"></a>
-                    <a name="//apple_ref/swift/Class/PushAction" class="dashAnchor"></a>
-                    <a class="token" href="#/s:15DeepLinkLibrary10PushActionC">PushAction</a>
+                    <a name="/s:15DeepLinkLibrary19PushToDetailsActionC"></a>
+                    <a name="//apple_ref/swift/Class/PushToDetailsAction" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15DeepLinkLibrary19PushToDetailsActionC">PushToDetailsAction</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Presents detail view controller in UISplitViewController</p>
+
+                        <a href="Classes/PushToDetailsAction.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">PushToDetailsAction</span><span class="p">:</span> <span class="kt">SplitViewControllerDetailAction</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15DeepLinkLibrary18PushToMasterActionC"></a>
+                    <a name="//apple_ref/swift/Class/PushToMasterAction" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15DeepLinkLibrary18PushToMasterActionC">PushToMasterAction</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Presents master view controller in UISplitViewController</p>
+
+                        <a href="Classes/PushToMasterAction.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">PushToMasterAction</span><span class="p">:</span> <span class="kt">SplitViewControllerMasterAction</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15DeepLinkLibrary22PushToNavigationActionC"></a>
+                    <a name="//apple_ref/swift/Class/PushToNavigationAction" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15DeepLinkLibrary22PushToNavigationActionC">PushToNavigationAction</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -683,13 +711,13 @@ controller</p>
                       <div class="abstract">
                         <p>Pushes view controller in to UINavigation controller&rsquo;s child stack</p>
 
-                        <a href="Classes/PushAction.html" class="slightly-smaller">See more</a>
+                        <a href="Classes/PushToNavigationAction.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">PushAction</span><span class="p">:</span> <span class="kt">NavigationControllerFactoryAction</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">PushToNavigationAction</span><span class="p">:</span> <span class="kt">NavigationControllerFactoryAction</span></code></pre>
 
                         </div>
                       </div>
@@ -962,37 +990,6 @@ be taken.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:15DeepLinkLibrary25TopMostViewControllerStepC"></a>
-                    <a name="//apple_ref/swift/Class/TopMostViewControllerStep" class="dashAnchor"></a>
-                    <a class="token" href="#/s:15DeepLinkLibrary25TopMostViewControllerStepC">TopMostViewControllerStep</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Returns topmost presented view controller.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">TopMostViewControllerStep</span><span class="p">:</span> <span class="kt">PerformableStep</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
                     <a name="/s:15DeepLinkLibrary25ViewControllerClassFinderC"></a>
                     <a name="//apple_ref/swift/Class/ViewControllerClassFinder" class="dashAnchor"></a>
                     <a class="token" href="#/s:15DeepLinkLibrary25ViewControllerClassFinderC">ViewControllerClassFinder</a>
@@ -1155,7 +1152,7 @@ and it context object.</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="http://tech.gilt.com" target="_blank" rel="external">Gilt Groupe</a>. All rights reserved. (Last updated: 2018-03-04)</p>
+          <p>&copy; 2018 <a class="link" href="http://tech.gilt.com" target="_blank" rel="external">Gilt Groupe</a>. All rights reserved. (Last updated: 2018-03-09)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

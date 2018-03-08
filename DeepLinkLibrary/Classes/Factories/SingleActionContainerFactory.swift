@@ -32,7 +32,7 @@ public extension SingleActionContainerFactory {
         return otherFactories
     }
 
-    public func buildChildrenViewControllers(with context: Context?) throws -> [UIViewController] {
+    public func buildChildrenViewControllers(with context: Context) throws -> [UIViewController] {
         return try buildChildrenViewControllers(from: factories, with: context)
     }
 }

@@ -13,7 +13,7 @@
     <a title="Protocols  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">DeepLinkLibrary Docs</a> (83% documented)</p>
+        <p><a href="index.html">DeepLinkLibrary Docs</a> (84% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -36,6 +36,9 @@
                 <a href="Classes/ChildFactory.html">ChildFactory</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes.html#/s:15DeepLinkLibrary25CurrentViewControllerStepC">CurrentViewControllerStep</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/DefaultLogger.html">DefaultLogger</a>
               </li>
               <li class="nav-group-task">
@@ -45,10 +48,10 @@
                 <a href="Classes/FinderFactory.html">FinderFactory</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/NavigationContainerStep.html">NavigationContainerStep</a>
+                <a href="Classes/NavigationControllerFactory.html">NavigationControllerFactory</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/NavigationControllerFactory.html">NavigationControllerFactory</a>
+                <a href="Classes/NavigationControllerStep.html">NavigationControllerStep</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/NilAction.html">NilAction</a>
@@ -60,16 +63,16 @@
                 <a href="Classes/NilFinder.html">NilFinder</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/PresentDetailsAction.html">PresentDetailsAction</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/PresentMasterAction.html">PresentMasterAction</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Classes/PresentModallyAction.html">PresentModallyAction</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/PushAction.html">PushAction</a>
+                <a href="Classes/PushToDetailsAction.html">PushToDetailsAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/PushToMasterAction.html">PushToMasterAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/PushToNavigationAction.html">PushToNavigationAction</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/ReplaceRootAction.html">ReplaceRootAction</a>
@@ -103,9 +106,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/TabBarControllerFactory.html">TabBarControllerFactory</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes.html#/s:15DeepLinkLibrary25TopMostViewControllerStepC">TopMostViewControllerStep</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/ViewControllerClassFinder.html">ViewControllerClassFinder</a>
@@ -201,22 +201,19 @@
                 <a href="Protocols/Logger.html">Logger</a>
               </li>
               <li class="nav-group-task">
-                <a href="Protocols/MandatoryContextFactory.html">MandatoryContextFactory</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Protocols/PostRoutingTask.html">PostRoutingTask</a>
               </li>
               <li class="nav-group-task">
                 <a href="Protocols.html#/s:15DeepLinkLibrary6RouterP">Router</a>
               </li>
               <li class="nav-group-task">
-                <a href="Protocols/RouterInterceptor.html">RouterInterceptor</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Protocols/RouterRulesSupport.html">RouterRulesSupport</a>
               </li>
               <li class="nav-group-task">
                 <a href="Protocols/RoutingDestination.html">RoutingDestination</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/RoutingInterceptor.html">RoutingInterceptor</a>
               </li>
               <li class="nav-group-task">
                 <a href="Protocols.html#/s:15DeepLinkLibrary11RoutingStepP">RoutingStep</a>
@@ -543,40 +540,6 @@ view controller is the one that Router looking for or no.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:15DeepLinkLibrary23MandatoryContextFactoryP"></a>
-                    <a name="//apple_ref/swift/Protocol/MandatoryContextFactory" class="dashAnchor"></a>
-                    <a class="token" href="#/s:15DeepLinkLibrary23MandatoryContextFactoryP">MandatoryContextFactory</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Helper protocol that covers cases when your factory always need some context to be able to create
-it&rsquo;s UIViewController. Provides default implementation of  Factory&rsquo;s methods and let you extend
-its own build method with non-optional Context.</p>
-
-                        <a href="Protocols/MandatoryContextFactory.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">MandatoryContextFactory</span><span class="p">:</span> <span class="kt"><a href="Protocols/Factory.html">Factory</a></span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
                     <a name="/s:15DeepLinkLibrary15PostRoutingTaskP"></a>
                     <a name="//apple_ref/swift/Protocol/PostRoutingTask" class="dashAnchor"></a>
                     <a class="token" href="#/s:15DeepLinkLibrary15PostRoutingTaskP">PostRoutingTask</a>
@@ -628,43 +591,6 @@ The task to be executed after deep linking happened.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">Router</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:15DeepLinkLibrary17RouterInterceptorP"></a>
-                    <a name="//apple_ref/swift/Protocol/RouterInterceptor" class="dashAnchor"></a>
-                    <a class="token" href="#/s:15DeepLinkLibrary17RouterInterceptorP">RouterInterceptor</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Router interceptor is called before the actual deeplinking(navigation) happens in case it&rsquo;s defined,
-e.g. user should be logged in.</p>
-<h3 id='nb' class='heading'>NB</h3>
-
-<p>Interceptor is an asynchronous action. For router to continue routing, completion of interceptor&rsquo;s execute method MUST to be called.
-Otherwise router will stay in limbo state waiting for interceptor to finish its action.</p>
-
-                        <a href="Protocols/RouterInterceptor.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">RouterInterceptor</span></code></pre>
 
                         </div>
                       </div>
@@ -731,7 +657,44 @@ Return false if the view controller can be dismissed.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">RoutingDestination</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">RoutingDestination</span><span class="p">:</span> <span class="kd">class</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15DeepLinkLibrary18RoutingInterceptorP"></a>
+                    <a name="//apple_ref/swift/Protocol/RoutingInterceptor" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15DeepLinkLibrary18RoutingInterceptorP">RoutingInterceptor</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Routing interceptor is called before the actual deeplinking(navigation) happens in case it&rsquo;s defined,
+e.g. user should be logged in.</p>
+<h3 id='nb' class='heading'>NB</h3>
+
+<p>Interceptor is an asynchronous action. For router to continue routing, completion of interceptor&rsquo;s execute method MUST to be called.
+Otherwise router will stay in limbo state waiting for interceptor to finish its action.</p>
+
+                        <a href="Protocols/RoutingInterceptor.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">RoutingInterceptor</span></code></pre>
 
                         </div>
                       </div>
@@ -839,7 +802,7 @@ children UIViewControllers - use this protocol. It contain default merge functio
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="http://tech.gilt.com" target="_blank" rel="external">Gilt Groupe</a>. All rights reserved. (Last updated: 2018-03-04)</p>
+          <p>&copy; 2018 <a class="link" href="http://tech.gilt.com" target="_blank" rel="external">Gilt Groupe</a>. All rights reserved. (Last updated: 2018-03-09)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

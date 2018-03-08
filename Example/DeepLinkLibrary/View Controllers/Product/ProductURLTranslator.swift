@@ -15,7 +15,8 @@ class ProductURLTranslator: ExampleURLTranslator {
             return nil
         }
 
-        return ProductConfiguration.productDestination(productId: productIdValue, ExampleAnalyticsParameters(source: .appLink, webpageURL: url, referrerURL: nil))
+        return ProductConfiguration.productDestination(productId: productIdValue,
+                ExampleAnalyticsParameters(source: .appLink, webpageURL: url, referrerURL: nil))
     }
 
 }

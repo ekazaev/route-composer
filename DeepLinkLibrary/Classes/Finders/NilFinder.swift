@@ -21,7 +21,7 @@ public class NilFinder<VC: UIViewController, C>: Finder {
     public init() {
     }
 
-    public func findViewController(with context: Context?) -> ViewController? {
+    public func findViewController(with context: Context) -> ViewController? {
         return nil
     }
 

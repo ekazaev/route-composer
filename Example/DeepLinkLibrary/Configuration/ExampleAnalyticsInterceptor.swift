@@ -7,21 +7,21 @@ import Foundation
 import UIKit
 import DeepLinkLibrary
 
-class ExampleAnalyticsInterceptor: RouterInterceptor {
+class ExampleAnalyticsInterceptor: RoutingInterceptor {
 
-    typealias Context = ExampleContext
+    typealias Destination = ExampleDestination
 
     // We have to set source in interceptor and not in post action because by the time routing happened, source
     // UIViewController may not exist any more. We do not want to keep any strong reference to it and prevent it's
     // normal life cycle, so we will use it's parameters in analytics before any routing happen.
-    func execute(with context: Context?, completion: @escaping (InterceptorResult) -> Void) {
-        guard context?.analyticParameters == nil,
+    func execute(for destination: Destination, completion: @escaping (InterceptorResult) -> Void) {
+        guard destination.analyticParameters == nil,
               let viewController = UIWindow.key?.rootViewController?.topmostNonContainerViewController as? ExampleAnalyticsSupport else {
             completion(.success)
             return
         }
 
-        context?.analyticParameters = viewController.analyticParameters
+        destination.analyticParameters = viewController.analyticParameters
         completion(.success)
     }
 

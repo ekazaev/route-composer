@@ -10,20 +10,11 @@ enum Argument {
     case color
 }
 
-protocol ExampleContext: class {
-
-    var analyticParameters: ExampleAnalyticsParameters? { set get }
-
-}
-
-class ExampleDictionaryContext: ExampleContext {
-
-    var analyticParameters: ExampleAnalyticsParameters?
+class ExampleDictionaryContext {
 
     var arguments: [Argument: Any] = [:]
 
-    init(arguments: [Argument: Any]? = nil, _ analyticParameters: ExampleAnalyticsParameters? = nil) {
-        self.analyticParameters = analyticParameters
+    init(arguments: [Argument: Any]? = nil) {
         if let arguments = arguments {
             self.arguments.merge(arguments, uniquingKeysWith: { (_, last) in last })
         }
@@ -41,10 +32,18 @@ class ExampleDictionaryContext: ExampleContext {
 
 }
 
-struct ExampleDestination: RoutingDestination {
+class ExampleDestination: RoutingDestination {
 
     let finalStep: RoutingStep
 
     let context: Any?
+
+    var analyticParameters: ExampleAnalyticsParameters?
+
+    init(finalStep: RoutingStep, context: Any? = nil, _ analyticParameters: ExampleAnalyticsParameters? = nil) {
+        self.finalStep = finalStep
+        self.context = context
+        self.analyticParameters = analyticParameters
+    }
 
 }

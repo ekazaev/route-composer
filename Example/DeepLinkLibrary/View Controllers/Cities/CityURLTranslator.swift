@@ -16,7 +16,7 @@ class CityURLTranslator: ExampleURLTranslator {
             return nil
         }
 
-        let cityDestination = CitiesConfiguration.cityDetail(cityId: cityId)
+        let cityDestination = CitiesConfiguration.cityDetail(cityId: cityId, ExampleAnalyticsParameters(source: .appLink, webpageURL: url, referrerURL: nil))
         return cityDestination
     }
 

@@ -20,13 +20,13 @@ public protocol FinderWithPolicy: Finder {
     ///   - viewController: Some view controller in the current view controller stack
     ///   - context: Context object that was provided to the Router.
     /// - Returns: true if this view controller is the one that finder is looking for, false otherwise.
-    func isTarget(viewController: ViewController, context: Context?) -> Bool
+    func isTarget(viewController: ViewController, context: Context) -> Bool
 
 }
 
 public extension FinderWithPolicy {
 
-    func findViewController(with context: Context?) -> ViewController? {
+    func findViewController(with context: Context) -> ViewController? {
 
         let comparator: (UIViewController) -> Bool = {
             guard let vc = $0 as? ViewController else {

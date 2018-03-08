@@ -21,10 +21,7 @@ public class ViewControllerClassWithContextFinder<VC: ContextFinderSupport, C>: 
         self.policy = policy
     }
 
-    public func isTarget(viewController: ViewController, context: Context?) -> Bool {
-        guard let context = context else {
-            return false
-        }
+    public func isTarget(viewController: ViewController, context: Context) -> Bool {
         return viewController.isSuitableFor(context: context)
     }
 

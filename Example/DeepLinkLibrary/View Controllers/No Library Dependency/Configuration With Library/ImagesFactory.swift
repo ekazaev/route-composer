@@ -9,10 +9,6 @@ import UIKit
 
 class ImagesFactory: Factory {
 
-    typealias ViewController = ImagesViewController
-
-    typealias Context = Any
-
     let action: Action
 
     let delegate: ImagesControllerDelegate
@@ -22,7 +18,7 @@ class ImagesFactory: Factory {
         self.delegate = delegate
     }
 
-    func build(with context: Context?) throws -> ViewController {
+    func build(with context: Any?) throws -> ImagesViewController {
         guard let viewController = UIStoryboard(name: "Images", bundle: Bundle.main)
                 .instantiateViewController(withIdentifier: "ImagesViewController") as? ViewController else {
             throw RoutingError.message("Could not load ImagesViewController from storyboard.")

@@ -6,12 +6,12 @@
 import UIKit
 
 /// Returns topmost presented view controller.
-public class TopMostViewControllerStep: PerformableStep {
+public class CurrentViewControllerStep: PerformableStep {
 
     public init() {
     }
 
-    func perform(with context: Any?) -> StepResult {
+    func perform<D: RoutingDestination>(for destination: D) -> StepResult {
         let window = UIWindow.key
         return StepResult(window?.topmostViewController)
     }

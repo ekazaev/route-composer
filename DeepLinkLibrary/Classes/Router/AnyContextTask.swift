@@ -11,9 +11,9 @@ import UIKit
 /// Non typesafe boxing wrapper for ContextTask protocol
 protocol AnyContextTask {
 
-    func prepare(with context: Any?) throws
+    func prepare<D: RoutingDestination>(with context: Any?, for destination: D) throws
 
-    func apply(on viewController: UIViewController, with context: Any?)
+    func apply<D: RoutingDestination>(on viewController: UIViewController, with context: Any?, for destination: D)
 
 }
 
@@ -25,16 +25,16 @@ class ContextTaskBox<CT: ContextTask>: AnyContextTask, CustomStringConvertible {
         self.contextTask = contextTask
     }
 
-    func prepare(with context: Any?) throws {
-        guard let typedContext = context as? CT.Context? else {
-            throw RoutingError.message("\(String(describing: context)) does not support context \(String(describing: context))")
+    func prepare<D: RoutingDestination>(with context: Any?, for destination: D) throws {
+        guard let typedContext = context as? CT.Context else {
+            throw RoutingError.message("\(String(describing: contextTask)) does not support context \(String(describing: context))")
         }
         try contextTask.prepare(with: typedContext)
     }
 
-    func apply(on viewController: UIViewController, with context: Any?) {
+    func apply<D: RoutingDestination>(on viewController: UIViewController, with context: Any?, for destination: D) {
         guard let typedViewController = viewController as? CT.ViewController,
-              let typedContext = context as? CT.Context? else {
+              let typedContext = context as? CT.Context else {
             return
         }
         contextTask.apply(on: typedViewController, with: typedContext)

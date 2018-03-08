@@ -9,7 +9,7 @@ import Foundation
 
 protocol InterceptableStep: RoutingStep {
 
-    var interceptor: AnyRouterInterceptor? { get }
+    var interceptor: AnyRoutingInterceptor? { get }
 
     var postTask: AnyPostRoutingTask? { get }
 

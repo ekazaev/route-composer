@@ -43,14 +43,14 @@ class FactoryBox<F: Factory>: AnyFactory, CustomStringConvertible {
     }
 
     func prepare(with context: Any?) throws {
-        guard let typedContext = context as? F.Context? else {
+        guard let typedContext = context as? F.Context else {
             throw RoutingError.message("\(String(describing: factory)) does not accept \(String(describing: context)) as a context.")
         }
         return try factory.prepare(with: typedContext)
     }
 
     func build(with context: Any?) throws -> UIViewController {
-        guard let typedContext = context as? F.Context? else {
+        guard let typedContext = context as? F.Context else {
             throw RoutingError.message("\(String(describing: factory)) does not accept \(String(describing: context)) as a context.")
         }
         return try factory.build(with: typedContext)

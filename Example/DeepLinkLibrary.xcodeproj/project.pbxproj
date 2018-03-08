@@ -45,7 +45,6 @@
 		9AFBC543C6164B0233A6BB88 /* ImageFetcherImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC5D711BEDBDB3B0C6CA9 /* ImageFetcherImpl.swift */; };
 		9AFBC554985E0625F482F2C4 /* CustomViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCD694401971FFFCD2A0E /* CustomViewControllerDelegate.swift */; };
 		9AFBC5D1D6B2F6E9C25E9663 /* CustomContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC78D88E8BA79AA45A527 /* CustomContainerController.swift */; };
-		9AFBC5E76937F58BE685F4E7 /* CityContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC78B188F55C0198B5007 /* CityContext.swift */; };
 		9AFBC66443B697ADCC7BB6B7 /* WishListContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC16A7AED73A4F3C744F7 /* WishListContent.swift */; };
 		9AFBC6A3A55CCF3FC18F1978 /* ImagesConfigurationWithLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC5AF9638E4E5B1D1E443 /* ImagesConfigurationWithLibrary.swift */; };
 		9AFBC6DD79F2059D9547629A /* ImagesFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC7681CD469FE6EB77EC1 /* ImagesFactory.swift */; };
@@ -143,7 +142,6 @@
 		9AFBC5D711BEDBDB3B0C6CA9 /* ImageFetcherImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageFetcherImpl.swift; sourceTree = "<group>"; };
 		9AFBC6DBFF899EA9831D84D2 /* LoginConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginConfiguration.swift; sourceTree = "<group>"; };
 		9AFBC7681CD469FE6EB77EC1 /* ImagesFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesFactory.swift; sourceTree = "<group>"; };
-		9AFBC78B188F55C0198B5007 /* CityContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityContext.swift; sourceTree = "<group>"; };
 		9AFBC78D88E8BA79AA45A527 /* CustomContainerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomContainerController.swift; sourceTree = "<group>"; };
 		9AFBC7FF9D27A17E57FE525C /* ProductConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductConfiguration.swift; sourceTree = "<group>"; };
 		9AFBC80C4D57303B27914E81 /* WishListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WishListViewController.swift; sourceTree = "<group>"; };
@@ -396,7 +394,6 @@
 				9AFBC949B2D2D4B8D636B565 /* CityDetailViewController.swift */,
 				9AFBCA4291DB4A6D2A47E5F2 /* CitiesTableViewController.swift */,
 				9AFBC94CF26AB11E181F7B00 /* CitiesConfiguration.swift */,
-				9AFBC78B188F55C0198B5007 /* CityContext.swift */,
 				9AFBC4700ACD202B6C4A1205 /* CitiesDataModel.swift */,
 			);
 			path = Cities;
@@ -739,7 +736,6 @@
 				9AFBCF519040E699D130072D /* CityDetailViewController.swift in Sources */,
 				9AFBCAFFB71568FAE9054699 /* CitiesTableViewController.swift in Sources */,
 				9AFBCDDD13172281D4368E6C /* CitiesConfiguration.swift in Sources */,
-				9AFBC5E76937F58BE685F4E7 /* CityContext.swift in Sources */,
 				9AFBC3DB63861EB552A2CD2E /* ExampleUniversalLinksManager.swift in Sources */,
 				9AFBCBB5F4DDE646EAFA437B /* LoginViewController.swift in Sources */,
 				9AFBC11AB0BE495D5E2959C1 /* LoginConfiguration.swift in Sources */,

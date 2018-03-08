@@ -16,7 +16,7 @@ public class DefaultRouter: Router {
     }
 
     @discardableResult
-    public func deepLinkTo(destination: RoutingDestination, animated: Bool = true, completion: ((_: Bool) -> Void)? = nil) -> RoutingResult {
+    public func deepLinkTo<D: RoutingDestination>(destination: D, animated: Bool = true, completion: ((_: Bool) -> Void)? = nil) -> RoutingResult {
         logger?.routingWillStart()
         // If currently visible view controller can not be dismissed then we can't deeplink anywhere, because it will
         // disappear as a result of deeplinking.
@@ -26,7 +26,7 @@ public class DefaultRouter: Router {
             return .unhandled
         }
 
-        let postTaskRunner = PostTaskRunner()
+        let postTaskRunner = PostTaskRunner<D>()
         // Build stack of factories and find a view controller to start a presentation process from.
         // Returns (rootViewController, factories, interceptor) tuple
         // where rootViewController is the origin of the chain of views to be built for a given destination.
@@ -47,99 +47,100 @@ public class DefaultRouter: Router {
         }
 
         // Execute interceptors associated to the each view in the chain. All of interceptors must succeed to continue routing.
-        interceptor.execute(with: destination.context) { [weak viewController] result in
+        interceptor.execute(for: destination) { [weak viewController] result in
             if case let .failure(message) = result {
                 self.logger?.log(.warning(message ?? "\(interceptor) interceptor stopped routing."))
-                self.logger?.routingDidFinish()
                 completion?(false)
+                self.logger?.routingDidFinish()
                 return
             }
 
             guard let viewController = viewController else {
                 self.logger?.log(.warning("View controller that been chosen as a starting point of rooting been " +
                         "destroyed while router was waiting for interceptor's result."))
-                self.logger?.routingDidFinish()
                 completion?(false)
+                self.logger?.routingDidFinish()
                 return
             }
 
             self.startDeepLinking(viewController: viewController, context: destination.context, animated: animated, factories: factoriesStack) { viewController in
                 self.makeContainersActive(toShow: viewController, animated: animated)
-                postTaskRunner.run(for: destination)
+                self.doTry({
+                    try postTaskRunner.run(for: destination)
+                }, finally: { success in
+                    completion?(success)
+                })
                 self.logger?.routingDidFinish()
-                completion?(true)
             }
         }
 
         return .handled
     }
 
-    private func prepareStack(destination: RoutingDestination, postTaskRunner: PostTaskRunner) -> (rootViewController: UIViewController, factories: [AnyFactory], interceptor: AnyRouterInterceptor)? {
-        do {
+    private func prepareStack<D>(destination: D, postTaskRunner: PostTaskRunner<D>) -> (rootViewController: UIViewController, factories: [AnyFactory], interceptor: AnyRoutingInterceptor)? {
+        var rootViewController: UIViewController?
+
+        var factories: [AnyFactory] = []
+
+        var interceptors: [AnyRoutingInterceptor] = []
+
+        doTry({
 
             var currentStep: RoutingStep? = destination.finalStep
 
-            var rootViewController: UIViewController?
-
-            var factories: [AnyFactory] = []
-
-            var interceptors: [AnyRouterInterceptor] = []
-
             // Build stack until we have steps and the view controller to present from is not found
             repeat {
-                guard let performableStep = currentStep as? PerformableStep else {
-                    return nil
-                }
-
                 let interceptableStep = currentStep as? InterceptableStep
 
-                // Trying to find a view controller to start building the stack from
-                switch performableStep.perform(with: destination.context) {
-                case .success(let viewController):
-                    if rootViewController == nil {
-                        rootViewController = viewController
-                        logger?.log(.info("Step \(String(describing: currentStep!)) found a \(String(describing: viewController)) to start presentation from."))
-                    }
-                    if let contextTask = interceptableStep?.contextTask {
-                        try contextTask.prepare(with: destination.context)
-                        contextTask.apply(on: viewController, with: destination.context)
-                    }
-                    if let postTask = interceptableStep?.postTask {
-                        postTaskRunner.taskSlips.insert(PostTaskSlip(viewController: viewController, postTask: postTask), at: 0)
-                    }
-                    break
-                case .continueRouting(let factory):
-                    logger?.log(.info("Step \(String(describing: currentStep!)) not found its view controller is stack, so router will continue search."))
+                // If step contain an action that needs to be done, add it in the interceptors array
+                if let interceptor = interceptableStep?.interceptor {
+                    interceptors.append(interceptor)
+                }
 
-                    // If view controller is not found, but step has a factory to build itself - add factory to the stack
-                    if rootViewController == nil {
-                        // If step contain an action that needs to be done, add it in the interceptors array
-                        if let interceptor = interceptableStep?.interceptor {
-                            interceptors.append(interceptor)
+                if let performableStep = currentStep as? PerformableStep {
+
+                    // Trying to find a view controller to start building the stack from
+                    switch performableStep.perform(for: destination) {
+                    case .success(let viewController):
+                        if rootViewController == nil {
+                            rootViewController = viewController
+                            logger?.log(.info("Step \(String(describing: currentStep!)) found a \(String(describing: viewController)) to start presentation from."))
                         }
+                        if let contextTask = interceptableStep?.contextTask {
+                            try contextTask.prepare(with: destination.context, for: destination)
+                            contextTask.apply(on: viewController, with: destination.context, for: destination)
+                        }
+                        if let postTask = interceptableStep?.postTask {
+                            postTaskRunner.taskSlips.insert(PostTaskSlip(viewController: viewController, postTask: postTask), at: 0)
+                        }
+                        break
+                    case .continueRouting(let factory):
+                        logger?.log(.info("Step \(String(describing: currentStep!)) not found its view controller is stack, so router will continue search."))
 
-                        if var factory = factory {
-                            // If step contains post task, them lets create a factory decorator that will handle view
-                            // controller and post task chain after view controller creation.
-                            if let internalStep = interceptableStep {
-                                try internalStep.contextTask?.prepare(with: destination.context)
-                                factory = FactoryDecorator(factory: factory, contextTask: internalStep.contextTask, postTask: internalStep.postTask, postTaskRunner: postTaskRunner, logger: logger)
+                        // If view controller is not found, but step has a factory to build itself - add factory to the stack
+                        if rootViewController == nil {
+                            if var factory = factory {
+                                // If step contains post task, them lets create a factory decorator that will handle view
+                                // controller and post task chain after view controller creation.
+                                if let internalStep = interceptableStep {
+                                    try internalStep.contextTask?.prepare(with: destination.context, for: destination)
+                                    factory = FactoryDecorator(factory: factory, contextTask: internalStep.contextTask, postTask: internalStep.postTask, postTaskRunner: postTaskRunner, logger: logger, destination: destination)
+                                }
+                                // If some factory can not prepare itself (e.g. does not have enough data in context) then deep link stack
+                                // can not be built
+                                try factory.prepare(with: destination.context)
+
+                                // If current factory actually creates Container then it should know how to deal with the factories that
+                                // should be in this container, based on an action attached to the factory.
+                                // For example navigationController factory should use factories to build navigation controller stack.
+                                factories = factory.scrapeChildren(from: factories)
+                                factories.insert(factory, at: 0)
                             }
-                            // If some factory can not prepare itself (e.g. does not have enough data in context) then deep link stack
-                            // can not be built
-                            try factory.prepare(with: destination.context)
-
-                            // If current factory actually creates Container then it should know how to deal with the factories that
-                            // should be in this container, based on an action attached to the factory.
-                            // For example navigationController factory should use factories to build navigation controller stack.
-                            factories = factory.scrapeChildren(from: factories)
-                            factories.insert(factory, at: 0)
                         }
+                        break
+                    case .failure:
+                        throw RoutingError.message("Step \(String(describing: currentStep)) failed while it was looking for a view controller to present from.")
                     }
-                    break
-                case .failure:
-                    logger?.log(.error("Step \(String(describing: currentStep)) failed while it was looking for a view controller to present from."))
-                    return nil
                 }
 
                 guard let chainingStep = currentStep as? ChainableStep,
@@ -149,20 +150,20 @@ public class DefaultRouter: Router {
                 currentStep = previousStep
             } while currentStep != nil
 
-            //If we haven't found a View Controller to build the stack from - it means that we can handle deeplinking
-            if let viewController = rootViewController {
-                return (rootViewController: viewController, factories: factories, interceptor: interceptors.count == 1 ? interceptors.removeFirst() : InterceptorMultiplexer(interceptors))
+        }, finally: { success in
+            if !success {
+                rootViewController = nil
+                factories = []
+                interceptors = []
             }
+        })
 
-            return nil
-
-        } catch RoutingError.message(let message) {
-            logger?.log(.error(message))
-            return nil
-        } catch {
-            logger?.log(.error("Router could not prepare routing stack. Underlying error: \(error)"))
-            return nil
+        //If we haven't found a View Controller to build the stack from - it means that we can handle deeplinking
+        if let viewController = rootViewController {
+            return (rootViewController: viewController, factories: factories, interceptor: interceptors.count == 1 ? interceptors.removeFirst() : InterceptorMultiplexer(interceptors))
         }
+
+        return nil
     }
 
     private func startDeepLinking(viewController: UIViewController, context: Any?, animated: Bool, factories: [AnyFactory], completion: @escaping ((_: UIViewController) -> Void)) {
@@ -197,7 +198,7 @@ public class DefaultRouter: Router {
                 makeContainersActive(toShow: previousViewController, animated: false)
             }
 
-            do {
+            doTry({
                 let newViewController = try factory.build(with: context)
                 // Not to duplicate log message from wrapper
                 logger?.log(.info("Factory \(String(describing: factory)) built a \(String(describing: newViewController))."))
@@ -214,13 +215,11 @@ public class DefaultRouter: Router {
                     }
                     buildViewController(factories.removeFirst(), newViewController)
                 }
-            } catch RoutingError.message(let message) {
-                logger?.log(.error(message))
-                completion(previousViewController)
-            } catch {
-                logger?.log(.error("Factory \(String(describing: factory)) did not build any view controller. Underlying error: \(error)"))
-                completion(previousViewController)
-            }
+            }, finally: { success in
+                if !success {
+                    completion(previousViewController)
+                }
+            })
         }
 
         buildViewController(factories.removeFirst(), rootViewController)
@@ -251,7 +250,7 @@ public class DefaultRouter: Router {
     /// This decorator adds functionality of storing UIViewControllers created by the factory and frees custom factories
     /// implementations from dealing with it. Mostly it is important for ContainerFactories which create merged view
     /// controllers without Router's help.
-    private class FactoryDecorator: AnyFactory, CustomStringConvertible {
+    private class FactoryDecorator<D: RoutingDestination>: AnyFactory, CustomStringConvertible {
 
         var action: Action {
             get {
@@ -261,7 +260,7 @@ public class DefaultRouter: Router {
 
         let factory: AnyFactory
 
-        weak var postTaskRunner: PostTaskRunner?
+        weak var postTaskRunner: PostTaskRunner<D>?
 
         let contextTask: AnyContextTask?
 
@@ -269,12 +268,15 @@ public class DefaultRouter: Router {
 
         let logger: Logger?
 
-        init(factory: AnyFactory, contextTask: AnyContextTask?, postTask: AnyPostRoutingTask?, postTaskRunner: PostTaskRunner, logger: Logger?) {
+        let destination: D
+
+        init(factory: AnyFactory, contextTask: AnyContextTask?, postTask: AnyPostRoutingTask?, postTaskRunner: PostTaskRunner<D>, logger: Logger?, destination: D) {
             self.factory = factory
             self.postTaskRunner = postTaskRunner
             self.postTask = postTask
             self.contextTask = contextTask
             self.logger = logger
+            self.destination = destination
         }
 
         func prepare(with context: Any?) throws {
@@ -284,7 +286,7 @@ public class DefaultRouter: Router {
         func build(with context: Any?) throws -> UIViewController {
             let viewController = try factory.build(with: context)
             if let context = context, let contextTask = contextTask {
-                contextTask.apply(on: viewController, with: context)
+                contextTask.apply(on: viewController, with: context, for: destination)
             }
             if let postTask = postTask {
                 postTaskRunner?.taskSlips.append(PostTaskSlip(viewController: viewController, postTask: postTask))
@@ -302,17 +304,30 @@ public class DefaultRouter: Router {
 
     }
 
-    private class PostTaskRunner {
+    private func doTry(_ block: (() throws -> Void), finally finallyBlock: ((_: Bool) -> Void)? = nil) {
+        do {
+            try block()
+            finallyBlock?(true)
+        } catch RoutingError.message(let message) {
+            logger?.log(.error(message))
+            finallyBlock?(false)
+        } catch {
+            logger?.log(.error("An error occurred during routing process. Underlying error: \(error)"))
+            finallyBlock?(false)
+        }
+    }
+
+    private class PostTaskRunner<D: RoutingDestination> {
 
         var taskSlips: [PostTaskSlip] = []
 
-        func run(for destination: RoutingDestination) {
+        func run(for destination: D) throws {
             let viewControllers = taskSlips.flatMap({ $0.viewController })
-            taskSlips.forEach({ slip in
+            try taskSlips.forEach({ slip in
                 guard let viewController = slip.viewController else {
                     return
                 }
-                slip.postTask.execute(on: viewController, with: destination.context, routingStack: viewControllers)
+                try slip.postTask.execute(on: viewController, for: destination, routingStack: viewControllers)
             })
         }
     }

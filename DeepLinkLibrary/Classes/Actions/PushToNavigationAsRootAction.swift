@@ -6,7 +6,7 @@ import Foundation
 import UIKit
 
 /// Replaces all child view controllers in UINavigationController's stack with a new one.
-class PushAsRootAction: NavigationControllerFactoryAction {
+class PushToNavigationAsRootAction: NavigationControllerFactoryAction {
 
     public init() {
     }

@@ -8,23 +8,23 @@
       "warning": "undocumented"
     },
     {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Actions/PresentDetailsAction.swift",
+      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Actions/PushToDetailsAction.swift",
       "line": 12,
-      "symbol": "PresentDetailsAction.init()",
+      "symbol": "PushToDetailsAction.init()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Actions/PresentMasterAction.swift",
+      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Actions/PushToMasterAction.swift",
       "line": 11,
-      "symbol": "PresentMasterAction.init()",
+      "symbol": "PushToMasterAction.init()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Actions/PushAction.swift",
+      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Actions/PushToNavigationAction.swift",
       "line": 11,
-      "symbol": "PushAction.init()",
+      "symbol": "PushToNavigationAction.init()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
@@ -68,13 +68,6 @@
       "line": 28,
       "symbol": "UIViewController.findViewController(in:options:using:)",
       "symbol_kind": "source.lang.swift.decl.function.method.static",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Factories/MandatoryContextFactory.swift",
-      "line": 29,
-      "symbol": "MandatoryContextFactory.build(with:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
@@ -177,7 +170,7 @@
     },
     {
       "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Finders/ViewControllerClassWithContextFinder.swift",
-      "line": 33,
+      "line": 30,
       "symbol": "ContextFinderSupport",
       "symbol_kind": "source.lang.swift.decl.protocol",
       "warning": "undocumented"
@@ -232,31 +225,17 @@
       "warning": "undocumented"
     },
     {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/RouterStep.swift",
-      "line": 15,
-      "symbol": "RouterStep.init(factory:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/RouterStep.swift",
-      "line": 19,
-      "symbol": "RouterStep.init(factory:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/RouterStep.swift",
-      "line": 23,
-      "symbol": "RouterStep.viewController(with:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
       "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/RoutingError.swift",
       "line": 11,
       "symbol": "RoutingError.message",
       "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Steps/CurrentViewControllerStep.swift",
+      "line": 11,
+      "symbol": "CurrentViewControllerStep.init()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
@@ -267,24 +246,24 @@
       "warning": "undocumented"
     },
     {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Steps/TopMostViewControllerStep.swift",
-      "line": 11,
-      "symbol": "TopMostViewControllerStep.init()",
+      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Steps/RouterStep.swift",
+      "line": 15,
+      "symbol": "RouterStep.init(factory:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Tasks/MandatoryContextTask.swift",
-      "line": null,
-      "symbol": "MandatoryContextTask",
-      "symbol_kind": "source.lang.swift.decl.extension",
+      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Steps/RouterStep.swift",
+      "line": 19,
+      "symbol": "RouterStep.init(factory:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Tasks/MandatoryContextTask.swift",
-      "line": 8,
-      "symbol": "MandatoryContextTask",
-      "symbol_kind": "source.lang.swift.decl.protocol",
+      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Steps/RouterStep.swift",
+      "line": 23,
+      "symbol": "RouterStep.viewController(with:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     }
   ],

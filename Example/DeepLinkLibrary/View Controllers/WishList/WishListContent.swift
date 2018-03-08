@@ -5,19 +5,6 @@
 
 import Foundation
 
-class WishListContext: ExampleContext {
-
-    var analyticParameters: ExampleAnalyticsParameters?
-
-    var content: WishListContent
-
-    init(content: WishListContent, analyticParameters: ExampleAnalyticsParameters? = nil) {
-        self.content = content
-        self.analyticParameters = analyticParameters
-    }
-
-}
-
 enum WishListContent: Int {
     case favorites = 0
     case collections

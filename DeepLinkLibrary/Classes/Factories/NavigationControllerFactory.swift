@@ -26,7 +26,7 @@ open class NavigationControllerFactory: SingleActionContainerFactory {
         self.action = action
     }
 
-    public func build(with context: Context?) throws -> ViewController {
+    public func build(with context: Context) throws -> ViewController {
         guard factories.count > 0 else {
             throw RoutingError.message("Unable to build UINavigationController due to 0 amount of child factories")
         }

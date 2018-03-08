@@ -7,38 +7,25 @@ import Foundation
 import DeepLinkLibrary
 import UIKit
 
-class ProductContext: ExampleContext {
-
-    var analyticParameters: ExampleAnalyticsParameters?
-
-    let productId: String?
-
-    init(productId: String?, _ analyticParameters: ExampleAnalyticsParameters? = nil) {
-        self.analyticParameters = analyticParameters
-        self.productId = productId
-    }
-
-}
-
 class ProductConfiguration {
 
     static func productDestination(productId: String, _ analyticParameters: ExampleAnalyticsParameters? = nil) -> ExampleDestination {
         let productScreen = ScreenStepAssembly(
-                finder: ViewControllerClassWithContextFinder<ProductViewController, ProductContext>(),
-                factory: ViewControllerFromStoryboard(storyboardName: "Main", viewControllerID: "ProductViewController", action: PushAction()))
+                finder: ViewControllerClassWithContextFinder<ProductViewController, String>(),
+                factory: ViewControllerFromStoryboard(storyboardName: "Main", viewControllerID: "ProductViewController", action: PushToNavigationAction()))
                 .add(ProductContentTask())
                 .add(ExampleAnalyticsInterceptor())
                 .add(ExampleAnalyticsPostAction())
                 .from(SwitcherStepAssembly()
-                        .addCase { context in
+                        .addCase { (destination: ExampleDestination) in
                             // If routing requested by Universal Link - Presenting modally
                             // Try in Mobile Safari dll://productView?product=123
-                            guard let context = context as? ExampleContext, context.analyticParameters?.webpageURL != nil else {
+                            guard destination.analyticParameters?.webpageURL != nil else {
                                 return nil
                             }
 
-                            return StepChainAssembly(from: NavigationContainerStep(action: PresentModallyAction()))
-                                    .from(TopMostViewControllerStep())
+                            return StepChainAssembly(from: NavigationControllerStep(action: PresentModallyAction()))
+                                    .from(CurrentViewControllerStep())
                                     .assemble()
 
                         }
@@ -51,7 +38,7 @@ class ProductConfiguration {
                 ).assemble()
 
 
-        return ExampleDestination(finalStep: productScreen, context: ProductContext(productId: productId, analyticParameters))
+        return ExampleDestination(finalStep: productScreen, context: productId, analyticParameters)
     }
 
 }

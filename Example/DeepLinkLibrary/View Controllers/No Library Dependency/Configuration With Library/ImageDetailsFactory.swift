@@ -7,11 +7,7 @@ import Foundation
 import DeepLinkLibrary
 import UIKit
 
-class ImageDetailsFactory: MandatoryContextFactory {
-
-    typealias ViewController = ImageDetailsViewController
-
-    typealias Context = String
+class ImageDetailsFactory: Factory {
 
     let action: Action
 
@@ -22,7 +18,7 @@ class ImageDetailsFactory: MandatoryContextFactory {
         self.delegate = delegate
     }
 
-    func build(with context: Context) throws -> ViewController {
+    func build(with context: String) throws -> ImageDetailsViewController {
         guard let viewController = UIStoryboard(name: "Images", bundle: Bundle.main)
                 .instantiateViewController(withIdentifier: "ImageDetailsViewController") as? ViewController else {
             throw RoutingError.message("Could not load ImagesViewController from storyboard.")

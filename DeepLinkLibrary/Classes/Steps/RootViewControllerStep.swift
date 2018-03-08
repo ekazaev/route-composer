@@ -11,7 +11,7 @@ public class RootViewControllerStep: PerformableStep {
     public init() {
     }
 
-    func perform(with context: Any?) -> StepResult {
+    func perform<D: RoutingDestination>(for destination: D) -> StepResult {
         return StepResult(UIWindow.key?.rootViewController)
     }
 
