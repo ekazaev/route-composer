@@ -10,11 +10,11 @@ public protocol NavigationControllerFactoryAction: Action {
 }
 
 /// Container Factory that creates UINavigationController
-open class NavigationControllerFactory: SingleActionContainerFactory {
+public class NavigationControllerFactory: SingleActionContainerFactory {
 
     public typealias ViewController = UINavigationController
 
-    public typealias Context = Any
+    public typealias Context = Any?
 
     public typealias SupportedAction = NavigationControllerFactoryAction
 

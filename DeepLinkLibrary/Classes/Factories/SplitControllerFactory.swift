@@ -19,7 +19,7 @@ public class SplitControllerFactory: Factory, Container {
 
     public typealias ViewController = UISplitViewController
 
-    public typealias Context = Any
+    public typealias Context = Any?
 
     public let action: Action
 

@@ -14,9 +14,18 @@ protocol AnyFinder {
 
 class FinderBox<F: Finder>: AnyFinder, CustomStringConvertible {
 
+    static func box(for finder: F?) -> AnyFinder? {
+        if let _ = finder as? NilFinder<F.ViewController, F.Context> {
+            return nil
+        } else if let finder = finder {
+            return FinderBox(finder)
+        }
+        return nil
+    }
+
     let finder: F
 
-    init(_ finder: F) {
+    fileprivate init(_ finder: F) {
         self.finder = finder
     }
 

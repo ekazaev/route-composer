@@ -27,18 +27,14 @@ public class SwitcherStepAssembly {
 
     private struct FinderStep: PerformableStep {
 
-        let finder: AnyFinder
+        let finder: AnyFinder?
 
         init<F: Finder>(finder: F) {
-            self.finder = FinderBox(finder)
-        }
-
-        func viewController(with context: Any?) -> UIViewController? {
-            return finder.findViewController(with: context)
+            self.finder = FinderBox.box(for: finder)
         }
 
         func perform<D: RoutingDestination>(for destination: D) -> StepResult {
-            guard let viewController = viewController(with: destination.context) else {
+            guard let viewController = finder?.findViewController(with: destination.context) else {
                 return .failure
             }
             return .success(viewController)
@@ -47,17 +43,17 @@ public class SwitcherStepAssembly {
 
     private class FinderResolver: StepCaseResolver {
 
-        private let finder: AnyFinder
+        private let finder: AnyFinder?
 
         private let step: RoutingStep
 
         init<F: Finder>(finder: F, step: RoutingStep?) {
             self.step = step ?? FinderStep(finder: finder)
-            self.finder = FinderBox(finder)
+            self.finder = FinderBox.box(for: finder)
         }
 
         func resolve<D: RoutingDestination>(for destination: D) -> RoutingStep? {
-            return finder.findViewController(with: destination.context) != nil ? step : nil
+            return finder?.findViewController(with: destination.context) != nil ? step : nil
         }
     }
 

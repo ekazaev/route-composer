@@ -56,7 +56,7 @@ public class StepChainAssembly {
     }
 }
 
-internal func chain(_ steps: [RoutingStep]) -> RoutingStep {
+func chain(_ steps: [RoutingStep]) -> RoutingStep {
     guard let firstStep = steps.first else {
         fatalError("No steps provided to chain.")
     }
@@ -68,6 +68,9 @@ internal func chain(_ steps: [RoutingStep]) -> RoutingStep {
     for presentingStep in restSteps {
         guard let step = currentStep as? ChainingStep else {
             fatalError("\(presentingStep) can not be chained to non chainable step \(currentStep)")
+        }
+        if let chainableStep = step as? ChainableStep, let previousStep = chainableStep.previousStep {
+            fatalError("\(currentStep) is already chained to  \(previousStep)")
         }
         step.from(presentingStep)
         currentStep = presentingStep

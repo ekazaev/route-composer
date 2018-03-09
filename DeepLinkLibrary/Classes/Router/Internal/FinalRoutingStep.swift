@@ -37,13 +37,10 @@ class FinalRoutingStep: InterceptableStep, PerformableStep, ChainableStep, Custo
         self.previousStep = previousStep
         self.postTask = postTask
         self.contextTask = contextTask
-        if let finder = finder {
-            self.finder = FinderBox(finder)
-        } else {
-            self.finder = nil
-        }
-        if let factory = factory {
-            self.factory = FactoryBox.box(for: factory)
+        self.finder = FinderBox.box(for: finder)
+
+        if let anyFactory = FactoryBox.box(for: factory) {
+            self.factory = anyFactory
         } else if let finder = finder {
             self.factory = FactoryBox.box(for: FinderFactory(finder: finder))
         } else {

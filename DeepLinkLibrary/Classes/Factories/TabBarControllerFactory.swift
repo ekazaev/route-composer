@@ -14,7 +14,7 @@ public class TabBarControllerFactory: SingleActionContainerFactory {
 
     public typealias ViewController = UITabBarController
 
-    public typealias Context = Any
+    public typealias Context = Any?
 
     public typealias SupportedAction = TabBarControllerFactoryAction
 

@@ -13,7 +13,7 @@ class CustomContainerFactory: SingleActionContainerFactory {
 
     typealias ViewController = CustomContainerController
 
-    typealias Context = Any
+    typealias Context = Any?
 
     var factories: [ChildFactory<Context>] = []
 

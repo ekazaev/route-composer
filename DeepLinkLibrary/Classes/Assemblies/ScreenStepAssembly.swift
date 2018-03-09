@@ -132,19 +132,9 @@ public class ScreenStepAssembly<F: Finder, FC: Factory> where F.ViewController =
     /// - Parameter step: Instance of RoutingStep to start to build current step from.
     /// - Returns: Instance of RoutingStep with all the settings provided inside.
     public func assemble(from step: RoutingStep) -> RoutingStep {
-        var finalFinder: F? = finder
-        if let _ = finder as? NilFinder<F.ViewController, F.Context> {
-            finalFinder = nil
-        }
-
-        var finalFactory: FC? = factory
-        if let _ = factory as? NilFactory<FC.ViewController, FC.Context> {
-            finalFactory = nil
-        }
-
         return FinalRoutingStep(
-                finder: finalFinder,
-                factory: finalFactory,
+                finder: finder,
+                factory: factory,
                 interceptor: interceptors.count > 0 ? interceptors.count == 1 ? interceptors.first : InterceptorMultiplexer(interceptors) : nil,
                 contextTask: contentTasks.count > 0 ? contentTasks.count == 1 ? contentTasks.first : ContextTaskMultiplexer(contentTasks) : nil,
                 postTask: postTasks.count > 0 ? postTasks.count == 1 ? postTasks.first : PostRoutingTaskMultiplexer(postTasks) : nil,

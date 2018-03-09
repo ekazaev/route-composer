@@ -25,19 +25,24 @@ protocol AnyFactory: class {
 
 class FactoryBox<F: Factory>: AnyFactory, CustomStringConvertible {
 
-    static func box(for factory: F) -> AnyFactory {
-        if let _ = factory as? Container {
-            return ContainerFactoryBox(factory)
-        } else {
-            return FactoryBox(factory)
+    static func box(for factory: F?) -> AnyFactory? {
+        if let _ = factory as? NilFactory<F.ViewController, F.Context> {
+            return nil
+        } else if let factory = factory {
+            if let _ = factory as? Container {
+                return ContainerFactoryBox(factory)
+            } else {
+                return FactoryBox(factory)
+            }
         }
+        return nil
     }
 
     let factory: F
 
     let action: Action
 
-    init(_ factory: F) {
+    fileprivate init(_ factory: F) {
         self.factory = factory
         self.action = factory.action
     }
