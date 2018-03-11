@@ -11,7 +11,7 @@ struct LoginConfiguration {
     static func login() -> ExampleDestination {
         let loginScreen = ScreenStepAssembly(finder: ViewControllerClassFinder<LoginViewController, Any?>(),
                 factory: NilFactory()) //Login view controller will be created when UINavigationController will be loaded from storyboard.
-                .from(NavigationControllerStep(finder: NilFinder<UINavigationController, Any?>(), factory: ViewControllerFromStoryboard<UINavigationController, Any?>(storyboardName: "Login", action: PresentModallyAction(presentationStyle: .formSheet))))
+                .from(ContainerStep(finder: NilFinder<UINavigationController, Any?>(), factory: ViewControllerFromStoryboard<UINavigationController, Any?>(storyboardName: "Login", action: PresentModallyAction(presentationStyle: .formSheet))))
                 .from(CurrentViewControllerStep())
                 .assemble()
 

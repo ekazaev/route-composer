@@ -6,7 +6,7 @@ import Foundation
 import UIKit
 
 /// Base router step implementation that handles all step protocols.
-public class BasicStep: ChainableStep, PerformableStep, ChainingStep, CustomStringConvertible {
+public class BaseStep: ChainableStep, PerformableStep, ChainingStep, CustomStringConvertible {
 
     internal(set) public var previousStep: RoutingStep? = nil
 
@@ -19,9 +19,16 @@ public class BasicStep: ChainableStep, PerformableStep, ChainingStep, CustomStri
     /// - Parameters:
     ///   - finder: UIViewController finder.
     ///   - factory: UIViewController factory.
-    init<F: Finder, FC: Factory>(finder: F, factory: FC) where F.ViewController == FC.ViewController, F.Context == FC.Context  {
-        self.factory = FactoryBox.box(for: factory)
+    init<F: Finder, FC: Factory>(finder: F?, factory: FC?, previousStep: RoutingStep? = nil) where F.ViewController == FC.ViewController, F.Context == FC.Context  {
+        self.previousStep = previousStep
         self.finder = FinderBox.box(for: finder)
+        if let anyFactory = FactoryBox.box(for: factory) {
+            self.factory = anyFactory
+        } else if let finder = finder {
+            self.factory = FactoryBox.box(for: FinderFactory(finder: finder))
+        } else {
+            self.factory = nil
+        }
     }
 
     func perform<D: RoutingDestination>(for destination: D) -> StepResult {

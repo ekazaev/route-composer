@@ -251,27 +251,6 @@
       "symbol": "RootViewControllerStep.init()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
-    },
-    {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Steps/RouterStep.swift",
-      "line": 15,
-      "symbol": "RouterStep.init(factory:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Steps/RouterStep.swift",
-      "line": 19,
-      "symbol": "RouterStep.init(factory:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Steps/RouterStep.swift",
-      "line": 23,
-      "symbol": "RouterStep.viewController(with:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
     }
   ],
   "source_directory": "/Users/ekazaev/Workplace/DeepLinkLibrary"

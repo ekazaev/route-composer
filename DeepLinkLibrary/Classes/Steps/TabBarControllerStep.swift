@@ -6,7 +6,7 @@
 import UIKit
 
 /// Default tab bar container step
-public class TabBarControllerStep: BasicStep {
+public class TabBarControllerStep: ContainerStep<UITabBarController> {
 
     /// Creates a default UITabBarController and applies an action if it is provided.
     ///
@@ -14,15 +14,5 @@ public class TabBarControllerStep: BasicStep {
     public init(action: Action) {
         super.init(finder: NilFinder(), factory: TabBarControllerFactory(action: action))
     }
-
-    /// Creates a default UITabBarController step.
-    ///
-    /// - Parameters:
-    ///   - finder: UIViewController finder.
-    ///   - factory: UIViewController factory.
-    public override init<F: Finder, FC: Factory>(finder: F, factory: FC) where F.ViewController == FC.ViewController, F.Context == FC.Context, F.ViewController: UITabBarController {
-        super.init(finder: finder, factory: factory)
-    }
-
 
 }

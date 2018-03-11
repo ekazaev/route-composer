@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>ReplaceRootAction Class Reference</title>
+    <title>BaseStep Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Class/ReplaceRootAction" class="dashAnchor"></a>
-    <a title="ReplaceRootAction Class Reference"></a>
+    <a name="//apple_ref/swift/Class/BaseStep" class="dashAnchor"></a>
+    <a title="BaseStep Class Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">DeepLinkLibrary Docs</a> (85% documented)</p>
@@ -21,7 +21,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">DeepLinkLibrary Reference</a>
         <img id="carat" src="../img/carat.png" />
-        ReplaceRootAction Class Reference
+        BaseStep Class Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -244,14 +244,14 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>ReplaceRootAction</h1>
+            <h1>BaseStep</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">ReplaceRootAction</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Action.html">Action</a></span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">BaseStep</span><span class="p">:</span> <span class="kt">ChainableStep</span><span class="p">,</span> <span class="kt">PerformableStep</span><span class="p">,</span> <span class="kt"><a href="../Protocols/ChainingStep.html">ChainingStep</a></span><span class="p">,</span> <span class="kt">CustomStringConvertible</span></code></pre>
 
                 </div>
               </div>
-            <p>Replaces root view controller of key UIWindow.</p>
+            <p>Base router step implementation that handles all step protocols.</p>
 
           </section>
           <section class="section task-group-section">
@@ -260,36 +260,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:15DeepLinkLibrary17ReplaceRootActionCACycfc"></a>
-                    <a name="//apple_ref/swift/Method/init()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:15DeepLinkLibrary17ReplaceRootActionCACycfc">init()</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Constructor</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">()</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:15DeepLinkLibrary6ActionP13performMergedySo16UIViewControllerC04viewH0_SayAFGz24containerViewControllerstF"></a>
-                    <a name="//apple_ref/swift/Method/performMerged(viewController:containerViewControllers:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:15DeepLinkLibrary6ActionP13performMergedySo16UIViewControllerC04viewH0_SayAFGz24containerViewControllerstF">performMerged(viewController:containerViewControllers:)</a>
+                    <a name="/s:15DeepLinkLibrary13ChainableStepP08previousE0AA07RoutingE0_pSgv"></a>
+                    <a name="//apple_ref/swift/Property/previousStep" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15DeepLinkLibrary13ChainableStepP08previousE0AA07RoutingE0_pSgv">previousStep</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -303,7 +276,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">performMerged</span><span class="p">(</span><span class="nv">viewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="nv">containerViewControllers</span><span class="p">:</span> <span class="k">inout</span> <span class="p">[</span><span class="kt">UIViewController</span><span class="p">])</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">internal(set)</span> <span class="kd">public</span> <span class="k">var</span> <span class="nv">previousStep</span><span class="p">:</span> <span class="kt"><a href="../Protocols.html#/s:15DeepLinkLibrary11RoutingStepP">RoutingStep</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span></code></pre>
 
                         </div>
                       </div>
@@ -313,9 +286,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:15DeepLinkLibrary6ActionP7performySo16UIViewControllerC04viewG0_AF2onSb8animatedyAA0D6ResultOc10completiontF"></a>
-                    <a name="//apple_ref/swift/Method/perform(viewController:on:animated:completion:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:15DeepLinkLibrary6ActionP7performySo16UIViewControllerC04viewG0_AF2onSb8animatedyAA0D6ResultOc10completiontF">perform(viewController:on:animated:completion:)</a>
+                    <a name="/s:15DeepLinkLibrary12ChainingStepP4fromyAA07RoutingE0_pF"></a>
+                    <a name="//apple_ref/swift/Method/from(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15DeepLinkLibrary12ChainingStepP4fromyAA07RoutingE0_pF">from(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -329,7 +302,33 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">perform</span><span class="p">(</span><span class="nv">viewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="n">on</span> <span class="nv">existingController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping(_: ActionResult)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">from</span><span class="p">(</span><span class="n">_</span> <span class="nv">step</span><span class="p">:</span> <span class="kt"><a href="../Protocols.html#/s:15DeepLinkLibrary11RoutingStepP">RoutingStep</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:s23CustomStringConvertibleP11descriptionSSv"></a>
+                    <a name="//apple_ref/swift/Property/description" class="dashAnchor"></a>
+                    <a class="token" href="#/s:s23CustomStringConvertibleP11descriptionSSv">description</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">description</span><span class="p">:</span> <span class="kt">String</span></code></pre>
 
                         </div>
                       </div>

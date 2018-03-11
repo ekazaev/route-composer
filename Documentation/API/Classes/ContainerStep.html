@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>RouterStep Class Reference</title>
+    <title>ContainerStep Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,18 +10,18 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Class/RouterStep" class="dashAnchor"></a>
-    <a title="RouterStep Class Reference"></a>
+    <a name="//apple_ref/swift/Class/ContainerStep" class="dashAnchor"></a>
+    <a title="ContainerStep Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">DeepLinkLibrary Docs</a> (84% documented)</p>
+        <p><a href="../index.html">DeepLinkLibrary Docs</a> (85% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
       <p id="breadcrumbs">
         <a href="../index.html">DeepLinkLibrary Reference</a>
         <img id="carat" src="../img/carat.png" />
-        RouterStep Class Reference
+        ContainerStep Class Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -34,7 +34,13 @@
                 <a href="../Classes/AddTabAction.html">AddTabAction</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/BaseStep.html">BaseStep</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/ChildFactory.html">ChildFactory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ContainerStep.html">ContainerStep</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes.html#/s:15DeepLinkLibrary25CurrentViewControllerStepC">CurrentViewControllerStep</a>
@@ -83,9 +89,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes.html#/s:15DeepLinkLibrary22RootViewControllerStepC">RootViewControllerStep</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/RouterStep.html">RouterStep</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/ScreenStepAssembly.html">ScreenStepAssembly</a>
@@ -241,10 +244,10 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>RouterStep</h1>
+            <h1>ContainerStep</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">RouterStep</span><span class="p">:</span> <span class="kt">ChainableStep</span><span class="p">,</span> <span class="kt">PerformableStep</span><span class="p">,</span> <span class="kt"><a href="../Protocols/ChainingStep.html">ChainingStep</a></span><span class="p">,</span> <span class="kt">CustomStringConvertible</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">ContainerStep</span><span class="o">&lt;</span><span class="kt"><a href="../Protocols/Container.html">Container</a></span><span class="p">:</span> <span class="kt"><a href="../Protocols/ContainerViewController.html">ContainerViewController</a></span><span class="o">&gt;</span><span class="p">:</span> <span class="kt"><a href="../Classes/BaseStep.html">BaseStep</a></span></code></pre>
 
                 </div>
               </div>
@@ -257,9 +260,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:15DeepLinkLibrary13ChainableStepP08previousE0AA07RoutingE0_pSgv"></a>
-                    <a name="//apple_ref/swift/Property/previousStep" class="dashAnchor"></a>
-                    <a class="token" href="#/s:15DeepLinkLibrary13ChainableStepP08previousE0AA07RoutingE0_pSgv">previousStep</a>
+                    <a name="/s:15DeepLinkLibrary13ContainerStepCACyxGqd__6finder_qd_0_7factorytc14ViewControllerQyd__RszAA6FinderRd__AA7FactoryRd_0_7ContextQyd_0_AKRtd__AGQyd_0_AHRSr0_lufc"></a>
+                    <a name="//apple_ref/swift/Method/init(finder:factory:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15DeepLinkLibrary13ContainerStepCACyxGqd__6finder_qd_0_7factorytc14ViewControllerQyd__RszAA6FinderRd__AA7FactoryRd_0_7ContextQyd_0_AKRtd__AGQyd_0_AHRSr0_lufc">init(finder:factory:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -267,67 +270,47 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        
+                        <p>Creates a instance of the routing step that produces container view controller.</p>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">internal(set)</span> <span class="kd">public</span> <span class="k">var</span> <span class="nv">previousStep</span><span class="p">:</span> <span class="kt"><a href="../Protocols.html#/s:15DeepLinkLibrary11RoutingStepP">RoutingStep</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">F</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Finder.html">Finder</a></span><span class="p">,</span> <span class="kt">FC</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Factory.html">Factory</a></span><span class="o">&gt;</span><span class="p">(</span><span class="nv">finder</span><span class="p">:</span> <span class="kt">F</span><span class="p">,</span> <span class="nv">factory</span><span class="p">:</span> <span class="kt">FC</span><span class="p">)</span> <span class="k">where</span> <span class="kt">F</span><span class="o">.</span><span class="kt">ViewController</span> <span class="o">==</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">F</span><span class="o">.</span><span class="kt">Context</span> <span class="o">==</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">Context</span><span class="p">,</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">ViewController</span> <span class="o">==</span> <span class="kt"><a href="../Protocols/Container.html">Container</a></span></code></pre>
 
                         </div>
                       </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:15DeepLinkLibrary12ChainingStepP4fromyAA07RoutingE0_pF"></a>
-                    <a name="//apple_ref/swift/Method/from(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:15DeepLinkLibrary12ChainingStepP4fromyAA07RoutingE0_pF">from(_:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">from</span><span class="p">(</span><span class="n">_</span> <span class="nv">step</span><span class="p">:</span> <span class="kt"><a href="../Protocols.html#/s:15DeepLinkLibrary11RoutingStepP">RoutingStep</a></span><span class="p">)</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:s23CustomStringConvertibleP11descriptionSSv"></a>
-                    <a name="//apple_ref/swift/Property/description" class="dashAnchor"></a>
-                    <a class="token" href="#/s:s23CustomStringConvertibleP11descriptionSSv">description</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">description</span><span class="p">:</span> <span class="kt">String</span></code></pre>
-
-                        </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>finder</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>UIViewController finder.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>factory</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>UIViewController factory.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -337,7 +320,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="http://tech.gilt.com" target="_blank" rel="external">Gilt Groupe</a>. All rights reserved. (Last updated: 2018-03-09)</p>
+          <p>&copy; 2018 <a class="link" href="http://tech.gilt.com" target="_blank" rel="external">Gilt Groupe</a>. All rights reserved. (Last updated: 2018-03-11)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
