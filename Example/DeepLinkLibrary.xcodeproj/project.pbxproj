@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		4F7CDDB480A0D4FAB88D9CDA /* Pods_DeepLinkLibrary_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D5D44CE2FD3DEAA3108C874 /* Pods_DeepLinkLibrary_Tests.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
-		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
+		607FACDB1AFB9204008FA782 /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* TabBar.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
@@ -97,7 +97,7 @@
 		607FACD01AFB9204008FA782 /* DeepLinkLibrary_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeepLinkLibrary_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		607FACDA1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		607FACDA1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/TabBar.storyboard; sourceTree = "<group>"; };
 		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* DeepLinkLibrary_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DeepLinkLibrary_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -237,7 +237,7 @@
 				8479E308200E7A7F00320380 /* URLTranslators */,
 				8479E2FE200E7A7F00320380 /* View Controllers */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
-				607FACD91AFB9204008FA782 /* Main.storyboard */,
+				607FACD91AFB9204008FA782 /* TabBar.storyboard */,
 				8479E31F200F7D1E00320380 /* Login.storyboard */,
 				8479E2F3200E7A4400320380 /* PromptScreen.storyboard */,
 				8479E2F1200E7A4400320380 /* Split.storyboard */,
@@ -584,7 +584,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
+				607FACDB1AFB9204008FA782 /* TabBar.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				847D2870202B7DCC004C1EAF /* StarViewController.xib in Resources */,
 				8479E320200F7D1E00320380 /* Login.storyboard in Resources */,
@@ -804,12 +804,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		607FACD91AFB9204008FA782 /* Main.storyboard */ = {
+		607FACD91AFB9204008FA782 /* TabBar.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				607FACDA1AFB9204008FA782 /* Base */,
 			);
-			name = Main.storyboard;
+			name = TabBar.storyboard;
 			sourceTree = "<group>";
 		};
 		607FACDE1AFB9204008FA782 /* LaunchScreen.xib */ = {

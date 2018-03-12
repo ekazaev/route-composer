@@ -11,7 +11,7 @@ struct WishListConfiguration {
 
     static let wishListScreen = ScreenStepAssembly(
             finder: ViewControllerClassFinder<WishListViewController, WishListContent>(),
-            factory: ViewControllerFromStoryboard(storyboardName: "Main", viewControllerID: "WishListViewController", action: PushToNavigationAction()))
+            factory: ViewControllerFromStoryboard(storyboardName: "TabBar", viewControllerID: "WishListViewController", action: PushToNavigationAction()))
             .add(LoginInterceptor())
             .add(WishListContentTask())
             .add(ExampleAnalyticsInterceptor())

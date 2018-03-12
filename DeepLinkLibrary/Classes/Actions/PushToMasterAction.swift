@@ -21,4 +21,5 @@ public class PushToMasterAction: SplitViewControllerMasterAction {
         splitViewController.viewControllers[0] = viewController
         completion(.continueRouting)
     }
+
 }

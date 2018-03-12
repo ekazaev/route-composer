@@ -10,7 +10,7 @@ public extension Array where Element: UIViewController {
 
     var canBeDismissed: Bool {
         get {
-            return self.nonDismissableViewController == nil
+            return self.nonDismissibleViewController == nil
         }
     }
 
@@ -18,7 +18,7 @@ public extension Array where Element: UIViewController {
 
 internal extension Array where Element: UIViewController {
 
-    var nonDismissableViewController: UIViewController? {
+    var nonDismissibleViewController: UIViewController? {
         get {
             return self.flatMap {
                 $0 as? RouterRulesSupport & UIViewController

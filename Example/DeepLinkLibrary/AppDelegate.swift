@@ -30,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 // what type of view controller and context to expect. You do not need to do so if you are using at
                 // least one custom factory of finder that have set typealias for ViewController and Context.
                 finder: ViewControllerClassFinder<UITabBarController, Any?>(),
-                factory: ViewControllerFromStoryboard(storyboardName: "Main", action: ReplaceRootAction()))
+                factory: ViewControllerFromStoryboard(storyboardName: "TabBar", action: ReplaceRootAction()))
                 .add(ExampleAnalyticsInterceptor())
                 .add(ExampleAnalyticsPostAction())
                 .from(RootViewControllerStep())
@@ -87,7 +87,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Screen with Routing support
         let routingSupportScreen = ScreenStepAssembly(
                 finder: ViewControllerClassFinder<RoutingRuleSupportViewController, Any?>(policy: .currentLevel),
-                factory: ViewControllerFromStoryboard(storyboardName: "Main", viewControllerID: "RoutingRuleSupportViewController", action: PushToNavigationAction()))
+                factory: ViewControllerFromStoryboard(storyboardName: "TabBar", viewControllerID: "RoutingRuleSupportViewController", action: PushToNavigationAction()))
                 .add(ExampleAnalyticsInterceptor())
                 .add(ExampleAnalyticsPostAction())
                 .from(colorScreen)
@@ -99,7 +99,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Empty Screen
         let emptyScreen = ScreenStepAssembly(
                 finder: ViewControllerClassFinder<EmptyViewController, Any?>(),
-                factory: ViewControllerFromStoryboard(storyboardName: "Main", viewControllerID: "EmptyViewController", action: PushToNavigationAction()))
+                factory: ViewControllerFromStoryboard(storyboardName: "TabBar", viewControllerID: "EmptyViewController", action: PushToNavigationAction()))
                 .add(LoginInterceptor())
                 .add(ExampleAnalyticsInterceptor())
                 .add(ExampleAnalyticsPostAction())
@@ -111,7 +111,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Two modal presentations in a row screen
         let superModalScreen = ScreenStepAssembly(
                 finder: ViewControllerClassFinder<SecondModalLevelViewController, Any?>(),
-                factory: ViewControllerFromStoryboard(storyboardName: "Main", viewControllerID: "SecondModalLevelViewController", action: PushToNavigationAction()))
+                factory: ViewControllerFromStoryboard(storyboardName: "TabBar", viewControllerID: "SecondModalLevelViewController", action: PushToNavigationAction()))
                 .add(ExampleAnalyticsInterceptor())
                 .add(ExampleAnalyticsPostAction())
                 .from(NavigationControllerStep(action: PresentModallyAction()))

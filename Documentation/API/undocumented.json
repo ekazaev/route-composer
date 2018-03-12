@@ -37,7 +37,7 @@
     },
     {
       "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Assemblies/StepChainAssembly.swift",
-      "line": 31,
+      "line": 38,
       "symbol": "StepChainAssembly.init()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"

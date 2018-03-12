@@ -100,7 +100,7 @@ see documentation. Method `prepare` helps router to know that routing can not be
 and find out that factory can not build a view controller without context. It may be handy if you are implementing Universal
 Links in your application and if routing can not be handled open provided URL in Safari instead.
 
-*Example: Basic implementation of the factory for some custom *ProductViewController* view controller will look like:*
+*Example: Basic implementation of the factory for some custom `ProductViewController` view controller will look like:*
 
 ```swift
 class ProductViewControllerFactory: Factory {
@@ -143,8 +143,8 @@ the same type in the stack you should implement your own finder. There a version
 helps to solve iteration in view controller stack and handles it, you just have to implement method `isTarget` to answer if its a
 view controller router is looking for or not.
 
-*Example of ProductViewController finder that can help router to find a ProductViewController that presents particular product in your
-view controller stack:*
+*Example of `ProductViewControllerFinder` finder that can help router to find a `ProductViewController` that presents particular
+product in your view controller stack:*
 
 ```swift
 class ProductViewControllerFinder: FinderWithPolicy {

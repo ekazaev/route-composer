@@ -40,7 +40,7 @@ public class DefaultRouter: Router {
                 interceptor = stack.interceptor
 
         // check if the view controllers, that are currently presented from the origin view controller for a given destination, can be dismissed.
-        if let viewController = viewController.allPresentedViewControllers.nonDismissableViewController {
+        if let viewController = viewController.allPresentedViewControllers.nonDismissibleViewController {
             logger?.log(.warning("\(String(describing: viewController)) view controller can not be dismissed."))
             logger?.routingDidFinish()
             return .unhandled

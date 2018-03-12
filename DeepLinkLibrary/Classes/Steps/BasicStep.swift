@@ -8,7 +8,7 @@ import UIKit
 /// Simple class that produces intermediate step for an assembly.
 public class BasicStep {
 
-    let routingStep: RoutingContainerStep
+    let routingStep: RoutingStep
 
     /// Creates a instance of the routing step that produces view controller.
     ///
@@ -19,7 +19,7 @@ public class BasicStep {
         routingStep = RoutingContainerStep(finder: finder, factory: factory)
     }
 
-    class RoutingContainerStep: BaseStep, RoutingStep {
+    private class RoutingContainerStep: BaseStep, RoutingStep {
 
         init<F: Finder, FC: Factory>(finder: F, factory: FC) where F.ViewController == FC.ViewController, F.Context == FC.Context {
             super.init(finder: finder, factory: factory)
