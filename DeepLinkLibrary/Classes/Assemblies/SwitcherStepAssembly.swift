@@ -25,7 +25,7 @@ public class SwitcherStepAssembly {
         }
     }
 
-    private struct FinderStep: PerformableStep {
+    private struct FinderStep: RoutingStep, PerformableStep {
 
         let finder: AnyFinder?
 

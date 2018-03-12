@@ -279,7 +279,7 @@ use `ScreenStepAssembly` provided by a library to configure andy step that route
 which should be presented modally from any currently visible view controller.*
 
 ```swift
-let colorScreen = ScreenStepAssembly(finder: ProductViewControllerFinder(), factory: ProductViewControllerFactory(action: PushToNavigationAction()))
+let productScreen = ScreenStepAssembly(finder: ProductViewControllerFinder(), factory: ProductViewControllerFactory(action: PushToNavigationAction()))
         .add(LoginInterceptor())
         .add(ProductViewControllerContentTask())
         .add(ProductViewControllerPostTask(analyticsManager: AnalyticsManager.sharedInstance))
@@ -322,7 +322,7 @@ struct AppDestination: RoutingDestination {
 struct Configuration {
 
     static func productDestination(with productID: UUID) -> AppDestination {
-        let colorScreen = ScreenStepAssembly(finder: ProductViewControllerFinder(), factory: ProductViewControllerFactory(action: PushToNavigationAction()))
+        let productScreen = ScreenStepAssembly(finder: ProductViewControllerFinder(), factory: ProductViewControllerFactory(action: PushToNavigationAction()))
                 .add(LoginInterceptor())
                 .add(ProductViewControllerContentTask())
                 .add(ProductViewControllerPostTask(analyticsManager: AnalyticsManager.sharedInstance))
@@ -330,7 +330,7 @@ struct Configuration {
                 .from(CurrentViewControllerStep())
                 .assemble()
 
-        return AppDestination(finalStep: colorScreen, context: productID)
+        return AppDestination(finalStep: productScreen, context: productID)
     }
 
 }

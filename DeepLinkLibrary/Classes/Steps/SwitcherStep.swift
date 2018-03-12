@@ -16,7 +16,7 @@ public protocol StepCaseResolver {
 
 }
 
-class SwitcherStep: ChainableStep, PerformableStep {
+class SwitcherStep: RoutingStep, ChainableStep, PerformableStep {
 
     private(set) public var previousStep: RoutingStep? = nil
 

@@ -6,7 +6,7 @@
 import Foundation
 import UIKit
 
-class FinalRoutingStep: BaseStep, InterceptableStep {
+class FinalRoutingStep:  BaseStep, RoutingStep, InterceptableStep {
 
     let interceptor: AnyRoutingInterceptor?
 

@@ -144,7 +144,7 @@ public class DefaultRouter: Router {
                 }
 
                 guard let chainingStep = currentStep as? ChainableStep,
-                      let previousStep = chainingStep.previousStep as? PerformableStep else {
+                      let previousStep = chainingStep.previousStep as? RoutingStep & PerformableStep else {
                     break
                 }
                 currentStep = previousStep

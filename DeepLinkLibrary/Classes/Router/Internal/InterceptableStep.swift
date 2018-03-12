@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol InterceptableStep: RoutingStep {
+protocol InterceptableStep {
 
     var interceptor: AnyRoutingInterceptor? { get }
 

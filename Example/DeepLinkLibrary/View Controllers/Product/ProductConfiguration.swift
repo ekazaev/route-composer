@@ -24,7 +24,8 @@ class ProductConfiguration {
                                 return nil
                             }
 
-                            return StepChainAssembly(from: NavigationControllerStep(action: PresentModallyAction()))
+                            return StepChainAssembly()
+                                    .from(NavigationControllerStep(action: PresentModallyAction()))
                                     .from(CurrentViewControllerStep())
                                     .assemble()
 

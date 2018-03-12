@@ -5,6 +5,13 @@
 import Foundation
 
 /// Connects array of steps into a chain of steps.
+/// ### Usage
+/// ```swift
+/// let intermediateStep = StepChainAssembly()
+///         .from(NavigationControllerStep(action: PresentModallyAction()))
+///         .from(CurrentViewControllerStep())
+///         .assemble()
+/// ```
 public class StepChainAssembly {
 
     /// Nested builder that does not allow to add steps from non-chainable step
@@ -28,8 +35,7 @@ public class StepChainAssembly {
 
     var previousSteps: [RoutingStep] = []
 
-    public init(from previousStep: RoutingStep) {
-        self.previousSteps.append(previousStep)
+    public init() {
     }
 
     /// Previous step to start build current step from
@@ -43,8 +49,16 @@ public class StepChainAssembly {
     /// Previous step to start build current step from
     ///
     /// - Parameter previousStep: Instance of RoutingStep
-    public func from(_ previousStep: ChainingStep) -> Self {
+    public func from(_ previousStep: RoutingStep & ChainingStep) -> Self {
         self.previousSteps.append(previousStep)
+        return self
+    }
+
+    /// Basic step to start build current step from
+    ///
+    /// - Parameter previousStep: Instance of ChainingStep
+    public func from(_ previousStep: BasicStep) -> Self {
+        self.previousSteps.append(previousStep.routingStep)
         return self
     }
 

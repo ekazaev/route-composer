@@ -4,7 +4,7 @@
 
 import Foundation
 
-protocol PerformableStep: RoutingStep {
+protocol PerformableStep {
 
     /// - Parameter context: Context object that Router has started with.
     /// - Returns: StepResult enum value, which may contain a view controller in case of .found scenario.

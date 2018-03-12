@@ -8,7 +8,7 @@ import UIKit
 /// Chainable step.
 /// Identifies that the step can be a part of the chain,
 /// e.g. when it comes to the presentation of multiple view controllers to reach destination.
-protocol ChainableStep: RoutingStep {
+protocol ChainableStep {
 
     /// Step to be made by a router before getting to this step.
     var previousStep: RoutingStep? { get }

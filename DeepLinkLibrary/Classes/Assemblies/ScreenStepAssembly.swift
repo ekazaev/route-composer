@@ -7,6 +7,16 @@ import Foundation
 /// Builder class that helps to create a routing step with correct settings.
 /// ### Keep in mind
 /// Both finder and Factory instances should deal with same type of UIViewController and Content instances.
+/// ### Usage
+/// ```swift
+/// let productScreen = ScreenStepAssembly(finder: ProductViewControllerFinder(), factory: ProductViewControllerFactory(action: PushToNavigationAction()))
+///         .add(LoginInterceptor())
+///         .add(ProductViewControllerContentTask())
+///         .add(ProductViewControllerPostTask(analyticsManager: AnalyticsManager.sharedInstance))
+///         .from(NavigationControllerStep(action: PresentModallyAction()))
+///         .from(CurrentControllerStep())
+///         .assemble()
+/// ```
 public class ScreenStepAssembly<F: Finder, FC: Factory> where F.ViewController == FC.ViewController, F.Context == FC.Context {
 
     /// Nested builder that does not allow to add settings after user started to add steps to build current step from
@@ -32,8 +42,16 @@ public class ScreenStepAssembly<F: Finder, FC: Factory> where F.ViewController =
         /// Previous step to start build current step from
         ///
         /// - Parameter previousStep: Instance of RoutingStep
-        public func from(_ previousStep: ChainingStep) -> Self {
+        public func from(_ previousStep: RoutingStep & ChainingStep) -> Self {
             self.previousSteps.append(previousStep)
+            return self
+        }
+
+        /// Basic step to start build current step from
+        ///
+        /// - Parameter previousStep: Instance of ChainingStep
+        public func from(_ previousStep: BasicStep) -> ScreenStepChainAssembly {
+            self.previousSteps.append(previousStep.routingStep)
             return self
         }
 
@@ -119,10 +137,18 @@ public class ScreenStepAssembly<F: Finder, FC: Factory> where F.ViewController =
         return LastStepInChainAssembly(assembly: self, previousSteps: [previousStep])
     }
 
+    /// Basic step to start build current step from
+    ///
+    /// - Parameter previousStep: Instance of ChainingStep
+    public func from(_ previousStep: BasicStep) -> ScreenStepChainAssembly {
+        let stepBuilder = ScreenStepChainAssembly(assembly: self, firstStep: previousStep.routingStep)
+        return stepBuilder
+    }
+
     /// Previous step to start build current step from
     ///
     /// - Parameter previousStep: Instance of ChainingStep
-    public func from(_ previousStep: ChainingStep) -> ScreenStepChainAssembly {
+    public func from(_ previousStep: RoutingStep & ChainingStep) -> ScreenStepChainAssembly {
         let stepBuilder = ScreenStepChainAssembly(assembly: self, firstStep: previousStep)
         return stepBuilder
     }

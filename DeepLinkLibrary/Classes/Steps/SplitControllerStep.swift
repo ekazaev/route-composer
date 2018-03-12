@@ -6,7 +6,7 @@
 import UIKit
 
 /// Default split container step
-public class SplitControllerStep: ContainerStep<UISplitViewController> {
+public class SplitControllerStep: BasicContainerStep<UISplitViewController> {
 
     /// Creates a default UISplitViewController and applies an action if it is provided.
     ///

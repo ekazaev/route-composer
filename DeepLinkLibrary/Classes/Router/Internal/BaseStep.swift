@@ -8,7 +8,7 @@ import UIKit
 /// Base router step implementation that handles all step protocols.
 public class BaseStep: ChainableStep, PerformableStep, ChainingStep, CustomStringConvertible {
 
-    internal(set) public var previousStep: RoutingStep? = nil
+    private(set) public var previousStep: RoutingStep? = nil
 
     let factory: AnyFactory?
 
