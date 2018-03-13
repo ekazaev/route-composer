@@ -36,5 +36,4 @@ public final class ChildFactory<Context>  {
         return factory
     }
 
-
 }

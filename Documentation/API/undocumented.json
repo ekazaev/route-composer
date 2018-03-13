@@ -233,7 +233,7 @@
     },
     {
       "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/RoutingError.swift",
-      "line": 11,
+      "line": 12,
       "symbol": "RoutingError.message",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"

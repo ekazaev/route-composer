@@ -17,7 +17,7 @@
 		8479E2F6200E7A4400320380 /* PromptScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8479E2F3200E7A4400320380 /* PromptScreen.storyboard */; };
 		8479E30D200E7A7F00320380 /* ExampleConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8479E2F8200E7A7F00320380 /* ExampleConfiguration.swift */; };
 		8479E30E200E7A7F00320380 /* ExampleTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8479E2F9200E7A7F00320380 /* ExampleTarget.swift */; };
-		8479E30F200E7A7F00320380 /* ExampleContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8479E2FA200E7A7F00320380 /* ExampleContext.swift */; };
+		8479E30F200E7A7F00320380 /* ExampleDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8479E2FA200E7A7F00320380 /* ExampleDestination.swift */; };
 		8479E310200E7A7F00320380 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8479E2FC200E7A7F00320380 /* UIColor.swift */; };
 		8479E311200E7A7F00320380 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8479E2FD200E7A7F00320380 /* ViewController.swift */; };
 		8479E312200E7A7F00320380 /* CircleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8479E2FF200E7A7F00320380 /* CircleViewController.swift */; };
@@ -58,6 +58,7 @@
 		9AFBC91DEB7FCDC286B6AD17 /* WishListContentTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCFA7F490C53D17BA5B40 /* WishListContentTask.swift */; };
 		9AFBC9C5E791E8BD9A19B381 /* ImageDetailsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC26291C67F9F347F8654 /* ImageDetailsFactory.swift */; };
 		9AFBCA32BF0E6A5C2D643915 /* ExampleAnalyticsPostAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC0097861297B7686ADAA /* ExampleAnalyticsPostAction.swift */; };
+		9AFBCA6D219AD2F8FDFF221F /* ExampleDictionaryContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCC692A1118A5A17A7F8A /* ExampleDictionaryContext.swift */; };
 		9AFBCA728DF14FD91F5AC570 /* StarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC0A54CF3E1EFC4DB61C0 /* StarViewController.swift */; };
 		9AFBCAE91E053E29BB963F60 /* ImageDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC94F6F389A31EC5EA3F6 /* ImageDetailsViewController.swift */; };
 		9AFBCAFFB71568FAE9054699 /* CitiesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCA4291DB4A6D2A47E5F2 /* CitiesTableViewController.swift */; };
@@ -107,7 +108,7 @@
 		8479E2F4200E7A4400320380 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/PromptScreen.storyboard; sourceTree = "<group>"; };
 		8479E2F8200E7A7F00320380 /* ExampleConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleConfiguration.swift; sourceTree = "<group>"; };
 		8479E2F9200E7A7F00320380 /* ExampleTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleTarget.swift; sourceTree = "<group>"; };
-		8479E2FA200E7A7F00320380 /* ExampleContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleContext.swift; sourceTree = "<group>"; };
+		8479E2FA200E7A7F00320380 /* ExampleDestination.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleDestination.swift; sourceTree = "<group>"; };
 		8479E2FC200E7A7F00320380 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		8479E2FD200E7A7F00320380 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8479E2FF200E7A7F00320380 /* CircleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleViewController.swift; sourceTree = "<group>"; };
@@ -153,6 +154,7 @@
 		9AFBCA4291DB4A6D2A47E5F2 /* CitiesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CitiesTableViewController.swift; sourceTree = "<group>"; };
 		9AFBCAF24C0CD80E0D369EEA /* SecondModalLevelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondModalLevelViewController.swift; sourceTree = "<group>"; };
 		9AFBCC67E59C161432003A86 /* ImagesWithoutLibraryHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesWithoutLibraryHandler.swift; sourceTree = "<group>"; };
+		9AFBCC692A1118A5A17A7F8A /* ExampleDictionaryContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleDictionaryContext.swift; sourceTree = "<group>"; };
 		9AFBCCCF499676D25E68FECA /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		9AFBCD2885F0D39663B06F49 /* ImagesControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesControllerDelegate.swift; sourceTree = "<group>"; };
 		9AFBCD4279BBCCCACECDB352 /* ExampleAnalyticsInterceptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleAnalyticsInterceptor.swift; sourceTree = "<group>"; };
@@ -290,10 +292,11 @@
 			children = (
 				8479E2F8200E7A7F00320380 /* ExampleConfiguration.swift */,
 				8479E2F9200E7A7F00320380 /* ExampleTarget.swift */,
-				8479E2FA200E7A7F00320380 /* ExampleContext.swift */,
+				8479E2FA200E7A7F00320380 /* ExampleDestination.swift */,
 				9AFBCEB028743A7AC55E1CA6 /* ExampleAnalyticsParameters.swift */,
 				9AFBCD4279BBCCCACECDB352 /* ExampleAnalyticsInterceptor.swift */,
 				9AFBC0097861297B7686ADAA /* ExampleAnalyticsPostAction.swift */,
+				9AFBCC692A1118A5A17A7F8A /* ExampleDictionaryContext.swift */,
 			);
 			path = Configuration;
 			sourceTree = "<group>";
@@ -731,7 +734,7 @@
 				8479E312200E7A7F00320380 /* CircleViewController.swift in Sources */,
 				8479E315200E7A7F00320380 /* ColorViewController.swift in Sources */,
 				8479E318200E7A7F00320380 /* PromptViewController.swift in Sources */,
-				8479E30F200E7A7F00320380 /* ExampleContext.swift in Sources */,
+				8479E30F200E7A7F00320380 /* ExampleDestination.swift in Sources */,
 				9AFBC82E50CBF47FB0A0F2D1 /* CityURLTranslator.swift in Sources */,
 				9AFBCF519040E699D130072D /* CityDetailViewController.swift in Sources */,
 				9AFBCAFFB71568FAE9054699 /* CitiesTableViewController.swift in Sources */,
@@ -769,6 +772,7 @@
 				9AFBC6DD79F2059D9547629A /* ImagesFactory.swift in Sources */,
 				9AFBC9C5E791E8BD9A19B381 /* ImageDetailsFactory.swift in Sources */,
 				9AFBC3F6DD37FCCE8C0BC6DD /* ImagesWithoutLibraryConfiguration.swift in Sources */,
+				9AFBCA6D219AD2F8FDFF221F /* ExampleDictionaryContext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -62,15 +62,15 @@ For detailed information on using DeepLinkLibrary, see `Documentation/API` folde
 
 DeepLinkingLibrary uses 3 main entities (`Factory`, `Finder`, `Action`) that should be defined by a host application to support it.
 It also provides 3 helping (`RoutingInterceptor`, `ContextTask`, `PostRoutingTask`) entities that you may implement to handle some
-default actions during routing process. Below in the description of each entity 2 main meaning will
-be used:
+default actions during routing process. There are 3 main `associatedtype` below in the description of each entity:
 * `ViewController` - Type of view controller. *UINavigationController, CustomViewController, etc.*
 * `Context` - Type of context object that is passed to the router from the hosting application that router will pass to view controllers it
-is going to build.
+is going to build. *String, UUID, Any, etc. Can be optional.*
 * `Destination` - Type of destination object that is passed to the router from the hosting application that router will pass
-to the helping entities.
+to the helping entities. Should extend `RoutingDestination` protocol.
 
-*Example: if your view controllers requires productID to display it content and product id is a UUID in your app - then type of context is UUID*
+*Example: if your view controllers requires productID to display it content and product id is a UUID in your app - then type of
+context is UUID*
 
 ## Implementation
 

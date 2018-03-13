@@ -8,5 +8,7 @@ import Foundation
 ///
 /// - message: Message describing error that happened
 public enum RoutingError: Error {
+
     case message(String)
+
 }

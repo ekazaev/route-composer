@@ -306,18 +306,18 @@ and actions you have to be familiar with library concepts and UIKit&rsquo;s view
 
 <p>DeepLinkingLibrary uses 3 main entities (<code><a href="Protocols/Factory.html">Factory</a></code>, <code><a href="Protocols/Finder.html">Finder</a></code>, <code><a href="Protocols/Action.html">Action</a></code>) that should be defined by a host application to support it.
 It also provides 3 helping (<code><a href="Protocols/RoutingInterceptor.html">RoutingInterceptor</a></code>, <code><a href="Protocols/ContextTask.html">ContextTask</a></code>, <code><a href="Protocols/PostRoutingTask.html">PostRoutingTask</a></code>) entities that you may implement to handle some
-default actions during routing process. Below in the description of each entity 2 main meaning will
-be used:</p>
+default actions during routing process. There are 3 main <code>associatedtype</code> below in the description of each entity:</p>
 
 <ul>
 <li><code>ViewController</code> - Type of view controller. <em>UINavigationController, CustomViewController, etc.</em></li>
 <li><code>Context</code> - Type of context object that is passed to the router from the hosting application that router will pass to view controllers it
-is going to build.</li>
+is going to build. <em>String, UUID, Any, etc. Can be optional.</em></li>
 <li><code>Destination</code> - Type of destination object that is passed to the router from the hosting application that router will pass
-to the helping entities.</li>
+to the helping entities. Should extend <code><a href="Protocols/RoutingDestination.html">RoutingDestination</a></code> protocol.</li>
 </ul>
 
-<p><em>Example: if your view controllers requires productID to display it content and product id is a UUID in your app - then type of context is UUID</em></p>
+<p><em>Example: if your view controllers requires productID to display it content and product id is a UUID in your app - then type of
+context is UUID</em></p>
 <h2 id='implementation' class='heading'>Implementation</h2>
 <h4 id='1-factory' class='heading'>1. Factory</h4>
 
