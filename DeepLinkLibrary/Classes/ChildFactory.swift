@@ -29,7 +29,7 @@ public final class ChildFactory<Context>  {
     ///   integrated in to container's stack.
     public func build(with context: Context, in containerViewControllers: inout [UIViewController]) throws {
         let viewController = try factory.build(with: context)
-        factory.action.performMerged(viewController: viewController, containerViewControllers: &containerViewControllers)
+        factory.action.perform(embedding: viewController, in: &containerViewControllers)
     }
 
     func wrapAsAnyFactory() -> AnyFactory {

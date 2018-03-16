@@ -19,7 +19,7 @@ class ColorViewControllerFinder: FinderWithPolicy {
         self.policy = policy
     }
 
-    func isTarget(viewController: ViewController, context: Context) -> Bool {
+    func isWanted(target viewController: ViewController, with context: Context) -> Bool {
         guard let destinationColorHex = context[Argument.color] as? ColorViewController.ColorDisplayModel else {
             return false
         }

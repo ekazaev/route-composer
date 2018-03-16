@@ -15,7 +15,7 @@ public protocol Action: class {
     /// - Parameters:
     ///   - viewController: view controller to be embedded to the stack of views that are in the container already
     ///   - containerViewControllers: view controllers stack in the current context container
-    func performMerged(viewController: UIViewController, containerViewControllers: inout [UIViewController])
+    func perform(embedding viewController: UIViewController, in containerViewControllers: inout [UIViewController])
 
     /// Performs provided action to the view controller.
     ///
@@ -33,7 +33,7 @@ public protocol Action: class {
 
 public extension Action {
 
-    public func performMerged(viewController: UIViewController, containerViewControllers: inout [UIViewController]) {
+    public func perform(embedding viewController: UIViewController, in containerViewControllers: inout [UIViewController]) {
         containerViewControllers.append(viewController)
     }
 

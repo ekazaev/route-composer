@@ -31,7 +31,7 @@ public class AddTabAction: TabBarControllerFactoryAction {
         self.replacing = false
     }
 
-    public func performMerged(viewController: UIViewController, containerViewControllers: inout [UIViewController]){
+    public func perform(embedding viewController: UIViewController, in containerViewControllers: inout [UIViewController]) {
         processViewController(viewController: viewController, containerViewControllers: &containerViewControllers)
     }
 

@@ -13,7 +13,7 @@ public class ReplaceRootAction: Action {
     public init() {
     }
 
-    public func performMerged(viewController: UIViewController, containerViewControllers: inout [UIViewController]) {
+    public func perform(embedding viewController: UIViewController, in containerViewControllers: inout [UIViewController]) {
         fatalError("Can not be merged")
     }
 

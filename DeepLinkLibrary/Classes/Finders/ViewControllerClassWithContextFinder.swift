@@ -21,8 +21,8 @@ public class ViewControllerClassWithContextFinder<VC: ContextFinderSupport, C>: 
         self.policy = policy
     }
 
-    public func isTarget(viewController: ViewController, context: Context) -> Bool {
-        return viewController.isSuitableFor(context: context)
+    public func isWanted(target viewController: ViewController, with context: Context) -> Bool {
+        return viewController.isSuitable(for: context)
     }
 
 }
@@ -31,6 +31,6 @@ public protocol ContextFinderSupport where Self: UIViewController {
 
     associatedtype Context
 
-    func isSuitableFor(context: Context) -> Bool
+    func isSuitable(for context: Context) -> Bool
 
 }

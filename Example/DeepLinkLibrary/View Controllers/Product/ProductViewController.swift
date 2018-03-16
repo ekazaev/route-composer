@@ -71,11 +71,11 @@ class ProductViewController: UIViewController, ExampleAnalyticsSupport {
 
 extension ProductViewController: ContextFinderSupport {
 
-    func isSuitableFor(context: String) -> Bool {
-        guard let productId = productId else {
+    func isSuitable(for productId: String) -> Bool {
+        guard let productId = self.productId else {
             return false
         }
-        return productId == context
+        return self.productId == productId
     }
 
 }

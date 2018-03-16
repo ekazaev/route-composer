@@ -20,7 +20,7 @@ public protocol FinderWithPolicy: Finder {
     ///   - viewController: Some view controller in the current view controller stack
     ///   - context: Context object that was provided to the Router.
     /// - Returns: true if this view controller is the one that finder is looking for, false otherwise.
-    func isTarget(viewController: ViewController, context: Context) -> Bool
+    func isWanted(target viewController: ViewController, with context: Context) -> Bool
 
 }
 
@@ -32,7 +32,7 @@ public extension FinderWithPolicy {
             guard let vc = $0 as? ViewController else {
                 return false
             }
-            return self.isTarget(viewController: vc, context: context)
+            return self.isWanted(target: vc, with: context)
         }
 
         switch policy {
@@ -56,7 +56,7 @@ public extension FinderWithPolicy {
             return viewController
         case .topMost:
             guard let topMostViewController = UIWindow.key?.topmostViewController as? ViewController,
-                  let viewController = (isTarget(viewController: topMostViewController, context: context) ? topMostViewController : nil) else {
+                  let viewController = (isWanted(target: topMostViewController, with: context) ? topMostViewController : nil) else {
                 return nil
             }
             return viewController
