@@ -36,6 +36,13 @@
       "warning": "undocumented"
     },
     {
+      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Assemblies/CompositeContainerFactory.swift",
+      "line": 35,
+      "symbol": "CompositeContainerFactory.assemble()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Assemblies/StepChainAssembly.swift",
       "line": 38,
       "symbol": "StepChainAssembly.init()",
