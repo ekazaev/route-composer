@@ -16,6 +16,13 @@ extension UITabBarController: ContainerViewController {
         return viewControllers
     }
 
+    public var visibleViewControllers: [UIViewController] {
+        guard let visibleViewController = selectedViewController else {
+            return []
+        }
+        return [visibleViewController]
+    }
+
     public func makeVisible(viewController: UIViewController, animated: Bool) {
         for vc in containingViewControllers {
             if vc == viewController {

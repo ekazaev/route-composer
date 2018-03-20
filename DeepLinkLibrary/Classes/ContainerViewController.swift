@@ -16,6 +16,9 @@ import UIKit
     /// UIViewController instances that ContainerViewController currently has in stack
     var containingViewControllers: [UIViewController] { get }
 
+    /// UIViewController instances out of the `containingViewControllers` that are currently visible on the screen
+    var visibleViewControllers: [UIViewController] { get }
+
     /// Each container view controller should conform to this protocol for the router to know how to make
     /// the particular child view controller visible.
     ///

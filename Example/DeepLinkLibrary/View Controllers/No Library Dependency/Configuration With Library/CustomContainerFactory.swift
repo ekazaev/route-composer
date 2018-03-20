@@ -50,6 +50,10 @@ extension CustomContainerController: ContainerViewController {
         return [rootViewController]
     }
 
+    public var visibleViewControllers: [UIViewController] {
+        return containingViewControllers
+    }
+
     func makeVisible(viewController: UIViewController, animated: Bool) {
 
     }

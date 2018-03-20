@@ -14,6 +14,10 @@ extension UISplitViewController: ContainerViewController {
         return viewControllers
     }
 
+    public var visibleViewControllers: [UIViewController] {
+        return containingViewControllers
+    }
+
     public func makeVisible(viewController: UIViewController, animated: Bool) {
         for vc in containingViewControllers {
             if vc == viewController {

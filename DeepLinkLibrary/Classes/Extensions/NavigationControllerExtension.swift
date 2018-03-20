@@ -13,6 +13,13 @@ extension UINavigationController: ContainerViewController {
         return viewControllers
     }
 
+    public var visibleViewControllers: [UIViewController] {
+        guard let visibleViewController = visibleViewController else {
+            return []
+        }
+        return [visibleViewController]
+    }
+
     public func makeVisible(viewController: UIViewController, animated: Bool) {
         for vc in containingViewControllers {
             if vc == viewController {

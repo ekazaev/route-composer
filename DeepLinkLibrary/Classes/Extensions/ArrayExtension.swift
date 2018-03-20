@@ -28,4 +28,16 @@ internal extension Array where Element: UIViewController {
         }
     }
 
+    func uniqElements() -> [Element] {
+        var buffer = [Element]()
+        var added = Set<Element>()
+        for elem in self {
+            if !added.contains(elem) {
+                buffer.append(elem)
+                added.insert(elem)
+            }
+        }
+        return buffer
+    }
+
 }

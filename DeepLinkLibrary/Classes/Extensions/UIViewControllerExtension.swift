@@ -31,7 +31,7 @@ public extension UIViewController {
         }
 
         if let container = vc as? ContainerViewController {
-            for selected in container.containingViewControllers {
+            for selected in Array([container.visibleViewControllers, container.containingViewControllers].joined()).uniqElements() {
                 if let found = findViewController(in: selected, options: .current, using: comparator) {
                     return found
                 }
