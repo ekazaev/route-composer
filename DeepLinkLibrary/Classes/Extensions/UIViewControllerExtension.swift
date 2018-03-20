@@ -10,8 +10,8 @@ import UIKit
 /// findViewController methods search options
 ///
 /// - current: Search on the a current level but do not look in presented or presenting stacks.
-/// - currentAndUp: Start to search on the current level an go all the way down to the root view controller of the window
-/// - currentAndDown: Start at the root view controller of the window and search all the way up to the last
+/// - currentAndUp: Start to search on the current level an go all the way by all view controllers presented from current
+/// - currentAndDown: Start to search on the current level an go all the way down to the root view controller of the window
 ///   presented stack
 public enum ViewControllerSearchOptions {
 

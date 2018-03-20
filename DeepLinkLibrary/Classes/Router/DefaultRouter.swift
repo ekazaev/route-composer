@@ -200,7 +200,6 @@ public class DefaultRouter: Router {
 
             doTry({
                 let newViewController = try factory.build(with: context)
-                // Not to duplicate log message from wrapper
                 logger?.log(.info("Factory \(String(describing: factory)) built a \(String(describing: newViewController))."))
                 factory.action.perform(viewController: newViewController, on: previousViewController, animated: animated) { result in
                     if case let .failure(message) = result {
