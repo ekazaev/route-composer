@@ -135,8 +135,6 @@ public class DefaultRouter: Router {
                                 factories = factory.scrapeChildren(from: factories)
                                 factories.insert(factory, at: 0)
                             }
-                        } else if let rootViewController = rootViewController{
-                            throw RoutingError.message("Step \(String(describing: currentStep)) could not find requested view controller in the stack, but \(String(describing: rootViewController)) already has been found. Check finders configuration")
                         }
                         break
                     case .failure:

@@ -72,9 +72,6 @@ class ProductViewController: UIViewController, ExampleAnalyticsSupport {
 extension ProductViewController: ContextFinderSupport {
 
     func isSuitable(for productId: String) -> Bool {
-        guard let productId = self.productId else {
-            return false
-        }
         return self.productId == productId
     }
 

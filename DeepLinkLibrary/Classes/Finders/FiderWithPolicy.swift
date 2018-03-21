@@ -50,7 +50,13 @@ public extension FinderWithPolicy {
             return viewController
         case .currentLevel:
             guard let topMostViewController = UIWindow.key?.topmostViewController,
-                  let viewController = UIViewController.findViewController(in: topMostViewController, options: .current, using: comparator) as? ViewController else {
+                  let viewController = UIViewController.findViewController(in: topMostViewController, options: .currentAllStack, using: comparator) as? ViewController else {
+                return nil
+            }
+            return viewController
+        case .currentLevelVisibleOnly:
+            guard let topMostViewController = UIWindow.key?.topmostViewController,
+                  let viewController = UIViewController.findViewController(in: topMostViewController, options: .currentVisibleOnly, using: comparator) as? ViewController else {
                 return nil
             }
             return viewController
