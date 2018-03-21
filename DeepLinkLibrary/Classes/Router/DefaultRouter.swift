@@ -115,10 +115,9 @@ public class DefaultRouter: Router {
                         }
                         break
                     case .continueRouting(let factory):
-                        logger?.log(.info("Step \(String(describing: currentStep!)) not found its view controller is stack, so router will continue search."))
-
                         // If view controller is not found, but step has a factory to build itself - add factory to the stack
                         if rootViewController == nil {
+                            logger?.log(.info("Step \(String(describing: currentStep!)) not found its view controller is stack, so router will continue search."))
                             if var factory = factory {
                                 // If step contains post task, them lets create a factory decorator that will handle view
                                 // controller and post task chain after view controller creation.
@@ -136,6 +135,8 @@ public class DefaultRouter: Router {
                                 factories = factory.scrapeChildren(from: factories)
                                 factories.insert(factory, at: 0)
                             }
+                        } else if let rootViewController = rootViewController{
+                            throw RoutingError.message("Step \(String(describing: currentStep)) could not find requested view controller in the stack, but \(String(describing: rootViewController)) already has been found. Check finders configuration")
                         }
                         break
                     case .failure:
