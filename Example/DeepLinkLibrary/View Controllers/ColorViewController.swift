@@ -7,16 +7,16 @@ import Foundation
 import UIKit
 import DeepLinkLibrary
 
-class ColorViewControllerFinder: FinderWithPolicy {
+class ColorViewControllerFinder: SearchOptionsFinder {
 
     typealias ViewController = ColorViewController
 
     typealias Context = ExampleDictionaryContext
 
-    let policy: FinderPolicy
+    public let options: SearchOptions
 
-    init(policy: FinderPolicy = .currentLevel) {
-        self.policy = policy
+    public init(options: SearchOptions = .currentAllStack) {
+        self.options = options
     }
 
     func isWanted(target viewController: ViewController, with context: Context) -> Bool {

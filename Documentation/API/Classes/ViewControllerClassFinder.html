@@ -14,7 +14,7 @@
     <a title="ViewControllerClassFinder Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">DeepLinkLibrary Docs</a> (85% documented)</p>
+        <p><a href="../index.html">DeepLinkLibrary Docs</a> (84% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -153,9 +153,6 @@
                 <a href="../Enums/DefaultLoggerLevel.html">DefaultLoggerLevel</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Enums/FinderPolicy.html">FinderPolicy</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Enums/InterceptorResult.html">InterceptorResult</a>
               </li>
               <li class="nav-group-task">
@@ -166,9 +163,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/RoutingResult.html">RoutingResult</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Enums.html#/s:15DeepLinkLibrary27ViewControllerSearchOptionsO">ViewControllerSearchOptions</a>
               </li>
             </ul>
           </li>
@@ -214,9 +208,6 @@
                 <a href="../Protocols/Finder.html">Finder</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols/FinderWithPolicy.html">FinderWithPolicy</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Protocols/Logger.html">Logger</a>
               </li>
               <li class="nav-group-task">
@@ -238,10 +229,21 @@
                 <a href="../Protocols.html#/s:15DeepLinkLibrary11RoutingStepP">RoutingStep</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Protocols/SearchOptionsFinder.html">SearchOptionsFinder</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Protocols/SingleActionContainerFactory.html">SingleActionContainerFactory</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Protocols/StepCaseResolver.html">StepCaseResolver</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/SearchOptions.html">SearchOptions</a>
               </li>
             </ul>
           </li>
@@ -253,7 +255,7 @@
             <h1>ViewControllerClassFinder</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">ViewControllerClassFinder</span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">:</span><span class="kt">UIViewController</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span><span class="p">:</span> <span class="kt"><a href="../Protocols/FinderWithPolicy.html">FinderWithPolicy</a></span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">ViewControllerClassFinder</span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">:</span><span class="kt">UIViewController</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span><span class="p">:</span> <span class="kt"><a href="../Protocols/SearchOptionsFinder.html">SearchOptionsFinder</a></span></code></pre>
 
                 </div>
               </div>
@@ -267,9 +269,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:15DeepLinkLibrary16FinderWithPolicyP6policyAA0dF0Ov"></a>
-                    <a name="//apple_ref/swift/Property/policy" class="dashAnchor"></a>
-                    <a class="token" href="#/s:15DeepLinkLibrary16FinderWithPolicyP6policyAA0dF0Ov">policy</a>
+                    <a name="/s:15DeepLinkLibrary19SearchOptionsFinderP7optionsAA0dE0Vv"></a>
+                    <a name="//apple_ref/swift/Property/options" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15DeepLinkLibrary19SearchOptionsFinderP7optionsAA0dE0Vv">options</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -283,7 +285,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">policy</span><span class="p">:</span> <span class="kt"><a href="../Enums/FinderPolicy.html">FinderPolicy</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">options</span><span class="p">:</span> <span class="kt"><a href="../Structs/SearchOptions.html">SearchOptions</a></span></code></pre>
 
                         </div>
                       </div>
@@ -293,9 +295,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:15DeepLinkLibrary16FinderWithPolicyP8isWantedSb14ViewControllerQz6target_7ContextQz4withtF"></a>
+                    <a name="/s:15DeepLinkLibrary19SearchOptionsFinderP8isWantedSb14ViewControllerQz6target_7ContextQz4withtF"></a>
                     <a name="//apple_ref/swift/Method/isWanted(target:with:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:15DeepLinkLibrary16FinderWithPolicyP8isWantedSb14ViewControllerQz6target_7ContextQz4withtF">isWanted(target:with:)</a>
+                    <a class="token" href="#/s:15DeepLinkLibrary19SearchOptionsFinderP8isWantedSb14ViewControllerQz6target_7ContextQz4withtF">isWanted(target:with:)</a>
                     </code>
                   </div>
                   <div class="height-container">

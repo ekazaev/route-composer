@@ -31,7 +31,7 @@ class ProductConfiguration {
 
                         }
                         // If UINavigationController exists on current level - just push
-                        .addCase(when: ViewControllerClassFinder<UINavigationController, Any>(policy: .currentLevel))
+                        .addCase(when: ViewControllerClassFinder<UINavigationController, Any>(options: .currentAllStack))
                         .assemble(default: {
                             // Otherwise - presenting in Circle Tab
                             return ExampleConfiguration.step(for: ExampleTarget.circle)!

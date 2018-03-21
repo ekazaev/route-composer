@@ -65,28 +65,56 @@
     },
     {
       "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Extensions/UIViewControllerExtension.swift",
-      "line": 18,
-      "symbol": "ViewControllerSearchOptions.current",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "line": 31,
+      "symbol": "SearchOptions.presenting",
+      "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Extensions/UIViewControllerExtension.swift",
-      "line": 20,
-      "symbol": "ViewControllerSearchOptions.currentAndUp",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "line": 33,
+      "symbol": "SearchOptions.currentAllStack",
+      "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Extensions/UIViewControllerExtension.swift",
-      "line": 22,
-      "symbol": "ViewControllerSearchOptions.currentAndDown",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "line": 34,
+      "symbol": "SearchOptions.currentVisibleOnly",
+      "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Extensions/UIViewControllerExtension.swift",
-      "line": 28,
+      "line": 35,
+      "symbol": "SearchOptions.allVisible",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Extensions/UIViewControllerExtension.swift",
+      "line": 36,
+      "symbol": "SearchOptions.fullStack",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Extensions/UIViewControllerExtension.swift",
+      "line": 37,
+      "symbol": "SearchOptions.currentAndUp",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Extensions/UIViewControllerExtension.swift",
+      "line": 38,
+      "symbol": "SearchOptions.currentAndDown",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Extensions/UIViewControllerExtension.swift",
+      "line": 43,
       "symbol": "UIViewController.findViewController(in:options:using:)",
       "symbol_kind": "source.lang.swift.decl.function.method.static",
       "warning": "undocumented"
@@ -178,14 +206,14 @@
     {
       "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Finders/ViewControllerClassFinder.swift",
       "line": 19,
-      "symbol": "ViewControllerClassFinder.init(policy:)",
+      "symbol": "ViewControllerClassFinder.init(options:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Finders/ViewControllerClassWithContextFinder.swift",
       "line": 20,
-      "symbol": "ViewControllerClassWithContextFinder.init(policy:)",
+      "symbol": "ViewControllerClassWithContextFinder.init(options:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },

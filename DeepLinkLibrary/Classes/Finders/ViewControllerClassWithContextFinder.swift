@@ -9,16 +9,16 @@ import UIKit
 /// and it context object.
 ///
 /// Your view controller should extend ContextFinderSupport to use this finder.
-public class ViewControllerClassWithContextFinder<VC: ContextFinderSupport, C>: FinderWithPolicy where VC.Context == C {
+public class ViewControllerClassWithContextFinder<VC: ContextFinderSupport, C>: SearchOptionsFinder where VC.Context == C {
 
     public typealias ViewController = VC
 
     public typealias Context = C
 
-    public let policy: FinderPolicy
+    public let options: SearchOptions
 
-    public init(policy: FinderPolicy = .allStackUp) {
-        self.policy = policy
+    public init(options: SearchOptions = .currentAndUp) {
+        self.options = options
     }
 
     public func isWanted(target viewController: ViewController, with context: Context) -> Bool {

@@ -6,7 +6,7 @@
 import UIKit
 
 /// Default tab bar container step
-public class TabBarControllerStep: BasicContainerStep<UITabBarController> {
+public class TabBarControllerStep: BasicContainerStep<NilFinder<UITabBarController, Any?>, TabBarControllerFactory, UITabBarController> {
 
     /// Creates a default UITabBarController and applies an action if it is provided.
     ///

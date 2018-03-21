@@ -40,7 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // Square Tab Bar Screen
         let squareScreen = ScreenStepAssembly(
-                finder: ViewControllerClassFinder<SquareViewController, ExampleDictionaryContext>(policy: .currentLevel),
+                finder: ViewControllerClassFinder<SquareViewController, ExampleDictionaryContext>(options: .currentAllStack),
                 factory: NilFactory())
                 .add(ExampleAnalyticsInterceptor())
                 .add(ExampleAnalyticsPostAction())
@@ -51,7 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // Circle Tab Bar screen
         let circleScreen = ScreenStepAssembly(
-                finder: ViewControllerClassFinder<CircleViewController, ExampleDictionaryContext>(policy: .currentLevel),
+                finder: ViewControllerClassFinder<CircleViewController, ExampleDictionaryContext>(options: .currentAllStack),
                 factory:  NilFactory())
                 .add(ExampleAnalyticsInterceptor())
                 .add(ExampleAnalyticsPostAction())
@@ -74,7 +74,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         //Star screen
         let starScreen = ScreenStepAssembly(
-                finder: ViewControllerClassFinder<StarViewController, Any>(policy: .currentLevel),
+                finder: ViewControllerClassFinder<StarViewController, Any>(options: .currentAllStack),
                 factory: ViewControllerFromXibFactory(action: AddTabAction()))
                 .add(ExampleAnalyticsInterceptor())
                 .add(ExampleAnalyticsPostAction())
@@ -86,7 +86,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         //Screen with Routing support
         let routingSupportScreen = ScreenStepAssembly(
-                finder: ViewControllerClassFinder<RoutingRuleSupportViewController, Any?>(policy: .currentLevel),
+                finder: ViewControllerClassFinder<RoutingRuleSupportViewController, Any?>(options: .currentAllStack),
                 factory: ViewControllerFromStoryboard(storyboardName: "TabBar", viewControllerID: "RoutingRuleSupportViewController", action: PushToNavigationAction()))
                 .add(ExampleAnalyticsInterceptor())
                 .add(ExampleAnalyticsPostAction())

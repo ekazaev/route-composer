@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>FinderPolicy Enumeration Reference</title>
+    <title>SearchOptionsFinder Protocol Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,18 +10,18 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Enum/FinderPolicy" class="dashAnchor"></a>
-    <a title="FinderPolicy Enumeration Reference"></a>
+    <a name="//apple_ref/swift/Protocol/SearchOptionsFinder" class="dashAnchor"></a>
+    <a title="SearchOptionsFinder Protocol Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">DeepLinkLibrary Docs</a> (85% documented)</p>
+        <p><a href="../index.html">DeepLinkLibrary Docs</a> (84% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
       <p id="breadcrumbs">
         <a href="../index.html">DeepLinkLibrary Reference</a>
         <img id="carat" src="../img/carat.png" />
-        FinderPolicy Enumeration Reference
+        SearchOptionsFinder Protocol Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -153,9 +153,6 @@
                 <a href="../Enums/DefaultLoggerLevel.html">DefaultLoggerLevel</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Enums/FinderPolicy.html">FinderPolicy</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Enums/InterceptorResult.html">InterceptorResult</a>
               </li>
               <li class="nav-group-task">
@@ -166,9 +163,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/RoutingResult.html">RoutingResult</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Enums.html#/s:15DeepLinkLibrary27ViewControllerSearchOptionsO">ViewControllerSearchOptions</a>
               </li>
             </ul>
           </li>
@@ -214,9 +208,6 @@
                 <a href="../Protocols/Finder.html">Finder</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols/FinderWithPolicy.html">FinderWithPolicy</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Protocols/Logger.html">Logger</a>
               </li>
               <li class="nav-group-task">
@@ -238,10 +229,21 @@
                 <a href="../Protocols.html#/s:15DeepLinkLibrary11RoutingStepP">RoutingStep</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Protocols/SearchOptionsFinder.html">SearchOptionsFinder</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Protocols/SingleActionContainerFactory.html">SingleActionContainerFactory</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Protocols/StepCaseResolver.html">StepCaseResolver</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/SearchOptions.html">SearchOptions</a>
               </li>
             </ul>
           </li>
@@ -250,23 +252,16 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>FinderPolicy</h1>
+            <h1>SearchOptionsFinder</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">FinderPolicy</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">SearchOptionsFinder</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Finder.html">Finder</a></span></code></pre>
 
                 </div>
               </div>
-            <p>Policy for FinderWithPolicy.</p>
-
-<ul>
-<li>allStackUp: Search in full view controller stack starting from root view controller in key UIWindow</li>
-<li>allStackDown: Search in full view controller stack starting from topmost view controller and then
-go down by presenting view controllers.</li>
-<li>currentLevel: Look only on currently visible level (won&rsquo;t check presented or presenting view controllers), but if
-currently visible view controller has children view controller&rsquo;s it will loop through them ass well.</li>
-<li>topMost: Check if topmost view controller is the one that we are looking for.</li>
-</ul>
+            <p>Simplifies creation of finders for a hosting app. If there is nothing special about finder, hosting app should
+extend this finder which will just iterations through view controllers stack following the search options provided
+and just ask extending instances if this particular view controller is the one that Router looking for or no.</p>
 
           </section>
           <section class="section task-group-section">
@@ -275,9 +270,9 @@ currently visible view controller has children view controller&rsquo;s it will l
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:15DeepLinkLibrary12FinderPolicyO10allStackUpA2CmF"></a>
-                    <a name="//apple_ref/swift/Element/allStackUp" class="dashAnchor"></a>
-                    <a class="token" href="#/s:15DeepLinkLibrary12FinderPolicyO10allStackUpA2CmF">allStackUp</a>
+                    <a name="/s:15DeepLinkLibrary19SearchOptionsFinderP7optionsAA0dE0Vv"></a>
+                    <a name="//apple_ref/swift/Property/options" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15DeepLinkLibrary19SearchOptionsFinderP7optionsAA0dE0Vv">options</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -285,16 +280,78 @@ currently visible view controller has children view controller&rsquo;s it will l
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Search in full view controller stack starting from root view controller in key UIWindow</p>
+                        <p><code><a href="../Structs/SearchOptions.html">SearchOptions</a></code> to be used by SearchOptionsFinder</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">allStackUp</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">options</span><span class="p">:</span> <span class="kt"><a href="../Structs/SearchOptions.html">SearchOptions</a></span></code></pre>
 
                         </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15DeepLinkLibrary19SearchOptionsFinderP8isWantedSb14ViewControllerQz6target_7ContextQz4withtF"></a>
+                    <a name="//apple_ref/swift/Method/isWanted(target:with:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15DeepLinkLibrary19SearchOptionsFinderP8isWantedSb14ViewControllerQz6target_7ContextQz4withtF">isWanted(target:with:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Method to be implemented by SearchOptionsFinder instance</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">isWanted</span><span class="p">(</span><span class="n">target</span> <span class="nv">viewController</span><span class="p">:</span> <span class="kt">ViewController</span><span class="p">,</span> <span class="n">with</span> <span class="nv">context</span><span class="p">:</span> <span class="kt">Context</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>viewController</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Some view controller in the current view controller stack</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>context</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Context object that was provided to the Router.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>true if this view controller is the one that finder is looking for, false otherwise.</p>
                       </div>
                     </section>
                   </div>
@@ -306,88 +363,26 @@ currently visible view controller has children view controller&rsquo;s it will l
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:15DeepLinkLibrary12FinderPolicyO12allStackDownA2CmF"></a>
-                    <a name="//apple_ref/swift/Element/allStackDown" class="dashAnchor"></a>
-                    <a class="token" href="#/s:15DeepLinkLibrary12FinderPolicyO12allStackDownA2CmF">allStackDown</a>
+                    <a name="/s:15DeepLinkLibrary6FinderP18findViewController0fG0QzSg7ContextQz4with_tF"></a>
+                    <a name="//apple_ref/swift/Method/findViewController(with:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15DeepLinkLibrary6FinderP18findViewController0fG0QzSg7ContextQz4with_tF">findViewController(with:)</a>
                     </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
                   </div>
                   <div class="height-container">
                     <div class="pointer-container"></div>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Search in full view controller stack starting from topmost view controller and then
-go down by presenting view controllers.</p>
-
+                        
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">allStackDown</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:15DeepLinkLibrary12FinderPolicyO12currentLevelA2CmF"></a>
-                    <a name="//apple_ref/swift/Element/currentLevel" class="dashAnchor"></a>
-                    <a class="token" href="#/s:15DeepLinkLibrary12FinderPolicyO12currentLevelA2CmF">currentLevel</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Look only on currently visible level (won&rsquo;t check presented or presenting view controllers), but if
-currently visible view controller has children view controller&rsquo;s it will loop through them ass well.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">currentLevel</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:15DeepLinkLibrary12FinderPolicyO7topMostA2CmF"></a>
-                    <a name="//apple_ref/swift/Element/topMost" class="dashAnchor"></a>
-                    <a class="token" href="#/s:15DeepLinkLibrary12FinderPolicyO7topMostA2CmF">topMost</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Check if topmost view controller is the one that we are looking for.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">topMost</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">findViewController</span><span class="p">(</span><span class="n">with</span> <span class="nv">context</span><span class="p">:</span> <span class="kt">Context</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">ViewController</span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>

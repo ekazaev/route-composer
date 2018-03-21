@@ -139,7 +139,7 @@ public protocol Finder {
 ```
 
 In some cases you may use default finders provided by a library. In other cases when you can have more then one view controller of
-the same type in the stack you should implement your own finder. There a version of this protocol called `FinderWithPolicy` that
+the same type in the stack you should implement your own finder. There a version of this protocol called `SearchOptionsFinder` that
 helps to solve iteration in view controller stack and handles it, you just have to implement method `isWanted` to answer if its a
 view controller router is looking for or not.
 
@@ -147,16 +147,16 @@ view controller router is looking for or not.
 product in your view controller stack:*
 
 ```swift
-class ProductViewControllerFinder: FinderWithPolicy {
+class ProductViewControllerFinder: SearchOptionsFinder {
 
     typealias ViewController = ProductViewController
 
     typealias Context = UUID
 
-    let policy: FinderPolicy
+    let options: SearchOptions
 
-    init(policy: FinderPolicy = .currentLevel) {
-        self.policy = policy
+    init(options: SearchOptions = .currentAndUp) {
+        self.options = options
     }
 
     func isWanted(target viewController: ViewController, with context: Context) -> Bool {
@@ -166,12 +166,7 @@ class ProductViewControllerFinder: FinderWithPolicy {
 }
 ```
 
-`FinderPolicy` here is an enum that explains `FinderWithPolicy` how it should iterate through the stack
-* `allStackUp` - start to search from `UIWindow`'s root view controller and go up through the stack by all presented view controllers.
-* `allStackDown` - start to search from topmost presented view controller and go down through the stack by all presenting view controllers
-till it reaches `UIWindow`'s root view controller.
-* `currentLevel` - start to search in topmost presented view controller and its child view controllers only
-* `topMost` - Just test if the topmost presented view controller is the one that router is looking for.
+`SearchOptions` here is an enum that explains `SearchOptionsFinder` how it should iterate through the stack. See documentation.
 
 #### 3. Action
 

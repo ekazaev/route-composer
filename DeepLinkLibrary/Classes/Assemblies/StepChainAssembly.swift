@@ -57,7 +57,7 @@ public class StepChainAssembly {
     /// Basic step to start build current step from
     ///
     /// - Parameter previousStep: Instance of ChainingStep
-    public func from(_ previousStep: BasicStep) -> Self {
+    public func from<F, FC>(_ previousStep: BasicStep<F, FC>) -> Self {
         self.previousSteps.append(previousStep.routingStep)
         return self
     }

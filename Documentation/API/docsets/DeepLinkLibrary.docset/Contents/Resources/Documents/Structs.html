@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Enumerations  Reference</title>
+    <title>Structures  Reference</title>
     <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,7 +10,7 @@
     
   </head>
   <body>
-    <a title="Enumerations  Reference"></a>
+    <a title="Structures  Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="index.html">DeepLinkLibrary Docs</a> (84% documented)</p>
@@ -20,7 +20,7 @@
       <p id="breadcrumbs">
         <a href="index.html">DeepLinkLibrary Reference</a>
         <img id="carat" src="img/carat.png" />
-        Enumerations  Reference
+        Structures  Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -251,8 +251,8 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>Enumerations</h1>
-            <p>The following enumerations are available globally.</p>
+            <h1>Structures</h1>
+            <p>The following structures are available globally.</p>
 
           </section>
           <section class="section task-group-section">
@@ -261,9 +261,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:15DeepLinkLibrary12ActionResultO"></a>
-                    <a name="//apple_ref/swift/Enum/ActionResult" class="dashAnchor"></a>
-                    <a class="token" href="#/s:15DeepLinkLibrary12ActionResultO">ActionResult</a>
+                    <a name="/s:15DeepLinkLibrary13SearchOptionsV"></a>
+                    <a name="//apple_ref/swift/Struct/SearchOptions" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15DeepLinkLibrary13SearchOptionsV">SearchOptions</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -271,204 +271,15 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Result of Action&rsquo;s perform method.</p>
+                        <p>findViewController methods search options</p>
 
-<ul>
-<li>continueRouting: Action was able to build view controller in to stack</li>
-<li>failure: Action was not able to build view controller in to stack. Routing should not continue</li>
-</ul>
-
-                        <a href="Enums/ActionResult.html" class="slightly-smaller">See more</a>
+                        <a href="Structs/SearchOptions.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">ActionResult</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:15DeepLinkLibrary18DefaultLoggerLevelO"></a>
-                    <a name="//apple_ref/swift/Enum/DefaultLoggerLevel" class="dashAnchor"></a>
-                    <a class="token" href="#/s:15DeepLinkLibrary18DefaultLoggerLevelO">DefaultLoggerLevel</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Default Logger levels settings</p>
-
-<ul>
-<li>verbose: Log all the messages from Router</li>
-<li>warnings: Log only warnings and errors</li>
-<li>errors: Log only errors</li>
-</ul>
-
-                        <a href="Enums/DefaultLoggerLevel.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">DefaultLoggerLevel</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:15DeepLinkLibrary17InterceptorResultO"></a>
-                    <a name="//apple_ref/swift/Enum/InterceptorResult" class="dashAnchor"></a>
-                    <a class="token" href="#/s:15DeepLinkLibrary17InterceptorResultO">InterceptorResult</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Result of interceptor&rsquo;s execute method.</p>
-
-<ul>
-<li>success: Interceptor finished its task with success. Router may continue deep linking.</li>
-<li>failure: Interceptor finished its task with failure. Router should stop deep linking.</li>
-</ul>
-
-                        <a href="Enums/InterceptorResult.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">InterceptorResult</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:15DeepLinkLibrary13LoggerMessageO"></a>
-                    <a name="//apple_ref/swift/Enum/LoggerMessage" class="dashAnchor"></a>
-                    <a class="token" href="#/s:15DeepLinkLibrary13LoggerMessageO">LoggerMessage</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Logger message representation</p>
-
-<ul>
-<li>info: info message</li>
-<li><code>warning</code>: warning message</li>
-<li>error: error message</li>
-</ul>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">LoggerMessage</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:15DeepLinkLibrary12RoutingErrorO"></a>
-                    <a name="//apple_ref/swift/Enum/RoutingError" class="dashAnchor"></a>
-                    <a class="token" href="#/s:15DeepLinkLibrary12RoutingErrorO">RoutingError</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Routing Error representation</p>
-
-<ul>
-<li>message: Message describing error that happened</li>
-</ul>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">RoutingError</span><span class="p">:</span> <span class="kt">Error</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:15DeepLinkLibrary13RoutingResultO"></a>
-                    <a name="//apple_ref/swift/Enum/RoutingResult" class="dashAnchor"></a>
-                    <a class="token" href="#/s:15DeepLinkLibrary13RoutingResultO">RoutingResult</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Result of the Routing process</p>
-
-<ul>
-<li>handled: The request to process the deep link resulted in a successful navigation to the destination.</li>
-<li>unhandled: The request to process the deep link was not handled and therefore did not result in any navigation.</li>
-</ul>
-
-                        <a href="Enums/RoutingResult.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">RoutingResult</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">SearchOptions</span><span class="p">:</span> <span class="kt">OptionSet</span></code></pre>
 
                         </div>
                       </div>

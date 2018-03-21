@@ -50,7 +50,7 @@ public class ScreenStepAssembly<F: Finder, FC: Factory> where F.ViewController =
         /// Basic step to start build current step from
         ///
         /// - Parameter previousStep: Instance of ChainingStep
-        public func from(_ previousStep: BasicStep) -> ScreenStepChainAssembly {
+        public func from<F, FC>(_ previousStep: BasicStep<F, FC>) -> ScreenStepChainAssembly {
             self.previousSteps.append(previousStep.routingStep)
             return self
         }
@@ -140,7 +140,7 @@ public class ScreenStepAssembly<F: Finder, FC: Factory> where F.ViewController =
     /// Basic step to start build current step from
     ///
     /// - Parameter previousStep: Instance of ChainingStep
-    public func from(_ previousStep: BasicStep) -> ScreenStepChainAssembly {
+    public func from<F, FC>(_ previousStep: BasicStep<F, FC>) -> ScreenStepChainAssembly {
         let stepBuilder = ScreenStepChainAssembly(assembly: self, firstStep: previousStep.routingStep)
         return stepBuilder
     }

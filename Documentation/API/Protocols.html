@@ -13,7 +13,7 @@
     <a title="Protocols  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">DeepLinkLibrary Docs</a> (85% documented)</p>
+        <p><a href="index.html">DeepLinkLibrary Docs</a> (84% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -152,9 +152,6 @@
                 <a href="Enums/DefaultLoggerLevel.html">DefaultLoggerLevel</a>
               </li>
               <li class="nav-group-task">
-                <a href="Enums/FinderPolicy.html">FinderPolicy</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Enums/InterceptorResult.html">InterceptorResult</a>
               </li>
               <li class="nav-group-task">
@@ -165,9 +162,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="Enums/RoutingResult.html">RoutingResult</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Enums.html#/s:15DeepLinkLibrary27ViewControllerSearchOptionsO">ViewControllerSearchOptions</a>
               </li>
             </ul>
           </li>
@@ -213,9 +207,6 @@
                 <a href="Protocols/Finder.html">Finder</a>
               </li>
               <li class="nav-group-task">
-                <a href="Protocols/FinderWithPolicy.html">FinderWithPolicy</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Protocols/Logger.html">Logger</a>
               </li>
               <li class="nav-group-task">
@@ -237,10 +228,21 @@
                 <a href="Protocols.html#/s:15DeepLinkLibrary11RoutingStepP">RoutingStep</a>
               </li>
               <li class="nav-group-task">
+                <a href="Protocols/SearchOptionsFinder.html">SearchOptionsFinder</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Protocols/SingleActionContainerFactory.html">SingleActionContainerFactory</a>
               </li>
               <li class="nav-group-task">
                 <a href="Protocols/StepCaseResolver.html">StepCaseResolver</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Structs/SearchOptions.html">SearchOptions</a>
               </li>
             </ul>
           </li>
@@ -447,40 +449,6 @@ The task to be executed after UIViewController created or found.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">Factory</span><span class="p">:</span> <span class="kd">class</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:15DeepLinkLibrary16FinderWithPolicyP"></a>
-                    <a name="//apple_ref/swift/Protocol/FinderWithPolicy" class="dashAnchor"></a>
-                    <a class="token" href="#/s:15DeepLinkLibrary16FinderWithPolicyP">FinderWithPolicy</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Simplifies creation of finders for a hosting app. If there is nothing special about finder, hosting app should
-extend this finder which will just follow the finder policy and just ask extending instances if this particular
-view controller is the one that Router looking for or no.</p>
-
-                        <a href="Protocols/FinderWithPolicy.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">FinderWithPolicy</span><span class="p">:</span> <span class="kt"><a href="Protocols/Finder.html">Finder</a></span></code></pre>
 
                         </div>
                       </div>
@@ -744,6 +712,40 @@ Otherwise router will stay in limbo state waiting for interceptor to finish its 
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">RoutingStep</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15DeepLinkLibrary19SearchOptionsFinderP"></a>
+                    <a name="//apple_ref/swift/Protocol/SearchOptionsFinder" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15DeepLinkLibrary19SearchOptionsFinderP">SearchOptionsFinder</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Simplifies creation of finders for a hosting app. If there is nothing special about finder, hosting app should
+extend this finder which will just iterations through view controllers stack following the search options provided
+and just ask extending instances if this particular view controller is the one that Router looking for or no.</p>
+
+                        <a href="Protocols/SearchOptionsFinder.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">SearchOptionsFinder</span><span class="p">:</span> <span class="kt"><a href="Protocols/Finder.html">Finder</a></span></code></pre>
 
                         </div>
                       </div>

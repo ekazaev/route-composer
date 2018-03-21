@@ -8,16 +8,16 @@ import UIKit
 
 /// Default implementation of the unique view controller finder, where view controller can be found by name.
 /// (Example: Home, account, login, etc supposed to be in the view stack just once)
-public class ViewControllerClassFinder<VC:UIViewController, C>: FinderWithPolicy {
+public class ViewControllerClassFinder<VC:UIViewController, C>: SearchOptionsFinder {
 
     public typealias ViewController = VC
 
     public typealias Context = C
 
-    public let policy: FinderPolicy
+    public let options: SearchOptions
 
-    public init(policy: FinderPolicy = .allStackUp) {
-        self.policy = policy
+    public init(options: SearchOptions = .currentAndUp) {
+        self.options = options
     }
 
     public func isWanted(target viewController: ViewController, with context: Context) -> Bool {

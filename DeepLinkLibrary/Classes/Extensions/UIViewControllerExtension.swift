@@ -15,10 +15,19 @@ public struct SearchOptions: OptionSet {
         self.rawValue = rawValue
     }
     
+    /// Compare with view controller provided
     public static let current = SearchOptions(rawValue: 1 << 0)
+    
+    /// If view controller is a container, search in its visible view controllers
     public static let visible = SearchOptions(rawValue: 1 << 1)
+    
+    /// If view controller is a container, search in all view controllers it contains
     public static let containing = SearchOptions(rawValue: 1 << 2)
+    
+    /// Search from view controller provided in all view controllers it presented
     public static let presented = SearchOptions(rawValue: 1 << 3)
+    
+    // Search from view controller provided in all view controllers that presenting it
     public static let presenting = SearchOptions(rawValue: 1 << 4)
 
     public static let currentAllStack: SearchOptions = [.current, .containing]

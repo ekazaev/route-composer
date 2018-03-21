@@ -13,7 +13,7 @@
     <a title="DeepLinkLibrary  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">DeepLinkLibrary Docs</a> (85% documented)</p>
+        <p><a href="index.html">DeepLinkLibrary Docs</a> (84% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -152,9 +152,6 @@
                 <a href="Enums/DefaultLoggerLevel.html">DefaultLoggerLevel</a>
               </li>
               <li class="nav-group-task">
-                <a href="Enums/FinderPolicy.html">FinderPolicy</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Enums/InterceptorResult.html">InterceptorResult</a>
               </li>
               <li class="nav-group-task">
@@ -165,9 +162,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="Enums/RoutingResult.html">RoutingResult</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Enums.html#/s:15DeepLinkLibrary27ViewControllerSearchOptionsO">ViewControllerSearchOptions</a>
               </li>
             </ul>
           </li>
@@ -213,9 +207,6 @@
                 <a href="Protocols/Finder.html">Finder</a>
               </li>
               <li class="nav-group-task">
-                <a href="Protocols/FinderWithPolicy.html">FinderWithPolicy</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Protocols/Logger.html">Logger</a>
               </li>
               <li class="nav-group-task">
@@ -237,10 +228,21 @@
                 <a href="Protocols.html#/s:15DeepLinkLibrary11RoutingStepP">RoutingStep</a>
               </li>
               <li class="nav-group-task">
+                <a href="Protocols/SearchOptionsFinder.html">SearchOptionsFinder</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Protocols/SingleActionContainerFactory.html">SingleActionContainerFactory</a>
               </li>
               <li class="nav-group-task">
                 <a href="Protocols/StepCaseResolver.html">StepCaseResolver</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Structs/SearchOptions.html">SearchOptions</a>
               </li>
             </ul>
           </li>
@@ -383,22 +385,22 @@ should extend <code><a href="Protocols/Finder.html">Finder</a></code> protocol.<
 </code></pre>
 
 <p>In some cases you may use default finders provided by a library. In other cases when you can have more then one view controller of
-the same type in the stack you should implement your own finder. There a version of this protocol called <code><a href="Protocols/FinderWithPolicy.html">FinderWithPolicy</a></code> that
+the same type in the stack you should implement your own finder. There a version of this protocol called <code><a href="Protocols/SearchOptionsFinder.html">SearchOptionsFinder</a></code> that
 helps to solve iteration in view controller stack and handles it, you just have to implement method <code>isWanted</code> to answer if its a
 view controller router is looking for or not.</p>
 
 <p><em>Example of <code>ProductViewControllerFinder</code> finder that can help router to find a <code>ProductViewController</code> that presents particular
 product in your view controller stack:</em></p>
-<pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">ProductViewControllerFinder</span><span class="p">:</span> <span class="kt">FinderWithPolicy</span> <span class="p">{</span>
+<pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">ProductViewControllerFinder</span><span class="p">:</span> <span class="kt">SearchOptionsFinder</span> <span class="p">{</span>
 
     <span class="kd">typealias</span> <span class="kt">ViewController</span> <span class="o">=</span> <span class="kt">ProductViewController</span>
 
     <span class="kd">typealias</span> <span class="kt">Context</span> <span class="o">=</span> <span class="kt">UUID</span>
 
-    <span class="k">let</span> <span class="nv">policy</span><span class="p">:</span> <span class="kt">FinderPolicy</span>
+    <span class="k">let</span> <span class="nv">options</span><span class="p">:</span> <span class="kt">SearchOptions</span>
 
-    <span class="nf">init</span><span class="p">(</span><span class="nv">policy</span><span class="p">:</span> <span class="kt">FinderPolicy</span> <span class="o">=</span> <span class="o">.</span><span class="n">currentLevel</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">self</span><span class="o">.</span><span class="n">policy</span> <span class="o">=</span> <span class="n">policy</span>
+    <span class="nf">init</span><span class="p">(</span><span class="nv">options</span><span class="p">:</span> <span class="kt">SearchOptions</span> <span class="o">=</span> <span class="o">.</span><span class="n">currentAndUp</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">options</span> <span class="o">=</span> <span class="n">options</span>
     <span class="p">}</span>
 
     <span class="kd">func</span> <span class="nf">isWanted</span><span class="p">(</span><span class="n">target</span> <span class="nv">viewController</span><span class="p">:</span> <span class="kt">ViewController</span><span class="p">,</span> <span class="n">with</span> <span class="nv">context</span><span class="p">:</span> <span class="kt">Context</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span> <span class="p">{</span>
@@ -408,15 +410,7 @@ product in your view controller stack:</em></p>
 <span class="p">}</span>
 </code></pre>
 
-<p><code><a href="Enums/FinderPolicy.html">FinderPolicy</a></code> here is an enum that explains <code><a href="Protocols/FinderWithPolicy.html">FinderWithPolicy</a></code> how it should iterate through the stack</p>
-
-<ul>
-<li><code>allStackUp</code> - start to search from <code>UIWindow</code>&lsquo;s root view controller and go up through the stack by all presented view controllers.</li>
-<li><code>allStackDown</code> - start to search from topmost presented view controller and go down through the stack by all presenting view controllers
-till it reaches <code>UIWindow</code>&rsquo;s root view controller.</li>
-<li><code>currentLevel</code> - start to search in topmost presented view controller and its child view controllers only</li>
-<li><code>topMost</code> - Just test if the topmost presented view controller is the one that router is looking for.</li>
-</ul>
+<p><code><a href="Structs/SearchOptions.html">SearchOptions</a></code> here is an enum that explains <code><a href="Protocols/SearchOptionsFinder.html">SearchOptionsFinder</a></code> how it should iterate through the stack. See documentation.</p>
 <h4 id='3-action' class='heading'>3. Action</h4>
 
 <p><code><a href="Protocols/Action.html">Action</a></code> instance explains router <strong>how view controller created by a <code><a href="Protocols/Factory.html">Factory</a></code> should be integrated in to a view controller stack</strong>. Most

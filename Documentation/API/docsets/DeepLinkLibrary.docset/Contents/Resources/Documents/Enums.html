@@ -13,7 +13,7 @@
     <a title="Enumerations  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">DeepLinkLibrary Docs</a> (85% documented)</p>
+        <p><a href="index.html">DeepLinkLibrary Docs</a> (84% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -152,9 +152,6 @@
                 <a href="Enums/DefaultLoggerLevel.html">DefaultLoggerLevel</a>
               </li>
               <li class="nav-group-task">
-                <a href="Enums/FinderPolicy.html">FinderPolicy</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Enums/InterceptorResult.html">InterceptorResult</a>
               </li>
               <li class="nav-group-task">
@@ -165,9 +162,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="Enums/RoutingResult.html">RoutingResult</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Enums.html#/s:15DeepLinkLibrary27ViewControllerSearchOptionsO">ViewControllerSearchOptions</a>
               </li>
             </ul>
           </li>
@@ -213,9 +207,6 @@
                 <a href="Protocols/Finder.html">Finder</a>
               </li>
               <li class="nav-group-task">
-                <a href="Protocols/FinderWithPolicy.html">FinderWithPolicy</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Protocols/Logger.html">Logger</a>
               </li>
               <li class="nav-group-task">
@@ -237,10 +228,21 @@
                 <a href="Protocols.html#/s:15DeepLinkLibrary11RoutingStepP">RoutingStep</a>
               </li>
               <li class="nav-group-task">
+                <a href="Protocols/SearchOptionsFinder.html">SearchOptionsFinder</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Protocols/SingleActionContainerFactory.html">SingleActionContainerFactory</a>
               </li>
               <li class="nav-group-task">
                 <a href="Protocols/StepCaseResolver.html">StepCaseResolver</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Structs/SearchOptions.html">SearchOptions</a>
               </li>
             </ul>
           </li>
@@ -321,47 +323,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">DefaultLoggerLevel</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:15DeepLinkLibrary12FinderPolicyO"></a>
-                    <a name="//apple_ref/swift/Enum/FinderPolicy" class="dashAnchor"></a>
-                    <a class="token" href="#/s:15DeepLinkLibrary12FinderPolicyO">FinderPolicy</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Policy for FinderWithPolicy.</p>
-
-<ul>
-<li>allStackUp: Search in full view controller stack starting from root view controller in key UIWindow</li>
-<li>allStackDown: Search in full view controller stack starting from topmost view controller and then
-go down by presenting view controllers.</li>
-<li>currentLevel: Look only on currently visible level (won&rsquo;t check presented or presenting view controllers), but if
-currently visible view controller has children view controller&rsquo;s it will loop through them ass well.</li>
-<li>topMost: Check if topmost view controller is the one that we are looking for.</li>
-</ul>
-
-                        <a href="Enums/FinderPolicy.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">FinderPolicy</span></code></pre>
 
                         </div>
                       </div>
@@ -508,44 +469,6 @@ currently visible view controller has children view controller&rsquo;s it will l
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">RoutingResult</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:15DeepLinkLibrary27ViewControllerSearchOptionsO"></a>
-                    <a name="//apple_ref/swift/Enum/ViewControllerSearchOptions" class="dashAnchor"></a>
-                    <a class="token" href="#/s:15DeepLinkLibrary27ViewControllerSearchOptionsO">ViewControllerSearchOptions</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>findViewController methods search options</p>
-
-<ul>
-<li>current: Search on the a current level but do not look in presented or presenting stacks.</li>
-<li>currentAndUp: Start to search on the current level an go all the way by all view controllers presented from current</li>
-<li>currentAndDown: Start to search on the current level an go all the way down to the root view controller of the window
-presented stack</li>
-</ul>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">ViewControllerSearchOptions</span></code></pre>
 
                         </div>
                       </div>
