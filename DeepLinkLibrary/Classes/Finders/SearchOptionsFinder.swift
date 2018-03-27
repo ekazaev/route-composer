@@ -11,6 +11,12 @@ import UIKit
 /// and just ask extending instances if this particular view controller is the one that Router looking for or no.
 public protocol SearchOptionsFinder: Finder {
 
+    /// Type of UIViewController that Finder can find
+    associatedtype ViewController = ViewController
+
+    /// Type of Context object that finder can deal with
+    associatedtype Context = Context
+
     /// `SearchOptions` to be used by SearchOptionsFinder
     var options: SearchOptions { get }
 

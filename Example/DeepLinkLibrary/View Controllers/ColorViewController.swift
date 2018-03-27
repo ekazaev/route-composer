@@ -9,17 +9,13 @@ import DeepLinkLibrary
 
 class ColorViewControllerFinder: SearchOptionsFinder {
 
-    typealias ViewController = ColorViewController
-
-    typealias Context = ExampleDictionaryContext
-
     public let options: SearchOptions
 
     public init(options: SearchOptions = .currentAllStack) {
         self.options = options
     }
 
-    func isWanted(target viewController: ViewController, with context: Context) -> Bool {
+    func isWanted(target viewController: ColorViewController, with context: ExampleDictionaryContext) -> Bool {
         guard let destinationColorHex = context[Argument.color] as? ColorViewController.ColorDisplayModel else {
             return false
         }

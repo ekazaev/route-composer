@@ -149,17 +149,13 @@ product in your view controller stack:*
 ```swift
 class ProductViewControllerFinder: SearchOptionsFinder {
 
-    typealias ViewController = ProductViewController
-
-    typealias Context = UUID
-
     let options: SearchOptions
 
     init(options: SearchOptions = .currentAndUp) {
         self.options = options
     }
 
-    func isWanted(target viewController: ViewController, with context: Context) -> Bool {
+    func isWanted(target viewController: ProductViewController, with context: UUID) -> Bool {
         return viewController.productID == context
     }
 
