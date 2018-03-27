@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>BasicStep Class Reference</title>
+    <title>CompleteFactoryAssembly Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Class/BasicStep" class="dashAnchor"></a>
-    <a title="BasicStep Class Reference"></a>
+    <a name="//apple_ref/swift/Class/CompleteFactoryAssembly" class="dashAnchor"></a>
+    <a title="CompleteFactoryAssembly Class Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">DeepLinkLibrary Docs</a> (84% documented)</p>
@@ -21,7 +21,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">DeepLinkLibrary Reference</a>
         <img id="carat" src="../img/carat.png" />
-        BasicStep Class Reference
+        CompleteFactoryAssembly Class Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -255,14 +255,16 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>BasicStep</h1>
+            <h1>CompleteFactoryAssembly</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">BasicStep</span><span class="o">&lt;</span><span class="kt">F</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Finder.html">Finder</a></span><span class="p">,</span> <span class="kt">FC</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Factory.html">Factory</a></span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">F</span><span class="o">.</span><span class="kt">ViewController</span> <span class="o">==</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">F</span><span class="o">.</span><span class="kt">Context</span> <span class="o">==</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">Context</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">CompleteFactoryAssembly</span><span class="o">&lt;</span><span class="kt">FC</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Factory.html">Factory</a></span> <span class="o">&amp;</span> <span class="kt"><a href="../Protocols/Container.html">Container</a></span><span class="o">&gt;</span></code></pre>
 
                 </div>
               </div>
-            <p>Simple class that produces intermediate step for an assembly.</p>
+            <p>Assembly that allows you to build a Container Factory with a preset child Factories inside.</p>
+
+<p><em>Example: You want your UITabBarController to be build already with all the tabs populated</em></p>
 
           </section>
           <section class="section task-group-section">
@@ -271,9 +273,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:15DeepLinkLibrary9BasicStepCACyxq_Gx6finder_q_7factorytcfc"></a>
-                    <a name="//apple_ref/swift/Method/init(finder:factory:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:15DeepLinkLibrary9BasicStepCACyxq_Gx6finder_q_7factorytcfc">init(finder:factory:)</a>
+                    <a name="/s:15DeepLinkLibrary23CompleteFactoryAssemblyCACyxGx7factory_tcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(factory:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15DeepLinkLibrary23CompleteFactoryAssemblyCACyxGx7factory_tcfc">init(factory:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -281,14 +283,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Creates a instance of the routing step that produces view controller.</p>
+                        <p>Constructor</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">finder</span><span class="p">:</span> <span class="kt">F</span><span class="p">,</span> <span class="nv">factory</span><span class="p">:</span> <span class="kt">FC</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">factory</span><span class="p">:</span> <span class="kt">FC</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -317,6 +319,53 @@
                               <td>
                                 <div>
                                   <p>UIViewController factory.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15DeepLinkLibrary23CompleteFactoryAssemblyC4withACyxGXDqd__AA0E0Rd__7ContextQyd__AgaFPRtzlF"></a>
+                    <a name="//apple_ref/swift/Method/with(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15DeepLinkLibrary23CompleteFactoryAssemblyC4withACyxGXDqd__AA0E0Rd__7ContextQyd__AgaFPRtzlF">with(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Add factory that is going to be used as a child. Make sure that you use action that compatible with
+container factory you use.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">with</span><span class="o">&lt;</span><span class="kt">C</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Factory.html">Factory</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">childFactory</span><span class="p">:</span> <span class="kt">C</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span> <span class="k">where</span> <span class="kt">C</span><span class="o">.</span><span class="kt">Context</span> <span class="o">==</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">Context</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>childFactory</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>instance of <code><a href="../Protocols/Factory.html">Factory</a></code>.</p>
                                 </div>
                               </td>
                             </tr>

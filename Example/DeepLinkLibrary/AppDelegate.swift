@@ -30,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 // what type of view controller and context to expect. You do not need to do so if you are using at
                 // least one custom factory of finder that have set typealias for ViewController and Context.
                 finder: ViewControllerClassFinder<UITabBarController, Any?>(),
-                factory: ViewControllerFromStoryboard(storyboardName: "TabBar", action: ReplaceRootAction()))
+                factory: homeFactory)
                 .add(ExampleAnalyticsInterceptor())
                 .add(ExampleAnalyticsPostAction())
                 .from(RootViewControllerStep())
@@ -52,7 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Circle Tab Bar screen
         let circleScreen = ScreenStepAssembly(
                 finder: ViewControllerClassFinder<CircleViewController, ExampleDictionaryContext>(options: .currentAllStack),
-                factory:  NilFactory())
+                factory: NilFactory())
                 .add(ExampleAnalyticsInterceptor())
                 .add(ExampleAnalyticsPostAction())
                 .from(homeScreen)

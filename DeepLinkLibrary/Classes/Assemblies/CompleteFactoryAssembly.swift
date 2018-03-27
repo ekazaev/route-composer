@@ -7,11 +7,11 @@ import Foundation
 /// Assembly that allows you to build a Container Factory with a preset child Factories inside.
 ///
 /// *Example: You want your UITabBarController to be build already with all the tabs populated*
-public class CompositeContainerFactory<FC: Factory & Container> {
+public class CompleteFactoryAssembly<FC: Factory & Container> {
 
     private var factory: FC
 
-    private var childFactories:[ChildFactory<FC.Context>] = []
+    private var childFactories: [ChildFactory<FC.Context>] = []
     /// Constructor
     ///
     /// - Parameters:
@@ -33,9 +33,8 @@ public class CompositeContainerFactory<FC: Factory & Container> {
         return self
     }
 
-    public func assemble() -> FC {
-        let _ = factory.merge(childFactories)
-        return factory
+    public func assemble() -> CompleteFactory<FC> {
+        return CompleteFactory(factory: factory, childFactories: childFactories)
     }
 
 }

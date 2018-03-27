@@ -42,7 +42,10 @@
                 <a href="Classes/ChildFactory.html">ChildFactory</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/CompositeContainerFactory.html">CompositeContainerFactory</a>
+                <a href="Classes/CompleteFactory.html">CompleteFactory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/CompleteFactoryAssembly.html">CompleteFactoryAssembly</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes.html#/s:15DeepLinkLibrary25CurrentViewControllerStepC">CurrentViewControllerStep</a>
@@ -389,9 +392,42 @@ container factory.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:15DeepLinkLibrary25CompositeContainerFactoryC"></a>
-                    <a name="//apple_ref/swift/Class/CompositeContainerFactory" class="dashAnchor"></a>
-                    <a class="token" href="#/s:15DeepLinkLibrary25CompositeContainerFactoryC">CompositeContainerFactory</a>
+                    <a name="/s:15DeepLinkLibrary15CompleteFactoryC"></a>
+                    <a name="//apple_ref/swift/Class/CompleteFactory" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15DeepLinkLibrary15CompleteFactoryC">CompleteFactory</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><code><a href="Classes/CompleteFactoryAssembly.html">CompleteFactoryAssembly</a></code> uses this container factory wrapper to substitute provided factory and allow you to
+preset child factories instead of <code><a href="Protocols.html#/s:15DeepLinkLibrary6RouterP">Router</a></code>.</p>
+
+                        <a href="Classes/CompleteFactory.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">CompleteFactory</span><span class="o">&lt;</span><span class="kt">FC</span><span class="p">:</span> <span class="kt"><a href="Protocols/Factory.html">Factory</a></span> <span class="o">&amp;</span> <span class="kt"><a href="Protocols/Container.html">Container</a></span><span class="o">&gt;</span><span class="p">:</span> <span class="kt"><a href="Protocols/Factory.html">Factory</a></span><span class="p">,</span> <span class="kt"><a href="Protocols/Container.html">Container</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15DeepLinkLibrary23CompleteFactoryAssemblyC"></a>
+                    <a name="//apple_ref/swift/Class/CompleteFactoryAssembly" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15DeepLinkLibrary23CompleteFactoryAssemblyC">CompleteFactoryAssembly</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -403,13 +439,13 @@ container factory.</p>
 
 <p><em>Example: You want your UITabBarController to be build already with all the tabs populated</em></p>
 
-                        <a href="Classes/CompositeContainerFactory.html" class="slightly-smaller">See more</a>
+                        <a href="Classes/CompleteFactoryAssembly.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">CompositeContainerFactory</span><span class="o">&lt;</span><span class="kt">FC</span><span class="p">:</span> <span class="kt"><a href="Protocols/Factory.html">Factory</a></span> <span class="o">&amp;</span> <span class="kt"><a href="Protocols/Container.html">Container</a></span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">CompleteFactoryAssembly</span><span class="o">&lt;</span><span class="kt">FC</span><span class="p">:</span> <span class="kt"><a href="Protocols/Factory.html">Factory</a></span> <span class="o">&amp;</span> <span class="kt"><a href="Protocols/Container.html">Container</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -1380,7 +1416,7 @@ and it context object.</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="http://tech.gilt.com" target="_blank" rel="external">Gilt Groupe</a>. All rights reserved. (Last updated: 2018-03-21)</p>
+          <p>&copy; 2018 <a class="link" href="http://tech.gilt.com" target="_blank" rel="external">Gilt Groupe</a>. All rights reserved. (Last updated: 2018-03-27)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
