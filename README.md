@@ -139,7 +139,7 @@ public protocol Finder {
 ```
 
 In some cases you may use default finders provided by a library. In other cases when you can have more then one view controller of
-the same type in the stack you should implement your own finder. There a version of this protocol called `SearchOptionsFinder` that
+the same type in the stack you should implement your own finder. There a version of this protocol called `StackIteratingFinder` that
 helps to solve iteration in view controller stack and handles it, you just have to implement method `isWanted` to answer if its a
 view controller router is looking for or not.
 
@@ -147,7 +147,7 @@ view controller router is looking for or not.
 product in your view controller stack:*
 
 ```swift
-class ProductViewControllerFinder: SearchOptionsFinder {
+class ProductViewControllerFinder: StackIteratingFinder {
 
     let options: SearchOptions
 
@@ -162,7 +162,7 @@ class ProductViewControllerFinder: SearchOptionsFinder {
 }
 ```
 
-`SearchOptions` here is an enum that explains `SearchOptionsFinder` how it should iterate through the stack. See documentation.
+`SearchOptions` here is an enum that explains `StackIteratingFinder` how it should iterate through the stack. See documentation.
 
 #### 3. Action
 
@@ -264,13 +264,13 @@ class ProductViewControllerPostTask: PostRoutingTask {
 ### Configuring Step
 
 Everything that router does is configured using `RoutingStep` instance. There is no need to create your own implementation of this protocol,
-use `ScreenStepAssembly` provided by a library to configure andy step that router should execute during the routing.
+use `StepAssembly` provided by a library to configure andy step that router should execute during the routing.
 
 *Example: `ProductViewController` step configuration that explains to router that it should be presented boxed in UINavigationController
 which should be presented modally from any currently visible view controller.*
 
 ```swift
-let productScreen = ScreenStepAssembly(finder: ProductViewControllerFinder(), factory: ProductViewControllerFactory(action: PushToNavigationAction()))
+let productScreen = StepAssembly(finder: ProductViewControllerFinder(), factory: ProductViewControllerFactory(action: PushToNavigationAction()))
         .add(LoginInterceptor())
         .add(ProductViewControllerContentTask())
         .add(ProductViewControllerPostTask(analyticsManager: AnalyticsManager.sharedInstance))
@@ -313,7 +313,7 @@ struct AppDestination: RoutingDestination {
 struct Configuration {
 
     static func productDestination(with productID: UUID) -> AppDestination {
-        let productScreen = ScreenStepAssembly(finder: ProductViewControllerFinder(), factory: ProductViewControllerFactory(action: PushToNavigationAction()))
+        let productScreen = StepAssembly(finder: ProductViewControllerFinder(), factory: ProductViewControllerFactory(action: PushToNavigationAction()))
                 .add(LoginInterceptor())
                 .add(ProductViewControllerContentTask())
                 .add(ProductViewControllerPostTask(analyticsManager: AnalyticsManager.sharedInstance))

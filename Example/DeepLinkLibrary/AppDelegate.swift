@@ -25,12 +25,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //As one of examples configuration can be stored in one configuration object. Other configs are in CitiesConfiguration, Product configuration and LoginConfiguration as static objects
 
         // Home Tab Bar Screen
-        let homeScreen = ScreenStepAssembly(
+        let homeScreen = StepAssembly(
                 // Because both factory and finder are Generic, You have to provide to at least one instance
                 // what type of view controller and context to expect. You do not need to do so if you are using at
                 // least one custom factory of finder that have set typealias for ViewController and Context.
-                finder: ViewControllerClassFinder<UITabBarController, Any?>(),
-                factory: homeFactory)
+                finder: ClassFinder<UITabBarController, Any?>(),
+                factory: StoryboardFactory(storyboardName: "TabBar", action: ReplaceRootAction()))
                 .add(ExampleAnalyticsInterceptor())
                 .add(ExampleAnalyticsPostAction())
                 .from(RootViewControllerStep())
@@ -39,8 +39,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ExampleConfiguration.register(screen: homeScreen, for: ExampleTarget.home)
 
         // Square Tab Bar Screen
-        let squareScreen = ScreenStepAssembly(
-                finder: ViewControllerClassFinder<SquareViewController, ExampleDictionaryContext>(options: .currentAllStack),
+        let squareScreen = StepAssembly(
+                finder: ClassFinder<SquareViewController, ExampleDictionaryContext>(options: .currentAllStack),
                 factory: NilFactory())
                 .add(ExampleAnalyticsInterceptor())
                 .add(ExampleAnalyticsPostAction())
@@ -50,8 +50,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ExampleConfiguration.register(screen: squareScreen, for: ExampleTarget.square)
 
         // Circle Tab Bar screen
-        let circleScreen = ScreenStepAssembly(
-                finder: ViewControllerClassFinder<CircleViewController, ExampleDictionaryContext>(options: .currentAllStack),
+        let circleScreen = StepAssembly(
+                finder: ClassFinder<CircleViewController, ExampleDictionaryContext>(options: .currentAllStack),
                 factory: NilFactory())
                 .add(ExampleAnalyticsInterceptor())
                 .add(ExampleAnalyticsPostAction())
@@ -61,7 +61,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ExampleConfiguration.register(screen: circleScreen, for: ExampleTarget.circle)
 
         //Color screen
-        let colorScreen = ScreenStepAssembly(
+        let colorScreen = StepAssembly(
                 finder: ColorViewControllerFinder(),
                 factory: ColorViewControllerFactory(action: PushToNavigationAction()))
                 .add(ExampleAnalyticsInterceptor())
@@ -73,9 +73,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ExampleConfiguration.register(screen: colorScreen, for: ExampleTarget.color)
 
         //Star screen
-        let starScreen = ScreenStepAssembly(
-                finder: ViewControllerClassFinder<StarViewController, Any>(options: .currentAllStack),
-                factory: ViewControllerFromXibFactory(action: AddTabAction()))
+        let starScreen = StepAssembly(
+                finder: ClassFinder<StarViewController, Any>(options: .currentAllStack),
+                factory: XibFactory(action: AddTabAction()))
                 .add(ExampleAnalyticsInterceptor())
                 .add(ExampleAnalyticsPostAction())
                 .add(LoginInterceptor())
@@ -85,9 +85,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ExampleConfiguration.register(screen: starScreen, for: ExampleTarget.star)
 
         //Screen with Routing support
-        let routingSupportScreen = ScreenStepAssembly(
-                finder: ViewControllerClassFinder<RoutingRuleSupportViewController, Any?>(options: .currentAllStack),
-                factory: ViewControllerFromStoryboard(storyboardName: "TabBar", viewControllerID: "RoutingRuleSupportViewController", action: PushToNavigationAction()))
+        let routingSupportScreen = StepAssembly(
+                finder: ClassFinder<RoutingRuleSupportViewController, Any?>(options: .currentAllStack),
+                factory: StoryboardFactory(storyboardName: "TabBar", viewControllerID: "RoutingRuleSupportViewController", action: PushToNavigationAction()))
                 .add(ExampleAnalyticsInterceptor())
                 .add(ExampleAnalyticsPostAction())
                 .from(colorScreen)
@@ -97,9 +97,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 for: ExampleTarget.ruleSupport)
 
         // Empty Screen
-        let emptyScreen = ScreenStepAssembly(
-                finder: ViewControllerClassFinder<EmptyViewController, Any?>(),
-                factory: ViewControllerFromStoryboard(storyboardName: "TabBar", viewControllerID: "EmptyViewController", action: PushToNavigationAction()))
+        let emptyScreen = StepAssembly(
+                finder: ClassFinder<EmptyViewController, Any?>(),
+                factory: StoryboardFactory(storyboardName: "TabBar", viewControllerID: "EmptyViewController", action: PushToNavigationAction()))
                 .add(LoginInterceptor())
                 .add(ExampleAnalyticsInterceptor())
                 .add(ExampleAnalyticsPostAction())
@@ -109,9 +109,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ExampleConfiguration.register(screen: emptyScreen, for: ExampleTarget.empty)
 
         // Two modal presentations in a row screen
-        let superModalScreen = ScreenStepAssembly(
-                finder: ViewControllerClassFinder<SecondModalLevelViewController, Any?>(),
-                factory: ViewControllerFromStoryboard(storyboardName: "TabBar", viewControllerID: "SecondModalLevelViewController", action: PushToNavigationAction()))
+        let superModalScreen = StepAssembly(
+                finder: ClassFinder<SecondModalLevelViewController, Any?>(),
+                factory: StoryboardFactory(storyboardName: "TabBar", viewControllerID: "SecondModalLevelViewController", action: PushToNavigationAction()))
                 .add(ExampleAnalyticsInterceptor())
                 .add(ExampleAnalyticsPostAction())
                 .from(NavigationControllerStep(action: PresentModallyAction()))
@@ -121,9 +121,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ExampleConfiguration.register(screen: superModalScreen, for: ExampleTarget.secondLevelModal)
 
         // Welcome Screen
-        let welcomeScreen = ScreenStepAssembly(
-                finder: ViewControllerClassFinder<PromptViewController, Any?>(),
-                factory: ViewControllerFromStoryboard(storyboardName: "PromptScreen", action: ReplaceRootAction()))
+        let welcomeScreen = StepAssembly(
+                finder: ClassFinder<PromptViewController, Any?>(),
+                factory: StoryboardFactory(storyboardName: "PromptScreen", action: ReplaceRootAction()))
                 .add(ExampleAnalyticsInterceptor())
                 .add(ExampleAnalyticsPostAction())
                 .from(RootViewControllerStep())

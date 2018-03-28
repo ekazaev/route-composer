@@ -66,4 +66,5 @@ public class SplitControllerFactory: Factory, Container {
         splitController.viewControllers = childrenViewControllers
         return splitController
     }
+
 }

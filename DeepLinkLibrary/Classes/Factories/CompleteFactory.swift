@@ -10,7 +10,7 @@ import UIKit
 
 /// `CompleteFactoryAssembly` uses this container factory wrapper to substitute provided factory and allow you to
 /// preset child factories instead of `Router`.
-public class CompleteFactory<FC: Factory & Container>: Factory, Container {
+public class CompleteFactory<FC: Factory & Container>: Factory, Container, CustomStringConvertible {
 
     public typealias ViewController = FC.ViewController
 
@@ -21,8 +21,6 @@ public class CompleteFactory<FC: Factory & Container>: Factory, Container {
     let factory: FC
 
     let childFactories: [ChildFactory<FC.Context>]
-
-    private var mergedOnce = false
 
     init(factory: FC, childFactories: [ChildFactory<FC.Context>]) {
         self.factory = factory
@@ -35,7 +33,6 @@ public class CompleteFactory<FC: Factory & Container>: Factory, Container {
     }
 
     public func merge<C>(_ factories: [ChildFactory<C>]) -> [ChildFactory<C>] {
-        mergedOnce = true
         guard var childFactories = childFactories as? [ChildFactory<C>] else {
             return factory.merge(factories)
         }
@@ -44,13 +41,11 @@ public class CompleteFactory<FC: Factory & Container>: Factory, Container {
     }
 
     public func build(with context: Context) throws -> ViewController {
-        if !mergedOnce {
-            let oddFactories = factory.merge(childFactories)
-            guard oddFactories.count == 0 else {
-                throw RoutingError.message("Some factories can not be successfully integrated in to \(String(describing: factory)). Check action settings of child factories.")
-            }
-        }
         return try factory.build(with: context)
+    }
+
+    public var description: String {
+        return String(describing: factory)
     }
 
 }

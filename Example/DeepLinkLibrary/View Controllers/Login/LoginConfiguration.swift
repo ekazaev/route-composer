@@ -9,9 +9,9 @@ import DeepLinkLibrary
 struct LoginConfiguration {
 
     static func login() -> ExampleDestination {
-        let loginScreen = ScreenStepAssembly(finder: ViewControllerClassFinder<LoginViewController, Any?>(),
+        let loginScreen = StepAssembly(finder: ClassFinder<LoginViewController, Any?>(),
                 factory: NilFactory()) //Login view controller will be created when UINavigationController will be loaded from storyboard.
-                .from(BasicStep(finder: NilFinder<UINavigationController, Any?>(), factory: ViewControllerFromStoryboard<UINavigationController, Any?>(storyboardName: "Login", action: PresentModallyAction(presentationStyle: .formSheet))))
+                .from(BasicStep(finder: NilFinder<UINavigationController, Any?>(), factory: StoryboardFactory<UINavigationController, Any?>(storyboardName: "Login", action: PresentModallyAction(presentationStyle: .formSheet))))
                 .from(CurrentViewControllerStep())
                 .assemble()
 

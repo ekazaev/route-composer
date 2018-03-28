@@ -10,7 +10,7 @@ public protocol TabBarControllerFactoryAction: Action {
 }
 
 /// Container Factory that creates UITabBarController
-public class TabBarControllerFactory: SingleActionContainerFactory {
+public class TabBarControllerFactory: SimpleContainerFactory {
 
     public typealias ViewController = UITabBarController
 

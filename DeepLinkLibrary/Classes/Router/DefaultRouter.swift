@@ -20,7 +20,7 @@ public class DefaultRouter: Router {
         logger?.routingWillStart()
         // If currently visible view controller can not be dismissed then we can't deeplink anywhere, because it will
         // disappear as a result of deeplinking.
-        if let topMostViewController = UIWindow.key?.topmostViewController as? RouterRulesSupport, !topMostViewController.canBeDismissed {
+        if let topMostViewController = UIWindow.key?.topmostViewController as? RouterInterceptable, !topMostViewController.canBeDismissed {
             logger?.log(.warning("Topmost view controller can not be dismissed."))
             logger?.routingDidFinish()
             return .unhandled
@@ -228,7 +228,7 @@ public class DefaultRouter: Router {
         var iterationViewController = viewController
         while let parent = iterationViewController.parent {
             if let container = parent as? ContainerViewController {
-                container.makeVisible(viewController: iterationViewController, animated: animated)
+                container.makeVisible(iterationViewController, animated: animated)
             }
             iterationViewController = parent
         }

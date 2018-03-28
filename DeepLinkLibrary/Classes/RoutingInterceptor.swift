@@ -8,7 +8,8 @@ import Foundation
 /// e.g. user should be logged in.
 ///
 /// ### NB
-/// Interceptor is an asynchronous action. For router to continue routing, completion of interceptor's execute method MUST to be called.
+/// Interceptor is an asynchronous action. For router to continue routing, completion of interceptor's
+/// execute method **MUST** to be called.
 /// Otherwise router will stay in limbo state waiting for interceptor to finish its action.
 public protocol RoutingInterceptor {
 
@@ -21,7 +22,8 @@ public protocol RoutingInterceptor {
     ///   - completion: Completion block with a result.
     ///
     /// ###NB
-    /// For router to continue routing, completion of interceptor's execute method MUST to be called.
+    /// For router to continue routing, completion of interceptor's execute method **MUST** to be called
+    /// in any scenario.
     /// Otherwise router will stay in limbo state waiting for interceptor to finish its action.
     func execute(for destination: Destination, completion: @escaping (_: InterceptorResult) -> Void)
 

@@ -11,7 +11,7 @@ import UIKit
 /// All container view controllers should extend this protocol so if router would ask them to make visible
 /// one of the view controllers that they contain as each container can have custom implementations of this
 /// functionality.
-@objc public protocol ContainerViewController: RouterRulesSupport { // @objc is mandatory otherwise crashes in runtime everywhere where Self: UIViewController
+@objc public protocol ContainerViewController: RouterInterceptable { // @objc is mandatory otherwise crashes in runtime everywhere where Self: UIViewController
 
     /// UIViewController instances that ContainerViewController currently has in stack
     var containingViewControllers: [UIViewController] { get }
@@ -23,8 +23,8 @@ import UIKit
     /// the particular child view controller visible.
     ///
     /// - parameters:
-    ///   - vc: UIViewController to make active (visible).
+    ///   - viewController: UIViewController to make active (visible).
     ///   - animated: If container view controller is able to do so - make container active animated or not.
-    func makeVisible(viewController: UIViewController, animated: Bool)
+    func makeVisible(_ viewController: UIViewController, animated: Bool)
 
 }

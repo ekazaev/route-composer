@@ -7,7 +7,7 @@ import Foundation
 import UIKit
 import DeepLinkLibrary
 
-class ColorViewControllerFinder: SearchOptionsFinder {
+class ColorViewControllerFinder: StackIteratingFinder {
 
     public let options: SearchOptions
 

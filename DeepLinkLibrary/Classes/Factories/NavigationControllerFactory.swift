@@ -10,7 +10,7 @@ public protocol NavigationControllerFactoryAction: Action {
 }
 
 /// Container Factory that creates UINavigationController
-public class NavigationControllerFactory: SingleActionContainerFactory {
+public class NavigationControllerFactory: SimpleContainerFactory {
 
     public typealias ViewController = UINavigationController
 
@@ -39,4 +39,5 @@ public class NavigationControllerFactory: SingleActionContainerFactory {
         navigationController.viewControllers = viewControllers
         return navigationController
     }
+
 }

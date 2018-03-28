@@ -9,9 +9,9 @@ import DeepLinkLibrary
 
 struct WishListConfiguration {
 
-    static let wishListScreen = ScreenStepAssembly(
-            finder: ViewControllerClassFinder<WishListViewController, WishListContent>(),
-            factory: ViewControllerFromStoryboard(storyboardName: "TabBar", viewControllerID: "WishListViewController", action: PushToNavigationAction()))
+    static let wishListScreen = StepAssembly(
+            finder: ClassFinder<WishListViewController, WishListContent>(),
+            factory: StoryboardFactory(storyboardName: "TabBar", viewControllerID: "WishListViewController", action: PushToNavigationAction()))
             .add(LoginInterceptor())
             .add(WishListContentTask())
             .add(ExampleAnalyticsInterceptor())

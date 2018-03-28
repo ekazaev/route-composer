@@ -26,7 +26,7 @@ class LoginInterceptor: RoutingInterceptor {
         // boilerplate code that will help you to avoid this rare, but possible situation.
         let destination = LoginConfiguration.login()
         let result = DefaultRouter(logger: DefaultLogger(.warnings)).deepLinkTo(destination: destination) { success in
-            guard success, let viewController = ViewControllerClassFinder<LoginViewController, Any?>().findViewController(with: nil) else {
+            guard success, let viewController = ClassFinder<LoginViewController, Any?>().findViewController(with: nil) else {
                 completion(.failure("LoginViewController not found."))
                 return
             }

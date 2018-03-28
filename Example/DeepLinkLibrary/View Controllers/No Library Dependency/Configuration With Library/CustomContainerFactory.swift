@@ -7,7 +7,7 @@ import Foundation
 import UIKit
 import DeepLinkLibrary
 
-class CustomContainerFactory: SingleActionContainerFactory {
+class CustomContainerFactory: SimpleContainerFactory {
 
     typealias SupportedAction = CustomContainerChildAction
 
@@ -54,7 +54,7 @@ extension CustomContainerController: ContainerViewController {
         return containingViewControllers
     }
 
-    func makeVisible(viewController: UIViewController, animated: Bool) {
+    func makeVisible(_ viewController: UIViewController, animated: Bool) {
 
     }
 

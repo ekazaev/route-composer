@@ -6,12 +6,14 @@ import Foundation
 
 /// Assembly that allows you to build a Container Factory with a preset child Factories inside.
 ///
-/// *Example: You want your UITabBarController to be build already with all the tabs populated*
+/// *Example: You want your `UITabBarController` instance to be build by this `Factory` already
+/// with all the tabs populated*
 public class CompleteFactoryAssembly<FC: Factory & Container> {
 
     private var factory: FC
 
     private var childFactories: [ChildFactory<FC.Context>] = []
+
     /// Constructor
     ///
     /// - Parameters:
@@ -34,7 +36,9 @@ public class CompleteFactoryAssembly<FC: Factory & Container> {
     }
 
     public func assemble() -> CompleteFactory<FC> {
-        return CompleteFactory(factory: factory, childFactories: childFactories)
+        let completeFactory = CompleteFactory(factory: factory, childFactories: childFactories)
+        let _ = completeFactory.merge(Array<ChildFactory<FC.Context>>())
+        return completeFactory
     }
 
 }

@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-/// ScreenStepAssembly uses finder result as a factory result. Used with things that do not have actual
+/// `StepAssembly` uses finder result as a factory result. Used with things that do not have actual
 /// factories like UIViewControllers that were build as a result of storyboard loading.
 public class FinderFactory<F: Finder>: Factory {
 

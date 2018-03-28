@@ -10,13 +10,13 @@ import UIKit
 class ProductConfiguration {
 
     static func productDestination(productId: String, _ analyticParameters: ExampleAnalyticsParameters? = nil) -> ExampleDestination {
-        let productScreen = ScreenStepAssembly(
-                finder: ViewControllerClassWithContextFinder<ProductViewController, String>(),
-                factory: ViewControllerFromStoryboard(storyboardName: "TabBar", viewControllerID: "ProductViewController", action: PushToNavigationAction()))
+        let productScreen = StepAssembly(
+                finder: ClassWithContextFinder<ProductViewController, String>(),
+                factory: StoryboardFactory(storyboardName: "TabBar", viewControllerID: "ProductViewController", action: PushToNavigationAction()))
                 .add(ProductContentTask())
                 .add(ExampleAnalyticsInterceptor())
                 .add(ExampleAnalyticsPostAction())
-                .from(SwitcherStepAssembly()
+                .from(SwitchAssembly()
                         .addCase { (destination: ExampleDestination) in
                             // If routing requested by Universal Link - Presenting modally
                             // Try in Mobile Safari dll://productView?product=123
@@ -24,14 +24,14 @@ class ProductConfiguration {
                                 return nil
                             }
 
-                            return StepChainAssembly()
+                            return ChainAssembly()
                                     .from(NavigationControllerStep(action: PresentModallyAction()))
                                     .from(CurrentViewControllerStep())
                                     .assemble()
 
                         }
                         // If UINavigationController exists on current level - just push
-                        .addCase(when: ViewControllerClassFinder<UINavigationController, Any>(options: .currentAllStack))
+                        .addCase(when: ClassFinder<UINavigationController, Any>(options: .currentAllStack))
                         .assemble(default: {
                             // Otherwise - presenting in Circle Tab
                             return ExampleConfiguration.step(for: ExampleTarget.circle)!

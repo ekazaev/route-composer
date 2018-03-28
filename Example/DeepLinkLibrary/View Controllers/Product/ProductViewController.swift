@@ -69,7 +69,7 @@ class ProductViewController: UIViewController, ExampleAnalyticsSupport {
 
 }
 
-extension ProductViewController: ContextFinderSupport {
+extension ProductViewController: ContextChecking {
 
     func isSuitable(for productId: String) -> Bool {
         return self.productId == productId
