@@ -10,7 +10,7 @@ import UIKit
 /// e.g. when it comes to the presentation of multiple view controllers to reach destination.
 protocol ChainableStep {
 
-    /// Step to be made by a router before getting to this step.
+    /// Step to be made by a `Router` before getting to this step.
     var previousStep: RoutingStep? { get }
 
 }

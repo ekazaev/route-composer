@@ -262,7 +262,7 @@
 
                 </div>
               </div>
-            <p>Instance that extends Factory builds UIViewController that will be later integrated in to stack by Router</p>
+            <p>Instance that extends Factory builds <code>UIViewController</code> that will be later integrated in to stack by <code><a href="../Protocols.html#/s:15DeepLinkLibrary6RouterP">Router</a></code></p>
 
           </section>
           <section class="section task-group-section">
@@ -281,7 +281,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Type of UIViewController that Factory can build</p>
+                        <p>Type of <code>UIViewController</code> that Factory can build</p>
 
                       </div>
                       <div class="declaration">
@@ -335,7 +335,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Action instance. Router applies action to integrate view controller created by build() in the existing
+                        <p><code><a href="../Protocols/Action.html">Action</a></code> instance. <code><a href="../Protocols.html#/s:15DeepLinkLibrary6RouterP">Router</a></code> applies action to integrate view controller created by <code><a href="../Protocols/Factory.html#/s:15DeepLinkLibrary7FactoryP5build14ViewControllerQz7ContextQz4with_tKF">build(with:)</a></code> in the existing
 view controller stack</p>
 
                       </div>
@@ -366,14 +366,15 @@ view controller stack</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>If factory can tell to router before it will actually start to route to this view controller
-if it can be build ot not - it should overload this method - router will call it before the routing
+                        <p>If factory can tell to <code><a href="../Protocols.html#/s:15DeepLinkLibrary6RouterP">Router</a></code> before it will actually start to route to this view controller
+if it can be build ot not - it should overload this method - <code><a href="../Protocols.html#/s:15DeepLinkLibrary6RouterP">Router</a></code> will call it before the routing
 process and if factory is not able to build a view controller (example: it has to build a product view
-controller but there is no product code in context) it can stop router from routing to this destination
-and the result of routing will be .unhandled without any changes in view controller stack.</p>
+controller but there is no product code in context) it can stop <code><a href="../Protocols.html#/s:15DeepLinkLibrary6RouterP">Router</a></code> from routing to this destination
+and the result of routing will be <code>.unhandled</code> without any changes in view controller stack.</p>
 <div class="aside aside-throws">
     <p class="aside-title">Throws</p>
-    RoutingException if factory can not prepare itself to build a view controller with context provided.
+    <code><a href="../Enums.html#/s:15DeepLinkLibrary12RoutingErrorO">RoutingError</a></code> if <code>Factory</code> can not prepare itself to build a <code>UIViewController</code> instance
+with context provided.
 
 </div>
 
@@ -402,7 +403,7 @@ and the result of routing will be .unhandled without any changes in view control
                               </td>
                               <td>
                                 <div>
-                                  <p>Context instance if it was provided to the Router.</p>
+                                  <p>Context instance if it was provided to the <code><a href="../Protocols.html#/s:15DeepLinkLibrary6RouterP">Router</a></code>.</p>
                                 </div>
                               </td>
                             </tr>
@@ -428,7 +429,7 @@ and the result of routing will be .unhandled without any changes in view control
                         <p>Builds a UIViewController that will be built in to the stack</p>
 <div class="aside aside-throws">
     <p class="aside-title">Throws</p>
-    RoutingException if build was not succeed.
+    <code><a href="../Enums.html#/s:15DeepLinkLibrary12RoutingErrorO">RoutingError</a></code> if build was not succeed.
 
 </div>
 
@@ -453,7 +454,7 @@ and the result of routing will be .unhandled without any changes in view control
                               </td>
                               <td>
                                 <div>
-                                  <p>Context instance if it was provided to the Router.</p>
+                                  <p>Context instance if it was provided to the <code><a href="../Protocols.html#/s:15DeepLinkLibrary6RouterP">Router</a></code>.</p>
                                 </div>
                               </td>
                             </tr>
@@ -462,7 +463,7 @@ and the result of routing will be .unhandled without any changes in view control
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>Built UIViewController instance.</p>
+                        <p>Built <code>UIViewController</code> instance.</p>
                       </div>
                     </section>
                   </div>
@@ -472,7 +473,7 @@ and the result of routing will be .unhandled without any changes in view control
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="http://tech.gilt.com" target="_blank" rel="external">Gilt Groupe</a>. All rights reserved. (Last updated: 2018-03-28)</p>
+          <p>&copy; 2018 <a class="link" href="http://tech.gilt.com" target="_blank" rel="external">Gilt Groupe</a>. All rights reserved. (Last updated: 2018-03-30)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

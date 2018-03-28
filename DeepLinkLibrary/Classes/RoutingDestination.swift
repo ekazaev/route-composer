@@ -5,15 +5,16 @@
 
 import Foundation
 
-/// Router will use assembly provided by a destination as a starting point to build steps for routing to it.
+/// `Router` will use `RoutingStep` instance provided by a `RoutingDestination` as a starting point
+/// to build steps for routing to it.
 public protocol RoutingDestination: class {
 
     associatedtype Context
 
-    /// Routing step instance that represents end point of routing.
+    /// `RoutingStep` instance that represents end point of routing.
     var finalStep: RoutingStep { get }
 
-    /// Context object to be passed to any UIViewController to be build or presented.
+    /// Context instance to be passed to any `UIViewController` to be build or presented.
     var context: Context { get }
 
 }

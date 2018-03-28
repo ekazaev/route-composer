@@ -408,7 +408,7 @@ Merge action implementation is mandatory for any actions and should be implement
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>All container view controllers should extend this protocol so if router would ask them to make visible
+                        <p>All container view controllers should extend this protocol so if <code><a href="Protocols.html#/s:15DeepLinkLibrary6RouterP">Router</a></code> would ask them to make visible
 one of the view controllers that they contain as each container can have custom implementations of this
 functionality.</p>
 
@@ -475,7 +475,7 @@ The task to be executed after UIViewController created or found.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Instance that extends Factory builds UIViewController that will be later integrated in to stack by Router</p>
+                        <p>Instance that extends Factory builds <code>UIViewController</code> that will be later integrated in to stack by <code><a href="Protocols.html#/s:15DeepLinkLibrary6RouterP">Router</a></code></p>
 
                         <a href="Protocols/Factory.html" class="slightly-smaller">See more</a>
                       </div>
@@ -507,7 +507,7 @@ The task to be executed after UIViewController created or found.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Finder to be used by Router to find out if this UIViewController is in view controller stack</p>
+                        <p><code>Finder</code> to be used by <code><a href="Protocols.html#/s:15DeepLinkLibrary6RouterP">Router</a></code> to find out if this <code>UIViewController</code> instance is in view controller stack</p>
 
                         <a href="Protocols/Finder.html" class="slightly-smaller">See more</a>
                       </div>
@@ -571,8 +571,7 @@ The task to be executed after UIViewController created or found.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>PostRoutingTask
-The task to be executed after deep linking happened.</p>
+                        <p>The task to be executed after deep linking happened.</p>
 
                         <a href="Protocols/PostRoutingTask.html" class="slightly-smaller">See more</a>
                       </div>
@@ -635,7 +634,8 @@ The task to be executed after deep linking happened.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Router will use assembly provided by a destination as a starting point to build steps for routing to it.</p>
+                        <p><code><a href="Protocols.html#/s:15DeepLinkLibrary6RouterP">Router</a></code> will use <code><a href="Protocols.html#/s:15DeepLinkLibrary11RoutingStepP">RoutingStep</a></code> instance provided by a <code>RoutingDestination</code> as a starting point
+to build steps for routing to it.</p>
 
                         <a href="Protocols/RoutingDestination.html" class="slightly-smaller">See more</a>
                       </div>
@@ -667,9 +667,9 @@ The task to be executed after deep linking happened.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>UIViewController&rsquo;s protocol exposed outside of the library. .
-UIViewController that conforms to this protocol may overtake the control of the view controllers stack and
-forbid the router to dismiss or cover it with another view controller.
+                        <p><code>UIViewController</code>&lsquo;s protocol exposed outside of the library. .
+<code>UIViewController</code> that conforms to this protocol may overtake the control of the view controllers stack and
+forbid the <code><a href="Protocols.html#/s:15DeepLinkLibrary6RouterP">Router</a></code> to dismiss or cover it with another view controller.
 Return false if the view controller can be dismissed.</p>
 
                         <a href="Protocols/RoutingInterceptable.html" class="slightly-smaller">See more</a>
@@ -706,9 +706,9 @@ Return false if the view controller can be dismissed.</p>
 e.g. user should be logged in.</p>
 <h3 id='nb' class='heading'>NB</h3>
 
-<p>Interceptor is an asynchronous action. For router to continue routing, completion of interceptor&rsquo;s
+<p>Interceptor is an asynchronous action. For <code><a href="Protocols.html#/s:15DeepLinkLibrary6RouterP">Router</a></code> to continue routing, completion of interceptor&rsquo;s
 execute method <strong>MUST</strong> to be called.
-Otherwise router will stay in limbo state waiting for interceptor to finish its action.</p>
+Otherwise <code><a href="Protocols.html#/s:15DeepLinkLibrary6RouterP">Router</a></code> will stay in limbo state waiting for interceptor to finish its action.</p>
 
                         <a href="Protocols/RoutingInterceptor.html" class="slightly-smaller">See more</a>
                       </div>
@@ -740,7 +740,7 @@ Otherwise router will stay in limbo state waiting for interceptor to finish its 
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Represents step for the router.</p>
+                        <p>Represents step for the <code><a href="Protocols.html#/s:15DeepLinkLibrary6RouterP">Router</a></code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -806,7 +806,7 @@ children UIViewControllers - use this protocol. It contain default merge functio
                       <div class="abstract">
                         <p>Simplifies creation of finders for a hosting app. If there is nothing special about finder, hosting app should
 extend this finder which will just iterations through view controllers stack following the search options provided
-and just ask extending instances if this particular view controller is the one that Router looking for or no.</p>
+and just ask extending instances if this particular view controller is the one that <code><a href="Protocols.html#/s:15DeepLinkLibrary6RouterP">Router</a></code> looking for or no.</p>
 
                         <a href="Protocols/StackIteratingFinder.html" class="slightly-smaller">See more</a>
                       </div>
@@ -858,7 +858,7 @@ and just ask extending instances if this particular view controller is the one t
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="http://tech.gilt.com" target="_blank" rel="external">Gilt Groupe</a>. All rights reserved. (Last updated: 2018-03-28)</p>
+          <p>&copy; 2018 <a class="link" href="http://tech.gilt.com" target="_blank" rel="external">Gilt Groupe</a>. All rights reserved. (Last updated: 2018-03-30)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

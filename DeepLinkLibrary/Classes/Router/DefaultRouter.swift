@@ -247,7 +247,7 @@ public class DefaultRouter: Router {
     /// Each post action needs to know a view controller is should be applied to.
     /// This decorator adds functionality of storing UIViewControllers created by the factory and frees custom factories
     /// implementations from dealing with it. Mostly it is important for ContainerFactories which create merged view
-    /// controllers without Router's help.
+    /// controllers without `Router`'s help.
     private class FactoryDecorator<D: RoutingDestination>: AnyFactory, CustomStringConvertible {
 
         var action: Action {

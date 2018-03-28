@@ -24,7 +24,7 @@ public final class ChildFactory<Context>  {
 
     /// Builds an instance of UIViewController and integrates it in to provided view controller stack
     ///
-    /// - Parameter context: An instance of context provided by router.
+    /// - Parameter context: An instance of context provided by `Router`.
     /// - Parameter containerViewControllers: Array of UIViewController instances to be later
     ///   integrated in to container's stack.
     public func build(with context: Context, in containerViewControllers: inout [UIViewController]) throws {

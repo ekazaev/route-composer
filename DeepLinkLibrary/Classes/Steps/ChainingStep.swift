@@ -9,7 +9,7 @@ public protocol ChainingStep {
 
     /// From method
     ///
-    /// - Parameter step: RoutingStep instance to be set as previous one
+    /// - Parameter step: `RoutingStep` instance to be set as previous one
     func from(_ step: RoutingStep)
 
 }

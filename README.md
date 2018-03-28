@@ -111,9 +111,9 @@ class ProductViewControllerFactory: Factory {
         self.action = action
     }
 
-    func build(with context: UUID) throws -> ProductViewController {
+    func build(with productID: UUID) throws -> ProductViewController {
         let productViewController = ProductViewController(nibName: "ProductViewController", bundle: nil)
-        productViewController.productID = context // Parameter initialisation can be handled by a ContextAction, see below:
+        productViewController.productID = productID // Parameter initialisation can be handled by a ContextAction, see below:
 
         return productViewController
     }
@@ -155,8 +155,8 @@ class ProductViewControllerFinder: StackIteratingFinder {
         self.options = options
     }
 
-    func isWanted(target viewController: ProductViewController, with context: UUID) -> Bool {
-        return viewController.productID == context
+    func isWanted(target productViewController: ProductViewController, with productID: UUID) -> Bool {
+        return productViewController.productID == productID
     }
 
 }
@@ -229,8 +229,8 @@ present a product.*
 ```swift
 class ProductViewControllerContentTask: ContextTask {
 
-    func apply(on viewController: ProductViewController, with context: UUID) {
-        viewController.productID = content
+    func apply(on productViewController: ProductViewController, with productID: UUID) {
+        productViewController.productID = productID
     }
 
 }
@@ -254,8 +254,8 @@ class ProductViewControllerPostTask: PostRoutingTask {
         self.analyticsManager = analyticsManager
     }
 
-    func execute(on viewController: ProductViewController, for destination: AppDestination, routingStack: [UIViewController]) {
-        analyticsManager.trackProductView(productID: viewController.productID)
+    func execute(on productViewController: ProductViewController, for destination: AppDestination, routingStack: [UIViewController]) {
+        analyticsManager.trackProductView(productID: productViewController.productID)
     }
 
 }

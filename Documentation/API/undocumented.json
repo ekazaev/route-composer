@@ -79,7 +79,7 @@
     },
     {
       "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Assemblies/CompleteFactoryAssembly.swift",
-      "line": 38,
+      "line": 37,
       "symbol": "CompleteFactoryAssembly.assemble()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"

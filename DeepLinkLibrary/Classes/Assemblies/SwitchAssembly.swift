@@ -5,7 +5,7 @@
 import Foundation
 import UIKit
 
-/// Helps to build a tree of step which will be taken by a router and add a condition to each step when it should
+/// Helps to build a tree of step which will be taken by a `Router` and add a condition to each step when it should
 /// be taken.
 public class SwitchAssembly {
 
@@ -72,7 +72,7 @@ public class SwitchAssembly {
         return self
     }
 
-    /// Add block which will allow to write a decision case for the Router in the block
+    /// Add block which will allow to write a decision case for the `Router` in the block
     ///
     /// - Parameter resolverBlock: case resolver block
     public func addCase<D: RoutingDestination>(_ resolverBlock: @escaping ((_: D) -> RoutingStep?)) -> Self {

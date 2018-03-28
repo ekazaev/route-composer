@@ -13,8 +13,8 @@ public class BasicStep<F: Finder, FC: Factory> where F.ViewController == FC.View
     /// Creates a instance of the routing step that produces view controller.
     ///
     /// - Parameters:
-    ///   - finder: UIViewController finder.
-    ///   - factory: UIViewController factory.
+    ///   - finder: `UIViewController` `Finder` instance.
+    ///   - factory: `UIViewController` `Factory` instance.
     public init(finder: F, factory: FC)  {
         routingStep = RoutingContainerStep(finder: finder, factory: factory)
     }

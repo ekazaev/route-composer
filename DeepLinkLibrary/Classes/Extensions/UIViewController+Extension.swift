@@ -14,19 +14,19 @@ public struct SearchOptions: OptionSet {
     public init(rawValue: Int) {
         self.rawValue = rawValue
     }
-    
+
     /// Compare with view controller provided
     public static let current = SearchOptions(rawValue: 1 << 0)
-    
+
     /// If view controller is a container, search in its visible view controllers
     public static let visible = SearchOptions(rawValue: 1 << 1)
-    
+
     /// If view controller is a container, search in all view controllers it contains
     public static let containing = SearchOptions(rawValue: 1 << 2)
-    
+
     /// Search from view controller provided in all view controllers it presented
     public static let presented = SearchOptions(rawValue: 1 << 3)
-    
+
     // Search from view controller provided in all view controllers that presenting it
     public static let presenting = SearchOptions(rawValue: 1 << 4)
 
@@ -41,6 +41,10 @@ public struct SearchOptions: OptionSet {
 public extension UIViewController {
 
     public static func findViewController(in vc: UIViewController, options: SearchOptions = .currentAndUp, using comparator: (UIViewController) -> Bool) -> UIViewController? {
+        guard !vc.isBeingDismissed else {
+            return nil
+        }
+
         if options.contains(.current), comparator(vc) {
             return vc
         }
@@ -62,13 +66,11 @@ public extension UIViewController {
 
         if options.contains(.presented),
            let presented = vc.presentedViewController,
-           !presented.isBeingDismissed && presented.popoverPresentationController == nil,
            let found = findViewController(in: presented, options: options, using: comparator) {
             return found
         }
         if options.contains(.presenting) {
             if let presenting = vc.presentingViewController,
-               !vc.isBeingDismissed && vc.popoverPresentationController == nil,
                let found = findViewController(in: presenting, options: options, using: comparator) {
                 return found
             }

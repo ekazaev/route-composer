@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-/// All container view controllers should extend this protocol so if router would ask them to make visible
+/// All container view controllers should extend this protocol so if `Router` would ask them to make visible
 /// one of the view controllers that they contain as each container can have custom implementations of this
 /// functionality.
 @objc public protocol ContainerViewController: RoutingInterceptable { // @objc is mandatory otherwise crashes in runtime everywhere where Self: UIViewController
@@ -19,7 +19,7 @@ import UIKit
     /// UIViewController instances out of the `containingViewControllers` that are currently visible on the screen
     var visibleViewControllers: [UIViewController] { get }
 
-    /// Each container view controller should conform to this protocol for the router to know how to make
+    /// Each container view controller should conform to this protocol for the `Router` to know how to make
     /// the particular child view controller visible.
     ///
     /// - parameters:

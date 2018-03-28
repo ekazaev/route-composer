@@ -40,8 +40,7 @@ extension UIViewController {
 extension UIViewController {
 
     private func findPresentedNonContainerViewController(_ vc: UIViewController) -> UIViewController {
-        if let presented = vc.presentedViewController,
-           !presented.isBeingDismissed && presented.popoverPresentationController == nil {
+        if let presented = vc.presentedViewController, !presented.isBeingDismissed{
             return findPresentedNonContainerViewController(presented)
         }
 

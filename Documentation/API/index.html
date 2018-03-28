@@ -363,9 +363,9 @@ Links in your application and if routing can not be handled open provided URL in
         <span class="k">self</span><span class="o">.</span><span class="n">action</span> <span class="o">=</span> <span class="n">action</span>
     <span class="p">}</span>
 
-    <span class="kd">func</span> <span class="nf">build</span><span class="p">(</span><span class="n">with</span> <span class="nv">context</span><span class="p">:</span> <span class="kt">UUID</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">ProductViewController</span> <span class="p">{</span>
+    <span class="kd">func</span> <span class="nf">build</span><span class="p">(</span><span class="n">with</span> <span class="nv">productID</span><span class="p">:</span> <span class="kt">UUID</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">ProductViewController</span> <span class="p">{</span>
         <span class="k">let</span> <span class="nv">productViewController</span> <span class="o">=</span> <span class="kt">ProductViewController</span><span class="p">(</span><span class="nv">nibName</span><span class="p">:</span> <span class="s">"ProductViewController"</span><span class="p">,</span> <span class="nv">bundle</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
-        <span class="n">productViewController</span><span class="o">.</span><span class="n">productID</span> <span class="o">=</span> <span class="n">context</span> <span class="c1">// Parameter initialisation can be handled by a ContextAction, see below:</span>
+        <span class="n">productViewController</span><span class="o">.</span><span class="n">productID</span> <span class="o">=</span> <span class="n">productID</span> <span class="c1">// Parameter initialisation can be handled by a ContextAction, see below:</span>
 
         <span class="k">return</span> <span class="n">productViewController</span>
     <span class="p">}</span>
@@ -402,8 +402,8 @@ product in your view controller stack:</em></p>
         <span class="k">self</span><span class="o">.</span><span class="n">options</span> <span class="o">=</span> <span class="n">options</span>
     <span class="p">}</span>
 
-    <span class="kd">func</span> <span class="nf">isWanted</span><span class="p">(</span><span class="n">target</span> <span class="nv">viewController</span><span class="p">:</span> <span class="kt">ProductViewController</span><span class="p">,</span> <span class="n">with</span> <span class="nv">context</span><span class="p">:</span> <span class="kt">UUID</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="n">viewController</span><span class="o">.</span><span class="n">productID</span> <span class="o">==</span> <span class="n">context</span>
+    <span class="kd">func</span> <span class="nf">isWanted</span><span class="p">(</span><span class="n">target</span> <span class="nv">productViewController</span><span class="p">:</span> <span class="kt">ProductViewController</span><span class="p">,</span> <span class="n">with</span> <span class="nv">productID</span><span class="p">:</span> <span class="kt">UUID</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">productViewController</span><span class="o">.</span><span class="n">productID</span> <span class="o">==</span> <span class="n">productID</span>
     <span class="p">}</span>
 
 <span class="p">}</span>
@@ -467,8 +467,8 @@ actions at the moment when router found/created a view controller. Just extend <
 present a product.</em></p>
 <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">ProductViewControllerContentTask</span><span class="p">:</span> <span class="kt">ContextTask</span> <span class="p">{</span>
 
-    <span class="kd">func</span> <span class="nf">apply</span><span class="p">(</span><span class="n">on</span> <span class="nv">viewController</span><span class="p">:</span> <span class="kt">ProductViewController</span><span class="p">,</span> <span class="n">with</span> <span class="nv">context</span><span class="p">:</span> <span class="kt">UUID</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">viewController</span><span class="o">.</span><span class="n">productID</span> <span class="o">=</span> <span class="n">content</span>
+    <span class="kd">func</span> <span class="nf">apply</span><span class="p">(</span><span class="n">on</span> <span class="nv">productViewController</span><span class="p">:</span> <span class="kt">ProductViewController</span><span class="p">,</span> <span class="n">with</span> <span class="nv">productID</span><span class="p">:</span> <span class="kt">UUID</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">productViewController</span><span class="o">.</span><span class="n">productID</span> <span class="o">=</span> <span class="n">productID</span>
     <span class="p">}</span>
 
 <span class="p">}</span>
@@ -489,8 +489,8 @@ You should extend <code><a href="Protocols/PostRoutingTask.html">PostRoutingTask
         <span class="k">self</span><span class="o">.</span><span class="n">analyticsManager</span> <span class="o">=</span> <span class="n">analyticsManager</span>
     <span class="p">}</span>
 
-    <span class="kd">func</span> <span class="nf">execute</span><span class="p">(</span><span class="n">on</span> <span class="nv">viewController</span><span class="p">:</span> <span class="kt">ProductViewController</span><span class="p">,</span> <span class="k">for</span> <span class="nv">destination</span><span class="p">:</span> <span class="kt">AppDestination</span><span class="p">,</span> <span class="nv">routingStack</span><span class="p">:</span> <span class="p">[</span><span class="kt">UIViewController</span><span class="p">])</span> <span class="p">{</span>
-        <span class="n">analyticsManager</span><span class="o">.</span><span class="nf">trackProductView</span><span class="p">(</span><span class="nv">productID</span><span class="p">:</span> <span class="n">viewController</span><span class="o">.</span><span class="n">productID</span><span class="p">)</span>
+    <span class="kd">func</span> <span class="nf">execute</span><span class="p">(</span><span class="n">on</span> <span class="nv">productViewController</span><span class="p">:</span> <span class="kt">ProductViewController</span><span class="p">,</span> <span class="k">for</span> <span class="nv">destination</span><span class="p">:</span> <span class="kt">AppDestination</span><span class="p">,</span> <span class="nv">routingStack</span><span class="p">:</span> <span class="p">[</span><span class="kt">UIViewController</span><span class="p">])</span> <span class="p">{</span>
+        <span class="n">analyticsManager</span><span class="o">.</span><span class="nf">trackProductView</span><span class="p">(</span><span class="nv">productID</span><span class="p">:</span> <span class="n">productViewController</span><span class="o">.</span><span class="n">productID</span><span class="p">)</span>
     <span class="p">}</span>
 
 <span class="p">}</span>
@@ -638,7 +638,7 @@ read <a href="https://github.com/gilt/Cleanroom#contributing-to-the-cleanroom-pr
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="http://tech.gilt.com" target="_blank" rel="external">Gilt Groupe</a>. All rights reserved. (Last updated: 2018-03-28)</p>
+          <p>&copy; 2018 <a class="link" href="http://tech.gilt.com" target="_blank" rel="external">Gilt Groupe</a>. All rights reserved. (Last updated: 2018-03-30)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

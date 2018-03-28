@@ -7,7 +7,7 @@ import Foundation
 import UIKit
 
 
-// - UISplitViewController extension to support ContainerViewController protocol
+// - `UISplitViewController` extension to support `ContainerViewController` protocol
 extension UISplitViewController: ContainerViewController {
 
     public var containingViewControllers: [UIViewController] {
@@ -29,7 +29,7 @@ extension UISplitViewController: ContainerViewController {
 
 }
 
-// - UISplitViewController extension to support RouterRulesSupport protocol
+// - `UISplitViewController` extension to support `RoutingInterceptable` protocol
 extension UISplitViewController: RoutingInterceptable {
 
     public var canBeDismissed: Bool {

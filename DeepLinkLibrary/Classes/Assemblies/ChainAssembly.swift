@@ -40,7 +40,7 @@ public class ChainAssembly {
 
     /// Previous step to start build current step from
     ///
-    /// - Parameter previousStep: Instance of RoutingStep
+    /// - Parameter previousStep: Instance of `RoutingStep`
     public func from(_ previousStep: RoutingStep) -> LastStepInChainAssembly {
         self.previousSteps.append(previousStep)
         return LastStepInChainAssembly(assembly: self)
@@ -48,7 +48,7 @@ public class ChainAssembly {
 
     /// Previous step to start build current step from
     ///
-    /// - Parameter previousStep: Instance of RoutingStep
+    /// - Parameter previousStep: Instance of `RoutingStep` and `ChainngStep`
     public func from(_ previousStep: RoutingStep & ChainingStep) -> Self {
         self.previousSteps.append(previousStep)
         return self
@@ -56,7 +56,7 @@ public class ChainAssembly {
 
     /// Basic step to start build current step from
     ///
-    /// - Parameter previousStep: Instance of ChainingStep
+    /// - Parameter previousStep: Instance of `BasicStep`
     public func from<F, FC>(_ previousStep: BasicStep<F, FC>) -> Self {
         self.previousSteps.append(previousStep.routingStep)
         return self

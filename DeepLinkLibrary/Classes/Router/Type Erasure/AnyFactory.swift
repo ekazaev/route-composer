@@ -18,7 +18,7 @@ protocol AnyFactory: class {
     /// factory before it actually builds a container view controller with child view controllers inside.
     ///
     /// - Parameter factories: Array of factories to be handled by container factory.
-    /// - Returns: Array of factories that are not supported by this container type. Router should decide how to deal with them.
+    /// - Returns: Array of factories that are not supported by this container type. `Router` should decide how to deal with them.
     func scrapeChildren(from factories: [AnyFactory]) -> [AnyFactory]
 
 }

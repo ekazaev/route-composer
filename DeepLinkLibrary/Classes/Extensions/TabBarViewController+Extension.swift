@@ -6,7 +6,7 @@
 import Foundation
 import UIKit
 
-/// - UITabBarController extension to support ContainerViewController protocol
+/// - `UITabBarController` extension to support `ContainerViewController` protocol
 extension UITabBarController: ContainerViewController {
 
     public var containingViewControllers: [UIViewController] {
@@ -34,7 +34,7 @@ extension UITabBarController: ContainerViewController {
 
 }
 
-/// - UITabBarController extension to support RouterRulesSupport protocol
+/// - `UITabBarController` extension to support `RoutingInterceptable` protocol
 extension UITabBarController: RoutingInterceptable {
 
     public var canBeDismissed: Bool {

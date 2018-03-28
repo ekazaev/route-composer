@@ -16,20 +16,20 @@ public protocol ContextTask {
     
     associatedtype Context
 
-    /// Use this method to inform the Router that task can not be applied before it will start actual routing by throwing
+    /// Use this method to inform the `Router` that task can not be applied before it will start actual routing by throwing
     /// RoutingError
     ///
     /// - Parameters:
-    ///   - context: Context instance provided to the Router
-    /// - Throws: RoutingError if ContextTask can not be applied.
+    ///   - context: Context instance provided to the `Router`
+    /// - Throws: `RoutingError` if `ContextTask` can not be applied.
     func prepare(with context: Context) throws
 
-    /// Method that will be called by the Router to run ContextTask immediately after UIViewController been created
+    /// Method that will be called by the `Router` to run `ContextTask` immediately after `UIViewController` been created
     /// or found
     ///
     /// - Parameters:
-    ///   - viewController: View Controller instance described in the step that context task attached to
-    ///   - context: Context object that was passed to the router
+    ///   - viewController: `UIViewController` instance described in the step that context task attached to
+    ///   - context: Context object that was passed to the `Router`
     func apply(on viewController: ViewController, with context: Context)
     
 }

@@ -17,8 +17,7 @@ public class CompleteFactoryAssembly<FC: Factory & Container> {
     /// Constructor
     ///
     /// - Parameters:
-    ///   - finder: UIViewController finder.
-    ///   - factory: UIViewController factory.
+    ///   - factory: `UIViewController` `Factory` instance.
     public init(factory: FC) {
         self.factory = factory
     }

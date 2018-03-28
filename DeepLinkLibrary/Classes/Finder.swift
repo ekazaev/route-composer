@@ -6,7 +6,7 @@
 import Foundation
 import UIKit
 
-/// Finder to be used by Router to find out if this UIViewController is in view controller stack
+/// `Finder` to be used by `Router` to find out if this `UIViewController` instance is in view controller stack
 public protocol Finder {
 
     /// Type of UIViewController that Finder can find
@@ -17,8 +17,8 @@ public protocol Finder {
 
     /// Method to be extended to implement Finder functionality.
     ///
-    /// - Parameter context: Context object passed to the router to be presented in a final destination.
-    /// - Returns: UIViewController instance that Router is looking for if it has already been built in to
+    /// - Parameter context: Context object passed to the `Router` to be presented in a final destination.
+    /// - Returns: `UIViewController` instance that `Router` is looking for if it has already been built in to
     ///   view controller stack, nil otherwise.
     func findViewController(with context: Context) -> ViewController?
 

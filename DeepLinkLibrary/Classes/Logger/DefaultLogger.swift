@@ -7,12 +7,12 @@ import os.log
 
 /// Default Logger levels settings
 ///
-/// - verbose: Log all the messages from Router
+/// - verbose: Log all the messages from `Router`
 /// - warnings: Log only warnings and errors
 /// - errors: Log only errors
 public enum DefaultLoggerLevel {
 
-    /// Log all the messages from Router
+    /// Log all the messages from `Router`
     case verbose
 
     /// Log only warnings and errors

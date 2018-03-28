@@ -99,8 +99,8 @@ public class StepAssembly<F: Finder, FC: Factory> where F.ViewController == FC.V
     /// Constructor
     ///
     /// - Parameters:
-    ///   - finder: UIViewController finder.
-    ///   - factory: UIViewController factory.
+    ///   - finder: `UIViewController` `Finder` instance.
+    ///   - factory: `UIViewController` `Factory` instance.
     public init(finder: F, factory: FC) {
         self.factory = factory
         self.finder = finder
@@ -108,7 +108,7 @@ public class StepAssembly<F: Finder, FC: Factory> where F.ViewController == FC.V
 
     /// Add routing interceptor instance
     ///
-    /// - Parameter interceptor: Interceptor instance to be executed by router before routing to this step.
+    /// - Parameter interceptor: `RoutingInterceptor` instance to be executed by `Router` before routing to this step.
     public func add<R: RoutingInterceptor>(_ interceptor: R) -> Self {
         self.interceptors.append(RoutingInterceptorBox(interceptor))
         return self
@@ -116,7 +116,7 @@ public class StepAssembly<F: Finder, FC: Factory> where F.ViewController == FC.V
 
     /// Add context task instance
     ///
-    /// - Parameter contentTask: ContextTask instance to be executed by a router immediately after it will find or create UIViewController.
+    /// - Parameter contentTask: `ContextTask` instance to be executed by a `Router` immediately after it will find or create UIViewController.
     public func add<CT: ContextTask>(_ contentTask: CT) -> Self where CT.ViewController == FC.ViewController, CT.ViewController == F.ViewController, CT.Context == FC.Context, CT.Context == F.Context {
         self.contentTasks.append(ContextTaskBox(contentTask))
         return self
@@ -124,7 +124,7 @@ public class StepAssembly<F: Finder, FC: Factory> where F.ViewController == FC.V
 
     /// Add PostRoutingTask instance
     ///
-    /// - Parameter postTask: PostRoutingTask instance to be executed by a router after routing to this step.
+    /// - Parameter postTask: `PostRoutingTask` instance to be executed by a `Router` after routing to this step.
     public func add<P: PostRoutingTask>(_ postTask: P) -> Self {
         self.postTasks.append(PostRoutingTaskBox(postTask))
         return self

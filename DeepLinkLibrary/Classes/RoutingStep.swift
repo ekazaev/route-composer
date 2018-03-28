@@ -5,7 +5,7 @@
 
 import UIKit
 
-/// Represents step for the router.
+/// Represents step for the `Router`.
 public protocol RoutingStep {
 
 }

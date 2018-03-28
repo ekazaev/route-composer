@@ -8,7 +8,7 @@ import UIKit
 
 /// Simplifies creation of finders for a hosting app. If there is nothing special about finder, hosting app should
 /// extend this finder which will just iterations through view controllers stack following the search options provided
-/// and just ask extending instances if this particular view controller is the one that Router looking for or no.
+/// and just ask extending instances if this particular view controller is the one that `Router` looking for or no.
 public protocol StackIteratingFinder: Finder {
 
     /// Type of UIViewController that Finder can find
@@ -24,7 +24,7 @@ public protocol StackIteratingFinder: Finder {
     ///
     /// - Parameters:
     ///   - viewController: Some view controller in the current view controller stack
-    ///   - context: Context object that was provided to the Router.
+    ///   - context: Context object that was provided to the `Router`.
     /// - Returns: true if this view controller is the one that finder is looking for, false otherwise.
     func isWanted(target viewController: ViewController, with context: Context) -> Bool
 
