@@ -1,45 +1,73 @@
 {
   "warnings": [
     {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Actions/NilAction.swift",
-      "line": 12,
-      "symbol": "NilAction.init()",
+      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Actions/General/NilAction.swift",
+      "line": 14,
+      "symbol": "GeneralAction.NilAction.init()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Actions/PushToDetailsAction.swift",
-      "line": 12,
-      "symbol": "PushToDetailsAction.init()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Actions/Navigation Controller/NavigationControllerAction.swift",
+      "line": 8,
+      "symbol": "NavigationControllerAction",
+      "symbol_kind": "source.lang.swift.decl.protocol",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Actions/PushToMasterAction.swift",
+      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Actions/Navigation Controller/PushAsRoot.swift",
       "line": 11,
-      "symbol": "PushToMasterAction.init()",
+      "symbol": "NavigationControllerFactory.PushAsRoot",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Actions/Navigation Controller/PushReplacingLast.swift",
+      "line": 11,
+      "symbol": "NavigationControllerFactory.PushReplacingLast",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Actions/Navigation Controller/PushToNavigation.swift",
+      "line": 11,
+      "symbol": "NavigationControllerFactory.PushToNavigation",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Actions/Split Controller/PushToDetails.swift",
+      "line": 14,
+      "symbol": "SplitControllerFactory.PushToDetails.init()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Actions/PushToNavigationAction.swift",
-      "line": 11,
-      "symbol": "PushToNavigationAction.init()",
+      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Actions/Split Controller/PushToMaster.swift",
+      "line": 13,
+      "symbol": "SplitControllerFactory.PushToMaster.init()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Actions/PushToNavigationAsRootAction.swift",
-      "line": 11,
-      "symbol": "PushToNavigationAsRootAction.init()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Actions/Split Controller/SplitControllerAction.swift",
+      "line": 9,
+      "symbol": "SplitControllerMasterAction",
+      "symbol_kind": "source.lang.swift.decl.protocol",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Actions/PushToNavigationReplacingLastAction.swift",
-      "line": 11,
-      "symbol": "PushToNavigationReplacingLastAction.init()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Actions/Split Controller/SplitControllerAction.swift",
+      "line": 13,
+      "symbol": "SplitControllerDetailAction",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Actions/Tab Bar Controller/TabBarControllerAction.swift",
+      "line": 8,
+      "symbol": "TabBarControllerAction",
+      "symbol_kind": "source.lang.swift.decl.protocol",
       "warning": "undocumented"
     },
     {
@@ -121,14 +149,7 @@
     },
     {
       "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Factories/NavigationControllerFactory.swift",
-      "line": 8,
-      "symbol": "NavigationControllerFactoryAction",
-      "symbol_kind": "source.lang.swift.decl.protocol",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Factories/NavigationControllerFactory.swift",
-      "line": 25,
+      "line": 21,
       "symbol": "NavigationControllerFactory.init(action:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
@@ -149,21 +170,7 @@
     },
     {
       "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Factories/SplitControllerFactory.swift",
-      "line": 9,
-      "symbol": "SplitViewControllerMasterAction",
-      "symbol_kind": "source.lang.swift.decl.protocol",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Factories/SplitControllerFactory.swift",
-      "line": 13,
-      "symbol": "SplitViewControllerDetailAction",
-      "symbol_kind": "source.lang.swift.decl.protocol",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Factories/SplitControllerFactory.swift",
-      "line": 30,
+      "line": 22,
       "symbol": "SplitControllerFactory.init(action:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
@@ -177,14 +184,7 @@
     },
     {
       "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Factories/TabBarControllerFactory.swift",
-      "line": 8,
-      "symbol": "TabBarControllerFactoryAction",
-      "symbol_kind": "source.lang.swift.decl.protocol",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Factories/TabBarControllerFactory.swift",
-      "line": 25,
+      "line": 21,
       "symbol": "TabBarControllerFactory.init(action:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"

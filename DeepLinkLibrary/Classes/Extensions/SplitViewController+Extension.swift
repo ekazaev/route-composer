@@ -30,7 +30,7 @@ extension UISplitViewController: ContainerViewController {
 }
 
 // - UISplitViewController extension to support RouterRulesSupport protocol
-extension UISplitViewController: RouterInterceptable {
+extension UISplitViewController: RoutingInterceptable {
 
     public var canBeDismissed: Bool {
         return containingViewControllers.canBeDismissed

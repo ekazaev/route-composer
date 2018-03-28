@@ -8,7 +8,7 @@ import Foundation
 /// ### Usage
 /// ```swift
 /// let intermediateStep = ChainAssembly()
-///         .from(NavigationControllerStep(action: PresentModallyAction()))
+///         .from(NavigationControllerStep(action: DefaultActions.PresentModally()))
 ///         .from(CurrentViewControllerStep())
 ///         .assemble()
 /// ```

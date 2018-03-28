@@ -21,7 +21,7 @@ internal extension Array where Element: UIViewController {
     var nonDismissibleViewController: UIViewController? {
         get {
             return self.flatMap {
-                $0 as? RouterInterceptable & UIViewController
+                $0 as? RoutingInterceptable & UIViewController
             }.first {
                 !$0.canBeDismissed
             }

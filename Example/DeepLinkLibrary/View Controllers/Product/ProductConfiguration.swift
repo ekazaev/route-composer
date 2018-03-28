@@ -12,7 +12,7 @@ class ProductConfiguration {
     static func productDestination(productId: String, _ analyticParameters: ExampleAnalyticsParameters? = nil) -> ExampleDestination {
         let productScreen = StepAssembly(
                 finder: ClassWithContextFinder<ProductViewController, String>(),
-                factory: StoryboardFactory(storyboardName: "TabBar", viewControllerID: "ProductViewController", action: PushToNavigationAction()))
+                factory: StoryboardFactory(storyboardName: "TabBar", viewControllerID: "ProductViewController", action: NavigationControllerFactory.PushToNavigation()))
                 .add(ProductContentTask())
                 .add(ExampleAnalyticsInterceptor())
                 .add(ExampleAnalyticsPostAction())
@@ -25,7 +25,7 @@ class ProductConfiguration {
                             }
 
                             return ChainAssembly()
-                                    .from(NavigationControllerStep(action: PresentModallyAction()))
+                                    .from(NavigationControllerStep(action: GeneralAction.PresentModally()))
                                     .from(CurrentViewControllerStep())
                                     .assemble()
 

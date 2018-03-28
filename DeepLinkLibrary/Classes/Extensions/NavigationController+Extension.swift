@@ -32,7 +32,7 @@ extension UINavigationController: ContainerViewController {
 }
 
 /// - Navigation controller extension to support RouterRulesSupport protocol
-extension UINavigationController: RouterInterceptable {
+extension UINavigationController: RoutingInterceptable {
 
     public var canBeDismissed: Bool {
         return containingViewControllers.canBeDismissed

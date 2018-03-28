@@ -11,12 +11,12 @@ struct WishListConfiguration {
 
     static let wishListScreen = StepAssembly(
             finder: ClassFinder<WishListViewController, WishListContent>(),
-            factory: StoryboardFactory(storyboardName: "TabBar", viewControllerID: "WishListViewController", action: PushToNavigationAction()))
+            factory: StoryboardFactory(storyboardName: "TabBar", viewControllerID: "WishListViewController", action: NavigationControllerFactory.PushToNavigation()))
             .add(LoginInterceptor())
             .add(WishListContentTask())
             .add(ExampleAnalyticsInterceptor())
             .add(ExampleAnalyticsPostAction())
-            .from(NavigationControllerStep(action: PresentModallyAction(presentationStyle: .formSheet)))
+            .from(NavigationControllerStep(action: GeneralAction.PresentModally(presentationStyle: .formSheet)))
             .from(CurrentViewControllerStep())
             .assemble()
 

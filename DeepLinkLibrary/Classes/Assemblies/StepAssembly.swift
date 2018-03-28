@@ -13,7 +13,7 @@ import Foundation
 ///         .add(LoginInterceptor())
 ///         .add(ProductViewControllerContentTask())
 ///         .add(ProductViewControllerPostTask(analyticsManager: AnalyticsManager.sharedInstance))
-///         .from(NavigationControllerStep(action: PresentModallyAction()))
+///         .from(NavigationControllerStep(action: DefaultActions.PresentModally()))
 ///         .from(CurrentControllerStep())
 ///         .assemble()
 /// ```

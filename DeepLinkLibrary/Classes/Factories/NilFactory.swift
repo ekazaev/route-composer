@@ -21,7 +21,7 @@ public class NilFactory<VC: UIViewController, C>: Factory {
     public let action: Action
 
     public init() {
-        self.action = NilAction()
+        self.action = GeneralAction.NilAction()
     }
 
     public func build(with context: Context) throws -> ViewController {

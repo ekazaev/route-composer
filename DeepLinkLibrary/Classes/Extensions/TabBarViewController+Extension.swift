@@ -35,7 +35,7 @@ extension UITabBarController: ContainerViewController {
 }
 
 /// - UITabBarController extension to support RouterRulesSupport protocol
-extension UITabBarController: RouterInterceptable {
+extension UITabBarController: RoutingInterceptable {
 
     public var canBeDismissed: Bool {
         return containingViewControllers.canBeDismissed

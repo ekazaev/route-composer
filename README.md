@@ -168,16 +168,16 @@ class ProductViewControllerFinder: StackIteratingFinder {
 
 `Action` instance explains router **how view controller created by a `Factory` should be integrated in to a view controller stack**. Most
 likely you will not need to implement your own actions because library provides actions for most of default action that can be done in
-`UIKit` like (`PresentModallyAction`, `AddTabAction`, `PushToNavigationAction` etc.) , you may need to implement your own actions if you are
+`UIKit` like (`PresentModally`, `AddTab`, `PushToNavigation` etc.) , you may need to implement your own actions if you are
 implementing something unusual.
 
 Check example app to see custom action implementation.
 
-*Example: As you most likely will not need to implement your own actions, lets look at the implementation of `PresentModallyAction` provided
+*Example: As you most likely will not need to implement your own actions, lets look at the implementation of `PresentModally` provided
 by a library:*
 
 ```swift
-class PresentModallyAction: Action {
+class PresentModally: Action {
 
     func perform(viewController: UIViewController, on existingController: UIViewController, animated: Bool, completion: @escaping (_: ActionResult) -> Void) {
         guard existingController.presentedViewController == nil else {
@@ -274,7 +274,7 @@ let productScreen = StepAssembly(finder: ProductViewControllerFinder(), factory:
         .add(LoginInterceptor())
         .add(ProductViewControllerContentTask())
         .add(ProductViewControllerPostTask(analyticsManager: AnalyticsManager.sharedInstance))
-        .from(NavigationControllerStep(action: PresentModallyAction()))
+        .from(NavigationControllerStep(action: DefaultActions.PresentModally()))
         .from(CurrentControllerStep())
         .assemble()
 ```
@@ -317,7 +317,7 @@ struct Configuration {
                 .add(LoginInterceptor())
                 .add(ProductViewControllerContentTask())
                 .add(ProductViewControllerPostTask(analyticsManager: AnalyticsManager.sharedInstance))
-                .from(NavigationControllerStep(action: PresentModallyAction()))
+                .from(NavigationControllerStep(action: DefaultActions.PresentModally()))
                 .from(CurrentViewControllerStep())
                 .assemble()
 
@@ -370,7 +370,7 @@ class ProductArrayViewController: UITableViewController {
         // Handled by NavigationControllerStep and PushToNavigationAction
         let navigationController = UINavigationController(rootViewController: productViewController)
 
-        // handled by PresentModallyAction
+        // handled by DefaultActions.PresentModally
         present(alertController, animated: navigationController) { [weak self]
             // Handled by ProductViewControllerPostTask
             self?.analyticsManager.trackProductView(productID: productID)

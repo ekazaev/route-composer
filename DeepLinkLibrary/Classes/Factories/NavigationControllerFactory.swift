@@ -5,10 +5,6 @@
 
 import UIKit
 
-public protocol NavigationControllerFactoryAction: Action {
-
-}
-
 /// Container Factory that creates UINavigationController
 public class NavigationControllerFactory: SimpleContainerFactory {
 
@@ -16,7 +12,7 @@ public class NavigationControllerFactory: SimpleContainerFactory {
 
     public typealias Context = Any?
 
-    public typealias SupportedAction = NavigationControllerFactoryAction
+    public typealias SupportedAction = NavigationControllerAction
 
     public let action: Action
 

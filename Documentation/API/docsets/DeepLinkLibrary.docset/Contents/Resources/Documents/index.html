@@ -30,9 +30,6 @@
             <a href="Classes.html">Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Classes/AddTabAction.html">AddTabAction</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Classes.html#/s:15DeepLinkLibrary18BasicContainerStepC">BasicContainerStep</a>
               </li>
               <li class="nav-group-task">
@@ -84,40 +81,22 @@
                 <a href="Classes/NavigationControllerStep.html">NavigationControllerStep</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/NilAction.html">NilAction</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Classes/NilFactory.html">NilFactory</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/NilFinder.html">NilFinder</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/PresentModallyAction.html">PresentModallyAction</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/PushToDetailsAction.html">PushToDetailsAction</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/PushToMasterAction.html">PushToMasterAction</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/PushToNavigationAction.html">PushToNavigationAction</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/PushToNavigationAsRootAction.html">PushToNavigationAsRootAction</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/PushToNavigationReplacingLastAction.html">PushToNavigationReplacingLastAction</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/ReplaceRootAction.html">ReplaceRootAction</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Classes.html#/s:15DeepLinkLibrary22RootViewControllerStepC">RootViewControllerStep</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/SplitControllerFactory.html">SplitControllerFactory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/SplitControllerFactory/PushToDetails.html">– PushToDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/SplitControllerFactory/PushToMaster.html">– PushToMaster</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/SplitControllerStep.html">SplitControllerStep</a>
@@ -139,6 +118,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/TabBarControllerFactory.html">TabBarControllerFactory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/TabBarControllerFactory/AddTab.html">– AddTab</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/TabBarControllerStep.html">TabBarControllerStep</a>
@@ -225,10 +207,10 @@
                 <a href="Protocols.html#/s:15DeepLinkLibrary6RouterP">Router</a>
               </li>
               <li class="nav-group-task">
-                <a href="Protocols/RouterInterceptable.html">RouterInterceptable</a>
+                <a href="Protocols/RoutingDestination.html">RoutingDestination</a>
               </li>
               <li class="nav-group-task">
-                <a href="Protocols/RoutingDestination.html">RoutingDestination</a>
+                <a href="Protocols/RoutingInterceptable.html">RoutingInterceptable</a>
               </li>
               <li class="nav-group-task">
                 <a href="Protocols/RoutingInterceptor.html">RoutingInterceptor</a>
@@ -250,6 +232,18 @@
           <li class="nav-group-name">
             <a href="Structs.html">Structures</a>
             <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Structs/GeneralAction.html">GeneralAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/GeneralAction/NilAction.html">– NilAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/GeneralAction/PresentModally.html">– PresentModally</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/GeneralAction/ReplaceRoot.html">– ReplaceRoot</a>
+              </li>
               <li class="nav-group-task">
                 <a href="Structs/SearchOptions.html">SearchOptions</a>
               </li>
@@ -420,14 +414,14 @@ product in your view controller stack:</em></p>
 
 <p><code><a href="Protocols/Action.html">Action</a></code> instance explains router <strong>how view controller created by a <code><a href="Protocols/Factory.html">Factory</a></code> should be integrated in to a view controller stack</strong>. Most
 likely you will not need to implement your own actions because library provides actions for most of default action that can be done in
-<code>UIKit</code> like (<code><a href="Classes/PresentModallyAction.html">PresentModallyAction</a></code>, <code><a href="Classes/AddTabAction.html">AddTabAction</a></code>, <code><a href="Classes/PushToNavigationAction.html">PushToNavigationAction</a></code> etc.) , you may need to implement your own actions if you are
+<code>UIKit</code> like (<code>PresentModally</code>, <code>AddTab</code>, <code>PushToNavigation</code> etc.) , you may need to implement your own actions if you are
 implementing something unusual.</p>
 
 <p>Check example app to see custom action implementation.</p>
 
-<p><em>Example: As you most likely will not need to implement your own actions, lets look at the implementation of <code><a href="Classes/PresentModallyAction.html">PresentModallyAction</a></code> provided
+<p><em>Example: As you most likely will not need to implement your own actions, lets look at the implementation of <code>PresentModally</code> provided
 by a library:</em></p>
-<pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">PresentModallyAction</span><span class="p">:</span> <span class="kt">Action</span> <span class="p">{</span>
+<pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">PresentModally</span><span class="p">:</span> <span class="kt">Action</span> <span class="p">{</span>
 
     <span class="kd">func</span> <span class="nf">perform</span><span class="p">(</span><span class="nv">viewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="n">on</span> <span class="nv">existingController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="kt">ActionResult</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">guard</span> <span class="n">existingController</span><span class="o">.</span><span class="n">presentedViewController</span> <span class="o">==</span> <span class="kc">nil</span> <span class="k">else</span> <span class="p">{</span>
@@ -512,7 +506,7 @@ which should be presented modally from any currently visible view controller.</e
         <span class="o">.</span><span class="nf">add</span><span class="p">(</span><span class="kt">LoginInterceptor</span><span class="p">())</span>
         <span class="o">.</span><span class="nf">add</span><span class="p">(</span><span class="kt">ProductViewControllerContentTask</span><span class="p">())</span>
         <span class="o">.</span><span class="nf">add</span><span class="p">(</span><span class="kt">ProductViewControllerPostTask</span><span class="p">(</span><span class="nv">analyticsManager</span><span class="p">:</span> <span class="kt">AnalyticsManager</span><span class="o">.</span><span class="n">sharedInstance</span><span class="p">))</span>
-        <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="kt">NavigationControllerStep</span><span class="p">(</span><span class="nv">action</span><span class="p">:</span> <span class="kt">PresentModallyAction</span><span class="p">()))</span>
+        <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="kt">NavigationControllerStep</span><span class="p">(</span><span class="nv">action</span><span class="p">:</span> <span class="kt">DefaultActions</span><span class="o">.</span><span class="kt">PresentModally</span><span class="p">()))</span>
         <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="kt">CurrentControllerStep</span><span class="p">())</span>
         <span class="o">.</span><span class="nf">assemble</span><span class="p">()</span>
 </code></pre>
@@ -554,7 +548,7 @@ should be logged in to see product details.</em></p>
                 <span class="o">.</span><span class="nf">add</span><span class="p">(</span><span class="kt">LoginInterceptor</span><span class="p">())</span>
                 <span class="o">.</span><span class="nf">add</span><span class="p">(</span><span class="kt">ProductViewControllerContentTask</span><span class="p">())</span>
                 <span class="o">.</span><span class="nf">add</span><span class="p">(</span><span class="kt">ProductViewControllerPostTask</span><span class="p">(</span><span class="nv">analyticsManager</span><span class="p">:</span> <span class="kt">AnalyticsManager</span><span class="o">.</span><span class="n">sharedInstance</span><span class="p">))</span>
-                <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="kt">NavigationControllerStep</span><span class="p">(</span><span class="nv">action</span><span class="p">:</span> <span class="kt">PresentModallyAction</span><span class="p">()))</span>
+                <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="kt">NavigationControllerStep</span><span class="p">(</span><span class="nv">action</span><span class="p">:</span> <span class="kt">DefaultActions</span><span class="o">.</span><span class="kt">PresentModally</span><span class="p">()))</span>
                 <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="kt">CurrentViewControllerStep</span><span class="p">())</span>
                 <span class="o">.</span><span class="nf">assemble</span><span class="p">()</span>
 
@@ -605,7 +599,7 @@ should be logged in to see product details.</em></p>
         <span class="c1">// Handled by NavigationControllerStep and PushToNavigationAction</span>
         <span class="k">let</span> <span class="nv">navigationController</span> <span class="o">=</span> <span class="kt">UINavigationController</span><span class="p">(</span><span class="nv">rootViewController</span><span class="p">:</span> <span class="n">productViewController</span><span class="p">)</span>
 
-        <span class="c1">// handled by PresentModallyAction</span>
+        <span class="c1">// handled by DefaultActions.PresentModally</span>
         <span class="nf">present</span><span class="p">(</span><span class="n">alertController</span><span class="p">,</span> <span class="nv">animated</span><span class="p">:</span> <span class="n">navigationController</span><span class="p">)</span> <span class="p">{</span> <span class="p">[</span><span class="k">weak</span> <span class="k">self</span><span class="p">]</span>
             <span class="c1">// Handled by ProductViewControllerPostTask</span>
             <span class="k">self</span><span class="p">?</span><span class="o">.</span><span class="n">analyticsManager</span><span class="o">.</span><span class="nf">trackProductView</span><span class="p">(</span><span class="nv">productID</span><span class="p">:</span> <span class="n">productID</span><span class="p">)</span>

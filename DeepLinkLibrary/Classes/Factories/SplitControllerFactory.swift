@@ -6,14 +6,6 @@
 import Foundation
 import UIKit
 
-public protocol SplitViewControllerMasterAction: Action {
-
-}
-
-public protocol SplitViewControllerDetailAction: Action {
-
-}
-
 /// Container Factory that creates UISplitViewController
 public class SplitControllerFactory: Factory, Container {
 
@@ -34,9 +26,9 @@ public class SplitControllerFactory: Factory, Container {
     public func merge<C>(_ factories: [ChildFactory<C>]) -> [ChildFactory<C>] {
         var rest: [ChildFactory<C>] = []
         factories.forEach { factory in
-            if let _ = factory.action as? SplitViewControllerMasterAction, let factory = factory as? ChildFactory<Context> {
+            if let _ = factory.action as? SplitControllerMasterAction, let factory = factory as? ChildFactory<Context> {
                 masterFactories.append(factory)
-            } else if let _ = factory.action as? SplitViewControllerDetailAction, let factory = factory as? ChildFactory<Context> {
+            } else if let _ = factory.action as? SplitControllerDetailAction, let factory = factory as? ChildFactory<Context> {
                 detailFactories.append(factory)
             } else {
                 rest.append(factory)

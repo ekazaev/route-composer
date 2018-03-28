@@ -30,9 +30,6 @@
             <a href="Classes.html">Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Classes/AddTabAction.html">AddTabAction</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Classes.html#/s:15DeepLinkLibrary18BasicContainerStepC">BasicContainerStep</a>
               </li>
               <li class="nav-group-task">
@@ -84,40 +81,22 @@
                 <a href="Classes/NavigationControllerStep.html">NavigationControllerStep</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/NilAction.html">NilAction</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Classes/NilFactory.html">NilFactory</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/NilFinder.html">NilFinder</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/PresentModallyAction.html">PresentModallyAction</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/PushToDetailsAction.html">PushToDetailsAction</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/PushToMasterAction.html">PushToMasterAction</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/PushToNavigationAction.html">PushToNavigationAction</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/PushToNavigationAsRootAction.html">PushToNavigationAsRootAction</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/PushToNavigationReplacingLastAction.html">PushToNavigationReplacingLastAction</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/ReplaceRootAction.html">ReplaceRootAction</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Classes.html#/s:15DeepLinkLibrary22RootViewControllerStepC">RootViewControllerStep</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/SplitControllerFactory.html">SplitControllerFactory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/SplitControllerFactory/PushToDetails.html">– PushToDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/SplitControllerFactory/PushToMaster.html">– PushToMaster</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/SplitControllerStep.html">SplitControllerStep</a>
@@ -139,6 +118,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/TabBarControllerFactory.html">TabBarControllerFactory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/TabBarControllerFactory/AddTab.html">– AddTab</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/TabBarControllerStep.html">TabBarControllerStep</a>
@@ -225,10 +207,10 @@
                 <a href="Protocols.html#/s:15DeepLinkLibrary6RouterP">Router</a>
               </li>
               <li class="nav-group-task">
-                <a href="Protocols/RouterInterceptable.html">RouterInterceptable</a>
+                <a href="Protocols/RoutingDestination.html">RoutingDestination</a>
               </li>
               <li class="nav-group-task">
-                <a href="Protocols/RoutingDestination.html">RoutingDestination</a>
+                <a href="Protocols/RoutingInterceptable.html">RoutingInterceptable</a>
               </li>
               <li class="nav-group-task">
                 <a href="Protocols/RoutingInterceptor.html">RoutingInterceptor</a>
@@ -250,6 +232,18 @@
           <li class="nav-group-name">
             <a href="Structs.html">Structures</a>
             <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Structs/GeneralAction.html">GeneralAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/GeneralAction/NilAction.html">– NilAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/GeneralAction/PresentModally.html">– PresentModally</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/GeneralAction/ReplaceRoot.html">– ReplaceRoot</a>
+              </li>
               <li class="nav-group-task">
                 <a href="Structs/SearchOptions.html">SearchOptions</a>
               </li>
@@ -424,7 +418,7 @@ functionality.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">ContainerViewController</span><span class="p">:</span> <span class="kt"><a href="Protocols/RouterInterceptable.html">RouterInterceptable</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">ContainerViewController</span><span class="p">:</span> <span class="kt"><a href="Protocols/RoutingInterceptable.html">RoutingInterceptable</a></span></code></pre>
 
                         </div>
                       </div>
@@ -631,41 +625,6 @@ The task to be executed after deep linking happened.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@M@DeepLinkLibrary@objc(pl)RouterInterceptable"></a>
-                    <a name="//apple_ref/swift/Protocol/RouterInterceptable" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@M@DeepLinkLibrary@objc(pl)RouterInterceptable">RouterInterceptable</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>UIViewController&rsquo;s protocol exposed outside of the library. .
-UIViewController that conforms to this protocol may overtake the control of the view controllers stack and
-forbid the router to dismiss or cover it with another view controller.
-Return false if the view controller can be dismissed.</p>
-
-                        <a href="Protocols/RouterInterceptable.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">RouterInterceptable</span> <span class="k">where</span> <span class="k">Self</span><span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
                     <a name="/s:15DeepLinkLibrary18RoutingDestinationP"></a>
                     <a name="//apple_ref/swift/Protocol/RoutingDestination" class="dashAnchor"></a>
                     <a class="token" href="#/s:15DeepLinkLibrary18RoutingDestinationP">RoutingDestination</a>
@@ -685,6 +644,41 @@ Return false if the view controller can be dismissed.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">RoutingDestination</span><span class="p">:</span> <span class="kd">class</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@DeepLinkLibrary@objc(pl)RoutingInterceptable"></a>
+                    <a name="//apple_ref/swift/Protocol/RoutingInterceptable" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@DeepLinkLibrary@objc(pl)RoutingInterceptable">RoutingInterceptable</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>UIViewController&rsquo;s protocol exposed outside of the library. .
+UIViewController that conforms to this protocol may overtake the control of the view controllers stack and
+forbid the router to dismiss or cover it with another view controller.
+Return false if the view controller can be dismissed.</p>
+
+                        <a href="Protocols/RoutingInterceptable.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">RoutingInterceptable</span> <span class="k">where</span> <span class="k">Self</span><span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
 
                         </div>
                       </div>

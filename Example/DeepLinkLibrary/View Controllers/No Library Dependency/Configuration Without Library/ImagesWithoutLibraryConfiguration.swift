@@ -39,7 +39,7 @@ class ImagesWithoutLibraryConfiguration {
         // Handled by TopMostViewControllerStep
         let rootController = UIApplication.shared.keyWindow?.rootViewController
 
-        // Handled by PresentModallyAction
+        // Handled by PresentModally action
         rootController?.present(navigationController, animated: true, completion: nil)
     }
 

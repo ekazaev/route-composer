@@ -5,10 +5,6 @@
 import Foundation
 import UIKit
 
-public protocol TabBarControllerFactoryAction: Action {
-
-}
-
 /// Container Factory that creates UITabBarController
 public class TabBarControllerFactory: SimpleContainerFactory {
 
@@ -16,7 +12,7 @@ public class TabBarControllerFactory: SimpleContainerFactory {
 
     public typealias Context = Any?
 
-    public typealias SupportedAction = TabBarControllerFactoryAction
+    public typealias SupportedAction = TabBarControllerAction
 
     public let action: Action
 

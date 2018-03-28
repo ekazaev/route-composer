@@ -7,7 +7,7 @@ import Foundation
 import UIKit
 import DeepLinkLibrary
 
-class RoutingRuleSupportViewController: UIViewController, RouterInterceptable, ExampleAnalyticsSupport {
+class RoutingRuleSupportViewController: UIViewController, RoutingInterceptable, ExampleAnalyticsSupport {
 
     let analyticParameters = ExampleAnalyticsParameters(source: .ruleSupport)
 
