@@ -320,7 +320,7 @@ public class DefaultRouter: Router {
         var taskSlips: [PostTaskSlip] = []
 
         func run(for destination: D) throws {
-            let viewControllers = taskSlips.flatMap({ $0.viewController })
+            let viewControllers = taskSlips.compactMap({ $0.viewController })
             try taskSlips.forEach({ slip in
                 guard let viewController = slip.viewController else {
                     return

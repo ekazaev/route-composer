@@ -20,7 +20,7 @@ internal extension Array where Element: UIViewController {
 
     var nonDismissibleViewController: UIViewController? {
         get {
-            return self.flatMap {
+            return self.compactMap {
                 $0 as? RoutingInterceptable & UIViewController
             }.first {
                 !$0.canBeDismissed

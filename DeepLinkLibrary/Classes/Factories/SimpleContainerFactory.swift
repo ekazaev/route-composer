@@ -21,7 +21,7 @@ public extension SimpleContainerFactory {
 
     public func merge<C>(_ factories: [ChildFactory<C>]) -> [ChildFactory<C>] {
         var otherFactories: [ChildFactory<C>] = []
-        self.factories = factories.flatMap { factory -> ChildFactory<Context>? in
+        self.factories = factories.compactMap { factory -> ChildFactory<Context>? in
             guard let _ = factory.action as? SupportedAction else {
                 otherFactories.append(factory)
                 return nil
