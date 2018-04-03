@@ -265,9 +265,9 @@
             <p>Container protocol should be implemented by Factories that produce any type of the view controllers
 that can be considered as Containers (eg: UINavigationController, UITabBarController, etc)</p>
 
-<p>Container apply one merged action and then populate a full stack of view controllers that was built by the associated factories in one go.
-Example: Steps require to populate n view controllers in UINavigationController stack and it can do so.
-Merge action implementation is mandatory for any actions and should be implemented if it can be done.</p>
+<p>Container applies one merged <code><a href="../Protocols/Action.html">Action</a></code> and then populate a full stack of view controllers that was built by the associated factories in one go.
+Example: Steps required to populate n view controllers in UINavigationController stack and it can do so.
+Merge <code><a href="../Protocols/Action.html">Action</a></code> implementation is mandatory for any actions and should be implemented if it can be done.</p>
 
           </section>
           <section class="section task-group-section">
@@ -287,12 +287,12 @@ Merge action implementation is mandatory for any actions and should be implement
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Receives an array of factories whose view controllers should be merged into current container
-factory before it actually builds a container view controller with child view controllers inside.
-Example: UINavigationController with N pushed into it UIViewControllers.</p>
+<code><a href="../Protocols/Factory.html">Factory</a></code> before it actually builds a container view controller with child view controllers inside.
+Example: The <code>UINavigationController</code> instance with N pushed into it <code>UIViewController</code>s.</p>
 
-<p>Example: UINavigationController as a container expects push action of any kind.
-If a factory from factories array contains one with a present modally action, it will be returned
-back as an unsupported one.</p>
+<p>Example: The <code>UINavigationController</code> instance as a container expects to push <code><a href="../Protocols/Action.html">Action</a></code> of any kind.
+If a <code><a href="../Classes/ChildFactory.html">ChildFactory</a></code> from factories array contains one with a present modally action, it will be returned
+back to an unsupported one.</p>
 
                       </div>
                       <div class="declaration">
@@ -315,7 +315,7 @@ back as an unsupported one.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>Array of factories to be handled by container factory.</p>
+                                  <p>An array of factories to be handled by <code>Container</code> <code><a href="../Protocols/Factory.html">Factory</a></code>.</p>
                                 </div>
                               </td>
                             </tr>
@@ -324,7 +324,7 @@ back as an unsupported one.</p>
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>Array of factories that are not supported by this container type.
+                        <p>An array of factories that are not supported by this container type.
 <code><a href="../Protocols.html#/s:15DeepLinkLibrary6RouterP">Router</a></code> will decide how to deal with them.</p>
                       </div>
                     </section>
@@ -337,9 +337,9 @@ back as an unsupported one.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:15DeepLinkLibrary9ContainerPA2aBRzAA7FactoryRzlE28buildChildrenViewControllersSaySo16UIViewControllerCGSayAA05ChildE0Cy7ContextAaDPQzGG4from_AM4withtKF"></a>
+                    <a name="/s:15DeepLinkLibrary9ContainerPA2A7FactoryRzrlE28buildChildrenViewControllersSaySo16UIViewControllerCGSayAA05ChildE0Cy7ContextAaDPQzGG4from_AM4withtKF"></a>
                     <a name="//apple_ref/swift/Method/buildChildrenViewControllers(from:with:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:15DeepLinkLibrary9ContainerPA2aBRzAA7FactoryRzlE28buildChildrenViewControllersSaySo16UIViewControllerCGSayAA05ChildE0Cy7ContextAaDPQzGG4from_AM4withtKF">buildChildrenViewControllers(from:with:)</a>
+                    <a class="token" href="#/s:15DeepLinkLibrary9ContainerPA2A7FactoryRzrlE28buildChildrenViewControllersSaySo16UIViewControllerCGSayAA05ChildE0Cy7ContextAaDPQzGG4from_AM4withtKF">buildChildrenViewControllers(from:with:)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -350,8 +350,8 @@ back as an unsupported one.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>This function contains default implementation how Container should create it&rsquo;s children view controller
-before built them in to itself.</p>
+                        <p>This function contains default implementation how Container should create its children view controller
+before built them into itself.</p>
 <div class="aside aside-throws">
     <p class="aside-title">Throws</p>
     RoutingError
@@ -379,7 +379,7 @@ before built them in to itself.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>Array of child factories</p>
+                                  <p>An array of child factories</p>
                                 </div>
                               </td>
                             </tr>
@@ -391,7 +391,7 @@ before built them in to itself.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>Context instance if any</p>
+                                  <p>A <code>Context</code> instance if any</p>
                                 </div>
                               </td>
                             </tr>
@@ -400,7 +400,7 @@ before built them in to itself.</p>
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>Array of build view controllers</p>
+                        <p>An array of build view controllers</p>
                       </div>
                     </section>
                   </div>
@@ -410,8 +410,8 @@ before built them in to itself.</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="http://tech.gilt.com" target="_blank" rel="external">Gilt Groupe</a>. All rights reserved. (Last updated: 2018-03-30)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2018 <a class="link" href="http://tech.gilt.com" target="_blank" rel="external">Gilt Groupe</a>. All rights reserved. (Last updated: 2018-04-26)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

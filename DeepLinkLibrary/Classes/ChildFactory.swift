@@ -8,13 +8,13 @@
 import Foundation
 import UIKit
 
-/// Instance that extends ChildFactory builds UIViewController that will be later integrated in to stack by
-/// container factory.
+/// An instance that extends `ChildFactory` builds `UIViewController` that will be later integrated into stack by
+/// `Container` `Factory`.
 public final class ChildFactory<Context>  {
 
     let factory: AnyFactory
 
-    /// Action instance to be applied on a view controller that is going to be build.
+    /// `Action` instance to be applied to a view controller that is going to be built.
     public let action: Action
 
     init(_ factory: AnyFactory) {
@@ -22,10 +22,10 @@ public final class ChildFactory<Context>  {
         self.action = factory.action
     }
 
-    /// Builds an instance of UIViewController and integrates it in to provided view controller stack
+    /// Builds an instance of `UIViewController` and integrates it into provided view controller stack
     ///
-    /// - Parameter context: An instance of context provided by `Router`.
-    /// - Parameter containerViewControllers: Array of UIViewController instances to be later
+    /// - Parameter context: An instance of `Context` provided by `Router`.
+    /// - Parameter containerViewControllers: Array of `UIViewController` instances to be later
     ///   integrated in to container's stack.
     public func build(with context: Context, in containerViewControllers: inout [UIViewController]) throws {
         let viewController = try factory.build(with: context)

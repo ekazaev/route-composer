@@ -32,7 +32,7 @@ public protocol Logger {
 
     /// Will be called by the `Router` to log LoggerMessage instance
     ///
-    /// - Parameter message: `LoggerMessage` instance
+    /// - Parameter message: The `LoggerMessage` instance
     func log(_ message: LoggerMessage)
 
     /// Will be called by the `Router` when routing process finishes

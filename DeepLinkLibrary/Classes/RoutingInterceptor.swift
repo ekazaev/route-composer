@@ -8,9 +8,9 @@ import Foundation
 /// e.g. user should be logged in.
 ///
 /// ### NB
-/// Interceptor is an asynchronous action. For `Router` to continue routing, completion of interceptor's
-/// execute method **MUST** to be called.
-/// Otherwise `Router` will stay in limbo state waiting for interceptor to finish its action.
+/// Interceptor is an asynchronous action. For the `Router` to continue routing, completion of interceptor's
+/// execute method **MUST** be called.
+/// Otherwise, the `Router` will stay in limbo state waiting for the interceptor to finish its action.
 public protocol RoutingInterceptor {
 
     associatedtype Destination: RoutingDestination
@@ -24,7 +24,7 @@ public protocol RoutingInterceptor {
     /// ###NB
     /// For `Router` to continue routing, completion of interceptor's execute method **MUST** to be called
     /// in any scenario.
-    /// Otherwise `Router` will stay in limbo state waiting for interceptor to finish its action.
+    /// Otherwise `Router` will stay in limbo state waiting for `RoutingInterceptor` to finish its action.
     func execute(for destination: Destination, completion: @escaping (_: InterceptorResult) -> Void)
 
 }

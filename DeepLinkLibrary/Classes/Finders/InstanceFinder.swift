@@ -19,7 +19,7 @@ public class InstanceFinder<VC:UIViewController, C>: Finder {
     /// Constructor
     ///
     /// - Parameters:
-    ///   - instance: `UIViewController` instance this `Finder` should provide to the `Router`
+    ///   - instance: The `UIViewController` instance this `Finder` should provide to the `Router`
     public init(instance: VC) {
         self.instance = instance
     }

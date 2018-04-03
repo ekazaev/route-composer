@@ -5,8 +5,8 @@
 import Foundation
 import UIKit
 
-/// Default implementation of the unique view controller finder, where view controller can be found by name
-/// and it context object.
+/// A default implementation of the unique view controller finder, where view controller can be found by name
+/// and it `Context` instance.
 ///
 /// Your view controller should extend `ContextChecking` to be used with this finder.
 public class ClassWithContextFinder<VC: ContextChecking, C>: StackIteratingFinder where VC.Context == C {
@@ -32,10 +32,10 @@ public protocol ContextChecking where Self: UIViewController {
 
     associatedtype Context
 
-    /// If this view controller is suitable for the context provided, like already showing provided context data
-    /// or willing to do so it should return `true`, `false` otherwise.
+    /// If this view controller is suitable for the `Context` instance provided, like already showing provided
+    /// context data or willing to do so it should return `true`, `false` otherwise.
     /// - Parameters:
-    ///     - context: Context instance provided to the `Router`
+    ///     - context: The `Context` instance provided to the `Router`
     func isSuitable(for context: Context) -> Bool
 
 }

@@ -13,18 +13,18 @@ import UIKit
 /// functionality.
 @objc public protocol ContainerViewController: RoutingInterceptable { // @objc is mandatory otherwise crashes in runtime everywhere where Self: UIViewController
 
-    /// UIViewController instances that ContainerViewController currently has in stack
+    /// `UIViewController` instances that `ContainerViewController` currently has in the stack
     var containingViewControllers: [UIViewController] { get }
 
-    /// UIViewController instances out of the `containingViewControllers` that are currently visible on the screen
+    /// `UIViewController` instances out of the `containingViewControllers` that are currently visible on the screen
     var visibleViewControllers: [UIViewController] { get }
 
     /// Each container view controller should conform to this protocol for the `Router` to know how to make
     /// the particular child view controller visible.
     ///
     /// - parameters:
-    ///   - viewController: UIViewController to make active (visible).
-    ///   - animated: If container view controller is able to do so - make container active animated or not.
+    ///   - viewController: The `UIViewController` to make active (visible).
+    ///   - animated: If `ContainerViewController` is able to do so - make container active animated or not.
     func makeVisible(_ viewController: UIViewController, animated: Bool)
 
 }

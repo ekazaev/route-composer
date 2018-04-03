@@ -5,16 +5,16 @@
 import Foundation
 import UIKit
 
-/// Simple class that produces intermediate step for an assembly.
+/// A simple class that produces intermediate `RoutingStep` for an assembly.
 public class BasicStep<F: Finder, FC: Factory> where F.ViewController == FC.ViewController, F.Context == FC.Context {
 
     let routingStep: RoutingStep
 
-    /// Creates a instance of the routing step that produces view controller.
+    /// Creates a instance of the `RoutingStep` that produces view controller.
     ///
     /// - Parameters:
-    ///   - finder: `UIViewController` `Finder` instance.
-    ///   - factory: `UIViewController` `Factory` instance.
+    ///   - finder: The `UIViewController` `Finder` instance.
+    ///   - factory: The `UIViewController` `Factory` instance.
     public init(finder: F, factory: FC)  {
         routingStep = RoutingContainerStep(finder: finder, factory: factory)
     }

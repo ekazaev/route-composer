@@ -5,7 +5,7 @@
 import Foundation
 import UIKit
 
-/// Helps to build a tree of step which will be taken by a `Router` and add a condition to each step when it should
+/// Helps to build a tree of `RoutingStep` which will be taken by a `Router` and add a condition to each step when it should
 /// be taken.
 public class SwitchAssembly {
 
@@ -80,12 +80,12 @@ public class SwitchAssembly {
         return self
     }
 
-    /// Add case when some view controller exist in the stack to make some particular step then.
+    /// Add case when some view controller exist in the stack to make some particular `RoutingStep` then.
     ///
     /// - Parameters:
-    ///   - finder: Finder instance to find a UIViewController in the stack
-    ///   - step: Step to make if finder been able to find view controller in the stack. If not provided
-    ///   UIViewController found by finder will be considered as a view controller to start routing process from
+    ///   - finder: The `Finder` instance to find a `UIViewController` in the stack
+    ///   - step: The `RoutingStep` to make if the `Finder` been able to find a view controller in the stack. If not provided,
+    ///   a `UIViewController` found by the `Finder` will be considered as a view controller to start routing process from
     public func addCase<F: Finder>(when finder: F, do step: RoutingStep? = nil) -> Self {
         resolvers.append(FinderResolver(finder: finder, step: step))
         return self
@@ -93,7 +93,7 @@ public class SwitchAssembly {
 
     /// Assemble all the cases in to RoutingStep implementation
     ///
-    /// - Returns: instance of RoutingStep
+    /// - Returns: instance of `RoutingStep`
     public func assemble() -> RoutingStep {
         return SwitcherStep(resolvers: resolvers)
     }

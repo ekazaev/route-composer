@@ -5,7 +5,7 @@
 
 import UIKit
 
-/// Container Factory that creates UINavigationController
+/// `Container` `Factory` that creates UINavigationController
 public class NavigationControllerFactory: SimpleContainerFactory {
 
     public typealias ViewController = UINavigationController

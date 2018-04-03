@@ -78,10 +78,17 @@
       "warning": "undocumented"
     },
     {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Assemblies/CompleteFactoryAssembly.swift",
-      "line": 37,
-      "symbol": "CompleteFactoryAssembly.assemble()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/ContextTask.swift",
+      "line": 15,
+      "symbol": "ContextTask.ViewController",
+      "symbol_kind": "source.lang.swift.decl.associatedtype",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/ContextTask.swift",
+      "line": 17,
+      "symbol": "ContextTask.Context",
+      "symbol_kind": "source.lang.swift.decl.associatedtype",
       "warning": "undocumented"
     },
     {
@@ -156,7 +163,7 @@
     },
     {
       "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Factories/NilFactory.swift",
-      "line": 23,
+      "line": 24,
       "symbol": "NilFactory.init()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
@@ -211,6 +218,13 @@
       "warning": "undocumented"
     },
     {
+      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Finders/ClassWithContextFinder.swift",
+      "line": 33,
+      "symbol": "ContextChecking.Context",
+      "symbol_kind": "source.lang.swift.decl.associatedtype",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Finders/InstanceFinder.swift",
       "line": 17,
       "symbol": "InstanceFinder.instance",
@@ -246,6 +260,20 @@
       "warning": "undocumented"
     },
     {
+      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/PostRoutingTask.swift",
+      "line": 11,
+      "symbol": "PostRoutingTask.ViewController",
+      "symbol_kind": "source.lang.swift.decl.associatedtype",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/PostRoutingTask.swift",
+      "line": 13,
+      "symbol": "PostRoutingTask.Destination",
+      "symbol_kind": "source.lang.swift.decl.associatedtype",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Router/DefaultRouter.swift",
       "line": 14,
       "symbol": "DefaultRouter.init(logger:)",
@@ -274,10 +302,24 @@
       "warning": "undocumented"
     },
     {
+      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/RoutingDestination.swift",
+      "line": 12,
+      "symbol": "RoutingDestination.Context",
+      "symbol_kind": "source.lang.swift.decl.associatedtype",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/RoutingError.swift",
       "line": 12,
       "symbol": "RoutingError.message",
       "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/RoutingInterceptor.swift",
+      "line": 16,
+      "symbol": "RoutingInterceptor.Destination",
+      "symbol_kind": "source.lang.swift.decl.associatedtype",
       "warning": "undocumented"
     },
     {

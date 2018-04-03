@@ -258,11 +258,11 @@
             <h1>RoutingDestination</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">RoutingDestination</span><span class="p">:</span> <span class="kd">class</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">RoutingDestination</span> <span class="p">:</span> <span class="kt">AnyObject</span></code></pre>
 
                 </div>
               </div>
-            <p><code><a href="../Protocols.html#/s:15DeepLinkLibrary6RouterP">Router</a></code> will use <code><a href="../Protocols.html#/s:15DeepLinkLibrary11RoutingStepP">RoutingStep</a></code> instance provided by a <code>RoutingDestination</code> as a starting point
+            <p>The <code><a href="../Protocols.html#/s:15DeepLinkLibrary6RouterP">Router</a></code> will use <code><a href="../Protocols.html#/s:15DeepLinkLibrary11RoutingStepP">RoutingStep</a></code> instance provided by a <code>RoutingDestination</code> as a starting point
 to build steps for routing to it.</p>
 
           </section>
@@ -272,9 +272,9 @@ to build steps for routing to it.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:15DeepLinkLibrary18RoutingDestinationP9finalStepAA0dG0_pv"></a>
+                    <a name="/s:15DeepLinkLibrary18RoutingDestinationP9finalStepAA0dG0_pvp"></a>
                     <a name="//apple_ref/swift/Property/finalStep" class="dashAnchor"></a>
-                    <a class="token" href="#/s:15DeepLinkLibrary18RoutingDestinationP9finalStepAA0dG0_pv">finalStep</a>
+                    <a class="token" href="#/s:15DeepLinkLibrary18RoutingDestinationP9finalStepAA0dG0_pvp">finalStep</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -282,14 +282,14 @@ to build steps for routing to it.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><code><a href="../Protocols.html#/s:15DeepLinkLibrary11RoutingStepP">RoutingStep</a></code> instance that represents end point of routing.</p>
+                        <p>A <code><a href="../Protocols.html#/s:15DeepLinkLibrary11RoutingStepP">RoutingStep</a></code> instance that represents the end point of routing.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">finalStep</span><span class="p">:</span> <span class="kt"><a href="../Protocols.html#/s:15DeepLinkLibrary11RoutingStepP">RoutingStep</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">finalStep</span><span class="p">:</span> <span class="kt"><a href="../Protocols.html#/s:15DeepLinkLibrary11RoutingStepP">RoutingStep</a></span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -299,9 +299,9 @@ to build steps for routing to it.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:15DeepLinkLibrary18RoutingDestinationP7context7ContextQzv"></a>
+                    <a name="/s:15DeepLinkLibrary18RoutingDestinationP7context7ContextQzvp"></a>
                     <a name="//apple_ref/swift/Property/context" class="dashAnchor"></a>
-                    <a class="token" href="#/s:15DeepLinkLibrary18RoutingDestinationP7context7ContextQzv">context</a>
+                    <a class="token" href="#/s:15DeepLinkLibrary18RoutingDestinationP7context7ContextQzvp">context</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -309,14 +309,14 @@ to build steps for routing to it.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Context instance to be passed to any <code>UIViewController</code> to be build or presented.</p>
+                        <p>A <code>Context</code> instance to be passed to any <code>UIViewController</code> to be build or presented.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">context</span><span class="p">:</span> <span class="kt">Context</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">context</span><span class="p">:</span> <span class="kt">Context</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -328,8 +328,8 @@ to build steps for routing to it.</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="http://tech.gilt.com" target="_blank" rel="external">Gilt Groupe</a>. All rights reserved. (Last updated: 2018-03-30)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2018 <a class="link" href="http://tech.gilt.com" target="_blank" rel="external">Gilt Groupe</a>. All rights reserved. (Last updated: 2018-04-26)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

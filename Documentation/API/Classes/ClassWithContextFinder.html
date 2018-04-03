@@ -258,12 +258,12 @@
             <h1>ClassWithContextFinder</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">ClassWithContextFinder</span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ContextChecking.html">ContextChecking</a></span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span><span class="p">:</span> <span class="kt"><a href="../Protocols/StackIteratingFinder.html">StackIteratingFinder</a></span> <span class="k">where</span> <span class="kt">VC</span><span class="o">.</span><span class="kt">Context</span> <span class="o">==</span> <span class="kt">C</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">ClassWithContextFinder</span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/StackIteratingFinder.html">StackIteratingFinder</a></span> <span class="k">where</span> <span class="kt">VC</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ContextChecking.html">ContextChecking</a></span><span class="p">,</span> <span class="kt">C</span> <span class="o">==</span> <span class="kt">VC</span><span class="o">.</span><span class="kt">Context</span></code></pre>
 
                 </div>
               </div>
-            <p>Default implementation of the unique view controller finder, where view controller can be found by name
-and it context object.</p>
+            <p>A default implementation of the unique view controller finder, where view controller can be found by name
+and it <code>Context</code> instance.</p>
 
 <p>Your view controller should extend <code><a href="../Protocols/ContextChecking.html">ContextChecking</a></code> to be used with this finder.</p>
 
@@ -274,9 +274,61 @@ and it context object.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:15DeepLinkLibrary20StackIteratingFinderP7optionsAA13SearchOptionsVv"></a>
+                    <a name="/s:15DeepLinkLibrary20StackIteratingFinderP14ViewController"></a>
+                    <a name="//apple_ref/swift/Alias/ViewController" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15DeepLinkLibrary20StackIteratingFinderP14ViewController">ViewController</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">ViewController</span> <span class="o">=</span> <span class="kt">VC</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15DeepLinkLibrary20StackIteratingFinderP7Context"></a>
+                    <a name="//apple_ref/swift/Alias/Context" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15DeepLinkLibrary20StackIteratingFinderP7Context">Context</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">Context</span> <span class="o">=</span> <span class="kt">C</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15DeepLinkLibrary20StackIteratingFinderP7optionsAA13SearchOptionsVvp"></a>
                     <a name="//apple_ref/swift/Property/options" class="dashAnchor"></a>
-                    <a class="token" href="#/s:15DeepLinkLibrary20StackIteratingFinderP7optionsAA13SearchOptionsVv">options</a>
+                    <a class="token" href="#/s:15DeepLinkLibrary20StackIteratingFinderP7optionsAA13SearchOptionsVvp">options</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -316,7 +368,7 @@ and it context object.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">isWanted</span><span class="p">(</span><span class="n">target</span> <span class="nv">viewController</span><span class="p">:</span> <span class="kt">ViewController</span><span class="p">,</span> <span class="n">with</span> <span class="nv">context</span><span class="p">:</span> <span class="kt">Context</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">isWanted</span><span class="p">(</span><span class="n">target</span> <span class="nv">viewController</span><span class="p">:</span> <span class="kt"><a href="../Classes/ClassWithContextFinder.html#/s:15DeepLinkLibrary20StackIteratingFinderP14ViewController">ViewController</a></span><span class="p">,</span> <span class="n">with</span> <span class="nv">context</span><span class="p">:</span> <span class="kt"><a href="../Classes/ClassWithContextFinder.html#/s:15DeepLinkLibrary20StackIteratingFinderP7Context">Context</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
@@ -328,8 +380,8 @@ and it context object.</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="http://tech.gilt.com" target="_blank" rel="external">Gilt Groupe</a>. All rights reserved. (Last updated: 2018-03-30)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2018 <a class="link" href="http://tech.gilt.com" target="_blank" rel="external">Gilt Groupe</a>. All rights reserved. (Last updated: 2018-04-26)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

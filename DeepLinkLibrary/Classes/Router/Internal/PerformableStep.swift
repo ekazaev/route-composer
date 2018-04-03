@@ -6,8 +6,8 @@ import Foundation
 
 protocol PerformableStep {
 
-    /// - Parameter context: Context object that `Router` has started with.
-    /// - Returns: `StepResult` enum value, which may contain a view controller in case of `.success` scenario.
+    /// - Parameter context: The `Context` instance that `Router` has started with.
+    /// - Returns: The `StepResult` enum value, which may contain a view controller in case of `.success` scenario.
     func perform<D: RoutingDestination>(for destination: D) -> StepResult
 
 }

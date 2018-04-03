@@ -10,6 +10,7 @@
     
   </head>
   <body>
+    <a name="//apple_ref/swift/Section/Protocols" class="dashAnchor"></a>
     <a title="Protocols  Reference"></a>
     <header>
       <div class="content-wrapper">
@@ -283,71 +284,7 @@ present modally, push to tab, etc)</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">Action</span><span class="p">:</span> <span class="kd">class</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:15DeepLinkLibrary12ChainingStepP"></a>
-                    <a name="//apple_ref/swift/Protocol/ChainingStep" class="dashAnchor"></a>
-                    <a class="token" href="#/s:15DeepLinkLibrary12ChainingStepP">ChainingStep</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Step that contains implementation how to be attached to the previous one</p>
-
-                        <a href="Protocols/ChainingStep.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">ChainingStep</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:15DeepLinkLibrary15ContextCheckingP"></a>
-                    <a name="//apple_ref/swift/Protocol/ContextChecking" class="dashAnchor"></a>
-                    <a class="token" href="#/s:15DeepLinkLibrary15ContextCheckingP">ContextChecking</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p><code>UIViewController</code> instance should extend this protocol to be used with <code><a href="Classes/ClassWithContextFinder.html">ClassWithContextFinder</a></code></p>
-
-                        <a href="Protocols/ContextChecking.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">ContextChecking</span> <span class="k">where</span> <span class="k">Self</span><span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">Action</span> <span class="p">:</span> <span class="kt">AnyObject</span></code></pre>
 
                         </div>
                       </div>
@@ -374,9 +311,9 @@ present modally, push to tab, etc)</p>
                         <p>Container protocol should be implemented by Factories that produce any type of the view controllers
 that can be considered as Containers (eg: UINavigationController, UITabBarController, etc)</p>
 
-<p>Container apply one merged action and then populate a full stack of view controllers that was built by the associated factories in one go.
-Example: Steps require to populate n view controllers in UINavigationController stack and it can do so.
-Merge action implementation is mandatory for any actions and should be implemented if it can be done.</p>
+<p>Container applies one merged <code><a href="Protocols/Action.html">Action</a></code> and then populate a full stack of view controllers that was built by the associated factories in one go.
+Example: Steps required to populate n view controllers in UINavigationController stack and it can do so.
+Merge <code><a href="Protocols/Action.html">Action</a></code> implementation is mandatory for any actions and should be implemented if it can be done.</p>
 
                         <a href="Protocols/Container.html" class="slightly-smaller">See more</a>
                       </div>
@@ -418,7 +355,8 @@ functionality.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">ContainerViewController</span><span class="p">:</span> <span class="kt"><a href="Protocols/RoutingInterceptable.html">RoutingInterceptable</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">ContainerViewController</span> <span class="p">:</span> <span class="kt"><a href="Protocols/RoutingInterceptable.html">RoutingInterceptable</a></span></code></pre>
 
                         </div>
                       </div>
@@ -443,7 +381,7 @@ functionality.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>ContextTask
-The task to be executed after UIViewController created or found.</p>
+The task to be executed after <code>UIViewController</code> created or found.</p>
 
                         <a href="Protocols/ContextTask.html" class="slightly-smaller">See more</a>
                       </div>
@@ -452,6 +390,39 @@ The task to be executed after UIViewController created or found.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">ContextTask</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15DeepLinkLibrary22SimpleContainerFactoryP"></a>
+                    <a name="//apple_ref/swift/Protocol/SimpleContainerFactory" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15DeepLinkLibrary22SimpleContainerFactoryP">SimpleContainerFactory</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Helper protocol to <code><a href="Protocols/Factory.html">Factory</a></code> that is also a <code><a href="Protocols/Container.html">Container</a></code>. If it supports only one type of actions to build its
+children <code>UIViewControllers</code> - use this protocol. It contains default merge function implementation.</p>
+
+                        <a href="Protocols/SimpleContainerFactory.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">SimpleContainerFactory</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Container.html">Container</a></span><span class="p">,</span> <span class="kt"><a href="Protocols/Factory.html">Factory</a></span></code></pre>
 
                         </div>
                       </div>
@@ -475,7 +446,7 @@ The task to be executed after UIViewController created or found.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Instance that extends Factory builds <code>UIViewController</code> that will be later integrated in to stack by <code><a href="Protocols.html#/s:15DeepLinkLibrary6RouterP">Router</a></code></p>
+                        <p>An instance that extends <code>Factory</code> builds <code>UIViewController</code> that will be later integrated into the stack by <code><a href="Protocols.html#/s:15DeepLinkLibrary6RouterP">Router</a></code></p>
 
                         <a href="Protocols/Factory.html" class="slightly-smaller">See more</a>
                       </div>
@@ -483,7 +454,7 @@ The task to be executed after UIViewController created or found.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">Factory</span><span class="p">:</span> <span class="kd">class</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">Factory</span> <span class="p">:</span> <span class="kt">AnyObject</span></code></pre>
 
                         </div>
                       </div>
@@ -516,6 +487,72 @@ The task to be executed after UIViewController created or found.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">Finder</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15DeepLinkLibrary15ContextCheckingP"></a>
+                    <a name="//apple_ref/swift/Protocol/ContextChecking" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15DeepLinkLibrary15ContextCheckingP">ContextChecking</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><code>UIViewController</code> instance should extend this protocol to be used with <code><a href="Classes/ClassWithContextFinder.html">ClassWithContextFinder</a></code></p>
+
+                        <a href="Protocols/ContextChecking.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">ContextChecking</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15DeepLinkLibrary20StackIteratingFinderP"></a>
+                    <a name="//apple_ref/swift/Protocol/StackIteratingFinder" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15DeepLinkLibrary20StackIteratingFinderP">StackIteratingFinder</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Simplifies creation of finders for a hosting app. If there is nothing special about finder, hosting app should
+extend this <code><a href="Protocols/Finder.html">Finder</a></code> which will just iterations through view controllers stack following the search options provided
+and just ask extending instances if this particular view controller is the one that <code><a href="Protocols.html#/s:15DeepLinkLibrary6RouterP">Router</a></code> looking for or no.</p>
+
+                        <a href="Protocols/StackIteratingFinder.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">StackIteratingFinder</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Finder.html">Finder</a></span></code></pre>
 
                         </div>
                       </div>
@@ -634,7 +671,7 @@ The task to be executed after UIViewController created or found.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><code><a href="Protocols.html#/s:15DeepLinkLibrary6RouterP">Router</a></code> will use <code><a href="Protocols.html#/s:15DeepLinkLibrary11RoutingStepP">RoutingStep</a></code> instance provided by a <code>RoutingDestination</code> as a starting point
+                        <p>The <code><a href="Protocols.html#/s:15DeepLinkLibrary6RouterP">Router</a></code> will use <code><a href="Protocols.html#/s:15DeepLinkLibrary11RoutingStepP">RoutingStep</a></code> instance provided by a <code>RoutingDestination</code> as a starting point
 to build steps for routing to it.</p>
 
                         <a href="Protocols/RoutingDestination.html" class="slightly-smaller">See more</a>
@@ -643,7 +680,7 @@ to build steps for routing to it.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">RoutingDestination</span><span class="p">:</span> <span class="kd">class</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">RoutingDestination</span> <span class="p">:</span> <span class="kt">AnyObject</span></code></pre>
 
                         </div>
                       </div>
@@ -667,7 +704,7 @@ to build steps for routing to it.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><code>UIViewController</code>&lsquo;s protocol exposed outside of the library. .
+                        <p><code>UIViewController</code>&lsquo;s protocol exposed outside of the library. 
 <code>UIViewController</code> that conforms to this protocol may overtake the control of the view controllers stack and
 forbid the <code><a href="Protocols.html#/s:15DeepLinkLibrary6RouterP">Router</a></code> to dismiss or cover it with another view controller.
 Return false if the view controller can be dismissed.</p>
@@ -678,7 +715,8 @@ Return false if the view controller can be dismissed.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">RoutingInterceptable</span> <span class="k">where</span> <span class="k">Self</span><span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">RoutingInterceptable</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
 
                         </div>
                       </div>
@@ -706,9 +744,9 @@ Return false if the view controller can be dismissed.</p>
 e.g. user should be logged in.</p>
 <h3 id='nb' class='heading'>NB</h3>
 
-<p>Interceptor is an asynchronous action. For <code><a href="Protocols.html#/s:15DeepLinkLibrary6RouterP">Router</a></code> to continue routing, completion of interceptor&rsquo;s
-execute method <strong>MUST</strong> to be called.
-Otherwise <code><a href="Protocols.html#/s:15DeepLinkLibrary6RouterP">Router</a></code> will stay in limbo state waiting for interceptor to finish its action.</p>
+<p>Interceptor is an asynchronous action. For the <code><a href="Protocols.html#/s:15DeepLinkLibrary6RouterP">Router</a></code> to continue routing, completion of interceptor&rsquo;s
+execute method <strong>MUST</strong> be called.
+Otherwise, the <code><a href="Protocols.html#/s:15DeepLinkLibrary6RouterP">Router</a></code> will stay in limbo state waiting for the interceptor to finish its action.</p>
 
                         <a href="Protocols/RoutingInterceptor.html" class="slightly-smaller">See more</a>
                       </div>
@@ -761,9 +799,9 @@ Otherwise <code><a href="Protocols.html#/s:15DeepLinkLibrary6RouterP">Router</a>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:15DeepLinkLibrary22SimpleContainerFactoryP"></a>
-                    <a name="//apple_ref/swift/Protocol/SimpleContainerFactory" class="dashAnchor"></a>
-                    <a class="token" href="#/s:15DeepLinkLibrary22SimpleContainerFactoryP">SimpleContainerFactory</a>
+                    <a name="/s:15DeepLinkLibrary12ChainingStepP"></a>
+                    <a name="//apple_ref/swift/Protocol/ChainingStep" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15DeepLinkLibrary12ChainingStepP">ChainingStep</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -771,50 +809,15 @@ Otherwise <code><a href="Protocols.html#/s:15DeepLinkLibrary6RouterP">Router</a>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Helper protocol to factory that is also a Container. If it support only one type of actions to build its
-children UIViewControllers - use this protocol. It contain default merge function implementation.</p>
+                        <p>The step that contains implementation how to be attached to the previous one</p>
 
-                        <a href="Protocols/SimpleContainerFactory.html" class="slightly-smaller">See more</a>
+                        <a href="Protocols/ChainingStep.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">SimpleContainerFactory</span><span class="p">:</span> <span class="kt"><a href="Protocols/Factory.html">Factory</a></span><span class="p">,</span> <span class="kt"><a href="Protocols/Container.html">Container</a></span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:15DeepLinkLibrary20StackIteratingFinderP"></a>
-                    <a name="//apple_ref/swift/Protocol/StackIteratingFinder" class="dashAnchor"></a>
-                    <a class="token" href="#/s:15DeepLinkLibrary20StackIteratingFinderP">StackIteratingFinder</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Simplifies creation of finders for a hosting app. If there is nothing special about finder, hosting app should
-extend this finder which will just iterations through view controllers stack following the search options provided
-and just ask extending instances if this particular view controller is the one that <code><a href="Protocols.html#/s:15DeepLinkLibrary6RouterP">Router</a></code> looking for or no.</p>
-
-                        <a href="Protocols/StackIteratingFinder.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">StackIteratingFinder</span><span class="p">:</span> <span class="kt"><a href="Protocols/Finder.html">Finder</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">ChainingStep</span></code></pre>
 
                         </div>
                       </div>
@@ -838,7 +841,7 @@ and just ask extending instances if this particular view controller is the one t
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Case Resolver for SwitcherStep</p>
+                        <p>the case resolver for <code>SwitcherStep</code></p>
 
                         <a href="Protocols/StepCaseResolver.html" class="slightly-smaller">See more</a>
                       </div>
@@ -858,8 +861,8 @@ and just ask extending instances if this particular view controller is the one t
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="http://tech.gilt.com" target="_blank" rel="external">Gilt Groupe</a>. All rights reserved. (Last updated: 2018-03-30)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2018 <a class="link" href="http://tech.gilt.com" target="_blank" rel="external">Gilt Groupe</a>. All rights reserved. (Last updated: 2018-04-26)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

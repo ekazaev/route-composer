@@ -7,16 +7,16 @@
 
 import Foundation
 
-/// Result of interceptor's execute method.
+/// The result of interceptor's execute method.
 ///
-/// - success: Interceptor finished its task with success. `Router` may continue deep linking.
-/// - failure: Interceptor finished its task with failure. `Router` should stop deep linking.
+/// - success: Interceptor finished its task with success. The `Router` may continue deep linking.
+/// - failure: Interceptor finished its task with failure. The `Router` should stop deep linking.
 public enum InterceptorResult {
     
-    /// Interceptor finished its task with success. `Router` may continue deep linking.
+    /// `InterceptorResult` finished its task with success. The `Router` may continue deep linking.
     case success
     
-    /// Interceptor finished its task with failure. `Router` should stop deep linking.
+    /// `InterceptorResult` finished its task with failure. The `Router` should stop deep linking.
     case failure(String?)
     
 }

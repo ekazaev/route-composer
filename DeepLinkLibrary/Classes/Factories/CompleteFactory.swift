@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-/// `CompleteFactoryAssembly` uses this container factory wrapper to substitute provided factory and allow you to
+/// `CompleteFactoryAssembly` uses this container `Factory` wrapper to substitute provided `Factory` and allow you to
 /// preset child factories instead of `Router`.
 public class CompleteFactory<FC: Factory & Container>: Factory, Container, CustomStringConvertible {
 

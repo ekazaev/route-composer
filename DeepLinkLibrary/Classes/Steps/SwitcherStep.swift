@@ -5,13 +5,13 @@
 import Foundation
 import UIKit
 
-/// Case Resolver for SwitcherStep
+/// the case resolver for `SwitcherStep`
 public protocol StepCaseResolver {
 
-    /// Method to be called by `SwitcherStep` at the moment when it will try to find a previous step for the `Router`.
+    /// THE Method to be called by a `SwitcherStep` at the moment when it will try to find a previous step for the `Router`.
     ///
-    /// - Parameter destination: `RoutingDestination` instance that been passed to the `Router`
-    /// - Returns: Step to be made by `Router`, nil if resolver could not decide when step should be previous
+    /// - Parameter destination: A `RoutingDestination` instance that been passed to the `Router`
+    /// - Returns: A `RoutingStep` to be made by `Router`, nil if resolver could not decide when step should be previous
     func resolve<D: RoutingDestination>(for destination: D) -> RoutingStep?
 
 }

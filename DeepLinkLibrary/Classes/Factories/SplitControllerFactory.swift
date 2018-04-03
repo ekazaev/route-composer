@@ -6,7 +6,7 @@
 import Foundation
 import UIKit
 
-/// Container Factory that creates UISplitViewController
+/// `Container` `Factory` that creates `UISplitViewController`
 public class SplitControllerFactory: Factory, Container {
 
     public typealias ViewController = UISplitViewController

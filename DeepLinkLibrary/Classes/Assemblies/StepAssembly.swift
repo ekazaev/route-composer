@@ -4,9 +4,9 @@
 
 import Foundation
 
-/// Builder class that helps to create a routing step with correct settings.
+/// Builder class that helps to create a `RoutingStep` instance with correct settings.
 /// ### Keep in mind
-/// Both finder and Factory instances should deal with same type of UIViewController and Content instances.
+/// Both `Finder` and `Factory` instances should deal with same type of `UIViewController` and `Context` instances.
 /// ### Usage
 /// ```swift
 /// let productScreen = StepAssembly(finder: ProductViewControllerFinder(), factory: ProductViewControllerFactory(action: PushToNavigationAction()))
@@ -55,7 +55,7 @@ public class StepAssembly<F: Finder, FC: Factory> where F.ViewController == FC.V
             return self
         }
 
-        /// Previous step to start build current step from
+        /// Previous `RoutingStep` to start build current step from
         ///
         /// - Parameter previousStep: Instance of RoutingStep
         public func from(_ previousStep: RoutingStep) -> StepAssembly.LastStepInChainAssembly {
@@ -99,47 +99,47 @@ public class StepAssembly<F: Finder, FC: Factory> where F.ViewController == FC.V
     /// Constructor
     ///
     /// - Parameters:
-    ///   - finder: `UIViewController` `Finder` instance.
-    ///   - factory: `UIViewController` `Factory` instance.
+    ///   - finder: The `UIViewController` `Finder` instance.
+    ///   - factory: The `UIViewController` `Factory` instance.
     public init(finder: F, factory: FC) {
         self.factory = factory
         self.finder = finder
     }
 
-    /// Add routing interceptor instance
+    /// Adds routing interceptor instance
     ///
-    /// - Parameter interceptor: `RoutingInterceptor` instance to be executed by `Router` before routing to this step.
+    /// - Parameter interceptor: The `RoutingInterceptor` instance to be executed by `Router` before routing to this step.
     public func add<R: RoutingInterceptor>(_ interceptor: R) -> Self {
         self.interceptors.append(RoutingInterceptorBox(interceptor))
         return self
     }
 
-    /// Add context task instance
+    /// Adds context task instance
     ///
-    /// - Parameter contentTask: `ContextTask` instance to be executed by a `Router` immediately after it will find or create UIViewController.
+    /// - Parameter contentTask: The `ContextTask` instance to be executed by a `Router` immediately after it will find or create UIViewController.
     public func add<CT: ContextTask>(_ contentTask: CT) -> Self where CT.ViewController == FC.ViewController, CT.ViewController == F.ViewController, CT.Context == FC.Context, CT.Context == F.Context {
         self.contentTasks.append(ContextTaskBox(contentTask))
         return self
     }
 
-    /// Add PostRoutingTask instance
+    /// Adds PostRoutingTask instance
     ///
-    /// - Parameter postTask: `PostRoutingTask` instance to be executed by a `Router` after routing to this step.
+    /// - Parameter postTask: The `PostRoutingTask` instance to be executed by a `Router` after routing to this step.
     public func add<P: PostRoutingTask>(_ postTask: P) -> Self {
         self.postTasks.append(PostRoutingTaskBox(postTask))
         return self
     }
 
-    /// Previous step to start build current step from
+    /// Previous `RoutingStep` to start build current step from
     ///
-    /// - Parameter previousStep: Instance of RoutingStep
+    /// - Parameter previousStep: The instance of `RoutingStep`
     public func from(_ previousStep: RoutingStep) -> LastStepInChainAssembly {
         return LastStepInChainAssembly(assembly: self, previousSteps: [previousStep])
     }
 
     /// Basic step to start build current step from
     ///
-    /// - Parameter previousStep: Instance of ChainingStep
+    /// - Parameter previousStep: The instance of `BasicStep`
     public func from<F, FC>(_ previousStep: BasicStep<F, FC>) -> ScreenStepChainAssembly {
         let stepBuilder = ScreenStepChainAssembly(assembly: self, firstStep: previousStep.routingStep)
         return stepBuilder
@@ -147,7 +147,7 @@ public class StepAssembly<F: Finder, FC: Factory> where F.ViewController == FC.V
 
     /// Previous step to start build current step from
     ///
-    /// - Parameter previousStep: Instance of ChainingStep
+    /// - Parameter previousStep: The instance of `RoutingStep` and ChainingStep`
     public func from(_ previousStep: RoutingStep & ChainingStep) -> ScreenStepChainAssembly {
         let stepBuilder = ScreenStepChainAssembly(assembly: self, firstStep: previousStep)
         return stepBuilder
@@ -155,8 +155,8 @@ public class StepAssembly<F: Finder, FC: Factory> where F.ViewController == FC.V
 
     /// Assemble all the provided settings.
     ///
-    /// - Parameter step: Instance of RoutingStep to start to build current step from.
-    /// - Returns: Instance of RoutingStep with all the settings provided inside.
+    /// - Parameter step: The instance of `RoutingStep` to start to build current step from.
+    /// - Returns: The instance of `RoutingStep` with all the settings provided inside.
     public func assemble(from step: RoutingStep) -> RoutingStep {
         return FinalRoutingStep(
                 finder: finder,

@@ -5,7 +5,7 @@
 
 import UIKit
 
-/// Returns topmost presented view controller.
+/// Returns the topmost presented view controller.
 public class CurrentViewControllerStep: RoutingStep, PerformableStep {
 
     public init() {

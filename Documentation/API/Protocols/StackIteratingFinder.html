@@ -258,12 +258,12 @@
             <h1>StackIteratingFinder</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">StackIteratingFinder</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Finder.html">Finder</a></span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">StackIteratingFinder</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/Finder.html">Finder</a></span></code></pre>
 
                 </div>
               </div>
             <p>Simplifies creation of finders for a hosting app. If there is nothing special about finder, hosting app should
-extend this finder which will just iterations through view controllers stack following the search options provided
+extend this <code><a href="../Protocols/Finder.html">Finder</a></code> which will just iterations through view controllers stack following the search options provided
 and just ask extending instances if this particular view controller is the one that <code><a href="../Protocols.html#/s:15DeepLinkLibrary6RouterP">Router</a></code> looking for or no.</p>
 
           </section>
@@ -283,14 +283,14 @@ and just ask extending instances if this particular view controller is the one t
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Type of UIViewController that Finder can find</p>
+                        <p>Type of <code>UIViewController</code> that <code><a href="../Protocols/Finder.html">Finder</a></code> can find</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">associatedtype</span> <span class="kt">ViewController</span> <span class="o">=</span> <span class="kt">ViewController</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">associatedtype</span> <span class="kt">ViewController</span> <span class="o">=</span> <span class="k">Self</span><span class="o">.</span><span class="kt">ViewController</span></code></pre>
 
                         </div>
                       </div>
@@ -310,14 +310,14 @@ and just ask extending instances if this particular view controller is the one t
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Type of Context object that finder can deal with</p>
+                        <p>Type of <code>Context</code> instance that <code><a href="../Protocols/Finder.html">Finder</a></code> can deal with</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">associatedtype</span> <span class="kt">Context</span> <span class="o">=</span> <span class="kt">Context</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">associatedtype</span> <span class="kt">Context</span> <span class="o">=</span> <span class="k">Self</span><span class="o">.</span><span class="kt">Context</span></code></pre>
 
                         </div>
                       </div>
@@ -327,9 +327,9 @@ and just ask extending instances if this particular view controller is the one t
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:15DeepLinkLibrary20StackIteratingFinderP7optionsAA13SearchOptionsVv"></a>
+                    <a name="/s:15DeepLinkLibrary20StackIteratingFinderP7optionsAA13SearchOptionsVvp"></a>
                     <a name="//apple_ref/swift/Property/options" class="dashAnchor"></a>
-                    <a class="token" href="#/s:15DeepLinkLibrary20StackIteratingFinderP7optionsAA13SearchOptionsVv">options</a>
+                    <a class="token" href="#/s:15DeepLinkLibrary20StackIteratingFinderP7optionsAA13SearchOptionsVvp">options</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -344,7 +344,7 @@ and just ask extending instances if this particular view controller is the one t
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">options</span><span class="p">:</span> <span class="kt"><a href="../Structs/SearchOptions.html">SearchOptions</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">options</span><span class="p">:</span> <span class="kt"><a href="../Structs/SearchOptions.html">SearchOptions</a></span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -364,7 +364,7 @@ and just ask extending instances if this particular view controller is the one t
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Method to be implemented by StackIteratingFinder instance</p>
+                        <p>The method to be implemented by the StackIteratingFinder instance</p>
 
                       </div>
                       <div class="declaration">
@@ -399,7 +399,7 @@ and just ask extending instances if this particular view controller is the one t
                               </td>
                               <td>
                                 <div>
-                                  <p>Context object that was provided to the <code><a href="../Protocols.html#/s:15DeepLinkLibrary6RouterP">Router</a></code>.</p>
+                                  <p>The <code><a href="../Protocols/StackIteratingFinder.html#/s:15DeepLinkLibrary20StackIteratingFinderP7Context">Context</a></code> instance that was provided to the <code><a href="../Protocols.html#/s:15DeepLinkLibrary6RouterP">Router</a></code>.</p>
                                 </div>
                               </td>
                             </tr>
@@ -408,7 +408,7 @@ and just ask extending instances if this particular view controller is the one t
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>true if this view controller is the one that finder is looking for, false otherwise.</p>
+                        <p>true if this view controller is the one that <code><a href="../Protocols/Finder.html">Finder</a></code> is looking for, false otherwise.</p>
                       </div>
                     </section>
                   </div>
@@ -451,8 +451,8 @@ and just ask extending instances if this particular view controller is the one t
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="http://tech.gilt.com" target="_blank" rel="external">Gilt Groupe</a>. All rights reserved. (Last updated: 2018-03-30)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2018 <a class="link" href="http://tech.gilt.com" target="_blank" rel="external">Gilt Groupe</a>. All rights reserved. (Last updated: 2018-04-26)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

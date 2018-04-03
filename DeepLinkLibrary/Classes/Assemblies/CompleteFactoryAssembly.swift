@@ -4,10 +4,10 @@
 
 import Foundation
 
-/// Assembly that allows you to build a Container Factory with a preset child Factories inside.
+/// Assembly that allows you to build a `Container` `Factory` with a preset child `UIViewController` factories.
 ///
-/// *Example: You want your `UITabBarController` instance to be build by this `Factory` already
-/// with all the tabs populated*
+/// *Example: You want your `UITabBarController` instance to be built by this `Factory`
+/// with all the `UIViewController`s populated into each tab*
 public class CompleteFactoryAssembly<FC: Factory & Container> {
 
     private var factory: FC
@@ -17,15 +17,15 @@ public class CompleteFactoryAssembly<FC: Factory & Container> {
     /// Constructor
     ///
     /// - Parameters:
-    ///   - factory: `UIViewController` `Factory` instance.
+    ///   - factory: The `UIViewController` `Container` `Factory` instance.
     public init(factory: FC) {
         self.factory = factory
     }
 
-    /// Add factory that is going to be used as a child. Make sure that you use action that compatible with
-    /// container factory you use.
+    /// Adds `Factory` that is going to be used as a child. Make sure that you use an `Action` that is compatible with
+    /// the `Container` `Factory` you use.
     ///
-    /// - Parameter childFactory: instance of `Factory`.
+    /// - Parameter childFactory: The instance of `Factory`.
     public func with<C: Factory>(_ childFactory: C) -> Self where C.Context == FC.Context {
         guard let factoryBox = FactoryBox.box(for: childFactory) else {
             return self
@@ -34,6 +34,9 @@ public class CompleteFactoryAssembly<FC: Factory & Container> {
         return self
     }
 
+    /// Assembles all the child factories provided and returns a `Container` `Factory` instance.
+    ///
+    /// - Returns: The `CompleteFactory` with child factories provided.
     public func assemble() -> CompleteFactory<FC> {
         let completeFactory = CompleteFactory(factory: factory, childFactories: childFactories)
         let _ = completeFactory.merge(Array<ChildFactory<FC.Context>>())

@@ -5,35 +5,35 @@
 
 import UIKit
 
-/// Instance that extends Factory builds `UIViewController` that will be later integrated in to stack by `Router`
+/// An instance that extends `Factory` builds `UIViewController` that will be later integrated into the stack by `Router`
 public protocol Factory: class {
 
-    /// Type of `UIViewController` that Factory can build
+    /// Type of `UIViewController` that `Factory` can build
     associatedtype ViewController: UIViewController
 
-    /// Context to be passed to UIViewController
+    /// `Context` to be passed to UIViewController
     associatedtype Context
 
-    /// `Action` instance. `Router` applies action to integrate view controller created by `build(with:)` in the existing
+    /// `Action` instance. The `Router` applies `Action` to integrate view controller created by `build(with:)` in the existing
     /// view controller stack
     var action: Action { get }
 
-    /// If factory can tell to `Router` before it will actually start to route to this view controller
-    /// if it can be build ot not - it should overload this method - `Router` will call it before the routing
-    /// process and if factory is not able to build a view controller (example: it has to build a product view
+    /// If the `Factory` can tell the `Router` before it will actually start to route to this view controller
+    /// if it can be built or not - it should overload this method - `Router` will call it before the routing
+    /// process and if `Factory` is not able to build a view controller (example: it has to build a product view
     /// controller but there is no product code in context) it can stop `Router` from routing to this destination
     /// and the result of routing will be `.unhandled` without any changes in view controller stack.
     ///
-    /// - Parameter context: Context instance if it was provided to the `Router`.
-    /// - Throws: `RoutingError` if `Factory` can not prepare itself to build a `UIViewController` instance
-    ///   with context provided.
+    /// - Parameter context: The `Context` instance if it was provided to the `Router`.
+    /// - Throws: The `RoutingError` if the `Factory` can not prepare itself to build a `UIViewController` instance
+    ///   with the `Context` instance provided.
     func prepare(with context: Context) throws
 
-    /// Builds a UIViewController that will be built in to the stack
+    /// Builds a `UIViewController` that will be built into the stack
     ///
-    /// - Parameter context: Context instance if it was provided to the `Router`.
-    /// - Returns: Built `UIViewController` instance.
-    /// - Throws: `RoutingError` if build was not succeed.
+    /// - Parameter context: A `Context` instance if it was provided to the `Router`.
+    /// - Returns: The built `UIViewController` instance.
+    /// - Throws: The `RoutingError` if build was not succeed.
     func build(with context: Context) throws -> ViewController
 
 }

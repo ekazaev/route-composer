@@ -5,7 +5,7 @@
 
 import Foundation
 
-/// Result of the Routing process
+/// The result of the Routing process
 ///
 /// - handled: The request to process the deep link resulted in a successful navigation to the destination.
 /// - unhandled: The request to process the deep link was not handled and therefore did not result in any navigation.

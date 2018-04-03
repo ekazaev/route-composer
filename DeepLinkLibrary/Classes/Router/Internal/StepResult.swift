@@ -18,7 +18,7 @@ enum StepResult {
     // I think as a step result type with a failure in place it looks nicer to have `.success` as a positive result.
     case success(UIViewController)
 
-    /// Factory instance to be used by `Router` to build a UIViewController for this step.
+    /// `Factory` instance to be used by `Router` to build a `UIViewController` for this step.
     case continueRouting(AnyFactory?)
     
     case failure

@@ -258,14 +258,14 @@
             <h1>CompleteFactoryAssembly</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">CompleteFactoryAssembly</span><span class="o">&lt;</span><span class="kt">FC</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Factory.html">Factory</a></span> <span class="o">&amp;</span> <span class="kt"><a href="../Protocols/Container.html">Container</a></span><span class="o">&gt;</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">CompleteFactoryAssembly</span><span class="o">&lt;</span><span class="kt">FC</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">FC</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/Container.html">Container</a></span><span class="p">,</span> <span class="kt">FC</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/Factory.html">Factory</a></span></code></pre>
 
                 </div>
               </div>
-            <p>Assembly that allows you to build a Container Factory with a preset child Factories inside.</p>
+            <p>Assembly that allows you to build a <code><a href="../Protocols/Container.html">Container</a></code> <code><a href="../Protocols/Factory.html">Factory</a></code> with a preset child <code>UIViewController</code> factories.</p>
 
-<p><em>Example: You want your <code>UITabBarController</code> instance to be build by this <code><a href="../Protocols/Factory.html">Factory</a></code> already
-with all the tabs populated</em></p>
+<p><em>Example: You want your <code>UITabBarController</code> instance to be built by this <code><a href="../Protocols/Factory.html">Factory</a></code>
+with all the <code>UIViewController</code>s populated into each tab</em></p>
 
           </section>
           <section class="section task-group-section">
@@ -307,7 +307,7 @@ with all the tabs populated</em></p>
                               </td>
                               <td>
                                 <div>
-                                  <p><code>UIViewController</code> <code><a href="../Protocols/Factory.html">Factory</a></code> instance.</p>
+                                  <p>The <code>UIViewController</code> <code><a href="../Protocols/Container.html">Container</a></code> <code><a href="../Protocols/Factory.html">Factory</a></code> instance.</p>
                                 </div>
                               </td>
                             </tr>
@@ -330,15 +330,15 @@ with all the tabs populated</em></p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Add factory that is going to be used as a child. Make sure that you use action that compatible with
-container factory you use.</p>
+                        <p>Adds <code><a href="../Protocols/Factory.html">Factory</a></code> that is going to be used as a child. Make sure that you use an <code><a href="../Protocols/Action.html">Action</a></code> that is compatible with
+the <code><a href="../Protocols/Container.html">Container</a></code> <code><a href="../Protocols/Factory.html">Factory</a></code> you use.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">with</span><span class="o">&lt;</span><span class="kt">C</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Factory.html">Factory</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">childFactory</span><span class="p">:</span> <span class="kt">C</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span> <span class="k">where</span> <span class="kt">C</span><span class="o">.</span><span class="kt">Context</span> <span class="o">==</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">Context</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">with</span><span class="o">&lt;</span><span class="kt">C</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">childFactory</span><span class="p">:</span> <span class="kt">C</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span> <span class="k">where</span> <span class="kt">C</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/Factory.html">Factory</a></span><span class="p">,</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">Context</span> <span class="o">==</span> <span class="kt">C</span><span class="o">.</span><span class="kt">Context</span></code></pre>
 
                         </div>
                       </div>
@@ -354,7 +354,7 @@ container factory you use.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>instance of <code><a href="../Protocols/Factory.html">Factory</a></code>.</p>
+                                  <p>The instance of <code><a href="../Protocols/Factory.html">Factory</a></code>.</p>
                                 </div>
                               </td>
                             </tr>
@@ -364,13 +364,44 @@ container factory you use.</p>
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15DeepLinkLibrary23CompleteFactoryAssemblyC8assembleAA0dE0CyxGyF"></a>
+                    <a name="//apple_ref/swift/Method/assemble()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15DeepLinkLibrary23CompleteFactoryAssemblyC8assembleAA0dE0CyxGyF">assemble()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Assembles all the child factories provided and returns a <code><a href="../Protocols/Container.html">Container</a></code> <code><a href="../Protocols/Factory.html">Factory</a></code> instance.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">assemble</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/CompleteFactory.html">CompleteFactory</a></span><span class="o">&lt;</span><span class="kt">FC</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The <code><a href="../Classes/CompleteFactory.html">CompleteFactory</a></code> with child factories provided.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="http://tech.gilt.com" target="_blank" rel="external">Gilt Groupe</a>. All rights reserved. (Last updated: 2018-03-30)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2018 <a class="link" href="http://tech.gilt.com" target="_blank" rel="external">Gilt Groupe</a>. All rights reserved. (Last updated: 2018-04-26)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

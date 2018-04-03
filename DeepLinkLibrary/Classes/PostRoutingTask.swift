@@ -15,9 +15,10 @@ public protocol PostRoutingTask {
     /// Method to be executed by `Router` after all the view controller has been build in to stack.
     ///
     /// - Parameters:
-    ///   - viewController: `UIViewController` instance that this post task has been attached to
-    ///   - destination: Destination instance provided to the `Router`
-    ///   - routingStack: All the view controllers that been built by `Router` to reach final destination
+    ///   - viewController: The `UIViewController` instance that this post task has been attached to
+    ///   - destination: The `RoutingDestination` instance provided to the `Router`
+    ///   - routingStack: An array of all the view controllers that been built by the `Router` to
+    ///     reach a final destination
     func execute(on viewController: ViewController, for destination: Destination, routingStack: [UIViewController])
 
 }

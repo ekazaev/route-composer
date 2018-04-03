@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-/// Factory that creates UIViewController from Xib file.
+/// The `Factory` that creates a `UIViewController` from a Xib file.
 public class XibFactory<VC: UIViewController, C>: Factory {
 
     public typealias ViewController = VC
@@ -26,7 +26,7 @@ public class XibFactory<VC: UIViewController, C>: Factory {
     /// - Parameters:
     ///   - nibName: Xib file name
     ///   - bundle: Bundle instance if needed
-    ///   - action: Action instance to integrate built UIViewController in to stack
+    ///   - action: The `Action` instance to integrate built a `UIViewController` into the stack
     public init(nibName: String? = nil, bundle: Bundle? = nil, action: Action) {
         self.action = action
         self.nibName = nibName

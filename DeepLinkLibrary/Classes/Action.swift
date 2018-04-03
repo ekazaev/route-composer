@@ -13,20 +13,20 @@ public protocol Action: class {
     /// this method should be called instead.
     ///
     /// - Parameters:
-    ///   - viewController: view controller to be embedded to the stack of views that are in the container already
-    ///   - containerViewControllers: view controllers stack in the current context container
+    ///   - viewController: The `UIViewController` to be embedded to the stack of views that are in the container already
+    ///   - containerViewControllers: The view controllers stack in the current container
     func perform(embedding viewController: UIViewController, in containerViewControllers: inout [UIViewController])
 
     /// Performs provided action to the view controller.
     ///
     /// - Parameters:
-    ///   - viewController: operated view controller. the one which should appear on top of the stack after the action is applied.
+    ///   - viewController: operated `UIViewController`. the one which should appear on top of the stack after the `Action` is applied.
     ///   - existingController: presenting view controller.
     ///   - animated: animated
     ///   - completion: called once the action is applied. returns the view controller, which will appear on the top of the stack.
     ///
     /// In success scenario it will be viewController, existingController otherwise, if the action failed to add viewController to the stack.
-    /// NB: completion MUST to be called in implementation.
+    /// NB: completion MUST be called in implementation.
     func perform(viewController: UIViewController, on existingController: UIViewController, animated: Bool, completion: @escaping (_: ActionResult) -> Void)
 
 }

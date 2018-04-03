@@ -9,9 +9,10 @@ import Foundation
 import UIKit
 
 /// Dummy class to be provided to an assembly to show that this step should not have any factories
-/// The only purpose it exist is to provide type safety checks for `StepAssembly`.
+/// The only purpose it exists is to provide type safety checks for `StepAssembly`.
 ///
-/// For example UIViewController of this step was already loaded and integrated in to a stack by a storyboard.
+/// For example, `UIViewController` of this step was already loaded and integrated into a stack by a
+/// storyboard.
 public class NilFactory<VC: UIViewController, C>: Factory {
 
     public typealias ViewController = VC

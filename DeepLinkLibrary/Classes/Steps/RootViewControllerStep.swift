@@ -5,7 +5,7 @@
 
 import UIKit
 
-/// Returns root view controller of the window.
+/// Returns the root view controller of the window.
 public class RootViewControllerStep: RoutingStep, PerformableStep {
 
     public init() {

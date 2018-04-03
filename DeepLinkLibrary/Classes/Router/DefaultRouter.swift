@@ -92,7 +92,7 @@ public class DefaultRouter: Router {
             repeat {
                 let interceptableStep = currentStep as? InterceptableStep
 
-                // If step contain an action that needs to be done, add it in the interceptors array
+                // If step contain an `Action` that needs to be done, add it in the interceptors array
                 if let interceptor = interceptableStep?.interceptor {
                     interceptors.append(interceptor)
                 }
@@ -115,17 +115,17 @@ public class DefaultRouter: Router {
                         }
                         break
                     case .continueRouting(let factory):
-                        // If view controller is not found, but step has a factory to build itself - add factory to the stack
+                        // If view controller is not found, but step has a `Factory` to build itself - add factory to the stack
                         if rootViewController == nil {
                             logger?.log(.info("Step \(String(describing: currentStep!)) not found its view controller is stack, so router will continue search."))
                             if var factory = factory {
-                                // If step contains post task, them lets create a factory decorator that will handle view
+                                // If step contains post task, them lets create a `Factory` decorator that will handle view
                                 // controller and post task chain after view controller creation.
                                 if let internalStep = interceptableStep {
                                     try internalStep.contextTask?.prepare(with: destination.context, for: destination)
                                     factory = FactoryDecorator(factory: factory, contextTask: internalStep.contextTask, postTask: internalStep.postTask, postTaskRunner: postTaskRunner, logger: logger, destination: destination)
                                 }
-                                // If some factory can not prepare itself (e.g. does not have enough data in context) then deep link stack
+                                // If some `Factory` can not prepare itself (e.g. does not have enough data in context) then deep link stack
                                 // can not be built
                                 try factory.prepare(with: destination.context)
 
@@ -245,7 +245,7 @@ public class DefaultRouter: Router {
     }
 
     /// Each post action needs to know a view controller is should be applied to.
-    /// This decorator adds functionality of storing UIViewControllers created by the factory and frees custom factories
+    /// This decorator adds functionality of storing UIViewControllers created by the `Factory` and frees custom factories
     /// implementations from dealing with it. Mostly it is important for ContainerFactories which create merged view
     /// controllers without `Router`'s help.
     private class FactoryDecorator<D: RoutingDestination>: AnyFactory, CustomStringConvertible {

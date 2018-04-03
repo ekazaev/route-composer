@@ -5,7 +5,7 @@
 
 import UIKit
 
-/// Factory that creates UIViewController of desired class by its name
+/// `Factory` that creates `UIViewController` of desired class by its name
 public class ClassNameFactory<VC: UIViewController, C>: Factory {
 
     public typealias ViewController = VC
@@ -19,8 +19,8 @@ public class ClassNameFactory<VC: UIViewController, C>: Factory {
     /// Constructor
     ///
     /// - Parameters:
-    ///   - viewControllerName: Name of UIViewController class to be built
-    ///   - action: Action instance to integrate built UIViewController in to stack
+    ///   - viewControllerName: The name of `UIViewController` class to be built
+    ///   - action: The `Action` instance to integrate built `UIViewController` in to stack
     public init(viewControllerName: String, action: Action) {
         self.action = action
         self.viewControllerName = viewControllerName

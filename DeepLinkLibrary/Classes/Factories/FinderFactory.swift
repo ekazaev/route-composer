@@ -8,8 +8,8 @@
 import Foundation
 import UIKit
 
-/// `StepAssembly` uses finder result as a factory result. Used with things that do not have actual
-/// factories like UIViewControllers that were build as a result of storyboard loading.
+/// `StepAssembly` uses `Finder` result as a `Factory` result. Used with things that do not have actual
+/// factories like `UIViewController`s that were built as a result of storyboard loading.
 public class FinderFactory<F: Finder>: Factory {
 
     public typealias ViewController = F.ViewController
@@ -23,8 +23,8 @@ public class FinderFactory<F: Finder>: Factory {
     /// Constructor
     ///
     /// - Parameters:
-    ///   - finder: Finder instance to be used by factory
-    ///   - action: Action instance. In most cases has no sense, so defaulted to NilAction
+    ///   - finder: The `Finder` instance to be used by `Factory`
+    ///   - action: The `Action` instance. In most cases has no sense, so defaulted to `NilAction`
     public init(finder: F, action: Action = GeneralAction.NilAction()) {
         self.finder = finder
         self.action = action

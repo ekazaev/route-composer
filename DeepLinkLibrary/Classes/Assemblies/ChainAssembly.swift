@@ -14,7 +14,7 @@ import Foundation
 /// ```
 public class ChainAssembly {
 
-    /// Nested builder that does not allow to add steps from non-chainable step
+    /// A nested builder that does not allow to add steps from non-chainable step
     public class LastStepInChainAssembly {
 
         fileprivate var assembly: ChainAssembly
@@ -38,7 +38,7 @@ public class ChainAssembly {
     public init() {
     }
 
-    /// Previous step to start build current step from
+    /// Previous `RoutingStep` to start build current step from
     ///
     /// - Parameter previousStep: Instance of `RoutingStep`
     public func from(_ previousStep: RoutingStep) -> LastStepInChainAssembly {
@@ -46,15 +46,15 @@ public class ChainAssembly {
         return LastStepInChainAssembly(assembly: self)
     }
 
-    /// Previous step to start build current step from
+    /// Previous `RoutingStep` to start build current step from
     ///
-    /// - Parameter previousStep: Instance of `RoutingStep` and `ChainngStep`
+    /// - Parameter previousStep: Instance of `RoutingStep` and `ChainingStep`
     public func from(_ previousStep: RoutingStep & ChainingStep) -> Self {
         self.previousSteps.append(previousStep)
         return self
     }
 
-    /// Basic step to start build current step from
+    /// `BasicStep` to start build current step from
     ///
     /// - Parameter previousStep: Instance of `BasicStep`
     public func from<F, FC>(_ previousStep: BasicStep<F, FC>) -> Self {

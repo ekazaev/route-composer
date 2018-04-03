@@ -5,7 +5,7 @@
 import Foundation
 import UIKit
 
-/// Base router step implementation that handles all step protocols.
+/// Base router `RoutingStep` implementation that handles all step protocols.
 class BaseStep: ChainableStep, PerformableStep, ChainingStep, CustomStringConvertible {
 
     private(set) public var previousStep: RoutingStep? = nil
@@ -17,8 +17,8 @@ class BaseStep: ChainableStep, PerformableStep, ChainingStep, CustomStringConver
     /// Creates a basic instance of the routing step.
     ///
     /// - Parameters:
-    ///   - finder: UIViewController finder.
-    ///   - factory: UIViewController factory.
+    ///   - finder: The  `UIViewController` `Finder`.
+    ///   - factory: The `UIViewController` `Factory`.
     init<F: Finder, FC: Factory>(finder: F?, factory: FC?, previousStep: RoutingStep? = nil) where F.ViewController == FC.ViewController, F.Context == FC.Context  {
         self.previousStep = previousStep
         self.finder = FinderBox.box(for: finder)

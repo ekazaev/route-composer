@@ -5,7 +5,7 @@
 
 import UIKit
 
-/// Factory that creates UIViewController from storyboard.
+/// The `Factory` that creates `UIViewController` from the storyboard.
 public class StoryboardFactory<VC: UIViewController, C>: Factory {
 
     public typealias ViewController = VC
@@ -23,11 +23,11 @@ public class StoryboardFactory<VC: UIViewController, C>: Factory {
     /// Constructor
     ///
     /// - Parameters:
-    ///   - storyboardName: Name of storyboard file
-    ///   - bundle: Bundle instance if needed
-    ///   - viewControllerID: UIViewController identifier in storyboard. If not set - factory will try
-    ///     to create storyboards's initial UIViewController
-    ///   - action: Action instance to integrate built UIViewController in to stack
+    ///   - storyboardName: The name of a storyboard file
+    ///   - bundle: The Bundle instance if needed
+    ///   - viewControllerID: The `UIViewController` identifier in storyboard. If not set - the `Factory` will try
+    ///     to create a storyboards's initial `UIViewController`
+    ///   - action: The `Action` instance to integrate built `UIViewController` into the stack
     public init(storyboardName: String, bundle: Bundle? = nil, viewControllerID: String? = nil, action: Action) {
         self.action = action
         self.storyboardName = storyboardName
