@@ -26,7 +26,7 @@ public protocol StackIteratingFinder: Finder {
     ///   - viewController: Some view controller in the current view controller stack
     ///   - context: The `Context` instance that was provided to the `Router`.
     /// - Returns: true if this view controller is the one that `Finder` is looking for, false otherwise.
-    func isWanted(target viewController: ViewController, with context: Context) -> Bool
+    func isTarget(_ viewController: ViewController, with context: Context) -> Bool
 
 }
 
@@ -37,7 +37,7 @@ public extension StackIteratingFinder {
             guard let vc = $0 as? ViewController else {
                 return false
             }
-            return self.isWanted(target: vc, with: context)
+            return self.isTarget(vc, with: context)
         }
 
         guard let rootViewController = UIWindow.key?.topmostViewController,

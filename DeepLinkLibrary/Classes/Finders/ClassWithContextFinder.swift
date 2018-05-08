@@ -21,8 +21,8 @@ public class ClassWithContextFinder<VC: ContextChecking, C>: StackIteratingFinde
         self.options = options
     }
 
-    public func isWanted(target viewController: ViewController, with context: Context) -> Bool {
-        return viewController.isSuitable(for: context)
+    public func isTarget(_ viewController: ViewController, with context: Context) -> Bool {
+        return viewController.isTarget(for: context)
     }
 
 }
@@ -36,6 +36,6 @@ public protocol ContextChecking where Self: UIViewController {
     /// context data or willing to do so it should return `true`, `false` otherwise.
     /// - Parameters:
     ///     - context: The `Context` instance provided to the `Router`
-    func isSuitable(for context: Context) -> Bool
+    func isTarget(for context: Context) -> Bool
 
 }

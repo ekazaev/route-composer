@@ -140,7 +140,7 @@ public protocol Finder {
 
 In some cases, you may use default finders provided by a library. In other cases, when you can have more than one view controller of
 the same type in the stack, you should implement your own finder. There is a version of this protocol called `StackIteratingFinder` that
-helps to solve iterations in view controller stack and handles it. You just have to implement method `isWanted` to answer if it's the
+helps to solve iterations in view controller stack and handles it. You just have to implement method `isTarget` to answer if it's the
 view controller router it's looking for or not.
 
 *Example of `ProductViewControllerFinder` that can help the router find a `ProductViewController` that presents a particular
@@ -155,7 +155,7 @@ class ProductViewControllerFinder: StackIteratingFinder {
         self.options = options
     }
 
-    func isWanted(target productViewController: ProductViewController, with productID: UUID) -> Bool {
+    func isTarget(_ productViewController: ProductViewController, with productID: UUID) -> Bool {
         return productViewController.productID == productID
     }
 

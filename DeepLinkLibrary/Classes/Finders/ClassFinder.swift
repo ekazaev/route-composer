@@ -20,7 +20,7 @@ public class ClassFinder<VC:UIViewController, C>: StackIteratingFinder {
         self.options = options
     }
 
-    public func isWanted(target viewController: ViewController, with context: Context) -> Bool {
+    public func isTarget(_ viewController: ViewController, with context: Context) -> Bool {
         return true
     }
 

@@ -15,7 +15,7 @@ class ColorViewControllerFinder: StackIteratingFinder {
         self.options = options
     }
 
-    func isWanted(target viewController: ColorViewController, with context: ExampleDictionaryContext) -> Bool {
+    func isTarget(_ viewController: ColorViewController, with context: ExampleDictionaryContext) -> Bool {
         guard let destinationColorHex = context[Argument.color] as? ColorViewController.ColorDisplayModel else {
             return false
         }
