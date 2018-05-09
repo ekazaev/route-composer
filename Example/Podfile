@@ -1,10 +1,10 @@
 platform :ios, '10.3'
 use_frameworks!
 
-target 'DeepLinkLibrary_Example' do
-  pod 'DeepLinkLibrary', :path => '../'
+target 'RouteComposer_Example' do
+  pod 'RouteComposer', :path => '../'
 
-  target 'DeepLinkLibrary_Tests' do
+  target 'RouteComposer_Tests' do
     inherit! :search_paths
   end
 end

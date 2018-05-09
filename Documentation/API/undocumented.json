@@ -1,341 +1,110 @@
 {
   "warnings": [
     {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Actions/General/NilAction.swift",
-      "line": 14,
-      "symbol": "GeneralAction.NilAction.init()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Actions/Navigation Controller/NavigationControllerAction.swift",
+      "file": "/Users/ekazaev/Workplace/route-composer/RouteComposer/Classes/Actions/Navigation Controller/NavigationControllerAction.swift",
       "line": 8,
       "symbol": "NavigationControllerAction",
       "symbol_kind": "source.lang.swift.decl.protocol",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Actions/Navigation Controller/PushAsRoot.swift",
+      "file": "/Users/ekazaev/Workplace/route-composer/RouteComposer/Classes/Actions/Navigation Controller/PushAsRoot.swift",
       "line": 11,
       "symbol": "NavigationControllerFactory.PushAsRoot",
       "symbol_kind": "source.lang.swift.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Actions/Navigation Controller/PushReplacingLast.swift",
+      "file": "/Users/ekazaev/Workplace/route-composer/RouteComposer/Classes/Actions/Navigation Controller/PushReplacingLast.swift",
       "line": 11,
       "symbol": "NavigationControllerFactory.PushReplacingLast",
       "symbol_kind": "source.lang.swift.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Actions/Navigation Controller/PushToNavigation.swift",
-      "line": 11,
-      "symbol": "NavigationControllerFactory.PushToNavigation",
-      "symbol_kind": "source.lang.swift.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Actions/Split Controller/PushToDetails.swift",
-      "line": 14,
-      "symbol": "SplitControllerFactory.PushToDetails.init()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Actions/Split Controller/PushToMaster.swift",
-      "line": 13,
-      "symbol": "SplitControllerFactory.PushToMaster.init()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Actions/Split Controller/SplitControllerAction.swift",
-      "line": 9,
-      "symbol": "SplitControllerMasterAction",
-      "symbol_kind": "source.lang.swift.decl.protocol",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Actions/Split Controller/SplitControllerAction.swift",
-      "line": 13,
-      "symbol": "SplitControllerDetailAction",
-      "symbol_kind": "source.lang.swift.decl.protocol",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Actions/Tab Bar Controller/TabBarControllerAction.swift",
-      "line": 8,
-      "symbol": "TabBarControllerAction",
-      "symbol_kind": "source.lang.swift.decl.protocol",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Assemblies/ChainAssembly.swift",
-      "line": 38,
-      "symbol": "ChainAssembly.init()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/ContextTask.swift",
-      "line": 15,
-      "symbol": "ContextTask.ViewController",
-      "symbol_kind": "source.lang.swift.decl.associatedtype",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/ContextTask.swift",
-      "line": 17,
-      "symbol": "ContextTask.Context",
-      "symbol_kind": "source.lang.swift.decl.associatedtype",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Extensions/Array+Extension.swift",
-      "line": 11,
-      "symbol": "Array.canBeDismissed",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Extensions/UIViewController+Extension.swift",
+      "file": "/Users/ekazaev/Workplace/route-composer/RouteComposer/Classes/Extensions/UIViewController+Extension.swift",
       "line": 31,
       "symbol": "SearchOptions.presenting",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Extensions/UIViewController+Extension.swift",
+      "file": "/Users/ekazaev/Workplace/route-composer/RouteComposer/Classes/Extensions/UIViewController+Extension.swift",
       "line": 33,
       "symbol": "SearchOptions.currentAllStack",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Extensions/UIViewController+Extension.swift",
+      "file": "/Users/ekazaev/Workplace/route-composer/RouteComposer/Classes/Extensions/UIViewController+Extension.swift",
       "line": 34,
       "symbol": "SearchOptions.currentVisibleOnly",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Extensions/UIViewController+Extension.swift",
+      "file": "/Users/ekazaev/Workplace/route-composer/RouteComposer/Classes/Extensions/UIViewController+Extension.swift",
       "line": 35,
       "symbol": "SearchOptions.allVisible",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Extensions/UIViewController+Extension.swift",
+      "file": "/Users/ekazaev/Workplace/route-composer/RouteComposer/Classes/Extensions/UIViewController+Extension.swift",
       "line": 36,
       "symbol": "SearchOptions.fullStack",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Extensions/UIViewController+Extension.swift",
+      "file": "/Users/ekazaev/Workplace/route-composer/RouteComposer/Classes/Extensions/UIViewController+Extension.swift",
       "line": 37,
       "symbol": "SearchOptions.currentAndUp",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Extensions/UIViewController+Extension.swift",
+      "file": "/Users/ekazaev/Workplace/route-composer/RouteComposer/Classes/Extensions/UIViewController+Extension.swift",
       "line": 38,
       "symbol": "SearchOptions.currentAndDown",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Extensions/UIViewController+Extension.swift",
-      "line": 43,
-      "symbol": "UIViewController.findViewController(in:options:using:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.static",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Factories/NavigationControllerFactory.swift",
+      "file": "/Users/ekazaev/Workplace/route-composer/RouteComposer/Classes/Finders/ClassFinder.swift",
       "line": 21,
-      "symbol": "NavigationControllerFactory.init(action:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Factories/NilFactory.swift",
-      "line": 24,
-      "symbol": "NilFactory.init()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Factories/SimpleContainerFactory.swift",
-      "line": 35,
-      "symbol": "SimpleContainerFactory.buildChildrenViewControllers(with:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Factories/SplitControllerFactory.swift",
-      "line": 22,
-      "symbol": "SplitControllerFactory.init(action:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Factories/StoryboardFactory.swift",
-      "line": 19,
-      "symbol": "StoryboardFactory.bundle",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Factories/TabBarControllerFactory.swift",
-      "line": 21,
-      "symbol": "TabBarControllerFactory.init(action:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Factories/XibFactory.swift",
-      "line": 22,
-      "symbol": "XibFactory.bundle",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Finders/ClassFinder.swift",
-      "line": 19,
       "symbol": "ClassFinder.init(options:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Finders/ClassWithContextFinder.swift",
-      "line": 20,
+      "file": "/Users/ekazaev/Workplace/route-composer/RouteComposer/Classes/Finders/ClassWithContextFinder.swift",
+      "line": 23,
       "symbol": "ClassWithContextFinder.init(options:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Finders/ClassWithContextFinder.swift",
-      "line": 33,
+      "file": "/Users/ekazaev/Workplace/route-composer/RouteComposer/Classes/Finders/ClassWithContextFinder.swift",
+      "line": 36,
       "symbol": "ContextChecking.Context",
       "symbol_kind": "source.lang.swift.decl.associatedtype",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Finders/InstanceFinder.swift",
-      "line": 17,
-      "symbol": "InstanceFinder.instance",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Finders/NilFinder.swift",
-      "line": 21,
-      "symbol": "NilFinder.init()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Logger/Logger.swift",
-      "line": 17,
-      "symbol": "LoggerMessage.info",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Logger/Logger.swift",
-      "line": 20,
-      "symbol": "LoggerMessage.warning",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Logger/Logger.swift",
-      "line": 23,
-      "symbol": "LoggerMessage.error",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/PostRoutingTask.swift",
-      "line": 11,
-      "symbol": "PostRoutingTask.ViewController",
-      "symbol_kind": "source.lang.swift.decl.associatedtype",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/PostRoutingTask.swift",
-      "line": 13,
-      "symbol": "PostRoutingTask.Destination",
-      "symbol_kind": "source.lang.swift.decl.associatedtype",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Router/DefaultRouter.swift",
-      "line": 14,
-      "symbol": "DefaultRouter.init(logger:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Router/DefaultRouter.swift",
-      "line": 19,
+      "file": "/Users/ekazaev/Workplace/route-composer/RouteComposer/Classes/Router/DefaultRouter.swift",
+      "line": 22,
       "symbol": "DefaultRouter.deepLinkTo(destination:animated:completion:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Router.swift",
-      "line": 12,
-      "symbol": "Router.logger",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Router.swift",
-      "line": 15,
+      "file": "/Users/ekazaev/Workplace/route-composer/RouteComposer/Classes/Router.swift",
+      "line": 23,
       "symbol": "Router.deepLinkTo(destination:animated:completion:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/RoutingDestination.swift",
-      "line": 12,
-      "symbol": "RoutingDestination.Context",
-      "symbol_kind": "source.lang.swift.decl.associatedtype",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/RoutingError.swift",
-      "line": 12,
-      "symbol": "RoutingError.message",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/RoutingInterceptor.swift",
-      "line": 16,
-      "symbol": "RoutingInterceptor.Destination",
-      "symbol_kind": "source.lang.swift.decl.associatedtype",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Steps/CurrentViewControllerStep.swift",
-      "line": 11,
-      "symbol": "CurrentViewControllerStep.init()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/ekazaev/Workplace/DeepLinkLibrary/DeepLinkLibrary/Classes/Steps/RootViewControllerStep.swift",
-      "line": 11,
-      "symbol": "RootViewControllerStep.init()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     }
   ],
-  "source_directory": "/Users/ekazaev/Workplace/DeepLinkLibrary"
+  "source_directory": "/Users/ekazaev/Workplace/route-composer"
 }

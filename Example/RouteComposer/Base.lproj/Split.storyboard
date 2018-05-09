@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="67u-nR-2gr">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Title-->
+        <scene sceneID="YGp-ao-Ulq">
+            <objects>
+                <viewController storyboardIdentifier="CityDetailViewController" id="dzi-Yh-QPj" customClass="CityDetailViewController" customModule="RouteComposer_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4sM-Kr-LRe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Xzs-EE-beg">
+                                <rect key="frame" x="0.0" y="88" width="375" height="660"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xtZ-Bm-1SM">
+                                <rect key="frame" x="111" y="748" width="153" height="30"/>
+                                <state key="normal" title="Back programmaticaly"/>
+                                <connections>
+                                    <action selector="backProgrammaticallyTapped" destination="dzi-Yh-QPj" eventType="touchUpInside" id="XuW-AG-Kl9"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <accessibility key="accessibilityConfiguration" identifier="cityDetailsViewController"/>
+                        <constraints>
+                            <constraint firstItem="xtZ-Bm-1SM" firstAttribute="top" secondItem="Xzs-EE-beg" secondAttribute="bottom" id="UGP-wI-5Uh"/>
+                            <constraint firstItem="xtZ-Bm-1SM" firstAttribute="bottom" secondItem="5zf-5r-Blw" secondAttribute="bottom" id="YT1-8x-Tz2"/>
+                            <constraint firstItem="xtZ-Bm-1SM" firstAttribute="centerX" secondItem="5zf-5r-Blw" secondAttribute="centerX" id="eQd-0r-dNg"/>
+                            <constraint firstItem="Xzs-EE-beg" firstAttribute="top" secondItem="5zf-5r-Blw" secondAttribute="top" id="fqg-Ua-rll"/>
+                            <constraint firstItem="5zf-5r-Blw" firstAttribute="trailing" secondItem="Xzs-EE-beg" secondAttribute="trailing" id="gYp-b4-dFl"/>
+                            <constraint firstItem="Xzs-EE-beg" firstAttribute="leading" secondItem="5zf-5r-Blw" secondAttribute="leading" id="hO5-i0-Slu"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="5zf-5r-Blw"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="fTF-XV-eAw">
+                        <barButtonItem key="rightBarButtonItem" title="Star" id="S58-YY-jEn">
+                            <connections>
+                                <action selector="goToStarTapped" destination="dzi-Yh-QPj" id="zct-0d-7KA"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="detailsTextView" destination="Xzs-EE-beg" id="GFZ-mG-nDC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CHf-iT-qyX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="168.80000000000001" y="479.55665024630542"/>
+        </scene>
+        <!--Cities-->
+        <scene sceneID="fsz-ya-x4D">
+            <objects>
+                <tableViewController storyboardIdentifier="CitiesTableViewController" clearsSelectionOnViewWillAppear="NO" id="zAP-El-pN4" customClass="CitiesTableViewController" customModule="RouteComposer_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="iRe-69-aln">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CityCell" rowHeight="49" id="fs8-xs-bqU">
+                                <rect key="frame" x="0.0" y="28" width="375" height="49"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fs8-xs-bqU" id="zrI-Fj-lq9">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="48.666666666666664"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="zAP-El-pN4" id="hqg-Ts-vPv"/>
+                            <outlet property="delegate" destination="zAP-El-pN4" id="e95-eb-AX7"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Cities" id="Np1-c5-87h">
+                        <barButtonItem key="leftBarButtonItem" title="Square" id="waW-tj-F0J">
+                            <connections>
+                                <action selector="goToSquareTapped" destination="zAP-El-pN4" id="DWa-nJ-HV4"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tby-Hu-Ndp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1120.8" y="-185.46798029556652"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="RXa-bz-uQx">
+            <objects>
+                <navigationController id="kFA-VB-iMR" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0AG-68-9r8">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="zAP-El-pN4" kind="relationship" relationship="rootViewController" id="NsY-hn-wtQ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nqd-Qh-cRi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="169" y="-185"/>
+        </scene>
+        <!--Split View Controller-->
+        <scene sceneID="kWh-YY-rrF">
+            <objects>
+                <splitViewController storyboardIdentifier="UISplitViewController" id="67u-nR-2gr" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="kFA-VB-iMR" kind="relationship" relationship="masterViewController" id="5dV-Dz-gsP"/>
+                        <segue destination="dzi-Yh-QPj" kind="relationship" relationship="detailViewController" id="zGm-rd-vwV"/>
+                    </connections>
+                </splitViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HEh-Co-ILV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-783" y="148"/>
+        </scene>
+    </scenes>
+</document>

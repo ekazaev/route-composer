@@ -1,11 +1,11 @@
-# DeepLinkLibrary
+# RouteComposer
 
-[![CI Status](http://img.shields.io/travis/ekazaev/DeepLinkLibrary.svg?style=flat)](https://travis-ci.org/ekazaev/DeepLinkLibrary)
-[![Version](https://img.shields.io/cocoapods/v/DeepLinkLibrary.svg?style=flat)](http://cocoapods.org/pods/DeepLinkLibrary)
-[![License](https://img.shields.io/cocoapods/l/DeepLinkLibrary.svg?style=flat)](http://cocoapods.org/pods/DeepLinkLibrary)
-[![Platform](https://img.shields.io/cocoapods/p/DeepLinkLibrary.svg?style=flat)](http://cocoapods.org/pods/DeepLinkLibrary)
+[![CI Status](http://img.shields.io/travis/ekazaev/RouteComposer.svg?style=flat)](https://travis-ci.org/ekazaev/RouteComposer)
+[![Version](https://img.shields.io/cocoapods/v/RouteComposer.svg?style=flat)](http://cocoapods.org/pods/RouteComposer)
+[![License](https://img.shields.io/cocoapods/l/RouteComposer.svg?style=flat)](http://cocoapods.org/pods/RouteComposer)
+[![Platform](https://img.shields.io/cocoapods/p/RouteComposer.svg?style=flat)](http://cocoapods.org/pods/RouteComposer)
 
-DeepLinkLibrary is the library that helps handle routing tasks in the IOs application and support deep linking written in Swift.
+RouteComposer is the library that helps handle routing tasks in the IOs application and support deep linking written in Swift.
 
 ## Table of contents
 
@@ -28,19 +28,19 @@ DeepLinkLibrary is the library that helps handle routing tasks in the IOs applic
 
 ## Installation
 
-DeepLinkLibrary is available through [CocoaPods](http://cocoapods.org). To install
+RouteComposer is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'DeepLinkLibrary'
+pod 'RouteComposer'
 ```
 
 And then run `pod install`.
 
-Once successfully integrated, just add the following statement to any Swift file where you want to use DeepLinkLibrary:
+Once successfully integrated, just add the following statement to any Swift file where you want to use RouteComposer:
 
 ```swift
-import DeepLinkLibrary
+import RouteComposer
 ```
 
 Please, check the Example app, it covers most cases you can come across.
@@ -56,11 +56,11 @@ and actions you have to be familiar with library concepts and UIKit's view contr
 
 ### API documentation
 
-For detailed information on using DeepLinkLibrary, see `Documentation/API` folder.
+For detailed information on using RouteComposer, see `Documentation/API` folder.
 
 ## Usage
 
-DeepLinkingLibrary uses 3 main entities (`Factory`, `Finder`, `Action`) that should be defined by a host application to support it.
+RouteComposer uses 3 main entities (`Factory`, `Finder`, `Action`) that should be defined by a host application to support it.
 It also provides 3 helping entities (`RoutingInterceptor`, `ContextTask`, `PostRoutingTask`) that you may implement to handle some
 default actions during the routing process. There are 3 main `associatedtype` in the description of each entity below:
 * `ViewController` - Type of view controller. *UINavigationController, CustomViewController, etc.*
@@ -379,7 +379,8 @@ class ProductArrayViewController: UITableViewController {
 }
 ```
 
-In the example without `DeepLinkingLibrary` the code may seem simpler, however, everything is hardcoded in the actual method implementation. `DeepLinkingLibrary` allows you to split everything into small reusable pieces and store navigation configuration separately from
+In the example without `RouteComposer` the code may seem simpler, however, everything is hardcoded in the actual method implementation. 
+`RouteComposer` allows you to split everything into small reusable pieces and store navigation configuration separately from
 your view logic. Also, the above implementation will grow dramatically when you try to add Universal Link support to your app.
 Especially if you will have to choose from opening `ProductViewController` from a universal link if it is already present on the
 screen or not and so on. With the library, each of your view controllers is deep linkable by nature.
@@ -392,16 +393,16 @@ See example app for other examples of defining routing configurations and instan
 
 ## Contributing
 
-DeepLinkLibrary is in active development, and we welcome your contributions.
+RouteComposer is in active development, and we welcome your contributions.
 
 If you’d like to contribute to this repo, please
 read [the contribution guidelines](https://github.com/gilt/Cleanroom#contributing-to-the-cleanroom-project).
 
 ### License
 
-DeepLinkLibrary is distributed under [the MIT license](https://github.com/saksdirect/DeepLinkLibrary/blob/master/LICENSE).
+RouteComposer is distributed under [the MIT license](https://github.com/saksdirect/RouteComposer/blob/master/LICENSE).
 
-DeepLinkLibrary is provided for your use—free-of-charge—on an as-is basis. We make no guarantees, promises or
+RouteComposer is provided for your use—free-of-charge—on an as-is basis. We make no guarantees, promises or
 apologies. *Caveat developer.*
 
 

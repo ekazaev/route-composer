@@ -1,0 +1,6 @@
+framework module RouteComposer {
+  umbrella header "RouteComposer-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,6 +1,6 @@
 import UIKit
 import XCTest
-import DeepLinkLibrary
+import RouteComposer
 
 class Tests: XCTestCase {
     
