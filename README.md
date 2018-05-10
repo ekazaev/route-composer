@@ -43,7 +43,7 @@ Once successfully integrated, just add the following statement to any Swift file
 import RouteComposer
 ```
 
-Please, check the Example app, it covers most cases you can come across.
+Check out the Example app included, as it covers most of the general use cases.
 
 ## Example
 
@@ -51,8 +51,8 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Requirements
 
-There are no actual requirements to use a library. But if you are going to implement your custom containers
-and actions you have to be familiar with library concepts and UIKit's view controllers stack laws.
+There are no actual requirements to use this library. But if you are going to implement your custom containers
+and actions you should be familiar with the library concepts and UIKit's view controller navigation stack intricacies.
 
 ### API documentation
 
@@ -76,8 +76,8 @@ context is UUID*
 
 #### 1. Factory
 
-Factory **builds view controller** router has to navigate to upon request. Every factory instance has to extend `Factory` protocol
-factory provided by a library:
+Factory is responsible for **building view controllers**, that the router has to navigate to upon request.
+Every Factory instance must implement the `Factory` protocol:
 
 ```swift
 public protocol Factory: class {
@@ -95,12 +95,13 @@ public protocol Factory: class {
 }
 ```
 
-The most important method here is `build` which should actually create a view controller. For detailed information
-see the documentation. Method `prepare` helps router know that routing can't be handled before it will actually start routing
-and find out that factory can't build a view controller without context. It may be useful if you are implementing Universal
-Links in your application and the routing can't be handled then the application opens the provided URL in Safari instead.
+The most important function here is `build` which should actually create the view controller. For detailed information
+see the documentation. The `prepare` function provides you with a way of doing something before the routing actually takes place.
+For example, you could `throw` from inside this function in order to inform the router that you do not have the data required to
+display the view correctly. It may be useful if you are implementing Universal Links in your application and the routing can't be
+handled, in which case the application might open the provided URL in Safari instead.
 
-*Example: Basic implementation of the factory for some custom `ProductViewController` view controller will look like:*
+*Example: Basic implementation of the factory for some custom `ProductViewController` view controller might look like:*
 
 ```swift
 class ProductViewControllerFactory: Factory {
@@ -138,10 +139,10 @@ public protocol Finder {
 }
 ```
 
-In some cases, you may use default finders provided by a library. In other cases, when you can have more than one view controller of
-the same type in the stack, you should implement your own finder. There is a version of this protocol called `StackIteratingFinder` that
-helps to solve iterations in view controller stack and handles it. You just have to implement method `isTarget` to answer if it's the
-view controller router it's looking for or not.
+In some cases, you may use default finders provided by the library. In other cases, when you can have more than one view controller of
+the same type in the stack, you may implement your own finder. There is an implementation of this protocol included called `StackIteratingFinder`
+that helps to solve iterations in view controller stack and handles it. You just have to implement the function `isTarget` to determine if it's the
+view controller that you are looking for or not.
 
 *Example of `ProductViewControllerFinder` that can help the router find a `ProductViewController` that presents a particular
 product in your view controller stack:*
@@ -162,26 +163,26 @@ class ProductViewControllerFinder: StackIteratingFinder {
 }
 ```
 
-`SearchOptions` here is an enum that explains `StackIteratingFinder` how it should iterate through the stack. See documentation.
+`SearchOptions` is an enum that informs `StackIteratingFinder` how to iterate through the stack when searching. See documentation.
 
 #### 3. Action
 
-The `Action` instance explains to the router **how the view controller is created by a `Factory` should be integrated into to a view controller stack**.
+The `Action` instance explains to the router **how the view controller is created by a `Factory` should be integrated into a view controller stack**.
 Most likely, you will not need to implement your own actions because the library provides actions for most of the default actions that can be done in
-`UIKit` like (`PresentModally`, `AddTab`, `PushToNavigation` etc.), you may need to implement your own actions if you are
-implementing something unusual.
+`UIKit` like (`PresentModally`, `AddTab`, `PushToNavigation` etc.). You may need to implement your own actions if you are
+doing something unusual.
 
 Check example app to see a custom action implementation.
 
 *Example: As you most likely will not need to implement your own actions, let's look at the implementation of `PresentModally` provided
-by a library:*
+by the library:*
 
 ```swift
 class PresentModally: Action {
 
     func perform(viewController: UIViewController, on existingController: UIViewController, animated: Bool, completion: @escaping (_: ActionResult) -> Void) {
         guard existingController.presentedViewController == nil else {
-            completion(.failure("\(existingController) has already presented view controller."))
+            completion(.failure("\(existingController) is already presenting a view controller."))
             return
         }
 
@@ -195,9 +196,9 @@ class PresentModally: Action {
 
 #### 4. Routing Interceptor
 
-Routing interceptor will be **used by a router before it will start routing to the target** view controller. For example, to navigate to
-some particular view controller, the user should be logged in. You may implement your class that extends `RoutingInterceptor` protocol and
-if the user is not logged in, it will present the login view controller where the user can log in. If this process finishes successfully,
+Routing interceptor will be **used by the router before it will start routing to the target view controller.** For example, to navigate to
+some particular view controller, the user might need to be logged in. You may create a class that implements the `RoutingInterceptor` protocol
+and if the user is not logged in, it will present a login view controller where the user can log in. If this process finishes successfully,
 the interceptor should inform the router and it will continue routing or otherwise stop routing. See example app for details.
 
 *Example: If the user is logged in, router can continue routing. If the user is not logged in, the router should not continue*
@@ -219,9 +220,9 @@ class LoginInterceptor: RoutingInterceptor {
 
 #### 5. Context Task
 
-If you are using one default `Factory` and `Finder` implementation provided by a library, you still need to **set data in
+If you are using one default `Factory` and `Finder` implementation provided by the library, you still need to **set data in
 context to your view controller.** You have to do this even if it already exists in the stack, if it's just going to be created by a `Factory` or do any other
-actions at the moment when router found/created a view controller. Just extend `ContextTask` protocol.
+actions at the moment when router found/created a view controller. Just implement `ContextTask` protocol.
 
 *Example: Even if `ProductViewController` is present on the screen or it is going to be created you have to set productID to
 present a product.*
@@ -240,8 +241,8 @@ See example app for the details.
 
 #### 6. Post Routing Task
 
-A post-routing task will be called by a router **after it successfully finishes navigating to the target view controller**.
-You should extend `PostRoutingTask` protocol and implement all necessary actions there.
+A post-routing task will be called by the router **after it successfully finishes navigating to the target view controller**.
+You should implement `PostRoutingTask` protocol and create all necessary actions there.
 
 *Example: You need to log an event in your analytics every time the user lands on a product view controller:*
 
@@ -264,7 +265,7 @@ class ProductViewControllerPostTask: PostRoutingTask {
 ### Configuring Step
 
 Everything that the router does is configured using a `RoutingStep` instance. There is no need to create your own implementation of this protocol.
-Use `StepAssembly` provided by a library to configure any step that the router should execute during the routing.
+Use `StepAssembly` provided by the library to configure any step that the router should execute during the routing.
 
 *Example: A `ProductViewController` configuration that explains to the router that it should be boxed in UINavigationController
 which should be presented modally from any currently visible view controller.*
@@ -281,10 +282,10 @@ let productScreen = StepAssembly(finder: ProductViewControllerFinder(), factory:
 
 This configuration means:
 
-* Use `ProductViewControllerFinder` to **find** view controller in stack and **create** it using `ProductViewControllerFactory` if it has not been found.
+* Use `ProductViewControllerFinder` to potentially **find** an exisiting product view controller in the stack, or **create** it using `ProductViewControllerFactory` if it has not been found.
 * If it was created **push** it in to navigation stack
-* Navigation stack should be provided **from** another step `NavigationControllerStep` that will create a `UINavigationController` instance
-* The `UINavigationController` instance should be presented modally **from** any currently visible view controller.
+* Navigation stack should be provided from another step `NavigationControllerStep`, that will create a `UINavigationController` instance
+* The `UINavigationController` instance should be presented modally from any currently visible view controller.
 * Before routing run `LoginInterceptor`
 * After view controller been created or found, run `ProductViewControllerContentTask`
 * After successful routing run `ProductViewControllerPostTask`
@@ -293,11 +294,11 @@ This configuration means:
 
 ### Routing
 
-After you have implemented all necessary classes and configured routing step, you can start to use a `Router` to navigate. The library provides
-a `DefaultRouter` which is an instance of the `Router` protocol to handle routing based on the configuration explained above. The Router accepts a
+After you have implemented all necessary classes and configured a routing step, you can start to use the `Router` to navigate. The library provides
+a `DefaultRouter` which is an implementation of the `Router` protocol to handle routing based on the configuration explained above. The Router accepts a
 destination instance that extends `RoutingDestination` protocol. The `RoutingDestination` protocol contains the final step the user has to land on. It also contains a context object that has data which is provided to a view controller, if required.
 
-*Example: The user taps on a cell in a `UITableView` that contains a list. It then asks the router to navigate the user to `ProductViewController`. The user
+*Example: The user taps on a cell in a `UITableView`. It then asks the router to navigate the user to `ProductViewController`. The user
 should be logged in to see the product details.*
 
 ```swift
@@ -341,7 +342,7 @@ class ProductArrayViewController: UITableViewController {
 }
 ```
 
-*Example below shows the same process without the use of DeepLinkingLibrary*
+*Example below shows the same process without the use of RouteComposer*
 
 ```swift
 class ProductArrayViewController: UITableViewController {
@@ -379,7 +380,7 @@ class ProductArrayViewController: UITableViewController {
 }
 ```
 
-In the example without `RouteComposer` the code may seem simpler, however, everything is hardcoded in the actual method implementation. 
+In the example without `RouteComposer` the code may seem simpler, however, everything is hardcoded in the actual function implementation. 
 `RouteComposer` allows you to split everything into small reusable pieces and store navigation configuration separately from
 your view logic. Also, the above implementation will grow dramatically when you try to add Universal Link support to your app.
 Especially if you will have to choose from opening `ProductViewController` from a universal link if it is already present on the
@@ -402,7 +403,7 @@ read [the contribution guidelines](https://github.com/gilt/Cleanroom#contributin
 
 RouteComposer is distributed under [the MIT license](https://github.com/saksdirect/RouteComposer/blob/master/LICENSE).
 
-RouteComposer is provided for your use—free-of-charge—on an as-is basis. We make no guarantees, promises or
+RouteComposer is provided for your use, free-of-charge, on an as-is basis. We make no guarantees, promises or
 apologies. *Caveat developer.*
 
 
