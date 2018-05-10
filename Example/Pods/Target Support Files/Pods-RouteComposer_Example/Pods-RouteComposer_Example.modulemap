@@ -1,0 +1,6 @@
+framework module Pods_RouteComposer_Example {
+  umbrella header "Pods-RouteComposer_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}
