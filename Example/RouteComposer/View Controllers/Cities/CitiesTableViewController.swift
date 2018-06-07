@@ -17,7 +17,7 @@ class CityTableContextTask: ContextTask {
 
 class CitiesTableViewController: UITableViewController, ExampleAnalyticsSupport {
 
-    let screenType = ExampleScreen.citiesList
+    let screenType = ExampleScreenTypes.citiesList
 
     var cityId: Int? {
         didSet {
@@ -62,7 +62,7 @@ class CitiesTableViewController: UITableViewController, ExampleAnalyticsSupport 
 
 }
 
-// To show master first in compact mode
+// To show the master view controller first in the compact mode
 // https://stackoverflow.com/questions/29506713/open-uisplitviewcontroller-to-master-view-rather-than-detail
 extension CitiesTableViewController: UISplitViewControllerDelegate {
 

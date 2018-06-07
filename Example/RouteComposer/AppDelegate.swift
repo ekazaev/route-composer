@@ -14,11 +14,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         ConfigurationHolder.configuration = ExampleConfiguration()
 
-        // Try in mobile Safari:
+        // Try in mobile Safari to test the deeplinking to the app:
+        // Try it when you are on any screen in the app to check that you will always land where you have to be
+        // depending on the configuration provided.
         //
         // dll://colors?color=AABBCC
         // dll://products?product=01

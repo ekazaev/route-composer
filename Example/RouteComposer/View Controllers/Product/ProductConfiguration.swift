@@ -25,7 +25,7 @@ class ProductConfiguration {
             .using(NavigationControllerFactory.pushToNavigation())
             .from(SwitchAssembly<UINavigationController, Any?>()
                     .addCase { (context: ProductContext) in
-                        // If this navigation is requested by a Universal Link, then present modally
+                        // If this configuration is requested by a Universal Link (productURL != nil), then present modally.
                         // Try in Mobile Safari dll://productView?product=123
                         guard context.productURL != nil else {
                             return nil
@@ -37,10 +37,10 @@ class ProductConfiguration {
                                 .assemble()
 
                     }
-                    // If UINavigationController exists on current level - just push
-                    .addCase(when: ClassFinder<UINavigationController, Any?>(options: .currentAllStack))
+                    // If UINavigationController is visible on the screen - just push
+                    .addCase(when: ClassFinder<UINavigationController, Any?>(options: .currentVisibleOnly))
                     .assemble(default: {
-                        // Otherwise - presenting in Circle Tab
+                        // Otherwise - present in the UINavigation controller that belongs to Circle tab
                         return StepAssembly(finder: ClassFinder<UINavigationController, Any?>(), factory: NilFactory())
                                 .from(ConfigurationHolder.configuration.circleScreen)
                                 .assemble()

@@ -27,7 +27,7 @@ class CustomContainerFactory: SimpleContainer {
         }
         containerController.delegate = delegate
 
-        // Our custom view controller can present only one child. So we will use only the last one if it exist.
+        // Our custom view controller can only present one child. So we will use only the last one if it exist.
         containerController.rootViewController = viewControllers.last
         return containerController
     }

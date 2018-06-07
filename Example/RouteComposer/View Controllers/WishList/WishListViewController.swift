@@ -9,7 +9,7 @@ import RouteComposer
 
 class WishListViewController: UITableViewController, ExampleAnalyticsSupport {
 
-    var screenType = ExampleScreen.favorites
+    var screenType = ExampleScreenTypes.favorites
 
     var segmentController = UISegmentedControl(items: ["Favorites", "Collections"])
 
@@ -21,7 +21,7 @@ class WishListViewController: UITableViewController, ExampleAnalyticsSupport {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        segmentController.addTarget(self, action: #selector(segmentChanged), for: .valueChanged)
+        segmentController.addTarget(self, action: #selector(segmentChanged), for: UIControl.Event.valueChanged)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneTapped))
         reloadData()
     }

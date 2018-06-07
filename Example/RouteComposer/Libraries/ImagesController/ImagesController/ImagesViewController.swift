@@ -34,7 +34,7 @@ public class ImagesViewController: UITableViewController {
 
     public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ImageCell") else {
-            fatalError("Unable to dequeue reusable cell.")
+            fatalError("Unable to dequeue a reusable cell.")
         }
         cell.textLabel?.text = imagesNames[indexPath.row]
         return cell

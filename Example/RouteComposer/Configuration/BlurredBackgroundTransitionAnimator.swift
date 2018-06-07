@@ -19,7 +19,7 @@ class BlurredBackgroundTransitionAnimator: NSObject, UIViewControllerAnimatedTra
         return 0.3
     }
 
-    private func blurEffectView(_ style: UIBlurEffectStyle = .light, frame: CGRect? = nil, backgroundColor: UIColor?) -> UIVisualEffectView {
+    private func blurEffectView(_ style: UIBlurEffect.Style = .light, frame: CGRect? = nil, backgroundColor: UIColor?) -> UIVisualEffectView {
         let blurEffect = UIBlurEffect(style: style)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         if let frame = frame {
@@ -33,9 +33,6 @@ class BlurredBackgroundTransitionAnimator: NSObject, UIViewControllerAnimatedTra
 
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         guard let viewToAnimate = transitionType == .present ? transitionContext.view(forKey: .to) : transitionContext.view(forKey: .from) else {
-            // View but not the view controller's view should be used. See the doc for view(forKey:) or
-            // http://stackoverflow.com/a/25193675/421797
-            // NB: transitionContext.view(forKey: .from) is nil if you are not allowed to change it - (presentation is starting from this view)
             transitionContext.completeTransition(false)
             return
         }
@@ -56,9 +53,6 @@ class BlurredBackgroundTransitionAnimator: NSObject, UIViewControllerAnimatedTra
         let effect: UIBlurEffect? = transitionType == .present ? UIBlurEffect(style: .extraLight) : nil
         blurEffect.alpha = initialAlpha
 
-        // On dismissal view to is not in transition view if UIPresentationController's shouldRemovePresentersView
-        // is true (Full screen presentation happened over that view)
-        // We are responsible to add it if we need it for the animation.
         if transitionType == .dismiss,
            let viewBelow = transitionContext.view(forKey: .to),
            viewBelow.superview == nil {

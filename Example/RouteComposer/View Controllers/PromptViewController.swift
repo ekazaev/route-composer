@@ -9,7 +9,7 @@ import RouteComposer
 
 class PromptViewController: UIViewController, ExampleAnalyticsSupport {
 
-    let screenType = ExampleScreen.welcome
+    let screenType = ExampleScreenTypes.welcome
 
     @IBAction func goToHomeTapped() {
         try? router.navigate(to: ConfigurationHolder.configuration.homeScreen, with: nil)

@@ -6,8 +6,8 @@
 import Foundation
 import RouteComposer
 
-// NB: Keeping the screen configurations in the Dictionary has no practical value, demo only.
-enum ExampleScreen {
+// Enum to demo analytics
+enum ExampleScreenTypes {
 
     case circle
 
