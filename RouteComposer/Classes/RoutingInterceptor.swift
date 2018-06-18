@@ -25,7 +25,7 @@ public protocol RoutingInterceptor {
     /// ###NB
     /// For `Router` to continue routing, completion of interceptor's execute method **MUST** to be called
     /// in any scenario.
-    /// Otherwise `Router` will stay in limbo state waiting for `RoutingInterceptor` to finish its action.
+    /// Otherwise `Router` will stay in limbo waiting for `RoutingInterceptor` to finish its action.
     func execute(for destination: Destination, completion: @escaping (_: InterceptorResult) -> Void)
 
 }

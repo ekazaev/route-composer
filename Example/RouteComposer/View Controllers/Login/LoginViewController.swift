@@ -51,6 +51,8 @@ class LoginViewController: UIViewController, ExampleAnalyticsSupport {
 
     @IBOutlet private var loginButton: UIButton!
 
+    @IBOutlet private var activityIndicator: UIActivityIndicatorView!
+
     var interceptorCompletionBlock: ((_: InterceptorResult) -> Void)? {
         // This will help to handle the rare situation that user is in the middle of deeplinking to the login restricted,
         // area and he taps on another deeplink to another restricted area. Interceptor will replace this completion block
@@ -81,8 +83,10 @@ class LoginViewController: UIViewController, ExampleAnalyticsSupport {
             loginButton.isEnabled = false
             let mainQueue = DispatchQueue.main
             let deadline = DispatchTime.now() + .seconds(2)
+            activityIndicator.startAnimating()
             mainQueue.asyncAfter(deadline: deadline) {
                 self.loginButton.isEnabled = true
+                self.activityIndicator.startAnimating()
                 isLoggedIn = true
                 self.dismiss(animated: true) {
                     self.interceptorCompletionBlock?(.success)
