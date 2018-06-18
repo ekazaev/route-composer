@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tk3-34-23a">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tk3-34-23a">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -70,12 +70,17 @@
                                     <constraint firstAttribute="width" priority="749" constant="300" id="0UR-HS-vbx"/>
                                 </constraints>
                             </stackView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="0c2-UN-8gA">
+                                <rect key="frame" x="177.5" y="355.5" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <accessibility key="accessibilityConfiguration" identifier="loginViewController"/>
                         <constraints>
                             <constraint firstItem="bw7-LY-ord" firstAttribute="centerY" secondItem="mne-2J-rvy" secondAttribute="centerY" multiplier="0.7" id="3O0-yf-vYU"/>
+                            <constraint firstItem="0c2-UN-8gA" firstAttribute="centerY" secondItem="mne-2J-rvy" secondAttribute="centerY" id="SCz-I7-igg"/>
                             <constraint firstItem="mne-2J-rvy" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="bw7-LY-ord" secondAttribute="trailing" id="Uc2-1b-ySW"/>
+                            <constraint firstItem="0c2-UN-8gA" firstAttribute="centerX" secondItem="mne-2J-rvy" secondAttribute="centerX" id="cEq-Vj-X7C"/>
                             <constraint firstItem="bw7-LY-ord" firstAttribute="centerX" secondItem="mne-2J-rvy" secondAttribute="centerX" id="oaj-Uc-Uhk"/>
                             <constraint firstItem="bw7-LY-ord" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="mne-2J-rvy" secondAttribute="leading" id="zTo-YO-Y0J"/>
                         </constraints>
@@ -89,6 +94,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="0c2-UN-8gA" id="aZe-27-OQg"/>
                         <outlet property="loginButton" destination="T1K-qX-KvC" id="INr-zr-Ybg"/>
                         <outlet property="loginTextField" destination="REX-He-OrB" id="7zG-pA-tku"/>
                         <outlet property="passwordTextField" destination="1VT-Jw-lSz" id="gqH-d9-G66"/>

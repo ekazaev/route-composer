@@ -6,7 +6,7 @@
 import UIKit
 
 /// Deep Linking Library routing implementations
-public class DefaultRouter: Router {
+public struct DefaultRouter: Router, AssemblableRouter {
 
     /// Logger instance
     public let logger: Logger?
@@ -16,6 +16,30 @@ public class DefaultRouter: Router {
     /// - Parameter logger: `Logger` instance to be used by the `Router`.
     public init(logger: Logger? = nil) {
         self.logger = logger
+    }
+
+    private var interceptors: [AnyRoutingInterceptor] = []
+
+    private var contentTasks: [AnyContextTask] = []
+
+    private var postTasks: [AnyPostRoutingTask] = []
+
+    @discardableResult
+    public mutating func add<R: RoutingInterceptor>(_ interceptor: R) -> DefaultRouter {
+        self.interceptors.append(RoutingInterceptorBox(interceptor))
+        return self
+    }
+
+    @discardableResult
+    public mutating func add<CT: ContextTask>(_ contentTask: CT) -> DefaultRouter {
+        self.contentTasks.append(ContextTaskBox(contentTask))
+        return self
+    }
+
+    @discardableResult
+    public mutating func add<P: PostRoutingTask>(_ postTask: P) -> DefaultRouter {
+        self.postTasks.append(PostRoutingTaskBox(postTask))
+        return self
     }
 
     /// Routes application to the `RoutingDestination` provided.
@@ -76,6 +100,7 @@ public class DefaultRouter: Router {
             self.startDeepLinking(viewController: viewController, context: destination.context, animated: animated, factories: factoriesStack) { viewController in
                 self.makeContainersActive(toShow: viewController, animated: animated)
                 self.doTry({
+                    postTaskRunner.taskSlips.append(contentsOf: self.postTasks.map({ PostTaskSlip(viewController: viewController, postTask: $0) }))
                     try postTaskRunner.run(for: destination)
                 }, finally: { success in
                     completion?(success)
@@ -116,10 +141,15 @@ public class DefaultRouter: Router {
                             rootViewController = viewController
                             logger?.log(.info("Step \(String(describing: currentStep!)) found a \(String(describing: viewController)) to start presentation from."))
                         }
-                        if let contextTask = interceptableStep?.contextTask {
-                            try contextTask.prepare(with: destination.context, for: destination)
-                            contextTask.apply(on: viewController, with: destination.context, for: destination)
+
+                        var contextTasks = self.contentTasks
+                        if let internalContextTask = interceptableStep?.contextTask {
+                            contextTasks.append(internalContextTask)
                         }
+                        try contextTasks.forEach({
+                            try $0.prepare(with: destination.context, for: destination)
+                            $0.apply(on: viewController, with: destination.context, for: destination)
+                        })
                         if let postTask = interceptableStep?.postTask {
                             postTaskRunner.taskSlips.insert(PostTaskSlip(viewController: viewController, postTask: postTask), at: 0)
                         }
@@ -132,8 +162,13 @@ public class DefaultRouter: Router {
                                 // If step contains post task, them lets create a `Factory` decorator that will handle view
                                 // controller and post task chain after view controller creation.
                                 if let internalStep = interceptableStep {
-                                    try internalStep.contextTask?.prepare(with: destination.context, for: destination)
-                                    factory = FactoryDecorator(factory: factory, contextTask: internalStep.contextTask, postTask: internalStep.postTask, postTaskRunner: postTaskRunner, logger: logger, destination: destination)
+                                    var contextTasks = self.contentTasks
+                                    if let internalContextTask = internalStep.contextTask {
+                                        contextTasks.append(internalContextTask)
+                                    }
+                                    try contextTasks.forEach({ try $0.prepare(with: destination.context, for: destination) })
+
+                                    factory = FactoryDecorator(factory: factory, contextTasks: contextTasks, postTask: internalStep.postTask, postTaskRunner: postTaskRunner, logger: logger, destination: destination)
                                 }
                                 // If some `Factory` can not prepare itself (e.g. does not have enough data in context) then deep link stack
                                 // can not be built
@@ -169,6 +204,8 @@ public class DefaultRouter: Router {
 
         //If we haven't found a View Controller to build the stack from - it means that we can handle deeplinking
         if let viewController = rootViewController {
+            //Adding default preset interceptors
+            interceptors.append(contentsOf: self.interceptors)
             return (rootViewController: viewController, factories: factories, interceptor: interceptors.count == 1 ? interceptors.removeFirst() : InterceptorMultiplexer(interceptors))
         }
 
@@ -270,7 +307,7 @@ public class DefaultRouter: Router {
 
         weak var postTaskRunner: PostTaskRunner<D>?
 
-        let contextTask: AnyContextTask?
+        let contextTasks: [AnyContextTask]
 
         let postTask: AnyPostRoutingTask?
 
@@ -278,11 +315,11 @@ public class DefaultRouter: Router {
 
         let destination: D
 
-        init(factory: AnyFactory, contextTask: AnyContextTask?, postTask: AnyPostRoutingTask?, postTaskRunner: PostTaskRunner<D>, logger: Logger?, destination: D) {
+        init(factory: AnyFactory, contextTasks: [AnyContextTask], postTask: AnyPostRoutingTask?, postTaskRunner: PostTaskRunner<D>, logger: Logger?, destination: D) {
             self.factory = factory
             self.postTaskRunner = postTaskRunner
             self.postTask = postTask
-            self.contextTask = contextTask
+            self.contextTasks = contextTasks
             self.logger = logger
             self.destination = destination
         }
@@ -293,8 +330,10 @@ public class DefaultRouter: Router {
 
         func build(with context: Any?) throws -> UIViewController {
             let viewController = try factory.build(with: context)
-            if let context = context, let contextTask = contextTask {
-                contextTask.apply(on: viewController, with: context, for: destination)
+            if let context = context {
+                contextTasks.forEach({
+                    $0.apply(on: viewController, with: context, for: destination)
+                })
             }
             if let postTask = postTask {
                 postTaskRunner?.taskSlips.append(PostTaskSlip(viewController: viewController, postTask: postTask))
