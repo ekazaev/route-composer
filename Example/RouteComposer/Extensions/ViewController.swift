@@ -21,7 +21,10 @@ extension UIViewController {
                 } else {
                     appRouterLogger = DefaultLogger(.verbose)
                 }
-                let router = DefaultRouter(logger: appRouterLogger)
+                var router = DefaultRouter(logger: appRouterLogger)
+                router.add(GlobalInterceptor())
+                router.add(GlobalPostTask())
+                router.add(GlobalContextTask())
                 UIViewController.appRouter = router
                 return router
             }

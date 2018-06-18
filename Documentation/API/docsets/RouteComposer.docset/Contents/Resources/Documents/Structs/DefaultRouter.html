@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>DefaultRouter Class Reference</title>
+    <title>DefaultRouter Structure Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Class/DefaultRouter" class="dashAnchor"></a>
-    <a title="DefaultRouter Class Reference"></a>
+    <a name="//apple_ref/swift/Struct/DefaultRouter" class="dashAnchor"></a>
+    <a title="DefaultRouter Structure Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">RouteComposer Docs</a> (100% documented)</p>
@@ -21,7 +21,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">RouteComposer Reference</a>
         <img id="carat" src="../img/carat.png" />
-        DefaultRouter Class Reference
+        DefaultRouter Structure Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -65,9 +65,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/DefaultLogger.html">DefaultLogger</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/DefaultRouter.html">DefaultRouter</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/FinderFactory.html">FinderFactory</a>
@@ -193,6 +190,9 @@
                 <a href="../Protocols/Action.html">Action</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Protocols/AssemblableRouter.html">AssemblableRouter</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Protocols/ChainingStep.html">ChainingStep</a>
               </li>
               <li class="nav-group-task">
@@ -261,6 +261,9 @@
             <a href="../Structs.html">Structures</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a href="../Structs/DefaultRouter.html">DefaultRouter</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Structs/GeneralAction.html">GeneralAction</a>
               </li>
               <li class="nav-group-task">
@@ -285,7 +288,7 @@
             <h1>DefaultRouter</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">DefaultRouter</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/Router.html">Router</a></span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DefaultRouter</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/Router.html">Router</a></span><span class="p">,</span> <span class="kt"><a href="../Protocols/AssemblableRouter.html">AssemblableRouter</a></span></code></pre>
 
                 </div>
               </div>
@@ -298,9 +301,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer13DefaultRouterC6loggerAA6Logger_pSgvp"></a>
+                    <a name="/s:13RouteComposer13DefaultRouterV6loggerAA6Logger_pSgvp"></a>
                     <a name="//apple_ref/swift/Property/logger" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer13DefaultRouterC6loggerAA6Logger_pSgvp">logger</a>
+                    <a class="token" href="#/s:13RouteComposer13DefaultRouterV6loggerAA6Logger_pSgvp">logger</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -325,9 +328,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer13DefaultRouterCAcA6Logger_pSg6logger_tcfc"></a>
+                    <a name="/s:13RouteComposer13DefaultRouterVAcA6Logger_pSg6logger_tcfc"></a>
                     <a name="//apple_ref/swift/Method/init(logger:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer13DefaultRouterCAcA6Logger_pSg6logger_tcfc">init(logger:)</a>
+                    <a class="token" href="#/s:13RouteComposer13DefaultRouterVAcA6Logger_pSg6logger_tcfc">init(logger:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -371,9 +374,90 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer13DefaultRouterC10deepLinkToAA13RoutingResultOx11destination_Sb8animatedySbcSg10completiontAA0H11DestinationRzlF"></a>
+                    <a name="/s:13RouteComposer17AssemblableRouterP3addxqd__AA18RoutingInterceptorRd__lF"></a>
+                    <a name="//apple_ref/swift/Method/add(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer17AssemblableRouterP3addxqd__AA18RoutingInterceptorRd__lF">add(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
+<span class="kd">public</span> <span class="k">mutating</span> <span class="kd">func</span> <span class="n">add</span><span class="o">&lt;</span><span class="kt">R</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">interceptor</span><span class="p">:</span> <span class="kt">R</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">DefaultRouter</span> <span class="k">where</span> <span class="kt">R</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/RoutingInterceptor.html">RoutingInterceptor</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer17AssemblableRouterP3addxqd__AA11ContextTaskRd__lF"></a>
+                    <a name="//apple_ref/swift/Method/add(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer17AssemblableRouterP3addxqd__AA11ContextTaskRd__lF">add(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
+<span class="kd">public</span> <span class="k">mutating</span> <span class="kd">func</span> <span class="n">add</span><span class="o">&lt;</span><span class="kt">CT</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">contentTask</span><span class="p">:</span> <span class="kt">CT</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">DefaultRouter</span> <span class="k">where</span> <span class="kt">CT</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ContextTask.html">ContextTask</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer17AssemblableRouterP3addxqd__AA15PostRoutingTaskRd__lF"></a>
+                    <a name="//apple_ref/swift/Method/add(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer17AssemblableRouterP3addxqd__AA15PostRoutingTaskRd__lF">add(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
+<span class="kd">public</span> <span class="k">mutating</span> <span class="kd">func</span> <span class="n">add</span><span class="o">&lt;</span><span class="kt">P</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">postTask</span><span class="p">:</span> <span class="kt">P</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">DefaultRouter</span> <span class="k">where</span> <span class="kt">P</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/PostRoutingTask.html">PostRoutingTask</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer13DefaultRouterV10deepLinkToAA13RoutingResultOx11destination_Sb8animatedySbcSg10completiontAA0H11DestinationRzlF"></a>
                     <a name="//apple_ref/swift/Method/deepLinkTo(destination:animated:completion:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer13DefaultRouterC10deepLinkToAA13RoutingResultOx11destination_Sb8animatedySbcSg10completiontAA0H11DestinationRzlF">deepLinkTo(destination:animated:completion:)</a>
+                    <a class="token" href="#/s:13RouteComposer13DefaultRouterV10deepLinkToAA13RoutingResultOx11destination_Sb8animatedySbcSg10completiontAA0H11DestinationRzlF">deepLinkTo(destination:animated:completion:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -448,7 +532,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="http://tech.gilt.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-06-07)</p>
+          <p>&copy; 2018 <a class="link" href="http://tech.gilt.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-06-18)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
