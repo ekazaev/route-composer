@@ -163,12 +163,16 @@ public struct DefaultRouter: Router, AssemblableRouter {
                                 // controller and post task chain after view controller creation.
                                 if let internalStep = interceptableStep {
                                     var contextTasks = self.contentTasks
+                                    var postTasks = self.postTasks
                                     if let internalContextTask = internalStep.contextTask {
                                         contextTasks.append(internalContextTask)
                                     }
+                                    if let internalPostTask = internalStep.postTask {
+                                        postTasks.append(internalPostTask)
+                                    }
                                     try contextTasks.forEach({ try $0.prepare(with: destination.context, for: destination) })
 
-                                    factory = FactoryDecorator(factory: factory, contextTasks: contextTasks, postTask: internalStep.postTask, postTaskRunner: postTaskRunner, logger: logger, destination: destination)
+                                    factory = FactoryDecorator(factory: factory, contextTasks: contextTasks, postTasks: postTasks, postTaskRunner: postTaskRunner, logger: logger, destination: destination)
                                 }
                                 // If some `Factory` can not prepare itself (e.g. does not have enough data in context) then deep link stack
                                 // can not be built
@@ -309,16 +313,16 @@ public struct DefaultRouter: Router, AssemblableRouter {
 
         let contextTasks: [AnyContextTask]
 
-        let postTask: AnyPostRoutingTask?
+        let postTasks: [AnyPostRoutingTask]
 
         let logger: Logger?
 
         let destination: D
 
-        init(factory: AnyFactory, contextTasks: [AnyContextTask], postTask: AnyPostRoutingTask?, postTaskRunner: PostTaskRunner<D>, logger: Logger?, destination: D) {
+        init(factory: AnyFactory, contextTasks: [AnyContextTask], postTasks: [AnyPostRoutingTask], postTaskRunner: PostTaskRunner<D>, logger: Logger?, destination: D) {
             self.factory = factory
             self.postTaskRunner = postTaskRunner
-            self.postTask = postTask
+            self.postTasks = postTasks
             self.contextTasks = contextTasks
             self.logger = logger
             self.destination = destination
@@ -335,9 +339,9 @@ public struct DefaultRouter: Router, AssemblableRouter {
                     $0.apply(on: viewController, with: context, for: destination)
                 })
             }
-            if let postTask = postTask {
-                postTaskRunner?.taskSlips.append(PostTaskSlip(viewController: viewController, postTask: postTask))
-            }
+            postTasks.forEach({
+                postTaskRunner?.taskSlips.append(PostTaskSlip(viewController: viewController, postTask: $0))
+            })
             return viewController
         }
 
