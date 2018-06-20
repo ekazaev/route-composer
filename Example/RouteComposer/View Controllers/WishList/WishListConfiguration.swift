@@ -10,10 +10,10 @@ import RouteComposer
 struct WishListConfiguration {
 
     static let wishListScreen = StepAssembly(
-            finder: ClassFinder<WishListViewController, WishListContent>(),
+            finder: ClassFinder<WishListViewController, WishListContext>(),
             factory: StoryboardFactory(storyboardName: "TabBar", viewControllerID: "WishListViewController", action: NavigationControllerFactory.PushToNavigation()))
             .add(LoginInterceptor())
-            .add(WishListContentTask())
+            .add(WishListContextTask())
             .add(ExampleAnalyticsInterceptor())
             .add(ExampleAnalyticsPostAction())
             .from(NavigationControllerStep(action: GeneralAction.PresentModally(presentationStyle: .formSheet)))
@@ -21,11 +21,11 @@ struct WishListConfiguration {
             .assemble()
 
     static func favorites() -> ExampleDestination {
-        return ExampleDestination(finalStep: wishListScreen, context: WishListContent.favorites)
+        return ExampleDestination(finalStep: wishListScreen, context: WishListContext.favorites)
     }
 
     static func collections() -> ExampleDestination {
-        return ExampleDestination(finalStep: wishListScreen, context: WishListContent.collections)
+        return ExampleDestination(finalStep: wishListScreen, context: WishListContext.collections)
     }
 
 }

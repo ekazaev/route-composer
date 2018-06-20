@@ -13,7 +13,7 @@ class WishListViewController: UITableViewController, ExampleAnalyticsSupport {
 
     var segmentController = UISegmentedControl(items: ["Favorites", "Collections"])
 
-    var content: WishListContent = .favorites {
+    var context: WishListContext = .favorites {
         didSet {
             reloadData()
         }
@@ -27,10 +27,10 @@ class WishListViewController: UITableViewController, ExampleAnalyticsSupport {
     }
 
     private func reloadData() {
-        segmentController.selectedSegmentIndex = content.rawValue
+        segmentController.selectedSegmentIndex = context.rawValue
         tableView.reloadData()
-        analyticParameters = ExampleAnalyticsParameters(source: content == .favorites ? .favorites : .collections)
-        tableView.accessibilityIdentifier = content == .favorites ? "favoritesViewController" : "collectionsViewController"
+        analyticParameters = ExampleAnalyticsParameters(source: context == .favorites ? .favorites : .collections)
+        tableView.accessibilityIdentifier = context == .favorites ? "favoritesViewController" : "collectionsViewController"
     }
 
     @objc func doneTapped() {
@@ -38,21 +38,21 @@ class WishListViewController: UITableViewController, ExampleAnalyticsSupport {
     }
 
     @IBAction func segmentChanged() {
-        guard let selectedContent = WishListContent(rawValue: segmentController.selectedSegmentIndex) else {
+        guard let selectedContext = WishListContext(rawValue: segmentController.selectedSegmentIndex) else {
             return
         }
-        content = selectedContent
+        context = selectedContext
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return WishListDataModel.data[content]?.count ?? 0
+        return WishListDataModel.data[context]?.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "WishListCell") else {
             fatalError("Unable to dequeue reusable cell.")
         }
-        cell.textLabel?.text = WishListDataModel.data[content]?[indexPath.row]
+        cell.textLabel?.text = WishListDataModel.data[context]?[indexPath.row]
         return cell
     }
 

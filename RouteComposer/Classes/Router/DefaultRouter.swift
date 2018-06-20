@@ -20,7 +20,7 @@ public struct DefaultRouter: Router, AssemblableRouter {
 
     private var interceptors: [AnyRoutingInterceptor] = []
 
-    private var contentTasks: [AnyContextTask] = []
+    private var contextTasks: [AnyContextTask] = []
 
     private var postTasks: [AnyPostRoutingTask] = []
 
@@ -31,8 +31,8 @@ public struct DefaultRouter: Router, AssemblableRouter {
     }
 
     @discardableResult
-    public mutating func add<CT: ContextTask>(_ contentTask: CT) -> DefaultRouter {
-        self.contentTasks.append(ContextTaskBox(contentTask))
+    public mutating func add<CT: ContextTask>(_ contextTask: CT) -> DefaultRouter {
+        self.contextTasks.append(ContextTaskBox(contextTask))
         return self
     }
 
@@ -100,7 +100,6 @@ public struct DefaultRouter: Router, AssemblableRouter {
             self.startDeepLinking(viewController: viewController, context: destination.context, animated: animated, factories: factoriesStack) { viewController in
                 self.makeContainersActive(toShow: viewController, animated: animated)
                 self.doTry({
-                    postTaskRunner.taskSlips.append(contentsOf: self.postTasks.map({ PostTaskSlip(viewController: viewController, postTask: $0) }))
                     try postTaskRunner.run(for: destination)
                 }, finally: { success in
                     completion?(success)
@@ -113,11 +112,29 @@ public struct DefaultRouter: Router, AssemblableRouter {
     }
 
     private func prepareStack<D>(destination: D, postTaskRunner: PostTaskRunner<D>) -> (rootViewController: UIViewController, factories: [AnyFactory], interceptor: AnyRoutingInterceptor)? {
+
+        func mergeGlobalTasks(step: InterceptableStep?) -> (contextTasks: [AnyContextTask], postTasks: [AnyPostRoutingTask]){
+            var contextTasks = self.contextTasks
+            var postTasks = self.postTasks
+            if let contextTask = step?.contextTask {
+                contextTasks.append(contextTask)
+            }
+            if let postTask = step?.postTask {
+                postTasks.append(postTask)
+            }
+            if postTasks.count == 0 {
+                postTasks.append(PostRoutingTaskBox(EmptyPostTask<D>()))
+            }
+            return (contextTasks: contextTasks, postTasks: postTasks)
+        }
+
         var rootViewController: UIViewController?
 
         var factories: [AnyFactory] = []
 
         var interceptors: [AnyRoutingInterceptor] = []
+
+        var processedViewControllers: [UIViewController] = []
 
         doTry({
 
@@ -142,16 +159,18 @@ public struct DefaultRouter: Router, AssemblableRouter {
                             logger?.log(.info("Step \(String(describing: currentStep!)) found a \(String(describing: viewController)) to start presentation from."))
                         }
 
-                        var contextTasks = self.contentTasks
-                        if let internalContextTask = interceptableStep?.contextTask {
-                            contextTasks.append(internalContextTask)
-                        }
-                        try contextTasks.forEach({
-                            try $0.prepare(with: destination.context, for: destination)
-                            $0.apply(on: viewController, with: destination.context, for: destination)
-                        })
-                        if let postTask = interceptableStep?.postTask {
-                            postTaskRunner.taskSlips.insert(PostTaskSlip(viewController: viewController, postTask: postTask), at: 0)
+                        if !processedViewControllers.contains(viewController) {
+                            processedViewControllers.append(viewController)
+
+                            let taskMergeResult = mergeGlobalTasks(step: interceptableStep)
+                            try taskMergeResult.contextTasks.forEach({
+                                try $0.prepare(with: destination.context, for: destination)
+                                $0.apply(on: viewController, with: destination.context, for: destination)
+                            })
+
+                            taskMergeResult.postTasks.forEach({
+                                postTaskRunner.taskSlips.insert(PostTaskSlip(viewController: viewController, postTask: $0), at: 0)
+                            })
                         }
                         break
                     case .continueRouting(let factory):
@@ -162,18 +181,13 @@ public struct DefaultRouter: Router, AssemblableRouter {
                                 // If step contains post task, them lets create a `Factory` decorator that will handle view
                                 // controller and post task chain after view controller creation.
                                 if let internalStep = interceptableStep {
-                                    var contextTasks = self.contentTasks
-                                    var postTasks = self.postTasks
-                                    if let internalContextTask = internalStep.contextTask {
-                                        contextTasks.append(internalContextTask)
-                                    }
-                                    if let internalPostTask = internalStep.postTask {
-                                        postTasks.append(internalPostTask)
-                                    }
-                                    try contextTasks.forEach({ try $0.prepare(with: destination.context, for: destination) })
+                                    let taskMergeResult = mergeGlobalTasks(step: internalStep)
 
-                                    factory = FactoryDecorator(factory: factory, contextTasks: contextTasks, postTasks: postTasks, postTaskRunner: postTaskRunner, logger: logger, destination: destination)
+                                    try taskMergeResult.contextTasks.forEach({ try $0.prepare(with: destination.context, for: destination) })
+
+                                    factory = FactoryDecorator(factory: factory, contextTasks: taskMergeResult.contextTasks, postTasks: taskMergeResult.postTasks, postTaskRunner: postTaskRunner, logger: logger, destination: destination)
                                 }
+
                                 // If some `Factory` can not prepare itself (e.g. does not have enough data in context) then deep link stack
                                 // can not be built
                                 try factory.prepare(with: destination.context)
@@ -285,6 +299,14 @@ public struct DefaultRouter: Router, AssemblableRouter {
         }
     }
 
+    // this class is just a placeholder
+    private class EmptyPostTask<D: RoutingDestination>: PostRoutingTask {
+
+        func execute(on viewController: UIViewController, for destination: D, routingStack: [UIViewController]) {
+        }
+
+    }
+
     private struct PostTaskSlip {
         // This reference is weak because even though this view controller was created by a fabric but then some other
         // view controller in the chain can have an action that will actually remove this view controller from the stack.
@@ -373,7 +395,14 @@ public struct DefaultRouter: Router, AssemblableRouter {
         var taskSlips: [PostTaskSlip] = []
 
         func run(for destination: D) throws {
-            let viewControllers = taskSlips.compactMap({ $0.viewController })
+            var viewControllers:[UIViewController] = []
+            taskSlips.forEach({
+                guard let viewController = $0.viewController, !viewControllers.contains(viewController) else {
+                    return
+                }
+                viewControllers.append(viewController)
+            })
+
             try taskSlips.forEach({ slip in
                 guard let viewController = slip.viewController else {
                     return

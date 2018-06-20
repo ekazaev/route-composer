@@ -7,7 +7,7 @@ import Foundation
 import UIKit
 import RouteComposer
 
-class ProductContentTask: ContextTask {
+class ProductContextTask: ContextTask {
 
     func apply(on viewController: ProductViewController, with context: String) {
         viewController.productId = context

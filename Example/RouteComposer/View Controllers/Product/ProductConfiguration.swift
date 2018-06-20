@@ -13,7 +13,7 @@ class ProductConfiguration {
         let productScreen = StepAssembly(
                 finder: ClassWithContextFinder<ProductViewController, String>(),
                 factory: StoryboardFactory(storyboardName: "TabBar", viewControllerID: "ProductViewController", action: NavigationControllerFactory.PushToNavigation()))
-                .add(ProductContentTask())
+                .add(ProductContextTask())
                 .add(ExampleAnalyticsInterceptor())
                 .add(ExampleAnalyticsPostAction())
                 .from(SwitchAssembly()

@@ -46,7 +46,7 @@
 		9AFBC543C6164B0233A6BB88 /* ImageFetcherImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC5D711BEDBDB3B0C6CA9 /* ImageFetcherImpl.swift */; };
 		9AFBC554985E0625F482F2C4 /* CustomViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCD694401971FFFCD2A0E /* CustomViewControllerDelegate.swift */; };
 		9AFBC5D1D6B2F6E9C25E9663 /* CustomContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC78D88E8BA79AA45A527 /* CustomContainerController.swift */; };
-		9AFBC66443B697ADCC7BB6B7 /* WishListContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC16A7AED73A4F3C744F7 /* WishListContent.swift */; };
+		9AFBC66443B697ADCC7BB6B7 /* WishListContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC16A7AED73A4F3C744F7 /* WishListContext.swift */; };
 		9AFBC6A3A55CCF3FC18F1978 /* ImagesConfigurationWithLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC5AF9638E4E5B1D1E443 /* ImagesConfigurationWithLibrary.swift */; };
 		9AFBC6DD79F2059D9547629A /* ImagesFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC7681CD469FE6EB77EC1 /* ImagesFactory.swift */; };
 		9AFBC71B05DD36CEA9519B11 /* ImageDetailsFetcherImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC33219CADD6450A6392E /* ImageDetailsFetcherImpl.swift */; };
@@ -56,7 +56,7 @@
 		9AFBC85A77E2623434CDC7B1 /* CustomContainerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC00AF5B223BFDB589161 /* CustomContainerFactory.swift */; };
 		9AFBC8F26FFD83B86954182F /* ImagesWithoutLibraryHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCC67E59C161432003A86 /* ImagesWithoutLibraryHandler.swift */; };
 		9AFBC915C2F461136B5C1B0D /* SecondModalLevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCAF24C0CD80E0D369EEA /* SecondModalLevelViewController.swift */; };
-		9AFBC91DEB7FCDC286B6AD17 /* WishListContentTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCFA7F490C53D17BA5B40 /* WishListContentTask.swift */; };
+		9AFBC91DEB7FCDC286B6AD17 /* WishListContextTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCFA7F490C53D17BA5B40 /* WishListContextTask.swift */; };
 		9AFBC9C5E791E8BD9A19B381 /* ImageDetailsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC26291C67F9F347F8654 /* ImageDetailsFactory.swift */; };
 		9AFBCA32BF0E6A5C2D643915 /* ExampleAnalyticsPostAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC0097861297B7686ADAA /* ExampleAnalyticsPostAction.swift */; };
 		9AFBCA6D219AD2F8FDFF221F /* ExampleDictionaryContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCC692A1118A5A17A7F8A /* ExampleDictionaryContext.swift */; };
@@ -134,7 +134,7 @@
 		9AFBC00AF5B223BFDB589161 /* CustomContainerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomContainerFactory.swift; sourceTree = "<group>"; };
 		9AFBC0A54CF3E1EFC4DB61C0 /* StarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarViewController.swift; sourceTree = "<group>"; };
 		9AFBC13BCBBF072FA2CE5A48 /* ImagesWithoutLibraryConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesWithoutLibraryConfiguration.swift; sourceTree = "<group>"; };
-		9AFBC16A7AED73A4F3C744F7 /* WishListContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WishListContent.swift; sourceTree = "<group>"; };
+		9AFBC16A7AED73A4F3C744F7 /* WishListContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WishListContext.swift; sourceTree = "<group>"; };
 		9AFBC1D3E2EB9F22B3EF15FF /* ImagesFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesFetcher.swift; sourceTree = "<group>"; };
 		9AFBC261EA50B2B2179C1C62 /* ImageDetailsFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDetailsFetcher.swift; sourceTree = "<group>"; };
 		9AFBC26291C67F9F347F8654 /* ImageDetailsFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDetailsFactory.swift; sourceTree = "<group>"; };
@@ -169,7 +169,7 @@
 		9AFBCE44839BD245D30ED19C /* ExampleUniversalLinksManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleUniversalLinksManager.swift; sourceTree = "<group>"; };
 		9AFBCE5527D371C559C69F9E /* CityURLTranslator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityURLTranslator.swift; sourceTree = "<group>"; };
 		9AFBCEB028743A7AC55E1CA6 /* ExampleAnalyticsParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleAnalyticsParameters.swift; sourceTree = "<group>"; };
-		9AFBCFA7F490C53D17BA5B40 /* WishListContentTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WishListContentTask.swift; sourceTree = "<group>"; };
+		9AFBCFA7F490C53D17BA5B40 /* WishListContextTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WishListContextTask.swift; sourceTree = "<group>"; };
 		9AFBCFC501CA7C19584317BB /* ImagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesViewController.swift; sourceTree = "<group>"; };
 		AD8FADE9265A4CD86A75FD85 /* Pods_RouteComposer_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RouteComposer_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7AC8603E217ACA9BCF1FAC2 /* Pods-RouteComposer_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RouteComposer_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-RouteComposer_Example/Pods-RouteComposer_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -445,9 +445,9 @@
 			isa = PBXGroup;
 			children = (
 				9AFBC80C4D57303B27914E81 /* WishListViewController.swift */,
-				9AFBC16A7AED73A4F3C744F7 /* WishListContent.swift */,
+				9AFBC16A7AED73A4F3C744F7 /* WishListContext.swift */,
 				9AFBCE40215C25D16CA6A1FB /* WishListConfiguration.swift */,
-				9AFBCFA7F490C53D17BA5B40 /* WishListContentTask.swift */,
+				9AFBCFA7F490C53D17BA5B40 /* WishListContextTask.swift */,
 			);
 			path = WishList;
 			sourceTree = "<group>";
@@ -721,9 +721,9 @@
 				9AFBCA728DF14FD91F5AC570 /* StarViewController.swift in Sources */,
 				9AFBC10000C39C385751808C /* CitiesDataModel.swift in Sources */,
 				9AFBC846927D38441DCA0296 /* WishListViewController.swift in Sources */,
-				9AFBC66443B697ADCC7BB6B7 /* WishListContent.swift in Sources */,
+				9AFBC66443B697ADCC7BB6B7 /* WishListContext.swift in Sources */,
 				9AFBC53392657942D199D598 /* WishListConfiguration.swift in Sources */,
-				9AFBC91DEB7FCDC286B6AD17 /* WishListContentTask.swift in Sources */,
+				9AFBC91DEB7FCDC286B6AD17 /* WishListContextTask.swift in Sources */,
 				9AFBC543C6164B0233A6BB88 /* ImageFetcherImpl.swift in Sources */,
 				9AFBC71B05DD36CEA9519B11 /* ImageDetailsFetcherImpl.swift in Sources */,
 				9AFBCD815ADC0CDEC67CA6DB /* ImagesWithLibraryHandler.swift in Sources */,

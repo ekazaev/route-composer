@@ -5,7 +5,7 @@
 
 import Foundation
 
-enum WishListContent: Int {
+enum WishListContext: Int {
     case favorites = 0
     case collections
 }
@@ -13,7 +13,7 @@ enum WishListContent: Int {
 struct WishListDataModel {
 
     static let data = [
-        WishListContent.favorites: ["Gucci", "Dolce & Gabbana", "Anna Valentine", "Lacoste"],
+        WishListContext.favorites: ["Gucci", "Dolce & Gabbana", "Anna Valentine", "Lacoste"],
         .collections: ["Shoes", "Dresses", "Hats"]
     ]
 

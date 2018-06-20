@@ -228,7 +228,7 @@ actions at the moment when router found/created a view controller. Just implemen
 present a product.*
 
 ```swift
-class ProductViewControllerContentTask: ContextTask {
+class ProductViewControllerContextTask: ContextTask {
 
     func apply(on productViewController: ProductViewController, with productID: UUID) {
         productViewController.productID = productID
@@ -273,7 +273,7 @@ which should be presented modally from any currently visible view controller.*
 ```swift
 let productScreen = StepAssembly(finder: ProductViewControllerFinder(), factory: ProductViewControllerFactory(action: PushToNavigationAction()))
         .add(LoginInterceptor())
-        .add(ProductViewControllerContentTask())
+        .add(ProductViewControllerContextTask())
         .add(ProductViewControllerPostTask(analyticsManager: AnalyticsManager.sharedInstance))
         .from(NavigationControllerStep(action: DefaultActions.PresentModally()))
         .from(CurrentControllerStep())
@@ -287,7 +287,7 @@ This configuration means:
 * Navigation stack should be provided from another step `NavigationControllerStep`, that will create a `UINavigationController` instance
 * The `UINavigationController` instance should be presented modally from any currently visible view controller.
 * Before routing run `LoginInterceptor`
-* After view controller been created or found, run `ProductViewControllerContentTask`
+* After view controller been created or found, run `ProductViewControllerContextTask`
 * After successful routing run `ProductViewControllerPostTask`
 
 *See example app to find out different ways to provide and store routing step configurations.*
@@ -315,7 +315,7 @@ struct Configuration {
     static func productDestination(with productID: UUID) -> AppDestination {
         let productScreen = StepAssembly(finder: ProductViewControllerFinder(), factory: ProductViewControllerFactory(action: PushToNavigationAction()))
                 .add(LoginInterceptor())
-                .add(ProductViewControllerContentTask())
+                .add(ProductViewControllerContextTask())
                 .add(ProductViewControllerPostTask(analyticsManager: AnalyticsManager.sharedInstance))
                 .from(NavigationControllerStep(action: DefaultActions.PresentModally()))
                 .from(CurrentViewControllerStep())
@@ -364,7 +364,7 @@ class ProductArrayViewController: UITableViewController {
         // Handled by a ProductViewControllerFactory
         let productViewController = ProductViewController(nibName: "ProductViewController", bundle: nil)
 
-        // Handled by ProductViewControllerContentTask
+        // Handled by ProductViewControllerContextTask
         productViewController.productID = productID
 
         // Handled by NavigationControllerStep and PushToNavigationAction
@@ -409,5 +409,5 @@ apologies. *Caveat developer.*
 
 ## Author
 
-Evgeny Kazaev, ekazaev@gilt.com
+Evgeny Kazaev, eugene.kazaev@hbc.com
 

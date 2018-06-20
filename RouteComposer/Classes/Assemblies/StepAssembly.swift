@@ -11,7 +11,7 @@ import Foundation
 /// ```swift
 /// let productScreen = StepAssembly(finder: ProductViewControllerFinder(), factory: ProductViewControllerFactory(action: PushToNavigationAction()))
 ///         .add(LoginInterceptor())
-///         .add(ProductViewControllerContentTask())
+///         .add(ProductViewControllerContextTask())
 ///         .add(ProductViewControllerPostTask(analyticsManager: AnalyticsManager.sharedInstance))
 ///         .from(NavigationControllerStep(action: DefaultActions.PresentModally()))
 ///         .from(CurrentControllerStep())
@@ -92,7 +92,7 @@ public class StepAssembly<F: Finder, FC: Factory> where F.ViewController == FC.V
 
     private var interceptors: [AnyRoutingInterceptor] = []
 
-    private var contentTasks: [AnyContextTask] = []
+    private var contextTasks: [AnyContextTask] = []
 
     private var postTasks: [AnyPostRoutingTask] = []
 
@@ -116,9 +116,9 @@ public class StepAssembly<F: Finder, FC: Factory> where F.ViewController == FC.V
 
     /// Adds context task instance
     ///
-    /// - Parameter contentTask: The `ContextTask` instance to be executed by a `Router` immediately after it will find or create UIViewController.
-    public func add<CT: ContextTask>(_ contentTask: CT) -> Self where CT.ViewController == FC.ViewController, CT.ViewController == F.ViewController, CT.Context == FC.Context, CT.Context == F.Context {
-        self.contentTasks.append(ContextTaskBox(contentTask))
+    /// - Parameter contextTask: The `ContextTask` instance to be executed by a `Router` immediately after it will find or create UIViewController.
+    public func add<CT: ContextTask>(_ contextTask: CT) -> Self where CT.ViewController == FC.ViewController, CT.ViewController == F.ViewController, CT.Context == FC.Context, CT.Context == F.Context {
+        self.contextTasks.append(ContextTaskBox(contextTask))
         return self
     }
 
@@ -162,7 +162,7 @@ public class StepAssembly<F: Finder, FC: Factory> where F.ViewController == FC.V
                 finder: finder,
                 factory: factory,
                 interceptor: interceptors.count > 0 ? interceptors.count == 1 ? interceptors.first : InterceptorMultiplexer(interceptors) : nil,
-                contextTask: contentTasks.count > 0 ? contentTasks.count == 1 ? contentTasks.first : ContextTaskMultiplexer(contentTasks) : nil,
+                contextTask: contextTasks.count > 0 ? contextTasks.count == 1 ? contextTasks.first : ContextTaskMultiplexer(contextTasks) : nil,
                 postTask: postTasks.count > 0 ? postTasks.count == 1 ? postTasks.first : PostRoutingTaskMultiplexer(postTasks) : nil,
                 previousStep: step)
     }

@@ -15,9 +15,9 @@ public protocol AssemblableRouter where Self: Router {
 
     /// Adds context task instance
     ///
-    /// - Parameter contentTask: The `ContextTask` instance to be executed by a `Router` immediately after it will find or create UIViewController.
+    /// - Parameter contextTask: The `ContextTask` instance to be executed by a `Router` immediately after it will find or create UIViewController.
     @discardableResult
-    mutating func add<CT: ContextTask>(_ contentTask: CT) -> Self
+    mutating func add<CT: ContextTask>(_ contextTask: CT) -> Self
 
     /// Adds PostRoutingTask instance
     ///
