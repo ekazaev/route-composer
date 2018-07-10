@@ -8,24 +8,36 @@ import UIKit
 
 /// `Container` `Factory` that creates `UISplitViewController`
 public class SplitControllerFactory: Factory, Container {
-
+    
     public typealias ViewController = UISplitViewController
-
+    
     public typealias Context = Any?
-
+    
     public let action: Action
-
+    
     var masterFactories: [ChildFactory<Context>] = []
-
+    
     var detailFactories: [ChildFactory<Context>] = []
-
+    
+    /// `UISplitViewControllerDelegate` delegate
+    public let delegate: UISplitViewControllerDelegate?
+    
+    /// An animatable property that controls how the primary view controller is hidden and displayed. A value of `.automatic` specifies the default behavior split view controller, which on an iPad, corresponds to an overlay mode in portrait and a side-by-side mode in landscape.
+    public let preferredDisplayMode: UISplitViewControllerDisplayMode
+    
+    /// If 'true', hidden view can be presented and dismissed via a swipe gesture. Defaults to 'true'.
+    public let presentsWithGesture: Bool
+    
     /// Constructor
     ///
     /// - Parameter action: `Action` instance.
-    public init(action: Action) {
+    public init(action: Action, delegate: UISplitViewControllerDelegate? = nil, presentsWithGesture: Bool = true, isCollapsed: Bool = false, preferredDisplayMode: UISplitViewControllerDisplayMode = .automatic) {
         self.action = action
+        self.delegate = delegate
+        self.preferredDisplayMode = preferredDisplayMode
+        self.presentsWithGesture = presentsWithGesture
     }
-
+    
     public func merge<C>(_ factories: [ChildFactory<C>]) -> [ChildFactory<C>] {
         var rest: [ChildFactory<C>] = []
         factories.forEach { factory in
@@ -37,15 +49,15 @@ public class SplitControllerFactory: Factory, Container {
                 rest.append(factory)
             }
         }
-
+        
         return rest
     }
-
+    
     public func build(with context: Context) throws -> ViewController {
         guard masterFactories.count > 0, detailFactories.count > 0 else {
             throw RoutingError.message("No master or derails view controllers provided")
         }
-
+        
         let masterViewControllers = try buildChildrenViewControllers(from: masterFactories, with: context)
         let detailsViewControllers = try buildChildrenViewControllers(from: detailFactories, with: context)
         guard masterViewControllers.count > 0 else {
@@ -54,12 +66,17 @@ public class SplitControllerFactory: Factory, Container {
         guard detailsViewControllers.count > 0 else {
             throw RoutingError.message("At least 1 Details View Controller is mandatory to build UISplitViewController")
         }
-
+        
         let splitController = UISplitViewController(nibName: nil, bundle: nil)
+        splitController.presentsWithGesture = presentsWithGesture
+        splitController.preferredDisplayMode = preferredDisplayMode
+        if let delegate = delegate {
+            splitController.delegate = delegate
+        }
         var childrenViewControllers = masterViewControllers
         childrenViewControllers.append(contentsOf: detailsViewControllers)
         splitController.viewControllers = childrenViewControllers
         return splitController
     }
-
+    
 }

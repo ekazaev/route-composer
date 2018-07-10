@@ -13,7 +13,9 @@ import RouteComposer
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
+    let transitionDelegate = BlurredBackgroundPresentationController()
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
         configureNavigationUsingDictionaryConfig()
@@ -69,7 +71,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 .add(ExampleAnalyticsInterceptor())
                 .add(ExampleGenericContextTask())
                 .add(ExampleAnalyticsPostAction())
-                .from(NavigationControllerStep(action: GeneralAction.PresentModally()))
+                .from(NavigationControllerStep(action: GeneralAction.PresentModally(transitioningDelegate: transitionDelegate)))
                 .from(CurrentViewControllerStep())
                 .assemble()
 

@@ -12,9 +12,9 @@ public extension GeneralAction {
     /// Presents view controller modally
     public class PresentModally: Action {
 
-        let presentationStyle: UIModalPresentationStyle
+        let presentationStyle: UIModalPresentationStyle?
 
-        let transitionStyle: UIModalTransitionStyle
+        let transitionStyle: UIModalTransitionStyle?
 
         let transitioningDelegate: UIViewControllerTransitioningDelegate?
 
@@ -24,7 +24,7 @@ public extension GeneralAction {
         ///   - presentationStyle: UIModalPresentationStyle setting, default value: .fullScreen
         ///   - transitionStyle: UIModalTransitionStyle setting, default value: .coverVertical
         ///   - transitioningDelegate: UIViewControllerTransitioningDelegate instance to be used during transition
-        public init(presentationStyle: UIModalPresentationStyle = .fullScreen, transitionStyle: UIModalTransitionStyle = .coverVertical, transitioningDelegate: UIViewControllerTransitioningDelegate? = nil) {
+        public init(presentationStyle: UIModalPresentationStyle? = .fullScreen, transitionStyle: UIModalTransitionStyle? = .coverVertical, transitioningDelegate: UIViewControllerTransitioningDelegate? = nil) {
             self.presentationStyle = presentationStyle
             self.transitionStyle = transitionStyle
             self.transitioningDelegate = transitioningDelegate
@@ -35,9 +35,16 @@ public extension GeneralAction {
                 completion(.failure("\(existingController) is already presenting a view controller."))
                 return
             }
-            viewController.modalPresentationStyle = presentationStyle
-            viewController.modalTransitionStyle = transitionStyle
-            viewController.transitioningDelegate = transitioningDelegate
+            if let presentationStyle = presentationStyle {
+                viewController.modalPresentationStyle = presentationStyle
+            }
+            if let transitionStyle = transitionStyle {
+                viewController.modalTransitionStyle = transitionStyle
+            }
+            if let transitioningDelegate = transitioningDelegate {
+                viewController.transitioningDelegate = transitioningDelegate
+            }
+
             existingController.present(viewController, animated: animated, completion: {
                 completion(.continueRouting)
             })

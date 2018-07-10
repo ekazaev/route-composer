@@ -18,11 +18,15 @@ public class NavigationControllerFactory: SimpleContainerFactory {
 
     public var factories: [ChildFactory<Context>] = []
 
+    /// `UINavigationControllerDelegate` delegate
+    public let delegate: UINavigationControllerDelegate?
+    
     /// Constructor
     ///
     /// - Parameter action: `Action` instance.
-    public init(action: Action) {
+    public init(action: Action, delegate: UINavigationControllerDelegate? = nil) {
         self.action = action
+        self.delegate = delegate
     }
 
     public func build(with context: Context) throws -> ViewController {
@@ -35,6 +39,9 @@ public class NavigationControllerFactory: SimpleContainerFactory {
             throw RoutingError.message("Unable to build UINavigationController due to 0 amount of child view controllers")
         }
         let navigationController = UINavigationController()
+        if let delegate = delegate {
+            navigationController.delegate = delegate
+        }
         navigationController.viewControllers = viewControllers
         return navigationController
     }

@@ -17,12 +17,16 @@ public class TabBarControllerFactory: SimpleContainerFactory {
     public let action: Action
 
     public var factories: [ChildFactory<Context>] = []
+    
+    /// `UITabBarControllerDelegate` delegate
+    public let delegate: UITabBarControllerDelegate?
 
     /// Constructor
     ///
     /// - Parameter action: `Action` instance.
-    public init(action: Action) {
+    public init(action: Action, delegate: UITabBarControllerDelegate? = nil) {
         self.action = action
+        self.delegate = delegate
     }
 
     public func build(with context: Context) throws -> ViewController {
@@ -31,6 +35,9 @@ public class TabBarControllerFactory: SimpleContainerFactory {
             throw RoutingError.message("Unable to build UITabBarController due to 0 amount of child view controllers")
         }
         let tabBarController = UITabBarController()
+        if let delegate = delegate {
+            tabBarController.delegate = delegate
+        }
         tabBarController.viewControllers = viewControllers
         return tabBarController
     }
