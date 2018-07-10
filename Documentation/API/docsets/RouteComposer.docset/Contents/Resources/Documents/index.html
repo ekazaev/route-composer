@@ -496,7 +496,7 @@ actions at the moment when router found/created a view controller. Just implemen
 
 <p><em>Example: Even if <code>ProductViewController</code> is present on the screen or it is going to be created you have to set productID to
 present a product.</em></p>
-<pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">ProductViewControllerContentTask</span><span class="p">:</span> <span class="kt">ContextTask</span> <span class="p">{</span>
+<pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">ProductViewControllerContextTask</span><span class="p">:</span> <span class="kt">ContextTask</span> <span class="p">{</span>
 
     <span class="kd">func</span> <span class="nf">apply</span><span class="p">(</span><span class="n">on</span> <span class="nv">productViewController</span><span class="p">:</span> <span class="kt">ProductViewController</span><span class="p">,</span> <span class="n">with</span> <span class="nv">productID</span><span class="p">:</span> <span class="kt">UUID</span><span class="p">)</span> <span class="p">{</span>
         <span class="n">productViewController</span><span class="o">.</span><span class="n">productID</span> <span class="o">=</span> <span class="n">productID</span>
@@ -535,7 +535,7 @@ Use <code><a href="Classes/StepAssembly.html">StepAssembly</a></code> provided b
 which should be presented modally from any currently visible view controller.</em></p>
 <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">productScreen</span> <span class="o">=</span> <span class="kt">StepAssembly</span><span class="p">(</span><span class="nv">finder</span><span class="p">:</span> <span class="kt">ProductViewControllerFinder</span><span class="p">(),</span> <span class="nv">factory</span><span class="p">:</span> <span class="kt">ProductViewControllerFactory</span><span class="p">(</span><span class="nv">action</span><span class="p">:</span> <span class="kt">PushToNavigationAction</span><span class="p">()))</span>
         <span class="o">.</span><span class="nf">add</span><span class="p">(</span><span class="kt">LoginInterceptor</span><span class="p">())</span>
-        <span class="o">.</span><span class="nf">add</span><span class="p">(</span><span class="kt">ProductViewControllerContentTask</span><span class="p">())</span>
+        <span class="o">.</span><span class="nf">add</span><span class="p">(</span><span class="kt">ProductViewControllerContextTask</span><span class="p">())</span>
         <span class="o">.</span><span class="nf">add</span><span class="p">(</span><span class="kt">ProductViewControllerPostTask</span><span class="p">(</span><span class="nv">analyticsManager</span><span class="p">:</span> <span class="kt">AnalyticsManager</span><span class="o">.</span><span class="n">sharedInstance</span><span class="p">))</span>
         <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="kt">NavigationControllerStep</span><span class="p">(</span><span class="nv">action</span><span class="p">:</span> <span class="kt">DefaultActions</span><span class="o">.</span><span class="kt">PresentModally</span><span class="p">()))</span>
         <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="kt">CurrentControllerStep</span><span class="p">())</span>
@@ -550,7 +550,7 @@ which should be presented modally from any currently visible view controller.</e
 <li>Navigation stack should be provided from another step <code><a href="Classes/NavigationControllerStep.html">NavigationControllerStep</a></code>, that will create a <code>UINavigationController</code> instance</li>
 <li>The <code>UINavigationController</code> instance should be presented modally from any currently visible view controller.</li>
 <li>Before routing run <code>LoginInterceptor</code></li>
-<li>After view controller been created or found, run <code>ProductViewControllerContentTask</code></li>
+<li>After view controller been created or found, run <code>ProductViewControllerContextTask</code></li>
 <li>After successful routing run <code>ProductViewControllerPostTask</code></li>
 </ul>
 
@@ -576,7 +576,7 @@ should be logged in to see the product details.</em></p>
     <span class="kd">static</span> <span class="kd">func</span> <span class="nf">productDestination</span><span class="p">(</span><span class="n">with</span> <span class="nv">productID</span><span class="p">:</span> <span class="kt">UUID</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">AppDestination</span> <span class="p">{</span>
         <span class="k">let</span> <span class="nv">productScreen</span> <span class="o">=</span> <span class="kt">StepAssembly</span><span class="p">(</span><span class="nv">finder</span><span class="p">:</span> <span class="kt">ProductViewControllerFinder</span><span class="p">(),</span> <span class="nv">factory</span><span class="p">:</span> <span class="kt">ProductViewControllerFactory</span><span class="p">(</span><span class="nv">action</span><span class="p">:</span> <span class="kt">PushToNavigationAction</span><span class="p">()))</span>
                 <span class="o">.</span><span class="nf">add</span><span class="p">(</span><span class="kt">LoginInterceptor</span><span class="p">())</span>
-                <span class="o">.</span><span class="nf">add</span><span class="p">(</span><span class="kt">ProductViewControllerContentTask</span><span class="p">())</span>
+                <span class="o">.</span><span class="nf">add</span><span class="p">(</span><span class="kt">ProductViewControllerContextTask</span><span class="p">())</span>
                 <span class="o">.</span><span class="nf">add</span><span class="p">(</span><span class="kt">ProductViewControllerPostTask</span><span class="p">(</span><span class="nv">analyticsManager</span><span class="p">:</span> <span class="kt">AnalyticsManager</span><span class="o">.</span><span class="n">sharedInstance</span><span class="p">))</span>
                 <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="kt">NavigationControllerStep</span><span class="p">(</span><span class="nv">action</span><span class="p">:</span> <span class="kt">DefaultActions</span><span class="o">.</span><span class="kt">PresentModally</span><span class="p">()))</span>
                 <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="kt">CurrentViewControllerStep</span><span class="p">())</span>
@@ -623,7 +623,7 @@ should be logged in to see the product details.</em></p>
         <span class="c1">// Handled by a ProductViewControllerFactory</span>
         <span class="k">let</span> <span class="nv">productViewController</span> <span class="o">=</span> <span class="kt">ProductViewController</span><span class="p">(</span><span class="nv">nibName</span><span class="p">:</span> <span class="s">"ProductViewController"</span><span class="p">,</span> <span class="nv">bundle</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
 
-        <span class="c1">// Handled by ProductViewControllerContentTask</span>
+        <span class="c1">// Handled by ProductViewControllerContextTask</span>
         <span class="n">productViewController</span><span class="o">.</span><span class="n">productID</span> <span class="o">=</span> <span class="n">productID</span>
 
         <span class="c1">// Handled by NavigationControllerStep and PushToNavigationAction</span>
@@ -664,12 +664,12 @@ read <a href="https://github.com/gilt/Cleanroom#contributing-to-the-cleanroom-pr
 apologies. <em>Caveat developer.</em></p>
 <h2 id='author' class='heading'>Author</h2>
 
-<p>Evgeny Kazaev, <a href="mailto:ekazaev@gilt.com">ekazaev@gilt.com</a></p>
+<p>Evgeny Kazaev, <a href="mailto:eugene.kazaev@hbc.com">eugene.kazaev@hbc.com</a></p>
 
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="http://tech.gilt.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-06-18)</p>
+          <p>&copy; 2018 <a class="link" href="http://tech.gilt.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-07-10)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

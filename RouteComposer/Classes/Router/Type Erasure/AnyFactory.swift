@@ -6,7 +6,7 @@ import Foundation
 import UIKit
 
 /// Non type safe boxing wrapper for Factory protocol
-protocol AnyFactory: class {
+protocol AnyFactory {
 
     var action: Action { get }
 
@@ -74,7 +74,7 @@ class FactoryBox<F: Factory>: AnyFactory, CustomStringConvertible {
 class ContainerFactoryBox<F: Factory>: FactoryBox<F> {
 
     override func scrapeChildren(from factories: [AnyFactory]) -> [AnyFactory] {
-        guard let container = factory as? Container else {
+        guard var container = factory as? Container else {
             return factories
         }
 

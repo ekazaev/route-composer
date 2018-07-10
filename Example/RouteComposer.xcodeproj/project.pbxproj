@@ -47,6 +47,7 @@
 		9AFBC554985E0625F482F2C4 /* CustomViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCD694401971FFFCD2A0E /* CustomViewControllerDelegate.swift */; };
 		9AFBC5D1D6B2F6E9C25E9663 /* CustomContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC78D88E8BA79AA45A527 /* CustomContainerController.swift */; };
 		9AFBC66443B697ADCC7BB6B7 /* WishListContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC16A7AED73A4F3C744F7 /* WishListContext.swift */; };
+		9AFBC6940E3775878A0E3923 /* ExampleGenericContextTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC560E37AAA325DCE89ED /* ExampleGenericContextTask.swift */; };
 		9AFBC6A3A55CCF3FC18F1978 /* ImagesConfigurationWithLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC5AF9638E4E5B1D1E443 /* ImagesConfigurationWithLibrary.swift */; };
 		9AFBC6DD79F2059D9547629A /* ImagesFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC7681CD469FE6EB77EC1 /* ImagesFactory.swift */; };
 		9AFBC71B05DD36CEA9519B11 /* ImageDetailsFetcherImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC33219CADD6450A6392E /* ImageDetailsFetcherImpl.swift */; };
@@ -144,6 +145,7 @@
 		9AFBC4700ACD202B6C4A1205 /* CitiesDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CitiesDataModel.swift; sourceTree = "<group>"; };
 		9AFBC4C7C2E35FE2903E13AB /* ImagesWithLibraryHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesWithLibraryHandler.swift; sourceTree = "<group>"; };
 		9AFBC549ADF0811C629AA0EF /* ImageDetailsControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDetailsControllerDelegate.swift; sourceTree = "<group>"; };
+		9AFBC560E37AAA325DCE89ED /* ExampleGenericContextTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleGenericContextTask.swift; sourceTree = "<group>"; };
 		9AFBC5AF9638E4E5B1D1E443 /* ImagesConfigurationWithLibrary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesConfigurationWithLibrary.swift; sourceTree = "<group>"; };
 		9AFBC5D711BEDBDB3B0C6CA9 /* ImageFetcherImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageFetcherImpl.swift; sourceTree = "<group>"; };
 		9AFBC6DBFF899EA9831D84D2 /* LoginConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginConfiguration.swift; sourceTree = "<group>"; };
@@ -303,6 +305,7 @@
 				9AFBCD4279BBCCCACECDB352 /* ExampleAnalyticsInterceptor.swift */,
 				9AFBC0097861297B7686ADAA /* ExampleAnalyticsPostAction.swift */,
 				9AFBCC692A1118A5A17A7F8A /* ExampleDictionaryContext.swift */,
+				9AFBC560E37AAA325DCE89ED /* ExampleGenericContextTask.swift */,
 			);
 			path = Configuration;
 			sourceTree = "<group>";
@@ -745,6 +748,7 @@
 				9AFBC22A73AF89164548FE98 /* GlobalInterceptor.swift in Sources */,
 				9AFBCD195142F55957229B14 /* GlobalPostTask.swift in Sources */,
 				9AFBCA85EA264D7866B5F37B /* GlobalContextTask.swift in Sources */,
+				9AFBC6940E3775878A0E3923 /* ExampleGenericContextTask.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
