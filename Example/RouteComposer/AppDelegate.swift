@@ -43,6 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 finder: ClassFinder<SquareViewController, ExampleDictionaryContext>(options: .currentAllStack),
                 factory: NilFactory())
                 .add(ExampleAnalyticsInterceptor())
+                .add(ExampleGenericContextTask())
                 .add(ExampleAnalyticsPostAction())
                 .from(homeScreen)
                 .assemble()
@@ -54,6 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 finder: ClassFinder<CircleViewController, ExampleDictionaryContext>(options: .currentAllStack),
                 factory: NilFactory())
                 .add(ExampleAnalyticsInterceptor())
+                .add(ExampleGenericContextTask())
                 .add(ExampleAnalyticsPostAction())
                 .from(homeScreen)
                 .assemble()
@@ -65,6 +67,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 finder: ColorViewControllerFinder(),
                 factory: ColorViewControllerFactory(action: NavigationControllerFactory.PushToNavigation()))
                 .add(ExampleAnalyticsInterceptor())
+                .add(ExampleGenericContextTask())
                 .add(ExampleAnalyticsPostAction())
                 .from(NavigationControllerStep(action: GeneralAction.PresentModally()))
                 .from(CurrentViewControllerStep())
@@ -77,6 +80,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 finder: ClassFinder<StarViewController, Any>(options: .currentAllStack),
                 factory: XibFactory(action: TabBarControllerFactory.AddTab()))
                 .add(ExampleAnalyticsInterceptor())
+                .add(ExampleGenericContextTask())
                 .add(ExampleAnalyticsPostAction())
                 .add(LoginInterceptor())
                 .from(homeScreen)
@@ -89,6 +93,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 finder: ClassFinder<RoutingRuleSupportViewController, Any?>(options: .currentAllStack),
                 factory: StoryboardFactory(storyboardName: "TabBar", viewControllerID: "RoutingRuleSupportViewController", action: NavigationControllerFactory.PushToNavigation()))
                 .add(ExampleAnalyticsInterceptor())
+                .add(ExampleGenericContextTask())
                 .add(ExampleAnalyticsPostAction())
                 .from(colorScreen)
                 .assemble()
@@ -102,6 +107,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 factory: StoryboardFactory(storyboardName: "TabBar", viewControllerID: "EmptyViewController", action: NavigationControllerFactory.PushToNavigation()))
                 .add(LoginInterceptor())
                 .add(ExampleAnalyticsInterceptor())
+                .add(ExampleGenericContextTask())
                 .add(ExampleAnalyticsPostAction())
                 .from(circleScreen)
                 .assemble()
@@ -113,6 +119,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 finder: ClassFinder<SecondModalLevelViewController, Any?>(),
                 factory: StoryboardFactory(storyboardName: "TabBar", viewControllerID: "SecondModalLevelViewController", action: NavigationControllerFactory.PushToNavigation()))
                 .add(ExampleAnalyticsInterceptor())
+                .add(ExampleGenericContextTask())
                 .add(ExampleAnalyticsPostAction())
                 .from(NavigationControllerStep(action: GeneralAction.PresentModally()))
                 .from(routingSupportScreen)
@@ -125,6 +132,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 finder: ClassFinder<PromptViewController, Any?>(),
                 factory: StoryboardFactory(storyboardName: "PromptScreen", action: GeneralAction.ReplaceRoot()))
                 .add(ExampleAnalyticsInterceptor())
+                .add(ExampleGenericContextTask())
                 .add(ExampleAnalyticsPostAction())
                 .from(RootViewControllerStep())
                 .assemble()

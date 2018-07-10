@@ -7,7 +7,7 @@ import Foundation
 
 /// The `Router` will use `RoutingStep` instance provided by a `RoutingDestination` as a starting point
 /// to build steps for routing to it.
-public protocol RoutingDestination: class {
+public protocol RoutingDestination {
 
     /// Context type associated with the `RoutingDestination` instance.
     associatedtype Context

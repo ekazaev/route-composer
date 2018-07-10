@@ -6,7 +6,7 @@
 import UIKit
 
 /// An instance that extends `Factory` builds `UIViewController` that will be later integrated into the stack by `Router`
-public protocol Factory: class {
+public protocol Factory {
 
     /// Type of `UIViewController` that `Factory` can build
     associatedtype ViewController: UIViewController

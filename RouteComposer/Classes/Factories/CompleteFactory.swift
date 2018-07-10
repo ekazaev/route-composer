@@ -17,9 +17,9 @@ public class CompleteFactory<FC: Factory & Container>: Factory, Container, Custo
     public typealias Context = FC.Context
 
     public let action: Action
-
-    let factory: FC
-
+    
+    private var factory: FC
+    
     let childFactories: [ChildFactory<FC.Context>]
 
     init(factory: FC, childFactories: [ChildFactory<FC.Context>]) {

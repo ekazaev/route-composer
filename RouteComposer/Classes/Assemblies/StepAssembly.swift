@@ -3,6 +3,7 @@
 //
 
 import Foundation
+import UIKit
 
 /// Builder class that helps to create a `RoutingStep` instance with correct settings.
 /// ### Keep in mind
@@ -118,6 +119,15 @@ public class StepAssembly<F: Finder, FC: Factory> where F.ViewController == FC.V
     ///
     /// - Parameter contextTask: The `ContextTask` instance to be executed by a `Router` immediately after it will find or create UIViewController.
     public func add<CT: ContextTask>(_ contextTask: CT) -> Self where CT.ViewController == FC.ViewController, CT.ViewController == F.ViewController, CT.Context == FC.Context, CT.Context == F.Context {
+        self.contextTasks.append(ContextTaskBox(contextTask))
+        return self
+    }
+
+    /// Adds generic context task instance. Generic means that it can be applied to any view controller with any type of context.
+    /// Generic `ContextTask` must have the view controller type casted to `UIViewController` and context type casted  to `Any?`.
+    ///
+    /// - Parameter contextTask: The `ContextTask` instance to be executed by a `Router` immediately after it will find or create UIViewController.
+    public func add<CT: ContextTask>(_ contextTask: CT) -> Self where CT.ViewController == UIViewController, CT.Context == Any? {
         self.contextTasks.append(ContextTaskBox(contextTask))
         return self
     }
