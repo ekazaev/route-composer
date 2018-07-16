@@ -56,6 +56,7 @@
 		82E054245457FB731B2A96A058AD3CBE /* InterceptorResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD00F13E158C1D7AE0FAFB4B9C16746 /* InterceptorResult.swift */; };
 		83AFDFF86DB083A1FB783D138D48F2DB /* ClassNameFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BBD82C3BAF0CC71B7AF3BE02F79CDF /* ClassNameFactory.swift */; };
 		83E2ABDA9ED52528F3E2DD0E84FC9BD4 /* SimpleContainerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB232F7BD8482B479315F29EB92437E1 /* SimpleContainerFactory.swift */; };
+		848E5D0120FCB24700479193 /* InlineTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848E5D0020FCB24700479193 /* InlineTasks.swift */; };
 		84DD37D320D7CD6400F24B63 /* AssemblableRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCE29B7B30E42AFA13B4D /* AssemblableRouter.swift */; };
 		885C84963817307DC32E33639DFBF769 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B63C6A64CF66340668996F78DA6BB482 /* UIKit.framework */; };
 		891B0C6F1715F12A40393FF436F41908 /* RoutingDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D5B8EE07FAF07E44D837CE4A9F2782 /* RoutingDestination.swift */; };
@@ -172,6 +173,7 @@
 		7DCFF013D8C9472D6C264245AB36FFF2 /* PushToNavigation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PushToNavigation.swift; sourceTree = "<group>"; };
 		7FE3E69DEC3763875028FFA0FDE28920 /* FinderFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FinderFactory.swift; sourceTree = "<group>"; };
 		817D810B94CC7EF5A7C56C25B9E2C9A7 /* PostRoutingTaskMultiplexer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PostRoutingTaskMultiplexer.swift; sourceTree = "<group>"; };
+		848E5D0020FCB24700479193 /* InlineTasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InlineTasks.swift; path = RouteComposer/Classes/InlineTasks.swift; sourceTree = "<group>"; };
 		866B2F0237E7276FC2D9EC0C14EF1368 /* PresentModally.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PresentModally.swift; sourceTree = "<group>"; };
 		87974203166AB43DA16E0D931787F783 /* ChainingStep.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ChainingStep.swift; sourceTree = "<group>"; };
 		89DBF03D3C83FC6D73489EDB3B87A199 /* AddTab.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AddTab.swift; sourceTree = "<group>"; };
@@ -578,6 +580,7 @@
 				D6ECB37CE28997061FA8B511CBC5D267 /* ContextTask.swift */,
 				09AC7FB097F23DB82AFB6A1A2CDF5AE6 /* Factory.swift */,
 				FBD61D37159D4CE5A173146AD31AED56 /* Finder.swift */,
+				848E5D0020FCB24700479193 /* InlineTasks.swift */,
 				DFD00F13E158C1D7AE0FAFB4B9C16746 /* InterceptorResult.swift */,
 				FED73ACE9F8CEB153D71E17CFE93D7BF /* PostRoutingTask.swift */,
 				A3392DC84599A77244FC151B38EFF143 /* Router.swift */,
@@ -739,6 +742,7 @@
 				B7C1EE3CCA7C3FDC355EAD588C55A214 /* BasicContainerStep.swift in Sources */,
 				0BD898F4D2BE36FC7AB56E6A51CCCE5F /* BasicStep.swift in Sources */,
 				F8E93EBC2E85466DFF8E85516E2C4A26 /* ChainableStep.swift in Sources */,
+				848E5D0120FCB24700479193 /* InlineTasks.swift in Sources */,
 				34F328B7B50D769FEDB18FBAC75C0434 /* ChainAssembly.swift in Sources */,
 				F244BE8FE4826836556BA770933C7686 /* ChainingStep.swift in Sources */,
 				4CF3ECA7FED52080B1046CE58CEEE9DF /* ChildFactory.swift in Sources */,
