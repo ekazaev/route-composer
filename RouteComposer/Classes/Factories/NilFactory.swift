@@ -13,7 +13,7 @@ import UIKit
 ///
 /// For example, `UIViewController` of this step was already loaded and integrated into a stack by a
 /// storyboard.
-public class NilFactory<VC: UIViewController, C>: Factory {
+public struct NilFactory<VC: UIViewController, C>: Factory {
 
     public typealias ViewController = VC
 

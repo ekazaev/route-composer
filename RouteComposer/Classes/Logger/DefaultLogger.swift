@@ -27,7 +27,7 @@ public enum DefaultLoggerLevel {
 }
 
 /// Default Logger implementation
-public class DefaultLogger: Logger {
+public struct DefaultLogger: Logger {
 
     private let logLevel: DefaultLoggerLevel
 

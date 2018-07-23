@@ -27,7 +27,7 @@ public protocol Factory {
     /// - Parameter context: The `Context` instance if it was provided to the `Router`.
     /// - Throws: The `RoutingError` if the `Factory` can not prepare itself to build a `UIViewController` instance
     ///   with the `Context` instance provided.
-    func prepare(with context: Context) throws
+    mutating func prepare(with context: Context) throws
 
     /// Builds a `UIViewController` that will be built into the stack
     ///

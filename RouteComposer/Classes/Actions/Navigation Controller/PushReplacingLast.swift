@@ -9,7 +9,7 @@ import UIKit
 public extension NavigationControllerFactory {
 
     /// Pushes view controller into the `UINavigationController`'s child stack
-    public class PushReplacingLast: NavigationControllerAction {
+    public struct PushReplacingLast: NavigationControllerAction {
 
         /// Constructor
         public init() {

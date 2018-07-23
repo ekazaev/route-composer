@@ -8,7 +8,7 @@ import UIKit
 public extension TabBarControllerFactory {
 
     /// Integrates `UIViewController` in to a `UITabBarController`
-    public class AddTab: TabBarControllerAction {
+    public struct AddTab: TabBarControllerAction {
 
         let tabIndex: Int?
 

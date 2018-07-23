@@ -195,7 +195,7 @@ public struct DefaultRouter: Router, AssemblableRouter {
                                 // If current factory actually creates Container then it should know how to deal with the factories that
                                 // should be in this container, based on an action attached to the factory.
                                 // For example navigationController factory should use factories to build navigation controller stack.
-                                factories = factory.scrapeChildren(from: factories)
+                                factories = try factory.scrapeChildren(from: factories)
                                 factories.insert(factory, at: 0)
                             }
                         }
@@ -321,7 +321,7 @@ public struct DefaultRouter: Router, AssemblableRouter {
     /// This decorator adds functionality of storing UIViewControllers created by the `Factory` and frees custom factories
     /// implementations from dealing with it. Mostly it is important for ContainerFactories which create merged view
     /// controllers without `Router`'s help.
-    private class FactoryDecorator<D: RoutingDestination>: AnyFactory, CustomStringConvertible {
+    private struct FactoryDecorator<D: RoutingDestination>: AnyFactory, CustomStringConvertible {
 
         var action: Action {
             get {
@@ -329,7 +329,7 @@ public struct DefaultRouter: Router, AssemblableRouter {
             }
         }
 
-        let factory: AnyFactory
+        var factory: AnyFactory
 
         weak var postTaskRunner: PostTaskRunner<D>?
 
@@ -367,8 +367,8 @@ public struct DefaultRouter: Router, AssemblableRouter {
             return viewController
         }
 
-        func scrapeChildren(from factories: [AnyFactory]) -> [AnyFactory] {
-            return factory.scrapeChildren(from: factories)
+        mutating func scrapeChildren(from factories: [AnyFactory]) throws -> [AnyFactory] {
+            return try factory.scrapeChildren(from: factories)
         }
 
         var description: String {

@@ -19,7 +19,7 @@ protocol AnyFactory {
     ///
     /// - Parameter factories: Array of factories to be handled by container factory.
     /// - Returns: Array of factories that are not supported by this container type. `Router` should decide how to deal with them.
-    func scrapeChildren(from factories: [AnyFactory]) -> [AnyFactory]
+    mutating func scrapeChildren(from factories: [AnyFactory]) throws -> [AnyFactory]
 
 }
 
@@ -38,7 +38,7 @@ class FactoryBox<F: Factory>: AnyFactory, CustomStringConvertible {
         return nil
     }
 
-    let factory: F
+    var factory: F
 
     let action: Action
 
@@ -61,7 +61,7 @@ class FactoryBox<F: Factory>: AnyFactory, CustomStringConvertible {
         return try factory.build(with: typedContext)
     }
 
-    func scrapeChildren(from factories: [AnyFactory]) -> [AnyFactory] {
+    func scrapeChildren(from factories: [AnyFactory]) throws -> [AnyFactory] {
         return factories
     }
 
@@ -73,13 +73,17 @@ class FactoryBox<F: Factory>: AnyFactory, CustomStringConvertible {
 
 class ContainerFactoryBox<F: Factory>: FactoryBox<F> {
 
-    override func scrapeChildren(from factories: [AnyFactory]) -> [AnyFactory] {
+    override func scrapeChildren(from factories: [AnyFactory]) throws -> [AnyFactory] {
         guard var container = factory as? Container else {
-            return factories
+            throw RoutingError.message("Container factory was not implemented properly")
         }
-
         let children = factories.map({ f -> ChildFactory<F.Context> in ChildFactory<F.Context>(f) })
         let restChildren = container.merge(children)
+
+        guard let factory = container as? F else {
+            throw RoutingError.message("Container factory was not implemented properly")
+        }
+        self.factory = factory
         let restFactories = restChildren.map({ c -> AnyFactory in c.factory })
 
         return restFactories

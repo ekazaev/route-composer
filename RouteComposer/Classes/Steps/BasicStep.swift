@@ -8,7 +8,7 @@ import UIKit
 /// A simple class that produces intermediate `RoutingStep` for an assembly.
 public class BasicStep<F: Finder, FC: Factory> where F.ViewController == FC.ViewController, F.Context == FC.Context {
 
-    let routingStep: RoutingStep
+    internal let routingStep: RoutingStep
 
     /// Creates a instance of the `RoutingStep` that produces view controller.
     ///

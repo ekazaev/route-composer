@@ -107,6 +107,10 @@ public class StepAssembly<F: Finder, FC: Factory> where F.ViewController == FC.V
         self.finder = finder
     }
 
+    public init<FFC: Factory & Container>(finder: F, factory: FFC) {
+        self.factory = factory as! FC
+        self.finder = finder
+    }
     /// Adds routing interceptor instance
     ///
     /// - Parameter interceptor: The `RoutingInterceptor` instance to be executed by `Router` before routing to this step.

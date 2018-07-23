@@ -6,7 +6,7 @@
 import UIKit
 
 /// `Container` `Factory` that creates UINavigationController
-public class NavigationControllerFactory: SimpleContainerFactory {
+public struct NavigationControllerFactory: SimpleContainerFactory {
 
     public typealias ViewController = UINavigationController
 

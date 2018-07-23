@@ -6,7 +6,7 @@
 import UIKit
 
 /// `Factory` that creates `UIViewController` of desired class by its name
-public class ClassNameFactory<VC: UIViewController, C>: Factory {
+public struct ClassNameFactory<VC: UIViewController, C>: Factory {
 
     public typealias ViewController = VC
 
