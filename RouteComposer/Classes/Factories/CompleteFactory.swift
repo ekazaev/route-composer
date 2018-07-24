@@ -16,8 +16,6 @@ public struct CompleteFactory<FC: Container>: Container, CustomStringConvertible
 
     public typealias Context = FC.Context
 
-    public typealias SupportedAction = FC.SupportedAction
-    
     public let action: Action
     
     private var factory: FC

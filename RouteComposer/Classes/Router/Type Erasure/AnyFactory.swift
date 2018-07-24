@@ -23,9 +23,9 @@ protocol AnyFactory {
 
 }
 
-protocol AnyFactoryBoxer: AnyFactory {
+protocol AnyFactoryBox: AnyFactory {
     
-    associatedtype FactoryType: Maker
+    associatedtype FactoryType: Factory
     
     static func box(for factory: FactoryType?) -> AnyFactory?
 
@@ -35,7 +35,7 @@ protocol AnyFactoryBoxer: AnyFactory {
     
 }
 
-extension AnyFactoryBoxer where Self: AnyFactory {
+extension AnyFactoryBox where Self: AnyFactory {
     
     static func box(for factory: FactoryType?) -> AnyFactory? {
         if let _ = factory as? NilFactory<FactoryType.ViewController, FactoryType.Context> {
@@ -66,7 +66,7 @@ extension AnyFactoryBoxer where Self: AnyFactory {
     
 }
 
-extension AnyFactory where Self: CustomStringConvertible & AnyFactoryBoxer {
+extension AnyFactory where Self: CustomStringConvertible & AnyFactoryBox {
     
     var description: String {
         return String(describing: factory)
@@ -74,7 +74,7 @@ extension AnyFactory where Self: CustomStringConvertible & AnyFactoryBoxer {
     
 }
 
-class FactoryBox<F: Factory>: AnyFactory, AnyFactoryBoxer, CustomStringConvertible {
+struct FactoryBox<F: Factory>: AnyFactory, AnyFactoryBox, CustomStringConvertible {
 
     typealias FactoryType = F
     
@@ -82,13 +82,13 @@ class FactoryBox<F: Factory>: AnyFactory, AnyFactoryBoxer, CustomStringConvertib
 
     let action: Action
 
-    required init(_ factory: F) {
+    init(_ factory: F) {
         self.factory = factory
         self.action = factory.action
     }
 }
 
-class ContainerFactoryBox<F: Container>: AnyFactory, AnyFactoryBoxer, CustomStringConvertible {
+struct ContainerFactoryBox<F: Container>: AnyFactory, AnyFactoryBox, CustomStringConvertible {
     
     typealias FactoryType = F
     
@@ -96,12 +96,12 @@ class ContainerFactoryBox<F: Container>: AnyFactory, AnyFactoryBoxer, CustomStri
     
     let action: Action
     
-    required init(_ factory: FactoryType) {
+    init(_ factory: FactoryType) {
         self.factory = factory
         self.action = factory.action
     }
     
-    func scrapeChildren(from factories: [AnyFactory]) throws -> [AnyFactory] {
+    mutating func scrapeChildren(from factories: [AnyFactory]) throws -> [AnyFactory] {
         let children = factories.map({ f -> ChildFactory<F.Context> in ChildFactory<F.Context>(f) })
         let restChildren = factory.merge(children)
 

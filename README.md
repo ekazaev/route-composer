@@ -80,7 +80,7 @@ Factory is responsible for **building view controllers**, that the router has to
 Every Factory instance must implement the `Factory` protocol:
 
 ```swift
-public protocol Factory: class {
+public protocol Factory {
 
     associatedtype ViewController: UIViewController
 

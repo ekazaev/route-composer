@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'RouteComposer'
-  s.version          = '0.9.6'
+  s.version          = '0.9.7'
   s.summary          = 'Standalone UIViewController\'s routing and composing library.'
 
 

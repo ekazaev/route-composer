@@ -5,7 +5,9 @@
 
 import UIKit
 
-public protocol Maker {
+/// An instance that extends `Factory` builds `UIViewController` that will be later integrated into the stack by `Router`
+public protocol Factory {
+    
     /// Type of `UIViewController` that `Factory` can build
     associatedtype ViewController: UIViewController
     
@@ -33,13 +35,7 @@ public protocol Maker {
     /// - Returns: The built `UIViewController` instance.
     /// - Throws: The `RoutingError` if build was not succeed.
     func build(with context: Context) throws -> ViewController
-
-}
-
-/// An instance that extends `Factory` builds `UIViewController` that will be later integrated into the stack by `Router`
-public protocol Factory: Maker {
-
-
+    
 }
 
 public extension Factory {

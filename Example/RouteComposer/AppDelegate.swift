@@ -148,14 +148,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 .from(RootViewControllerStep())
                 .assemble()
         
-        let testScreen = ContainerStepAssembly(
-                finder: ClassFinder<UINavigationController, Any?>(),
-                factory: NavigationControllerFactory(action: GeneralAction.ReplaceRoot()))
-                .add(ExampleAnalyticsInterceptor())
-                .add(ExampleAnalyticsPostAction())
-                .from(RootViewControllerStep())
-                .assemble()
-        
         ExampleConfiguration.register(screen: welcomeScreen, for: ExampleTarget.welcome)
         
         ExampleUniversalLinksManager.register(translator: ColorURLTranslator())

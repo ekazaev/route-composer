@@ -13,8 +13,6 @@ public class SplitControllerFactory: Container {
     
     public typealias Context = Any?
     
-    public typealias SupportedAction = SplitControllerMasterAction
-    
     public let action: Action
     
     var masterFactories: [ChildFactory<Context>] = []

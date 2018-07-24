@@ -13,9 +13,7 @@ import UIKit
 /// `Container` applies one merged `Action` and then populate a full stack of view controllers that was built by the associated factories in one go.
 /// Example: Steps requires to populate N-view controllers in `UINavigationController` stack and it can do so.
 /// `merge` method implementation is mandatory.
-public protocol Container: Maker {
-    
-    associatedtype SupportedAction
+public protocol Container: Factory {
     
     /// Receives an array of factories whose view controllers should be merged into current container
     /// `Factory` before it actually builds a container view controller with child view controllers inside.
@@ -30,13 +28,6 @@ public protocol Container: Maker {
     /// back to an unsupported one.
     mutating func merge<C>(_ factories: [ChildFactory<C>]) -> [ChildFactory<C>]
 
-}
-
-public extension Container {
-    
-    func prepare(with context: Context) throws {
-    }
-    
 }
 
 /// - `Container` `Factory` extension that helps to build properly child `UIViewController`s from factories provided.

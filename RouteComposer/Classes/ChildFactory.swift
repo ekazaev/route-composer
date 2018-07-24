@@ -1,5 +1,5 @@
 //
-//  AnyChildFactory.swift
+//  ChildFactory.swift
 //  RouteComposer
 //
 //  Created by Eugene Kazaev on 03/03/2018.
