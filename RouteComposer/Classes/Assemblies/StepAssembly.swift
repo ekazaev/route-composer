@@ -118,7 +118,7 @@ public class GenericStepAssembly<F: Finder, FC: Factory> where F.ViewController 
         /// Basic step to start build current step from
         ///
         /// - Parameter previousStep: Instance of ChainingStep
-        public func from(_ previousStep: BasicStep) -> ScreenStepChainAssembly {
+        public func from(_ previousStep: BasicStepAssembly) -> ScreenStepChainAssembly {
             self.previousSteps.append(previousStep.routingStep)
             return self
         }
@@ -217,7 +217,7 @@ public class GenericStepAssembly<F: Finder, FC: Factory> where F.ViewController 
     /// Basic step to start build current step from
     ///
     /// - Parameter previousStep: The instance of `BasicStep`
-    public func from(_ previousStep: BasicStep) -> ScreenStepChainAssembly {
+    public func from(_ previousStep: BasicStepAssembly) -> ScreenStepChainAssembly {
         let stepBuilder = ScreenStepChainAssembly(assembly: self, firstStep: previousStep.routingStep)
         return stepBuilder
     }

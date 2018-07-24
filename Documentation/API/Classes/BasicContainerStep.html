@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>StepAssembly Class Reference</title>
+    <title>BasicContainerStep Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Class/StepAssembly" class="dashAnchor"></a>
-    <a title="StepAssembly Class Reference"></a>
+    <a name="//apple_ref/swift/Class/BasicContainerStep" class="dashAnchor"></a>
+    <a title="BasicContainerStep Class Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">RouteComposer Docs</a> (100% documented)</p>
@@ -21,7 +21,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">RouteComposer Reference</a>
         <img id="carat" src="../img/carat.png" />
-        StepAssembly Class Reference
+        BasicContainerStep Class Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -303,26 +303,14 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>StepAssembly</h1>
+            <h1>BasicContainerStep</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">StepAssembly</span><span class="o">&lt;</span><span class="kt">F</span><span class="p">,</span> <span class="kt">FC</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="../Classes/GenericStepAssembly.html">GenericStepAssembly</a></span><span class="o">&lt;</span><span class="kt">F</span><span class="p">,</span> <span class="kt">FC</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">F</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/Finder.html">Finder</a></span><span class="p">,</span> <span class="kt">FC</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/Factory.html">Factory</a></span><span class="p">,</span> <span class="kt">F</span><span class="o">.</span><span class="kt">Context</span> <span class="o">==</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">Context</span><span class="p">,</span> <span class="kt">F</span><span class="o">.</span><span class="kt">ViewController</span> <span class="o">==</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">ViewController</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">BasicContainerStep</span><span class="o">&lt;</span><span class="kt">F</span><span class="p">,</span> <span class="kt">FC</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="../Classes.html#/s:13RouteComposer17BasicStepAssemblyC">BasicStepAssembly</a></span> <span class="k">where</span> <span class="kt">F</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/Finder.html">Finder</a></span><span class="p">,</span> <span class="kt">FC</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/Container.html">Container</a></span><span class="p">,</span> <span class="kt">C</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ContainerViewController.html">ContainerViewController</a></span><span class="p">,</span> <span class="kt">C</span> <span class="o">==</span> <span class="kt">F</span><span class="o">.</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">F</span><span class="o">.</span><span class="kt">Context</span> <span class="o">==</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">Context</span><span class="p">,</span> <span class="kt">F</span><span class="o">.</span><span class="kt">ViewController</span> <span class="o">==</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">ViewController</span></code></pre>
 
                 </div>
               </div>
-            <p>Builder class that helps to create a <code><a href="../Protocols.html#/s:13RouteComposer11RoutingStepP">RoutingStep</a></code> instance with correct settings.</p>
-<h3 id='keep-in-mind' class='heading'>Keep in mind</h3>
-
-<p>Both <code><a href="../Protocols/Finder.html">Finder</a></code> and <code><a href="../Protocols/Factory.html">Factory</a></code> instances should deal with same type of <code>UIViewController</code> and <code>Context</code> instances.</p>
-<h3 id='usage' class='heading'>Usage</h3>
-<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">productScreen</span> <span class="o">=</span> <span class="kt">StepAssembly</span><span class="p">(</span><span class="nv">finder</span><span class="p">:</span> <span class="kt">ProductViewControllerFinder</span><span class="p">(),</span> <span class="nv">factory</span><span class="p">:</span> <span class="kt">ProductViewControllerFactory</span><span class="p">(</span><span class="nv">action</span><span class="p">:</span> <span class="kt">PushToNavigationAction</span><span class="p">()))</span>
-        <span class="o">.</span><span class="nf">add</span><span class="p">(</span><span class="kt">LoginInterceptor</span><span class="p">())</span>
-        <span class="o">.</span><span class="nf">add</span><span class="p">(</span><span class="kt">ProductViewControllerContextTask</span><span class="p">())</span>
-        <span class="o">.</span><span class="nf">add</span><span class="p">(</span><span class="kt">ProductViewControllerPostTask</span><span class="p">(</span><span class="nv">analyticsManager</span><span class="p">:</span> <span class="kt">AnalyticsManager</span><span class="o">.</span><span class="n">sharedInstance</span><span class="p">))</span>
-        <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="kt">NavigationControllerStep</span><span class="p">(</span><span class="nv">action</span><span class="p">:</span> <span class="kt">DefaultActions</span><span class="o">.</span><span class="kt">PresentModally</span><span class="p">()))</span>
-        <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="kt">CurrentControllerStep</span><span class="p">())</span>
-        <span class="o">.</span><span class="nf">assemble</span><span class="p">()</span>
-</code></pre>
+            <p>Base class for steps that produces basic container steps.</p>
 
           </section>
           <section class="section task-group-section">
@@ -331,9 +319,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer12StepAssemblyCACyxq_Gx6finder_q_7factorytcfc"></a>
+                    <a name="/s:13RouteComposer18BasicContainerStepCACyxq_q0_Gx6finder_q_7factorytcfc"></a>
                     <a name="//apple_ref/swift/Method/init(finder:factory:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer12StepAssemblyCACyxq_Gx6finder_q_7factorytcfc">init(finder:factory:)</a>
+                    <a class="token" href="#/s:13RouteComposer18BasicContainerStepCACyxq_q0_Gx6finder_q_7factorytcfc">init(finder:factory:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -341,14 +329,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Constructor</p>
+                        <p>Creates a instance of the <code><a href="../Protocols.html#/s:13RouteComposer11RoutingStepP">RoutingStep</a></code> that produces container view controller.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">override</span> <span class="nf">init</span><span class="p">(</span><span class="nv">finder</span><span class="p">:</span> <span class="kt">F</span><span class="p">,</span> <span class="nv">factory</span><span class="p">:</span> <span class="kt">FC</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">finder</span><span class="p">:</span> <span class="kt">F</span><span class="p">,</span> <span class="nv">factory</span><span class="p">:</span> <span class="kt">FC</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -364,7 +352,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>The <code>UIViewController</code> <code><a href="../Protocols/Finder.html">Finder</a></code> instance.</p>
+                                  <p>The <code>UIViewController</code> <code><a href="../Protocols/Finder.html">Finder</a></code>.</p>
                                 </div>
                               </td>
                             </tr>
@@ -376,62 +364,12 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>The <code>UIViewController</code> <code><a href="../Protocols/Factory.html">Factory</a></code> instance.</p>
+                                  <p>The <code>UIViewController</code> <code><a href="../Protocols/Container.html">Container</a></code>.</p>
                                 </div>
                               </td>
                             </tr>
                           </tbody>
                         </table>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:13RouteComposer12StepAssemblyC8assembleAA07RoutingC0_pAaE_p4from_tF"></a>
-                    <a name="//apple_ref/swift/Method/assemble(from:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer12StepAssemblyC8assembleAA07RoutingC0_pAaE_p4from_tF">assemble(from:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Assemble all the provided settings.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">assemble</span><span class="p">(</span><span class="n">from</span> <span class="nv">step</span><span class="p">:</span> <span class="kt"><a href="../Protocols.html#/s:13RouteComposer11RoutingStepP">RoutingStep</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Protocols.html#/s:13RouteComposer11RoutingStepP">RoutingStep</a></span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>step</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The instance of <code><a href="../Protocols.html#/s:13RouteComposer11RoutingStepP">RoutingStep</a></code> to start to build current step from.</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <div>
-                        <h4>Return Value</h4>
-                        <p>The instance of <code><a href="../Protocols.html#/s:13RouteComposer11RoutingStepP">RoutingStep</a></code> with all the settings provided inside.</p>
                       </div>
                     </section>
                   </div>

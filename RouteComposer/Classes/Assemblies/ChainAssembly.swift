@@ -58,7 +58,7 @@ public class ChainAssembly {
     /// `BasicStep` to start build current step from
     ///
     /// - Parameter previousStep: Instance of `BasicStep`
-    public func from(_ previousStep: BasicStep) -> Self {
+    public func from(_ previousStep: BasicStepAssembly) -> Self {
         self.previousSteps.append(previousStep.routingStep)
         return self
     }

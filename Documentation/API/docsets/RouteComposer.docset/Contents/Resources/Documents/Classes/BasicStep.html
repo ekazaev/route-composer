@@ -31,7 +31,13 @@
             <a href="../Classes.html">Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a href="../Classes/BasicContainerStep.html">BasicContainerStep</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/BasicStep.html">BasicStep</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:13RouteComposer17BasicStepAssemblyC">BasicStepAssembly</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/ChainAssembly.html">ChainAssembly</a>
@@ -300,7 +306,7 @@
             <h1>BasicStep</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">BasicStep</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">BasicStep</span><span class="o">&lt;</span><span class="kt">F</span><span class="p">,</span> <span class="kt">FC</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="../Classes.html#/s:13RouteComposer17BasicStepAssemblyC">BasicStepAssembly</a></span> <span class="k">where</span> <span class="kt">F</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/Finder.html">Finder</a></span><span class="p">,</span> <span class="kt">FC</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/Factory.html">Factory</a></span><span class="p">,</span> <span class="kt">F</span><span class="o">.</span><span class="kt">Context</span> <span class="o">==</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">Context</span><span class="p">,</span> <span class="kt">F</span><span class="o">.</span><span class="kt">ViewController</span> <span class="o">==</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">ViewController</span></code></pre>
 
                 </div>
               </div>
@@ -313,9 +319,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer9BasicStepCACx6finder_q_7factorytcAA6FinderRzAA7FactoryR_7ContextQy_AHRtz14ViewControllerQy_AKRtzr0_lufc"></a>
+                    <a name="/s:13RouteComposer9BasicStepCACyxq_Gx6finder_q_7factorytcfc"></a>
                     <a name="//apple_ref/swift/Method/init(finder:factory:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer9BasicStepCACx6finder_q_7factorytcAA6FinderRzAA7FactoryR_7ContextQy_AHRtz14ViewControllerQy_AKRtzr0_lufc">init(finder:factory:)</a>
+                    <a class="token" href="#/s:13RouteComposer9BasicStepCACyxq_Gx6finder_q_7factorytcfc">init(finder:factory:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -323,14 +329,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Creates a instance of the <code><a href="../Protocols.html#/s:13RouteComposer11RoutingStepP">RoutingStep</a></code> that produces view controller.</p>
+                        <p>Creates a instance of the <code><a href="../Protocols.html#/s:13RouteComposer11RoutingStepP">RoutingStep</a></code> that produces container view controller.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">F</span><span class="p">,</span> <span class="kt">FC</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">finder</span><span class="p">:</span> <span class="kt">F</span><span class="p">,</span> <span class="nv">factory</span><span class="p">:</span> <span class="kt">FC</span><span class="p">)</span> <span class="k">where</span> <span class="kt">F</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/Finder.html">Finder</a></span><span class="p">,</span> <span class="kt">FC</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/Factory.html">Factory</a></span><span class="p">,</span> <span class="kt">F</span><span class="o">.</span><span class="kt">Context</span> <span class="o">==</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">Context</span><span class="p">,</span> <span class="kt">F</span><span class="o">.</span><span class="kt">ViewController</span> <span class="o">==</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">ViewController</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">finder</span><span class="p">:</span> <span class="kt">F</span><span class="p">,</span> <span class="nv">factory</span><span class="p">:</span> <span class="kt">FC</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -346,7 +352,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>The <code>UIViewController</code> <code><a href="../Protocols/Finder.html">Finder</a></code> instance.</p>
+                                  <p>The <code>UIViewController</code> <code><a href="../Protocols/Finder.html">Finder</a></code>.</p>
                                 </div>
                               </td>
                             </tr>
@@ -358,65 +364,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>The <code>UIViewController</code> <code><a href="../Protocols/Factory.html">Factory</a></code> instance.</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:13RouteComposer9BasicStepCACx6finder_q_9containertcAA6FinderRzAA9ContainerR_7ContextQy_AHRtz14ViewControllerQy_AKRtzr0_lufc"></a>
-                    <a name="//apple_ref/swift/Method/init(finder:container:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer9BasicStepCACx6finder_q_9containertcAA6FinderRzAA9ContainerR_7ContextQy_AHRtz14ViewControllerQy_AKRtzr0_lufc">init(finder:container:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Creates a instance of the <code><a href="../Protocols.html#/s:13RouteComposer11RoutingStepP">RoutingStep</a></code> that produces view controller.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">F</span><span class="p">,</span> <span class="kt">FC</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">finder</span><span class="p">:</span> <span class="kt">F</span><span class="p">,</span> <span class="nv">container</span><span class="p">:</span> <span class="kt">FC</span><span class="p">)</span> <span class="k">where</span> <span class="kt">F</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/Finder.html">Finder</a></span><span class="p">,</span> <span class="kt">FC</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/Container.html">Container</a></span><span class="p">,</span> <span class="kt">F</span><span class="o">.</span><span class="kt">Context</span> <span class="o">==</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">Context</span><span class="p">,</span> <span class="kt">F</span><span class="o">.</span><span class="kt">ViewController</span> <span class="o">==</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">ViewController</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>finder</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The <code>UIViewController</code> <code><a href="../Protocols/Finder.html">Finder</a></code> instance.</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>container</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The <code>UIViewController</code> <code><a href="../Protocols/Container.html">Container</a></code> instance.</p>
+                                  <p>The <code>UIViewController</code> <code><a href="../Protocols/Factory.html">Factory</a></code>.</p>
                                 </div>
                               </td>
                             </tr>
