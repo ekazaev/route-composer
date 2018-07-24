@@ -350,7 +350,7 @@ public struct DefaultRouter: Router, AssemblableRouter {
             self.destination = destination
         }
 
-        func prepare(with context: Any?) throws {
+        mutating func prepare(with context: Any?) throws {
             return try factory.prepare(with: context)
         }
 

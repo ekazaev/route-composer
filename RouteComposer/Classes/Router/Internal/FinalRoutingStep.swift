@@ -14,15 +14,17 @@ protocol FinalStepComposer {
     
 }
 
-class FinalRoutingStep: BaseStep, RoutingStep, InterceptableStep {
+class FinalRoutingStep<FC: Factory>: BaseStep<FactoryBox<FC>>, RoutingStep, InterceptableStep, FinalStepComposer {
 
+    typealias FactoryType = FC
+    
     let interceptor: AnyRoutingInterceptor?
     
     let postTask: AnyPostRoutingTask?
     
     let contextTask: AnyContextTask?
-
-    init<F: Finder, FC: Factory>(finder: F, factory: FC, interceptor: AnyRoutingInterceptor? = nil, contextTask: AnyContextTask? = nil, postTask: AnyPostRoutingTask? = nil, previousStep: RoutingStep) where F.ViewController == FC.ViewController, F.Context == FC.Context {
+    
+    required init<F: Finder>(finder: F, factory: FC, interceptor: AnyRoutingInterceptor?, contextTask: AnyContextTask?, postTask: AnyPostRoutingTask?, previousStep: RoutingStep) where F.ViewController == FC.ViewController, F.Context == FC.Context {
         self.postTask = postTask
         self.contextTask = contextTask
         self.interceptor = interceptor
@@ -31,7 +33,9 @@ class FinalRoutingStep: BaseStep, RoutingStep, InterceptableStep {
     
 }
 
-class FinalContainerRoutingStep: BaseContainerStep, RoutingStep, InterceptableStep {
+class FinalContainerRoutingStep<FC: Container>: BaseStep<ContainerFactoryBox<FC>>, RoutingStep, InterceptableStep, FinalStepComposer {
+    
+    typealias FactoryType = FC
     
     let interceptor: AnyRoutingInterceptor?
     
@@ -39,7 +43,7 @@ class FinalContainerRoutingStep: BaseContainerStep, RoutingStep, InterceptableSt
     
     let contextTask: AnyContextTask?
     
-    init<F: Finder, FC: Container>(finder: F, factory: FC, interceptor: AnyRoutingInterceptor? = nil, contextTask: AnyContextTask? = nil, postTask: AnyPostRoutingTask? = nil, previousStep: RoutingStep) where F.ViewController == FC.ViewController, F.Context == FC.Context {
+    required init<F: Finder>(finder: F, factory: FC, interceptor: AnyRoutingInterceptor?, contextTask: AnyContextTask?, postTask: AnyPostRoutingTask?, previousStep: RoutingStep) where F.ViewController == FC.ViewController, F.Context == FC.Context {
         self.postTask = postTask
         self.contextTask = contextTask
         self.interceptor = interceptor
