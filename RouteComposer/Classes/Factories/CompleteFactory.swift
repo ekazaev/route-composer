@@ -10,12 +10,14 @@ import UIKit
 
 /// `CompleteFactory` is used by the `CompleteFactoryAssembly` as a `Container` `Factory` to allow you to
 /// populate child factories instead of `Router`.
-public struct CompleteFactory<FC: Factory & Container>: Factory, Container, CustomStringConvertible {
+public struct CompleteFactory<FC: Container>: Container, CustomStringConvertible {
 
     public typealias ViewController = FC.ViewController
 
     public typealias Context = FC.Context
 
+    public typealias SupportedAction = FC.SupportedAction
+    
     public let action: Action
     
     private var factory: FC

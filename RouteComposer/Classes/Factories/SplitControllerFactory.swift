@@ -7,11 +7,13 @@ import Foundation
 import UIKit
 
 /// `Container` `Factory` that creates `UISplitViewController`
-public class SplitControllerFactory: Factory, Container {
+public class SplitControllerFactory: Container {
     
     public typealias ViewController = UISplitViewController
     
     public typealias Context = Any?
+    
+    public typealias SupportedAction = SplitControllerMasterAction
     
     public let action: Action
     

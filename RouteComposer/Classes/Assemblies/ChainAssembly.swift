@@ -63,6 +63,14 @@ public class ChainAssembly {
         return self
     }
 
+    /// `BasicStep` to start build current step from
+    ///
+    /// - Parameter previousStep: Instance of `BasicStep`
+    public func from<F, FC>(_ previousStep: BasicContainerStep<F, FC>) -> Self {
+        self.previousSteps.append(previousStep.routingStep)
+        return self
+    }
+
     /// Assemble all the provided settings.
     ///
     /// - Returns: Instance of RoutingStep with all the settings provided inside.

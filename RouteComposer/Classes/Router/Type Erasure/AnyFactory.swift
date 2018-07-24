@@ -29,11 +29,11 @@ class FactoryBox<F: Factory>: AnyFactory, CustomStringConvertible {
         if let _ = factory as? NilFactory<F.ViewController, F.Context> {
             return nil
         } else if let factory = factory {
-            if let _ = factory as? Container {
-                return ContainerFactoryBox(factory)
-            } else {
+//            if let _ = factory as? Container {
+//                return ContainerFactoryBox(factory)
+//            } else {
                 return FactoryBox(factory)
-            }
+//            }
         }
         return nil
     }
@@ -71,22 +71,56 @@ class FactoryBox<F: Factory>: AnyFactory, CustomStringConvertible {
 
 }
 
-class ContainerFactoryBox<F: Factory>: FactoryBox<F> {
-
-    override func scrapeChildren(from factories: [AnyFactory]) throws -> [AnyFactory] {
-        guard var container = factory as? Container else {
-            throw RoutingError.message("Container factory was not implemented properly")
-        }
-        let children = factories.map({ f -> ChildFactory<F.Context> in ChildFactory<F.Context>(f) })
-        let restChildren = container.merge(children)
-
-        guard let factory = container as? F else {
-            throw RoutingError.message("Container factory was not implemented properly")
-        }
+class ContainerFactoryBox<F: Container>: AnyFactory, CustomStringConvertible {
+    
+    var factory: F
+    
+    let action: Action
+    
+    fileprivate init(_ factory: F) {
         self.factory = factory
+        self.action = factory.action
+    }
+    
+    func prepare(with context: Any?) throws {
+        guard let typedContext = context as? F.Context else {
+            throw RoutingError.message("\(String(describing: factory)) does not accept \(String(describing: context)) as a context.")
+        }
+        return try factory.prepare(with: typedContext)
+    }
+    
+    func build(with context: Any?) throws -> UIViewController {
+        guard let typedContext = context as? F.Context else {
+            throw RoutingError.message("\(String(describing: factory)) does not accept \(String(describing: context)) as a context.")
+        }
+        return try factory.build(with: typedContext)
+    }
+    
+    
+    static func box(for factory: F?) -> AnyFactory? {
+        if let _ = factory as? NilFactory<F.ViewController, F.Context> {
+            return nil
+        } else if let factory = factory {
+//            if let _ = factory as? Container {
+//                return ContainerFactoryBox(factory)
+//            } else {
+            return ContainerFactoryBox(factory)
+//            }
+        }
+        return nil
+    }
+
+    func scrapeChildren(from factories: [AnyFactory]) throws -> [AnyFactory] {
+        let children = factories.map({ f -> ChildFactory<F.Context> in ChildFactory<F.Context>(f) })
+        let restChildren = factory.merge(children)
+
         let restFactories = restChildren.map({ c -> AnyFactory in c.factory })
 
         return restFactories
     }
-
+    
+    var description: String {
+        return String(describing: factory)
+    }
+    
 }
