@@ -9,7 +9,7 @@ import UIKit
 
 struct ImagesConfigurationWithLibrary {
 
-    private static let imagesContainerStep = StepAssembly(
+    private static let imagesContainerStep = ContainerStepAssembly(
             finder: ClassFinder(),
             factory: CustomContainerFactory(delegate: ImagesWithLibraryHandler.shared, action: NavigationControllerFactory.PushToNavigation()))
             .from(NavigationControllerStep(action: GeneralAction.PresentModally()))

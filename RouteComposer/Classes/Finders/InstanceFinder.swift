@@ -8,7 +8,7 @@ import UIKit
 
 /// If, by the time of this `Finder` instantiation, `UIViewController` instance it should provide to
 /// the `Router` is known and exists - use this finder.
-public class InstanceFinder<VC:UIViewController, C>: Finder {
+public struct InstanceFinder<VC:UIViewController, C>: Finder {
 
     /// `UIViewController` type associated with this `InstanceFinder`
     public typealias ViewController = VC

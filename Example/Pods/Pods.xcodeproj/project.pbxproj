@@ -75,7 +75,6 @@
 		B11373F6C13DABE29E3348208EE4D50F /* Finder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD61D37159D4CE5A173146AD31AED56 /* Finder.swift */; };
 		B64E300E214BAA74C9E36089BF0D9808 /* StepResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2C406A5E80B8B0FD28159A5BB5ECB3 /* StepResult.swift */; };
 		B74205A7D15AC409007011C5A7CE5116 /* RoutingStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244B6FC6483593624F789890193A542A /* RoutingStep.swift */; };
-		B7C1EE3CCA7C3FDC355EAD588C55A214 /* BasicContainerStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D82953E8321B7273FD50D9B3E64D06 /* BasicContainerStep.swift */; };
 		B8738E5BD0A0F311496A649BB2DB7589 /* Pods-RouteComposer_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 316BF071B26B26D05D4276DF51A46BD5 /* Pods-RouteComposer_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BC60F51AC65486B43C1C26CCB9C60F73 /* SwitcherStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBE59821F8AED7E59B1B4B2C1EC91A0 /* SwitcherStep.swift */; };
 		C0DF02EBC8E1000DAC040DBA6262E9CC /* Pods-RouteComposer_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CA3D0721787212B7FB2C60FE72A223B /* Pods-RouteComposer_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -233,7 +232,6 @@
 		EC3958225DE770729C012999E523A010 /* Pods-RouteComposer_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-RouteComposer_Example.modulemap"; sourceTree = "<group>"; };
 		EC7AB65732644E742F93826F513E8290 /* ChainAssembly.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ChainAssembly.swift; sourceTree = "<group>"; };
 		F53CA0D94498281FD0A175C5CE8490F9 /* Pods-RouteComposer_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-RouteComposer_Example-resources.sh"; sourceTree = "<group>"; };
-		F5D82953E8321B7273FD50D9B3E64D06 /* BasicContainerStep.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BasicContainerStep.swift; sourceTree = "<group>"; };
 		F7C4E8F8BB4B450978C704A423A31606 /* SplitControllerFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SplitControllerFactory.swift; sourceTree = "<group>"; };
 		FACDDD7F59B182853EE6D701E4983CE5 /* AnyRoutingInterceptor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AnyRoutingInterceptor.swift; sourceTree = "<group>"; };
 		FBD61D37159D4CE5A173146AD31AED56 /* Finder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Finder.swift; path = RouteComposer/Classes/Finder.swift; sourceTree = "<group>"; };
@@ -340,7 +338,6 @@
 			isa = PBXGroup;
 			children = (
 				73960BB48287ACE65E6863814FF9C08E /* BaseStep.swift */,
-				F5D82953E8321B7273FD50D9B3E64D06 /* BasicContainerStep.swift */,
 				3B5768389C94600F71E1DC1972E901BD /* ChainableStep.swift */,
 				90625153722A265E6A873E684FAA5040 /* FinalRoutingStep.swift */,
 				C22CA8839C01C7A3BCC15D86616E6331 /* InterceptableStep.swift */,
@@ -739,7 +736,6 @@
 				CC4B9E4B8F7AFC48232C696BE2B07F6F /* AnyRoutingInterceptor.swift in Sources */,
 				AA16BDA705523E10947A1D5954D5B6CC /* Array+Extension.swift in Sources */,
 				49A4EBFEDF453AB65E3C28CF65F0E976 /* BaseStep.swift in Sources */,
-				B7C1EE3CCA7C3FDC355EAD588C55A214 /* BasicContainerStep.swift in Sources */,
 				0BD898F4D2BE36FC7AB56E6A51CCCE5F /* BasicStep.swift in Sources */,
 				F8E93EBC2E85466DFF8E85516E2C4A26 /* ChainableStep.swift in Sources */,
 				848E5D0120FCB24700479193 /* InlineTasks.swift in Sources */,

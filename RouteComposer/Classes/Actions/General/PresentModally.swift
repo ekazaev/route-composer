@@ -10,7 +10,7 @@ import UIKit
 public extension GeneralAction {
 
     /// Presents view controller modally
-    public class PresentModally: Action {
+    public struct PresentModally: Action {
 
         let presentationStyle: UIModalPresentationStyle?
 

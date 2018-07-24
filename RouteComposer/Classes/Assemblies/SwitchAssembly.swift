@@ -9,7 +9,7 @@ import UIKit
 /// be taken.
 public class SwitchAssembly {
 
-    private class BlockResolver<Destination>: StepCaseResolver {
+    private struct BlockResolver<Destination>: StepCaseResolver {
 
         let resolverBlock: ((_: Destination) -> RoutingStep?)
 
@@ -41,7 +41,7 @@ public class SwitchAssembly {
         }
     }
 
-    private class FinderResolver: StepCaseResolver {
+    private struct FinderResolver: StepCaseResolver {
 
         private let finder: AnyFinder?
 

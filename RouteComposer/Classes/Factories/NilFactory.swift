@@ -8,12 +8,12 @@
 import Foundation
 import UIKit
 
-/// Dummy class to be provided to an assembly to show that this step should not have any factories
+/// Dummy struct to be provided to an assembly to show that this step should not have any factories
 /// The only purpose it exists is to provide type safety checks for `StepAssembly`.
 ///
 /// For example, `UIViewController` of this step was already loaded and integrated into a stack by a
 /// storyboard.
-public class NilFactory<VC: UIViewController, C>: Factory {
+public struct NilFactory<VC: UIViewController, C>: Factory {
 
     public typealias ViewController = VC
 
@@ -22,8 +22,8 @@ public class NilFactory<VC: UIViewController, C>: Factory {
     public let action: Action
 
     /// Constructor
-    public init() {
-        self.action = GeneralAction.NilAction()
+    public init(action: Action = GeneralAction.NilAction()) {
+        self.action = action
     }
 
     public func build(with context: Context) throws -> ViewController {

@@ -7,11 +7,11 @@ import UIKit
 
 /// Helper protocol to `Factory` that is also a `Container`. If it supports only one type of actions to build its
 /// children `UIViewControllers` - use this protocol. It contains default merge function implementation.
-public protocol SimpleContainerFactory: Factory, Container {
-
+public protocol SimpleContainerFactory: Container {
+    
     /// Type of supported `Action` instances
     associatedtype SupportedAction
-
+    
     /// Factories that will build children view controllers when it will be needed.
     var factories: [ChildFactory<Context>] { get set }
 

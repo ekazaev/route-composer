@@ -10,7 +10,7 @@ import UIKit
 public extension GeneralAction {
 
     /// Replaces root view controller in key `UIWindow`
-    public class ReplaceRoot: Action {
+    public struct ReplaceRoot: Action {
 
         /// Constructor
         public init() {

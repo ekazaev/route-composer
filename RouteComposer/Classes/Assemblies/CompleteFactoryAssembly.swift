@@ -38,7 +38,7 @@ public class CompleteFactoryAssembly<FC: Factory & Container> {
     ///
     /// - Returns: The `CompleteFactory` with child factories provided.
     public func assemble() -> CompleteFactory<FC> {
-        let completeFactory = CompleteFactory(factory: factory, childFactories: childFactories)
+        var completeFactory = CompleteFactory(factory: factory, childFactories: childFactories)
         let _ = completeFactory.merge(Array<ChildFactory<FC.Context>>())
         return completeFactory
     }

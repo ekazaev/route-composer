@@ -10,7 +10,7 @@ import UIKit
 
 /// `CompleteFactory` is used by the `CompleteFactoryAssembly` as a `Container` `Factory` to allow you to
 /// populate child factories instead of `Router`.
-public class CompleteFactory<FC: Factory & Container>: Factory, Container, CustomStringConvertible {
+public struct CompleteFactory<FC: Container>: Container, CustomStringConvertible {
 
     public typealias ViewController = FC.ViewController
 
@@ -32,7 +32,7 @@ public class CompleteFactory<FC: Factory & Container>: Factory, Container, Custo
         try factory.prepare(with: context)
     }
 
-    public func merge<C>(_ factories: [ChildFactory<C>]) -> [ChildFactory<C>] {
+    mutating public func merge<C>(_ factories: [ChildFactory<C>]) -> [ChildFactory<C>] {
         guard var childFactories = childFactories as? [ChildFactory<C>] else {
             return factory.merge(factories)
         }

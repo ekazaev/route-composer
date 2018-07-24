@@ -9,7 +9,7 @@ public extension GeneralAction {
 
     /// Dummy `Action` class mostly for internal use, but can be useful outside of the library in combination with Factories
     /// which view controllers, do not have to be integrated into the view controller's stack.
-    public class NilAction: Action {
+    public struct NilAction: Action {
 
         /// Constructor
         public init() {

@@ -6,7 +6,7 @@
 import UIKit
 
 /// Returns the topmost presented view controller.
-public class CurrentViewControllerStep: RoutingStep, PerformableStep {
+public struct CurrentViewControllerStep: RoutingStep, PerformableStep {
 
     /// Constructor
     public init() {

@@ -10,7 +10,7 @@ protocol AnyFactory {
 
     var action: Action { get }
 
-    func prepare(with context: Any?) throws
+    mutating func prepare(with context: Any?) throws
 
     func build(with context: Any?) throws -> UIViewController
 
@@ -19,70 +19,95 @@ protocol AnyFactory {
     ///
     /// - Parameter factories: Array of factories to be handled by container factory.
     /// - Returns: Array of factories that are not supported by this container type. `Router` should decide how to deal with them.
-    func scrapeChildren(from factories: [AnyFactory]) -> [AnyFactory]
+    mutating func scrapeChildren(from factories: [AnyFactory]) throws -> [AnyFactory]
 
 }
 
-class FactoryBox<F: Factory>: AnyFactory, CustomStringConvertible {
+protocol AnyFactoryBox: AnyFactory {
+    
+    associatedtype FactoryType: Factory
+    
+    static func box(for factory: FactoryType?) -> AnyFactory?
 
-    static func box(for factory: F?) -> AnyFactory? {
-        if let _ = factory as? NilFactory<F.ViewController, F.Context> {
+    var factory: FactoryType { get set }
+    
+    init(_ factory: FactoryType)
+    
+}
+
+extension AnyFactoryBox where Self: AnyFactory {
+    
+    static func box(for factory: FactoryType?) -> AnyFactory? {
+        if let _ = factory as? NilFactory<FactoryType.ViewController, FactoryType.Context> {
             return nil
         } else if let factory = factory {
-            if let _ = factory as? Container {
-                return ContainerFactoryBox(factory)
-            } else {
-                return FactoryBox(factory)
-            }
+            return Self(factory)
         }
         return nil
     }
-
-    let factory: F
-
-    let action: Action
-
-    fileprivate init(_ factory: F) {
-        self.factory = factory
-        self.action = factory.action
-    }
-
-    func prepare(with context: Any?) throws {
-        guard let typedContext = context as? F.Context else {
+    
+    mutating func prepare(with context: Any?) throws {
+        guard let typedContext = context as? FactoryType.Context else {
             throw RoutingError.message("\(String(describing: factory)) does not accept \(String(describing: context)) as a context.")
         }
         return try factory.prepare(with: typedContext)
     }
-
+    
     func build(with context: Any?) throws -> UIViewController {
-        guard let typedContext = context as? F.Context else {
+        guard let typedContext = context as? FactoryType.Context else {
             throw RoutingError.message("\(String(describing: factory)) does not accept \(String(describing: context)) as a context.")
         }
         return try factory.build(with: typedContext)
     }
-
-    func scrapeChildren(from factories: [AnyFactory]) -> [AnyFactory] {
+    
+    func scrapeChildren(from factories: [AnyFactory]) throws -> [AnyFactory] {
         return factories
     }
+    
+}
 
+extension AnyFactory where Self: CustomStringConvertible & AnyFactoryBox {
+    
     var description: String {
         return String(describing: factory)
     }
-
+    
 }
 
-class ContainerFactoryBox<F: Factory>: FactoryBox<F> {
+struct FactoryBox<F: Factory>: AnyFactory, AnyFactoryBox, CustomStringConvertible {
 
-    override func scrapeChildren(from factories: [AnyFactory]) -> [AnyFactory] {
-        guard var container = factory as? Container else {
-            return factories
-        }
+    typealias FactoryType = F
+    
+    var factory: F
 
+    let action: Action
+
+    init(_ factory: F) {
+        self.factory = factory
+        self.action = factory.action
+    }
+}
+
+struct ContainerFactoryBox<F: Container>: AnyFactory, AnyFactoryBox, CustomStringConvertible {
+    
+    typealias FactoryType = F
+    
+    var factory: FactoryType
+    
+    let action: Action
+    
+    init(_ factory: FactoryType) {
+        self.factory = factory
+        self.action = factory.action
+    }
+    
+    mutating func scrapeChildren(from factories: [AnyFactory]) throws -> [AnyFactory] {
         let children = factories.map({ f -> ChildFactory<F.Context> in ChildFactory<F.Context>(f) })
-        let restChildren = container.merge(children)
+        let restChildren = factory.merge(children)
+
         let restFactories = restChildren.map({ c -> AnyFactory in c.factory })
 
         return restFactories
     }
-
+    
 }

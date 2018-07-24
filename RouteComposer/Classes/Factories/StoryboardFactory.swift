@@ -6,7 +6,7 @@
 import UIKit
 
 /// The `Factory` that creates `UIViewController` from the storyboard.
-public class StoryboardFactory<VC: UIViewController, C>: Factory {
+public struct StoryboardFactory<VC: UIViewController, C>: Factory {
 
     public typealias ViewController = VC
 

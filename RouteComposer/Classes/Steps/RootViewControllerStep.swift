@@ -6,7 +6,7 @@
 import UIKit
 
 /// Returns the root view controller of the window.
-public class RootViewControllerStep: RoutingStep, PerformableStep {
+public struct RootViewControllerStep: RoutingStep, PerformableStep {
 
     /// Constructor
     public init() {

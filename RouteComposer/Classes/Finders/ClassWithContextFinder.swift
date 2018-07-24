@@ -9,7 +9,7 @@ import UIKit
 /// and it `Context` instance.
 ///
 /// Your view controller should extend `ContextChecking` to be used with this finder.
-public class ClassWithContextFinder<VC: ContextChecking, C>: StackIteratingFinder where VC.Context == C {
+public struct ClassWithContextFinder<VC: ContextChecking, C>: StackIteratingFinder where VC.Context == C {
 
     /// `UIViewController` type associated with this `ClassWithContextFinder`
     public typealias ViewController = VC
