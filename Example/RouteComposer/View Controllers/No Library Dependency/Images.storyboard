@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1Yz-6q-BwQ">
-    <device id="retina4_7" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1Yz-6q-BwQ">
+    <device id="ipad9_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -17,17 +17,17 @@
             <objects>
                 <viewController storyboardIdentifier="CustomContainerController" id="1Yz-6q-BwQ" customClass="CustomContainerController" customModule="RouteComposer_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wMC-jl-Kcv">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7tT-x7-V3l">
-                                <rect key="frame" x="19" y="175" width="337" height="337"/>
+                                <rect key="frame" x="161" y="20" width="702" height="702"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="7tT-x7-V3l" secondAttribute="height" multiplier="1:1" id="rDc-iv-8Dl"/>
                                 </constraints>
                             </containerView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zRc-bQ-8bK">
-                                <rect key="frame" x="169" y="528" width="37" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zRc-bQ-8bK">
+                                <rect key="frame" x="493.5" y="738" width="37" height="30"/>
                                 <state key="normal" title="Done"/>
                                 <connections>
                                     <action selector="doneTapped" destination="1Yz-6q-BwQ" eventType="touchUpInside" id="zyb-LN-Ou5"/>
@@ -36,11 +36,15 @@
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="7tT-x7-V3l" firstAttribute="width" secondItem="wMC-jl-Kcv" secondAttribute="width" multiplier="0.9" id="4ny-Xo-CNj"/>
+                            <constraint firstItem="uBI-Ir-vW4" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="zRc-bQ-8bK" secondAttribute="bottom" id="0Co-14-oRl"/>
+                            <constraint firstItem="uBI-Ir-vW4" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="7tT-x7-V3l" secondAttribute="trailing" id="1h4-Hz-l0d"/>
+                            <constraint firstItem="7tT-x7-V3l" firstAttribute="width" secondItem="wMC-jl-Kcv" secondAttribute="width" multiplier="0.9" priority="750" id="4ny-Xo-CNj"/>
                             <constraint firstItem="zRc-bQ-8bK" firstAttribute="top" secondItem="7tT-x7-V3l" secondAttribute="bottom" constant="16" id="7Jw-TE-UvH"/>
+                            <constraint firstItem="7tT-x7-V3l" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="uBI-Ir-vW4" secondAttribute="leading" id="g4o-9e-fgi"/>
+                            <constraint firstItem="7tT-x7-V3l" firstAttribute="top" relation="greaterThanOrEqual" secondItem="uBI-Ir-vW4" secondAttribute="top" id="nPy-nc-twv"/>
                             <constraint firstItem="zRc-bQ-8bK" firstAttribute="centerX" secondItem="uBI-Ir-vW4" secondAttribute="centerX" id="rhl-vG-xIh"/>
-                            <constraint firstItem="7tT-x7-V3l" firstAttribute="centerY" secondItem="uBI-Ir-vW4" secondAttribute="centerY" id="vok-De-opD"/>
-                            <constraint firstItem="7tT-x7-V3l" firstAttribute="centerX" secondItem="uBI-Ir-vW4" secondAttribute="centerX" id="yB5-Jz-nPZ"/>
+                            <constraint firstItem="7tT-x7-V3l" firstAttribute="centerY" secondItem="uBI-Ir-vW4" secondAttribute="centerY" priority="750" id="vok-De-opD"/>
+                            <constraint firstItem="7tT-x7-V3l" firstAttribute="centerX" secondItem="uBI-Ir-vW4" secondAttribute="centerX" priority="750" id="yB5-Jz-nPZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="uBI-Ir-vW4"/>
                     </view>
@@ -57,15 +61,15 @@
             <objects>
                 <tableViewController storyboardIdentifier="ImagesViewController" id="crc-pe-58f" customClass="ImagesViewController" customModule="RouteComposer_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="eIP-3K-zaS">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ImageCell" id="5nl-hu-uVf">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="1024" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5nl-hu-uVf" id="mtG-SO-WTi">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="1024" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -85,11 +89,11 @@
             <objects>
                 <viewController storyboardIdentifier="ImageDetailsViewController" id="sLm-SE-AeG" customClass="ImageDetailsViewController" customModule="RouteComposer_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VDo-nU-Kt0">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="oKD-kX-UXd">
-                                <rect key="frame" x="112.5" y="253.5" width="150" height="180"/>
+                                <rect key="frame" x="437" y="304" width="150" height="180"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uXL-AF-x6v">
                                         <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
