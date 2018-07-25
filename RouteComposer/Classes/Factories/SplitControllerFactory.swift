@@ -7,7 +7,7 @@ import Foundation
 import UIKit
 
 /// `Container` `Factory` that creates `UISplitViewController`
-public class SplitControllerFactory: Container {
+public struct SplitControllerFactory: Container {
     
     public typealias ViewController = UISplitViewController
     
@@ -38,7 +38,7 @@ public class SplitControllerFactory: Container {
         self.presentsWithGesture = presentsWithGesture
     }
     
-    public func merge<C>(_ factories: [ChildFactory<C>]) -> [ChildFactory<C>] {
+    mutating public func merge<C>(_ factories: [ChildFactory<C>]) -> [ChildFactory<C>] {
         var rest: [ChildFactory<C>] = []
         factories.forEach { factory in
             if let _ = factory.action as? SplitControllerMasterAction, let factory = factory as? ChildFactory<Context> {

@@ -16,7 +16,9 @@ public extension NavigationControllerFactory {
         }
 
         public func perform(embedding viewController: UIViewController, in containerViewControllers: inout [UIViewController]) {
-            containerViewControllers.removeLast()
+            if containerViewControllers.count > 0 {
+                containerViewControllers.removeLast()
+            }
             containerViewControllers.append(viewController)
         }
 
