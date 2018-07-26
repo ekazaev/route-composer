@@ -65,6 +65,7 @@
 		9512340EC5888221FAEBF27C604D8A82 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D88AAE1F92055A60CC2FC970D7D34634 /* Foundation.framework */; };
 		9AFBC72822E576C757172D30 /* BasicStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCA9F16F888F057D1ED3B /* BasicStep.swift */; };
 		9AFBC924B59E60D1FE33ED8C /* BasicContainerStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC0206D841211FD5CED86 /* BasicContainerStep.swift */; };
+		9AFBCA613619E14899DB6787 /* NilEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC2181754135EAFF590B3 /* NilEntity.swift */; };
 		9E8D7583FFA3809C8B622CDF5D97D361 /* FinderFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE3E69DEC3763875028FFA0FDE28920 /* FinderFactory.swift */; };
 		A16DFD06F3DEA16C4835790E71BBFFF7 /* GeneralAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6A92ABCEB17804F4014B6C3CEB2AB1 /* GeneralAction.swift */; };
 		A31E7ADEBE294E4BD2DD4D3C9FB2D6DA /* PushToNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCFF013D8C9472D6C264245AB36FFF2 /* PushToNavigation.swift */; };
@@ -188,6 +189,7 @@
 		976B8D63B3CB4AE1A2FC5A61F320D562 /* RoutingInterceptor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RoutingInterceptor.swift; path = RouteComposer/Classes/RoutingInterceptor.swift; sourceTree = "<group>"; };
 		9938465A55D576EFA1770FCCAA4062CA /* CompleteFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CompleteFactory.swift; sourceTree = "<group>"; };
 		9AFBC0206D841211FD5CED86 /* BasicContainerStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicContainerStep.swift; sourceTree = "<group>"; };
+		9AFBC2181754135EAFF590B3 /* NilEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NilEntity.swift; sourceTree = "<group>"; };
 		9AFBCA9F16F888F057D1ED3B /* BasicStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicStep.swift; sourceTree = "<group>"; };
 		9AFBCE29B7B30E42AFA13B4D /* AssemblableRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssemblableRouter.swift; sourceTree = "<group>"; };
 		9B384F81C0BB4AB66920BBFD239BBF82 /* NavigationController+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "NavigationController+Extension.swift"; sourceTree = "<group>"; };
@@ -349,6 +351,7 @@
 				C22CA8839C01C7A3BCC15D86616E6331 /* InterceptableStep.swift */,
 				B6A40D3A655409B9BF4EB351A62E130B /* PerformableStep.swift */,
 				CB2C406A5E80B8B0FD28159A5BB5ECB3 /* StepResult.swift */,
+				9AFBC2181754135EAFF590B3 /* NilEntity.swift */,
 			);
 			path = Internal;
 			sourceTree = "<group>";
@@ -817,6 +820,7 @@
 				F6BB8763453C0E9CF9E75AD396E13DB4 /* XibFactory.swift in Sources */,
 				9AFBC924B59E60D1FE33ED8C /* BasicContainerStep.swift in Sources */,
 				9AFBC72822E576C757172D30 /* BasicStep.swift in Sources */,
+				9AFBCA613619E14899DB6787 /* NilEntity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

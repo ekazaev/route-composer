@@ -9,7 +9,7 @@ import UIKit
 /// present modally, push to tab, etc)
 public protocol Action {
 
-    /// If current `UIViewController` has to be pushed/added/etc to the exciting stack of the view controllers,
+    /// If current `UIViewController` has to be pushed/added/etc to the existing stack of the view controllers,
     /// this method should be called instead.
     ///
     /// - Parameters:
@@ -36,4 +36,15 @@ public extension Action {
         containerViewControllers.append(viewController)
     }
 
+}
+
+public extension Action where Self: NilEntity {
+    
+    public func perform(embedding viewController: UIViewController, in containerViewControllers: inout [UIViewController]) {
+    }
+    
+    public func perform(viewController: UIViewController, on existingController: UIViewController, animated: Bool, completion: @escaping (ActionResult) -> Void) {
+        completion(.continueRouting)
+    }
+    
 }

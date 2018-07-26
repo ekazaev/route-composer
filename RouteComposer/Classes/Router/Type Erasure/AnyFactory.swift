@@ -38,7 +38,7 @@ protocol AnyFactoryBox: AnyFactory {
 extension AnyFactoryBox where Self: AnyFactory {
     
     static func box(for factory: FactoryType?) -> AnyFactory? {
-        if let _ = factory as? NilFactory<FactoryType.ViewController, FactoryType.Context> {
+        if let _ = factory as? NilEntity {
             return nil
         } else if let factory = factory {
             return Self(factory)

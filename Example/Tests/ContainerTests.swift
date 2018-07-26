@@ -4,24 +4,10 @@ import XCTest
 
 class ContainerTests: XCTestCase {
     
-    var children:[ChildFactory<Any?>]!
-    
-    override func setUp() {
-        super.setUp()
-        let factory = EmptyFactory()
-        guard let anyFactory = FactoryBox.box(for: factory) else {
-            XCTAssert(false, "Factory box is nil")
-            return
-        }
-        children = [ChildFactory<Any?>(anyFactory), ChildFactory<Any?>(anyFactory)]
-    }
-    
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-    
     func testChildViewControllersBuild() {
+        var children: [ChildFactory<Any?>] = []
+        children.append(ChildFactory<Any?>(FactoryBox.box(for: EmptyFactory(action: NavigationControllerFactory.PushToNavigation()))!))
+        children.append(ChildFactory<Any?>(FactoryBox.box(for: EmptyFactory(action: NavigationControllerFactory.PushToNavigation()))!))
         let container = EmptyContainer()
         guard let childrenControllers = try? container.buildChildrenViewControllers(from: children, with: nil) else {
             XCTAssert(false, "Unable to build children view controllers")
@@ -31,7 +17,9 @@ class ContainerTests: XCTestCase {
     }
     
     func testMergeRightAction() {
-        var children = self.children!
+        var children: [ChildFactory<Any?>] = []
+        children.append(ChildFactory<Any?>(FactoryBox.box(for: EmptyFactory())!))
+        children.append(ChildFactory<Any?>(FactoryBox.box(for: EmptyFactory())!))
         children.append(ChildFactory<Any?>(FactoryBox.box(for: EmptyFactory(action: NavigationControllerFactory.PushToNavigation()))!))
         children.append(ChildFactory<Any?>(FactoryBox.box(for: EmptyFactory(action: NavigationControllerFactory.PushAsRoot()))!))
         children.insert(ChildFactory<Any?>(FactoryBox.box(for: EmptyFactory(action: NavigationControllerFactory.PushReplacingLast()))!), at: 0)
@@ -42,6 +30,9 @@ class ContainerTests: XCTestCase {
     }
     
     func testMergeWrongAction() {
+        var children: [ChildFactory<Any?>] = []
+        children.append(ChildFactory<Any?>(FactoryBox.box(for: EmptyFactory())!))
+        children.append(ChildFactory<Any?>(FactoryBox.box(for: EmptyFactory())!))
         var container = EmptyContainer()
         let restChildren = container.merge(children)
         XCTAssertEqual(restChildren.count, 2)

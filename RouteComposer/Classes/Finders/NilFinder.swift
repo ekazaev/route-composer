@@ -10,7 +10,7 @@ import UIKit
 /// The only purpose it exists is to provide type safety checks for `StepAssembly`.
 ///
 /// For example, `UIViewController` of this step was already loaded and integrated into a stack by a storyboard.
-public struct NilFinder<VC: UIViewController, C>: Finder {
+public struct NilFinder<VC: UIViewController, C>: Finder, NilEntity {
 
     /// Type of `UIViewController` that `Finder` can find
     public typealias ViewController = VC

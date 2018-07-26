@@ -24,7 +24,7 @@ class BaseStep<Box: AnyFactoryBox>: ChainableStep, PerformableStep, ChainingStep
         self.finder = FinderBox.box(for: finder)
         if let anyFactory = Box.box(for: factory) {
             self.factory = anyFactory
-        } else if let finder = finder, finder as? NilFinder<F.ViewController, F.Context> == nil {
+        } else if let finder = finder, finder as? NilEntity == nil {
             self.factory = FactoryBox.box(for: FinderFactory(finder: finder))
         } else {
             self.factory = nil

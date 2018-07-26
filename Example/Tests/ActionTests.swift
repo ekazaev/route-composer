@@ -80,4 +80,10 @@ class ActionTests: XCTestCase {
         XCTAssert(viewControllerStack.first!.isKind(of: UINavigationController.self))
     }
     
+    func testNilAction() {
+        var viewControllerStack:[UIViewController] = []
+        GeneralAction.NilAction().perform(embedding: UIViewController(), in: &viewControllerStack)
+        XCTAssertEqual(viewControllerStack.count, 0)
+    }
+    
 }
