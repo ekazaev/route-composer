@@ -14,11 +14,6 @@ class BoxTests: XCTestCase {
         XCTAssertNotNil(FactoryBox.box(for: factory))
     }
     
-    func testFactoryContainerBox() {
-        let factory = EmptyContainer()
-        XCTAssertNotNil(FactoryBox.box(for: factory))
-    }
-    
     func testContainerBox() {
         let factory = EmptyContainer()
         XCTAssertNotNil(ContainerFactoryBox.box(for: factory))
