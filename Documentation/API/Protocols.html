@@ -133,6 +133,9 @@
             <a href="Protocols.html">Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a href="Protocols/AbstractFactory.html">AbstractFactory</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Protocols/Action.html">Action</a>
               </li>
               <li class="nav-group-task">
@@ -154,7 +157,7 @@
                 <a href="Protocols/ContextTask.html">ContextTask</a>
               </li>
               <li class="nav-group-task">
-                <a href="Protocols/Factory.html">Factory</a>
+                <a href="Protocols.html#/s:13RouteComposer7FactoryP">Factory</a>
               </li>
               <li class="nav-group-task">
                 <a href="Protocols/Finder.html">Finder</a>
@@ -311,6 +314,39 @@
 
           </section>
           <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer15AbstractFactoryP"></a>
+                    <a name="//apple_ref/swift/Protocol/AbstractFactory" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer15AbstractFactoryP">AbstractFactory</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Base protocol for all types of the factories.
+An instance that extends <code><a href="Protocols.html#/s:13RouteComposer7FactoryP">Factory</a></code> builds <code>UIViewController</code> that will be later integrated into the stack by <code><a href="Protocols/Router.html">Router</a></code></p>
+
+                        <a href="Protocols/AbstractFactory.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">AbstractFactory</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
             <div class="task-group">
               <ul>
                 <li class="item">
@@ -511,7 +547,7 @@ present modally, push to tab, etc)</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><code>Container</code> protocol should be implemented by the <code><a href="Protocols/Factory.html">Factory</a></code>s that produce any type of the view controllers
+                        <p><code>Container</code> protocol should be implemented by the <code><a href="Protocols.html#/s:13RouteComposer7FactoryP">Factory</a></code>s that produce any type of the view controllers
 that can be considered as containers (eg: UINavigationController, UITabBarController, etc)</p>
 
 <p><code>Container</code> applies one merged <code><a href="Protocols/Action.html">Action</a></code> and then populate a full stack of view controllers that was built by the associated factories in one go.
@@ -524,7 +560,7 @@ Example: Steps requires to populate N-view controllers in <code>UINavigationCont
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">Container</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Factory.html">Factory</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">Container</span> <span class="p">:</span> <span class="kt"><a href="Protocols/AbstractFactory.html">AbstractFactory</a></span></code></pre>
 
                         </div>
                       </div>
@@ -615,7 +651,7 @@ functionality.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Helper protocol to <code><a href="Protocols/Factory.html">Factory</a></code> that is also a <code><a href="Protocols/Container.html">Container</a></code>. If it supports only one type of actions to build its
+                        <p>Helper protocol to <code><a href="Protocols.html#/s:13RouteComposer7FactoryP">Factory</a></code> that is also a <code><a href="Protocols/Container.html">Container</a></code>. If it supports only one type of actions to build its
 children <code>UIViewControllers</code> - use this protocol. It contains default merge function implementation.</p>
 
                         <a href="Protocols/SimpleContainerFactory.html" class="slightly-smaller">See more</a>
@@ -650,13 +686,12 @@ children <code>UIViewControllers</code> - use this protocol. It contains default
                       <div class="abstract">
                         <p>An instance that extends <code>Factory</code> builds <code>UIViewController</code> that will be later integrated into the stack by <code><a href="Protocols/Router.html">Router</a></code></p>
 
-                        <a href="Protocols/Factory.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">Factory</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">Factory</span> <span class="p">:</span> <span class="kt"><a href="Protocols/AbstractFactory.html">AbstractFactory</a></span></code></pre>
 
                         </div>
                       </div>

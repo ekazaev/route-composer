@@ -8,7 +8,7 @@ import Foundation
 ///
 /// *Example: You want your `UITabBarController` instance to be built by this `Factory`
 /// with all the `UIViewController`s populated into each tab*
-public class CompleteFactoryAssembly<FC: Factory & Container> {
+public class CompleteFactoryAssembly<FC: Container> {
 
     private var factory: FC
 
@@ -33,7 +33,19 @@ public class CompleteFactoryAssembly<FC: Factory & Container> {
         childFactories.append(ChildFactory<C.Context>(factoryBox))
         return self
     }
-
+    
+    /// Adds `Container` that is going to be used as a child. Make sure that you use an `Action` that is compatible with
+    /// the `Container` `Factory` you use.
+    ///
+    /// - Parameter childFactory: The instance of `Factory`.
+    public func with<C: Container>(_ childFactory: C) -> Self where C.Context == FC.Context {
+        guard let factoryBox = ContainerFactoryBox.box(for: childFactory) else {
+            return self
+        }
+        childFactories.append(ChildFactory<C.Context>(factoryBox))
+        return self
+    }
+    
     /// Assembles all the child factories provided and returns a `Container` `Factory` instance.
     ///
     /// - Returns: The `CompleteFactory` with child factories provided.

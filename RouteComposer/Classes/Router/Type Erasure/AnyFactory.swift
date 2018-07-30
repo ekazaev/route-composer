@@ -25,7 +25,7 @@ protocol AnyFactory {
 
 protocol AnyFactoryBox: AnyFactory {
     
-    associatedtype FactoryType: Factory
+    associatedtype FactoryType: AbstractFactory
     
     static func box(for factory: FactoryType?) -> AnyFactory?
 

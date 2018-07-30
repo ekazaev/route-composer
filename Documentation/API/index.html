@@ -132,6 +132,9 @@
             <a href="Protocols.html">Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a href="Protocols/AbstractFactory.html">AbstractFactory</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Protocols/Action.html">Action</a>
               </li>
               <li class="nav-group-task">
@@ -153,7 +156,7 @@
                 <a href="Protocols/ContextTask.html">ContextTask</a>
               </li>
               <li class="nav-group-task">
-                <a href="Protocols/Factory.html">Factory</a>
+                <a href="Protocols.html#/s:13RouteComposer7FactoryP">Factory</a>
               </li>
               <li class="nav-group-task">
                 <a href="Protocols/Finder.html">Finder</a>
@@ -366,7 +369,7 @@ and actions you should be familiar with the library concepts and UIKit&rsquo;s v
 <p>For detailed information on using RouteComposer, see <code>Documentation/API</code> folder.</p>
 <h2 id='usage' class='heading'>Usage</h2>
 
-<p>RouteComposer uses 3 main entities (<code><a href="Protocols/Factory.html">Factory</a></code>, <code><a href="Protocols/Finder.html">Finder</a></code>, <code><a href="Protocols/Action.html">Action</a></code>) that should be defined by a host application to support it.
+<p>RouteComposer uses 3 main entities (<code><a href="Protocols.html#/s:13RouteComposer7FactoryP">Factory</a></code>, <code><a href="Protocols/Finder.html">Finder</a></code>, <code><a href="Protocols/Action.html">Action</a></code>) that should be defined by a host application to support it.
 It also provides 3 helping entities (<code><a href="Protocols/RoutingInterceptor.html">RoutingInterceptor</a></code>, <code><a href="Protocols/ContextTask.html">ContextTask</a></code>, <code><a href="Protocols/PostRoutingTask.html">PostRoutingTask</a></code>) that you may implement to handle some
 default actions during the routing process. There are 3 main <code>associatedtype</code> in the description of each entity below:</p>
 
@@ -384,7 +387,7 @@ context is UUID</em></p>
 <h4 id='1-factory' class='heading'>1. Factory</h4>
 
 <p>Factory is responsible for <strong>building view controllers</strong>, that the router has to navigate to upon request.
-Every Factory instance must implement the <code><a href="Protocols/Factory.html">Factory</a></code> protocol:</p>
+Every Factory instance must implement the <code><a href="Protocols.html#/s:13RouteComposer7FactoryP">Factory</a></code> protocol:</p>
 <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">Factory</span> <span class="p">{</span>
 
     <span class="kd">associatedtype</span> <span class="kt">ViewController</span><span class="p">:</span> <span class="kt">UIViewController</span>
@@ -464,7 +467,7 @@ product in your view controller stack:</em></p>
 <p><code><a href="Structs/SearchOptions.html">SearchOptions</a></code> is an enum that informs <code><a href="Protocols/StackIteratingFinder.html">StackIteratingFinder</a></code> how to iterate through the stack when searching. See documentation.</p>
 <h4 id='3-action' class='heading'>3. Action</h4>
 
-<p>The <code><a href="Protocols/Action.html">Action</a></code> instance explains to the router <strong>how the view controller is created by a <code><a href="Protocols/Factory.html">Factory</a></code> should be integrated into a view controller stack</strong>.
+<p>The <code><a href="Protocols/Action.html">Action</a></code> instance explains to the router <strong>how the view controller is created by a <code><a href="Protocols.html#/s:13RouteComposer7FactoryP">Factory</a></code> should be integrated into a view controller stack</strong>.
 Most likely, you will not need to implement your own actions because the library provides actions for most of the default actions that can be done in
 <code>UIKit</code> like (<code>PresentModally</code>, <code>AddTab</code>, <code>PushToNavigation</code> etc.). You may need to implement your own actions if you are
 doing something unusual.</p>
@@ -511,8 +514,8 @@ the interceptor should inform the router and it will continue routing or otherwi
 </code></pre>
 <h4 id='5-context-task' class='heading'>5. Context Task</h4>
 
-<p>If you are using one default <code><a href="Protocols/Factory.html">Factory</a></code> and <code><a href="Protocols/Finder.html">Finder</a></code> implementation provided by the library, you still need to <strong>set data in
-context to your view controller.</strong> You have to do this even if it already exists in the stack, if it&rsquo;s just going to be created by a <code><a href="Protocols/Factory.html">Factory</a></code> or do any other
+<p>If you are using one default <code><a href="Protocols.html#/s:13RouteComposer7FactoryP">Factory</a></code> and <code><a href="Protocols/Finder.html">Finder</a></code> implementation provided by the library, you still need to <strong>set data in
+context to your view controller.</strong> You have to do this even if it already exists in the stack, if it&rsquo;s just going to be created by a <code><a href="Protocols.html#/s:13RouteComposer7FactoryP">Factory</a></code> or do any other
 actions at the moment when router found/created a view controller. Just implement <code><a href="Protocols/ContextTask.html">ContextTask</a></code> protocol.</p>
 
 <p><em>Example: Even if <code>ProductViewController</code> is present on the screen or it is going to be created you have to set productID to

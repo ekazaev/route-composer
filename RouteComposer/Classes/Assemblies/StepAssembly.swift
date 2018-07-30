@@ -85,7 +85,7 @@ public class ContainerStepAssembly<F: Finder, FC: Container>: GenericStepAssembl
 }
 
 /// Builder class that helps to create a `RoutingStep` instance with correct settings.
-public class GenericStepAssembly<F: Finder, FC: Factory> where F.ViewController == FC.ViewController, F.Context == FC.Context {
+public class GenericStepAssembly<F: Finder, FC: AbstractFactory> where F.ViewController == FC.ViewController, F.Context == FC.Context {
     
     /// Nested builder that does not allow to add settings after user started to add steps to build current step from
     public class ScreenStepChainAssembly {

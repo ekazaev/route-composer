@@ -28,7 +28,7 @@ public struct CompleteFactory<FC: Container>: Container, CustomStringConvertible
         self.childFactories = childFactories
     }
 
-    public func prepare(with context: Context) throws {
+    mutating public func prepare(with context: Context) throws {
         try factory.prepare(with: context)
     }
 

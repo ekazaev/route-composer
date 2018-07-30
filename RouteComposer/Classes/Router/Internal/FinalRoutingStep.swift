@@ -8,7 +8,7 @@ import UIKit
 
 protocol FinalStepComposer {
     
-    associatedtype FactoryType: Factory
+    associatedtype FactoryType: AbstractFactory
     
     init<F: Finder>(finder: F, factory: FactoryType, interceptor: AnyRoutingInterceptor?, contextTask: AnyContextTask?, postTask: AnyPostRoutingTask?, previousStep: RoutingStep) where F.ViewController == FactoryType.ViewController, F.Context == FactoryType.Context
     

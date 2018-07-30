@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Factory Protocol Reference</title>
+    <title>AbstractFactory Protocol Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Protocol/Factory" class="dashAnchor"></a>
-    <a title="Factory Protocol Reference"></a>
+    <a name="//apple_ref/swift/Protocol/AbstractFactory" class="dashAnchor"></a>
+    <a title="AbstractFactory Protocol Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">RouteComposer Docs</a> (100% documented)</p>
@@ -21,7 +21,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">RouteComposer Reference</a>
         <img id="carat" src="../img/carat.png" />
-        Factory Protocol Reference
+        AbstractFactory Protocol Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -133,6 +133,9 @@
             <a href="../Protocols.html">Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a href="../Protocols/AbstractFactory.html">AbstractFactory</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Protocols/Action.html">Action</a>
               </li>
               <li class="nav-group-task">
@@ -154,7 +157,7 @@
                 <a href="../Protocols/ContextTask.html">ContextTask</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols/Factory.html">Factory</a>
+                <a href="../Protocols.html#/s:13RouteComposer7FactoryP">Factory</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Protocols/Finder.html">Finder</a>
@@ -306,14 +309,15 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>Factory</h1>
+            <h1>AbstractFactory</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">Factory</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">AbstractFactory</span></code></pre>
 
                 </div>
               </div>
-            <p>An instance that extends <code>Factory</code> builds <code>UIViewController</code> that will be later integrated into the stack by <code><a href="../Protocols/Router.html">Router</a></code></p>
+            <p>Base protocol for all types of the factories.
+An instance that extends <code><a href="../Protocols.html#/s:13RouteComposer7FactoryP">Factory</a></code> builds <code>UIViewController</code> that will be later integrated into the stack by <code><a href="../Protocols/Router.html">Router</a></code></p>
 
           </section>
           <section class="section task-group-section">
@@ -322,9 +326,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer7FactoryP14ViewController"></a>
+                    <a name="/s:13RouteComposer15AbstractFactoryP14ViewController"></a>
                     <a name="//apple_ref/swift/Alias/ViewController" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer7FactoryP14ViewController">ViewController</a>
+                    <a class="token" href="#/s:13RouteComposer15AbstractFactoryP14ViewController">ViewController</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -332,7 +336,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Type of <code>UIViewController</code> that <code>Factory</code> can build</p>
+                        <p>Type of <code>UIViewController</code> that <code><a href="../Protocols.html#/s:13RouteComposer7FactoryP">Factory</a></code> can build</p>
 
                       </div>
                       <div class="declaration">
@@ -349,9 +353,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer7FactoryP7Context"></a>
+                    <a name="/s:13RouteComposer15AbstractFactoryP7Context"></a>
                     <a name="//apple_ref/swift/Alias/Context" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer7FactoryP7Context">Context</a>
+                    <a class="token" href="#/s:13RouteComposer15AbstractFactoryP7Context">Context</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -376,9 +380,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer7FactoryP6actionAA6Action_pvp"></a>
+                    <a name="/s:13RouteComposer15AbstractFactoryP6actionAA6Action_pvp"></a>
                     <a name="//apple_ref/swift/Property/action" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer7FactoryP6actionAA6Action_pvp">action</a>
+                    <a class="token" href="#/s:13RouteComposer15AbstractFactoryP6actionAA6Action_pvp">action</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -386,7 +390,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><code><a href="../Protocols/Action.html">Action</a></code> instance. The <code><a href="../Protocols/Router.html">Router</a></code> applies <code><a href="../Protocols/Action.html">Action</a></code> to integrate view controller created by <code><a href="../Protocols/Factory.html#/s:13RouteComposer7FactoryP5build14ViewControllerQz7ContextQz4with_tKF">build(with:)</a></code> in the existing
+                        <p><code><a href="../Protocols/Action.html">Action</a></code> instance. The <code><a href="../Protocols/Router.html">Router</a></code> applies <code><a href="../Protocols/Action.html">Action</a></code> to integrate view controller created by <code><a href="../Protocols/AbstractFactory.html#/s:13RouteComposer15AbstractFactoryP5build14ViewControllerQz7ContextQz4with_tKF">build(with:)</a></code> in the existing
 view controller stack</p>
 
                       </div>
@@ -404,9 +408,9 @@ view controller stack</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer7FactoryP7preparey7ContextQz4with_tKF"></a>
+                    <a name="/s:13RouteComposer15AbstractFactoryP7preparey7ContextQz4with_tKF"></a>
                     <a name="//apple_ref/swift/Method/prepare(with:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer7FactoryP7preparey7ContextQz4with_tKF">prepare(with:)</a>
+                    <a class="token" href="#/s:13RouteComposer15AbstractFactoryP7preparey7ContextQz4with_tKF">prepare(with:)</a>
                     </code>
                       <span class="declaration-note">
                         Default implementation
@@ -417,15 +421,15 @@ view controller stack</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>If the <code>Factory</code> can tell the <code><a href="../Protocols/Router.html">Router</a></code> if it can be built or not - it should overload this method.
-<code><a href="../Protocols/Router.html">Router</a></code> will call it before the routing process and if <code>Factory</code> is not able to
+                        <p>If the <code><a href="../Protocols.html#/s:13RouteComposer7FactoryP">Factory</a></code> can tell the <code><a href="../Protocols/Router.html">Router</a></code> if it can be built or not - it should overload this method.
+<code><a href="../Protocols/Router.html">Router</a></code> will call it before the routing process and if <code><a href="../Protocols.html#/s:13RouteComposer7FactoryP">Factory</a></code> is not able to
 build a view controller (example: it has to build a product view
 controller but there is no product code in context) it can stop <code><a href="../Protocols/Router.html">Router</a></code> from routing to this destination
 and the result of routing will be <code>.unhandled</code> without any changes in view controller stack.</p>
 <div class="aside aside-throws">
     <p class="aside-title">Throws</p>
-    The <code><a href="../Enums/RoutingError.html">RoutingError</a></code> if the <code>Factory</code> can not prepare itself to build a <code>UIViewController</code> instance
-with the <code><a href="../Protocols/Factory.html#/s:13RouteComposer7FactoryP7Context">Context</a></code> instance provided.
+    The <code><a href="../Enums/RoutingError.html">RoutingError</a></code> if the <code><a href="../Protocols.html#/s:13RouteComposer7FactoryP">Factory</a></code> can not prepare itself to build a <code>UIViewController</code> instance
+with the <code><a href="../Protocols/AbstractFactory.html#/s:13RouteComposer15AbstractFactoryP7Context">Context</a></code> instance provided.
 
 </div>
 
@@ -438,7 +442,7 @@ with the <code><a href="../Protocols/Factory.html#/s:13RouteComposer7FactoryP7Co
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">mutating</span> <span class="kd">func</span> <span class="nf">prepare</span><span class="p">(</span><span class="n">with</span> <span class="nv">context</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Factory.html#/s:13RouteComposer7FactoryP7Context">Context</a></span><span class="p">)</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">mutating</span> <span class="kd">func</span> <span class="nf">prepare</span><span class="p">(</span><span class="n">with</span> <span class="nv">context</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AbstractFactory.html#/s:13RouteComposer15AbstractFactoryP7Context">Context</a></span><span class="p">)</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -454,7 +458,7 @@ with the <code><a href="../Protocols/Factory.html#/s:13RouteComposer7FactoryP7Co
                               </td>
                               <td>
                                 <div>
-                                  <p>The <code><a href="../Protocols/Factory.html#/s:13RouteComposer7FactoryP7Context">Context</a></code> instance if it was provided to the <code><a href="../Protocols/Router.html">Router</a></code>.</p>
+                                  <p>The <code><a href="../Protocols/AbstractFactory.html#/s:13RouteComposer15AbstractFactoryP7Context">Context</a></code> instance if it was provided to the <code><a href="../Protocols/Router.html">Router</a></code>.</p>
                                 </div>
                               </td>
                             </tr>
@@ -467,9 +471,9 @@ with the <code><a href="../Protocols/Factory.html#/s:13RouteComposer7FactoryP7Co
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer7FactoryP5build14ViewControllerQz7ContextQz4with_tKF"></a>
+                    <a name="/s:13RouteComposer15AbstractFactoryP5build14ViewControllerQz7ContextQz4with_tKF"></a>
                     <a name="//apple_ref/swift/Method/build(with:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer7FactoryP5build14ViewControllerQz7ContextQz4with_tKF">build(with:)</a>
+                    <a class="token" href="#/s:13RouteComposer15AbstractFactoryP5build14ViewControllerQz7ContextQz4with_tKF">build(with:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -489,7 +493,7 @@ with the <code><a href="../Protocols/Factory.html#/s:13RouteComposer7FactoryP7Co
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">build</span><span class="p">(</span><span class="n">with</span> <span class="nv">context</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Factory.html#/s:13RouteComposer7FactoryP7Context">Context</a></span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Protocols/Factory.html#/s:13RouteComposer7FactoryP14ViewController">ViewController</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">build</span><span class="p">(</span><span class="n">with</span> <span class="nv">context</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AbstractFactory.html#/s:13RouteComposer15AbstractFactoryP7Context">Context</a></span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Protocols/AbstractFactory.html#/s:13RouteComposer15AbstractFactoryP14ViewController">ViewController</a></span></code></pre>
 
                         </div>
                       </div>
@@ -505,7 +509,7 @@ with the <code><a href="../Protocols/Factory.html#/s:13RouteComposer7FactoryP7Co
                               </td>
                               <td>
                                 <div>
-                                  <p>A <code><a href="../Protocols/Factory.html#/s:13RouteComposer7FactoryP7Context">Context</a></code> instance if it was provided to the <code><a href="../Protocols/Router.html">Router</a></code>.</p>
+                                  <p>A <code><a href="../Protocols/AbstractFactory.html#/s:13RouteComposer15AbstractFactoryP7Context">Context</a></code> instance if it was provided to the <code><a href="../Protocols/Router.html">Router</a></code>.</p>
                                 </div>
                               </td>
                             </tr>

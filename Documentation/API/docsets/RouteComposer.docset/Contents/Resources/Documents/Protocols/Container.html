@@ -133,6 +133,9 @@
             <a href="../Protocols.html">Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a href="../Protocols/AbstractFactory.html">AbstractFactory</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Protocols/Action.html">Action</a>
               </li>
               <li class="nav-group-task">
@@ -154,7 +157,7 @@
                 <a href="../Protocols/ContextTask.html">ContextTask</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols/Factory.html">Factory</a>
+                <a href="../Protocols.html#/s:13RouteComposer7FactoryP">Factory</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Protocols/Finder.html">Finder</a>
@@ -309,11 +312,11 @@
             <h1>Container</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">Container</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/Factory.html">Factory</a></span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">Container</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AbstractFactory.html">AbstractFactory</a></span></code></pre>
 
                 </div>
               </div>
-            <p><code>Container</code> protocol should be implemented by the <code><a href="../Protocols/Factory.html">Factory</a></code>s that produce any type of the view controllers
+            <p><code>Container</code> protocol should be implemented by the <code><a href="../Protocols.html#/s:13RouteComposer7FactoryP">Factory</a></code>s that produce any type of the view controllers
 that can be considered as containers (eg: UINavigationController, UITabBarController, etc)</p>
 
 <p><code>Container</code> applies one merged <code><a href="../Protocols/Action.html">Action</a></code> and then populate a full stack of view controllers that was built by the associated factories in one go.
@@ -338,7 +341,7 @@ Example: Steps requires to populate N-view controllers in <code>UINavigationCont
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Receives an array of factories whose view controllers should be merged into current container
-<code><a href="../Protocols/Factory.html">Factory</a></code> before it actually builds a container view controller with child view controllers inside.
+<code><a href="../Protocols.html#/s:13RouteComposer7FactoryP">Factory</a></code> before it actually builds a container view controller with child view controllers inside.
 Example: The <code>UINavigationController</code> instance with N pushed into it <code>UIViewController</code>s.</p>
 
 <p>Example: The <code>UINavigationController</code> instance as a container expects to push <code><a href="../Protocols/Action.html">Action</a></code> of any kind.
@@ -366,7 +369,7 @@ back to an unsupported one.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>An array of factories to be handled by <code>Container</code> <code><a href="../Protocols/Factory.html">Factory</a></code>.</p>
+                                  <p>An array of factories to be handled by <code>Container</code> <code><a href="../Protocols.html#/s:13RouteComposer7FactoryP">Factory</a></code>.</p>
                                 </div>
                               </td>
                             </tr>

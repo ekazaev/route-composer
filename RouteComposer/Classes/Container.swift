@@ -13,7 +13,7 @@ import UIKit
 /// `Container` applies one merged `Action` and then populate a full stack of view controllers that was built by the associated factories in one go.
 /// Example: Steps requires to populate N-view controllers in `UINavigationController` stack and it can do so.
 /// `merge` method implementation is mandatory.
-public protocol Container: Factory {
+public protocol Container: AbstractFactory {
     
     /// Receives an array of factories whose view controllers should be merged into current container
     /// `Factory` before it actually builds a container view controller with child view controllers inside.
