@@ -82,10 +82,12 @@ func chain(_ steps: [RoutingStep]) -> RoutingStep {
 
     for presentingStep in restSteps {
         guard let step = currentStep as? ChainingStep else {
-            fatalError("\(presentingStep) can not be chained to non chainable step \(currentStep)")
+            assertionFailure("\(presentingStep) can not be chained to non chainable step \(currentStep)")
+            return firstStep
         }
         if let chainableStep = step as? ChainableStep, let previousStep = chainableStep.previousStep {
-            fatalError("\(currentStep) is already chained to  \(previousStep)")
+            assertionFailure("\(currentStep) is already chained to  \(previousStep)")
+            return firstStep
         }
         step.from(presentingStep)
         currentStep = presentingStep

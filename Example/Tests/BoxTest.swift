@@ -39,4 +39,12 @@ class BoxTests: XCTestCase {
         XCTAssertNil(s.finder)
     }
 
+    func testNilInCompleteFactoryAssembly() {
+        let f = CompleteFactoryAssembly(factory: TabBarControllerFactory(action:GeneralAction.PresentModally()))
+                .with(NilFactory<UIViewController, Any?>(action: NavigationControllerFactory.PushToNavigation()))
+                .with(NilFactory<UIViewController, Any?>(action: NavigationControllerFactory.PushToNavigation()))
+                .assemble()
+        XCTAssertEqual(f.childFactories.count, 0)
+    }
+
 }

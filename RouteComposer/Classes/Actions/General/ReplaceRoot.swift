@@ -17,7 +17,7 @@ public extension GeneralAction {
         }
 
         public func perform(embedding viewController: UIViewController, in containerViewControllers: inout [UIViewController]) {
-            fatalError("Can not be merged")
+            assertionFailure("\(#function) is not eligible for this action.")
         }
 
         public func perform(viewController: UIViewController, on existingController: UIViewController, animated: Bool, completion: @escaping(_: ActionResult) -> Void) {

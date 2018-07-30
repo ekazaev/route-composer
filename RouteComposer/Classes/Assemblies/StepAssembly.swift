@@ -235,7 +235,7 @@ public class GenericStepAssembly<F: Finder, FC: Factory> where F.ViewController 
     /// - Parameter step: The instance of `RoutingStep` to start to build current step from.
     /// - Returns: The instance of `RoutingStep` with all the settings provided inside.
     public func assemble(from step: RoutingStep) -> RoutingStep {
-        fatalError("\(#function) is not implemented.")
+        preconditionFailure("\(#function) is not implemented.")
     }
 
 }
