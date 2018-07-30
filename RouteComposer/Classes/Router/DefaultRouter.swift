@@ -52,6 +52,13 @@ public struct DefaultRouter: Router, AssemblableRouter {
     @discardableResult
     public func deepLinkTo<D: RoutingDestination>(destination: D, animated: Bool = true, completion: ((_: Bool) -> Void)? = nil) -> RoutingResult {
         logger?.routingWillStart()
+
+        guard Thread.isMainThread else {
+            logger?.log(.error("Attempt to call UI API not on the main thread."))
+            logger?.routingDidFinish()
+            return .unhandled
+        }
+        
         // If currently visible view controller can not be dismissed then we can't deeplink anywhere, because it will
         // disappear as a result of deeplinking.
         if let topMostViewController = UIWindow.key?.topmostViewController as? RoutingInterceptable, !topMostViewController.canBeDismissed {
@@ -82,18 +89,25 @@ public struct DefaultRouter: Router, AssemblableRouter {
 
         // Execute interceptors associated to the each view in the chain. All of interceptors must succeed to continue routing.
         interceptor.execute(for: destination) { [weak viewController] result in
-            if case let .failure(message) = result {
-                self.logger?.log(.warning(message ?? "\(interceptor) interceptor stopped routing."))
+            func failGracefully(_ message: LoggerMessage) {
+                self.logger?.log(message)
                 completion?(false)
                 self.logger?.routingDidFinish()
+            }
+            
+            guard Thread.isMainThread else {
+                failGracefully(.error("Attempt to call UI API not on the main thread."))
+                return
+            }
+
+            if case let .failure(message) = result {
+                failGracefully(.warning(message ?? "\(interceptor) interceptor stopped routing."))
                 return
             }
 
             guard let viewController = viewController else {
-                self.logger?.log(.warning("View controller that been chosen as a starting point of rooting been " +
+                failGracefully(.warning("View controller that been chosen as a starting point of rooting been " +
                         "destroyed while router was waiting for interceptor's result."))
-                completion?(false)
-                self.logger?.routingDidFinish()
                 return
             }
 
@@ -299,7 +313,8 @@ public struct DefaultRouter: Router, AssemblableRouter {
         }
     }
 
-    // this class is just a placeholder
+    // this class is just a placeholder. Router needs at least one post-routing task per view controller to
+    // store a reference there.
     private class EmptyPostTask<D: RoutingDestination>: PostRoutingTask {
 
         func execute(on viewController: UIViewController, for destination: D, routingStack: [UIViewController]) {
