@@ -1,0 +1,7 @@
+podspec: RouteComposer.podspec
+clean: true
+author: HBC Tech 
+author_url: https://tech.hbc.com 
+output: Documentation/API 
+skip-undocumented: true
+swift-version: 4.1.2
