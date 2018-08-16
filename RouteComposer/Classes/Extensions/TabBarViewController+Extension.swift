@@ -24,6 +24,9 @@ extension UITabBarController: ContainerViewController {
     }
 
     public func makeVisible(_ viewController: UIViewController, animated: Bool) {
+        guard selectedViewController != viewController else {
+            return
+        }
         for vc in containingViewControllers {
             if vc == viewController {
                 self.selectedViewController = vc

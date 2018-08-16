@@ -21,6 +21,9 @@ extension UINavigationController: ContainerViewController {
     }
 
     public func makeVisible(_ viewController: UIViewController, animated: Bool) {
+        guard visibleViewController != viewController else {
+            return
+        }
         for vc in containingViewControllers {
             if vc == viewController {
                 self.popToViewController(vc, animated: animated)

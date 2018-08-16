@@ -19,6 +19,9 @@ extension UISplitViewController: ContainerViewController {
     }
 
     public func makeVisible(_ viewController: UIViewController, animated: Bool) {
+        guard viewController.navigationController?.navigationController?.visibleViewController != viewController else {
+            return
+        }
         for vc in containingViewControllers {
             if vc == viewController {
                 vc.navigationController?.navigationController?.popToViewController(vc, animated: animated)

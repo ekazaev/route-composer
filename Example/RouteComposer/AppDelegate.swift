@@ -80,7 +80,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 .add(InlinePostTask({ (vc:ColorViewController, d: ExampleDestination, _) in
                     print("After navigation to Color view controller")
                 }))
-                .from(NavigationControllerStep(action: GeneralAction.PresentModally(transitioningDelegate: transitionDelegate)))
+                .from(NavigationControllerStep(action: GeneralAction.PresentModally(presentationStyle: .custom, transitioningDelegate: transitionDelegate)))
                 .from(CurrentViewControllerStep())
                 .assemble()
         

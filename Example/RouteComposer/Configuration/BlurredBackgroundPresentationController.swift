@@ -59,12 +59,19 @@ class BlurredBackgroundTransitionAnimator: NSObject, UIViewControllerAnimatedTra
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         guard let fromViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from),
-              let toViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) else {
+              let toViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to),
+              let viewToAnimate = transitionType == .present ? transitionContext.view(forKey: UITransitionContextViewKey.to) : transitionContext.view(forKey: UITransitionContextViewKey.from) else {
+            // View but not the viewcontroller's view should be used. See the doc for view(forKey:) or
+            // http://stackoverflow.com/a/25193675/421797
             transitionContext.completeTransition(false)
             return
         }
+
+        let viewControllerForAppearanceLifeCycle = transitionType == .present ? fromViewController : toViewController
         
-        let viewControllerToAnimate = transitionType == .present ? toViewController : fromViewController
+        //https://stackoverflow.com/questions/25488267/custom-transition-animation-not-calling-vc-lifecycle-methods-on-dismiss?answertab=active#tab-top
+        viewControllerForAppearanceLifeCycle.beginAppearanceTransition(transitionType == .dismiss, animated: true)
+        
         let initialAlpha: CGFloat = transitionType == .present ? 0 : 1
         let finalAlpha: CGFloat = transitionType == .present ? 1 : 0
         
@@ -72,13 +79,13 @@ class BlurredBackgroundTransitionAnimator: NSObject, UIViewControllerAnimatedTra
         let blurEffect = blurEffectView(backgroundColor: backgroundColor)
         transitionContext.containerView.addSubview(blurEffect)
         transitionContext.containerView.sendSubview(toBack: blurEffect)
-        stretchToView(blurEffect, to: transitionContext.containerView)
+        blurEffect.frame = transitionContext.containerView.bounds
         let effect: UIBlurEffect? = transitionType == .present ? UIBlurEffect(style: .extraLight) : nil
         blurEffect.alpha = initialAlpha
         
-        transitionContext.containerView.addSubview(viewControllerToAnimate.view)
-        viewControllerToAnimate.view.frame = UIScreen.main.bounds
-        viewControllerToAnimate.view.alpha = initialAlpha
+        transitionContext.containerView.addSubview(viewToAnimate)
+        viewToAnimate.frame = UIScreen.main.bounds
+        viewToAnimate.alpha = initialAlpha
         
         UIView.animate(withDuration: transitionDuration(using: transitionContext) / 2.0,
                 delay: transitionDuration(using: transitionContext) / 2.0,
@@ -89,8 +96,10 @@ class BlurredBackgroundTransitionAnimator: NSObject, UIViewControllerAnimatedTra
                 }, completion: nil)
         
         UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: {
-            viewControllerToAnimate.view.alpha = finalAlpha
+            viewToAnimate.alpha = finalAlpha
         }, completion: { finished in
+            blurEffect.removeFromSuperview()
+            viewControllerForAppearanceLifeCycle.endAppearanceTransition()
             transitionContext.completeTransition(true)
         })
     }
