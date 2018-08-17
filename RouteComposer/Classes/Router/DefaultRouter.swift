@@ -7,8 +7,8 @@ import UIKit
 
 /// Deep Linking Library routing implementations
 public struct DefaultRouter: Router, AssemblableRouter {
-
-    /// Logger instance
+    
+    /// `Logger` instance to be used by the `DefaultRouter`.
     public let logger: Logger?
 
     /// Constructor
@@ -59,8 +59,8 @@ public struct DefaultRouter: Router, AssemblableRouter {
             return .unhandled
         }
         
-        // If currently visible view controller can not be dismissed then we can't deeplink anywhere, because it will
-        // disappear as a result of deeplinking.
+        // If currently visible view controller can not be dismissed then we can't route anywhere, because it will
+        // disappear as a result of routing.
         if let topMostViewController = UIWindow.key?.topmostViewController as? RoutingInterceptable, !topMostViewController.canBeDismissed {
             logger?.log(.warning("Topmost view controller can not be dismissed."))
             logger?.routingDidFinish()
@@ -111,7 +111,7 @@ public struct DefaultRouter: Router, AssemblableRouter {
                 return
             }
 
-            self.startDeepLinking(viewController: viewController, context: destination.context, animated: animated, factories: factoriesStack) { viewController in
+            self.startRouting(from: viewController, with: destination.context, building: factoriesStack, animated: animated) { viewController in
                 self.makeContainersActive(toShow: viewController, animated: animated)
                 self.doTry({
                     try postTaskRunner.run(for: destination)
@@ -202,7 +202,7 @@ public struct DefaultRouter: Router, AssemblableRouter {
                                     factory = FactoryDecorator(factory: factory, contextTasks: taskMergeResult.contextTasks, postTasks: taskMergeResult.postTasks, postTaskRunner: postTaskRunner, logger: logger, destination: destination)
                                 }
 
-                                // If some `Factory` can not prepare itself (e.g. does not have enough data in context) then deep link stack
+                                // If some `Factory` can not prepare itself (e.g. does not have enough data in context) then view controllers stack
                                 // can not be built
                                 try factory.prepare(with: destination.context)
 
@@ -234,7 +234,7 @@ public struct DefaultRouter: Router, AssemblableRouter {
             }
         })
 
-        //If we haven't found a View Controller to build the stack from - it means that we can handle deeplinking
+        //If we haven't found a View Controller to build the stack from - it means that we can't handle routing.
         if let viewController = rootViewController {
             //Adding default preset interceptors
             interceptors.append(contentsOf: self.interceptors)
@@ -244,7 +244,7 @@ public struct DefaultRouter: Router, AssemblableRouter {
         return nil
     }
 
-    private func startDeepLinking(viewController: UIViewController, context: Any?, animated: Bool, factories: [AnyFactory], completion: @escaping ((_: UIViewController) -> Void)) {
+    private func startRouting(from viewController: UIViewController, with context: Any?, building factories: [AnyFactory], animated: Bool,  completion: @escaping ((_: UIViewController) -> Void)) {
         // If we found a view controller to start from - lets close all the presented view controllers above to be able
         // to build a new stack if needed.
         // We already checked that they can be dismissed.

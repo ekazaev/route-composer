@@ -7,7 +7,7 @@ import Foundation
 import UIKit
 import RouteComposer
 
-// Another example to provide a deep linking destination
+// Another example to provide a routing destination
 class CitiesConfiguration {
 
     static let shared = CitiesConfiguration()

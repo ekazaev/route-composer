@@ -5,7 +5,8 @@
 [![License](https://img.shields.io/cocoapods/l/RouteComposer.svg?style=flat)](http://cocoapods.org/pods/RouteComposer)
 [![Platform](https://img.shields.io/cocoapods/p/RouteComposer.svg?style=flat)](http://cocoapods.org/pods/RouteComposer)
 
-RouteComposer is the library that helps handle routing tasks in the IOs application and support deep linking written in Swift.
+`RouteComposer` is the protocol oriented library that helps to handle view controllers composition, routing
+and deeplinking tasks in the IOS application.
 
 ## Table of contents
 

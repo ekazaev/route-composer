@@ -9,9 +9,6 @@ import Foundation
 /// Base router protocol.
 public protocol Router {
 
-    /// `Logger` instance to be used by the `Router`.
-    var logger: Logger? { get }
-
     /// Routes application to the `RoutingDestination` provided.
     ///
     /// - Parameters:

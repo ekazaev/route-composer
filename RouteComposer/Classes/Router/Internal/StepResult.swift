@@ -25,7 +25,8 @@ enum StepResult {
     
     /// Default init of StepResult enum
     ///
-    /// - parameter: view controller. If view controller is non nil, step result will be .found,
+    /// - Parameters:
+    ///   - view controller. If view controller is non nil, step result will be .found,
     /// .continueRouting in case view controller is nil.
     init(_ viewController: UIViewController?) {
         guard let viewController = viewController else {

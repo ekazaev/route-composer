@@ -5,7 +5,7 @@
 import Foundation
 import UIKit
 
-/// The task to be executed after deep linking happened.
+/// The task to be executed after routing happened.
 public protocol PostRoutingTask {
 
     /// `UIViewController` type associated with this `PostRoutingTask`

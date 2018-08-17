@@ -10,7 +10,8 @@ public class TabBarControllerStep: BasicContainerStep<NilFinder<UITabBarControll
 
     /// Creates a default `UITabBarController` and applies an `Action` if it is provided.
     ///
-    /// - parameter action: The `Action` to be applied to the created `UITabBarController`
+    /// - Parameters:
+    ///   - action: The `Action` to be applied to the created `UITabBarController`
     public init(action: Action) {
         super.init(finder: NilFinder(), factory: TabBarControllerFactory(action: action))
     }

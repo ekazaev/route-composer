@@ -21,7 +21,7 @@ class LoginInterceptor: RoutingInterceptor {
         }
 
         // Using router and finder in interceptor like this is recommended technique because application can be already on
-        // login screen then he will receive a deep linking to some part which requires a login screen.
+        // login screen then he will receive a routing to some part which requires a login screen.
         // It will help to avoid opening of another login view controller and will help you not to have your own
         // boilerplate code that will help you to avoid this rare, but possible situation.
         let destination = LoginConfiguration.login()
