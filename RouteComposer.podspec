@@ -8,14 +8,14 @@
 
 Pod::Spec.new do |s|
   s.name             = 'RouteComposer'
-  s.version          = '0.9.8.3'
-  s.summary          = 'Standalone UIViewController\'s routing and composing library.'
+  s.version          = '0.9.8.4'
+  s.summary          = 'Protocol oriented library that helps to handle view controllers composition, routing and deeplinking tasks.'
 
 
 
   s.description      = <<-DESC
-    RouteComposer is the library that helps handle routing and composition tasks in the IOs
-    application and support deep linking written in Swift.
+    RouteComposer a protocol oriented library that helps to handle view controllers composition, routing
+    and deeplinking tasks in the IOS application. 
                        DESC
 
   s.homepage         = 'https://github.com/saksdirect/route-composer'
