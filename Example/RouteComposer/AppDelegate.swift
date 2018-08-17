@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
-    let transitionDelegate = BlurredBackgroundPresentationController()
+    let transitionDelegate = BlurredBackgroundTransitionController()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
@@ -80,7 +80,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 .add(InlinePostTask({ (vc:ColorViewController, d: ExampleDestination, _) in
                     print("After navigation to Color view controller")
                 }))
-                .from(NavigationControllerStep(action: GeneralAction.PresentModally(presentationStyle: .custom, transitioningDelegate: transitionDelegate)))
+                .from(NavigationControllerStep(action: GeneralAction.PresentModally()))
                 .from(CurrentViewControllerStep())
                 .assemble()
         
@@ -132,7 +132,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 .add(ExampleAnalyticsInterceptor())
                 .add(ExampleGenericContextTask())
                 .add(ExampleAnalyticsPostAction())
-                .from(NavigationControllerStep(action: GeneralAction.PresentModally()))
+                .from(NavigationControllerStep(action: GeneralAction.PresentModally(transitioningDelegate: transitionDelegate)))
                 .from(routingSupportScreen)
                 .assemble()
         
