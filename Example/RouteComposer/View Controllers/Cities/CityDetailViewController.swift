@@ -46,10 +46,10 @@ class CityDetailViewController: UIViewController, ExampleAnalyticsSupport {
     }
 
     @IBAction func goToStarTapped() {
-        router.deepLinkTo(destination: ExampleConfiguration.destination(for: ExampleTarget.star)!)
+        router.navigate(to: ExampleConfiguration.destination(for: ExampleTarget.star)!)
     }
 
     @IBAction func backProgrammaticallyTapped() {
-        router.deepLinkTo(destination: CitiesConfiguration.citiesList(cityId: nil))
+        router.navigate(to: CitiesConfiguration.citiesList(cityId: nil))
     }
 }

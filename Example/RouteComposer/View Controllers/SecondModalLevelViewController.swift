@@ -17,15 +17,15 @@ class SecondModalLevelViewController: UIViewController, ExampleAnalyticsSupport 
     }
 
     @IBAction func goToColorTapped() {
-        router.deepLinkTo(destination: ExampleConfiguration.destination(for: ExampleTarget.color, context: ExampleDictionaryContext(arguments: [Argument.color: "FF0000"]))!)
+        router.navigate(to: ExampleConfiguration.destination(for: ExampleTarget.color, context: ExampleDictionaryContext(arguments: [Argument.color: "FF0000"]))!)
     }
 
     @IBAction func goToHomeTapped() {
-        router.deepLinkTo(destination: ExampleConfiguration.destination(for: ExampleTarget.home)!)
+        router.navigate(to: ExampleConfiguration.destination(for: ExampleTarget.home)!)
     }
 
     @IBAction func goToMinskTapped() {
-        router.deepLinkTo(destination: CitiesConfiguration.cityDetail(cityId: 18), animated: false)
+        router.navigate(to: CitiesConfiguration.cityDetail(cityId: 18), animated: false)
     }
 
 

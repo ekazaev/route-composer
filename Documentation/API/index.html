@@ -622,7 +622,7 @@ should be logged in to see the product details.</em></p>
         <span class="k">guard</span> <span class="k">let</span> <span class="nv">productID</span> <span class="o">=</span> <span class="n">products</span><span class="p">[</span><span class="n">indexPath</span><span class="o">.</span><span class="n">row</span><span class="p">]</span> <span class="k">else</span> <span class="p">{</span>
             <span class="k">return</span>
         <span class="p">}</span>
-        <span class="n">router</span><span class="o">.</span><span class="nf">deepLinkTo</span><span class="p">(</span><span class="nv">destination</span><span class="p">:</span> <span class="kt">Configuration</span><span class="o">.</span><span class="nf">productDestination</span><span class="p">(</span><span class="nv">with</span><span class="p">:</span> <span class="n">productID</span><span class="p">))</span>
+        <span class="n">router</span><span class="o">.</span><span class="nf">navigate</span><span class="p">(</span><span class="nv">to</span><span class="p">:</span> <span class="kt">Configuration</span><span class="o">.</span><span class="nf">productDestination</span><span class="p">(</span><span class="nv">with</span><span class="p">:</span> <span class="n">productID</span><span class="p">))</span>
     <span class="p">}</span>
 
 <span class="p">}</span>

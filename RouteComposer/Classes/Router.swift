@@ -17,6 +17,6 @@ public protocol Router {
     ///   - completion: completion block.
     /// - Returns: `RoutingResult` instance.
     @discardableResult
-    func deepLinkTo<D: RoutingDestination>(destination: D, animated: Bool, completion: ((_: Bool) -> Void)?) -> RoutingResult
+    func navigate<D: RoutingDestination>(to destination: D, animated: Bool, completion: ((_: RoutingResult) -> Void)?) -> RoutingResult
 
 }

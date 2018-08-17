@@ -50,7 +50,7 @@ public struct DefaultRouter: Router, AssemblableRouter {
     ///   - completion: completion block.
     /// - Returns: `RoutingResult` instance.
     @discardableResult
-    public func deepLinkTo<D: RoutingDestination>(destination: D, animated: Bool = true, completion: ((_: Bool) -> Void)? = nil) -> RoutingResult {
+    public func navigate<D: RoutingDestination>(to destination: D, animated: Bool = true, completion: ((_: RoutingResult) -> Void)? = nil) -> RoutingResult {
         logger?.routingWillStart()
 
         guard Thread.isMainThread else {
@@ -91,7 +91,7 @@ public struct DefaultRouter: Router, AssemblableRouter {
         interceptor.execute(for: destination) { [weak viewController] result in
             func failGracefully(_ message: LoggerMessage) {
                 self.logger?.log(message)
-                completion?(false)
+                completion?(.unhandled)
                 self.logger?.routingDidFinish()
             }
             
@@ -116,7 +116,7 @@ public struct DefaultRouter: Router, AssemblableRouter {
                 self.doTry({
                     try postTaskRunner.run(for: destination)
                 }, finally: { success in
-                    completion?(success)
+                    completion?(success ? .handled : .unhandled)
                 })
                 self.logger?.routingDidFinish()
             }

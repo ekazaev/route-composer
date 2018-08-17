@@ -18,27 +18,27 @@ class SquareViewController: UIViewController, ExampleAnalyticsSupport {
     }
 
     @IBAction func goToCircleTapped() {
-        router.deepLinkTo(destination: ExampleConfiguration.destination(for: ExampleTarget.circle)!)
+        router.navigate(to: ExampleConfiguration.destination(for: ExampleTarget.circle)!)
     }
 
     @IBAction func goToHomeTapped() {
-        router.deepLinkTo(destination: ExampleConfiguration.destination(for: ExampleTarget.empty)!)
+        router.navigate(to: ExampleConfiguration.destination(for: ExampleTarget.empty)!)
     }
 
     @IBAction func goToSplitTapped() {
-        router.deepLinkTo(destination: CitiesConfiguration.citiesList())
+        router.navigate(to: CitiesConfiguration.citiesList())
     }
 
     @IBAction func goToLoginTapped() {
-        router.deepLinkTo(destination: LoginConfiguration.login())
+        router.navigate(to: LoginConfiguration.login())
     }
 
     @IBAction func goToStarTapped() {
-        router.deepLinkTo(destination: ExampleConfiguration.destination(for: ExampleTarget.star)!)
+        router.navigate(to: ExampleConfiguration.destination(for: ExampleTarget.star)!)
     }
 
     @IBAction func goToFakeContainerTapped() {
-        router.deepLinkTo(destination: WishListConfiguration.collections())
+        router.navigate(to: WishListConfiguration.collections())
     }
 
 }

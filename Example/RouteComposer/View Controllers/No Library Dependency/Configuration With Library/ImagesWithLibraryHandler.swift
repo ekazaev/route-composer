@@ -13,7 +13,7 @@ class ImagesWithLibraryHandler: CustomViewControllerDelegate, ImagesControllerDe
     static let shared = ImagesWithLibraryHandler()
 
     func didSelect(imageID: String, in controller: ImagesViewController) {
-        UIViewController.router.deepLinkTo(destination: ImagesConfigurationWithLibrary.imageDetails(for: imageID), animated: true, completion: nil)
+        UIViewController.router.navigate(to: ImagesConfigurationWithLibrary.imageDetails(for: imageID), animated: true, completion: nil)
     }
 
     func dismissCustomContainer(controller: CustomContainerController) {
@@ -21,7 +21,7 @@ class ImagesWithLibraryHandler: CustomViewControllerDelegate, ImagesControllerDe
     }
 
     func dismiss(imageDetails: ImageDetailsViewController) {
-        UIViewController.router.deepLinkTo(destination: ImagesConfigurationWithLibrary.images(), animated: true, completion: nil)
+        UIViewController.router.navigate(to: ImagesConfigurationWithLibrary.images(), animated: true, completion: nil)
     }
 
 }

@@ -5,8 +5,8 @@
 [![License](https://img.shields.io/cocoapods/l/RouteComposer.svg?style=flat)](http://cocoapods.org/pods/RouteComposer)
 [![Platform](https://img.shields.io/cocoapods/p/RouteComposer.svg?style=flat)](http://cocoapods.org/pods/RouteComposer)
 
-`RouteComposer` is the protocol oriented library that helps to handle view controllers composition, routing
-and deeplinking tasks in the IOS application.
+`RouteComposer` is the protocol oriented, Cocoa UI abstractions based library that helps to handle view controllers composition, routing
+and deep linking tasks in the IOS application.
 
 ## Table of contents
 
@@ -337,7 +337,7 @@ class ProductArrayViewController: UITableViewController {
         guard let productID = products[indexPath.row] else {
             return
         }
-        router.deepLinkTo(destination: Configuration.productDestination(with: productID))
+        router.navigate(to: Configuration.productDestination(with: productID))
     }
 
 }

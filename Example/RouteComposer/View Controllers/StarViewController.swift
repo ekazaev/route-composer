@@ -19,11 +19,11 @@ class StarViewController: UIViewController, ExampleAnalyticsSupport {
     }
 
     @IBAction func goToProductTapped() {
-        router.deepLinkTo(destination: ProductConfiguration.productDestination(productId: "02"))
+        router.navigate(to: ProductConfiguration.productDestination(productId: "02"))
     }
 
     @IBAction func goToCircleTapped() {
-        router.deepLinkTo(destination: ExampleConfiguration.destination(for: ExampleTarget.circle)!)
+        router.navigate(to: ExampleConfiguration.destination(for: ExampleTarget.circle)!)
     }
 
     @IBAction func dismissStarTapped() {

@@ -163,7 +163,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return false
         }
         
-        return DefaultRouter(logger: nil).deepLinkTo(destination: destination) == .handled
+        return DefaultRouter(logger: nil).navigate(to: destination) == .handled
     }
 }
 

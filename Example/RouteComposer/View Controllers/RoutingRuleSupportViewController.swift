@@ -31,14 +31,14 @@ class RoutingRuleSupportViewController: UIViewController, RoutingInterceptable, 
     }
 
     @IBAction func goToColorTapped() {
-        router.deepLinkTo(destination: ExampleConfiguration.destination(for: ExampleTarget.color, context: ExampleDictionaryContext(arguments: [Argument.color: "FFFF00"]))!)
+        router.navigate(to: ExampleConfiguration.destination(for: ExampleTarget.color, context: ExampleDictionaryContext(arguments: [Argument.color: "FFFF00"]))!)
     }
 
     @IBAction func goToSquareTapped() {
-        router.deepLinkTo(destination: ExampleConfiguration.destination(for: ExampleTarget.square)!)
+        router.navigate(to: ExampleConfiguration.destination(for: ExampleTarget.square)!)
     }
 
     @IBAction func goToMoscowTapped() {
-        router.deepLinkTo(destination: CitiesConfiguration.cityDetail(cityId: 2))
+        router.navigate(to: CitiesConfiguration.cityDetail(cityId: 2))
     }
 }

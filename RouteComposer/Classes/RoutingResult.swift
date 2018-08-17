@@ -18,3 +18,12 @@ public enum RoutingResult {
     case unhandled
 
 }
+
+public extension RoutingResult {
+
+    /// Returns `true` if `RoutingResult` is `.handled`
+    public var isSuccessful: Bool {
+        return self == .handled
+    }
+
+}
