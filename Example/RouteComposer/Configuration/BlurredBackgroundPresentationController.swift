@@ -48,15 +48,6 @@ class BlurredBackgroundTransitionAnimator: NSObject, UIViewControllerAnimatedTra
         return blurEffectView
     }
     
-    private func stretchToView(_ view: UIView, to containerView: UIView) {
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.topAnchor.constraint(equalTo: containerView.topAnchor).isActive = true
-        view.leftAnchor.constraint(equalTo: containerView.leftAnchor).isActive = true
-        view.bottomAnchor.constraint(equalTo: containerView.bottomAnchor).isActive = true
-        view.rightAnchor.constraint(equalTo: containerView.rightAnchor).isActive = true
-    }
-    
-    
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         guard let fromViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from),
               let toViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to),
