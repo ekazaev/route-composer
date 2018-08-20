@@ -15,6 +15,7 @@
 		607FACEC1AFB9204008FA782 /* ContainerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* ContainerTests.swift */; };
 		841DFE532108ADB5007C82D3 /* EmptyFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCE40E5D93F38F9223D70 /* EmptyFactory.swift */; };
 		841DFE552108AE7D007C82D3 /* EmptyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC3D8D3AA2C53D5C17952 /* EmptyContainer.swift */; };
+		84706C78212AEEDB00980222 /* MultiplexerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84706C77212AEEDB00980222 /* MultiplexerTest.swift */; };
 		8479E2F5200E7A4400320380 /* Split.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8479E2F1200E7A4400320380 /* Split.storyboard */; };
 		8479E2F6200E7A4400320380 /* PromptScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8479E2F3200E7A4400320380 /* PromptScreen.storyboard */; };
 		8479E30D200E7A7F00320380 /* ExampleConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8479E2F8200E7A7F00320380 /* ExampleConfiguration.swift */; };
@@ -115,6 +116,7 @@
 		607FACE51AFB9204008FA782 /* RouteComposer_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RouteComposer_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* ContainerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerTests.swift; sourceTree = "<group>"; };
+		84706C77212AEEDB00980222 /* MultiplexerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplexerTest.swift; sourceTree = "<group>"; };
 		8479E2F2200E7A4400320380 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Split.storyboard; sourceTree = "<group>"; };
 		8479E2F4200E7A4400320380 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/PromptScreen.storyboard; sourceTree = "<group>"; };
 		8479E2F8200E7A7F00320380 /* ExampleConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleConfiguration.swift; sourceTree = "<group>"; };
@@ -290,6 +292,7 @@
 				9AFBC72E9C2A1D7060E71B00 /* Helpers */,
 				9AFBC6E7758A004A731A9B41 /* ActionTests.swift */,
 				9AFBCADE90377FF3B7BBF7F2 /* BoxTest.swift */,
+				84706C77212AEEDB00980222 /* MultiplexerTest.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -789,6 +792,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				841DFE552108AE7D007C82D3 /* EmptyContainer.swift in Sources */,
+				84706C78212AEEDB00980222 /* MultiplexerTest.swift in Sources */,
 				841DFE532108ADB5007C82D3 /* EmptyFactory.swift in Sources */,
 				607FACEC1AFB9204008FA782 /* ContainerTests.swift in Sources */,
 				9AFBCD5CF0DEF693CAB30502 /* ActionTests.swift in Sources */,

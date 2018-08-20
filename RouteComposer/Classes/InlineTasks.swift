@@ -16,6 +16,8 @@ public struct InlineInterceptor<D: RoutingDestination>: RoutingInterceptor {
     
     public typealias Destination = D
     
+    private let prepareBlock: ((_: D) throws -> Void)?
+    
     private let asyncCompletion: ((_: D, _: @escaping (InterceptorResult) -> Void) -> Void)?
     
     private let syncCompletion: ((_: D) -> Void)?
@@ -25,7 +27,8 @@ public struct InlineInterceptor<D: RoutingDestination>: RoutingInterceptor {
     /// - Parameter completion: the block to be called when `InlineInterceptor` will take a control over the routing.
     ///
     ///     **NB** For `Router` to be able to continue routing, completion block method **MUST** to be called.
-    public init(_ completion: @escaping (_: D, _: @escaping (InterceptorResult) -> Void) -> Void) {
+    public init(prepare: ((_: D) throws  -> Void)? = nil,_ completion: @escaping (_: D, _: @escaping (InterceptorResult) -> Void) -> Void) {
+        self.prepareBlock = prepare
         self.asyncCompletion = completion
         self.syncCompletion = nil
     }
@@ -36,9 +39,14 @@ public struct InlineInterceptor<D: RoutingDestination>: RoutingInterceptor {
     ///
     ///     **NB** completion method will be called automatically so do not use this constructor if your interceptor
     ///     task is asynchronous.
-    public init(_ completion: @escaping (_: D) -> Void) {
+    public init(prepare: ((_: D) throws -> Void)? = nil, _ completion: @escaping (_: D) -> Void) {
+        self.prepareBlock = prepare
         self.syncCompletion = completion
         self.asyncCompletion = nil
+    }
+    
+    public func prepare(with destination: D) throws {
+        try prepareBlock?(destination)
     }
     
     public func execute(for destination: D, completion: @escaping (InterceptorResult) -> Void) {

@@ -159,7 +159,8 @@ public struct DefaultRouter: Router, AssemblableRouter {
                 let interceptableStep = currentStep as? InterceptableStep
 
                 // If step contain an `Action` that needs to be done, add it in the interceptors array
-                if let interceptor = interceptableStep?.interceptor {
+                if var interceptor = interceptableStep?.interceptor {
+                    try interceptor.prepare(with: destination)
                     interceptors.append(interceptor)
                 }
 
