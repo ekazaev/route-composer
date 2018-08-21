@@ -281,4 +281,63 @@ class RouteComposer_ExampleUITests: XCTestCase {
         app.terminate()
     
     }
+    
+    func testAlternativeStarRoute() {
+        app.launch()
+        XCTAssertTrue(app.otherElements["promptViewController"].exists)
+        
+        app.buttons["Continue"].tap()
+        XCTAssertTrue(app.otherElements["homeViewController"].exists)
+        
+        app.buttons["Go to square"].tap()
+        XCTAssertTrue(app.otherElements["squareViewController"].exists)
+
+        var switcher = app.switches["routeSwitchControl"]
+        switcher.tap()
+        XCTAssertTrue(app.otherElements["squareViewController"].exists)
+
+        app.buttons["Go to Star*"].tap()
+        XCTAssertTrue(app.otherElements["loginViewController"].exists)
+        
+        app.textFields["loginTextField"].tap()
+        app.textFields["loginTextField"].typeText("abc")
+        
+        app.textFields["passwordTextField"].tap()
+        app.textFields["passwordTextField"].typeText("abc")
+        
+        app.buttons["Login"].tap()
+        sleep(3)
+        XCTAssertTrue(app.otherElements["starViewController"].exists)
+        
+        app.buttons["Go to Product 02"].tap()
+        XCTAssertTrue(app.otherElements["productViewController+02"].exists)
+        
+        app.buttons["Go to Circle"].tap()
+        XCTAssertTrue(app.otherElements["circleViewController"].exists)
+        
+        app.buttons["Go to square"].tap()
+        XCTAssertTrue(app.otherElements["squareViewController"].exists)
+        
+        app.buttons["Go to Star*"].tap()
+        XCTAssertTrue(app.otherElements["starViewController"].exists)
+        
+        app.buttons["Dismiss Star Tab*"].tap()
+        XCTAssertTrue(app.otherElements["circleViewController"].exists)
+
+        app.buttons["Go to square"].tap()
+        XCTAssertTrue(app.otherElements["squareViewController"].exists)
+
+        switcher = app.switches["routeSwitchControl"]
+        switcher.tap()
+        XCTAssertTrue(app.otherElements["squareViewController"].exists)
+        
+        app.buttons["Go to Star*"].tap()
+        XCTAssertTrue(app.otherElements["starViewController"].exists)
+        
+        app.buttons["Dismiss Star Tab*"].tap()
+        XCTAssertTrue(app.otherElements["circleViewController"].exists)
+
+        app.terminate()
+        
+    }
 }

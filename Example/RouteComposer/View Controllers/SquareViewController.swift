@@ -40,6 +40,33 @@ class SquareViewController: UIViewController, ExampleAnalyticsSupport {
     @IBAction func goToFakeContainerTapped() {
         router.navigate(to: WishListConfiguration.collections())
     }
+    
+    @IBAction func switchValueChanged(sender: UISwitch) {
+        let starScreen: RoutingStep
+        if sender.isOn {
+            starScreen = StepAssembly(
+                    finder: ClassFinder<StarViewController, Any>(options: .currentAllStack),
+                    factory: XibFactory(action: NavigationControllerFactory.PushToNavigation()))
+                    .add(ExampleAnalyticsInterceptor())
+                    .add(ExampleGenericContextTask())
+                    .add(ExampleAnalyticsPostAction())
+                    .add(LoginInterceptor())
+                    .from(ExampleConfiguration.destination(for: ExampleTarget.circle)!.finalStep)
+                    .assemble()
+    
+        } else {
+            starScreen = StepAssembly(
+                    finder: ClassFinder<StarViewController, Any>(options: .currentAllStack),
+                    factory: XibFactory(action: TabBarControllerFactory.AddTab()))
+                    .add(ExampleAnalyticsInterceptor())
+                    .add(ExampleGenericContextTask())
+                    .add(ExampleAnalyticsPostAction())
+                    .add(LoginInterceptor())
+                    .from(ExampleConfiguration.destination(for: ExampleTarget.home)!.finalStep)
+                    .assemble()
+        }
+        ExampleConfiguration.register(screen: starScreen, for: ExampleTarget.star)
+    }
 
 }
 

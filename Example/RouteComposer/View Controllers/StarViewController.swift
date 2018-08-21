@@ -32,5 +32,6 @@ class StarViewController: UIViewController, ExampleAnalyticsSupport {
             viewControllers?.remove(at: index)
             self.tabBarController?.setViewControllers(viewControllers, animated: true)
         }
+        router.navigate(to: ExampleConfiguration.destination(for: ExampleTarget.circle)!)
     }
 }

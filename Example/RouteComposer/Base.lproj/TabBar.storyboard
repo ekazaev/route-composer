@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -222,52 +222,75 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="aCi-8Q-H9E">
-                                <rect key="frame" x="125" y="191.5" width="125" height="256"/>
+                                <rect key="frame" x="112.5" y="183.5" width="150.5" height="271"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Itu-Vw-ee6">
-                                        <rect key="frame" x="0.0" y="0.0" width="125" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="150.5" height="30"/>
                                         <state key="normal" title="Go push to circle*"/>
                                         <connections>
                                             <action selector="goToHomeTapped" destination="8rJ-Kc-sve" eventType="touchUpInside" id="2vG-vl-TjY"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ah5-V3-Bcg">
-                                        <rect key="frame" x="0.0" y="41" width="125" height="30"/>
+                                        <rect key="frame" x="0.0" y="41" width="150.5" height="30"/>
                                         <state key="normal" title="Go to Circle"/>
                                         <connections>
                                             <action selector="goToCircleTapped" destination="8rJ-Kc-sve" eventType="touchUpInside" id="24a-4I-H6w"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oOA-2s-xxU">
-                                        <rect key="frame" x="0.0" y="82" width="125" height="30"/>
+                                        <rect key="frame" x="0.0" y="82" width="150.5" height="30"/>
                                         <state key="normal" title="Go to Split*"/>
                                         <connections>
                                             <action selector="goToSplitTapped" destination="8rJ-Kc-sve" eventType="touchUpInside" id="8Mh-q7-kMY"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PVg-zY-i55">
-                                        <rect key="frame" x="0.0" y="123" width="125" height="30"/>
+                                        <rect key="frame" x="0.0" y="123" width="150.5" height="30"/>
                                         <state key="normal" title="Go to Login"/>
                                         <connections>
                                             <action selector="goToLoginTapped" destination="8rJ-Kc-sve" eventType="touchUpInside" id="3Br-6G-ONF"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jWi-4X-90Y">
-                                        <rect key="frame" x="0.0" y="164" width="125" height="30"/>
-                                        <state key="normal" title="Go to Star*"/>
-                                        <connections>
-                                            <action selector="goToStarTapped" destination="8rJ-Kc-sve" eventType="touchUpInside" id="c1Z-eB-EQt"/>
-                                        </connections>
-                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="ZLT-Ii-NbU">
+                                        <rect key="frame" x="0.0" y="164" width="150.5" height="45"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jWi-4X-90Y">
+                                                <rect key="frame" x="0.0" y="0.0" width="77" height="45"/>
+                                                <state key="normal" title="Go to Star*"/>
+                                                <connections>
+                                                    <action selector="goToStarTapped" destination="8rJ-Kc-sve" eventType="touchUpInside" id="c1Z-eB-EQt"/>
+                                                </connections>
+                                            </button>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="oYa-ep-PcU">
+                                                <rect key="frame" x="84" y="0.0" width="66.5" height="45"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Alt. confguration" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VRx-3q-sUX">
+                                                        <rect key="frame" x="0.0" y="0.0" width="66.5" height="10"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="8"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="TI7-Kw-mhO">
+                                                        <rect key="frame" x="9" y="14" width="51" height="31"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="routeSwitchControl"/>
+                                                        <connections>
+                                                            <action selector="switchValueChangedWithSender:" destination="8rJ-Kc-sve" eventType="valueChanged" id="UE1-np-P45"/>
+                                                        </connections>
+                                                    </switch>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mpK-1U-eeR">
-                                        <rect key="frame" x="0.0" y="205" width="125" height="30"/>
+                                        <rect key="frame" x="0.0" y="220" width="150.5" height="30"/>
                                         <state key="normal" title="Go to Collections*"/>
                                         <connections>
                                             <action selector="goToFakeContainerTapped" destination="8rJ-Kc-sve" eventType="touchUpInside" id="sfZ-Sr-PRB"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="* - login required" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iw0-rc-3xm">
-                                        <rect key="frame" x="0.0" y="246" width="125" height="10"/>
+                                        <rect key="frame" x="0.0" y="261" width="150.5" height="10"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="8"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>

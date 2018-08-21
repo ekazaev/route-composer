@@ -77,7 +77,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 .add(InlineContextTask({ (vc: ColorViewController, context: ExampleDictionaryContext) in
                     print("Color view controller built or found")
                 }))
-                .add(InlinePostTask({ (vc:ColorViewController, d: ExampleDestination, _) in
+                .add(InlinePostTask({ (vc: ColorViewController, d: ExampleDestination, _) in
                     print("After navigation to Color view controller")
                 }))
                 .from(NavigationControllerStep(action: GeneralAction.PresentModally()))
