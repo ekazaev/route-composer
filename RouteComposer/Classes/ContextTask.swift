@@ -31,7 +31,7 @@ public protocol ContextTask {
     /// - Parameters:
     ///   - viewController: The `UIViewController` instance described in the step that `ContextTask` attached to
     ///   - context: The `Context` instance that was passed to the `Router`
-    func apply(on viewController: ViewController, with context: Context)
+    func apply(on viewController: ViewController, with context: Context) throws
     
 }
 

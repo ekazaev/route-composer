@@ -21,6 +21,14 @@ class MultiplexerTest: XCTestCase {
         
     }
     
+    struct WrongDestination: RoutingDestination {
+        
+        private(set) var finalStep: RoutingStep
+        
+        private(set) var context: Any?
+        
+    }
+    
     func testRoutingInterceptorPrepare() {
         var prepareCountRun: Int = 0
         let interceptors = [
@@ -41,7 +49,7 @@ class MultiplexerTest: XCTestCase {
         XCTAssertEqual(prepareCountRun, 10)
     }
     
-    func testRoutingInterceptorThrow() {
+    func testRoutingPrepareInterceptorThrow() {
         let interceptors = [
             RoutingInterceptorBox(InlineInterceptor(prepare: { (destination: TestDestination) throws in
                 throw RoutingError.message("Should be handled")
@@ -52,6 +60,46 @@ class MultiplexerTest: XCTestCase {
         
         var multiplexer = InterceptorMultiplexer(interceptors)
         XCTAssertThrowsError(try multiplexer.prepare(with: TestDestination(finalStep: CurrentViewControllerStep(), context: nil)))
+    }
+    
+    func testRoutingWrongDestinationInterceptorThrow() {
+        let interceptors = [
+            RoutingInterceptorBox(InlineInterceptor(prepare: { (destination: TestDestination) throws in
+                throw RoutingError.message("Should be handled")
+            }, { (destination: TestDestination) in
+                
+            }))
+        ]
+        
+        let multiplexer = InterceptorMultiplexer(interceptors)
+        multiplexer.execute(for: WrongDestination(finalStep: CurrentViewControllerStep(), context: nil), completion: { result in
+            guard case .failure = result else {
+                XCTAssertFalse(true)
+                return
+            }
+            XCTAssertFalse(false)
+        })
+    }
+    
+    func testContextTaskWrongDestinationThrow() {
+        let contextTask = [
+            ContextTaskBox(InlineContextTask { (v: UIViewController, context: String) throws in
+            
+            })
+        ]
+        
+        let multiplexer = ContextTaskMultiplexer(contextTask)
+        XCTAssertThrowsError(try multiplexer.apply(on: UIViewController(), with: nil, for: WrongDestination(finalStep: CurrentViewControllerStep(), context: nil)))
+    }
+    
+    func testPostTaskWrongDestinationThrow() {
+        let postTasks = [
+            PostRoutingTaskBox(InlinePostTask({ (vc: UIViewController, destination: TestDestination, controllers: [UIViewController]) in
+            }))
+        ]
+        
+        let multiplexer = PostRoutingTaskMultiplexer(postTasks)
+        XCTAssertThrowsError(try multiplexer.execute(on: UIViewController(), for: WrongDestination(finalStep: CurrentViewControllerStep(), context: nil), routingStack: [UIViewController()]))
     }
     
     func testRoutingInterceptorMutation() {

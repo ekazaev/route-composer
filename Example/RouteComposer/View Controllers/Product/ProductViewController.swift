@@ -9,7 +9,7 @@ import RouteComposer
 
 class ProductContextTask: ContextTask {
 
-    func apply(on viewController: ProductViewController, with context: String) {
+    func apply(on viewController: ProductViewController, with context: String) throws {
         viewController.productId = context
     }
 

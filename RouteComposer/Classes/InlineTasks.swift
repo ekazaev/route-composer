@@ -72,18 +72,18 @@ public struct InlineContextTask<VC: UIViewController, C>: ContextTask {
     
     public typealias Context = C
     
-    private let completion: (_: VC, _: C) -> Void
+    private let completion: (_: VC, _: C) throws -> Void
     
     /// Constructor
     ///
     /// - Parameter completion: the block to be called when `InlineContextTask` will be applied to the `UIViewController`
     ///    instance.
-    public init(_ completion: @escaping (_: VC, _: C) -> Void) {
+    public init(_ completion: @escaping (_: VC, _: C) throws -> Void) {
         self.completion = completion
     }
     
-    public func apply(on viewController: ViewController, with context: Context) {
-        completion(viewController, context)
+    public func apply(on viewController: ViewController, with context: Context) throws {
+        try completion(viewController, context)
     }
     
 }

@@ -180,7 +180,7 @@ public struct DefaultRouter: Router, AssemblableRouter {
                             let taskMergeResult = mergeGlobalTasks(step: interceptableStep)
                             try taskMergeResult.contextTasks.forEach({
                                 try $0.prepare(with: destination.context, for: destination)
-                                $0.apply(on: viewController, with: destination.context, for: destination)
+                                try $0.apply(on: viewController, with: destination.context, for: destination)
                             })
 
                             taskMergeResult.postTasks.forEach({
@@ -373,8 +373,8 @@ public struct DefaultRouter: Router, AssemblableRouter {
         func build(with context: Any?) throws -> UIViewController {
             let viewController = try factory.build(with: context)
             if let context = context {
-                contextTasks.forEach({
-                    $0.apply(on: viewController, with: context, for: destination)
+                try contextTasks.forEach({
+                    try $0.apply(on: viewController, with: context, for: destination)
                 })
             }
             postTasks.forEach({

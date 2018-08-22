@@ -20,8 +20,8 @@ class ContextTaskMultiplexer: AnyContextTask, CustomStringConvertible {
         try self.tasks.forEach({ try $0.prepare(with: context, for: destination) })
     }
 
-    func apply<D: RoutingDestination>(on viewController: UIViewController, with context: Any?, for destination: D) {
-        self.tasks.forEach({ $0.apply(on: viewController, with: context, for: destination) })
+    func apply<D: RoutingDestination>(on viewController: UIViewController, with context: Any?, for destination: D) throws {
+        try self.tasks.forEach({ try $0.apply(on: viewController, with: context, for: destination) })
     }
 
     var description: String {

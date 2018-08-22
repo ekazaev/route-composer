@@ -9,7 +9,7 @@ import RouteComposer
 
 class WishListContextTask: ContextTask {
 
-    func apply(on viewController: WishListViewController, with context: WishListContext) {
+    func apply(on viewController: WishListViewController, with context: WishListContext) throws {
         viewController.context = context
     }
 

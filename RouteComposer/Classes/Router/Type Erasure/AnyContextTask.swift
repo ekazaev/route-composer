@@ -13,7 +13,7 @@ protocol AnyContextTask {
 
     func prepare<D: RoutingDestination>(with context: Any?, for destination: D) throws
 
-    func apply<D: RoutingDestination>(on viewController: UIViewController, with context: Any?, for destination: D)
+    func apply<D: RoutingDestination>(on viewController: UIViewController, with context: Any?, for destination: D) throws
 
 }
 
@@ -32,12 +32,12 @@ class ContextTaskBox<CT: ContextTask>: AnyContextTask, CustomStringConvertible {
         try contextTask.prepare(with: typedContext)
     }
 
-    func apply<D: RoutingDestination>(on viewController: UIViewController, with context: Any?, for destination: D) {
+    func apply<D: RoutingDestination>(on viewController: UIViewController, with context: Any?, for destination: D) throws {
         guard let typedViewController = viewController as? CT.ViewController,
               let typedContext = context as? CT.Context else {
-            return
+            throw RoutingError.message("\(String(describing: contextTask)) does not support context \(String(describing: context))")
         }
-        contextTask.apply(on: typedViewController, with: typedContext)
+        try contextTask.apply(on: typedViewController, with: typedContext)
     }
 
     var description: String {

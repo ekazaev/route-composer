@@ -9,7 +9,7 @@ import RouteComposer
 
 class GlobalContextTask: ContextTask {
 
-    func apply(on viewController: UIViewController, with context: Any?) {
+    func apply(on viewController: UIViewController, with context: Any?) throws {
         print("Applied \(context ?? "empty context") on \(viewController)")
     }
 
