@@ -9,33 +9,23 @@ import os.log
 
 
 extension UIViewController {
-
-    private static var appRouter: DefaultRouter?
-
-    static var router: DefaultRouter {
-        get {
-            guard let router = UIViewController.appRouter else {
-                let appRouterLogger: DefaultLogger
-                if #available(iOS 10, *) {
-                    appRouterLogger = DefaultLogger(.verbose, osLog: OSLog(subsystem: Bundle.main.bundleIdentifier!, category: "Router"))
-                } else {
-                    appRouterLogger = DefaultLogger(.verbose)
-                }
-                var router = DefaultRouter(logger: appRouterLogger)
-                router.add(GlobalInterceptor())
-                router.add(GlobalPostTask())
-                router.add(GlobalContextTask())
-                UIViewController.appRouter = router
-                return router
-            }
-            return router
+    
+    static let router: DefaultRouter = {
+        let appRouterLogger: DefaultLogger
+        if #available(iOS 10, *) {
+            appRouterLogger = DefaultLogger(.verbose, osLog: OSLog(subsystem: Bundle.main.bundleIdentifier!, category: "Router"))
+        } else {
+            appRouterLogger = DefaultLogger(.verbose)
         }
-    }
-
+        var router = DefaultRouter(logger: appRouterLogger)
+        router.add(GlobalInterceptor())
+        router.add(GlobalPostTask())
+        router.add(GlobalContextTask())
+        return router
+    }()
+    
     var router: DefaultRouter {
-        get {
-            return UIViewController.router
-        }
+        return UIViewController.router
     }
 }
 
