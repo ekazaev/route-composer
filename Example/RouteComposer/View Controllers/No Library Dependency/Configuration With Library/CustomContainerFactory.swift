@@ -9,7 +9,7 @@ import RouteComposer
 
 class CustomContainerFactory: SimpleContainerFactory {
 
-    typealias SupportedAction = CustomContainerChildAction
+    typealias SupportedAction = ReplaceRoot
 
     typealias ViewController = CustomContainerController
 
@@ -64,16 +64,20 @@ extension CustomContainerController: ContainerViewController {
 
 }
 
-class CustomContainerChildAction: Action {
-
-    func perform(viewController: UIViewController, on existingController: UIViewController, animated: Bool, completion: @escaping (_: ActionResult) -> Void) {
-        guard let customContainerController = existingController as? CustomContainerController else {
-            completion(.failure("\(existingController) is not CustomContainerController"))
-            return
+extension CustomContainerFactory {
+    
+    struct ReplaceRoot: Action {
+        
+        func perform(with viewController: UIViewController, on existingController: UIViewController, animated: Bool, completion: @escaping (_: ActionResult) -> Void) {
+            guard let customContainerController = existingController as? CustomContainerController else {
+                completion(.failure("\(existingController) is not CustomContainerController"))
+                return
+            }
+            
+            customContainerController.rootViewController = viewController
+            completion(.continueRouting)
         }
-
-        customContainerController.rootViewController = viewController
-        completion(.continueRouting)
+        
     }
-
+    
 }

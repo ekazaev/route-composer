@@ -14,8 +14,8 @@ public protocol Action {
     ///
     /// - Parameters:
     ///   - viewController: The `UIViewController` to be embedded.
-    ///   - containerViewControllers: The stack of the `UIViewController`s in the current container.
-    func perform(embedding viewController: UIViewController, in containerViewControllers: inout [UIViewController])
+    ///   - childViewControllers: The stack of the `UIViewController`s in the current container.
+    func perform(embedding viewController: UIViewController, in childViewControllers: inout [UIViewController])
 
     /// Performs provided action to the view controller.
     ///
@@ -26,24 +26,24 @@ public protocol Action {
     ///   - completion: called once the action is applied. Returns the view controller, which will appear on the top of the stack.
     ///
     /// NB: completion MUST be called in the implementation.
-    func perform(viewController: UIViewController, on existingController: UIViewController, animated: Bool, completion: @escaping (_: ActionResult) -> Void)
+    func perform(with viewController: UIViewController, on existingController: UIViewController, animated: Bool, completion: @escaping (_: ActionResult) -> Void)
 
 }
 
 public extension Action {
 
-    public func perform(embedding viewController: UIViewController, in containerViewControllers: inout [UIViewController]) {
-        containerViewControllers.append(viewController)
+    public func perform(embedding viewController: UIViewController, in childViewControllers: inout [UIViewController]) {
+        childViewControllers.append(viewController)
     }
 
 }
 
 public extension Action where Self: NilEntity {
     
-    public func perform(embedding viewController: UIViewController, in containerViewControllers: inout [UIViewController]) {
+    public func perform(embedding viewController: UIViewController, in childViewControllers: inout [UIViewController]) {
     }
     
-    public func perform(viewController: UIViewController, on existingController: UIViewController, animated: Bool, completion: @escaping (ActionResult) -> Void) {
+    public func perform(with viewController: UIViewController, on existingController: UIViewController, animated: Bool, completion: @escaping (ActionResult) -> Void) {
         completion(.continueRouting)
     }
     

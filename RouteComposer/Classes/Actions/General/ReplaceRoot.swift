@@ -16,11 +16,11 @@ public extension GeneralAction {
         public init() {
         }
 
-        public func perform(embedding viewController: UIViewController, in containerViewControllers: inout [UIViewController]) {
+        public func perform(embedding viewController: UIViewController, in childViewControllers: inout [UIViewController]) {
             assertionFailure("\(#function) is not eligible for this action.")
         }
 
-        public func perform(viewController: UIViewController, on existingController: UIViewController, animated: Bool, completion: @escaping(_: ActionResult) -> Void) {
+        public func perform(with viewController: UIViewController, on existingController: UIViewController, animated: Bool, completion: @escaping(_: ActionResult) -> Void) {
             guard let window = UIWindow.key else {
                 completion(.failure("Key window not found."))
                 return

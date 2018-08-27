@@ -30,7 +30,7 @@ public extension GeneralAction {
             self.transitioningDelegate = transitioningDelegate
         }
 
-        public func perform(viewController: UIViewController, on existingController: UIViewController, animated: Bool, completion: @escaping (_: ActionResult) -> Void) {
+        public func perform(with viewController: UIViewController, on existingController: UIViewController, animated: Bool, completion: @escaping (_: ActionResult) -> Void) {
             guard existingController.presentedViewController == nil else {
                 completion(.failure("\(existingController) is already presenting a view controller."))
                 return

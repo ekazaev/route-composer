@@ -280,7 +280,7 @@ public struct DefaultRouter: Router, AssemblableRouter {
             doTry({
                 let newViewController = try factory.build(with: context)
                 logger?.log(.info("Factory \(String(describing: factory)) built a \(String(describing: newViewController))."))
-                factory.action.perform(viewController: newViewController, on: previousViewController, animated: animated) { result in
+                factory.action.perform(with: newViewController, on: previousViewController, animated: animated) { result in
                     if case let .failure(message) = result {
                         self.logger?.log(.error(message ?? "Action \(String(describing: factory.action)) stopped routing as it was not able to build a view controller in to a stack."))
                         completion(newViewController)

@@ -33,31 +33,31 @@ public extension TabBarControllerFactory {
             self.replacing = false
         }
 
-        public func perform(embedding viewController: UIViewController, in containerViewControllers: inout [UIViewController]) {
-            processViewController(viewController: viewController, containerViewControllers: &containerViewControllers)
+        public func perform(embedding viewController: UIViewController, in childViewControllers: inout [UIViewController]) {
+            processViewController(viewController: viewController, childViewControllers: &childViewControllers)
         }
 
-        public func perform(viewController: UIViewController, on existingController: UIViewController, animated: Bool, completion: @escaping(_: ActionResult) -> Void) {
+        public func perform(with viewController: UIViewController, on existingController: UIViewController, animated: Bool, completion: @escaping(_: ActionResult) -> Void) {
             guard let tabBarController = existingController as? UITabBarController ?? existingController.tabBarController else {
                 return completion(.failure("Could not find UITabBarController in \(existingController) to present view controller \(viewController)."))
             }
 
             var tabViewControllers = tabBarController.viewControllers ?? []
-            processViewController(viewController: viewController, containerViewControllers: &tabViewControllers)
+            processViewController(viewController: viewController, childViewControllers: &tabViewControllers)
             tabBarController.setViewControllers(tabViewControllers, animated: animated)
 
             return completion(.continueRouting)
         }
 
-        private func processViewController(viewController: UIViewController, containerViewControllers: inout [UIViewController]){
-            if let tabIndex = tabIndex, tabIndex < containerViewControllers.count {
+        private func processViewController(viewController: UIViewController, childViewControllers: inout [UIViewController]){
+            if let tabIndex = tabIndex, tabIndex < childViewControllers.count {
                 if replacing {
-                    containerViewControllers[tabIndex] = viewController
+                    childViewControllers[tabIndex] = viewController
                 } else {
-                    containerViewControllers.insert(viewController, at: tabIndex)
+                    childViewControllers.insert(viewController, at: tabIndex)
                 }
             } else {
-                containerViewControllers.append(viewController)
+                childViewControllers.append(viewController)
             }
         }
 

@@ -26,11 +26,11 @@ public final class ChildFactory<Context>  {
     ///
     /// - Parameters:
     ///   - context: An instance of `Context` provided by `Router`.
-    ///   - containerViewControllers: Array of `UIViewController` instances to be later
+    ///   - childViewControllers: Array of `UIViewController` instances to be later
     ///   integrated in to container's stack.
-    func build(with context: Context, in containerViewControllers: inout [UIViewController]) throws {
+    func build(with context: Context, in childViewControllers: inout [UIViewController]) throws {
         let viewController = try factory.build(with: context)
-        factory.action.perform(embedding: viewController, in: &containerViewControllers)
+        factory.action.perform(embedding: viewController, in: &childViewControllers)
     }
 
 }
