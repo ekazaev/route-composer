@@ -5,7 +5,7 @@
 import Foundation
 import UIKit
 
-/// Dummy class to be provided to an assembly to show that this that never should be found in a view controller stack
+/// Dummy struct to be provided to an assembly to show that this that never should be found in a view controller stack
 /// and should always be created from scratch.
 /// The only purpose it exists is to provide type safety checks for `StepAssembly`.
 ///

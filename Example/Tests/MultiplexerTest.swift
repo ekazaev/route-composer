@@ -80,6 +80,31 @@ class MultiplexerTest: XCTestCase {
             XCTAssertFalse(false)
         })
     }
+
+    func testContextTaskPrepare() {
+
+        struct CustomContextTask: ContextTask {
+
+            var prepareCalledCount = 0
+            
+            mutating func prepare(with context: Any?) throws {
+                prepareCalledCount = prepareCalledCount + 1
+            }
+            
+            func apply(on viewController: UIViewController, with context: Any?) throws {
+                XCTAssertEqual(prepareCalledCount, 1)
+            }
+        }
+        
+        let contextTask = [
+            ContextTaskBox(CustomContextTask())
+        ]
+        
+        var multiplexer = ContextTaskMultiplexer(contextTask)
+        let destination = TestDestination(finalStep: CurrentViewControllerStep(), context: nil)
+        try? multiplexer.prepare(with: nil, for: destination)
+        try? multiplexer.apply(on: UIViewController(), with: nil, for: destination)
+    }
     
     func testContextTaskWrongDestinationThrow() {
         let contextTask = [

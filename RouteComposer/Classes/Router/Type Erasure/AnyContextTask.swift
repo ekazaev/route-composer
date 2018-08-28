@@ -10,22 +10,22 @@ import UIKit
 
 /// Non type safe boxing wrapper for ContextTask protocol
 protocol AnyContextTask {
-
-    func prepare<D: RoutingDestination>(with context: Any?, for destination: D) throws
+    
+    mutating func prepare<D: RoutingDestination>(with context: Any?, for destination: D) throws
 
     func apply<D: RoutingDestination>(on viewController: UIViewController, with context: Any?, for destination: D) throws
 
 }
 
-class ContextTaskBox<CT: ContextTask>: AnyContextTask, CustomStringConvertible {
+struct ContextTaskBox<CT: ContextTask>: AnyContextTask, CustomStringConvertible {
 
-    let contextTask: CT
+    var contextTask: CT
 
     init(_ contextTask: CT) {
         self.contextTask = contextTask
     }
 
-    func prepare<D: RoutingDestination>(with context: Any?, for destination: D) throws {
+    mutating func prepare<D: RoutingDestination>(with context: Any?, for destination: D) throws {
         guard let typedContext = context as? CT.Context else {
             throw RoutingError.message("\(String(describing: contextTask)) does not support context \(String(describing: context))")
         }

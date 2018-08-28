@@ -23,7 +23,7 @@ public protocol ContextTask {
     /// - Parameters:
     ///   - context: The `Context` instance provided to the `Router`
     /// - Throws: The `RoutingError` if `ContextTask` can't be applied.
-    func prepare(with context: Context) throws
+    mutating func prepare(with context: Context) throws
 
     /// The method that will be called by the `Router` to run `ContextTask` immediately after `UIViewController` been created
     /// or found
@@ -37,7 +37,7 @@ public protocol ContextTask {
 
 public extension ContextTask {
 
-    public func prepare(with context: Context) throws {
+    public mutating func prepare(with context: Context) throws {
 
     }
 

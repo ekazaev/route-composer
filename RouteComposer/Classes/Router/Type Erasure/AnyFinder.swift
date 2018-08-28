@@ -12,7 +12,7 @@ protocol AnyFinder {
 
 }
 
-class FinderBox<F: Finder>: AnyFinder, CustomStringConvertible {
+struct FinderBox<F: Finder>: AnyFinder, CustomStringConvertible {
 
     static func box(for finder: F?) -> AnyFinder? {
         if let _ = finder as? NilFinder<F.ViewController, F.Context> {

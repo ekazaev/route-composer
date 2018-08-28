@@ -8,7 +8,7 @@ import Foundation
 ///
 /// *Example: You want your `UITabBarController` instance to be built by this `Factory`
 /// with all the `UIViewController`s populated into each tab*
-public class CompleteFactoryAssembly<FC: Container> {
+public final class CompleteFactoryAssembly<FC: Container> {
 
     private var factory: FC
 

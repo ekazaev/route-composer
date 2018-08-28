@@ -14,7 +14,7 @@ public class BasicStepAssembly {
         self.routingStep = routingStep
     }
     
-    class RoutingContainerStep<F: Finder, Box: AnyFactoryBox>: BaseStep<Box>, RoutingStep where F.ViewController == Box.FactoryType.ViewController, F.Context == Box.FactoryType.Context {
+    final class RoutingContainerStep<F: Finder, Box: AnyFactoryBox>: BaseStep<Box>, RoutingStep where F.ViewController == Box.FactoryType.ViewController, F.Context == Box.FactoryType.Context {
         
         init(finder: F, factory: Box.FactoryType) {
             super.init(finder: finder, factory: factory)

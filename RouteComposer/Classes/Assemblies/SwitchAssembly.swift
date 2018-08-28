@@ -7,7 +7,7 @@ import UIKit
 
 /// Helps to build a tree of `RoutingStep` which will be taken by a `Router` and add a condition to each step when it should
 /// be taken.
-public class SwitchAssembly {
+public final class SwitchAssembly {
 
     private struct BlockResolver<Destination>: StepCaseResolver {
 

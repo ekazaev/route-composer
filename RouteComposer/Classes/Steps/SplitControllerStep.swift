@@ -6,7 +6,7 @@
 import UIKit
 
 /// Default split container step
-public class SplitControllerStep: BasicContainerStep<NilFinder<UISplitViewController, Any?>, SplitControllerFactory, UISplitViewController> {
+public final class SplitControllerStep: BasicContainerStep<NilFinder<UISplitViewController, Any?>, SplitControllerFactory, UISplitViewController> {
 
     /// Creates a default `UISplitViewController` and applies an `Action` if it is provided.
     ///

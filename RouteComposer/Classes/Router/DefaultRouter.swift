@@ -179,8 +179,9 @@ public struct DefaultRouter: Router, AssemblableRouter {
 
                             let taskMergeResult = mergeGlobalTasks(step: interceptableStep)
                             try taskMergeResult.contextTasks.forEach({
-                                try $0.prepare(with: destination.context, for: destination)
-                                try $0.apply(on: viewController, with: destination.context, for: destination)
+                                var contextTask = $0
+                                try contextTask.prepare(with: destination.context, for: destination)
+                                try contextTask.apply(on: viewController, with: destination.context, for: destination)
                             })
 
                             taskMergeResult.postTasks.forEach({
@@ -196,9 +197,12 @@ public struct DefaultRouter: Router, AssemblableRouter {
                                 // If step contains post task, them lets create a `Factory` decorator that will handle view
                                 // controller and post task chain after view controller creation.
                                 if let internalStep = interceptableStep {
-                                    let taskMergeResult = mergeGlobalTasks(step: internalStep)
-
-                                    try taskMergeResult.contextTasks.forEach({ try $0.prepare(with: destination.context, for: destination) })
+                                    var taskMergeResult = mergeGlobalTasks(step: internalStep)
+                                    taskMergeResult.contextTasks = try taskMergeResult.contextTasks.map({
+                                        var contextTask = $0
+                                        try contextTask.prepare(with: destination.context, for: destination)
+                                        return contextTask
+                                    })
 
                                     factory = FactoryDecorator(factory: factory, contextTasks: taskMergeResult.contextTasks, postTasks: taskMergeResult.postTasks, postTaskRunner: postTaskRunner, logger: logger, destination: destination)
                                 }
@@ -316,7 +320,7 @@ public struct DefaultRouter: Router, AssemblableRouter {
 
     // this class is just a placeholder. Router needs at least one post-routing task per view controller to
     // store a reference there.
-    private class EmptyPostTask<D: RoutingDestination>: PostRoutingTask {
+    private final class EmptyPostTask<D: RoutingDestination>: PostRoutingTask {
 
         func execute(on viewController: UIViewController, for destination: D, routingStack: [UIViewController]) {
         }
@@ -406,7 +410,7 @@ public struct DefaultRouter: Router, AssemblableRouter {
         }
     }
 
-    private class PostTaskRunner<D: RoutingDestination> {
+    private final class PostTaskRunner<D: RoutingDestination> {
 
         var taskSlips: [PostTaskSlip] = []
 

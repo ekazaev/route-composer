@@ -343,7 +343,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">ScreenStepChainAssembly</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">ScreenStepChainAssembly</span></code></pre>
 
                         </div>
                       </div>
@@ -371,7 +371,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">LastStepInChainAssembly</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">LastStepInChainAssembly</span></code></pre>
 
                         </div>
                       </div>
@@ -398,7 +398,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">add</span><span class="o">&lt;</span><span class="kt">R</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">interceptor</span><span class="p">:</span> <span class="kt">R</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span> <span class="k">where</span> <span class="kt">R</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/RoutingInterceptor.html">RoutingInterceptor</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">func</span> <span class="n">add</span><span class="o">&lt;</span><span class="kt">R</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">interceptor</span><span class="p">:</span> <span class="kt">R</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span> <span class="k">where</span> <span class="kt">R</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/RoutingInterceptor.html">RoutingInterceptor</a></span></code></pre>
 
                         </div>
                       </div>
@@ -444,7 +444,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">add</span><span class="o">&lt;</span><span class="kt">CT</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">contextTask</span><span class="p">:</span> <span class="kt">CT</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span> <span class="k">where</span> <span class="kt">CT</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ContextTask.html">ContextTask</a></span><span class="p">,</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">Context</span> <span class="o">==</span> <span class="kt">CT</span><span class="o">.</span><span class="kt">Context</span><span class="p">,</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">ViewController</span> <span class="o">==</span> <span class="kt">CT</span><span class="o">.</span><span class="kt">ViewController</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">func</span> <span class="n">add</span><span class="o">&lt;</span><span class="kt">CT</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">contextTask</span><span class="p">:</span> <span class="kt">CT</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span> <span class="k">where</span> <span class="kt">CT</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ContextTask.html">ContextTask</a></span><span class="p">,</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">Context</span> <span class="o">==</span> <span class="kt">CT</span><span class="o">.</span><span class="kt">Context</span><span class="p">,</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">ViewController</span> <span class="o">==</span> <span class="kt">CT</span><span class="o">.</span><span class="kt">ViewController</span></code></pre>
 
                         </div>
                       </div>
@@ -491,7 +491,7 @@ Generic <code><a href="../Protocols/ContextTask.html">ContextTask</a></code> mus
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">add</span><span class="o">&lt;</span><span class="kt">CT</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">contextTask</span><span class="p">:</span> <span class="kt">CT</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span> <span class="k">where</span> <span class="kt">CT</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ContextTask.html">ContextTask</a></span><span class="p">,</span> <span class="kt">CT</span><span class="o">.</span><span class="kt">Context</span> <span class="o">==</span> <span class="kt">Any</span><span class="p">?,</span> <span class="kt">CT</span><span class="o">.</span><span class="kt">ViewController</span> <span class="o">==</span> <span class="kt">UIViewController</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">func</span> <span class="n">add</span><span class="o">&lt;</span><span class="kt">CT</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">contextTask</span><span class="p">:</span> <span class="kt">CT</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span> <span class="k">where</span> <span class="kt">CT</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ContextTask.html">ContextTask</a></span><span class="p">,</span> <span class="kt">CT</span><span class="o">.</span><span class="kt">Context</span> <span class="o">==</span> <span class="kt">Any</span><span class="p">?,</span> <span class="kt">CT</span><span class="o">.</span><span class="kt">ViewController</span> <span class="o">==</span> <span class="kt">UIViewController</span></code></pre>
 
                         </div>
                       </div>
@@ -537,7 +537,7 @@ Generic <code><a href="../Protocols/ContextTask.html">ContextTask</a></code> mus
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">add</span><span class="o">&lt;</span><span class="kt">P</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">postTask</span><span class="p">:</span> <span class="kt">P</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span> <span class="k">where</span> <span class="kt">P</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/PostRoutingTask.html">PostRoutingTask</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">func</span> <span class="n">add</span><span class="o">&lt;</span><span class="kt">P</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">postTask</span><span class="p">:</span> <span class="kt">P</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span> <span class="k">where</span> <span class="kt">P</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/PostRoutingTask.html">PostRoutingTask</a></span></code></pre>
 
                         </div>
                       </div>
@@ -583,7 +583,7 @@ Generic <code><a href="../Protocols/ContextTask.html">ContextTask</a></code> mus
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">from</span><span class="p">(</span><span class="n">_</span> <span class="nv">previousStep</span><span class="p">:</span> <span class="kt"><a href="../Protocols.html#/s:13RouteComposer11RoutingStepP">RoutingStep</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/GenericStepAssembly/LastStepInChainAssembly.html">LastStepInChainAssembly</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">func</span> <span class="nf">from</span><span class="p">(</span><span class="n">_</span> <span class="nv">previousStep</span><span class="p">:</span> <span class="kt"><a href="../Protocols.html#/s:13RouteComposer11RoutingStepP">RoutingStep</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/GenericStepAssembly/LastStepInChainAssembly.html">LastStepInChainAssembly</a></span></code></pre>
 
                         </div>
                       </div>
@@ -629,7 +629,7 @@ Generic <code><a href="../Protocols/ContextTask.html">ContextTask</a></code> mus
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">from</span><span class="p">(</span><span class="n">_</span> <span class="nv">previousStep</span><span class="p">:</span> <span class="kt"><a href="../Classes.html#/s:13RouteComposer17BasicStepAssemblyC">BasicStepAssembly</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/GenericStepAssembly/ScreenStepChainAssembly.html">ScreenStepChainAssembly</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">func</span> <span class="nf">from</span><span class="p">(</span><span class="n">_</span> <span class="nv">previousStep</span><span class="p">:</span> <span class="kt"><a href="../Classes.html#/s:13RouteComposer17BasicStepAssemblyC">BasicStepAssembly</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/GenericStepAssembly/ScreenStepChainAssembly.html">ScreenStepChainAssembly</a></span></code></pre>
 
                         </div>
                       </div>
@@ -675,7 +675,7 @@ Generic <code><a href="../Protocols/ContextTask.html">ContextTask</a></code> mus
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">from</span><span class="p">(</span><span class="n">_</span> <span class="nv">previousStep</span><span class="p">:</span> <span class="kt"><a href="../Protocols.html#/s:13RouteComposer11RoutingStepP">RoutingStep</a></span> <span class="o">&amp;</span> <span class="kt"><a href="../Protocols/ChainingStep.html">ChainingStep</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/GenericStepAssembly/ScreenStepChainAssembly.html">ScreenStepChainAssembly</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">func</span> <span class="nf">from</span><span class="p">(</span><span class="n">_</span> <span class="nv">previousStep</span><span class="p">:</span> <span class="kt"><a href="../Protocols.html#/s:13RouteComposer11RoutingStepP">RoutingStep</a></span> <span class="o">&amp;</span> <span class="kt"><a href="../Protocols/ChainingStep.html">ChainingStep</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/GenericStepAssembly/ScreenStepChainAssembly.html">ScreenStepChainAssembly</a></span></code></pre>
 
                         </div>
                       </div>
@@ -721,7 +721,7 @@ Generic <code><a href="../Protocols/ContextTask.html">ContextTask</a></code> mus
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">assemble</span><span class="p">(</span><span class="n">from</span> <span class="nv">step</span><span class="p">:</span> <span class="kt"><a href="../Protocols.html#/s:13RouteComposer11RoutingStepP">RoutingStep</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Protocols.html#/s:13RouteComposer11RoutingStepP">RoutingStep</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">func</span> <span class="nf">assemble</span><span class="p">(</span><span class="n">from</span> <span class="nv">step</span><span class="p">:</span> <span class="kt"><a href="../Protocols.html#/s:13RouteComposer11RoutingStepP">RoutingStep</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Protocols.html#/s:13RouteComposer11RoutingStepP">RoutingStep</a></span></code></pre>
 
                         </div>
                       </div>
@@ -756,7 +756,7 @@ Generic <code><a href="../Protocols/ContextTask.html">ContextTask</a></code> mus
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-08-27)</p>
+          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-08-28)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

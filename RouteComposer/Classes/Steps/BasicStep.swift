@@ -6,7 +6,7 @@ import Foundation
 import UIKit
 
 /// A simple class that produces intermediate `RoutingStep` for an assembly.
-public class BasicStep<F: Finder, FC: Factory>: BasicStepAssembly where F.ViewController == FC.ViewController, F.Context == FC.Context {
+public final class BasicStep<F: Finder, FC: Factory>: BasicStepAssembly where F.ViewController == FC.ViewController, F.Context == FC.Context {
     
     /// Creates a instance of the `RoutingStep` that produces container view controller.
     ///

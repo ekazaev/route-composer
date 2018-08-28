@@ -18,7 +18,7 @@ import UIKit
 ///         .from(CurrentControllerStep())
 ///         .assemble()
 /// ```
-public class StepAssembly<F: Finder, FC: Factory>: GenericStepAssembly<F, FC> where F.ViewController == FC.ViewController, F.Context == FC.Context {
+public final class StepAssembly<F: Finder, FC: Factory>: GenericStepAssembly<F, FC> where F.ViewController == FC.ViewController, F.Context == FC.Context {
     
     /// Constructor
     ///
@@ -33,7 +33,7 @@ public class StepAssembly<F: Finder, FC: Factory>: GenericStepAssembly<F, FC> wh
     ///
     /// - Parameter step: The instance of `RoutingStep` to start to build current step from.
     /// - Returns: The instance of `RoutingStep` with all the settings provided inside.
-    override public func assemble(from step: RoutingStep) -> RoutingStep {
+    override fileprivate func _assemble(from step: RoutingStep) -> RoutingStep & ChainingStep {
         return FinalRoutingStep<FactoryBox<FC>>(
                 finder: finder,
                 factory: factory,
@@ -57,7 +57,7 @@ public class StepAssembly<F: Finder, FC: Factory>: GenericStepAssembly<F, FC> wh
 ///         .from(CurrentControllerStep())
 ///         .assemble()
 /// ```
-public class ContainerStepAssembly<F: Finder, FC: Container>: GenericStepAssembly<F, FC> where F.ViewController == FC.ViewController, F.Context == FC.Context {
+public final class ContainerStepAssembly<F: Finder, FC: Container>: GenericStepAssembly<F, FC> where F.ViewController == FC.ViewController, F.Context == FC.Context {
     
     /// Constructor
     ///
@@ -72,7 +72,7 @@ public class ContainerStepAssembly<F: Finder, FC: Container>: GenericStepAssembl
     ///
     /// - Parameter step: The instance of `RoutingStep` to start to build current step from.
     /// - Returns: The instance of `RoutingStep` with all the settings provided inside.
-    override public func assemble(from step: RoutingStep) -> RoutingStep {
+    override fileprivate func _assemble(from step: RoutingStep) -> RoutingStep & ChainingStep {
         return FinalRoutingStep<ContainerFactoryBox<FC>>(
                 finder: finder,
                 factory: factory,
@@ -88,7 +88,7 @@ public class ContainerStepAssembly<F: Finder, FC: Container>: GenericStepAssembl
 public class GenericStepAssembly<F: Finder, FC: AbstractFactory> where F.ViewController == FC.ViewController, F.Context == FC.Context {
     
     /// Nested builder that does not allow to add settings after user started to add steps to build current step from
-    public class ScreenStepChainAssembly {
+    public final class ScreenStepChainAssembly {
         
         private var previousSteps: [RoutingStep] = []
         
@@ -98,13 +98,6 @@ public class GenericStepAssembly<F: Finder, FC: AbstractFactory> where F.ViewCon
         init(assembly: GenericStepAssembly, firstStep: RoutingStep) {
             self.assembly = assembly
             previousSteps.append(firstStep)
-        }
-        
-        /// Assemble all the provided settings.
-        ///
-        /// - Returns: Instance of RoutingStep with all the settings provided inside.
-        public func assemble() -> RoutingStep {
-            return assembly.assemble(from: chain(previousSteps))
         }
         
         /// Previous step to start build current step from
@@ -130,10 +123,11 @@ public class GenericStepAssembly<F: Finder, FC: AbstractFactory> where F.ViewCon
             self.previousSteps.append(previousStep)
             return GenericStepAssembly.LastStepInChainAssembly(assembly: assembly, previousSteps: previousSteps)
         }
+        
     }
     
     /// Nested builder that does not allow to add steps from non-chainable step
-    public class LastStepInChainAssembly {
+    public final class LastStepInChainAssembly {
         
         private var previousSteps: [RoutingStep]
         
@@ -177,7 +171,7 @@ public class GenericStepAssembly<F: Finder, FC: AbstractFactory> where F.ViewCon
     /// Adds routing interceptor instance
     ///
     /// - Parameter interceptor: The `RoutingInterceptor` instance to be executed by `Router` before routing to this step.
-    public func add<R: RoutingInterceptor>(_ interceptor: R) -> Self {
+    public final func add<R: RoutingInterceptor>(_ interceptor: R) -> Self {
         self.interceptors.append(RoutingInterceptorBox(interceptor))
         return self
     }
@@ -185,7 +179,7 @@ public class GenericStepAssembly<F: Finder, FC: AbstractFactory> where F.ViewCon
     /// Adds context task instance
     ///
     /// - Parameter contextTask: The `ContextTask` instance to be executed by a `Router` immediately after it will find or create UIViewController.
-    public func add<CT: ContextTask>(_ contextTask: CT) -> Self where CT.ViewController == FC.ViewController, CT.ViewController == F.ViewController, CT.Context == FC.Context, CT.Context == F.Context {
+    public final func add<CT: ContextTask>(_ contextTask: CT) -> Self where CT.ViewController == FC.ViewController, CT.ViewController == F.ViewController, CT.Context == FC.Context, CT.Context == F.Context {
         self.contextTasks.append(ContextTaskBox(contextTask))
         return self
     }
@@ -194,7 +188,7 @@ public class GenericStepAssembly<F: Finder, FC: AbstractFactory> where F.ViewCon
     /// Generic `ContextTask` must have the view controller type casted to `UIViewController` and context type casted  to `Any?`.
     ///
     /// - Parameter contextTask: The `ContextTask` instance to be executed by a `Router` immediately after it will find or create UIViewController.
-    public func add<CT: ContextTask>(_ contextTask: CT) -> Self where CT.ViewController == UIViewController, CT.Context == Any? {
+    public final func add<CT: ContextTask>(_ contextTask: CT) -> Self where CT.ViewController == UIViewController, CT.Context == Any? {
         self.contextTasks.append(ContextTaskBox(contextTask))
         return self
     }
@@ -202,7 +196,7 @@ public class GenericStepAssembly<F: Finder, FC: AbstractFactory> where F.ViewCon
     /// Adds PostRoutingTask instance
     ///
     /// - Parameter postTask: The `PostRoutingTask` instance to be executed by a `Router` after routing to this step.
-    public func add<P: PostRoutingTask>(_ postTask: P) -> Self {
+    public final func add<P: PostRoutingTask>(_ postTask: P) -> Self {
         self.postTasks.append(PostRoutingTaskBox(postTask))
         return self
     }
@@ -210,14 +204,14 @@ public class GenericStepAssembly<F: Finder, FC: AbstractFactory> where F.ViewCon
     /// Previous `RoutingStep` to start build current step from
     ///
     /// - Parameter previousStep: The instance of `RoutingStep`
-    public func from(_ previousStep: RoutingStep) -> LastStepInChainAssembly {
+    public final func from(_ previousStep: RoutingStep) -> LastStepInChainAssembly {
         return LastStepInChainAssembly(assembly: self, previousSteps: [previousStep])
     }
     
     /// Basic step to start build current step from
     ///
     /// - Parameter previousStep: The instance of `BasicStep`
-    public func from(_ previousStep: BasicStepAssembly) -> ScreenStepChainAssembly {
+    public final func from(_ previousStep: BasicStepAssembly) -> ScreenStepChainAssembly {
         let stepBuilder = ScreenStepChainAssembly(assembly: self, firstStep: previousStep.routingStep)
         return stepBuilder
     }
@@ -225,7 +219,7 @@ public class GenericStepAssembly<F: Finder, FC: AbstractFactory> where F.ViewCon
     /// Previous step to start build current step from
     ///
     /// - Parameter previousStep: The instance of `RoutingStep` and ChainingStep`
-    public func from(_ previousStep: RoutingStep & ChainingStep) -> ScreenStepChainAssembly {
+    public final func from(_ previousStep: RoutingStep & ChainingStep) -> ScreenStepChainAssembly {
         let stepBuilder = ScreenStepChainAssembly(assembly: self, firstStep: previousStep)
         return stepBuilder
     }
@@ -234,9 +228,16 @@ public class GenericStepAssembly<F: Finder, FC: AbstractFactory> where F.ViewCon
     ///
     /// - Parameter step: The instance of `RoutingStep` to start to build current step from.
     /// - Returns: The instance of `RoutingStep` with all the settings provided inside.
-    public func assemble(from step: RoutingStep) -> RoutingStep {
+    public final func assemble(from step: RoutingStep) -> RoutingStep {
+        return _assemble(from: step)
+    }
+    
+    /// Assemble all the provided settings.
+    ///
+    /// NB: Must be implemented in the subclass.
+    fileprivate func _assemble(from step: RoutingStep) -> RoutingStep & ChainingStep {
         preconditionFailure("\(#function) is not implemented.")
     }
-
+    
 }
 

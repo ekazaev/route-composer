@@ -12,7 +12,7 @@ protocol AnyPostRoutingTask {
 
 }
 
-class PostRoutingTaskBox<P: PostRoutingTask>: AnyPostRoutingTask, CustomStringConvertible {
+struct PostRoutingTaskBox<P: PostRoutingTask>: AnyPostRoutingTask, CustomStringConvertible {
 
     let postRoutingTask: P
 
