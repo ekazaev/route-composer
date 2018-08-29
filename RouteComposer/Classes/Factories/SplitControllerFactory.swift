@@ -38,12 +38,12 @@ public struct SplitControllerFactory: Container {
         self.presentsWithGesture = presentsWithGesture
     }
     
-    mutating public func merge<C>(_ factories: [ChildFactory<C>]) -> [ChildFactory<C>] {
-        var rest: [ChildFactory<C>] = []
+    mutating public func merge(_ factories: [ChildFactory<Context>]) -> [ChildFactory<Context>] {
+        var rest: [ChildFactory<Context>] = []
         factories.forEach { factory in
-            if let _ = factory.action as? SplitControllerMasterAction, let factory = factory as? ChildFactory<Context> {
+            if let _ = factory.action as? SplitControllerMasterAction {
                 masterFactories.append(factory)
-            } else if let _ = factory.action as? SplitControllerDetailAction, let factory = factory as? ChildFactory<Context> {
+            } else if let _ = factory.action as? SplitControllerDetailAction {
                 detailFactories.append(factory)
             } else {
                 rest.append(factory)

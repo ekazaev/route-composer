@@ -19,8 +19,8 @@ public protocol SimpleContainerFactory: Container {
 
 public extension SimpleContainerFactory {
 
-    public mutating func merge<C>(_ factories: [ChildFactory<C>]) -> [ChildFactory<C>] {
-        var otherFactories: [ChildFactory<C>] = []
+    public mutating func merge(_ factories: [ChildFactory<Context>]) -> [ChildFactory<Context>] {
+        var otherFactories: [ChildFactory<Context>] = []
         self.factories = factories.compactMap { factory -> ChildFactory<Context>? in
             guard let _ = factory.action as? SupportedAction else {
                 otherFactories.append(factory)

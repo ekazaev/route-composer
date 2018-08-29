@@ -26,7 +26,7 @@ public protocol Container: AbstractFactory {
     /// Example: The `UINavigationController` instance as a container expects to push `Action` of any kind.
     /// If a `ChildFactory` from factories array contains one with a present modally action, it will be returned
     /// back to an unsupported one.
-    mutating func merge<C>(_ factories: [ChildFactory<C>]) -> [ChildFactory<C>]
+    mutating func merge(_ factories: [ChildFactory<Context>]) -> [ChildFactory<Context>]
 
 }
 

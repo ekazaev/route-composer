@@ -32,10 +32,8 @@ public struct CompleteFactory<FC: Container>: Container, CustomStringConvertible
         try factory.prepare(with: context)
     }
 
-    mutating public func merge<C>(_ factories: [ChildFactory<C>]) -> [ChildFactory<C>] {
-        guard var childFactories = childFactories as? [ChildFactory<C>] else {
-            return factory.merge(factories)
-        }
+    mutating public func merge(_ factories: [ChildFactory<Context>]) -> [ChildFactory<Context>] {
+        var childFactories = self.childFactories
         childFactories.append(contentsOf: factories)
         return factory.merge(childFactories)
     }
