@@ -5,6 +5,7 @@
 
 import Foundation
 import UIKit
+import ImageDetailsController
 
 class ImageDetailsFetcherImpl: ImageDetailsFetcher {
 

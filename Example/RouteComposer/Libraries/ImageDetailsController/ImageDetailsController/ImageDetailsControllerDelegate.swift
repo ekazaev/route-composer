@@ -5,7 +5,7 @@
 
 import Foundation
 
-protocol ImageDetailsControllerDelegate: class {
+public protocol ImageDetailsControllerDelegate: class {
 
     func dismiss(imageDetails: ImageDetailsViewController)
 

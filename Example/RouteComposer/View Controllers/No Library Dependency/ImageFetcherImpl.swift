@@ -4,6 +4,7 @@
 //
 
 import Foundation
+import ImagesController
 
 class ImageFetcherImpl: ImagesFetcher {
 

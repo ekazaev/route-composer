@@ -6,6 +6,6 @@
 import Foundation
 import UIKit
 
-protocol ImageDetailsFetcher {
+public protocol ImageDetailsFetcher {
     func details(for imageID: String, completion: @escaping (_: UIImage?) -> Void)
 }

@@ -5,7 +5,7 @@
 
 import Foundation
 
-protocol ImagesControllerDelegate: class {
+public protocol ImagesControllerDelegate: class {
 
     func didSelect(imageID: String, in controller: ImagesViewController)
 

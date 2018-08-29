@@ -6,15 +6,15 @@
 import Foundation
 import UIKit
 
-class ImagesViewController: UITableViewController {
+public class ImagesViewController: UITableViewController {
 
-    weak var delegate: ImagesControllerDelegate?
+    public weak var delegate: ImagesControllerDelegate?
 
-    var imageFetcher: ImagesFetcher?
+    public var imageFetcher: ImagesFetcher?
 
     private var imagesNames: [String] = []
 
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         reloadData()
     }
@@ -28,12 +28,12 @@ class ImagesViewController: UITableViewController {
         }
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return imagesNames.count
     }
 
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ImageCell") else {
             fatalError("Unable to dequeue reusable cell.")
         }
@@ -41,7 +41,7 @@ class ImagesViewController: UITableViewController {
         return cell
     }
 
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    public override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.delegate?.didSelect(imageID: imagesNames[indexPath.row], in: self)
     }
 }

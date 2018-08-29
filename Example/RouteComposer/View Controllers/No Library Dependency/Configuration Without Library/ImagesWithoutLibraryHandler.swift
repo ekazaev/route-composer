@@ -5,6 +5,9 @@
 
 import Foundation
 import UIKit
+import ContainerViewController
+import ImageDetailsController
+import ImagesController
 
 // This is an example how you can implement same routing without dependency to RouteComposer.
 // It may seem les complicated, but adding login/analytics/universal links support/routing to the other parts of the app

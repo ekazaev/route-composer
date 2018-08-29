@@ -6,6 +6,7 @@
 import Foundation
 import UIKit
 import RouteComposer
+import ContainerViewController
 
 class CustomContainerFactory: SimpleContainerFactory {
 
@@ -27,7 +28,7 @@ class CustomContainerFactory: SimpleContainerFactory {
     }
 
     func build(with context: Context) throws -> ViewController {
-        guard let containerController = UIStoryboard(name: "Images", bundle: nil)
+        guard let containerController = UIStoryboard(name: "Images", bundle: Bundle.main)
                 .instantiateViewController(withIdentifier: "CustomContainerController") as? ViewController else {
             throw RoutingError.message("Could not load CustomContainerController from storyboard.")
         }
@@ -54,11 +55,11 @@ extension CustomContainerController: ContainerViewController {
         return containingViewControllers
     }
 
-    func makeVisible(_ viewController: UIViewController, animated: Bool) {
+    public func makeVisible(_ viewController: UIViewController, animated: Bool) {
 
     }
 
-    var canBeDismissed: Bool {
+    public var canBeDismissed: Bool {
         return containingViewControllers.canBeDismissed
     }
 

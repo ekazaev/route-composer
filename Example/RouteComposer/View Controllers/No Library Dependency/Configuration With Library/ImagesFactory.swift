@@ -6,6 +6,7 @@
 import Foundation
 import RouteComposer
 import UIKit
+import ImagesController
 
 class ImagesFactory: Factory {
 

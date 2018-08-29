@@ -6,6 +6,8 @@
 import Foundation
 import RouteComposer
 import UIKit
+import ImageDetailsController
+import ImagesController
 
 struct ImagesConfigurationWithLibrary {
 

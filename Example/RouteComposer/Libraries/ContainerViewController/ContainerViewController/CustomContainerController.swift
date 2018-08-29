@@ -6,19 +6,19 @@
 import Foundation
 import UIKit
 
-class CustomContainerController: UIViewController {
+public class CustomContainerController: UIViewController {
 
     @IBOutlet private var containerView: UIView!
 
-    weak var delegate: CustomViewControllerDelegate?
+    public weak var delegate: CustomViewControllerDelegate?
 
-    var rootViewController: UIViewController? {
+    public var rootViewController: UIViewController? {
         didSet {
             presentRootController()
         }
     }
 
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Custom Container View Controller"
         presentRootController()

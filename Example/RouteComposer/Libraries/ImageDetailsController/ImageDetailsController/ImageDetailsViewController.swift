@@ -6,21 +6,21 @@
 import Foundation
 import UIKit
 
-class ImageDetailsViewController: UIViewController {
+public class ImageDetailsViewController: UIViewController {
 
     @IBOutlet private var imageView: UIImageView!
 
-    weak var delegate: ImageDetailsControllerDelegate? = nil
+    public weak var delegate: ImageDetailsControllerDelegate? = nil
 
-    var imageFetcher: ImageDetailsFetcher? = nil
+    public var imageFetcher: ImageDetailsFetcher? = nil
 
-    var imageID: String? {
+    public var imageID: String? {
         didSet {
             reloadData()
         }
     }
 
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         reloadData()
     }

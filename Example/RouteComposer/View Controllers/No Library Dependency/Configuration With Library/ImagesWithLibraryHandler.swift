@@ -7,6 +7,9 @@ import Foundation
 import UIKit
 import RouteComposer
 import os.log
+import ContainerViewController
+import ImageDetailsController
+import ImagesController
 
 class ImagesWithLibraryHandler: CustomViewControllerDelegate, ImagesControllerDelegate, ImageDetailsControllerDelegate {
 

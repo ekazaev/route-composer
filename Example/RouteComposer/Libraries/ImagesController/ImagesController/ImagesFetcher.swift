@@ -5,7 +5,7 @@
 
 import Foundation
 
-protocol ImagesFetcher {
+public protocol ImagesFetcher {
 
     func loadImages(completion: @escaping (_: [String]) -> Void)
 

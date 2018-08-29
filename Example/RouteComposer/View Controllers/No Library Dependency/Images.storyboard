@@ -15,7 +15,7 @@
         <!--Custom Container Controller-->
         <scene sceneID="BJV-qh-VLt">
             <objects>
-                <viewController storyboardIdentifier="CustomContainerController" id="1Yz-6q-BwQ" customClass="CustomContainerController" customModule="RouteComposer_Example" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CustomContainerController" id="1Yz-6q-BwQ" customClass="CustomContainerController" customModule="ContainerViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wMC-jl-Kcv">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -59,7 +59,7 @@
         <!--Images View Controller-->
         <scene sceneID="1mS-DI-lGF">
             <objects>
-                <tableViewController storyboardIdentifier="ImagesViewController" id="crc-pe-58f" customClass="ImagesViewController" customModule="RouteComposer_Example" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ImagesViewController" id="crc-pe-58f" customClass="ImagesViewController" customModule="ImagesController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="eIP-3K-zaS">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -87,7 +87,7 @@
         <!--Image Details View Controller-->
         <scene sceneID="ewX-uv-yaI">
             <objects>
-                <viewController storyboardIdentifier="ImageDetailsViewController" id="sLm-SE-AeG" customClass="ImageDetailsViewController" customModule="RouteComposer_Example" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ImageDetailsViewController" id="sLm-SE-AeG" customClass="ImageDetailsViewController" customModule="ImageDetailsController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VDo-nU-Kt0">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
