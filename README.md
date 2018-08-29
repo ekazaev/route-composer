@@ -8,6 +8,8 @@
 `RouteComposer` is the protocol oriented, Cocoa UI abstractions based library that helps to handle view controllers composition, routing
 and deep linking tasks in the IOS application.
 
+![](https://habrastorage.org/webt/x7/yt/ll/x7ytllwqwgvgxy2rvtmdwj3qkia.png)
+
 ## Table of contents
 
 - [Installation](#installation)
