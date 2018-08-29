@@ -8,51 +8,53 @@ import XCTest
 @testable import RouteComposer
 
 class ActionTests: XCTestCase {
-    
+
     override func setUp() {
         super.setUp()
     }
-    
+
     override func tearDown() {
         super.tearDown()
     }
- 
+
     func testNavReplacingLast() {
-        var viewControllerStack:[UIViewController] = []
+        var viewControllerStack: [UIViewController] = []
         NavigationControllerFactory.PushReplacingLast().perform(embedding: UIViewController(), in: &viewControllerStack)
         XCTAssertEqual(viewControllerStack.count, 1)
-    
-        NavigationControllerFactory.PushReplacingLast().perform(embedding: UINavigationController(), in: &viewControllerStack)
+
+        NavigationControllerFactory.PushReplacingLast().perform(embedding: UINavigationController(),
+                in: &viewControllerStack)
         XCTAssertEqual(viewControllerStack.count, 1)
         XCTAssert(viewControllerStack.first!.isKind(of: UINavigationController.self))
     }
-    
+
     func testNavPushAsRoot() {
-        var viewControllerStack:[UIViewController] = []
+        var viewControllerStack: [UIViewController] = []
         NavigationControllerFactory.PushAsRoot().perform(embedding: UIViewController(), in: &viewControllerStack)
         XCTAssertEqual(viewControllerStack.count, 1)
-        
+
         NavigationControllerFactory.PushAsRoot().perform(embedding: UINavigationController(), in: &viewControllerStack)
         XCTAssertEqual(viewControllerStack.count, 1)
         XCTAssert(viewControllerStack.first!.isKind(of: UINavigationController.self))
     }
 
     func testNavPushToNavigation() {
-        var viewControllerStack:[UIViewController] = []
+        var viewControllerStack: [UIViewController] = []
         NavigationControllerFactory.PushToNavigation().perform(embedding: UIViewController(), in: &viewControllerStack)
         XCTAssertEqual(viewControllerStack.count, 1)
-        
-        NavigationControllerFactory.PushToNavigation().perform(embedding: UINavigationController(), in: &viewControllerStack)
+
+        NavigationControllerFactory.PushToNavigation().perform(embedding: UINavigationController(),
+                in: &viewControllerStack)
         XCTAssertEqual(viewControllerStack.count, 2)
         XCTAssert(viewControllerStack.last!.isKind(of: UINavigationController.self))
         XCTAssert(viewControllerStack.first!.isKind(of: UIViewController.self))
     }
-    
+
     func testTabAddTab() {
-        var viewControllerStack:[UIViewController] = []
+        var viewControllerStack: [UIViewController] = []
         TabBarControllerFactory.AddTab().perform(embedding: UIViewController(), in: &viewControllerStack)
         XCTAssertEqual(viewControllerStack.count, 1)
-    
+
         TabBarControllerFactory.AddTab().perform(embedding: UINavigationController(), in: &viewControllerStack)
         XCTAssertEqual(viewControllerStack.count, 2)
         XCTAssert(viewControllerStack.first!.isKind(of: UIViewController.self))
@@ -60,30 +62,32 @@ class ActionTests: XCTestCase {
     }
 
     func testTabAddTabAt() {
-        var viewControllerStack:[UIViewController] = []
+        var viewControllerStack: [UIViewController] = []
         TabBarControllerFactory.AddTab(at: 1).perform(embedding: UIViewController(), in: &viewControllerStack)
         XCTAssertEqual(viewControllerStack.count, 1)
-    
+
         TabBarControllerFactory.AddTab(at: 0).perform(embedding: UINavigationController(), in: &viewControllerStack)
         XCTAssertEqual(viewControllerStack.count, 2)
         XCTAssert(viewControllerStack.first!.isKind(of: UINavigationController.self))
         XCTAssert(viewControllerStack.last!.isKind(of: UIViewController.self))
     }
-    
+
     func testTabAddTabReplacing() {
-        var viewControllerStack:[UIViewController] = []
-        TabBarControllerFactory.AddTab(at: 1, replacing: true).perform(embedding: UIViewController(), in: &viewControllerStack)
+        var viewControllerStack: [UIViewController] = []
+        TabBarControllerFactory.AddTab(at: 1, replacing: true).perform(embedding: UIViewController(),
+                in: &viewControllerStack)
         XCTAssertEqual(viewControllerStack.count, 1)
-    
-        TabBarControllerFactory.AddTab(at: 0, replacing: true).perform(embedding: UINavigationController(), in: &viewControllerStack)
+
+        TabBarControllerFactory.AddTab(at: 0, replacing: true).perform(embedding: UINavigationController(),
+                in: &viewControllerStack)
         XCTAssertEqual(viewControllerStack.count, 1)
         XCTAssert(viewControllerStack.first!.isKind(of: UINavigationController.self))
     }
-    
+
     func testNilAction() {
-        var viewControllerStack:[UIViewController] = []
+        var viewControllerStack: [UIViewController] = []
         GeneralAction.NilAction().perform(embedding: UIViewController(), in: &viewControllerStack)
         XCTAssertEqual(viewControllerStack.count, 0)
     }
-    
+
 }

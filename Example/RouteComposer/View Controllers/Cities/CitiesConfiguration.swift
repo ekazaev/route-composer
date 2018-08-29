@@ -36,14 +36,15 @@ class CitiesConfiguration {
         // City Details
         cityDetails = StepAssembly(
                 finder: ClassFinder<CityDetailViewController, Int>(),
-                factory: StoryboardFactory(storyboardName: "Split", viewControllerID: "CityDetailViewController", action: SplitControllerFactory.PushToDetails()))
+                factory: StoryboardFactory(storyboardName: "Split",
+                        viewControllerID: "CityDetailViewController",
+                        action: SplitControllerFactory.PushToDetails()))
                 .add(ExampleAnalyticsInterceptor())
                 .add(CityDetailContextTask())
                 .add(ExampleAnalyticsPostAction())
                 .from(citiesList)
                 .assemble()
     }
-
 
     static func citiesList(cityId: Int? = nil, _ analyticParameters: ExampleAnalyticsParameters? = nil) -> ExampleDestination {
         return ExampleDestination(finalStep: shared.citiesList, context: cityId, analyticParameters)

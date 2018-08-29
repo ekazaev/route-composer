@@ -10,9 +10,9 @@ public class ImageDetailsViewController: UIViewController {
 
     @IBOutlet private var imageView: UIImageView!
 
-    public weak var delegate: ImageDetailsControllerDelegate? = nil
+    public weak var delegate: ImageDetailsControllerDelegate?
 
-    public var imageFetcher: ImageDetailsFetcher? = nil
+    public var imageFetcher: ImageDetailsFetcher?
 
     public var imageID: String? {
         didSet {

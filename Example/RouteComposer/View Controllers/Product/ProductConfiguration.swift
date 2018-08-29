@@ -38,7 +38,6 @@ class ProductConfiguration {
                         })
                 ).assemble()
 
-
         return ExampleDestination(finalStep: productScreen, context: productId, analyticParameters)
     }
 

@@ -5,7 +5,8 @@
 
 import UIKit
 
-/// Represents an action that has to be applied to the `UIViewController` after it has been built (eg: push to navigation stack,
+/// Represents an action that has to be applied to the `UIViewController` after it has
+/// been built (eg: push to navigation stack,
 /// present modally, push to tab, etc)
 public protocol Action {
 
@@ -20,13 +21,18 @@ public protocol Action {
     /// Performs provided action to the view controller.
     ///
     /// - Parameters:
-    ///   - viewController: `UIViewController` instance that should appear on top of the stack after the `Action` is applied.
+    ///   - viewController: `UIViewController` instance that should appear on top of the stack
+    ///     after the `Action` is applied.
     ///   - existingController: `UIViewController` instance to start from.
     ///   - animated: animated
-    ///   - completion: called once the action is applied. Returns the view controller, which will appear on the top of the stack.
+    ///   - completion: called once the action is applied. Returns the view controller, which
+    ///     will appear on the top of the stack.
     ///
     /// NB: completion MUST be called in the implementation.
-    func perform(with viewController: UIViewController, on existingController: UIViewController, animated: Bool, completion: @escaping (_: ActionResult) -> Void)
+    func perform(with viewController: UIViewController,
+                 on existingController: UIViewController,
+                 animated: Bool,
+                 completion: @escaping (_: ActionResult) -> Void)
 
 }
 
@@ -39,12 +45,15 @@ public extension Action {
 }
 
 public extension Action where Self: NilEntity {
-    
+
     public func perform(embedding viewController: UIViewController, in childViewControllers: inout [UIViewController]) {
     }
-    
-    public func perform(with viewController: UIViewController, on existingController: UIViewController, animated: Bool, completion: @escaping (ActionResult) -> Void) {
+
+    public func perform(with viewController: UIViewController,
+                        on existingController: UIViewController,
+                        animated: Bool,
+                        completion: @escaping (ActionResult) -> Void) {
         completion(.continueRouting)
     }
-    
+
 }

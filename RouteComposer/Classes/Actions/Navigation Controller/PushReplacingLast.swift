@@ -15,14 +15,18 @@ public extension NavigationControllerFactory {
         public init() {
         }
 
-        public func perform(embedding viewController: UIViewController, in childViewControllers: inout [UIViewController]) {
-            if childViewControllers.count > 0 {
+        public func perform(embedding viewController: UIViewController,
+                            in childViewControllers: inout [UIViewController]) {
+            if !childViewControllers.isEmpty {
                 childViewControllers.removeLast()
             }
             childViewControllers.append(viewController)
         }
 
-        public func perform(with viewController: UIViewController, on existingController: UIViewController, animated: Bool, completion: @escaping(_: ActionResult) -> Void) {
+        public func perform(with viewController: UIViewController,
+                            on existingController: UIViewController,
+                            animated: Bool,
+                            completion: @escaping(_: ActionResult) -> Void) {
             guard let navigationController = existingController as? UINavigationController ?? existingController.navigationController else {
                 return completion(.failure("Could not find UINavigationController in \(existingController) to present view controller \(viewController)."))
             }

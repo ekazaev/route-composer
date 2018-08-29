@@ -11,7 +11,8 @@ import UIKit
 /// All container view controllers should extend this protocol so if `Router` will ask them to make visible
 /// one of the view controllers that they contain as each container can have custom implementations of this
 /// functionality.
-@objc public protocol ContainerViewController: RoutingInterceptable { // @objc is mandatory otherwise crashes in runtime everywhere where Self: UIViewController
+@objc public protocol ContainerViewController: RoutingInterceptable {
+// @objc is mandatory otherwise crashes in runtime everywhere where Self: UIViewController
 
     /// `UIViewController` instances that `ContainerViewController` currently has in the stack
     var containingViewControllers: [UIViewController] { get }

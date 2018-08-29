@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>FinderFactory Class Reference</title>
+    <title>FinderFactory Structure Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Class/FinderFactory" class="dashAnchor"></a>
-    <a title="FinderFactory Class Reference"></a>
+    <a name="//apple_ref/swift/Struct/FinderFactory" class="dashAnchor"></a>
+    <a title="FinderFactory Structure Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">RouteComposer Docs</a> (100% documented)</p>
@@ -21,7 +21,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">RouteComposer Reference</a>
         <img id="carat" src="../img/carat.png" />
-        FinderFactory Class Reference
+        FinderFactory Structure Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -50,9 +50,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/ContainerStepAssembly.html">ContainerStepAssembly</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/FinderFactory.html">FinderFactory</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/GenericStepAssembly.html">GenericStepAssembly</a>
@@ -234,6 +231,9 @@
                 <a href="../Structs/DefaultRouter.html">DefaultRouter</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Structs/FinderFactory.html">FinderFactory</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Structs/GeneralAction.html">GeneralAction</a>
               </li>
               <li class="nav-group-task">
@@ -312,7 +312,7 @@
             <h1>FinderFactory</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">FinderFactory</span><span class="o">&lt;</span><span class="kt">F</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="../Protocols.html#/s:13RouteComposer7FactoryP">Factory</a></span> <span class="k">where</span> <span class="kt">F</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/Finder.html">Finder</a></span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">FinderFactory</span><span class="o">&lt;</span><span class="kt">F</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="../Protocols.html#/s:13RouteComposer7FactoryP">Factory</a></span> <span class="k">where</span> <span class="kt">F</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/Finder.html">Finder</a></span></code></pre>
 
                 </div>
               </div>
@@ -404,9 +404,9 @@ factories like <code>UIViewController</code>s that were built as a result of sto
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer13FinderFactoryCACyxGx6finder_AA6Action_p6actiontcfc"></a>
+                    <a name="/s:13RouteComposer13FinderFactoryVACyxGx6finder_AA6Action_p6actiontcfc"></a>
                     <a name="//apple_ref/swift/Method/init(finder:action:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer13FinderFactoryCACyxGx6finder_AA6Action_p6actiontcfc">init(finder:action:)</a>
+                    <a class="token" href="#/s:13RouteComposer13FinderFactoryVACyxGx6finder_AA6Action_p6actiontcfc">init(finder:action:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -478,7 +478,7 @@ factories like <code>UIViewController</code>s that were built as a result of sto
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">build</span><span class="p">(</span><span class="n">with</span> <span class="nv">context</span><span class="p">:</span> <span class="kt"><a href="../Classes/FinderFactory.html#/s:13RouteComposer15AbstractFactoryP7Context">Context</a></span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/FinderFactory.html#/s:13RouteComposer15AbstractFactoryP14ViewController">ViewController</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">build</span><span class="p">(</span><span class="n">with</span> <span class="nv">context</span><span class="p">:</span> <span class="kt"><a href="../Structs/FinderFactory.html#/s:13RouteComposer15AbstractFactoryP7Context">Context</a></span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/FinderFactory.html#/s:13RouteComposer15AbstractFactoryP14ViewController">ViewController</a></span></code></pre>
 
                         </div>
                       </div>
@@ -490,7 +490,7 @@ factories like <code>UIViewController</code>s that were built as a result of sto
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-08-29)</p>
+          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-08-30)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

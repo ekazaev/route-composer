@@ -18,4 +18,3 @@ public struct CurrentViewControllerStep: RoutingStep, PerformableStep {
     }
 
 }
-

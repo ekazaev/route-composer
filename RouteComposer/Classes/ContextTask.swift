@@ -10,15 +10,15 @@ import UIKit
 
 /// The task to be executed after `UIViewController` created or found.
 public protocol ContextTask {
-    
+
     /// `UIViewController` type associated with this `ContextTask`
     associatedtype ViewController: UIViewController
-    
+
     /// Context type associated with this `ContextTask`
     associatedtype Context
 
     /// Use this method to inform the `Router` that task can't be applied before it will start actual routing by throwing
-    /// RoutingError
+    /// `RoutingError`
     ///
     /// - Parameters:
     ///   - context: The `Context` instance provided to the `Router`
@@ -32,7 +32,7 @@ public protocol ContextTask {
     ///   - viewController: The `UIViewController` instance described in the step that `ContextTask` attached to
     ///   - context: The `Context` instance that was passed to the `Router`
     func apply(on viewController: ViewController, with context: Context) throws
-    
+
 }
 
 public extension ContextTask {

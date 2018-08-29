@@ -10,9 +10,7 @@ public extension Array where Element: UIViewController {
 
     /// Returns `true` if all `UIViewController` instances can be dismissed.
     var canBeDismissed: Bool {
-        get {
-            return self.nonDismissibleViewController == nil
-        }
+        return self.nonDismissibleViewController == nil
     }
 
 }
@@ -20,12 +18,10 @@ public extension Array where Element: UIViewController {
 internal extension Array where Element: UIViewController {
 
     var nonDismissibleViewController: UIViewController? {
-        get {
-            return self.compactMap {
-                $0 as? RoutingInterceptable & UIViewController
-            }.first {
-                !$0.canBeDismissed
-            }
+        return self.compactMap {
+            $0 as? RoutingInterceptable & UIViewController
+        }.first {
+            !$0.canBeDismissed
         }
     }
 

@@ -15,7 +15,6 @@ class CityTableContextTask: ContextTask {
 
 }
 
-
 class CitiesTableViewController: UITableViewController, ExampleAnalyticsSupport {
 
     let analyticParameters = ExampleAnalyticsParameters(source: .citiesList)

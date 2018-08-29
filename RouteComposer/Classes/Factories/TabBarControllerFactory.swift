@@ -17,9 +17,9 @@ public struct TabBarControllerFactory: SimpleContainerFactory {
     public let action: Action
 
     public var factories: [ChildFactory<Context>] = []
-    
+
     /// `UITabBarControllerDelegate` delegate
-    public let delegate: UITabBarControllerDelegate?
+    public weak var delegate: UITabBarControllerDelegate?
 
     /// Constructor
     ///
@@ -31,7 +31,7 @@ public struct TabBarControllerFactory: SimpleContainerFactory {
 
     public func build(with context: Context) throws -> ViewController {
         let viewControllers = try buildChildrenViewControllers(with: context)
-        guard viewControllers.count > 0 else {
+        guard !viewControllers.isEmpty else {
             throw RoutingError.message("Unable to build UITabBarController due to 0 amount of child view controllers")
         }
         let tabBarController = UITabBarController()
@@ -41,5 +41,5 @@ public struct TabBarControllerFactory: SimpleContainerFactory {
         tabBarController.viewControllers = viewControllers
         return tabBarController
     }
-    
+
 }

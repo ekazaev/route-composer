@@ -15,7 +15,7 @@ public protocol RoutingInterceptor {
 
     /// `RoutingDestination` type associated with `RoutingInterceptor`
     associatedtype Destination: RoutingDestination
-    
+
     /// If the `RoutingInterceptor` can tell the `Router` if it can be executed or not and does not need to be async
     /// - it should overload this method.
     /// `Router` will call it before the routing process and if `RoutingInterceptor` is not able to allow
@@ -27,7 +27,7 @@ public protocol RoutingInterceptor {
     /// - Throws: The `RoutingError` if the `RoutingInterceptor` can not prepare itself or routing can not start
     ///   with the `Context` instance provided.
     mutating func prepare(with destination: Destination) throws
-    
+
     /// Method that will be called by `Router` to start interceptor.
     ///
     /// - Parameters:
@@ -43,10 +43,10 @@ public protocol RoutingInterceptor {
 }
 
 public extension RoutingInterceptor {
-    
+
     /// Default implementation.
     func prepare(with destination: Destination) throws {
-    
+
     }
-    
+
 }

@@ -1,5 +1,5 @@
 //
-//  RouteComposer_ExampleUITests.swift
+//  RouteComposerExampleUITests.swift
 //  RouteComposer_ExampleUITests
 //
 //  Created by Eugene Kazaev on 22/01/2018.
@@ -8,33 +8,34 @@
 
 import XCTest
 
-class RouteComposer_ExampleUITests: XCTestCase {
-    
+class RouteComposerExampleUITests: XCTestCase {
+
     var app: XCUIApplication!
-    
+
     override func setUp() {
         super.setUp()
-        
+
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        
+
         // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
-        
+
         app = XCUIApplication()
         // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
 
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
-        
+        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests
+        // before they run. The setUp method is a good place to do this.
+
         // We send a command line argument to our app,
         // to enable it to reset its state
         app.launchArguments.append("--uitesting")
     }
-    
+
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
-    
+
     func testPromptScreenAndBack() {
         app.launch()
         XCTAssertTrue(app.otherElements["promptViewController"].exists)
@@ -44,7 +45,7 @@ class RouteComposer_ExampleUITests: XCTestCase {
         XCTAssertTrue(app.otherElements["promptViewController"].exists)
         app.terminate()
     }
-    
+
     func testAllRoutesInHome() {
         app.launch()
         XCTAssertTrue(app.otherElements["promptViewController"].exists)
@@ -55,7 +56,7 @@ class RouteComposer_ExampleUITests: XCTestCase {
         XCTAssertTrue(app.otherElements["colorViewController"].exists)
         app.buttons["Done"].tap()
         XCTAssertTrue(app.otherElements["homeViewController"].exists)
-        
+
         app.buttons["Go to routing control modal"].tap()
         XCTAssertTrue(app.otherElements["routingRuleViewController"].exists)
 
@@ -87,7 +88,7 @@ class RouteComposer_ExampleUITests: XCTestCase {
         sleep(1) // Just for better demo
         app.buttons["Go to Moscow*"].tap()
         XCTAssertTrue(app.otherElements["loginViewController"].exists)
-        
+
         app.textFields["loginTextField"].tap()
         app.textFields["loginTextField"].typeText("abc")
 
@@ -110,7 +111,7 @@ class RouteComposer_ExampleUITests: XCTestCase {
         app.buttons["Back programmaticaly"].tap()
         sleep(1)
         XCTAssertTrue(app.otherElements["citiesSplitViewController"].exists)
-        
+
         app.buttons["Square"].tap()
         XCTAssertTrue(app.otherElements["squareViewController"].exists)
 
@@ -189,10 +190,10 @@ class RouteComposer_ExampleUITests: XCTestCase {
 
         app.terminate()
     }
-    
+
     func testCollectionsAndReturnHome() {
         app.launch()
-        
+
         XCTAssertTrue(app.otherElements["promptViewController"].exists)
         app.buttons["Continue"].tap()
         XCTAssertTrue(app.otherElements["homeViewController"].exists)
@@ -202,13 +203,13 @@ class RouteComposer_ExampleUITests: XCTestCase {
 
         app.buttons["Go to Collections*"].tap()
         XCTAssertTrue(app.otherElements["loginViewController"].exists)
-        
+
         app.textFields["loginTextField"].tap()
         app.textFields["loginTextField"].typeText("abc")
-        
+
         app.textFields["passwordTextField"].tap()
         app.textFields["passwordTextField"].typeText("abc")
-        
+
         app.buttons["Login"].tap()
         sleep(3)
 
@@ -219,13 +220,13 @@ class RouteComposer_ExampleUITests: XCTestCase {
 
         app.terminate()
     }
-    
+
     func testDenieLoginScreenAndReturnHome() {
         app.launch()
         XCTAssertTrue(app.otherElements["promptViewController"].exists)
         app.buttons["Continue"].tap()
         XCTAssertTrue(app.otherElements["homeViewController"].exists)
-        
+
         app.buttons["Go to second modal level"].tap()
         sleep(3)
         XCTAssertTrue(app.otherElements["secondLevelViewController"].exists)
@@ -240,7 +241,7 @@ class RouteComposer_ExampleUITests: XCTestCase {
         XCTAssertTrue(app.otherElements["circleViewController"].exists)
 
         app.terminate()
-        
+
     }
 
     func testImagesModule() {
@@ -249,7 +250,7 @@ class RouteComposer_ExampleUITests: XCTestCase {
 
         app.buttons["Continue"].tap()
         XCTAssertTrue(app.otherElements["homeViewController"].exists)
-        
+
         app.buttons["Go to Images"].tap()
         XCTAssertTrue(app.tables["imagesViewController"].exists)
         sleep(1)
@@ -274,21 +275,21 @@ class RouteComposer_ExampleUITests: XCTestCase {
 
         app.buttons["Dismiss"].tap()
         XCTAssertTrue(app.tables["imagesViewController"].exists)
-        
+
         app.buttons["Done"].tap()
         XCTAssertTrue(app.otherElements["homeViewController"].exists)
 
         app.terminate()
-    
+
     }
-    
+
     func testAlternativeStarRoute() {
         app.launch()
         XCTAssertTrue(app.otherElements["promptViewController"].exists)
-        
+
         app.buttons["Continue"].tap()
         XCTAssertTrue(app.otherElements["homeViewController"].exists)
-        
+
         app.buttons["Go to square"].tap()
         XCTAssertTrue(app.otherElements["squareViewController"].exists)
 
@@ -298,29 +299,29 @@ class RouteComposer_ExampleUITests: XCTestCase {
 
         app.buttons["Go to Star*"].tap()
         XCTAssertTrue(app.otherElements["loginViewController"].exists)
-        
+
         app.textFields["loginTextField"].tap()
         app.textFields["loginTextField"].typeText("abc")
-        
+
         app.textFields["passwordTextField"].tap()
         app.textFields["passwordTextField"].typeText("abc")
-        
+
         app.buttons["Login"].tap()
         sleep(3)
         XCTAssertTrue(app.otherElements["starViewController"].exists)
-        
+
         app.buttons["Go to Product 02"].tap()
         XCTAssertTrue(app.otherElements["productViewController+02"].exists)
-        
+
         app.buttons["Go to Circle"].tap()
         XCTAssertTrue(app.otherElements["circleViewController"].exists)
-        
+
         app.buttons["Go to square"].tap()
         XCTAssertTrue(app.otherElements["squareViewController"].exists)
-        
+
         app.buttons["Go to Star*"].tap()
         XCTAssertTrue(app.otherElements["starViewController"].exists)
-        
+
         app.buttons["Dismiss Star Tab*"].tap()
         XCTAssertTrue(app.otherElements["circleViewController"].exists)
 
@@ -330,14 +331,14 @@ class RouteComposer_ExampleUITests: XCTestCase {
         switcher = app.switches["routeSwitchControl"]
         switcher.tap()
         XCTAssertTrue(app.otherElements["squareViewController"].exists)
-        
+
         app.buttons["Go to Star*"].tap()
         XCTAssertTrue(app.otherElements["starViewController"].exists)
-        
+
         app.buttons["Dismiss Star Tab*"].tap()
         XCTAssertTrue(app.otherElements["circleViewController"].exists)
 
         app.terminate()
-        
+
     }
 }

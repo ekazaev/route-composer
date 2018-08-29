@@ -21,8 +21,8 @@ class ExampleAnalyticsPostAction: PostRoutingTask {
         }
 
         print("Source: \(source)")
-        if let avc = viewController as? ExampleAnalyticsSupport {
-            print("Target: \(avc.analyticParameters.source)")
+        if let analyticViewController = viewController as? ExampleAnalyticsSupport {
+            print("Target: \(analyticViewController.analyticParameters.source)")
         }
         print("-----")
     }

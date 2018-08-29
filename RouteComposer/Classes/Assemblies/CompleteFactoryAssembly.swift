@@ -33,7 +33,7 @@ public final class CompleteFactoryAssembly<FC: Container> {
         childFactories.append(ChildFactory<C.Context>(factoryBox))
         return self
     }
-    
+
     /// Adds `Container` that is going to be used as a child. Make sure that you use an `Action` that is compatible with
     /// the `Container` `Factory` you use.
     ///
@@ -45,13 +45,13 @@ public final class CompleteFactoryAssembly<FC: Container> {
         childFactories.append(ChildFactory<C.Context>(factoryBox))
         return self
     }
-    
+
     /// Assembles all the child factories provided and returns a `Container` `Factory` instance.
     ///
     /// - Returns: The `CompleteFactory` with child factories provided.
     public func assemble() -> CompleteFactory<FC> {
         var completeFactory = CompleteFactory(factory: factory, childFactories: childFactories)
-        let _ = completeFactory.merge(Array<ChildFactory<FC.Context>>())
+        _ = completeFactory.merge([])
         return completeFactory
     }
 

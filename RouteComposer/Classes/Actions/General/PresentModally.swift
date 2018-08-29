@@ -16,7 +16,7 @@ public extension GeneralAction {
 
         let transitionStyle: UIModalTransitionStyle?
 
-        let transitioningDelegate: UIViewControllerTransitioningDelegate?
+        weak var transitioningDelegate: UIViewControllerTransitioningDelegate?
 
         /// Constructor
         ///
@@ -24,13 +24,18 @@ public extension GeneralAction {
         ///   - presentationStyle: UIModalPresentationStyle setting, default value: .fullScreen
         ///   - transitionStyle: UIModalTransitionStyle setting, default value: .coverVertical
         ///   - transitioningDelegate: UIViewControllerTransitioningDelegate instance to be used during transition
-        public init(presentationStyle: UIModalPresentationStyle? = .fullScreen, transitionStyle: UIModalTransitionStyle? = .coverVertical, transitioningDelegate: UIViewControllerTransitioningDelegate? = nil) {
+        public init(presentationStyle: UIModalPresentationStyle? = .fullScreen,
+                    transitionStyle: UIModalTransitionStyle? = .coverVertical,
+                    transitioningDelegate: UIViewControllerTransitioningDelegate? = nil) {
             self.presentationStyle = presentationStyle
             self.transitionStyle = transitionStyle
             self.transitioningDelegate = transitioningDelegate
         }
 
-        public func perform(with viewController: UIViewController, on existingController: UIViewController, animated: Bool, completion: @escaping (_: ActionResult) -> Void) {
+        public func perform(with viewController: UIViewController,
+                            on existingController: UIViewController,
+                            animated: Bool,
+                            completion: @escaping (_: ActionResult) -> Void) {
             guard existingController.presentedViewController == nil else {
                 completion(.failure("\(existingController) is already presenting a view controller."))
                 return

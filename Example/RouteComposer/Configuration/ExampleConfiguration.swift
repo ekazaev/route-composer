@@ -18,7 +18,6 @@ class ExampleConfiguration {
         screens[target] = screen
     }
 
-
     static func destination<T: Hashable>(for target: T, context: ExampleDictionaryContext? = nil) -> ExampleDestination? {
         guard let assembly = step(for: target) else {
             return nil
@@ -27,6 +26,3 @@ class ExampleConfiguration {
         return ExampleDestination(finalStep: assembly, context: context ?? ExampleDictionaryContext())
     }
 }
-
-
-

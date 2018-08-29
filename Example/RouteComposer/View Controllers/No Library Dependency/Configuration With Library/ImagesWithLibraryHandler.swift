@@ -16,7 +16,7 @@ class ImagesWithLibraryHandler: CustomViewControllerDelegate, ImagesControllerDe
     static let shared = ImagesWithLibraryHandler()
 
     func didSelect(imageID: String, in controller: ImagesViewController) {
-        UIViewController.router.navigate(to: ImagesConfigurationWithLibrary.imageDetails(for: imageID), animated: true, completion: nil)
+        UIViewController.router.navigate(to: ImagesConfigurationWithLibrary.imageDetails(for: imageID), animated: true)
     }
 
     func dismissCustomContainer(controller: CustomContainerController) {

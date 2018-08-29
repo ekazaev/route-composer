@@ -8,7 +8,7 @@ import UIKit
 
 /// A default implementation of the unique view controller finder, where view controller can be found by name.
 /// (Example: Home, account, log in, etc supposed to be in the view stack just once)
-public struct ClassFinder<VC:UIViewController, C>: StackIteratingFinder {
+public struct ClassFinder<VC: UIViewController, C>: StackIteratingFinder {
 
     /// `UIViewController` type associated with this `ClassFinder`
     public typealias ViewController = VC

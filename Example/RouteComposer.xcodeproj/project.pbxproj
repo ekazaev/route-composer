@@ -39,7 +39,7 @@
 		849D12FB213729F10052FD44 /* ImagesController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 849D12EB213727370052FD44 /* ImagesController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		849D12FE213729F10052FD44 /* ImageDetailsController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 849D12C9213726570052FD44 /* ImageDetailsController.framework */; };
 		849D12FF213729F10052FD44 /* ImageDetailsController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 849D12C9213726570052FD44 /* ImageDetailsController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		84B6D46820163CC700B70FF7 /* RouteComposer_ExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B6D46720163CC700B70FF7 /* RouteComposer_ExampleUITests.swift */; };
+		84B6D46820163CC700B70FF7 /* RouteComposerExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B6D46720163CC700B70FF7 /* RouteComposerExampleUITests.swift */; };
 		84B76A662040641400D865B1 /* Images.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84B76A652040641400D865B1 /* Images.storyboard */; };
 		9AFBC0ADE4D123DD36E06972 /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC8F9D2DC7F0960891380 /* ProductViewController.swift */; };
 		9AFBC10000C39C385751808C /* CitiesDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC4700ACD202B6C4A1205 /* CitiesDataModel.swift */; };
@@ -194,7 +194,7 @@
 		849D12C3213726570052FD44 /* ImageDetailsController.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ImageDetailsController.xcodeproj; path = RouteComposer/Libraries/ImageDetailsController/ImageDetailsController.xcodeproj; sourceTree = SOURCE_ROOT; };
 		849D12E6213727370052FD44 /* ImagesController.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ImagesController.xcodeproj; path = RouteComposer/Libraries/ImagesController/ImagesController.xcodeproj; sourceTree = SOURCE_ROOT; };
 		84B6D46520163CC700B70FF7 /* RouteComposer_ExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RouteComposer_ExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		84B6D46720163CC700B70FF7 /* RouteComposer_ExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteComposer_ExampleUITests.swift; sourceTree = "<group>"; };
+		84B6D46720163CC700B70FF7 /* RouteComposerExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteComposerExampleUITests.swift; sourceTree = "<group>"; };
 		84B6D46920163CC700B70FF7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84B76A652040641400D865B1 /* Images.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Images.storyboard; sourceTree = "<group>"; };
 		84C1D86390083DF185C460C2 /* Pods-RouteComposer_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RouteComposer_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RouteComposer_Tests/Pods-RouteComposer_Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -454,7 +454,7 @@
 		84B6D46620163CC700B70FF7 /* RouteComposer_ExampleUITests */ = {
 			isa = PBXGroup;
 			children = (
-				84B6D46720163CC700B70FF7 /* RouteComposer_ExampleUITests.swift */,
+				84B6D46720163CC700B70FF7 /* RouteComposerExampleUITests.swift */,
 				84B6D46920163CC700B70FF7 /* Info.plist */,
 			);
 			path = RouteComposer_ExampleUITests;
@@ -879,7 +879,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84B6D46820163CC700B70FF7 /* RouteComposer_ExampleUITests.swift in Sources */,
+				84B6D46820163CC700B70FF7 /* RouteComposerExampleUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

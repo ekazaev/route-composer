@@ -19,9 +19,9 @@ struct InterceptorMultiplexer: AnyRoutingInterceptor, CustomStringConvertible {
             return interceptor
         })
     }
-    
+
     func execute<D: RoutingDestination>(for destination: D, completion: @escaping (InterceptorResult) -> Void) {
-        guard self.interceptors.count > 0 else {
+        guard !self.interceptors.isEmpty else {
             completion(.success)
             return
         }
@@ -30,9 +30,9 @@ struct InterceptorMultiplexer: AnyRoutingInterceptor, CustomStringConvertible {
 
         func runInterceptor(interceptor: AnyRoutingInterceptor) {
             interceptor.execute(for: destination) { result in
-                if case .failure(_) = result  {
+                if case .failure(_) = result {
                     completion(result)
-                } else if interceptors.count == 0 {
+                } else if interceptors.isEmpty {
                     completion(result)
                 } else {
                     runInterceptor(interceptor: interceptors.removeFirst())

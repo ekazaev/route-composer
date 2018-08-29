@@ -11,7 +11,8 @@ import UIKit
 /// Result of step execution.
 ///
 /// - success: Step found it view controller.
-/// - continueRouting: Step hasn't been found the view controller and `Router` can try to execute previous step if it exists.
+/// - continueRouting: Step hasn't been found the view controller and `Router` can try to
+///   execute previous step if it exists.
 /// - failure: Step failed to execute.
 enum StepResult {
 
@@ -20,9 +21,9 @@ enum StepResult {
 
     /// `Factory` instance to be used by `Router` to build a `UIViewController` for this step.
     case continueRouting(AnyFactory?)
-    
+
     case failure
-    
+
     /// Default init of StepResult enum
     ///
     /// - Parameters:
@@ -33,7 +34,7 @@ enum StepResult {
             self = .failure
             return
         }
-        
+
         self = .success(viewController)
     }
 }

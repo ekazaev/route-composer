@@ -3,18 +3,18 @@
 // Copyright (c) 2018 HBC Tech. All rights reserved.
 //
 
-
 import Foundation
 import UIKit
 
 /// `Container` protocol should be implemented by the `Factory`s that produce any type of the view controllers
 /// that can be considered as containers (eg: UINavigationController, UITabBarController, etc)
 ///
-/// `Container` applies one merged `Action` and then populate a full stack of view controllers that was built by the associated factories in one go.
+/// `Container` applies one merged `Action` and then populate a full stack of view controllers
+/// that was built by the associated factories in one go.
 /// Example: Steps requires to populate N-view controllers in `UINavigationController` stack and it can do so.
 /// `merge` method implementation is mandatory.
 public protocol Container: AbstractFactory {
-    
+
     /// Receives an array of factories whose view controllers should be merged into current container
     /// `Factory` before it actually builds a container view controller with child view controllers inside.
     /// Example: The `UINavigationController` instance with N pushed into it `UIViewController`s.
@@ -46,7 +46,7 @@ public extension Container {
         for factory in factories {
             try factory.build(with: context, in: &childrenViewControllers)
         }
-        return  childrenViewControllers
+        return childrenViewControllers
     }
 
 }

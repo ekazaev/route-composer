@@ -8,10 +8,10 @@ import UIKit
 /// Helper protocol to `Factory` that is also a `Container`. If it supports only one type of actions to build its
 /// children `UIViewControllers` - use this protocol. It contains default merge function implementation.
 public protocol SimpleContainerFactory: Container {
-    
+
     /// Type of supported `Action` instances
     associatedtype SupportedAction
-    
+
     /// Factories that will build children view controllers when it will be needed.
     var factories: [ChildFactory<Context>] { get set }
 
@@ -22,7 +22,7 @@ public extension SimpleContainerFactory {
     public mutating func merge(_ factories: [ChildFactory<Context>]) -> [ChildFactory<Context>] {
         var otherFactories: [ChildFactory<Context>] = []
         self.factories = factories.compactMap { factory -> ChildFactory<Context>? in
-            guard let _ = factory.action as? SupportedAction else {
+            guard factory.action as? SupportedAction != nil else {
                 otherFactories.append(factory)
                 return nil
             }

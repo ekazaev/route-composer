@@ -13,21 +13,21 @@ import UIKit
 /// **NB:** We would recommend it for the purpose of configuration testing, but then replace it with a strongly typed
 /// `RoutingInterceptor` instance.
 public struct InlineInterceptor<D: RoutingDestination>: RoutingInterceptor {
-    
+
     public typealias Destination = D
-    
+
     private let prepareBlock: ((_: D) throws -> Void)?
-    
+
     private let asyncCompletion: ((_: D, _: @escaping (InterceptorResult) -> Void) -> Void)?
-    
+
     private let syncCompletion: ((_: D) -> Void)?
-    
+
     /// Constructor
     ///
     /// - Parameter completion: the block to be called when `InlineInterceptor` will take a control over the routing.
     ///
     ///     **NB** For `Router` to be able to continue routing, completion block method **MUST** to be called.
-    public init(prepare: ((_: D) throws  -> Void)? = nil,_ completion: @escaping (_: D, _: @escaping (InterceptorResult) -> Void) -> Void) {
+    public init(prepare: ((_: D) throws -> Void)? = nil, _ completion: @escaping (_: D, _: @escaping (InterceptorResult) -> Void) -> Void) {
         self.prepareBlock = prepare
         self.asyncCompletion = completion
         self.syncCompletion = nil
@@ -44,11 +44,11 @@ public struct InlineInterceptor<D: RoutingDestination>: RoutingInterceptor {
         self.syncCompletion = completion
         self.asyncCompletion = nil
     }
-    
+
     public func prepare(with destination: D) throws {
         try prepareBlock?(destination)
     }
-    
+
     public func execute(for destination: D, completion: @escaping (InterceptorResult) -> Void) {
         if let syncCompletion = syncCompletion {
             syncCompletion(destination)
@@ -59,7 +59,7 @@ public struct InlineInterceptor<D: RoutingDestination>: RoutingInterceptor {
             completion(.failure("No completion block provided."))
         }
     }
-    
+
 }
 
 /// `InlineContextTask` is the inline context task.
@@ -67,13 +67,13 @@ public struct InlineInterceptor<D: RoutingDestination>: RoutingInterceptor {
 /// **NB:** We would recommend it for the purpose of configuration testing, but then replace it with a strongly typed
 /// `ContextTask` instance.
 public struct InlineContextTask<VC: UIViewController, C>: ContextTask {
-    
+
     public typealias ViewController = VC
-    
+
     public typealias Context = C
-    
+
     private let completion: (_: VC, _: C) throws -> Void
-    
+
     /// Constructor
     ///
     /// - Parameter completion: the block to be called when `InlineContextTask` will be applied to the `UIViewController`
@@ -81,11 +81,11 @@ public struct InlineContextTask<VC: UIViewController, C>: ContextTask {
     public init(_ completion: @escaping (_: VC, _: C) throws -> Void) {
         self.completion = completion
     }
-    
+
     public func apply(on viewController: ViewController, with context: Context) throws {
         try completion(viewController, context)
     }
-    
+
 }
 
 /// `InlinePostTask` is the inline context task.
@@ -93,13 +93,13 @@ public struct InlineContextTask<VC: UIViewController, C>: ContextTask {
 /// **NB:** We would recommend it for the purpose of configuration testing, but then replace it with a strongly typed
 /// `PostRoutingTask` instance.
 public struct InlinePostTask<VC: UIViewController, D: RoutingDestination>: PostRoutingTask {
-    
+
     public typealias ViewController = VC
-    
+
     public typealias Destination = D
-    
+
     private let completion: (_: VC, _: D, _: [UIViewController]) -> Void
-    
+
     /// Constructor
     ///
     /// - Parameter completion: the block to be called when `InlinePostTask` will be called at the end of the routing
@@ -107,9 +107,9 @@ public struct InlinePostTask<VC: UIViewController, D: RoutingDestination>: PostR
     public init(_ completion: @escaping (_: VC, _: D, _: [UIViewController]) -> Void) {
         self.completion = completion
     }
-    
+
     public func execute(on viewController: ViewController, for destination: Destination, routingStack: [UIViewController]) {
         completion(viewController, destination, routingStack)
     }
-    
+
 }

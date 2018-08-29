@@ -16,9 +16,12 @@ public extension SplitControllerFactory {
         public init() {
         }
 
-        public func perform(with viewController: UIViewController, on existingController: UIViewController, animated: Bool, completion: @escaping (_: ActionResult) -> Void) {
+        public func perform(with viewController: UIViewController,
+                            on existingController: UIViewController,
+                            animated: Bool,
+                            completion: @escaping (_: ActionResult) -> Void) {
             guard let splitViewController = existingController as? UISplitViewController ?? existingController.splitViewController,
-                  splitViewController.viewControllers.count > 0 else {
+                  !splitViewController.viewControllers.isEmpty else {
                 completion(.failure("Could not find UISplitViewController in \(existingController) to present details view controller \(viewController)."))
                 return
             }

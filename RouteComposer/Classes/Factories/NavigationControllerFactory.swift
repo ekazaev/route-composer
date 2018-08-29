@@ -19,8 +19,8 @@ public struct NavigationControllerFactory: SimpleContainerFactory {
     public var factories: [ChildFactory<Context>] = []
 
     /// `UINavigationControllerDelegate` delegate
-    public let delegate: UINavigationControllerDelegate?
-    
+    public weak var delegate: UINavigationControllerDelegate?
+
     /// Constructor
     ///
     /// - Parameter action: `Action` instance.
@@ -30,12 +30,12 @@ public struct NavigationControllerFactory: SimpleContainerFactory {
     }
 
     public func build(with context: Context) throws -> ViewController {
-        guard factories.count > 0 else {
+        guard !factories.isEmpty else {
             throw RoutingError.message("Unable to build UINavigationController due to 0 amount of child factories")
         }
 
         let viewControllers = try buildChildrenViewControllers(with: context)
-        guard viewControllers.count > 0 else {
+        guard !viewControllers.isEmpty else {
             throw RoutingError.message("Unable to build UINavigationController due to 0 amount of child view controllers")
         }
         let navigationController = UINavigationController()

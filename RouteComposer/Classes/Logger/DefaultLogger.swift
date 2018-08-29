@@ -32,7 +32,7 @@ public struct DefaultLogger: Logger {
     private let logLevel: DefaultLoggerLevel
 
     private let osLog: OSLog?
-    
+
     /// Constructor
     ///
     /// - Parameter logLevel: DefaultLoggerLevel. Defaulted to warnings.

@@ -21,7 +21,6 @@ class RoutingRuleSupportViewController: UIViewController, RoutingInterceptable, 
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneTapped))
     }
 
-
     @IBAction func switchValueChanged(sender: UISwitch) {
         self.canBeDismissed = switchControl.isOn
     }
@@ -31,7 +30,8 @@ class RoutingRuleSupportViewController: UIViewController, RoutingInterceptable, 
     }
 
     @IBAction func goToColorTapped() {
-        router.navigate(to: ExampleConfiguration.destination(for: ExampleTarget.color, context: ExampleDictionaryContext(arguments: [Argument.color: "FFFF00"]))!)
+        let context = ExampleDictionaryContext(arguments: [Argument.color: "FFFF00"])
+        router.navigate(to: ExampleConfiguration.destination(for: ExampleTarget.color, context: context)!)
     }
 
     @IBAction func goToSquareTapped() {

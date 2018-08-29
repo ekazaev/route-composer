@@ -72,7 +72,8 @@ public final class SwitchAssembly {
         return self
     }
 
-    /// Add block which will allow to write a decision case for the `Router` in the block
+    /// Add block which will allow to write a decision case for the `Router` in the block.
+    /// Returning nil from the block will mean that it not succeed.
     ///
     /// - Parameter resolverBlock: case resolver block
     public func addCase<D: RoutingDestination>(_ resolverBlock: @escaping ((_: D) -> RoutingStep?)) -> Self {

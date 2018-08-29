@@ -3,7 +3,7 @@ import XCTest
 @testable import RouteComposer
 
 class ContainerTests: XCTestCase {
-    
+
     func testChildViewControllersBuild() {
         var children: [ChildFactory<Any?>] = []
         children.append(ChildFactory<Any?>(FactoryBox.box(for: EmptyFactory(action: NavigationControllerFactory.PushToNavigation()))!))
@@ -15,7 +15,7 @@ class ContainerTests: XCTestCase {
         }
         XCTAssertEqual(childrenControllers.count, 2)
     }
-    
+
     func testMergeRightAction() {
         var children: [ChildFactory<Any?>] = []
         children.append(ChildFactory<Any?>(FactoryBox.box(for: EmptyFactory())!))
@@ -23,12 +23,12 @@ class ContainerTests: XCTestCase {
         children.append(ChildFactory<Any?>(FactoryBox.box(for: EmptyFactory(action: NavigationControllerFactory.PushToNavigation()))!))
         children.append(ChildFactory<Any?>(FactoryBox.box(for: EmptyFactory(action: NavigationControllerFactory.PushAsRoot()))!))
         children.insert(ChildFactory<Any?>(FactoryBox.box(for: EmptyFactory(action: NavigationControllerFactory.PushReplacingLast()))!), at: 0)
-        
+
         var container = EmptyContainer()
         let restChildren = container.merge(children)
         XCTAssertEqual(restChildren.count, 2)
     }
-    
+
     func testMergeWrongAction() {
         var children: [ChildFactory<Any?>] = []
         children.append(ChildFactory<Any?>(FactoryBox.box(for: EmptyFactory())!))
@@ -37,10 +37,10 @@ class ContainerTests: XCTestCase {
         let restChildren = container.merge(children)
         XCTAssertEqual(restChildren.count, 2)
     }
-    
+
     func testNavigationControllerContainer() {
         var container = NavigationControllerFactory(action: GeneralAction.PresentModally())
-        var children:[ChildFactory<Any?>] = []
+        var children: [ChildFactory<Any?>] = []
         children.append(ChildFactory<Any?>(FactoryBox.box(for: EmptyFactory(action: NavigationControllerFactory.PushToNavigation()))!))
         children.append(ChildFactory<Any?>(FactoryBox.box(for: EmptyFactory(action: NavigationControllerFactory.PushToNavigation()))!))
         let restChildren = container.merge(children)
@@ -51,10 +51,10 @@ class ContainerTests: XCTestCase {
         }
         XCTAssertEqual(containerController.viewControllers.count, 2)
     }
-    
+
     func testTabBarControllerContainer() {
         var container = TabBarControllerFactory(action: GeneralAction.PresentModally())
-        var children:[ChildFactory<Any?>] = []
+        var children: [ChildFactory<Any?>] = []
         children.append(ChildFactory<Any?>(FactoryBox.box(for: EmptyFactory(action: TabBarControllerFactory.AddTab()))!))
         children.append(ChildFactory<Any?>(FactoryBox.box(for: EmptyFactory(action: TabBarControllerFactory.AddTab()))!))
         let restChildren = container.merge(children)
@@ -65,10 +65,10 @@ class ContainerTests: XCTestCase {
         }
         XCTAssertEqual(containerController.viewControllers!.count, 2)
     }
-    
+
     func testSplitControllerContainer() {
         var container = SplitControllerFactory(action: GeneralAction.PresentModally())
-        var children:[ChildFactory<Any?>] = []
+        var children: [ChildFactory<Any?>] = []
         children.append(ChildFactory<Any?>(FactoryBox.box(for: EmptyFactory(action: SplitControllerFactory.PushToMaster()))!))
         children.append(ChildFactory<Any?>(FactoryBox.box(for: EmptyFactory(action: SplitControllerFactory.PushToDetails()))!))
         let restChildren = container.merge(children)
@@ -79,5 +79,5 @@ class ContainerTests: XCTestCase {
         }
         XCTAssertEqual(containerController.viewControllers.count, 2)
     }
-    
+
 }

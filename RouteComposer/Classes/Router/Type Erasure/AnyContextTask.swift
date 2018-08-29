@@ -10,7 +10,7 @@ import UIKit
 
 /// Non type safe boxing wrapper for ContextTask protocol
 protocol AnyContextTask {
-    
+
     mutating func prepare<D: RoutingDestination>(with context: Any?, for destination: D) throws
 
     func apply<D: RoutingDestination>(on viewController: UIViewController, with context: Any?, for destination: D) throws

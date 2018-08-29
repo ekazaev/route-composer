@@ -34,10 +34,10 @@ public extension StackIteratingFinder {
 
     func findViewController(with context: Context) -> ViewController? {
         let comparator: (UIViewController) -> Bool = {
-            guard let vc = $0 as? ViewController else {
+            guard let viewController = $0 as? ViewController else {
                 return false
             }
-            return self.isTarget(vc, with: context)
+            return self.isTarget(viewController, with: context)
         }
 
         guard let rootViewController = UIWindow.key?.topmostViewController,

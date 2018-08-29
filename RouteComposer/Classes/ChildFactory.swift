@@ -10,7 +10,7 @@ import UIKit
 
 /// An instance of `ChildFactory` builds a `UIViewController` that will be later integrated into the stack by
 /// the `Container` `Factory`.
-public struct ChildFactory<Context>  {
+public struct ChildFactory<Context> {
 
     let factory: AnyFactory
 

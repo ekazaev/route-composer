@@ -52,9 +52,6 @@
                 <a href="../Classes/ContainerStepAssembly.html">ContainerStepAssembly</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/FinderFactory.html">FinderFactory</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Classes/GenericStepAssembly.html">GenericStepAssembly</a>
               </li>
               <li class="nav-group-task">
@@ -234,6 +231,9 @@
                 <a href="../Structs/DefaultRouter.html">DefaultRouter</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Structs/FinderFactory.html">FinderFactory</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Structs/GeneralAction.html">GeneralAction</a>
               </li>
               <li class="nav-group-task">
@@ -316,7 +316,8 @@
 
                 </div>
               </div>
-            <p>Represents an action that has to be applied to the <code>UIViewController</code> after it has been built (eg: push to navigation stack,
+            <p>Represents an action that has to be applied to the <code>UIViewController</code> after it has
+been built (eg: push to navigation stack,
 present modally, push to tab, etc)</p>
 
           </section>
@@ -418,7 +419,7 @@ this method should be called instead.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">perform</span><span class="p">(</span><span class="n">with</span> <span class="nv">viewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="n">on</span> <span class="nv">existingController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="kt"><a href="../Enums/ActionResult.html">ActionResult</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">perform</span><span class="p">(</span><span class="n">with</span> <span class="nv">viewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="n">on</span> <span class="nv">existingController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Enums/ActionResult.html">ActionResult</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -434,7 +435,8 @@ this method should be called instead.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p><code>UIViewController</code> instance that should appear on top of the stack after the <code>Action</code> is applied.</p>
+                                  <p><code>UIViewController</code> instance that should appear on top of the stack
+after the <code>Action</code> is applied.</p>
                                 </div>
                               </td>
                             </tr>
@@ -470,7 +472,8 @@ this method should be called instead.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>called once the action is applied. Returns the view controller, which will appear on the top of the stack.</p>
+                                  <p>called once the action is applied. Returns the view controller, which
+will appear on the top of the stack.</p>
                                 </div>
                               </td>
                             </tr>
@@ -485,7 +488,7 @@ this method should be called instead.</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-08-29)</p>
+          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-08-30)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

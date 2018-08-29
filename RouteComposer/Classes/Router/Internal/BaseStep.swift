@@ -8,7 +8,7 @@ import UIKit
 /// Base router `RoutingStep` implementation that handles all step protocols.
 class BaseStep<Box: AnyFactoryBox>: ChainableStep, PerformableStep, ChainingStep, CustomStringConvertible {
 
-    private(set) public var previousStep: RoutingStep? = nil
+    private(set) public var previousStep: RoutingStep?
 
     let factory: AnyFactory?
 
@@ -19,7 +19,8 @@ class BaseStep<Box: AnyFactoryBox>: ChainableStep, PerformableStep, ChainingStep
     /// - Parameters:
     ///   - finder: The  `UIViewController` `Finder`.
     ///   - factory: The `UIViewController` `Factory`.
-    init<F: Finder>(finder: F?, factory: Box.FactoryType?, previousStep: RoutingStep? = nil) where F.ViewController == Box.FactoryType.ViewController, F.Context == Box.FactoryType.Context  {
+    init<F: Finder>(finder: F?, factory: Box.FactoryType?, previousStep: RoutingStep? = nil)
+            where F.ViewController == Box.FactoryType.ViewController, F.Context == Box.FactoryType.Context {
         self.previousStep = previousStep
         self.finder = FinderBox.box(for: finder)
         if let anyFactory = Box.box(for: factory) {

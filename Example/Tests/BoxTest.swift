@@ -8,38 +8,39 @@ import XCTest
 @testable import RouteComposer
 
 class BoxTests: XCTestCase {
-    
+
     func testFactoryBox() {
         let factory = EmptyFactory()
         XCTAssertNotNil(FactoryBox.box(for: factory))
     }
-    
+
     func testContainerBox() {
         let factory = EmptyContainer()
         XCTAssertNotNil(ContainerFactoryBox.box(for: factory))
     }
-    
+
     func testNilFactoryBox() {
         let factory = NilFactory<UIViewController, Any?>()
         XCTAssertNil(FactoryBox.box(for: factory))
     }
-    
+
     func testNilInAssembly() {
-        let routingStep = StepAssembly(finder: NilFinder<UIViewController, Any?>(), factory: NilFactory<UIViewController, Any?>()).assemble(from: CurrentViewControllerStep())
-        guard let s = routingStep as? BaseStep<FactoryBox<NilFactory<UIViewController, Any?>>> else {
+        let routingStep = StepAssembly(finder: NilFinder<UIViewController, Any?>(),
+                factory: NilFactory<UIViewController, Any?>()).assemble(from: CurrentViewControllerStep())
+        guard let step = routingStep as? BaseStep<FactoryBox<NilFactory<UIViewController, Any?>>> else {
             XCTAssert(false, "Internal inconsistency")
             return
         }
-        XCTAssertNil(s.factory)
-        XCTAssertNil(s.finder)
+        XCTAssertNil(step.factory)
+        XCTAssertNil(step.finder)
     }
 
     func testNilInCompleteFactoryAssembly() {
-        let f = CompleteFactoryAssembly(factory: TabBarControllerFactory(action:GeneralAction.PresentModally()))
+        let factory = CompleteFactoryAssembly(factory: TabBarControllerFactory(action: GeneralAction.PresentModally()))
                 .with(NilFactory<UIViewController, Any?>(action: NavigationControllerFactory.PushToNavigation()))
                 .with(NilFactory<UIViewController, Any?>(action: NavigationControllerFactory.PushToNavigation()))
                 .assemble()
-        XCTAssertEqual(f.childFactories.count, 0)
+        XCTAssertEqual(factory.childFactories.count, 0)
     }
 
 }

@@ -5,7 +5,7 @@
 import Foundation
 import UIKit
 
-class PostRoutingTaskMultiplexer: AnyPostRoutingTask, CustomStringConvertible {
+struct PostRoutingTaskMultiplexer: AnyPostRoutingTask, CustomStringConvertible {
 
     private let tasks: [AnyPostRoutingTask]
 

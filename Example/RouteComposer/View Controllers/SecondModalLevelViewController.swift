@@ -28,7 +28,6 @@ class SecondModalLevelViewController: UIViewController, ExampleAnalyticsSupport 
         router.navigate(to: CitiesConfiguration.cityDetail(cityId: 18), animated: false)
     }
 
-
     @objc func doneTapped() {
         self.dismiss(animated: true)
     }

@@ -8,9 +8,9 @@ import UIKit
 import RouteComposer
 
 struct ExampleGenericContextTask: ContextTask {
-    
+
     func apply(on viewController: UIViewController, with context: Any?) throws {
         print("View controller name is \(String(describing: viewController))")
     }
-    
+
 }

@@ -5,8 +5,7 @@
 
 import UIKit
 
-/// An instance that extends `Factory` builds `UIViewController` that will be later integrated into the stack by `Router`
+/// An instance that extends `Factory` builds `UIViewController` that will be later integrated
+/// into the stack by `Router`
 public protocol Factory: AbstractFactory {
-
-    
 }

@@ -19,9 +19,10 @@ class ImagesWithoutLibraryConfiguration {
 
     func showCustomController() {
         // Handled by CustomContainerFactory
-        guard let containerController = UIStoryboard(name: "Images", bundle: Bundle.main).instantiateViewController(withIdentifier: "CustomContainerController") as? CustomContainerController,
+        let storyboard = UIStoryboard(name: "Images", bundle: Bundle.main)
+        guard let containerController = storyboard.instantiateViewController(withIdentifier: "CustomContainerController") as? CustomContainerController,
         // Handled by ImagesFactory
-              let viewController = UIStoryboard(name: "Images", bundle: Bundle.main).instantiateViewController(withIdentifier: "ImagesViewController") as? ImagesViewController else {
+              let viewController = storyboard.instantiateViewController(withIdentifier: "ImagesViewController") as? ImagesViewController else {
             return
         }
 

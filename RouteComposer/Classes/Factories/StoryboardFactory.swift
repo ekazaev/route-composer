@@ -38,16 +38,21 @@ public struct StoryboardFactory<VC: UIViewController, C>: Factory {
     public func build(with context: Context) throws -> ViewController {
         let storyboard = UIStoryboard(name: storyboardName, bundle: bundle)
         if let viewControllerID = viewControllerID {
-            guard let viewController = storyboard.instantiateViewController(withIdentifier: viewControllerID) as? VC else {
-                throw RoutingError.message("Unable to instantiate UIViewController with identifier \(viewControllerID) in \(storyboardName) storyboard")
+            let instantiatedViewController = storyboard.instantiateViewController(withIdentifier: viewControllerID)
+            guard let viewController = instantiatedViewController as? VC else {
+                throw RoutingError.message("Unable to instantiate UIViewController with identifier" +
+                        " \(viewControllerID)  in \(storyboardName) storyboard")
             }
             return viewController
         } else {
             guard let abstractViewController = storyboard.instantiateInitialViewController() else {
-                throw RoutingError.message("Unable to instantiate initial UIViewController in \(storyboardName) storyboard")
+                throw RoutingError.message("Unable to instantiate initial UIViewController " +
+                        "in \(storyboardName) storyboard")
             }
             guard let viewController = abstractViewController as? ViewController else {
-                throw RoutingError.message("Unable to instantiate initial UIViewController in \(storyboardName) storyboard as \(String(describing: type(of: ViewController.self))), got \(String(describing: abstractViewController)) instead.")
+                throw RoutingError.message("Unable to instantiate initial UIViewController in \(storyboardName) " +
+                        "storyboard as \(String(describing: type(of: ViewController.self))), " +
+                        "got \(String(describing: abstractViewController)) instead.")
             }
 
             return viewController
@@ -55,4 +60,3 @@ public struct StoryboardFactory<VC: UIViewController, C>: Factory {
     }
 
 }
-

@@ -12,7 +12,7 @@ class ImagesFactory: Factory {
 
     let action: Action
 
-    let delegate: ImagesControllerDelegate
+    weak var delegate: ImagesControllerDelegate?
 
     init(delegate: ImagesControllerDelegate, action: Action) {
         self.action = action

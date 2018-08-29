@@ -27,11 +27,9 @@ extension UITabBarController: ContainerViewController {
         guard selectedViewController != viewController else {
             return
         }
-        for vc in containingViewControllers {
-            if vc == viewController {
-                self.selectedViewController = vc
-                return
-            }
+        for containingViewController in containingViewControllers where containingViewController == viewController {
+            self.selectedViewController = containingViewController
+            return
         }
     }
 

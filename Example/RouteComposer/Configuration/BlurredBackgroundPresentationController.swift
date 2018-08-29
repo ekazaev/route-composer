@@ -11,5 +11,5 @@ class BlurredBackgroundPresentationController: UIPresentationController {
     override var shouldRemovePresentersView: Bool {
         return true
     }
-    
+
 }

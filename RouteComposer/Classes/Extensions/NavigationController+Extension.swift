@@ -24,11 +24,9 @@ extension UINavigationController: ContainerViewController {
         guard visibleViewController != viewController else {
             return
         }
-        for vc in containingViewControllers {
-            if vc == viewController {
-                self.popToViewController(vc, animated: animated)
-                return
-            }
+        for containingViewController in containingViewControllers where containingViewController == viewController {
+            self.popToViewController(containingViewController, animated: animated)
+            return
         }
     }
 

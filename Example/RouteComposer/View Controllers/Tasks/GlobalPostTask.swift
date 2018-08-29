@@ -9,7 +9,9 @@ import RouteComposer
 
 class GlobalPostTask: PostRoutingTask {
 
-    func execute(on viewController: UIViewController, for destination: ExampleDestination, routingStack: [UIViewController]) {
+    func execute(on viewController: UIViewController,
+                 for destination: ExampleDestination,
+                 routingStack: [UIViewController]) {
         print("Routing finished in \(viewController)")
     }
 

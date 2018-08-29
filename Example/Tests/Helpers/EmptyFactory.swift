@@ -9,7 +9,7 @@ import UIKit
 
 struct EmptyFactory: Factory {
     let action: Action
-    
+
     init(action: Action = GeneralAction.NilAction()) {
         self.action = action
     }

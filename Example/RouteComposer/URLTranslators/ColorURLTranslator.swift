@@ -17,7 +17,8 @@ class ColorURLTranslator: ExampleURLTranslator {
         }
 
         return ExampleDestination(finalStep: screen,
-                context: ExampleDictionaryContext( arguments: [Argument.color: colorValue]), ExampleAnalyticsParameters(source: .appLink, webpageURL: url, referrerURL: nil))
+                context: ExampleDictionaryContext(arguments: [Argument.color: colorValue]),
+                ExampleAnalyticsParameters(source: .appLink, webpageURL: url, referrerURL: nil))
     }
 
 }

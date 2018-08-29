@@ -16,7 +16,8 @@ class ExampleAnalyticsInterceptor: RoutingInterceptor {
     // normal life cycle, so we will use it's parameters in analytics before any routing happen.
     func execute(for destination: Destination, completion: @escaping (InterceptorResult) -> Void) {
         guard destination.analyticParameters == nil,
-              let viewController = UIWindow.key?.rootViewController?.topmostNonContainerViewController as? ExampleAnalyticsSupport else {
+              let viewController =
+              UIWindow.key?.rootViewController?.topmostNonContainerViewController as? ExampleAnalyticsSupport else {
             completion(.success)
             return
         }

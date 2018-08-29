@@ -6,7 +6,6 @@
 import Foundation
 import UIKit
 
-
 // - `UISplitViewController` extension to support `ContainerViewController` protocol
 extension UISplitViewController: ContainerViewController {
 
@@ -22,11 +21,9 @@ extension UISplitViewController: ContainerViewController {
         guard viewController.navigationController?.navigationController?.visibleViewController != viewController else {
             return
         }
-        for vc in containingViewControllers {
-            if vc == viewController {
-                vc.navigationController?.navigationController?.popToViewController(vc, animated: animated)
-                return
-            }
+        for containingViewController in containingViewControllers where containingViewController == viewController {
+            containingViewController.navigationController?.navigationController?.popToViewController(containingViewController, animated: animated)
+            return
         }
     }
 

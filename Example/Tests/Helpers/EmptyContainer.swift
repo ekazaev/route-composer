@@ -8,17 +8,17 @@ import UIKit
 @testable import RouteComposer
 
 struct EmptyContainer: SimpleContainerFactory {
-    
+
     typealias SupportedAction = NavigationControllerAction
-    
+
     var factories: [ChildFactory<Any?>] = []
-    
+
     let action: Action
-    
+
     init(action: Action = GeneralAction.NilAction()) {
         self.action = action
     }
-    
+
     func build(with context: Any?) throws -> UIViewController {
         return UIViewController()
     }

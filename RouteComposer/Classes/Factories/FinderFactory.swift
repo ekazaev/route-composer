@@ -10,7 +10,7 @@ import UIKit
 
 /// `StepAssembly` uses `Finder` result as a `Factory` result. Used with things that do not have actual
 /// factories like `UIViewController`s that were built as a result of storyboard loading.
-public class FinderFactory<F: Finder>: Factory {
+public struct FinderFactory<F: Finder>: Factory {
 
     public typealias ViewController = F.ViewController
 

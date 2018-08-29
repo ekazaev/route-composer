@@ -20,9 +20,10 @@ class ImagesWithoutLibraryHandler: CustomViewControllerDelegate, ImagesControlle
 
     func didSelect(imageID: String, in controller: ImagesViewController) {
         // Handled by ClassFinder
+        let storyboard = UIStoryboard(name: "Images", bundle: Bundle.main)
         guard let containerController = controller.parent as? CustomContainerController,
         // Handled by ImageDetailsFactory
-              let viewController = UIStoryboard(name: "Images", bundle: Bundle.main).instantiateViewController(withIdentifier: "ImageDetailsViewController") as? ImageDetailsViewController else {
+              let viewController = storyboard.instantiateViewController(withIdentifier: "ImageDetailsViewController") as? ImageDetailsViewController else {
             return
         }
 
@@ -37,9 +38,10 @@ class ImagesWithoutLibraryHandler: CustomViewControllerDelegate, ImagesControlle
 
     func dismiss(imageDetails: ImageDetailsViewController) {
         // Handled by ClassFinder
+        let storyboard = UIStoryboard(name: "Images", bundle: Bundle.main)
         guard let containerController = imageDetails.parent as? CustomContainerController,
         // Handled by ImagesFactory
-              let viewController = UIStoryboard(name: "Images", bundle: Bundle.main).instantiateViewController(withIdentifier: "ImagesViewController") as? ImagesViewController else {
+              let viewController = storyboard.instantiateViewController(withIdentifier: "ImagesViewController") as? ImagesViewController else {
             return
         }
 

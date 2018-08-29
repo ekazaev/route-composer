@@ -7,9 +7,8 @@ import UIKit
 import RouteComposer
 import os.log
 
-
 extension UIViewController {
-    
+
     static let router: DefaultRouter = {
         let appRouterLogger: DefaultLogger
         if #available(iOS 10, *) {
@@ -23,45 +22,42 @@ extension UIViewController {
         router.add(GlobalContextTask())
         return router
     }()
-    
+
     var router: DefaultRouter {
         return UIViewController.router
     }
 }
 
-
 extension UIViewController {
 
-    private func findPresentedNonContainerViewController(_ vc: UIViewController) -> UIViewController {
-        if let presented = vc.presentedViewController, !presented.isBeingDismissed{
+    private func findPresentedNonContainerViewController(_ viewController: UIViewController) -> UIViewController {
+        if let presented = viewController.presentedViewController, !presented.isBeingDismissed {
             return findPresentedNonContainerViewController(presented)
         }
 
-        if let nc = vc as? UINavigationController {
-            if let visible = nc.topViewController {
+        if let navigationController = viewController as? UINavigationController {
+            if let visible = navigationController.topViewController {
                 return findPresentedNonContainerViewController(visible)
             }
-        } else if let tbc = vc as? UITabBarController {
-            if let selected = tbc.selectedViewController {
+        } else if let tabBarController = viewController as? UITabBarController {
+            if let selected = tabBarController.selectedViewController {
                 return findPresentedNonContainerViewController(selected)
             }
-        } else if let svc = vc as? UISplitViewController {
-            if let selected = svc.isCollapsed ? svc.viewControllers.last : svc.viewControllers.first {
+        } else if let splitViewController = viewController as? UISplitViewController {
+            if let selected = splitViewController.isCollapsed ? splitViewController.viewControllers.last : splitViewController.viewControllers.first {
                 return findPresentedNonContainerViewController(selected)
             }
         }
 
-        return vc
+        return viewController
     }
 
     public var topmostNonContainerViewController: UIViewController? {
-        guard let rootVC = UIWindow.key?.rootViewController else {
+        guard let rootViewController = UIWindow.key?.rootViewController else {
 
             return nil
         }
 
-        let mpc = findPresentedNonContainerViewController(rootVC)
-
-        return mpc
+        return findPresentedNonContainerViewController(rootViewController)
     }
 }

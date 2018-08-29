@@ -20,7 +20,7 @@ class CustomContainerFactory: SimpleContainerFactory {
 
     let action: Action
 
-    let delegate: CustomViewControllerDelegate
+    weak var delegate: CustomViewControllerDelegate?
 
     init(delegate: CustomViewControllerDelegate, action: Action) {
         self.action = action
@@ -66,19 +66,19 @@ extension CustomContainerController: ContainerViewController {
 }
 
 extension CustomContainerFactory {
-    
+
     struct ReplaceRoot: Action {
-        
+
         func perform(with viewController: UIViewController, on existingController: UIViewController, animated: Bool, completion: @escaping (_: ActionResult) -> Void) {
             guard let customContainerController = existingController as? CustomContainerController else {
                 completion(.failure("\(existingController) is not CustomContainerController"))
                 return
             }
-            
+
             customContainerController.rootViewController = viewController
             completion(.continueRouting)
         }
-        
+
     }
-    
+
 }

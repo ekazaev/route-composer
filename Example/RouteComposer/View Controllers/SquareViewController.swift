@@ -40,7 +40,7 @@ class SquareViewController: UIViewController, ExampleAnalyticsSupport {
     @IBAction func goToFakeContainerTapped() {
         router.navigate(to: WishListConfiguration.collections())
     }
-    
+
     @IBAction func switchValueChanged(sender: UISwitch) {
         let starScreen: RoutingStep
         if sender.isOn {
@@ -53,7 +53,7 @@ class SquareViewController: UIViewController, ExampleAnalyticsSupport {
                     .add(LoginInterceptor())
                     .from(ExampleConfiguration.destination(for: ExampleTarget.circle)!.finalStep)
                     .assemble()
-    
+
         } else {
             starScreen = StepAssembly(
                     finder: ClassFinder<StarViewController, Any>(options: .currentAllStack),
@@ -69,4 +69,3 @@ class SquareViewController: UIViewController, ExampleAnalyticsSupport {
     }
 
 }
-
