@@ -26,7 +26,7 @@ public extension SimpleContainerFactory {
                 otherFactories.append(factory)
                 return nil
             }
-            return factory as? ChildFactory<Context>
+            return factory
         }
 
         return otherFactories
