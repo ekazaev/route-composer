@@ -55,19 +55,23 @@ public struct DefaultRouter: Router, AssemblableRouter {
                                                 completion: ((_: RoutingResult) -> Void)? = nil) -> RoutingResult {
         logger?.routingWillStart()
 
-        guard Thread.isMainThread else {
-            logger?.log(.error("Attempt to call UI API not on the main thread."))
-            logger?.routingDidFinish()
+        func failGracefully(_ message: LoggerMessage? = nil) -> RoutingResult {
+            if let  message = message {
+                self.logger?.log(message)
+            }
+            self.logger?.routingDidFinish()
             return .unhandled
+        }
+
+        guard Thread.isMainThread else {
+            return failGracefully(.error("Attempt to call UI API not on the main thread."))
         }
 
         // If currently visible view controller can not be dismissed then we can't route anywhere, because it will
         // disappear as a result of routing.
         if let topMostViewController = UIWindow.key?.topmostViewController as? RoutingInterceptable,
            !topMostViewController.canBeDismissed {
-            logger?.log(.warning("Topmost view controller can not be dismissed."))
-            logger?.routingDidFinish()
-            return .unhandled
+            return failGracefully(.warning("Topmost view controller can not be dismissed."))
         }
 
         let postTaskRunner = PostTaskRunner<D>()
@@ -75,8 +79,7 @@ public struct DefaultRouter: Router, AssemblableRouter {
         // Returns (rootViewController, factories, interceptor) tuple
         // where rootViewController is the origin of the chain of views to be built for a given destination.
         guard let stack = prepareStack(destination: destination, postTaskRunner: postTaskRunner) else {
-            logger?.routingDidFinish()
-            return .unhandled
+            return failGracefully()
         }
 
         let viewController = stack.rootViewController, factoriesStack = stack.factories, interceptor = stack.interceptor
@@ -84,9 +87,7 @@ public struct DefaultRouter: Router, AssemblableRouter {
         // check if the view controllers, that are currently presented from the origin view controller for a
         // given destination, can be dismissed.
         if let viewController = viewController.allPresentedViewControllers.nonDismissibleViewController {
-            logger?.log(.warning("\(String(describing: viewController)) view controller can not be dismissed."))
-            logger?.routingDidFinish()
-            return .unhandled
+            return failGracefully(.warning("\(String(describing: viewController)) view controller can not be dismissed."))
         }
 
         // Execute interceptors associated to the each view in the chain. All of interceptors must succeed to
@@ -99,19 +100,16 @@ public struct DefaultRouter: Router, AssemblableRouter {
             }
 
             guard Thread.isMainThread else {
-                failGracefully(.error("Attempt to call UI API not on the main thread."))
-                return
+                return failGracefully(.error("Attempt to call UI API not on the main thread."))
             }
 
             if case let .failure(message) = result {
-                failGracefully(.warning(message ?? "\(interceptor) interceptor stopped routing."))
-                return
+                return failGracefully(.warning(message ?? "\(interceptor) interceptor stopped routing."))
             }
 
             guard let viewController = viewController else {
-                failGracefully(.warning("View controller that been chosen as a starting point of rooting been " +
+                return failGracefully(.warning("View controller that been chosen as a starting point of rooting been " +
                         "destroyed while router was waiting for interceptor's result."))
-                return
             }
 
             self.startRouting(from: viewController,
