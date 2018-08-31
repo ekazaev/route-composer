@@ -46,22 +46,24 @@ class SquareViewController: UIViewController, ExampleAnalyticsSupport {
         if sender.isOn {
             starScreen = StepAssembly(
                     finder: ClassFinder<StarViewController, Any>(options: .currentAllStack),
-                    factory: XibFactory(action: NavigationControllerFactory.PushToNavigation()))
+                    factory: XibFactory())
                     .add(ExampleAnalyticsInterceptor())
                     .add(ExampleGenericContextTask())
                     .add(ExampleAnalyticsPostAction())
                     .add(LoginInterceptor())
+                    .using(NavigationControllerFactory.PushToNavigation())
                     .from(ExampleConfiguration.destination(for: ExampleTarget.circle)!.finalStep)
                     .assemble()
 
         } else {
             starScreen = StepAssembly(
                     finder: ClassFinder<StarViewController, Any>(options: .currentAllStack),
-                    factory: XibFactory(action: TabBarControllerFactory.AddTab()))
+                    factory: XibFactory())
                     .add(ExampleAnalyticsInterceptor())
                     .add(ExampleGenericContextTask())
                     .add(ExampleAnalyticsPostAction())
                     .add(LoginInterceptor())
+                    .using(TabBarControllerFactory.AddTab())
                     .from(ExampleConfiguration.destination(for: ExampleTarget.home)!.finalStep)
                     .assemble()
         }

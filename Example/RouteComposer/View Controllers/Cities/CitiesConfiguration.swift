@@ -19,8 +19,9 @@ class CitiesConfiguration {
     private init() {
         // Split View Controller
         city = StepAssembly(finder: ClassFinder<UISplitViewController, Any?>(),
-                factory: StoryboardFactory(storyboardName: "Split", action: GeneralAction.ReplaceRoot()))
+                factory: StoryboardFactory(storyboardName: "Split"))
                 .add(LoginInterceptor())
+                .using( GeneralAction.ReplaceRoot())
                 .from(RootViewControllerStep())
                 .assemble()
 
@@ -30,6 +31,7 @@ class CitiesConfiguration {
                 .add(ExampleAnalyticsInterceptor())
                 .add(CityTableContextTask())
                 .add(ExampleAnalyticsPostAction())
+                .usingNoAction()
                 .from(city)
                 .assemble()
 
@@ -37,11 +39,11 @@ class CitiesConfiguration {
         cityDetails = StepAssembly(
                 finder: ClassFinder<CityDetailViewController, Int>(),
                 factory: StoryboardFactory(storyboardName: "Split",
-                        viewControllerID: "CityDetailViewController",
-                        action: SplitControllerFactory.PushToDetails()))
+                        viewControllerID: "CityDetailViewController"))
                 .add(ExampleAnalyticsInterceptor())
                 .add(CityDetailContextTask())
                 .add(ExampleAnalyticsPostAction())
+                .using(SplitControllerFactory.PushToDetails())
                 .from(citiesList)
                 .assemble()
     }

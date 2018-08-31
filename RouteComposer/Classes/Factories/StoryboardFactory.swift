@@ -12,8 +12,6 @@ public struct StoryboardFactory<VC: UIViewController, C>: Factory {
 
     public typealias Context = C
 
-    public let action: Action
-
     private let storyboardName: String
 
     private let bundle: Bundle?
@@ -27,9 +25,7 @@ public struct StoryboardFactory<VC: UIViewController, C>: Factory {
     ///   - bundle: The Bundle instance if needed
     ///   - viewControllerID: The `UIViewController` identifier in storyboard. If not set - the `Factory` will try
     ///     to create a storyboards's initial `UIViewController`
-    ///   - action: The `Action` instance to integrate built `UIViewController` into the stack
-    public init(storyboardName: String, bundle: Bundle? = nil, viewControllerID: String? = nil, action: Action) {
-        self.action = action
+    public init(storyboardName: String, bundle: Bundle? = nil, viewControllerID: String? = nil) {
         self.storyboardName = storyboardName
         self.bundle = bundle
         self.viewControllerID = viewControllerID

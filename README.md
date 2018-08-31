@@ -89,10 +89,6 @@ public protocol Factory {
 
     associatedtype Context
 
-    var action: Action { get }
-
-    func prepare(with context: Context) throws
-
     func build(with context: Context) throws -> ViewController
 
 }
@@ -108,12 +104,6 @@ handled, in which case the application might open the provided URL in Safari ins
 
 ```swift
 class ProductViewControllerFactory: Factory {
-
-    let action: Action
-
-    init(action: Action) {
-        self.action = action
-    }
 
     func build(with productID: UUID) throws -> ProductViewController {
         let productViewController = ProductViewController(nibName: "ProductViewController", bundle: nil)
@@ -274,11 +264,13 @@ Use `StepAssembly` provided by the library to configure any step that the router
 which should be presented modally from any currently visible view controller.*
 
 ```swift
-let productScreen = StepAssembly(finder: ProductViewControllerFinder(), factory: ProductViewControllerFactory(action: PushToNavigationAction()))
+let productScreen = StepAssembly(finder: ProductViewControllerFinder(), factory: ProductViewControllerFactory())
         .add(LoginInterceptor())
         .add(ProductViewControllerContextTask())
         .add(ProductViewControllerPostTask(analyticsManager: AnalyticsManager.sharedInstance))
-        .from(NavigationControllerStep(action: DefaultActions.PresentModally()))
+        .using(NavigationControllerFactory.PushToNavigation())
+        .from(NavigationControllerStep())
+        .using(GeneralActions.PresentModally())
         .from(CurrentControllerStep())
         .assemble()
 ```
@@ -316,11 +308,13 @@ struct AppDestination: RoutingDestination {
 struct Configuration {
 
     static func productDestination(with productID: UUID) -> AppDestination {
-        let productScreen = StepAssembly(finder: ProductViewControllerFinder(), factory: ProductViewControllerFactory(action: PushToNavigationAction()))
+        let productScreen = StepAssembly(finder: ProductViewControllerFinder(), factory: ProductViewControllerFactory())
                 .add(LoginInterceptor())
                 .add(ProductViewControllerContextTask())
                 .add(ProductViewControllerPostTask(analyticsManager: AnalyticsManager.sharedInstance))
-                .from(NavigationControllerStep(action: DefaultActions.PresentModally()))
+                .using(NavigationControllerFactory.PushToNavigation())
+                .from(NavigationControllerStep())
+                .using(GeneralActions.PresentModally())
                 .from(CurrentViewControllerStep())
                 .assemble()
 

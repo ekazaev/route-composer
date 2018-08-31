@@ -8,10 +8,8 @@ import UIKit
 @testable import RouteComposer
 
 struct EmptyFactory: Factory {
-    let action: Action
 
-    init(action: Action = GeneralAction.NilAction()) {
-        self.action = action
+    init() {
     }
 
     func build(with context: Any?) throws -> UIViewController {

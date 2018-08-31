@@ -8,15 +8,16 @@ import UIKit
 import RouteComposer
 
 struct WishListConfiguration {
-
     static let wishListScreen = StepAssembly(
             finder: ClassFinder<WishListViewController, WishListContext>(),
-            factory: StoryboardFactory(storyboardName: "TabBar", viewControllerID: "WishListViewController", action: NavigationControllerFactory.PushToNavigation()))
+            factory: StoryboardFactory(storyboardName: "TabBar", viewControllerID: "WishListViewController"))
             .add(LoginInterceptor())
             .add(WishListContextTask())
             .add(ExampleAnalyticsInterceptor())
             .add(ExampleAnalyticsPostAction())
-            .from(NavigationControllerStep(action: GeneralAction.PresentModally(presentationStyle: .formSheet)))
+            .using(NavigationControllerFactory.PushToNavigation())
+            .from(NavigationControllerStep())
+            .using(GeneralAction.PresentModally(presentationStyle: .formSheet))
             .from(CurrentViewControllerStep())
             .assemble()
 

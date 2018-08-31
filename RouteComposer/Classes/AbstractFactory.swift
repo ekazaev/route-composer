@@ -16,11 +16,6 @@ public protocol AbstractFactory {
     /// `Context` to be passed into `UIViewController`
     associatedtype Context
 
-    /// `Action` instance. The `Router` applies `Action` to integrate view controller
-    /// created by `build(with:)` in the existing
-    /// view controller stack
-    var action: Action { get }
-
     /// If the `Factory` can tell the `Router` if it can be built or not - it should overload this method.
     /// `Router` will call it before the routing process and if `Factory` is not able to
     /// build a view controller (example: it has to build a product view

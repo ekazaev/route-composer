@@ -26,8 +26,8 @@ public final class CompleteFactoryAssembly<FC: Container> {
     /// the `Container` `Factory` you use.
     ///
     /// - Parameter childFactory: The instance of `Factory`.
-    public func with<C: Factory>(_ childFactory: C) -> Self where C.Context == FC.Context {
-        guard let factoryBox = FactoryBox.box(for: childFactory) else {
+    public func with<C: Factory>(_ childFactory: C, using action: Action) -> Self where C.Context == FC.Context {
+        guard let factoryBox = FactoryBox.box(for: childFactory, action: action) else {
             return self
         }
         childFactories.append(ChildFactory<C.Context>(factoryBox))
@@ -38,8 +38,8 @@ public final class CompleteFactoryAssembly<FC: Container> {
     /// the `Container` `Factory` you use.
     ///
     /// - Parameter childFactory: The instance of `Factory`.
-    public func with<C: Container>(_ childFactory: C) -> Self where C.Context == FC.Context {
-        guard let factoryBox = ContainerFactoryBox.box(for: childFactory) else {
+    public func with<C: Container>(_ childFactory: C, using action: Action) -> Self where C.Context == FC.Context {
+        guard let factoryBox = ContainerFactoryBox.box(for: childFactory, action: action) else {
             return self
         }
         childFactories.append(ChildFactory<C.Context>(factoryBox))

@@ -33,9 +33,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 // what type of view controller and context to expect. You do not need to do so if you are using at
                 // least one custom factory of finder that have set typealias for ViewController and Context.
                 finder: ClassFinder<UITabBarController, Any?>(),
-                factory: StoryboardFactory(storyboardName: "TabBar", action: GeneralAction.ReplaceRoot()))
+                factory: StoryboardFactory(storyboardName: "TabBar"))
                 .add(ExampleAnalyticsInterceptor())
                 .add(ExampleAnalyticsPostAction())
+                .using(GeneralAction.ReplaceRoot())
                 .from(RootViewControllerStep())
                 .assemble()
 
@@ -48,6 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 .add(ExampleAnalyticsInterceptor())
                 .add(ExampleGenericContextTask())
                 .add(ExampleAnalyticsPostAction())
+                .usingNoAction()
                 .from(homeScreen)
                 .assemble()
 
@@ -60,6 +62,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 .add(ExampleAnalyticsInterceptor())
                 .add(ExampleGenericContextTask())
                 .add(ExampleAnalyticsPostAction())
+                .usingNoAction()
                 .from(homeScreen)
                 .assemble()
 
@@ -68,33 +71,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Color screen
         let colorScreen = StepAssembly(
                 finder: ColorViewControllerFinder(),
-                factory: ColorViewControllerFactory(action: NavigationControllerFactory.PushToNavigation()))
+                factory: ColorViewControllerFactory())
                 .add(ExampleAnalyticsInterceptor())
-                .add(InlineInterceptor({ (_: ExampleDestination) in
-                    print("On before navigation to Color view controller")
-                }))
                 .add(ExampleGenericContextTask())
                 .add(ExampleAnalyticsPostAction())
-                .add(InlineContextTask({ (_: ColorViewController, _: ExampleDictionaryContext) in
-                    print("Color view controller built or found")
-                }))
-                .add(InlinePostTask({ (_: ColorViewController, _: ExampleDestination, _) in
-                    print("After navigation to Color view controller")
-                }))
-                .from(NavigationControllerStep(action: GeneralAction.PresentModally()))
+                .using(NavigationControllerFactory.PushToNavigation())
+                .from(NavigationControllerStep())
+                .using(GeneralAction.PresentModally())
                 .from(CurrentViewControllerStep())
                 .assemble()
-
         ExampleConfiguration.register(screen: colorScreen, for: ExampleTarget.color)
 
         //Star screen
         let starScreen = StepAssembly(
                 finder: ClassFinder<StarViewController, Any>(options: .currentAllStack),
-                factory: XibFactory(action: TabBarControllerFactory.AddTab()))
+                factory: XibFactory())
                 .add(ExampleAnalyticsInterceptor())
                 .add(ExampleGenericContextTask())
                 .add(ExampleAnalyticsPostAction())
                 .add(LoginInterceptor())
+                .using(TabBarControllerFactory.AddTab())
                 .from(homeScreen)
                 .assemble()
 
@@ -103,10 +99,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Screen with Routing support
         let routingSupportScreen = StepAssembly(
                 finder: ClassFinder<RoutingRuleSupportViewController, Any?>(options: .currentAllStack),
-                factory: StoryboardFactory(storyboardName: "TabBar", viewControllerID: "RoutingRuleSupportViewController", action: NavigationControllerFactory.PushToNavigation()))
+                factory: StoryboardFactory(storyboardName: "TabBar", viewControllerID: "RoutingRuleSupportViewController"))
                 .add(ExampleAnalyticsInterceptor())
                 .add(ExampleGenericContextTask())
                 .add(ExampleAnalyticsPostAction())
+                .using(NavigationControllerFactory.PushToNavigation())
                 .from(colorScreen)
                 .assemble()
 
@@ -116,11 +113,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Empty Screen
         let emptyScreen = StepAssembly(
                 finder: ClassFinder<EmptyViewController, Any?>(),
-                factory: StoryboardFactory(storyboardName: "TabBar", viewControllerID: "EmptyViewController", action: NavigationControllerFactory.PushToNavigation()))
+                factory: StoryboardFactory(storyboardName: "TabBar", viewControllerID: "EmptyViewController"))
                 .add(LoginInterceptor())
                 .add(ExampleAnalyticsInterceptor())
                 .add(ExampleGenericContextTask())
                 .add(ExampleAnalyticsPostAction())
+                .using(NavigationControllerFactory.PushToNavigation())
                 .from(circleScreen)
                 .assemble()
 
@@ -129,11 +127,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Two modal presentations in a row screen
         let superModalScreen = StepAssembly(
                 finder: ClassFinder<SecondModalLevelViewController, Any?>(),
-                factory: StoryboardFactory(storyboardName: "TabBar", viewControllerID: "SecondModalLevelViewController", action: NavigationControllerFactory.PushToNavigation()))
+                factory: StoryboardFactory(storyboardName: "TabBar", viewControllerID: "SecondModalLevelViewController"))
                 .add(ExampleAnalyticsInterceptor())
                 .add(ExampleGenericContextTask())
                 .add(ExampleAnalyticsPostAction())
-                .from(NavigationControllerStep(action: GeneralAction.PresentModally(transitioningDelegate: transitionController)))
+                .using(NavigationControllerFactory.PushToNavigation())
+                .from(NavigationControllerStep())
+                .using(GeneralAction.PresentModally(transitioningDelegate: transitionController))
                 .from(routingSupportScreen)
                 .assemble()
 
@@ -142,10 +142,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Welcome Screen
         let welcomeScreen = StepAssembly(
                 finder: ClassFinder<PromptViewController, Any?>(),
-                factory: StoryboardFactory(storyboardName: "PromptScreen", action: GeneralAction.ReplaceRoot()))
+                factory: StoryboardFactory(storyboardName: "PromptScreen"))
                 .add(ExampleAnalyticsInterceptor())
                 .add(ExampleGenericContextTask())
                 .add(ExampleAnalyticsPostAction())
+                .using(GeneralAction.ReplaceRoot())
                 .from(RootViewControllerStep())
                 .assemble()
 

@@ -13,8 +13,6 @@ public struct SplitControllerFactory: Container {
 
     public typealias Context = Any?
 
-    public let action: Action
-
     var masterFactories: [ChildFactory<Context>] = []
 
     var detailFactories: [ChildFactory<Context>] = []
@@ -31,14 +29,10 @@ public struct SplitControllerFactory: Container {
     public let presentsWithGesture: Bool
 
     /// Constructor
-    ///
-    /// - Parameter action: `Action` instance.
-    public init(action: Action,
-                delegate: UISplitViewControllerDelegate? = nil,
+    public init(delegate: UISplitViewControllerDelegate? = nil,
                 presentsWithGesture: Bool = true,
                 isCollapsed: Bool = false,
                 preferredDisplayMode: UISplitViewControllerDisplayMode = .automatic) {
-        self.action = action
         self.delegate = delegate
         self.preferredDisplayMode = preferredDisplayMode
         self.presentsWithGesture = presentsWithGesture

@@ -11,7 +11,7 @@
 		07AEC7A356C95ED61E3A1B9F1A33E71E /* TabBarControllerStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED167FA45ADE77DBB314F59FC4FBF00 /* TabBarControllerStep.swift */; };
 		07DFB767C9B00AD337EAFED6DA940304 /* TabBarControllerAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527A4643453A7CC0542570D15459D52D /* TabBarControllerAction.swift */; };
 		0B164F93E70D2222755D2346A304B298 /* Pods-RouteComposer_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 32F6FD347050D753FFC4109495D09283 /* Pods-RouteComposer_Example-dummy.m */; };
-		0BD898F4D2BE36FC7AB56E6A51CCCE5F /* BasicStepAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE3B0455EFCC0F5E8752B3DA2E40AB0 /* BasicStepAssembly.swift */; };
+		0BD898F4D2BE36FC7AB56E6A51CCCE5F /* StepWithActionAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE3B0455EFCC0F5E8752B3DA2E40AB0 /* StepWithActionAssembly.swift */; };
 		0F4D9CD914F0DD698DD6EF02D9BC2298 /* SwitchAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4151F3BD9DD12E1781FE7B75C2C05F63 /* SwitchAssembly.swift */; };
 		116B4B75BDBA608FB0761F8476E107DD /* RouteComposer-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A64BEE2FF83B20E09334EFBDA149C83C /* RouteComposer-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		11A0CC53B990988759AC3FFD86C0A6CA /* PushToDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7626B4A269016C8DB317244DFE3FCC09 /* PushToDetails.swift */; };
@@ -57,15 +57,22 @@
 		83AFDFF86DB083A1FB783D138D48F2DB /* ClassNameFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BBD82C3BAF0CC71B7AF3BE02F79CDF /* ClassNameFactory.swift */; };
 		83E2ABDA9ED52528F3E2DD0E84FC9BD4 /* SimpleContainerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB232F7BD8482B479315F29EB92437E1 /* SimpleContainerFactory.swift */; };
 		848E5D0120FCB24700479193 /* InlineTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848E5D0020FCB24700479193 /* InlineTasks.swift */; };
-		84DD37D320D7CD6400F24B63 /* AssemblableRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCE29B7B30E42AFA13B4D /* AssemblableRouter.swift */; };
+		849D130F2138CAEC0052FD44 /* Usable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC86DBA8C55F39C672726 /* Usable.swift */; };
 		885C84963817307DC32E33639DFBF769 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B63C6A64CF66340668996F78DA6BB482 /* UIKit.framework */; };
 		891B0C6F1715F12A40393FF436F41908 /* RoutingDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D5B8EE07FAF07E44D837CE4A9F2782 /* RoutingDestination.swift */; };
 		8A1777DA23192BD74AE2DC11C42D2EDE /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D43FFAABDE8FE7BC1287FCF1B8732A /* Logger.swift */; };
 		93A83C41B4740BBF07E8CEB6392A9602 /* RouteComposer-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CE82F3D8CB7BDE890C367655A1490C8D /* RouteComposer-dummy.m */; };
 		9512340EC5888221FAEBF27C604D8A82 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D88AAE1F92055A60CC2FC970D7D34634 /* Foundation.framework */; };
-		9AFBC72822E576C757172D30 /* BasicStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCA9F16F888F057D1ED3B /* BasicStep.swift */; };
-		9AFBC924B59E60D1FE33ED8C /* BasicContainerStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC0206D841211FD5CED86 /* BasicContainerStep.swift */; };
+		9AFBC2B25F7C43A44FDC49F0 /* TypedScreenStepChainAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC02A04ED519EE0AFEE2D /* TypedScreenStepChainAssembly.swift */; };
+		9AFBC3AD64861185BC0F2224 /* TaskCollector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCE42B4A27B047462D8EC /* TaskCollector.swift */; };
+		9AFBC4EBB62A65FDFCE92AA4 /* GenericStepAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCE15B4D4EA9EB680854A /* GenericStepAssembly.swift */; };
+		9AFBC5C2E6183E9398FBAE4A /* LastStepInChainAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC77E19C4D6B96AE28A46 /* LastStepInChainAssembly.swift */; };
+		9AFBC72822E576C757172D30 /* SingleStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCA9F16F888F057D1ED3B /* SingleStep.swift */; };
+		9AFBC924B59E60D1FE33ED8C /* SingleContainerStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC0206D841211FD5CED86 /* SingleContainerStep.swift */; };
 		9AFBCA613619E14899DB6787 /* NilEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC2181754135EAFF590B3 /* NilEntity.swift */; };
+		9AFBCA752DF11937475D973C /* ContainerStepAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC65F176885B8178C5D10 /* ContainerStepAssembly.swift */; };
+		9AFBCC5EE5CB2B4D06EC6F5D /* InterceptableRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC15A7BFA0BF46779AD38 /* InterceptableRouter.swift */; };
+		9AFBCDA8E5EE6655E7E35D1B /* ScreenStepChainAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCDB4B804D1787F306779 /* ScreenStepChainAssembly.swift */; };
 		9AFBCF01101BA9CE74DE82A8 /* AbstractFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC33789E12878D0447B65 /* AbstractFactory.swift */; };
 		9E8D7583FFA3809C8B622CDF5D97D361 /* FinderFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE3E69DEC3763875028FFA0FDE28920 /* FinderFactory.swift */; };
 		A16DFD06F3DEA16C4835790E71BBFFF7 /* GeneralAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6A92ABCEB17804F4014B6C3CEB2AB1 /* GeneralAction.swift */; };
@@ -189,11 +196,18 @@
 		9578CE2D9CD93AC9D52F641485590177 /* PushReplacingLast.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PushReplacingLast.swift; sourceTree = "<group>"; };
 		976B8D63B3CB4AE1A2FC5A61F320D562 /* RoutingInterceptor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RoutingInterceptor.swift; path = RouteComposer/Classes/RoutingInterceptor.swift; sourceTree = "<group>"; };
 		9938465A55D576EFA1770FCCAA4062CA /* CompleteFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CompleteFactory.swift; sourceTree = "<group>"; };
-		9AFBC0206D841211FD5CED86 /* BasicContainerStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicContainerStep.swift; sourceTree = "<group>"; };
+		9AFBC0206D841211FD5CED86 /* SingleContainerStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleContainerStep.swift; sourceTree = "<group>"; };
+		9AFBC02A04ED519EE0AFEE2D /* TypedScreenStepChainAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypedScreenStepChainAssembly.swift; sourceTree = "<group>"; };
+		9AFBC15A7BFA0BF46779AD38 /* InterceptableRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InterceptableRouter.swift; path = ../../Assemblies/InterceptableRouter.swift; sourceTree = "<group>"; };
 		9AFBC2181754135EAFF590B3 /* NilEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NilEntity.swift; sourceTree = "<group>"; };
 		9AFBC33789E12878D0447B65 /* AbstractFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AbstractFactory.swift; path = RouteComposer/Classes/AbstractFactory.swift; sourceTree = "<group>"; };
-		9AFBCA9F16F888F057D1ED3B /* BasicStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicStep.swift; sourceTree = "<group>"; };
-		9AFBCE29B7B30E42AFA13B4D /* AssemblableRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssemblableRouter.swift; sourceTree = "<group>"; };
+		9AFBC65F176885B8178C5D10 /* ContainerStepAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerStepAssembly.swift; sourceTree = "<group>"; };
+		9AFBC77E19C4D6B96AE28A46 /* LastStepInChainAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastStepInChainAssembly.swift; sourceTree = "<group>"; };
+		9AFBC86DBA8C55F39C672726 /* Usable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Usable.swift; sourceTree = "<group>"; };
+		9AFBCA9F16F888F057D1ED3B /* SingleStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleStep.swift; sourceTree = "<group>"; };
+		9AFBCDB4B804D1787F306779 /* ScreenStepChainAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenStepChainAssembly.swift; sourceTree = "<group>"; };
+		9AFBCE15B4D4EA9EB680854A /* GenericStepAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericStepAssembly.swift; sourceTree = "<group>"; };
+		9AFBCE42B4A27B047462D8EC /* TaskCollector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskCollector.swift; sourceTree = "<group>"; };
 		9B384F81C0BB4AB66920BBFD239BBF82 /* NavigationController+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "NavigationController+Extension.swift"; sourceTree = "<group>"; };
 		9B73E9491472765A969B88B346018B81 /* Pods-RouteComposer_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-RouteComposer_Tests.modulemap"; sourceTree = "<group>"; };
 		9C4138B0316E009D6C14F51A5EAF49BC /* PushAsRoot.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PushAsRoot.swift; sourceTree = "<group>"; };
@@ -215,7 +229,7 @@
 		B63C6A64CF66340668996F78DA6BB482 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		B65BB9BEF95AD977807E2559E5E08E2E /* DefaultRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DefaultRouter.swift; sourceTree = "<group>"; };
 		B6A40D3A655409B9BF4EB351A62E130B /* PerformableStep.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PerformableStep.swift; sourceTree = "<group>"; };
-		BDE3B0455EFCC0F5E8752B3DA2E40AB0 /* BasicStepAssembly.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BasicStepAssembly.swift; sourceTree = "<group>"; };
+		BDE3B0455EFCC0F5E8752B3DA2E40AB0 /* StepWithActionAssembly.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StepWithActionAssembly.swift; sourceTree = "<group>"; };
 		C22CA8839C01C7A3BCC15D86616E6331 /* InterceptableStep.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = InterceptableStep.swift; sourceTree = "<group>"; };
 		C34F351174D5D0324B15FF8F4678517F /* ContextTaskMultiplexer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ContextTaskMultiplexer.swift; sourceTree = "<group>"; };
 		C6F77D910CE990B606DE46B459285AD8 /* ChildFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ChildFactory.swift; path = RouteComposer/Classes/ChildFactory.swift; sourceTree = "<group>"; };
@@ -300,7 +314,7 @@
 		3E9E86F827893CAC5C68910E230AE56A /* Steps */ = {
 			isa = PBXGroup;
 			children = (
-				BDE3B0455EFCC0F5E8752B3DA2E40AB0 /* BasicStepAssembly.swift */,
+				BDE3B0455EFCC0F5E8752B3DA2E40AB0 /* StepWithActionAssembly.swift */,
 				87974203166AB43DA16E0D931787F783 /* ChainingStep.swift */,
 				7D61292E54CBF4E19E4EB7E487321C4C /* CurrentViewControllerStep.swift */,
 				D8213CEE60BFAE73FC38D18124FCCCC0 /* NavigationControllerStep.swift */,
@@ -308,8 +322,8 @@
 				45755307A89C7B47788E5947D6720634 /* SplitControllerStep.swift */,
 				CCBE59821F8AED7E59B1B4B2C1EC91A0 /* SwitcherStep.swift */,
 				3ED167FA45ADE77DBB314F59FC4FBF00 /* TabBarControllerStep.swift */,
-				9AFBC0206D841211FD5CED86 /* BasicContainerStep.swift */,
-				9AFBCA9F16F888F057D1ED3B /* BasicStep.swift */,
+				9AFBC0206D841211FD5CED86 /* SingleContainerStep.swift */,
+				9AFBCA9F16F888F057D1ED3B /* SingleStep.swift */,
 			);
 			name = Steps;
 			path = RouteComposer/Classes/Steps;
@@ -354,6 +368,7 @@
 				B6A40D3A655409B9BF4EB351A62E130B /* PerformableStep.swift */,
 				CB2C406A5E80B8B0FD28159A5BB5ECB3 /* StepResult.swift */,
 				9AFBC2181754135EAFF590B3 /* NilEntity.swift */,
+				9AFBC15A7BFA0BF46779AD38 /* InterceptableRouter.swift */,
 			);
 			path = Internal;
 			sourceTree = "<group>";
@@ -422,6 +437,19 @@
 				A7E1F94D09794F72833C931864D96017 /* RouteComposer.framework */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		849D131121398EB40052FD44 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				9AFBC86DBA8C55F39C672726 /* Usable.swift */,
+				9AFBCE15B4D4EA9EB680854A /* GenericStepAssembly.swift */,
+				9AFBCE42B4A27B047462D8EC /* TaskCollector.swift */,
+				9AFBC77E19C4D6B96AE28A46 /* LastStepInChainAssembly.swift */,
+				9AFBC02A04ED519EE0AFEE2D /* TypedScreenStepChainAssembly.swift */,
+				9AFBCDB4B804D1787F306779 /* ScreenStepChainAssembly.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		9143B03794C35CC41ED94472DBD28568 /* Factories */ = {
@@ -535,11 +563,12 @@
 		D88B1AB58CCE957021FE76D368CC2CB1 /* Assemblies */ = {
 			isa = PBXGroup;
 			children = (
+				849D131121398EB40052FD44 /* Helpers */,
 				EC7AB65732644E742F93826F513E8290 /* ChainAssembly.swift */,
 				41EB32A37FD86347767FE708D1DE7DDA /* CompleteFactoryAssembly.swift */,
 				1DC4E4E84BE62829BE86295B19165C95 /* StepAssembly.swift */,
 				4151F3BD9DD12E1781FE7B75C2C05F63 /* SwitchAssembly.swift */,
-				9AFBCE29B7B30E42AFA13B4D /* AssemblableRouter.swift */,
+				9AFBC65F176885B8178C5D10 /* ContainerStepAssembly.swift */,
 			);
 			name = Assemblies;
 			path = RouteComposer/Classes/Assemblies;
@@ -748,7 +777,7 @@
 				CC4B9E4B8F7AFC48232C696BE2B07F6F /* AnyRoutingInterceptor.swift in Sources */,
 				AA16BDA705523E10947A1D5954D5B6CC /* Array+Extension.swift in Sources */,
 				49A4EBFEDF453AB65E3C28CF65F0E976 /* BaseStep.swift in Sources */,
-				0BD898F4D2BE36FC7AB56E6A51CCCE5F /* BasicStepAssembly.swift in Sources */,
+				0BD898F4D2BE36FC7AB56E6A51CCCE5F /* StepWithActionAssembly.swift in Sources */,
 				F8E93EBC2E85466DFF8E85516E2C4A26 /* ChainableStep.swift in Sources */,
 				848E5D0120FCB24700479193 /* InlineTasks.swift in Sources */,
 				34F328B7B50D769FEDB18FBAC75C0434 /* ChainAssembly.swift in Sources */,
@@ -805,8 +834,8 @@
 				83E2ABDA9ED52528F3E2DD0E84FC9BD4 /* SimpleContainerFactory.swift in Sources */,
 				AA34201B51E62E48C1CB5F83C576CC74 /* SplitControllerAction.swift in Sources */,
 				D60087D29A3F240FBB96818681810CC8 /* SplitControllerFactory.swift in Sources */,
+				849D130F2138CAEC0052FD44 /* Usable.swift in Sources */,
 				E40BD3553C2795D485BF03983AD95305 /* SplitControllerStep.swift in Sources */,
-				84DD37D320D7CD6400F24B63 /* AssemblableRouter.swift in Sources */,
 				54A2D662D3B4AB802359FD380EE98B24 /* SplitViewController+Extension.swift in Sources */,
 				819FBC400EAED0B8293FEF0C377086B0 /* StackIteratingFinder.swift in Sources */,
 				F0D180891030C21CC60598933C6005E7 /* StepAssembly.swift in Sources */,
@@ -821,10 +850,17 @@
 				3F5E257D7A40725FF303197AD6B22980 /* UIViewController+Extension.swift in Sources */,
 				C9F19A17D53D4A801216E3B71C47EE96 /* UIWindow+Extension.swift in Sources */,
 				F6BB8763453C0E9CF9E75AD396E13DB4 /* XibFactory.swift in Sources */,
-				9AFBC924B59E60D1FE33ED8C /* BasicContainerStep.swift in Sources */,
-				9AFBC72822E576C757172D30 /* BasicStep.swift in Sources */,
+				9AFBC924B59E60D1FE33ED8C /* SingleContainerStep.swift in Sources */,
+				9AFBC72822E576C757172D30 /* SingleStep.swift in Sources */,
 				9AFBCA613619E14899DB6787 /* NilEntity.swift in Sources */,
 				9AFBCF01101BA9CE74DE82A8 /* AbstractFactory.swift in Sources */,
+				9AFBCC5EE5CB2B4D06EC6F5D /* InterceptableRouter.swift in Sources */,
+				9AFBC4EBB62A65FDFCE92AA4 /* GenericStepAssembly.swift in Sources */,
+				9AFBC3AD64861185BC0F2224 /* TaskCollector.swift in Sources */,
+				9AFBC5C2E6183E9398FBAE4A /* LastStepInChainAssembly.swift in Sources */,
+				9AFBC2B25F7C43A44FDC49F0 /* TypedScreenStepChainAssembly.swift in Sources */,
+				9AFBCDA8E5EE6655E7E35D1B /* ScreenStepChainAssembly.swift in Sources */,
+				9AFBCA752DF11937475D973C /* ContainerStepAssembly.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

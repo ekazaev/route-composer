@@ -11,6 +11,8 @@ import UIKit
 /// Dummy struct to be provided to an assembly to show that this step should not have any factories
 /// The only purpose it exists is to provide type safety checks for `StepAssembly`.
 ///
+/// NB: Must be chained with a `NilAction`!
+///
 /// For example, `UIViewController` of this step was already loaded and integrated into a stack by a
 /// storyboard.
 public struct NilFactory<VC: UIViewController, C>: Factory, NilEntity {
@@ -19,11 +21,8 @@ public struct NilFactory<VC: UIViewController, C>: Factory, NilEntity {
 
     public typealias Context = C
 
-    public let action: Action
-
     /// Constructor
-    public init(action: Action = GeneralAction.NilAction()) {
-        self.action = action
+    public init() {
     }
 
     public func build(with context: Context) throws -> ViewController {

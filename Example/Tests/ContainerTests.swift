@@ -6,8 +6,8 @@ class ContainerTests: XCTestCase {
 
     func testChildViewControllersBuild() {
         var children: [ChildFactory<Any?>] = []
-        children.append(ChildFactory<Any?>(FactoryBox.box(for: EmptyFactory(action: NavigationControllerFactory.PushToNavigation()))!))
-        children.append(ChildFactory<Any?>(FactoryBox.box(for: EmptyFactory(action: NavigationControllerFactory.PushToNavigation()))!))
+        children.append(ChildFactory<Any?>(FactoryBox.box(for: EmptyFactory(), action: NavigationControllerFactory.PushToNavigation())!))
+        children.append(ChildFactory<Any?>(FactoryBox.box(for: EmptyFactory(), action: NavigationControllerFactory.PushToNavigation())!))
         let container = EmptyContainer()
         guard let childrenControllers = try? container.buildChildrenViewControllers(from: children, with: nil) else {
             XCTAssert(false, "Unable to build children view controllers")
@@ -18,11 +18,11 @@ class ContainerTests: XCTestCase {
 
     func testMergeRightAction() {
         var children: [ChildFactory<Any?>] = []
-        children.append(ChildFactory<Any?>(FactoryBox.box(for: EmptyFactory())!))
-        children.append(ChildFactory<Any?>(FactoryBox.box(for: EmptyFactory())!))
-        children.append(ChildFactory<Any?>(FactoryBox.box(for: EmptyFactory(action: NavigationControllerFactory.PushToNavigation()))!))
-        children.append(ChildFactory<Any?>(FactoryBox.box(for: EmptyFactory(action: NavigationControllerFactory.PushAsRoot()))!))
-        children.insert(ChildFactory<Any?>(FactoryBox.box(for: EmptyFactory(action: NavigationControllerFactory.PushReplacingLast()))!), at: 0)
+        children.append(ChildFactory<Any?>(FactoryBox.box(for: EmptyFactory(), action: GeneralAction.NilAction())!))
+        children.append(ChildFactory<Any?>(FactoryBox.box(for: EmptyFactory(), action: GeneralAction.NilAction())!))
+        children.append(ChildFactory<Any?>(FactoryBox.box(for: EmptyFactory(), action: NavigationControllerFactory.PushToNavigation())!))
+        children.append(ChildFactory<Any?>(FactoryBox.box(for: EmptyFactory(), action: NavigationControllerFactory.PushAsRoot())!))
+        children.insert(ChildFactory<Any?>(FactoryBox.box(for: EmptyFactory(), action: NavigationControllerFactory.PushReplacingLast())!), at: 0)
 
         var container = EmptyContainer()
         let restChildren = container.merge(children)
@@ -31,18 +31,18 @@ class ContainerTests: XCTestCase {
 
     func testMergeWrongAction() {
         var children: [ChildFactory<Any?>] = []
-        children.append(ChildFactory<Any?>(FactoryBox.box(for: EmptyFactory())!))
-        children.append(ChildFactory<Any?>(FactoryBox.box(for: EmptyFactory())!))
+        children.append(ChildFactory<Any?>(FactoryBox.box(for: EmptyFactory(), action: GeneralAction.NilAction())!))
+        children.append(ChildFactory<Any?>(FactoryBox.box(for: EmptyFactory(), action: GeneralAction.NilAction())!))
         var container = EmptyContainer()
         let restChildren = container.merge(children)
         XCTAssertEqual(restChildren.count, 2)
     }
 
     func testNavigationControllerContainer() {
-        var container = NavigationControllerFactory(action: GeneralAction.PresentModally())
+        var container = NavigationControllerFactory()
         var children: [ChildFactory<Any?>] = []
-        children.append(ChildFactory<Any?>(FactoryBox.box(for: EmptyFactory(action: NavigationControllerFactory.PushToNavigation()))!))
-        children.append(ChildFactory<Any?>(FactoryBox.box(for: EmptyFactory(action: NavigationControllerFactory.PushToNavigation()))!))
+        children.append(ChildFactory<Any?>(FactoryBox.box(for: EmptyFactory(), action: NavigationControllerFactory.PushToNavigation())!))
+        children.append(ChildFactory<Any?>(FactoryBox.box(for: EmptyFactory(), action: NavigationControllerFactory.PushToNavigation())!))
         let restChildren = container.merge(children)
         XCTAssertEqual(restChildren.count, 0)
         guard let containerController = try? container.build(with: nil) else {
@@ -53,10 +53,10 @@ class ContainerTests: XCTestCase {
     }
 
     func testTabBarControllerContainer() {
-        var container = TabBarControllerFactory(action: GeneralAction.PresentModally())
+        var container = TabBarControllerFactory()
         var children: [ChildFactory<Any?>] = []
-        children.append(ChildFactory<Any?>(FactoryBox.box(for: EmptyFactory(action: TabBarControllerFactory.AddTab()))!))
-        children.append(ChildFactory<Any?>(FactoryBox.box(for: EmptyFactory(action: TabBarControllerFactory.AddTab()))!))
+        children.append(ChildFactory<Any?>(FactoryBox.box(for: EmptyFactory(), action: TabBarControllerFactory.AddTab())!))
+        children.append(ChildFactory<Any?>(FactoryBox.box(for: EmptyFactory(), action: TabBarControllerFactory.AddTab())!))
         let restChildren = container.merge(children)
         XCTAssertEqual(restChildren.count, 0)
         guard let containerController = try? container.build(with: nil) else {
@@ -67,10 +67,10 @@ class ContainerTests: XCTestCase {
     }
 
     func testSplitControllerContainer() {
-        var container = SplitControllerFactory(action: GeneralAction.PresentModally())
+        var container = SplitControllerFactory()
         var children: [ChildFactory<Any?>] = []
-        children.append(ChildFactory<Any?>(FactoryBox.box(for: EmptyFactory(action: SplitControllerFactory.PushToMaster()))!))
-        children.append(ChildFactory<Any?>(FactoryBox.box(for: EmptyFactory(action: SplitControllerFactory.PushToDetails()))!))
+        children.append(ChildFactory<Any?>(FactoryBox.box(for: EmptyFactory(), action: SplitControllerFactory.PushToMaster())!))
+        children.append(ChildFactory<Any?>(FactoryBox.box(for: EmptyFactory(), action: SplitControllerFactory.PushToDetails())!))
         let restChildren = container.merge(children)
         XCTAssertEqual(restChildren.count, 0)
         guard let containerController = try? container.build(with: nil) else {

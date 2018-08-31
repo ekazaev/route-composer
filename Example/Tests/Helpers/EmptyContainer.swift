@@ -13,10 +13,7 @@ struct EmptyContainer: SimpleContainerFactory {
 
     var factories: [ChildFactory<Any?>] = []
 
-    let action: Action
-
-    init(action: Action = GeneralAction.NilAction()) {
-        self.action = action
+    init() {
     }
 
     func build(with context: Any?) throws -> UIViewController {

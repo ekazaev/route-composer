@@ -10,12 +10,9 @@ import ImageDetailsController
 
 class ImageDetailsFactory: Factory {
 
-    let action: Action
-
     weak var delegate: ImageDetailsControllerDelegate?
 
-    init(delegate: ImageDetailsControllerDelegate, action: Action) {
-        self.action = action
+    init(delegate: ImageDetailsControllerDelegate) {
         self.delegate = delegate
     }
 

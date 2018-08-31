@@ -18,12 +18,9 @@ class CustomContainerFactory: SimpleContainerFactory {
 
     var factories: [ChildFactory<Context>] = []
 
-    let action: Action
-
     weak var delegate: CustomViewControllerDelegate?
 
-    init(delegate: CustomViewControllerDelegate, action: Action) {
-        self.action = action
+    init(delegate: CustomViewControllerDelegate) {
         self.delegate = delegate
     }
 
