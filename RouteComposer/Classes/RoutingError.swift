@@ -4,9 +4,9 @@
 
 import Foundation
 
-/// Routing Error representation
+/// Routing `Error` representation
 ///
-/// - message: Message describing error that happened
+/// - message: Message describing an error that happened
 public enum RoutingError: Error {
 
     ///  Message describing error that happened

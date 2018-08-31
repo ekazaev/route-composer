@@ -5,7 +5,7 @@
 
 import UIKit
 
-/// Returns the root view controller of the window.
+/// Returns the root view controller of the key window.
 public struct RootViewControllerStep: RoutingStep, PerformableStep {
 
     /// Constructor

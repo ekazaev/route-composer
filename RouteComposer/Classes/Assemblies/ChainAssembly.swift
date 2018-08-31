@@ -4,7 +4,7 @@
 
 import Foundation
 
-/// Connects array of steps into a chain of steps.
+/// Connects an array of steps into a chain of steps.
 /// ### Usage
 /// ```swift
 /// let intermediateStep = ChainAssembly()
@@ -25,7 +25,7 @@ public struct ChainAssembly {
         self.previousSteps = previousSteps
     }
 
-    /// Previous step to start build current step from
+    /// A previous step to start build a current step from
     ///
     /// - Parameter previousStep: The instance of `RoutingStep` and `ChainingStep`
     public func from(_ step: RoutingStep & ChainingStep) -> ScreenStepChainAssembly {
@@ -34,7 +34,7 @@ public struct ChainAssembly {
         return ScreenStepChainAssembly(previousSteps: previousSteps)
     }
 
-    /// Basic step to start build current step from
+    /// A single step to start build a current step from
     ///
     /// - Parameter previousStep: The instance of `StepWithActionAssemblable`
     public func from<F: Finder, FC: AbstractFactory>(_ step: StepWithActionAssembly<F,FC>) -> TypedScreenStepChainAssembly<F, FC>
@@ -42,7 +42,7 @@ public struct ChainAssembly {
         return TypedScreenStepChainAssembly(stepToFullFill: step, previousSteps: previousSteps)
     }
 
-    /// Previous `RoutingStep` to start build current step from
+    /// A Previous `RoutingStep` to start build a current step from
     ///
     /// - Parameter previousStep: The instance of `RoutingStep`
     public func from(_ step: RoutingStep) -> LastStepInChainAssembly {
@@ -53,8 +53,8 @@ public struct ChainAssembly {
 
     /// Assemble all the provided settings.
     ///
-    /// - Parameter step: The instance of `RoutingStep` to start to build current step from.
-    /// - Returns: The instance of `RoutingStep` with all the settings provided inside.
+    /// - Parameter step: An instance of `RoutingStep` to start to build a current step from.
+    /// - Returns: An instance of `RoutingStep` with all the provided settings inside.
     public func assemble(from step: RoutingStep) -> RoutingStep {
         var previousSteps = self.previousSteps
         previousSteps.append(step)

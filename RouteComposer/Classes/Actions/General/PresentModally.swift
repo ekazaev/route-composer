@@ -5,11 +5,11 @@
 
 import UIKit
 
-/// Presents `UIViewController` using present(viewControllerToPresent, animated, completion) method of existing view
+/// Presents `UIViewController` using present(viewControllerToPresent, animated, completion) method of the existing view
 /// controller
 public extension GeneralAction {
 
-    /// Presents view controller modally
+    /// Presents a view controller modally
     public struct PresentModally: Action {
 
         let presentationStyle: UIModalPresentationStyle?
@@ -23,7 +23,7 @@ public extension GeneralAction {
         /// - Parameters:
         ///   - presentationStyle: UIModalPresentationStyle setting, default value: .fullScreen
         ///   - transitionStyle: UIModalTransitionStyle setting, default value: .coverVertical
-        ///   - transitioningDelegate: UIViewControllerTransitioningDelegate instance to be used during transition
+        ///   - transitioningDelegate: UIViewControllerTransitioningDelegate instance to be used during the transition
         public init(presentationStyle: UIModalPresentationStyle? = .fullScreen,
                     transitionStyle: UIModalTransitionStyle? = .coverVertical,
                     transitioningDelegate: UIViewControllerTransitioningDelegate? = nil) {

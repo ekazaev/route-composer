@@ -8,7 +8,7 @@ import UIKit
 /// Default navigation container step
 public class NavigationControllerStep: SingleContainerStep<NilFinder<UINavigationController, Any?>, NavigationControllerFactory, UINavigationController> {
 
-    /// Creates the default `UINavigationController` and applies an `Action` if it is provided.
+    /// Constructor
     public init() {
         super.init(finder: NilFinder(), factory: NavigationControllerFactory())
     }

@@ -5,10 +5,10 @@
 import Foundation
 import UIKit
 
-/// Presents as master view controller in `UISplitViewController`
+/// Presents a master view controller in the `UISplitViewController`
 public extension SplitControllerFactory {
 
-    /// Presents as master view controller in `UISplitViewController`
+    /// Presents a master view controller in the `UISplitViewController`
     public struct PushToMaster: SplitControllerMasterAction {
 
         /// Constructor

@@ -15,7 +15,7 @@ public struct SearchOptions: OptionSet {
         self.rawValue = rawValue
     }
 
-    /// Compare with view controller provided
+    /// Compare with a view controller provided
     public static let current = SearchOptions(rawValue: 1 << 0)
 
     /// If the view controller is a container, search in its visible view controllers
@@ -24,10 +24,10 @@ public struct SearchOptions: OptionSet {
     /// If the view controller is a container, search in all the view controllers it contains
     public static let containing = SearchOptions(rawValue: 1 << 2)
 
-    /// Search from the view controller provided in all view controllers it presented
+    /// Start the search from the view controller provided and search in all view controllers it presented
     public static let presented = SearchOptions(rawValue: 1 << 3)
 
-    /// Search from the view controller provided in all view controllers that presenting it
+    /// Start the search from the view controller provided and search in all view controllers that presenting it
     public static let presenting = SearchOptions(rawValue: 1 << 4)
 
     /// If the view controller is a container, search in all the view controllers it contains
@@ -53,14 +53,14 @@ public struct SearchOptions: OptionSet {
 
 public extension UIViewController {
 
-    /// Iterates through view controller stack to find a desired `UIViewController` instance.
+    /// Iterates through the view controller stack to finds a `UIViewController` instance.
     ///
     /// - Parameters:
-    ///   - vc: `UIViewController` instance to start from.
+    ///   - vc: A `UIViewController` instance to start from.
     ///   - options: A combination of `SearchOptions`.
-    ///   - comparator: Block that should return `true` if provided `UIViewController` instance is the
+    ///   - comparator: Block that should return `true` if the `UIViewController` instance provided is the
     ///     one that user is looking for.
-    /// - Returns: `UIViewController` instance if found, `nil` otherwise.
+    /// - Returns: A `UIViewController` instance if found, `nil` otherwise.
     public static func findViewController(in viewController: UIViewController,
                                           options: SearchOptions = .currentAndUp,
                                           using comparator: (UIViewController) -> Bool) -> UIViewController? {

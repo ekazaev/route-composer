@@ -5,9 +5,9 @@
 import Foundation
 import UIKit
 
-/// Builder class that helps to create a `RoutingStep` instance with correct settings.
+/// Builds a `RoutingStep` instance with the correct settings.
 /// ### Keep in mind
-/// Both `Finder` and `Factory` instances should deal with same type of `UIViewController` and `Context` instances.
+/// Both `Finder` and `Factory` instances should deal with the same type of `UIViewController` and `Context` instances.
 /// ### Usage
 /// ```swift
 /// let productScreen = StepAssembly(finder: ProductViewControllerFinder(), factory: ProductViewControllerFactory())

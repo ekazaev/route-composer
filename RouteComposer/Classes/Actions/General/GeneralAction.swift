@@ -5,7 +5,7 @@
 import Foundation
 import UIKit
 
-/// Just a wrapper for general actions that can be applied to any `UIViewController`
+/// Just a wrapper for the general actions that can be applied to any `UIViewController`
 public struct GeneralAction {
 
 }

@@ -5,8 +5,8 @@
 import Foundation
 import UIKit
 
-/// Dummy struct to be provided to an assembly to show that this that never should be found in a view controller stack
-/// and should always be created from scratch.
+/// Dummy struct used to represent that nothing should be found in a view controller stack
+/// and a `UIViewController` should always be created from scratch.
 /// The only purpose it exists is to provide type safety checks for `StepAssembly`.
 ///
 /// For example, `UIViewController` of this step was already loaded and integrated into a stack by a storyboard.

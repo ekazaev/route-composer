@@ -18,8 +18,8 @@ public protocol RoutingInterceptor {
 
     /// If the `RoutingInterceptor` can tell the `Router` if it can be executed or not and does not need to be async
     /// - it should overload this method.
-    /// `Router` will call it before the routing process and if `RoutingInterceptor` is not able to allow
-    /// the routing process to start it can stop `Router` from routing to this destination
+    /// The `Router` will call it before the routing process and if `RoutingInterceptor` is not able to allow
+    /// the routing process to start it can stop `Router`
     /// and the result of routing will be `.unhandled` without any changes in view controller stack.
     ///
     /// - Parameters:
@@ -35,8 +35,8 @@ public protocol RoutingInterceptor {
     ///   - completion: Completion block with a result.
     ///
     /// ###NB
-    /// For `Router` to continue routing, completion of interceptor's execute method **MUST** to be called
-    /// in any scenario.
+    /// For the `Router` to continue routing, the `completion` block of interceptor **MUST** to be called
+    /// in any case by the implementation of this method.
     /// Otherwise `Router` will stay in limbo waiting for `RoutingInterceptor` to finish its action.
     func execute(for destination: Destination, completion: @escaping (_: InterceptorResult) -> Void)
 

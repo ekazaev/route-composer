@@ -8,13 +8,13 @@
 import Foundation
 import UIKit
 
-/// Dummy struct to be provided to an assembly to show that this step should not have any factories
-/// The only purpose it exists is to provide type safety checks for `StepAssembly`.
+/// The dummy struct used to represent the `Factory` that does not build anything.
+/// The only purpose it exists is to provide the type safety checks for the `StepAssembly`.
 ///
-/// NB: Must be chained with a `NilAction`!
+/// NB: Must be chained with the `NilAction`!
 ///
-/// For example, `UIViewController` of this step was already loaded and integrated into a stack by a
-/// storyboard.
+/// For example, the `UIViewController` of step was already loaded and integrated into a stack by a
+/// storyboard in a previous step.
 public struct NilFactory<VC: UIViewController, C>: Factory, NilEntity {
 
     public typealias ViewController = VC

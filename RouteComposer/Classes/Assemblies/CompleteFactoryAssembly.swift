@@ -4,7 +4,7 @@
 
 import Foundation
 
-/// Assembly that allows you to build a `Container` `Factory` with a preset child `UIViewController` factories.
+/// Builds a `Container` fulfilled with the child `UIViewController` factories.
 ///
 /// *Example: You want your `UITabBarController` instance to be built by this `Factory`
 /// with all the `UIViewController`s populated into each tab*
@@ -17,12 +17,12 @@ public final class CompleteFactoryAssembly<FC: Container> {
     /// Constructor
     ///
     /// - Parameters:
-    ///   - factory: The `UIViewController` `Container` `Factory` instance.
+    ///   - factory: The `Container` instance.
     public init(factory: FC) {
         self.factory = factory
     }
 
-    /// Adds `Factory` that is going to be used as a child. Make sure that you use an `Action` that is compatible with
+    /// Adds a `Factory` that is going to be used as a child. Make sure that you use an `Action` that is compatible with
     /// the `Container` `Factory` you use.
     ///
     /// - Parameter childFactory: The instance of `Factory`.
@@ -34,7 +34,7 @@ public final class CompleteFactoryAssembly<FC: Container> {
         return self
     }
 
-    /// Adds `Container` that is going to be used as a child. Make sure that you use an `Action` that is compatible with
+    /// Adds a `Container` that is going to be used as a child. Make sure that you use an `Action` that is compatible with
     /// the `Container` `Factory` you use.
     ///
     /// - Parameter childFactory: The instance of `Factory`.
@@ -46,7 +46,7 @@ public final class CompleteFactoryAssembly<FC: Container> {
         return self
     }
 
-    /// Assembles all the child factories provided and returns a `Container` `Factory` instance.
+    /// Assembles all the child factories provided and returns a `Container` instance.
     ///
     /// - Returns: The `CompleteFactory` with child factories provided.
     public func assemble() -> CompleteFactory<FC> {

@@ -4,6 +4,6 @@
 
 import Foundation
 
-/// Protocol that explains to the library that entity should be ignored by the library.
+/// The Protocol that explains to the library that entity should be ignored.
 public protocol NilEntity {
 }

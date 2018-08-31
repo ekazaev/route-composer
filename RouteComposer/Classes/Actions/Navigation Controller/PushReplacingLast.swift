@@ -5,10 +5,10 @@
 
 import UIKit
 
-/// Pushes view controller into the `UINavigationController`'s child stack
+/// Pushes a view controller into the `UINavigationController`'s child stack replacing the last one
 public extension NavigationControllerFactory {
 
-    /// Pushes view controller into the `UINavigationController`'s child stack
+    /// Pushes a view controller into the `UINavigationController`'s child stack replacing the last one
     public struct PushReplacingLast: NavigationControllerAction {
 
         /// Constructor

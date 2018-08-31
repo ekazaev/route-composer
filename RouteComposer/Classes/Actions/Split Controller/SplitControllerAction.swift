@@ -6,12 +6,12 @@
 import Foundation
 import UIKit
 
-/// `Action` type supported by `SplitControllerFactory`'s nested master view controllers.
+/// `Action` type supported by the `SplitControllerFactory`'s nested master view controllers.
 public protocol SplitControllerMasterAction: Action {
 
 }
 
-/// `Action` type supported by `SplitControllerFactory`'s nested details view controllers.
+/// `Action` type supported by the `SplitControllerFactory`'s nested details view controllers.
 public protocol SplitControllerDetailAction: Action {
 
 }

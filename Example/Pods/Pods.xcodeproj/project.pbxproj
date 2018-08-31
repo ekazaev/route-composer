@@ -204,6 +204,7 @@
 		9AFBC65F176885B8178C5D10 /* ContainerStepAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerStepAssembly.swift; sourceTree = "<group>"; };
 		9AFBC77E19C4D6B96AE28A46 /* LastStepInChainAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastStepInChainAssembly.swift; sourceTree = "<group>"; };
 		9AFBC86DBA8C55F39C672726 /* Usable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Usable.swift; sourceTree = "<group>"; };
+		9AFBCA8B8BCB6B374B0BECE7 /* EXAMPLES.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = EXAMPLES.md; sourceTree = "<group>"; };
 		9AFBCA9F16F888F057D1ED3B /* SingleStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleStep.swift; sourceTree = "<group>"; };
 		9AFBCDB4B804D1787F306779 /* ScreenStepChainAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenStepChainAssembly.swift; sourceTree = "<group>"; };
 		9AFBCE15B4D4EA9EB680854A /* GenericStepAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericStepAssembly.swift; sourceTree = "<group>"; };
@@ -546,6 +547,7 @@
 				01DCEB5D2C8489665C409337BF083BE8 /* LICENSE */,
 				35BC953C7E06734AD7CEBD4CFE637866 /* README.md */,
 				129885F9AB7BE11ECC684AD3BFF12D8D /* RouteComposer.podspec */,
+				9AFBCA8B8BCB6B374B0BECE7 /* EXAMPLES.md */,
 			);
 			name = Pod;
 			sourceTree = "<group>";

@@ -9,11 +9,11 @@ import Foundation
 /// Base router protocol.
 public protocol Router {
 
-    /// Routes application to the `RoutingDestination` provided.
+    /// Navigates an application to the `RoutingDestination` provided.
     ///
     /// - Parameters:
     ///   - destination: `RoutingDestination` instance.
-    ///   - animated: when true - routing should be animated where possible.
+    ///   - animated: if true - the navigation should be animated where possible.
     ///   - completion: completion block.
     /// - Returns: `RoutingResult` instance.
     @discardableResult

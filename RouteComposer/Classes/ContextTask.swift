@@ -8,17 +8,18 @@
 import Foundation
 import UIKit
 
-/// The task to be executed after `UIViewController` created or found.
+/// The task to be executed after a `UIViewController` was created or found.
 public protocol ContextTask {
 
-    /// `UIViewController` type associated with this `ContextTask`
+    /// A`UIViewController` type associated with this `ContextTask`
     associatedtype ViewController: UIViewController
 
-    /// Context type associated with this `ContextTask`
+    /// A Context type associated with this `ContextTask`
     associatedtype Context
 
-    /// Use this method to inform the `Router` that task can't be applied before it will start actual routing by throwing
-    /// `RoutingError`
+    /// If the `ContextTask` can tell the `Router` if it can be applied a `UIViewController` or not - it should implement this method.
+    /// The `Router` will call it before the routing process and if the `ContextTask` is not able to
+    /// be applied a view controller it should throw an exception.
     ///
     /// - Parameters:
     ///   - context: The `Context` instance provided to the `Router`

@@ -5,7 +5,7 @@
 
 import Foundation
 
-/// The result of the Routing process
+/// The result of the routing process
 ///
 /// - handled: The request to process the routing resulted in a successful navigation to the destination.
 /// - unhandled: The request to process the routing was not handled and therefore did not result in any navigation.

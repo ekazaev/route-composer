@@ -5,10 +5,10 @@
 import Foundation
 import UIKit
 
-/// the case resolver for `SwitcherStep`
+/// The case resolver for `SwitcherStep`
 public protocol StepCaseResolver {
 
-    /// THE Method to be called by a `SwitcherStep` at the moment when it will try to find a previous
+    /// The method to be called by a `SwitcherStep` at the moment when it will try to find a previous
     /// step for the `Router`.
     ///
     /// - Parameter destination: A `RoutingDestination` instance that been passed to the `Router`

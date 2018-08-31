@@ -6,11 +6,10 @@
 import Foundation
 import UIKit
 
-/// If, by the time of this `Finder` instantiation, `UIViewController` instance it should provide to
-/// the `Router` is known and exists - use this finder.
+/// The `Finder` the provides to the `Router` a known instance of the `UIViewController`
 public struct InstanceFinder<VC: UIViewController, C>: Finder {
 
-    /// `UIViewController` type associated with this `InstanceFinder`
+    /// The `UIViewController` type associated with this `InstanceFinder`
     public typealias ViewController = VC
 
     /// The context type associated with this `InstanceFinder`

@@ -22,8 +22,8 @@ public struct XibFactory<VC: UIViewController, C>: Factory {
     /// Constructor
     ///
     /// - Parameters:
-    ///   - nibName: Xib file name
-    ///   - bundle: Bundle instance if needed
+    ///   - nibName: A Xib file name
+    ///   - bundle: A `Bundle` instance if needed
     public init(nibName: String? = nil, bundle: Bundle? = nil) {
         self.nibName = nibName
         self.bundle = bundle

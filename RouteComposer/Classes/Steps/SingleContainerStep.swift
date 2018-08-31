@@ -5,7 +5,7 @@
 import Foundation
 import UIKit
 
-/// Base class for steps that produces basic container steps.
+/// Base class for the basic container steps.
 public class SingleContainerStep<F: Finder, FC: Container, C: ContainerViewController>: StepWithActionAssembly<F, FC>
         where
         F.ViewController == FC.ViewController, F.Context == FC.Context, FC.ViewController == C {
@@ -14,7 +14,7 @@ public class SingleContainerStep<F: Finder, FC: Container, C: ContainerViewContr
 
     let factory: FC
 
-    /// Creates a instance of the `RoutingStep` that produces container view controller.
+    /// Creates a instance of the `RoutingStep` describing a container view controller.
     ///
     /// - Parameters:
     ///   - finder: The `UIViewController` `Finder`.

@@ -8,16 +8,16 @@
 import Foundation
 import UIKit
 
-/// The result of `Action`'s perform method.
+/// The result of the `Action`'s `perform` method.
 ///
-/// - continueRouting: The `Action` was able to build view controller into the stack
-/// - failure: The `Action` was not able to build view controller into the stack. Routing should not continue
+/// - continueRouting: The `Action` was able to integrate a view controller into the stack
+/// - failure: The `Action` was not able to integrate a view controller into the stack. Routing should not continue
 public enum ActionResult {
 
-    /** The `Action` was able to build view controller into the stack. */
+    /** The `Action` was able to build a view controller into the stack. */
     case continueRouting
 
-    /** The `Action` was not able to build view controller into the stack. Routing should not continue */
+    /** The `Action` was not able to build a view controller into the stack. Routing should not continue */
     case failure(String?)
 
 }

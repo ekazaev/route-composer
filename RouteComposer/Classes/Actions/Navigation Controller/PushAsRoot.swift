@@ -5,10 +5,10 @@
 import Foundation
 import UIKit
 
-/// Replaces all child view controllers in the `UINavigationController`'s child stack
+/// Replaces all the child view controllers in the `UINavigationController`'s child stack
 public extension NavigationControllerFactory {
 
-    /// Replaces all child view controllers in the `UINavigationController`'s child stack
+    /// Replaces all the child view controllers in the `UINavigationController`'s child stack
     public struct PushAsRoot: NavigationControllerAction {
 
         /// Constructor

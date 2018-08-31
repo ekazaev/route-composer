@@ -7,7 +7,7 @@
 
 import Foundation
 
-/// The result of interceptor's execute method.
+/// The result of the interceptor's execute method.
 ///
 /// - success: Interceptor finished its task with success. The `Router` may continue routing.
 /// - failure: Interceptor finished its task with failure. The `Router` should stop routing.

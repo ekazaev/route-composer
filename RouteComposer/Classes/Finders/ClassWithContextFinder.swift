@@ -5,10 +5,10 @@
 import Foundation
 import UIKit
 
-/// A default implementation of the unique view controller finder, where view controller can be found by name
+/// A default implementation of the view controller finder, that searches for a view controller by its name
 /// and it `Context` instance.
 ///
-/// Your view controller should extend `ContextChecking` to be used with this finder.
+/// The view controller should extend the `ContextChecking` to be used with this finder.
 public struct ClassWithContextFinder<VC: ContextChecking, C>: StackIteratingFinder where VC.Context == C {
 
     /// `UIViewController` type associated with this `ClassWithContextFinder`
@@ -23,7 +23,7 @@ public struct ClassWithContextFinder<VC: ContextChecking, C>: StackIteratingFind
     /// Constructor
     ///
     /// - Parameter options: A combination of the `SearchOptions`
-    public init(options: SearchOptions = .currentAndUp) {
+    public init(options: SearchOptions = .currentAndDown) {
         self.options = options
     }
 

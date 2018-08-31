@@ -6,8 +6,7 @@
 import UIKit
 
 /// Represents an action that has to be applied to the `UIViewController` after it has
-/// been built (eg: push to navigation stack,
-/// present modally, push to tab, etc)
+/// been built (eg: push to navigation stack, present modally, push to tab, etc)
 public protocol Action {
 
     /// If current `UIViewController` has to be pushed/added/etc to the existing stack of the view controllers,

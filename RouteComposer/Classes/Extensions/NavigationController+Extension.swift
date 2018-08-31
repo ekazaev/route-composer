@@ -6,7 +6,7 @@
 import Foundation
 import UIKit
 
-/// - `UINavigationController` extension to support `ContainerViewController` protocol
+/// - The `UINavigationController` extension to support the `ContainerViewController` protocol
 extension UINavigationController: ContainerViewController {
 
     public var containingViewControllers: [UIViewController] {
@@ -32,7 +32,7 @@ extension UINavigationController: ContainerViewController {
 
 }
 
-/// - `UINavigationController` extension to support `RoutingInterceptable` protocol
+/// - The `UINavigationController` extension to support the `RoutingInterceptable` protocol
 extension UINavigationController: RoutingInterceptable {
 
     public var canBeDismissed: Bool {

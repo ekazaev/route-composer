@@ -5,7 +5,7 @@
 import Foundation
 import UIKit
 
-/// Helps to build a tree of `RoutingStep` which will be taken by a `Router` and add a condition to each step when it should
+/// Builds tree of `RoutingStep` which will be taken by a `Router` and adds a condition to the each step when it should
 /// be taken.
 public final class SwitchAssembly {
 
@@ -64,15 +64,15 @@ public final class SwitchAssembly {
 
     }
 
-    /// Add instance of StepCaseResolver
+    /// Adds an instance of `StepCaseResolver`
     ///
-    /// - Parameter resolver: StepCaseResolver
+    /// - Parameter resolver: `StepCaseResolver`
     public func addCase(_ resolver: StepCaseResolver) -> Self {
         resolvers.append(resolver)
         return self
     }
 
-    /// Add block which will allow to write a decision case for the `Router` in the block.
+    /// Adds a block that allows to write a decision case for the `Router` in the block.
     /// Returning nil from the block will mean that it not succeed.
     ///
     /// - Parameter resolverBlock: case resolver block
@@ -81,7 +81,7 @@ public final class SwitchAssembly {
         return self
     }
 
-    /// Add case when some view controller exist in the stack to make some particular `RoutingStep` then.
+    /// Adds a case when a view controller exist in the stack to make some particular `RoutingStep` then.
     ///
     /// - Parameters:
     ///   - finder: The `Finder` instance to find a `UIViewController` in the stack
@@ -92,18 +92,18 @@ public final class SwitchAssembly {
         return self
     }
 
-    /// Assemble all the cases in to RoutingStep implementation
+    /// Assembles all the cases in to a `RoutingStep` implementation
     ///
-    /// - Returns: instance of `RoutingStep`
+    /// - Returns: instance of a `RoutingStep`
     public func assemble() -> RoutingStep {
         return SwitcherStep(resolvers: resolvers)
     }
 
-    /// Assemble all the cases in to RoutingStep implementation and adds default implementation what to do
+    /// Assembles all the cases in a `RoutingStep` instance and adds the default implementation what to do
     /// if non of the cases succeed
     ///
     /// - Parameter resolverBlock: default resolver block
-    /// - Returns: instance of RoutingStep
+    /// - Returns: an instance of RoutingStep
     public func assemble(default resolverBlock: @escaping (() -> RoutingStep)) -> RoutingStep {
         resolvers.append(BlockResolver<Any>(resolverBlock: { _ in
             return resolverBlock()

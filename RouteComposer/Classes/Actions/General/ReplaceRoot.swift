@@ -6,10 +6,10 @@
 import Foundation
 import UIKit
 
-/// Holder of default actions that can be applied to any `UIViewController`.
+/// Just a wrapper for the general actions that can be applied to any `UIViewController`
 public extension GeneralAction {
 
-    /// Replaces root view controller in key `UIWindow`
+    /// Replaces the root view controller in the key `UIWindow`
     public struct ReplaceRoot: Action {
 
         /// Constructor

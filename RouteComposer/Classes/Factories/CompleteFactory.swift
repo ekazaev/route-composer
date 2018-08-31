@@ -8,8 +8,8 @@
 import Foundation
 import UIKit
 
-/// `CompleteFactory` is used by the `CompleteFactoryAssembly` as a `Container` `Factory` to allow you to
-/// populate child factories instead of `Router`.
+/// The `CompleteFactory` instance is used by the `CompleteFactoryAssembly` as a `Container` to
+/// pre-populate the `ChildFactories` instead of the `Router`.
 public struct CompleteFactory<FC: Container>: Container, CustomStringConvertible {
 
     public typealias ViewController = FC.ViewController

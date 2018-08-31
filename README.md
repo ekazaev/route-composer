@@ -25,6 +25,7 @@ and deep linking tasks in the iOS application.
         - [Post Routing Task](#6-post-routing-task)
     - [Configuring Step](#configuring-step)
     - [Routing](#routing)
+- [Advanced Configuration](#advanced-configuration)
 - [Contributing](#contributing)
 - [License](#license)
 - [Author](#author)
@@ -388,6 +389,10 @@ navigation process into small reusable pieces. The router will call them in a pr
 The library does not break the rules of VIPER or MVVM architectural patterns and can be used in parallel with them.
 
 See example app for other examples of defining routing configurations and instantiating router.
+
+## Advanced Configuration:
+
+You can find more configuration examples [here](EXAMPLES.md).
 
 ## Contributing
 

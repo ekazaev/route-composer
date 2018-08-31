@@ -5,7 +5,7 @@
 import Foundation
 import UIKit
 
-/// `Action` type supported by `TabBarControllerFactory`'s nested view controllers.
+/// `Action` type supported by the `TabBarControllerFactory`'s nested view controllers.
 public protocol TabBarControllerAction: Action {
 
 }

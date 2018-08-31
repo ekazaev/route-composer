@@ -6,21 +6,20 @@
 import Foundation
 import UIKit
 
-/// Simplifies creation of finders for a hosting app. If there is nothing special about finder, hosting app should
-/// extend this `Finder` which will just iterations through view controllers stack following the search options provided
-/// and just ask extending instances if this particular view controller is the one that `Router` looking for or no.
+/// `StackIteratingFinder` iterates through view controllers stack
+/// following the search options provided and simplifies the creation of the finders for a hosting app.
 public protocol StackIteratingFinder: Finder {
 
-    /// Type of `UIViewController` that `Finder` can find
+    /// Type of the `UIViewController` that `Finder` can find
     associatedtype ViewController = ViewController
 
-    /// Type of `Context` instance that `Finder` can deal with
+    /// Type of context `Context` instance that `Finder` can deal with
     associatedtype Context = Context
 
     /// `SearchOptions` to be used by `StackIteratingFinder`
     var options: SearchOptions { get }
 
-    /// The method to be implemented by the StackIteratingFinder instance
+    /// The method to be implemented by the `StackIteratingFinder` instance
     ///
     /// - Parameters:
     ///   - viewController: Some view controller in the current view controller stack

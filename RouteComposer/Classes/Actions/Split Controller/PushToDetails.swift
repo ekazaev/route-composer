@@ -6,10 +6,10 @@
 import Foundation
 import UIKit
 
-/// Presents detail view controller in UISplitViewController
+/// Presents a detail view controller in the `UISplitViewController`
 public extension SplitControllerFactory {
 
-    /// Presents detail view controller in UISplitViewController
+    /// Presents a detail view controller in the `UISplitViewController`
     public struct PushToDetails: SplitControllerDetailAction {
 
         /// Constructor

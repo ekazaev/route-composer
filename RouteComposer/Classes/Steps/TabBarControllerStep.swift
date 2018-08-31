@@ -8,7 +8,7 @@ import UIKit
 /// Default tab bar container step
 public final class TabBarControllerStep: SingleContainerStep<NilFinder<UITabBarController, Any?>, TabBarControllerFactory, UITabBarController> {
 
-    /// Creates a default `UITabBarController` and applies an `Action` if it is provided.
+    /// Constructor
     public init() {
         super.init(finder: NilFinder(), factory: TabBarControllerFactory())
     }

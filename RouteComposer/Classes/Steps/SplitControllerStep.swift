@@ -8,7 +8,7 @@ import UIKit
 /// Default split container step
 public final class SplitControllerStep: SingleContainerStep<NilFinder<UISplitViewController, Any?>, SplitControllerFactory, UISplitViewController> {
 
-    /// Creates a default `UISplitViewController` and applies an `Action` if it is provided.
+    /// Constructor.
     public init() {
         super.init(finder: NilFinder(), factory: SplitControllerFactory())
     }

@@ -5,3 +5,70 @@ author_url: https://tech.hbc.com
 output: Documentation/API
 skip-undocumented: true
 swift-version: 4.1.2
+documentation: ./*.md
+
+custom_categories:
+  - name: Core Entities
+    children:
+      - Router
+      - RoutingDestination
+      - RoutingStep
+      - Finder
+      - AbstractFactory
+      - Factory
+      - Container
+      - ChildFactory
+      - Action
+      - RoutingInterceptor
+      - ContextTask
+      - PostRoutingTask
+      - RoutingError
+
+  - name: Assemblies
+    children:
+      - StepAssembly
+      - ContainerStepAssembly
+      - ChainAssembly
+      - SwitchAssembly
+      - CompleteFactoryAssembly
+
+  - name: Factories
+    children:
+      - XibFactory
+      - StoryboardFactory
+      - ClassNameFactory
+      - FinderFactory
+      - NavigationControllerFactory
+      - TabBarControllerFactory
+      - SplitControllerFactory
+      - SimpleContainerFactory
+      - NilFactory
+
+  - name: Finders
+    children:
+      - StackIteratingFinder
+      - ClassFinder
+      - ClassWithContextFinder
+      - InstanceFinder
+      - NilFinder
+
+  - name: Steps
+    children:
+      - SingleStep
+      - SingleContainerStep
+      - CurrentViewControllerStep
+      - RootViewControllerStep
+      - NavigationControllerStep
+      - TabBarControllerStep
+      - SplitControllerStep
+
+  - name: Resulting Enums
+    children:
+      - RoutingResult
+      - ActionResult
+      - InterceptorResult
+
+  - name: UIViewController's protocols
+    children:
+      - RoutingInterceptable
+      - ContainerViewController

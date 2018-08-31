@@ -6,23 +6,23 @@
 import Foundation
 import UIKit
 
-/// A default implementation of the unique view controller finder, where view controller can be found by name.
-/// (Example: Home, account, log in, etc supposed to be in the view stack just once)
+/// A default implementation of the view controller finder, that searches for a view controller by its name.
+/// (Example: Home, Account, log in, etc supposed to be in the view stack just once)
 public struct ClassFinder<VC: UIViewController, C>: StackIteratingFinder {
 
-    /// `UIViewController` type associated with this `ClassFinder`
+    /// A `UIViewController` type associated with this `ClassFinder`
     public typealias ViewController = VC
 
-    /// The context type associated with this `ClassFinder`
+    /// A context type associated with this `ClassFinder`
     public typealias Context = C
 
-    /// `SearchOptions` to be used by `ClassFinder`
+    /// A `SearchOptions` to be used by `ClassFinder`
     public let options: SearchOptions
 
     /// Constructor
     ///
     /// - Parameter options: A combination of the `SearchOptions`
-    public init(options: SearchOptions = .currentAndUp) {
+    public init(options: SearchOptions = .currentAndDown) {
         self.options = options
     }
 
