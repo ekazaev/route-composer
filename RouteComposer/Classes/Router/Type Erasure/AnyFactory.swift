@@ -27,21 +27,21 @@ protocol AnyFactoryBox: AnyFactory {
 
     associatedtype FactoryType: AbstractFactory
 
-    static func box(for factory: FactoryType?) -> AnyFactory?
+    static func box(for factory: FactoryType?, action: Action) -> AnyFactory?
 
     var factory: FactoryType { get set }
 
-    init(_ factory: FactoryType)
+    init(_ factory: FactoryType, action: Action)
 
 }
 
 extension AnyFactoryBox where Self: AnyFactory {
 
-    static func box(for factory: FactoryType?) -> AnyFactory? {
+    static func box(for factory: FactoryType?, action: Action) -> AnyFactory? {
         if factory as? NilEntity != nil {
             return nil
         } else if let factory = factory {
-            return Self(factory)
+            return Self(factory, action: action)
         }
         return nil
     }
@@ -82,9 +82,9 @@ struct FactoryBox<F: Factory>: AnyFactory, AnyFactoryBox, CustomStringConvertibl
 
     let action: Action
 
-    init(_ factory: F) {
+    init(_ factory: F, action: Action) {
         self.factory = factory
-        self.action = factory.action
+        self.action = action
     }
 }
 
@@ -96,9 +96,9 @@ struct ContainerFactoryBox<F: Container>: AnyFactory, AnyFactoryBox, CustomStrin
 
     let action: Action
 
-    init(_ factory: FactoryType) {
+    init(_ factory: FactoryType, action: Action) {
         self.factory = factory
-        self.action = factory.action
+        self.action = action
     }
 
     mutating func scrapeChildren(from factories: [AnyFactory]) throws -> [AnyFactory] {

@@ -6,21 +6,7 @@
 import Foundation
 import UIKit
 
-protocol FinalStepComposer {
-
-    associatedtype FactoryType: AbstractFactory
-
-    init<F: Finder>(finder: F,
-                    factory: FactoryType,
-                    interceptor: AnyRoutingInterceptor?,
-                    contextTask: AnyContextTask?,
-                    postTask: AnyPostRoutingTask?,
-                    previousStep: RoutingStep)
-            where F.ViewController == FactoryType.ViewController, F.Context == FactoryType.Context
-
-}
-
-class FinalRoutingStep<Box: AnyFactoryBox>: BaseStep<Box>, RoutingStep, InterceptableStep, FinalStepComposer {
+class FinalRoutingStep<Box: AnyFactoryBox>: BaseStep<Box>, RoutingStep, InterceptableStep {
 
     typealias FactoryType = Box.FactoryType
 
@@ -32,15 +18,16 @@ class FinalRoutingStep<Box: AnyFactoryBox>: BaseStep<Box>, RoutingStep, Intercep
 
     required init<F: Finder>(finder: F,
                              factory: FactoryType,
+                             action: Action,
                              interceptor: AnyRoutingInterceptor?,
                              contextTask: AnyContextTask?,
                              postTask: AnyPostRoutingTask?,
-                             previousStep: RoutingStep)
+                             previousStep: RoutingStep?)
             where F.ViewController == FactoryType.ViewController, F.Context == FactoryType.Context {
         self.postTask = postTask
         self.contextTask = contextTask
         self.interceptor = interceptor
-        super.init(finder: finder, factory: factory, previousStep: previousStep)
+        super.init(finder: finder, factory: factory, action: action, previousStep: previousStep)
     }
 
 }

@@ -13,15 +13,18 @@ struct ImagesConfigurationWithLibrary {
 
     private static let imagesContainerStep = ContainerStepAssembly(
             finder: ClassFinder(),
-            factory: CustomContainerFactory(delegate: ImagesWithLibraryHandler.shared, action: NavigationControllerFactory.PushToNavigation()))
-            .from(NavigationControllerStep(action: GeneralAction.PresentModally()))
+            factory: CustomContainerFactory(delegate: ImagesWithLibraryHandler.shared))
+            .using(NavigationControllerFactory.PushToNavigation())
+            .from(NavigationControllerStep())
+            .using(GeneralAction.PresentModally())
             .from(CurrentViewControllerStep())
             .assemble()
 
     static func images() -> ExampleDestination {
         let imagesStep = StepAssembly(
                 finder: ClassFinder(),
-                factory: ImagesFactory(delegate: ImagesWithLibraryHandler.shared, action: CustomContainerFactory.ReplaceRoot()))
+                factory: ImagesFactory(delegate: ImagesWithLibraryHandler.shared))
+                .using(CustomContainerFactory.ReplaceRoot())
                 .from(imagesContainerStep)
                 .assemble()
         return ExampleDestination(finalStep: imagesStep, context: nil)
@@ -30,7 +33,8 @@ struct ImagesConfigurationWithLibrary {
     static func imageDetails(for imageID: String) -> ExampleDestination {
         let imageDetailsStep = StepAssembly(
                 finder: ClassFinder(),
-                factory: ImageDetailsFactory(delegate: ImagesWithLibraryHandler.shared, action: CustomContainerFactory.ReplaceRoot()))
+                factory: ImageDetailsFactory(delegate: ImagesWithLibraryHandler.shared))
+                .using(CustomContainerFactory.ReplaceRoot())
                 .from(imagesContainerStep)
                 .assemble()
         return ExampleDestination(finalStep: imageDetailsStep, context: imageID)

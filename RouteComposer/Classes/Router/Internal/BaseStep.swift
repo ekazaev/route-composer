@@ -19,14 +19,14 @@ class BaseStep<Box: AnyFactoryBox>: ChainableStep, PerformableStep, ChainingStep
     /// - Parameters:
     ///   - finder: The  `UIViewController` `Finder`.
     ///   - factory: The `UIViewController` `Factory`.
-    init<F: Finder>(finder: F?, factory: Box.FactoryType?, previousStep: RoutingStep? = nil)
+    init<F: Finder>(finder: F?, factory: Box.FactoryType?, action: Action, previousStep: RoutingStep? = nil)
             where F.ViewController == Box.FactoryType.ViewController, F.Context == Box.FactoryType.Context {
         self.previousStep = previousStep
         self.finder = FinderBox.box(for: finder)
-        if let anyFactory = Box.box(for: factory) {
+        if let anyFactory = Box.box(for: factory, action: action) {
             self.factory = anyFactory
         } else if let finder = finder, finder as? NilEntity == nil {
-            self.factory = FactoryBox.box(for: FinderFactory(finder: finder))
+            self.factory = FactoryBox.box(for: FinderFactory(finder: finder), action: GeneralAction.NilAction())
         } else {
             self.factory = nil
         }

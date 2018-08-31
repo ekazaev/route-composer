@@ -11,9 +11,11 @@ struct LoginConfiguration {
     static func login() -> ExampleDestination {
         let loginScreen = StepAssembly(finder: ClassFinder<LoginViewController, Any?>(),
                 factory: NilFactory()) //Login view controller will be created when UINavigationController will be loaded from storyboard.
-                .from(BasicStep(
+                .usingNoAction()
+                .from(SingleStep(
                         finder: NilFinder(),
-                        factory: StoryboardFactory<UINavigationController, Any?>(storyboardName: "Login", action: GeneralAction.PresentModally(presentationStyle: .formSheet))))
+                        factory: StoryboardFactory<UINavigationController, Any?>(storyboardName: "Login")))
+                .using(GeneralAction.PresentModally(presentationStyle: .formSheet))
                 .from(CurrentViewControllerStep())
                 .assemble()
 

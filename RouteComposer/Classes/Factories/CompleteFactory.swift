@@ -16,15 +16,12 @@ public struct CompleteFactory<FC: Container>: Container, CustomStringConvertible
 
     public typealias Context = FC.Context
 
-    public let action: Action
-
     private var factory: FC
 
     let childFactories: [ChildFactory<FC.Context>]
 
     init(factory: FC, childFactories: [ChildFactory<FC.Context>]) {
         self.factory = factory
-        self.action = factory.action
         self.childFactories = childFactories
     }
 

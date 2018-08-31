@@ -15,8 +15,6 @@ public struct XibFactory<VC: UIViewController, C>: Factory {
 
     public typealias Context = C
 
-    public let action: Action
-
     private let nibName: String?
 
     private let bundle: Bundle?
@@ -26,9 +24,7 @@ public struct XibFactory<VC: UIViewController, C>: Factory {
     /// - Parameters:
     ///   - nibName: Xib file name
     ///   - bundle: Bundle instance if needed
-    ///   - action: The `Action` instance to integrate built a `UIViewController` into the stack
-    public init(nibName: String? = nil, bundle: Bundle? = nil, action: Action) {
-        self.action = action
+    public init(nibName: String? = nil, bundle: Bundle? = nil) {
         self.nibName = nibName
         self.bundle = bundle
     }

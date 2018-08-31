@@ -5,7 +5,7 @@
 import Foundation
 
 /// Router implementing this protocol should support global tasks.
-public protocol AssemblableRouter where Self: Router {
+public protocol InterceptableRouter where Self: Router {
 
     /// Adds routing interceptor instance
     ///

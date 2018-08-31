@@ -11,22 +11,24 @@ class BoxTests: XCTestCase {
 
     func testFactoryBox() {
         let factory = EmptyFactory()
-        XCTAssertNotNil(FactoryBox.box(for: factory))
+        XCTAssertNotNil(FactoryBox.box(for: factory, action: GeneralAction.NilAction()))
     }
 
     func testContainerBox() {
         let factory = EmptyContainer()
-        XCTAssertNotNil(ContainerFactoryBox.box(for: factory))
+        XCTAssertNotNil(ContainerFactoryBox.box(for: factory, action: GeneralAction.NilAction()))
     }
 
     func testNilFactoryBox() {
         let factory = NilFactory<UIViewController, Any?>()
-        XCTAssertNil(FactoryBox.box(for: factory))
+        XCTAssertNil(FactoryBox.box(for: factory, action: GeneralAction.NilAction()))
     }
 
     func testNilInAssembly() {
         let routingStep = StepAssembly(finder: NilFinder<UIViewController, Any?>(),
-                factory: NilFactory<UIViewController, Any?>()).assemble(from: CurrentViewControllerStep())
+                factory: NilFactory<UIViewController, Any?>())
+                .using(GeneralAction.NilAction()).from(CurrentViewControllerStep())
+                .assemble()
         guard let step = routingStep as? BaseStep<FactoryBox<NilFactory<UIViewController, Any?>>> else {
             XCTAssert(false, "Internal inconsistency")
             return
@@ -36,9 +38,9 @@ class BoxTests: XCTestCase {
     }
 
     func testNilInCompleteFactoryAssembly() {
-        let factory = CompleteFactoryAssembly(factory: TabBarControllerFactory(action: GeneralAction.PresentModally()))
-                .with(NilFactory<UIViewController, Any?>(action: NavigationControllerFactory.PushToNavigation()))
-                .with(NilFactory<UIViewController, Any?>(action: NavigationControllerFactory.PushToNavigation()))
+        let factory = CompleteFactoryAssembly(factory: TabBarControllerFactory())
+                .with(NilFactory<UIViewController, Any?>(), using: NavigationControllerFactory.PushToNavigation())
+                .with(NilFactory<UIViewController, Any?>(), using: NavigationControllerFactory.PushToNavigation())
                 .assemble()
         XCTAssertEqual(factory.childFactories.count, 0)
     }

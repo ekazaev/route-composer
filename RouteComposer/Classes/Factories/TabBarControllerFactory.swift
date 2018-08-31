@@ -14,18 +14,13 @@ public struct TabBarControllerFactory: SimpleContainerFactory {
 
     public typealias SupportedAction = TabBarControllerAction
 
-    public let action: Action
-
     public var factories: [ChildFactory<Context>] = []
 
     /// `UITabBarControllerDelegate` delegate
     public weak var delegate: UITabBarControllerDelegate?
 
     /// Constructor
-    ///
-    /// - Parameter action: `Action` instance.
-    public init(action: Action, delegate: UITabBarControllerDelegate? = nil) {
-        self.action = action
+    public init(delegate: UITabBarControllerDelegate? = nil) {
         self.delegate = delegate
     }
 

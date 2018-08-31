@@ -14,8 +14,6 @@ public struct NavigationControllerFactory: SimpleContainerFactory {
 
     public typealias SupportedAction = NavigationControllerAction
 
-    public let action: Action
-
     public var factories: [ChildFactory<Context>] = []
 
     /// `UINavigationControllerDelegate` delegate
@@ -23,9 +21,8 @@ public struct NavigationControllerFactory: SimpleContainerFactory {
 
     /// Constructor
     ///
-    /// - Parameter action: `Action` instance.
-    public init(action: Action, delegate: UINavigationControllerDelegate? = nil) {
-        self.action = action
+    /// - Parameter delegate: `UINavigationControllerDelegate` instance.
+    public init(delegate: UINavigationControllerDelegate? = nil) {
         self.delegate = delegate
     }
 

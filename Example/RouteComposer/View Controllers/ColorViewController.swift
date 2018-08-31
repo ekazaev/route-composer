@@ -27,12 +27,9 @@ class ColorViewControllerFinder: StackIteratingFinder {
 
 class ColorViewControllerFactory: Factory {
 
-    let action: Action
-
     var model: ColorViewController.ColorDisplayModel?
 
-    init(action: Action) {
-        self.action = action
+    init() {
     }
 
     func prepare(with context: ExampleDictionaryContext) throws {

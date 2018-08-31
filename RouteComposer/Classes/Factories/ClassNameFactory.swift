@@ -12,17 +12,13 @@ public struct ClassNameFactory<VC: UIViewController, C>: Factory {
 
     public typealias Context = C
 
-    public let action: Action
-
     private let viewControllerName: String
 
     /// Constructor
     ///
     /// - Parameters:
     ///   - viewControllerName: The name of `UIViewController` class to be built
-    ///   - action: The `Action` instance to integrate built `UIViewController` in to stack
-    public init(viewControllerName: String, action: Action) {
-        self.action = action
+    public init(viewControllerName: String) {
         self.viewControllerName = viewControllerName
     }
 

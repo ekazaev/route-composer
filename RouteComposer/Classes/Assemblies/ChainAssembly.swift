@@ -12,63 +12,55 @@ import Foundation
 ///         .from(CurrentViewControllerStep())
 ///         .assemble()
 /// ```
-public class ChainAssembly {
+public struct ChainAssembly {
 
-    /// A nested builder that does not allow to add steps from non-chainable step
-    public class LastStepInChainAssembly {
-
-        fileprivate var assembly: ChainAssembly
-
-        // Internal init protects from instantiating builder outside of the library
-        init(assembly: ChainAssembly) {
-            self.assembly = assembly
-        }
-
-        /// Assemble all the provided settings.
-        ///
-        /// - Returns: Instance of RoutingStep with all the settings provided inside.
-        public func assemble() -> RoutingStep {
-            return assembly.assemble()
-        }
-
-    }
-
-    var previousSteps: [RoutingStep] = []
+    let previousSteps: [RoutingStep]
 
     /// Constructor
     public init() {
+        self.previousSteps = []
+    }
+
+    init(previousSteps: [RoutingStep]) {
+        self.previousSteps = previousSteps
+    }
+
+    /// Previous step to start build current step from
+    ///
+    /// - Parameter previousStep: The instance of `RoutingStep` and `ChainingStep`
+    public func from(_ step: RoutingStep & ChainingStep) -> ScreenStepChainAssembly {
+        var previousSteps = self.previousSteps
+        previousSteps.append(step)
+        return ScreenStepChainAssembly(previousSteps: previousSteps)
+    }
+
+    /// Basic step to start build current step from
+    ///
+    /// - Parameter previousStep: The instance of `StepWithActionAssemblable`
+    public func from<F: Finder, FC: AbstractFactory>(_ step: StepWithActionAssembly<F,FC>) -> TypedScreenStepChainAssembly<F, FC>
+            where F.ViewController == FC.ViewController, F.Context == FC.Context {
+        return TypedScreenStepChainAssembly(stepToFullFill: step, previousSteps: previousSteps)
     }
 
     /// Previous `RoutingStep` to start build current step from
     ///
-    /// - Parameter previousStep: Instance of `RoutingStep`
-    public func from(_ previousStep: RoutingStep) -> LastStepInChainAssembly {
-        self.previousSteps.append(previousStep)
-        return LastStepInChainAssembly(assembly: self)
-    }
-
-    /// Previous `RoutingStep` to start build current step from
-    ///
-    /// - Parameter previousStep: Instance of `RoutingStep` and `ChainingStep`
-    public func from(_ previousStep: RoutingStep & ChainingStep) -> Self {
-        self.previousSteps.append(previousStep)
-        return self
-    }
-
-    /// `BasicStep` to start build current step from
-    ///
-    /// - Parameter previousStep: Instance of `BasicStep`
-    public func from(_ previousStep: BasicStepAssembly) -> Self {
-        self.previousSteps.append(previousStep.routingStep)
-        return self
+    /// - Parameter previousStep: The instance of `RoutingStep`
+    public func from(_ step: RoutingStep) -> LastStepInChainAssembly {
+        var previousSteps = self.previousSteps
+        previousSteps.append(step)
+        return LastStepInChainAssembly(previousSteps: previousSteps)
     }
 
     /// Assemble all the provided settings.
     ///
-    /// - Returns: Instance of RoutingStep with all the settings provided inside.
-    public func assemble() -> RoutingStep {
-        return chain(previousSteps)
+    /// - Parameter step: The instance of `RoutingStep` to start to build current step from.
+    /// - Returns: The instance of `RoutingStep` with all the settings provided inside.
+    public func assemble(from step: RoutingStep) -> RoutingStep {
+        var previousSteps = self.previousSteps
+        previousSteps.append(step)
+        return LastStepInChainAssembly(previousSteps: previousSteps).assemble()
     }
+
 }
 
 func chain(_ steps: [RoutingStep]) -> RoutingStep {

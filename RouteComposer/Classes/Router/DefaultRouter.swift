@@ -6,7 +6,7 @@
 import UIKit
 
 /// Deep Linking Library routing implementations
-public struct DefaultRouter: Router, AssemblableRouter {
+public struct DefaultRouter: Router, InterceptableRouter {
 
     /// `Logger` instance to be used by the `DefaultRouter`.
     public let logger: Logger?
@@ -56,7 +56,7 @@ public struct DefaultRouter: Router, AssemblableRouter {
         logger?.routingWillStart()
 
         func failGracefully(_ message: LoggerMessage? = nil) -> RoutingResult {
-            if let  message = message {
+            if let message = message {
                 self.logger?.log(message)
             }
             self.logger?.routingDidFinish()
