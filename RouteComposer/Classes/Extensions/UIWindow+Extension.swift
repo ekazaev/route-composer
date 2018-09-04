@@ -19,16 +19,7 @@ extension UIWindow {
             return nil
         }
 
-        return findPresentedViewController(rootViewController)
-    }
-
-    private func findPresentedViewController(_ viewController: UIViewController) -> UIViewController {
-        if let presentedViewController = viewController.presentedViewController,
-           !presentedViewController.isBeingDismissed {
-            return findPresentedViewController(presentedViewController)
-        }
-
-        return viewController
+        return rootViewController.allPresentedViewControllers.last ?? rootViewController
     }
 
 }

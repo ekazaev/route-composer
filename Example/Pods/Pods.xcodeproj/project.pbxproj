@@ -64,6 +64,7 @@
 		93A83C41B4740BBF07E8CEB6392A9602 /* RouteComposer-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CE82F3D8CB7BDE890C367655A1490C8D /* RouteComposer-dummy.m */; };
 		9512340EC5888221FAEBF27C604D8A82 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D88AAE1F92055A60CC2FC970D7D34634 /* Foundation.framework */; };
 		9AFBC2B25F7C43A44FDC49F0 /* TypedScreenStepChainAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC02A04ED519EE0AFEE2D /* TypedScreenStepChainAssembly.swift */; };
+		9AFBC2BC0C1E9A10BFAF5CBB /* SearchOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC4C84A58E9F61995D835 /* SearchOptions.swift */; };
 		9AFBC3AD64861185BC0F2224 /* TaskCollector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCE42B4A27B047462D8EC /* TaskCollector.swift */; };
 		9AFBC4EBB62A65FDFCE92AA4 /* GenericStepAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCE15B4D4EA9EB680854A /* GenericStepAssembly.swift */; };
 		9AFBC5C2E6183E9398FBAE4A /* LastStepInChainAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC77E19C4D6B96AE28A46 /* LastStepInChainAssembly.swift */; };
@@ -73,6 +74,7 @@
 		9AFBCA752DF11937475D973C /* ContainerStepAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC65F176885B8178C5D10 /* ContainerStepAssembly.swift */; };
 		9AFBCC5EE5CB2B4D06EC6F5D /* InterceptableRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC15A7BFA0BF46779AD38 /* InterceptableRouter.swift */; };
 		9AFBCDA8E5EE6655E7E35D1B /* ScreenStepChainAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCDB4B804D1787F306779 /* ScreenStepChainAssembly.swift */; };
+		9AFBCE520233319143AE623B /* DefaultRouter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCB330B1369923AD41E33 /* DefaultRouter+Extension.swift */; };
 		9AFBCF01101BA9CE74DE82A8 /* AbstractFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC33789E12878D0447B65 /* AbstractFactory.swift */; };
 		9E8D7583FFA3809C8B622CDF5D97D361 /* FinderFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE3E69DEC3763875028FFA0FDE28920 /* FinderFactory.swift */; };
 		A16DFD06F3DEA16C4835790E71BBFFF7 /* GeneralAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6A92ABCEB17804F4014B6C3CEB2AB1 /* GeneralAction.swift */; };
@@ -201,11 +203,13 @@
 		9AFBC15A7BFA0BF46779AD38 /* InterceptableRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InterceptableRouter.swift; path = ../../Assemblies/InterceptableRouter.swift; sourceTree = "<group>"; };
 		9AFBC2181754135EAFF590B3 /* NilEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NilEntity.swift; sourceTree = "<group>"; };
 		9AFBC33789E12878D0447B65 /* AbstractFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AbstractFactory.swift; path = RouteComposer/Classes/AbstractFactory.swift; sourceTree = "<group>"; };
+		9AFBC4C84A58E9F61995D835 /* SearchOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchOptions.swift; path = RouteComposer/Classes/SearchOptions.swift; sourceTree = "<group>"; };
 		9AFBC65F176885B8178C5D10 /* ContainerStepAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerStepAssembly.swift; sourceTree = "<group>"; };
 		9AFBC77E19C4D6B96AE28A46 /* LastStepInChainAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastStepInChainAssembly.swift; sourceTree = "<group>"; };
 		9AFBC86DBA8C55F39C672726 /* Usable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Usable.swift; sourceTree = "<group>"; };
 		9AFBCA8B8BCB6B374B0BECE7 /* EXAMPLES.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = EXAMPLES.md; sourceTree = "<group>"; };
 		9AFBCA9F16F888F057D1ED3B /* SingleStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleStep.swift; sourceTree = "<group>"; };
+		9AFBCB330B1369923AD41E33 /* DefaultRouter+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DefaultRouter+Extension.swift"; sourceTree = "<group>"; };
 		9AFBCDB4B804D1787F306779 /* ScreenStepChainAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenStepChainAssembly.swift; sourceTree = "<group>"; };
 		9AFBCE15B4D4EA9EB680854A /* GenericStepAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericStepAssembly.swift; sourceTree = "<group>"; };
 		9AFBCE42B4A27B047462D8EC /* TaskCollector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskCollector.swift; sourceTree = "<group>"; };
@@ -370,6 +374,7 @@
 				CB2C406A5E80B8B0FD28159A5BB5ECB3 /* StepResult.swift */,
 				9AFBC2181754135EAFF590B3 /* NilEntity.swift */,
 				9AFBC15A7BFA0BF46779AD38 /* InterceptableRouter.swift */,
+				9AFBCB330B1369923AD41E33 /* DefaultRouter+Extension.swift */,
 			);
 			path = Internal;
 			sourceTree = "<group>";
@@ -640,6 +645,7 @@
 				3E9E86F827893CAC5C68910E230AE56A /* Steps */,
 				E7578FFD031CA5845CFF0BFF799C3589 /* Support Files */,
 				9AFBC33789E12878D0447B65 /* AbstractFactory.swift */,
+				9AFBC4C84A58E9F61995D835 /* SearchOptions.swift */,
 			);
 			name = RouteComposer;
 			path = ../..;
@@ -863,6 +869,8 @@
 				9AFBC2B25F7C43A44FDC49F0 /* TypedScreenStepChainAssembly.swift in Sources */,
 				9AFBCDA8E5EE6655E7E35D1B /* ScreenStepChainAssembly.swift in Sources */,
 				9AFBCA752DF11937475D973C /* ContainerStepAssembly.swift in Sources */,
+				9AFBC2BC0C1E9A10BFAF5CBB /* SearchOptions.swift in Sources */,
+				9AFBCE520233319143AE623B /* DefaultRouter+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

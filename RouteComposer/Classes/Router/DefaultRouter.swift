@@ -5,24 +5,24 @@
 
 import UIKit
 
-/// The `Router` implementations
+/// The default `Router` implementations
 public struct DefaultRouter: Router, InterceptableRouter {
 
     /// A `Logger` instance to be used by the `DefaultRouter`.
     public let logger: Logger?
-
-    /// Constructor
-    ///
-    /// - Parameter logger: `Logger` instance to be used by the `Router`.
-    public init(logger: Logger? = nil) {
-        self.logger = logger
-    }
 
     private var interceptors: [AnyRoutingInterceptor] = []
 
     private var contextTasks: [AnyContextTask] = []
 
     private var postTasks: [AnyPostRoutingTask] = []
+
+    /// Constructor
+    ///
+    /// - Parameter logger: `Logger` instance to be used by the `DefaultRouter`.
+    public init(logger: Logger? = nil) {
+        self.logger = logger
+    }
 
     @discardableResult
     public mutating func add<R: RoutingInterceptor>(_ interceptor: R) -> DefaultRouter {
@@ -86,7 +86,7 @@ public struct DefaultRouter: Router, InterceptableRouter {
 
         // check if the view controllers, that are currently presented from the origin view controller for a
         // given destination, can be dismissed.
-        if let viewController = viewController.allPresentedViewControllers.nonDismissibleViewController {
+        if let viewController = Array([[viewController], viewController.allPresentedViewControllers].joined()).nonDismissibleViewController {
             return failGracefully(.warning("\(String(describing: viewController)) view controller can not be dismissed."))
         }
 
@@ -191,8 +191,7 @@ public struct DefaultRouter: Router, InterceptableRouter {
                             })
 
                             taskMergeResult.postTasks.forEach({
-                                let postTaskSlip = PostTaskSlip(viewController: viewController, postTask: $0)
-                                postTaskRunner.taskSlips.insert(postTaskSlip, at: 0)
+                                postTaskRunner.add(viewController: viewController, postTask: $0)
                             })
                         }
                     case .continueRouting(let factory):
@@ -275,7 +274,7 @@ public struct DefaultRouter: Router, InterceptableRouter {
         // If we found a view controller to start from - lets close all the presented view controllers above to be able
         // to build a new stack if needed.
         // We already checked that they can be dismissed.
-        viewController.dismissAllPresentedControllers(animated: animated) {
+        dismissViewControllerPresented(from: viewController, animated: animated) {
             self.runViewControllerBuildStack(rootViewController: viewController, context: context, factories: factories, animated: animated) { viewController in
                 completion(viewController)
             }
@@ -340,94 +339,22 @@ public struct DefaultRouter: Router, InterceptableRouter {
     // this function activates the origin view controller of viewController
     private func makeContainersActive(toShow viewController: UIViewController, animated: Bool) {
         var iterationViewController = viewController
-        while let parent = iterationViewController.parent {
-            if let container = parent as? ContainerViewController {
+        while let parentViewController = iterationViewController.parent {
+            if let container = parentViewController as? ContainerViewController {
                 container.makeVisible(iterationViewController, animated: animated)
             }
-            iterationViewController = parent
+            iterationViewController = parentViewController
         }
     }
 
-    // this class is just a placeholder. Router needs at least one post-routing task per view controller to
-    // store a reference there.
-    private struct EmptyPostTask<D: RoutingDestination>: PostRoutingTask {
-
-        func execute(on viewController: UIViewController, for destination: D, routingStack: [UIViewController]) {
-        }
-
-    }
-
-    private struct PostTaskSlip {
-        // This reference is weak because even though this view controller was created by a fabric but then some other
-        // view controller in the chain can have an action that will actually remove this view controller from the
-        // stack. We do not want to keep a strong reference to it and prevent it from deallocation. Potentially it's
-        // a very rare issue but must be kept in mind.
-        weak var viewController: UIViewController?
-
-        let postTask: AnyPostRoutingTask
-    }
-
-    /// Each post action needs to know a view controller is should be applied to.
-    /// This decorator adds functionality of storing UIViewControllers created by the `Factory` and frees
-    /// custom factories implementations from dealing with it. Mostly it is important for ContainerFactories
-    /// which create merged view controllers without `Router`'s help.
-    private struct FactoryDecorator<D: RoutingDestination>: AnyFactory, CustomStringConvertible {
-
-        var action: Action {
-            return factory.action
-        }
-
-        var factory: AnyFactory
-
-        weak var postTaskRunner: PostTaskRunner<D>?
-
-        let contextTasks: [AnyContextTask]
-
-        let postTasks: [AnyPostRoutingTask]
-
-        let logger: Logger?
-
-        let destination: D
-
-        init(factory: AnyFactory,
-             contextTasks: [AnyContextTask],
-             postTasks: [AnyPostRoutingTask],
-             postTaskRunner: PostTaskRunner<D>,
-             logger: Logger?,
-             destination: D) {
-            self.factory = factory
-            self.postTaskRunner = postTaskRunner
-            self.postTasks = postTasks
-            self.contextTasks = contextTasks
-            self.logger = logger
-            self.destination = destination
-        }
-
-        mutating func prepare(with context: Any?) throws {
-            return try factory.prepare(with: context)
-        }
-
-        func build(with context: Any?) throws -> UIViewController {
-            let viewController = try factory.build(with: context)
-            if let context = context {
-                try contextTasks.forEach({
-                    try $0.apply(on: viewController, with: context, for: destination)
-                })
+    private func dismissViewControllerPresented(from viewController: UIViewController, animated: Bool, completion: (() -> Void)?) {
+        if viewController.presentedViewController != nil {
+            viewController.dismiss(animated: animated) {
+                completion?()
             }
-            postTasks.forEach({
-                postTaskRunner?.taskSlips.append(PostTaskSlip(viewController: viewController, postTask: $0))
-            })
-            return viewController
+        } else {
+            completion?()
         }
-
-        mutating func scrapeChildren(from factories: [AnyFactory]) throws -> [AnyFactory] {
-            return try factory.scrapeChildren(from: factories)
-        }
-
-        var description: String {
-            return String(describing: factory)
-        }
-
     }
 
     private func doTry(_ block: (() throws -> Void), finally finallyBlock: ((_: Bool) -> Void)? = nil) {
@@ -443,25 +370,4 @@ public struct DefaultRouter: Router, InterceptableRouter {
         }
     }
 
-    private final class PostTaskRunner<D: RoutingDestination> {
-
-        var taskSlips: [PostTaskSlip] = []
-
-        func run(for destination: D) throws {
-            var viewControllers: [UIViewController] = []
-            taskSlips.forEach({
-                guard let viewController = $0.viewController, !viewControllers.contains(viewController) else {
-                    return
-                }
-                viewControllers.append(viewController)
-            })
-
-            try taskSlips.forEach({ slip in
-                guard let viewController = slip.viewController else {
-                    return
-                }
-                try slip.postTask.execute(on: viewController, for: destination, routingStack: viewControllers)
-            })
-        }
-    }
 }

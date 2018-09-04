@@ -6,6 +6,7 @@
 import Foundation
 import RouteComposer
 
+// NB: Keeping the screen configurations in the Dictionary has no practical value, demo only.
 enum ExampleTarget {
 
     case circle

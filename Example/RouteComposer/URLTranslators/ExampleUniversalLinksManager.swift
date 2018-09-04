@@ -21,3 +21,13 @@ struct ExampleUniversalLinksManager {
         return translator.destination(from: url)
     }
 }
+
+extension ExampleUniversalLinksManager {
+
+    static func configure() {
+        ExampleUniversalLinksManager.register(translator: ColorURLTranslator())
+        ExampleUniversalLinksManager.register(translator: ProductURLTranslator())
+        ExampleUniversalLinksManager.register(translator: CityURLTranslator())
+    }
+
+}
