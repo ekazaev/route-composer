@@ -12,11 +12,15 @@ public struct StoryboardFactory<VC: UIViewController, C>: Factory {
 
     public typealias Context = C
 
-    private let storyboardName: String
+    /// The name of a storyboard file
+    public let storyboardName: String
 
-    private let bundle: Bundle?
+    /// The `Bundle` instance
+    public let bundle: Bundle?
 
-    private let viewControllerID: String?
+    /// The `UIViewController` identifier in the storyboard. If not set - the `Factory` will try
+    /// to create a storyboards's initial `UIViewController`
+    public let viewControllerID: String?
 
     /// Constructor
     ///

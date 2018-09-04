@@ -15,11 +15,13 @@ extension UIWindow {
 
     /// The topmost `UIViewController` in the view controller stack. E.g - top most presented one.
     public var topmostViewController: UIViewController? {
-        guard let rootViewController = rootViewController else {
-            return nil
+        var topmostViewController = rootViewController
+
+        while let presentedViewController = topmostViewController?.presentedViewController, !presentedViewController.isBeingDismissed {
+            topmostViewController = presentedViewController
         }
 
-        return rootViewController.allPresentedViewControllers.last ?? rootViewController
+        return topmostViewController
     }
 
 }

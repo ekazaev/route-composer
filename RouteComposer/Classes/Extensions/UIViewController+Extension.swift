@@ -67,18 +67,15 @@ public extension UIViewController {
 extension UIViewController {
 
     var allPresentedViewControllers: [UIViewController] {
+        var allPresentedViewControllers: [UIViewController] = []
+        var presentingViewController = self
 
-        func findAllPresentedViewControllers(starting viewController: UIViewController, foundViewControllers: [UIViewController] = []) -> [UIViewController] {
-            var foundViewControllers = foundViewControllers
-            if let presentedViewController = viewController.presentedViewController {
-                foundViewControllers.append(presentedViewController)
-                return findAllPresentedViewControllers(starting: presentedViewController, foundViewControllers: foundViewControllers)
-            } else {
-                return foundViewControllers
-            }
+        while let presentedViewController = presentingViewController.presentedViewController, !presentedViewController.isBeingDismissed {
+            allPresentedViewControllers.append(presentedViewController)
+            presentingViewController = presentedViewController
         }
 
-        return findAllPresentedViewControllers(starting: self)
+        return allPresentedViewControllers
     }
 
 }

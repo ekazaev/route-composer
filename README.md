@@ -278,7 +278,7 @@ let productScreen = StepAssembly(finder: ProductViewControllerFinder(), factory:
 
 This configuration means:
 
-* Use `ProductViewControllerFinder` to potentially **find** an exisiting product view controller in the stack, or **create** it using `ProductViewControllerFactory` if it has not been found.
+* Use `ProductViewControllerFinder` to potentially **find** an existing product view controller in the stack, or **create** it using `ProductViewControllerFactory` if it has not been found.
 * If it was created **push** it in to navigation stack
 * Navigation stack should be provided from another step `NavigationControllerStep`, that will create a `UINavigationController` instance
 * The `UINavigationController` instance should be presented modally from any currently visible view controller.

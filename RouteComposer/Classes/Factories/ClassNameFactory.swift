@@ -12,7 +12,8 @@ public struct ClassNameFactory<VC: UIViewController, C>: Factory {
 
     public typealias Context = C
 
-    private let viewControllerName: String
+    /// The name of a `UIViewController` class to be built by the `Factory`
+    public let viewControllerName: String
 
     /// Constructor
     ///

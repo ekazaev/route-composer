@@ -17,6 +17,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
         ExampleConfiguration.configure()
+
+        // Try in mobile Safari:
+        //
+        // dll://colors?color=AABBCC
+        // dll://products?product=01
+        // dll://cities?city=01
         ExampleUniversalLinksManager.configure()
 
         return true

@@ -12,11 +12,14 @@ public extension GeneralAction {
     /// Presents a view controller modally
     public struct PresentModally: Action {
 
-        let presentationStyle: UIModalPresentationStyle?
+        /// UIModalPresentationStyle setting
+        public let presentationStyle: UIModalPresentationStyle?
 
-        let transitionStyle: UIModalTransitionStyle?
+        /// UIModalTransitionStyle setting
+        public let transitionStyle: UIModalTransitionStyle?
 
-        weak var transitioningDelegate: UIViewControllerTransitioningDelegate?
+        /// UIViewControllerTransitioningDelegate instance to be used during the transition
+        private(set) weak var transitioningDelegate: UIViewControllerTransitioningDelegate?
 
         /// Constructor
         ///

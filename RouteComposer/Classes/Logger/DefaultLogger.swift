@@ -8,35 +8,18 @@
 import Foundation
 import os.log
 
-/// Default Logger levels settings
-///
-/// - verbose: Log all the messages from a `Router`
-/// - warnings: Log only warnings and errors
-/// - errors: Log only errors
-public enum DefaultLoggerLevel {
-
-    /// Log all the messages from `Router`
-    case verbose
-
-    /// Log only warnings and errors
-    case warnings
-
-    /// Log only errors
-    case errors
-
-}
-
 /// Default Logger implementation
 public struct DefaultLogger: Logger {
 
-    private let logLevel: DefaultLoggerLevel
+    /// Log level
+    public let logLevel: LogLevel
 
     private let osLog: OSLog?
 
     /// Constructor
     ///
     /// - Parameter logLevel: DefaultLoggerLevel. Defaulted to warnings.
-    public init(_ logLevel: DefaultLoggerLevel = .warnings) {
+    public init(_ logLevel: LogLevel = .warnings) {
         self.logLevel = logLevel
         if #available(iOS 10.0, *) {
             self.osLog = OSLog.default
@@ -51,7 +34,7 @@ public struct DefaultLogger: Logger {
     ///   - logLevel: DefaultLoggerLevel. Defaulted to warnings.
     ///   - osLog: OSLog instance of the app.
     @available(iOS 10, *)
-    public init(_ logLevel: DefaultLoggerLevel = .warnings, osLog: OSLog = OSLog.default) {
+    public init(_ logLevel: LogLevel = .warnings, osLog: OSLog = OSLog.default) {
         self.logLevel = logLevel
         self.osLog = osLog
     }

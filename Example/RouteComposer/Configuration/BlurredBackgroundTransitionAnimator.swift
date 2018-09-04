@@ -33,7 +33,7 @@ class BlurredBackgroundTransitionAnimator: NSObject, UIViewControllerAnimatedTra
 
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         guard let viewToAnimate = transitionType == .present ? transitionContext.view(forKey: .to) : transitionContext.view(forKey: .from) else {
-            // View but not the viewcontroller's view should be used. See the doc for view(forKey:) or
+            // View but not the view controller's view should be used. See the doc for view(forKey:) or
             // http://stackoverflow.com/a/25193675/421797
             // NB: transitionContext.view(forKey: .from) is nil if you are not allowed to change it - (presentation is starting from this view)
             transitionContext.completeTransition(false)

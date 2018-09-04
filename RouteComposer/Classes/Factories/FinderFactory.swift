@@ -16,7 +16,7 @@ public struct FinderFactory<F: Finder>: Factory {
 
     public typealias Context = F.Context
 
-    let finder: F
+    private let finder: F
 
     /// Constructor
     ///

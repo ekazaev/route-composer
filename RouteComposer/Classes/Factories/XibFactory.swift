@@ -15,9 +15,11 @@ public struct XibFactory<VC: UIViewController, C>: Factory {
 
     public typealias Context = C
 
-    private let nibName: String?
+    /// A Xib file name
+    public let nibName: String?
 
-    private let bundle: Bundle?
+    /// A `Bundle` instance
+    public let bundle: Bundle?
 
     /// Constructor
     ///

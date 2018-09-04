@@ -39,7 +39,7 @@ public extension Container {
     ///   - context: A `Context` instance if any
     /// - Returns: An array of build view controllers
     /// - Throws: RoutingError
-    public func buildChildrenViewControllers(from factories: [ChildFactory<Self.Context>], with context: Self.Context) throws -> [UIViewController] {
+    public func buildChildrenViewControllers(from factories: [ChildFactory<Context>], with context: Context) throws -> [UIViewController] {
         var childrenViewControllers: [UIViewController] = []
         for factory in factories {
             try factory.build(with: context, in: &childrenViewControllers)

@@ -98,7 +98,7 @@ class RouteComposerExampleUITests: XCTestCase {
         app.buttons["Login"].tap()
         sleep(3)
         // We have to wait for login service to succeed
-        // Apple uses same technics http://cleanswifter.com/asynchronous-xcode-ui-testing/
+        // Apple uses same technique http://cleanswifter.com/asynchronous-xcode-ui-testing/
         XCTAssertTrue(app.otherElements["cityDetailsViewController+2"].exists)
 
         app.buttons["Back programmaticaly"].tap()

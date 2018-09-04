@@ -13,12 +13,12 @@ public struct SplitControllerFactory: Container {
 
     public typealias Context = Any?
 
-    var masterFactories: [ChildFactory<Context>] = []
+    private(set) var masterFactories: [ChildFactory<Context>] = []
 
-    var detailFactories: [ChildFactory<Context>] = []
+    private(set) var detailFactories: [ChildFactory<Context>] = []
 
     /// `UISplitViewControllerDelegate` delegate
-    public weak var delegate: UISplitViewControllerDelegate?
+    private(set) weak var delegate: UISplitViewControllerDelegate?
 
     /// An animatable property that controls how the primary view controller is hidden and displayed.
     /// A value of `.automatic` specifies the default behavior split view controller, which on an iPad,
