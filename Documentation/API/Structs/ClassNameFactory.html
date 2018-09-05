@@ -46,7 +46,7 @@
                 <a href="../Protocols/AbstractFactory.html">AbstractFactory</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Core Entities.html#/s:13RouteComposer7FactoryP">Factory</a>
+                <a href="../Protocols/Factory.html">Factory</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Protocols/Container.html">Container</a>
@@ -132,9 +132,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/SplitControllerFactory/PushToMaster.html">– PushToMaster</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Protocols/SimpleContainerFactory.html">SimpleContainerFactory</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/NilFactory.html">NilFactory</a>
@@ -287,10 +284,10 @@
                 <a href="../Other Protocols.html#/s:13RouteComposer9NilEntityP">NilEntity</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Other Protocols.html#/s:13RouteComposer27SplitControllerDetailActionP">SplitControllerDetailAction</a>
+                <a href="../Protocols/SimpleContainer.html">SimpleContainer</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Other Protocols.html#/s:13RouteComposer27SplitControllerMasterActionP">SplitControllerMasterAction</a>
+                <a href="../Other Protocols.html#/s:13RouteComposer21SplitControllerActionP">SplitControllerAction</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Protocols/StepCaseResolver.html">StepCaseResolver</a>
@@ -361,11 +358,11 @@
             <h1>ClassNameFactory</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ClassNameFactory</span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="../Core Entities.html#/s:13RouteComposer7FactoryP">Factory</a></span> <span class="k">where</span> <span class="kt">VC</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ClassNameFactory</span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/Factory.html">Factory</a></span> <span class="k">where</span> <span class="kt">VC</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
 
                 </div>
               </div>
-            <p>The <code><a href="../Core Entities.html#/s:13RouteComposer7FactoryP">Factory</a></code> that creates a <code>UIViewController</code> class by its name</p>
+            <p>The <code><a href="../Protocols/Factory.html">Factory</a></code> that creates a <code>UIViewController</code> class by its name</p>
 
           </section>
           <section class="section task-group-section">
@@ -374,9 +371,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer15AbstractFactoryP14ViewController"></a>
+                    <a name="/s:13RouteComposer7FactoryP14ViewController"></a>
                     <a name="//apple_ref/swift/Alias/ViewController" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer15AbstractFactoryP14ViewController">ViewController</a>
+                    <a class="token" href="#/s:13RouteComposer7FactoryP14ViewController">ViewController</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -400,9 +397,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer15AbstractFactoryP7Context"></a>
+                    <a name="/s:13RouteComposer7FactoryP7Context"></a>
                     <a name="//apple_ref/swift/Alias/Context" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer15AbstractFactoryP7Context">Context</a>
+                    <a class="token" href="#/s:13RouteComposer7FactoryP7Context">Context</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -436,7 +433,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The name of a <code>UIViewController</code> class to be built by the <code><a href="../Core Entities.html#/s:13RouteComposer7FactoryP">Factory</a></code></p>
+                        <p>The name of a <code>UIViewController</code> class to be built by the <code><a href="../Protocols/Factory.html">Factory</a></code></p>
 
                       </div>
                       <div class="declaration">
@@ -499,9 +496,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer15AbstractFactoryP5build14ViewControllerQz7ContextQz4with_tKF"></a>
+                    <a name="/s:13RouteComposer7FactoryP5build14ViewControllerQz7ContextQz4with_tKF"></a>
                     <a name="//apple_ref/swift/Method/build(with:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer15AbstractFactoryP5build14ViewControllerQz7ContextQz4with_tKF">build(with:)</a>
+                    <a class="token" href="#/s:13RouteComposer7FactoryP5build14ViewControllerQz7ContextQz4with_tKF">build(with:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -515,7 +512,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">build</span><span class="p">(</span><span class="n">with</span> <span class="nv">context</span><span class="p">:</span> <span class="kt"><a href="../Structs/ClassNameFactory.html#/s:13RouteComposer15AbstractFactoryP7Context">Context</a></span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/ClassNameFactory.html#/s:13RouteComposer15AbstractFactoryP14ViewController">ViewController</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">build</span><span class="p">(</span><span class="n">with</span> <span class="nv">context</span><span class="p">:</span> <span class="kt"><a href="../Structs/ClassNameFactory.html#/s:13RouteComposer7FactoryP7Context">Context</a></span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/ClassNameFactory.html#/s:13RouteComposer7FactoryP14ViewController">ViewController</a></span></code></pre>
 
                         </div>
                       </div>

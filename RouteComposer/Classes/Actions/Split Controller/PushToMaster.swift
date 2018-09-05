@@ -9,10 +9,18 @@ import UIKit
 public extension SplitControllerFactory {
 
     /// Presents a master view controller in the `UISplitViewController`
-    public struct PushToMaster: SplitControllerMasterAction {
+    public struct PushToMaster: SplitControllerAction {
 
         /// Constructor
         public init() {
+        }
+
+        public func perform(embedding viewController: UIViewController, in childViewControllers: inout [UIViewController]) {
+            if !childViewControllers.isEmpty {
+                childViewControllers.insert(viewController, at: 0)
+            } else {
+                childViewControllers.append(viewController)
+            }
         }
 
         public func perform(with viewController: UIViewController,

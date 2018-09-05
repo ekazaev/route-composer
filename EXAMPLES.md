@@ -54,7 +54,7 @@ It will work if the user is not in some `UIViewController` that is presented mod
             finder: ClassFinder<AccountViewController, Any?>(),
             factory: XibFactory())
             .using(NavigationControllerFactory.PushToNavigation())
-            .from(SimpleContainerFactory(ClassFinder<UINavigationController, Any?>(), NilFactory()))
+            .from(SingleContainerStep(ClassFinder<UINavigationController, Any?>(), NilFactory()))
             // Nothing will be created ny NilFactory, so no action needed.
             .using(GeneralAction.NilAction())
             .from(CurrentViewControllerStep())

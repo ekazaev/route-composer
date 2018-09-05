@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>RoutingInterceptor Protocol Reference</title>
+    <title>SimpleContainer Protocol Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Protocol/RoutingInterceptor" class="dashAnchor"></a>
-    <a title="RoutingInterceptor Protocol Reference"></a>
+    <a name="//apple_ref/swift/Protocol/SimpleContainer" class="dashAnchor"></a>
+    <a title="SimpleContainer Protocol Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">RouteComposer Docs</a> (100% documented)</p>
@@ -21,7 +21,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">RouteComposer Reference</a>
         <img id="carat" src="../img/carat.png" />
-        RoutingInterceptor Protocol Reference
+        SimpleContainer Protocol Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -355,20 +355,15 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>RoutingInterceptor</h1>
+            <h1>SimpleContainer</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">RoutingInterceptor</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">SimpleContainer</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/Container.html">Container</a></span></code></pre>
 
                 </div>
               </div>
-            <p>Routing interceptor is called before the actual deeplinking(navigation) happens in case it&rsquo;s defined,
-e.g. user should be logged in.</p>
-<h3 id='nb' class='heading'>NB</h3>
-
-<p>Interceptor is an asynchronous action. For the <code><a href="../Protocols/Router.html">Router</a></code> to continue routing, completion of interceptor&rsquo;s
-execute method <strong>MUST</strong> be called.
-Otherwise, the <code><a href="../Protocols/Router.html">Router</a></code> will stay in limbo state waiting for the interceptor to finish its action.</p>
+            <p>Helper protocol to the <code><a href="../Protocols/Container.html">Container</a></code> protocol. If a container does not need to deal with the children&rsquo;s view
+controller actions - <code>SimpleContainer</code> will handle building children view controllers logic.</p>
 
           </section>
           <section class="section task-group-section">
@@ -377,9 +372,9 @@ Otherwise, the <code><a href="../Protocols/Router.html">Router</a></code> will s
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer18RoutingInterceptorP11Destination"></a>
-                    <a name="//apple_ref/swift/Alias/Destination" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer18RoutingInterceptorP11Destination">Destination</a>
+                    <a name="/s:13RouteComposer15SimpleContainerP14ViewController"></a>
+                    <a name="//apple_ref/swift/Alias/ViewController" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer15SimpleContainerP14ViewController">ViewController</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -387,14 +382,14 @@ Otherwise, the <code><a href="../Protocols/Router.html">Router</a></code> will s
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><code><a href="../Protocols/RoutingDestination.html">RoutingDestination</a></code> type associated with <code>RoutingInterceptor</code></p>
+                        <p>Type of the <code>UIViewController</code> that <code>SimpleContainer</code> can build</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">associatedtype</span> <span class="kt">Destination</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/RoutingDestination.html">RoutingDestination</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">associatedtype</span> <span class="kt">ViewController</span> <span class="o">=</span> <span class="k">Self</span><span class="o">.</span><span class="kt">ViewController</span></code></pre>
 
                         </div>
                       </div>
@@ -404,9 +399,36 @@ Otherwise, the <code><a href="../Protocols/Router.html">Router</a></code> will s
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer18RoutingInterceptorP7preparey11DestinationQz4with_tKF"></a>
-                    <a name="//apple_ref/swift/Method/prepare(with:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer18RoutingInterceptorP7preparey11DestinationQz4with_tKF">prepare(with:)</a>
+                    <a name="/s:13RouteComposer15SimpleContainerP7Context"></a>
+                    <a name="//apple_ref/swift/Alias/Context" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer15SimpleContainerP7Context">Context</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Type of context <code>Context</code> instance that <code>SimpleContainer</code> needs</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">associatedtype</span> <span class="kt">Context</span> <span class="o">=</span> <span class="k">Self</span><span class="o">.</span><span class="kt">Context</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer15SimpleContainerP5build14ViewControllerQz7ContextQz4with_SaySo06UIViewG0CG11integratingtKF"></a>
+                    <a name="//apple_ref/swift/Method/build(with:integrating:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer15SimpleContainerP5build14ViewControllerQz7ContextQz4with_SaySo06UIViewG0CG11integratingtKF">build(with:integrating:)</a>
                     </code>
                       <span class="declaration-note">
                         Default implementation
@@ -417,113 +439,34 @@ Otherwise, the <code><a href="../Protocols/Router.html">Router</a></code> will s
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>If the <code>RoutingInterceptor</code> can tell the <code><a href="../Protocols/Router.html">Router</a></code> if it can be executed or not and does not need to be async</p>
-<li><p>it should overload this method.
-The <code><a href="../Protocols/Router.html">Router</a></code> will call it before the routing process and if <code>RoutingInterceptor</code> is not able to allow
-the routing process to start it can stop <code><a href="../Protocols/Router.html">Router</a></code>
-and the result of routing will be <code>.unhandled</code> without any changes in view controller stack.</p></li>
+                        <p>Builds a <code>UIViewController</code> that will be integrated into the stack</p>
+
+<p>Parameters:</p>
+<li>context: A <code><a href="../Protocols/SimpleContainer.html#/s:13RouteComposer15SimpleContainerP7Context">Context</a></code> instance if it was provided to the <code><a href="../Protocols/Router.html">Router</a></code>.</li>
+<li>viewControllers: <code>UIViewController</code> instances to be integrated in to container as childres view controllers
 <div class="aside aside-throws">
     <p class="aside-title">Throws</p>
-    <p>The <code><a href="../Enums/RoutingError.html">RoutingError</a></code> if the <code>RoutingInterceptor</code> can not prepare itself or routing can not start
-with the <code>Context</code> instance provided.</p>
+    The <code><a href="../Enums/RoutingError.html">RoutingError</a></code> if build was not succeed.
 
-</div>
+</div></li>
 
                       </div>
                       <h4>Default Implementation</h4>
                       <div class="default_impl abstract">
-                        <p>Default implementation.</p>
+                        <p>Default implementation of the <code>Container</code>&lsquo;s <code>build</code> method</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">mutating</span> <span class="kd">func</span> <span class="nf">prepare</span><span class="p">(</span><span class="n">with</span> <span class="nv">destination</span><span class="p">:</span> <span class="kt"><a href="../Protocols/RoutingInterceptor.html#/s:13RouteComposer18RoutingInterceptorP11Destination">Destination</a></span><span class="p">)</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">build</span><span class="p">(</span><span class="n">with</span> <span class="nv">context</span><span class="p">:</span> <span class="kt"><a href="../Protocols/SimpleContainer.html#/s:13RouteComposer15SimpleContainerP7Context">Context</a></span><span class="p">,</span> <span class="n">integrating</span> <span class="nv">viewControllers</span><span class="p">:</span> <span class="p">[</span><span class="kt">UIViewController</span><span class="p">])</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Protocols/SimpleContainer.html#/s:13RouteComposer15SimpleContainerP14ViewController">ViewController</a></span></code></pre>
 
                         </div>
                       </div>
                       <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>destination</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The <code><a href="../Protocols/RoutingInterceptor.html#/s:13RouteComposer18RoutingInterceptorP11Destination">Destination</a></code> instance if it was provided to the <code><a href="../Protocols/Router.html">Router</a></code>.</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:13RouteComposer18RoutingInterceptorP7executey11DestinationQz3for_yAA0D6ResultOc10completiontF"></a>
-                    <a name="//apple_ref/swift/Method/execute(for:completion:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer18RoutingInterceptorP7executey11DestinationQz3for_yAA0D6ResultOc10completiontF">execute(for:completion:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Method that will be called by <code><a href="../Protocols/Router.html">Router</a></code> to start interceptor.</p>
-<h3 id='nb' class='heading'>NB</h3>
-
-<p>For the <code><a href="../Protocols/Router.html">Router</a></code> to continue routing, the <code>completion</code> block of interceptor <strong>MUST</strong> to be called
-in any case by the implementation of this method.
-Otherwise <code><a href="../Protocols/Router.html">Router</a></code> will stay in limbo waiting for <code>RoutingInterceptor</code> to finish its action.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">execute</span><span class="p">(</span><span class="k">for</span> <span class="nv">destination</span><span class="p">:</span> <span class="kt"><a href="../Protocols/RoutingInterceptor.html#/s:13RouteComposer18RoutingInterceptorP11Destination">Destination</a></span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="kt"><a href="../Enums/InterceptorResult.html">InterceptorResult</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>destination</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>Destination instance provided to the <code><a href="../Protocols/Router.html">Router</a></code></p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>completion</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>Completion block with a result.</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
+                        <h4>Return Value</h4>
+                        <p>The built <code>UIViewController</code> instance.</p>
                       </div>
                     </section>
                   </div>

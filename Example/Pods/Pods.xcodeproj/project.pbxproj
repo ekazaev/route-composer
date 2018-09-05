@@ -55,7 +55,7 @@
 		819FBC400EAED0B8293FEF0C377086B0 /* StackIteratingFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4D43C33BB559BCE6FAC2D281390370 /* StackIteratingFinder.swift */; };
 		82E054245457FB731B2A96A058AD3CBE /* InterceptorResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD00F13E158C1D7AE0FAFB4B9C16746 /* InterceptorResult.swift */; };
 		83AFDFF86DB083A1FB783D138D48F2DB /* ClassNameFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BBD82C3BAF0CC71B7AF3BE02F79CDF /* ClassNameFactory.swift */; };
-		83E2ABDA9ED52528F3E2DD0E84FC9BD4 /* SimpleContainerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB232F7BD8482B479315F29EB92437E1 /* SimpleContainerFactory.swift */; };
+		83E2ABDA9ED52528F3E2DD0E84FC9BD4 /* SimpleContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB232F7BD8482B479315F29EB92437E1 /* SimpleContainer.swift */; };
 		848E5D0120FCB24700479193 /* InlineTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848E5D0020FCB24700479193 /* InlineTasks.swift */; };
 		849D130F2138CAEC0052FD44 /* Usable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC86DBA8C55F39C672726 /* Usable.swift */; };
 		885C84963817307DC32E33639DFBF769 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B63C6A64CF66340668996F78DA6BB482 /* UIKit.framework */; };
@@ -251,7 +251,7 @@
 		D6ECB37CE28997061FA8B511CBC5D267 /* ContextTask.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ContextTask.swift; path = RouteComposer/Classes/ContextTask.swift; sourceTree = "<group>"; };
 		D8213CEE60BFAE73FC38D18124FCCCC0 /* NavigationControllerStep.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NavigationControllerStep.swift; sourceTree = "<group>"; };
 		D88AAE1F92055A60CC2FC970D7D34634 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		DB232F7BD8482B479315F29EB92437E1 /* SimpleContainerFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SimpleContainerFactory.swift; sourceTree = "<group>"; };
+		DB232F7BD8482B479315F29EB92437E1 /* SimpleContainer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SimpleContainer.swift; sourceTree = "<group>"; };
 		DD4D43C33BB559BCE6FAC2D281390370 /* StackIteratingFinder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StackIteratingFinder.swift; sourceTree = "<group>"; };
 		DE31ACF0A527597510CA1FC3F376212A /* StoryboardFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StoryboardFactory.swift; sourceTree = "<group>"; };
 		DFD00F13E158C1D7AE0FAFB4B9C16746 /* InterceptorResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InterceptorResult.swift; path = RouteComposer/Classes/InterceptorResult.swift; sourceTree = "<group>"; };
@@ -468,7 +468,7 @@
 				7FE3E69DEC3763875028FFA0FDE28920 /* FinderFactory.swift */,
 				E1CF6F588B384B0F1094E5C456C2E3C7 /* NavigationControllerFactory.swift */,
 				206A3710E9138B4E6B1085BF8F3F6530 /* NilFactory.swift */,
-				DB232F7BD8482B479315F29EB92437E1 /* SimpleContainerFactory.swift */,
+				DB232F7BD8482B479315F29EB92437E1 /* SimpleContainer.swift */,
 				F7C4E8F8BB4B450978C704A423A31606 /* SplitControllerFactory.swift */,
 				DE31ACF0A527597510CA1FC3F376212A /* StoryboardFactory.swift */,
 				AD180F3AB78D385B1F5431380DC301A5 /* TabBarControllerFactory.swift */,
@@ -842,7 +842,7 @@
 				4DE8A4A7E1382857252DB62A3ABF97FC /* RoutingInterceptor.swift in Sources */,
 				2C6096BDB216829083390C8157332509 /* RoutingResult.swift in Sources */,
 				B74205A7D15AC409007011C5A7CE5116 /* RoutingStep.swift in Sources */,
-				83E2ABDA9ED52528F3E2DD0E84FC9BD4 /* SimpleContainerFactory.swift in Sources */,
+				83E2ABDA9ED52528F3E2DD0E84FC9BD4 /* SimpleContainer.swift in Sources */,
 				AA34201B51E62E48C1CB5F83C576CC74 /* SplitControllerAction.swift in Sources */,
 				D60087D29A3F240FBB96818681810CC8 /* SplitControllerFactory.swift in Sources */,
 				849D130F2138CAEC0052FD44 /* Usable.swift in Sources */,

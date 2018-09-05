@@ -24,6 +24,20 @@ class BoxTests: XCTestCase {
         XCTAssertNil(FactoryBox.box(for: factory, action: GeneralAction.NilAction()))
     }
 
+    func testContainerBoxChildrenScrape() {
+        let factory = EmptyContainer()
+        var box = ContainerFactoryBox.box(for: factory, action: GeneralAction.NilAction()) as? ContainerFactoryBox<EmptyContainer>
+        XCTAssertNotNil(box)
+        var children: [AnyFactory] = []
+        children.append(FactoryBox.box(for: EmptyFactory(), action: NavigationControllerFactory.PushToNavigation())!)
+        children.append(FactoryBox.box(for: EmptyFactory(), action: NavigationControllerFactory.PushToNavigation())!)
+        children.append(FactoryBox.box(for: EmptyFactory(), action: GeneralAction.NilAction())!)
+
+        let resultChildren = try? box?.scrapeChildren(from: children)
+        XCTAssertEqual(resultChildren??.count, 1)
+        XCTAssertEqual(box?.children.count, 2)
+    }
+
     func testNilInAssembly() {
         let routingStep = StepAssembly(finder: NilFinder<UIViewController, Any?>(),
                 factory: NilFactory<UIViewController, Any?>())

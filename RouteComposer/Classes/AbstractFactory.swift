@@ -27,18 +27,4 @@ public protocol AbstractFactory {
     ///   with the `Context` instance provided.
     mutating func prepare(with context: Context) throws
 
-    /// Builds a `UIViewController` that will be integrated into the stack
-    ///
-    /// - Parameter context: A `Context` instance if it was provided to the `Router`.
-    /// - Returns: The built `UIViewController` instance.
-    /// - Throws: The `RoutingError` if build was not succeed.
-    func build(with context: Context) throws -> ViewController
-
-}
-
-public extension AbstractFactory {
-
-    mutating func prepare(with context: Context) throws {
-    }
-
 }

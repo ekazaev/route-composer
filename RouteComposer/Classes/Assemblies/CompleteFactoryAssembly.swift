@@ -50,8 +50,7 @@ public final class CompleteFactoryAssembly<FC: Container> {
     ///
     /// - Returns: The `CompleteFactory` with child factories provided.
     public func assemble() -> CompleteFactory<FC> {
-        var completeFactory = CompleteFactory(factory: factory, childFactories: childFactories)
-        _ = completeFactory.merge([])
+        let completeFactory = CompleteFactory(factory: factory, childFactories: childFactories)
         return completeFactory
     }
 
