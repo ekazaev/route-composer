@@ -7,16 +7,18 @@ import Foundation
 import UIKit
 @testable import RouteComposer
 
-struct EmptyContainer: SimpleContainerFactory {
+struct EmptyContainer: SimpleContainer {
 
     typealias SupportedAction = NavigationControllerAction
-
-    var factories: [ChildFactory<Any?>] = []
 
     init() {
     }
 
-    func build(with context: Any?) throws -> UIViewController {
-        return UIViewController()
+    func build(with context: Any?, integrating viewControllers: [UIViewController]) throws -> UIViewController {
+        let viewController = UIViewController()
+        viewControllers.forEach({
+            viewController.addChildViewController($0)
+        })
+        return viewController
     }
 }

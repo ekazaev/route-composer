@@ -7,15 +7,13 @@ import Foundation
 import UIKit
 
 ///  The `Container` that creates a `UISplitController` instance.
-public struct SplitControllerFactory: Container {
+public struct SplitControllerFactory: SimpleContainer {
 
     public typealias ViewController = UISplitViewController
 
     public typealias Context = Any?
 
-    private(set) var masterFactories: [ChildFactory<Context>] = []
-
-    private(set) var detailFactories: [ChildFactory<Context>] = []
+    public typealias SupportedAction = SplitControllerAction
 
     /// `UISplitViewControllerDelegate` delegate
     private(set) weak var delegate: UISplitViewControllerDelegate?
@@ -38,33 +36,9 @@ public struct SplitControllerFactory: Container {
         self.presentsWithGesture = presentsWithGesture
     }
 
-    mutating public func merge(_ factories: [ChildFactory<Context>]) -> [ChildFactory<Context>] {
-        var rest: [ChildFactory<Context>] = []
-        factories.forEach { factory in
-            if factory.action as? SplitControllerMasterAction != nil {
-                masterFactories.append(factory)
-            } else if factory.action as? SplitControllerDetailAction != nil {
-                detailFactories.append(factory)
-            } else {
-                rest.append(factory)
-            }
-        }
-
-        return rest
-    }
-
-    public func build(with context: Context) throws -> ViewController {
-        guard !masterFactories.isEmpty, !detailFactories.isEmpty else {
+    public func build(with context: Context, integrating viewControllers: [UIViewController]) throws -> ViewController {
+        guard !viewControllers.isEmpty else {
             throw RoutingError.message("No master or derails view controllers provided")
-        }
-
-        let masterViewControllers = try buildChildrenViewControllers(from: masterFactories, with: context)
-        let detailsViewControllers = try buildChildrenViewControllers(from: detailFactories, with: context)
-        guard !masterViewControllers.isEmpty else {
-            throw RoutingError.message("No master or derails view controllers provided")
-        }
-        guard !detailsViewControllers.isEmpty else {
-            throw RoutingError.message("At least 1 Details View Controller is mandatory to build UISplitViewController")
         }
 
         let splitController = UISplitViewController(nibName: nil, bundle: nil)
@@ -73,9 +47,7 @@ public struct SplitControllerFactory: Container {
         if let delegate = delegate {
             splitController.delegate = delegate
         }
-        var childrenViewControllers = masterViewControllers
-        childrenViewControllers.append(contentsOf: detailsViewControllers)
-        splitController.viewControllers = childrenViewControllers
+        splitController.viewControllers = viewControllers
         return splitController
     }
 

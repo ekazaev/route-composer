@@ -46,7 +46,7 @@
                 <a href="../Protocols/AbstractFactory.html">AbstractFactory</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Core Entities.html#/s:13RouteComposer7FactoryP">Factory</a>
+                <a href="../Protocols/Factory.html">Factory</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Protocols/Container.html">Container</a>
@@ -132,9 +132,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/SplitControllerFactory/PushToMaster.html">– PushToMaster</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Protocols/SimpleContainerFactory.html">SimpleContainerFactory</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/NilFactory.html">NilFactory</a>
@@ -287,10 +284,10 @@
                 <a href="../Other Protocols.html#/s:13RouteComposer9NilEntityP">NilEntity</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Other Protocols.html#/s:13RouteComposer27SplitControllerDetailActionP">SplitControllerDetailAction</a>
+                <a href="../Protocols/SimpleContainer.html">SimpleContainer</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Other Protocols.html#/s:13RouteComposer27SplitControllerMasterActionP">SplitControllerMasterAction</a>
+                <a href="../Other Protocols.html#/s:13RouteComposer21SplitControllerActionP">SplitControllerAction</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Protocols/StepCaseResolver.html">StepCaseResolver</a>
@@ -375,9 +372,9 @@ pre-populate the <code>ChildFactories</code> instead of the <code><a href="../Pr
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer15AbstractFactoryP14ViewController"></a>
+                    <a name="/s:13RouteComposer9ContainerP14ViewController"></a>
                     <a name="//apple_ref/swift/Alias/ViewController" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer15AbstractFactoryP14ViewController">ViewController</a>
+                    <a class="token" href="#/s:13RouteComposer9ContainerP14ViewController">ViewController</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -401,9 +398,9 @@ pre-populate the <code>ChildFactories</code> instead of the <code><a href="../Pr
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer15AbstractFactoryP7Context"></a>
+                    <a name="/s:13RouteComposer9ContainerP7Context"></a>
                     <a name="//apple_ref/swift/Alias/Context" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer15AbstractFactoryP7Context">Context</a>
+                    <a class="token" href="#/s:13RouteComposer9ContainerP7Context">Context</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -418,6 +415,32 @@ pre-populate the <code>ChildFactories</code> instead of the <code><a href="../Pr
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">Context</span> <span class="o">=</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">Context</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer9ContainerP15SupportedAction"></a>
+                    <a name="//apple_ref/swift/Alias/SupportedAction" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer9ContainerP15SupportedAction">SupportedAction</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">SupportedAction</span> <span class="o">=</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">SupportedAction</span></code></pre>
 
                         </div>
                       </div>
@@ -443,7 +466,7 @@ pre-populate the <code>ChildFactories</code> instead of the <code><a href="../Pr
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">mutating</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">prepare</span><span class="p">(</span><span class="n">with</span> <span class="nv">context</span><span class="p">:</span> <span class="kt"><a href="../Structs/CompleteFactory.html#/s:13RouteComposer15AbstractFactoryP7Context">Context</a></span><span class="p">)</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">mutating</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">prepare</span><span class="p">(</span><span class="n">with</span> <span class="nv">context</span><span class="p">:</span> <span class="kt"><a href="../Structs/CompleteFactory.html#/s:13RouteComposer9ContainerP7Context">Context</a></span><span class="p">)</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -453,9 +476,9 @@ pre-populate the <code>ChildFactories</code> instead of the <code><a href="../Pr
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer9ContainerP5mergeSayAA12ChildFactoryVy7ContextQzGGAJF"></a>
-                    <a name="//apple_ref/swift/Method/merge(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer9ContainerP5mergeSayAA12ChildFactoryVy7ContextQzGGAJF">merge(_:)</a>
+                    <a name="/s:13RouteComposer9ContainerP5build14ViewControllerQz7ContextQz4with_SayAA12ChildFactoryVyAHGG11integratingtKF"></a>
+                    <a name="//apple_ref/swift/Method/build(with:integrating:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer9ContainerP5build14ViewControllerQz7ContextQz4with_SayAA12ChildFactoryVyAHGG11integratingtKF">build(with:integrating:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -469,33 +492,7 @@ pre-populate the <code>ChildFactories</code> instead of the <code><a href="../Pr
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">mutating</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">merge</span><span class="p">(</span><span class="n">_</span> <span class="nv">factories</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Structs/ChildFactory.html">ChildFactory</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/CompleteFactory.html#/s:13RouteComposer15AbstractFactoryP7Context">Context</a></span><span class="o">&gt;</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt"><a href="../Structs/ChildFactory.html">ChildFactory</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/CompleteFactory.html#/s:13RouteComposer15AbstractFactoryP7Context">Context</a></span><span class="o">&gt;</span><span class="p">]</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:13RouteComposer15AbstractFactoryP5build14ViewControllerQz7ContextQz4with_tKF"></a>
-                    <a name="//apple_ref/swift/Method/build(with:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer15AbstractFactoryP5build14ViewControllerQz7ContextQz4with_tKF">build(with:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">build</span><span class="p">(</span><span class="n">with</span> <span class="nv">context</span><span class="p">:</span> <span class="kt"><a href="../Structs/CompleteFactory.html#/s:13RouteComposer15AbstractFactoryP7Context">Context</a></span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/CompleteFactory.html#/s:13RouteComposer15AbstractFactoryP14ViewController">ViewController</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">build</span><span class="p">(</span><span class="n">with</span> <span class="nv">context</span><span class="p">:</span> <span class="kt"><a href="../Structs/CompleteFactory.html#/s:13RouteComposer9ContainerP7Context">Context</a></span><span class="p">,</span> <span class="n">integrating</span> <span class="nv">factories</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Structs/ChildFactory.html">ChildFactory</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/CompleteFactory.html#/s:13RouteComposer9ContainerP7Context">Context</a></span><span class="o">&gt;</span><span class="p">])</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/CompleteFactory.html#/s:13RouteComposer9ContainerP14ViewController">ViewController</a></span></code></pre>
 
                         </div>
                       </div>

@@ -46,7 +46,7 @@
                 <a href="Protocols/AbstractFactory.html">AbstractFactory</a>
               </li>
               <li class="nav-group-task">
-                <a href="Core Entities.html#/s:13RouteComposer7FactoryP">Factory</a>
+                <a href="Protocols/Factory.html">Factory</a>
               </li>
               <li class="nav-group-task">
                 <a href="Protocols/Container.html">Container</a>
@@ -132,9 +132,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="Structs/SplitControllerFactory/PushToMaster.html">– PushToMaster</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Protocols/SimpleContainerFactory.html">SimpleContainerFactory</a>
               </li>
               <li class="nav-group-task">
                 <a href="Structs/NilFactory.html">NilFactory</a>
@@ -287,10 +284,10 @@
                 <a href="Other Protocols.html#/s:13RouteComposer9NilEntityP">NilEntity</a>
               </li>
               <li class="nav-group-task">
-                <a href="Other Protocols.html#/s:13RouteComposer27SplitControllerDetailActionP">SplitControllerDetailAction</a>
+                <a href="Protocols/SimpleContainer.html">SimpleContainer</a>
               </li>
               <li class="nav-group-task">
-                <a href="Other Protocols.html#/s:13RouteComposer27SplitControllerMasterActionP">SplitControllerMasterAction</a>
+                <a href="Other Protocols.html#/s:13RouteComposer21SplitControllerActionP">SplitControllerAction</a>
               </li>
               <li class="nav-group-task">
                 <a href="Protocols/StepCaseResolver.html">StepCaseResolver</a>
@@ -380,7 +377,7 @@
                         <p>Builds a <code><a href="Core Entities.html#/s:13RouteComposer11RoutingStepP">RoutingStep</a></code> instance with the correct settings.</p>
 <h3 id='keep-in-mind' class='heading'>Keep in mind</h3>
 
-<p>Both <code><a href="Protocols/Finder.html">Finder</a></code> and <code><a href="Core Entities.html#/s:13RouteComposer7FactoryP">Factory</a></code> instances should deal with the same type of <code>UIViewController</code> and <code>Context</code> instances.</p>
+<p>Both <code><a href="Protocols/Finder.html">Finder</a></code> and <code><a href="Protocols/Factory.html">Factory</a></code> instances should deal with the same type of <code>UIViewController</code> and <code>Context</code> instances.</p>
 <h3 id='usage' class='heading'>Usage</h3>
 <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">productScreen</span> <span class="o">=</span> <span class="kt">StepAssembly</span><span class="p">(</span><span class="nv">finder</span><span class="p">:</span> <span class="kt">ProductViewControllerFinder</span><span class="p">(),</span> <span class="nv">factory</span><span class="p">:</span> <span class="kt">ProductViewControllerFactory</span><span class="p">())</span>
         <span class="o">.</span><span class="nf">add</span><span class="p">(</span><span class="kt">LoginInterceptor</span><span class="p">())</span>
@@ -399,7 +396,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">StepAssembly</span><span class="o">&lt;</span><span class="kt">F</span><span class="p">,</span> <span class="kt">FC</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Classes/GenericStepAssembly.html">GenericStepAssembly</a></span><span class="o">&lt;</span><span class="kt">F</span><span class="p">,</span> <span class="kt">FC</span><span class="o">&gt;</span><span class="p">,</span> <span class="kt"><a href="Protocols/Usable.html">Usable</a></span> <span class="k">where</span> <span class="kt">F</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Finder.html">Finder</a></span><span class="p">,</span> <span class="kt">FC</span> <span class="p">:</span> <span class="kt"><a href="Core Entities.html#/s:13RouteComposer7FactoryP">Factory</a></span><span class="p">,</span> <span class="kt">F</span><span class="o">.</span><span class="kt">Context</span> <span class="o">==</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">Context</span><span class="p">,</span> <span class="kt">F</span><span class="o">.</span><span class="kt">ViewController</span> <span class="o">==</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">ViewController</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">StepAssembly</span><span class="o">&lt;</span><span class="kt">F</span><span class="p">,</span> <span class="kt">FC</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Classes/GenericStepAssembly.html">GenericStepAssembly</a></span><span class="o">&lt;</span><span class="kt">F</span><span class="p">,</span> <span class="kt">FC</span><span class="o">&gt;</span><span class="p">,</span> <span class="kt"><a href="Protocols/Usable.html">Usable</a></span> <span class="k">where</span> <span class="kt">F</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Finder.html">Finder</a></span><span class="p">,</span> <span class="kt">FC</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Factory.html">Factory</a></span><span class="p">,</span> <span class="kt">F</span><span class="o">.</span><span class="kt">Context</span> <span class="o">==</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">Context</span><span class="p">,</span> <span class="kt">F</span><span class="o">.</span><span class="kt">ViewController</span> <span class="o">==</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">ViewController</span></code></pre>
 
                         </div>
                       </div>
@@ -426,7 +423,7 @@
                         <p>Builds a <code><a href="Core Entities.html#/s:13RouteComposer11RoutingStepP">RoutingStep</a></code> instance with the correct settings.</p>
 <h3 id='keep-in-mind' class='heading'>Keep in mind</h3>
 
-<p>Both <code><a href="Protocols/Finder.html">Finder</a></code> and <code><a href="Core Entities.html#/s:13RouteComposer7FactoryP">Factory</a></code> instances should deal with the same type of <code>UIViewController</code> and <code>Context</code> instances.</p>
+<p>Both <code><a href="Protocols/Finder.html">Finder</a></code> and <code><a href="Protocols/Factory.html">Factory</a></code> instances should deal with the same type of <code>UIViewController</code> and <code>Context</code> instances.</p>
 <h3 id='usage' class='heading'>Usage</h3>
 <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">containerScreen</span> <span class="o">=</span> <span class="kt">ContainerStepAssembly</span><span class="p">(</span><span class="nv">finder</span><span class="p">:</span> <span class="kt">ClassFinder</span><span class="p">(),</span> <span class="nv">factory</span><span class="p">:</span> <span class="kt">NavigationControllerFactory</span><span class="p">())</span>
         <span class="o">.</span><span class="nf">add</span><span class="p">(</span><span class="kt">LoginInterceptor</span><span class="p">())</span>
@@ -540,7 +537,7 @@ be taken.</p>
                       <div class="abstract">
                         <p>Builds a <code><a href="Protocols/Container.html">Container</a></code> fulfilled with the child <code>UIViewController</code> factories.</p>
 
-<p><em>Example: You want your <code>UITabBarController</code> instance to be built by this <code><a href="Core Entities.html#/s:13RouteComposer7FactoryP">Factory</a></code>
+<p><em>Example: You want your <code>UITabBarController</code> instance to be built by this <code><a href="Protocols/Factory.html">Factory</a></code>
 with all the <code>UIViewController</code>s populated into each tab</em></p>
 
                         <a href="Classes/CompleteFactoryAssembly.html" class="slightly-smaller">See more</a>

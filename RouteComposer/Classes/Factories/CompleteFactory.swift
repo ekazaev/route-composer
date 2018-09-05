@@ -16,6 +16,8 @@ public struct CompleteFactory<FC: Container>: Container, CustomStringConvertible
 
     public typealias Context = FC.Context
 
+    public typealias SupportedAction = FC.SupportedAction
+
     private var factory: FC
 
     let childFactories: [ChildFactory<FC.Context>]
@@ -29,14 +31,10 @@ public struct CompleteFactory<FC: Container>: Container, CustomStringConvertible
         try factory.prepare(with: context)
     }
 
-    mutating public func merge(_ factories: [ChildFactory<Context>]) -> [ChildFactory<Context>] {
+    public func build(with context: Context, integrating factories: [ChildFactory<Context>]) throws -> ViewController {
         var childFactories = self.childFactories
         childFactories.append(contentsOf: factories)
-        return factory.merge(childFactories)
-    }
-
-    public func build(with context: Context) throws -> ViewController {
-        return try factory.build(with: context)
+        return try factory.build(with: context, integrating: childFactories)
     }
 
     public var description: String {

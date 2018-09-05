@@ -8,7 +8,7 @@ import UIKit
 import RouteComposer
 import ContainerViewController
 
-class CustomContainerFactory: SimpleContainerFactory {
+class CustomContainerFactory: SimpleContainer {
 
     typealias SupportedAction = ReplaceRoot
 
@@ -16,15 +16,13 @@ class CustomContainerFactory: SimpleContainerFactory {
 
     typealias Context = Any?
 
-    var factories: [ChildFactory<Context>] = []
-
     weak var delegate: CustomViewControllerDelegate?
 
     init(delegate: CustomViewControllerDelegate) {
         self.delegate = delegate
     }
 
-    func build(with context: Context) throws -> ViewController {
+    func build(with context: Context, integrating viewControllers: [UIViewController]) throws -> ViewController {
         guard let containerController = UIStoryboard(name: "Images", bundle: Bundle.main)
                 .instantiateViewController(withIdentifier: "CustomContainerController") as? ViewController else {
             throw RoutingError.message("Could not load CustomContainerController from storyboard.")
@@ -32,7 +30,6 @@ class CustomContainerFactory: SimpleContainerFactory {
         containerController.delegate = delegate
 
         // Our custom view controller can present only one child. So we will use only the last one if it exist.
-        let viewControllers = try buildChildrenViewControllers(with: context)
         containerController.rootViewController = viewControllers.last
         return containerController
     }

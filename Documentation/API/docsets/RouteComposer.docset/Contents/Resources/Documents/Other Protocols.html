@@ -46,7 +46,7 @@
                 <a href="Protocols/AbstractFactory.html">AbstractFactory</a>
               </li>
               <li class="nav-group-task">
-                <a href="Core Entities.html#/s:13RouteComposer7FactoryP">Factory</a>
+                <a href="Protocols/Factory.html">Factory</a>
               </li>
               <li class="nav-group-task">
                 <a href="Protocols/Container.html">Container</a>
@@ -132,9 +132,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="Structs/SplitControllerFactory/PushToMaster.html">– PushToMaster</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Protocols/SimpleContainerFactory.html">SimpleContainerFactory</a>
               </li>
               <li class="nav-group-task">
                 <a href="Structs/NilFactory.html">NilFactory</a>
@@ -287,10 +284,10 @@
                 <a href="Other Protocols.html#/s:13RouteComposer9NilEntityP">NilEntity</a>
               </li>
               <li class="nav-group-task">
-                <a href="Other Protocols.html#/s:13RouteComposer27SplitControllerDetailActionP">SplitControllerDetailAction</a>
+                <a href="Protocols/SimpleContainer.html">SimpleContainer</a>
               </li>
               <li class="nav-group-task">
-                <a href="Other Protocols.html#/s:13RouteComposer27SplitControllerMasterActionP">SplitControllerMasterAction</a>
+                <a href="Other Protocols.html#/s:13RouteComposer21SplitControllerActionP">SplitControllerAction</a>
               </li>
               <li class="nav-group-task">
                 <a href="Protocols/StepCaseResolver.html">StepCaseResolver</a>
@@ -399,9 +396,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer27SplitControllerMasterActionP"></a>
-                    <a name="//apple_ref/swift/Protocol/SplitControllerMasterAction" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer27SplitControllerMasterActionP">SplitControllerMasterAction</a>
+                    <a name="/s:13RouteComposer21SplitControllerActionP"></a>
+                    <a name="//apple_ref/swift/Protocol/SplitControllerAction" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer21SplitControllerActionP">SplitControllerAction</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -409,41 +406,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><code><a href="Protocols/Action.html">Action</a></code> type supported by the <code><a href="Structs/SplitControllerFactory.html">SplitControllerFactory</a></code>&lsquo;s nested master view controllers.</p>
+                        <p><code><a href="Protocols/Action.html">Action</a></code> type supported by the <code><a href="Structs/SplitControllerFactory.html">SplitControllerFactory</a></code>.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">SplitControllerMasterAction</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Action.html">Action</a></span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:13RouteComposer27SplitControllerDetailActionP"></a>
-                    <a name="//apple_ref/swift/Protocol/SplitControllerDetailAction" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer27SplitControllerDetailActionP">SplitControllerDetailAction</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p><code><a href="Protocols/Action.html">Action</a></code> type supported by the <code><a href="Structs/SplitControllerFactory.html">SplitControllerFactory</a></code>&lsquo;s nested details view controllers.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">SplitControllerDetailAction</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Action.html">Action</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">SplitControllerAction</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Action.html">Action</a></span></code></pre>
 
                         </div>
                       </div>
@@ -539,6 +509,39 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">InterceptableRouter</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Router.html">Router</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer15SimpleContainerP"></a>
+                    <a name="//apple_ref/swift/Protocol/SimpleContainer" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer15SimpleContainerP">SimpleContainer</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Helper protocol to the <code><a href="Protocols/Container.html">Container</a></code> protocol. If a container does not need to deal with the children&rsquo;s view
+controller actions - <code>SimpleContainer</code> will handle building children view controllers logic.</p>
+
+                        <a href="Protocols/SimpleContainer.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">SimpleContainer</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Container.html">Container</a></span></code></pre>
 
                         </div>
                       </div>

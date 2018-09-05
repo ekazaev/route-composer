@@ -6,15 +6,13 @@
 import UIKit
 
 /// The `Container` that creates a `UINavigationController` instance.
-public struct NavigationControllerFactory: SimpleContainerFactory {
+public struct NavigationControllerFactory: SimpleContainer {
 
     public typealias ViewController = UINavigationController
 
     public typealias Context = Any?
 
     public typealias SupportedAction = NavigationControllerAction
-
-    public var factories: [ChildFactory<Context>] = []
 
     /// `UINavigationControllerDelegate` delegate
     public weak var delegate: UINavigationControllerDelegate?
@@ -26,12 +24,7 @@ public struct NavigationControllerFactory: SimpleContainerFactory {
         self.delegate = delegate
     }
 
-    public func build(with context: Context) throws -> ViewController {
-        guard !factories.isEmpty else {
-            throw RoutingError.message("Unable to build UINavigationController due to 0 amount of child factories")
-        }
-
-        let viewControllers = try buildChildrenViewControllers(with: context)
+    public func build(with context: Context, integrating viewControllers: [UIViewController]) throws -> ViewController {
         guard !viewControllers.isEmpty else {
             throw RoutingError.message("Unable to build UINavigationController due to 0 amount of child view controllers")
         }

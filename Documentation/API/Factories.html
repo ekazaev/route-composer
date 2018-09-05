@@ -46,7 +46,7 @@
                 <a href="Protocols/AbstractFactory.html">AbstractFactory</a>
               </li>
               <li class="nav-group-task">
-                <a href="Core Entities.html#/s:13RouteComposer7FactoryP">Factory</a>
+                <a href="Protocols/Factory.html">Factory</a>
               </li>
               <li class="nav-group-task">
                 <a href="Protocols/Container.html">Container</a>
@@ -132,9 +132,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="Structs/SplitControllerFactory/PushToMaster.html">– PushToMaster</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Protocols/SimpleContainerFactory.html">SimpleContainerFactory</a>
               </li>
               <li class="nav-group-task">
                 <a href="Structs/NilFactory.html">NilFactory</a>
@@ -287,10 +284,10 @@
                 <a href="Other Protocols.html#/s:13RouteComposer9NilEntityP">NilEntity</a>
               </li>
               <li class="nav-group-task">
-                <a href="Other Protocols.html#/s:13RouteComposer27SplitControllerDetailActionP">SplitControllerDetailAction</a>
+                <a href="Protocols/SimpleContainer.html">SimpleContainer</a>
               </li>
               <li class="nav-group-task">
-                <a href="Other Protocols.html#/s:13RouteComposer27SplitControllerMasterActionP">SplitControllerMasterAction</a>
+                <a href="Other Protocols.html#/s:13RouteComposer21SplitControllerActionP">SplitControllerAction</a>
               </li>
               <li class="nav-group-task">
                 <a href="Protocols/StepCaseResolver.html">StepCaseResolver</a>
@@ -377,7 +374,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The <code><a href="Core Entities.html#/s:13RouteComposer7FactoryP">Factory</a></code> that creates a <code>UIViewController</code> from a Xib file.</p>
+                        <p>The <code><a href="Protocols/Factory.html">Factory</a></code> that creates a <code>UIViewController</code> from a Xib file.</p>
 
                         <a href="Structs/XibFactory.html" class="slightly-smaller">See more</a>
                       </div>
@@ -385,7 +382,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">XibFactory</span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Core Entities.html#/s:13RouteComposer7FactoryP">Factory</a></span> <span class="k">where</span> <span class="kt">VC</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">XibFactory</span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Factory.html">Factory</a></span> <span class="k">where</span> <span class="kt">VC</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
 
                         </div>
                       </div>
@@ -409,7 +406,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The <code><a href="Core Entities.html#/s:13RouteComposer7FactoryP">Factory</a></code> that creates a <code>UIViewController</code> from a storyboard.</p>
+                        <p>The <code><a href="Protocols/Factory.html">Factory</a></code> that creates a <code>UIViewController</code> from a storyboard.</p>
 
                         <a href="Structs/StoryboardFactory.html" class="slightly-smaller">See more</a>
                       </div>
@@ -417,7 +414,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">StoryboardFactory</span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Core Entities.html#/s:13RouteComposer7FactoryP">Factory</a></span> <span class="k">where</span> <span class="kt">VC</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">StoryboardFactory</span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Factory.html">Factory</a></span> <span class="k">where</span> <span class="kt">VC</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
 
                         </div>
                       </div>
@@ -441,7 +438,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The <code><a href="Core Entities.html#/s:13RouteComposer7FactoryP">Factory</a></code> that creates a <code>UIViewController</code> class by its name</p>
+                        <p>The <code><a href="Protocols/Factory.html">Factory</a></code> that creates a <code>UIViewController</code> class by its name</p>
 
                         <a href="Structs/ClassNameFactory.html" class="slightly-smaller">See more</a>
                       </div>
@@ -449,7 +446,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ClassNameFactory</span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Core Entities.html#/s:13RouteComposer7FactoryP">Factory</a></span> <span class="k">where</span> <span class="kt">VC</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ClassNameFactory</span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Factory.html">Factory</a></span> <span class="k">where</span> <span class="kt">VC</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
 
                         </div>
                       </div>
@@ -473,7 +470,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The <code><a href="Classes/StepAssembly.html">StepAssembly</a></code> transforms a <code><a href="Protocols/Finder.html">Finder</a></code> result as a <code><a href="Core Entities.html#/s:13RouteComposer7FactoryP">Factory</a></code> result. Useful
+                        <p>The <code><a href="Classes/StepAssembly.html">StepAssembly</a></code> transforms a <code><a href="Protocols/Finder.html">Finder</a></code> result as a <code><a href="Protocols/Factory.html">Factory</a></code> result. Useful
 when a <code>UIViewController</code> instance was built inside of the parent <code><a href="Protocols/Container.html">Container</a></code>.</p>
 
                         <a href="Structs/FinderFactory.html" class="slightly-smaller">See more</a>
@@ -482,7 +479,7 @@ when a <code>UIViewController</code> instance was built inside of the parent <co
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">FinderFactory</span><span class="o">&lt;</span><span class="kt">F</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Core Entities.html#/s:13RouteComposer7FactoryP">Factory</a></span> <span class="k">where</span> <span class="kt">F</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Finder.html">Finder</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">FinderFactory</span><span class="o">&lt;</span><span class="kt">F</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Factory.html">Factory</a></span> <span class="k">where</span> <span class="kt">F</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Finder.html">Finder</a></span></code></pre>
 
                         </div>
                       </div>
@@ -514,7 +511,7 @@ when a <code>UIViewController</code> instance was built inside of the parent <co
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">NavigationControllerFactory</span> <span class="p">:</span> <span class="kt"><a href="Protocols/SimpleContainerFactory.html">SimpleContainerFactory</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">NavigationControllerFactory</span> <span class="p">:</span> <span class="kt"><a href="Protocols/SimpleContainer.html">SimpleContainer</a></span></code></pre>
 
                         </div>
                       </div>
@@ -546,7 +543,7 @@ when a <code>UIViewController</code> instance was built inside of the parent <co
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">TabBarControllerFactory</span> <span class="p">:</span> <span class="kt"><a href="Protocols/SimpleContainerFactory.html">SimpleContainerFactory</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">TabBarControllerFactory</span> <span class="p">:</span> <span class="kt"><a href="Protocols/SimpleContainer.html">SimpleContainer</a></span></code></pre>
 
                         </div>
                       </div>
@@ -578,40 +575,7 @@ when a <code>UIViewController</code> instance was built inside of the parent <co
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">SplitControllerFactory</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Container.html">Container</a></span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:13RouteComposer22SimpleContainerFactoryP"></a>
-                    <a name="//apple_ref/swift/Protocol/SimpleContainerFactory" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer22SimpleContainerFactoryP">SimpleContainerFactory</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Helper protocol to the <code><a href="Protocols/Container.html">Container</a></code> protocol. If a container supports only one type of the actions to build its
-children <code>UIViewControllers</code> - use this protocol. It contains a default merge function implementation.</p>
-
-                        <a href="Protocols/SimpleContainerFactory.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">SimpleContainerFactory</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Container.html">Container</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">SplitControllerFactory</span> <span class="p">:</span> <span class="kt"><a href="Protocols/SimpleContainer.html">SimpleContainer</a></span></code></pre>
 
                         </div>
                       </div>
@@ -635,7 +599,7 @@ children <code>UIViewControllers</code> - use this protocol. It contains a defau
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The dummy struct used to represent the <code><a href="Core Entities.html#/s:13RouteComposer7FactoryP">Factory</a></code> that does not build anything.
+                        <p>The dummy struct used to represent the <code><a href="Protocols/Factory.html">Factory</a></code> that does not build anything.
 The only purpose it exists is to provide the type safety checks for the <code><a href="Classes/StepAssembly.html">StepAssembly</a></code>.</p>
 
 <p>NB: Must be chained with the <code>NilAction</code>!</p>
@@ -649,7 +613,7 @@ storyboard in a previous step.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">NilFactory</span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Core Entities.html#/s:13RouteComposer7FactoryP">Factory</a></span><span class="p">,</span> <span class="kt"><a href="Other Protocols.html#/s:13RouteComposer9NilEntityP">NilEntity</a></span> <span class="k">where</span> <span class="kt">VC</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">NilFactory</span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Factory.html">Factory</a></span><span class="p">,</span> <span class="kt"><a href="Other Protocols.html#/s:13RouteComposer9NilEntityP">NilEntity</a></span> <span class="k">where</span> <span class="kt">VC</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
 
                         </div>
                       </div>
