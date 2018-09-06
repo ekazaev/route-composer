@@ -5,11 +5,10 @@ import XCTest
 class ContainerTests: XCTestCase {
 
     func testChildViewControllersBuild() {
-        var children: [ChildFactory<Any?>] = []
-        children.append(ChildFactory<Any?>(FactoryBox.box(for: EmptyFactory(), action: NavigationControllerFactory.PushToNavigation())!))
-        children.append(ChildFactory<Any?>(FactoryBox.box(for: EmptyFactory(), action: NavigationControllerFactory.PushToNavigation())!))
-        let container = EmptyContainer()
-        guard let childrenControllers = try? container.buildChildrenViewControllers(from: children, with: nil) else {
+        var children: [DelayedIntegrationFactory<Any?>] = []
+        children.append(DelayedIntegrationFactory<Any?>(FactoryBox.box(for: EmptyFactory(), action: ContainerActionBox(NavigationControllerFactory.PushToNavigation()))!))
+        children.append(DelayedIntegrationFactory<Any?>(FactoryBox.box(for: EmptyFactory(), action: ContainerActionBox(NavigationControllerFactory.PushToNavigation()))!))
+        guard let childrenControllers = try? ChildCoordinator(childFactories: children).build(with: nil) else {
             XCTAssert(false, "Unable to build children view controllers")
             return
         }
@@ -18,10 +17,10 @@ class ContainerTests: XCTestCase {
 
     func testNavigationControllerContainer() {
         let container = NavigationControllerFactory()
-        var children: [ChildFactory<Any?>] = []
-        children.append(ChildFactory<Any?>(FactoryBox.box(for: EmptyFactory(), action: NavigationControllerFactory.PushToNavigation())!))
-        children.append(ChildFactory<Any?>(FactoryBox.box(for: EmptyFactory(), action: NavigationControllerFactory.PushToNavigation())!))
-        guard let containerViewController = try? container.build(with: nil, integrating: (try? container.buildChildrenViewControllers(from: children, with: nil)) ?? []) else {
+        var children: [DelayedIntegrationFactory<Any?>] = []
+        children.append(DelayedIntegrationFactory<Any?>(FactoryBox.box(for: EmptyFactory(), action: ContainerActionBox(NavigationControllerFactory.PushToNavigation()))!))
+        children.append(DelayedIntegrationFactory<Any?>(FactoryBox.box(for: EmptyFactory(), action: ContainerActionBox(NavigationControllerFactory.PushToNavigation()))!))
+        guard let containerViewController = try? container.build(with: nil, integrating: ChildCoordinator(childFactories: children)) else {
             XCTAssert(false, "Unable to build UINavigationController")
             return
         }
@@ -30,10 +29,10 @@ class ContainerTests: XCTestCase {
 
     func testNavigationControllerContainer2() {
         let container = NavigationControllerFactory()
-        var children: [ChildFactory<Any?>] = []
-        children.append(ChildFactory<Any?>(FactoryBox.box(for: EmptyFactory(), action: NavigationControllerFactory.PushToNavigation())!))
-        children.append(ChildFactory<Any?>(FactoryBox.box(for: EmptyFactory(), action: NavigationControllerFactory.PushReplacingLast())!))
-        guard let containerViewController = try? container.build(with: nil, integrating: (try? container.buildChildrenViewControllers(from: children, with: nil)) ?? []) else {
+        var children: [DelayedIntegrationFactory<Any?>] = []
+        children.append(DelayedIntegrationFactory<Any?>(FactoryBox.box(for: EmptyFactory(), action: ContainerActionBox(NavigationControllerFactory.PushToNavigation()))!))
+        children.append(DelayedIntegrationFactory<Any?>(FactoryBox.box(for: EmptyFactory(), action: ContainerActionBox(NavigationControllerFactory.PushReplacingLast()))!))
+        guard let containerViewController = try? container.build(with: nil, integrating: ChildCoordinator(childFactories: children)) else {
             XCTAssert(false, "Unable to build UINavigationController")
             return
         }
@@ -42,10 +41,10 @@ class ContainerTests: XCTestCase {
 
     func testTabBarControllerContainer() {
         let container = TabBarControllerFactory()
-        var children: [ChildFactory<Any?>] = []
-        children.append(ChildFactory<Any?>(FactoryBox.box(for: EmptyFactory(), action: TabBarControllerFactory.AddTab())!))
-        children.append(ChildFactory<Any?>(FactoryBox.box(for: EmptyFactory(), action: TabBarControllerFactory.AddTab())!))
-        guard let containerViewController = try? container.build(with: nil, integrating: (try? container.buildChildrenViewControllers(from: children, with: nil)) ?? []) else {
+        var children: [DelayedIntegrationFactory<Any?>] = []
+        children.append(DelayedIntegrationFactory<Any?>(FactoryBox.box(for: EmptyFactory(), action: ContainerActionBox(TabBarControllerFactory.AddTab()))!))
+        children.append(DelayedIntegrationFactory<Any?>(FactoryBox.box(for: EmptyFactory(), action: ContainerActionBox(TabBarControllerFactory.AddTab()))!))
+        guard let containerViewController = try? container.build(with: nil, integrating: ChildCoordinator(childFactories: children)) else {
             XCTAssert(false, "Unable to build UITabBarController")
             return
         }
@@ -54,10 +53,10 @@ class ContainerTests: XCTestCase {
 
     func testSplitControllerContainer() {
         let container = SplitControllerFactory()
-        var children: [ChildFactory<Any?>] = []
-        children.append(ChildFactory<Any?>(FactoryBox.box(for: EmptyFactory(), action: SplitControllerFactory.PushToMaster())!))
-        children.append(ChildFactory<Any?>(FactoryBox.box(for: EmptyFactory(), action: SplitControllerFactory.PushToDetails())!))
-        guard let containerViewController = try? container.build(with: nil, integrating: (try? container.buildChildrenViewControllers(from: children, with: nil)) ?? []) else {
+        var children: [DelayedIntegrationFactory<Any?>] = []
+        children.append(DelayedIntegrationFactory<Any?>(FactoryBox.box(for: EmptyFactory(), action: ContainerActionBox(SplitControllerFactory.PushToMaster()))!))
+        children.append(DelayedIntegrationFactory<Any?>(FactoryBox.box(for: EmptyFactory(), action: ContainerActionBox(SplitControllerFactory.PushToDetails()))!))
+        guard let containerViewController = try? container.build(with: nil, integrating: ChildCoordinator(childFactories: children)) else {
             XCTAssert(false, "Unable to build UISplitViewController")
             return
         }

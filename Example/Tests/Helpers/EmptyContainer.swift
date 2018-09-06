@@ -9,8 +9,6 @@ import UIKit
 
 struct EmptyContainer: SimpleContainer {
 
-    typealias SupportedAction = NavigationControllerAction
-
     init() {
     }
 
@@ -21,4 +19,5 @@ struct EmptyContainer: SimpleContainer {
         })
         return viewController
     }
+
 }

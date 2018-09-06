@@ -5,7 +5,7 @@
 import Foundation
 
 /// Helper class to build a chain of steps. Can not be used directly.
-public struct TypedScreenStepChainAssembly<F: Finder, FC: AbstractFactory>: Usable where F.ViewController == FC.ViewController, F.Context == FC.Context {
+public struct TypedScreenStepChainAssembly<F: Finder, FC: AbstractFactory>: ActionConnecting where F.ViewController == FC.ViewController, F.Context == FC.Context {
 
     let previousSteps: [RoutingStep]
 
@@ -16,9 +16,23 @@ public struct TypedScreenStepChainAssembly<F: Finder, FC: AbstractFactory>: Usab
         self.stepToFullFill = stepToFullFill
     }
 
-    public func using(_ action: Action) -> ChainAssembly {
+    /// Connects previously provided `RoutingStep` instance with an `Action`
+    ///
+    /// - Parameter action: `Action` instance to be used with a step.
+    /// - Returns: `ChainAssembly` to continue building the chain.
+    public func using<A: Action>(_ action: A) -> ChainAssembly {
         var previousSteps = self.previousSteps
         previousSteps.append(stepToFullFill.routingStep(with: action))
+        return ChainAssembly(previousSteps: previousSteps)
+    }
+
+    /// Connects previously provided `RoutingStep` instance with an `Action`
+    ///
+    /// - Parameter action: `ContainerAction` instance to be used with a step.
+    /// - Returns: `ChainAssembly` to continue building the chain.
+    public func using<A: ContainerAction>(_ action: A) -> ChainAssembly {
+        var previousSteps = self.previousSteps
+        previousSteps.append(stepToFullFill.embeddableRoutingStep(with: action))
         return ChainAssembly(previousSteps: previousSteps)
     }
 

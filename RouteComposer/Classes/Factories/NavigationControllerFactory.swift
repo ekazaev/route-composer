@@ -12,8 +12,6 @@ public struct NavigationControllerFactory: SimpleContainer {
 
     public typealias Context = Any?
 
-    public typealias SupportedAction = NavigationControllerAction
-
     /// `UINavigationControllerDelegate` delegate
     public weak var delegate: UINavigationControllerDelegate?
 

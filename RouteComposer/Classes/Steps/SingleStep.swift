@@ -23,10 +23,10 @@ public final class SingleStep<F: Finder, FC: Factory>: StepWithActionAssembly<F,
         self.factory = factory
     }
 
-    override func routingStep(with action: Action) -> RoutingStep {
-        return FinalRoutingStep<FactoryBox<FC>>(finder: finder,
+    override func routingStep<A: Action>(with action: A) -> RoutingStep {
+        return BaseStep<FactoryBox<FC>>(finder: finder,
                 factory: factory,
-                action: action,
+                action: ActionBox(action),
                 interceptor: taskCollector.interceptor(),
                 contextTask: taskCollector.contextTask(),
                 postTask: taskCollector.postTask(),
@@ -34,4 +34,14 @@ public final class SingleStep<F: Finder, FC: Factory>: StepWithActionAssembly<F,
         )
     }
 
+    override func embeddableRoutingStep<A: ContainerAction>(with action: A) -> RoutingStep {
+        return BaseStep<FactoryBox<FC>>(finder: finder,
+                factory: factory,
+                action: ContainerActionBox(action),
+                interceptor: taskCollector.interceptor(),
+                contextTask: taskCollector.contextTask(),
+                postTask: taskCollector.postTask(),
+                previousStep: nil
+        )
+    }
 }

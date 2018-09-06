@@ -9,7 +9,9 @@ import UIKit
 public extension NavigationControllerFactory {
 
     /// Pushes a view controller in to `UINavigationController`'s child stack
-    public struct PushToNavigation: NavigationControllerAction {
+    public struct PushToNavigation: ContainerAction {
+
+        public typealias SupportedContainer = NavigationControllerFactory
 
         /// Constructor
         public init() {

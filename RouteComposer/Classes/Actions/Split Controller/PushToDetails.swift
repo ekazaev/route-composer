@@ -10,7 +10,9 @@ import UIKit
 public extension SplitControllerFactory {
 
     /// Presents a detail view controller in the `UISplitViewController`
-    public struct PushToDetails: SplitControllerAction {
+    public struct PushToDetails: ContainerAction {
+
+        public typealias SupportedContainer = SplitControllerFactory
 
         /// Constructor
         public init() {

@@ -15,7 +15,6 @@ custom_categories:
       - AbstractFactory
       - Factory
       - Container
-      - ChildFactory
       - Action
       - RoutingInterceptor
       - ContextTask
@@ -39,7 +38,6 @@ custom_categories:
       - NavigationControllerFactory
       - TabBarControllerFactory
       - SplitControllerFactory
-      - SimpleContainerFactory
       - NilFactory
 
   - name: Finders

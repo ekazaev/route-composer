@@ -21,45 +21,39 @@ public protocol Container: AbstractFactory {
     /// Type of context `Context` instance that `Container` needs
     associatedtype Context = Context
 
-    /// Type of supported `Action` instances
-    associatedtype SupportedAction
-
     /// Builds a `UIViewController` that will be integrated into the stack
     ///
     /// Parameters:
     ///   - context: A `Context` instance if it was provided to the `Router`.
-    ///   - factories: `ChildFactory` instances that will build children view controllers when requested.
-    /// - Returns: The built `UIViewController` instance.
+    ///   - coordinator: A `ChildCoordinator` instance.
+    /// - Returns: The built `UIViewController` instance with children inside.
     /// - Throws: The `RoutingError` if build was not succeed.
-    func build(with context: Context, integrating factories: [ChildFactory<Context>]) throws -> ViewController
+    func build(with context: Context, integrating coordinator: ChildCoordinator<Context>) throws -> ViewController
 
 }
 
 public extension Container {
 
-    /// Default implementation does nothnig
-    mutating func prepare(with context: Context) throws {
+    /// Builds a `Container` container view controller. Use this function if you want to build your `Container` programmatically.
+    func build(with context: Context) throws -> ViewController {
+        return try build(with: context, integrating: ChildCoordinator(childFactories: []))
     }
 
 }
 
-/// - `Container` `Factory` extension that helps to build properly child `UIViewController`s from factories provided.
+public extension Container where Context == Any? {
+
+    /// Builds a `Container` container view controller. Use this function if you want to build your `Container` programmatically.
+    func build() throws -> ViewController {
+        return try build(with: nil, integrating: ChildCoordinator(childFactories: []))
+    }
+
+}
+
 public extension Container {
 
-    /// This function contains default implementation how Container should create its children view controller
-    /// before built them into itself.
-    ///
-    /// - Parameters:
-    ///   - factories: An array of `ChildFactory` instances
-    ///   - context: A `Context` instance to be used to build the children view controllers
-    /// - Returns: An array of build view controllers
-    /// - Throws: RoutingError
-    public func buildChildrenViewControllers(from factories: [ChildFactory<Context>], with context: Context) throws -> [UIViewController] {
-        var childrenViewControllers: [UIViewController] = []
-        for factory in factories {
-            try factory.build(with: context, in: &childrenViewControllers)
-        }
-        return childrenViewControllers
+    /// Default implementation does nothing
+    mutating func prepare(with context: Context) throws {
     }
 
 }

@@ -10,8 +10,6 @@ import ContainerViewController
 
 class CustomContainerFactory: SimpleContainer {
 
-    typealias SupportedAction = ReplaceRoot
-
     typealias ViewController = CustomContainerController
 
     typealias Context = Any?
@@ -61,7 +59,9 @@ extension CustomContainerController: ContainerViewController {
 
 extension CustomContainerFactory {
 
-    struct ReplaceRoot: Action {
+    struct ReplaceRoot: Action, ContainerAction {
+
+        public typealias SupportedContainer = CustomContainerFactory
 
         func perform(with viewController: UIViewController, on existingController: UIViewController, animated: Bool, completion: @escaping (_: ActionResult) -> Void) {
             guard let customContainerController = existingController as? CustomContainerController else {

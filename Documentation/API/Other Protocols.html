@@ -52,9 +52,6 @@
                 <a href="Protocols/Container.html">Container</a>
               </li>
               <li class="nav-group-task">
-                <a href="Structs/ChildFactory.html">ChildFactory</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Protocols/Action.html">Action</a>
               </li>
               <li class="nav-group-task">
@@ -266,7 +263,13 @@
             <a href="Other Protocols.html">Other Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a href="Protocols/ActionConnecting.html">ActionConnecting</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Protocols/ChainingStep.html">ChainingStep</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/ContainerAction.html">ContainerAction</a>
               </li>
               <li class="nav-group-task">
                 <a href="Protocols/ContextChecking.html">ContextChecking</a>
@@ -278,31 +281,22 @@
                 <a href="Protocols/Logger.html">Logger</a>
               </li>
               <li class="nav-group-task">
-                <a href="Other Protocols.html#/s:13RouteComposer26NavigationControllerActionP">NavigationControllerAction</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Other Protocols.html#/s:13RouteComposer9NilEntityP">NilEntity</a>
               </li>
               <li class="nav-group-task">
                 <a href="Protocols/SimpleContainer.html">SimpleContainer</a>
               </li>
               <li class="nav-group-task">
-                <a href="Other Protocols.html#/s:13RouteComposer21SplitControllerActionP">SplitControllerAction</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Protocols/StepCaseResolver.html">StepCaseResolver</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Other Protocols.html#/s:13RouteComposer22TabBarControllerActionP">TabBarControllerAction</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Protocols/Usable.html">Usable</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
             <a href="Other Structs.html">Other Structures</a>
             <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Structs/ChildCoordinator.html">ChildCoordinator</a>
+              </li>
               <li class="nav-group-task">
                 <a href="Structs/CompleteFactory.html">CompleteFactory</a>
               </li>
@@ -340,9 +334,6 @@
                 <a href="Structs/LastStepInChainAssembly.html">LastStepInChainAssembly</a>
               </li>
               <li class="nav-group-task">
-                <a href="Structs/ScreenStepChainAssembly.html">ScreenStepChainAssembly</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Structs/SearchOptions.html">SearchOptions</a>
               </li>
               <li class="nav-group-task">
@@ -365,9 +356,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer26NavigationControllerActionP"></a>
-                    <a name="//apple_ref/swift/Protocol/NavigationControllerAction" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer26NavigationControllerActionP">NavigationControllerAction</a>
+                    <a name="/s:13RouteComposer15ContainerActionP"></a>
+                    <a name="//apple_ref/swift/Protocol/ContainerAction" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer15ContainerActionP">ContainerAction</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -375,14 +366,15 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><code><a href="Protocols/Action.html">Action</a></code>s supported by the <code><a href="Structs/NavigationControllerFactory.html">NavigationControllerFactory</a></code></p>
+                        <p>Represents an action to be used by a <code><a href="Protocols/Container.html">Container</a></code> to build it&rsquo;s children view controller stack</p>
 
+                        <a href="Protocols/ContainerAction.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">NavigationControllerAction</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Action.html">Action</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">ContainerAction</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Action.html">Action</a></span></code></pre>
 
                         </div>
                       </div>
@@ -396,9 +388,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer21SplitControllerActionP"></a>
-                    <a name="//apple_ref/swift/Protocol/SplitControllerAction" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer21SplitControllerActionP">SplitControllerAction</a>
+                    <a name="/s:13RouteComposer16ActionConnectingP"></a>
+                    <a name="//apple_ref/swift/Protocol/ActionConnecting" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer16ActionConnectingP">ActionConnecting</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -406,77 +398,15 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><code><a href="Protocols/Action.html">Action</a></code> type supported by the <code><a href="Structs/SplitControllerFactory.html">SplitControllerFactory</a></code>.</p>
+                        <p>Assembly that extends this protocol should be able to connect an action to its step.</p>
 
+                        <a href="Protocols/ActionConnecting.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">SplitControllerAction</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Action.html">Action</a></span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:13RouteComposer22TabBarControllerActionP"></a>
-                    <a name="//apple_ref/swift/Protocol/TabBarControllerAction" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer22TabBarControllerActionP">TabBarControllerAction</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p><code><a href="Protocols/Action.html">Action</a></code> type supported by the <code><a href="Structs/TabBarControllerFactory.html">TabBarControllerFactory</a></code>&lsquo;s nested view controllers.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">TabBarControllerAction</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Action.html">Action</a></span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:13RouteComposer6UsableP"></a>
-                    <a name="//apple_ref/swift/Protocol/Usable" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer6UsableP">Usable</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Protocol to implement <code><a href="Protocols/Action.html">Action</a></code> connections for tha assemblies.</p>
-
-                        <a href="Protocols/Usable.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">Usable</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">ActionConnecting</span></code></pre>
 
                         </div>
                       </div>
@@ -532,8 +462,8 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Helper protocol to the <code><a href="Protocols/Container.html">Container</a></code> protocol. If a container does not need to deal with the children&rsquo;s view
-controller actions - <code>SimpleContainer</code> will handle building children view controllers logic.</p>
+                        <p>Helper protocol to the <code><a href="Protocols/Container.html">Container</a></code> protocol. If a container does not need to deal with the child view
+controller creation - <code>SimpleContainer</code> will handle building children view controllers logic.</p>
 
                         <a href="Protocols/SimpleContainer.html" class="slightly-smaller">See more</a>
                       </div>
@@ -712,7 +642,7 @@ controller actions - <code>SimpleContainer</code> will handle building children 
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-09-05)</p>
+          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-09-07)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

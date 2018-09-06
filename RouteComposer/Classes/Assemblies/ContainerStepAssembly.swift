@@ -17,7 +17,9 @@ import Foundation
 ///         .from(CurrentControllerStep())
 ///         .assemble()
 /// ```
-public final class ContainerStepAssembly<F: Finder, FC: Container>: GenericStepAssembly<F, FC>, Usable where F.ViewController == FC.ViewController, F.Context == FC.Context {
+public final class ContainerStepAssembly<F: Finder, FC: Container>: GenericStepAssembly<F, FC>, ActionConnecting
+        where
+        F.ViewController == FC.ViewController, F.Context == FC.Context {
 
     let finder: F
 
@@ -36,12 +38,34 @@ public final class ContainerStepAssembly<F: Finder, FC: Container>: GenericStepA
         self.previousSteps = []
     }
 
-    public func using(_ action: Action) -> ChainAssembly {
+    /// Connects previously provided `RoutingStep` instance with an `Action`
+    ///
+    /// - Parameter action: `Action` instance to be used with a step.
+    /// - Returns: `ChainAssembly` to continue building the chain.
+    public func using<A: Action>(_ action: A) -> ChainAssembly {
         var previousSteps = self.previousSteps
-        let step = FinalRoutingStep<ContainerFactoryBox<FC>>(
+        let step = BaseStep<ContainerFactoryBox<FC>>(
                 finder: self.finder,
                 factory: self.factory,
-                action: action,
+                action: ActionBox(action),
+                interceptor: taskCollector.interceptor(),
+                contextTask: taskCollector.contextTask(),
+                postTask: taskCollector.postTask(),
+                previousStep: nil)
+        previousSteps.append(step)
+        return ChainAssembly(previousSteps: previousSteps)
+    }
+
+    /// Connects previously provided `RoutingStep` instance with an `Action`
+    ///
+    /// - Parameter action: `ContainerAction` instance to be used with a step.
+    /// - Returns: `ChainAssembly` to continue building the chain.
+    public func using<A: ContainerAction>(_ action: A) -> ChainAssembly {
+        var previousSteps = self.previousSteps
+        let step = BaseStep<ContainerFactoryBox<FC>>(
+                finder: self.finder,
+                factory: self.factory,
+                action: ContainerActionBox(action),
                 interceptor: taskCollector.interceptor(),
                 contextTask: taskCollector.contextTask(),
                 postTask: taskCollector.postTask(),

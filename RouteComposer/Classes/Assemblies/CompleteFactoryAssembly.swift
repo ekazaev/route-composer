@@ -3,16 +3,36 @@
 //
 
 import Foundation
+import UIKit
 
 /// Builds a `Container` fulfilled with the child `UIViewController` factories.
 ///
-/// *Example: You want your `UITabBarController` instance to be built by this `Factory`
-/// with all the `UIViewController`s populated into each tab*
+/// ```swift
+/// let rootFactory = CompleteFactoryAssembly(factory: TabBarFactory())
+///         .with(XibFactory<HomeViewController, Any?>, using: TabBarControllerFactory.AddTab())
+///         .with(XibFactory<AccountViewController, Any?>, using: TabBarControllerFactory.AddTab())
+///         .assemble()
+/// ```
+/// *NB: Order matters here*
 public final class CompleteFactoryAssembly<FC: Container> {
+
+    private struct AddAction<C: Container>: ContainerAction {
+
+        typealias SupportedContainer = C
+
+        func perform(with viewController: UIViewController, on existingController: UIViewController, animated: Bool, completion: @escaping (ActionResult) -> Void) {
+            assertionFailure("Should never be called")
+        }
+
+        func perform(embedding viewController: UIViewController, in childViewControllers: inout [UIViewController]) {
+            childViewControllers.append(viewController)
+        }
+
+    }
 
     private var factory: FC
 
-    private var childFactories: [ChildFactory<FC.Context>] = []
+    private var childFactories: [DelayedIntegrationFactory<FC.Context>] = []
 
     /// Constructor
     ///
@@ -22,27 +42,59 @@ public final class CompleteFactoryAssembly<FC: Container> {
         self.factory = factory
     }
 
-    /// Adds a `Factory` that is going to be used as a child. Make sure that you use an `Action` that is compatible with
-    /// the `Container` `Factory` you use.
+    /// Adds a `Factory` that is going to be used as a child
     ///
-    /// - Parameter childFactory: The instance of `Factory`.
-    public func with<C: Factory>(_ childFactory: C, using action: Action) -> Self where C.Context == FC.Context {
-        guard let factoryBox = FactoryBox.box(for: childFactory, action: action) else {
+    /// - Parameters:
+    ///   - childFactory: The instance of `Factory`.
+    ///   - action: The instance of `Factory` to be used to integrate the view controller produced by the factory.
+    public func with<C: Factory, A: ContainerAction>(_ childFactory: C, using action: A) -> Self
+            where
+            C.Context == FC.Context, A.SupportedContainer.ViewController == FC.ViewController {
+        guard let factoryBox = FactoryBox.box(for: childFactory, action: ContainerActionBox(action)) else {
             return self
         }
-        childFactories.append(ChildFactory<C.Context>(factoryBox))
+        childFactories.append(DelayedIntegrationFactory<C.Context>(factoryBox))
         return self
     }
 
-    /// Adds a `Container` that is going to be used as a child. Make sure that you use an `Action` that is compatible with
-    /// the `Container` you use.
+    /// Adds a `Container` that is going to be used as a child
     ///
-    /// - Parameter childFactory: The instance of `Factory`.
-    public func with<C: Container>(_ childFactory: C, using action: Action) -> Self where C.Context == FC.Context {
-        guard let factoryBox = ContainerFactoryBox.box(for: childFactory, action: action) else {
+    /// - Parameters:
+    ///   - childFactory: The instance of `Container`.
+    ///   - action: The instance of `Container` to be used to integrate the view controller produced by the factory.
+    public func with<C: Container, A: ContainerAction>(_ childFactory: C, using action: A) -> Self
+            where
+            C.Context == FC.Context, A.SupportedContainer.ViewController == FC.ViewController {
+        guard let factoryBox = ContainerFactoryBox.box(for: childFactory, action: ContainerActionBox(action)) else {
             return self
         }
-        childFactories.append(ChildFactory<C.Context>(factoryBox))
+
+        childFactories.append(DelayedIntegrationFactory<C.Context>(factoryBox))
+        return self
+    }
+
+    /// Adds a `Factory` as a last view controller in the stack.
+    ///
+    /// - Parameters:
+    ///   - childFactory: The instance of `Factory`.
+    public func with<C: Factory>(_ childFactory: C) -> Self where C.Context == FC.Context {
+        guard let factoryBox = FactoryBox.box(for: childFactory, action: ContainerActionBox(AddAction<FC>())) else {
+            return self
+        }
+        childFactories.append(DelayedIntegrationFactory<C.Context>(factoryBox))
+        return self
+    }
+
+    /// Adds a `Container` as a last view controller in the stack.
+    ///
+    /// - Parameters:
+    ///   - childFactory: The instance of `Container`.
+    public func with<C: Container>(_ childFactory: C) -> Self where C.Context == FC.Context {
+        guard let factoryBox = ContainerFactoryBox.box(for: childFactory, action: ContainerActionBox(AddAction<FC>())) else {
+            return self
+        }
+
+        childFactories.append(DelayedIntegrationFactory<C.Context>(factoryBox))
         return self
     }
 

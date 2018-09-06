@@ -9,7 +9,9 @@ import UIKit
 public extension TabBarControllerFactory {
 
     /// Integrates a `UIViewController` in to a `UITabBarController`
-    public struct AddTab: TabBarControllerAction {
+    public struct AddTab: ContainerAction {
+
+        public typealias SupportedContainer = TabBarControllerFactory
 
         let tabIndex: Int?
 

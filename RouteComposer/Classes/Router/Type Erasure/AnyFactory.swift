@@ -5,10 +5,64 @@
 import Foundation
 import UIKit
 
+protocol AnyAction {
+
+    var embeddable: Bool { get }
+
+    func perform(with viewController: UIViewController,
+                 on existingController: UIViewController,
+                 animated: Bool,
+                 completion: @escaping (_: ActionResult) -> Void)
+
+    func perform(embedding viewController: UIViewController,
+                 in childViewControllers: inout [UIViewController])
+
+}
+
+struct ActionBox<A: Action>: AnyAction {
+
+    let action: A
+
+    init(_ action: A) {
+        self.action = action
+    }
+
+    let embeddable: Bool = false
+
+    func perform(with viewController: UIViewController, on existingController: UIViewController, animated: Bool, completion: @escaping (ActionResult) -> Void) {
+        action.perform(with: viewController, on: existingController, animated: animated, completion: completion)
+    }
+
+    func perform(embedding viewController: UIViewController, in childViewControllers: inout [UIViewController]) {
+        childViewControllers.append(viewController)
+    }
+
+}
+
+struct ContainerActionBox<A: ContainerAction>: AnyAction {
+
+    let action: A
+
+    init(_ action: A) {
+        self.action = action
+    }
+
+    let embeddable: Bool = true
+
+    func perform(with viewController: UIViewController, on existingController: UIViewController, animated: Bool, completion: @escaping (ActionResult) -> Void) {
+        action.perform(with: viewController, on: existingController, animated: animated, completion: completion)
+    }
+
+    func perform(embedding viewController: UIViewController, in childViewControllers: inout [UIViewController]) {
+        action.perform(embedding: viewController, in: &childViewControllers)
+    }
+
+}
+
 /// Non type safe boxing wrapper for Factory protocol
 protocol AnyFactory {
 
-    var action: Action { get }
+    var action: AnyAction { get }
 
     mutating func prepare(with context: Any?) throws
 
@@ -27,17 +81,19 @@ protocol AnyFactoryBox: AnyFactory {
 
     associatedtype FactoryType: AbstractFactory
 
-    static func box(for factory: FactoryType?, action: Action) -> AnyFactory?
+    var action: AnyAction { get }
+
+    static func box(for factory: FactoryType?, action: AnyAction) -> AnyFactory?
 
     var factory: FactoryType { get set }
 
-    init(_ factory: FactoryType, action: Action)
+    init(_ factory: FactoryType, action: AnyAction)
 
 }
 
 extension AnyFactoryBox where Self: AnyFactory {
 
-    static func box(for factory: FactoryType?, action: Action) -> AnyFactory? {
+    static func box(for factory: FactoryType?, action: AnyAction) -> AnyFactory? {
         if factory as? NilEntity != nil {
             return nil
         } else if let factory = factory {
@@ -73,9 +129,9 @@ struct FactoryBox<F: Factory>: AnyFactory, AnyFactoryBox, CustomStringConvertibl
 
     var factory: F
 
-    let action: Action
+    let action: AnyAction
 
-    init(_ factory: F, action: Action) {
+    init(_ factory: F, action: AnyAction) {
         self.factory = factory
         self.action = action
     }
@@ -95,23 +151,23 @@ struct ContainerFactoryBox<F: Container>: AnyFactory, AnyFactoryBox, CustomStrin
 
     var factory: FactoryType
 
-    let action: Action
+    let action: AnyAction
 
-    var children: [AnyFactory] = []
+    var children: [DelayedIntegrationFactory<FactoryType.Context>] = []
 
-    init(_ factory: FactoryType, action: Action) {
+    init(_ factory: FactoryType, action: AnyAction) {
         self.factory = factory
         self.action = action
     }
 
     mutating func scrapeChildren(from factories: [AnyFactory]) throws -> [AnyFactory] {
         var otherFactories: [AnyFactory] = []
-        self.children = factories.compactMap({ child in
-            guard child.action as? FactoryType.SupportedAction != nil else {
+        self.children = factories.compactMap({ child -> DelayedIntegrationFactory<FactoryType.Context>? in
+            guard child.action.embeddable else {
                 otherFactories.append(child)
                 return nil
             }
-            return child
+            return DelayedIntegrationFactory(child)
         })
         return otherFactories
     }
@@ -120,9 +176,7 @@ struct ContainerFactoryBox<F: Container>: AnyFactory, AnyFactoryBox, CustomStrin
         guard let typedContext = context as? FactoryType.Context else {
             throw RoutingError.message("\(String(describing: factory)) does not accept \(String(describing: context)) as a context.")
         }
-        let childFactories = children.map({ factory -> ChildFactory<F.Context> in ChildFactory<F.Context>(factory) })
-
-        return try factory.build(with: typedContext, integrating: childFactories)
+        return try factory.build(with: typedContext, integrating: ChildCoordinator(childFactories: children))
     }
 
 }

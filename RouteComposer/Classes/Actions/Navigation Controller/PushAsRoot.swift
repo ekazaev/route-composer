@@ -9,7 +9,9 @@ import UIKit
 public extension NavigationControllerFactory {
 
     /// Replaces all the child view controllers in the `UINavigationController`'s child stack
-    public struct PushAsRoot: NavigationControllerAction {
+    public struct PushAsRoot: ContainerAction {
+
+        public typealias SupportedContainer = NavigationControllerFactory
 
         /// Constructor
         public init() {

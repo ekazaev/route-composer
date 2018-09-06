@@ -50,10 +50,6 @@ extension DefaultRouter {
     /// which create merged view controllers without `Router`'s help.
     struct FactoryDecorator<D: RoutingDestination>: AnyFactory, CustomStringConvertible {
 
-        var action: Action {
-            return factory.action
-        }
-
         var factory: AnyFactory
 
         weak var postTaskRunner: PostTaskRunner<D>?
@@ -66,6 +62,8 @@ extension DefaultRouter {
 
         let destination: D
 
+        let action: AnyAction
+
         init(factory: AnyFactory,
              contextTasks: [AnyContextTask],
              postTasks: [AnyPostRoutingTask],
@@ -73,6 +71,7 @@ extension DefaultRouter {
              logger: Logger?,
              destination: D) {
             self.factory = factory
+            self.action = factory.action
             self.postTaskRunner = postTaskRunner
             self.postTasks = postTasks
             self.contextTasks = contextTasks

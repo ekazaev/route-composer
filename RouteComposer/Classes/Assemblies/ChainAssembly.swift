@@ -25,15 +25,6 @@ public struct ChainAssembly {
         self.previousSteps = previousSteps
     }
 
-    /// Adds previous step to the chain
-    ///
-    /// - Parameter previousStep: The instance of `RoutingStep` and `ChainingStep`
-    public func from(_ step: RoutingStep & ChainingStep) -> ScreenStepChainAssembly {
-        var previousSteps = self.previousSteps
-        previousSteps.append(step)
-        return ScreenStepChainAssembly(previousSteps: previousSteps)
-    }
-
     /// Adds a single step to the chain
     ///
     /// - Parameter previousStep: The instance of `StepWithActionAssemblable`

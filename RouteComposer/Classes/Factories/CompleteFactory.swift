@@ -16,13 +16,11 @@ public struct CompleteFactory<FC: Container>: Container, CustomStringConvertible
 
     public typealias Context = FC.Context
 
-    public typealias SupportedAction = FC.SupportedAction
-
     private var factory: FC
 
-    let childFactories: [ChildFactory<FC.Context>]
+    let childFactories: [DelayedIntegrationFactory<FC.Context>]
 
-    init(factory: FC, childFactories: [ChildFactory<FC.Context>]) {
+    init(factory: FC, childFactories: [DelayedIntegrationFactory<FC.Context>]) {
         self.factory = factory
         self.childFactories = childFactories
     }
@@ -31,10 +29,12 @@ public struct CompleteFactory<FC: Container>: Container, CustomStringConvertible
         try factory.prepare(with: context)
     }
 
-    public func build(with context: Context, integrating factories: [ChildFactory<Context>]) throws -> ViewController {
-        var childFactories = self.childFactories
-        childFactories.append(contentsOf: factories)
-        return try factory.build(with: context, integrating: childFactories)
+    public func build(with context: Context, integrating coordinator: ChildCoordinator<Context>) throws -> ViewController {
+        var coordinator = coordinator
+        var finalChildFactories = childFactories
+        finalChildFactories.append(contentsOf: coordinator.childFactories)
+        coordinator.childFactories = finalChildFactories
+        return try factory.build(with: context, integrating: coordinator)
     }
 
     public var description: String {
