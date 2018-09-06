@@ -5,6 +5,7 @@
 import Foundation
 import UIKit
 
+/// Integrates a `UIViewController` in to a `UITabBarController`
 public extension TabBarControllerFactory {
 
     /// Integrates a `UIViewController` in to a `UITabBarController`

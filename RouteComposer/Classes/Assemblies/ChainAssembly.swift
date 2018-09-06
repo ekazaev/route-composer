@@ -25,7 +25,7 @@ public struct ChainAssembly {
         self.previousSteps = previousSteps
     }
 
-    /// A previous step to start build a current step from
+    /// Adds previous step to the chain
     ///
     /// - Parameter previousStep: The instance of `RoutingStep` and `ChainingStep`
     public func from(_ step: RoutingStep & ChainingStep) -> ScreenStepChainAssembly {
@@ -34,7 +34,7 @@ public struct ChainAssembly {
         return ScreenStepChainAssembly(previousSteps: previousSteps)
     }
 
-    /// A single step to start build a current step from
+    /// Adds a single step to the chain
     ///
     /// - Parameter previousStep: The instance of `StepWithActionAssemblable`
     public func from<F: Finder, FC: AbstractFactory>(_ step: StepWithActionAssembly<F,FC>) -> TypedScreenStepChainAssembly<F, FC>
@@ -42,7 +42,7 @@ public struct ChainAssembly {
         return TypedScreenStepChainAssembly(stepToFullFill: step, previousSteps: previousSteps)
     }
 
-    /// A Previous `RoutingStep` to start build a current step from
+    /// Adds a `RoutingStep` to the chain. This step will be the last one in the chain.
     ///
     /// - Parameter previousStep: The instance of `RoutingStep`
     public func from(_ step: RoutingStep) -> LastStepInChainAssembly {
@@ -51,7 +51,7 @@ public struct ChainAssembly {
         return LastStepInChainAssembly(previousSteps: previousSteps)
     }
 
-    /// Assemble all the provided settings.
+    /// Assembles all the provided settings.
     ///
     /// - Parameter step: An instance of `RoutingStep` to start to build a current step from.
     /// - Returns: An instance of `RoutingStep` with all the provided settings inside.

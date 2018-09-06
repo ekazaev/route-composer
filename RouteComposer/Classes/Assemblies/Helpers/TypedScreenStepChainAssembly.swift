@@ -21,6 +21,7 @@ public struct TypedScreenStepChainAssembly<F: Finder, FC: AbstractFactory>: Usab
         previousSteps.append(stepToFullFill.routingStep(with: action))
         return ChainAssembly(previousSteps: previousSteps)
     }
+
 }
 
 public extension TypedScreenStepChainAssembly where FC: NilEntity {

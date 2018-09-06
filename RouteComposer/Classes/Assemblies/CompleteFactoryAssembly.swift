@@ -35,7 +35,7 @@ public final class CompleteFactoryAssembly<FC: Container> {
     }
 
     /// Adds a `Container` that is going to be used as a child. Make sure that you use an `Action` that is compatible with
-    /// the `Container` `Factory` you use.
+    /// the `Container` you use.
     ///
     /// - Parameter childFactory: The instance of `Factory`.
     public func with<C: Container>(_ childFactory: C, using action: Action) -> Self where C.Context == FC.Context {

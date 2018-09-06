@@ -13,7 +13,7 @@ public struct LastStepInChainAssembly {
         self.previousSteps = previousSteps
     }
 
-    /// Assemble all the provided settings.
+    /// Assembles all the provided settings.
     ///
     /// - Returns: The instance of `RoutingStep` with all the settings provided inside.
     public func assemble() -> RoutingStep {
