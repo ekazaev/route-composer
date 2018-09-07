@@ -67,7 +67,7 @@ class RouteComposerExampleUITests: XCTestCase {
         app.buttons["Go to yellow color"].tap()
         XCTAssertTrue(app.otherElements["routingRuleViewController"].exists)
 
-        app.buttons["Go to Square"].tap()
+        app.buttons["Go to Square Tab"].tap()
         XCTAssertTrue(app.otherElements["routingRuleViewController"].exists)
 
         app.buttons["Go to Moscow*"].tap()
@@ -115,19 +115,19 @@ class RouteComposerExampleUITests: XCTestCase {
         app.buttons["Square"].tap()
         XCTAssertTrue(app.otherElements["squareViewController"].exists)
 
-        app.buttons["Go push to circle*"].tap()
+        app.buttons["Go push to Circle Tab*"].tap()
         XCTAssertTrue(app.otherElements["emptyViewController"].exists)
 
         app.buttons["Go to Self!"].tap()
         XCTAssertTrue(app.otherElements["emptyViewController"].exists)
 
-        app.buttons["Go to Circle"].tap()
+        app.buttons["Go to Circle Tab"].tap()
         XCTAssertTrue(app.otherElements["circleViewController"].exists)
 
-        app.buttons["Go to square"].tap()
+        app.buttons["Go to Square Tab"].tap()
         XCTAssertTrue(app.otherElements["squareViewController"].exists)
 
-        app.buttons["Go to Circle"].tap()
+        app.buttons["Go to Circle Tab"].tap()
         XCTAssertTrue(app.otherElements["circleViewController"].exists)
 
         app.buttons["Go to second modal level"].tap()
@@ -149,31 +149,31 @@ class RouteComposerExampleUITests: XCTestCase {
         app.buttons["Go to Product 01"].tap()
         XCTAssertTrue(app.otherElements["productViewController+01"].exists)
 
-        app.buttons["Go to Circle"].tap()
+        app.buttons["Go to Circle Tab"].tap()
         XCTAssertTrue(app.otherElements["circleViewController"].exists)
 
-        app.buttons["Go to square"].tap()
+        app.buttons["Go to Square Tab"].tap()
         XCTAssertTrue(app.otherElements["squareViewController"].exists)
 
-        app.buttons["Go to Star*"].tap()
+        app.buttons["Go to Star Screen*"].tap()
         XCTAssertTrue(app.otherElements["starViewController"].exists)
 
         app.buttons["Go to Product 02"].tap()
         XCTAssertTrue(app.otherElements["productViewController+02"].exists)
 
-        app.buttons["Go to Circle"].tap()
+        app.buttons["Go to Circle Tab"].tap()
         XCTAssertTrue(app.otherElements["circleViewController"].exists)
 
-        app.buttons["Go to square"].tap()
+        app.buttons["Go to Square Tab"].tap()
         XCTAssertTrue(app.otherElements["squareViewController"].exists)
 
-        app.buttons["Go to Star*"].tap()
+        app.buttons["Go to Star Screen*"].tap()
         XCTAssertTrue(app.otherElements["starViewController"].exists)
 
         app.buttons["Dismiss Star Tab*"].tap()
         XCTAssertTrue(app.otherElements["circleViewController"].exists)
 
-        app.buttons["Go to square"].tap()
+        app.buttons["Go to Square Tab"].tap()
         XCTAssertTrue(app.otherElements["squareViewController"].exists)
 
         app.buttons["Go to Split*"].tap()
@@ -198,7 +198,7 @@ class RouteComposerExampleUITests: XCTestCase {
         app.buttons["Continue"].tap()
         XCTAssertTrue(app.otherElements["homeViewController"].exists)
 
-        app.buttons["Go to square"].tap()
+        app.buttons["Go to Square Tab"].tap()
         XCTAssertTrue(app.otherElements["squareViewController"].exists)
 
         app.buttons["Go to Collections*"].tap()
@@ -290,14 +290,14 @@ class RouteComposerExampleUITests: XCTestCase {
         app.buttons["Continue"].tap()
         XCTAssertTrue(app.otherElements["homeViewController"].exists)
 
-        app.buttons["Go to square"].tap()
+        app.buttons["Go to Square Tab"].tap()
         XCTAssertTrue(app.otherElements["squareViewController"].exists)
 
         var switcher = app.switches["routeSwitchControl"]
         switcher.tap()
         XCTAssertTrue(app.otherElements["squareViewController"].exists)
 
-        app.buttons["Go to Star*"].tap()
+        app.buttons["Go to Star Screen*"].tap()
         XCTAssertTrue(app.otherElements["loginViewController"].exists)
 
         app.textFields["loginTextField"].tap()
@@ -313,26 +313,26 @@ class RouteComposerExampleUITests: XCTestCase {
         app.buttons["Go to Product 02"].tap()
         XCTAssertTrue(app.otherElements["productViewController+02"].exists)
 
-        app.buttons["Go to Circle"].tap()
+        app.buttons["Go to Circle Tab"].tap()
         XCTAssertTrue(app.otherElements["circleViewController"].exists)
 
-        app.buttons["Go to square"].tap()
+        app.buttons["Go to Square Tab"].tap()
         XCTAssertTrue(app.otherElements["squareViewController"].exists)
 
-        app.buttons["Go to Star*"].tap()
+        app.buttons["Go to Star Screen*"].tap()
         XCTAssertTrue(app.otherElements["starViewController"].exists)
 
         app.buttons["Dismiss Star Tab*"].tap()
         XCTAssertTrue(app.otherElements["circleViewController"].exists)
 
-        app.buttons["Go to square"].tap()
+        app.buttons["Go to Square Tab"].tap()
         XCTAssertTrue(app.otherElements["squareViewController"].exists)
 
         switcher = app.switches["routeSwitchControl"]
         switcher.tap()
         XCTAssertTrue(app.otherElements["squareViewController"].exists)
 
-        app.buttons["Go to Star*"].tap()
+        app.buttons["Go to Star Screen*"].tap()
         XCTAssertTrue(app.otherElements["starViewController"].exists)
 
         app.buttons["Dismiss Star Tab*"].tap()

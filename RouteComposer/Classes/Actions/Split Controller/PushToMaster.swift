@@ -9,7 +9,9 @@ import UIKit
 public extension SplitControllerFactory {
 
     /// Presents a master view controller in the `UISplitViewController`
-    public struct PushToMaster: SplitControllerAction {
+    public struct PushToMaster: ContainerAction {
+
+        public typealias SupportedContainer = SplitControllerFactory
 
         /// Constructor
         public init() {

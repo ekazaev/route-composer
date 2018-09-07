@@ -59,7 +59,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="huV-Wd-oMs">
                                         <rect key="frame" x="0.0" y="205" width="188" height="30"/>
-                                        <state key="normal" title="Go to square"/>
+                                        <state key="normal" title="Go to Square Tab"/>
                                         <connections>
                                             <action selector="goToSquareTapped" destination="9pv-A4-QxB" eventType="touchUpInside" id="1tB-LU-1M0"/>
                                         </connections>
@@ -105,24 +105,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="9gN-ny-h5L">
-                                <rect key="frame" x="142.5" y="287.5" width="90" height="112"/>
+                                <rect key="frame" x="132.5" y="287.5" width="110" height="112"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ezO-Df-ldE">
-                                        <rect key="frame" x="0.0" y="0.0" width="90" height="30"/>
-                                        <state key="normal" title="Go to Circle"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="110" height="30"/>
+                                        <state key="normal" title="Go to Circle Tab"/>
                                         <connections>
                                             <action selector="goToCircleTapped" destination="Gon-vP-zBB" eventType="touchUpInside" id="tgC-1l-b25"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="beX-Q6-v17">
-                                        <rect key="frame" x="0.0" y="41" width="90" height="30"/>
+                                        <rect key="frame" x="0.0" y="41" width="110" height="30"/>
                                         <state key="normal" title="Go to Self!"/>
                                         <connections>
                                             <action selector="goToSelfTapped" destination="Gon-vP-zBB" eventType="touchUpInside" id="vRB-1I-NAC"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bL9-a6-LX8">
-                                        <rect key="frame" x="0.0" y="82" width="90" height="30"/>
+                                        <rect key="frame" x="0.0" y="82" width="110" height="30"/>
                                         <state key="normal" title="Go to Square"/>
                                         <connections>
                                             <action selector="goToSquareTapped" destination="Gon-vP-zBB" eventType="touchUpInside" id="g8u-ak-RVS"/>
@@ -182,7 +182,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y3o-AY-MGp">
                                         <rect key="frame" x="0.0" y="83" width="197.5" height="30"/>
-                                        <state key="normal" title="Go to Square"/>
+                                        <state key="normal" title="Go to Square Tab"/>
                                         <connections>
                                             <action selector="goToSquareTapped" destination="1IK-g0-E80" eventType="touchUpInside" id="K13-FY-jCo"/>
                                         </connections>
@@ -222,48 +222,48 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="aCi-8Q-H9E">
-                                <rect key="frame" x="112.5" y="183.5" width="150.5" height="271"/>
+                                <rect key="frame" x="87.5" y="183.5" width="201.5" height="271"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Itu-Vw-ee6">
-                                        <rect key="frame" x="0.0" y="0.0" width="150.5" height="30"/>
-                                        <state key="normal" title="Go push to circle*"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="201.5" height="30"/>
+                                        <state key="normal" title="Go push to Circle Tab*"/>
                                         <connections>
                                             <action selector="goToHomeTapped" destination="8rJ-Kc-sve" eventType="touchUpInside" id="2vG-vl-TjY"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ah5-V3-Bcg">
-                                        <rect key="frame" x="0.0" y="41" width="150.5" height="30"/>
-                                        <state key="normal" title="Go to Circle"/>
+                                        <rect key="frame" x="0.0" y="41" width="201.5" height="30"/>
+                                        <state key="normal" title="Go to Circle Tab"/>
                                         <connections>
                                             <action selector="goToCircleTapped" destination="8rJ-Kc-sve" eventType="touchUpInside" id="24a-4I-H6w"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oOA-2s-xxU">
-                                        <rect key="frame" x="0.0" y="82" width="150.5" height="30"/>
+                                        <rect key="frame" x="0.0" y="82" width="201.5" height="30"/>
                                         <state key="normal" title="Go to Split*"/>
                                         <connections>
                                             <action selector="goToSplitTapped" destination="8rJ-Kc-sve" eventType="touchUpInside" id="8Mh-q7-kMY"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PVg-zY-i55">
-                                        <rect key="frame" x="0.0" y="123" width="150.5" height="30"/>
+                                        <rect key="frame" x="0.0" y="123" width="201.5" height="30"/>
                                         <state key="normal" title="Go to Login"/>
                                         <connections>
                                             <action selector="goToLoginTapped" destination="8rJ-Kc-sve" eventType="touchUpInside" id="3Br-6G-ONF"/>
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="ZLT-Ii-NbU">
-                                        <rect key="frame" x="0.0" y="164" width="150.5" height="45"/>
+                                        <rect key="frame" x="0.0" y="164" width="201.5" height="45"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jWi-4X-90Y">
-                                                <rect key="frame" x="0.0" y="0.0" width="77" height="45"/>
-                                                <state key="normal" title="Go to Star*"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="128" height="45"/>
+                                                <state key="normal" title="Go to Star Screen*"/>
                                                 <connections>
                                                     <action selector="goToStarTapped" destination="8rJ-Kc-sve" eventType="touchUpInside" id="c1Z-eB-EQt"/>
                                                 </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="oYa-ep-PcU">
-                                                <rect key="frame" x="84" y="0.0" width="66.5" height="45"/>
+                                                <rect key="frame" x="135" y="0.0" width="66.5" height="45"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Alt. confguration" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VRx-3q-sUX">
                                                         <rect key="frame" x="0.0" y="0.0" width="66.5" height="10"/>
@@ -283,14 +283,14 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mpK-1U-eeR">
-                                        <rect key="frame" x="0.0" y="220" width="150.5" height="30"/>
+                                        <rect key="frame" x="0.0" y="220" width="201.5" height="30"/>
                                         <state key="normal" title="Go to Collections*"/>
                                         <connections>
                                             <action selector="goToFakeContainerTapped" destination="8rJ-Kc-sve" eventType="touchUpInside" id="sfZ-Sr-PRB"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="* - login required" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iw0-rc-3xm">
-                                        <rect key="frame" x="0.0" y="261" width="150.5" height="10"/>
+                                        <rect key="frame" x="0.0" y="261" width="201.5" height="10"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="8"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -337,7 +337,7 @@
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fPr-xC-PO0">
                                         <rect key="frame" x="0.0" y="63" width="116" height="30"/>
-                                        <state key="normal" title="Go to Circle"/>
+                                        <state key="normal" title="Go to Circle Tab"/>
                                         <connections>
                                             <action selector="goToCircleTapped" destination="xt5-6D-ZK0" eventType="touchUpInside" id="ZST-yb-sHk"/>
                                         </connections>

@@ -13,8 +13,6 @@ public struct SplitControllerFactory: SimpleContainer {
 
     public typealias Context = Any?
 
-    public typealias SupportedAction = SplitControllerAction
-
     /// `UISplitViewControllerDelegate` delegate
     private(set) weak var delegate: UISplitViewControllerDelegate?
 

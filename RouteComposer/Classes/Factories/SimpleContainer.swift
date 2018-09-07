@@ -1,12 +1,12 @@
 //
-// Created by Eugene Kazaev on 22/02/2018.
+// Created by Eugene Kazaev on 07/09/2018.
 //
 
 import Foundation
 import UIKit
 
-/// Helper protocol to the `Container` protocol. If a container does not need to deal with the children's view
-/// controller actions - `SimpleContainer` will handle building children view controllers logic.
+/// Helper protocol to the `Container` protocol. If a container does not need to deal with the child view
+/// controller creation - `SimpleContainer` will handle building children view controllers logic.
 public protocol SimpleContainer: Container {
 
     /// Type of the `UIViewController` that `SimpleContainer` can build
@@ -19,7 +19,7 @@ public protocol SimpleContainer: Container {
     ///
     /// Parameters:
     ///   - context: A `Context` instance if it was provided to the `Router`.
-    ///   - viewControllers: `UIViewController` instances to be integrated in to container as childres view controllers
+    ///   - viewControllers: `UIViewController` instances to be integrated in to container as children view controllers
     /// - Returns: The built `UIViewController` instance.
     /// - Throws: The `RoutingError` if build was not succeed.
     func build(with context: Context, integrating viewControllers: [UIViewController]) throws -> ViewController
@@ -29,8 +29,8 @@ public protocol SimpleContainer: Container {
 public extension SimpleContainer {
 
     /// Default implementation of the `Container`'s `build` method
-    func build(with context: Context, integrating factories: [ChildFactory<Context>]) throws -> ViewController {
-        let viewControllers = try buildChildrenViewControllers(from: factories, with: context)
+    func build(with context: Context, integrating coordinator: ChildCoordinator<Context>) throws -> ViewController {
+        let viewControllers = try coordinator.build(with: context)
         return try build(with: context, integrating: viewControllers)
     }
 

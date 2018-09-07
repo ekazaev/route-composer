@@ -51,7 +51,12 @@ public class StepWithActionAssembly<F: Finder, FC: AbstractFactory> where F.View
     }
 
     // Hides action integration from library user.
-    func routingStep(with action: Action) -> RoutingStep {
+    func routingStep<A: Action>(with action: A) -> RoutingStep {
+        fatalError("Must be overridden in a subclass")
+    }
+
+    // Hides action integration from library user.
+    func embeddableRoutingStep<A: ContainerAction>(with action: A) -> RoutingStep {
         fatalError("Must be overridden in a subclass")
     }
 

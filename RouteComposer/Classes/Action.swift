@@ -9,14 +9,6 @@ import UIKit
 /// been built (eg: push to navigation stack, present modally, push to tab, etc)
 public protocol Action {
 
-    /// If current `UIViewController` has to be pushed/added/etc to the existing stack of the view controllers,
-    /// this method should be called instead.
-    ///
-    /// - Parameters:
-    ///   - viewController: The `UIViewController` to be embedded.
-    ///   - childViewControllers: The stack of the `UIViewController`s in the current container.
-    func perform(embedding viewController: UIViewController, in childViewControllers: inout [UIViewController])
-
     /// Performs provided action to the view controller.
     ///
     /// - Parameters:
@@ -35,7 +27,23 @@ public protocol Action {
 
 }
 
-public extension Action {
+/// Represents an action to be used by a `Container` to build it's children view controller stack
+public protocol ContainerAction: Action {
+
+    /// Type of the `Container` supported by the `ContainerAction`
+    associatedtype SupportedContainer: Container
+
+    /// If current `UIViewController` has to be pushed/added/etc to the existing stack of the view controllers,
+    /// this method should be called instead.
+    ///
+    /// - Parameters:
+    ///   - viewController: The `UIViewController` to be embedded.
+    ///   - childViewControllers: The stack of the `UIViewController`s in the current container.
+    func perform(embedding viewController: UIViewController, in childViewControllers: inout [UIViewController])
+
+}
+
+public extension ContainerAction {
 
     public func perform(embedding viewController: UIViewController, in childViewControllers: inout [UIViewController]) {
         childViewControllers.append(viewController)
@@ -45,9 +53,11 @@ public extension Action {
 
 public extension Action where Self: NilEntity {
 
+    /// Does nothing
     public func perform(embedding viewController: UIViewController, in childViewControllers: inout [UIViewController]) {
     }
 
+    /// Does nothing
     public func perform(with viewController: UIViewController,
                         on existingController: UIViewController,
                         animated: Bool,

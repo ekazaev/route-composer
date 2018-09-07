@@ -52,9 +52,6 @@
                 <a href="../Protocols/Container.html">Container</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/ChildFactory.html">ChildFactory</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Protocols/Action.html">Action</a>
               </li>
               <li class="nav-group-task">
@@ -266,7 +263,13 @@
             <a href="../Other Protocols.html">Other Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a href="../Protocols/ActionConnecting.html">ActionConnecting</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Protocols/ChainingStep.html">ChainingStep</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/ContainerAction.html">ContainerAction</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Protocols/ContextChecking.html">ContextChecking</a>
@@ -278,31 +281,22 @@
                 <a href="../Protocols/Logger.html">Logger</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Other Protocols.html#/s:13RouteComposer26NavigationControllerActionP">NavigationControllerAction</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Other Protocols.html#/s:13RouteComposer9NilEntityP">NilEntity</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Protocols/SimpleContainer.html">SimpleContainer</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Other Protocols.html#/s:13RouteComposer21SplitControllerActionP">SplitControllerAction</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Protocols/StepCaseResolver.html">StepCaseResolver</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Other Protocols.html#/s:13RouteComposer22TabBarControllerActionP">TabBarControllerAction</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Protocols/Usable.html">Usable</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
             <a href="../Other Structs.html">Other Structures</a>
             <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/ChildCoordinator.html">ChildCoordinator</a>
+              </li>
               <li class="nav-group-task">
                 <a href="../Structs/CompleteFactory.html">CompleteFactory</a>
               </li>
@@ -340,9 +334,6 @@
                 <a href="../Structs/LastStepInChainAssembly.html">LastStepInChainAssembly</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/ScreenStepChainAssembly.html">ScreenStepChainAssembly</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Structs/SearchOptions.html">SearchOptions</a>
               </li>
               <li class="nav-group-task">
@@ -372,72 +363,6 @@ been built (eg: push to navigation stack, present modally, push to tab, etc)</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer6ActionP7performySo16UIViewControllerC9embedding_SayAFGz2intF"></a>
-                    <a name="//apple_ref/swift/Method/perform(embedding:in:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer6ActionP7performySo16UIViewControllerC9embedding_SayAFGz2intF">perform(embedding:in:)</a>
-                    </code>
-                      <span class="declaration-note">
-                        Default implementation
-                      </span>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>If current <code>UIViewController</code> has to be pushed/added/etc to the existing stack of the view controllers,
-this method should be called instead.</p>
-
-                      </div>
-                      <h4>Default Implementation</h4>
-                      <div class="default_impl abstract">
-                        
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">perform</span><span class="p">(</span><span class="n">embedding</span> <span class="nv">viewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="k">in</span> <span class="nv">childViewControllers</span><span class="p">:</span> <span class="k">inout</span> <span class="p">[</span><span class="kt">UIViewController</span><span class="p">])</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>viewController</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The <code>UIViewController</code> to be embedded.</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>childViewControllers</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The stack of the <code>UIViewController</code>s in the current container.</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
                     <a name="/s:13RouteComposer6ActionP7performySo16UIViewControllerC4with_AF2onSb8animatedyAA0C6ResultOc10completiontF"></a>
                     <a name="//apple_ref/swift/Method/perform(with:on:animated:completion:)" class="dashAnchor"></a>
                     <a class="token" href="#/s:13RouteComposer6ActionP7performySo16UIViewControllerC4with_AF2onSb8animatedyAA0C6ResultOc10completiontF">perform(with:on:animated:completion:)</a>
@@ -458,7 +383,8 @@ this method should be called instead.</p>
                       </div>
                       <h4>Default Implementation</h4>
                       <div class="default_impl abstract">
-                        
+                        <p>Does nothing</p>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -530,10 +456,44 @@ will appear on the top of the stack.</p>
                 </li>
               </ul>
             </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer6ActionPA2A9NilEntityRzrlE7performySo16UIViewControllerC9embedding_SayAGGz2intF"></a>
+                    <a name="//apple_ref/swift/Method/perform(embedding:in:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer6ActionPA2A9NilEntityRzrlE7performySo16UIViewControllerC9embedding_SayAGGz2intF">perform(embedding:in:)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Does nothing</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">perform</span><span class="p">(</span><span class="n">embedding</span> <span class="nv">viewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="k">in</span> <span class="nv">childViewControllers</span><span class="p">:</span> <span class="k">inout</span> <span class="p">[</span><span class="kt">UIViewController</span><span class="p">])</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-09-05)</p>
+          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-09-07)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

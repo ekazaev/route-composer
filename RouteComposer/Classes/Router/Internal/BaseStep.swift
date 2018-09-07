@@ -6,7 +6,7 @@ import Foundation
 import UIKit
 
 /// Base router `RoutingStep` implementation that handles all step protocols.
-class BaseStep<Box: AnyFactoryBox>: ChainableStep, PerformableStep, ChainingStep, CustomStringConvertible {
+class BaseStep<Box: AnyFactoryBox>: RoutingStep, InterceptableStep, ChainableStep, PerformableStep, ChainingStep, CustomStringConvertible {
 
     private(set) public var previousStep: RoutingStep?
 
@@ -14,22 +14,32 @@ class BaseStep<Box: AnyFactoryBox>: ChainableStep, PerformableStep, ChainingStep
 
     let finder: AnyFinder?
 
-    /// Creates a basic instance of the routing step.
-    ///
-    /// - Parameters:
-    ///   - finder: The  `UIViewController` `Finder`.
-    ///   - factory: The `UIViewController` `Factory`.
-    init<F: Finder>(finder: F?, factory: Box.FactoryType?, action: Action, previousStep: RoutingStep? = nil)
+    let interceptor: AnyRoutingInterceptor?
+
+    let postTask: AnyPostRoutingTask?
+
+    let contextTask: AnyContextTask?
+
+    init<F: Finder>(finder: F?,
+                    factory: Box.FactoryType?,
+                    action: AnyAction,
+                    interceptor: AnyRoutingInterceptor?,
+                    contextTask: AnyContextTask?,
+                    postTask: AnyPostRoutingTask?,
+                    previousStep: RoutingStep? = nil)
             where F.ViewController == Box.FactoryType.ViewController, F.Context == Box.FactoryType.Context {
         self.previousStep = previousStep
         self.finder = FinderBox.box(for: finder)
         if let anyFactory = Box.box(for: factory, action: action) {
             self.factory = anyFactory
         } else if let finder = finder, finder as? NilEntity == nil {
-            self.factory = FactoryBox.box(for: FinderFactory(finder: finder), action: GeneralAction.NilAction())
+            self.factory = FactoryBox.box(for: FinderFactory(finder: finder), action: ActionBox(GeneralAction.NilAction()))
         } else {
             self.factory = nil
         }
+        self.interceptor = interceptor
+        self.contextTask = contextTask
+        self.postTask = postTask
     }
 
     func perform<D: RoutingDestination>(for destination: D) -> StepResult {

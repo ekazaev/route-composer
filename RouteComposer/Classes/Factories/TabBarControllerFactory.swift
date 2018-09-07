@@ -12,8 +12,6 @@ public struct TabBarControllerFactory: SimpleContainer {
 
     public typealias Context = Any?
 
-    public typealias SupportedAction = TabBarControllerAction
-
     /// `UITabBarControllerDelegate` delegate
     public weak var delegate: UITabBarControllerDelegate?
 

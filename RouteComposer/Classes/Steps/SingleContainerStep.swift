@@ -24,11 +24,23 @@ public class SingleContainerStep<F: Finder, FC: Container, C: ContainerViewContr
         self.factory = factory
     }
 
-    override func routingStep(with action: Action) -> RoutingStep {
-        return FinalRoutingStep<ContainerFactoryBox<FC>>(finder: finder,
+    override func routingStep<A: Action>(with action: A) -> RoutingStep {
+        return BaseStep<ContainerFactoryBox<FC>>(finder: finder,
                 factory:
                 factory,
-                action: action,
+                action: ActionBox(action),
+                interceptor: taskCollector.interceptor(),
+                contextTask: taskCollector.contextTask(),
+                postTask: taskCollector.postTask(),
+                previousStep: nil
+        )
+    }
+
+    override func embeddableRoutingStep<A: ContainerAction>(with action: A) -> RoutingStep {
+        return BaseStep<ContainerFactoryBox<FC>>(finder: finder,
+                factory:
+                factory,
+                action: ContainerActionBox(action),
                 interceptor: taskCollector.interceptor(),
                 contextTask: taskCollector.contextTask(),
                 postTask: taskCollector.postTask(),

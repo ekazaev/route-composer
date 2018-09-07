@@ -16,11 +16,6 @@ public extension GeneralAction {
         public init() {
         }
 
-        public func perform(embedding viewController: UIViewController,
-                            in childViewControllers: inout [UIViewController]) {
-            assertionFailure("\(#function) is not eligible for this action.")
-        }
-
         public func perform(with viewController: UIViewController,
                             on existingController: UIViewController,
                             animated: Bool,
