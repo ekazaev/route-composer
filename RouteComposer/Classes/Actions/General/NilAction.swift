@@ -12,6 +12,8 @@ public extension GeneralAction {
     /// view controller's stack.
     public struct NilAction: Action, NilEntity {
 
+        public typealias ViewController = UIViewController
+
         /// Constructor
         public init() {
         }

@@ -12,11 +12,9 @@ struct EmptyContainer: SimpleContainer {
     init() {
     }
 
-    func build(with context: Any?, integrating viewControllers: [UIViewController]) throws -> UIViewController {
-        let viewController = UIViewController()
-        viewControllers.forEach({
-            viewController.addChildViewController($0)
-        })
+    func build(with context: Any?, integrating viewControllers: [UIViewController]) throws -> UINavigationController {
+        let viewController = UINavigationController()
+        viewController.viewControllers = viewControllers
         return viewController
     }
 

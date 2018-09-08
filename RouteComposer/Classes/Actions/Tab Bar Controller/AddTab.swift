@@ -43,13 +43,9 @@ public extension TabBarControllerFactory {
         }
 
         public func perform(with viewController: UIViewController,
-                            on existingController: UIViewController,
+                            on tabBarController: UITabBarController,
                             animated: Bool,
                             completion: @escaping(_: ActionResult) -> Void) {
-            guard let tabBarController = existingController as? UITabBarController ?? existingController.tabBarController else {
-                return completion(.failure("Could not find UITabBarController in \(existingController) to present view controller \(viewController)."))
-            }
-
             var tabViewControllers = tabBarController.viewControllers ?? []
             processViewController(viewController: viewController, childViewControllers: &tabViewControllers)
             tabBarController.setViewControllers(tabViewControllers, animated: animated)

@@ -12,6 +12,8 @@ public extension GeneralAction {
     /// Replaces the root view controller in the key `UIWindow`
     public struct ReplaceRoot: Action {
 
+        public typealias ViewController = UIViewController
+
         /// Constructor
         public init() {
         }

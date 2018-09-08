@@ -59,16 +59,14 @@ extension CustomContainerController: ContainerViewController {
 
 extension CustomContainerFactory {
 
-    struct ReplaceRoot: Action, ContainerAction {
+    struct ReplaceRoot: ContainerAction {
 
         public typealias SupportedContainer = CustomContainerFactory
 
-        func perform(with viewController: UIViewController, on existingController: UIViewController, animated: Bool, completion: @escaping (_: ActionResult) -> Void) {
-            guard let customContainerController = existingController as? CustomContainerController else {
-                completion(.failure("\(existingController) is not CustomContainerController"))
-                return
-            }
-
+        func perform(with viewController: UIViewController,
+                     on customContainerController: CustomContainerController,
+                     animated: Bool,
+                     completion: @escaping (_: ActionResult) -> Void) {
             customContainerController.rootViewController = viewController
             completion(.continueRouting)
         }

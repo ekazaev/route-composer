@@ -12,6 +12,8 @@ public extension GeneralAction {
     /// Presents a view controller modally
     public struct PresentModally: Action {
 
+        public typealias ViewController = UIViewController
+
         /// UIModalPresentationStyle setting
         public let presentationStyle: UIModalPresentationStyle?
 

@@ -9,14 +9,13 @@ import UIKit
 /// The `Container` protocol should be implemented by the instance that produces any types of the view controllers
 /// that can be considered as containers (eg: `UINavigationController`, `UITabBarController`, etc)
 ///
-/// The `Container` uses `perform(embedding:)` method of an `Action` and then populate a full stack of the view controllers
+/// The `Container` uses `perform(embedding:)` method of an `ContainerAction` and then populate a full stack of the view controllers
 /// that was built by the associated factories in one go.
-/// Example: Steps requires to populate N-view controllers in `UINavigationController` stack and it can do so.
-/// `merge` method implementation is mandatory.
+/// Example: `Router` requires to populate N-view controllers into `UINavigationController`'s stack and it can do so.
 public protocol Container: AbstractFactory {
 
-    /// Type of the `UIViewController` that `Container` can build
-    associatedtype ViewController = ViewController
+    /// Type of the `UIViewController` that `Container` can build. Must be a `ContainerViewController`.
+    associatedtype ViewController = ViewController where ViewController: ContainerViewController
 
     /// Type of context `Context` instance that `Container` needs
     associatedtype Context = Context

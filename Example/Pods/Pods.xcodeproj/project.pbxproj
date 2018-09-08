@@ -64,6 +64,7 @@
 		9AFBC2BC0C1E9A10BFAF5CBB /* SearchOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC4C84A58E9F61995D835 /* SearchOptions.swift */; };
 		9AFBC3AD64861185BC0F2224 /* TaskCollector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCE42B4A27B047462D8EC /* TaskCollector.swift */; };
 		9AFBC4EBB62A65FDFCE92AA4 /* GenericStepAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCE15B4D4EA9EB680854A /* GenericStepAssembly.swift */; };
+		9AFBC5B54663F53B1AEAA44B /* AnyAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC123FED47B0198BEDF20 /* AnyAction.swift */; };
 		9AFBC5C2E6183E9398FBAE4A /* LastStepInChainAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC77E19C4D6B96AE28A46 /* LastStepInChainAssembly.swift */; };
 		9AFBC72822E576C757172D30 /* SingleStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCA9F16F888F057D1ED3B /* SingleStep.swift */; };
 		9AFBC924B59E60D1FE33ED8C /* SingleContainerStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC0206D841211FD5CED86 /* SingleContainerStep.swift */; };
@@ -197,6 +198,7 @@
 		9AFBC0206D841211FD5CED86 /* SingleContainerStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleContainerStep.swift; sourceTree = "<group>"; };
 		9AFBC02A04ED519EE0AFEE2D /* TypedScreenStepChainAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypedScreenStepChainAssembly.swift; sourceTree = "<group>"; };
 		9AFBC10C7F3B8AF4403D5F10 /* ActionConnecting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionConnecting.swift; sourceTree = "<group>"; };
+		9AFBC123FED47B0198BEDF20 /* AnyAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyAction.swift; sourceTree = "<group>"; };
 		9AFBC15A7BFA0BF46779AD38 /* InterceptableRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InterceptableRouter.swift; path = ../../Assemblies/InterceptableRouter.swift; sourceTree = "<group>"; };
 		9AFBC1654BD1E159A5043018 /* DefaultLoggerLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultLoggerLevel.swift; sourceTree = "<group>"; };
 		9AFBC2181754135EAFF590B3 /* NilEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NilEntity.swift; sourceTree = "<group>"; };
@@ -352,6 +354,7 @@
 				D00646BEBD7940A47A1FEE60934C836C /* AnyFinder.swift */,
 				62237BAC4C7F02BC065FAF61BD87FFF5 /* AnyPostRoutingTask.swift */,
 				FACDDD7F59B182853EE6D701E4983CE5 /* AnyRoutingInterceptor.swift */,
+				9AFBC123FED47B0198BEDF20 /* AnyAction.swift */,
 			);
 			path = "Type Erasure";
 			sourceTree = "<group>";
@@ -864,6 +867,7 @@
 				9AFBC022BD22026C3F6B8E31 /* ChildCoordinator.swift in Sources */,
 				9AFBC9A5C319800C36BFCED9 /* SimpleContainer.swift in Sources */,
 				9AFBCAD237202BEAD946B2EB /* ActionConnecting.swift in Sources */,
+				9AFBC5B54663F53B1AEAA44B /* AnyAction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
