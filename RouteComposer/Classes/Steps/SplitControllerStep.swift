@@ -6,7 +6,7 @@
 import UIKit
 
 /// Default split container step
-public final class SplitControllerStep: SingleContainerStep<NilFinder<UISplitViewController, Any?>, SplitControllerFactory, UISplitViewController> {
+public final class SplitControllerStep: SingleContainerStep<NilFinder<UISplitViewController, Any?>, SplitControllerFactory> {
 
     /// Constructor.
     public init() {

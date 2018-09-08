@@ -5,60 +5,6 @@
 import Foundation
 import UIKit
 
-protocol AnyAction {
-
-    var embeddable: Bool { get }
-
-    func perform(with viewController: UIViewController,
-                 on existingController: UIViewController,
-                 animated: Bool,
-                 completion: @escaping (_: ActionResult) -> Void)
-
-    func perform(embedding viewController: UIViewController,
-                 in childViewControllers: inout [UIViewController])
-
-}
-
-struct ActionBox<A: Action>: AnyAction {
-
-    let action: A
-
-    init(_ action: A) {
-        self.action = action
-    }
-
-    let embeddable: Bool = false
-
-    func perform(with viewController: UIViewController, on existingController: UIViewController, animated: Bool, completion: @escaping (ActionResult) -> Void) {
-        action.perform(with: viewController, on: existingController, animated: animated, completion: completion)
-    }
-
-    func perform(embedding viewController: UIViewController, in childViewControllers: inout [UIViewController]) {
-        childViewControllers.append(viewController)
-    }
-
-}
-
-struct ContainerActionBox<A: ContainerAction>: AnyAction {
-
-    let action: A
-
-    init(_ action: A) {
-        self.action = action
-    }
-
-    let embeddable: Bool = true
-
-    func perform(with viewController: UIViewController, on existingController: UIViewController, animated: Bool, completion: @escaping (ActionResult) -> Void) {
-        action.perform(with: viewController, on: existingController, animated: animated, completion: completion)
-    }
-
-    func perform(embedding viewController: UIViewController, in childViewControllers: inout [UIViewController]) {
-        action.perform(embedding: viewController, in: &childViewControllers)
-    }
-
-}
-
 /// Non type safe boxing wrapper for Factory protocol
 protocol AnyFactory {
 

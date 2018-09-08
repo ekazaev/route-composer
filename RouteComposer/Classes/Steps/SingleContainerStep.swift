@@ -6,9 +6,9 @@ import Foundation
 import UIKit
 
 /// Base class for the basic container steps.
-public class SingleContainerStep<F: Finder, FC: Container, C: ContainerViewController>: StepWithActionAssembly<F, FC>
+public class SingleContainerStep<F: Finder, FC: Container>: StepWithActionAssembly<F, FC>
         where
-        F.ViewController == FC.ViewController, F.Context == FC.Context, FC.ViewController == C {
+        F.ViewController == FC.ViewController, F.Context == FC.Context {
 
     let finder: F
 

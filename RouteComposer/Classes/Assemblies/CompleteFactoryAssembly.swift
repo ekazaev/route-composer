@@ -20,7 +20,7 @@ public final class CompleteFactoryAssembly<FC: Container> {
 
         typealias SupportedContainer = C
 
-        func perform(with viewController: UIViewController, on existingController: UIViewController, animated: Bool, completion: @escaping (ActionResult) -> Void) {
+        func perform(with viewController: UIViewController, on existingController: C.ViewController, animated: Bool, completion: @escaping (ActionResult) -> Void) {
             assertionFailure("Should never be called")
         }
 

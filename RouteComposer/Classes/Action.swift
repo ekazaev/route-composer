@@ -9,6 +9,9 @@ import UIKit
 /// been built (eg: push to navigation stack, present modally, push to tab, etc)
 public protocol Action {
 
+    /// Type of the `UIViewController` that `Action` can start from.
+    associatedtype ViewController: UIViewController
+
     /// Performs provided action to the view controller.
     ///
     /// - Parameters:
@@ -21,7 +24,7 @@ public protocol Action {
     ///
     /// NB: completion MUST be called in the implementation.
     func perform(with viewController: UIViewController,
-                 on existingController: UIViewController,
+                 on existingController: ViewController,
                  animated: Bool,
                  completion: @escaping (_: ActionResult) -> Void)
 
@@ -30,8 +33,8 @@ public protocol Action {
 /// Represents an action to be used by a `Container` to build it's children view controller stack
 public protocol ContainerAction: Action {
 
-    /// Type of the `Container` supported by the `ContainerAction`
-    associatedtype SupportedContainer: Container
+     /// Type of the `Container` supported by the `ContainerAction`
+    associatedtype SupportedContainer: Container where SupportedContainer.ViewController == ViewController
 
     /// If current `UIViewController` has to be pushed/added/etc to the existing stack of the view controllers,
     /// this method should be called instead.
@@ -52,10 +55,6 @@ public extension ContainerAction {
 }
 
 public extension Action where Self: NilEntity {
-
-    /// Does nothing
-    public func perform(embedding viewController: UIViewController, in childViewControllers: inout [UIViewController]) {
-    }
 
     /// Does nothing
     public func perform(with viewController: UIViewController,

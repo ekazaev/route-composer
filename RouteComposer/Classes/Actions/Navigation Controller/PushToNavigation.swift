@@ -18,13 +18,9 @@ public extension NavigationControllerFactory {
         }
 
         public func perform(with viewController: UIViewController,
-                            on existingController: UIViewController,
+                            on navigationController: UINavigationController,
                             animated: Bool,
                             completion: @escaping(_: ActionResult) -> Void) {
-            guard let navigationController = existingController as? UINavigationController ?? existingController.navigationController else {
-                return completion(.failure("Could not find UINavigationController in \(existingController) to present view controller \(viewController)."))
-            }
-
             navigationController.pushViewController(viewController, animated: animated)
             return completion(.continueRouting)
         }

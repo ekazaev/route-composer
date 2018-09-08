@@ -16,6 +16,7 @@ custom_categories:
       - Factory
       - Container
       - Action
+      - ContainerAction
       - RoutingInterceptor
       - ContextTask
       - PostRoutingTask
