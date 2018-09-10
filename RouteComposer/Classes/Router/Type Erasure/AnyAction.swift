@@ -19,7 +19,7 @@ protocol AnyAction {
 
 }
 
-struct ActionBox<A: Action>: AnyAction {
+struct ActionBox<A: Action>: AnyAction, CustomStringConvertible {
 
     let action: A
 
@@ -41,9 +41,13 @@ struct ActionBox<A: Action>: AnyAction {
         childViewControllers.append(viewController)
     }
 
+    public var description: String {
+        return String(describing: action)
+    }
+
 }
 
-struct ContainerActionBox<A: ContainerAction>: AnyAction {
+struct ContainerActionBox<A: ContainerAction>: AnyAction, CustomStringConvertible {
 
     let action: A
 
@@ -55,7 +59,7 @@ struct ContainerActionBox<A: ContainerAction>: AnyAction {
 
     func perform(with viewController: UIViewController, on existingController: UIViewController, animated: Bool, completion: @escaping (ActionResult) -> Void) {
         guard let containerController = findContainer(startingFrom: existingController) else {
-            completion(.failure("Container of the appropriate type can not be found to perform \(action)"))
+            completion(.failure("Container of \(String(describing: A.SupportedContainer.ViewController.self)) type can not be found to perform \(action)"))
             return
         }
 
@@ -75,6 +79,10 @@ struct ContainerActionBox<A: ContainerAction>: AnyAction {
             currentViewController = currentViewController?.parent
         }
         return nil
+    }
+
+    public var description: String {
+        return String(describing: action)
     }
 
 }

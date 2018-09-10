@@ -312,12 +312,12 @@ public struct DefaultRouter: Router, InterceptableRouter {
                         "\(String(describing: newViewController))."))
                 factory.action.perform(with: newViewController, on: previousViewController, animated: animated) { result in
                     if case let .failure(message) = result {
-                        self.logger?.log(.error(message ?? "Action \(String(describing: factory)) stopped " +
+                        self.logger?.log(.error(message ?? "Action \(String(describing: factory.action)) stopped " +
                                 "routing as it was not able to build a view controller in to a stack."))
                         completion(newViewController)
                         return
                     }
-                    self.logger?.log(.info("Action of \(String(describing: factory)) applied to a " +
+                    self.logger?.log(.info("Action \(String(describing: factory.action)) applied to a " +
                             "\(String(describing: previousViewController)) with " +
                             "\(String(describing: newViewController))."))
                     guard !factories.isEmpty else {
@@ -365,7 +365,7 @@ public struct DefaultRouter: Router, InterceptableRouter {
             logger?.log(.error(message))
             finallyBlock?(false)
         } catch {
-            logger?.log(.error("An error occurred during routing process. Underlying error: \(error)"))
+            logger?.log(.error("An error occurred during the routing process. Underlying error: \(error)"))
             finallyBlock?(false)
         }
     }

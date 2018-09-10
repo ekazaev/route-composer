@@ -20,6 +20,12 @@ public extension GeneralAction {
         /// UIModalTransitionStyle setting
         public let transitionStyle: UIModalTransitionStyle?
 
+        /// The preferredContentSize is used for any container laying out a child view controller.
+        public let preferredContentSize: CGSize?
+
+        /// Block to configure `UIPopoverPresentationController`
+        public let popoverControllerConfigurationBlock: ((_: UIPopoverPresentationController) -> Void)?
+
         /// UIViewControllerTransitioningDelegate instance to be used during the transition
         private(set) weak var transitioningDelegate: UIViewControllerTransitioningDelegate?
 
@@ -29,12 +35,18 @@ public extension GeneralAction {
         ///   - presentationStyle: UIModalPresentationStyle setting, default value: .fullScreen
         ///   - transitionStyle: UIModalTransitionStyle setting, default value: .coverVertical
         ///   - transitioningDelegate: UIViewControllerTransitioningDelegate instance to be used during the transition
+        ///   - preferredContentSize: The preferredContentSize is used for any container laying out a child view controller.
+        ///   - popoverControllerConfigurationBlock: Block to configure `UIPopoverPresentationController`.
         public init(presentationStyle: UIModalPresentationStyle? = .fullScreen,
                     transitionStyle: UIModalTransitionStyle? = .coverVertical,
-                    transitioningDelegate: UIViewControllerTransitioningDelegate? = nil) {
+                    transitioningDelegate: UIViewControllerTransitioningDelegate? = nil,
+                    preferredContentSize: CGSize? = nil,
+                    popoverConfiguration: ((_: UIPopoverPresentationController) -> Void)? = nil) {
             self.presentationStyle = presentationStyle
             self.transitionStyle = transitionStyle
             self.transitioningDelegate = transitioningDelegate
+            self.preferredContentSize = preferredContentSize
+            self.popoverControllerConfigurationBlock = popoverConfiguration
         }
 
         public func perform(with viewController: UIViewController,
@@ -53,6 +65,13 @@ public extension GeneralAction {
             }
             if let transitioningDelegate = transitioningDelegate {
                 viewController.transitioningDelegate = transitioningDelegate
+            }
+            if let preferredContentSize = preferredContentSize {
+                viewController.preferredContentSize = preferredContentSize
+            }
+            if let popoverPresentationController = viewController.popoverPresentationController,
+               let popoverControllerConfigurationBlock = popoverControllerConfigurationBlock {
+                popoverControllerConfigurationBlock(popoverPresentationController)
             }
 
             existingController.present(viewController, animated: animated, completion: {
