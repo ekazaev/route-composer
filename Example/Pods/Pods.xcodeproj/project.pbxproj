@@ -66,6 +66,7 @@
 		9AFBC4EBB62A65FDFCE92AA4 /* GenericStepAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCE15B4D4EA9EB680854A /* GenericStepAssembly.swift */; };
 		9AFBC5B54663F53B1AEAA44B /* AnyAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC123FED47B0198BEDF20 /* AnyAction.swift */; };
 		9AFBC5C2E6183E9398FBAE4A /* LastStepInChainAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC77E19C4D6B96AE28A46 /* LastStepInChainAssembly.swift */; };
+		9AFBC5EC08EFBE93E64D656C /* InterceptableStepAssembling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC95AC18108287B18797A /* InterceptableStepAssembling.swift */; };
 		9AFBC72822E576C757172D30 /* SingleStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCA9F16F888F057D1ED3B /* SingleStep.swift */; };
 		9AFBC924B59E60D1FE33ED8C /* SingleContainerStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC0206D841211FD5CED86 /* SingleContainerStep.swift */; };
 		9AFBC9A5C319800C36BFCED9 /* SimpleContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCAA89BAA6311E65E38AB /* SimpleContainer.swift */; };
@@ -207,6 +208,7 @@
 		9AFBC65F176885B8178C5D10 /* ContainerStepAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerStepAssembly.swift; sourceTree = "<group>"; };
 		9AFBC74296F51A0C0E58A3F3 /* ChildCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChildCoordinator.swift; path = RouteComposer/Classes/ChildCoordinator.swift; sourceTree = "<group>"; };
 		9AFBC77E19C4D6B96AE28A46 /* LastStepInChainAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastStepInChainAssembly.swift; sourceTree = "<group>"; };
+		9AFBC95AC18108287B18797A /* InterceptableStepAssembling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterceptableStepAssembling.swift; sourceTree = "<group>"; };
 		9AFBCA8B8BCB6B374B0BECE7 /* EXAMPLES.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = EXAMPLES.md; sourceTree = "<group>"; };
 		9AFBCA9F16F888F057D1ED3B /* SingleStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleStep.swift; sourceTree = "<group>"; };
 		9AFBCAA89BAA6311E65E38AB /* SimpleContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleContainer.swift; sourceTree = "<group>"; };
@@ -448,6 +450,7 @@
 				9AFBC77E19C4D6B96AE28A46 /* LastStepInChainAssembly.swift */,
 				9AFBC02A04ED519EE0AFEE2D /* TypedScreenStepChainAssembly.swift */,
 				9AFBC10C7F3B8AF4403D5F10 /* ActionConnecting.swift */,
+				9AFBC95AC18108287B18797A /* InterceptableStepAssembling.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -868,6 +871,7 @@
 				9AFBC9A5C319800C36BFCED9 /* SimpleContainer.swift in Sources */,
 				9AFBCAD237202BEAD946B2EB /* ActionConnecting.swift in Sources */,
 				9AFBC5B54663F53B1AEAA44B /* AnyAction.swift in Sources */,
+				9AFBC5EC08EFBE93E64D656C /* InterceptableStepAssembling.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

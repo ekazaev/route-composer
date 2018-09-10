@@ -31,3 +31,12 @@ public extension Factory {
     }
 
 }
+
+public extension Factory where Context == Any? {
+
+    /// Builds a `Factory`'s view controller. Use this function if you want to build the view controller programmatically.
+    func build() throws -> ViewController {
+        return try build(with: nil)
+    }
+
+}

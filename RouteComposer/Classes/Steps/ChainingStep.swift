@@ -10,6 +10,6 @@ public protocol ChainingStep {
     /// From method
     ///
     /// - Parameter step: The `RoutingStep` instance to be set as previous one
-    func from(_ step: RoutingStep)
+    mutating func from(_ step: RoutingStep)
 
 }

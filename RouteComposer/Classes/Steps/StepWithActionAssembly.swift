@@ -5,12 +5,17 @@
 import Foundation
 import UIKit
 
-/// A simple protocol that produces intermediate `RoutingStep` for an assembly.
-public class StepWithActionAssembly<F: Finder, FC: AbstractFactory> where F.ViewController == FC.ViewController, F.Context == FC.Context {
+/// A simple class that represents an intermediate `RoutingStep` and allows to add tasks to it.
+public class StepWithActionAssembly<F: Finder, FC: AbstractFactory>: InterceptableStepAssembling where F.ViewController == FC.ViewController, F.Context == FC.Context {
+
+    public typealias ViewController = F.ViewController
+
+    public typealias Context = F.Context
 
     var taskCollector: TaskCollector = TaskCollector()
 
-    /// Adds routing interceptor instance
+    /// Adds routing interceptor instance.
+    /// This action does not contain type safety checks to avoid complications.
     ///
     /// - Parameter interceptor: The `RoutingInterceptor` instance to be executed by `Router` before routing
     ///   to this step.
@@ -34,15 +39,13 @@ public class StepWithActionAssembly<F: Finder, FC: AbstractFactory> where F.View
     ///   will find or create UIViewController.
     public final func add<CT: ContextTask>(_ contextTask: CT) -> Self
             where
-            CT.ViewController == FC.ViewController,
-            CT.ViewController == F.ViewController,
-            CT.Context == FC.Context,
-            CT.Context == F.Context {
+            CT.ViewController == ViewController, CT.Context == Context {
         taskCollector.add(contextTask)
         return self
     }
 
-    /// Adds PostRoutingTask instance
+    /// Adds PostRoutingTask instance.
+    /// This action does not contain type safety checks to avoid complications.
     ///
     /// - Parameter postTask: The `PostRoutingTask` instance to be executed by a `Router` after routing to this step.
     public final func add<P: PostRoutingTask>(_ postTask: P) -> Self {

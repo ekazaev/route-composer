@@ -15,7 +15,7 @@ protocol AnyFinder {
 struct FinderBox<F: Finder>: AnyFinder, CustomStringConvertible {
 
     static func box(for finder: F?) -> AnyFinder? {
-        if finder as? NilFinder<F.ViewController, F.Context> != nil {
+        if finder is NilEntity {
             return nil
         } else if let finder = finder {
             return FinderBox(finder)

@@ -55,26 +55,26 @@ public struct ChainAssembly {
 }
 
 func chain(_ steps: [RoutingStep]) -> RoutingStep {
-    guard let firstStep = steps.first else {
+    guard let lastStep = steps.last else {
         fatalError("No steps provided to chain.")
     }
 
     var restSteps = steps
-    var currentStep = firstStep
-    restSteps.removeFirst()
+    var currentStep = lastStep
+    restSteps.removeLast()
 
-    for presentingStep in restSteps {
-        guard let step = currentStep as? ChainingStep else {
+    for presentingStep in restSteps.reversed() {
+        guard var step = presentingStep as? ChainingStep & RoutingStep else {
             assertionFailure("\(presentingStep) can not be chained to non chainable step \(currentStep)")
-            return firstStep
+            return currentStep
         }
-        if let chainableStep = step as? ChainableStep, let previousStep = chainableStep.previousStep {
-            assertionFailure("\(currentStep) is already chained to  \(previousStep)")
-            return firstStep
+        if let chainableStep = presentingStep as? ChainableStep, let previousStep = chainableStep.previousStep {
+            assertionFailure("\(presentingStep) is already chained to  \(previousStep)")
+            return currentStep
         }
-        step.from(presentingStep)
-        currentStep = presentingStep
+        step.from(currentStep)
+        currentStep = step
     }
 
-    return firstStep
+    return currentStep
 }
