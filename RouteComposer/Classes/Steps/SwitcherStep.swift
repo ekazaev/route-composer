@@ -19,7 +19,7 @@ public protocol StepCaseResolver {
 
 class SwitcherStep: RoutingStep, ChainableStep, PerformableStep {
 
-    private(set) public var previousStep: RoutingStep?
+    private(set) var previousStep: RoutingStep?
 
     private var resolvers: [StepCaseResolver]
 
@@ -38,7 +38,8 @@ class SwitcherStep: RoutingStep, ChainableStep, PerformableStep {
         return .continueRouting(nil)
     }
 
-    public init(resolvers: [StepCaseResolver]) {
+    init(resolvers: [StepCaseResolver]) {
         self.resolvers = resolvers
     }
+
 }

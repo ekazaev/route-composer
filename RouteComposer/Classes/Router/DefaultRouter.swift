@@ -5,7 +5,7 @@
 
 import UIKit
 
-/// The default `Router` implementations
+/// Default `Router` implementation
 public struct DefaultRouter: Router, InterceptableRouter {
 
     /// A `Logger` instance to be used by the `DefaultRouter`.
@@ -19,7 +19,7 @@ public struct DefaultRouter: Router, InterceptableRouter {
 
     /// Constructor
     ///
-    /// - Parameter logger: `Logger` instance to be used by the `DefaultRouter`.
+    /// - Parameter logger: A `Logger` instance to be used by the `DefaultRouter`.
     public init(logger: Logger? = nil) {
         self.logger = logger
     }
@@ -176,7 +176,7 @@ public struct DefaultRouter: Router, InterceptableRouter {
                     case .success(let viewController):
                         if rootViewController == nil {
                             rootViewController = viewController
-                            logger?.log(.info("Step \(String(describing: currentStep!)) found a " +
+                            logger?.log(.info("\(String(describing: currentStep!)) found a " +
                                     "\(String(describing: viewController)) to start presentation from."))
                         }
 
@@ -198,7 +198,7 @@ public struct DefaultRouter: Router, InterceptableRouter {
                         // If view controller is not found, but step has a `Factory` to build itself -
                         // add factory to the stack
                         if rootViewController == nil {
-                            logger?.log(.info("Step \(String(describing: currentStep!)) not found its view " +
+                            logger?.log(.info("\(String(describing: currentStep!)) not found its view " +
                                     "controller is stack, so router will continue search."))
                             if var factory = factory {
                                 // If step contains post task, them lets create a `Factory` decorator that will
@@ -234,7 +234,7 @@ public struct DefaultRouter: Router, InterceptableRouter {
                             }
                         }
                     case .failure:
-                        throw RoutingError.message("Step \(String(describing: currentStep)) failed while it was " +
+                        throw RoutingError.message("\(String(describing: currentStep)) failed while it was " +
                                 "looking for a view controller to present from.")
                     }
                 }

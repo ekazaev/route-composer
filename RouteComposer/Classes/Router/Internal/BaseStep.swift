@@ -68,7 +68,7 @@ struct BaseStep<Box: AnyFactoryBox>: RoutingStep,
         if let factory = factory {
             factoryDescription = String(describing: factory)
         }
-        return "\(String(describing: type(of: self)))<\(finderDescription) : \(factoryDescription))>"
+        return "BaseStep<\(finderDescription) : \(factoryDescription))>"
     }
 
 }
