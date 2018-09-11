@@ -114,12 +114,13 @@ public struct DefaultRouter: Router, InterceptableRouter {
 
             self.startRouting(from: viewController,
                     with: destination.context,
-                    building: factoriesStack, animated: animated) { viewController in
+                    building: factoriesStack, animated: animated) { viewController, result in
+                // Even if the result is unhandled - we still have to run all the tasks
                 self.makeContainersActive(toShow: viewController, animated: animated)
                 self.doTry({
                     try postTaskRunner.run(for: destination)
                 }, finally: { success in
-                    completion?(success ? .handled : .unhandled)
+                    completion?(success ? result : .unhandled)
                 })
                 self.logger?.routingDidFinish()
             }
@@ -156,7 +157,12 @@ public struct DefaultRouter: Router, InterceptableRouter {
         var processedViewControllers: [UIViewController] = []
 
         doTry({
-
+            //Adding default preset interceptors
+            interceptors = try self.interceptors.map({
+                var globalInterceptor = $0
+                try globalInterceptor.prepare(with: destination)
+                return globalInterceptor
+            })
             var currentStep: RoutingStep? = destination.finalStep
 
             // Build stack until we have steps and the view controller to present from is not found
@@ -256,8 +262,6 @@ public struct DefaultRouter: Router, InterceptableRouter {
 
         //If we haven't found a View Controller to build the stack from - it means that we can't handle routing.
         if let viewController = rootViewController {
-            //Adding default preset interceptors
-            interceptors.append(contentsOf: self.interceptors)
             return (rootViewController: viewController,
                     factories: factories,
                     interceptor: interceptors.count == 1 ? interceptors.removeFirst() : InterceptorMultiplexer(interceptors))
@@ -270,13 +274,13 @@ public struct DefaultRouter: Router, InterceptableRouter {
                               with context: Any?,
                               building factories: [AnyFactory],
                               animated: Bool,
-                              completion: @escaping ((_: UIViewController) -> Void)) {
+                              completion: @escaping ((_: UIViewController, _: RoutingResult) -> Void)) {
         // If we found a view controller to start from - lets close all the presented view controllers above to be able
         // to build a new stack if needed.
         // We already checked that they can be dismissed.
         dismissViewControllerPresented(from: viewController, animated: animated) {
-            self.runViewControllerBuildStack(rootViewController: viewController, context: context, factories: factories, animated: animated) { viewController in
-                completion(viewController)
+            self.runViewControllerBuildStack(rootViewController: viewController, context: context, factories: factories, animated: animated) { viewController, result in
+                completion(viewController, result)
             }
         }
     }
@@ -287,9 +291,9 @@ public struct DefaultRouter: Router, InterceptableRouter {
     private func runViewControllerBuildStack(rootViewController: UIViewController,
                                              context: Any?, factories: [AnyFactory],
                                              animated: Bool,
-                                             completion: @escaping ((_: UIViewController) -> Void)) {
+                                             completion: @escaping ((_: UIViewController, _: RoutingResult) -> Void)) {
         guard !factories.isEmpty else {
-            completion(rootViewController)
+            completion(rootViewController, .handled)
             return
         }
         var factories = factories
@@ -314,21 +318,21 @@ public struct DefaultRouter: Router, InterceptableRouter {
                     if case let .failure(message) = result {
                         self.logger?.log(.error(message ?? "Action \(String(describing: factory.action)) stopped " +
                                 "routing as it was not able to build a view controller in to a stack."))
-                        completion(newViewController)
+                        completion(newViewController, .unhandled)
                         return
                     }
                     self.logger?.log(.info("Action \(String(describing: factory.action)) applied to a " +
                             "\(String(describing: previousViewController)) with " +
                             "\(String(describing: newViewController))."))
                     guard !factories.isEmpty else {
-                        completion(newViewController)
+                        completion(newViewController, .handled)
                         return
                     }
                     buildViewController(factories.removeFirst(), newViewController)
                 }
             }, finally: { success in
                 if !success {
-                    completion(previousViewController)
+                    completion(previousViewController, .unhandled)
                 }
             })
         }

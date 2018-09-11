@@ -86,7 +86,7 @@ It will work if the user is not in some `UIViewController` that is presented mod
 #### I want to present the `UITabBarController` with the `HomeViewController` and the `AccountViewController` in the tabs:
 
 ```swift
-    let tabScreen = StepAssembly(
+    let tabScreen = SingleContainerStep(
             finder: ClassFinder(),
             factory: CompleteFactoryAssembly(factory: TabBarControllerFactory())
                     .with(XibFactory<HomeViewController, Any?>(), using: TabBarControllerFactory.AddTab())

@@ -43,12 +43,10 @@ class BoxTests: XCTestCase {
                 factory: NilFactory<UIViewController, Any?>())
                 .using(GeneralAction.NilAction()).from(CurrentViewControllerStep())
                 .assemble()
-        guard let step = routingStep as? BaseStep<FactoryBox<NilFactory<UIViewController, Any?>>> else {
-            XCTAssert(false, "Internal inconsistency")
-            return
-        }
-        XCTAssertNil(step.factory)
-        XCTAssertNil(step.finder)
+        let step = routingStep as? BaseStep<FactoryBox<NilFactory<UIViewController, Any?>>>
+        XCTAssertNotNil(step)
+        XCTAssertNil(step?.factory)
+        XCTAssertNil(step?.finder)
     }
 
     func testNilInCompleteFactoryAssembly() {
@@ -57,6 +55,57 @@ class BoxTests: XCTestCase {
                 .with(NilFactory<UIViewController, Any?>(), using: TabBarControllerFactory.AddTab())
                 .assemble()
         XCTAssertEqual(factory.childFactories.count, 0)
+    }
+
+    func testActionBox() {
+
+        class TestAction: Action {
+
+            func perform(with viewController: UIViewController, on existingController: UINavigationController, animated: Bool, completion: @escaping (ActionResult) -> Void) {
+                existingController.viewControllers = [viewController]
+            }
+
+        }
+        let action = TestAction()
+        let actionBox = ActionBox(action)
+        let navigationController = UINavigationController()
+        actionBox.perform(with: UIViewController(), on: navigationController, animated: true) { result in
+            guard case .continueRouting = result else {
+                XCTAssert(false)
+                return
+            }
+        }
+        XCTAssertEqual(navigationController.viewControllers.count, 1)
+    }
+
+    func testContainerActionBox() {
+
+        class TestContainerAction: ContainerAction {
+
+            typealias SupportedContainer = NavigationControllerFactory
+
+            func perform(embedding viewController: UIViewController, in childViewControllers: inout [UIViewController]) {
+                childViewControllers.append(viewController)
+            }
+
+            func perform(with viewController: UIViewController, on existingController: UINavigationController, animated: Bool, completion: @escaping (ActionResult) -> Void) {
+                existingController.viewControllers = [viewController]
+            }
+
+        }
+        let action = TestContainerAction()
+        let actionBox = ActionBox(action)
+        let navigationController = UINavigationController()
+        actionBox.perform(with: UIViewController(), on: navigationController, animated: true) { result in
+            guard case .continueRouting = result else {
+                XCTAssert(false)
+                return
+            }
+        }
+        XCTAssertEqual(navigationController.childViewControllers.count, 1)
+
+        actionBox.perform(embedding: UIViewController(), in: &navigationController.viewControllers)
+        XCTAssertEqual(navigationController.childViewControllers.count, 2)
     }
 
 }

@@ -21,7 +21,7 @@ class SwitcherStep: RoutingStep, ChainableStep, PerformableStep {
 
     private(set) var previousStep: RoutingStep?
 
-    private var resolvers: [StepCaseResolver]
+    var resolvers: [StepCaseResolver]
 
     func perform<D: RoutingDestination>(for destination: D) -> StepResult {
         previousStep = nil

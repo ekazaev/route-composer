@@ -63,4 +63,24 @@ class ContainerTests: XCTestCase {
         XCTAssertEqual(containerViewController.childViewControllers.count, 2)
     }
 
+    func testCompleteFactory() {
+        var children: [DelayedIntegrationFactory<Any?>] = []
+        children.append(DelayedIntegrationFactory<Any?>(FactoryBox.box(for: EmptyFactory(), action: ContainerActionBox(TabBarControllerFactory.AddTab()))!))
+        children.append(DelayedIntegrationFactory<Any?>(FactoryBox.box(for: EmptyFactory(), action: ContainerActionBox(TabBarControllerFactory.AddTab()))!))
+        let factory = CompleteFactory(factory: TabBarControllerFactory(), childFactories: children)
+        let viewController = try? factory.build(with: nil)
+        XCTAssertNotNil(viewController)
+        XCTAssertEqual(viewController?.viewControllers?.count, 2)
+    }
+
+    func testCompleteFactorySmartActions() {
+        var children: [DelayedIntegrationFactory<Any?>] = []
+        children.append(DelayedIntegrationFactory<Any?>(FactoryBox.box(for: EmptyFactory(), action: ContainerActionBox(TabBarControllerFactory.AddTab()))!))
+        children.append(DelayedIntegrationFactory<Any?>(FactoryBox.box(for: EmptyFactory(), action: ContainerActionBox(TabBarControllerFactory.AddTab(at: 0, replacing: true)))!))
+        let factory = CompleteFactory(factory: TabBarControllerFactory(), childFactories: children)
+        let viewController = try? factory.build(with: nil)
+        XCTAssertNotNil(viewController)
+        XCTAssertEqual(viewController?.viewControllers?.count, 1)
+    }
+
 }
