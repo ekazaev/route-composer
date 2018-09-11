@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>TypedScreenStepChainAssembly Structure Reference</title>
+    <title>ActionConnectingAssembly Structure Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Struct/TypedScreenStepChainAssembly" class="dashAnchor"></a>
-    <a title="TypedScreenStepChainAssembly Structure Reference"></a>
+    <a name="//apple_ref/swift/Struct/ActionConnectingAssembly" class="dashAnchor"></a>
+    <a title="ActionConnectingAssembly Structure Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">RouteComposer Docs</a> (100% documented)</p>
@@ -21,7 +21,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">RouteComposer Reference</a>
         <img id="carat" src="../img/carat.png" />
-        TypedScreenStepChainAssembly Structure Reference
+        ActionConnectingAssembly Structure Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -81,10 +81,13 @@
                 <a href="../Classes/ContainerStepAssembly.html">ContainerStepAssembly</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/ChainAssembly.html">ChainAssembly</a>
+                <a href="../Classes/SwitchAssembly.html">SwitchAssembly</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/SwitchAssembly.html">SwitchAssembly</a>
+                <a href="../Assemblies.html#/s:13RouteComposer13ChainAssemblyAA016ActionConnectingD0Vyxq_GAA08StepWitheD0Cyxq_G4from_tAA6FinderRzAA15AbstractFactoryR_7ContextQy_ALRtz14ViewControllerQy_AORtzr0_lF">ChainAssembly(from:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Assemblies.html#/s:13RouteComposer13ChainAssemblyAA010LastStepIncD0VAA07RoutingF0_p4from_tF">ChainAssembly(from:)</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/CompleteFactoryAssembly.html">CompleteFactoryAssembly</a>
@@ -298,6 +301,9 @@
             <a href="../Other Structs.html">Other Structures</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a href="../Structs/ActionConnectingAssembly.html">ActionConnectingAssembly</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Structs/ChildCoordinator.html">ChildCoordinator</a>
               </li>
               <li class="nav-group-task">
@@ -340,7 +346,7 @@
                 <a href="../Structs/SearchOptions.html">SearchOptions</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/TypedScreenStepChainAssembly.html">TypedScreenStepChainAssembly</a>
+                <a href="../Structs/StepChainAssembly.html">StepChainAssembly</a>
               </li>
             </ul>
           </li>
@@ -349,10 +355,10 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>TypedScreenStepChainAssembly</h1>
+            <h1>ActionConnectingAssembly</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">TypedScreenStepChainAssembly</span><span class="o">&lt;</span><span class="kt">F</span><span class="p">,</span> <span class="kt">FC</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ActionConnecting.html">ActionConnecting</a></span> <span class="k">where</span> <span class="kt">F</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/Finder.html">Finder</a></span><span class="p">,</span> <span class="kt">FC</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AbstractFactory.html">AbstractFactory</a></span><span class="p">,</span> <span class="kt">F</span><span class="o">.</span><span class="kt">Context</span> <span class="o">==</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">Context</span><span class="p">,</span> <span class="kt">F</span><span class="o">.</span><span class="kt">ViewController</span> <span class="o">==</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">ViewController</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ActionConnectingAssembly</span><span class="o">&lt;</span><span class="kt">F</span><span class="p">,</span> <span class="kt">FC</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ActionConnecting.html">ActionConnecting</a></span> <span class="k">where</span> <span class="kt">F</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/Finder.html">Finder</a></span><span class="p">,</span> <span class="kt">FC</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AbstractFactory.html">AbstractFactory</a></span><span class="p">,</span> <span class="kt">F</span><span class="o">.</span><span class="kt">Context</span> <span class="o">==</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">Context</span><span class="p">,</span> <span class="kt">F</span><span class="o">.</span><span class="kt">ViewController</span> <span class="o">==</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">ViewController</span></code></pre>
 
                 </div>
               </div>
@@ -365,9 +371,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer28TypedScreenStepChainAssemblyV5usingAA0fG0Vqd__AA6ActionRd__lF"></a>
+                    <a name="/s:13RouteComposer24ActionConnectingAssemblyV5usingAA09StepChainE0Vqd__AA0C0Rd__lF"></a>
                     <a name="//apple_ref/swift/Method/using(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer28TypedScreenStepChainAssemblyV5usingAA0fG0Vqd__AA6ActionRd__lF">using(_:)</a>
+                    <a class="token" href="#/s:13RouteComposer24ActionConnectingAssemblyV5usingAA09StepChainE0Vqd__AA0C0Rd__lF">using(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -382,7 +388,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">using</span><span class="o">&lt;</span><span class="kt">A</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">action</span><span class="p">:</span> <span class="kt">A</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/ChainAssembly.html">ChainAssembly</a></span> <span class="k">where</span> <span class="kt">A</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/Action.html">Action</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">using</span><span class="o">&lt;</span><span class="kt">A</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">action</span><span class="p">:</span> <span class="kt">A</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/StepChainAssembly.html">StepChainAssembly</a></span> <span class="k">where</span> <span class="kt">A</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/Action.html">Action</a></span></code></pre>
 
                         </div>
                       </div>
@@ -407,7 +413,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p><code><a href="../Structs/ChainAssembly.html">ChainAssembly</a></code> to continue building the chain.</p>
+                        <p><code>ChainAssembly</code> to continue building the chain.</p>
                       </div>
                     </section>
                   </div>
@@ -415,9 +421,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer28TypedScreenStepChainAssemblyV5usingAA0fG0Vqd__AA15ContainerActionRd__lF"></a>
+                    <a name="/s:13RouteComposer24ActionConnectingAssemblyV5usingAA09StepChainE0Vqd__AA09ContainerC0Rd__lF"></a>
                     <a name="//apple_ref/swift/Method/using(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer28TypedScreenStepChainAssemblyV5usingAA0fG0Vqd__AA15ContainerActionRd__lF">using(_:)</a>
+                    <a class="token" href="#/s:13RouteComposer24ActionConnectingAssemblyV5usingAA09StepChainE0Vqd__AA09ContainerC0Rd__lF">using(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -432,7 +438,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">using</span><span class="o">&lt;</span><span class="kt">A</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">action</span><span class="p">:</span> <span class="kt">A</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/ChainAssembly.html">ChainAssembly</a></span> <span class="k">where</span> <span class="kt">A</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ContainerAction.html">ContainerAction</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">using</span><span class="o">&lt;</span><span class="kt">A</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">action</span><span class="p">:</span> <span class="kt">A</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/StepChainAssembly.html">StepChainAssembly</a></span> <span class="k">where</span> <span class="kt">A</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ContainerAction.html">ContainerAction</a></span></code></pre>
 
                         </div>
                       </div>
@@ -457,7 +463,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p><code><a href="../Structs/ChainAssembly.html">ChainAssembly</a></code> to continue building the chain.</p>
+                        <p><code>ChainAssembly</code> to continue building the chain.</p>
                       </div>
                     </section>
                   </div>
@@ -469,9 +475,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer28TypedScreenStepChainAssemblyVA2A9NilEntityR_rlE13usingNoActionAA0fG0VyF"></a>
+                    <a name="/s:13RouteComposer24ActionConnectingAssemblyVA2A9NilEntityR_rlE07usingNoC0AA09StepChainE0VyF"></a>
                     <a name="//apple_ref/swift/Method/usingNoAction()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer28TypedScreenStepChainAssemblyVA2A9NilEntityR_rlE13usingNoActionAA0fG0VyF">usingNoAction()</a>
+                    <a class="token" href="#/s:13RouteComposer24ActionConnectingAssemblyVA2A9NilEntityR_rlE07usingNoC0AA09StepChainE0VyF">usingNoAction()</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -487,7 +493,7 @@ be used with <code>NilAction</code></p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">usingNoAction</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/ChainAssembly.html">ChainAssembly</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">usingNoAction</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/StepChainAssembly.html">StepChainAssembly</a></span></code></pre>
 
                         </div>
                       </div>
@@ -499,7 +505,7 @@ be used with <code>NilAction</code></p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-09-10)</p>
+          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-09-11)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

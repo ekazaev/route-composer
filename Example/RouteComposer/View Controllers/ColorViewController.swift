@@ -78,4 +78,5 @@ class ColorViewController: UIViewController, ExampleAnalyticsSupport {
     @objc func doneTapped() {
         self.dismiss(animated: true)
     }
+
 }

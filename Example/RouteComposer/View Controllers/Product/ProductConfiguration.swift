@@ -35,8 +35,7 @@ class ProductConfiguration {
                                 return nil
                             }
 
-                            return ChainAssembly()
-                                    .from(NavigationControllerStep())
+                            return ChainAssembly(from: NavigationControllerStep())
                                     .using(GeneralAction.PresentModally())
                                     .from(CurrentViewControllerStep())
                                     .assemble()

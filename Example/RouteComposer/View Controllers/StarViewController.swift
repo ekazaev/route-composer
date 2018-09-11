@@ -34,4 +34,5 @@ class StarViewController: UIViewController, ExampleAnalyticsSupport {
         }
         router.navigate(to: ExampleConfiguration.destination(for: ExampleTarget.circle)!)
     }
+
 }

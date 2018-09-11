@@ -59,6 +59,7 @@ class CitiesTableViewController: UITableViewController, ExampleAnalyticsSupport 
     @IBAction func goToSquareTapped() {
         router.navigate(to: ExampleConfiguration.destination(for: ExampleTarget.square)!)
     }
+
 }
 
 // To show master first in compact mode

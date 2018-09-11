@@ -55,4 +55,5 @@ class CitiesConfiguration {
     static func cityDetail(cityId: Int, _ analyticParameters: ExampleAnalyticsParameters? = nil) -> ExampleDestination {
         return ExampleDestination(finalStep: shared.cityDetails, context: cityId, analyticParameters)
     }
+
 }

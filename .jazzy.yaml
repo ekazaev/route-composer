@@ -26,8 +26,8 @@ custom_categories:
     children:
       - StepAssembly
       - ContainerStepAssembly
-      - ChainAssembly
       - SwitchAssembly
+      - ChainAssembly(from:)
       - CompleteFactoryAssembly
 
   - name: Factories

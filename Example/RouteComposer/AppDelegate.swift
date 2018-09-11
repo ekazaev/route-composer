@@ -38,4 +38,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         return DefaultRouter(logger: nil).navigate(to: destination) == .handled
     }
+
 }

@@ -45,7 +45,7 @@ public final class StepAssembly<F: Finder, FC: Factory>: GenericStepAssembly<F, 
     ///
     /// - Parameter action: `Action` instance to be used with a step.
     /// - Returns: `ChainAssembly` to continue building the chain.
-    public func using<A: Action>(_ action: A) -> ChainAssembly {
+    public func using<A: Action>(_ action: A) -> StepChainAssembly {
         var previousSteps = self.previousSteps
         let step = BaseStep<FactoryBox<FC>>(
                 finder: self.finder,
@@ -56,14 +56,14 @@ public final class StepAssembly<F: Finder, FC: Factory>: GenericStepAssembly<F, 
                 postTask: taskCollector.postTask(),
                 previousStep: nil)
         previousSteps.append(step)
-        return ChainAssembly(previousSteps: previousSteps)
+        return StepChainAssembly(previousSteps: previousSteps)
     }
 
     /// Connects previously provided `RoutingStep` instance with an `Action`
     ///
     /// - Parameter action: `ContainerAction` instance to be used with a step.
     /// - Returns: `ChainAssembly` to continue building the chain.
-    public func using<A: ContainerAction>(_ action: A) -> ChainAssembly {
+    public func using<A: ContainerAction>(_ action: A) -> StepChainAssembly {
         var previousSteps = self.previousSteps
         let step = BaseStep<FactoryBox<FC>>(
                 finder: self.finder,
@@ -74,7 +74,7 @@ public final class StepAssembly<F: Finder, FC: Factory>: GenericStepAssembly<F, 
                 postTask: taskCollector.postTask(),
                 previousStep: nil)
         previousSteps.append(step)
-        return ChainAssembly(previousSteps: previousSteps)
+        return StepChainAssembly(previousSteps: previousSteps)
     }
 
 }
@@ -83,7 +83,7 @@ public extension StepAssembly where FC: NilEntity {
 
     /// Created to remind user that factory that does not produce anything in most cases should
     /// be used with `NilAction`
-    public func usingNoAction() -> ChainAssembly {
+    public func usingNoAction() -> StepChainAssembly {
         return using(GeneralAction.NilAction())
     }
 

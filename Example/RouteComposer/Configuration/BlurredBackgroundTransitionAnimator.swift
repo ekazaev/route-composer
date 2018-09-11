@@ -80,4 +80,5 @@ class BlurredBackgroundTransitionAnimator: NSObject, UIViewControllerAnimatedTra
             transitionContext.completeTransition(true)
         })
     }
+
 }

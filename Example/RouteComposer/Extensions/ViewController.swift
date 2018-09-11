@@ -26,6 +26,7 @@ extension UIViewController {
     var router: DefaultRouter {
         return UIViewController.router
     }
+
 }
 
 extension UIViewController {
@@ -60,4 +61,5 @@ extension UIViewController {
 
         return findPresentedNonContainerViewController(rootViewController)
     }
+
 }

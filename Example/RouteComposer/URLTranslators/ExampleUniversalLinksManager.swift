@@ -20,6 +20,7 @@ struct ExampleUniversalLinksManager {
 
         return translator.destination(from: url)
     }
+
 }
 
 extension ExampleUniversalLinksManager {

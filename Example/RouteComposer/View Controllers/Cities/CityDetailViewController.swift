@@ -52,4 +52,5 @@ class CityDetailViewController: UIViewController, ExampleAnalyticsSupport {
     @IBAction func backProgrammaticallyTapped() {
         router.navigate(to: CitiesConfiguration.citiesList(cityId: nil))
     }
+
 }

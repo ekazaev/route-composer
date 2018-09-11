@@ -41,4 +41,5 @@ class RoutingRuleSupportViewController: UIViewController, RoutingInterceptable, 
     @IBAction func goToMoscowTapped() {
         router.navigate(to: CitiesConfiguration.cityDetail(cityId: 2))
     }
+
 }

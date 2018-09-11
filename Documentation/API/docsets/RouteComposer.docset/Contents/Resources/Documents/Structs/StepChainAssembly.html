@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>ChainAssembly Structure Reference</title>
+    <title>StepChainAssembly Structure Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Struct/ChainAssembly" class="dashAnchor"></a>
-    <a title="ChainAssembly Structure Reference"></a>
+    <a name="//apple_ref/swift/Struct/StepChainAssembly" class="dashAnchor"></a>
+    <a title="StepChainAssembly Structure Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">RouteComposer Docs</a> (100% documented)</p>
@@ -21,7 +21,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">RouteComposer Reference</a>
         <img id="carat" src="../img/carat.png" />
-        ChainAssembly Structure Reference
+        StepChainAssembly Structure Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -81,10 +81,13 @@
                 <a href="../Classes/ContainerStepAssembly.html">ContainerStepAssembly</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/ChainAssembly.html">ChainAssembly</a>
+                <a href="../Classes/SwitchAssembly.html">SwitchAssembly</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/SwitchAssembly.html">SwitchAssembly</a>
+                <a href="../Assemblies.html#/s:13RouteComposer13ChainAssemblyAA016ActionConnectingD0Vyxq_GAA08StepWitheD0Cyxq_G4from_tAA6FinderRzAA15AbstractFactoryR_7ContextQy_ALRtz14ViewControllerQy_AORtzr0_lF">ChainAssembly(from:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Assemblies.html#/s:13RouteComposer13ChainAssemblyAA010LastStepIncD0VAA07RoutingF0_p4from_tF">ChainAssembly(from:)</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/CompleteFactoryAssembly.html">CompleteFactoryAssembly</a>
@@ -298,6 +301,9 @@
             <a href="../Other Structs.html">Other Structures</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a href="../Structs/ActionConnectingAssembly.html">ActionConnectingAssembly</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Structs/ChildCoordinator.html">ChildCoordinator</a>
               </li>
               <li class="nav-group-task">
@@ -340,7 +346,7 @@
                 <a href="../Structs/SearchOptions.html">SearchOptions</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/TypedScreenStepChainAssembly.html">TypedScreenStepChainAssembly</a>
+                <a href="../Structs/StepChainAssembly.html">StepChainAssembly</a>
               </li>
             </ul>
           </li>
@@ -349,20 +355,14 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>ChainAssembly</h1>
+            <h1>StepChainAssembly</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ChainAssembly</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">StepChainAssembly</span></code></pre>
 
                 </div>
               </div>
-            <p>Connects an array of steps into a chain of steps.</p>
-<h3 id='usage' class='heading'>Usage</h3>
-<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">intermediateStep</span> <span class="o">=</span> <span class="kt">ChainAssembly</span><span class="p">()</span>
-        <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="kt">NavigationControllerStep</span><span class="p">(</span><span class="nv">action</span><span class="p">:</span> <span class="kt">DefaultActions</span><span class="o">.</span><span class="kt">PresentModally</span><span class="p">()))</span>
-        <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="kt">CurrentViewControllerStep</span><span class="p">())</span>
-        <span class="o">.</span><span class="nf">assemble</span><span class="p">()</span>
-</code></pre>
+            <p>Helper class to build a chain of steps. Can not be used directly.</p>
 
           </section>
           <section class="section task-group-section">
@@ -371,36 +371,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer13ChainAssemblyVACycfc"></a>
-                    <a name="//apple_ref/swift/Method/init()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer13ChainAssemblyVACycfc">init()</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Constructor</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">()</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:13RouteComposer13ChainAssemblyV4fromAA015TypedScreenStepcD0Vyxq_GAA0h10WithActionD0Cyxq_GAA6FinderRzAA15AbstractFactoryR_7ContextQy_AMRtz14ViewControllerQy_APRtzr0_lF"></a>
+                    <a name="/s:13RouteComposer17StepChainAssemblyV4fromAA016ActionConnectingE0Vyxq_GAA0c4WithgE0Cyxq_GAA6FinderRzAA15AbstractFactoryR_7ContextQy_AMRtz14ViewControllerQy_APRtzr0_lF"></a>
                     <a name="//apple_ref/swift/Method/from(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer13ChainAssemblyV4fromAA015TypedScreenStepcD0Vyxq_GAA0h10WithActionD0Cyxq_GAA6FinderRzAA15AbstractFactoryR_7ContextQy_AMRtz14ViewControllerQy_APRtzr0_lF">from(_:)</a>
+                    <a class="token" href="#/s:13RouteComposer17StepChainAssemblyV4fromAA016ActionConnectingE0Vyxq_GAA0c4WithgE0Cyxq_GAA6FinderRzAA15AbstractFactoryR_7ContextQy_AMRtz14ViewControllerQy_APRtzr0_lF">from(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -415,7 +388,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">from</span><span class="o">&lt;</span><span class="kt">F</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Finder.html">Finder</a></span><span class="p">,</span> <span class="kt">FC</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AbstractFactory.html">AbstractFactory</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">step</span><span class="p">:</span> <span class="kt"><a href="../Classes/StepWithActionAssembly.html">StepWithActionAssembly</a></span><span class="o">&lt;</span><span class="kt">F</span><span class="p">,</span><span class="kt">FC</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/TypedScreenStepChainAssembly.html">TypedScreenStepChainAssembly</a></span><span class="o">&lt;</span><span class="kt">F</span><span class="p">,</span> <span class="kt">FC</span><span class="o">&gt;</span>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">from</span><span class="o">&lt;</span><span class="kt">F</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Finder.html">Finder</a></span><span class="p">,</span> <span class="kt">FC</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AbstractFactory.html">AbstractFactory</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">step</span><span class="p">:</span> <span class="kt"><a href="../Classes/StepWithActionAssembly.html">StepWithActionAssembly</a></span><span class="o">&lt;</span><span class="kt">F</span><span class="p">,</span> <span class="kt">FC</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/ActionConnectingAssembly.html">ActionConnectingAssembly</a></span><span class="o">&lt;</span><span class="kt">F</span><span class="p">,</span> <span class="kt">FC</span><span class="o">&gt;</span>
         <span class="k">where</span> <span class="kt">F</span><span class="o">.</span><span class="kt">ViewController</span> <span class="o">==</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">F</span><span class="o">.</span><span class="kt">Context</span> <span class="o">==</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">Context</span></code></pre>
 
                         </div>
@@ -445,9 +418,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer13ChainAssemblyV4fromAA010LastStepIncD0VAA07RoutingG0_pF"></a>
+                    <a name="/s:13RouteComposer17StepChainAssemblyV4fromAA04Lastc2IndE0VAA07RoutingC0_pF"></a>
                     <a name="//apple_ref/swift/Method/from(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer13ChainAssemblyV4fromAA010LastStepIncD0VAA07RoutingG0_pF">from(_:)</a>
+                    <a class="token" href="#/s:13RouteComposer17StepChainAssemblyV4fromAA04Lastc2IndE0VAA07RoutingC0_pF">from(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -491,9 +464,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer13ChainAssemblyV8assembleAA11RoutingStep_pAaE_p4from_tF"></a>
+                    <a name="/s:13RouteComposer17StepChainAssemblyV8assembleAA07RoutingC0_pAaE_p4from_tF"></a>
                     <a name="//apple_ref/swift/Method/assemble(from:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer13ChainAssemblyV8assembleAA11RoutingStep_pAaE_p4from_tF">assemble(from:)</a>
+                    <a class="token" href="#/s:13RouteComposer17StepChainAssemblyV8assembleAA07RoutingC0_pAaE_p4from_tF">assemble(from:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -543,7 +516,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-09-10)</p>
+          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-09-11)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

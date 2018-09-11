@@ -44,4 +44,5 @@ public final class SingleStep<F: Finder, FC: Factory>: StepWithActionAssembly<F,
                 previousStep: nil
         )
     }
+
 }

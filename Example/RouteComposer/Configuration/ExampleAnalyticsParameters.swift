@@ -19,6 +19,7 @@ struct ExampleAnalyticsParameters {
         self.webpageURL = webpageURL
         self.referrerURL = referrerURL
     }
+
 }
 
 protocol ExampleAnalyticsSupport {

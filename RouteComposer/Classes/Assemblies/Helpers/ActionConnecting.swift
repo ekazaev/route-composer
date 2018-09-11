@@ -11,12 +11,12 @@ public protocol ActionConnecting {
     ///
     /// - Parameter action: `Action` instance to be used with a step.
     /// - Returns: `ChainAssembly` to continue building the chain.
-    func using<A: Action>(_ action: A) -> ChainAssembly
+    func using<A: Action>(_ action: A) -> StepChainAssembly
 
     /// Connects previously provided `RoutingStep` instance with an `Action`
     ///
     /// - Parameter action: `Action` instance to be used with a step.
     /// - Returns: `ChainAssembly` to continue building the chain.
-    func using<A: ContainerAction>(_ action: A) -> ChainAssembly
+    func using<A: ContainerAction>(_ action: A) -> StepChainAssembly
 
 }
