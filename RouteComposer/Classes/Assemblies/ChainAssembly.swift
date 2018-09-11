@@ -8,8 +8,8 @@ import UIKit
 /// Connects an array of steps into a chain of steps.
 /// ### Usage
 /// ```swift
-/// let intermediateStep = ChainAssembly()
-///         .from(NavigationControllerStep(action: DefaultActions.PresentModally()))
+/// let intermediateStep = ChainAssembly(from: NavigationControllerStep())
+///         .from(using: DefaultActions.PresentModally())
 ///         .from(CurrentViewControllerStep())
 ///         .assemble()
 /// ```
@@ -21,9 +21,7 @@ public func ChainAssembly<F: Finder, FC: AbstractFactory>(from step: StepWithAct
 /// Connects an array of steps into a chain of steps.
 /// ### Usage
 /// ```swift
-/// let intermediateStep = ChainAssembly()
-///         .from(NavigationControllerStep(action: DefaultActions.PresentModally()))
-///         .from(CurrentViewControllerStep())
+/// let intermediateStep = ChainAssembly(from: previousSteps)
 ///         .assemble()
 /// ```
 /// - Parameter step: The instance of `RoutingStep`

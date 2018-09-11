@@ -503,8 +503,8 @@ be taken.</p>
                       <div class="abstract">
                         <p>Connects an array of steps into a chain of steps.</p>
 <h3 id='usage' class='heading'>Usage</h3>
-<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">intermediateStep</span> <span class="o">=</span> <span class="kt">ChainAssembly</span><span class="p">()</span>
-        <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="kt">NavigationControllerStep</span><span class="p">(</span><span class="nv">action</span><span class="p">:</span> <span class="kt">DefaultActions</span><span class="o">.</span><span class="kt">PresentModally</span><span class="p">()))</span>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">intermediateStep</span> <span class="o">=</span> <span class="kt">ChainAssembly</span><span class="p">(</span><span class="nv">from</span><span class="p">:</span> <span class="kt">NavigationControllerStep</span><span class="p">())</span>
+        <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="nv">using</span><span class="p">:</span> <span class="kt">DefaultActions</span><span class="o">.</span><span class="kt">PresentModally</span><span class="p">())</span>
         <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="kt">CurrentViewControllerStep</span><span class="p">())</span>
         <span class="o">.</span><span class="nf">assemble</span><span class="p">()</span>
 </code></pre>
@@ -555,9 +555,7 @@ be taken.</p>
                       <div class="abstract">
                         <p>Connects an array of steps into a chain of steps.</p>
 <h3 id='usage' class='heading'>Usage</h3>
-<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">intermediateStep</span> <span class="o">=</span> <span class="kt">ChainAssembly</span><span class="p">()</span>
-        <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="kt">NavigationControllerStep</span><span class="p">(</span><span class="nv">action</span><span class="p">:</span> <span class="kt">DefaultActions</span><span class="o">.</span><span class="kt">PresentModally</span><span class="p">()))</span>
-        <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="kt">CurrentViewControllerStep</span><span class="p">())</span>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">intermediateStep</span> <span class="o">=</span> <span class="kt">ChainAssembly</span><span class="p">(</span><span class="nv">from</span><span class="p">:</span> <span class="n">previousSteps</span><span class="p">)</span>
         <span class="o">.</span><span class="nf">assemble</span><span class="p">()</span>
 </code></pre>
 
