@@ -46,11 +46,13 @@
 		9AFBC11AB0BE495D5E2959C1 /* LoginConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC6DBFF899EA9831D84D2 /* LoginConfiguration.swift */; };
 		9AFBC22A73AF89164548FE98 /* GlobalInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC4553347E460CC169C98 /* GlobalInterceptor.swift */; };
 		9AFBC22EF26E1F76942AC44D /* ProductURLTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC94AAA83C5D160B00A8D /* ProductURLTranslator.swift */; };
+		9AFBC38029B845FC7C563685 /* RouterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC407D5F832DE452DD35B /* RouterTest.swift */; };
 		9AFBC3DB63861EB552A2CD2E /* ExampleUniversalLinksManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCE44839BD245D30ED19C /* ExampleUniversalLinksManager.swift */; };
 		9AFBC3F6DD37FCCE8C0BC6DD /* ImagesWithoutLibraryConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC13BCBBF072FA2CE5A48 /* ImagesWithoutLibraryConfiguration.swift */; };
 		9AFBC466CF915E3C0F137958 /* ProductConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC7FF9D27A17E57FE525C /* ProductConfiguration.swift */; };
 		9AFBC53392657942D199D598 /* WishListConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCE40215C25D16CA6A1FB /* WishListConfiguration.swift */; };
 		9AFBC543C6164B0233A6BB88 /* ImageFetcherImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC5D711BEDBDB3B0C6CA9 /* ImageFetcherImpl.swift */; };
+		9AFBC562353240A11591683E /* ExtensionsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCBC0A933CA5103371E7F /* ExtensionsTest.swift */; };
 		9AFBC66443B697ADCC7BB6B7 /* WishListContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC16A7AED73A4F3C744F7 /* WishListContext.swift */; };
 		9AFBC671594F870853085645 /* BoxTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCADE90377FF3B7BBF7F2 /* BoxTest.swift */; };
 		9AFBC6940E3775878A0E3923 /* ExampleGenericContextTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC560E37AAA325DCE89ED /* ExampleGenericContextTask.swift */; };
@@ -65,6 +67,7 @@
 		9AFBC915C2F461136B5C1B0D /* SecondModalLevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCAF24C0CD80E0D369EEA /* SecondModalLevelViewController.swift */; };
 		9AFBC91DEB7FCDC286B6AD17 /* WishListContextTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCFA7F490C53D17BA5B40 /* WishListContextTask.swift */; };
 		9AFBC9C5E791E8BD9A19B381 /* ImageDetailsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC26291C67F9F347F8654 /* ImageDetailsFactory.swift */; };
+		9AFBC9EF2EE81E6DB9472570 /* FactoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCCA9057265F79C745920 /* FactoryTest.swift */; };
 		9AFBCA32BF0E6A5C2D643915 /* ExampleAnalyticsPostAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC0097861297B7686ADAA /* ExampleAnalyticsPostAction.swift */; };
 		9AFBCA6D219AD2F8FDFF221F /* ExampleDictionaryContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCC692A1118A5A17A7F8A /* ExampleDictionaryContext.swift */; };
 		9AFBCA728DF14FD91F5AC570 /* StarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC0A54CF3E1EFC4DB61C0 /* StarViewController.swift */; };
@@ -208,6 +211,7 @@
 		9AFBC27FC0805F8699EEE77A /* GlobalContextTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalContextTask.swift; sourceTree = "<group>"; };
 		9AFBC33219CADD6450A6392E /* ImageDetailsFetcherImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDetailsFetcherImpl.swift; sourceTree = "<group>"; };
 		9AFBC3D8D3AA2C53D5C17952 /* EmptyContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyContainer.swift; sourceTree = "<group>"; };
+		9AFBC407D5F832DE452DD35B /* RouterTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterTest.swift; sourceTree = "<group>"; };
 		9AFBC4553347E460CC169C98 /* GlobalInterceptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalInterceptor.swift; sourceTree = "<group>"; };
 		9AFBC4700ACD202B6C4A1205 /* CitiesDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CitiesDataModel.swift; sourceTree = "<group>"; };
 		9AFBC4C7C2E35FE2903E13AB /* ImagesWithLibraryHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesWithLibraryHandler.swift; sourceTree = "<group>"; };
@@ -229,9 +233,11 @@
 		9AFBCADE90377FF3B7BBF7F2 /* BoxTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxTest.swift; sourceTree = "<group>"; };
 		9AFBCAF24C0CD80E0D369EEA /* SecondModalLevelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondModalLevelViewController.swift; sourceTree = "<group>"; };
 		9AFBCAF8448C6C949CE3A212 /* BlurredBackgroundPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlurredBackgroundPresentationController.swift; sourceTree = "<group>"; };
+		9AFBCBC0A933CA5103371E7F /* ExtensionsTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionsTest.swift; sourceTree = "<group>"; };
 		9AFBCC1B58CCBA9712D73D2C /* GlobalPostTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalPostTask.swift; sourceTree = "<group>"; };
 		9AFBCC67E59C161432003A86 /* ImagesWithoutLibraryHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesWithoutLibraryHandler.swift; sourceTree = "<group>"; };
 		9AFBCC692A1118A5A17A7F8A /* ExampleDictionaryContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleDictionaryContext.swift; sourceTree = "<group>"; };
+		9AFBCCA9057265F79C745920 /* FactoryTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FactoryTest.swift; sourceTree = "<group>"; };
 		9AFBCCCF499676D25E68FECA /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		9AFBCD4279BBCCCACECDB352 /* ExampleAnalyticsInterceptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleAnalyticsInterceptor.swift; sourceTree = "<group>"; };
 		9AFBCE40215C25D16CA6A1FB /* WishListConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WishListConfiguration.swift; sourceTree = "<group>"; };
@@ -347,6 +353,9 @@
 				9AFBC6E7758A004A731A9B41 /* ActionTests.swift */,
 				9AFBCADE90377FF3B7BBF7F2 /* BoxTest.swift */,
 				84706C77212AEEDB00980222 /* MultiplexerTest.swift */,
+				9AFBC407D5F832DE452DD35B /* RouterTest.swift */,
+				9AFBCCA9057265F79C745920 /* FactoryTest.swift */,
+				9AFBCBC0A933CA5103371E7F /* ExtensionsTest.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -872,6 +881,9 @@
 				607FACEC1AFB9204008FA782 /* ContainerTests.swift in Sources */,
 				9AFBCD5CF0DEF693CAB30502 /* ActionTests.swift in Sources */,
 				9AFBC671594F870853085645 /* BoxTest.swift in Sources */,
+				9AFBC38029B845FC7C563685 /* RouterTest.swift in Sources */,
+				9AFBC9EF2EE81E6DB9472570 /* FactoryTest.swift in Sources */,
+				9AFBC562353240A11591683E /* ExtensionsTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

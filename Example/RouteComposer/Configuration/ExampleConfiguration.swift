@@ -91,7 +91,7 @@ extension ExampleConfiguration {
 
         //Star screen
         let starScreen = StepAssembly(
-                finder: ClassFinder<StarViewController, Any>(options: .currentAllStack),
+                finder: ClassFinder<StarViewController, Any?>(options: .currentAllStack),
                 factory: XibFactory())
                 .add(ExampleAnalyticsInterceptor())
                 .add(ExampleGenericContextTask())
