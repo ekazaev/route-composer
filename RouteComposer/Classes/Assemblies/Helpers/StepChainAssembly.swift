@@ -6,7 +6,7 @@ import Foundation
 import UIKit
 
 /// Helper class to build a chain of steps. Can not be used directly.
-public struct StepChainAssembly {
+public struct StepChainAssembly<C> {
 
     let previousSteps: [RoutingStep]
 
@@ -22,7 +22,7 @@ public struct StepChainAssembly {
     /// Adds a single step to the chain
     ///
     /// - Parameter previousStep: The instance of `StepWithActionAssemblable`
-    public func from<F: Finder, FC: AbstractFactory>(_ step: StepWithActionAssembly<F, FC>) -> ActionConnectingAssembly<F, FC>
+    public func from<F: Finder, FC: AbstractFactory>(_ step: StepWithActionAssembly<F, FC>) -> ActionConnectingAssembly<F, FC, C>
             where F.ViewController == FC.ViewController, F.Context == FC.Context {
         return ActionConnectingAssembly(stepToFullFill: step, previousSteps: previousSteps)
     }
@@ -30,9 +30,15 @@ public struct StepChainAssembly {
     /// Adds a `RoutingStep` to the chain. This step will be the last one in the chain.
     ///
     /// - Parameter previousStep: The instance of `RoutingStep`
-    public func from(_ step: RoutingStep) -> LastStepInChainAssembly {
+    public func from(_ step: RoutingStep) -> LastStepInChainAssembly<C> {
         var previousSteps = self.previousSteps
         previousSteps.append(step)
+        return LastStepInChainAssembly(previousSteps: previousSteps)
+    }
+
+    public func from<AC>(_ step: TempStep<AC>) -> LastStepInChainAssembly<C> {
+        var previousSteps = self.previousSteps
+        previousSteps.append(step.lastStep)
         return LastStepInChainAssembly(previousSteps: previousSteps)
     }
 
@@ -40,10 +46,10 @@ public struct StepChainAssembly {
     ///
     /// - Parameter step: An instance of `RoutingStep` to start to build a current step from.
     /// - Returns: An instance of `RoutingStep` with all the provided settings inside.
-    public func assemble(from step: RoutingStep) -> RoutingStep {
+    public func assemble(from step: RoutingStep) -> TempStep<C> {
         var previousSteps = self.previousSteps
         previousSteps.append(step)
-        return LastStepInChainAssembly(previousSteps: previousSteps).assemble()
+        return LastStepInChainAssembly<C>(previousSteps: previousSteps).assemble()
     }
 
 }

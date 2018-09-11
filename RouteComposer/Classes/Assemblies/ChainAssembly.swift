@@ -14,7 +14,7 @@ import UIKit
 ///         .assemble()
 /// ```
 /// - Parameter step: The instance of `StepWithActionAssembly`
-public func ChainAssembly<F: Finder, FC: AbstractFactory>(from step: StepWithActionAssembly<F, FC>) -> ActionConnectingAssembly<F, FC> {
+public func ChainAssembly<F: Finder, FC: AbstractFactory>(from step: StepWithActionAssembly<F, FC>) -> ActionConnectingAssembly<F, FC, F.Context> {
     return ActionConnectingAssembly(stepToFullFill: step, previousSteps: [])
 }
 
@@ -25,6 +25,6 @@ public func ChainAssembly<F: Finder, FC: AbstractFactory>(from step: StepWithAct
 ///         .assemble()
 /// ```
 /// - Parameter step: The instance of `RoutingStep`
-public func ChainAssembly(from step: RoutingStep) -> LastStepInChainAssembly {
+public func ChainAssembly<C>(from step: RoutingStep) -> LastStepInChainAssembly<C> {
     return LastStepInChainAssembly(previousSteps: [step])
 }

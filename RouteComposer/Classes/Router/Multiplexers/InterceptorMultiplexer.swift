@@ -12,7 +12,7 @@ struct InterceptorMultiplexer: AnyRoutingInterceptor, CustomStringConvertible {
         self.interceptors = interceptors
     }
 
-    mutating func prepare<D: RoutingDestination>(with destination: D) throws {
+    mutating func prepare(with destination: Any?) throws {
         interceptors = try interceptors.map({
             var interceptor = $0
             try interceptor.prepare(with: destination)
@@ -20,7 +20,7 @@ struct InterceptorMultiplexer: AnyRoutingInterceptor, CustomStringConvertible {
         })
     }
 
-    func execute<D: RoutingDestination>(for destination: D, completion: @escaping (InterceptorResult) -> Void) {
+    func execute(for destination: Any?, completion: @escaping (InterceptorResult) -> Void) {
         guard !self.interceptors.isEmpty else {
             completion(.success)
             return

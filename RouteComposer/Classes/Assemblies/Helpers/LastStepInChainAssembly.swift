@@ -4,8 +4,20 @@
 
 import Foundation
 
+public struct TempStep<C> {
+
+    public typealias Context = C
+
+    public let lastStep: RoutingStep
+
+    init(_ lastStep: RoutingStep) {
+        self.lastStep = lastStep
+    }
+
+}
+
 /// Helper class to build a chain of steps. Can not be used directly.
-public struct LastStepInChainAssembly {
+public struct LastStepInChainAssembly<C> {
 
     let previousSteps: [RoutingStep]
 
@@ -16,8 +28,8 @@ public struct LastStepInChainAssembly {
     /// Assembles all the provided settings.
     ///
     /// - Returns: The instance of `RoutingStep` with all the settings provided inside.
-    public func assemble() -> RoutingStep {
-        return chain(previousSteps)
+    public func assemble() -> TempStep<C> {
+        return TempStep(chain(previousSteps))
     }
 
     private func chain(_ steps: [RoutingStep]) -> RoutingStep {

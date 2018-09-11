@@ -6,13 +6,15 @@
 import UIKit
 
 /// Returns the root view controller of the key window.
-public struct RootViewControllerStep: RoutingStep, PerformableStep {
+public struct RootViewControllerStep: RoutingStepWithContext, PerformableStep {
+
+    public typealias Context = Any?
 
     /// Constructor
     public init() {
     }
 
-    func perform<D: RoutingDestination>(for destination: D) -> StepResult {
+    func perform(for destination: Any?) -> StepResult {
         return StepResult(UIWindow.key?.rootViewController)
     }
 

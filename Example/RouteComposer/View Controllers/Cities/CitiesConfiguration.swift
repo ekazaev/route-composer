@@ -23,29 +23,29 @@ class CitiesConfiguration {
                 .add(LoginInterceptor())
                 .using( GeneralAction.ReplaceRoot())
                 .from(RootViewControllerStep())
-                .assemble()
+                .assemble().lastStep
 
         // Cities List
         citiesList = StepAssembly(finder: ClassFinder<CitiesTableViewController, Int?>(),
                 factory: NilFactory())
-                .add(ExampleAnalyticsInterceptor())
+//                .add(ExampleAnalyticsInterceptor())
                 .add(CityTableContextTask())
-                .add(ExampleAnalyticsPostAction())
+//                .add(ExampleAnalyticsPostAction())
                 .usingNoAction()
                 .from(city)
-                .assemble()
+                .assemble().lastStep
 
         // City Details
         cityDetails = StepAssembly(
                 finder: ClassFinder<CityDetailViewController, Int>(),
                 factory: StoryboardFactory(storyboardName: "Split",
                         viewControllerID: "CityDetailViewController"))
-                .add(ExampleAnalyticsInterceptor())
+//                .add(ExampleAnalyticsInterceptor())
                 .add(CityDetailContextTask())
-                .add(ExampleAnalyticsPostAction())
+//                .add(ExampleAnalyticsPostAction())
                 .using(SplitControllerFactory.PushToDetails())
                 .from(citiesList)
-                .assemble()
+                .assemble().lastStep
     }
 
     static func citiesList(cityId: Int? = nil, _ analyticParameters: ExampleAnalyticsParameters? = nil) -> ExampleDestination {

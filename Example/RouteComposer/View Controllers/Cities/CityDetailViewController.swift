@@ -46,7 +46,7 @@ class CityDetailViewController: UIViewController, ExampleAnalyticsSupport {
     }
 
     @IBAction func goToStarTapped() {
-        router.navigate(to: ExampleConfiguration.destination(for: ExampleTarget.star)!)
+        router.navigate(to: ExampleConfiguration.wireframe.goToStar())
     }
 
     @IBAction func backProgrammaticallyTapped() {

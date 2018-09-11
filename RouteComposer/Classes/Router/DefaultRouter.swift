@@ -50,9 +50,7 @@ public struct DefaultRouter: Router, InterceptableRouter {
     ///   - completion: completion block.
     /// - Returns: `RoutingResult` instance.
     @discardableResult
-    public func navigate<D: RoutingDestination>(to destination: D,
-                                                animated: Bool = true,
-                                                completion: ((_: RoutingResult) -> Void)? = nil) -> RoutingResult {
+    public func navigate(to step: RoutingStep, with context: Any?, animated: Bool = true, completion: ((_: RoutingResult) -> Void)? = nil) -> RoutingResult{
         logger?.routingWillStart()
 
         func failGracefully(_ message: LoggerMessage? = nil) -> RoutingResult {
@@ -74,11 +72,11 @@ public struct DefaultRouter: Router, InterceptableRouter {
             return failGracefully(.warning("Topmost view controller can not be dismissed."))
         }
 
-        let postTaskRunner = PostTaskRunner<D>()
+        let postTaskRunner = PostTaskRunner()
         // Build stack of factories and find a view controller to start a presentation process from.
         // Returns (rootViewController, factories, interceptor) tuple
         // where rootViewController is the origin of the chain of views to be built for a given destination.
-        guard let stack = prepareStack(destination: destination, postTaskRunner: postTaskRunner) else {
+        guard let stack = prepareStack(to: step, with: context, postTaskRunner: postTaskRunner) else {
             return failGracefully()
         }
 
@@ -92,7 +90,7 @@ public struct DefaultRouter: Router, InterceptableRouter {
 
         // Execute interceptors associated to the each view in the chain. All of interceptors must succeed to
         // continue routing.
-        interceptor.execute(for: destination) { [weak viewController] result in
+        interceptor.execute(for: context) { [weak viewController] result in
             func failGracefully(_ message: LoggerMessage) {
                 self.logger?.log(message)
                 completion?(.unhandled)
@@ -113,12 +111,12 @@ public struct DefaultRouter: Router, InterceptableRouter {
             }
 
             self.startRouting(from: viewController,
-                    with: destination.context,
+                    with: context,
                     building: factoriesStack, animated: animated) { viewController, result in
                 // Even if the result is unhandled - we still have to run all the tasks
                 self.makeContainersActive(toShow: viewController, animated: animated)
                 self.doTry({
-                    try postTaskRunner.run(for: destination)
+                    try postTaskRunner.run(for: context)
                 }, finally: { success in
                     completion?(success ? result : .unhandled)
                 })
@@ -129,9 +127,9 @@ public struct DefaultRouter: Router, InterceptableRouter {
         return .handled
     }
 
-    private func prepareStack<D>(destination: D, postTaskRunner: PostTaskRunner<D>) -> (rootViewController: UIViewController,
-                                                                                        factories: [AnyFactory],
-                                                                                        interceptor: AnyRoutingInterceptor)? {
+    private func prepareStack(to finalStep: RoutingStep, with context: Any?, postTaskRunner: PostTaskRunner) -> (rootViewController: UIViewController,
+                                                                                                                 factories: [AnyFactory],
+                                                                                                                 interceptor: AnyRoutingInterceptor)? {
 
         func mergeGlobalTasks(step: InterceptableStep?) -> (contextTasks: [AnyContextTask], postTasks: [AnyPostRoutingTask]) {
             var contextTasks = self.contextTasks
@@ -143,7 +141,7 @@ public struct DefaultRouter: Router, InterceptableRouter {
                 postTasks.append(postTask)
             }
             if postTasks.isEmpty {
-                postTasks.append(PostRoutingTaskBox(EmptyPostTask<D>()))
+                postTasks.append(PostRoutingTaskBox(EmptyPostTask()))
             }
             return (contextTasks: contextTasks, postTasks: postTasks)
         }
@@ -160,10 +158,10 @@ public struct DefaultRouter: Router, InterceptableRouter {
             //Adding default preset interceptors
             interceptors = try self.interceptors.map({
                 var globalInterceptor = $0
-                try globalInterceptor.prepare(with: destination)
+                try globalInterceptor.prepare(with: context)
                 return globalInterceptor
             })
-            var currentStep: RoutingStep? = destination.finalStep
+            var currentStep: RoutingStep? = finalStep
 
             // Build stack until we have steps and the view controller to present from is not found
             repeat {
@@ -171,14 +169,14 @@ public struct DefaultRouter: Router, InterceptableRouter {
 
                 // If step contain an `Action` that needs to be done, add it in the interceptors array
                 if var interceptor = interceptableStep?.interceptor {
-                    try interceptor.prepare(with: destination)
+                    try interceptor.prepare(with: context)
                     interceptors.append(interceptor)
                 }
 
                 if let performableStep = currentStep as? PerformableStep {
 
                     // Trying to find a view controller to start building the stack from
-                    switch performableStep.perform(for: destination) {
+                    switch performableStep.perform(for: context) {
                     case .success(let viewController):
                         if rootViewController == nil {
                             rootViewController = viewController
@@ -192,8 +190,8 @@ public struct DefaultRouter: Router, InterceptableRouter {
                             let taskMergeResult = mergeGlobalTasks(step: interceptableStep)
                             try taskMergeResult.contextTasks.forEach({
                                 var contextTask = $0
-                                try contextTask.prepare(with: destination.context, for: destination)
-                                try contextTask.apply(on: viewController, with: destination.context, for: destination)
+                                try contextTask.prepare(with: context)
+                                try contextTask.apply(on: viewController, with: context)
                             })
 
                             taskMergeResult.postTasks.forEach({
@@ -213,7 +211,7 @@ public struct DefaultRouter: Router, InterceptableRouter {
                                     var taskMergeResult = mergeGlobalTasks(step: internalStep)
                                     taskMergeResult.contextTasks = try taskMergeResult.contextTasks.map({
                                         var contextTask = $0
-                                        try contextTask.prepare(with: destination.context, for: destination)
+                                        try contextTask.prepare(with: context)
                                         return contextTask
                                     })
 
@@ -221,14 +219,13 @@ public struct DefaultRouter: Router, InterceptableRouter {
                                             contextTasks: taskMergeResult.contextTasks,
                                             postTasks: taskMergeResult.postTasks,
                                             postTaskRunner: postTaskRunner,
-                                            logger: logger,
-                                            destination: destination)
+                                            logger: logger)
                                 }
 
                                 // If some `Factory` can not prepare itself (e.g. does not have enough data in context)
                                 // then view controllers stack
                                 // can not be built
-                                try factory.prepare(with: destination.context)
+                                try factory.prepare(with: context)
 
                                 // If current factory actually creates Container then it should know how to deal with
                                 // the factories that

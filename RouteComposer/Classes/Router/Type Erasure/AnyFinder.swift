@@ -30,7 +30,7 @@ struct FinderBox<F: Finder>: AnyFinder, CustomStringConvertible {
     }
 
     func findViewController(with context: Any?) -> UIViewController? {
-        guard let typedContext = context as? F.Context else {
+        guard let typedContext = Optional<Any>.some(context as Any) as? F.Context else {
             return nil
         }
         return finder.findViewController(with: typedContext)

@@ -18,11 +18,11 @@ class SquareViewController: UIViewController, ExampleAnalyticsSupport {
     }
 
     @IBAction func goToCircleTapped() {
-        router.navigate(to: ExampleConfiguration.destination(for: ExampleTarget.circle)!)
+        router.navigate(to: ExampleConfiguration.wireframe.goToCircle())
     }
 
     @IBAction func goToHomeTapped() {
-        router.navigate(to: ExampleConfiguration.destination(for: ExampleTarget.empty)!)
+        router.navigate(to: ExampleConfiguration.wireframe.goToEmptyScreen())
     }
 
     @IBAction func goToSplitTapped() {
@@ -34,7 +34,7 @@ class SquareViewController: UIViewController, ExampleAnalyticsSupport {
     }
 
     @IBAction func goToStarTapped() {
-        router.navigate(to: ExampleConfiguration.destination(for: ExampleTarget.star)!)
+        router.navigate(to: ExampleConfiguration.wireframe.goToStar())
     }
 
     @IBAction func goToFakeContainerTapped() {
@@ -42,32 +42,11 @@ class SquareViewController: UIViewController, ExampleAnalyticsSupport {
     }
 
     @IBAction func switchValueChanged(sender: UISwitch) {
-        let starScreen: RoutingStep
         if sender.isOn {
-            starScreen = StepAssembly(
-                    finder: ClassFinder<StarViewController, Any>(options: .currentAllStack),
-                    factory: XibFactory())
-                    .add(ExampleAnalyticsInterceptor())
-                    .add(ExampleGenericContextTask())
-                    .add(ExampleAnalyticsPostAction())
-                    .add(LoginInterceptor())
-                    .using(NavigationControllerFactory.PushToNavigation())
-                    .from(ExampleConfiguration.destination(for: ExampleTarget.circle)!.finalStep)
-                    .assemble()
-
+            ExampleConfiguration.wireframe = AlternativeExampleWireframeImpl()
         } else {
-            starScreen = StepAssembly(
-                    finder: ClassFinder<StarViewController, Any>(options: .currentAllStack),
-                    factory: XibFactory())
-                    .add(ExampleAnalyticsInterceptor())
-                    .add(ExampleGenericContextTask())
-                    .add(ExampleAnalyticsPostAction())
-                    .add(LoginInterceptor())
-                    .using(TabBarControllerFactory.AddTab())
-                    .from(ExampleConfiguration.destination(for: ExampleTarget.home)!.finalStep)
-                    .assemble()
+            ExampleConfiguration.wireframe = ExampleWireframeImpl()
         }
-        ExampleConfiguration.register(screen: starScreen, for: ExampleTarget.star)
     }
 
 }

@@ -56,7 +56,7 @@ class ProductViewController: UIViewController, ExampleAnalyticsSupport {
     }
 
     @IBAction func goToCircleTapped() {
-        router.navigate(to: ExampleConfiguration.destination(for: ExampleTarget.circle)!)
+        router.navigate(to: ExampleConfiguration.wireframe.goToCircle())
     }
 
     @IBAction func goToSplitTapped() {
@@ -64,7 +64,7 @@ class ProductViewController: UIViewController, ExampleAnalyticsSupport {
     }
 
     @IBAction func goToProductTapped() {
-        router.navigate(to: ProductConfiguration.productDestination(productId: "01"))
+        router.navigate(to: ProductConfiguration.productStep().lastStep, with: "01")
     }
 
 }

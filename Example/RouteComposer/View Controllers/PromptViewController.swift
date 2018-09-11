@@ -12,7 +12,7 @@ class PromptViewController: UIViewController, ExampleAnalyticsSupport {
     let analyticParameters = ExampleAnalyticsParameters(source: .welcome)
 
     @IBAction func goToHomeTapped() {
-        router.navigate(to: ExampleConfiguration.destination(for: ExampleTarget.home)!)
+        router.navigate(to: ExampleConfiguration.wireframe.goToHome())
     }
 
 }

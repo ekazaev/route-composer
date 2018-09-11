@@ -12,9 +12,9 @@ var isLoggedIn: Bool = false
 
 class LoginInterceptor: RoutingInterceptor {
 
-    typealias Destination = ExampleDestination
+    typealias Context = Any?
 
-    func execute(for destination: Destination, completion: @escaping (_: InterceptorResult) -> Void) {
+    func execute(for destination: Context, completion: @escaping (_: InterceptorResult) -> Void) {
         guard !isLoggedIn else {
             completion(.success)
             return

@@ -18,27 +18,27 @@ class CircleViewController: UIViewController, ExampleAnalyticsSupport {
     }
 
     @IBAction func goToSquareTapped() {
-        router.navigate(to: ExampleConfiguration.destination(for: ExampleTarget.square)!)
+        router.navigate(to: ExampleConfiguration.wireframe.goToSquare())
     }
 
     @IBAction func goToRandomColorTapped() {
-        router.navigate(to: ExampleConfiguration.destination(for: ExampleTarget.color, context: ExampleDictionaryContext(arguments: [Argument.color: "0000FF"]))!)
+        router.navigate(to: ExampleConfiguration.wireframe.goToColor("0000FF"))
     }
 
     @IBAction func goToDeepModalTapped() {
-        router.navigate(to: ExampleConfiguration.destination(for: ExampleTarget.ruleSupport, context: ExampleDictionaryContext(arguments: [Argument.color: "00FF00"]))!)
+        router.navigate(to: ExampleConfiguration.wireframe.goToRoutingSupport("00FF00"))
     }
 
     @IBAction func goToSuperModalTapped() {
-        router.navigate(to: ExampleConfiguration.destination(for: ExampleTarget.secondLevelModal, context: ExampleDictionaryContext(arguments: [Argument.color: "0000FF"]))!)
+        router.navigate(to: ExampleConfiguration.wireframe.goToSecondLevelModal("0000FF"))
     }
 
     @IBAction func goToProductTapped() {
-        router.navigate(to: ProductConfiguration.productDestination(productId: "00"))
+        router.navigate(to: ProductConfiguration.productStep().lastStep, with: "00")
     }
 
     @IBAction func goToWelcomeTapped() {
-        router.navigate(to: ExampleConfiguration.destination(for: ExampleTarget.welcome)!)
+        router.navigate(to: ExampleConfiguration.wireframe.goToWelcome())
     }
 
     @IBAction func goToImagesTapped() {

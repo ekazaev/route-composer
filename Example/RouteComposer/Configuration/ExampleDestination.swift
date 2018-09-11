@@ -6,7 +6,7 @@
 import Foundation
 import RouteComposer
 
-class ExampleDestination: RoutingDestination {
+class ExampleDestination {
 
     let finalStep: RoutingStep
 

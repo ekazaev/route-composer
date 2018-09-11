@@ -6,12 +6,14 @@ import Foundation
 import UIKit
 
 /// Base router `RoutingStep` implementation that handles all step protocols.
-struct BaseStep<Box: AnyFactoryBox>: RoutingStep,
+struct BaseStep<Box: AnyFactoryBox>: RoutingStepWithContext,
         ChainableStep,
         ChainingStep,
         InterceptableStep,
         PerformableStep,
         CustomStringConvertible {
+
+    typealias Context = Box.FactoryType.Context
 
     private(set) public var previousStep: RoutingStep?
 
@@ -48,8 +50,8 @@ struct BaseStep<Box: AnyFactoryBox>: RoutingStep,
         self.postTask = postTask
         }
 
-    func perform<D: RoutingDestination>(for destination: D) -> StepResult {
-        guard let viewController = finder?.findViewController(with: destination.context) else {
+    func perform(for destination: Any?) -> StepResult {
+        guard let viewController = finder?.findViewController(with: destination) else {
             return .continueRouting(factory)
         }
         return .success(viewController)

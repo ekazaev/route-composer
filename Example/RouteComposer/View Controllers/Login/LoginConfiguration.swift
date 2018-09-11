@@ -19,7 +19,7 @@ struct LoginConfiguration {
                 .from(CurrentViewControllerStep())
                 .assemble()
 
-        return ExampleDestination(finalStep: loginScreen, context: nil)
+        return ExampleDestination(finalStep: loginScreen.lastStep, context: nil)
     }
 
 }

@@ -12,22 +12,22 @@ import UIKit
 ///
 /// **NB:** We would recommend it for the purpose of configuration testing, but then replace it with a strongly typed
 /// `RoutingInterceptor` instance.
-public struct InlineInterceptor<D: RoutingDestination>: RoutingInterceptor {
+public struct InlineInterceptor<C>: RoutingInterceptor {
 
-    public typealias Destination = D
+    public typealias Context = C
 
-    private let prepareBlock: ((_: D) throws -> Void)?
+    private let prepareBlock: ((_: C) throws -> Void)?
 
-    private let asyncCompletion: ((_: D, _: @escaping (InterceptorResult) -> Void) -> Void)?
+    private let asyncCompletion: ((_: C, _: @escaping (InterceptorResult) -> Void) -> Void)?
 
-    private let syncCompletion: ((_: D) -> Void)?
+    private let syncCompletion: ((_: C) -> Void)?
 
     /// Constructor
     ///
     /// - Parameter completion: the block to be called when `InlineInterceptor` will take a control over the routing.
     ///
     ///     **NB** For `Router` to be able to continue routing, completion block method **MUST** to be called.
-    public init(prepare: ((_: D) throws -> Void)? = nil, _ completion: @escaping (_: D, _: @escaping (InterceptorResult) -> Void) -> Void) {
+    public init(prepare: ((_: C) throws -> Void)? = nil, _ completion: @escaping (_: C, _: @escaping (InterceptorResult) -> Void) -> Void) {
         self.prepareBlock = prepare
         self.asyncCompletion = completion
         self.syncCompletion = nil
@@ -39,17 +39,17 @@ public struct InlineInterceptor<D: RoutingDestination>: RoutingInterceptor {
     ///
     ///     **NB** completion method will be called automatically so do not use this constructor if your interceptor
     ///     task is asynchronous.
-    public init(prepare: ((_: D) throws -> Void)? = nil, _ completion: @escaping (_: D) -> Void) {
+    public init(prepare: ((_: C) throws -> Void)? = nil, _ completion: @escaping (_: C) -> Void) {
         self.prepareBlock = prepare
         self.syncCompletion = completion
         self.asyncCompletion = nil
     }
 
-    public func prepare(with destination: D) throws {
+    public func prepare(with destination: C) throws {
         try prepareBlock?(destination)
     }
 
-    public func execute(for destination: D, completion: @escaping (InterceptorResult) -> Void) {
+    public func execute(for destination: C, completion: @escaping (InterceptorResult) -> Void) {
         if let syncCompletion = syncCompletion {
             syncCompletion(destination)
             completion(.success)
@@ -92,19 +92,19 @@ public struct InlineContextTask<VC: UIViewController, C>: ContextTask {
 ///
 /// **NB:** We would recommend it for the purpose of configuration testing, but then replace it with a strongly typed
 /// `PostRoutingTask` instance.
-public struct InlinePostTask<VC: UIViewController, D: RoutingDestination>: PostRoutingTask {
+public struct InlinePostTask<VC: UIViewController, C>: PostRoutingTask {
 
     public typealias ViewController = VC
 
-    public typealias Destination = D
+    public typealias Destination = C
 
-    private let completion: (_: VC, _: D, _: [UIViewController]) -> Void
+    private let completion: (_: VC, _: C, _: [UIViewController]) -> Void
 
     /// Constructor
     ///
     /// - Parameter completion: the block to be called when `InlinePostTask` will be called at the end of the routing
     ///    process.
-    public init(_ completion: @escaping (_: VC, _: D, _: [UIViewController]) -> Void) {
+    public init(_ completion: @escaping (_: VC, _: C, _: [UIViewController]) -> Void) {
         self.completion = completion
     }
 

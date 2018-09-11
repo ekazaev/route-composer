@@ -12,7 +12,7 @@ public protocol PostRoutingTask {
     associatedtype ViewController: UIViewController
 
     /// `RoutingDestination` type associated with this `PostRoutingTask`
-    associatedtype Destination: RoutingDestination
+    associatedtype Context
 
     /// Method to be executed by the `Router` after all the view controller has been build in to stack.
     ///
@@ -21,6 +21,6 @@ public protocol PostRoutingTask {
     ///   - destination: The `RoutingDestination` instance provided to the `Router`
     ///   - routingStack: An array of all the view controllers that been built by the `Router` to
     ///     reach the final destination
-    func execute(on viewController: ViewController, for destination: Destination, routingStack: [UIViewController])
+    func execute(on viewController: ViewController, for destination: Context, routingStack: [UIViewController])
 
 }

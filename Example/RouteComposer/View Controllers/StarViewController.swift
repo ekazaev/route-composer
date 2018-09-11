@@ -19,11 +19,11 @@ class StarViewController: UIViewController, ExampleAnalyticsSupport {
     }
 
     @IBAction func goToProductTapped() {
-        router.navigate(to: ProductConfiguration.productDestination(productId: "02"))
+        router.navigate(to: ProductConfiguration.productStep().lastStep, with: "02")
     }
 
     @IBAction func goToCircleTapped() {
-        router.navigate(to: ExampleConfiguration.destination(for: ExampleTarget.circle)!)
+        router.navigate(to: ExampleConfiguration.wireframe.goToCircle())
     }
 
     @IBAction func dismissStarTapped() {
@@ -32,7 +32,7 @@ class StarViewController: UIViewController, ExampleAnalyticsSupport {
             viewControllers?.remove(at: index)
             self.tabBarController?.setViewControllers(viewControllers, animated: true)
         }
-        router.navigate(to: ExampleConfiguration.destination(for: ExampleTarget.circle)!)
+        router.navigate(to: ExampleConfiguration.wireframe.goToCircle())
     }
 
 }

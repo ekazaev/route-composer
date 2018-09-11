@@ -12,7 +12,7 @@ public struct CurrentViewControllerStep: RoutingStep, PerformableStep {
     public init() {
     }
 
-    func perform<D: RoutingDestination>(for destination: D) -> StepResult {
+    func perform(for destination: Any?) -> StepResult {
         let window = UIWindow.key
         return StepResult(window?.topmostViewController)
     }

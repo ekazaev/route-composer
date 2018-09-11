@@ -17,6 +17,6 @@ public protocol Router {
     ///   - completion: completion block.
     /// - Returns: `RoutingResult` instance.
     @discardableResult
-    func navigate<D: RoutingDestination>(to destination: D, animated: Bool, completion: ((_: RoutingResult) -> Void)?) -> RoutingResult
+    func navigate(to step: RoutingStep, with context: Any?, animated: Bool, completion: ((_: RoutingResult) -> Void)?) -> RoutingResult
 
 }

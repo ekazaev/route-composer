@@ -8,11 +8,12 @@ import RouteComposer
 import UIKit
 import ImageDetailsController
 import ImagesController
+import ContainerViewController
 
 struct ImagesConfigurationWithLibrary {
 
     private static let imagesContainerStep = ContainerStepAssembly(
-            finder: ClassFinder(),
+            finder: ClassFinder<CustomContainerController, Any?>(),
             factory: CustomContainerFactory(delegate: ImagesWithLibraryHandler.shared))
             .using(NavigationControllerFactory.PushToNavigation())
             .from(NavigationControllerStep())
@@ -27,7 +28,7 @@ struct ImagesConfigurationWithLibrary {
                 .using(CustomContainerFactory.ReplaceRoot())
                 .from(imagesContainerStep)
                 .assemble()
-        return ExampleDestination(finalStep: imagesStep, context: nil)
+        return ExampleDestination(finalStep: imagesStep.lastStep, context: nil)
     }
 
     static func imageDetails(for imageID: String) -> ExampleDestination {
@@ -37,7 +38,7 @@ struct ImagesConfigurationWithLibrary {
                 .using(CustomContainerFactory.ReplaceRoot())
                 .from(imagesContainerStep)
                 .assemble()
-        return ExampleDestination(finalStep: imageDetailsStep, context: imageID)
+        return ExampleDestination(finalStep: imageDetailsStep.lastStep, context: imageID)
     }
 
 }
