@@ -5,17 +5,17 @@
 
 import Foundation
 
-class ColorURLTranslator: ExampleURLTranslator {
-
-    func destination(from url: URL) -> ExampleDestination? {
-        guard let urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false),
-              let queryItems = urlComponents.queryItems,
-              let colorItem = queryItems.first(where: { $0.name == "color" }),
-              let colorValue = colorItem.value else {
-            return nil
-        }
-
-        return ExampleConfiguration.wireframe.goToColor(colorValue)
-    }
-
-}
+//class ColorURLTranslator: ExampleURLTranslator {
+//
+//    func destination(from url: URL) -> ExampleDestination<Any?>? {
+//        guard let urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false),
+//              let queryItems = urlComponents.queryItems,
+//              let colorItem = queryItems.first(where: { $0.name == "color" }),
+//              let colorValue = colorItem.value else {
+//            return nil
+//        }
+//
+//        return ExampleConfiguration.wireframe.goToColor(colorValue) as? ExampleDestination<Any?>
+//    }
+//
+//}

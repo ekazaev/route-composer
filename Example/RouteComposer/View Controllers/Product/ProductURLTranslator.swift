@@ -4,18 +4,18 @@
 //
 
 import Foundation
-
-class ProductURLTranslator: ExampleURLTranslator {
-
-    func destination(from url: URL) -> ExampleDestination? {
-        guard let urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false),
-              let queryItems = urlComponents.queryItems,
-              let item = queryItems.first(where: { $0.name == "product" }),
-              let productIdValue = item.value else {
-            return nil
-        }
-
-        return ExampleDestination(finalStep: ProductConfiguration.productStep().lastStep, context: productIdValue)
-    }
-
-}
+//
+//class ProductURLTranslator: ExampleURLTranslator {
+//
+//    func destination(from url: URL) -> ExampleDestination? {
+//        guard let urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false),
+//              let queryItems = urlComponents.queryItems,
+//              let item = queryItems.first(where: { $0.name == "product" }),
+//              let productIdValue = item.value else {
+//            return nil
+//        }
+//
+//        return ExampleDestination(finalStep: ProductConfiguration.productStep().lastStep, context: productIdValue)
+//    }
+//
+//}

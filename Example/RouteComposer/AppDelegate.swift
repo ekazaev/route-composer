@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // dll://colors?color=AABBCC
         // dll://products?product=01
         // dll://cities?city=01
-        ExampleUniversalLinksManager.configure()
+        //ExampleUniversalLinksManager.configure()
 
         return true
     }
@@ -32,11 +32,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                      open url: URL,
                      sourceApplication: String?,
                      annotation: Any) -> Bool {
-        guard let destination = ExampleUniversalLinksManager.destination(for: url) else {
+//        guard let destination = ExampleUniversalLinksManager.destination(for: url) else {
             return false
-        }
-
-        return DefaultRouter(logger: nil).navigate(to: destination) == .handled
+//        }
+//
+//        return DefaultRouter(logger: nil).navigate(to: destination) == .handled
     }
 
 }

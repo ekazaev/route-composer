@@ -5,7 +5,7 @@
 import Foundation
 
 /// The step that contains implementation how to be attached to the previous one
-public protocol ChainingStep {
+protocol ChainingStep {
 
     /// From method
     ///

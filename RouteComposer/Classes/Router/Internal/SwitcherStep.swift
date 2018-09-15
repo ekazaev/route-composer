@@ -5,21 +5,15 @@
 import Foundation
 import UIKit
 
-/// The case resolver for `SwitcherStep`
-public protocol StepCaseResolver {
+protocol StepCaseResolver {
 
-    /// The method to be called by a `SwitcherStep` at the moment when it will try to find a previous
-    /// step for the `Router`.
-    ///
-    /// - Parameter destination: A `RoutingDestination` instance that been passed to the `Router`
-    /// - Returns: A `RoutingStep` to be made by `Router`, nil if resolver could not decide when step should be previous
     func resolve(for destination: Any?) -> RoutingStep?
 
 }
 
-class SwitcherStep: RoutingStepWithContext, ChainableStep, PerformableStep {
+class SwitcherStep<C>: RoutingStepWithContext, ChainableStep, PerformableStep {
 
-    public typealias Context = Any?
+    public typealias Context = C
 
     private(set) var previousStep: RoutingStep?
 

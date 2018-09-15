@@ -7,10 +7,22 @@ import Foundation
 import UIKit
 import RouteComposer
 
+struct ProductContext {
+
+    let productId: String
+
+    let productURL: URL?
+
+    init(productId: String, productURL: URL? = nil ) {
+        self.productId = productId
+        self.productURL = productURL
+    }
+}
+
 class ProductContextTask: ContextTask {
 
-    func apply(on viewController: ProductViewController, with context: String) throws {
-        viewController.productId = context
+    func apply(on viewController: ProductViewController, with context: ProductContext) throws {
+        viewController.productId = context.productId
     }
 
 }
@@ -64,15 +76,15 @@ class ProductViewController: UIViewController, ExampleAnalyticsSupport {
     }
 
     @IBAction func goToProductTapped() {
-        router.navigate(to: ProductConfiguration.productStep().lastStep, with: "01")
+        router.navigate(to: ProductConfiguration.productStep(), with: ProductContext(productId: "01"))
     }
 
 }
 
 extension ProductViewController: ContextChecking {
 
-    func isTarget(for productId: String) -> Bool {
-        return self.productId == productId
+    func isTarget(for context: ProductContext) -> Bool {
+        return self.productId == context.productId
     }
 
 }

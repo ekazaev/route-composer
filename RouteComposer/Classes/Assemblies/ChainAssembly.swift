@@ -25,6 +25,6 @@ public func ChainAssembly<F: Finder, FC: AbstractFactory>(from step: StepWithAct
 ///         .assemble()
 /// ```
 /// - Parameter step: The instance of `RoutingStep`
-public func ChainAssembly<C>(from step: RoutingStep) -> LastStepInChainAssembly<C> {
+public func ChainAssembly<C>(from step: DestinationStep<C>) -> LastStepInChainAssembly<C> {
     return LastStepInChainAssembly(previousSteps: [step])
 }

@@ -19,7 +19,7 @@ class StarViewController: UIViewController, ExampleAnalyticsSupport {
     }
 
     @IBAction func goToProductTapped() {
-        router.navigate(to: ProductConfiguration.productStep().lastStep, with: "02")
+        router.navigate(to: ProductConfiguration.productStep(), with: ProductContext(productId: "02"))
     }
 
     @IBAction func goToCircleTapped() {

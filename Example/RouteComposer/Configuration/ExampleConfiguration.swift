@@ -10,29 +10,29 @@ let transitionController = BlurredBackgroundTransitionController()
 
 protocol ExampleWireframe {
 
-    func goToHome() -> ExampleDestination
+    func goToHome() -> ExampleDestination<Any?>
 
-    func goToCircle() -> ExampleDestination
+    func goToCircle() -> ExampleDestination<Any?>
 
-    func goToSquare() -> ExampleDestination
+    func goToSquare() -> ExampleDestination<Any?>
 
-    func goToColor(_ color: String) -> ExampleDestination
+    func goToColor(_ color: String) -> ExampleDestination<ExampleDictionaryContext>
 
-    func goToStar() -> ExampleDestination
+    func goToStar() -> ExampleDestination<Any?>
 
-    func goToRoutingSupport(_ color: String) -> ExampleDestination
+    func goToRoutingSupport(_ color: String) -> ExampleDestination<Any?>
 
-    func goToEmptyScreen() -> ExampleDestination
+    func goToEmptyScreen() -> ExampleDestination<Any?>
 
-    func goToSecondLevelModal(_ color: String) -> ExampleDestination
+    func goToSecondLevelModal(_ color: String) -> ExampleDestination<Any?>
 
-    func goToWelcome() -> ExampleDestination
+    func goToWelcome() -> ExampleDestination<Any?>
 
 }
 
 extension ExampleWireframe {
 
-    func goToHome() -> ExampleDestination {
+    func goToHome() -> ExampleDestination<Any?> {
         // Home Tab Bar Screen
         let homeScreen = StepAssembly(
                 // Because both factory and finder are Generic, You have to provide to at least one instance
@@ -40,160 +40,138 @@ extension ExampleWireframe {
                 // least one custom factory of finder that have set typealias for ViewController and Context.
                 finder: ClassFinder<UITabBarController, Any?>(),
                 factory: StoryboardFactory(storyboardName: "TabBar"))
-                //                .add(ExampleAnalyticsInterceptor())
-                //                .add(ExampleAnalyticsPostAction())
                 .using(GeneralAction.ReplaceRoot())
-                .from(RootViewControllerStep())
+                .from(GeneralStep.root())
                 .assemble()
-        return ExampleDestination(finalStep: homeScreen.lastStep)
+        return ExampleDestination(step: homeScreen, context: nil)
     }
 
-    func goToCircle() -> ExampleDestination {
+    func goToCircle() -> ExampleDestination<Any?> {
         // Circle Tab Bar screen
         let circleScreen = StepAssembly(
                 finder: ClassFinder<CircleViewController, Any?>(options: .currentAllStack),
                 factory: NilFactory())
-                //                .add(ExampleAnalyticsInterceptor())
                 .add(ExampleGenericContextTask())
-                //                .add(ExampleAnalyticsPostAction())
                 .usingNoAction()
-                .from(goToHome().finalStep)
+                .from(goToHome().destination)
                 .assemble()
 
-        return ExampleDestination(finalStep: circleScreen.lastStep)
+        return ExampleDestination(step: circleScreen, context: nil)
     }
 
-    func goToSquare() -> ExampleDestination {
+    func goToSquare() -> ExampleDestination<Any?> {
         // Square Tab Bar Screen
         let squareScreen = StepAssembly(
                 finder: ClassFinder<SquareViewController, Any?>(options: .currentAllStack),
                 factory: NilFactory())
-                //                .add(ExampleAnalyticsInterceptor())
                 .add(ExampleGenericContextTask())
-                //                .add(ExampleAnalyticsPostAction())
                 .usingNoAction()
-                .from(goToHome().finalStep)
+                .from(goToHome().destination)
                 .assemble()
-        return ExampleDestination(finalStep: squareScreen.lastStep)
+        return ExampleDestination(step: squareScreen, context: nil)
 
     }
-    func goToColor(_ color: String) -> ExampleDestination {
+    func goToColor(_ color: String) -> ExampleDestination<ExampleDictionaryContext> {
         //Color screen
         let colorScreen = StepAssembly(
                 finder: ColorViewControllerFinder(),
                 factory: ColorViewControllerFactory())
-                //                .add(ExampleAnalyticsInterceptor())
                 .add(ExampleGenericContextTask())
-                //                .add(ExampleAnalyticsPostAction())
                 .using(NavigationControllerFactory.PushToNavigation())
                 .from(NavigationControllerStep())
                 .using(GeneralAction.PresentModally())
-                .from(CurrentViewControllerStep())
+                .from(GeneralStep.current())
                 .assemble()
-        return ExampleDestination(finalStep: colorScreen.lastStep, context: ExampleDictionaryContext(arguments: [.color: color]))
+        return ExampleDestination(step: colorScreen, context: ExampleDictionaryContext(arguments: [.color: color]))
 
     }
 
-    func goToRoutingSupport(_ color: String) -> ExampleDestination {
+    func goToRoutingSupport(_ color: String) -> ExampleDestination<Any?> {
         //Screen with Routing support
         let routingSupportScreen = StepAssembly(
                 finder: ClassFinder<RoutingRuleSupportViewController, Any?>(options: .currentAllStack),
                 factory: StoryboardFactory(storyboardName: "TabBar", viewControllerID: "RoutingRuleSupportViewController"))
-                //                .add(ExampleAnalyticsInterceptor())
                 .add(ExampleGenericContextTask())
-                //                .add(ExampleAnalyticsPostAction())
                 .using(NavigationControllerFactory.PushToNavigation())
-                .from(goToColor(color).finalStep)
+                .from(goToColor(color).destination)
                 .assemble()
-        return ExampleDestination(finalStep: routingSupportScreen.lastStep, context: ExampleDictionaryContext(arguments: [.color: color]))
+        return ExampleDestination(step: routingSupportScreen, context: ExampleDictionaryContext(arguments: [.color: color]))
 
     }
 
-    func goToEmptyScreen() -> ExampleDestination {
+    func goToEmptyScreen() -> ExampleDestination<Any?> {
         // Empty Screen
         let emptyScreen = StepAssembly(
                 finder: ClassFinder<EmptyViewController, Any?>(),
                 factory: StoryboardFactory(storyboardName: "TabBar", viewControllerID: "EmptyViewController"))
                 .add(LoginInterceptor())
-                //                .add(ExampleAnalyticsInterceptor())
                 .add(ExampleGenericContextTask())
-                //                .add(ExampleAnalyticsPostAction())
                 .using(NavigationControllerFactory.PushToNavigation())
-                .from(goToCircle().finalStep)
+                .from(goToCircle().destination)
                 .assemble()
 
-        return ExampleDestination(finalStep: emptyScreen.lastStep)
+        return ExampleDestination(step: emptyScreen, context: nil)
     }
 
-    func goToSecondLevelModal(_ color: String) -> ExampleDestination {
+    func goToSecondLevelModal(_ color: String) -> ExampleDestination<Any?> {
         // Two modal presentations in a row screen
         let superModalScreen = StepAssembly(
                 finder: ClassFinder<SecondModalLevelViewController, Any?>(),
                 factory: StoryboardFactory(storyboardName: "TabBar", viewControllerID: "SecondModalLevelViewController"))
-                //                .add(ExampleAnalyticsInterceptor())
                 .add(ExampleGenericContextTask())
-                //                .add(ExampleAnalyticsPostAction())
                 .using(NavigationControllerFactory.PushToNavigation())
                 .from(NavigationControllerStep())
                 .using(GeneralAction.PresentModally(transitioningDelegate: transitionController))
-                .from(goToRoutingSupport(color).finalStep)
+                .from(goToRoutingSupport(color).destination)
                 .assemble()
-        return ExampleDestination(finalStep: superModalScreen.lastStep, context: ExampleDictionaryContext(arguments: [.color: color]))
+        return ExampleDestination(step: superModalScreen, context: ExampleDictionaryContext(arguments: [.color: color]))
     }
 
-    func goToWelcome() -> ExampleDestination {
+    func goToWelcome() -> ExampleDestination<Any?> {
         // Welcome Screen
         let welcomeScreen = StepAssembly(
                 finder: ClassFinder<PromptViewController, Any?>(),
                 factory: StoryboardFactory(storyboardName: "PromptScreen"))
-                //                .add(ExampleAnalyticsInterceptor())
                 .add(ExampleGenericContextTask())
-                //                .add(ExampleAnalyticsPostAction())
                 .using(GeneralAction.ReplaceRoot())
-                .from(RootViewControllerStep())
+                .from(GeneralStep.root())
                 .assemble()
-        return ExampleDestination(finalStep: welcomeScreen.lastStep)
+        return ExampleDestination(step: welcomeScreen, context: nil)
 
     }
 }
 
 struct ExampleWireframeImpl: ExampleWireframe {
 
-    func goToStar() -> ExampleDestination {
+    func goToStar() -> ExampleDestination<Any?> {
         //Star screen
         let starScreen = StepAssembly(
                 finder: ClassFinder<StarViewController, Any?>(options: .currentAllStack),
                 factory: XibFactory())
-                //                .add(ExampleAnalyticsInterceptor())
                 .add(ExampleGenericContextTask())
-                //                .add(ExampleAnalyticsPostAction())
                 .add(LoginInterceptor())
                 .using(TabBarControllerFactory.AddTab())
-                .from(goToHome().finalStep)
+                .from(goToHome().destination)
                 .assemble()
-        return ExampleDestination(finalStep: starScreen.lastStep)
+        return ExampleDestination(step: starScreen, context: nil)
     }
-
 
 }
 
 struct AlternativeExampleWireframeImpl: ExampleWireframe {
 
-    func goToStar() -> ExampleDestination {
+    func goToStar() -> ExampleDestination<Any?> {
         //Star screen
         let starScreen = StepAssembly(
-                finder: ClassFinder<StarViewController, Any>(options: .currentAllStack),
+                finder: ClassFinder<StarViewController, Any?>(options: .currentAllStack),
                 factory: XibFactory())
-                //                    .add(ExampleAnalyticsInterceptor())
                 .add(ExampleGenericContextTask())
-                //                    .add(ExampleAnalyticsPostAction())
                 .add(LoginInterceptor())
                 .using(NavigationControllerFactory.PushToNavigation())
-                .from(goToCircle().finalStep)
+                .from(goToCircle().destination)
                 .assemble()
-        return ExampleDestination(finalStep: starScreen.lastStep)
+        return ExampleDestination(step: starScreen, context: nil)
     }
-
 
 }
 

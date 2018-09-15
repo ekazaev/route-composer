@@ -10,8 +10,8 @@ import os.log
 extension DefaultRouter {
 
     @discardableResult
-    func navigate(to destination: ExampleDestination, animated: Bool = true, completion: ((_: RoutingResult) -> Void)? = nil) -> RoutingResult {
-        return self.navigate(to: destination.finalStep, with: destination.context, animated: animated, completion: completion)
+    func navigate<C>(to destination: ExampleDestination<C>, animated: Bool = true, completion: ((_: RoutingResult) -> Void)? = nil) -> RoutingResult {
+        return self.navigate(to: destination.destination, with: destination.context, animated: animated, completion: completion)
     }
 
 }
@@ -26,9 +26,8 @@ extension UIViewController {
             appRouterLogger = DefaultLogger(.verbose)
         }
         var router = DefaultRouter(logger: appRouterLogger)
-//        router.add(GlobalInterceptor())
-//        router.add(GlobalPostTask())
-//        router.add(GlobalContextTask())
+        router.add(ExampleAnalyticsInterceptor())
+        router.add(ExampleAnalyticsPostTask())
         return router
     }()
 

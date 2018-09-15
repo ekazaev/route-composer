@@ -12,9 +12,9 @@ class CitiesConfiguration {
 
     static let shared = CitiesConfiguration()
 
-    private let city: RoutingStep
-    private let citiesList: RoutingStep
-    private let cityDetails: RoutingStep
+    private let city: DestinationStep<Any?>
+    private let citiesList: DestinationStep<Int?>
+    private let cityDetails: DestinationStep<Int>
 
     private init() {
         // Split View Controller
@@ -22,38 +22,34 @@ class CitiesConfiguration {
                 factory: StoryboardFactory(storyboardName: "Split"))
                 .add(LoginInterceptor())
                 .using( GeneralAction.ReplaceRoot())
-                .from(RootViewControllerStep())
-                .assemble().lastStep
+                .from(GeneralStep.root())
+                .assemble()
 
         // Cities List
         citiesList = StepAssembly(finder: ClassFinder<CitiesTableViewController, Int?>(),
                 factory: NilFactory())
-//                .add(ExampleAnalyticsInterceptor())
                 .add(CityTableContextTask())
-//                .add(ExampleAnalyticsPostAction())
                 .usingNoAction()
                 .from(city)
-                .assemble().lastStep
+                .assemble()
 
         // City Details
         cityDetails = StepAssembly(
                 finder: ClassFinder<CityDetailViewController, Int>(),
                 factory: StoryboardFactory(storyboardName: "Split",
                         viewControllerID: "CityDetailViewController"))
-//                .add(ExampleAnalyticsInterceptor())
                 .add(CityDetailContextTask())
-//                .add(ExampleAnalyticsPostAction())
                 .using(SplitControllerFactory.PushToDetails())
                 .from(citiesList)
-                .assemble().lastStep
+                .assemble()
     }
 
-    static func citiesList(cityId: Int? = nil, _ analyticParameters: ExampleAnalyticsParameters? = nil) -> ExampleDestination {
-        return ExampleDestination(finalStep: shared.citiesList, context: cityId, analyticParameters)
+    static func citiesList(cityId: Int? = nil, _ analyticParameters: ExampleAnalyticsParameters? = nil) -> ExampleDestination<Int?> {
+        return ExampleDestination(step: shared.citiesList, context: cityId)
     }
 
-    static func cityDetail(cityId: Int, _ analyticParameters: ExampleAnalyticsParameters? = nil) -> ExampleDestination {
-        return ExampleDestination(finalStep: shared.cityDetails, context: cityId, analyticParameters)
+    static func cityDetail(cityId: Int, _ analyticParameters: ExampleAnalyticsParameters? = nil) -> ExampleDestination<Int> {
+        return ExampleDestination(step: shared.cityDetails, context: cityId)
     }
 
 }

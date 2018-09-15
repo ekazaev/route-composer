@@ -1,6 +1,47 @@
 {
   "warnings": [
-
+    {
+      "file": "/Users/ekazaev/Workplace/route-composer/RouteComposer/Classes/Assemblies/Helpers/ActionConnecting.swift",
+      "line": 10,
+      "symbol": "ActionConnecting.Context",
+      "symbol_kind": "source.lang.swift.decl.associatedtype",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ekazaev/Workplace/route-composer/RouteComposer/Classes/Assemblies/Helpers/ActionConnectingAssembly.swift",
+      "line": 10,
+      "symbol": "ActionConnectingAssembly.Context",
+      "symbol_kind": "source.lang.swift.decl.typealias",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ekazaev/Workplace/route-composer/RouteComposer/Classes/Assemblies/Helpers/LastStepInChainAssembly.swift",
+      "line": 7,
+      "symbol": "DestinationStep",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ekazaev/Workplace/route-composer/RouteComposer/Classes/Assemblies/Helpers/LastStepInChainAssembly.swift",
+      "line": 9,
+      "symbol": "DestinationStep.Context",
+      "symbol_kind": "source.lang.swift.decl.typealias",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ekazaev/Workplace/route-composer/RouteComposer/Classes/Assemblies/StepAssembly.swift",
+      "line": 31,
+      "symbol": "StepAssembly.Context",
+      "symbol_kind": "source.lang.swift.decl.typealias",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ekazaev/Workplace/route-composer/RouteComposer/Classes/InlineTasks.swift",
+      "line": 99,
+      "symbol": "InlinePostTask.Destination",
+      "symbol_kind": "source.lang.swift.decl.typealias",
+      "warning": "undocumented"
+    }
   ],
   "source_directory": "/Users/ekazaev/Workplace/route-composer"
 }

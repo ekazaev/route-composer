@@ -23,7 +23,7 @@ struct RoutingInterceptorBox<R: RoutingInterceptor>: AnyRoutingInterceptor, Cust
     }
 
     mutating func prepare(with context: Any?) throws {
-        guard let typedDestination = Optional<Any>.some(context as Any) as? R.Context else {
+        guard let typedDestination = Any?.some(context as Any) as? R.Context else {
             throw RoutingError.message("\(String(describing: routingInterceptor)) does not accept \(String(describing: context)) as a destination.")
         }
 
@@ -31,7 +31,7 @@ struct RoutingInterceptorBox<R: RoutingInterceptor>: AnyRoutingInterceptor, Cust
     }
 
     func execute(for context: Any?, completion: @escaping (InterceptorResult) -> Void) {
-        guard let typedDestination = Optional<Any>.some(context as Any) as? R.Context else {
+        guard let typedDestination = Any?.some(context as Any) as? R.Context else {
             completion(.failure("\(String(describing: routingInterceptor)) does not accept \(String(describing: context)) as a destination."))
             return
         }

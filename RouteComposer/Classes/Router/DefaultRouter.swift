@@ -50,7 +50,9 @@ public struct DefaultRouter: Router, InterceptableRouter {
     ///   - completion: completion block.
     /// - Returns: `RoutingResult` instance.
     @discardableResult
-    public func navigate(to step: RoutingStep, with context: Any?, animated: Bool = true, completion: ((_: RoutingResult) -> Void)? = nil) -> RoutingResult{
+    public func navigate<Context>(to step: DestinationStep<Context>,
+                                  with context: Context, animated: Bool = true,
+                                  completion: ((_: RoutingResult) -> Void)? = nil) -> RoutingResult {
         logger?.routingWillStart()
 
         func failGracefully(_ message: LoggerMessage? = nil) -> RoutingResult {

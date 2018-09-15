@@ -13,7 +13,7 @@
     <a title="README  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">RouteComposer Docs</a> (100% documented)</p>
+        <p><a href="index.html">RouteComposer Docs</a> (98% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -31,12 +31,6 @@
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="Protocols/Router.html">Router</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Protocols/RoutingDestination.html">RoutingDestination</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Core Entities.html#/s:13RouteComposer11RoutingStepP">RoutingStep</a>
               </li>
               <li class="nav-group-task">
                 <a href="Protocols/Finder.html">Finder</a>
@@ -83,10 +77,10 @@
                 <a href="Classes/SwitchAssembly.html">SwitchAssembly</a>
               </li>
               <li class="nav-group-task">
-                <a href="Assemblies.html#/s:13RouteComposer13ChainAssemblyAA016ActionConnectingD0Vyxq_GAA08StepWitheD0Cyxq_G4from_tAA6FinderRzAA15AbstractFactoryR_7ContextQy_ALRtz14ViewControllerQy_AORtzr0_lF">ChainAssembly(from:)</a>
+                <a href="Assemblies.html#/s:13RouteComposer13ChainAssemblyAA016ActionConnectingD0Vyxq_7ContextQzGAA08StepWitheD0Cyxq_G4from_tAA6FinderRzAA15AbstractFactoryR_AEQy_AFRS14ViewControllerQy_AORtzr0_lF">ChainAssembly(from:)</a>
               </li>
               <li class="nav-group-task">
-                <a href="Assemblies.html#/s:13RouteComposer13ChainAssemblyAA010LastStepIncD0VAA07RoutingF0_p4from_tF">ChainAssembly(from:)</a>
+                <a href="Assemblies.html#/s:13RouteComposer13ChainAssemblyAA010LastStepIncD0VyxGAA011DestinationF0VyxG4from_tlF">ChainAssembly(from:)</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/CompleteFactoryAssembly.html">CompleteFactoryAssembly</a>
@@ -168,12 +162,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/SingleContainerStep.html">SingleContainerStep</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Structs/CurrentViewControllerStep.html">CurrentViewControllerStep</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Structs/RootViewControllerStep.html">RootViewControllerStep</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/NavigationControllerStep.html">NavigationControllerStep</a>
@@ -265,13 +253,21 @@
             </ul>
           </li>
           <li class="nav-group-name">
+            <a href="Other Functions.html">Other Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Other Functions.html#/s:13RouteComposer25CurrentViewControllerStepAA011DestinationF0VyypSgGyF">CurrentViewControllerStep()</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Other Functions.html#/s:13RouteComposer22RootViewControllerStepAA011DestinationF0VyypSgGyF">RootViewControllerStep()</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
             <a href="Other Protocols.html">Other Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="Protocols/ActionConnecting.html">ActionConnecting</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Protocols/ChainingStep.html">ChainingStep</a>
               </li>
               <li class="nav-group-task">
                 <a href="Protocols/ContextChecking.html">ContextChecking</a>
@@ -290,9 +286,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="Protocols/SimpleContainer.html">SimpleContainer</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Protocols/StepCaseResolver.html">StepCaseResolver</a>
               </li>
             </ul>
           </li>
@@ -316,6 +309,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Structs/DefaultRouter.html">DefaultRouter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/DestinationStep.html">DestinationStep</a>
               </li>
               <li class="nav-group-task">
                 <a href="Structs/GeneralAction.html">GeneralAction</a>
@@ -430,7 +426,7 @@ default actions during the routing process. There are 3 main <code>associatedtyp
 <li><code>Context</code> - Type of context object that is passed to the router from the hosting application that router will pass to the view controllers it
 is going to build. <em>String, UUID, Any, etc. Can be optional.</em></li>
 <li><code>Destination</code> - Type of destination object that is passed to the router from the hosting application that router will pass
-to the helping entities. Should extend <code><a href="Protocols/RoutingDestination.html">RoutingDestination</a></code> protocol.</li>
+to the helping entities. Should extend <code>RoutingDestination</code> protocol.</li>
 </ul>
 
 <p><em>Example: if your view controllers require productID to display its content and product id is a UUID in your app - then the type of
@@ -594,7 +590,7 @@ You should implement <code><a href="Protocols/PostRoutingTask.html">PostRoutingT
 </code></pre>
 <h3 id='configuring-step' class='heading'>Configuring Step</h3>
 
-<p>Everything that the router does is configured using a <code><a href="Core Entities.html#/s:13RouteComposer11RoutingStepP">RoutingStep</a></code> instance. There is no need to create your own implementation of this protocol.
+<p>Everything that the router does is configured using a <code>RoutingStep</code> instance. There is no need to create your own implementation of this protocol.
 Use <code><a href="Classes/StepAssembly.html">StepAssembly</a></code> provided by the library to configure any step that the router should execute during the routing.</p>
 
 <p><em>Example: A <code>ProductViewController</code> configuration that explains to the router that it should be boxed in UINavigationController
@@ -627,7 +623,7 @@ which should be presented modally from any currently visible view controller.</e
 
 <p>After you have implemented all necessary classes and configured a routing step, you can start to use the <code><a href="Protocols/Router.html">Router</a></code> to navigate. The library provides
 a <code><a href="Structs/DefaultRouter.html">DefaultRouter</a></code> which is an implementation of the <code><a href="Protocols/Router.html">Router</a></code> protocol to handle routing based on the configuration explained above. The Router accepts a
-destination instance that extends <code><a href="Protocols/RoutingDestination.html">RoutingDestination</a></code> protocol. The <code><a href="Protocols/RoutingDestination.html">RoutingDestination</a></code> protocol contains the final step the user has to land on. It also contains a context object that has data which is provided to a view controller, if required.</p>
+destination instance that extends <code>RoutingDestination</code> protocol. The <code>RoutingDestination</code> protocol contains the final step the user has to land on. It also contains a context object that has data which is provided to a view controller, if required.</p>
 
 <p><em>Example: The user taps on a cell in a <code>UITableView</code>. It then asks the router to navigate the user to <code>ProductViewController</code>. The user
 should be logged in to see the product details.</em></p>
@@ -742,7 +738,7 @@ apologies. <em>Caveat developer.</em></p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-09-11)</p>
+          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-09-17)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

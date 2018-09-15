@@ -6,18 +6,16 @@
 import Foundation
 import RouteComposer
 
-class ExampleDestination {
+// Instance like this can represent both final screen and value to provide.
+class ExampleDestination<C> {
 
-    let finalStep: RoutingStep
+    let destination: DestinationStep<C>
 
-    let context: Any?
+    let context: C
 
-    var analyticParameters: ExampleAnalyticsParameters?
-
-    init(finalStep: RoutingStep, context: Any? = nil, _ analyticParameters: ExampleAnalyticsParameters? = nil) {
-        self.finalStep = finalStep
+    init(step: DestinationStep<C>, context: C) {
+        self.destination = step
         self.context = context
-        self.analyticParameters = analyticParameters
     }
 
 }

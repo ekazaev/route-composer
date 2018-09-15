@@ -7,6 +7,6 @@ import Foundation
 
 protocol ExampleURLTranslator {
 
-    func destination(from url: URL) -> ExampleDestination?
+//    func destination(from url: URL) -> ExampleDestination<Any?>?
 
 }

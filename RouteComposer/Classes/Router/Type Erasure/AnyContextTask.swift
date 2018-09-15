@@ -26,7 +26,7 @@ struct ContextTaskBox<CT: ContextTask>: AnyContextTask, CustomStringConvertible 
     }
 
     mutating func prepare(with context: Any?) throws {
-        guard let typedContext = Optional<Any>.some(context as Any) as? CT.Context else {
+        guard let typedContext = Any?.some(context as Any) as? CT.Context else {
             throw RoutingError.message("\(String(describing: contextTask)) does not support context \(String(describing: context))")
         }
         try contextTask.prepare(with: typedContext)
@@ -34,7 +34,7 @@ struct ContextTaskBox<CT: ContextTask>: AnyContextTask, CustomStringConvertible 
 
     func apply(on viewController: UIViewController, with context: Any?) throws {
         guard let typedViewController = viewController as? CT.ViewController,
-              let typedContext = Optional<Any>.some(context as Any) as? CT.Context else {
+              let typedContext = Any?.some(context as Any) as? CT.Context else {
             throw RoutingError.message("\(String(describing: contextTask)) does not support context \(String(describing: context))")
         }
         try contextTask.apply(on: typedViewController, with: typedContext)

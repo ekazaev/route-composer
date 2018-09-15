@@ -34,7 +34,7 @@ class CircleViewController: UIViewController, ExampleAnalyticsSupport {
     }
 
     @IBAction func goToProductTapped() {
-        router.navigate(to: ProductConfiguration.productStep().lastStep, with: "00")
+        router.navigate(to: ProductConfiguration.productStep(), with: ProductContext(productId: "00"))
     }
 
     @IBAction func goToWelcomeTapped() {
