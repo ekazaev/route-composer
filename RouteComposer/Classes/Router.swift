@@ -9,7 +9,7 @@ import Foundation
 /// Base router protocol.
 public protocol Router {
 
-    /// Navigates an application to the `RoutingDestination` provided.
+    /// Navigates an application to the `DestinationStep` with the `Context` provided.
     ///
     /// - Parameters:
     ///   - step: `DestinationStep` instance.

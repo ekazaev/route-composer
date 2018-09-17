@@ -9,7 +9,7 @@ import RouteComposer
 
 class PromptViewController: UIViewController, ExampleAnalyticsSupport {
 
-    let analyticParameters = ExampleAnalyticsParameters(source: .welcome)
+    let screenType = ExampleScreen.welcome
 
     @IBAction func goToHomeTapped() {
         router.navigate(to: ExampleConfiguration.wireframe.goToHome())

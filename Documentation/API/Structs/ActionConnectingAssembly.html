@@ -14,7 +14,7 @@
     <a title="ActionConnectingAssembly Structure Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">RouteComposer Docs</a> (98% documented)</p>
+        <p><a href="../index.html">RouteComposer Docs</a> (100% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -32,6 +32,9 @@
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="../Protocols/Router.html">Router</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/DestinationStep.html">DestinationStep</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Protocols/Finder.html">Finder</a>
@@ -78,10 +81,7 @@
                 <a href="../Classes/SwitchAssembly.html">SwitchAssembly</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Assemblies.html#/s:13RouteComposer13ChainAssemblyAA016ActionConnectingD0Vyxq_7ContextQzGAA08StepWitheD0Cyxq_G4from_tAA6FinderRzAA15AbstractFactoryR_AEQy_AFRS14ViewControllerQy_AORtzr0_lF">ChainAssembly(from:)</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Assemblies.html#/s:13RouteComposer13ChainAssemblyAA010LastStepIncD0VyxGAA011DestinationF0VyxG4from_tlF">ChainAssembly(from:)</a>
+                <a href="../Structs/ChainAssembly.html">ChainAssembly</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/CompleteFactoryAssembly.html">CompleteFactoryAssembly</a>
@@ -163,6 +163,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/SingleContainerStep.html">SingleContainerStep</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/GeneralStep.html">GeneralStep</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/NavigationControllerStep.html">NavigationControllerStep</a>
@@ -254,17 +257,6 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="../Other Functions.html">Other Functions</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="../Other Functions.html#/s:13RouteComposer25CurrentViewControllerStepAA011DestinationF0VyypSgGyF">CurrentViewControllerStep()</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Other Functions.html#/s:13RouteComposer22RootViewControllerStepAA011DestinationF0VyypSgGyF">RootViewControllerStep()</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
             <a href="../Other Protocols.html">Other Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
@@ -310,9 +302,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/DefaultRouter.html">DefaultRouter</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Structs/DestinationStep.html">DestinationStep</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/GeneralAction.html">GeneralAction</a>
@@ -367,9 +356,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer24ActionConnectingAssemblyV7Contexta"></a>
+                    <a name="/s:13RouteComposer16ActionConnectingP7Context"></a>
                     <a name="//apple_ref/swift/Alias/Context" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer24ActionConnectingAssemblyV7Contexta">Context</a>
+                    <a class="token" href="#/s:13RouteComposer16ActionConnectingP7Context">Context</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -377,8 +366,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
-
+                        
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -411,7 +399,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">using</span><span class="o">&lt;</span><span class="kt">A</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">action</span><span class="p">:</span> <span class="kt">A</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/StepChainAssembly.html">StepChainAssembly</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/ActionConnectingAssembly.html#/s:13RouteComposer24ActionConnectingAssemblyV7Contexta">Context</a></span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">A</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/Action.html">Action</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">using</span><span class="o">&lt;</span><span class="kt">A</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">action</span><span class="p">:</span> <span class="kt">A</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/StepChainAssembly.html">StepChainAssembly</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/ActionConnectingAssembly.html#/s:13RouteComposer16ActionConnectingP7Context">Context</a></span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">A</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/Action.html">Action</a></span></code></pre>
 
                         </div>
                       </div>
@@ -436,7 +424,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p><code>ChainAssembly</code> to continue building the chain.</p>
+                        <p><code><a href="../Structs/ChainAssembly.html">ChainAssembly</a></code> to continue building the chain.</p>
                       </div>
                     </section>
                   </div>
@@ -461,7 +449,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">using</span><span class="o">&lt;</span><span class="kt">A</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">action</span><span class="p">:</span> <span class="kt">A</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/StepChainAssembly.html">StepChainAssembly</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/ActionConnectingAssembly.html#/s:13RouteComposer24ActionConnectingAssemblyV7Contexta">Context</a></span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">A</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ContainerAction.html">ContainerAction</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">using</span><span class="o">&lt;</span><span class="kt">A</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">action</span><span class="p">:</span> <span class="kt">A</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/StepChainAssembly.html">StepChainAssembly</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/ActionConnectingAssembly.html#/s:13RouteComposer16ActionConnectingP7Context">Context</a></span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">A</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ContainerAction.html">ContainerAction</a></span></code></pre>
 
                         </div>
                       </div>
@@ -486,7 +474,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p><code>ChainAssembly</code> to continue building the chain.</p>
+                        <p><code><a href="../Structs/ChainAssembly.html">ChainAssembly</a></code> to continue building the chain.</p>
                       </div>
                     </section>
                   </div>
@@ -516,7 +504,7 @@ be used with <code>NilAction</code></p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">usingNoAction</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/StepChainAssembly.html">StepChainAssembly</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/ActionConnectingAssembly.html#/s:13RouteComposer24ActionConnectingAssemblyV7Contexta">Context</a></span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">usingNoAction</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/StepChainAssembly.html">StepChainAssembly</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/ActionConnectingAssembly.html#/s:13RouteComposer16ActionConnectingP7Context">Context</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -528,7 +516,7 @@ be used with <code>NilAction</code></p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-09-17)</p>
+          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-09-18)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

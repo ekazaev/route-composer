@@ -9,13 +9,17 @@ import RouteComposer
 // Instance like this can represent both final screen and value to provide.
 class ExampleDestination<C> {
 
-    let destination: DestinationStep<C>
+    let step: DestinationStep<C>
 
     let context: C
 
     init(step: DestinationStep<C>, context: C) {
-        self.destination = step
+        self.step = step
         self.context = context
+    }
+
+    func unsafelyUnwrapped() -> ExampleDestination<Any?> {
+        return ExampleDestination<Any?>(step: step.unsafelyUnwrapped(), context: context)
     }
 
 }

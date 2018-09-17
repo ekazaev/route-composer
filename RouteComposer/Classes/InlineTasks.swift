@@ -45,16 +45,16 @@ public struct InlineInterceptor<C>: RoutingInterceptor {
         self.asyncCompletion = nil
     }
 
-    public func prepare(with destination: C) throws {
-        try prepareBlock?(destination)
+    public func prepare(with context: C) throws {
+        try prepareBlock?(context)
     }
 
-    public func execute(for destination: C, completion: @escaping (InterceptorResult) -> Void) {
+    public func execute(with context: C, completion: @escaping (InterceptorResult) -> Void) {
         if let syncCompletion = syncCompletion {
-            syncCompletion(destination)
+            syncCompletion(context)
             completion(.success)
         } else if let asyncCompletion = asyncCompletion {
-            asyncCompletion(destination, completion)
+            asyncCompletion(context, completion)
         } else {
             completion(.failure("No completion block provided."))
         }
@@ -96,7 +96,7 @@ public struct InlinePostTask<VC: UIViewController, C>: PostRoutingTask {
 
     public typealias ViewController = VC
 
-    public typealias Destination = C
+    public typealias Context = C
 
     private let completion: (_: VC, _: C, _: [UIViewController]) -> Void
 
@@ -108,8 +108,8 @@ public struct InlinePostTask<VC: UIViewController, C>: PostRoutingTask {
         self.completion = completion
     }
 
-    public func execute(on viewController: ViewController, for destination: Destination, routingStack: [UIViewController]) {
-        completion(viewController, destination, routingStack)
+    public func execute(on viewController: ViewController, for context: Context, routingStack: [UIViewController]) {
+        completion(viewController, context, routingStack)
     }
 
 }

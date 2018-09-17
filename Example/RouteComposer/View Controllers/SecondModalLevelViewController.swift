@@ -9,7 +9,7 @@ import RouteComposer
 
 class SecondModalLevelViewController: UIViewController, ExampleAnalyticsSupport {
 
-    let analyticParameters = ExampleAnalyticsParameters(source: .secondLevelModal)
+    let screenType = ExampleScreen.secondLevelModal
 
     override func viewDidLoad() {
         super.viewDidLoad()

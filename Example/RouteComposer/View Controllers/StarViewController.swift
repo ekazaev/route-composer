@@ -9,7 +9,7 @@ import RouteComposer
 
 class StarViewController: UIViewController, ExampleAnalyticsSupport {
 
-    let analyticParameters = ExampleAnalyticsParameters(source: .star)
+    let screenType = ExampleScreen.star
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +19,7 @@ class StarViewController: UIViewController, ExampleAnalyticsSupport {
     }
 
     @IBAction func goToProductTapped() {
-        router.navigate(to: ProductConfiguration.productStep(), with: ProductContext(productId: "02"))
+        router.navigate(to: ProductConfiguration.productScreen, with: ProductContext(productId: "02"))
     }
 
     @IBAction func goToCircleTapped() {

@@ -11,18 +11,18 @@ public protocol InterceptableRouter where Self: Router {
     ///
     /// - Parameter interceptor: The `RoutingInterceptor` instance to be executed by `Router` before routing to this step.
     @discardableResult
-    mutating func add<R: RoutingInterceptor>(_ interceptor: R) -> Self
+    mutating func add<R: RoutingInterceptor>(_ interceptor: R) -> Self where R.Context == Any?
 
     /// Adds context task instance
     ///
     /// - Parameter contextTask: The `ContextTask` instance to be executed by a `Router` immediately after it will find or create UIViewController.
     @discardableResult
-    mutating func add<CT: ContextTask>(_ contextTask: CT) -> Self
+    mutating func add<CT: ContextTask>(_ contextTask: CT) -> Self where CT.Context == Any?
 
     /// Adds PostRoutingTask instance
     ///
     /// - Parameter postTask: The `PostRoutingTask` instance to be executed by a `Router` after routing to this step.
     @discardableResult
-    mutating func add<P: PostRoutingTask>(_ postTask: P) -> Self
+    mutating func add<P: PostRoutingTask>(_ postTask: P) -> Self where P.Context == Any?
 
 }

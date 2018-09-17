@@ -51,9 +51,9 @@ extension ExampleWireframe {
         let circleScreen = StepAssembly(
                 finder: ClassFinder<CircleViewController, Any?>(options: .currentAllStack),
                 factory: NilFactory())
-                .add(ExampleGenericContextTask())
+                .add(ExampleGenericContextTask<CircleViewController, Any?>())
                 .usingNoAction()
-                .from(goToHome().destination)
+                .from(goToHome().step)
                 .assemble()
 
         return ExampleDestination(step: circleScreen, context: nil)
@@ -64,9 +64,9 @@ extension ExampleWireframe {
         let squareScreen = StepAssembly(
                 finder: ClassFinder<SquareViewController, Any?>(options: .currentAllStack),
                 factory: NilFactory())
-                .add(ExampleGenericContextTask())
+                .add(ExampleGenericContextTask<SquareViewController, Any?>())
                 .usingNoAction()
-                .from(goToHome().destination)
+                .from(goToHome().step)
                 .assemble()
         return ExampleDestination(step: squareScreen, context: nil)
 
@@ -76,7 +76,7 @@ extension ExampleWireframe {
         let colorScreen = StepAssembly(
                 finder: ColorViewControllerFinder(),
                 factory: ColorViewControllerFactory())
-                .add(ExampleGenericContextTask())
+                .add(ExampleGenericContextTask<ColorViewController, ExampleDictionaryContext>())
                 .using(NavigationControllerFactory.PushToNavigation())
                 .from(NavigationControllerStep())
                 .using(GeneralAction.PresentModally())
@@ -91,9 +91,9 @@ extension ExampleWireframe {
         let routingSupportScreen = StepAssembly(
                 finder: ClassFinder<RoutingRuleSupportViewController, Any?>(options: .currentAllStack),
                 factory: StoryboardFactory(storyboardName: "TabBar", viewControllerID: "RoutingRuleSupportViewController"))
-                .add(ExampleGenericContextTask())
+                .add(ExampleGenericContextTask<RoutingRuleSupportViewController, Any?>())
                 .using(NavigationControllerFactory.PushToNavigation())
-                .from(goToColor(color).destination)
+                .from(goToColor(color).step)
                 .assemble()
         return ExampleDestination(step: routingSupportScreen, context: ExampleDictionaryContext(arguments: [.color: color]))
 
@@ -104,10 +104,10 @@ extension ExampleWireframe {
         let emptyScreen = StepAssembly(
                 finder: ClassFinder<EmptyViewController, Any?>(),
                 factory: StoryboardFactory(storyboardName: "TabBar", viewControllerID: "EmptyViewController"))
-                .add(LoginInterceptor())
-                .add(ExampleGenericContextTask())
+                .add(LoginInterceptor<Any?>())
+                .add(ExampleGenericContextTask<EmptyViewController, Any?>())
                 .using(NavigationControllerFactory.PushToNavigation())
-                .from(goToCircle().destination)
+                .from(goToCircle().step)
                 .assemble()
 
         return ExampleDestination(step: emptyScreen, context: nil)
@@ -118,11 +118,11 @@ extension ExampleWireframe {
         let superModalScreen = StepAssembly(
                 finder: ClassFinder<SecondModalLevelViewController, Any?>(),
                 factory: StoryboardFactory(storyboardName: "TabBar", viewControllerID: "SecondModalLevelViewController"))
-                .add(ExampleGenericContextTask())
+                .add(ExampleGenericContextTask<SecondModalLevelViewController, Any?>())
                 .using(NavigationControllerFactory.PushToNavigation())
                 .from(NavigationControllerStep())
                 .using(GeneralAction.PresentModally(transitioningDelegate: transitionController))
-                .from(goToRoutingSupport(color).destination)
+                .from(goToRoutingSupport(color).step)
                 .assemble()
         return ExampleDestination(step: superModalScreen, context: ExampleDictionaryContext(arguments: [.color: color]))
     }
@@ -132,7 +132,7 @@ extension ExampleWireframe {
         let welcomeScreen = StepAssembly(
                 finder: ClassFinder<PromptViewController, Any?>(),
                 factory: StoryboardFactory(storyboardName: "PromptScreen"))
-                .add(ExampleGenericContextTask())
+                .add(ExampleGenericContextTask<PromptViewController, Any?>())
                 .using(GeneralAction.ReplaceRoot())
                 .from(GeneralStep.root())
                 .assemble()
@@ -148,10 +148,10 @@ struct ExampleWireframeImpl: ExampleWireframe {
         let starScreen = StepAssembly(
                 finder: ClassFinder<StarViewController, Any?>(options: .currentAllStack),
                 factory: XibFactory())
-                .add(ExampleGenericContextTask())
-                .add(LoginInterceptor())
+                .add(ExampleGenericContextTask<StarViewController, Any?>())
+                .add(LoginInterceptor<Any?>())
                 .using(TabBarControllerFactory.AddTab())
-                .from(goToHome().destination)
+                .from(goToHome().step)
                 .assemble()
         return ExampleDestination(step: starScreen, context: nil)
     }
@@ -165,19 +165,19 @@ struct AlternativeExampleWireframeImpl: ExampleWireframe {
         let starScreen = StepAssembly(
                 finder: ClassFinder<StarViewController, Any?>(options: .currentAllStack),
                 factory: XibFactory())
-                .add(ExampleGenericContextTask())
+                .add(ExampleGenericContextTask<StarViewController, Any?>())
                 .add(LoginInterceptor())
                 .using(NavigationControllerFactory.PushToNavigation())
-                .from(goToCircle().destination)
+                .from(goToCircle().step)
                 .assemble()
         return ExampleDestination(step: starScreen, context: nil)
     }
 
 }
 
-// NB: Keeping the screen configurations in the Dictionary has no practical value, demo only.
 class ExampleConfiguration {
 
+    // Declared as static to avoid dependency injection in the Example app. So this variable is available everywhere.
     static var wireframe: ExampleWireframe = ExampleWireframeImpl()
 
 }

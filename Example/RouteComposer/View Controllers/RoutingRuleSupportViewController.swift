@@ -9,7 +9,7 @@ import RouteComposer
 
 class RoutingRuleSupportViewController: UIViewController, RoutingInterceptable, ExampleAnalyticsSupport {
 
-    let analyticParameters = ExampleAnalyticsParameters(source: .ruleSupport)
+    let screenType = ExampleScreen.ruleSupport
 
     private(set) var canBeDismissed: Bool = true
 

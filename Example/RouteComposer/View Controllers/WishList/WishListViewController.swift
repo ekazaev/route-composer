@@ -9,7 +9,7 @@ import RouteComposer
 
 class WishListViewController: UITableViewController, ExampleAnalyticsSupport {
 
-    var analyticParameters = ExampleAnalyticsParameters(source: .favorites)
+    var screenType = ExampleScreen.favorites
 
     var segmentController = UISegmentedControl(items: ["Favorites", "Collections"])
 
@@ -29,7 +29,7 @@ class WishListViewController: UITableViewController, ExampleAnalyticsSupport {
     private func reloadData() {
         segmentController.selectedSegmentIndex = context.rawValue
         tableView.reloadData()
-        analyticParameters = ExampleAnalyticsParameters(source: context == .favorites ? .favorites : .collections)
+        screenType = context == .favorites ? .favorites : .collections
         tableView.accessibilityIdentifier = context == .favorites ? "favoritesViewController" : "collectionsViewController"
     }
 

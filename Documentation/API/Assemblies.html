@@ -14,7 +14,7 @@
     <a title="Assemblies  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">RouteComposer Docs</a> (98% documented)</p>
+        <p><a href="index.html">RouteComposer Docs</a> (100% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -32,6 +32,9 @@
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="Protocols/Router.html">Router</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/DestinationStep.html">DestinationStep</a>
               </li>
               <li class="nav-group-task">
                 <a href="Protocols/Finder.html">Finder</a>
@@ -78,10 +81,7 @@
                 <a href="Classes/SwitchAssembly.html">SwitchAssembly</a>
               </li>
               <li class="nav-group-task">
-                <a href="Assemblies.html#/s:13RouteComposer13ChainAssemblyAA016ActionConnectingD0Vyxq_7ContextQzGAA08StepWitheD0Cyxq_G4from_tAA6FinderRzAA15AbstractFactoryR_AEQy_AFRS14ViewControllerQy_AORtzr0_lF">ChainAssembly(from:)</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Assemblies.html#/s:13RouteComposer13ChainAssemblyAA010LastStepIncD0VyxGAA011DestinationF0VyxG4from_tlF">ChainAssembly(from:)</a>
+                <a href="Structs/ChainAssembly.html">ChainAssembly</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/CompleteFactoryAssembly.html">CompleteFactoryAssembly</a>
@@ -163,6 +163,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/SingleContainerStep.html">SingleContainerStep</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/GeneralStep.html">GeneralStep</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/NavigationControllerStep.html">NavigationControllerStep</a>
@@ -254,17 +257,6 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="Other Functions.html">Other Functions</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="Other Functions.html#/s:13RouteComposer25CurrentViewControllerStepAA011DestinationF0VyypSgGyF">CurrentViewControllerStep()</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Other Functions.html#/s:13RouteComposer22RootViewControllerStepAA011DestinationF0VyypSgGyF">RootViewControllerStep()</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
             <a href="Other Protocols.html">Other Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
@@ -310,9 +302,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="Structs/DefaultRouter.html">DefaultRouter</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Structs/DestinationStep.html">DestinationStep</a>
               </li>
               <li class="nav-group-task">
                 <a href="Structs/GeneralAction.html">GeneralAction</a>
@@ -487,9 +476,9 @@ be taken.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer13ChainAssemblyAA016ActionConnectingD0Vyxq_7ContextQzGAA08StepWitheD0Cyxq_G4from_tAA6FinderRzAA15AbstractFactoryR_AEQy_AFRS14ViewControllerQy_AORtzr0_lF"></a>
-                    <a name="//apple_ref/swift/Function/ChainAssembly(from:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer13ChainAssemblyAA016ActionConnectingD0Vyxq_7ContextQzGAA08StepWitheD0Cyxq_G4from_tAA6FinderRzAA15AbstractFactoryR_AEQy_AFRS14ViewControllerQy_AORtzr0_lF">ChainAssembly(from:)</a>
+                    <a name="/s:13RouteComposer13ChainAssemblyV"></a>
+                    <a name="//apple_ref/swift/Struct/ChainAssembly" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer13ChainAssemblyV">ChainAssembly</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -498,90 +487,16 @@ be taken.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Connects an array of steps into a chain of steps.</p>
-<h3 id='usage' class='heading'>Usage</h3>
-<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">intermediateStep</span> <span class="o">=</span> <span class="kt">ChainAssembly</span><span class="p">(</span><span class="nv">from</span><span class="p">:</span> <span class="kt">NavigationControllerStep</span><span class="p">())</span>
-        <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="nv">using</span><span class="p">:</span> <span class="kt">DefaultActions</span><span class="o">.</span><span class="kt">PresentModally</span><span class="p">())</span>
-        <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="kt">CurrentViewControllerStep</span><span class="p">())</span>
-        <span class="o">.</span><span class="nf">assemble</span><span class="p">()</span>
-</code></pre>
 
+                        <a href="Structs/ChainAssembly.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="kt">ChainAssembly</span><span class="o">&lt;</span><span class="kt">F</span><span class="p">,</span> <span class="kt">FC</span><span class="o">&gt;</span><span class="p">(</span><span class="n">from</span> <span class="nv">step</span><span class="p">:</span> <span class="kt"><a href="Classes/StepWithActionAssembly.html">StepWithActionAssembly</a></span><span class="o">&lt;</span><span class="kt">F</span><span class="p">,</span> <span class="kt">FC</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="Structs/ActionConnectingAssembly.html">ActionConnectingAssembly</a></span><span class="o">&lt;</span><span class="kt">F</span><span class="p">,</span> <span class="kt">FC</span><span class="p">,</span> <span class="kt">F</span><span class="o">.</span><span class="kt">Context</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">F</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Finder.html">Finder</a></span><span class="p">,</span> <span class="kt">FC</span> <span class="p">:</span> <span class="kt"><a href="Protocols/AbstractFactory.html">AbstractFactory</a></span><span class="p">,</span> <span class="kt">F</span><span class="o">.</span><span class="kt">Context</span> <span class="o">==</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">Context</span><span class="p">,</span> <span class="kt">F</span><span class="o">.</span><span class="kt">ViewController</span> <span class="o">==</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">ViewController</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ChainAssembly</span></code></pre>
 
                         </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>step</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The instance of <code><a href="Classes/StepWithActionAssembly.html">StepWithActionAssembly</a></code></p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:13RouteComposer13ChainAssemblyAA010LastStepIncD0VyxGAA011DestinationF0VyxG4from_tlF"></a>
-                    <a name="//apple_ref/swift/Function/ChainAssembly(from:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer13ChainAssemblyAA010LastStepIncD0VyxGAA011DestinationF0VyxG4from_tlF">ChainAssembly(from:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Connects an array of steps into a chain of steps.</p>
-<h3 id='usage' class='heading'>Usage</h3>
-<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">intermediateStep</span> <span class="o">=</span> <span class="kt">ChainAssembly</span><span class="p">(</span><span class="nv">from</span><span class="p">:</span> <span class="n">previousSteps</span><span class="p">)</span>
-        <span class="o">.</span><span class="nf">assemble</span><span class="p">()</span>
-</code></pre>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="kt">ChainAssembly</span><span class="o">&lt;</span><span class="kt">C</span><span class="o">&gt;</span><span class="p">(</span><span class="n">from</span> <span class="nv">step</span><span class="p">:</span> <span class="kt"><a href="Structs/DestinationStep.html">DestinationStep</a></span><span class="o">&lt;</span><span class="kt">C</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="Structs/LastStepInChainAssembly.html">LastStepInChainAssembly</a></span><span class="o">&lt;</span><span class="kt">C</span><span class="o">&gt;</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>step</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The instance of <code>RoutingStep</code></p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
                       </div>
                     </section>
                   </div>
@@ -630,7 +545,7 @@ be taken.</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-09-17)</p>
+          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-09-18)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

@@ -7,31 +7,33 @@ import UIKit
 import RouteComposer
 import os.log
 
-extension DefaultRouter {
+extension Router {
 
     @discardableResult
     func navigate<C>(to destination: ExampleDestination<C>, animated: Bool = true, completion: ((_: RoutingResult) -> Void)? = nil) -> RoutingResult {
-        return self.navigate(to: destination.destination, with: destination.context, animated: animated, completion: completion)
+        return self.navigate(to: destination.step, with: destination.context, animated: animated, completion: completion)
+    }
+
+    @discardableResult
+    func navigate<Context>(to step: DestinationStep<Context>, with context: Context) -> RoutingResult {
+        return self.navigate(to: step, with: context, animated: true, completion: nil)
     }
 
 }
 
 extension UIViewController {
 
-    static let router: DefaultRouter = {
+    static let router: Router = {
         let appRouterLogger: DefaultLogger
         if #available(iOS 10, *) {
             appRouterLogger = DefaultLogger(.verbose, osLog: OSLog(subsystem: Bundle.main.bundleIdentifier!, category: "Router"))
         } else {
             appRouterLogger = DefaultLogger(.verbose)
         }
-        var router = DefaultRouter(logger: appRouterLogger)
-        router.add(ExampleAnalyticsInterceptor())
-        router.add(ExampleAnalyticsPostTask())
-        return router
+        return AnalyticsRouterDecorator(router: DefaultRouter(logger: appRouterLogger))
     }()
 
-    var router: DefaultRouter {
+    var router: Router {
         return UIViewController.router
     }
 

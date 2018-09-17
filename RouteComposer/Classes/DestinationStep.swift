@@ -7,6 +7,7 @@ import Foundation
 /// Represents a single step for the `Router` to make.
 public struct DestinationStep<C>: RoutingStepWithContext, ChainableStep, PerformableStep {
 
+    /// Type of the `Context` associated with the step
     public typealias Context = C
 
     var previousStep: RoutingStep? {
@@ -19,11 +20,11 @@ public struct DestinationStep<C>: RoutingStepWithContext, ChainableStep, Perform
         self.destinationStep = destinationStep
     }
 
-    func perform(for destination: Any?) -> StepResult {
+    func perform(for context: Any?) -> StepResult {
         return .continueRouting(nil)
     }
 
-    // Removes context type dependency from a step.
+    /// Removes context type dependency from a step.
     public func unsafelyUnwrapped() -> DestinationStep<Any?> {
         return DestinationStep<Any?>(destinationStep)
     }

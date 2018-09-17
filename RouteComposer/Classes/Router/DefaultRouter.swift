@@ -25,53 +25,40 @@ public struct DefaultRouter: Router, InterceptableRouter {
     }
 
     @discardableResult
-    public mutating func add<R: RoutingInterceptor>(_ interceptor: R) -> DefaultRouter {
+    public mutating func add<R: RoutingInterceptor>(_ interceptor: R) -> DefaultRouter where R.Context == Any? {
         self.interceptors.append(RoutingInterceptorBox(interceptor))
         return self
     }
 
     @discardableResult
-    public mutating func add<CT: ContextTask>(_ contextTask: CT) -> DefaultRouter {
+    public mutating func add<CT: ContextTask>(_ contextTask: CT) -> DefaultRouter where CT.Context == Any? {
         self.contextTasks.append(ContextTaskBox(contextTask))
         return self
     }
 
     @discardableResult
-    public mutating func add<P: PostRoutingTask>(_ postTask: P) -> DefaultRouter {
+    public mutating func add<P: PostRoutingTask>(_ postTask: P) -> DefaultRouter where P.Context == Any? {
         self.postTasks.append(PostRoutingTaskBox(postTask))
         return self
     }
 
-    /// Navigates an application to the `RoutingDestination` provided.
-    ///
-    /// - Parameters:
-    ///   - destination: `RoutingDestination` instance.
-    ///   - animated: if true - the navigation should be animated where possible.
-    ///   - completion: completion block.
-    /// - Returns: `RoutingResult` instance.
     @discardableResult
     public func navigate<Context>(to step: DestinationStep<Context>,
-                                  with context: Context, animated: Bool = true,
+                                  with context: Context,
+                                  animated: Bool = true,
                                   completion: ((_: RoutingResult) -> Void)? = nil) -> RoutingResult {
-        logger?.routingWillStart()
-
-        func failGracefully(_ message: LoggerMessage? = nil) -> RoutingResult {
-            if let message = message {
-                self.logger?.log(message)
-            }
-            self.logger?.routingDidFinish()
-            return .unhandled
-        }
 
         guard Thread.isMainThread else {
-            return failGracefully(.error("Attempt to call UI API not on the main thread."))
+            logger?.log(.error("Attempt to call UI API not on the main thread."))
+            return .unhandled
         }
 
         // If currently visible view controller can not be dismissed then we can't route anywhere, because it will
         // disappear as a result of routing.
         if let topMostViewController = UIWindow.key?.topmostViewController as? RoutingInterceptable,
            !topMostViewController.canBeDismissed {
-            return failGracefully(.warning("Topmost view controller can not be dismissed."))
+            logger?.log(.warning("Topmost view controller can not be dismissed."))
+            return .unhandled
         }
 
         let postTaskRunner = PostTaskRunner()
@@ -79,7 +66,7 @@ public struct DefaultRouter: Router, InterceptableRouter {
         // Returns (rootViewController, factories, interceptor) tuple
         // where rootViewController is the origin of the chain of views to be built for a given destination.
         guard let stack = prepareStack(to: step, with: context, postTaskRunner: postTaskRunner) else {
-            return failGracefully()
+            return .unhandled
         }
 
         let viewController = stack.rootViewController, factoriesStack = stack.factories, interceptor = stack.interceptor
@@ -87,16 +74,16 @@ public struct DefaultRouter: Router, InterceptableRouter {
         // check if the view controllers, that are currently presented from the origin view controller for a
         // given destination, can be dismissed.
         if let viewController = Array([[viewController], viewController.allPresentedViewControllers].joined()).nonDismissibleViewController {
-            return failGracefully(.warning("\(String(describing: viewController)) view controller can not be dismissed."))
+            logger?.log(.warning("\(String(describing: viewController)) view controller can not be dismissed."))
+            return .unhandled
         }
 
         // Execute interceptors associated to the each view in the chain. All of interceptors must succeed to
         // continue routing.
-        interceptor.execute(for: context) { [weak viewController] result in
+        interceptor.execute(with: context) { [weak viewController] result in
             func failGracefully(_ message: LoggerMessage) {
                 self.logger?.log(message)
                 completion?(.unhandled)
-                self.logger?.routingDidFinish()
             }
 
             guard Thread.isMainThread else {
@@ -122,7 +109,6 @@ public struct DefaultRouter: Router, InterceptableRouter {
                 }, finally: { success in
                     completion?(success ? result : .unhandled)
                 })
-                self.logger?.routingDidFinish()
             }
         }
 

@@ -79,16 +79,26 @@ public final class SwitchAssembly<Context> {
     ///   - finder: The `Finder` instance to find a `UIViewController` in the stack
     ///   - step: The `RoutingStep` to make if the `Finder` been able to find a view controller in the stack. If not provided,
     ///   a `UIViewController` found by the `Finder` will be considered as a view controller to start routing process from
-    public func addCase<F: Finder>(when finder: F, do step: DestinationStep<Context>? = nil) -> Self {
+    public func addCase<F: Finder>(when finder: F, do step: DestinationStep<Context>) -> Self {
         resolvers.append(FinderResolver(finder: finder, step: step))
+        return self
+    }
+
+    /// Adds a case when a view controller exist - navigation will start from the resulting view controller.
+    ///
+    /// - Parameters:
+    ///   - finder: The `Finder` instance to find a `UIViewController` in the stack
+    ///   a `UIViewController` found by the `Finder` will be considered as a view controller to start routing process from
+    public func addCase<F: Finder>(when finder: F) -> Self {
+        resolvers.append(FinderResolver(finder: finder, step: Optional<DestinationStep<Context>>.none))
         return self
     }
 
     /// Assembles all the cases in to a `RoutingStep` implementation
     ///
     /// - Returns: instance of a `RoutingStep`
-    public func assemble<C>() -> DestinationStep<C> {
-        return DestinationStep(SwitcherStep<C>(resolvers: resolvers))
+    public func assemble() -> DestinationStep<Context> {
+        return DestinationStep(SwitcherStep<Context>(resolvers: resolvers))
     }
 
     /// Assembles all the cases in a `RoutingStep` instance and adds the default implementation what to do

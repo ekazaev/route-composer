@@ -17,7 +17,7 @@ class CityDetailContextTask: ContextTask {
 
 class CityDetailViewController: UIViewController, ExampleAnalyticsSupport {
 
-    let analyticParameters = ExampleAnalyticsParameters(source: .cityDetail)
+    let screenType = ExampleScreen.cityDetail
 
     @IBOutlet private var detailsTextView: UITextView!
 

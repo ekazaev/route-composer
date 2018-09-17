@@ -19,7 +19,7 @@ public struct DestinationStep<C>: RoutingStepWithContext, ChainableStep, Perform
         self.destinationStep = destinationStep
     }
 
-    func perform(for destination: Any?) -> StepResult {
+    func perform(for context: Any?) -> StepResult {
         return .continueRouting(nil)
     }
 

@@ -40,7 +40,7 @@ public struct StepChainAssembly<C> {
     ///
     /// - Parameter step: An instance of `RoutingStep` to start to build a current step from.
     /// - Returns: An instance of `RoutingStep` with all the provided settings inside.
-    public func assemble<AC>(_ step: DestinationStep<AC>) -> DestinationStep<C> {
+    public func assemble<AC>(from step: DestinationStep<AC>) -> DestinationStep<C> {
         var previousSteps = self.previousSteps
         previousSteps.append(step)
         return LastStepInChainAssembly<C>(previousSteps: previousSteps).assemble()

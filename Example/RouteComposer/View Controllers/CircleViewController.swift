@@ -11,7 +11,7 @@ import RouteComposer
 
 class CircleViewController: UIViewController, ExampleAnalyticsSupport {
 
-    let analyticParameters = ExampleAnalyticsParameters(source: .circle)
+    let screenType = ExampleScreen.circle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +34,7 @@ class CircleViewController: UIViewController, ExampleAnalyticsSupport {
     }
 
     @IBAction func goToProductTapped() {
-        router.navigate(to: ProductConfiguration.productStep(), with: ProductContext(productId: "00"))
+        router.navigate(to: ProductConfiguration.productScreen, with: ProductContext(productId: "00"))
     }
 
     @IBAction func goToWelcomeTapped() {

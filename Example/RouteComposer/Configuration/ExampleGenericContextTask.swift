@@ -7,9 +7,10 @@ import Foundation
 import UIKit
 import RouteComposer
 
-struct ExampleGenericContextTask: ContextTask {
-
-    func apply(on viewController: UIViewController, with context: Any?) throws {
+struct ExampleGenericContextTask<VC: UIViewController, C>: ContextTask {
+    typealias ViewController = VC
+    typealias Context = C
+    func apply(on viewController: ViewController, with context: Context) throws {
         print("View controller name is \(String(describing: viewController))")
     }
 

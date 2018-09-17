@@ -106,7 +106,7 @@ extension DefaultRouter {
     // store a reference there.
     struct EmptyPostTask: PostRoutingTask {
 
-        func execute(on viewController: UIViewController, for destination: Any?, routingStack: [UIViewController]) {
+        func execute(on viewController: UIViewController, for context: Any?, routingStack: [UIViewController]) {
         }
 
     }

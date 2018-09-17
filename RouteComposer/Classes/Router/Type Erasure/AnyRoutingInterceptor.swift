@@ -10,7 +10,7 @@ protocol AnyRoutingInterceptor {
 
     mutating func prepare(with context: Any?) throws
 
-    func execute(for context: Any?, completion: @escaping (_: InterceptorResult) -> Void)
+    func execute(with context: Any?, completion: @escaping (_: InterceptorResult) -> Void)
 
 }
 
@@ -30,12 +30,12 @@ struct RoutingInterceptorBox<R: RoutingInterceptor>: AnyRoutingInterceptor, Cust
         try self.routingInterceptor.prepare(with: typedDestination)
     }
 
-    func execute(for context: Any?, completion: @escaping (InterceptorResult) -> Void) {
+    func execute(with context: Any?, completion: @escaping (InterceptorResult) -> Void) {
         guard let typedDestination = Any?.some(context as Any) as? R.Context else {
             completion(.failure("\(String(describing: routingInterceptor)) does not accept \(String(describing: context)) as a destination."))
             return
         }
-        routingInterceptor.execute(for: typedDestination, completion: completion)
+        routingInterceptor.execute(with: typedDestination, completion: completion)
     }
 
     var description: String {

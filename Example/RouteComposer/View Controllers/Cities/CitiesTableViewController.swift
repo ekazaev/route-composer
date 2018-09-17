@@ -17,7 +17,7 @@ class CityTableContextTask: ContextTask {
 
 class CitiesTableViewController: UITableViewController, ExampleAnalyticsSupport {
 
-    let analyticParameters = ExampleAnalyticsParameters(source: .citiesList)
+    let screenType = ExampleScreen.citiesList
 
     var cityId: Int? {
         didSet {

@@ -11,7 +11,7 @@ import RouteComposer
 
 class SquareViewController: UIViewController, ExampleAnalyticsSupport {
 
-    let analyticParameters = ExampleAnalyticsParameters(source: .square)
+    let screenType = ExampleScreen.square
 
     override func viewDidLoad() {
         super.viewDidLoad()

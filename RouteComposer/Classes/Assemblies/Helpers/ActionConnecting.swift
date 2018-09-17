@@ -7,6 +7,7 @@ import Foundation
 /// Assembly that extends this protocol should be able to connect an action to its step.
 public protocol ActionConnecting {
 
+    /// Associated type of the `Context`
     associatedtype Context
 
     /// Connects previously provided `RoutingStep` instance with an `Action`

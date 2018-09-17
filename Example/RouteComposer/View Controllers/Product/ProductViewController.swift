@@ -13,7 +13,7 @@ struct ProductContext {
 
     let productURL: URL?
 
-    init(productId: String, productURL: URL? = nil ) {
+    init(productId: String, productURL: URL? = nil) {
         self.productId = productId
         self.productURL = productURL
     }
@@ -29,7 +29,7 @@ class ProductContextTask: ContextTask {
 
 class ProductViewController: UIViewController, ExampleAnalyticsSupport {
 
-    let analyticParameters = ExampleAnalyticsParameters(source: .product)
+    let screenType = ExampleScreen.product
 
     typealias Model = String
 
@@ -76,7 +76,7 @@ class ProductViewController: UIViewController, ExampleAnalyticsSupport {
     }
 
     @IBAction func goToProductTapped() {
-        router.navigate(to: ProductConfiguration.productStep(), with: ProductContext(productId: "01"))
+        router.navigate(to: ProductConfiguration.productScreen, with: ProductContext(productId: "01"))
     }
 
 }
