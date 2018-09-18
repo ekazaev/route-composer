@@ -31,10 +31,7 @@ public protocol Action {
 }
 
 /// Represents an action to be used by a `Container` to build it's children view controller stack
-public protocol ContainerAction: Action {
-
-     /// Type of the `Container` supported by the `ContainerAction`
-    associatedtype SupportedContainer: Container where SupportedContainer.ViewController == ViewController
+public protocol ContainerAction: Action where Self.ViewController: ContainerViewController {
 
     /// If current `UIViewController` has to be pushed/added/etc to the existing stack of the view controllers,
     /// this method should be called instead.

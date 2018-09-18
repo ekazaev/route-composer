@@ -50,8 +50,6 @@ extension UITabBarController {
     /// Integrates a `UIViewController` in to a `UITabBarController`
     public struct AddTabAction<SC: Container>: ContainerAction where SC.ViewController: UITabBarController {
 
-        public typealias SupportedContainer = TabBarControllerFactory
-
         let tabIndex: Int?
 
         let replacing: Bool
@@ -82,7 +80,7 @@ extension UITabBarController {
         }
 
         public func perform(with viewController: UIViewController,
-                            on tabBarController: UITabBarController,
+                            on tabBarController: SC.ViewController,
                             animated: Bool,
                             completion: @escaping(_: ActionResult) -> Void) {
             var tabViewControllers = tabBarController.viewControllers ?? []

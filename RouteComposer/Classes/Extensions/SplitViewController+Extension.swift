@@ -44,14 +44,12 @@ extension UISplitViewController {
     /// Presents a detail view controller in the `UISplitViewController`
     public struct PushToDetailsAction<SC: Container>: ContainerAction where SC.ViewController: UISplitViewController {
 
-        public typealias SupportedContainer = SplitControllerFactory
-
         /// Constructor
         init() {
         }
 
         public func perform(with viewController: UIViewController,
-                            on splitViewController: SupportedContainer.ViewController,
+                            on splitViewController: SC.ViewController,
                             animated: Bool,
                             completion: @escaping (_: ActionResult) -> Void) {
             guard !splitViewController.viewControllers.isEmpty else {
@@ -67,8 +65,6 @@ extension UISplitViewController {
     /// Presents a master view controller in the `UISplitViewController`
     public struct SetAsMasterAction<SC: Container>: ContainerAction where SC.ViewController: UISplitViewController {
 
-        public typealias SupportedContainer = SplitControllerFactory
-
         /// Constructor
         init() {
         }
@@ -82,7 +78,7 @@ extension UISplitViewController {
         }
 
         public func perform(with viewController: UIViewController,
-                            on splitViewController: SupportedContainer.ViewController,
+                            on splitViewController: SC.ViewController,
                             animated: Bool,
                             completion: @escaping (_: ActionResult) -> Void) {
             guard !splitViewController.viewControllers.isEmpty else {

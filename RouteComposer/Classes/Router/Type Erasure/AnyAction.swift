@@ -59,7 +59,7 @@ struct ContainerActionBox<A: ContainerAction>: AnyAction, CustomStringConvertibl
 
     func perform(with viewController: UIViewController, on existingController: UIViewController, animated: Bool, completion: @escaping (ActionResult) -> Void) {
         guard let containerController = findContainer(startingFrom: existingController) else {
-            completion(.failure("Container of \(String(describing: A.SupportedContainer.ViewController.self)) type can not be found to perform \(action)"))
+            completion(.failure("Container of \(String(describing: A.ViewController.self)) type can not be found to perform \(action)"))
             return
         }
 
@@ -70,10 +70,10 @@ struct ContainerActionBox<A: ContainerAction>: AnyAction, CustomStringConvertibl
         action.perform(embedding: viewController, in: &childViewControllers)
     }
 
-    private func findContainer(startingFrom viewController: UIViewController) -> A.SupportedContainer.ViewController? {
+    private func findContainer(startingFrom viewController: UIViewController) -> A.ViewController? {
         var currentViewController: UIViewController? = viewController
         while currentViewController != nil {
-            if let containerViewController = currentViewController as? A.SupportedContainer.ViewController {
+            if let containerViewController = currentViewController as? A.ViewController {
                 return containerViewController
             }
             currentViewController = currentViewController?.parent

@@ -49,7 +49,7 @@ public final class CompleteFactoryAssembly<FC: Container> {
     ///   - action: The instance of `Factory` to be used to integrate the view controller produced by the factory.
     public func with<C: Factory, A: ContainerAction>(_ childFactory: C, using action: A) -> Self
             where
-            C.Context == FC.Context, A.SupportedContainer.ViewController == FC.ViewController {
+            C.Context == FC.Context, A.ViewController == FC.ViewController {
         guard let factoryBox = FactoryBox.box(for: childFactory, action: ContainerActionBox(action)) else {
             return self
         }
@@ -64,7 +64,7 @@ public final class CompleteFactoryAssembly<FC: Container> {
     ///   - action: The instance of `Container` to be used to integrate the view controller produced by the factory.
     public func with<C: Container, A: ContainerAction>(_ childFactory: C, using action: A) -> Self
             where
-            C.Context == FC.Context, A.SupportedContainer.ViewController == FC.ViewController {
+            C.Context == FC.Context, A.ViewController == FC.ViewController {
         guard let factoryBox = ContainerFactoryBox.box(for: childFactory, action: ContainerActionBox(action)) else {
             return self
         }
