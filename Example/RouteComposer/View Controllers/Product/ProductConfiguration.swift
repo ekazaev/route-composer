@@ -22,7 +22,7 @@ class ProductConfiguration {
                 print("After navigation to Produce view controller")
             }))
             .add(ProductContextTask())
-            .using(NavigationControllerFactory.PushToNavigation())
+            .using(NavigationControllerFactory.pushToNavigation())
             .from(SwitchAssembly<Any?>()
                     .addCase { (context: ProductContext) in
                         // If routing requested by Universal Link - Presenting modally
@@ -32,7 +32,7 @@ class ProductConfiguration {
                         }
 
                         return ChainAssembly.from(NavigationControllerStep())
-                                .using(GeneralAction.PresentModally())
+                                .using(GeneralAction.presentModally())
                                 .from(GeneralStep.current())
                                 .assemble()
 

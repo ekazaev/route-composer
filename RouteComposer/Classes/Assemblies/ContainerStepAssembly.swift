@@ -3,6 +3,7 @@
 //
 
 import Foundation
+import UIKit
 
 /// Builds a `RoutingStep` instance with the correct settings.
 /// ### Keep in mind
@@ -81,7 +82,7 @@ public extension ContainerStepAssembly where FC: NilEntity {
     /// Created to remind user that factory that does not produce anything in most cases should
     /// be used with `NilAction`
     public func usingNoAction() -> StepChainAssembly<Context> {
-        return using(GeneralAction.NilAction())
+        return using(GeneralAction.nilAction())
     }
 
 }

@@ -45,7 +45,7 @@ public extension ActionConnectingAssembly where FC: NilEntity {
     /// Created to remind user that factory that does not produce anything in most cases should
     /// be used with `NilAction`
     public func usingNoAction() -> StepChainAssembly<Context> {
-        return using(GeneralAction.NilAction())
+        return using(GeneralAction.nilAction())
     }
 
 }

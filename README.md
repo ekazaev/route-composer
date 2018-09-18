@@ -269,9 +269,9 @@ let productScreen = StepAssembly(finder: ProductViewControllerFinder(), factory:
         .add(LoginInterceptor<String>())
         .add(ProductViewControllerContextTask())
         .add(ProductViewControllerPostTask(analyticsManager: AnalyticsManager.sharedInstance))
-        .using(NavigationControllerFactory.PushToNavigation())
+        .using(NavigationControllerFactory.pushToNavigation())
         .from(NavigationControllerStep())
-        .using(GeneralActions.PresentModally())
+        .using(GeneralActions.presentModally())
         .from(GeneralStep.current())
         .assemble()
 ```
@@ -304,9 +304,9 @@ struct Configuration {
                 .add(LoginInterceptor<String>())
                 .add(ProductViewControllerContextTask())
                 .add(ProductViewControllerPostTask(analyticsManager: AnalyticsManager.sharedInstance))
-                .using(NavigationControllerFactory.PushToNavigation())
+                .using(NavigationControllerFactory.pushToNavigation())
                 .from(NavigationControllerStep())
-                .using(GeneralActions.PresentModally())
+                .using(GeneralActions.presentModally())
                 .from(GeneralStep.current())
                 .assemble()
 

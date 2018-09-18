@@ -37,3 +37,63 @@ extension UISplitViewController: RoutingInterceptable {
     }
 
 }
+
+// Just an `Action`s holder
+extension UISplitViewController {
+
+    /// Presents a detail view controller in the `UISplitViewController`
+    public struct PushToDetailsAction<SC: Container>: ContainerAction where SC.ViewController: UISplitViewController {
+
+        public typealias SupportedContainer = SplitControllerFactory
+
+        /// Constructor
+        init() {
+        }
+
+        public func perform(with viewController: UIViewController,
+                            on splitViewController: SupportedContainer.ViewController,
+                            animated: Bool,
+                            completion: @escaping (_: ActionResult) -> Void) {
+            guard !splitViewController.viewControllers.isEmpty else {
+                completion(.failure("Master view controller is not set in  \(splitViewController) to present a detail view controller \(viewController)."))
+                return
+            }
+
+            splitViewController.showDetailViewController(viewController, sender: nil)
+            completion(.continueRouting)
+        }
+    }
+
+    /// Presents a master view controller in the `UISplitViewController`
+    public struct SetAsMasterAction<SC: Container>: ContainerAction where SC.ViewController: UISplitViewController {
+
+        public typealias SupportedContainer = SplitControllerFactory
+
+        /// Constructor
+        init() {
+        }
+
+        public func perform(embedding viewController: UIViewController, in childViewControllers: inout [UIViewController]) {
+            if !childViewControllers.isEmpty {
+                childViewControllers.insert(viewController, at: 0)
+            } else {
+                childViewControllers.append(viewController)
+            }
+        }
+
+        public func perform(with viewController: UIViewController,
+                            on splitViewController: SupportedContainer.ViewController,
+                            animated: Bool,
+                            completion: @escaping (_: ActionResult) -> Void) {
+            guard !splitViewController.viewControllers.isEmpty else {
+                completion(.failure("Could not find UISplitViewController in \(splitViewController) to present master view controller \(viewController)."))
+                return
+            }
+
+            splitViewController.viewControllers[0] = viewController
+            completion(.continueRouting)
+        }
+
+    }
+
+}

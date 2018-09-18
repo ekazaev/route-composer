@@ -40,7 +40,7 @@ extension ExampleWireframe {
                 // least one custom factory of finder that have set typealias for ViewController and Context.
                 finder: ClassFinder<UITabBarController, Any?>(),
                 factory: StoryboardFactory(storyboardName: "TabBar"))
-                .using(GeneralAction.ReplaceRoot())
+                .using(GeneralAction.replaceRoot())
                 .from(GeneralStep.root())
                 .assemble()
         return ExampleDestination(step: homeScreen, context: nil)
@@ -77,9 +77,9 @@ extension ExampleWireframe {
                 finder: ColorViewControllerFinder(),
                 factory: ColorViewControllerFactory())
                 .add(ExampleGenericContextTask<ColorViewController, ExampleDictionaryContext>())
-                .using(NavigationControllerFactory.PushToNavigation())
+                .using(NavigationControllerFactory.pushToNavigation())
                 .from(NavigationControllerStep())
-                .using(GeneralAction.PresentModally())
+                .using(GeneralAction.presentModally())
                 .from(GeneralStep.current())
                 .assemble()
         return ExampleDestination(step: colorScreen, context: ExampleDictionaryContext(arguments: [.color: color]))
@@ -92,7 +92,7 @@ extension ExampleWireframe {
                 finder: ClassFinder<RoutingRuleSupportViewController, Any?>(options: .currentAllStack),
                 factory: StoryboardFactory(storyboardName: "TabBar", viewControllerID: "RoutingRuleSupportViewController"))
                 .add(ExampleGenericContextTask<RoutingRuleSupportViewController, Any?>())
-                .using(NavigationControllerFactory.PushToNavigation())
+                .using(NavigationControllerFactory.pushToNavigation())
                 .from(goToColor(color).step)
                 .assemble()
         return ExampleDestination(step: routingSupportScreen, context: ExampleDictionaryContext(arguments: [.color: color]))
@@ -106,7 +106,7 @@ extension ExampleWireframe {
                 factory: StoryboardFactory(storyboardName: "TabBar", viewControllerID: "EmptyViewController"))
                 .add(LoginInterceptor<Any?>())
                 .add(ExampleGenericContextTask<EmptyViewController, Any?>())
-                .using(NavigationControllerFactory.PushToNavigation())
+                .using(NavigationControllerFactory.pushToNavigation())
                 .from(goToCircle().step)
                 .assemble()
 
@@ -119,9 +119,9 @@ extension ExampleWireframe {
                 finder: ClassFinder<SecondModalLevelViewController, Any?>(),
                 factory: StoryboardFactory(storyboardName: "TabBar", viewControllerID: "SecondModalLevelViewController"))
                 .add(ExampleGenericContextTask<SecondModalLevelViewController, Any?>())
-                .using(NavigationControllerFactory.PushToNavigation())
+                .using(NavigationControllerFactory.pushToNavigation())
                 .from(NavigationControllerStep())
-                .using(GeneralAction.PresentModally(transitioningDelegate: transitionController))
+                .using(GeneralAction.presentModally(transitioningDelegate: transitionController))
                 .from(goToRoutingSupport(color).step)
                 .assemble()
         return ExampleDestination(step: superModalScreen, context: ExampleDictionaryContext(arguments: [.color: color]))
@@ -133,7 +133,7 @@ extension ExampleWireframe {
                 finder: ClassFinder<PromptViewController, Any?>(),
                 factory: StoryboardFactory(storyboardName: "PromptScreen"))
                 .add(ExampleGenericContextTask<PromptViewController, Any?>())
-                .using(GeneralAction.ReplaceRoot())
+                .using(GeneralAction.replaceRoot())
                 .from(GeneralStep.root())
                 .assemble()
         return ExampleDestination(step: welcomeScreen, context: nil)
@@ -150,7 +150,7 @@ struct ExampleWireframeImpl: ExampleWireframe {
                 factory: XibFactory())
                 .add(ExampleGenericContextTask<StarViewController, Any?>())
                 .add(LoginInterceptor<Any?>())
-                .using(TabBarControllerFactory.AddTab())
+                .using(TabBarControllerFactory.addTab())
                 .from(goToHome().step)
                 .assemble()
         return ExampleDestination(step: starScreen, context: nil)
@@ -167,7 +167,7 @@ struct AlternativeExampleWireframeImpl: ExampleWireframe {
                 factory: XibFactory())
                 .add(ExampleGenericContextTask<StarViewController, Any?>())
                 .add(LoginInterceptor())
-                .using(NavigationControllerFactory.PushToNavigation())
+                .using(NavigationControllerFactory.pushToNavigation())
                 .from(goToCircle().step)
                 .assemble()
         return ExampleDestination(step: starScreen, context: nil)

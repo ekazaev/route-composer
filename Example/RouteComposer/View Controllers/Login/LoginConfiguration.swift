@@ -15,7 +15,7 @@ struct LoginConfiguration {
                 .from(SingleStep(
                         finder: NilFinder(),
                         factory: StoryboardFactory<UINavigationController, Any?>(storyboardName: "Login")))
-                .using(GeneralAction.PresentModally(presentationStyle: .formSheet))
+                .using(GeneralAction.presentModally(presentationStyle: .formSheet))
                 .from(GeneralStep.current())
                 .assemble()
 

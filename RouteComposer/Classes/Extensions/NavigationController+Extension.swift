@@ -40,3 +40,81 @@ extension UINavigationController: RoutingInterceptable {
     }
 
 }
+
+// Just an `Action`s holder
+extension UINavigationController {
+
+    /// Pushes a view controller in to `UINavigationController`'s child stack
+    public struct PushAction<SC: Container>: ContainerAction where SC.ViewController: UINavigationController {
+
+        public typealias SupportedContainer = SC
+
+        /// Constructor
+        init() {
+        }
+
+        public func perform(with viewController: UIViewController,
+                            on navigationController: SupportedContainer.ViewController,
+                            animated: Bool,
+                            completion: @escaping(_: ActionResult) -> Void) {
+            navigationController.pushViewController(viewController, animated: animated)
+            return completion(.continueRouting)
+        }
+
+    }
+
+    /// Replaces all the child view controllers in the `UINavigationController`'s child stack
+    public struct PushAsRootAction<SC: Container>: ContainerAction where SC.ViewController: UINavigationController {
+
+        public typealias SupportedContainer = SC
+
+        /// Constructor
+        init() {
+        }
+
+        public func perform(embedding viewController: UIViewController,
+                            in childViewControllers: inout [UIViewController]) {
+            childViewControllers.removeAll()
+            childViewControllers.append(viewController)
+        }
+
+        public func perform(with viewController: UIViewController,
+                            on navigationController: SupportedContainer.ViewController,
+                            animated: Bool,
+                            completion: @escaping(_: ActionResult) -> Void) {
+            navigationController.setViewControllers([viewController], animated: animated)
+            return completion(.continueRouting)
+        }
+
+    }
+
+    /// Pushes a view controller into the `UINavigationController`'s child stack replacing the last one
+    public struct PushReplacingLastAction<SC: Container>: ContainerAction where SC.ViewController: UINavigationController {
+
+        public typealias SupportedContainer = SC
+
+        /// Constructor
+        init() {
+        }
+
+        public func perform(embedding viewController: UIViewController,
+                            in childViewControllers: inout [UIViewController]) {
+            if !childViewControllers.isEmpty {
+                childViewControllers.removeLast()
+            }
+            childViewControllers.append(viewController)
+        }
+
+        public func perform(with viewController: UIViewController,
+                            on navigationController: SupportedContainer.ViewController,
+                            animated: Bool,
+                            completion: @escaping(_: ActionResult) -> Void) {
+            var viewControllers = navigationController.viewControllers
+            perform(embedding: viewController, in: &viewControllers)
+            navigationController.setViewControllers(viewControllers, animated: animated)
+            return completion(.continueRouting)
+        }
+
+    }
+
+}

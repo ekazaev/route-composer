@@ -107,28 +107,10 @@
                 <a href="../Structs/NavigationControllerFactory.html">NavigationControllerFactory</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/NavigationControllerFactory/PushAsRoot.html">– PushAsRoot</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Structs/NavigationControllerFactory/PushReplacingLast.html">– PushReplacingLast</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Structs/NavigationControllerFactory/PushToNavigation.html">– PushToNavigation</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Structs/TabBarControllerFactory.html">TabBarControllerFactory</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/TabBarControllerFactory/AddTab.html">– AddTab</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Structs/SplitControllerFactory.html">SplitControllerFactory</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Structs/SplitControllerFactory/PushToDetails.html">– PushToDetails</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Structs/SplitControllerFactory/PushToMaster.html">– PushToMaster</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/NilFactory.html">NilFactory</a>
@@ -243,13 +225,40 @@
                 <a href="../Extensions/UINavigationController.html">UINavigationController</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Extensions/UINavigationController/PushAction.html">– PushAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/UINavigationController/PushAsRootAction.html">– PushAsRootAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/UINavigationController/PushReplacingLastAction.html">– PushReplacingLastAction</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Extensions/UISplitViewController.html">UISplitViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/UISplitViewController/PushToDetailsAction.html">– PushToDetailsAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/UISplitViewController/SetAsMasterAction.html">– SetAsMasterAction</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Extensions/UITabBarController.html">UITabBarController</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Extensions/UITabBarController/AddTabAction.html">– AddTabAction</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Extensions/UIViewController.html">UIViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/UIViewController/NilAction.html">– NilAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/UIViewController/PresentModallyAction.html">– PresentModallyAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/UIViewController/ReplaceRootAction.html">– ReplaceRootAction</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Extensions/UIWindow.html">UIWindow</a>
@@ -305,15 +314,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/GeneralAction.html">GeneralAction</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Structs/GeneralAction/NilAction.html">– NilAction</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Structs/GeneralAction/PresentModally.html">– PresentModally</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Structs/GeneralAction/ReplaceRoot.html">– ReplaceRoot</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/InlineContextTask.html">InlineContextTask</a>
@@ -425,6 +425,96 @@ one that user is looking for.</p>
                       <div>
                         <h4>Return Value</h4>
                         <p>A <code>UIViewController</code> instance if found, <code>nil</code> otherwise.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:So16UIViewControllerC13RouteComposerE9NilActionV"></a>
+                    <a name="//apple_ref/swift/Struct/NilAction" class="dashAnchor"></a>
+                    <a class="token" href="#/s:So16UIViewControllerC13RouteComposerE9NilActionV">NilAction</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The dummy <code><a href="../Protocols/Action.html">Action</a></code> instance mostly for the internal use, but can be useful outside of the library
+in combination with the factories that produces the view controllers that should not have to be integrated into the
+view controller&rsquo;s stack.</p>
+
+                        <a href="../Extensions/UIViewController/NilAction.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">NilAction</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/Action.html">Action</a></span><span class="p">,</span> <span class="kt"><a href="../Other Protocols.html#/s:13RouteComposer9NilEntityP">NilEntity</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:So16UIViewControllerC13RouteComposerE20PresentModallyActionV"></a>
+                    <a name="//apple_ref/swift/Struct/PresentModallyAction" class="dashAnchor"></a>
+                    <a class="token" href="#/s:So16UIViewControllerC13RouteComposerE20PresentModallyActionV">PresentModallyAction</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Presents a view controller modally</p>
+
+                        <a href="../Extensions/UIViewController/PresentModallyAction.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">PresentModallyAction</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/Action.html">Action</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:So16UIViewControllerC13RouteComposerE17ReplaceRootActionV"></a>
+                    <a name="//apple_ref/swift/Struct/ReplaceRootAction" class="dashAnchor"></a>
+                    <a class="token" href="#/s:So16UIViewControllerC13RouteComposerE17ReplaceRootActionV">ReplaceRootAction</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Replaces the root view controller in the key <code>UIWindow</code></p>
+
+                        <a href="../Extensions/UIViewController/ReplaceRootAction.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ReplaceRootAction</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/Action.html">Action</a></span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>

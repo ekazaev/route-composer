@@ -11,27 +11,27 @@ class BoxTests: XCTestCase {
 
     func testFactoryBox() {
         let factory = EmptyFactory()
-        XCTAssertNotNil(FactoryBox.box(for: factory, action: ActionBox(GeneralAction.NilAction())))
+        XCTAssertNotNil(FactoryBox.box(for: factory, action: ActionBox(GeneralAction.nilAction())))
     }
 
     func testContainerBox() {
         let factory = EmptyContainer()
-        XCTAssertNotNil(ContainerFactoryBox.box(for: factory, action: ActionBox(GeneralAction.NilAction())))
+        XCTAssertNotNil(ContainerFactoryBox.box(for: factory, action: ActionBox(GeneralAction.nilAction())))
     }
 
     func testNilFactoryBox() {
         let factory = NilFactory<UIViewController, Any?>()
-        XCTAssertNil(FactoryBox.box(for: factory, action: ActionBox(GeneralAction.NilAction())))
+        XCTAssertNil(FactoryBox.box(for: factory, action: ActionBox(GeneralAction.nilAction())))
     }
 
     func testContainerBoxChildrenScrape() {
         let factory = EmptyContainer()
-        var box = ContainerFactoryBox.box(for: factory, action: ActionBox(GeneralAction.NilAction())) as? ContainerFactoryBox<EmptyContainer>
+        var box = ContainerFactoryBox.box(for: factory, action: ActionBox(GeneralAction.nilAction())) as? ContainerFactoryBox<EmptyContainer>
         XCTAssertNotNil(box)
         var children: [AnyFactory] = []
-        children.append(FactoryBox.box(for: EmptyFactory(), action: ContainerActionBox(NavigationControllerFactory.PushToNavigation()))!)
-        children.append(FactoryBox.box(for: EmptyFactory(), action: ContainerActionBox(NavigationControllerFactory.PushToNavigation()))!)
-        children.append(FactoryBox.box(for: EmptyFactory(), action: ActionBox(GeneralAction.NilAction()))!)
+        children.append(FactoryBox.box(for: EmptyFactory(), action: ContainerActionBox(NavigationControllerFactory.pushToNavigation()))!)
+        children.append(FactoryBox.box(for: EmptyFactory(), action: ContainerActionBox(NavigationControllerFactory.pushToNavigation()))!)
+        children.append(FactoryBox.box(for: EmptyFactory(), action: ActionBox(GeneralAction.nilAction()))!)
 
         let resultChildren = try? box?.scrapeChildren(from: children)
         XCTAssertEqual(resultChildren??.count, 1)
@@ -41,7 +41,7 @@ class BoxTests: XCTestCase {
     func testNilInAssembly() {
         let routingStep = StepAssembly(finder: NilFinder<UIViewController, Any?>(),
                 factory: NilFactory<UIViewController, Any?>())
-                .using(GeneralAction.NilAction())
+                .using(GeneralAction.nilAction())
                 .from(GeneralStep.current())
                 .assemble()
         let step = routingStep.previousStep as? BaseStep<FactoryBox<NilFactory<UIViewController, Any?>>>
@@ -52,8 +52,8 @@ class BoxTests: XCTestCase {
 
     func testNilInCompleteFactoryAssembly() {
         let factory = CompleteFactoryAssembly(factory: TabBarControllerFactory())
-                .with(NilFactory<UIViewController, Any?>(), using: TabBarControllerFactory.AddTab())
-                .with(NilFactory<UIViewController, Any?>(), using: TabBarControllerFactory.AddTab())
+                .with(NilFactory<UIViewController, Any?>(), using: TabBarControllerFactory.addTab())
+                .with(NilFactory<UIViewController, Any?>(), using: TabBarControllerFactory.addTab())
                 .assemble()
         XCTAssertEqual(factory.childFactories.count, 0)
     }

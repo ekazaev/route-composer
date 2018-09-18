@@ -19,7 +19,7 @@ class ActionTests: XCTestCase {
 
     func testNilAction() {
         var wasInCompletion = false
-        GeneralAction.NilAction().perform(with: UIViewController(), on: UIViewController(), animated: true, completion: { result in
+        GeneralAction.nilAction().perform(with: UIViewController(), on: UIViewController(), animated: true, completion: { result in
             wasInCompletion = true
             if case .failure(_) = result {
                 XCTAssert(false)
@@ -43,7 +43,7 @@ class ActionTests: XCTestCase {
         var wasInPopoverConfig = false
         let viewController = UIViewController()
         let transitionDelegate = TransitionDelegate()
-        GeneralAction.PresentModally(presentationStyle: .popover,
+        GeneralAction.presentModally(presentationStyle: .popover,
                 transitionStyle: .crossDissolve,
                 transitioningDelegate: transitionDelegate,
                 preferredContentSize: CGSize(width: 100, height: 100),
@@ -66,7 +66,7 @@ class ActionTests: XCTestCase {
         let presentedViewController = RouterTests.TestModalPresentableController()
         presentedViewController.fakePresentedViewController = UIViewController()
         wasInCompletion = false
-        GeneralAction.PresentModally().perform(with: UIViewController(), on: presentedViewController, animated: true, completion: { result in
+        GeneralAction.presentModally().perform(with: UIViewController(), on: presentedViewController, animated: true, completion: { result in
             wasInCompletion = true
             if case .continueRouting = result {
                 XCTAssert(false)
@@ -77,10 +77,10 @@ class ActionTests: XCTestCase {
 
     func testNavReplacingLast() {
         var viewControllerStack: [UIViewController] = []
-        NavigationControllerFactory.PushReplacingLast().perform(embedding: UIViewController(), in: &viewControllerStack)
+        NavigationControllerFactory.pushReplacingLast().perform(embedding: UIViewController(), in: &viewControllerStack)
         XCTAssertEqual(viewControllerStack.count, 1)
 
-        NavigationControllerFactory.PushReplacingLast().perform(embedding: UINavigationController(),
+        NavigationControllerFactory.pushReplacingLast().perform(embedding: UINavigationController(),
                 in: &viewControllerStack)
         XCTAssertEqual(viewControllerStack.count, 1)
         XCTAssert(viewControllerStack.first!.isKind(of: UINavigationController.self))
@@ -88,17 +88,17 @@ class ActionTests: XCTestCase {
 
     func testNavPushAsRoot() {
         var viewControllerStack: [UIViewController] = []
-        NavigationControllerFactory.PushAsRoot().perform(embedding: UIViewController(), in: &viewControllerStack)
+        NavigationControllerFactory.pushAsRoot().perform(embedding: UIViewController(), in: &viewControllerStack)
         XCTAssertEqual(viewControllerStack.count, 1)
 
-        NavigationControllerFactory.PushAsRoot().perform(embedding: UINavigationController(), in: &viewControllerStack)
+        NavigationControllerFactory.pushAsRoot().perform(embedding: UINavigationController(), in: &viewControllerStack)
         XCTAssertEqual(viewControllerStack.count, 1)
         XCTAssert(viewControllerStack.first!.isKind(of: UINavigationController.self))
 
         var wasInCompletion = false
         let navigationController = UINavigationController(rootViewController: UIViewController())
         let newRootController = UIViewController()
-        NavigationControllerFactory.PushAsRoot().perform(with: newRootController, on: navigationController, animated: false, completion: { result in
+        NavigationControllerFactory.pushAsRoot().perform(with: newRootController, on: navigationController, animated: false, completion: { result in
             wasInCompletion = true
             if case .failure(_) = result {
                 XCTAssert(false)
@@ -111,10 +111,10 @@ class ActionTests: XCTestCase {
 
     func testNavPushToNavigation() {
         var viewControllerStack: [UIViewController] = []
-        NavigationControllerFactory.PushToNavigation().perform(embedding: UIViewController(), in: &viewControllerStack)
+        NavigationControllerFactory.pushToNavigation().perform(embedding: UIViewController(), in: &viewControllerStack)
         XCTAssertEqual(viewControllerStack.count, 1)
 
-        NavigationControllerFactory.PushToNavigation().perform(embedding: UINavigationController(),
+        NavigationControllerFactory.pushToNavigation().perform(embedding: UINavigationController(),
                 in: &viewControllerStack)
         XCTAssertEqual(viewControllerStack.count, 2)
         XCTAssert(viewControllerStack.last!.isKind(of: UINavigationController.self))
@@ -123,7 +123,7 @@ class ActionTests: XCTestCase {
         var wasInCompletion = false
         let navigationController = UINavigationController(rootViewController: UIViewController())
         let viewController = UIViewController()
-        NavigationControllerFactory.PushToNavigation().perform(with: viewController, on: navigationController, animated: false, completion: { result in
+        NavigationControllerFactory.pushToNavigation().perform(with: viewController, on: navigationController, animated: false, completion: { result in
             wasInCompletion = true
             if case .failure(_) = result {
                 XCTAssert(false)
@@ -136,10 +136,10 @@ class ActionTests: XCTestCase {
 
     func testTabAddTab() {
         var viewControllerStack: [UIViewController] = []
-        TabBarControllerFactory.AddTab().perform(embedding: UIViewController(), in: &viewControllerStack)
+        TabBarControllerFactory.addTab().perform(embedding: UIViewController(), in: &viewControllerStack)
         XCTAssertEqual(viewControllerStack.count, 1)
 
-        TabBarControllerFactory.AddTab().perform(embedding: UINavigationController(), in: &viewControllerStack)
+        TabBarControllerFactory.addTab().perform(embedding: UINavigationController(), in: &viewControllerStack)
         XCTAssertEqual(viewControllerStack.count, 2)
         XCTAssert(viewControllerStack.first!.isKind(of: UIViewController.self))
         XCTAssert(viewControllerStack.last!.isKind(of: UINavigationController.self))
@@ -148,7 +148,7 @@ class ActionTests: XCTestCase {
         let tabBarController = UITabBarController()
         tabBarController.viewControllers = [UIViewController()]
         let viewController = UIViewController()
-        TabBarControllerFactory.AddTab().perform(with: viewController, on: tabBarController, animated: false, completion: { result in
+        TabBarControllerFactory.addTab().perform(with: viewController, on: tabBarController, animated: false, completion: { result in
             wasInCompletion = true
             if case .failure(_) = result {
                 XCTAssert(false)
@@ -161,10 +161,10 @@ class ActionTests: XCTestCase {
 
     func testTabAddTabAt() {
         var viewControllerStack: [UIViewController] = []
-        TabBarControllerFactory.AddTab(at: 1).perform(embedding: UIViewController(), in: &viewControllerStack)
+        TabBarControllerFactory.addTab(at: 1).perform(embedding: UIViewController(), in: &viewControllerStack)
         XCTAssertEqual(viewControllerStack.count, 1)
 
-        TabBarControllerFactory.AddTab(at: 0).perform(embedding: UINavigationController(), in: &viewControllerStack)
+        TabBarControllerFactory.addTab(at: 0).perform(embedding: UINavigationController(), in: &viewControllerStack)
         XCTAssertEqual(viewControllerStack.count, 2)
         XCTAssert(viewControllerStack.first!.isKind(of: UINavigationController.self))
         XCTAssert(viewControllerStack.last!.isKind(of: UIViewController.self))
@@ -173,7 +173,7 @@ class ActionTests: XCTestCase {
         let tabBarController = UITabBarController()
         tabBarController.viewControllers = [UIViewController()]
         let viewController = UIViewController()
-        TabBarControllerFactory.AddTab(at: 0).perform(with: viewController, on: tabBarController, animated: false, completion: { result in
+        TabBarControllerFactory.addTab(at: 0).perform(with: viewController, on: tabBarController, animated: false, completion: { result in
             wasInCompletion = true
             if case .failure(_) = result {
                 XCTAssert(false)
@@ -186,11 +186,11 @@ class ActionTests: XCTestCase {
 
     func testTabAddTabReplacing() {
         var viewControllerStack: [UIViewController] = []
-        TabBarControllerFactory.AddTab(at: 1, replacing: true).perform(embedding: UIViewController(),
+        TabBarControllerFactory.addTab(at: 1, replacing: true).perform(embedding: UIViewController(),
                 in: &viewControllerStack)
         XCTAssertEqual(viewControllerStack.count, 1)
 
-        TabBarControllerFactory.AddTab(at: 0, replacing: true).perform(embedding: UINavigationController(),
+        TabBarControllerFactory.addTab(at: 0, replacing: true).perform(embedding: UINavigationController(),
                 in: &viewControllerStack)
         XCTAssertEqual(viewControllerStack.count, 1)
         XCTAssert(viewControllerStack.first!.isKind(of: UINavigationController.self))
@@ -199,7 +199,7 @@ class ActionTests: XCTestCase {
         let tabBarController = UITabBarController()
         tabBarController.viewControllers = [UIViewController()]
         let viewController = UIViewController()
-        TabBarControllerFactory.AddTab(at: 0, replacing: true).perform(with: viewController, on: tabBarController, animated: false, completion: { result in
+        TabBarControllerFactory.addTab(at: 0, replacing: true).perform(with: viewController, on: tabBarController, animated: false, completion: { result in
             wasInCompletion = true
             if case .failure(_) = result {
                 XCTAssert(false)

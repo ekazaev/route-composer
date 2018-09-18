@@ -107,28 +107,10 @@
                 <a href="../Structs/NavigationControllerFactory.html">NavigationControllerFactory</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/NavigationControllerFactory/PushAsRoot.html">– PushAsRoot</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Structs/NavigationControllerFactory/PushReplacingLast.html">– PushReplacingLast</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Structs/NavigationControllerFactory/PushToNavigation.html">– PushToNavigation</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Structs/TabBarControllerFactory.html">TabBarControllerFactory</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/TabBarControllerFactory/AddTab.html">– AddTab</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Structs/SplitControllerFactory.html">SplitControllerFactory</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Structs/SplitControllerFactory/PushToDetails.html">– PushToDetails</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Structs/SplitControllerFactory/PushToMaster.html">– PushToMaster</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/NilFactory.html">NilFactory</a>
@@ -243,13 +225,40 @@
                 <a href="../Extensions/UINavigationController.html">UINavigationController</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Extensions/UINavigationController/PushAction.html">– PushAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/UINavigationController/PushAsRootAction.html">– PushAsRootAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/UINavigationController/PushReplacingLastAction.html">– PushReplacingLastAction</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Extensions/UISplitViewController.html">UISplitViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/UISplitViewController/PushToDetailsAction.html">– PushToDetailsAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/UISplitViewController/SetAsMasterAction.html">– SetAsMasterAction</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Extensions/UITabBarController.html">UITabBarController</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Extensions/UITabBarController/AddTabAction.html">– AddTabAction</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Extensions/UIViewController.html">UIViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/UIViewController/NilAction.html">– NilAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/UIViewController/PresentModallyAction.html">– PresentModallyAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/UIViewController/ReplaceRootAction.html">– ReplaceRootAction</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Extensions/UIWindow.html">UIWindow</a>
@@ -305,15 +314,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/GeneralAction.html">GeneralAction</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Structs/GeneralAction/NilAction.html">– NilAction</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Structs/GeneralAction/PresentModally.html">– PresentModally</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Structs/GeneralAction/ReplaceRoot.html">– ReplaceRoot</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/InlineContextTask.html">InlineContextTask</a>
@@ -410,9 +410,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer15PostRoutingTaskP7executey14ViewControllerQz2on_7ContextQz3forSaySo06UIViewH0CG12routingStacktF"></a>
-                    <a name="//apple_ref/swift/Method/execute(on:for:routingStack:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer15PostRoutingTaskP7executey14ViewControllerQz2on_7ContextQz3forSaySo06UIViewH0CG12routingStacktF">execute(on:for:routingStack:)</a>
+                    <a name="/s:13RouteComposer15PostRoutingTaskP7executey14ViewControllerQz2on_7ContextQz4withSaySo06UIViewH0CG12routingStacktF"></a>
+                    <a name="//apple_ref/swift/Method/execute(on:with:routingStack:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer15PostRoutingTaskP7executey14ViewControllerQz2on_7ContextQz4withSaySo06UIViewH0CG12routingStacktF">execute(on:with:routingStack:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -427,7 +427,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">execute</span><span class="p">(</span><span class="n">on</span> <span class="nv">viewController</span><span class="p">:</span> <span class="kt"><a href="../Protocols/PostRoutingTask.html#/s:13RouteComposer15PostRoutingTaskP14ViewController">ViewController</a></span><span class="p">,</span> <span class="k">for</span> <span class="nv">context</span><span class="p">:</span> <span class="kt"><a href="../Protocols/PostRoutingTask.html#/s:13RouteComposer15PostRoutingTaskP7Context">Context</a></span><span class="p">,</span> <span class="nv">routingStack</span><span class="p">:</span> <span class="p">[</span><span class="kt">UIViewController</span><span class="p">])</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">execute</span><span class="p">(</span><span class="n">on</span> <span class="nv">viewController</span><span class="p">:</span> <span class="kt"><a href="../Protocols/PostRoutingTask.html#/s:13RouteComposer15PostRoutingTaskP14ViewController">ViewController</a></span><span class="p">,</span> <span class="n">with</span> <span class="nv">context</span><span class="p">:</span> <span class="kt"><a href="../Protocols/PostRoutingTask.html#/s:13RouteComposer15PostRoutingTaskP7Context">Context</a></span><span class="p">,</span> <span class="nv">routingStack</span><span class="p">:</span> <span class="p">[</span><span class="kt">UIViewController</span><span class="p">])</span></code></pre>
 
                         </div>
                       </div>

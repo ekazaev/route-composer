@@ -15,9 +15,9 @@ struct ImagesConfigurationWithLibrary {
     private static let imagesContainerStep = ContainerStepAssembly(
             finder: ClassFinder<CustomContainerController, Any?>(),
             factory: CustomContainerFactory(delegate: ImagesWithLibraryHandler.shared))
-            .using(NavigationControllerFactory.PushToNavigation())
+            .using(NavigationControllerFactory.pushToNavigation())
             .from(NavigationControllerStep())
-            .using(GeneralAction.PresentModally())
+            .using(GeneralAction.presentModally())
             .from(GeneralStep.current())
             .assemble()
 

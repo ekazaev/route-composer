@@ -12,9 +12,9 @@ class AssemblyTest: XCTestCase {
 
     func testStepAssembly() {
         let lastStepAssembly = StepAssembly(finder: ClassFinder<UIViewController, Any?>(), factory: XibFactory(nibName: "AnyNibName"))
-                .using(GeneralAction.NilAction())
+                .using(GeneralAction.nilAction())
                 .from(NavigationControllerStep())
-                .using(GeneralAction.PresentModally())
+                .using(GeneralAction.presentModally())
         XCTAssertEqual(lastStepAssembly.previousSteps.count, 2)
 
         var currentStep: RoutingStep? = lastStepAssembly.assemble(from: GeneralStep.current())
@@ -32,9 +32,9 @@ class AssemblyTest: XCTestCase {
 
     func testContainerStepAssembly() {
         let lastStepAssembly = ContainerStepAssembly(finder: ClassFinder(), factory: NavigationControllerFactory())
-                .using(GeneralAction.NilAction())
+                .using(GeneralAction.nilAction())
                 .from(TabBarControllerStep())
-                .using(GeneralAction.PresentModally())
+                .using(GeneralAction.presentModally())
                 .from(GeneralStep.root())
         XCTAssertEqual(lastStepAssembly.previousSteps.count, 3)
 
@@ -53,7 +53,7 @@ class AssemblyTest: XCTestCase {
 
     func testChainAssembly() {
         let destinationStep = ChainAssembly.from(NavigationControllerStep())
-                .using(GeneralAction.PresentModally())
+                .using(GeneralAction.presentModally())
                 .from(GeneralStep.root())
                 .assemble()
         var currentStep: RoutingStep? = ChainAssembly.from(
@@ -75,11 +75,11 @@ class AssemblyTest: XCTestCase {
     func testCompleteFactoryAssembly() {
         let container = CompleteFactoryAssembly(factory: TabBarControllerFactory())
                 .with(ClassNameFactory<UIViewController, Any?>())
-                .with(ClassNameFactory<UIViewController, Any?>(), using: TabBarControllerFactory.AddTab())
+                .with(ClassNameFactory<UIViewController, Any?>(), using: TabBarControllerFactory.addTab())
                 .with(CompleteFactoryAssembly(factory: TabBarControllerFactory())
                         .with(ClassNameFactory<UIViewController, Any?>()
                         ).assemble(),
-                        using: TabBarControllerFactory.AddTab(at: 1, replacing: true))
+                        using: TabBarControllerFactory.addTab(at: 1, replacing: true))
                 .assemble()
         XCTAssertEqual(container.childFactories.count, 3)
         let tabBarController = try? container.build()

@@ -34,7 +34,7 @@ ClassFinder<AccountViewController, Any?>(options: [.current, .visible, .presenti
     let screen = StepAssembly(
             finder: ClassFinder<HomeViewController, Any?>(),
             factory: XibFactory())
-            .using(GeneralAction.ReplaceRoot())
+            .using(GeneralAction.replaceRoot())
             .from(GeneralStep.root())
             .assemble()
 
@@ -53,10 +53,10 @@ It will work if the user is not in some `UIViewController` that is presented mod
     let screen = StepAssembly(
             finder: ClassFinder<AccountViewController, Any?>(),
             factory: XibFactory())
-            .using(NavigationControllerFactory.PushToNavigation())
+            .using(NavigationControllerFactory.pushToNavigation())
             .from(SingleContainerStep(ClassFinder<UINavigationController, Any?>(), NilFactory()))
             // Nothing will be created ny NilFactory, so no action needed.
-            .using(GeneralAction.NilAction())
+            .using(GeneralAction.nilAction())
             .from(GeneralStep.current())
             .assemble()
 
@@ -76,7 +76,7 @@ It will work if the user is not in some `UIViewController` that is presented mod
                     .assemble(default: { // else
                         return ChainAssembly()
                                 .from(SingleContainerStep(finder: NilFinder(), factory: NavigationControllerFactory())) //
-                                .using(GeneralAction.PresentModally())
+                                .using(GeneralAction.presentModally())
                                 .from(GeneralStep.current())
                                 .assemble()
                     })
@@ -92,7 +92,7 @@ It will work if the user is not in some `UIViewController` that is presented mod
                     .with(XibFactory<HomeViewController, Any?>(), using: TabBarControllerFactory.AddTab())
                     .with(XibFactory<AccountViewController, Any?>(), using: TabBarControllerFactory.AddTab())
                     .assemble())
-            .using(GeneralAction.ReplaceRoot())
+            .using(GeneralAction.replaceRoot())
             .from(GeneralStep.root())
             .assemble()
 ```
@@ -112,7 +112,7 @@ It will work if the user is not in some `UIViewController` that is presented mod
     let screen = StepAssembly(
             finder: ClassFinder<AccountViewController, Any?>(),
             factory: NilFactory())
-            .using(GeneralAction.NilAction())
+            .using(GeneralAction.nilAction())
             .from(tabScreen)
             .assemble()
 ```
@@ -125,11 +125,11 @@ It will work if the user is not in some `UIViewController` that is presented mod
     let screen = StepAssembly(
             finder: ClassFinder<ForgotPasswordViewController, Any?>(),
             factory: XibFactory())
-            .using(NavigationControllerFactory.PushToNavigation())
+            .using(NavigationControllerFactory.pushToNavigation())
             .from(SingleStep(finder: ClassFinder<LoginViewController, Any?>, factory: XibFactory()))
-            .using(NavigationControllerFactory.PushToNavigation())
+            .using(NavigationControllerFactory.pushToNavigation())
             .from(SingleContainerStep(finder: ClassFinder(), factory: NavigationControllerFactory()))
-            .using(GeneralAction.PresentModally())
+            .using(GeneralAction.presentModally())
             .from(GeneralStep.current())
             .assemble()
 ```
@@ -138,16 +138,16 @@ Or:
     let loginScreen = StepAssembly(
             finder: ClassFinder<LoginViewController, Any?>(),
             factory: XibFactory())
-            .using(NavigationControllerFactory.PushToNavigation())
+            .using(NavigationControllerFactory.pushToNavigation())
             .from(NavigationControllerStep())
-            .using(GeneralAction.PresentModally())
+            .using(GeneralAction.presentModally())
             .from(GeneralStep.current())
             .assemble()
 
     let forgotPasswordScreen = StepAssembly(
             finder: ClassFinder<ForgotPasswordViewController, Any?>(),
             factory: XibFactory())
-            .using(NavigationControllerFactory.PushToNavigation())
+            .using(NavigationControllerFactory.pushToNavigation())
             .from(loginScreen)
             .assemble()
 
@@ -178,9 +178,9 @@ There are two ways of implementing this configuration:
     let screen = StepAssembly(
         finder: ModalBagFinder(),
         factory: XibFactory())
-        .using(NavigationControllerFactory.PushToNavigation())
+        .using(NavigationControllerFactory.pushToNavigation())
         .from(NavigationControllerStep())
-        .using(GeneralAction.PresentModally())
+        .using(GeneralAction.presentModally())
         .from(GeneralStep.current())
         .assemble()
 
