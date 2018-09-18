@@ -6,7 +6,7 @@ import Foundation
 import UIKit
 
 /// Helper class to build a chain of steps. Can not be used directly.
-public struct StepChainAssembly<C> {
+public struct StepChainAssembly<AcceptedViewController: UIViewController, ViewController: UIViewController, Context> {
 
     let previousSteps: [RoutingStep]
 
@@ -22,15 +22,15 @@ public struct StepChainAssembly<C> {
     /// Adds a single step to the chain
     ///
     /// - Parameter previousStep: The instance of `StepWithActionAssemblable`
-    public func from<F: Finder, FC: AbstractFactory>(_ step: StepWithActionAssembly<F, FC>) -> ActionConnectingAssembly<F, FC, C>
-            where F.ViewController == FC.ViewController, F.Context == FC.Context {
+    public func from<F: Finder, FC: AbstractFactory>(_ step: StepWithActionAssembly<F, FC>) -> ActionConnectingAssembly<F, FC, ViewController, Context>
+            where F.ViewController == FC.ViewController, F.Context == FC.Context, F.ViewController == AcceptedViewController {
         return ActionConnectingAssembly(stepToFullFill: step, previousSteps: previousSteps)
     }
 
     /// Adds a `RoutingStep` to the chain. This step will be the last one in the chain.
     ///
     /// - Parameter previousStep: The instance of `RoutingStep`
-    public func from<AC>(_ step: DestinationStep<AC>) -> LastStepInChainAssembly<C> {
+    public func from<AC>(_ step: DestinationStep<AcceptedViewController, AC>) -> LastStepInChainAssembly<ViewController, Context> {
         var previousSteps = self.previousSteps
         previousSteps.append(step)
         return LastStepInChainAssembly(previousSteps: previousSteps)
@@ -40,10 +40,10 @@ public struct StepChainAssembly<C> {
     ///
     /// - Parameter step: An instance of `RoutingStep` to start to build a current step from.
     /// - Returns: An instance of `RoutingStep` with all the provided settings inside.
-    public func assemble<AC>(from step: DestinationStep<AC>) -> DestinationStep<C> {
+    public func assemble<AVC: UIViewController, AC>(from step: DestinationStep<AVC, AC>) -> DestinationStep<ViewController, Context> {
         var previousSteps = self.previousSteps
         previousSteps.append(step)
-        return LastStepInChainAssembly<C>(previousSteps: previousSteps).assemble()
+        return LastStepInChainAssembly<ViewController, Context>(previousSteps: previousSteps).assemble()
     }
 
 }

@@ -3,9 +3,12 @@
 //
 
 import Foundation
+import UIKit
 
 /// Helper class to build a chain of steps. Can not be used directly.
-public struct ActionConnectingAssembly<F: Finder, FC: AbstractFactory, C>: ActionConnecting where F.ViewController == FC.ViewController, F.Context == FC.Context {
+public struct ActionConnectingAssembly<F: Finder, FC: AbstractFactory, VC: UIViewController, C>: ActionConnecting where F.ViewController == FC.ViewController, F.Context == FC.Context {
+
+    public typealias ViewController = VC
 
     public typealias Context = C
 
@@ -22,7 +25,7 @@ public struct ActionConnectingAssembly<F: Finder, FC: AbstractFactory, C>: Actio
     ///
     /// - Parameter action: `Action` instance to be used with a step.
     /// - Returns: `ChainAssembly` to continue building the chain.
-    public func using<A: Action>(_ action: A) -> StepChainAssembly<Context> {
+    public func using<A: Action>(_ action: A) -> StepChainAssembly<A.ViewController, ViewController, Context> {
         var previousSteps = self.previousSteps
         previousSteps.append(stepToFullFill.routingStep(with: action))
         return StepChainAssembly(previousSteps: previousSteps)
@@ -32,7 +35,7 @@ public struct ActionConnectingAssembly<F: Finder, FC: AbstractFactory, C>: Actio
     ///
     /// - Parameter action: `ContainerAction` instance to be used with a step.
     /// - Returns: `ChainAssembly` to continue building the chain.
-    public func using<A: ContainerAction>(_ action: A) -> StepChainAssembly<Context> {
+    public func using<A: ContainerAction>(_ action: A) -> StepChainAssembly<A.ViewController, ViewController, Context> {
         var previousSteps = self.previousSteps
         previousSteps.append(stepToFullFill.embeddableRoutingStep(with: action))
         return StepChainAssembly(previousSteps: previousSteps)
@@ -44,7 +47,7 @@ public extension ActionConnectingAssembly where FC: NilEntity {
 
     /// Created to remind user that factory that does not produce anything in most cases should
     /// be used with `NilAction`
-    public func usingNoAction() -> StepChainAssembly<Context> {
+    public func usingNoAction() -> StepChainAssembly<UIViewController, ViewController, Context> {
         return using(GeneralAction.nilAction())
     }
 

@@ -3,11 +3,14 @@
 //
 
 import Foundation
+import UIKit
 
 /// Represents a single step for the `Router` to make.
-public struct DestinationStep<C>: RoutingStepWithContext, ChainableStep, PerformableStep {
+public struct DestinationStep<VC: UIViewController, C>: RoutingStepWithContext, ChainableStep, PerformableStep {
 
     /// Type of the `Context` associated with the step
+    public typealias ViewController = VC
+
     public typealias Context = C
 
     var previousStep: RoutingStep? {
@@ -25,8 +28,8 @@ public struct DestinationStep<C>: RoutingStepWithContext, ChainableStep, Perform
     }
 
     /// Removes context type dependency from a step.
-    public func unsafelyUnwrapped() -> DestinationStep<Any?> {
-        return DestinationStep<Any?>(destinationStep)
+    public func unsafelyUnwrapped() -> DestinationStep<UIViewController, Any?> {
+        return DestinationStep<UIViewController, Any?>(destinationStep)
     }
 
 }

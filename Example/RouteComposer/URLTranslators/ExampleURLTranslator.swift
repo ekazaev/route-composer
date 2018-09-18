@@ -4,9 +4,10 @@
 //
 
 import Foundation
+import UIKit
 
 protocol ExampleURLTranslator {
 
-    func destination(from url: URL) -> ExampleDestination<Any?>?
+    func destination(from url: URL) -> ExampleDestination<UIViewController, Any?>?
 
 }

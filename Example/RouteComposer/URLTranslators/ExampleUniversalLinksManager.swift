@@ -4,6 +4,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct ExampleUniversalLinksManager {
 
@@ -13,7 +14,7 @@ struct ExampleUniversalLinksManager {
         translators.append(translator)
     }
 
-    static func destination(for url: URL) -> ExampleDestination<Any?>? {
+    static func destination(for url: URL) -> ExampleDestination<UIViewController, Any?>? {
         guard let translator = translators.first(where: { $0.destination(from: url) != nil }) else {
             return nil
         }

@@ -11,8 +11,12 @@ public struct GeneralAction {
     /// The dummy `Action` instance mostly for the internal use, but can be useful outside of the library
     /// in combination with the factories that produces the view controllers that should not have to be integrated into the
     /// view controller's stack.
-    public static func nilAction() -> UIViewController.NilAction {
-        return UIViewController.NilAction()
+    public static func nilAction() -> UIViewController.NilAction<UIViewController> {
+        return UIViewController.NilAction<UIViewController>()
+    }
+
+    public static func nilContainerAction<VC: ContainerViewController>() -> UIViewController.NilAction<VC> {
+        return UIViewController.NilAction<VC>()
     }
 
     /// Replaces the root view controller in the key `UIWindow`

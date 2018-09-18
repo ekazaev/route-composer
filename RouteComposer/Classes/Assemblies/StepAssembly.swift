@@ -47,7 +47,7 @@ public final class StepAssembly<F: Finder, FC: Factory>: GenericStepAssembly<F, 
     ///
     /// - Parameter action: `Action` instance to be used with a step.
     /// - Returns: `ChainAssembly` to continue building the chain.
-    public func using<A: Action>(_ action: A) -> StepChainAssembly<Context> {
+    public func using<A: Action>(_ action: A) -> StepChainAssembly<A.ViewController, ViewController, Context> {
         var previousSteps = self.previousSteps
         let step = BaseStep<FactoryBox<FC>>(
                 finder: self.finder,
@@ -65,7 +65,7 @@ public final class StepAssembly<F: Finder, FC: Factory>: GenericStepAssembly<F, 
     ///
     /// - Parameter action: `ContainerAction` instance to be used with a step.
     /// - Returns: `ChainAssembly` to continue building the chain.
-    public func using<A: ContainerAction>(_ action: A) -> StepChainAssembly<Context> {
+    public func using<A: ContainerAction>(_ action: A) -> StepChainAssembly<A.ViewController, ViewController, Context> {
         var previousSteps = self.previousSteps
         let step = BaseStep<FactoryBox<FC>>(
                 finder: self.finder,
@@ -85,8 +85,12 @@ public extension StepAssembly where FC: NilEntity {
 
     /// Created to remind user that factory that does not produce anything in most cases should
     /// be used with `NilAction`
-    public func usingNoAction() -> StepChainAssembly<F.Context> {
+    public func usingNoAction() -> StepChainAssembly<UIViewController, ViewController, Context> {
         return using(GeneralAction.nilAction())
+    }
+
+    public func integratedIn<AVC: ContainerViewController>() -> StepChainAssembly<AVC, ViewController, Context> {
+        return using(GeneralAction.nilContainerAction() as UIViewController.NilAction<AVC>)
     }
 
 }

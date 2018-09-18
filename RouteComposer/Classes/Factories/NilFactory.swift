@@ -30,3 +30,19 @@ public struct NilFactory<VC: UIViewController, C>: Factory, NilEntity {
     }
 
 }
+
+public struct NilContainer<VC: ContainerViewController, C>: Container, NilEntity {
+
+    public typealias ViewController = VC
+
+    public typealias Context = C
+
+    /// Constructor
+    public init() {
+    }
+
+    public func build(with context: C, integrating coordinator: ChildCoordinator<C>) throws -> VC {
+        throw RoutingError.message("This factory should never reach router.")
+    }
+
+}
