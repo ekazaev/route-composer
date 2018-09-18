@@ -35,7 +35,7 @@ ClassFinder<AccountViewController, Any?>(options: [.current, .visible, .presenti
             finder: ClassFinder<HomeViewController, Any?>(),
             factory: XibFactory())
             .using(GeneralAction.ReplaceRoot())
-            .from(RootViewControllerStep())
+            .from(GeneralStep.root())
             .assemble()
 
 ```
@@ -43,7 +43,7 @@ ClassFinder<AccountViewController, Any?>(options: [.current, .visible, .presenti
 
 *Do not forget that if you use a combination of abstract `Finder` and `Factory` - you must specify the types of `UIViewController` and `Context` for one of them `ClassFinder<HomeViewController, Any?>`*
 
-#### What will happen if, in the configuration above, I will replace `RootViewControllerStep` with `CurrentViewControllerStep`?
+#### What will happen if, in the configuration above, I will replace `GeneralStep.root` with `GeneralStep.current`?
 
 It will work if the user is not in some `UIViewController` that is presented modally. If they are, `ReplaceRoot` can not replace the modally presented `UIViewController` and the navigation will fail. If you want this configuration to work in all cases - you should explain to the router that it should start building the stack from the root view controller. Then the router will dismiss all the modal view controllers above the root view controller if there are any.
 
@@ -57,7 +57,7 @@ It will work if the user is not in some `UIViewController` that is presented mod
             .from(SingleContainerStep(ClassFinder<UINavigationController, Any?>(), NilFactory()))
             // Nothing will be created ny NilFactory, so no action needed.
             .using(GeneralAction.NilAction())
-            .from(CurrentViewControllerStep())
+            .from(GeneralStep.current())
             .assemble()
 
 ```
@@ -77,7 +77,7 @@ It will work if the user is not in some `UIViewController` that is presented mod
                         return ChainAssembly()
                                 .from(SingleContainerStep(finder: NilFinder(), factory: NavigationControllerFactory())) //
                                 .using(GeneralAction.PresentModally())
-                                .from(CurrentViewControllerStep())
+                                .from(GeneralStep.current())
                                 .assemble()
                     })
             ).assemble()
@@ -93,7 +93,7 @@ It will work if the user is not in some `UIViewController` that is presented mod
                     .with(XibFactory<AccountViewController, Any?>(), using: TabBarControllerFactory.AddTab())
                     .assemble())
             .using(GeneralAction.ReplaceRoot())
-            .from(RootViewControllerStep())
+            .from(GeneralStep.root())
             .assemble()
 ```
 
@@ -130,7 +130,7 @@ It will work if the user is not in some `UIViewController` that is presented mod
             .using(NavigationControllerFactory.PushToNavigation())
             .from(SingleContainerStep(finder: ClassFinder(), factory: NavigationControllerFactory()))
             .using(GeneralAction.PresentModally())
-            .from(CurrentViewControllerStep())
+            .from(GeneralStep.current())
             .assemble()
 ```
 Or:
@@ -141,7 +141,7 @@ Or:
             .using(NavigationControllerFactory.PushToNavigation())
             .from(NavigationControllerStep())
             .using(GeneralAction.PresentModally())
-            .from(CurrentViewControllerStep())
+            .from(GeneralStep.current())
             .assemble()
 
     let forgotPasswordScreen = StepAssembly(
@@ -154,7 +154,7 @@ Or:
 ```
 *With the configuration above you will be able to navigate to both screens using the `Router`*
 
-#### What will happen if, in the configuration above, I will replace the `CurrentViewControllerStep` with the `RootViewControllerStep`?
+#### What will happen if, in the configuration above, I will replace the `GeneralStep.current` with the `GeneralStep.root`?
 
 It will work, but it means that the router has to start building the stack from the root `UIViewController`, so if the user is in some `UIViewController` presented modally - the router will close it before it will start the navigation.
 
@@ -181,7 +181,7 @@ There are two ways of implementing this configuration:
         .using(NavigationControllerFactory.PushToNavigation())
         .from(NavigationControllerStep())
         .using(GeneralAction.PresentModally())
-        .from(CurrentViewControllerStep())
+        .from(GeneralStep.current())
         .assemble()
 
 ```

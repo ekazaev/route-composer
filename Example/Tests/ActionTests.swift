@@ -43,7 +43,11 @@ class ActionTests: XCTestCase {
         var wasInPopoverConfig = false
         let viewController = UIViewController()
         let transitionDelegate = TransitionDelegate()
-        GeneralAction.PresentModally(presentationStyle: .popover, transitionStyle: .crossDissolve, transitioningDelegate: transitionDelegate, preferredContentSize: CGSize(width: 100, height: 100), popoverConfiguration: { popoverController in
+        GeneralAction.PresentModally(presentationStyle: .popover,
+                transitionStyle: .crossDissolve,
+                transitioningDelegate: transitionDelegate,
+                preferredContentSize: CGSize(width: 100, height: 100),
+                popoverConfiguration: { _ in
             wasInPopoverConfig = true
         }).perform(with: viewController, on: PresentingModallyController(), animated: true, completion: { result in
             wasInCompletion = true
@@ -190,7 +194,6 @@ class ActionTests: XCTestCase {
                 in: &viewControllerStack)
         XCTAssertEqual(viewControllerStack.count, 1)
         XCTAssert(viewControllerStack.first!.isKind(of: UINavigationController.self))
-
 
         var wasInCompletion = false
         let tabBarController = UITabBarController()

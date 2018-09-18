@@ -68,7 +68,7 @@ For detailed information on using RouteComposer, see `Documentation/API` folder.
 
 RouteComposer uses 3 main entities (`Factory`, `Finder`, `Action`) that should be defined by a host application to support it.
 It also provides 3 helping entities (`RoutingInterceptor`, `ContextTask`, `PostRoutingTask`) that you may implement to handle some
-default actions during the routing process. There are 3 main `associatedtype` in the description of each entity below:
+default actions during the routing process. There are 2 `associatedtype` in the description of each entity below:
 * `ViewController` - Type of view controller. *UINavigationController, CustomViewController, etc.*
 * `Context` - Type of context object that is passed to the router from the hosting application that router will pass to the view controllers it
 is going to build. *String, UUID, Any, etc. Can be optional.*
@@ -272,7 +272,7 @@ let productScreen = StepAssembly(finder: ProductViewControllerFinder(), factory:
         .using(NavigationControllerFactory.PushToNavigation())
         .from(NavigationControllerStep())
         .using(GeneralActions.PresentModally())
-        .from(CurrentControllerStep())
+        .from(GeneralStep.current())
         .assemble()
 ```
 
@@ -307,7 +307,7 @@ struct Configuration {
                 .using(NavigationControllerFactory.PushToNavigation())
                 .from(NavigationControllerStep())
                 .using(GeneralActions.PresentModally())
-                .from(CurrentViewControllerStep())
+                .from(GeneralStep.current())
                 .assemble()
 
 }

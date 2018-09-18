@@ -90,7 +90,7 @@ public final class SwitchAssembly<Context> {
     ///   - finder: The `Finder` instance to find a `UIViewController` in the stack
     ///   a `UIViewController` found by the `Finder` will be considered as a view controller to start routing process from
     public func addCase<F: Finder>(when finder: F) -> Self {
-        resolvers.append(FinderResolver(finder: finder, step: Optional<DestinationStep<Context>>.none))
+        resolvers.append(FinderResolver<Context>(finder: finder, step: nil))
         return self
     }
 
