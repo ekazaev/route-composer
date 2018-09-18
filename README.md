@@ -72,8 +72,6 @@ default actions during the routing process. There are 3 main `associatedtype` in
 * `ViewController` - Type of view controller. *UINavigationController, CustomViewController, etc.*
 * `Context` - Type of context object that is passed to the router from the hosting application that router will pass to the view controllers it
 is going to build. *String, UUID, Any, etc. Can be optional.*
-* `Destination` - Type of destination object that is passed to the router from the hosting application that router will pass
-to the helping entities. Should extend `RoutingDestination` protocol.
 
 *Example: if your view controllers require productID to display its content and product id is a UUID in your app - then the type of
 context is UUID*
@@ -200,9 +198,9 @@ the interceptor should inform the router and it will continue routing or otherwi
 *Example: If the user is logged in, router can continue routing. If the user is not logged in, the router should not continue*
 
 ```swift
-class LoginInterceptor: RoutingInterceptor {
+class LoginInterceptor<C>: RoutingInterceptor {
 
-    func execute(for destination: AppDestination, completion: @escaping (_: InterceptorResult) -> Void) {
+    func execute(with context: C, completion: @escaping (_: InterceptorResult) -> Void) {
         guard !LoginManager.sharedInstance.isUserLoggedIn else {
             completion(.failure("User has not been logged in."))
             return
@@ -251,7 +249,7 @@ class ProductViewControllerPostTask: PostRoutingTask {
         self.analyticsManager = analyticsManager
     }
 
-    func execute(on productViewController: ProductViewController, for destination: AppDestination, routingStack: [UIViewController]) {
+    func execute(on productViewController: ProductViewController, with productID: UUID, routingStack: [UIViewController]) {
         analyticsManager.trackProductView(productID: productViewController.productID)
     }
 
@@ -260,7 +258,7 @@ class ProductViewControllerPostTask: PostRoutingTask {
 
 ### Configuring Step
 
-Everything that the router does is configured using a `RoutingStep` instance. There is no need to create your own implementation of this protocol.
+Everything that the router does is configured using a `DestinationStep` instance. There is no need to create your own implementation of this protocol.
 Use `StepAssembly` provided by the library to configure any step that the router should execute during the routing.
 
 *Example: A `ProductViewController` configuration that explains to the router that it should be boxed in UINavigationController
@@ -268,7 +266,7 @@ which should be presented modally from any currently visible view controller.*
 
 ```swift
 let productScreen = StepAssembly(finder: ProductViewControllerFinder(), factory: ProductViewControllerFactory())
-        .add(LoginInterceptor())
+        .add(LoginInterceptor<String>())
         .add(ProductViewControllerContextTask())
         .add(ProductViewControllerPostTask(analyticsManager: AnalyticsManager.sharedInstance))
         .using(NavigationControllerFactory.PushToNavigation())
@@ -293,26 +291,17 @@ This configuration means:
 ### Routing
 
 After you have implemented all necessary classes and configured a routing step, you can start to use the `Router` to navigate. The library provides
-a `DefaultRouter` which is an implementation of the `Router` protocol to handle routing based on the configuration explained above. The Router accepts a
-destination instance that extends `RoutingDestination` protocol. The `RoutingDestination` protocol contains the final step the user has to land on. It also contains a context object that has data which is provided to a view controller, if required.
+a `DefaultRouter` which is an implementation of the `Router` protocol to handle routing based on the configuration explained above.
 
 *Example: The user taps on a cell in a `UITableView`. It then asks the router to navigate the user to `ProductViewController`. The user
 should be logged in to see the product details.*
 
 ```swift
-struct AppDestination: RoutingDestination {
-
-    let finalStep: RoutingStep
-
-    let context: Any?
-
-}
 
 struct Configuration {
 
-    static func productDestination(with productID: UUID) -> AppDestination {
-        let productScreen = StepAssembly(finder: ProductViewControllerFinder(), factory: ProductViewControllerFactory())
-                .add(LoginInterceptor())
+    static let productScreen = StepAssembly(finder: ProductViewControllerFinder(), factory: ProductViewControllerFactory())
+                .add(LoginInterceptor<String>())
                 .add(ProductViewControllerContextTask())
                 .add(ProductViewControllerPostTask(analyticsManager: AnalyticsManager.sharedInstance))
                 .using(NavigationControllerFactory.PushToNavigation())
@@ -320,9 +309,6 @@ struct Configuration {
                 .using(GeneralActions.PresentModally())
                 .from(CurrentViewControllerStep())
                 .assemble()
-
-        return AppDestination(finalStep: productScreen, context: productID)
-    }
 
 }
 
@@ -336,7 +322,7 @@ class ProductArrayViewController: UITableViewController {
         guard let productID = products[indexPath.row] else {
             return
         }
-        router.navigate(to: Configuration.productDestination(with: productID))
+        router.navigate(to: Configuration.productScreen, with: productID)
     }
 
 }

@@ -7,7 +7,7 @@ import Foundation
 
 class ProductURLTranslator: ExampleURLTranslator {
 
-    func destination(from url: URL) -> ExampleDestination? {
+    func destination(from url: URL) -> ExampleDestination<Any?>? {
         guard let urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false),
               let queryItems = urlComponents.queryItems,
               let item = queryItems.first(where: { $0.name == "product" }),
@@ -15,8 +15,7 @@ class ProductURLTranslator: ExampleURLTranslator {
             return nil
         }
 
-        return ProductConfiguration.productDestination(productId: productIdValue,
-                ExampleAnalyticsParameters(source: .appLink, webpageURL: url, referrerURL: nil))
+        return ExampleDestination(step: ProductConfiguration.productScreen, context: ProductContext(productId: productIdValue, productURL: url)).unsafelyUnwrapped()
     }
 
 }

@@ -10,11 +10,11 @@ import RouteComposer
 // I do not want to create login service for demo so it is just a variable
 var isLoggedIn: Bool = false
 
-class LoginInterceptor: RoutingInterceptor {
+class LoginInterceptor<C>: RoutingInterceptor {
 
-    typealias Destination = ExampleDestination
+    typealias Context = C
 
-    func execute(for destination: Destination, completion: @escaping (_: InterceptorResult) -> Void) {
+    func execute(with context: Context, completion: @escaping (_: InterceptorResult) -> Void) {
         guard !isLoggedIn else {
             completion(.success)
             return
@@ -44,7 +44,7 @@ class LoginInterceptor: RoutingInterceptor {
 
 class LoginViewController: UIViewController, ExampleAnalyticsSupport {
 
-    let analyticParameters = ExampleAnalyticsParameters(source: .login)
+    let screenType = ExampleScreen.login
 
     @IBOutlet private var loginTextField: UITextField!
 

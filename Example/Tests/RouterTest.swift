@@ -12,12 +12,6 @@ class RouterTests: XCTestCase {
 
     let router = DefaultRouter()
 
-    struct TestDestination: RoutingDestination {
-        let finalStep: RoutingStep
-
-        let context: Any?
-    }
-
     // To fake modal presentation
     class TestModalPresentableController: UIViewController {
 
@@ -35,7 +29,9 @@ class RouterTests: XCTestCase {
     }
 
     // Fakes current view controller as we do not have an access to the key UIWindow
-    class TestCurrentViewControllerStep: RoutingStep, PerformableStep {
+    class TestCurrentViewControllerStep: RoutingStepWithContext, PerformableStep {
+
+        typealias Context = Any?
 
         let currentViewController: UIViewController
 
@@ -43,7 +39,7 @@ class RouterTests: XCTestCase {
             self.currentViewController = currentViewController
         }
 
-        func perform<D: RoutingDestination>(for destination: D) -> StepResult {
+        func perform(for context: Any?) -> StepResult {
             return .success(currentViewController)
         }
 
@@ -111,11 +107,11 @@ class RouterTests: XCTestCase {
                 .using(NavigationControllerFactory.PushToNavigation())
                 .from(NavigationControllerStep())
                 .using(FakePresentModallyAction())
-                .from(TestCurrentViewControllerStep(currentViewController: currentViewController))
+                .from(DestinationStep<Any?>(TestCurrentViewControllerStep(currentViewController: currentViewController)))
                 .assemble()
 
         var routingResult: RoutingResult?
-        router.navigate(to: TestDestination(finalStep: screenConfig, context: nil), animated: false, completion: { result in
+        router.navigate(to: screenConfig, with: nil, animated: false, completion: { result in
             routingResult = result
             XCTAssertNotNil(currentViewController.presentedViewController)
             XCTAssert(currentViewController.presentedViewController is UINavigationController)
@@ -148,11 +144,11 @@ class RouterTests: XCTestCase {
                 .using(NavigationControllerFactory.PushToNavigation())
                 .from(SingleContainerStep(finder: FakeClassFinder(currentViewController: presentNavigationController), factory: NavigationControllerFactory()))
                 .using(FakePresentModallyAction())
-                .from(TestCurrentViewControllerStep(currentViewController: currentViewController))
+                .from(DestinationStep<Any?>(TestCurrentViewControllerStep(currentViewController: currentViewController)))
                 .assemble()
 
         var routingResult: RoutingResult?
-        router.navigate(to: TestDestination(finalStep: screenConfig, context: nil), animated: false, completion: { result in
+        router.navigate(to: screenConfig, with: nil, animated: false, completion: { result in
             routingResult = result
             XCTAssertNotNil(currentViewController.presentedViewController)
             XCTAssert(currentViewController.presentedViewController is UINavigationController)
@@ -174,11 +170,11 @@ class RouterTests: XCTestCase {
                 .using(NavigationControllerFactory.PushToNavigation())
                 .from(SingleContainerStep(finder: NilFinder(), factory: NavigationControllerFactory()))
                 .using(FakePresentModallyAction())
-                .from(TestCurrentViewControllerStep(currentViewController: currentViewController))
+                .from(DestinationStep<Any?>(TestCurrentViewControllerStep(currentViewController: currentViewController)))
                 .assemble()
 
         var routingResult: RoutingResult?
-        router.navigate(to: TestDestination(finalStep: screenConfig, context: nil), animated: false, completion: { result in
+        router.navigate(to: screenConfig, with: nil, animated: false, completion: { result in
             routingResult = result
             XCTAssertNotNil(currentViewController.presentedViewController)
             XCTAssert(currentViewController.presentedViewController is UINavigationController)
@@ -205,11 +201,11 @@ class RouterTests: XCTestCase {
         let currentViewController = TestModalPresentableController()
         let screenConfig = StepAssembly(finder: ClassFinder(), factory: TestViewControllerFactory())
                 .using(TestPresentModallyBrokenAction())
-                .from(TestCurrentViewControllerStep(currentViewController: currentViewController))
+                .from(DestinationStep<Any?>(TestCurrentViewControllerStep(currentViewController: currentViewController)))
                 .assemble()
 
         var routingResult: RoutingResult?
-        router.navigate(to: TestDestination(finalStep: screenConfig, context: nil), animated: false, completion: { result in
+        router.navigate(to: screenConfig, with: nil, animated: false, completion: { result in
             routingResult = result
             XCTAssertNil(currentViewController.presentedViewController)
         })
@@ -220,11 +216,11 @@ class RouterTests: XCTestCase {
         let currentViewController = TestModalPresentableController()
         let screenConfig = StepAssembly(finder: ClassFinder(), factory: TestViewControllerBrokenFactory())
                 .using(FakePresentModallyAction())
-                .from(TestCurrentViewControllerStep(currentViewController: currentViewController))
+                .from(DestinationStep<Any?>(TestCurrentViewControllerStep(currentViewController: currentViewController)))
                 .assemble()
 
         var routingResult: RoutingResult?
-        router.navigate(to: TestDestination(finalStep: screenConfig, context: nil), animated: false, completion: { result in
+        router.navigate(to:  screenConfig, with: nil, animated: false, completion: { result in
             routingResult = result
             XCTAssertNil(currentViewController.presentedViewController)
         })
@@ -238,10 +234,10 @@ class RouterTests: XCTestCase {
                 .using(NavigationControllerFactory.PushToNavigation())
                 .from(NavigationControllerStep())
                 .using(FakePresentModallyAction())
-                .from(TestCurrentViewControllerStep(currentViewController: currentViewController))
+                .from(DestinationStep<Any?>(TestCurrentViewControllerStep(currentViewController: currentViewController)))
                 .assemble()
 
-        let routingResult = router.navigate(to: TestDestination(finalStep: screenConfig, context: nil), animated: false, completion: { _ in
+        let routingResult = router.navigate(to: screenConfig, with: nil, animated: false, completion: { _ in
             XCTAssert(false, "Should not be called")
         })
         XCTAssertEqual(routingResult, RoutingResult.unhandled)
@@ -258,39 +254,39 @@ class RouterTests: XCTestCase {
         var globalTaskRun = 0
         var globalPostTaskRun = 0
         let screenConfig = StepAssembly(finder: ClassFinder(), factory: TestViewControllerFactory())
-                .add(InlineInterceptor(prepare: { (_: TestDestination) throws in
+                .add(InlineInterceptor(prepare: { (_: Any?) throws in
                     contextInterceptorPrepared += 1
-                }, { (_: TestDestination) in
+                }, { (_: Any?) in
                     contextInterceptorRun += 1
                 }))
                 .add(InlineContextTask({ (_: TestViewController, _: Any?) in
                     contextTaskRun += 1
                 }))
-                .add(InlinePostTask({ (_: TestViewController, _: TestDestination, viewControllers: [UIViewController]) in
+                .add(InlinePostTask({ (_: TestViewController, _: Any?, viewControllers: [UIViewController]) in
                     contextPostTaskRun += 1
                     XCTAssertEqual(viewControllers.count, 3)
                 }))
                 .using(NavigationControllerFactory.PushToNavigation())
                 .from(NavigationControllerStep())
                 .using(FakePresentModallyAction())
-                .from(TestCurrentViewControllerStep(currentViewController: currentViewController))
+                .from(DestinationStep<Any?>(TestCurrentViewControllerStep(currentViewController: currentViewController)))
                 .assemble()
         var router = self.router
-        router.add(InlineInterceptor(prepare: { (_: TestDestination) throws in
+        router.add(InlineInterceptor(prepare: { (_: Any?) throws in
             globalInterceptorPrepared += 1
-        }, { (_: TestDestination, completion: @escaping (InterceptorResult) -> Void) in
+        }, { (_: Any?, completion: @escaping (InterceptorResult) -> Void) in
             globalInterceptorRun += 1
             completion(.success)
         }))
         router.add(InlineContextTask({ (_: UIViewController, _: Any?) in
             globalTaskRun += 1
         }))
-        router.add(InlinePostTask({ (_: UIViewController, _: TestDestination, viewControllers: [UIViewController]) in
+        router.add(InlinePostTask({ (_: UIViewController, _: Any?, viewControllers: [UIViewController]) in
             globalPostTaskRun += 1
             XCTAssertEqual(viewControllers.count, 3)
         }))
         var routingResult: RoutingResult?
-        router.navigate(to: TestDestination(finalStep: screenConfig, context: nil), animated: false, completion: { result in
+        router.navigate(to: screenConfig, with: nil, animated: false, completion: { result in
             routingResult = result
             XCTAssertNotNil(currentViewController.presentedViewController)
             XCTAssert(currentViewController.presentedViewController is UINavigationController)

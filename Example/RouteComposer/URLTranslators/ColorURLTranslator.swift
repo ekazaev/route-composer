@@ -7,18 +7,15 @@ import Foundation
 
 class ColorURLTranslator: ExampleURLTranslator {
 
-    func destination(from url: URL) -> ExampleDestination? {
+    func destination(from url: URL) -> ExampleDestination<Any?>? {
         guard let urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false),
               let queryItems = urlComponents.queryItems,
               let colorItem = queryItems.first(where: { $0.name == "color" }),
-              let colorValue = colorItem.value,
-              let screen = ExampleConfiguration.step(for: ExampleTarget.color) else {
+              let colorValue = colorItem.value else {
             return nil
         }
 
-        return ExampleDestination(finalStep: screen,
-                context: ExampleDictionaryContext(arguments: [Argument.color: colorValue]),
-                ExampleAnalyticsParameters(source: .appLink, webpageURL: url, referrerURL: nil))
+        return ExampleConfiguration.wireframe.goToColor(colorValue).unsafelyUnwrapped()
     }
 
 }

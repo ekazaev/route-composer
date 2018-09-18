@@ -28,6 +28,8 @@ public final class StepAssembly<F: Finder, FC: Factory>: GenericStepAssembly<F, 
 
     let factory: FC
 
+    public typealias Context = F.Context
+
     let previousSteps: [RoutingStep]
 
     /// Constructor
@@ -45,7 +47,7 @@ public final class StepAssembly<F: Finder, FC: Factory>: GenericStepAssembly<F, 
     ///
     /// - Parameter action: `Action` instance to be used with a step.
     /// - Returns: `ChainAssembly` to continue building the chain.
-    public func using<A: Action>(_ action: A) -> StepChainAssembly {
+    public func using<A: Action>(_ action: A) -> StepChainAssembly<Context> {
         var previousSteps = self.previousSteps
         let step = BaseStep<FactoryBox<FC>>(
                 finder: self.finder,
@@ -63,7 +65,7 @@ public final class StepAssembly<F: Finder, FC: Factory>: GenericStepAssembly<F, 
     ///
     /// - Parameter action: `ContainerAction` instance to be used with a step.
     /// - Returns: `ChainAssembly` to continue building the chain.
-    public func using<A: ContainerAction>(_ action: A) -> StepChainAssembly {
+    public func using<A: ContainerAction>(_ action: A) -> StepChainAssembly<Context> {
         var previousSteps = self.previousSteps
         let step = BaseStep<FactoryBox<FC>>(
                 finder: self.finder,
@@ -83,7 +85,7 @@ public extension StepAssembly where FC: NilEntity {
 
     /// Created to remind user that factory that does not produce anything in most cases should
     /// be used with `NilAction`
-    public func usingNoAction() -> StepChainAssembly {
+    public func usingNoAction() -> StepChainAssembly<F.Context> {
         return using(GeneralAction.NilAction())
     }
 

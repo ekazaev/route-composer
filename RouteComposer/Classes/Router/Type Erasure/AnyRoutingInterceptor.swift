@@ -8,9 +8,9 @@ import UIKit
 /// Non type safe boxing wrapper for RoutingInterceptor protocol
 protocol AnyRoutingInterceptor {
 
-    mutating func prepare<D: RoutingDestination>(with destination: D) throws
+    mutating func prepare(with context: Any?) throws
 
-    func execute<D: RoutingDestination>(for destination: D, completion: @escaping (_: InterceptorResult) -> Void)
+    func execute(with context: Any?, completion: @escaping (_: InterceptorResult) -> Void)
 
 }
 
@@ -22,20 +22,20 @@ struct RoutingInterceptorBox<R: RoutingInterceptor>: AnyRoutingInterceptor, Cust
         self.routingInterceptor = routingInterceptor
     }
 
-    mutating func prepare<D: RoutingDestination>(with destination: D) throws {
-        guard let typedDestination = destination as? R.Destination else {
-            throw RoutingError.message("\(String(describing: routingInterceptor)) does not accept \(String(describing: destination)) as a destination.")
+    mutating func prepare(with context: Any?) throws {
+        guard let typedDestination = Any?.some(context as Any) as? R.Context else {
+            throw RoutingError.message("\(String(describing: routingInterceptor)) does not accept \(String(describing: context)) as a destination.")
         }
 
         try self.routingInterceptor.prepare(with: typedDestination)
     }
 
-    func execute<D: RoutingDestination>(for destination: D, completion: @escaping (InterceptorResult) -> Void) {
-        guard let typedDestination = destination as? R.Destination else {
-            completion(.failure("\(String(describing: routingInterceptor)) does not accept \(String(describing: destination)) as a destination."))
+    func execute(with context: Any?, completion: @escaping (InterceptorResult) -> Void) {
+        guard let typedDestination = Any?.some(context as Any) as? R.Context else {
+            completion(.failure("\(String(describing: routingInterceptor)) does not accept \(String(describing: context)) as a destination."))
             return
         }
-        routingInterceptor.execute(for: typedDestination, completion: completion)
+        routingInterceptor.execute(with: typedDestination, completion: completion)
     }
 
     var description: String {

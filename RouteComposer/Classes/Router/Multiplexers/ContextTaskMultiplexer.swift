@@ -16,16 +16,16 @@ struct ContextTaskMultiplexer: AnyContextTask, CustomStringConvertible {
         self.tasks = tasks
     }
 
-    mutating func prepare<D: RoutingDestination>(with context: Any?, for destination: D) throws {
+    mutating func prepare(with context: Any?) throws {
         self.tasks = try self.tasks.map({
             var contextTask = $0
-            try contextTask.prepare(with: context, for: destination)
+            try contextTask.prepare(with: context)
             return contextTask
         })
     }
 
-    func apply<D: RoutingDestination>(on viewController: UIViewController, with context: Any?, for destination: D) throws {
-        try self.tasks.forEach({ try $0.apply(on: viewController, with: context, for: destination) })
+    func apply(on viewController: UIViewController, with context: Any?) throws {
+        try self.tasks.forEach({ try $0.apply(on: viewController, with: context) })
     }
 
     var description: String {

@@ -12,7 +12,7 @@ public protocol Factory: AbstractFactory {
     /// Type of the `UIViewController` that `Factory` can build
     associatedtype ViewController = ViewController
 
-    /// Type of context `Context` instance that `Factory` needs
+    /// Type of context `Context` instance that `Factory` needs to build it's `UIViewController`
     associatedtype Context = Context
 
     /// Builds a `UIViewController` that will be integrated into the stack

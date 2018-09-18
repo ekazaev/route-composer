@@ -34,10 +34,7 @@
                 <a href="../Protocols/Router.html">Router</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols/RoutingDestination.html">RoutingDestination</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Core Entities.html#/s:13RouteComposer11RoutingStepP">RoutingStep</a>
+                <a href="../Structs/DestinationStep.html">DestinationStep</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Protocols/Finder.html">Finder</a>
@@ -84,10 +81,7 @@
                 <a href="../Classes/SwitchAssembly.html">SwitchAssembly</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Assemblies.html#/s:13RouteComposer13ChainAssemblyAA016ActionConnectingD0Vyxq_GAA08StepWitheD0Cyxq_G4from_tAA6FinderRzAA15AbstractFactoryR_7ContextQy_ALRtz14ViewControllerQy_AORtzr0_lF">ChainAssembly(from:)</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Assemblies.html#/s:13RouteComposer13ChainAssemblyAA010LastStepIncD0VAA07RoutingF0_p4from_tF">ChainAssembly(from:)</a>
+                <a href="../Structs/ChainAssembly.html">ChainAssembly</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/CompleteFactoryAssembly.html">CompleteFactoryAssembly</a>
@@ -171,10 +165,7 @@
                 <a href="../Classes/SingleContainerStep.html">SingleContainerStep</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/CurrentViewControllerStep.html">CurrentViewControllerStep</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Structs/RootViewControllerStep.html">RootViewControllerStep</a>
+                <a href="../Structs/GeneralStep.html">GeneralStep</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/NavigationControllerStep.html">NavigationControllerStep</a>
@@ -272,9 +263,6 @@
                 <a href="../Protocols/ActionConnecting.html">ActionConnecting</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols/ChainingStep.html">ChainingStep</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Protocols/ContextChecking.html">ContextChecking</a>
               </li>
               <li class="nav-group-task">
@@ -291,9 +279,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Protocols/SimpleContainer.html">SimpleContainer</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Protocols/StepCaseResolver.html">StepCaseResolver</a>
               </li>
             </ul>
           </li>
@@ -444,9 +429,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer19InterceptableRouterP3addxqd__AA18RoutingInterceptorRd__lF"></a>
+                    <a name="/s:13RouteComposer19InterceptableRouterP3addxqd__AA18RoutingInterceptorRd__ypSg7ContextRtd__lF"></a>
                     <a name="//apple_ref/swift/Method/add(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer19InterceptableRouterP3addxqd__AA18RoutingInterceptorRd__lF">add(_:)</a>
+                    <a class="token" href="#/s:13RouteComposer19InterceptableRouterP3addxqd__AA18RoutingInterceptorRd__ypSg7ContextRtd__lF">add(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -461,7 +446,7 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
-<span class="kd">public</span> <span class="k">mutating</span> <span class="kd">func</span> <span class="n">add</span><span class="o">&lt;</span><span class="kt">R</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">interceptor</span><span class="p">:</span> <span class="kt">R</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">DefaultRouter</span> <span class="k">where</span> <span class="kt">R</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/RoutingInterceptor.html">RoutingInterceptor</a></span></code></pre>
+<span class="kd">public</span> <span class="k">mutating</span> <span class="kd">func</span> <span class="n">add</span><span class="o">&lt;</span><span class="kt">R</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">interceptor</span><span class="p">:</span> <span class="kt">R</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">DefaultRouter</span> <span class="k">where</span> <span class="kt">R</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/RoutingInterceptor.html">RoutingInterceptor</a></span><span class="p">,</span> <span class="kt">R</span><span class="o">.</span><span class="kt">Context</span> <span class="o">==</span> <span class="kt">Any</span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -471,9 +456,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer19InterceptableRouterP3addxqd__AA11ContextTaskRd__lF"></a>
+                    <a name="/s:13RouteComposer19InterceptableRouterP3addxqd__AA11ContextTaskRd__ypSg0F0Rtd__lF"></a>
                     <a name="//apple_ref/swift/Method/add(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer19InterceptableRouterP3addxqd__AA11ContextTaskRd__lF">add(_:)</a>
+                    <a class="token" href="#/s:13RouteComposer19InterceptableRouterP3addxqd__AA11ContextTaskRd__ypSg0F0Rtd__lF">add(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -488,7 +473,7 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
-<span class="kd">public</span> <span class="k">mutating</span> <span class="kd">func</span> <span class="n">add</span><span class="o">&lt;</span><span class="kt">CT</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">contextTask</span><span class="p">:</span> <span class="kt">CT</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">DefaultRouter</span> <span class="k">where</span> <span class="kt">CT</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ContextTask.html">ContextTask</a></span></code></pre>
+<span class="kd">public</span> <span class="k">mutating</span> <span class="kd">func</span> <span class="n">add</span><span class="o">&lt;</span><span class="kt">CT</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">contextTask</span><span class="p">:</span> <span class="kt">CT</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">DefaultRouter</span> <span class="k">where</span> <span class="kt">CT</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ContextTask.html">ContextTask</a></span><span class="p">,</span> <span class="kt">CT</span><span class="o">.</span><span class="kt">Context</span> <span class="o">==</span> <span class="kt">Any</span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -498,9 +483,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer19InterceptableRouterP3addxqd__AA15PostRoutingTaskRd__lF"></a>
+                    <a name="/s:13RouteComposer19InterceptableRouterP3addxqd__AA15PostRoutingTaskRd__ypSg7ContextRtd__lF"></a>
                     <a name="//apple_ref/swift/Method/add(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer19InterceptableRouterP3addxqd__AA15PostRoutingTaskRd__lF">add(_:)</a>
+                    <a class="token" href="#/s:13RouteComposer19InterceptableRouterP3addxqd__AA15PostRoutingTaskRd__ypSg7ContextRtd__lF">add(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -515,7 +500,7 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
-<span class="kd">public</span> <span class="k">mutating</span> <span class="kd">func</span> <span class="n">add</span><span class="o">&lt;</span><span class="kt">P</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">postTask</span><span class="p">:</span> <span class="kt">P</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">DefaultRouter</span> <span class="k">where</span> <span class="kt">P</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/PostRoutingTask.html">PostRoutingTask</a></span></code></pre>
+<span class="kd">public</span> <span class="k">mutating</span> <span class="kd">func</span> <span class="n">add</span><span class="o">&lt;</span><span class="kt">P</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">postTask</span><span class="p">:</span> <span class="kt">P</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">DefaultRouter</span> <span class="k">where</span> <span class="kt">P</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/PostRoutingTask.html">PostRoutingTask</a></span><span class="p">,</span> <span class="kt">P</span><span class="o">.</span><span class="kt">Context</span> <span class="o">==</span> <span class="kt">Any</span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -525,9 +510,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer13DefaultRouterV8navigateAA13RoutingResultOx2to_Sb8animatedyAFcSg10completiontAA0F11DestinationRzlF"></a>
-                    <a name="//apple_ref/swift/Method/navigate(to:animated:completion:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer13DefaultRouterV8navigateAA13RoutingResultOx2to_Sb8animatedyAFcSg10completiontAA0F11DestinationRzlF">navigate(to:animated:completion:)</a>
+                    <a name="/s:13RouteComposer6RouterP8navigateAA13RoutingResultOAA15DestinationStepVyqd__G2to_qd__4withSb8animatedyAFcSg10completiontlF"></a>
+                    <a name="//apple_ref/swift/Method/navigate(to:with:animated:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer6RouterP8navigateAA13RoutingResultOAA15DestinationStepVyqd__G2to_qd__4withSb8animatedyAFcSg10completiontlF">navigate(to:with:animated:completion:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -535,66 +520,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Navigates an application to the <code><a href="../Protocols/RoutingDestination.html">RoutingDestination</a></code> provided.</p>
-
+                        
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
-<span class="kd">public</span> <span class="kd">func</span> <span class="n">navigate</span><span class="o">&lt;</span><span class="kt">D</span><span class="p">:</span> <span class="kt"><a href="../Protocols/RoutingDestination.html">RoutingDestination</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">to</span> <span class="nv">destination</span><span class="p">:</span> <span class="kt">D</span><span class="p">,</span>
-                                            <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span>
-                                            <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="nv">_</span><span class="p">:</span> <span class="kt"><a href="../Enums/RoutingResult.html">RoutingResult</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Enums/RoutingResult.html">RoutingResult</a></span></code></pre>
+<span class="kd">public</span> <span class="kd">func</span> <span class="n">navigate</span><span class="o">&lt;</span><span class="kt">Context</span><span class="o">&gt;</span><span class="p">(</span><span class="n">to</span> <span class="nv">step</span><span class="p">:</span> <span class="kt"><a href="../Structs/DestinationStep.html">DestinationStep</a></span><span class="o">&lt;</span><span class="kt">Context</span><span class="o">&gt;</span><span class="p">,</span>
+                              <span class="n">with</span> <span class="nv">context</span><span class="p">:</span> <span class="kt">Context</span><span class="p">,</span>
+                              <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span>
+                              <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="nv">_</span><span class="p">:</span> <span class="kt"><a href="../Enums/RoutingResult.html">RoutingResult</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Enums/RoutingResult.html">RoutingResult</a></span></code></pre>
 
                         </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>destination</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p><code><a href="../Protocols/RoutingDestination.html">RoutingDestination</a></code> instance.</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>animated</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>if true - the navigation should be animated where possible.</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>completion</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>completion block.</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <div>
-                        <h4>Return Value</h4>
-                        <p><code><a href="../Enums/RoutingResult.html">RoutingResult</a></code> instance.</p>
                       </div>
                     </section>
                   </div>
@@ -604,7 +542,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-09-11)</p>
+          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-09-18)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

@@ -8,7 +8,7 @@ import RouteComposer
 
 struct LoginConfiguration {
 
-    static func login() -> ExampleDestination {
+    static func login() -> ExampleDestination<Any?> {
         let loginScreen = StepAssembly(finder: ClassFinder<LoginViewController, Any?>(),
                 factory: NilFactory()) //Login view controller will be created when UINavigationController will be loaded from storyboard.
                 .usingNoAction()
@@ -16,10 +16,10 @@ struct LoginConfiguration {
                         finder: NilFinder(),
                         factory: StoryboardFactory<UINavigationController, Any?>(storyboardName: "Login")))
                 .using(GeneralAction.PresentModally(presentationStyle: .formSheet))
-                .from(CurrentViewControllerStep())
+                .from(GeneralStep.current())
                 .assemble()
 
-        return ExampleDestination(finalStep: loginScreen, context: nil)
+        return ExampleDestination(step: loginScreen, context: nil)
     }
 
 }

@@ -9,22 +9,22 @@ import RouteComposer
 
 class EmptyViewController: UIViewController, ExampleAnalyticsSupport {
 
-    let analyticParameters = ExampleAnalyticsParameters(source: .empty)
+    let screenType = ExampleScreen.empty
 
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
     @IBAction func goToCircleTapped() {
-        router.navigate(to: ExampleConfiguration.destination(for: ExampleTarget.circle)!)
+        router.navigate(to: ExampleConfiguration.wireframe.goToCircle())
     }
 
     @IBAction func goToSquareTapped() {
-        router.navigate(to: ExampleConfiguration.destination(for: ExampleTarget.square)!)
+        router.navigate(to: ExampleConfiguration.wireframe.goToSquare())
     }
 
     @IBAction func goToSelfTapped() {
-        router.navigate(to: ExampleConfiguration.destination(for: ExampleTarget.empty)!)
+        router.navigate(to: ExampleConfiguration.wireframe.goToEmptyScreen())
     }
 
 }

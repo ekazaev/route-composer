@@ -7,7 +7,7 @@ import Foundation
 
 class CityURLTranslator: ExampleURLTranslator {
 
-    func destination(from url: URL) -> ExampleDestination? {
+    func destination(from url: URL) -> ExampleDestination<Any?>? {
         guard let urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false),
               let queryItems = urlComponents.queryItems,
               let cityItem = queryItems.first(where: { $0.name == "city" }),
@@ -16,8 +16,8 @@ class CityURLTranslator: ExampleURLTranslator {
             return nil
         }
 
-        let cityDestination = CitiesConfiguration.cityDetail(cityId: cityId, ExampleAnalyticsParameters(source: .appLink, webpageURL: url, referrerURL: nil))
-        return cityDestination
+        let cityDestination = CitiesConfiguration.cityDetail(cityId: cityId)
+        return cityDestination.unsafelyUnwrapped()
     }
 
 }

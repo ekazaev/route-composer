@@ -34,10 +34,7 @@
                 <a href="../Protocols/Router.html">Router</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols/RoutingDestination.html">RoutingDestination</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Core Entities.html#/s:13RouteComposer11RoutingStepP">RoutingStep</a>
+                <a href="../Structs/DestinationStep.html">DestinationStep</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Protocols/Finder.html">Finder</a>
@@ -84,10 +81,7 @@
                 <a href="../Classes/SwitchAssembly.html">SwitchAssembly</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Assemblies.html#/s:13RouteComposer13ChainAssemblyAA016ActionConnectingD0Vyxq_GAA08StepWitheD0Cyxq_G4from_tAA6FinderRzAA15AbstractFactoryR_7ContextQy_ALRtz14ViewControllerQy_AORtzr0_lF">ChainAssembly(from:)</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Assemblies.html#/s:13RouteComposer13ChainAssemblyAA010LastStepIncD0VAA07RoutingF0_p4from_tF">ChainAssembly(from:)</a>
+                <a href="../Structs/ChainAssembly.html">ChainAssembly</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/CompleteFactoryAssembly.html">CompleteFactoryAssembly</a>
@@ -171,10 +165,7 @@
                 <a href="../Classes/SingleContainerStep.html">SingleContainerStep</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/CurrentViewControllerStep.html">CurrentViewControllerStep</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Structs/RootViewControllerStep.html">RootViewControllerStep</a>
+                <a href="../Structs/GeneralStep.html">GeneralStep</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/NavigationControllerStep.html">NavigationControllerStep</a>
@@ -272,9 +263,6 @@
                 <a href="../Protocols/ActionConnecting.html">ActionConnecting</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols/ChainingStep.html">ChainingStep</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Protocols/ContextChecking.html">ContextChecking</a>
               </li>
               <li class="nav-group-task">
@@ -291,9 +279,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Protocols/SimpleContainer.html">SimpleContainer</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Protocols/StepCaseResolver.html">StepCaseResolver</a>
               </li>
             </ul>
           </li>
@@ -364,7 +349,7 @@
 
                 </div>
               </div>
-            <p>Builds a <code><a href="../Core Entities.html#/s:13RouteComposer11RoutingStepP">RoutingStep</a></code> instance with the correct settings.</p>
+            <p>Builds a <code>RoutingStep</code> instance with the correct settings.</p>
 <h3 id='keep-in-mind' class='heading'>Keep in mind</h3>
 
 <p>Both <code><a href="../Protocols/Finder.html">Finder</a></code> and <code><a href="../Protocols/Factory.html">Factory</a></code> instances should deal with the same type of <code>UIViewController</code> and <code>Context</code> instances.</p>
@@ -443,9 +428,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer21ContainerStepAssemblyC5usingAA0d5ChainE0Vqd__AA6ActionRd__lF"></a>
+                    <a name="/s:13RouteComposer21ContainerStepAssemblyC5usingAA0d5ChainE0Vy7ContextQzGqd__AA6ActionRd__lF"></a>
                     <a name="//apple_ref/swift/Method/using(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer21ContainerStepAssemblyC5usingAA0d5ChainE0Vqd__AA6ActionRd__lF">using(_:)</a>
+                    <a class="token" href="#/s:13RouteComposer21ContainerStepAssemblyC5usingAA0d5ChainE0Vy7ContextQzGqd__AA6ActionRd__lF">using(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -453,14 +438,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Connects previously provided <code><a href="../Core Entities.html#/s:13RouteComposer11RoutingStepP">RoutingStep</a></code> instance with an <code><a href="../Protocols/Action.html">Action</a></code></p>
+                        <p>Connects previously provided <code>RoutingStep</code> instance with an <code><a href="../Protocols/Action.html">Action</a></code></p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">using</span><span class="o">&lt;</span><span class="kt">A</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">action</span><span class="p">:</span> <span class="kt">A</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/StepChainAssembly.html">StepChainAssembly</a></span> <span class="k">where</span> <span class="kt">A</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/Action.html">Action</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">using</span><span class="o">&lt;</span><span class="kt">A</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">action</span><span class="p">:</span> <span class="kt">A</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/StepChainAssembly.html">StepChainAssembly</a></span><span class="o">&lt;</span><span class="kt">F</span><span class="o">.</span><span class="kt">Context</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">A</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/Action.html">Action</a></span></code></pre>
 
                         </div>
                       </div>
@@ -485,7 +470,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p><code>ChainAssembly</code> to continue building the chain.</p>
+                        <p><code><a href="../Structs/ChainAssembly.html">ChainAssembly</a></code> to continue building the chain.</p>
                       </div>
                     </section>
                   </div>
@@ -493,9 +478,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer21ContainerStepAssemblyC5usingAA0d5ChainE0Vqd__AA0C6ActionRd__lF"></a>
+                    <a name="/s:13RouteComposer21ContainerStepAssemblyC5usingAA0d5ChainE0Vy7ContextQzGqd__AA0C6ActionRd__lF"></a>
                     <a name="//apple_ref/swift/Method/using(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer21ContainerStepAssemblyC5usingAA0d5ChainE0Vqd__AA0C6ActionRd__lF">using(_:)</a>
+                    <a class="token" href="#/s:13RouteComposer21ContainerStepAssemblyC5usingAA0d5ChainE0Vy7ContextQzGqd__AA0C6ActionRd__lF">using(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -503,14 +488,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Connects previously provided <code><a href="../Core Entities.html#/s:13RouteComposer11RoutingStepP">RoutingStep</a></code> instance with an <code><a href="../Protocols/Action.html">Action</a></code></p>
+                        <p>Connects previously provided <code>RoutingStep</code> instance with an <code><a href="../Protocols/Action.html">Action</a></code></p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">using</span><span class="o">&lt;</span><span class="kt">A</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">action</span><span class="p">:</span> <span class="kt">A</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/StepChainAssembly.html">StepChainAssembly</a></span> <span class="k">where</span> <span class="kt">A</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ContainerAction.html">ContainerAction</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">using</span><span class="o">&lt;</span><span class="kt">A</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">action</span><span class="p">:</span> <span class="kt">A</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/StepChainAssembly.html">StepChainAssembly</a></span><span class="o">&lt;</span><span class="kt">F</span><span class="o">.</span><span class="kt">Context</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">A</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ContainerAction.html">ContainerAction</a></span></code></pre>
 
                         </div>
                       </div>
@@ -535,7 +520,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p><code>ChainAssembly</code> to continue building the chain.</p>
+                        <p><code><a href="../Structs/ChainAssembly.html">ChainAssembly</a></code> to continue building the chain.</p>
                       </div>
                     </section>
                   </div>
@@ -547,9 +532,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer21ContainerStepAssemblyCA2A9NilEntityR_rlE13usingNoActionAA0d5ChainE0VyF"></a>
+                    <a name="/s:13RouteComposer21ContainerStepAssemblyCA2A9NilEntityR_rlE13usingNoActionAA0d5ChainE0Vy7ContextQzGyF"></a>
                     <a name="//apple_ref/swift/Method/usingNoAction()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer21ContainerStepAssemblyCA2A9NilEntityR_rlE13usingNoActionAA0d5ChainE0VyF">usingNoAction()</a>
+                    <a class="token" href="#/s:13RouteComposer21ContainerStepAssemblyCA2A9NilEntityR_rlE13usingNoActionAA0d5ChainE0Vy7ContextQzGyF">usingNoAction()</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -565,7 +550,7 @@ be used with <code>NilAction</code></p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">usingNoAction</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/StepChainAssembly.html">StepChainAssembly</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">usingNoAction</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/StepChainAssembly.html">StepChainAssembly</a></span><span class="o">&lt;</span><span class="kt">Context</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -577,7 +562,7 @@ be used with <code>NilAction</code></p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-09-11)</p>
+          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-09-18)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
