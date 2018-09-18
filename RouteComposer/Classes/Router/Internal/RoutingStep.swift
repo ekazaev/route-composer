@@ -6,6 +6,6 @@
 import UIKit
 
 /// Represents a single step for the `Router` to make.
-public protocol RoutingStep {
+protocol RoutingStep {
 
 }

@@ -13,20 +13,18 @@ struct WishListConfiguration {
             factory: StoryboardFactory(storyboardName: "TabBar", viewControllerID: "WishListViewController"))
             .add(LoginInterceptor())
             .add(WishListContextTask())
-            .add(ExampleAnalyticsInterceptor())
-            .add(ExampleAnalyticsPostAction())
             .using(NavigationControllerFactory.PushToNavigation())
             .from(NavigationControllerStep())
             .using(GeneralAction.PresentModally(presentationStyle: .formSheet))
-            .from(CurrentViewControllerStep())
+            .from(GeneralStep.current())
             .assemble()
 
-    static func favorites() -> ExampleDestination {
-        return ExampleDestination(finalStep: wishListScreen, context: WishListContext.favorites)
+    static func favorites() -> ExampleDestination<WishListContext> {
+        return ExampleDestination(step: wishListScreen, context: WishListContext.favorites)
     }
 
-    static func collections() -> ExampleDestination {
-        return ExampleDestination(finalStep: wishListScreen, context: WishListContext.collections)
+    static func collections() -> ExampleDestination<WishListContext> {
+        return ExampleDestination(step: wishListScreen, context: WishListContext.collections)
     }
 
 }

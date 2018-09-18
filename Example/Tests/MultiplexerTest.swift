@@ -13,67 +13,50 @@ import XCTest
 
 class MultiplexerTest: XCTestCase {
 
-    struct TestDestination: RoutingDestination {
-
-        private(set) var finalStep: RoutingStep
-
-        private(set) var context: Any?
-
-    }
-
-    struct WrongDestination: RoutingDestination {
-
-        private(set) var finalStep: RoutingStep
-
-        private(set) var context: Any?
-
-    }
-
     func testRoutingInterceptorPrepare() {
         var prepareCountRun: Int = 0
         let interceptors = [
-            RoutingInterceptorBox(InlineInterceptor(prepare: { (_: TestDestination) throws in
+            RoutingInterceptorBox(InlineInterceptor(prepare: { (_: Any?) throws in
                 prepareCountRun += 1
-            }, { (_: TestDestination) in
+            }, { (_: Any?) in
 
             })),
-            RoutingInterceptorBox(InlineInterceptor(prepare: { (_: TestDestination) throws in
+            RoutingInterceptorBox(InlineInterceptor(prepare: { (_: Any?) throws in
                 prepareCountRun += 9
-            }, { (_: TestDestination) in
+            }, { (_: Any?) in
 
             }))
         ]
 
         var multiplexer = InterceptorMultiplexer(interceptors)
-        try? multiplexer.prepare(with: TestDestination(finalStep: CurrentViewControllerStep(), context: nil))
+        try? multiplexer.prepare(with: nil)
         XCTAssertEqual(prepareCountRun, 10)
     }
 
     func testRoutingPrepareInterceptorThrow() {
         let interceptors = [
-            RoutingInterceptorBox(InlineInterceptor(prepare: { (_: TestDestination) throws in
+            RoutingInterceptorBox(InlineInterceptor(prepare: { (_: Any?) throws in
                 throw RoutingError.message("Should be handled")
-            }, { (_: TestDestination) in
+            }, { (_: Any?) in
 
             }))
         ]
 
         var multiplexer = InterceptorMultiplexer(interceptors)
-        let destination = TestDestination(finalStep: CurrentViewControllerStep(), context: nil)
-        XCTAssertThrowsError(try multiplexer.prepare(with: destination))
+        XCTAssertThrowsError(try multiplexer.prepare(with: nil))
     }
 
-    func testRoutingWrongDestinationInterceptorThrow() {
+    func testRoutingWrongContextTypeInterceptorThrow() {
         let interceptors = [
-            RoutingInterceptorBox(InlineInterceptor(prepare: { (_: TestDestination) throws in
+            RoutingInterceptorBox(InlineInterceptor(prepare: { (_: Int) throws in
                 throw RoutingError.message("Should be handled")
-            }, { (_: TestDestination) in
+            }, { (_: Int) in
 
             }))
         ]
 
         let multiplexer = InterceptorMultiplexer(interceptors)
-        multiplexer.execute(for: WrongDestination(finalStep: CurrentViewControllerStep(), context: nil), completion: { result in
+        multiplexer.execute(with: "Wrong Context Type", completion: { result in
             guard case .failure = result else {
                 XCTAssertFalse(true)
                 return
@@ -102,12 +85,11 @@ class MultiplexerTest: XCTestCase {
         ]
 
         var multiplexer = ContextTaskMultiplexer(contextTask)
-        let destination = TestDestination(finalStep: CurrentViewControllerStep(), context: nil)
-        try? multiplexer.prepare(with: nil, for: destination)
-        try? multiplexer.apply(on: UIViewController(), with: nil, for: destination)
+        try? multiplexer.prepare(with: nil)
+        try? multiplexer.apply(on: UIViewController(), with: nil)
     }
 
-    func testContextTaskWrongDestinationThrow() {
+    func testContextTaskWrongContextTypeThrow() {
         let contextTask = [
             ContextTaskBox(InlineContextTask { (_: UIViewController, _: String) throws in
 
@@ -115,29 +97,28 @@ class MultiplexerTest: XCTestCase {
         ]
 
         let multiplexer = ContextTaskMultiplexer(contextTask)
-        XCTAssertThrowsError(try multiplexer.apply(on: UIViewController(), with: nil, for: WrongDestination(finalStep: CurrentViewControllerStep(), context: nil)))
+        XCTAssertThrowsError(try multiplexer.apply(on: UIViewController(), with: nil))
     }
 
-    func testPostTaskWrongDestinationThrow() {
+    func testPostTaskWrongContextTypeThrow() {
         let postTasks = [
-            PostRoutingTaskBox(InlinePostTask({ (_: UIViewController, _: TestDestination, _: [UIViewController]) in
+            PostRoutingTaskBox(InlinePostTask({ (_: UIViewController, _: Int, _: [UIViewController]) in
             }))
         ]
 
         let multiplexer = PostRoutingTaskMultiplexer(postTasks)
-        let destination = WrongDestination(finalStep: CurrentViewControllerStep(), context: nil)
-        XCTAssertThrowsError(try multiplexer.execute(on: UIViewController(), for: destination, routingStack: [UIViewController()]))
+        XCTAssertThrowsError(try multiplexer.execute(on: UIViewController(), with: "Wrong Context Type", routingStack: [UIViewController()]))
     }
 
     func testRoutingInterceptorMutation() {
         struct Interceptor: RoutingInterceptor {
             var count = 0
 
-            mutating func prepare(with destination: TestDestination) throws {
+            mutating func prepare(with context: Any?) throws {
                 count += 1
             }
 
-            func execute(for destination: TestDestination, completion: @escaping (InterceptorResult) -> Void) {
+            func execute(with context: Any?, completion: @escaping (InterceptorResult) -> Void) {
                 guard count == 1 else {
                     completion(.failure("Count should be 1"))
                     return
@@ -146,9 +127,8 @@ class MultiplexerTest: XCTestCase {
             }
         }
         var multiplexer = InterceptorMultiplexer([RoutingInterceptorBox(Interceptor())])
-        let destination = TestDestination(finalStep: CurrentViewControllerStep(), context: nil)
-        try? multiplexer.prepare(with: destination)
-        multiplexer.execute(for: destination) { (result: InterceptorResult) in
+        try? multiplexer.prepare(with: nil)
+        multiplexer.execute(with: nil) { (result: InterceptorResult) in
             guard case .success = result else {
                 XCTAssertFalse(true)
                 return

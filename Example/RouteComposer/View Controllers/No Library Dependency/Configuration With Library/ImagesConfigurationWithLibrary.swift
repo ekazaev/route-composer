@@ -8,36 +8,37 @@ import RouteComposer
 import UIKit
 import ImageDetailsController
 import ImagesController
+import ContainerViewController
 
 struct ImagesConfigurationWithLibrary {
 
     private static let imagesContainerStep = ContainerStepAssembly(
-            finder: ClassFinder(),
+            finder: ClassFinder<CustomContainerController, Any?>(),
             factory: CustomContainerFactory(delegate: ImagesWithLibraryHandler.shared))
             .using(NavigationControllerFactory.PushToNavigation())
             .from(NavigationControllerStep())
             .using(GeneralAction.PresentModally())
-            .from(CurrentViewControllerStep())
+            .from(GeneralStep.current())
             .assemble()
 
-    static func images() -> ExampleDestination {
+    static func images() -> ExampleDestination<Any?> {
         let imagesStep = StepAssembly(
                 finder: ClassFinder(),
                 factory: ImagesFactory(delegate: ImagesWithLibraryHandler.shared))
                 .using(CustomContainerFactory.ReplaceRoot())
                 .from(imagesContainerStep)
                 .assemble()
-        return ExampleDestination(finalStep: imagesStep, context: nil)
+        return ExampleDestination(step: imagesStep, context: nil)
     }
 
-    static func imageDetails(for imageID: String) -> ExampleDestination {
+    static func imageDetails(for imageID: String) -> ExampleDestination<String> {
         let imageDetailsStep = StepAssembly(
                 finder: ClassFinder(),
                 factory: ImageDetailsFactory(delegate: ImagesWithLibraryHandler.shared))
                 .using(CustomContainerFactory.ReplaceRoot())
                 .from(imagesContainerStep)
                 .assemble()
-        return ExampleDestination(finalStep: imageDetailsStep, context: imageID)
+        return ExampleDestination(step: imageDetailsStep, context: imageID)
     }
 
 }

@@ -17,7 +17,7 @@ class AssemblyTest: XCTestCase {
                 .using(GeneralAction.PresentModally())
         XCTAssertEqual(lastStepAssembly.previousSteps.count, 2)
 
-        var currentStep: RoutingStep? = lastStepAssembly.assemble(from: CurrentViewControllerStep())
+        var currentStep: RoutingStep? = lastStepAssembly.assemble(from: GeneralStep.current())
         var chainedStepCount = 0
         while currentStep != nil {
             chainedStepCount += 1
@@ -27,7 +27,7 @@ class AssemblyTest: XCTestCase {
                 currentStep = nil
             }
         }
-        XCTAssertEqual(chainedStepCount, 3)
+        XCTAssertEqual(chainedStepCount, 5)
     }
 
     func testContainerStepAssembly() {
@@ -35,7 +35,7 @@ class AssemblyTest: XCTestCase {
                 .using(GeneralAction.NilAction())
                 .from(TabBarControllerStep())
                 .using(GeneralAction.PresentModally())
-                .from(CurrentViewControllerStep())
+                .from(GeneralStep.root())
         XCTAssertEqual(lastStepAssembly.previousSteps.count, 3)
 
         var currentStep: RoutingStep? = lastStepAssembly.assemble()
@@ -48,14 +48,17 @@ class AssemblyTest: XCTestCase {
                 currentStep = nil
             }
         }
-        XCTAssertEqual(chainedStepCount, 3)
+        XCTAssertEqual(chainedStepCount, 5)
     }
 
     func testChainAssembly() {
-        var currentStep: RoutingStep? = ChainAssembly(from:ChainAssembly(from: NavigationControllerStep())
+        let destinationStep = ChainAssembly.from(NavigationControllerStep())
                 .using(GeneralAction.PresentModally())
-                .from(RootViewControllerStep())
-                .assemble()).assemble()
+                .from(GeneralStep.root())
+                .assemble()
+        var currentStep: RoutingStep? = ChainAssembly.from(
+                        destinationStep)
+                .assemble()
 
         var chainedStepCount = 0
         while currentStep != nil {
@@ -66,7 +69,7 @@ class AssemblyTest: XCTestCase {
                 currentStep = nil
             }
         }
-        XCTAssertEqual(chainedStepCount, 2)
+        XCTAssertEqual(chainedStepCount, 5)
     }
 
     func testCompleteFactoryAssembly() {
@@ -84,33 +87,27 @@ class AssemblyTest: XCTestCase {
     }
 
     func testSwitchAssembly() {
-        class TestResolver: StepCaseResolver {
-            func resolve<D: RoutingDestination>(for destination: D) -> RoutingStep? {
-                return RootViewControllerStep()
-            }
-        }
-        let step = SwitchAssembly()
+        let step = SwitchAssembly<Any?>()
                 .addCase(when: ClassFinder<UINavigationController, Any?>())
-                .addCase(when: ClassFinder<UITabBarController, Any?>(), do: RootViewControllerStep())
-                .addCase({ (_: RouterTests.TestDestination) in
-                    return CurrentViewControllerStep()
+                .addCase(when: ClassFinder<UITabBarController, Any?>(), do: GeneralStep.root())
+                .addCase({ (_: Any?) in
+                    return GeneralStep.current()
                 })
-                .addCase(TestResolver())
                 .assemble(default: {
-                    return RootViewControllerStep()
-                }) as? SwitcherStep
+                    return GeneralStep.root()
+                }).previousStep as? SwitcherStep<Any?>
 
         XCTAssertNotNil(step)
-        XCTAssertEqual(step?.resolvers.count, 5)
+        XCTAssertEqual(step?.resolvers.count, 4)
     }
 
     func testStepWithActionAssembly() {
         let assembly = StepWithActionAssembly<ClassFinder<RouterTests.TestViewController, Any?>, ClassNameFactory<RouterTests.TestViewController, Any?>>()
-                .add(InlineInterceptor({ (_: RouterTests.TestDestination) in
+                .add(InlineInterceptor({ (_: Any?) in
                 }))
                 .add(InlineContextTask({ (_: RouterTests.TestViewController, _: Any?) in
                 }))
-                .add(InlinePostTask({ (_: RouterTests.TestViewController, _: RouterTests.TestDestination, _: [UIViewController]) in
+                .add(InlinePostTask({ (_: RouterTests.TestViewController, _: Any?, _: [UIViewController]) in
                 }))
         XCTAssertNotNil(assembly.taskCollector.interceptor())
         XCTAssertNotNil(assembly.taskCollector.contextTask())

@@ -9,14 +9,15 @@ import Foundation
 /// Base router protocol.
 public protocol Router {
 
-    /// Navigates an application to the `RoutingDestination` provided.
+    /// Navigates an application to the `DestinationStep` with the `Context` provided.
     ///
     /// - Parameters:
-    ///   - destination: `RoutingDestination` instance.
+    ///   - step: `DestinationStep` instance.
+    ///   - context: A `Context` instance.
     ///   - animated: if true - the navigation should be animated where possible.
     ///   - completion: completion block.
     /// - Returns: `RoutingResult` instance.
     @discardableResult
-    func navigate<D: RoutingDestination>(to destination: D, animated: Bool, completion: ((_: RoutingResult) -> Void)?) -> RoutingResult
+    func navigate<Context>(to step: DestinationStep<Context>, with context: Context, animated: Bool, completion: ((_: RoutingResult) -> Void)?) -> RoutingResult
 
 }

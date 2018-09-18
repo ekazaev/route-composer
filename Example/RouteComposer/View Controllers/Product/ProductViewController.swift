@@ -7,17 +7,29 @@ import Foundation
 import UIKit
 import RouteComposer
 
+struct ProductContext {
+
+    let productId: String
+
+    let productURL: URL?
+
+    init(productId: String, productURL: URL? = nil) {
+        self.productId = productId
+        self.productURL = productURL
+    }
+}
+
 class ProductContextTask: ContextTask {
 
-    func apply(on viewController: ProductViewController, with context: String) throws {
-        viewController.productId = context
+    func apply(on viewController: ProductViewController, with context: ProductContext) throws {
+        viewController.productId = context.productId
     }
 
 }
 
 class ProductViewController: UIViewController, ExampleAnalyticsSupport {
 
-    let analyticParameters = ExampleAnalyticsParameters(source: .product)
+    let screenType = ExampleScreen.product
 
     typealias Model = String
 
@@ -56,7 +68,7 @@ class ProductViewController: UIViewController, ExampleAnalyticsSupport {
     }
 
     @IBAction func goToCircleTapped() {
-        router.navigate(to: ExampleConfiguration.destination(for: ExampleTarget.circle)!)
+        router.navigate(to: ExampleConfiguration.wireframe.goToCircle())
     }
 
     @IBAction func goToSplitTapped() {
@@ -64,15 +76,15 @@ class ProductViewController: UIViewController, ExampleAnalyticsSupport {
     }
 
     @IBAction func goToProductTapped() {
-        router.navigate(to: ProductConfiguration.productDestination(productId: "01"))
+        router.navigate(to: ProductConfiguration.productScreen, with: ProductContext(productId: "01"))
     }
 
 }
 
 extension ProductViewController: ContextChecking {
 
-    func isTarget(for productId: String) -> Bool {
-        return self.productId == productId
+    func isTarget(for context: ProductContext) -> Bool {
+        return self.productId == context.productId
     }
 
 }

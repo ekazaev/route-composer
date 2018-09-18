@@ -17,7 +17,7 @@ class CityDetailContextTask: ContextTask {
 
 class CityDetailViewController: UIViewController, ExampleAnalyticsSupport {
 
-    let analyticParameters = ExampleAnalyticsParameters(source: .cityDetail)
+    let screenType = ExampleScreen.cityDetail
 
     @IBOutlet private var detailsTextView: UITextView!
 
@@ -46,7 +46,7 @@ class CityDetailViewController: UIViewController, ExampleAnalyticsSupport {
     }
 
     @IBAction func goToStarTapped() {
-        router.navigate(to: ExampleConfiguration.destination(for: ExampleTarget.star)!)
+        router.navigate(to: ExampleConfiguration.wireframe.goToStar())
     }
 
     @IBAction func backProgrammaticallyTapped() {

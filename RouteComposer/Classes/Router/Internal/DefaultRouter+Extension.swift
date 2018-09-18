@@ -17,7 +17,7 @@ extension DefaultRouter {
         let postTask: AnyPostRoutingTask
     }
 
-    final class PostTaskRunner<D: RoutingDestination> {
+    final class PostTaskRunner {
 
         private var taskSlips: [PostTaskSlip] = []
 
@@ -26,7 +26,7 @@ extension DefaultRouter {
             taskSlips.append(postTaskSlip)
         }
 
-        func run(for destination: D) throws {
+        func run(for context: Any?) throws {
             var viewControllers: [UIViewController] = []
             taskSlips.forEach({
                 guard let viewController = $0.viewController, !viewControllers.contains(viewController) else {
@@ -39,7 +39,7 @@ extension DefaultRouter {
                 guard let viewController = slip.viewController else {
                     return
                 }
-                try slip.postTask.execute(on: viewController, for: destination, routingStack: viewControllers)
+                try slip.postTask.execute(on: viewController, with: context, routingStack: viewControllers)
             })
         }
     }
@@ -48,11 +48,11 @@ extension DefaultRouter {
     /// This decorator adds functionality of storing UIViewControllers created by the `Factory` and frees
     /// custom factories implementations from dealing with it. Mostly it is important for ContainerFactories
     /// which create merged view controllers without `Router`'s help.
-    struct FactoryDecorator<D: RoutingDestination>: AnyFactory, CustomStringConvertible {
+    struct FactoryDecorator: AnyFactory, CustomStringConvertible {
 
         var factory: AnyFactory
 
-        weak var postTaskRunner: PostTaskRunner<D>?
+        weak var postTaskRunner: PostTaskRunner?
 
         let contextTasks: [AnyContextTask]
 
@@ -60,23 +60,19 @@ extension DefaultRouter {
 
         let logger: Logger?
 
-        let destination: D
-
         let action: AnyAction
 
         init(factory: AnyFactory,
              contextTasks: [AnyContextTask],
              postTasks: [AnyPostRoutingTask],
-             postTaskRunner: PostTaskRunner<D>,
-             logger: Logger?,
-             destination: D) {
+             postTaskRunner: PostTaskRunner,
+             logger: Logger?) {
             self.factory = factory
             self.action = factory.action
             self.postTaskRunner = postTaskRunner
             self.postTasks = postTasks
             self.contextTasks = contextTasks
             self.logger = logger
-            self.destination = destination
         }
 
         mutating func prepare(with context: Any?) throws {
@@ -87,7 +83,7 @@ extension DefaultRouter {
             let viewController = try factory.build(with: context)
             if let context = context {
                 try contextTasks.forEach({
-                    try $0.apply(on: viewController, with: context, for: destination)
+                    try $0.apply(on: viewController, with: context)
                 })
             }
             postTasks.forEach({
@@ -108,9 +104,9 @@ extension DefaultRouter {
 
     // this class is just a placeholder. Router needs at least one post-routing task per view controller to
     // store a reference there.
-    struct EmptyPostTask<D: RoutingDestination>: PostRoutingTask {
+    struct EmptyPostTask: PostRoutingTask {
 
-        func execute(on viewController: UIViewController, for destination: D, routingStack: [UIViewController]) {
+        func execute(on viewController: UIViewController, with context: Any?, routingStack: [UIViewController]) {
         }
 
     }

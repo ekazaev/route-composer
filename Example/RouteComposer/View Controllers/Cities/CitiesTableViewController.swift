@@ -17,7 +17,7 @@ class CityTableContextTask: ContextTask {
 
 class CitiesTableViewController: UITableViewController, ExampleAnalyticsSupport {
 
-    let analyticParameters = ExampleAnalyticsParameters(source: .citiesList)
+    let screenType = ExampleScreen.citiesList
 
     var cityId: Int? {
         didSet {
@@ -57,7 +57,7 @@ class CitiesTableViewController: UITableViewController, ExampleAnalyticsSupport 
     }
 
     @IBAction func goToSquareTapped() {
-        router.navigate(to: ExampleConfiguration.destination(for: ExampleTarget.square)!)
+        router.navigate(to: ExampleConfiguration.wireframe.goToSquare())
     }
 
 }

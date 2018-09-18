@@ -34,10 +34,7 @@
                 <a href="../Protocols/Router.html">Router</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols/RoutingDestination.html">RoutingDestination</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Core Entities.html#/s:13RouteComposer11RoutingStepP">RoutingStep</a>
+                <a href="../Structs/DestinationStep.html">DestinationStep</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Protocols/Finder.html">Finder</a>
@@ -84,10 +81,7 @@
                 <a href="../Classes/SwitchAssembly.html">SwitchAssembly</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Assemblies.html#/s:13RouteComposer13ChainAssemblyAA016ActionConnectingD0Vyxq_GAA08StepWitheD0Cyxq_G4from_tAA6FinderRzAA15AbstractFactoryR_7ContextQy_ALRtz14ViewControllerQy_AORtzr0_lF">ChainAssembly(from:)</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Assemblies.html#/s:13RouteComposer13ChainAssemblyAA010LastStepIncD0VAA07RoutingF0_p4from_tF">ChainAssembly(from:)</a>
+                <a href="../Structs/ChainAssembly.html">ChainAssembly</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/CompleteFactoryAssembly.html">CompleteFactoryAssembly</a>
@@ -171,10 +165,7 @@
                 <a href="../Classes/SingleContainerStep.html">SingleContainerStep</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/CurrentViewControllerStep.html">CurrentViewControllerStep</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Structs/RootViewControllerStep.html">RootViewControllerStep</a>
+                <a href="../Structs/GeneralStep.html">GeneralStep</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/NavigationControllerStep.html">NavigationControllerStep</a>
@@ -272,9 +263,6 @@
                 <a href="../Protocols/ActionConnecting.html">ActionConnecting</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols/ChainingStep.html">ChainingStep</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Protocols/ContextChecking.html">ContextChecking</a>
               </li>
               <li class="nav-group-task">
@@ -291,9 +279,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Protocols/SimpleContainer.html">SimpleContainer</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Protocols/StepCaseResolver.html">StepCaseResolver</a>
               </li>
             </ul>
           </li>
@@ -371,9 +356,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer6RouterP8navigateAA13RoutingResultOqd__2to_Sb8animatedyAFcSg10completiontAA0E11DestinationRd__lF"></a>
-                    <a name="//apple_ref/swift/Method/navigate(to:animated:completion:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer6RouterP8navigateAA13RoutingResultOqd__2to_Sb8animatedyAFcSg10completiontAA0E11DestinationRd__lF">navigate(to:animated:completion:)</a>
+                    <a name="/s:13RouteComposer6RouterP8navigateAA13RoutingResultOAA15DestinationStepVyqd__G2to_qd__4withSb8animatedyAFcSg10completiontlF"></a>
+                    <a name="//apple_ref/swift/Method/navigate(to:with:animated:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer6RouterP8navigateAA13RoutingResultOAA15DestinationStepVyqd__G2to_qd__4withSb8animatedyAFcSg10completiontlF">navigate(to:with:animated:completion:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -381,7 +366,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Navigates an application to the <code><a href="../Protocols/RoutingDestination.html">RoutingDestination</a></code> provided.</p>
+                        <p>Navigates an application to the <code><a href="../Structs/DestinationStep.html">DestinationStep</a></code> with the <code>Context</code> provided.</p>
 
                       </div>
                       <div class="declaration">
@@ -389,7 +374,7 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
-<span class="kd">func</span> <span class="n">navigate</span><span class="o">&lt;</span><span class="kt">D</span><span class="o">&gt;</span><span class="p">(</span><span class="n">to</span> <span class="nv">destination</span><span class="p">:</span> <span class="kt">D</span><span class="p">,</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Enums/RoutingResult.html">RoutingResult</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Enums/RoutingResult.html">RoutingResult</a></span> <span class="k">where</span> <span class="kt">D</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/RoutingDestination.html">RoutingDestination</a></span></code></pre>
+<span class="kd">func</span> <span class="n">navigate</span><span class="o">&lt;</span><span class="kt">Context</span><span class="o">&gt;</span><span class="p">(</span><span class="n">to</span> <span class="nv">step</span><span class="p">:</span> <span class="kt"><a href="../Structs/DestinationStep.html">DestinationStep</a></span><span class="o">&lt;</span><span class="kt">Context</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">with</span> <span class="nv">context</span><span class="p">:</span> <span class="kt">Context</span><span class="p">,</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Enums/RoutingResult.html">RoutingResult</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Enums/RoutingResult.html">RoutingResult</a></span></code></pre>
 
                         </div>
                       </div>
@@ -400,12 +385,24 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>destination</em>
+                                <em>step</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p><code><a href="../Protocols/RoutingDestination.html">RoutingDestination</a></code> instance.</p>
+                                  <p><code><a href="../Structs/DestinationStep.html">DestinationStep</a></code> instance.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>context</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A <code>Context</code> instance.</p>
                                 </div>
                               </td>
                             </tr>
@@ -448,7 +445,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-09-11)</p>
+          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-09-18)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

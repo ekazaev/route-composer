@@ -8,32 +8,31 @@ import RouteComposer
 
 let transitionController = BlurredBackgroundTransitionController()
 
-// NB: Keeping the screen configurations in the Dictionary has no practical value, demo only.
-class ExampleConfiguration {
+protocol ExampleWireframe {
 
-    private static var screens: [AnyHashable: RoutingStep] = [:]
+    func goToHome() -> ExampleDestination<Any?>
 
-    static func step<T: Hashable>(for target: T) -> RoutingStep? {
-        return screens[target]
-    }
+    func goToCircle() -> ExampleDestination<Any?>
 
-    static func register<T: Hashable>(screen: RoutingStep, for target: T) {
-        screens[target] = screen
-    }
+    func goToSquare() -> ExampleDestination<Any?>
 
-    static func destination<T: Hashable>(for target: T, context: ExampleDictionaryContext? = nil) -> ExampleDestination? {
-        guard let assembly = step(for: target) else {
-            return nil
-        }
+    func goToColor(_ color: String) -> ExampleDestination<ExampleDictionaryContext>
 
-        return ExampleDestination(finalStep: assembly, context: context ?? ExampleDictionaryContext())
-    }
+    func goToStar() -> ExampleDestination<Any?>
+
+    func goToRoutingSupport(_ color: String) -> ExampleDestination<Any?>
+
+    func goToEmptyScreen() -> ExampleDestination<Any?>
+
+    func goToSecondLevelModal(_ color: String) -> ExampleDestination<Any?>
+
+    func goToWelcome() -> ExampleDestination<Any?>
 
 }
 
-extension ExampleConfiguration {
+extension ExampleWireframe {
 
-    static func configure() {
+    func goToHome() -> ExampleDestination<Any?> {
         // Home Tab Bar Screen
         let homeScreen = StepAssembly(
                 // Because both factory and finder are Generic, You have to provide to at least one instance
@@ -41,123 +40,144 @@ extension ExampleConfiguration {
                 // least one custom factory of finder that have set typealias for ViewController and Context.
                 finder: ClassFinder<UITabBarController, Any?>(),
                 factory: StoryboardFactory(storyboardName: "TabBar"))
-                .add(ExampleAnalyticsInterceptor())
-                .add(ExampleAnalyticsPostAction())
                 .using(GeneralAction.ReplaceRoot())
-                .from(RootViewControllerStep())
+                .from(GeneralStep.root())
                 .assemble()
+        return ExampleDestination(step: homeScreen, context: nil)
+    }
 
-        ExampleConfiguration.register(screen: homeScreen, for: ExampleTarget.home)
-
-        // Square Tab Bar Screen
-        let squareScreen = StepAssembly(
-                finder: ClassFinder<SquareViewController, ExampleDictionaryContext>(options: .currentAllStack),
-                factory: NilFactory())
-                .add(ExampleAnalyticsInterceptor())
-                .add(ExampleGenericContextTask())
-                .add(ExampleAnalyticsPostAction())
-                .usingNoAction()
-                .from(homeScreen)
-                .assemble()
-
-        ExampleConfiguration.register(screen: squareScreen, for: ExampleTarget.square)
-
+    func goToCircle() -> ExampleDestination<Any?> {
         // Circle Tab Bar screen
         let circleScreen = StepAssembly(
-                finder: ClassFinder<CircleViewController, ExampleDictionaryContext>(options: .currentAllStack),
+                finder: ClassFinder<CircleViewController, Any?>(options: .currentAllStack),
                 factory: NilFactory())
-                .add(ExampleAnalyticsInterceptor())
-                .add(ExampleGenericContextTask())
-                .add(ExampleAnalyticsPostAction())
+                .add(ExampleGenericContextTask<CircleViewController, Any?>())
                 .usingNoAction()
-                .from(homeScreen)
+                .from(goToHome().step)
                 .assemble()
 
-        ExampleConfiguration.register(screen: circleScreen, for: ExampleTarget.circle)
+        return ExampleDestination(step: circleScreen, context: nil)
+    }
 
+    func goToSquare() -> ExampleDestination<Any?> {
+        // Square Tab Bar Screen
+        let squareScreen = StepAssembly(
+                finder: ClassFinder<SquareViewController, Any?>(options: .currentAllStack),
+                factory: NilFactory())
+                .add(ExampleGenericContextTask<SquareViewController, Any?>())
+                .usingNoAction()
+                .from(goToHome().step)
+                .assemble()
+        return ExampleDestination(step: squareScreen, context: nil)
+
+    }
+    func goToColor(_ color: String) -> ExampleDestination<ExampleDictionaryContext> {
         //Color screen
         let colorScreen = StepAssembly(
                 finder: ColorViewControllerFinder(),
                 factory: ColorViewControllerFactory())
-                .add(ExampleAnalyticsInterceptor())
-                .add(ExampleGenericContextTask())
-                .add(ExampleAnalyticsPostAction())
+                .add(ExampleGenericContextTask<ColorViewController, ExampleDictionaryContext>())
                 .using(NavigationControllerFactory.PushToNavigation())
                 .from(NavigationControllerStep())
                 .using(GeneralAction.PresentModally())
-                .from(CurrentViewControllerStep())
+                .from(GeneralStep.current())
                 .assemble()
-        ExampleConfiguration.register(screen: colorScreen, for: ExampleTarget.color)
+        return ExampleDestination(step: colorScreen, context: ExampleDictionaryContext(arguments: [.color: color]))
 
-        //Star screen
-        let starScreen = StepAssembly(
-                finder: ClassFinder<StarViewController, Any?>(options: .currentAllStack),
-                factory: XibFactory())
-                .add(ExampleAnalyticsInterceptor())
-                .add(ExampleGenericContextTask())
-                .add(ExampleAnalyticsPostAction())
-                .add(LoginInterceptor())
-                .using(TabBarControllerFactory.AddTab())
-                .from(homeScreen)
-                .assemble()
+    }
 
-        ExampleConfiguration.register(screen: starScreen, for: ExampleTarget.star)
-
+    func goToRoutingSupport(_ color: String) -> ExampleDestination<Any?> {
         //Screen with Routing support
         let routingSupportScreen = StepAssembly(
                 finder: ClassFinder<RoutingRuleSupportViewController, Any?>(options: .currentAllStack),
                 factory: StoryboardFactory(storyboardName: "TabBar", viewControllerID: "RoutingRuleSupportViewController"))
-                .add(ExampleAnalyticsInterceptor())
-                .add(ExampleGenericContextTask())
-                .add(ExampleAnalyticsPostAction())
+                .add(ExampleGenericContextTask<RoutingRuleSupportViewController, Any?>())
                 .using(NavigationControllerFactory.PushToNavigation())
-                .from(colorScreen)
+                .from(goToColor(color).step)
                 .assemble()
+        return ExampleDestination(step: routingSupportScreen, context: ExampleDictionaryContext(arguments: [.color: color]))
 
-        ExampleConfiguration.register(screen: routingSupportScreen,
-                for: ExampleTarget.ruleSupport)
+    }
 
+    func goToEmptyScreen() -> ExampleDestination<Any?> {
         // Empty Screen
         let emptyScreen = StepAssembly(
                 finder: ClassFinder<EmptyViewController, Any?>(),
                 factory: StoryboardFactory(storyboardName: "TabBar", viewControllerID: "EmptyViewController"))
-                .add(LoginInterceptor())
-                .add(ExampleAnalyticsInterceptor())
-                .add(ExampleGenericContextTask())
-                .add(ExampleAnalyticsPostAction())
+                .add(LoginInterceptor<Any?>())
+                .add(ExampleGenericContextTask<EmptyViewController, Any?>())
                 .using(NavigationControllerFactory.PushToNavigation())
-                .from(circleScreen)
+                .from(goToCircle().step)
                 .assemble()
 
-        ExampleConfiguration.register(screen: emptyScreen, for: ExampleTarget.empty)
+        return ExampleDestination(step: emptyScreen, context: nil)
+    }
 
+    func goToSecondLevelModal(_ color: String) -> ExampleDestination<Any?> {
         // Two modal presentations in a row screen
         let superModalScreen = StepAssembly(
                 finder: ClassFinder<SecondModalLevelViewController, Any?>(),
                 factory: StoryboardFactory(storyboardName: "TabBar", viewControllerID: "SecondModalLevelViewController"))
-                .add(ExampleAnalyticsInterceptor())
-                .add(ExampleGenericContextTask())
-                .add(ExampleAnalyticsPostAction())
+                .add(ExampleGenericContextTask<SecondModalLevelViewController, Any?>())
                 .using(NavigationControllerFactory.PushToNavigation())
                 .from(NavigationControllerStep())
                 .using(GeneralAction.PresentModally(transitioningDelegate: transitionController))
-                .from(routingSupportScreen)
+                .from(goToRoutingSupport(color).step)
                 .assemble()
+        return ExampleDestination(step: superModalScreen, context: ExampleDictionaryContext(arguments: [.color: color]))
+    }
 
-        ExampleConfiguration.register(screen: superModalScreen, for: ExampleTarget.secondLevelModal)
-
+    func goToWelcome() -> ExampleDestination<Any?> {
         // Welcome Screen
         let welcomeScreen = StepAssembly(
                 finder: ClassFinder<PromptViewController, Any?>(),
                 factory: StoryboardFactory(storyboardName: "PromptScreen"))
-                .add(ExampleAnalyticsInterceptor())
-                .add(ExampleGenericContextTask())
-                .add(ExampleAnalyticsPostAction())
+                .add(ExampleGenericContextTask<PromptViewController, Any?>())
                 .using(GeneralAction.ReplaceRoot())
-                .from(RootViewControllerStep())
+                .from(GeneralStep.root())
                 .assemble()
+        return ExampleDestination(step: welcomeScreen, context: nil)
 
-        ExampleConfiguration.register(screen: welcomeScreen, for: ExampleTarget.welcome)
     }
+}
+
+struct ExampleWireframeImpl: ExampleWireframe {
+
+    func goToStar() -> ExampleDestination<Any?> {
+        //Star screen
+        let starScreen = StepAssembly(
+                finder: ClassFinder<StarViewController, Any?>(options: .currentAllStack),
+                factory: XibFactory())
+                .add(ExampleGenericContextTask<StarViewController, Any?>())
+                .add(LoginInterceptor<Any?>())
+                .using(TabBarControllerFactory.AddTab())
+                .from(goToHome().step)
+                .assemble()
+        return ExampleDestination(step: starScreen, context: nil)
+    }
+
+}
+
+struct AlternativeExampleWireframeImpl: ExampleWireframe {
+
+    func goToStar() -> ExampleDestination<Any?> {
+        //Star screen
+        let starScreen = StepAssembly(
+                finder: ClassFinder<StarViewController, Any?>(options: .currentAllStack),
+                factory: XibFactory())
+                .add(ExampleGenericContextTask<StarViewController, Any?>())
+                .add(LoginInterceptor())
+                .using(NavigationControllerFactory.PushToNavigation())
+                .from(goToCircle().step)
+                .assemble()
+        return ExampleDestination(step: starScreen, context: nil)
+    }
+
+}
+
+class ExampleConfiguration {
+
+    // Declared as static to avoid dependency injection in the Example app. So this variable is available everywhere.
+    static var wireframe: ExampleWireframe = ExampleWireframeImpl()
 
 }

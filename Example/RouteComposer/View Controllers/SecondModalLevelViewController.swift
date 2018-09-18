@@ -9,7 +9,7 @@ import RouteComposer
 
 class SecondModalLevelViewController: UIViewController, ExampleAnalyticsSupport {
 
-    let analyticParameters = ExampleAnalyticsParameters(source: .secondLevelModal)
+    let screenType = ExampleScreen.secondLevelModal
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,11 +17,11 @@ class SecondModalLevelViewController: UIViewController, ExampleAnalyticsSupport 
     }
 
     @IBAction func goToColorTapped() {
-        router.navigate(to: ExampleConfiguration.destination(for: ExampleTarget.color, context: ExampleDictionaryContext(arguments: [Argument.color: "FF0000"]))!)
+        router.navigate(to: ExampleConfiguration.wireframe.goToColor("FF0000"))
     }
 
     @IBAction func goToHomeTapped() {
-        router.navigate(to: ExampleConfiguration.destination(for: ExampleTarget.home)!)
+        router.navigate(to: ExampleConfiguration.wireframe.goToHome())
     }
 
     @IBAction func goToMinskTapped() {

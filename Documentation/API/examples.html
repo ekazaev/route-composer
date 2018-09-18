@@ -33,10 +33,7 @@
                 <a href="Protocols/Router.html">Router</a>
               </li>
               <li class="nav-group-task">
-                <a href="Protocols/RoutingDestination.html">RoutingDestination</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Core Entities.html#/s:13RouteComposer11RoutingStepP">RoutingStep</a>
+                <a href="Structs/DestinationStep.html">DestinationStep</a>
               </li>
               <li class="nav-group-task">
                 <a href="Protocols/Finder.html">Finder</a>
@@ -83,10 +80,7 @@
                 <a href="Classes/SwitchAssembly.html">SwitchAssembly</a>
               </li>
               <li class="nav-group-task">
-                <a href="Assemblies.html#/s:13RouteComposer13ChainAssemblyAA016ActionConnectingD0Vyxq_GAA08StepWitheD0Cyxq_G4from_tAA6FinderRzAA15AbstractFactoryR_7ContextQy_ALRtz14ViewControllerQy_AORtzr0_lF">ChainAssembly(from:)</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Assemblies.html#/s:13RouteComposer13ChainAssemblyAA010LastStepIncD0VAA07RoutingF0_p4from_tF">ChainAssembly(from:)</a>
+                <a href="Structs/ChainAssembly.html">ChainAssembly</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/CompleteFactoryAssembly.html">CompleteFactoryAssembly</a>
@@ -170,10 +164,7 @@
                 <a href="Classes/SingleContainerStep.html">SingleContainerStep</a>
               </li>
               <li class="nav-group-task">
-                <a href="Structs/CurrentViewControllerStep.html">CurrentViewControllerStep</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Structs/RootViewControllerStep.html">RootViewControllerStep</a>
+                <a href="Structs/GeneralStep.html">GeneralStep</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/NavigationControllerStep.html">NavigationControllerStep</a>
@@ -271,9 +262,6 @@
                 <a href="Protocols/ActionConnecting.html">ActionConnecting</a>
               </li>
               <li class="nav-group-task">
-                <a href="Protocols/ChainingStep.html">ChainingStep</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Protocols/ContextChecking.html">ContextChecking</a>
               </li>
               <li class="nav-group-task">
@@ -290,9 +278,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="Protocols/SimpleContainer.html">SimpleContainer</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Protocols/StepCaseResolver.html">StepCaseResolver</a>
               </li>
             </ul>
           </li>
@@ -394,7 +379,7 @@
 <p><em>The <code><a href="Structs/XibFactory.html">XibFactory</a></code> will load the <code>HomeViewController</code> from the xib file named <code>HomeViewController.xib</code></em></p>
 
 <p><em>Do not forget that if you use a combination of abstract <code><a href="Protocols/Finder.html">Finder</a></code> and <code><a href="Protocols/Factory.html">Factory</a></code> - you must specify the types of <code>UIViewController</code> and <code>Context</code> for one of them <code>ClassFinder&lt;HomeViewController, Any?&gt;</code></em></p>
-<h4 id='what-will-happen-if-in-the-configuration-above-i-will-replace-code-rootviewcontrollerstep-code-with-code-currentviewcontrollerstep-code' class='heading'>What will happen if, in the configuration above, I will replace <code><a href="Structs/RootViewControllerStep.html">RootViewControllerStep</a></code> with <code><a href="Structs/CurrentViewControllerStep.html">CurrentViewControllerStep</a></code>?</h4>
+<h4 id='what-will-happen-if-in-the-configuration-above-i-will-replace-code-rootviewcontrollerstep-code-with-code-currentviewcontrollerstep-code' class='heading'>What will happen if, in the configuration above, I will replace <code>RootViewControllerStep</code> with <code>CurrentViewControllerStep</code>?</h4>
 
 <p>It will work if the user is not in some <code>UIViewController</code> that is presented modally. If they are, <code>ReplaceRoot</code> can not replace the modally presented <code>UIViewController</code> and the navigation will fail. If you want this configuration to work in all cases - you should explain to the router that it should start building the stack from the root view controller. Then the router will dismiss all the modal view controllers above the root view controller if there are any.</p>
 <h4 id='i-want-to-push-the-code-accountviewcontroller-code-into-any-code-uinavigationcontroller-code-that-is-present-anywhere-on-the-screen-even-if-the-code-uinavigationcontroller-code-is-under-some-modal-code-uiviewcontroller-code' class='heading'>I want to push the <code>AccountViewController</code> into any <code>UINavigationController</code> that is present anywhere on the screen (even if the <code>UINavigationController</code> is under some modal <code>UIViewController</code>):</h4>
@@ -428,7 +413,7 @@
             <span class="p">)</span><span class="o">.</span><span class="nf">assemble</span><span class="p">()</span>
 </code></pre>
 <h4 id='i-want-to-present-the-code-uitabbarcontroller-code-with-the-code-homeviewcontroller-code-and-the-code-accountviewcontroller-code-in-the-tabs' class='heading'>I want to present the <code>UITabBarController</code> with the <code>HomeViewController</code> and the <code>AccountViewController</code> in the tabs:</h4>
-<pre class="highlight swift"><code>    <span class="k">let</span> <span class="nv">tabScreen</span> <span class="o">=</span> <span class="kt">StepAssembly</span><span class="p">(</span>
+<pre class="highlight swift"><code>    <span class="k">let</span> <span class="nv">tabScreen</span> <span class="o">=</span> <span class="kt">SingleContainerStep</span><span class="p">(</span>
             <span class="nv">finder</span><span class="p">:</span> <span class="kt">ClassFinder</span><span class="p">(),</span>
             <span class="nv">factory</span><span class="p">:</span> <span class="kt">CompleteFactoryAssembly</span><span class="p">(</span><span class="nv">factory</span><span class="p">:</span> <span class="kt">TabBarControllerFactory</span><span class="p">())</span>
                     <span class="o">.</span><span class="nf">with</span><span class="p">(</span><span class="kt">XibFactory</span><span class="o">&lt;</span><span class="kt">HomeViewController</span><span class="p">,</span> <span class="kt">Any</span><span class="p">?</span><span class="o">&gt;</span><span class="p">(),</span> <span class="nv">using</span><span class="p">:</span> <span class="kt">TabBarControllerFactory</span><span class="o">.</span><span class="kt">AddTab</span><span class="p">())</span>
@@ -487,7 +472,7 @@
 </code></pre>
 
 <p><em>With the configuration above you will be able to navigate to both screens using the <code><a href="Protocols/Router.html">Router</a></code></em></p>
-<h4 id='what-will-happen-if-in-the-configuration-above-i-will-replace-the-code-currentviewcontrollerstep-code-with-the-code-rootviewcontrollerstep-code' class='heading'>What will happen if, in the configuration above, I will replace the <code><a href="Structs/CurrentViewControllerStep.html">CurrentViewControllerStep</a></code> with the <code><a href="Structs/RootViewControllerStep.html">RootViewControllerStep</a></code>?</h4>
+<h4 id='what-will-happen-if-in-the-configuration-above-i-will-replace-the-code-currentviewcontrollerstep-code-with-the-code-rootviewcontrollerstep-code' class='heading'>What will happen if, in the configuration above, I will replace the <code>CurrentViewControllerStep</code> with the <code>RootViewControllerStep</code>?</h4>
 
 <p>It will work, but it means that the router has to start building the stack from the root <code>UIViewController</code>, so if the user is in some <code>UIViewController</code> presented modally - the router will close it before it will start the navigation.</p>
 <h4 id='the-app-has-a-tab-bar-controller-with-the-code-homeviewcontroller-code-and-the-code-bagviewcontroller-code-inside-the-user-should-be-able-to-navigate-to-the-bag-manually-using-the-tab-bar-but-if-they-tap-on-the-button-q-go-to-bag-q-in-the-code-homeviewcontroller-code-the-app-should-present-the-code-bagviewcontroller-code-modally-the-same-should-happen-if-the-user-has-to-be-sent-to-the-bag-using-an-universal-link' class='heading'>The app has a tab bar controller with the <code>HomeViewController</code> and the <code>BagViewController</code> inside. The user should be able to navigate to the bag manually using the tab bar. But if they tap on the button <q>Go to Bag</q> in the <code>HomeViewController</code>, the app should present the <code>BagViewController</code> modally. The same should happen if the user has to be sent to the bag using an Universal Link.</h4>
@@ -520,7 +505,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-09-11)</p>
+          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-09-18)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

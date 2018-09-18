@@ -41,9 +41,10 @@ class BoxTests: XCTestCase {
     func testNilInAssembly() {
         let routingStep = StepAssembly(finder: NilFinder<UIViewController, Any?>(),
                 factory: NilFactory<UIViewController, Any?>())
-                .using(GeneralAction.NilAction()).from(CurrentViewControllerStep())
+                .using(GeneralAction.NilAction())
+                .from(GeneralStep.current())
                 .assemble()
-        let step = routingStep as? BaseStep<FactoryBox<NilFactory<UIViewController, Any?>>>
+        let step = routingStep.previousStep as? BaseStep<FactoryBox<NilFactory<UIViewController, Any?>>>
         XCTAssertNotNil(step)
         XCTAssertNil(step?.factory)
         XCTAssertNil(step?.finder)

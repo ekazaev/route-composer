@@ -9,7 +9,7 @@ import RouteComposer
 
 class RoutingRuleSupportViewController: UIViewController, RoutingInterceptable, ExampleAnalyticsSupport {
 
-    let analyticParameters = ExampleAnalyticsParameters(source: .ruleSupport)
+    let screenType = ExampleScreen.ruleSupport
 
     private(set) var canBeDismissed: Bool = true
 
@@ -30,12 +30,11 @@ class RoutingRuleSupportViewController: UIViewController, RoutingInterceptable, 
     }
 
     @IBAction func goToColorTapped() {
-        let context = ExampleDictionaryContext(arguments: [Argument.color: "FFFF00"])
-        router.navigate(to: ExampleConfiguration.destination(for: ExampleTarget.color, context: context)!)
+        router.navigate(to: ExampleConfiguration.wireframe.goToColor("FFFF00"))
     }
 
     @IBAction func goToSquareTapped() {
-        router.navigate(to: ExampleConfiguration.destination(for: ExampleTarget.square)!)
+        router.navigate(to: ExampleConfiguration.wireframe.goToSquare())
     }
 
     @IBAction func goToMoscowTapped() {
