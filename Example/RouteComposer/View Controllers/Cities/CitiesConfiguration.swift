@@ -17,12 +17,12 @@ class CitiesConfiguration {
             .using(GeneralAction.replaceRoot())
             .from(GeneralStep.root())
             .assemble()
+
     // Cities List
     private static var citiesList = StepAssembly(finder: ClassFinder<CitiesTableViewController, Int?>(),
             factory: NilFactory())
             .add(CityTableContextTask())
-            .usingNoAction()
-            .from(city)
+            .within(city)
             .assemble()
 
     // City Details
@@ -32,14 +32,14 @@ class CitiesConfiguration {
                     viewControllerID: "CityDetailViewController"))
             .add(CityDetailContextTask())
             .using(SplitControllerFactory.pushToDetails())
-            .from(citiesList)
+            .within(citiesList)
             .assemble()
 
-    static func citiesList(cityId: Int? = nil) -> ExampleDestination<Int?> {
+    static func citiesList(cityId: Int? = nil) -> ExampleDestination<CitiesTableViewController, Int?> {
         return ExampleDestination(step: citiesList, context: cityId)
     }
 
-    static func cityDetail(cityId: Int) -> ExampleDestination<Int> {
+    static func cityDetail(cityId: Int) -> ExampleDestination<CityDetailViewController, Int> {
         return ExampleDestination(step: cityDetails, context: cityId)
     }
 

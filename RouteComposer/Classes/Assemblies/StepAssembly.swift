@@ -47,7 +47,7 @@ public final class StepAssembly<F: Finder, FC: Factory>: GenericStepAssembly<F, 
     ///
     /// - Parameter action: `Action` instance to be used with a step.
     /// - Returns: `ChainAssembly` to continue building the chain.
-    public func using<A: Action>(_ action: A) -> StepChainAssembly<Context> {
+    public func using<A: Action>(_ action: A) -> StepChainAssembly<A.ViewController, ViewController, Context> {
         var previousSteps = self.previousSteps
         let step = BaseStep<FactoryBox<FC>>(
                 finder: self.finder,
@@ -65,7 +65,7 @@ public final class StepAssembly<F: Finder, FC: Factory>: GenericStepAssembly<F, 
     ///
     /// - Parameter action: `ContainerAction` instance to be used with a step.
     /// - Returns: `ChainAssembly` to continue building the chain.
-    public func using<A: ContainerAction>(_ action: A) -> StepChainAssembly<Context> {
+    public func using<A: ContainerAction>(_ action: A) -> StepChainAssembly<A.ViewController, ViewController, Context> {
         var previousSteps = self.previousSteps
         let step = BaseStep<FactoryBox<FC>>(
                 finder: self.finder,
@@ -83,10 +83,43 @@ public final class StepAssembly<F: Finder, FC: Factory>: GenericStepAssembly<F, 
 
 public extension StepAssembly where FC: NilEntity {
 
-    /// Created to remind user that factory that does not produce anything in most cases should
-    /// be used with `NilAction`
-    public func usingNoAction() -> StepChainAssembly<F.Context> {
-        return using(GeneralAction.nilAction())
+    /// Connects previously provided `DestinationStep` with `NilEntity` factory with a step where the `UIViewController`
+    /// should be to avoid type checks
+    /// Example: `UIViewController` instance was loaded as a part of the stack inside of the storyboard.
+    ///
+    /// - Parameter step: `StepWithActionAssembly` instance to be used.
+    public func within<AF: Finder, AFC: AbstractFactory>(_ step: StepWithActionAssembly<AF, AFC>) -> ActionConnectingAssembly<AF, AFC, ViewController, Context> {
+        var previousSteps = self.previousSteps
+        let currentStep = BaseStep<FactoryBox<FC>>(
+                finder: self.finder,
+                factory: self.factory,
+                action: ActionBox(UIViewController.NilAction()),
+                interceptor: taskCollector.interceptor(),
+                contextTask: taskCollector.contextTask(),
+                postTask: taskCollector.postTask(),
+                previousStep: nil)
+        previousSteps.append(currentStep)
+        return ActionConnectingAssembly(stepToFullFill: step, previousSteps: previousSteps)
+    }
+
+    /// Connects previously provided `DestinationStep` with `NilEntity` factory with a step where the `UIViewController`
+    /// should be to avoid type checks
+    /// Example: `UIViewController` instance was loaded as a part of the stack inside of the storyboard.
+    ///
+    /// - Parameter step: `DestinationStep` instance to be used.
+    public func within<VC: UIViewController, C>(_ step: DestinationStep<VC, C>) -> LastStepInChainAssembly<ViewController, Context> {
+        var previousSteps = self.previousSteps
+        let currentStep = BaseStep<FactoryBox<FC>>(
+                finder: self.finder,
+                factory: self.factory,
+                action: ActionBox(UIViewController.NilAction()),
+                interceptor: taskCollector.interceptor(),
+                contextTask: taskCollector.contextTask(),
+                postTask: taskCollector.postTask(),
+                previousStep: nil)
+        previousSteps.append(currentStep)
+        previousSteps.append(step)
+        return LastStepInChainAssembly(previousSteps: previousSteps)
     }
 
 }

@@ -5,7 +5,7 @@
 import Foundation
 
 /// Helper class to build a chain of steps. Can not be used directly.
-public struct LastStepInChainAssembly<C> {
+public struct LastStepInChainAssembly<ViewController: UIViewController, Context> {
 
     let previousSteps: [RoutingStep]
 
@@ -16,7 +16,7 @@ public struct LastStepInChainAssembly<C> {
     /// Assembles all the provided settings.
     ///
     /// - Returns: The instance of `RoutingStep` with all the settings provided inside.
-    public func assemble() -> DestinationStep<C> {
+    public func assemble() -> DestinationStep<ViewController, Context> {
         return DestinationStep(chain(previousSteps))
     }
 

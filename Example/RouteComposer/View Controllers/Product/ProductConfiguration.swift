@@ -23,7 +23,7 @@ class ProductConfiguration {
             }))
             .add(ProductContextTask())
             .using(NavigationControllerFactory.pushToNavigation())
-            .from(SwitchAssembly<Any?>()
+            .from(SwitchAssembly<UINavigationController, Any?>()
                     .addCase { (context: ProductContext) in
                         // If routing requested by Universal Link - Presenting modally
                         // Try in Mobile Safari dll://productView?product=123
@@ -41,7 +41,9 @@ class ProductConfiguration {
                     .addCase(when: ClassFinder<UINavigationController, Any?>(options: .currentAllStack))
                     .assemble(default: {
                         // Otherwise - presenting in Circle Tab
-                        return ExampleConfiguration.wireframe.goToCircle().step
+                        return ContainerStepAssembly(finder: ClassFinder<UINavigationController, Any?>(), factory: NilContainer())
+                                .within(ExampleConfiguration.wireframe.goToCircle().step)
+                                .assemble()
                     }))
             .assemble()
 

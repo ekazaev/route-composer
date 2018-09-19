@@ -54,10 +54,8 @@ It will work if the user is not in some `UIViewController` that is presented mod
             finder: ClassFinder<AccountViewController, Any?>(),
             factory: XibFactory())
             .using(NavigationControllerFactory.pushToNavigation())
-            .from(SingleContainerStep(ClassFinder<UINavigationController, Any?>(), NilFactory()))
-            // Nothing will be created ny NilFactory, so no action needed.
-            .using(GeneralAction.nilAction())
-            .from(GeneralStep.current())
+            .from(SingleContainerStep(ClassFinder<UINavigationController, Any?>(), NilContainer()))
+            .within(GeneralStep.current())
             .assemble()
 
 ```
@@ -71,11 +69,11 @@ It will work if the user is not in some `UIViewController` that is presented mod
             finder: ClassFinder<AccountViewController, Any?>(),
             factory: XibFactory())
             .using(NavigationControllerFactory.PushToNavigation())
-            .from(SwitchAssembly()
+            .from(SwitchAssembly<UINavigationController, Any?>()
                     .addCase(when: ClassFinder<UINavigationController, Any?>(options: .visible)) // If found - just push in to it
                     .assemble(default: { // else
                         return ChainAssembly()
-                                .from(SingleContainerStep(finder: NilFinder(), factory: NavigationControllerFactory())) //
+                                .from(SingleContainerStep(finder: NilFinder(), factory: NavigationControllerFactory()))
                                 .using(GeneralAction.presentModally())
                                 .from(GeneralStep.current())
                                 .assemble()
@@ -112,8 +110,7 @@ It will work if the user is not in some `UIViewController` that is presented mod
     let screen = StepAssembly(
             finder: ClassFinder<AccountViewController, Any?>(),
             factory: NilFactory())
-            .using(GeneralAction.nilAction())
-            .from(tabScreen)
+            .within(tabScreen)
             .assemble()
 ```
 
@@ -148,7 +145,7 @@ Or:
             finder: ClassFinder<ForgotPasswordViewController, Any?>(),
             factory: XibFactory())
             .using(NavigationControllerFactory.pushToNavigation())
-            .from(loginScreen)
+            .within(loginScreen)
             .assemble()
 
 ```

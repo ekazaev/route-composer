@@ -9,7 +9,7 @@ import UIKit
 public struct GeneralStep {
 
     /// Returns the root view controller of the key window.
-    public static func root() -> DestinationStep<Any?> {
+    public static func root() -> DestinationStep<UIViewController, Any?> {
 
         struct RootViewControllerStep: RoutingStep, PerformableStep {
 
@@ -27,7 +27,7 @@ public struct GeneralStep {
     }
 
     /// Returns the topmost presented view controller.
-    public static func current() -> DestinationStep<Any?> {
+    public static func current() -> DestinationStep<UIViewController, Any?> {
 
         struct CurrentViewControllerStep: RoutingStep, PerformableStep {
 

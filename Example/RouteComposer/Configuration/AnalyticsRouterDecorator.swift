@@ -15,7 +15,7 @@ struct AnalyticsRouterDecorator: Router {
         self.router = router
     }
 
-    func navigate<Context>(to step: DestinationStep<Context>, with context: Context, animated: Bool = true, completion: ((RoutingResult) -> Void)? = nil) -> RoutingResult {
+    func navigate<ViewController: UIViewController, Context>(to step: DestinationStep<ViewController, Context>, with context: Context, animated: Bool = true, completion: ((RoutingResult) -> Void)? = nil) -> RoutingResult {
         var sourceScreen: ExampleScreen?
 
         if let topmostViewController = UIWindow.key?.topmostViewController,

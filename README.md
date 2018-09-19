@@ -266,7 +266,7 @@ which should be presented modally from any currently visible view controller.*
 
 ```swift
 let productScreen = StepAssembly(finder: ProductViewControllerFinder(), factory: ProductViewControllerFactory())
-        .add(LoginInterceptor<String>())
+        .add(LoginInterceptor<String>()) // Have to specify type till https://bugs.swift.org/browse/SR-8719, https://bugs.swift.org/browse/SR-8705 are fixed
         .add(ProductViewControllerContextTask())
         .add(ProductViewControllerPostTask(analyticsManager: AnalyticsManager.sharedInstance))
         .using(NavigationControllerFactory.pushToNavigation())

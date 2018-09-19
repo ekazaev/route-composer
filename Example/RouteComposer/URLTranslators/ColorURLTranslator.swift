@@ -4,10 +4,11 @@
 //
 
 import Foundation
+import UIKit
 
 class ColorURLTranslator: ExampleURLTranslator {
 
-    func destination(from url: URL) -> ExampleDestination<Any?>? {
+    func destination(from url: URL) -> ExampleDestination<UIViewController, Any?>? {
         guard let urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false),
               let queryItems = urlComponents.queryItems,
               let colorItem = queryItems.first(where: { $0.name == "color" }),

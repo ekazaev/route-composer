@@ -7,19 +7,19 @@ import Foundation
 import RouteComposer
 
 // Instance like this can represent both final screen and value to provide.
-class ExampleDestination<C> {
+class ExampleDestination<VC: UIViewController, C> {
 
-    let step: DestinationStep<C>
+    let step: DestinationStep<VC, C>
 
     let context: C
 
-    init(step: DestinationStep<C>, context: C) {
+    init(step: DestinationStep<VC, C>, context: C) {
         self.step = step
         self.context = context
     }
 
-    func unsafelyUnwrapped() -> ExampleDestination<Any?> {
-        return ExampleDestination<Any?>(step: step.unsafelyUnwrapped(), context: context)
+    func unsafelyUnwrapped() -> ExampleDestination<UIViewController, Any?> {
+        return ExampleDestination<UIViewController, Any?>(step: step.unsafelyUnwrapped(), context: context)
     }
 
 }

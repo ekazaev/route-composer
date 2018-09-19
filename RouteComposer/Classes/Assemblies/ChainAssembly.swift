@@ -17,7 +17,7 @@ public struct ChainAssembly {
     ///         .assemble()
     /// ```
     /// - Parameter step: The instance of `StepWithActionAssembly`
-    public static func from<F: Finder, FC: AbstractFactory>(_ step: StepWithActionAssembly<F, FC>) -> ActionConnectingAssembly<F, FC, F.Context> {
+    public static func from<F: Finder, FC: AbstractFactory>(_ step: StepWithActionAssembly<F, FC>) -> ActionConnectingAssembly<F, FC, F.ViewController, F.Context> {
         return ActionConnectingAssembly(stepToFullFill: step, previousSteps: [])
     }
 
@@ -28,7 +28,7 @@ public struct ChainAssembly {
     ///         .assemble()
     /// ```
     /// - Parameter step: The instance of `RoutingStep`
-    public static func from<C>(_ step: DestinationStep<C>) -> LastStepInChainAssembly<C> {
+    public static func from<VC, C>(_ step: DestinationStep<VC, C>) -> LastStepInChainAssembly<VC, C> {
         return LastStepInChainAssembly(previousSteps: [step])
     }
 

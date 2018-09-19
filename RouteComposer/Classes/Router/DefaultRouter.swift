@@ -43,7 +43,7 @@ public struct DefaultRouter: Router, InterceptableRouter {
     }
 
     @discardableResult
-    public func navigate<Context>(to step: DestinationStep<Context>,
+    public func navigate<ViewController: UIViewController, Context>(to step: DestinationStep<ViewController, Context>,
                                   with context: Context,
                                   animated: Bool = true,
                                   completion: ((_: RoutingResult) -> Void)? = nil) -> RoutingResult {
