@@ -50,13 +50,18 @@ public struct StepChainAssembly<AcceptedViewController: UIViewController, ViewCo
 
 extension StepChainAssembly where AcceptedViewController: ContainerViewController {
 
+    /// Connects previously provided `DestinationStep` with `ContainerViewController` factory with a step where the `UIViewController`
+    /// should be to avoid type checks.
+    ///
+    /// - Parameter step: `StepWithActionAssembly` instance to be used.
     public func within<AF: Finder, AFC: AbstractFactory>(_ step: StepWithActionAssembly<AF, AFC>) -> ActionConnectingAssembly<AF, AFC, ViewController, Context> {
         return ActionConnectingAssembly(stepToFullFill: step, previousSteps: previousSteps)
     }
 
-    /// Adds a `RoutingStep` to the chain. This step will be the last one in the chain.
+    /// Connects previously provided `DestinationStep` with `ContainerViewController` factory with a step where the `UIViewController`
+    /// should be to avoid type checks.
     ///
-    /// - Parameter previousStep: The instance of `RoutingStep`
+    /// - Parameter step: `DestinationStep` instance to be used.
     public func within<AVC: UIViewController, AC>(_ step: DestinationStep<AVC, AC>) -> LastStepInChainAssembly<ViewController, Context> {
         var previousSteps = self.previousSteps
         previousSteps.append(step)

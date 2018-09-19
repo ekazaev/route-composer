@@ -83,6 +83,11 @@ public final class StepAssembly<F: Finder, FC: Factory>: GenericStepAssembly<F, 
 
 public extension StepAssembly where FC: NilEntity {
 
+    /// Connects previously provided `DestinationStep` with `NilEntity` factory with a step where the `UIViewController`
+    /// should be to avoid type checks
+    /// Example: `UIViewController` instance was loaded as a part of the stack inside of the storyboard.
+    ///
+    /// - Parameter step: `StepWithActionAssembly` instance to be used.
     public func within<AF: Finder, AFC: AbstractFactory>(_ step: StepWithActionAssembly<AF, AFC>) -> ActionConnectingAssembly<AF, AFC, ViewController, Context> {
         var previousSteps = self.previousSteps
         let currentStep = BaseStep<FactoryBox<FC>>(
@@ -97,6 +102,11 @@ public extension StepAssembly where FC: NilEntity {
         return ActionConnectingAssembly(stepToFullFill: step, previousSteps: previousSteps)
     }
 
+    /// Connects previously provided `DestinationStep` with `NilEntity` factory with a step where the `UIViewController`
+    /// should be to avoid type checks
+    /// Example: `UIViewController` instance was loaded as a part of the stack inside of the storyboard.
+    ///
+    /// - Parameter step: `DestinationStep` instance to be used.
     public func within<VC: UIViewController, C>(_ step: DestinationStep<VC, C>) -> LastStepInChainAssembly<ViewController, Context> {
         var previousSteps = self.previousSteps
         let currentStep = BaseStep<FactoryBox<FC>>(

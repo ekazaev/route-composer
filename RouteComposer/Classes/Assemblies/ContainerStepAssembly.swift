@@ -39,10 +39,9 @@ public final class ContainerStepAssembly<F: Finder, FC: Container>: GenericStepA
         self.previousSteps = []
     }
 
-    /// Connects previously provided `RoutingStep` instance with an `Action`
+    /// Connects previously provided `DestinationStep` instance with an `Action`
     ///
     /// - Parameter action: `Action` instance to be used with a step.
-    /// - Returns: `ChainAssembly` to continue building the chain.
     public func using<A: Action>(_ action: A) -> StepChainAssembly<A.ViewController, ViewController, Context> {
         var previousSteps = self.previousSteps
         let step = BaseStep<ContainerFactoryBox<FC>>(
@@ -57,10 +56,9 @@ public final class ContainerStepAssembly<F: Finder, FC: Container>: GenericStepA
         return StepChainAssembly(previousSteps: previousSteps)
     }
 
-    /// Connects previously provided `RoutingStep` instance with an `Action`
+    /// Connects previously provided `DestinationStep` instance with an `Action`
     ///
     /// - Parameter action: `ContainerAction` instance to be used with a step.
-    /// - Returns: `ChainAssembly` to continue building the chain.
     public func using<A: ContainerAction>(_ action: A) -> StepChainAssembly<A.ViewController, ViewController, Context> {
         var previousSteps = self.previousSteps
         let step = BaseStep<ContainerFactoryBox<FC>>(
@@ -79,6 +77,10 @@ public final class ContainerStepAssembly<F: Finder, FC: Container>: GenericStepA
 
 public extension ContainerStepAssembly where FC: NilEntity {
 
+    /// Connects previously provided `DestinationStep` with `NilEntity` factory with a step where the `UIViewController`
+    /// should be to avoid type checks.
+    ///
+    /// - Parameter step: `StepWithActionAssembly` instance to be used.
     public func within<AF: Finder, AFC: AbstractFactory>(_ step: StepWithActionAssembly<AF, AFC>) -> ActionConnectingAssembly<AF, AFC, ViewController, Context> {
         var previousSteps = self.previousSteps
         let currentStep = BaseStep<ContainerFactoryBox<FC>>(
@@ -93,6 +95,10 @@ public extension ContainerStepAssembly where FC: NilEntity {
         return ActionConnectingAssembly(stepToFullFill: step, previousSteps: previousSteps)
     }
 
+    /// Connects previously provided `DestinationStep` with `NilEntity` factory with a step where the `UIViewController`
+    /// should be to avoid type checks
+    ///
+    /// - Parameter step: `DestinationStep` instance to be used.
     public func within<VC: UIViewController, C>(_ step: DestinationStep<VC, C>) -> LastStepInChainAssembly<ViewController, Context> {
         var previousSteps = self.previousSteps
         let currentStep = BaseStep<ContainerFactoryBox<FC>>(

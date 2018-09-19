@@ -252,9 +252,6 @@
                 <a href="../Extensions/UIViewController.html">UIViewController</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Extensions/UIViewController/NilAction.html">– NilAction</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Extensions/UIViewController/PresentModallyAction.html">– PresentModallyAction</a>
               </li>
               <li class="nav-group-task">
@@ -328,6 +325,9 @@
                 <a href="../Structs/LastStepInChainAssembly.html">LastStepInChainAssembly</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Structs/NilContainer.html">NilContainer</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Structs/SearchOptions.html">SearchOptions</a>
               </li>
               <li class="nav-group-task">
@@ -343,7 +343,7 @@
             <h1>DestinationStep</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DestinationStep</span><span class="o">&lt;</span><span class="kt">C</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt">RoutingStepWithContext</span><span class="p">,</span> <span class="kt">ChainableStep</span><span class="p">,</span> <span class="kt">PerformableStep</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DestinationStep</span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt">RoutingStepWithContext</span><span class="p">,</span> <span class="kt">ChainableStep</span><span class="p">,</span> <span class="kt">PerformableStep</span> <span class="k">where</span> <span class="kt">VC</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
 
                 </div>
               </div>
@@ -353,6 +353,33 @@
           <section class="section task-group-section">
             <div class="task-group">
               <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer15DestinationStepV14ViewControllera"></a>
+                    <a name="//apple_ref/swift/Alias/ViewController" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer15DestinationStepV14ViewControllera">ViewController</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Type of the <code>ViewController</code> associated with the step</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">ViewController</span> <span class="o">=</span> <span class="kt">VC</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
                 <li class="item">
                   <div>
                     <code>
@@ -383,9 +410,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer15DestinationStepV17unsafelyUnwrappedACyypSgGyF"></a>
+                    <a name="/s:13RouteComposer15DestinationStepV17unsafelyUnwrappedACySo16UIViewControllerCypSgGyF"></a>
                     <a name="//apple_ref/swift/Method/unsafelyUnwrapped()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer15DestinationStepV17unsafelyUnwrappedACyypSgGyF">unsafelyUnwrapped()</a>
+                    <a class="token" href="#/s:13RouteComposer15DestinationStepV17unsafelyUnwrappedACySo16UIViewControllerCypSgGyF">unsafelyUnwrapped()</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -400,7 +427,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">unsafelyUnwrapped</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">DestinationStep</span><span class="o">&lt;</span><span class="kt">Any</span><span class="p">?</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">unsafelyUnwrapped</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">DestinationStep</span><span class="o">&lt;</span><span class="kt">UIViewController</span><span class="p">,</span> <span class="kt">Any</span><span class="p">?</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -412,7 +439,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-09-18)</p>
+          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-09-19)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

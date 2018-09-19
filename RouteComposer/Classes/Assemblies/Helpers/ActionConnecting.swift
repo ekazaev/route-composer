@@ -8,6 +8,7 @@ import UIKit
 /// Assembly that extends this protocol should be able to connect an action to its step.
 public protocol ActionConnecting {
 
+    /// Associated type of the `UIViewController`
     associatedtype ViewController: UIViewController
 
     /// Associated type of the `Context`

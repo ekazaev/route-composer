@@ -8,9 +8,10 @@ import UIKit
 /// Represents a single step for the `Router` to make.
 public struct DestinationStep<VC: UIViewController, C>: RoutingStepWithContext, ChainableStep, PerformableStep {
 
-    /// Type of the `Context` associated with the step
+    /// Type of the `ViewController` associated with the step
     public typealias ViewController = VC
 
+    /// Type of the `Context` associated with the step
     public typealias Context = C
 
     var previousStep: RoutingStep? {

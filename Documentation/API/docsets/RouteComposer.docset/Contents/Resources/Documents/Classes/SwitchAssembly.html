@@ -252,9 +252,6 @@
                 <a href="../Extensions/UIViewController.html">UIViewController</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Extensions/UIViewController/NilAction.html">– NilAction</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Extensions/UIViewController/PresentModallyAction.html">– PresentModallyAction</a>
               </li>
               <li class="nav-group-task">
@@ -328,6 +325,9 @@
                 <a href="../Structs/LastStepInChainAssembly.html">LastStepInChainAssembly</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Structs/NilContainer.html">NilContainer</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Structs/SearchOptions.html">SearchOptions</a>
               </li>
               <li class="nav-group-task">
@@ -343,7 +343,7 @@
             <h1>SwitchAssembly</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">SwitchAssembly</span><span class="o">&lt;</span><span class="kt">Context</span><span class="o">&gt;</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">SwitchAssembly</span><span class="o">&lt;</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">ViewController</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
 
                 </div>
               </div>
@@ -357,9 +357,9 @@ be taken.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer14SwitchAssemblyCACyxGycfc"></a>
+                    <a name="/s:13RouteComposer14SwitchAssemblyCACyxq_Gycfc"></a>
                     <a name="//apple_ref/swift/Method/init()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer14SwitchAssemblyCACyxGycfc">init()</a>
+                    <a class="token" href="#/s:13RouteComposer14SwitchAssemblyCACyxq_Gycfc">init()</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -384,9 +384,9 @@ be taken.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer14SwitchAssemblyC7addCaseACyxGXDAA15DestinationStepVyxGSgqd__clF"></a>
+                    <a name="/s:13RouteComposer14SwitchAssemblyC7addCaseyACyxq_GXDAA15DestinationStepVyxq_GSgqd__clF"></a>
                     <a name="//apple_ref/swift/Method/addCase(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer14SwitchAssemblyC7addCaseACyxGXDAA15DestinationStepVyxGSgqd__clF">addCase(_:)</a>
+                    <a class="token" href="#/s:13RouteComposer14SwitchAssemblyC7addCaseyACyxq_GXDAA15DestinationStepVyxq_GSgqd__clF">addCase(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -402,7 +402,7 @@ Returning nil from the block will mean that it not succeed.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">addCase</span><span class="o">&lt;</span><span class="kt">C</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">resolverBlock</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">((</span><span class="nv">_</span><span class="p">:</span> <span class="kt">C</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/DestinationStep.html">DestinationStep</a></span><span class="o">&lt;</span><span class="kt">Context</span><span class="o">&gt;</span><span class="p">?))</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">addCase</span><span class="o">&lt;</span><span class="kt">C</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">resolverBlock</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">((</span><span class="nv">_</span><span class="p">:</span> <span class="kt">C</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/DestinationStep.html">DestinationStep</a></span><span class="o">&lt;</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span><span class="p">?))</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
 
                         </div>
                       </div>
@@ -431,9 +431,9 @@ Returning nil from the block will mean that it not succeed.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer14SwitchAssemblyC7addCaseACyxGXDqd__4when_AA15DestinationStepVyxG2dotAA6FinderRd__lF"></a>
+                    <a name="/s:13RouteComposer14SwitchAssemblyC7addCase4when2doACyxq_GXDqd___AA15DestinationStepVyxq_GtAA6FinderRd__lF"></a>
                     <a name="//apple_ref/swift/Method/addCase(when:do:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer14SwitchAssemblyC7addCaseACyxGXDqd__4when_AA15DestinationStepVyxG2dotAA6FinderRd__lF">addCase(when:do:)</a>
+                    <a class="token" href="#/s:13RouteComposer14SwitchAssemblyC7addCase4when2doACyxq_GXDqd___AA15DestinationStepVyxq_GtAA6FinderRd__lF">addCase(when:do:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -448,7 +448,7 @@ Returning nil from the block will mean that it not succeed.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">addCase</span><span class="o">&lt;</span><span class="kt">F</span><span class="o">&gt;</span><span class="p">(</span><span class="n">when</span> <span class="nv">finder</span><span class="p">:</span> <span class="kt">F</span><span class="p">,</span> <span class="k">do</span> <span class="nv">step</span><span class="p">:</span> <span class="kt"><a href="../Structs/DestinationStep.html">DestinationStep</a></span><span class="o">&lt;</span><span class="kt">Context</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span> <span class="k">where</span> <span class="kt">F</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/Finder.html">Finder</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">addCase</span><span class="o">&lt;</span><span class="kt">F</span><span class="o">&gt;</span><span class="p">(</span><span class="n">when</span> <span class="nv">finder</span><span class="p">:</span> <span class="kt">F</span><span class="p">,</span> <span class="k">do</span> <span class="nv">step</span><span class="p">:</span> <span class="kt"><a href="../Structs/DestinationStep.html">DestinationStep</a></span><span class="o">&lt;</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span> <span class="k">where</span> <span class="kt">F</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/Finder.html">Finder</a></span></code></pre>
 
                         </div>
                       </div>
@@ -490,9 +490,9 @@ a <code>UIViewController</code> found by the <code><a href="../Protocols/Finder.
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer14SwitchAssemblyC7addCaseACyxGXDqd__4when_tAA6FinderRd__lF"></a>
+                    <a name="/s:13RouteComposer14SwitchAssemblyC7addCase4whenACyxq_GXDqd___tAA6FinderRd__lF"></a>
                     <a name="//apple_ref/swift/Method/addCase(when:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer14SwitchAssemblyC7addCaseACyxGXDqd__4when_tAA6FinderRd__lF">addCase(when:)</a>
+                    <a class="token" href="#/s:13RouteComposer14SwitchAssemblyC7addCase4whenACyxq_GXDqd___tAA6FinderRd__lF">addCase(when:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -537,9 +537,9 @@ a <code>UIViewController</code> found by the <code><a href="../Protocols/Finder.
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer14SwitchAssemblyC8assembleAA15DestinationStepVyxGyF"></a>
+                    <a name="/s:13RouteComposer14SwitchAssemblyC8assembleAA15DestinationStepVyxq_GyF"></a>
                     <a name="//apple_ref/swift/Method/assemble()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer14SwitchAssemblyC8assembleAA15DestinationStepVyxGyF">assemble()</a>
+                    <a class="token" href="#/s:13RouteComposer14SwitchAssemblyC8assembleAA15DestinationStepVyxq_GyF">assemble()</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -554,7 +554,7 @@ a <code>UIViewController</code> found by the <code><a href="../Protocols/Finder.
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">assemble</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/DestinationStep.html">DestinationStep</a></span><span class="o">&lt;</span><span class="kt">Context</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">assemble</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/DestinationStep.html">DestinationStep</a></span><span class="o">&lt;</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -568,9 +568,9 @@ a <code>UIViewController</code> found by the <code><a href="../Protocols/Finder.
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer14SwitchAssemblyC8assembleAA15DestinationStepVyxGAGyc7default_tF"></a>
+                    <a name="/s:13RouteComposer14SwitchAssemblyC8assemble7defaultAA15DestinationStepVyxq_GAHyc_tF"></a>
                     <a name="//apple_ref/swift/Method/assemble(default:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer14SwitchAssemblyC8assembleAA15DestinationStepVyxGAGyc7default_tF">assemble(default:)</a>
+                    <a class="token" href="#/s:13RouteComposer14SwitchAssemblyC8assemble7defaultAA15DestinationStepVyxq_GAHyc_tF">assemble(default:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -586,7 +586,7 @@ if non of the cases succeed</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">assemble</span><span class="p">(</span><span class="k">default</span> <span class="nv">resolverBlock</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(()</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/DestinationStep.html">DestinationStep</a></span><span class="o">&lt;</span><span class="kt">Context</span><span class="o">&gt;</span><span class="p">))</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/DestinationStep.html">DestinationStep</a></span><span class="o">&lt;</span><span class="kt">Context</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">assemble</span><span class="p">(</span><span class="k">default</span> <span class="nv">resolverBlock</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(()</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/DestinationStep.html">DestinationStep</a></span><span class="o">&lt;</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span><span class="p">))</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/DestinationStep.html">DestinationStep</a></span><span class="o">&lt;</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -621,7 +621,7 @@ if non of the cases succeed</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-09-18)</p>
+          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-09-19)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
