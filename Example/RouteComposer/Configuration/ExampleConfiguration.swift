@@ -94,7 +94,7 @@ extension ExampleWireframe {
                 factory: StoryboardFactory(storyboardName: "TabBar", viewControllerID: "RoutingRuleSupportViewController"))
                 .add(ExampleGenericContextTask<RoutingRuleSupportViewController, Any?>())
                 .using(NavigationControllerFactory.pushToNavigation())
-                .from(ContainerWitness(in: goToColor(color).step))
+                .within(goToColor(color).step)
                 .assemble()
         return ExampleDestination(step: routingSupportScreen, context: ExampleDictionaryContext(arguments: [.color: color]))
 
@@ -108,7 +108,7 @@ extension ExampleWireframe {
                 .add(LoginInterceptor<Any?>())
                 .add(ExampleGenericContextTask<EmptyViewController, Any?>())
                 .using(NavigationControllerFactory.pushToNavigation())
-                .from(ContainerWitness(in: goToCircle().step))
+                .within(goToCircle().step)
                 .assemble()
 
         return ExampleDestination(step: emptyScreen, context: nil)
@@ -169,7 +169,7 @@ struct AlternativeExampleWireframeImpl: ExampleWireframe {
                 .add(ExampleGenericContextTask<StarViewController, Any?>())
                 .add(LoginInterceptor())
                 .using(NavigationControllerFactory.pushToNavigation())
-                .from(ContainerWitness(in: goToCircle().step))
+                .within(goToCircle().step)
                 .assemble()
         return ExampleDestination(step: starScreen, context: nil)
     }

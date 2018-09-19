@@ -83,9 +83,23 @@ public final class StepAssembly<F: Finder, FC: Factory>: GenericStepAssembly<F, 
 
 public extension StepAssembly where FC: NilEntity {
 
+//    public func within<AF: Finder, AFC: Container>(_ step: StepWithActionAssembly<AF, AFC>) -> ActionConnectingAssembly<AF, AFC, ViewController, Context> {
+//        var previousSteps = self.previousSteps
+//        let currentStep = BaseStep<FactoryBox<FC>>(
+//                finder: self.finder,
+//                factory: self.factory,
+//                action: ActionBox(UIViewController.NilAction<FC.ViewController>()),
+//                interceptor: taskCollector.interceptor(),
+//                contextTask: taskCollector.contextTask(),
+//                postTask: taskCollector.postTask(),
+//                previousStep: nil)
+//        previousSteps.append(currentStep)
+//        return ActionConnectingAssembly(stepToFullFill: step, previousSteps: previousSteps)
+//    }
+
     /// Created to remind user that factory that does not produce anything in most cases should
     /// be used with `NilAction`
-    public func usingNoAction() -> StepChainAssembly<UIViewController, ViewController, Context> {
+    public func integratedIn() -> StepChainAssembly<UIViewController, ViewController, Context> {
         return using(GeneralAction.nilAction())
     }
 

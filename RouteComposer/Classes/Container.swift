@@ -56,7 +56,3 @@ public extension Container {
     }
 
 }
-
-public func ContainerWitness<CVC: ContainerViewController, VC: UIViewController, C>(in step: DestinationStep<VC, C>) -> DestinationStep<CVC, C> {
-    return DestinationStep(step.previousStep!)
-}

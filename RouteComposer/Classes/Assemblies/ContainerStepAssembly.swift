@@ -85,4 +85,8 @@ public extension ContainerStepAssembly where FC: NilEntity {
         return using(GeneralAction.nilAction())
     }
 
+    public func integratedIn<AVC: ContainerViewController>() -> StepChainAssembly<AVC, ViewController, Context> {
+        return using(GeneralAction.nilContainerAction() as UIViewController.NilAction<AVC>)
+    }
+
 }

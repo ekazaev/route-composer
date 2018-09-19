@@ -40,10 +40,23 @@ public struct StepChainAssembly<AcceptedViewController: UIViewController, ViewCo
     ///
     /// - Parameter step: An instance of `RoutingStep` to start to build a current step from.
     /// - Returns: An instance of `RoutingStep` with all the provided settings inside.
-    public func assemble<AVC: UIViewController, AC>(from step: DestinationStep<AVC, AC>) -> DestinationStep<ViewController, Context> {
+    public func assemble<AC>(from step: DestinationStep<AcceptedViewController, AC>) -> DestinationStep<ViewController, Context> {
         var previousSteps = self.previousSteps
         previousSteps.append(step)
         return LastStepInChainAssembly<ViewController, Context>(previousSteps: previousSteps).assemble()
+    }
+
+}
+
+extension StepChainAssembly where AcceptedViewController: ContainerViewController {
+
+    /// Adds a `RoutingStep` to the chain. This step will be the last one in the chain.
+    ///
+    /// - Parameter previousStep: The instance of `RoutingStep`
+    public func within<AVC: UIViewController, AC>(_ step: DestinationStep<AVC, AC>) -> LastStepInChainAssembly<ViewController, Context> {
+        var previousSteps = self.previousSteps
+        previousSteps.append(step)
+        return LastStepInChainAssembly(previousSteps: previousSteps)
     }
 
 }

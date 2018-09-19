@@ -11,7 +11,7 @@ struct LoginConfiguration {
     static func login() -> ExampleDestination<LoginViewController, Any?> {
         let loginScreen = StepAssembly(finder: ClassFinder<LoginViewController, Any?>(),
                 factory: NilFactory()) //Login view controller will be created when UINavigationController will be loaded from storyboard.
-                .usingNoAction()
+                .integratedIn()
                 .from(SingleStep(
                         finder: NilFinder(),
                         factory: StoryboardFactory<UIViewController, Any?>(storyboardName: "Login")))
