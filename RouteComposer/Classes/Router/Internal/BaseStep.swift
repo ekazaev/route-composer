@@ -41,7 +41,7 @@ struct BaseStep<Box: AnyFactoryBox>: RoutingStepWithContext,
             self.factory = anyFactory
         } else if let finder = finder, !(finder is NilEntity) {
             self.factory = FactoryBox.box(for: FinderFactory(finder: finder),
-                    action: ActionBox(GeneralAction.nilAction()))
+                    action: ActionBox(UIViewController.NilAction()))
         } else {
             self.factory = nil
         }

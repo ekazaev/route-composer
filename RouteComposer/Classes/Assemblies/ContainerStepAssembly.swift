@@ -79,14 +79,33 @@ public final class ContainerStepAssembly<F: Finder, FC: Container>: GenericStepA
 
 public extension ContainerStepAssembly where FC: NilEntity {
 
-    /// Created to remind user that factory that does not produce anything in most cases should
-    /// be used with `NilAction`
-    public func usingNoAction() -> StepChainAssembly<UIViewController, ViewController, Context> {
-        return using(GeneralAction.nilAction())
+    public func within<AF: Finder, AFC: AbstractFactory>(_ step: StepWithActionAssembly<AF, AFC>) -> ActionConnectingAssembly<AF, AFC, ViewController, Context> {
+        var previousSteps = self.previousSteps
+        let currentStep = BaseStep<ContainerFactoryBox<FC>>(
+                finder: self.finder,
+                factory: self.factory,
+                action: ActionBox(UIViewController.NilAction()),
+                interceptor: taskCollector.interceptor(),
+                contextTask: taskCollector.contextTask(),
+                postTask: taskCollector.postTask(),
+                previousStep: nil)
+        previousSteps.append(currentStep)
+        return ActionConnectingAssembly(stepToFullFill: step, previousSteps: previousSteps)
     }
 
-    public func integratedIn<AVC: ContainerViewController>() -> StepChainAssembly<AVC, ViewController, Context> {
-        return using(GeneralAction.nilContainerAction() as UIViewController.NilAction<AVC>)
+    public func within<VC: UIViewController, C>(_ step: DestinationStep<VC, C>) -> LastStepInChainAssembly<ViewController, Context> {
+        var previousSteps = self.previousSteps
+        let currentStep = BaseStep<ContainerFactoryBox<FC>>(
+                finder: self.finder,
+                factory: self.factory,
+                action: ActionBox(UIViewController.NilAction()),
+                interceptor: taskCollector.interceptor(),
+                contextTask: taskCollector.contextTask(),
+                postTask: taskCollector.postTask(),
+                previousStep: nil)
+        previousSteps.append(currentStep)
+        previousSteps.append(step)
+        return LastStepInChainAssembly(previousSteps: previousSteps)
     }
 
 }

@@ -24,7 +24,7 @@ public struct StepChainAssembly<AcceptedViewController: UIViewController, ViewCo
     /// - Parameter previousStep: The instance of `StepWithActionAssemblable`
     public func from<F: Finder, FC: AbstractFactory>(_ step: StepWithActionAssembly<F, FC>) -> ActionConnectingAssembly<F, FC, ViewController, Context>
             where F.ViewController == FC.ViewController, F.Context == FC.Context, F.ViewController == AcceptedViewController {
-        return ActionConnectingAssembly(stepToFullFill: step, previousSteps: previousSteps)
+        return ActionConnectingAssembly<F, FC, ViewController, Context>(stepToFullFill: step, previousSteps: previousSteps)
     }
 
     /// Adds a `RoutingStep` to the chain. This step will be the last one in the chain.
@@ -33,7 +33,7 @@ public struct StepChainAssembly<AcceptedViewController: UIViewController, ViewCo
     public func from<AC>(_ step: DestinationStep<AcceptedViewController, AC>) -> LastStepInChainAssembly<ViewController, Context> {
         var previousSteps = self.previousSteps
         previousSteps.append(step)
-        return LastStepInChainAssembly(previousSteps: previousSteps)
+        return LastStepInChainAssembly<ViewController, Context>(previousSteps: previousSteps)
     }
 
     /// Assembles all the provided settings.
@@ -50,13 +50,17 @@ public struct StepChainAssembly<AcceptedViewController: UIViewController, ViewCo
 
 extension StepChainAssembly where AcceptedViewController: ContainerViewController {
 
+    public func within<AF: Finder, AFC: AbstractFactory>(_ step: StepWithActionAssembly<AF, AFC>) -> ActionConnectingAssembly<AF, AFC, ViewController, Context> {
+        return ActionConnectingAssembly(stepToFullFill: step, previousSteps: previousSteps)
+    }
+
     /// Adds a `RoutingStep` to the chain. This step will be the last one in the chain.
     ///
     /// - Parameter previousStep: The instance of `RoutingStep`
     public func within<AVC: UIViewController, AC>(_ step: DestinationStep<AVC, AC>) -> LastStepInChainAssembly<ViewController, Context> {
         var previousSteps = self.previousSteps
         previousSteps.append(step)
-        return LastStepInChainAssembly(previousSteps: previousSteps)
+        return LastStepInChainAssembly<ViewController, Context>(previousSteps: previousSteps)
     }
 
 }

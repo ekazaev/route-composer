@@ -22,8 +22,7 @@ class CitiesConfiguration {
     private static var citiesList = StepAssembly(finder: ClassFinder<CitiesTableViewController, Int?>(),
             factory: NilFactory())
             .add(CityTableContextTask())
-            .integratedIn()
-            .from(city)
+            .within(city)
             .assemble()
 
     // City Details
@@ -35,13 +34,6 @@ class CitiesConfiguration {
             .using(SplitControllerFactory.pushToDetails())
             .within(citiesList)
             .assemble()
-//            .from(citiesList)
-//            .assemble()
-
-            //.from(ContainerWitness(in: citiesList))
-            //.assemble()
-
-            //.assemble(from: citiesList)
 
     static func citiesList(cityId: Int? = nil) -> ExampleDestination<CitiesTableViewController, Int?> {
         return ExampleDestination(step: citiesList, context: cityId)

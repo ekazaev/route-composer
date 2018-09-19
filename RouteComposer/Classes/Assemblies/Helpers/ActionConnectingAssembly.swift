@@ -42,13 +42,3 @@ public struct ActionConnectingAssembly<F: Finder, FC: AbstractFactory, VC: UIVie
     }
 
 }
-
-public extension ActionConnectingAssembly where FC: NilEntity {
-
-    /// Created to remind user that factory that does not produce anything in most cases should
-    /// be used with `NilAction`
-    public func usingNoAction() -> StepChainAssembly<UIViewController, ViewController, Context> {
-        return using(GeneralAction.nilAction())
-    }
-
-}

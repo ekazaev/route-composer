@@ -8,17 +8,6 @@ import UIKit
 /// Just a wrapper for the general actions that can be applied to any `UIViewController`
 public struct GeneralAction {
 
-    /// The dummy `Action` instance mostly for the internal use, but can be useful outside of the library
-    /// in combination with the factories that produces the view controllers that should not have to be integrated into the
-    /// view controller's stack.
-    public static func nilAction() -> UIViewController.NilAction<UIViewController> {
-        return UIViewController.NilAction<UIViewController>()
-    }
-
-    public static func nilContainerAction<VC: ContainerViewController>() -> UIViewController.NilAction<VC> {
-        return UIViewController.NilAction<VC>()
-    }
-
     /// Replaces the root view controller in the key `UIWindow`
     public static func replaceRoot() -> UIViewController.ReplaceRootAction {
         return UIViewController.ReplaceRootAction()

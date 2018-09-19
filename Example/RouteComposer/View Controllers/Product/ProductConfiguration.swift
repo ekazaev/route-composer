@@ -42,8 +42,7 @@ class ProductConfiguration {
                     .assemble(default: {
                         // Otherwise - presenting in Circle Tab
                         return ContainerStepAssembly(finder: ClassFinder<UINavigationController, Any?>(), factory: NilContainer())
-                                .using(GeneralAction.nilAction())
-                                .from(ExampleConfiguration.wireframe.goToCircle().step.unsafelyUnwrapped())
+                                .within(ExampleConfiguration.wireframe.goToCircle().step)
                                 .assemble()
                     }))
             .assemble()

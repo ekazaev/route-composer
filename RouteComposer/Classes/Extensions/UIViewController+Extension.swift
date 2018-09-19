@@ -86,16 +86,12 @@ extension UIViewController {
     /// The dummy `Action` instance mostly for the internal use, but can be useful outside of the library
     /// in combination with the factories that produces the view controllers that should not have to be integrated into the
     /// view controller's stack.
-    public struct NilAction<VC: UIViewController>: Action, NilEntity {
+    struct NilAction: Action, NilEntity {
 
-        public typealias ViewController = VC
+        public typealias ViewController = UIViewController
 
         /// Constructor
         init() {
-        }
-
-        public func perform(with viewController: UIViewController, on existingController: VC, animated: Bool, completion: @escaping (ActionResult) -> Void) {
-            completion(.continueRouting)
         }
 
     }
