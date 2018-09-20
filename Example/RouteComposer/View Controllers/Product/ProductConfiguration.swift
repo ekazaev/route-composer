@@ -41,8 +41,8 @@ class ProductConfiguration {
                     .addCase(when: ClassFinder<UINavigationController, Any?>(options: .currentAllStack))
                     .assemble(default: {
                         // Otherwise - presenting in Circle Tab
-                        return ContainerStepAssembly(finder: ClassFinder<UINavigationController, Any?>(), factory: NilContainer())
-                                .within(ExampleConfiguration.wireframe.goToCircle().step)
+                        return StepAssembly(finder: ClassFinder<UINavigationController, Any?>(), factory: NilFactory())
+                                .from(ExampleConfiguration.wireframe.goToCircle().step)
                                 .assemble()
                     }))
             .assemble()

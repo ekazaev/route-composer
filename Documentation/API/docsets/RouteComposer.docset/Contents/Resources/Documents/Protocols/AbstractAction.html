@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>NilContainer Structure Reference</title>
+    <title>AbstractAction Protocol Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Struct/NilContainer" class="dashAnchor"></a>
-    <a title="NilContainer Structure Reference"></a>
+    <a name="//apple_ref/swift/Protocol/AbstractAction" class="dashAnchor"></a>
+    <a title="AbstractAction Protocol Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">RouteComposer Docs</a> (100% documented)</p>
@@ -21,7 +21,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">RouteComposer Reference</a>
         <img id="carat" src="../img/carat.png" />
-        NilContainer Structure Reference
+        AbstractAction Protocol Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -266,6 +266,9 @@
             <a href="../Other Protocols.html">Other Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a href="../Protocols/AbstractAction.html">AbstractAction</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Protocols/ActionConnecting.html">ActionConnecting</a>
               </li>
               <li class="nav-group-task">
@@ -301,6 +304,9 @@
                 <a href="../Structs/CompleteFactory.html">CompleteFactory</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Structs/ContainerStepChainAssembly.html">ContainerStepChainAssembly</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Structs/DefaultLogger.html">DefaultLogger</a>
               </li>
               <li class="nav-group-task">
@@ -325,9 +331,6 @@
                 <a href="../Structs/LastStepInChainAssembly.html">LastStepInChainAssembly</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/NilContainer.html">NilContainer</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Structs/SearchOptions.html">SearchOptions</a>
               </li>
               <li class="nav-group-task">
@@ -340,18 +343,15 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>NilContainer</h1>
+            <h1>AbstractAction</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">NilContainer</span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/Container.html">Container</a></span><span class="p">,</span> <span class="kt"><a href="../Other Protocols.html#/s:13RouteComposer9NilEntityP">NilEntity</a></span> <span class="k">where</span> <span class="kt">VC</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ContainerViewController.html">ContainerViewController</a></span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">AbstractAction</span></code></pre>
 
                 </div>
               </div>
-            <p>The dummy struct used to represent the <code><a href="../Protocols/Container.html">Container</a></code> that does not build anything.
-The only purpose it exists is to provide the type safety checks for the <code><a href="../Classes/ContainerStepAssembly.html">ContainerStepAssembly</a></code>.</p>
-
-<p>For example, the <code>UINavigationController</code> of step was already loaded and integrated into a stack by a
-storyboard in a previous step.</p>
+            <p>Represents any action that has to be applied to the <code>UIViewController</code> after it has
+been built (eg: push to navigation stack, present modally, push to tab, etc)</p>
 
           </section>
           <section class="section task-group-section">
@@ -360,9 +360,9 @@ storyboard in a previous step.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer9ContainerP14ViewControllerQa"></a>
+                    <a name="/s:13RouteComposer14AbstractActionP14ViewControllerQa"></a>
                     <a name="//apple_ref/swift/Alias/ViewController" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer9ContainerP14ViewControllerQa">ViewController</a>
+                    <a class="token" href="#/s:13RouteComposer14AbstractActionP14ViewControllerQa">ViewController</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -370,13 +370,14 @@ storyboard in a previous step.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        
+                        <p>Type of the <code>UIViewController</code> that <code><a href="../Protocols/Action.html">Action</a></code> can start from.</p>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">ViewController</span> <span class="o">=</span> <span class="kt">VC</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">associatedtype</span> <span class="kt">ViewController</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
 
                         </div>
                       </div>
@@ -386,9 +387,9 @@ storyboard in a previous step.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer9ContainerP7ContextQa"></a>
-                    <a name="//apple_ref/swift/Alias/Context" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer9ContainerP7ContextQa">Context</a>
+                    <a name="/s:13RouteComposer14AbstractActionP7perform4with2on8animated10completionySo16UIViewControllerC_04ViewK0QzSbyAA0D6ResultOctF"></a>
+                    <a name="//apple_ref/swift/Method/perform(with:on:animated:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer14AbstractActionP7perform4with2on8animated10completionySo16UIViewControllerC_04ViewK0QzSbyAA0D6ResultOctF">perform(with:on:animated:completion:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -396,68 +397,75 @@ storyboard in a previous step.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">Context</span> <span class="o">=</span> <span class="kt">C</span></code></pre>
+                        <p>Performs provided action to the view controller.</p>
 
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:13RouteComposer12NilContainerVACyxq_Gycfc"></a>
-                    <a name="//apple_ref/swift/Method/init()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer12NilContainerVACyxq_Gycfc">init()</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Constructor</p>
+<p>NB: completion MUST be called in the implementation.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">()</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">perform</span><span class="p">(</span><span class="n">with</span> <span class="nv">viewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="n">on</span> <span class="nv">existingController</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AbstractAction.html#/s:13RouteComposer14AbstractActionP14ViewControllerQa">ViewController</a></span><span class="p">,</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Enums/ActionResult.html">ActionResult</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:13RouteComposer9ContainerP5build4with11integrating14ViewControllerQz7ContextQz_AA16ChildCoordinatorVyAJGtKF"></a>
-                    <a name="//apple_ref/swift/Method/build(with:integrating:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer9ContainerP5build4with11integrating14ViewControllerQz7ContextQz_AA16ChildCoordinatorVyAJGtKF">build(with:integrating:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">build</span><span class="p">(</span><span class="n">with</span> <span class="nv">context</span><span class="p">:</span> <span class="kt">C</span><span class="p">,</span> <span class="n">integrating</span> <span class="nv">coordinator</span><span class="p">:</span> <span class="kt"><a href="../Structs/ChildCoordinator.html">ChildCoordinator</a></span><span class="o">&lt;</span><span class="kt">C</span><span class="o">&gt;</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">VC</span></code></pre>
-
-                        </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>viewController</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>UIViewController</code> instance that should appear on top of the stack
+after the <code><a href="../Protocols/Action.html">Action</a></code> is applied.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>existingController</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>UIViewController</code> instance to start from.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>animated</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>animated</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>called once the action is applied. Returns the view controller, which
+will appear on the top of the stack.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -467,7 +475,7 @@ storyboard in a previous step.</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-09-19)</p>
+          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-09-20)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

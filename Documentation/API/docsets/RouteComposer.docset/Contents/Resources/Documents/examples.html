@@ -265,6 +265,9 @@
             <a href="Other Protocols.html">Other Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a href="Protocols/AbstractAction.html">AbstractAction</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Protocols/ActionConnecting.html">ActionConnecting</a>
               </li>
               <li class="nav-group-task">
@@ -300,6 +303,9 @@
                 <a href="Structs/CompleteFactory.html">CompleteFactory</a>
               </li>
               <li class="nav-group-task">
+                <a href="Structs/ContainerStepChainAssembly.html">ContainerStepChainAssembly</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Structs/DefaultLogger.html">DefaultLogger</a>
               </li>
               <li class="nav-group-task">
@@ -322,9 +328,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="Structs/LastStepInChainAssembly.html">LastStepInChainAssembly</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Structs/NilContainer.html">NilContainer</a>
               </li>
               <li class="nav-group-task">
                 <a href="Structs/SearchOptions.html">SearchOptions</a>
@@ -387,13 +390,13 @@
             <span class="nv">finder</span><span class="p">:</span> <span class="kt">ClassFinder</span><span class="o">&lt;</span><span class="kt">AccountViewController</span><span class="p">,</span> <span class="kt">Any</span><span class="p">?</span><span class="o">&gt;</span><span class="p">(),</span>
             <span class="nv">factory</span><span class="p">:</span> <span class="kt">XibFactory</span><span class="p">())</span>
             <span class="o">.</span><span class="nf">using</span><span class="p">(</span><span class="kt">NavigationControllerFactory</span><span class="o">.</span><span class="nf">pushToNavigation</span><span class="p">())</span>
-            <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="kt">SingleContainerStep</span><span class="p">(</span><span class="kt">ClassFinder</span><span class="o">&lt;</span><span class="kt">UINavigationController</span><span class="p">,</span> <span class="kt">Any</span><span class="p">?</span><span class="o">&gt;</span><span class="p">(),</span> <span class="kt">NilContainer</span><span class="p">()))</span>
-            <span class="o">.</span><span class="nf">within</span><span class="p">(</span><span class="kt">GeneralStep</span><span class="o">.</span><span class="nf">current</span><span class="p">())</span>
+            <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="kt">SingleStep</span><span class="p">(</span><span class="kt">ClassFinder</span><span class="o">&lt;</span><span class="kt">UINavigationController</span><span class="p">,</span> <span class="kt">Any</span><span class="p">?</span><span class="o">&gt;</span><span class="p">(),</span> <span class="kt">NilFactory</span><span class="p">()))</span>
+            <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="kt">GeneralStep</span><span class="o">.</span><span class="nf">current</span><span class="p">())</span>
             <span class="o">.</span><span class="nf">assemble</span><span class="p">()</span>
 
 </code></pre>
 
-<p><em>Why is the <code><a href="Structs/NilFactory.html">NilFactory</a></code> used here? That means: look for the <code>UINavigationController</code> everywhere, but do not create it if it is not found (the routing will fail in this case). The <code><a href="Structs/NilFactory.html">NilFactory</a></code> usually has to be accompanied by the <code>NilAction</code> as if the factory did not create anything. It should not be integrated in to the stack</em></p>
+<p><em>Why is the <code><a href="Structs/NilFactory.html">NilFactory</a></code> used here? That means: look for the <code>UINavigationController</code> everywhere, but do not create it if it is not found (the routing will fail in this case). The <code><a href="Structs/NilFactory.html">NilFactory</a></code> can not be accompanied by any <code><a href="Protocols/Action.html">Action</a></code> as the <code>UIViewController</code> already exists in the stack.</em></p>
 <h4 id='the-code-uiviewcontroller-code-should-be-pushed-into-any-code-uinavigationcontroller-code-if-it-is-present-on-the-screen-if-not-presented-modally' class='heading'>The <code>UIViewController</code> should be pushed into any <code>UINavigationController</code> if it is present on the screen, if not - presented modally:</h4>
 <pre class="highlight swift"><code>    <span class="k">let</span> <span class="nv">screen</span> <span class="o">=</span> <span class="kt">StepAssembly</span><span class="p">(</span>
             <span class="nv">finder</span><span class="p">:</span> <span class="kt">ClassFinder</span><span class="o">&lt;</span><span class="kt">AccountViewController</span><span class="p">,</span> <span class="kt">Any</span><span class="p">?</span><span class="o">&gt;</span><span class="p">(),</span>
@@ -431,7 +434,7 @@
 <pre class="highlight swift"><code>    <span class="k">let</span> <span class="nv">screen</span> <span class="o">=</span> <span class="kt">StepAssembly</span><span class="p">(</span>
             <span class="nv">finder</span><span class="p">:</span> <span class="kt">ClassFinder</span><span class="o">&lt;</span><span class="kt">AccountViewController</span><span class="p">,</span> <span class="kt">Any</span><span class="p">?</span><span class="o">&gt;</span><span class="p">(),</span>
             <span class="nv">factory</span><span class="p">:</span> <span class="kt">NilFactory</span><span class="p">())</span>
-            <span class="o">.</span><span class="nf">within</span><span class="p">(</span><span class="n">tabScreen</span><span class="p">)</span>
+            <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="n">tabScreen</span><span class="p">)</span>
             <span class="o">.</span><span class="nf">assemble</span><span class="p">()</span>
 </code></pre>
 
@@ -441,7 +444,7 @@
             <span class="nv">finder</span><span class="p">:</span> <span class="kt">ClassFinder</span><span class="o">&lt;</span><span class="kt">ForgotPasswordViewController</span><span class="p">,</span> <span class="kt">Any</span><span class="p">?</span><span class="o">&gt;</span><span class="p">(),</span>
             <span class="nv">factory</span><span class="p">:</span> <span class="kt">XibFactory</span><span class="p">())</span>
             <span class="o">.</span><span class="nf">using</span><span class="p">(</span><span class="kt">NavigationControllerFactory</span><span class="o">.</span><span class="nf">pushToNavigation</span><span class="p">())</span>
-            <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="kt">SingleStep</span><span class="p">(</span><span class="nv">finder</span><span class="p">:</span> <span class="kt">ClassFinder</span><span class="o">&lt;</span><span class="kt">LoginViewController</span><span class="p">,</span> <span class="kt">Any</span><span class="p">?</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">factory</span><span class="p">:</span> <span class="kt">XibFactory</span><span class="p">()))</span>
+            <span class="o">.</span><span class="nf">within</span><span class="p">(</span><span class="kt">SingleStep</span><span class="p">(</span><span class="nv">finder</span><span class="p">:</span> <span class="kt">ClassFinder</span><span class="o">&lt;</span><span class="kt">LoginViewController</span><span class="p">,</span> <span class="kt">Any</span><span class="p">?</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">factory</span><span class="p">:</span> <span class="kt">XibFactory</span><span class="p">()))</span>
             <span class="o">.</span><span class="nf">using</span><span class="p">(</span><span class="kt">NavigationControllerFactory</span><span class="o">.</span><span class="nf">pushToNavigation</span><span class="p">())</span>
             <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="kt">SingleContainerStep</span><span class="p">(</span><span class="nv">finder</span><span class="p">:</span> <span class="kt">ClassFinder</span><span class="p">(),</span> <span class="nv">factory</span><span class="p">:</span> <span class="kt">NavigationControllerFactory</span><span class="p">()))</span>
             <span class="o">.</span><span class="nf">using</span><span class="p">(</span><span class="kt">GeneralAction</span><span class="o">.</span><span class="nf">presentModally</span><span class="p">())</span>
@@ -469,6 +472,9 @@
 </code></pre>
 
 <p><em>With the configuration above you will be able to navigate to both screens using the <code><a href="Protocols/Router.html">Router</a></code></em></p>
+<h4 id='why-do-we-use-code-within-code-here' class='heading'>Why do we use <code>within</code> here?</h4>
+
+<p>Because <code>pushToNavigation</code> action requires <code>UINavigationController</code> to be the previous <code>UIViewController</code> in the chain. <code>within</code> method allows us to escape this check. Developer guaranties that it will be there by the time <code>pushToNavigation</code> will start to perform.</p>
 <h4 id='what-will-happen-if-in-the-configuration-above-i-will-replace-the-code-generalstep-current-code-with-the-code-generalstep-root-code' class='heading'>What will happen if, in the configuration above, I will replace the <code>GeneralStep.current</code> with the <code>GeneralStep.root</code>?</h4>
 
 <p>It will work, but it means that the router has to start building the stack from the root <code>UIViewController</code>, so if the user is in some <code>UIViewController</code> presented modally - the router will close it before it will start the navigation.</p>
@@ -502,7 +508,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-09-19)</p>
+          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-09-20)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

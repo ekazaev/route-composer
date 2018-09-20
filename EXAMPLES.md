@@ -54,13 +54,13 @@ It will work if the user is not in some `UIViewController` that is presented mod
             finder: ClassFinder<AccountViewController, Any?>(),
             factory: XibFactory())
             .using(NavigationControllerFactory.pushToNavigation())
-            .from(SingleContainerStep(ClassFinder<UINavigationController, Any?>(), NilContainer()))
-            .within(GeneralStep.current())
+            .from(SingleStep(ClassFinder<UINavigationController, Any?>(), NilFactory()))
+            .from(GeneralStep.current())
             .assemble()
 
 ```
 
-*Why is the `NilFactory` used here? That means: look for the `UINavigationController` everywhere, but do not create it if it is not found (the routing will fail in this case). The `NilFactory` usually has to be accompanied by the `NilAction` as if the factory did not create anything. It should not be integrated in to the stack*
+*Why is the `NilFactory` used here? That means: look for the `UINavigationController` everywhere, but do not create it if it is not found (the routing will fail in this case). The `NilFactory` can not be accompanied by any `Action` as the `UIViewController` already exists in the stack.*
 
 #### The `UIViewController` should be pushed into any `UINavigationController` if it is present on the screen, if not - presented modally:
 
@@ -110,7 +110,7 @@ It will work if the user is not in some `UIViewController` that is presented mod
     let screen = StepAssembly(
             finder: ClassFinder<AccountViewController, Any?>(),
             factory: NilFactory())
-            .within(tabScreen)
+            .from(tabScreen)
             .assemble()
 ```
 
@@ -123,7 +123,7 @@ It will work if the user is not in some `UIViewController` that is presented mod
             finder: ClassFinder<ForgotPasswordViewController, Any?>(),
             factory: XibFactory())
             .using(NavigationControllerFactory.pushToNavigation())
-            .from(SingleStep(finder: ClassFinder<LoginViewController, Any?>, factory: XibFactory()))
+            .within(SingleStep(finder: ClassFinder<LoginViewController, Any?>, factory: XibFactory()))
             .using(NavigationControllerFactory.pushToNavigation())
             .from(SingleContainerStep(finder: ClassFinder(), factory: NavigationControllerFactory()))
             .using(GeneralAction.presentModally())
@@ -150,6 +150,10 @@ Or:
 
 ```
 *With the configuration above you will be able to navigate to both screens using the `Router`*
+
+#### Why do we use `within` here?
+
+Because `pushToNavigation` action requires `UINavigationController` to be the previous `UIViewController` in the chain. `within` method allows us to escape this check. Developer guaranties that it will be there by the time `pushToNavigation` will start to perform.
 
 #### What will happen if, in the configuration above, I will replace the `GeneralStep.current` with the `GeneralStep.root`?
 

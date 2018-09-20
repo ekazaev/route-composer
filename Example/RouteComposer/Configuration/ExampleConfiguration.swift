@@ -52,7 +52,7 @@ extension ExampleWireframe {
                 finder: ClassFinder<CircleViewController, Any?>(options: .currentAllStack),
                 factory: NilFactory())
                 .add(ExampleGenericContextTask<CircleViewController, Any?>())
-                .within(goToHome().step)
+                .from(goToHome().step)
                 .assemble()
 
         return ExampleDestination(step: circleScreen, context: nil)
@@ -64,7 +64,7 @@ extension ExampleWireframe {
                 finder: ClassFinder<SquareViewController, Any?>(options: .currentAllStack),
                 factory: NilFactory())
                 .add(ExampleGenericContextTask<SquareViewController, Any?>())
-                .within(goToHome().step)
+                .from(goToHome().step)
                 .assemble()
         return ExampleDestination(step: squareScreen, context: nil)
 
@@ -121,7 +121,7 @@ extension ExampleWireframe {
                 .using(NavigationControllerFactory.pushToNavigation())
                 .from(NavigationControllerStep())
                 .using(GeneralAction.presentModally(transitioningDelegate: transitionController))
-                .from(goToRoutingSupport(color).step.unsafelyUnwrapped())
+                .from(goToRoutingSupport(color).step)
                 .assemble()
 
         return ExampleDestination(step: superModalScreen, context: ExampleDictionaryContext(arguments: [.color: color]))

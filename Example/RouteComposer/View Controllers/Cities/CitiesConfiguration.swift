@@ -22,7 +22,7 @@ class CitiesConfiguration {
     private static var citiesList = StepAssembly(finder: ClassFinder<CitiesTableViewController, Int?>(),
             factory: NilFactory())
             .add(CityTableContextTask())
-            .within(city)
+            .from(city)
             .assemble()
 
     // City Details

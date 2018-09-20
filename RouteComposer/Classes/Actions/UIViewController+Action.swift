@@ -22,16 +22,15 @@ public struct GeneralAction {
     ///   - preferredContentSize: The preferredContentSize is used for any container laying out a child view controller.
     ///   - popoverControllerConfigurationBlock: Block to configure `UIPopoverPresentationController`.
     public static func presentModally(presentationStyle: UIModalPresentationStyle? = .fullScreen,
-                               transitionStyle: UIModalTransitionStyle? = .coverVertical,
-                               transitioningDelegate: UIViewControllerTransitioningDelegate? = nil,
-                               preferredContentSize: CGSize? = nil,
-                               popoverConfiguration: ((_: UIPopoverPresentationController) -> Void)? = nil) -> UIViewController.PresentModallyAction {
+                                      transitionStyle: UIModalTransitionStyle? = .coverVertical,
+                                      transitioningDelegate: UIViewControllerTransitioningDelegate? = nil,
+                                      preferredContentSize: CGSize? = nil,
+                                      popoverConfiguration: ((_: UIPopoverPresentationController) -> Void)? = nil) -> UIViewController.PresentModallyAction {
         return UIViewController.PresentModallyAction(presentationStyle: presentationStyle,
                 transitionStyle: transitionStyle,
                 transitioningDelegate: transitioningDelegate,
                 preferredContentSize: preferredContentSize,
                 popoverConfiguration: popoverConfiguration)
     }
-
 
 }

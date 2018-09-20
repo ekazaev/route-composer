@@ -44,9 +44,9 @@ public struct DefaultRouter: Router, InterceptableRouter {
 
     @discardableResult
     public func navigate<ViewController: UIViewController, Context>(to step: DestinationStep<ViewController, Context>,
-                                  with context: Context,
-                                  animated: Bool = true,
-                                  completion: ((_: RoutingResult) -> Void)? = nil) -> RoutingResult {
+                                                                    with context: Context,
+                                                                    animated: Bool = true,
+                                                                    completion: ((_: RoutingResult) -> Void)? = nil) -> RoutingResult {
 
         guard Thread.isMainThread else {
             logger?.log(.error("Attempt to call UI API not on the main thread."))

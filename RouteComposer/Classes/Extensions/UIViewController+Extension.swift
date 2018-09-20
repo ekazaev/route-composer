@@ -125,10 +125,10 @@ extension UIViewController {
         ///   - preferredContentSize: The preferredContentSize is used for any container laying out a child view controller.
         ///   - popoverControllerConfigurationBlock: Block to configure `UIPopoverPresentationController`.
         init(presentationStyle: UIModalPresentationStyle? = .fullScreen,
-                    transitionStyle: UIModalTransitionStyle? = .coverVertical,
-                    transitioningDelegate: UIViewControllerTransitioningDelegate? = nil,
-                    preferredContentSize: CGSize? = nil,
-                    popoverConfiguration: ((_: UIPopoverPresentationController) -> Void)? = nil) {
+             transitionStyle: UIModalTransitionStyle? = .coverVertical,
+             transitioningDelegate: UIViewControllerTransitioningDelegate? = nil,
+             preferredContentSize: CGSize? = nil,
+             popoverConfiguration: ((_: UIPopoverPresentationController) -> Void)? = nil) {
             self.presentationStyle = presentationStyle
             self.transitionStyle = transitionStyle
             self.transitioningDelegate = transitioningDelegate

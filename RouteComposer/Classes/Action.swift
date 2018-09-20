@@ -5,9 +5,9 @@
 
 import UIKit
 
-/// Represents an action that has to be applied to the `UIViewController` after it has
+/// Represents any action that has to be applied to the `UIViewController` after it has
 /// been built (eg: push to navigation stack, present modally, push to tab, etc)
-public protocol Action {
+public protocol AbstractAction {
 
     /// Type of the `UIViewController` that `Action` can start from.
     associatedtype ViewController: UIViewController
@@ -30,8 +30,14 @@ public protocol Action {
 
 }
 
+/// Represents an action that has to be applied to the `UIViewController` after it has
+/// been built (eg: push to navigation stack, present modally, push to tab, etc)
+public protocol Action: AbstractAction {
+
+}
+
 /// Represents an action to be used by a `Container` to build it's children view controller stack
-public protocol ContainerAction: Action where Self.ViewController: ContainerViewController {
+public protocol ContainerAction: AbstractAction where Self.ViewController: ContainerViewController {
 
     /// If current `UIViewController` has to be pushed/added/etc to the existing stack of the view controllers,
     /// this method should be called instead.

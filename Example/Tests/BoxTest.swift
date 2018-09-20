@@ -83,8 +83,6 @@ class BoxTests: XCTestCase {
 
         class TestContainerAction: ContainerAction {
 
-            typealias SupportedContainer = NavigationControllerFactory
-
             func perform(embedding viewController: UIViewController, in childViewControllers: inout [UIViewController]) {
                 childViewControllers.append(viewController)
             }
@@ -95,7 +93,7 @@ class BoxTests: XCTestCase {
 
         }
         let action = TestContainerAction()
-        let actionBox = ActionBox(action)
+        let actionBox = ContainerActionBox(action)
         let navigationController = UINavigationController()
         actionBox.perform(with: UIViewController(), on: navigationController, animated: true) { result in
             guard case .continueRouting = result else {
