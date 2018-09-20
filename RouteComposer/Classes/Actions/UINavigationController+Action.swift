@@ -9,18 +9,18 @@ import UIKit
 extension Container where Self.ViewController: UINavigationController {
 
     /// Replaces all the child view controllers in the `UINavigationController`'s child stack
-    public static func pushAsRoot() -> UINavigationController.PushAsRootAction<Self> {
-        return UINavigationController.PushAsRootAction<Self>()
+    public static func pushAsRoot() -> UINavigationController.PushAsRootAction<Self.ViewController> {
+        return UINavigationController.PushAsRootAction()
     }
 
     /// Replaces all the child view controllers in the `UINavigationController`'s child stack
-    public static func pushToNavigation() -> UINavigationController.PushAction<Self> {
-        return UINavigationController.PushAction<Self>()
+    public static func pushToNavigation() -> UINavigationController.PushAction<Self.ViewController> {
+        return UINavigationController.PushAction()
     }
 
     /// Replaces all the child view controllers in the `UINavigationController`'s child stack
-    public static func pushReplacingLast() -> UINavigationController.PushReplacingLastAction<Self> {
-        return UINavigationController.PushReplacingLastAction<Self>()
+    public static func pushReplacingLast() -> UINavigationController.PushReplacingLastAction<Self.ViewController> {
+        return UINavigationController.PushReplacingLastAction()
     }
 
 }

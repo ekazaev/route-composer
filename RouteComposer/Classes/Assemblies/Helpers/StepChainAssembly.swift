@@ -98,7 +98,7 @@ public struct ContainerStepChainAssembly<AcceptableContainer: ContainerViewContr
         return LastStepInChainAssembly(previousSteps: previousSteps).assemble()
     }
 
-    // MARK: - Methods below allows to avoid required view controller type checks
+    // MARK: - Methods below allow to avoid required view controller type checks
 
     /// Connects previously provided `DestinationStep` with `ContainerViewController` factory with a step where the `UIViewController`
     /// should be to avoid type checks.

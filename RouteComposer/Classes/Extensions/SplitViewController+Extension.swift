@@ -42,14 +42,14 @@ extension UISplitViewController: RoutingInterceptable {
 extension UISplitViewController {
 
     /// Presents a detail view controller in the `UISplitViewController`
-    public struct PushToDetailsAction<SC: Container>: ContainerAction where SC.ViewController: UISplitViewController {
+    public struct PushToDetailsAction<ViewController: UISplitViewController>: ContainerAction {
 
         /// Constructor
         init() {
         }
 
         public func perform(with viewController: UIViewController,
-                            on splitViewController: SC.ViewController,
+                            on splitViewController: ViewController,
                             animated: Bool,
                             completion: @escaping (_: ActionResult) -> Void) {
             guard !splitViewController.viewControllers.isEmpty else {
@@ -63,7 +63,7 @@ extension UISplitViewController {
     }
 
     /// Presents a master view controller in the `UISplitViewController`
-    public struct SetAsMasterAction<SC: Container>: ContainerAction where SC.ViewController: UISplitViewController {
+    public struct SetAsMasterAction<ViewController: UISplitViewController>: ContainerAction {
 
         /// Constructor
         init() {
@@ -78,7 +78,7 @@ extension UISplitViewController {
         }
 
         public func perform(with viewController: UIViewController,
-                            on splitViewController: SC.ViewController,
+                            on splitViewController: ViewController,
                             animated: Bool,
                             completion: @escaping (_: ActionResult) -> Void) {
             guard !splitViewController.viewControllers.isEmpty else {

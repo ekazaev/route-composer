@@ -9,13 +9,13 @@ import UIKit
 extension Container where Self.ViewController: UISplitViewController {
 
     /// Presents a detail view controller in the `UISplitViewController`
-    public static func setAsMaster() -> UISplitViewController.SetAsMasterAction<Self> {
-        return UISplitViewController.SetAsMasterAction<Self>()
+    public static func setAsMaster() -> UISplitViewController.SetAsMasterAction<Self.ViewController> {
+        return UISplitViewController.SetAsMasterAction()
     }
 
     /// Presents a detail view controller in the `UISplitViewController`
-    public static func pushToDetails() -> UISplitViewController.PushToDetailsAction<Self> {
-        return UISplitViewController.PushToDetailsAction<Self>()
+    public static func pushToDetails() -> UISplitViewController.PushToDetailsAction<Self.ViewController> {
+        return UISplitViewController.PushToDetailsAction()
     }
 
 }

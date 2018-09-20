@@ -48,7 +48,7 @@ extension UITabBarController: RoutingInterceptable {
 extension UITabBarController {
 
     /// Integrates a `UIViewController` in to a `UITabBarController`
-    public struct AddTabAction<SC: Container>: ContainerAction where SC.ViewController: UITabBarController {
+    public struct AddTabAction<ViewController: UITabBarController>: ContainerAction {
 
         let tabIndex: Int?
 
@@ -80,7 +80,7 @@ extension UITabBarController {
         }
 
         public func perform(with viewController: UIViewController,
-                            on tabBarController: SC.ViewController,
+                            on tabBarController: ViewController,
                             animated: Bool,
                             completion: @escaping(_: ActionResult) -> Void) {
             var tabViewControllers = tabBarController.viewControllers ?? []

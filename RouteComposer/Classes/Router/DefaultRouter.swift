@@ -99,16 +99,22 @@ public struct DefaultRouter: Router, InterceptableRouter {
                         "destroyed while router was waiting for interceptor's result."))
             }
 
-            self.startRouting(from: viewController,
-                    with: context,
-                    building: factoriesStack, animated: animated) { viewController, result in
-                // Even if the result is unhandled - we still have to run all the tasks
-                self.makeContainersActive(toShow: viewController, animated: animated)
-                self.doTry({
-                    try postTaskRunner.run(for: context)
-                }, finally: { success in
-                    completion?(success ? result : .unhandled)
-                })
+            // If we found a view controller to start from - lets close all the presented view controllers above to be able
+            // to build a new stack if needed.
+            // We already checked that they can be dismissed.
+            self.dismissPresentedIfNeeded(from: viewController, animated: animated) {
+                self.runViewControllerBuildStack(starting: viewController,
+                        with: context,
+                        using: factoriesStack,
+                        animated: animated) { viewController, result in
+                    // Even if the result is unhandled - we still have to run all the tasks
+                    self.makeContainersActive(toShow: viewController, animated: animated)
+                    self.doTry({
+                        try postTaskRunner.run(for: context)
+                    }, finally: { success in
+                        completion?(success ? result : .unhandled)
+                    })
+                }
             }
         }
 
@@ -140,8 +146,6 @@ public struct DefaultRouter: Router, InterceptableRouter {
 
         var interceptors: [AnyRoutingInterceptor] = []
 
-        var processedViewControllers: [UIViewController] = []
-
         doTry({
             //Adding default preset interceptors
             interceptors = try self.interceptors.map({
@@ -172,20 +176,14 @@ public struct DefaultRouter: Router, InterceptableRouter {
                                     "\(String(describing: viewController)) to start presentation from."))
                         }
 
-                        if !processedViewControllers.contains(viewController) {
-                            processedViewControllers.append(viewController)
+                        let taskMergeResult = mergeGlobalTasks(step: interceptableStep)
+                        try taskMergeResult.contextTasks.forEach({
+                            var contextTask = $0
+                            try contextTask.prepare(with: context)
+                            try contextTask.apply(on: viewController, with: context)
+                        })
 
-                            let taskMergeResult = mergeGlobalTasks(step: interceptableStep)
-                            try taskMergeResult.contextTasks.forEach({
-                                var contextTask = $0
-                                try contextTask.prepare(with: context)
-                                try contextTask.apply(on: viewController, with: context)
-                            })
-
-                            taskMergeResult.postTasks.forEach({
-                                postTaskRunner.add(viewController: viewController, postTask: $0)
-                            })
-                        }
+                        postTaskRunner.add(postTasks: taskMergeResult.postTasks, to: viewController)
                     case .continueRouting(let factory):
                         // If view controller is not found, but step has a `Factory` to build itself -
                         // add factory to the stack
@@ -206,8 +204,7 @@ public struct DefaultRouter: Router, InterceptableRouter {
                                     factory = FactoryDecorator(factory: factory,
                                             contextTasks: taskMergeResult.contextTasks,
                                             postTasks: taskMergeResult.postTasks,
-                                            postTaskRunner: postTaskRunner,
-                                            logger: logger)
+                                            postTaskRunner: postTaskRunner)
                                 }
 
                                 // If some `Factory` can not prepare itself (e.g. does not have enough data in context)
@@ -215,7 +212,7 @@ public struct DefaultRouter: Router, InterceptableRouter {
                                 // can not be built
                                 try factory.prepare(with: context)
 
-                                // If current factory actually creates Container then it should know how to deal with
+                                // If current factory creates a Container then it should know how to deal with
                                 // the factories that
                                 // should be in this container, based on an action attached to the factory.
                                 // For example navigationController factory should use factories to build navigation
@@ -231,7 +228,7 @@ public struct DefaultRouter: Router, InterceptableRouter {
                 }
 
                 guard let chainingStep = currentStep as? ChainableStep,
-                      let previousStep = chainingStep.previousStep as? RoutingStep & PerformableStep else {
+                      let previousStep = chainingStep.previousStep else {
                     break
                 }
                 currentStep = previousStep
@@ -255,35 +252,22 @@ public struct DefaultRouter: Router, InterceptableRouter {
         return nil
     }
 
-    private func startRouting(from viewController: UIViewController,
-                              with context: Any?,
-                              building factories: [AnyFactory],
-                              animated: Bool,
-                              completion: @escaping ((_: UIViewController, _: RoutingResult) -> Void)) {
-        // If we found a view controller to start from - lets close all the presented view controllers above to be able
-        // to build a new stack if needed.
-        // We already checked that they can be dismissed.
-        dismissViewControllerPresented(from: viewController, animated: animated) {
-            self.runViewControllerBuildStack(rootViewController: viewController, context: context, factories: factories, animated: animated) { viewController, result in
-                completion(viewController, result)
-            }
-        }
-    }
-
     // This function loops through the list of factories and build views in sequence.
     // Because some actions can be asynchronous, like push, modal or presentations,
     // it builds asynchronously
-    private func runViewControllerBuildStack(rootViewController: UIViewController,
-                                             context: Any?, factories: [AnyFactory],
+    private func runViewControllerBuildStack(starting rootViewController: UIViewController,
+                                             with context: Any?,
+                                             using factories: [AnyFactory],
                                              animated: Bool,
                                              completion: @escaping ((_: UIViewController, _: RoutingResult) -> Void)) {
-        guard !factories.isEmpty else {
-            completion(rootViewController, .handled)
-            return
-        }
         var factories = factories
 
-        func buildViewController(_ factory: AnyFactory, _ previousViewController: UIViewController) {
+        func buildViewController(from previousViewController: UIViewController) {
+            guard !factories.isEmpty else {
+                completion(previousViewController, .handled)
+                return
+            }
+            let factory = factories.removeFirst()
             // If view controller found but view is not loaded or has no window that it belongs, it means that it
             // was just cached by container view controller like in UITabBarController it happens with a view
             // controller in a tab that was never activated before,
@@ -309,11 +293,7 @@ public struct DefaultRouter: Router, InterceptableRouter {
                     self.logger?.log(.info("Action \(String(describing: factory.action)) applied to a " +
                             "\(String(describing: previousViewController)) with " +
                             "\(String(describing: newViewController))."))
-                    guard !factories.isEmpty else {
-                        completion(newViewController, .handled)
-                        return
-                    }
-                    buildViewController(factories.removeFirst(), newViewController)
+                    buildViewController(from: newViewController)
                 }
             }, finally: { success in
                 if !success {
@@ -322,7 +302,7 @@ public struct DefaultRouter: Router, InterceptableRouter {
             })
         }
 
-        buildViewController(factories.removeFirst(), rootViewController)
+        buildViewController(from: rootViewController)
     }
 
     // this function activates the origin view controller of viewController
@@ -336,13 +316,13 @@ public struct DefaultRouter: Router, InterceptableRouter {
         }
     }
 
-    private func dismissViewControllerPresented(from viewController: UIViewController, animated: Bool, completion: (() -> Void)?) {
+    private func dismissPresentedIfNeeded(from viewController: UIViewController, animated: Bool, completion: @escaping (() -> Void)) {
         if viewController.presentedViewController != nil {
             viewController.dismiss(animated: animated) {
-                completion?()
+                completion()
             }
         } else {
-            completion?()
+            completion()
         }
     }
 
@@ -354,7 +334,7 @@ public struct DefaultRouter: Router, InterceptableRouter {
             logger?.log(.error(message))
             finallyBlock?(false)
         } catch {
-            logger?.log(.error("An error occurred during the routing process. Underlying error: \(error)"))
+            logger?.log(.error("An error occurred during the navigation process. Underlying error: \(error)"))
             finallyBlock?(false)
         }
     }

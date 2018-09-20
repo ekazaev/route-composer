@@ -7,23 +7,25 @@ import UIKit
 
 extension DefaultRouter {
 
-    private struct PostTaskSlip {
-        // This reference is weak because even though this view controller was created by a fabric but then some other
-        // view controller in the chain can have an action that will actually remove this view controller from the
-        // stack. We do not want to keep a strong reference to it and prevent it from deallocation. Potentially it's
-        // a very rare issue but must be kept in mind.
-        weak var viewController: UIViewController?
-
-        let postTask: AnyPostRoutingTask
-    }
-
     final class PostTaskRunner {
+
+        private struct PostTaskSlip {
+            // This reference is weak because even though this view controller was created by a fabric but then some other
+            // view controller in the chain can have an action that will actually remove this view controller from the
+            // stack. We do not want to keep a strong reference to it and prevent it from deallocation. Potentially it's
+            // a very rare issue but must be kept in mind.
+            weak var viewController: UIViewController?
+
+            let postTask: AnyPostRoutingTask
+        }
 
         private var taskSlips: [PostTaskSlip] = []
 
-        func add(viewController: UIViewController?, postTask: AnyPostRoutingTask) {
-            let postTaskSlip = PostTaskSlip(viewController: viewController, postTask: postTask)
-            taskSlips.append(postTaskSlip)
+        func add(postTasks: [AnyPostRoutingTask], to viewController: UIViewController) {
+            postTasks.forEach({
+                let postTaskSlip = PostTaskSlip(viewController: viewController, postTask: $0)
+                taskSlips.append(postTaskSlip)
+            })
         }
 
         func run(for context: Any?) throws {
@@ -50,29 +52,25 @@ extension DefaultRouter {
     /// which create merged view controllers without `Router`'s help.
     struct FactoryDecorator: AnyFactory, CustomStringConvertible {
 
-        var factory: AnyFactory
+        private var factory: AnyFactory
 
-        weak var postTaskRunner: PostTaskRunner?
+        private weak var postTaskRunner: PostTaskRunner?
 
-        let contextTasks: [AnyContextTask]
+        private let contextTasks: [AnyContextTask]
 
-        let postTasks: [AnyPostRoutingTask]
-
-        let logger: Logger?
+        private let postTasks: [AnyPostRoutingTask]
 
         let action: AnyAction
 
         init(factory: AnyFactory,
              contextTasks: [AnyContextTask],
              postTasks: [AnyPostRoutingTask],
-             postTaskRunner: PostTaskRunner,
-             logger: Logger?) {
+             postTaskRunner: PostTaskRunner) {
             self.factory = factory
             self.action = factory.action
             self.postTaskRunner = postTaskRunner
             self.postTasks = postTasks
             self.contextTasks = contextTasks
-            self.logger = logger
         }
 
         mutating func prepare(with context: Any?) throws {
@@ -86,9 +84,7 @@ extension DefaultRouter {
                     try $0.apply(on: viewController, with: context)
                 })
             }
-            postTasks.forEach({
-                postTaskRunner?.add(viewController: viewController, postTask: $0)
-            })
+            postTaskRunner?.add(postTasks: postTasks, to: viewController)
             return viewController
         }
 
