@@ -17,7 +17,7 @@ public struct GeneralStep {
             public init() {
             }
 
-            func perform(for context: Any?) -> StepResult {
+            func perform(with context: Any?) -> StepResult {
                 return StepResult(UIWindow.key?.rootViewController)
             }
 
@@ -35,7 +35,7 @@ public struct GeneralStep {
             public init() {
             }
 
-            func perform(for context: Any?) -> StepResult {
+            func perform(with context: Any?) -> StepResult {
                 let window = UIWindow.key
                 return StepResult(window?.topmostViewController)
             }

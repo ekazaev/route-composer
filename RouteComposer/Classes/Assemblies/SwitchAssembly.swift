@@ -17,7 +17,7 @@ public final class SwitchAssembly<ViewController: UIViewController, Context> {
             self.resolverBlock = resolverBlock
         }
 
-        func resolve(for context: Any?) -> RoutingStep? {
+        func resolve(with context: Any?) -> RoutingStep? {
             guard let typedDestination = context as? C else {
                 return nil
             }
@@ -33,7 +33,7 @@ public final class SwitchAssembly<ViewController: UIViewController, Context> {
             self.finder = FinderBox.box(for: finder)
         }
 
-        func perform(for context: Any?) -> StepResult {
+        func perform(with context: Any?) -> StepResult {
             guard let viewController = finder?.findViewController(with: context) else {
                 return .failure
             }
@@ -52,7 +52,7 @@ public final class SwitchAssembly<ViewController: UIViewController, Context> {
             self.finder = FinderBox.box(for: finder)
         }
 
-        func resolve<C>(for context: C) -> RoutingStep? {
+        func resolve<C>(with context: C) -> RoutingStep? {
             return finder?.findViewController(with: context) != nil ? step : nil
         }
     }

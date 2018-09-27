@@ -50,7 +50,7 @@ struct BaseStep<Box: AnyFactoryBox>: RoutingStepWithContext,
         self.postTask = postTask
         }
 
-    func perform(for context: Any?) -> StepResult {
+    func perform(with context: Any?) -> StepResult {
         guard let viewController = finder?.findViewController(with: context) else {
             return .continueRouting(factory)
         }

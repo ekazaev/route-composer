@@ -27,10 +27,10 @@ public struct FinderFactory<F: Finder>: Factory {
     }
 
     public func build(with context: Context) throws -> ViewController {
-        if let viewController = finder.findViewController(with: context) {
-            return viewController
+        guard let viewController = finder.findViewController(with: context) else {
+            throw RoutingError.message("Finder \(String(describing: finder)) not found its view controller in stack.")
         }
-        throw RoutingError.message("Finder \(String(describing: finder)) not found its view controller in stack.")
+        return viewController
     }
 
 }

@@ -39,7 +39,7 @@ class RouterTests: XCTestCase {
             self.currentViewController = currentViewController
         }
 
-        func perform(for context: Any?) -> StepResult {
+        func perform(with context: Any?) -> StepResult {
             return .success(currentViewController)
         }
 
@@ -104,6 +104,9 @@ class RouterTests: XCTestCase {
     func testNavigateTo() {
         let currentViewController = TestModalPresentableController()
         let screenConfig = StepAssembly(finder: ClassFinder(), factory: TestViewControllerFactory())
+                .add(InlinePostTask({ (_: TestViewController, _: Any?, viewControllers: [UIViewController]) in
+                    XCTAssertEqual(viewControllers.count, 3)
+                }))
                 .using(NavigationControllerFactory.pushToNavigation())
                 .from(NavigationControllerStep())
                 .using(FakePresentModallyAction())
