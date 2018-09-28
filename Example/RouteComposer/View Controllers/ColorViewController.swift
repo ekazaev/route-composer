@@ -15,11 +15,8 @@ class ColorViewControllerFinder: StackIteratingFinder {
         self.options = options
     }
 
-    func isTarget(_ viewController: ColorViewController, with context: ExampleDictionaryContext) -> Bool {
-        guard let destinationColorHex = context[Argument.color] as? ColorViewController.ColorDisplayModel else {
-            return false
-        }
-        viewController.colorHex = destinationColorHex
+    func isTarget(_ viewController: ColorViewController, with colorHex: String) -> Bool {
+        viewController.colorHex = colorHex
         return true
     }
 
@@ -27,22 +24,12 @@ class ColorViewControllerFinder: StackIteratingFinder {
 
 class ColorViewControllerFactory: Factory {
 
-    var model: ColorViewController.ColorDisplayModel?
-
     init() {
     }
 
-    func prepare(with context: ExampleDictionaryContext) throws {
-        guard let model = context[Argument.color] as? ColorViewController.ColorDisplayModel else {
-            throw RoutingError.message("Color has not been set in context")
-        }
-
-        self.model = model
-    }
-
-    func build(with context: ExampleDictionaryContext) throws -> ColorViewController {
+    func build(with colorHex: String) throws -> ColorViewController {
         let colorViewController = ColorViewController(nibName: nil, bundle: nil)
-        colorViewController.colorHex = model
+        colorViewController.colorHex = colorHex
 
         return colorViewController
     }

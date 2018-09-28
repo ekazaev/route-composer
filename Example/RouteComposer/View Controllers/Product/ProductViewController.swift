@@ -68,7 +68,7 @@ class ProductViewController: UIViewController, ExampleAnalyticsSupport {
     }
 
     @IBAction func goToCircleTapped() {
-        router.navigate(to: ExampleConfiguration.wireframe.goToCircle())
+        router.navigate(to: ConfigurationHolder.configuration.circleScreen, with: nil)
     }
 
     @IBAction func goToSplitTapped() {

@@ -16,7 +16,7 @@ class ColorURLTranslator: ExampleURLTranslator {
             return nil
         }
 
-        return ExampleConfiguration.wireframe.goToColor(colorValue).unsafelyUnwrapped()
+        return ExampleDestination(step: ConfigurationHolder.configuration.colorScreen, context: colorValue).unsafelyUnwrapped()
     }
 
 }

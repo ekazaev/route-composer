@@ -57,7 +57,7 @@ class CitiesTableViewController: UITableViewController, ExampleAnalyticsSupport 
     }
 
     @IBAction func goToSquareTapped() {
-        router.navigate(to: ExampleConfiguration.wireframe.goToSquare())
+        router.navigate(to: ConfigurationHolder.configuration.squareScreen, with: nil)
     }
 
 }

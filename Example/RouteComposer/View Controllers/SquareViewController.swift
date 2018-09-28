@@ -18,11 +18,11 @@ class SquareViewController: UIViewController, ExampleAnalyticsSupport {
     }
 
     @IBAction func goToCircleTapped() {
-        router.navigate(to: ExampleConfiguration.wireframe.goToCircle())
+        router.navigate(to: ConfigurationHolder.configuration.circleScreen, with: nil)
     }
 
     @IBAction func goToHomeTapped() {
-        router.navigate(to: ExampleConfiguration.wireframe.goToEmptyScreen())
+        router.navigate(to: ConfigurationHolder.configuration.emptyScreen, with: nil)
     }
 
     @IBAction func goToSplitTapped() {
@@ -34,7 +34,7 @@ class SquareViewController: UIViewController, ExampleAnalyticsSupport {
     }
 
     @IBAction func goToStarTapped() {
-        router.navigate(to: ExampleConfiguration.wireframe.goToStar())
+        router.navigate(to: ConfigurationHolder.configuration.starScreen, with: nil)
     }
 
     @IBAction func goToFakeContainerTapped() {
@@ -43,9 +43,9 @@ class SquareViewController: UIViewController, ExampleAnalyticsSupport {
 
     @IBAction func switchValueChanged(sender: UISwitch) {
         if sender.isOn {
-            ExampleConfiguration.wireframe = AlternativeExampleWireframeImpl()
+            ConfigurationHolder.configuration = AlternativeExampleConfiguration()
         } else {
-            ExampleConfiguration.wireframe = ExampleWireframeImpl()
+            ConfigurationHolder.configuration = ExampleConfiguration()
         }
     }
 

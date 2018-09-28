@@ -23,7 +23,7 @@ class StarViewController: UIViewController, ExampleAnalyticsSupport {
     }
 
     @IBAction func goToCircleTapped() {
-        router.navigate(to: ExampleConfiguration.wireframe.goToCircle())
+        router.navigate(to: ConfigurationHolder.configuration.circleScreen, with: nil)
     }
 
     @IBAction func dismissStarTapped() {
@@ -32,7 +32,7 @@ class StarViewController: UIViewController, ExampleAnalyticsSupport {
             viewControllers?.remove(at: index)
             self.tabBarController?.setViewControllers(viewControllers, animated: true)
         }
-        router.navigate(to: ExampleConfiguration.wireframe.goToCircle())
+        router.navigate(to: ConfigurationHolder.configuration.circleScreen, with: nil)
     }
 
 }

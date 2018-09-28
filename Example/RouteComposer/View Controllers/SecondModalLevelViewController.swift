@@ -17,11 +17,11 @@ class SecondModalLevelViewController: UIViewController, ExampleAnalyticsSupport 
     }
 
     @IBAction func goToColorTapped() {
-        router.navigate(to: ExampleConfiguration.wireframe.goToColor("FF0000"))
+        router.navigate(to: ConfigurationHolder.configuration.colorScreen, with: "FF0000")
     }
 
     @IBAction func goToHomeTapped() {
-        router.navigate(to: ExampleConfiguration.wireframe.goToHome())
+        router.navigate(to: ConfigurationHolder.configuration.homeScreen, with: nil)
     }
 
     @IBAction func goToMinskTapped() {

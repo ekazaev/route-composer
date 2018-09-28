@@ -18,19 +18,19 @@ class CircleViewController: UIViewController, ExampleAnalyticsSupport {
     }
 
     @IBAction func goToSquareTapped() {
-        router.navigate(to: ExampleConfiguration.wireframe.goToSquare())
+        router.navigate(to: ConfigurationHolder.configuration.squareScreen, with: nil)
     }
 
     @IBAction func goToRandomColorTapped() {
-        router.navigate(to: ExampleConfiguration.wireframe.goToColor("0000FF"))
+        router.navigate(to: ConfigurationHolder.configuration.colorScreen, with: "0000FF")
     }
 
     @IBAction func goToDeepModalTapped() {
-        router.navigate(to: ExampleConfiguration.wireframe.goToRoutingSupport("00FF00"))
+        router.navigate(to: ConfigurationHolder.configuration.routingSupportScreen, with: "00FF00")
     }
 
     @IBAction func goToSuperModalTapped() {
-        router.navigate(to: ExampleConfiguration.wireframe.goToSecondLevelModal("0000FF"))
+        router.navigate(to: ConfigurationHolder.configuration.secondModalScreen, with: "0000FF")
     }
 
     @IBAction func goToProductTapped() {
@@ -38,7 +38,7 @@ class CircleViewController: UIViewController, ExampleAnalyticsSupport {
     }
 
     @IBAction func goToWelcomeTapped() {
-        router.navigate(to: ExampleConfiguration.wireframe.goToWelcome())
+        router.navigate(to: ConfigurationHolder.configuration.welcomeScreen, with: nil)
     }
 
     @IBAction func goToImagesTapped() {

@@ -30,11 +30,11 @@ class RoutingRuleSupportViewController: UIViewController, RoutingInterceptable, 
     }
 
     @IBAction func goToColorTapped() {
-        router.navigate(to: ExampleConfiguration.wireframe.goToColor("FFFF00"))
+        router.navigate(to: ConfigurationHolder.configuration.colorScreen, with: "FFFF00")
     }
 
     @IBAction func goToSquareTapped() {
-        router.navigate(to: ExampleConfiguration.wireframe.goToSquare())
+        router.navigate(to: ConfigurationHolder.configuration.squareScreen, with: nil)
     }
 
     @IBAction func goToMoscowTapped() {

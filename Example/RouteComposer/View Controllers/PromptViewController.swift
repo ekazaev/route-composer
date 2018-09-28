@@ -12,7 +12,7 @@ class PromptViewController: UIViewController, ExampleAnalyticsSupport {
     let screenType = ExampleScreen.welcome
 
     @IBAction func goToHomeTapped() {
-        router.navigate(to: ExampleConfiguration.wireframe.goToHome())
+        router.navigate(to: ConfigurationHolder.configuration.homeScreen, with: nil)
     }
 
 }
