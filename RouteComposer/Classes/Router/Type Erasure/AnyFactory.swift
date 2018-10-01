@@ -27,8 +27,6 @@ protocol AnyFactoryBox: AnyFactory {
 
     associatedtype FactoryType: AbstractFactory
 
-    var action: AnyAction { get }
-
     static func box(for factory: FactoryType?, action: AnyAction) -> AnyFactory?
 
     var factory: FactoryType { get set }
@@ -50,7 +48,7 @@ extension AnyFactoryBox where Self: AnyFactory {
 
     mutating func prepare(with context: Any?) throws {
         guard let typedContext = Any?.some(context as Any) as? FactoryType.Context else {
-            throw RoutingError.message("\(String(describing: factory)) does not accept \(String(describing: context)) as a context.")
+            throw RoutingError.message("\(String(describing: factory.self)) does not accept \(String(describing: context.self)) as a context.")
         }
         return try factory.prepare(with: typedContext)
     }
@@ -84,7 +82,7 @@ struct FactoryBox<F: Factory>: AnyFactory, AnyFactoryBox, CustomStringConvertibl
 
     func build(with context: Any?) throws -> UIViewController {
         guard let typedContext = Any?.some(context as Any) as? FactoryType.Context else {
-            throw RoutingError.message("\(String(describing: factory)) does not accept \(String(describing: context)) as a context.")
+            throw RoutingError.message("\(String(describing: factory.self)) does not accept \(String(describing: context.self)) as a context.")
         }
         return try factory.build(with: typedContext)
     }
@@ -120,7 +118,7 @@ struct ContainerFactoryBox<F: Container>: AnyFactory, AnyFactoryBox, CustomStrin
 
     func build(with context: Any?) throws -> UIViewController {
         guard let typedContext = Any?.some(context as Any) as? FactoryType.Context else {
-            throw RoutingError.message("\(String(describing: factory)) does not accept \(String(describing: context)) as a context.")
+            throw RoutingError.message("\(String(describing: factory.self)) does not accept \(String(describing: context.self)) as a context.")
         }
         return try factory.build(with: typedContext, integrating: ChildCoordinator(childFactories: children))
     }
