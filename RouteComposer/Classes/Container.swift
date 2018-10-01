@@ -33,6 +33,10 @@ public protocol Container: AbstractFactory {
 
 public extension Container {
 
+    /// Default implementation does nothing
+    mutating func prepare(with context: Context) throws {
+    }
+
     /// Builds a `Container` container view controller. Use this function if you want to build your `Container` programmatically.
     func build(with context: Context) throws -> ViewController {
         return try build(with: context, integrating: ChildCoordinator(childFactories: []))
@@ -45,14 +49,6 @@ public extension Container where Context == Any? {
     /// Builds a `Container` container view controller. Use this function if you want to build your `Container` programmatically.
     func build() throws -> ViewController {
         return try build(with: nil, integrating: ChildCoordinator(childFactories: []))
-    }
-
-}
-
-public extension Container {
-
-    /// Default implementation does nothing
-    mutating func prepare(with context: Context) throws {
     }
 
 }

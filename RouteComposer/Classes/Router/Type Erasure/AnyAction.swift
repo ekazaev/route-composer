@@ -31,7 +31,7 @@ struct ActionBox<A: Action>: AnyAction, CustomStringConvertible {
 
     func perform(with viewController: UIViewController, on existingController: UIViewController, animated: Bool, completion: @escaping (ActionResult) -> Void) {
         guard let typedExistingViewController = existingController as? A.ViewController else {
-            completion(.failure("Action \(action) can not be performed from \(existingController)."))
+            completion(.failure("Action \(action.self) can not be performed on \(existingController)."))
             return
         }
         action.perform(with: viewController, on: typedExistingViewController, animated: animated, completion: completion)
