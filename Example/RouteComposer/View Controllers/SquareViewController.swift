@@ -18,27 +18,27 @@ class SquareViewController: UIViewController, ExampleAnalyticsSupport {
     }
 
     @IBAction func goToCircleTapped() {
-        router.navigate(to: ConfigurationHolder.configuration.circleScreen, with: nil)
+        try? router.navigate(to: ConfigurationHolder.configuration.circleScreen, with: nil)
     }
 
     @IBAction func goToHomeTapped() {
-        router.navigate(to: ConfigurationHolder.configuration.emptyScreen, with: nil)
+        try? router.navigate(to: ConfigurationHolder.configuration.emptyScreen, with: nil)
     }
 
     @IBAction func goToSplitTapped() {
-        router.navigate(to: CitiesConfiguration.citiesList())
+        try? router.navigate(to: CitiesConfiguration.citiesList())
     }
 
     @IBAction func goToLoginTapped() {
-        router.navigate(to: LoginConfiguration.login())
+        try? router.navigate(to: LoginConfiguration.login())
     }
 
     @IBAction func goToStarTapped() {
-        router.navigate(to: ConfigurationHolder.configuration.starScreen, with: nil)
+        try? router.navigate(to: ConfigurationHolder.configuration.starScreen, with: nil)
     }
 
     @IBAction func goToFakeContainerTapped() {
-        router.navigate(to: WishListConfiguration.collections())
+        try? router.navigate(to: WishListConfiguration.collections())
     }
 
     @IBAction func switchValueChanged(sender: UISwitch) {

@@ -53,11 +53,11 @@ class CitiesTableViewController: UITableViewController, ExampleAnalyticsSupport 
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let city = CitiesDataModel.cities[indexPath.row]
-        router.navigate(to: CitiesConfiguration.cityDetail(cityId: city.cityId))
+        try? router.navigate(to: CitiesConfiguration.cityDetail(cityId: city.cityId))
     }
 
     @IBAction func goToSquareTapped() {
-        router.navigate(to: ConfigurationHolder.configuration.squareScreen, with: nil)
+        try? router.navigate(to: ConfigurationHolder.configuration.squareScreen, with: nil)
     }
 
 }

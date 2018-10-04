@@ -46,11 +46,11 @@ class CityDetailViewController: UIViewController, ExampleAnalyticsSupport {
     }
 
     @IBAction func goToStarTapped() {
-        router.navigate(to: ConfigurationHolder.configuration.starScreen, with: nil)
+        try? router.navigate(to: ConfigurationHolder.configuration.starScreen, with: nil)
     }
 
     @IBAction func backProgrammaticallyTapped() {
-        router.navigate(to: CitiesConfiguration.citiesList(cityId: nil))
+        try? router.navigate(to: CitiesConfiguration.citiesList(cityId: nil))
     }
 
 }

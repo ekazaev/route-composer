@@ -18,7 +18,7 @@ struct AnalyticsRouterDecorator: Router {
     func navigate<ViewController: UIViewController, Context>(to step: DestinationStep<ViewController, Context>,
                                                              with context: Context,
                                                              animated: Bool = true,
-                                                             completion: ((RoutingResult) -> Void)? = nil) -> RoutingResult {
+                                                             completion: ((RoutingResult) -> Void)? = nil) throws {
         var sourceScreen: ExampleScreen?
 
         if let topmostViewController = UIWindow.key?.topmostViewController,
@@ -28,7 +28,7 @@ struct AnalyticsRouterDecorator: Router {
             sourceScreen = viewController.screenType
         }
 
-        let routingResult = router.navigate(to: step, with: context, animated: animated) { result in
+         try router.navigate(to: step, with: context, animated: animated) { result in
             if let sourceScreen = sourceScreen {
                 print("Source: \(sourceScreen)")
                 if let topmostViewController = UIWindow.key?.topmostViewController,
@@ -42,7 +42,6 @@ struct AnalyticsRouterDecorator: Router {
             completion?(result)
 
         }
-        return routingResult
     }
 
 }

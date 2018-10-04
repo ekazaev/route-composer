@@ -36,7 +36,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return false
         }
 
-        return DefaultRouter(logger: nil).navigate(to: destination) == .handled
+        do {
+            try DefaultRouter(logger: nil).navigate(to: destination)
+            return true
+        } catch {
+            return false
+        }
     }
 
 }

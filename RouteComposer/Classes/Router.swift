@@ -9,18 +9,16 @@ import Foundation
 /// Base router protocol.
 public protocol Router {
 
-    /// Navigates an application to the `DestinationStep` with the `Context` provided.
+    /// Navigates an application to the view controller configure in `DestinationStep` with the `Context` provided.
     ///
     /// - Parameters:
     ///   - step: `DestinationStep` instance.
-    ///   - context: A `Context` instance.
-    ///   - animated: if true - the navigation should be animated where possible.
+    ///   - context: `Context` instance.
+    ///   - animated: if true - the navigation should be animated where it is possible.
     ///   - completion: completion block.
-    /// - Returns: `RoutingResult` instance.
-    @discardableResult
     func navigate<ViewController: UIViewController, Context>(to step: DestinationStep<ViewController, Context>,
                                                              with context: Context,
                                                              animated: Bool,
-                                                             completion: ((_: RoutingResult) -> Void)?) -> RoutingResult
+                                                             completion: ((_: RoutingResult) -> Void)?) throws
 
 }

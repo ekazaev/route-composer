@@ -114,7 +114,7 @@ class RouterTests: XCTestCase {
                 .assemble()
 
         var routingResult: RoutingResult?
-        router.navigate(to: screenConfig, with: nil, animated: false, completion: { result in
+        try? router.navigate(to: screenConfig, with: nil, animated: false, completion: { result in
             routingResult = result
             XCTAssertNotNil(currentViewController.presentedViewController)
             XCTAssert(currentViewController.presentedViewController is UINavigationController)
@@ -151,7 +151,7 @@ class RouterTests: XCTestCase {
                 .assemble()
 
         var routingResult: RoutingResult?
-        router.navigate(to: screenConfig, with: nil, animated: false, completion: { result in
+        try? router.navigate(to: screenConfig, with: nil, animated: false, completion: { result in
             routingResult = result
             XCTAssertNotNil(currentViewController.presentedViewController)
             XCTAssert(currentViewController.presentedViewController is UINavigationController)
@@ -177,7 +177,7 @@ class RouterTests: XCTestCase {
                 .assemble()
 
         var routingResult: RoutingResult?
-        router.navigate(to: screenConfig, with: nil, animated: false, completion: { result in
+        try? router.navigate(to: screenConfig, with: nil, animated: false, completion: { result in
             routingResult = result
             XCTAssertNotNil(currentViewController.presentedViewController)
             XCTAssert(currentViewController.presentedViewController is UINavigationController)
@@ -208,7 +208,7 @@ class RouterTests: XCTestCase {
                 .assemble()
 
         var routingResult: RoutingResult?
-        router.navigate(to: screenConfig, with: nil, animated: false, completion: { result in
+        try? router.navigate(to: screenConfig, with: nil, animated: false, completion: { result in
             routingResult = result
             XCTAssertNil(currentViewController.presentedViewController)
         })
@@ -223,7 +223,7 @@ class RouterTests: XCTestCase {
                 .assemble()
 
         var routingResult: RoutingResult?
-        router.navigate(to: screenConfig, with: nil, animated: false, completion: { result in
+        try? router.navigate(to: screenConfig, with: nil, animated: false, completion: { result in
             routingResult = result
             XCTAssertNil(currentViewController.presentedViewController)
         })
@@ -240,10 +240,9 @@ class RouterTests: XCTestCase {
                 .from(DestinationStep<TestModalPresentableController, Any?>(TestCurrentViewControllerStep(currentViewController: currentViewController)))
                 .assemble()
 
-        let routingResult = router.navigate(to: screenConfig, with: nil, animated: false, completion: { _ in
+        XCTAssertThrowsError(try router.navigate(to: screenConfig, with: nil, animated: false, completion: { _ in
             XCTAssert(false, "Should not be called")
-        })
-        XCTAssertEqual(routingResult, RoutingResult.unhandled)
+        }))
     }
 
     func testNavigateToWithTasks() {
@@ -289,7 +288,7 @@ class RouterTests: XCTestCase {
             XCTAssertEqual(viewControllers.count, 3)
         }))
         var routingResult: RoutingResult?
-        router.navigate(to: screenConfig, with: nil, animated: false, completion: { result in
+        try? router.navigate(to: screenConfig, with: nil, animated: false, completion: { result in
             routingResult = result
             XCTAssertNotNil(currentViewController.presentedViewController)
             XCTAssert(currentViewController.presentedViewController is UINavigationController)

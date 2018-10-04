@@ -42,93 +42,82 @@ public struct DefaultRouter: Router, InterceptableRouter {
         return self
     }
 
-    @discardableResult
     public func navigate<ViewController: UIViewController, Context>(to step: DestinationStep<ViewController, Context>,
                                                                     with context: Context,
                                                                     animated: Bool = true,
-                                                                    completion: ((_: RoutingResult) -> Void)? = nil) -> RoutingResult {
+                                                                    completion: ((_: RoutingResult) -> Void)? = nil) throws {
         var navigationResult: RoutingResult = .unhandled
-        doTry({
-            guard Thread.isMainThread else {
-                throw RoutingError.message("An interceptor has stopped routing process.")
-            }
-
-            // If currently visible view controller can not be dismissed then we can't route anywhere, because it will
-            // disappear as a result of routing.
-            if let topMostViewController = UIWindow.key?.topmostViewController as? RoutingInterceptable,
-               !topMostViewController.canBeDismissed {
-                throw RoutingError.message("The topmost view controller can not be dismissed.")
-            }
-
-            let taskStack = try prepareTaskStack(with: context)
-
-            // Build stack of factories and find a view controller to start a presentation process from.
-            // Returns (rootViewController, factories, interceptor) tuple
-            // where rootViewController is the origin of the chain of views to be built for a given destination.
-            let navigationStack = try prepareFactoriesStack(to: step, with: context, taskStack: taskStack)
-
-            let viewController = navigationStack.rootViewController,
-                    factoriesStack = navigationStack.factories
-
-            // check if the view controllers, that are currently presented from the origin view controller for a
-            // given destination, can be dismissed.
-            if let viewController = Array([[viewController], viewController.allPresentedViewControllers].joined()).nonDismissibleViewController {
-                throw RoutingError.message("\(String(describing: viewController)) view controller can not be dismissed.")
-            }
-
-            // Execute interceptors associated to the each view in the chain. All of interceptors must succeed to
-            // continue routing. This operation is async.
-            taskStack.runInterceptors { [weak viewController] result in
-                func failGracefully(_ message: LoggerMessage) {
-                    self.logger?.log(message)
-                    completion?(.unhandled)
-                }
-
-                if case let .failure(message) = result {
-                    return failGracefully(.error(message ?? "An interceptor has stopped routing process."))
-                }
-
-                guard Thread.isMainThread else {
-                    return failGracefully(.error("An attempt to call UI API not on the main thread."))
-                }
-
-                guard let viewController = viewController else {
-                    return failGracefully(.error("A view controller that has been chosen as a starting point of the navigation process " +
-                            "was destroyed while router was waiting for the interceptors to finish."))
-                }
-
-                // If we found a view controller to start from - lets close all the presented view controllers above to be able
-                // to build a new stack if needed. This operation is async.
-                // We already checked that they can be dismissed.
-                self.dismissPresentedIfNeeded(from: viewController, animated: animated) {
-                    // Now we can start building view controller's stack using factories.
-                    // This operation is async.
-                    self.runViewControllerBuildStack(starting: viewController,
-                            with: context,
-                            using: factoriesStack,
-                            animated: animated) { viewController, result in
-                        // Even if the result is unhandled - we still have to run all the tasks
-                        self.makeVisibleInParentContainer(viewController, animated: animated)
-                        self.doTry({
-                            try taskStack.runPostTasks()
-                        }, finally: { success in
-                            let navigationResult = success ? result : .unhandled
-                            self.logger?.log(.info("\(navigationResult == .handled ? "Successfully" : "Unsuccessfully" ) " +
-                                    "finished the navigation process."))
-                            completion?(navigationResult)
-                        })
-                    }
-                }
-            }
-        }, finally: { result in
-            navigationResult = result ? .handled : .unhandled
-        })
-
-        if navigationResult == .unhandled {
-            self.logger?.log(.info("Unsuccessfully finished the navigation process."))
+        guard Thread.isMainThread else {
+            throw RoutingError.message("An interceptor has stopped routing process.")
         }
 
-        return navigationResult
+        // If currently visible view controller can not be dismissed then we can't route anywhere, because it will
+        // disappear as a result of routing.
+        if let topMostViewController = UIWindow.key?.topmostViewController as? RoutingInterceptable,
+           !topMostViewController.canBeDismissed {
+            throw RoutingError.message("The topmost view controller can not be dismissed.")
+        }
+
+        let taskStack = try prepareTaskStack(with: context)
+
+        // Build stack of factories and find a view controller to start a presentation process from.
+        // Returns (rootViewController, factories, interceptor) tuple
+        // where rootViewController is the origin of the chain of views to be built for a given destination.
+        let navigationStack = try prepareFactoriesStack(to: step, with: context, taskStack: taskStack)
+
+        let viewController = navigationStack.rootViewController,
+                factoriesStack = navigationStack.factories
+
+        // check if the view controllers, that are currently presented from the origin view controller for a
+        // given destination, can be dismissed.
+        if let viewController = Array([[viewController], viewController.allPresentedViewControllers].joined()).nonDismissibleViewController {
+            throw RoutingError.message("\(String(describing: viewController)) view controller can not be dismissed.")
+        }
+
+        // Execute interceptors associated to the each view in the chain. All of interceptors must succeed to
+        // continue routing. This operation is async.
+        taskStack.runInterceptors { [weak viewController] result in
+            func failGracefully(_ message: LoggerMessage) {
+                self.logger?.log(message)
+                completion?(.unhandled)
+            }
+
+            if case let .failure(message) = result {
+                return failGracefully(.error(message ?? "An interceptor has stopped routing process."))
+            }
+
+            guard Thread.isMainThread else {
+                return failGracefully(.error("An attempt to call UI API not on the main thread."))
+            }
+
+            guard let viewController = viewController else {
+                return failGracefully(.error("A view controller that has been chosen as a starting point of the navigation process " +
+                        "was destroyed while router was waiting for the interceptors to finish."))
+            }
+
+            // If we found a view controller to start from - lets close all the presented view controllers above to be able
+            // to build a new stack if needed. This operation is async.
+            // We already checked that they can be dismissed.
+            self.dismissPresentedIfNeeded(from: viewController, animated: animated) {
+                // Now we can start building view controller's stack using factories.
+                // This operation is async.
+                self.runViewControllerBuildStack(starting: viewController,
+                        with: context,
+                        using: factoriesStack,
+                        animated: animated) { viewController, result in
+                    // Even if the result is unhandled - we still have to run all the tasks
+                    self.makeVisibleInParentContainer(viewController, animated: animated)
+                    self.doTry({
+                        try taskStack.runPostTasks()
+                    }, finally: { success in
+                        let navigationResult = success ? result : .unhandled
+                        self.logger?.log(.info("\(navigationResult == .handled ? "Successfully" : "Unsuccessfully") " +
+                                "finished the navigation process."))
+                        completion?(navigationResult)
+                    })
+                }
+            }
+        }
     }
 
     private func prepareTaskStack(with context: Any?) throws -> GlobalTaskRunner {

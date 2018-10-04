@@ -68,15 +68,15 @@ class ProductViewController: UIViewController, ExampleAnalyticsSupport {
     }
 
     @IBAction func goToCircleTapped() {
-        router.navigate(to: ConfigurationHolder.configuration.circleScreen, with: nil)
+        try? router.navigate(to: ConfigurationHolder.configuration.circleScreen, with: nil)
     }
 
     @IBAction func goToSplitTapped() {
-        router.navigate(to: CitiesConfiguration.citiesList())
+        try? router.navigate(to: CitiesConfiguration.citiesList())
     }
 
     @IBAction func goToProductTapped() {
-        router.navigate(to: ProductConfiguration.productScreen, with: ProductContext(productId: "01"))
+        try? router.navigate(to: ProductConfiguration.productScreen, with: ProductContext(productId: "01"))
     }
 
 }

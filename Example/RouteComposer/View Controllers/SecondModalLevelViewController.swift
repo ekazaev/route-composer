@@ -17,15 +17,15 @@ class SecondModalLevelViewController: UIViewController, ExampleAnalyticsSupport 
     }
 
     @IBAction func goToColorTapped() {
-        router.navigate(to: ConfigurationHolder.configuration.colorScreen, with: "FF0000")
+        try? router.navigate(to: ConfigurationHolder.configuration.colorScreen, with: "FF0000")
     }
 
     @IBAction func goToHomeTapped() {
-        router.navigate(to: ConfigurationHolder.configuration.homeScreen, with: nil)
+        try? router.navigate(to: ConfigurationHolder.configuration.homeScreen, with: nil)
     }
 
     @IBAction func goToMinskTapped() {
-        router.navigate(to: CitiesConfiguration.cityDetail(cityId: 18), animated: false)
+        try? router.navigate(to: CitiesConfiguration.cityDetail(cityId: 18), animated: false)
     }
 
     @objc func doneTapped() {

@@ -16,15 +16,15 @@ class EmptyViewController: UIViewController, ExampleAnalyticsSupport {
     }
 
     @IBAction func goToCircleTapped() {
-        router.navigate(to: ConfigurationHolder.configuration.circleScreen, with: nil)
+        try? router.navigate(to: ConfigurationHolder.configuration.circleScreen, with: nil)
     }
 
     @IBAction func goToSquareTapped() {
-        router.navigate(to: ConfigurationHolder.configuration.squareScreen, with: nil)
+        try? router.navigate(to: ConfigurationHolder.configuration.squareScreen, with: nil)
     }
 
     @IBAction func goToSelfTapped() {
-        router.navigate(to: ConfigurationHolder.configuration.emptyScreen, with: nil)
+        try? router.navigate(to: ConfigurationHolder.configuration.emptyScreen, with: nil)
     }
 
 }

@@ -18,31 +18,31 @@ class CircleViewController: UIViewController, ExampleAnalyticsSupport {
     }
 
     @IBAction func goToSquareTapped() {
-        router.navigate(to: ConfigurationHolder.configuration.squareScreen, with: nil)
+        try? router.navigate(to: ConfigurationHolder.configuration.squareScreen, with: nil)
     }
 
     @IBAction func goToRandomColorTapped() {
-        router.navigate(to: ConfigurationHolder.configuration.colorScreen, with: "0000FF")
+        try? router.navigate(to: ConfigurationHolder.configuration.colorScreen, with: "0000FF")
     }
 
     @IBAction func goToDeepModalTapped() {
-        router.navigate(to: ConfigurationHolder.configuration.routingSupportScreen, with: "00FF00")
+        try? router.navigate(to: ConfigurationHolder.configuration.routingSupportScreen, with: "00FF00")
     }
 
     @IBAction func goToSuperModalTapped() {
-        router.navigate(to: ConfigurationHolder.configuration.secondModalScreen, with: "0000FF")
+        try? router.navigate(to: ConfigurationHolder.configuration.secondModalScreen, with: "0000FF")
     }
 
     @IBAction func goToProductTapped() {
-        router.navigate(to: ProductConfiguration.productScreen, with: ProductContext(productId: "00"))
+        try? router.navigate(to: ProductConfiguration.productScreen, with: ProductContext(productId: "00"))
     }
 
     @IBAction func goToWelcomeTapped() {
-        router.navigate(to: ConfigurationHolder.configuration.welcomeScreen, with: nil)
+        try? router.navigate(to: ConfigurationHolder.configuration.welcomeScreen, with: nil)
     }
 
     @IBAction func goToImagesTapped() {
-        router.navigate(to: ImagesConfigurationWithLibrary.images())
+        try? router.navigate(to: ImagesConfigurationWithLibrary.images())
     }
 
     @IBAction func goToImagesNoLibraryTapped() {
