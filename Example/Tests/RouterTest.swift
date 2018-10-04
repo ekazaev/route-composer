@@ -113,7 +113,7 @@ class RouterTests: XCTestCase {
                 .from(DestinationStep<TestModalPresentableController, Any?>(TestCurrentViewControllerStep(currentViewController: currentViewController)))
                 .assemble()
 
-        var routingResult: RoutingResult?
+        var routingResult: RoutingResult!
         try? router.navigate(to: screenConfig, with: nil, animated: false, completion: { result in
             routingResult = result
             XCTAssertNotNil(currentViewController.presentedViewController)
@@ -123,8 +123,7 @@ class RouterTests: XCTestCase {
                 XCTAssert(navigationController.viewControllers[0] is TestViewController)
             }
         })
-        XCTAssertEqual(routingResult, RoutingResult.handled)
-        XCTAssertEqual(routingResult?.isSuccessful, true)
+        XCTAssertTrue(routingResult.isSuccessful)
     }
 
     func testNavigateToNavigationPresented() {
@@ -150,7 +149,7 @@ class RouterTests: XCTestCase {
                 .from(DestinationStep<TestModalPresentableController, Any?>(TestCurrentViewControllerStep(currentViewController: currentViewController)))
                 .assemble()
 
-        var routingResult: RoutingResult?
+        var routingResult: RoutingResult!
         try? router.navigate(to: screenConfig, with: nil, animated: false, completion: { result in
             routingResult = result
             XCTAssertNotNil(currentViewController.presentedViewController)
@@ -160,7 +159,7 @@ class RouterTests: XCTestCase {
                 XCTAssert(navigationController.viewControllers[0] is TestViewController)
             }
         })
-        XCTAssertEqual(routingResult, RoutingResult.handled)
+        XCTAssertTrue(routingResult.isSuccessful)
     }
 
     func testNavigateToAlreadyInStack() {
@@ -176,7 +175,7 @@ class RouterTests: XCTestCase {
                 .from(DestinationStep<TestModalPresentableController, Any?>(TestCurrentViewControllerStep(currentViewController: currentViewController)))
                 .assemble()
 
-        var routingResult: RoutingResult?
+        var routingResult: RoutingResult!
         try? router.navigate(to: screenConfig, with: nil, animated: false, completion: { result in
             routingResult = result
             XCTAssertNotNil(currentViewController.presentedViewController)
@@ -186,7 +185,7 @@ class RouterTests: XCTestCase {
                 XCTAssert(navigationController.viewControllers[0] is TestViewController)
             }
         })
-        XCTAssertEqual(routingResult, RoutingResult.handled)
+        XCTAssertTrue(routingResult.isSuccessful)
     }
 
     func testNavigateToActionProblem() {
@@ -207,12 +206,12 @@ class RouterTests: XCTestCase {
                 .from(DestinationStep<TestModalPresentableController, Any?>(TestCurrentViewControllerStep(currentViewController: currentViewController)))
                 .assemble()
 
-        var routingResult: RoutingResult?
+        var routingResult: RoutingResult!
         try? router.navigate(to: screenConfig, with: nil, animated: false, completion: { result in
             routingResult = result
             XCTAssertNil(currentViewController.presentedViewController)
         })
-        XCTAssertEqual(routingResult, RoutingResult.unhandled)
+        XCTAssertTrue(routingResult.isSuccessful)
     }
 
     func testNavigateToFactoryProblem() {
@@ -222,12 +221,12 @@ class RouterTests: XCTestCase {
                 .from(DestinationStep<TestModalPresentableController, Any?>(TestCurrentViewControllerStep(currentViewController: currentViewController)))
                 .assemble()
 
-        var routingResult: RoutingResult?
+        var routingResult: RoutingResult!
         try? router.navigate(to: screenConfig, with: nil, animated: false, completion: { result in
             routingResult = result
             XCTAssertNil(currentViewController.presentedViewController)
         })
-        XCTAssertEqual(routingResult, RoutingResult.unhandled)
+        XCTAssertTrue(routingResult.isSuccessful)
     }
 
     func testNavigateToWithRoutingControllingInStack() {
@@ -287,7 +286,7 @@ class RouterTests: XCTestCase {
             globalPostTaskRun += 1
             XCTAssertEqual(viewControllers.count, 3)
         }))
-        var routingResult: RoutingResult?
+        var routingResult: RoutingResult!
         try? router.navigate(to: screenConfig, with: nil, animated: false, completion: { result in
             routingResult = result
             XCTAssertNotNil(currentViewController.presentedViewController)
@@ -308,7 +307,7 @@ class RouterTests: XCTestCase {
         XCTAssertEqual(globalTaskRun, 3)
         XCTAssertEqual(globalPostTaskRun, 3)
 
-        XCTAssertEqual(routingResult, RoutingResult.handled)
+        XCTAssertTrue(routingResult.isSuccessful)
     }
 
 }

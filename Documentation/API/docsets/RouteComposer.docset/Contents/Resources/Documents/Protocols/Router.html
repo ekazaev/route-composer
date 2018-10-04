@@ -359,9 +359,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer6RouterP8navigate2to4with8animated10completionAA13RoutingResultOAA15DestinationStepVyqd__qd_0_G_qd_0_SbyAJcSgtSo16UIViewControllerCRbd__r0_lF"></a>
+                    <a name="/s:13RouteComposer6RouterP8navigate2to4with8animated10completionyAA15DestinationStepVyqd__qd_0_G_qd_0_SbyAA13RoutingResultOcSgtKSo16UIViewControllerCRbd__r0_lF"></a>
                     <a name="//apple_ref/swift/Method/navigate(to:with:animated:completion:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer6RouterP8navigate2to4with8animated10completionAA13RoutingResultOAA15DestinationStepVyqd__qd_0_G_qd_0_SbyAJcSgtSo16UIViewControllerCRbd__r0_lF">navigate(to:with:animated:completion:)</a>
+                    <a class="token" href="#/s:13RouteComposer6RouterP8navigate2to4with8animated10completionyAA15DestinationStepVyqd__qd_0_G_qd_0_SbyAA13RoutingResultOcSgtKSo16UIViewControllerCRbd__r0_lF">navigate(to:with:animated:completion:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -369,15 +369,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Navigates an application to the <code><a href="../Structs/DestinationStep.html">DestinationStep</a></code> with the <code>Context</code> provided.</p>
+                        <p>Navigates an application to the view controller configure in <code><a href="../Structs/DestinationStep.html">DestinationStep</a></code> with the <code>Context</code> provided.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
-<span class="kd">func</span> <span class="n">navigate</span><span class="o">&lt;</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span><span class="p">(</span><span class="n">to</span> <span class="nv">step</span><span class="p">:</span> <span class="kt"><a href="../Structs/DestinationStep.html">DestinationStep</a></span><span class="o">&lt;</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">with</span> <span class="nv">context</span><span class="p">:</span> <span class="kt">Context</span><span class="p">,</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Enums/RoutingResult.html">RoutingResult</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Enums/RoutingResult.html">RoutingResult</a></span> <span class="k">where</span> <span class="kt">ViewController</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="n">navigate</span><span class="o">&lt;</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span><span class="p">(</span><span class="n">to</span> <span class="nv">step</span><span class="p">:</span> <span class="kt"><a href="../Structs/DestinationStep.html">DestinationStep</a></span><span class="o">&lt;</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">with</span> <span class="nv">context</span><span class="p">:</span> <span class="kt">Context</span><span class="p">,</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Enums/RoutingResult.html">RoutingResult</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?)</span> <span class="k">throws</span> <span class="k">where</span> <span class="kt">ViewController</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
 
                         </div>
                       </div>
@@ -405,7 +404,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>A <code>Context</code> instance.</p>
+                                  <p><code>Context</code> instance.</p>
                                 </div>
                               </td>
                             </tr>
@@ -417,7 +416,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>if true - the navigation should be animated where possible.</p>
+                                  <p>if true - the navigation should be animated where it is possible.</p>
                                 </div>
                               </td>
                             </tr>
@@ -436,10 +435,6 @@
                           </tbody>
                         </table>
                       </div>
-                      <div>
-                        <h4>Return Value</h4>
-                        <p><code><a href="../Enums/RoutingResult.html">RoutingResult</a></code> instance.</p>
-                      </div>
                     </section>
                   </div>
                 </li>
@@ -448,7 +443,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-10-02)</p>
+          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-10-04)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

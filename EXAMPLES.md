@@ -153,7 +153,7 @@ Or:
 
 #### Why do we use `within` here?
 
-Because `pushToNavigation` action requires `UINavigationController` to be the previous `UIViewController` in the chain. `within` method allows us to escape this check. Developer guaranties that it will be there by the time `pushToNavigation` will start to perform.
+Because `pushToNavigation` action requires `UINavigationController` to be previous `UIViewController` in the chain. `within` method allows us to escape this check. Developer guaranties that it will be there by the time `pushToNavigation` will start to perform.
 
 #### What will happen if, in the configuration above, I will replace the `GeneralStep.current` with the `GeneralStep.root`?
 

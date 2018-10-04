@@ -15,7 +15,7 @@ public enum RoutingResult {
     case handled
 
     /// The request to process the routing was not handled and therefore did not result in any navigation.
-    case unhandled
+    case unhandled(Error)
 
 }
 
@@ -23,7 +23,10 @@ public extension RoutingResult {
 
     /// Returns `true` if `RoutingResult` is `.handled`
     public var isSuccessful: Bool {
-        return self == .handled
+        guard case .handled = self else {
+            return false
+        }
+        return true
     }
 
 }

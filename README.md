@@ -322,7 +322,7 @@ class ProductArrayViewController: UITableViewController {
         guard let productID = products[indexPath.row] else {
             return
         }
-        router.navigate(to: Configuration.productScreen, with: productID)
+        try? router.navigate(to: Configuration.productScreen, with: productID)
     }
 
 }

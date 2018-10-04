@@ -46,9 +46,8 @@ public struct DefaultRouter: Router, InterceptableRouter {
                                                                     with context: Context,
                                                                     animated: Bool = true,
                                                                     completion: ((_: RoutingResult) -> Void)? = nil) throws {
-        var navigationResult: RoutingResult = .unhandled
         guard Thread.isMainThread else {
-            throw RoutingError.message("An interceptor has stopped routing process.")
+            throw RoutingError.message("An attempt to call UI API not on the main thread.")
         }
 
         // If currently visible view controller can not be dismissed then we can't route anywhere, because it will
@@ -77,22 +76,22 @@ public struct DefaultRouter: Router, InterceptableRouter {
         // Execute interceptors associated to the each view in the chain. All of interceptors must succeed to
         // continue routing. This operation is async.
         taskStack.runInterceptors { [weak viewController] result in
-            func failGracefully(_ message: LoggerMessage) {
-                self.logger?.log(message)
-                completion?(.unhandled)
+            func failGracefully(_ message: String) {
+                self.logger?.log(LoggerMessage.error(message))
+                completion?(.unhandled(RoutingError.message(message)))
             }
 
             if case let .failure(message) = result {
-                return failGracefully(.error(message ?? "An interceptor has stopped routing process."))
+                return failGracefully(message ?? "An interceptor has stopped routing process.")
             }
 
             guard Thread.isMainThread else {
-                return failGracefully(.error("An attempt to call UI API not on the main thread."))
+                return failGracefully("An attempt to call UI API not on the main thread.")
             }
 
             guard let viewController = viewController else {
-                return failGracefully(.error("A view controller that has been chosen as a starting point of the navigation process " +
-                        "was destroyed while router was waiting for the interceptors to finish."))
+                return failGracefully("A view controller that has been chosen as a starting point of the navigation process " +
+                        "was destroyed while router was waiting for the interceptors to finish.")
             }
 
             // If we found a view controller to start from - lets close all the presented view controllers above to be able
@@ -107,14 +106,14 @@ public struct DefaultRouter: Router, InterceptableRouter {
                         animated: animated) { viewController, result in
                     // Even if the result is unhandled - we still have to run all the tasks
                     self.makeVisibleInParentContainer(viewController, animated: animated)
-                    self.doTry({
+                    do {
                         try taskStack.runPostTasks()
-                    }, finally: { success in
-                        let navigationResult = success ? result : .unhandled
-                        self.logger?.log(.info("\(navigationResult == .handled ? "Successfully" : "Unsuccessfully") " +
-                                "finished the navigation process."))
-                        completion?(navigationResult)
-                    })
+                        self.logger?.log(.info("Successfully finished the navigation process."))
+                        completion?(.handled)
+                    } catch let error {
+                        self.logger?.log(.info("Unsuccessfully finished the navigation process."))
+                        completion?(.unhandled(error))
+                    }
                 }
             }
         }
@@ -212,7 +211,7 @@ public struct DefaultRouter: Router, InterceptableRouter {
             }
             let factory = factories.removeFirst()
             // If the previous view controller created/found but it's view is not loaded or has no window that it
-            // belongs, it means that it was just cached by container view controller like in UITabBarController
+            // belongs to, means that it was just cached by container view controller like in UITabBarController
             // controller in a tab that was never activated before. So we have to make it active first.
             // Example: TabBar contains navigation controller in the tab that was never opened and we are going
             // to push in to it, UINavigationController in this case will not be able to update it content properly.
@@ -220,15 +219,16 @@ public struct DefaultRouter: Router, InterceptableRouter {
                 makeVisibleInParentContainer(previousViewController, animated: false)
             }
 
-            doTry({
+            do {
                 let newViewController = try factory.build(with: context)
                 logger?.log(.info("\(String(describing: factory)) built a " +
                         "\(String(describing: newViewController))."))
                 factory.action.perform(with: newViewController, on: previousViewController, animated: animated) { result in
-                    if case let .failure(message) = result {
-                        self.logger?.log(.error(message ?? "\(String(describing: factory.action)) stopped " +
-                                "the navigation process as it was not able to build a view controller in to a stack."))
-                        completion(newViewController, .unhandled)
+                    if case let .failure(actionMessage) = result {
+                        let message = actionMessage ?? "\(String(describing: factory.action)) stopped " +
+                                "the navigation process as it was not able to build a view controller in to a stack."
+                        self.logger?.log(.error(message))
+                        completion(newViewController, .unhandled(RoutingError.message(message)))
                         return
                     }
                     self.logger?.log(.info("\(String(describing: factory.action)) has applied to " +
@@ -236,11 +236,9 @@ public struct DefaultRouter: Router, InterceptableRouter {
                             "\(String(describing: newViewController))."))
                     buildViewController(from: newViewController)
                 }
-            }, finally: { success in
-                if !success {
-                    completion(previousViewController, .unhandled)
-                }
-            })
+            } catch let error {
+                completion(previousViewController, .unhandled(error))
+            }
         }
 
         logger?.log(.info("Started to build the view controller's stack."))
@@ -265,19 +263,6 @@ public struct DefaultRouter: Router, InterceptableRouter {
             }
         } else {
             completion()
-        }
-    }
-
-    private func doTry(_ block: (() throws -> Void), finally finallyBlock: ((_: Bool) -> Void)? = nil) {
-        do {
-            try block()
-            finallyBlock?(true)
-        } catch RoutingError.message(let message) {
-            logger?.log(.error(message))
-            finallyBlock?(false)
-        } catch {
-            logger?.log(.error("An error occurred during the navigation process. Underlying error: \(error)"))
-            finallyBlock?(false)
         }
     }
 
