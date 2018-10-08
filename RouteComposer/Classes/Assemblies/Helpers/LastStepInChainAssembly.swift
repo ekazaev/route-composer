@@ -16,7 +16,7 @@ public struct LastStepInChainAssembly<ViewController: UIViewController, Context>
 
     /// Assembles all the provided settings.
     ///
-    /// - Returns: The instance of `RoutingStep` with all the settings provided inside.
+    /// - Returns: The instance of `DestinationStep` with all the settings provided inside.
     public func assemble() -> DestinationStep<ViewController, Context> {
         return DestinationStep(chain(previousSteps))
     }

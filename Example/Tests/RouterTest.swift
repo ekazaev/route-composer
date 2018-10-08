@@ -211,7 +211,7 @@ class RouterTests: XCTestCase {
             routingResult = result
             XCTAssertNil(currentViewController.presentedViewController)
         })
-        XCTAssertTrue(routingResult.isSuccessful)
+        XCTAssertFalse(routingResult.isSuccessful)
     }
 
     func testNavigateToFactoryProblem() {
@@ -226,7 +226,7 @@ class RouterTests: XCTestCase {
             routingResult = result
             XCTAssertNil(currentViewController.presentedViewController)
         })
-        XCTAssertTrue(routingResult.isSuccessful)
+        XCTAssertFalse(routingResult.isSuccessful)
     }
 
     func testNavigateToWithRoutingControllingInStack() {

@@ -5,7 +5,7 @@
 import Foundation
 import UIKit
 
-/// Abstract builder class that helps to create a `RoutingStep` instance with correct settings.
+/// Abstract builder class that helps to create a `DestinationStep` instance with correct settings.
 public class GenericStepAssembly<F: Finder, FC: AbstractFactory>: InterceptableStepAssembling
         where F.ViewController == FC.ViewController, F.Context == FC.Context {
 
@@ -15,7 +15,7 @@ public class GenericStepAssembly<F: Finder, FC: AbstractFactory>: InterceptableS
 
     var taskCollector: TaskCollector = TaskCollector()
 
-    /// Adds routing interceptor instance.
+    /// Adds navigation interceptor instance.
     /// This action does not contain type safety checks to avoid complications.
     ///
     /// - Parameter interceptor: The `RoutingInterceptor` instance to be executed by `Router` before routing
@@ -27,8 +27,8 @@ public class GenericStepAssembly<F: Finder, FC: AbstractFactory>: InterceptableS
 
     /// Adds context task instance
     ///
-    /// - Parameter contextTask: The `ContextTask` instance to be executed by a `Router` immediately after it
-    ///   will find or create UIViewController.
+    /// - Parameter contextTask: The `ContextTask` instance to be applied by a `Router` immediately after it
+    ///   will find or create a `UIViewController`.
     public final func add<CT: ContextTask>(_ contextTask: CT) -> Self
             where
             CT.ViewController == ViewController, CT.Context == Context {

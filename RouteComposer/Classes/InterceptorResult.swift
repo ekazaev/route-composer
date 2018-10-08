@@ -7,16 +7,16 @@
 
 import Foundation
 
-/// The result of the interceptor's execute method.
+/// The result of the interceptor's `execute` method.
 ///
-/// - success: Interceptor finished its task with success. The `Router` may continue routing.
-/// - failure: Interceptor finished its task with failure. The `Router` should stop routing.
+/// - success: Interceptor finished its task with success. The `Router` may continue navigation process.
+/// - failure: Interceptor finished its task with failure. The `Router` should stop navigation process.
 public enum InterceptorResult {
 
-    /// `InterceptorResult` finished its task with success. The `Router` may continue routing.
+    /// `InterceptorResult` finished its task with success. The `Router` may continue navigation process.
     case success
 
-    /// `InterceptorResult` finished its task with failure. The `Router` should stop routing.
+    /// `InterceptorResult` finished its task with failure. The `Router` should stop navigation process.
     case failure(String?)
 
 }

@@ -18,8 +18,8 @@ public struct StoryboardFactory<VC: UIViewController, C>: Factory {
     /// The `Bundle` instance
     public let bundle: Bundle?
 
-    /// The `UIViewController` identifier in the storyboard. If not set - the `Factory` will try
-    /// to create a storyboards's initial `UIViewController`
+    /// The `UIViewController` identifier in the storyboard. If it is not set, the `Factory` will try
+    /// to create the storyboards initial `UIViewController`
     public let viewControllerID: String?
 
     /// Constructor
@@ -27,8 +27,8 @@ public struct StoryboardFactory<VC: UIViewController, C>: Factory {
     /// - Parameters:
     ///   - storyboardName: The name of a storyboard file
     ///   - bundle: The `Bundle` instance if needed
-    ///   - viewControllerID: The `UIViewController` identifier in the storyboard. If not set - the `Factory` will try
-    ///     to create a storyboards's initial `UIViewController`
+    ///   - viewControllerID: The `UIViewController` identifier in the storyboard. If it is not set, the `Factory` will try
+    ///     to create the storyboards initial `UIViewController`
     public init(storyboardName: String, bundle: Bundle? = nil, viewControllerID: String? = nil) {
         self.storyboardName = storyboardName
         self.bundle = bundle
@@ -40,8 +40,8 @@ public struct StoryboardFactory<VC: UIViewController, C>: Factory {
         if let viewControllerID = viewControllerID {
             let instantiatedViewController = storyboard.instantiateViewController(withIdentifier: viewControllerID)
             guard let viewController = instantiatedViewController as? VC else {
-                throw RoutingError.message("Unable to instantiate UIViewController with identifier" +
-                        " \(viewControllerID)  in \(storyboardName) storyboard")
+                throw RoutingError.message("Unable to instantiate UIViewController with " +
+                        " \(viewControllerID) identifier in \(storyboardName) storyboard")
             }
             return viewController
         } else {
@@ -50,7 +50,7 @@ public struct StoryboardFactory<VC: UIViewController, C>: Factory {
                         "in \(storyboardName) storyboard")
             }
             guard let viewController = abstractViewController as? ViewController else {
-                throw RoutingError.message("Unable to instantiate initial UIViewController in \(storyboardName) " +
+                throw RoutingError.message("Unable to instantiate the initial UIViewController in \(storyboardName) " +
                         "storyboard as \(String(describing: type(of: ViewController.self))), " +
                         "got \(String(describing: abstractViewController)) instead.")
             }

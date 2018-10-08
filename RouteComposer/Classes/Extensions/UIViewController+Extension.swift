@@ -12,8 +12,8 @@ public extension UIViewController {
     /// - Parameters:
     ///   - viewController: A `UIViewController` instance to start from.
     ///   - options: A combination of `SearchOptions`.
-    ///   - comparator: Block that should return `true` if the `UIViewController` instance provided is the
-    ///     one that user is looking for.
+    ///   - comparator: A block that should return `true` if the `UIViewController` instance provided is the
+    ///     one that is being searched for.
     /// - Returns: A `UIViewController` instance if found, `nil` otherwise.
     public static func findViewController(in viewController: UIViewController,
                                           options: SearchOptions = .currentAndUp,
@@ -80,11 +80,11 @@ extension UIViewController {
 
 }
 
-// Just an `Action`s holder
+// An `Action`s holder
 extension UIViewController {
 
-    /// The dummy `Action` instance mostly for the internal use, but can be useful outside of the library
-    /// in combination with the factories that produces the view controllers that should not have to be integrated into the
+    /// The dummy `Action` instance is mostly for internal use. However, it can be useful outside of the library
+    /// in combination with the factories that produce the view controllers that should not be integrated into the
     /// view controller's stack.
     struct NilAction: Action, NilEntity {
 
@@ -101,10 +101,10 @@ extension UIViewController {
 
         public typealias ViewController = UIViewController
 
-        /// UIModalPresentationStyle setting
+        /// `UIModalPresentationStyle` setting
         public let presentationStyle: UIModalPresentationStyle?
 
-        /// UIModalTransitionStyle setting
+        /// `UIModalTransitionStyle` setting
         public let transitionStyle: UIModalTransitionStyle?
 
         /// The preferredContentSize is used for any container laying out a child view controller.
@@ -113,15 +113,15 @@ extension UIViewController {
         /// Block to configure `UIPopoverPresentationController`
         public let popoverControllerConfigurationBlock: ((_: UIPopoverPresentationController) -> Void)?
 
-        /// UIViewControllerTransitioningDelegate instance to be used during the transition
+        /// `UIViewControllerTransitioningDelegate` instance to be used during the transition
         private(set) weak var transitioningDelegate: UIViewControllerTransitioningDelegate?
 
         /// Constructor
         ///
         /// - Parameters:
-        ///   - presentationStyle: UIModalPresentationStyle setting, default value: .fullScreen
-        ///   - transitionStyle: UIModalTransitionStyle setting, default value: .coverVertical
-        ///   - transitioningDelegate: UIViewControllerTransitioningDelegate instance to be used during the transition
+        ///   - presentationStyle: `UIModalPresentationStyle` setting, default value: .fullScreen
+        ///   - transitionStyle: `UIModalTransitionStyle` setting, default value: .coverVertical
+        ///   - transitioningDelegate: `UIViewControllerTransitioningDelegate` instance to be used during the transition
         ///   - preferredContentSize: The preferredContentSize is used for any container laying out a child view controller.
         ///   - popoverControllerConfigurationBlock: Block to configure `UIPopoverPresentationController`.
         init(presentationStyle: UIModalPresentationStyle? = .fullScreen,
@@ -182,7 +182,7 @@ extension UIViewController {
                             animated: Bool,
                             completion: @escaping(_: ActionResult) -> Void) {
             guard let window = UIWindow.key else {
-                completion(.failure("Key window not found."))
+                completion(.failure("Key window hasn't found."))
                 return
             }
 

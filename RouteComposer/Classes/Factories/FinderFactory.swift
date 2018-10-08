@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-/// The `StepAssembly` transforms a `Finder` result as a `Factory` result. Useful
+/// The `StepAssembly` transforms a `Finder` result as a `Factory` result. It is useful
 /// when a `UIViewController` instance was built inside of the parent `Container`.
 public struct FinderFactory<F: Finder>: Factory {
 
@@ -28,7 +28,7 @@ public struct FinderFactory<F: Finder>: Factory {
 
     public func build(with context: Context) throws -> ViewController {
         guard let viewController = finder.findViewController(with: context) else {
-            throw RoutingError.message("Finder \(String(describing: finder)) not found its view controller in stack.")
+            throw RoutingError.message("\(String(describing: finder)) hasn't found its view controller in the stack.")
         }
         return viewController
     }

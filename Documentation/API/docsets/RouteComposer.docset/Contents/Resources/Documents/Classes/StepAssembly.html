@@ -352,8 +352,8 @@
 
                 </div>
               </div>
-            <p>Builds a <code>RoutingStep</code> instance with the correct settings.</p>
-<h3 id='keep-in-mind' class='heading'>Keep in mind</h3>
+            <p>Builds a <code><a href="../Structs/DestinationStep.html">DestinationStep</a></code> instance with the correct settings into a chain of steps.</p>
+<h3 id='nb' class='heading'>NB</h3>
 
 <p>Both <code><a href="../Protocols/Finder.html">Finder</a></code> and <code><a href="../Protocols/Factory.html">Factory</a></code> instances should deal with the same type of <code>UIViewController</code> and <code>Context</code> instances.</p>
 <h3 id='usage' class='heading'>Usage</h3>
@@ -459,9 +459,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer12StepAssemblyC5usingyAA0c5ChainD0Vy14ViewControllerQz7ContextQzGqd__AA6ActionRd__lF"></a>
+                    <a name="/s:13RouteComposer16ActionConnectingP5usingyAA17StepChainAssemblyVy14ViewControllerQz7ContextQzGqd__AA0C0Rd__lF"></a>
                     <a name="//apple_ref/swift/Method/using(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer12StepAssemblyC5usingyAA0c5ChainD0Vy14ViewControllerQz7ContextQzGqd__AA6ActionRd__lF">using(_:)</a>
+                    <a class="token" href="#/s:13RouteComposer16ActionConnectingP5usingyAA17StepChainAssemblyVy14ViewControllerQz7ContextQzGqd__AA0C0Rd__lF">using(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -469,8 +469,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Connects previously provided <code>RoutingStep</code> instance with an <code><a href="../Protocols/Action.html">Action</a></code></p>
-
+                        
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -480,38 +479,15 @@
 
                         </div>
                       </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>action</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p><code><a href="../Protocols/Action.html">Action</a></code> instance to be used with a step.</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <div>
-                        <h4>Return Value</h4>
-                        <p><code><a href="../Structs/ChainAssembly.html">ChainAssembly</a></code> to continue building the chain.</p>
-                      </div>
                     </section>
                   </div>
                 </li>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer12StepAssemblyC5usingyAA09Containerc5ChainD0Vy14ViewControllerQyd__AGQz7ContextQzGqd__AA0F6ActionRd__lF"></a>
+                    <a name="/s:13RouteComposer16ActionConnectingP5usingyAA26ContainerStepChainAssemblyVy14ViewControllerQyd__AGQz7ContextQzGqd__AA0fC0Rd__lF"></a>
                     <a name="//apple_ref/swift/Method/using(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer12StepAssemblyC5usingyAA09Containerc5ChainD0Vy14ViewControllerQyd__AGQz7ContextQzGqd__AA0F6ActionRd__lF">using(_:)</a>
+                    <a class="token" href="#/s:13RouteComposer16ActionConnectingP5usingyAA26ContainerStepChainAssemblyVy14ViewControllerQyd__AGQz7ContextQzGqd__AA0fC0Rd__lF">using(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -519,8 +495,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Connects previously provided <code>RoutingStep</code> instance with an <code><a href="../Protocols/Action.html">Action</a></code></p>
-
+                        
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -529,29 +504,6 @@
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">using</span><span class="o">&lt;</span><span class="kt">A</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">action</span><span class="p">:</span> <span class="kt">A</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/ContainerStepChainAssembly.html">ContainerStepChainAssembly</a></span><span class="o">&lt;</span><span class="kt">A</span><span class="o">.</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">ViewController</span><span class="p">,</span> <span class="kt"><a href="../Classes/StepAssembly.html#/s:13RouteComposer16ActionConnectingP7ContextQa">Context</a></span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">A</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ContainerAction.html">ContainerAction</a></span></code></pre>
 
                         </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>action</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p><code><a href="../Protocols/ContainerAction.html">ContainerAction</a></code> instance to be used with a step.</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <div>
-                        <h4>Return Value</h4>
-                        <p><code><a href="../Structs/ChainAssembly.html">ChainAssembly</a></code> to continue building the chain.</p>
                       </div>
                     </section>
                   </div>
@@ -574,7 +526,7 @@
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Connects previously provided <code><a href="../Structs/DestinationStep.html">DestinationStep</a></code> with <code><a href="../Other Protocols.html#/s:13RouteComposer9NilEntityP">NilEntity</a></code> factory with a step where the <code>UIViewController</code>
-should be to avoid type checks
+should avoid type checks
 Example: <code>UIViewController</code> instance was loaded as a part of the stack inside of the storyboard.</p>
 
                       </div>
@@ -622,7 +574,7 @@ Example: <code>UIViewController</code> instance was loaded as a part of the stac
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Connects previously provided <code><a href="../Structs/DestinationStep.html">DestinationStep</a></code> with <code><a href="../Other Protocols.html#/s:13RouteComposer9NilEntityP">NilEntity</a></code> factory with a step where the <code>UIViewController</code>
-should be to avoid type checks
+should avoid type checks
 Example: <code>UIViewController</code> instance was loaded as a part of the stack inside of the storyboard.</p>
 
                       </div>
@@ -661,7 +613,7 @@ Example: <code>UIViewController</code> instance was loaded as a part of the stac
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-10-04)</p>
+          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-10-09)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

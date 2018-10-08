@@ -28,7 +28,7 @@ public struct DefaultLogger: Logger {
         }
     }
 
-    /// Constructor available in iOS 10 and later.
+    /// Constructor is available in iOS 10 and later.
     ///
     /// - Parameters:
     ///   - logLevel: DefaultLoggerLevel. Defaulted to warnings.

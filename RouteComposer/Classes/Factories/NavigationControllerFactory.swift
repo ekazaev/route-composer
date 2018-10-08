@@ -12,7 +12,7 @@ public struct NavigationControllerFactory: SimpleContainer {
 
     public typealias Context = Any?
 
-    /// `UINavigationControllerDelegate` delegate
+    /// `UINavigationControllerDelegate` reference
     public weak var delegate: UINavigationControllerDelegate?
 
     /// Constructor
@@ -24,7 +24,7 @@ public struct NavigationControllerFactory: SimpleContainer {
 
     public func build(with context: Context, integrating viewControllers: [UIViewController]) throws -> ViewController {
         guard !viewControllers.isEmpty else {
-            throw RoutingError.message("Unable to build UINavigationController due to 0 amount of child view controllers")
+            throw RoutingError.message("Unable to build UINavigationController due to 0 amount of the children view controllers")
         }
         let navigationController = UINavigationController()
         if let delegate = delegate {

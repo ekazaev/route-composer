@@ -6,8 +6,8 @@
 import Foundation
 import UIKit
 
-/// `StackIteratingFinder` iterates through view controllers stack
-/// following the search options provided and simplifies the creation of the finders for a hosting app.
+/// `StackIteratingFinder` iterates through the view controllers stack
+/// following the search options provided. It simplifies the creation of the finders for a hosting app.
 public protocol StackIteratingFinder: Finder {
 
     /// Type of the `UIViewController` that `Finder` can find
@@ -22,8 +22,8 @@ public protocol StackIteratingFinder: Finder {
     /// The method to be implemented by the `StackIteratingFinder` instance
     ///
     /// - Parameters:
-    ///   - viewController: Some view controller in the current view controller stack
-    ///   - context: The `Context` instance that was provided to the `Router`.
+    ///   - viewController: A view controller in the current view controller stack
+    ///   - context: The `Context` instance provided to the `Router`.
     /// - Returns: true if this view controller is the one that `Finder` is looking for, false otherwise.
     func isTarget(_ viewController: ViewController, with context: Context) -> Bool
 

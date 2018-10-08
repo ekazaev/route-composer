@@ -20,10 +20,9 @@ class LoginInterceptor<C>: RoutingInterceptor {
             return
         }
 
-        // Using router and finder in interceptor like this is recommended technique because application can be already on
-        // login screen then he will receive a routing to some part which requires a login screen.
-        // It will help to avoid opening of another login view controller and will help you not to have your own
-        // boilerplate code that will help you to avoid this rare, but possible situation.
+        // Using the router and the  finder in interceptor like this is the recommended technique because the application can already be on
+        // the login screen when it will receive a command to navigate to some part of the app that requires a login screen.
+        // This technique will help to avoid opening of another login view controller.
         let destination = LoginConfiguration.login()
         do {
             try DefaultRouter(logger: DefaultLogger(.verbose)).navigate(to: destination) { routingResult in
@@ -65,7 +64,7 @@ class LoginViewController: UIViewController, ExampleAnalyticsSupport {
                 return
             }
 
-            completion(.failure("New completion block was set. Previous routing should not continue."))
+            completion(.failure("New completion block was set. Previous navigation process should be halted."))
         }
     }
 

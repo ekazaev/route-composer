@@ -5,8 +5,8 @@
 import Foundation
 import UIKit
 
-/// Builds a `RoutingStep` instance with the correct settings.
-/// ### Keep in mind
+/// Builds a `DestinationStep` instance with the correct settings into a chain of steps.
+/// ### NB:
 /// Both `Finder` and `Factory` instances should deal with the same type of `UIViewController` and `Context` instances.
 /// ### Usage
 /// ```swift
@@ -78,7 +78,7 @@ public final class ContainerStepAssembly<F: Finder, FC: Container>: GenericStepA
 public extension ContainerStepAssembly where FC: NilEntity {
 
     /// Connects previously provided `DestinationStep` with `NilEntity` factory with a step where the `UIViewController`
-    /// should be to avoid type checks.
+    /// should avoid type checks.
     ///
     /// - Parameter step: `StepWithActionAssembly` instance to be used.
     public func from<AF: Finder, AFC: AbstractFactory>(_ step: StepWithActionAssembly<AF, AFC>) -> ActionConnectingAssembly<AF, AFC, ViewController, Context> {
@@ -96,7 +96,7 @@ public extension ContainerStepAssembly where FC: NilEntity {
     }
 
     /// Connects previously provided `DestinationStep` with `NilEntity` factory with a step where the `UIViewController`
-    /// should be to avoid type checks
+    /// should avoid type checks
     ///
     /// - Parameter step: `DestinationStep` instance to be used.
     public func from<VC: UIViewController, C>(_ step: DestinationStep<VC, C>) -> LastStepInChainAssembly<ViewController, Context> {

@@ -13,25 +13,25 @@ public struct SearchOptions: OptionSet, CustomStringConvertible {
         self.rawValue = rawValue
     }
 
-    /// Compare with a view controller provided
+    /// Compare to a view controller provided
     public static let current = SearchOptions(rawValue: 1 << 0)
 
-    /// If the view controller is a container, search in its visible view controllers
+    /// If a view controller is a container, search in its visible view controllers
     public static let visible = SearchOptions(rawValue: 1 << 1)
 
-    /// If the view controller is a container, search in all the view controllers it contains
+    /// If a view controller is a container, search in all the view controllers it contains
     public static let containing = SearchOptions(rawValue: 1 << 2)
 
-    /// Start the search from the view controller provided and search in all view controllers it presented
+    /// Start search from the view controller provided and search in all view controllers it presented
     public static let presented = SearchOptions(rawValue: 1 << 3)
 
-    /// Start the search from the view controller provided and search in all view controllers that presenting it
+    /// Start search from the view controller provided and search in all view controllers that are presenting it
     public static let presenting = SearchOptions(rawValue: 1 << 4)
 
-    /// If the view controller is a container, search in all the view controllers it contains
+    /// If a view controller is a container, search in all the view controllers it contains
     public static let currentAllStack: SearchOptions = [.current, .containing]
 
-    /// If the view controller is a container, search in all visible view controllers it contains
+    /// If a view controller is a container, search in all visible view controllers it contains
     public static let currentVisibleOnly: SearchOptions = [.current, .visible]
 
     /// Iterate through the all visible view controllers in the stack.

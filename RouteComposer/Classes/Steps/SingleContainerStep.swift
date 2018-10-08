@@ -14,7 +14,7 @@ public class SingleContainerStep<F: Finder, FC: Container>: StepWithActionAssemb
 
     let factory: FC
 
-    /// Creates a instance of the `RoutingStep` describing a container view controller.
+    /// Creates an instance of the `StepWithActionAssembly` describing a container view controller.
     ///
     /// - Parameters:
     ///   - finder: The `UIViewController` `Finder`.

@@ -5,7 +5,7 @@
 import Foundation
 import UIKit
 
-/// Just a wrapper for the general steps that can be applied to any `UIViewController`
+/// A wrapper for the general steps that can be applied to any `UIViewController`
 public struct GeneralStep {
 
     /// Returns the root view controller of the key window.

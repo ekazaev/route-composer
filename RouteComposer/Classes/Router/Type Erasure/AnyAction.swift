@@ -31,7 +31,7 @@ struct ActionBox<A: Action>: AnyAction, CustomStringConvertible {
 
     func perform(with viewController: UIViewController, on existingController: UIViewController, animated: Bool, completion: @escaping (ActionResult) -> Void) {
         guard let typedExistingViewController = existingController as? A.ViewController else {
-            completion(.failure("Action \(action.self) can not be performed on \(existingController)."))
+            completion(.failure("Action \(action.self) cannot be performed on \(existingController)."))
             return
         }
         action.perform(with: viewController, on: typedExistingViewController, animated: animated, completion: completion)
@@ -59,7 +59,7 @@ struct ContainerActionBox<A: ContainerAction>: AnyAction, CustomStringConvertibl
 
     func perform(with viewController: UIViewController, on existingController: UIViewController, animated: Bool, completion: @escaping (ActionResult) -> Void) {
         guard let containerController = findContainer(startingFrom: existingController) else {
-            completion(.failure("Container of \(String(describing: A.ViewController.self)) type can not be found to perform \(action)"))
+            completion(.failure("Container of \(String(describing: A.ViewController.self)) type cannot be found to perform \(action)"))
             return
         }
 

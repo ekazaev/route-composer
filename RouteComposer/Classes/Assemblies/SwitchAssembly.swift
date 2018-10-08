@@ -5,8 +5,7 @@
 import Foundation
 import UIKit
 
-/// Builds tree of `RoutingStep` which will be taken by a `Router` and adds a condition to the each step when it should
-/// be taken.
+/// Builds a `DestinationStep` which can contain the conditions to select the steps to be taken by a `Router`.
 public final class SwitchAssembly<ViewController: UIViewController, Context> {
 
     private struct BlockResolver<C>: StepCaseResolver {
@@ -64,8 +63,8 @@ public final class SwitchAssembly<ViewController: UIViewController, Context> {
 
     }
 
-    /// Adds a block that allows to write a decision case for the `Router` in the block.
-    /// Returning nil from the block will mean that it not succeed.
+    /// Adds a block that allows a written decision case for the `Router` in the block.
+    /// Returning nil from the block will mean that it has not succeeded.
     ///
     /// - Parameter resolverBlock: case resolver block
     public func addCase<C>(_ resolverBlock: @escaping ((_: C) -> DestinationStep<ViewController, Context>?)) -> Self {
@@ -73,39 +72,38 @@ public final class SwitchAssembly<ViewController: UIViewController, Context> {
         return self
     }
 
-    /// Adds a case when a view controller exist in the stack to make some particular `RoutingStep` then.
+    /// Adds a case when a view controller exists in the stack in order to make a particular `DestinationStep`.
     ///
     /// - Parameters:
-    ///   - finder: The `Finder` instance to find a `UIViewController` in the stack
-    ///   - step: The `RoutingStep` to make if the `Finder` been able to find a view controller in the stack. If not provided,
-    ///   a `UIViewController` found by the `Finder` will be considered as a view controller to start routing process from
+    ///   - finder: The `Finder` instance searches for a `UIViewController` in the stack
+    ///   - step: The `DestinationStep` is to perform if the `Finder` has been able to find a view controller in the stack. If not provided,
+    ///   a `UIViewController` found by the `Finder` will be considered as a view controller to start the navigation process from
     public func addCase<F: Finder>(when finder: F, do step: DestinationStep<ViewController, Context>) -> Self {
         resolvers.append(FinderResolver(finder: finder, step: step))
         return self
     }
 
-    /// Adds a case when a view controller exist - navigation will start from the resulting view controller.
+    /// Adds a case when a view controller exists - navigation will start from the resulting view controller.
     ///
     /// - Parameters:
-    ///   - finder: The `Finder` instance to find a `UIViewController` in the stack
-    ///   a `UIViewController` found by the `Finder` will be considered as a view controller to start routing process from
+    ///   - finder: The `Finder` instance is to find a `UIViewController` in the stack
+    ///   a `UIViewController` found by the `Finder` will be considered as a view controller to start the navigation process from
     public func addCase<F: Finder>(when finder: F) -> Self {
         resolvers.append(FinderResolver<ViewController, Context>(finder: finder, step: nil))
         return self
     }
 
-    /// Assembles all the cases in to a `RoutingStep` implementation
+    /// Assembles all the cases into a `DestinationStep` implementation
     ///
-    /// - Returns: instance of a `RoutingStep`
+    /// - Returns: instance of a `DestinationStep`
     public func assemble() -> DestinationStep<ViewController, Context> {
         return DestinationStep(SwitcherStep<Context>(resolvers: resolvers))
     }
 
-    /// Assembles all the cases in a `RoutingStep` instance and adds the default implementation what to do
-    /// if non of the cases succeed
+    /// Assembles all the cases in a `DestinationStep` instance and adds the default implementation, providing the step it is to perform
     ///
     /// - Parameter resolverBlock: default resolver block
-    /// - Returns: an instance of RoutingStep
+    /// - Returns: an instance of `DestinationStep`
     public func assemble(default resolverBlock: @escaping (() -> DestinationStep<ViewController, Context>)) -> DestinationStep<ViewController, Context> {
         resolvers.append(BlockResolver<Context>(resolverBlock: { _ in
             return resolverBlock()

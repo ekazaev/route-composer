@@ -9,7 +9,7 @@ import Foundation
 /// Base router protocol.
 public protocol Router {
 
-    /// Navigates an application to the view controller configure in `DestinationStep` with the `Context` provided.
+    /// Navigates an application to the view controller configured in `DestinationStep` with the `Context` provided.
     ///
     /// - Parameters:
     ///   - step: `DestinationStep` instance.

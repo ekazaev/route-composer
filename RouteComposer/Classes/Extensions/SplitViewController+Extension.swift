@@ -6,7 +6,7 @@
 import Foundation
 import UIKit
 
-// - The `UISplitViewController` extension to support the `ContainerViewController` protocol
+// - The `UISplitViewController` extension is to support the `ContainerViewController` protocol
 extension UISplitViewController: ContainerViewController {
 
     public var containingViewControllers: [UIViewController] {
@@ -29,7 +29,7 @@ extension UISplitViewController: ContainerViewController {
 
 }
 
-// - The `UISplitViewController` extension to support the `RoutingInterceptable` protocol
+// - The `UISplitViewController` extension is to support the `RoutingInterceptable` protocol
 extension UISplitViewController: RoutingInterceptable {
 
     public var canBeDismissed: Bool {
@@ -38,7 +38,7 @@ extension UISplitViewController: RoutingInterceptable {
 
 }
 
-// Just an `Action`s holder
+// An `Action`s holder
 extension UISplitViewController {
 
     /// Presents a detail view controller in the `UISplitViewController`

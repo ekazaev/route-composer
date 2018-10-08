@@ -25,7 +25,7 @@ class ProductConfiguration {
             .using(NavigationControllerFactory.pushToNavigation())
             .from(SwitchAssembly<UINavigationController, Any?>()
                     .addCase { (context: ProductContext) in
-                        // If routing requested by Universal Link - Presenting modally
+                        // If this navigation is requested by a Universal Link, then present modally
                         // Try in Mobile Safari dll://productView?product=123
                         guard context.productURL != nil else {
                             return nil

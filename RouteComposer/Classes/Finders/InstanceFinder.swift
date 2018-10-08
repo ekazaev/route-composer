@@ -6,7 +6,7 @@
 import Foundation
 import UIKit
 
-/// The `Finder` the provides to the `Router` a known instance of the `UIViewController`
+/// The `Finder` that provides the `Router` a known instance of the `UIViewController`
 public struct InstanceFinder<VC: UIViewController, C>: Finder {
 
     /// The `UIViewController` type associated with this `InstanceFinder`
@@ -20,7 +20,7 @@ public struct InstanceFinder<VC: UIViewController, C>: Finder {
     /// Constructor
     ///
     /// - Parameters:
-    ///   - instance: The `UIViewController` instance this `Finder` should provide to the `Router`
+    ///   - instance: The `UIViewController` instance that `Finder` should provide to the `Router`
     public init(instance: VC) {
         self.instance = instance
     }

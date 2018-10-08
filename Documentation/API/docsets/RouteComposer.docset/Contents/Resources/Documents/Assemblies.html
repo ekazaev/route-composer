@@ -362,8 +362,8 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Builds a <code>RoutingStep</code> instance with the correct settings.</p>
-<h3 id='keep-in-mind' class='heading'>Keep in mind</h3>
+                        <p>Builds a <code><a href="Structs/DestinationStep.html">DestinationStep</a></code> instance with the correct settings into a chain of steps.</p>
+<h3 id='nb' class='heading'>NB</h3>
 
 <p>Both <code><a href="Protocols/Finder.html">Finder</a></code> and <code><a href="Protocols/Factory.html">Factory</a></code> instances should deal with the same type of <code>UIViewController</code> and <code>Context</code> instances.</p>
 <h3 id='usage' class='heading'>Usage</h3>
@@ -410,8 +410,8 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Builds a <code>RoutingStep</code> instance with the correct settings.</p>
-<h3 id='keep-in-mind' class='heading'>Keep in mind</h3>
+                        <p>Builds a <code><a href="Structs/DestinationStep.html">DestinationStep</a></code> instance with the correct settings into a chain of steps.</p>
+<h3 id='nb' class='heading'>NB:</h3>
 
 <p>Both <code><a href="Protocols/Finder.html">Finder</a></code> and <code><a href="Protocols/Factory.html">Factory</a></code> instances should deal with the same type of <code>UIViewController</code> and <code>Context</code> instances.</p>
 <h3 id='usage' class='heading'>Usage</h3>
@@ -456,8 +456,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Builds tree of <code>RoutingStep</code> which will be taken by a <code><a href="Protocols/Router.html">Router</a></code> and adds a condition to the each step when it should
-be taken.</p>
+                        <p>Builds a <code><a href="Structs/DestinationStep.html">DestinationStep</a></code> which can contain the conditions to select the steps to be taken by a <code><a href="Protocols/Router.html">Router</a></code>.</p>
 
                         <a href="Classes/SwitchAssembly.html" class="slightly-smaller">See more</a>
                       </div>
@@ -489,7 +488,7 @@ be taken.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Connects an array of steps into a chain of steps.</p>
+                        <p>Builds a chain of steps.</p>
 
                         <a href="Structs/ChainAssembly.html" class="slightly-smaller">See more</a>
                       </div>
@@ -521,7 +520,7 @@ be taken.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Builds a <code><a href="Protocols/Container.html">Container</a></code> fulfilled with the child <code>UIViewController</code> factories.</p>
+                        <p>Builds a <code><a href="Protocols/Container.html">Container</a></code> fulfilled with the children <code>UIViewController</code> factories.</p>
 <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">rootFactory</span> <span class="o">=</span> <span class="kt">CompleteFactoryAssembly</span><span class="p">(</span><span class="nv">factory</span><span class="p">:</span> <span class="kt">TabBarFactory</span><span class="p">())</span>
         <span class="o">.</span><span class="nf">with</span><span class="p">(</span><span class="kt">XibFactory</span><span class="o">&lt;</span><span class="kt">HomeViewController</span><span class="p">,</span> <span class="kt">Any</span><span class="p">?</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">using</span><span class="p">:</span> <span class="kt">TabBarControllerFactory</span><span class="o">.</span><span class="kt">AddTab</span><span class="p">())</span>
         <span class="o">.</span><span class="nf">with</span><span class="p">(</span><span class="kt">XibFactory</span><span class="o">&lt;</span><span class="kt">AccountViewController</span><span class="p">,</span> <span class="kt">Any</span><span class="p">?</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">using</span><span class="p">:</span> <span class="kt">TabBarControllerFactory</span><span class="o">.</span><span class="kt">AddTab</span><span class="p">())</span>
@@ -548,7 +547,7 @@ be taken.</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-10-04)</p>
+          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-10-09)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

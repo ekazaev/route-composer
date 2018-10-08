@@ -27,7 +27,7 @@ public struct ClassNameFactory<VC: UIViewController, C>: Factory {
     public func build(with context: Context) throws -> ViewController {
         if let viewControllerName = viewControllerName {
             guard let customClass = NSClassFromString(viewControllerName) else {
-                throw RoutingError.message("Can not find \(viewControllerName) in bundle")
+                throw RoutingError.message("Can not find \(viewControllerName) in the bundle.")
             }
             guard let customViewControllerClass = customClass as? ViewController.Type else {
                 throw RoutingError.message("\(viewControllerName) is not a UIViewController type class.")
