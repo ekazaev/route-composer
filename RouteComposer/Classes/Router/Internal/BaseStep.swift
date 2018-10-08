@@ -5,7 +5,7 @@
 import Foundation
 import UIKit
 
-/// Base router `RoutingStep` implementation that handles all step protocols.
+// Handles all step protocols.
 struct BaseStep<Box: AnyFactoryBox>: RoutingStepWithContext,
         ChainableStep,
         ChainingStep,

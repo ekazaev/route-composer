@@ -350,8 +350,7 @@
 
                 </div>
               </div>
-            <p>Builds tree of <code>RoutingStep</code> which will be taken by a <code><a href="../Protocols/Router.html">Router</a></code> and adds a condition to the each step when it should
-be taken.</p>
+            <p>Builds a tree of <code><a href="../Structs/DestinationStep.html">DestinationStep</a></code> which will be taken by a <code><a href="../Protocols/Router.html">Router</a></code> which adds a condition to each step.</p>
 
           </section>
           <section class="section task-group-section">
@@ -397,8 +396,8 @@ be taken.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Adds a block that allows to write a decision case for the <code><a href="../Protocols/Router.html">Router</a></code> in the block.
-Returning nil from the block will mean that it not succeed.</p>
+                        <p>Adds a block that allows a written decision case for the <code><a href="../Protocols/Router.html">Router</a></code> in the block.
+Returning nil from the block will mean that it has not succeeded.</p>
 
                       </div>
                       <div class="declaration">
@@ -444,7 +443,7 @@ Returning nil from the block will mean that it not succeed.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Adds a case when a view controller exist in the stack to make some particular <code>RoutingStep</code> then.</p>
+                        <p>Adds a case when a view controller exists in the stack in order to make a particular <code><a href="../Structs/DestinationStep.html">DestinationStep</a></code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -467,7 +466,7 @@ Returning nil from the block will mean that it not succeed.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>The <code><a href="../Protocols/Finder.html">Finder</a></code> instance to find a <code>UIViewController</code> in the stack</p>
+                                  <p>The <code><a href="../Protocols/Finder.html">Finder</a></code> instance searches for a <code>UIViewController</code> in the stack</p>
                                 </div>
                               </td>
                             </tr>
@@ -479,8 +478,8 @@ Returning nil from the block will mean that it not succeed.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>The <code>RoutingStep</code> to make if the <code><a href="../Protocols/Finder.html">Finder</a></code> been able to find a view controller in the stack. If not provided,
-a <code>UIViewController</code> found by the <code><a href="../Protocols/Finder.html">Finder</a></code> will be considered as a view controller to start routing process from</p>
+                                  <p>The <code><a href="../Structs/DestinationStep.html">DestinationStep</a></code> is to perform if the <code><a href="../Protocols/Finder.html">Finder</a></code> has been able to find a view controller in the stack. If not provided,
+a <code>UIViewController</code> found by the <code><a href="../Protocols/Finder.html">Finder</a></code> will be considered as a view controller to start the navigation process from</p>
                                 </div>
                               </td>
                             </tr>
@@ -503,7 +502,7 @@ a <code>UIViewController</code> found by the <code><a href="../Protocols/Finder.
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Adds a case when a view controller exist - navigation will start from the resulting view controller.</p>
+                        <p>Adds a case when a view controller exists - navigation will start from the resulting view controller.</p>
 
                       </div>
                       <div class="declaration">
@@ -526,8 +525,8 @@ a <code>UIViewController</code> found by the <code><a href="../Protocols/Finder.
                               </td>
                               <td>
                                 <div>
-                                  <p>The <code><a href="../Protocols/Finder.html">Finder</a></code> instance to find a <code>UIViewController</code> in the stack
-a <code>UIViewController</code> found by the <code><a href="../Protocols/Finder.html">Finder</a></code> will be considered as a view controller to start routing process from</p>
+                                  <p>The <code><a href="../Protocols/Finder.html">Finder</a></code> instance is to find a <code>UIViewController</code> in the stack
+a <code>UIViewController</code> found by the <code><a href="../Protocols/Finder.html">Finder</a></code> will be considered as a view controller to start the navigation process from</p>
                                 </div>
                               </td>
                             </tr>
@@ -550,7 +549,7 @@ a <code>UIViewController</code> found by the <code><a href="../Protocols/Finder.
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Assembles all the cases in to a <code>RoutingStep</code> implementation</p>
+                        <p>Assembles all the cases into a <code><a href="../Structs/DestinationStep.html">DestinationStep</a></code> implementation</p>
 
                       </div>
                       <div class="declaration">
@@ -563,7 +562,7 @@ a <code>UIViewController</code> found by the <code><a href="../Protocols/Finder.
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>instance of a <code>RoutingStep</code></p>
+                        <p>instance of a <code><a href="../Structs/DestinationStep.html">DestinationStep</a></code></p>
                       </div>
                     </section>
                   </div>
@@ -581,8 +580,7 @@ a <code>UIViewController</code> found by the <code><a href="../Protocols/Finder.
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Assembles all the cases in a <code>RoutingStep</code> instance and adds the default implementation what to do
-if non of the cases succeed</p>
+                        <p>Assembles all the cases in a <code><a href="../Structs/DestinationStep.html">DestinationStep</a></code> instance and adds the default implementation, providing the step it is to perform</p>
 
                       </div>
                       <div class="declaration">
@@ -614,7 +612,7 @@ if non of the cases succeed</p>
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>an instance of RoutingStep</p>
+                        <p>an instance of <code><a href="../Structs/DestinationStep.html">DestinationStep</a></code></p>
                       </div>
                     </section>
                   </div>
@@ -624,7 +622,7 @@ if non of the cases succeed</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-10-04)</p>
+          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-10-08)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

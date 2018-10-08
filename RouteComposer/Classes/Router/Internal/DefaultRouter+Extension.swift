@@ -126,7 +126,7 @@ extension DefaultRouter {
             let postTask: AnyPostRoutingTask
         }
 
-        // this class is just a placeholder. Router needs at least one post-routing task per view controller to
+        // this class is just a placeholder. Router needs at least one post routing task per view controller to
         // store a reference there.
         private struct EmptyPostTask: AnyPostRoutingTask {
 
@@ -200,7 +200,7 @@ extension DefaultRouter {
             return ViewControllerTaskRunner(contextTaskRunner: contextTaskRunner, postTaskRunner: postTaskRunner)
         }
 
-        func runInterceptors(completion: @escaping (_: InterceptorResult) -> Void) {
+        func executeInterceptors(completion: @escaping (_: InterceptorResult) -> Void) {
             interceptorRunner.run(completion: completion)
         }
 
@@ -211,7 +211,7 @@ extension DefaultRouter {
     }
 
     /// Each post action needs to know a view controller is should be applied to.
-    /// This decorator adds functionality of storing UIViewControllers created by the `Factory` and frees
+    /// This decorator adds functionality of storing `UIViewController`s created by the `Factory` and frees
     /// custom factories implementations from dealing with it. Mostly it is important for ContainerFactories
     /// which create merged view controllers without `Router`'s help.
     struct FactoryDecorator: AnyFactory, CustomStringConvertible {

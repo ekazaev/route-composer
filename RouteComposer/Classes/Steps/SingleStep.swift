@@ -5,7 +5,7 @@
 import Foundation
 import UIKit
 
-/// A simple class that produces intermediate `RoutingStep` for an assembly.
+/// A simple class that produces an intermediate `StepWithActionAssembly`.
 public final class SingleStep<F: Finder, FC: Factory>: StepWithActionAssembly<F, FC>
         where F.ViewController == FC.ViewController, F.Context == FC.Context {
 
@@ -13,7 +13,7 @@ public final class SingleStep<F: Finder, FC: Factory>: StepWithActionAssembly<F,
 
     let factory: FC
 
-    /// Creates a instance of the `RoutingStep` that produces container view controller.
+    /// A simple class that produces an intermediate `StepWithActionAssembly`.
     ///
     /// - Parameters:
     ///   - finder: The `UIViewController` `Finder`.

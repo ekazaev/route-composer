@@ -8,9 +8,9 @@
 import Foundation
 import UIKit
 
-/// `InlineInterceptor` is the inline interceptor.
+/// `InlineInterceptor`
 ///
-/// **NB:** We would recommend it for the purpose of configuration testing, but then replace it with a strongly typed
+/// **NB:** It may be used for the purpose of configuration testing, but then replaced with a strongly typed
 /// `RoutingInterceptor` instance.
 public struct InlineInterceptor<C>: RoutingInterceptor {
 
@@ -24,9 +24,9 @@ public struct InlineInterceptor<C>: RoutingInterceptor {
 
     /// Constructor
     ///
-    /// - Parameter completion: the block to be called when `InlineInterceptor` will take a control over the routing.
+    /// - Parameter completion: the block to be called when `InlineInterceptor` will take a control over the navigation process.
     ///
-    ///     **NB** For `Router` to be able to continue routing, completion block method **MUST** to be called.
+    ///     **NB** For `Router` to be able to continue navigation process, completion block method **MUST** be called.
     public init(prepare: ((_: C) throws -> Void)? = nil, _ completion: @escaping (_: C, _: @escaping (InterceptorResult) -> Void) -> Void) {
         self.prepareBlock = prepare
         self.asyncCompletion = completion
@@ -35,9 +35,9 @@ public struct InlineInterceptor<C>: RoutingInterceptor {
 
     /// Constructor
     ///
-    /// - Parameter completion: the block to be called when `InlineInterceptor` will take a control over the routing.
+    /// - Parameter completion: the block to be called when `InlineInterceptor` will take a control over the navigation process.
     ///
-    ///     **NB** completion method will be called automatically so do not use this constructor if your interceptor
+    ///     **NB** completion method will be called automatically, do not use this constructor if your interceptor
     ///     task is asynchronous.
     public init(prepare: ((_: C) throws -> Void)? = nil, _ completion: @escaping (_: C) -> Void) {
         self.prepareBlock = prepare
@@ -62,10 +62,10 @@ public struct InlineInterceptor<C>: RoutingInterceptor {
 
 }
 
-/// `InlineContextTask` is the inline context task.
+/// `InlineContextTask`
 ///
-/// **NB:** We would recommend it for the purpose of configuration testing, but then replace it with a strongly typed
-/// `ContextTask` instance.
+/// **NB:** It may be used for the purpose of configuration testing, but then replaced with a strongly typed
+/// `RoutingInterceptor` instance.
 public struct InlineContextTask<VC: UIViewController, C>: ContextTask {
 
     public typealias ViewController = VC
@@ -90,7 +90,7 @@ public struct InlineContextTask<VC: UIViewController, C>: ContextTask {
 
 /// `InlinePostTask` is the inline context task.
 ///
-/// **NB:** We would recommend it for the purpose of configuration testing, but then replace it with a strongly typed
+/// **NB:** It may be used for the purpose of configuration testing, but then replaced with a strongly typed
 /// `PostRoutingTask` instance.
 public struct InlinePostTask<VC: UIViewController, C>: PostRoutingTask {
 
@@ -102,8 +102,8 @@ public struct InlinePostTask<VC: UIViewController, C>: PostRoutingTask {
 
     /// Constructor
     ///
-    /// - Parameter completion: the block to be called when `InlinePostTask` will be called at the end of the routing
-    ///    process.
+    /// - Parameter completion: the block to be called when `InlinePostTask` will be called at the end of the navigation process
+    ///   process.
     public init(_ completion: @escaping (_: VC, _: C, _: [UIViewController]) -> Void) {
         self.completion = completion
     }

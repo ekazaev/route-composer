@@ -12,7 +12,7 @@ public struct TabBarControllerFactory: SimpleContainer {
 
     public typealias Context = Any?
 
-    /// `UITabBarControllerDelegate` delegate
+    /// `UITabBarControllerDelegate` reference
     public weak var delegate: UITabBarControllerDelegate?
 
     /// Constructor

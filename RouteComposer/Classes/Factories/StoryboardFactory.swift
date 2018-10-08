@@ -18,8 +18,8 @@ public struct StoryboardFactory<VC: UIViewController, C>: Factory {
     /// The `Bundle` instance
     public let bundle: Bundle?
 
-    /// The `UIViewController` identifier in the storyboard. If not set - the `Factory` will try
-    /// to create a storyboards's initial `UIViewController`
+    /// The `UIViewController` identifier in the storyboard. If it is not set, the `Factory` will try
+    /// to create the storyboards initial `UIViewController`
     public let viewControllerID: String?
 
     /// Constructor
@@ -27,8 +27,8 @@ public struct StoryboardFactory<VC: UIViewController, C>: Factory {
     /// - Parameters:
     ///   - storyboardName: The name of a storyboard file
     ///   - bundle: The `Bundle` instance if needed
-    ///   - viewControllerID: The `UIViewController` identifier in the storyboard. If not set - the `Factory` will try
-    ///     to create a storyboards's initial `UIViewController`
+    ///   - viewControllerID: The `UIViewController` identifier in the storyboard. If it is not set, the `Factory` will try
+    ///     to create the storyboards initial `UIViewController`
     public init(storyboardName: String, bundle: Bundle? = nil, viewControllerID: String? = nil) {
         self.storyboardName = storyboardName
         self.bundle = bundle

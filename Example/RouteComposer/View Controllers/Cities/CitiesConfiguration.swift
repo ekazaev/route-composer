@@ -7,7 +7,7 @@ import Foundation
 import UIKit
 import RouteComposer
 
-// Another example to provide a routing destination
+// Another example to provide a destination
 class CitiesConfiguration {
 
     // Split View Controller

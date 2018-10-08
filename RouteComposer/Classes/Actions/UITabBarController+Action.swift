@@ -5,18 +5,23 @@
 import Foundation
 import UIKit
 
-/// Actions for UITabBarController
+/// Actions for `UITabBarController`
 extension Container where Self.ViewController: UITabBarController {
 
-    /// Presents a detail view controller in the `UISplitViewController`
+    /// Adds a `UIViewController` to a `UITabBarController`
+    ///
+    ///   - tabIndex: index of a tab.
+    ///   - replacing: should be set to `true` if an existing view controller should be replaced.
+    ///     If condition has not been passed, a view controller
+    ///   will be added after the latest one.
     public static func addTab(at tabIndex: Int, replacing: Bool = false) -> UITabBarController.AddTabAction<Self.ViewController> {
         return UITabBarController.AddTabAction(at: tabIndex, replacing: replacing)
     }
 
-    /// Integrates a `UIViewController` in to a `UITabBarController`
+    /// Adds a `UIViewController` to a `UITabBarController`
     ///
-    ///   - tabIndex: index of the tab after which one a view controller should be added.
-    ///     If has not been passed - a view controller
+    ///   - tabIndex: index of a tab.
+    ///     If condition has not been passed, a view controller
     ///   will be added after the latest one.
     public static func addTab(at tabIndex: Int? = nil) -> UITabBarController.AddTabAction<Self.ViewController> {
         return UITabBarController.AddTabAction(at: tabIndex)

@@ -22,20 +22,12 @@ public struct ActionConnectingAssembly<F: Finder, FC: AbstractFactory, VC: UIVie
         self.stepToFullFill = stepToFullFill
     }
 
-    /// Connects previously provided `RoutingStep` instance with an `Action`
-    ///
-    /// - Parameter action: `Action` instance to be used with a step.
-    /// - Returns: `ChainAssembly` to continue building the chain.
     public func using<A: Action>(_ action: A) -> StepChainAssembly<ViewController, Context> {
         var previousSteps = self.previousSteps
         previousSteps.append(stepToFullFill.routingStep(with: action))
         return StepChainAssembly(previousSteps: previousSteps)
     }
 
-    /// Connects previously provided `RoutingStep` instance with an `Action`
-    ///
-    /// - Parameter action: `ContainerAction` instance to be used with a step.
-    /// - Returns: `ChainAssembly` to continue building the chain.
     public func using<A: ContainerAction>(_ action: A) -> ContainerStepChainAssembly<A.ViewController, ViewController, Context> {
         var previousSteps = self.previousSteps
         previousSteps.append(stepToFullFill.embeddableRoutingStep(with: action))

@@ -13,7 +13,7 @@ extension UIWindow {
         return UIApplication.shared.keyWindow
     }
 
-    /// The topmost `UIViewController` in the view controller stack. E.g - top most presented one.
+    /// The topmost `UIViewController` in the view controller stack.
     public var topmostViewController: UIViewController? {
         var topmostViewController = rootViewController
 

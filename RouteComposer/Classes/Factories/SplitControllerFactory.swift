@@ -13,10 +13,10 @@ public struct SplitControllerFactory: SimpleContainer {
 
     public typealias Context = Any?
 
-    /// `UISplitViewControllerDelegate` delegate
+    /// `UISplitViewControllerDelegate` reference
     private(set) weak var delegate: UISplitViewControllerDelegate?
 
-    /// An animatable property that controls how the primary view controller is hidden and displayed.
+    /// A property that controls how the primary view controller is hidden and displayed.
     /// A value of `.automatic` specifies the default behavior split view controller, which on an iPad,
     /// corresponds to an overlay mode in portrait and a side-by-side mode in landscape.
     public let preferredDisplayMode: UISplitViewControllerDisplayMode

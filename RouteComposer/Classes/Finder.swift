@@ -16,7 +16,7 @@ public protocol Finder {
     /// Type of `Context` object that `Finder` can deal with
     associatedtype Context
 
-    /// The method to be extended to implement `Finder` functionality.
+    /// Returns the view controller instance if it is present in the stack.
     ///
     /// - Parameter context: The `Context` instance passed to the `Router`.
     /// - Returns: The `UIViewController` instance that the `Router` is looking for, nil otherwise.

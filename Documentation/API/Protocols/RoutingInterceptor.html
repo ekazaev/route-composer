@@ -350,13 +350,13 @@
 
                 </div>
               </div>
-            <p>Routing interceptor is called before the actual deeplinking(navigation) happens in case it&rsquo;s defined,
+            <p><code>RoutingInterceptor</code> is called before the actual navigation process happens.
 e.g. user should be logged in.</p>
 <h3 id='nb' class='heading'>NB</h3>
 
-<p>Interceptor is an asynchronous action. For the <code><a href="../Protocols/Router.html">Router</a></code> to continue routing, completion of interceptor&rsquo;s
+<p>Interceptor is an asynchronous action. For the <code><a href="../Protocols/Router.html">Router</a></code> to continue the navigation process, the completion block of the interceptor&rsquo;s
 execute method <strong>MUST</strong> be called.
-Otherwise, the <code><a href="../Protocols/Router.html">Router</a></code> will stay in limbo state waiting for the interceptor to finish its action.</p>
+Otherwise, the <code><a href="../Protocols/Router.html">Router</a></code> will stay in a limbo state waiting for the interceptor to finish its action.</p>
 
           </section>
           <section class="section task-group-section">
@@ -405,15 +405,12 @@ Otherwise, the <code><a href="../Protocols/Router.html">Router</a></code> will s
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>If the <code>RoutingInterceptor</code> can tell the <code><a href="../Protocols/Router.html">Router</a></code> if it can be executed or not and does not need to be async</p>
-<li><p>it should overload this method.
-The <code><a href="../Protocols/Router.html">Router</a></code> will call it before the routing process and if <code>RoutingInterceptor</code> is not able to allow
-the routing process to start it can stop <code><a href="../Protocols/Router.html">Router</a></code>
-and the result of routing will be <code>.unhandled</code> without any changes in view controller stack.</p></li>
+                        <p>The <code><a href="../Protocols/Router.html">Router</a></code> will call this method before the navigation process. If <code>RoutingInterceptor</code> is not able to allow
+the navigation process to start it can stop <code><a href="../Protocols/Router.html">Router</a></code> by throwing an exception.</p>
 <div class="aside aside-throws">
     <p class="aside-title">Throws</p>
-    <p>The <code><a href="../Enums/RoutingError.html">RoutingError</a></code> if the <code>RoutingInterceptor</code> can not prepare itself or routing can not start
-with the <code><a href="../Protocols/RoutingInterceptor.html#/s:13RouteComposer18RoutingInterceptorP7ContextQa">Context</a></code> instance provided.</p>
+    The <code><a href="../Enums/RoutingError.html">RoutingError</a></code> if the <code>RoutingInterceptor</code> cannot prepare itself or if the navigation process cannot start
+with the <code><a href="../Protocols/RoutingInterceptor.html#/s:13RouteComposer18RoutingInterceptorP7ContextQa">Context</a></code> instance provided.
 
 </div>
 
@@ -443,7 +440,7 @@ with the <code><a href="../Protocols/RoutingInterceptor.html#/s:13RouteComposer1
                               </td>
                               <td>
                                 <div>
-                                  <p>The <code><a href="../Protocols/RoutingInterceptor.html#/s:13RouteComposer18RoutingInterceptorP7ContextQa">Context</a></code> instance if it was provided to the <code><a href="../Protocols/Router.html">Router</a></code>.</p>
+                                  <p>The <code><a href="../Protocols/RoutingInterceptor.html#/s:13RouteComposer18RoutingInterceptorP7ContextQa">Context</a></code> instance that is provided to the <code><a href="../Protocols/Router.html">Router</a></code>.</p>
                                 </div>
                               </td>
                             </tr>
@@ -469,8 +466,8 @@ with the <code><a href="../Protocols/RoutingInterceptor.html#/s:13RouteComposer1
                         <p>Method that will be called by <code><a href="../Protocols/Router.html">Router</a></code> to start interceptor.</p>
 <h3 id='nb' class='heading'>NB</h3>
 
-<p>For the <code><a href="../Protocols/Router.html">Router</a></code> to continue routing, the <code>completion</code> block of interceptor <strong>MUST</strong> to be called
-in any case by the implementation of this method.
+<p>For the <code><a href="../Protocols/Router.html">Router</a></code> to continue the navigation process, the <code>completion</code> block of interceptor <strong>MUST</strong> be called
+by the implementation of this method.
 Otherwise <code><a href="../Protocols/Router.html">Router</a></code> will stay in limbo waiting for <code>RoutingInterceptor</code> to finish its action.</p>
 
                       </div>
@@ -521,7 +518,7 @@ Otherwise <code><a href="../Protocols/Router.html">Router</a></code> will stay i
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-10-04)</p>
+          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-10-08)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

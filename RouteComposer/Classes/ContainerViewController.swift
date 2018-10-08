@@ -8,8 +8,8 @@
 import Foundation
 import UIKit
 
-/// All the container view controllers should extend this protocol so if the `Router` will ask them to make visible
-/// one of the view controllers that they contain
+/// All the container view controllers should extend this protocol. The `Router` will ask them to make
+/// one of the view controllers that they contain visible
 @objc public protocol ContainerViewController: RoutingInterceptable {
 // @objc is mandatory otherwise crashes in runtime everywhere where Self: UIViewController
 

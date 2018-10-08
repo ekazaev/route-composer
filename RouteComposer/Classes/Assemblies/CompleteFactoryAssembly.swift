@@ -5,7 +5,7 @@
 import Foundation
 import UIKit
 
-/// Builds a `Container` fulfilled with the child `UIViewController` factories.
+/// Builds a `Container` fulfilled with the children `UIViewController` factories.
 ///
 /// ```swift
 /// let rootFactory = CompleteFactoryAssembly(factory: TabBarFactory())
@@ -73,7 +73,7 @@ public final class CompleteFactoryAssembly<FC: Container> {
         return self
     }
 
-    /// Adds a `Factory` as a last view controller in the stack.
+    /// Adds a `Factory` as the last view controller in the stack.
     ///
     /// - Parameters:
     ///   - childFactory: The instance of `Factory`.
@@ -85,7 +85,7 @@ public final class CompleteFactoryAssembly<FC: Container> {
         return self
     }
 
-    /// Adds a `Container` as a last view controller in the stack.
+    /// Adds a `Container` as the last view controller in the stack.
     ///
     /// - Parameters:
     ///   - childFactory: The instance of `Container`.
@@ -98,7 +98,7 @@ public final class CompleteFactoryAssembly<FC: Container> {
         return self
     }
 
-    /// Assembles all the child factories provided and returns a `Container` instance.
+    /// Assembles all the children factories provided and returns a `Container` instance.
     ///
     /// - Returns: The `CompleteFactory` with child factories provided.
     public func assemble() -> CompleteFactory<FC> {

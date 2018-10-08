@@ -353,9 +353,9 @@
             <p>The <code>Container</code> protocol should be implemented by the instance that produces any types of the view controllers
 that can be considered as containers (eg: <code>UINavigationController</code>, <code>UITabBarController</code>, etc)</p>
 
-<p>The <code>Container</code> uses <code>perform(embedding:)</code> method of an <code><a href="../Protocols/ContainerAction.html">ContainerAction</a></code> and then populate a full stack of the view controllers
-that was built by the associated factories in one go.
-Example: <code><a href="../Protocols/Router.html">Router</a></code> requires to populate N-view controllers into <code>UINavigationController</code>&lsquo;s stack and it can do so.</p>
+<p>The <code><a href="../Protocols/Router.html">Router</a></code> uses <code>perform(embedding:)</code> method of a <code><a href="../Protocols/ContainerAction.html">ContainerAction</a></code> and then populates a full stack of the view controllers
+that were built by the associated factories in one go.
+Example: <code><a href="../Protocols/Router.html">Router</a></code> requires to populate N-view controllers into <code>UINavigationController</code>&lsquo;s stack.</p>
 
           </section>
           <section class="section task-group-section">
@@ -431,11 +431,11 @@ Example: <code><a href="../Protocols/Router.html">Router</a></code> requires to 
                         <p>Builds a <code>UIViewController</code> that will be integrated into the stack</p>
 
 <p>Parameters:</p>
-<li>context: A <code><a href="../Protocols/Container.html#/s:13RouteComposer9ContainerP7ContextQa">Context</a></code> instance if it was provided to the <code><a href="../Protocols/Router.html">Router</a></code>.</li>
+<li>context: A <code><a href="../Protocols/Container.html#/s:13RouteComposer9ContainerP7ContextQa">Context</a></code> instance that is provided to the <code><a href="../Protocols/Router.html">Router</a></code>.</li>
 <li>coordinator: A <code><a href="../Structs/ChildCoordinator.html">ChildCoordinator</a></code> instance.
 <div class="aside aside-throws">
     <p class="aside-title">Throws</p>
-    The <code><a href="../Enums/RoutingError.html">RoutingError</a></code> if build was not succeed.
+    The <code><a href="../Enums/RoutingError.html">RoutingError</a></code> if build did not succeed.
 
 </div></li>
 
@@ -450,7 +450,7 @@ Example: <code><a href="../Protocols/Router.html">Router</a></code> requires to 
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>The built <code>UIViewController</code> instance with children inside.</p>
+                        <p>The built <code>UIViewController</code> instance with the children view controller inside.</p>
                       </div>
                     </section>
                   </div>
@@ -475,7 +475,7 @@ Example: <code><a href="../Protocols/Router.html">Router</a></code> requires to 
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Replaces all the child view controllers in the <code>UINavigationController</code>&lsquo;s child stack</p>
+                        <p>Replaces all the child view controllers in the <code>UINavigationController</code>&lsquo;s children stack</p>
 
                       </div>
                       <div class="declaration">
@@ -505,7 +505,7 @@ Example: <code><a href="../Protocols/Router.html">Router</a></code> requires to 
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Replaces all the child view controllers in the <code>UINavigationController</code>&lsquo;s child stack</p>
+                        <p>Pushes a child view controller into the <code>UINavigationController</code>&lsquo;s children stack</p>
 
                       </div>
                       <div class="declaration">
@@ -535,7 +535,7 @@ Example: <code><a href="../Protocols/Router.html">Router</a></code> requires to 
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Replaces all the child view controllers in the <code>UINavigationController</code>&lsquo;s child stack</p>
+                        <p>Pushes a child view controller, replacing the existing, into the <code>UINavigationController</code>&lsquo;s children stack</p>
 
                       </div>
                       <div class="declaration">
@@ -569,7 +569,7 @@ Example: <code><a href="../Protocols/Router.html">Router</a></code> requires to 
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Presents a detail view controller in the <code>UISplitViewController</code></p>
+                        <p>Presents a view controller as a master in the <code>UISplitViewController</code></p>
 
                       </div>
                       <div class="declaration">
@@ -599,7 +599,7 @@ Example: <code><a href="../Protocols/Router.html">Router</a></code> requires to 
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Presents a detail view controller in the <code>UISplitViewController</code></p>
+                        <p>Presents a view controller as a detail in the <code>UISplitViewController</code></p>
 
                       </div>
                       <div class="declaration">
@@ -633,7 +633,14 @@ Example: <code><a href="../Protocols/Router.html">Router</a></code> requires to 
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Presents a detail view controller in the <code>UISplitViewController</code></p>
+                        <p>Adds a <code>UIViewController</code> to a <code>UITabBarController</code></p>
+
+<ul>
+<li>tabIndex: index of a tab.</li>
+<li>replacing: should be set to <code>true</code> if an existing view controller should be replaced.
+If condition has not been passed, a view controller
+will be added after the latest one.</li>
+</ul>
 
                       </div>
                       <div class="declaration">
@@ -663,11 +670,11 @@ Example: <code><a href="../Protocols/Router.html">Router</a></code> requires to 
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Integrates a <code>UIViewController</code> in to a <code>UITabBarController</code></p>
+                        <p>Adds a <code>UIViewController</code> to a <code>UITabBarController</code></p>
 
 <ul>
-<li>tabIndex: index of the tab after which one a view controller should be added.
-If has not been passed - a view controller
+<li>tabIndex: index of a tab.
+If condition has not been passed, a view controller
 will be added after the latest one.</li>
 </ul>
 
@@ -733,7 +740,7 @@ will be added after the latest one.</li>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Builds a <code>Container</code> container view controller. Use this function if you want to build your <code>Container</code> programmatically.</p>
+                        <p>Builds a <code>Container</code> view controller.</p>
 
                       </div>
                       <div class="declaration">
@@ -767,7 +774,7 @@ will be added after the latest one.</li>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Builds a <code>Container</code> container view controller. Use this function if you want to build your <code>Container</code> programmatically.</p>
+                        <p>Builds a <code>Container</code> view controller.</p>
 
                       </div>
                       <div class="declaration">
@@ -786,7 +793,7 @@ will be added after the latest one.</li>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-10-04)</p>
+          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-10-08)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

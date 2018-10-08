@@ -17,7 +17,7 @@ public struct ChildCoordinator<Context> {
     /// Builds child view controller stack with the context instance provided.
     ///
     /// - Parameters:
-    ///   - context: A `Context` instance if it was provided to the `Router`.
+    ///   - context: A `Context` instance that is provided to the `Router`.
     ///   - existingViewControllers: Current view controller stack of the container.
     /// - Returns: Built child view controller stack
     public func build(with context: Context, integrating existingViewControllers: [UIViewController] = []) throws -> [UIViewController] {

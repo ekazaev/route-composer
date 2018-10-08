@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-/// The `StepAssembly` transforms a `Finder` result as a `Factory` result. Useful
+/// The `StepAssembly` transforms a `Finder` result as a `Factory` result. It is useful
 /// when a `UIViewController` instance was built inside of the parent `Container`.
 public struct FinderFactory<F: Finder>: Factory {
 

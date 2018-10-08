@@ -4,18 +4,19 @@
 
 import Foundation
 
-/// Router implementing this protocol should support global tasks.
+/// The router implementing this protocol should support global tasks.
 public protocol InterceptableRouter where Self: Router {
 
-    /// Adds routing interceptor instance
+    /// Adds `RoutingInterceptor` instance
     ///
     /// - Parameter interceptor: The `RoutingInterceptor` instance to be executed by `Router` before routing to this step.
     @discardableResult
     mutating func add<R: RoutingInterceptor>(_ interceptor: R) -> Self where R.Context == Any?
 
-    /// Adds context task instance
+    /// Adds ContextTask instance
     ///
-    /// - Parameter contextTask: The `ContextTask` instance to be executed by a `Router` immediately after it will find or create UIViewController.
+    /// - Parameter contextTask: The `ContextTask` instance to be applied by a `Router` immediately after it will find
+    ///   or create `UIViewController`.
     @discardableResult
     mutating func add<CT: ContextTask>(_ contextTask: CT) -> Self where CT.Context == Any?
 

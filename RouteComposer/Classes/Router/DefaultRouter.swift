@@ -8,7 +8,7 @@ import UIKit
 /// Default `Router` implementation
 public struct DefaultRouter: Router, InterceptableRouter {
 
-    /// A `Logger` instance to be used by the `DefaultRouter`.
+    /// A `Logger` instance to be used by `DefaultRouter`.
     public let logger: Logger?
 
     private var interceptors: [AnyRoutingInterceptor] = []
@@ -47,69 +47,68 @@ public struct DefaultRouter: Router, InterceptableRouter {
                                                                     animated: Bool = true,
                                                                     completion: ((_: RoutingResult) -> Void)? = nil) throws {
         guard Thread.isMainThread else {
-            throw RoutingError.message("An attempt to call UI API not on the main thread.")
+            throw RoutingError.message("UI API called on a background thread.")
         }
 
-        // If currently visible view controller can not be dismissed then we can't route anywhere, because it will
-        // disappear as a result of routing.
+        // If the currently visible view controller cannot be dismissed then navigation process cannot occur,
+        // otherwise the view controller will disappear.
         if let topMostViewController = UIWindow.key?.topmostViewController as? RoutingInterceptable,
            !topMostViewController.canBeDismissed {
-            throw RoutingError.message("The topmost view controller can not be dismissed.")
+            throw RoutingError.message("The topmost view controller cannot be dismissed.")
         }
 
         let taskStack = try prepareTaskStack(with: context)
 
-        // Build stack of factories and find a view controller to start a presentation process from.
-        // Returns (rootViewController, factories, interceptor) tuple
+        // Builds stack of factories and finds a view controller to start a navigation process from.
+        // Returns (rootViewController, factories) tuple
         // where rootViewController is the origin of the chain of views to be built for a given destination.
         let navigationStack = try prepareFactoriesStack(to: step, with: context, taskStack: taskStack)
 
         let viewController = navigationStack.rootViewController,
                 factoriesStack = navigationStack.factories
 
-        // check if the view controllers, that are currently presented from the origin view controller for a
-        // given destination, can be dismissed.
+        // Checks if the view controllers that are currently presented from the origin view controller, can be dismissed.
         if let viewController = Array([[viewController], viewController.allPresentedViewControllers].joined()).nonDismissibleViewController {
             throw RoutingError.message("\(String(describing: viewController)) view controller can not be dismissed.")
         }
 
-        // Execute interceptors associated to the each view in the chain. All of interceptors must succeed to
-        // continue routing. This operation is async.
-        taskStack.runInterceptors { [weak viewController] result in
+        // Executes interceptors associated to each view in the chain. All the interceptors must succeed to
+        // continue navigation process. This operation is async.
+        taskStack.executeInterceptors { [weak viewController] result in
             func failGracefully(_ message: String) {
                 self.logger?.log(LoggerMessage.error(message))
                 completion?(.unhandled(RoutingError.message(message)))
             }
 
             if case let .failure(message) = result {
-                return failGracefully(message ?? "An interceptor has stopped routing process.")
+                return failGracefully(message ?? "An interceptor has stopped the routing process.")
             }
 
             guard Thread.isMainThread else {
-                return failGracefully("An attempt to call UI API not on the main thread.")
+                return failGracefully("UI API called on a background thread.")
             }
 
             guard let viewController = viewController else {
                 return failGracefully("A view controller that has been chosen as a starting point of the navigation process " +
-                        "was destroyed while router was waiting for the interceptors to finish.")
+                        "was destroyed while the router was waiting for the interceptors to finish.")
             }
 
-            // If we found a view controller to start from - lets close all the presented view controllers above to be able
-            // to build a new stack if needed. This operation is async.
-            // We already checked that they can be dismissed.
+            // Closes all the presented view controllers above the found view controller to be able
+            // to build a new stack if needed.
+            // This operation is async.
+            // It was already confirmed that they can be dismissed.
             self.dismissPresentedIfNeeded(from: viewController, animated: animated) {
-                // Now we can start building view controller's stack using factories.
+                // Builds view controller's stack using factories.
                 // This operation is async.
                 self.runViewControllerBuildStack(starting: viewController,
                         with: context,
                         using: factoriesStack,
                         animated: animated) { viewController, result in
-                    // Even if the result is unhandled - we still have to run all the tasks
                     self.makeVisibleInParentContainer(viewController, animated: animated)
                     do {
                         try taskStack.runPostTasks()
                         self.logger?.log(.info("Successfully finished the navigation process."))
-                        completion?(.handled)
+                        completion?(result)
                     } catch let error {
                         self.logger?.log(.info("Unsuccessfully finished the navigation process."))
                         completion?(.unhandled(error))
@@ -135,16 +134,16 @@ public struct DefaultRouter: Router, InterceptableRouter {
 
         var currentStep: RoutingStep? = finalStep
 
-        logger?.log(.info("Started to look for the view controller to start the navigation process from."))
+        logger?.log(.info("Started to search for the view controller to start the navigation process from."))
 
-        // Build stack until we have steps and the view controller to present from is not found
+        // Builds the factories stack until it finds the view controller to start the navigation process from
         repeat {
             if let performableStep = currentStep as? PerformableStep {
 
-                // Create class responsible to run the tasks for this particular step
+                // Creates a class responsible to run the tasks for this particular step
                 let viewControllerTaskRunner = try taskStack.taskRunnerFor(step: currentStep)
 
-                // Trying to find a view controller to start building the stack from
+                // Performs current step
                 switch try performableStep.perform(with: context) {
                 case .success(let viewController):
                     viewControllerToStart = viewController
@@ -152,27 +151,25 @@ public struct DefaultRouter: Router, InterceptableRouter {
                             "\(String(describing: viewController)) to start the navigation process from."))
                     try viewControllerTaskRunner.run(on: viewController)
                 case .continueRouting(let factory):
-                    // If view controller to start from is not found, but step has a `Factory` to build itself -
-                    // add factory to the stack
-                    logger?.log(.info("\(String(describing: performableStep)) not found a corresponding view " +
+                    // If the view controller to start from is not found, but the current step has a `Factory` to build it,
+                    // then add factory to the stack
+                    logger?.log(.info("\(String(describing: performableStep)) hasn't found a corresponding view " +
                             "controller in the stack, so router will continue to search."))
                     if var factory = factory {
-                        // If step contains post task, them lets create a `Factory` decorator that will
-                        // handle view controller and post task chain after view controller creation.
+                        // Wrap the `Factory` with the decorator that will
+                        // handle the view controller and post task chain after the view controller creation.
                         factory = FactoryDecorator(factory: factory,
                                 viewControllerTaskRunner: viewControllerTaskRunner)
 
-                        // If some `Factory` can not prepare itself (e.g. does not have enough data in context)
-                        // then view controllers stack
-                        // can not be built
+                        // Prepares the `Factory` for integration
+                        // If a `Factory` cannot prepare itself (e.g. does not have enough data in context)
+                        // then the view controllers stack can not be built
                         try factory.prepare(with: context)
 
-                        // If current factory creates a Container then it should know how to deal with
-                        // the factories that
-                        // should be in this container, based on an action attached to the factory.
-                        // For example navigationController factory should use factories to build navigation
-                        // controller stack.
+                        // Allows to the `Factory` to change the current factory stack if needed.
                         factories = try factory.scrapeChildren(from: factories)
+
+                        // Adds the `Factory` to the beginning of the stack as the router is reading the configuration backwards.
                         factories.insert(factory, at: 0)
                     }
                 }
@@ -186,17 +183,17 @@ public struct DefaultRouter: Router, InterceptableRouter {
             currentStep = previousStep
         } while currentStep != nil
 
-        //If we haven't found a View Controller to build the stack from - it means that we can't handle routing.
+        //Throws an exception if it hasn't found a view controller to start the stack from.
         guard let viewController = viewControllerToStart else {
-            throw RoutingError.message("Unable to start the navigation process as a view controller to start from is not found.")
+            throw RoutingError.message("Unable to start the navigation process as the view controller to start from was not found.")
         }
 
         return (rootViewController: viewController, factories: factories)
     }
 
-    // This function loops through the list of factories and build views in sequence.
-    // Because some actions can be asynchronous, like push, modal or presentations,
-    // it builds asynchronously
+    // Loops through the list of factories and builds their view controllers in sequence.
+    // Some actions can be asynchronous, like push, modal or presentations,
+    // so it performs them asynchronously
     private func runViewControllerBuildStack(starting rootViewController: UIViewController,
                                              with context: Any?,
                                              using factories: [AnyFactory],
@@ -210,11 +207,11 @@ public struct DefaultRouter: Router, InterceptableRouter {
                 return
             }
             let factory = factories.removeFirst()
-            // If the previous view controller created/found but it's view is not loaded or has no window that it
-            // belongs to, means that it was just cached by container view controller like in UITabBarController
-            // controller in a tab that was never activated before. So we have to make it active first.
-            // Example: TabBar contains navigation controller in the tab that was never opened and we are going
-            // to push in to it, UINavigationController in this case will not be able to update it content properly.
+            // If the previous view controller is created/found but it's view is not loaded or it has no window,
+            // it was cached by the container view controller like it would be in a `UITabBarController`s
+            // tab that was never activated. So the router will have to activate it first.
+            // Example: `UITabBarController` contains a navigation controller in the tab that was never opened and the router is going
+            // to push a view controller into. UINavigationController in this case will not be able to update its content properly.
             if !previousViewController.isViewLoaded || previousViewController.view.window == nil {
                 makeVisibleInParentContainer(previousViewController, animated: false)
             }
@@ -225,7 +222,7 @@ public struct DefaultRouter: Router, InterceptableRouter {
                         "\(String(describing: newViewController))."))
                 factory.action.perform(with: newViewController, on: previousViewController, animated: animated) { result in
                     if case let .failure(actionMessage) = result {
-                        let message = actionMessage ?? "\(String(describing: factory.action)) stopped " +
+                        let message = actionMessage ?? "\(String(describing: factory.action)) has stopped " +
                                 "the navigation process as it was not able to build a view controller in to a stack."
                         self.logger?.log(.error(message))
                         completion(newViewController, .unhandled(RoutingError.message(message)))
@@ -241,11 +238,11 @@ public struct DefaultRouter: Router, InterceptableRouter {
             }
         }
 
-        logger?.log(.info("Started to build the view controller's stack."))
+        logger?.log(.info(factories.isEmpty ? "No view controllers needed to be integrated into the stack." : "Started to build the view controllers stack."))
         buildViewController(from: rootViewController)
     }
 
-    // this function activates the origin view controller of viewController
+    // Activates the origin view controller of viewController
     private func makeVisibleInParentContainer(_ viewController: UIViewController, animated: Bool) {
         var iterationViewController = viewController
         while let parentViewController = iterationViewController.parent {
@@ -256,9 +253,11 @@ public struct DefaultRouter: Router, InterceptableRouter {
         }
     }
 
+    // Dismisses all the view controllers presented if there are any
     private func dismissPresentedIfNeeded(from viewController: UIViewController, animated: Bool, completion: @escaping (() -> Void)) {
         if viewController.presentedViewController != nil {
             viewController.dismiss(animated: animated) {
+                self.logger?.log(.info("Dismissed all the view controllers presented from \(String(describing: viewController))"))
                 completion()
             }
         } else {

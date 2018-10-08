@@ -9,9 +9,9 @@ import Foundation
 import UIKit
 
 /// The dummy struct used to represent the `Factory` that does not build anything.
-/// The only purpose it exists is to provide the type safety checks for the `StepAssembly`.
+/// Its only purpose is to provide the type safety checks for the `StepAssembly`.
 ///
-/// For example, the `UIViewController` of step was already loaded and integrated into a stack by a
+/// For example, the `UIViewController` of the step was already loaded and integrated into a stack by a
 /// storyboard in a previous step.
 public struct NilFactory<VC: UIViewController, C>: Factory, NilEntity {
 

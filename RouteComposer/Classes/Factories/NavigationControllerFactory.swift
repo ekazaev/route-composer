@@ -12,7 +12,7 @@ public struct NavigationControllerFactory: SimpleContainer {
 
     public typealias Context = Any?
 
-    /// `UINavigationControllerDelegate` delegate
+    /// `UINavigationControllerDelegate` reference
     public weak var delegate: UINavigationControllerDelegate?
 
     /// Constructor
