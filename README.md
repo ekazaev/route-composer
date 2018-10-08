@@ -30,6 +30,7 @@ and deep linking tasks in the iOS application.
 - [Advanced Configuration](#advanced-configuration)
 - [Contributing](#contributing)
 - [License](#license)
+- [Articles](#articles)
 - [Author](#author)
 
 ## Installation
@@ -396,6 +397,16 @@ RouteComposer is distributed under [the MIT license](https://github.com/saksdire
 RouteComposer is provided for your use, free-of-charge, on an as-is basis. We make no guarantees, promises or
 apologies. *Caveat developer.*
 
+## Articles
+
+English:
+
+  - [Composition of UIViewControllers and navigation between them](https://itnext.io/composition-of-uiviewcontrollers-and-navigation-between-them-and-not-only-15b825da5ac)
+  - [Going deeper into the RouteComposer configuration](https://itnext.io/going-deeper-into-the-routecomposer-configuration-3a54661bb16a)
+
+Russian:
+
+  - [Композиция UIViewController-ов и навигация между ними](https://habr.com/post/421097/)
 
 ## Author
 
