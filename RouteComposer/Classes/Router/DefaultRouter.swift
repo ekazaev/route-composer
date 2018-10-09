@@ -76,22 +76,20 @@ public struct DefaultRouter: Router, InterceptableRouter {
         // Executes interceptors associated to each view in the chain. All the interceptors must succeed to
         // continue navigation process. This operation is async.
         taskStack.executeInterceptors { [weak viewController] result in
-            func failGracefully(_ message: String) {
-                self.logger?.log(LoggerMessage.error(message))
-                completion?(.unhandled(RoutingError.generic(RoutingError.Context(debugDescription: message))))
-            }
-
-            if case let .failure(message) = result {
-                return failGracefully(message ?? "An interceptor has stopped the routing process.")
+            if case let .failure(error) = result {
+                completion?(.unhandled(error))
+                return
             }
 
             guard Thread.isMainThread else {
-                return failGracefully("UI API called on a background thread.")
+                completion?(.unhandled(RoutingError.generic(RoutingError.Context(debugDescription: "UI API called on a background thread."))))
+                return
             }
 
             guard let viewController = viewController else {
-                return failGracefully("A view controller that has been chosen as a starting point of the navigation process " +
-                        "was destroyed while the router was waiting for the interceptors to finish.")
+                completion?(.unhandled(RoutingError.generic(RoutingError.Context(debugDescription: "A view controller that has been chosen as a " +
+                        "starting point of the navigation process was destroyed while the router was waiting for the interceptors to finish."))))
+                return
             }
 
             // Closes all the presented view controllers above the found view controller to be able
@@ -222,11 +220,10 @@ public struct DefaultRouter: Router, InterceptableRouter {
                 logger?.log(.info("\(String(describing: factory)) built a " +
                         "\(String(describing: newViewController))."))
                 factory.action.perform(with: newViewController, on: previousViewController, animated: animated) { result in
-                    if case let .failure(actionMessage) = result {
-                        let message = actionMessage ?? "\(String(describing: factory.action)) has stopped " +
-                                "the navigation process as it was not able to build a view controller in to a stack."
-                        self.logger?.log(.error(message))
-                        completion(newViewController, .unhandled(RoutingError.generic(RoutingError.Context(debugDescription: message))))
+                    if case let .failure(error) = result {
+                        self.logger?.log(.error("\(String(describing: factory.action)) has stopped the navigation process " +
+                                "as it was not able to build a view controller in to a stack."))
+                        completion(newViewController, .unhandled(error))
                         return
                     }
                     self.logger?.log(.info("\(String(describing: factory.action)) has applied to " +

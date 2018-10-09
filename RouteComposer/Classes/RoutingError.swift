@@ -29,7 +29,7 @@ public enum RoutingError: Error {
     /// Type mismatch error
     case typeMismatch(Any.Type, RoutingError.Context)
 
-    /// The view controllers stack build failed
+    /// The view controllers stack integration failed
     case compositionFailed(RoutingError.Context)
 
     ///  Message describing error that happened

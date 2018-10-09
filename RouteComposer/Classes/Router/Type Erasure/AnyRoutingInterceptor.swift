@@ -33,7 +33,8 @@ struct RoutingInterceptorBox<R: RoutingInterceptor>: AnyRoutingInterceptor, Cust
 
     func execute(with context: Any?, completion: @escaping (InterceptorResult) -> Void) {
         guard let typedDestination = Any?.some(context as Any) as? R.Context else {
-            completion(.failure("\(String(describing: routingInterceptor.self)) does not accept \(String(describing: context.self)) as a context."))
+            completion(.failure(RoutingError.typeMismatch(R.Context.self, RoutingError.Context(debugDescription: "\(String(describing: routingInterceptor.self)) does " +
+                    "not accept \(String(describing: context.self)) as a context."))))
             return
         }
         routingInterceptor.execute(with: typedDestination, completion: completion)

@@ -17,6 +17,6 @@ public enum InterceptorResult {
     case success
 
     /// `InterceptorResult` finished its task with failure. The `Router` should stop navigation process.
-    case failure(String?)
+    case failure(Error)
 
 }

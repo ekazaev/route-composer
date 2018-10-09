@@ -53,7 +53,8 @@ extension UISplitViewController {
                             animated: Bool,
                             completion: @escaping (_: ActionResult) -> Void) {
             guard !splitViewController.viewControllers.isEmpty else {
-                completion(.failure("Master view controller is not set in  \(splitViewController) to present a detail view controller \(viewController)."))
+                completion(.failure(RoutingError.compositionFailed(RoutingError.Context(debugDescription: "Master view controller is not set in " +
+                        "\(splitViewController) to present a detail view controller \(viewController)."))))
                 return
             }
 
@@ -82,7 +83,8 @@ extension UISplitViewController {
                             animated: Bool,
                             completion: @escaping (_: ActionResult) -> Void) {
             guard !splitViewController.viewControllers.isEmpty else {
-                completion(.failure("Could not find UISplitViewController in \(splitViewController) to present master view controller \(viewController)."))
+                completion(.failure(RoutingError.compositionFailed(RoutingError.Context(debugDescription: "Could not find UISplitViewController in \(splitViewController) " +
+                        "to present master view controller \(viewController)."))))
                 return
             }
 

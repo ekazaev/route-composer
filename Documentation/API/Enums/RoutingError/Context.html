@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>LogLevel Enumeration Reference</title>
+    <title>Context Structure Reference</title>
     <link rel="stylesheet" type="text/css" href="../../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Enum/LogLevel" class="dashAnchor"></a>
-    <a title="LogLevel Enumeration Reference"></a>
+    <a name="//apple_ref/swift/Struct/Context" class="dashAnchor"></a>
+    <a title="Context Structure Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../../index.html">RouteComposer Docs</a> (100% documented)</p>
@@ -21,7 +21,7 @@
       <p id="breadcrumbs">
         <a href="../../index.html">RouteComposer Reference</a>
         <img id="carat" src="../../img/carat.png" />
-        LogLevel Enumeration Reference
+        Context Structure Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -346,20 +346,14 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>LogLevel</h1>
+            <h1>Context</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">LogLevel</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Context</span></code></pre>
 
                 </div>
               </div>
-            <p>Log level settings</p>
-
-<ul>
-<li>verbose: Log all the messages from a <code><a href="../../Protocols/Router.html">Router</a></code></li>
-<li>warnings: Log only warnings and errors</li>
-<li>errors: Log only errors</li>
-</ul>
+            <p>Error context holder</p>
 
           </section>
           <section class="section task-group-section">
@@ -368,9 +362,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer13DefaultLoggerV8LogLevelO7verboseyA2EmF"></a>
-                    <a name="//apple_ref/swift/Element/verbose" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer13DefaultLoggerV8LogLevelO7verboseyA2EmF">verbose</a>
+                    <a name="/s:13RouteComposer12RoutingErrorO7ContextV16debugDescriptionSSvp"></a>
+                    <a name="//apple_ref/swift/Property/debugDescription" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer12RoutingErrorO7ContextV16debugDescriptionSSvp">debugDescription</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -378,14 +372,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Log all the messages from <code><a href="../../Protocols/Router.html">Router</a></code></p>
+                        <p>Message describing error that happened</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">verbose</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">debugDescription</span><span class="p">:</span> <span class="kt">String</span></code></pre>
 
                         </div>
                       </div>
@@ -395,9 +389,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer13DefaultLoggerV8LogLevelO8warningsyA2EmF"></a>
-                    <a name="//apple_ref/swift/Element/warnings" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer13DefaultLoggerV8LogLevelO8warningsyA2EmF">warnings</a>
+                    <a name="/s:13RouteComposer12RoutingErrorO7ContextV010underlyingD0s0D0_pSgvp"></a>
+                    <a name="//apple_ref/swift/Property/underlyingError" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer12RoutingErrorO7ContextV010underlyingD0s0D0_pSgvp">underlyingError</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -405,14 +399,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Log only warnings and errors</p>
+                        <p>Underlying error if present</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">warnings</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">underlyingError</span><span class="p">:</span> <span class="kt">Error</span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -422,9 +416,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer13DefaultLoggerV8LogLevelO6errorsyA2EmF"></a>
-                    <a name="//apple_ref/swift/Element/errors" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer13DefaultLoggerV8LogLevelO6errorsyA2EmF">errors</a>
+                    <a name="/s:13RouteComposer12RoutingErrorO7ContextV16debugDescription010underlyingD0AESS_s0D0_pSgtcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(debugDescription:underlyingError:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer12RoutingErrorO7ContextV16debugDescription010underlyingD0AESS_s0D0_pSgtcfc">init(debugDescription:underlyingError:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -432,14 +426,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Log only errors</p>
+                        <p>Constructor</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">errors</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">debugDescription</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">underlyingError</span><span class="p">:</span> <span class="kt">Error</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>

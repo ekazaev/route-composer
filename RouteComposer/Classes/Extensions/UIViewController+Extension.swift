@@ -141,7 +141,8 @@ extension UIViewController {
                             animated: Bool,
                             completion: @escaping (_: ActionResult) -> Void) {
             guard existingController.presentedViewController == nil else {
-                completion(.failure("\(existingController) is already presenting a view controller."))
+                completion(.failure(RoutingError.compositionFailed(RoutingError.Context(debugDescription: "\(existingController) is " +
+                        "already presenting a view controller."))))
                 return
             }
             if let presentationStyle = presentationStyle {
@@ -182,7 +183,7 @@ extension UIViewController {
                             animated: Bool,
                             completion: @escaping(_: ActionResult) -> Void) {
             guard let window = UIWindow.key else {
-                completion(.failure("Key window hasn't found."))
+                completion(.failure(RoutingError.compositionFailed(RoutingError.Context(debugDescription: "Key window hasn't found."))))
                 return
             }
 

@@ -120,7 +120,7 @@ class MultiplexerTest: XCTestCase {
 
             func execute(with context: Any?, completion: @escaping (InterceptorResult) -> Void) {
                 guard count == 1 else {
-                    completion(.failure("Count should be 1"))
+                    completion(.failure(RoutingError.generic(RoutingError.Context(debugDescription: "Count should be 1"))))
                     return
                 }
                 completion(.success)

@@ -195,7 +195,7 @@ class RouterTests: XCTestCase {
                          on existingController: TestModalPresentableController,
                          animated: Bool,
                          completion: @escaping (ActionResult) -> Void) {
-                completion(.failure("Some error occurred"))
+                completion(.failure(RoutingError.generic(RoutingError.Context(debugDescription: "Some error occurred"))))
             }
 
         }

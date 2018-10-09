@@ -56,7 +56,7 @@ public struct InlineInterceptor<C>: RoutingInterceptor {
         } else if let asyncCompletion = asyncCompletion {
             asyncCompletion(context, completion)
         } else {
-            completion(.failure("No completion block provided."))
+            completion(.failure(RoutingError.generic(RoutingError.Context(debugDescription: "No completion block provided."))))
         }
     }
 

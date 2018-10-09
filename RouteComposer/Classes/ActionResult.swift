@@ -18,6 +18,6 @@ public enum ActionResult {
     case continueRouting
 
     /** The `Action` was not able to build a view controller into the stack. Navigation should not continue */
-    case failure(String?)
+    case failure(Error)
 
 }
