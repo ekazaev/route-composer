@@ -22,7 +22,8 @@ public struct TabBarControllerFactory: SimpleContainer {
 
     public func build(with context: Context, integrating viewControllers: [UIViewController]) throws -> ViewController {
         guard !viewControllers.isEmpty else {
-            throw RoutingError.message("Unable to build UITabBarController due to 0 amount of the children view controllers")
+            throw RoutingError.compositionFailed(RoutingError.Context(debugDescription: "Unable to build UITabBarController due to 0 amount " +
+                    "of the children view controllers"))
         }
         let tabBarController = UITabBarController()
         if let delegate = delegate {

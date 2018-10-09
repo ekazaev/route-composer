@@ -28,7 +28,7 @@ enum StepResult {
     /// .continueRouting in case view controller is nil.
     init(_ viewController: UIViewController?) throws {
         guard let viewController = viewController else {
-            throw RoutingError.message("A resulting view controller is not found.")
+            throw RoutingError.generic(RoutingError.Context(debugDescription: "A resulting view controller is not found."))
         }
 
         self = .success(viewController)

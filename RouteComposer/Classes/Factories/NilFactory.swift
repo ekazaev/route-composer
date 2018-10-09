@@ -24,7 +24,7 @@ public struct NilFactory<VC: UIViewController, C>: Factory, NilEntity {
     }
 
     public func build(with context: Context) throws -> ViewController {
-        throw RoutingError.message("This factory should never reach the router.")
+        throw RoutingError.compositionFailed(RoutingError.Context(debugDescription: "This factory should never reach the router."))
     }
 
 }

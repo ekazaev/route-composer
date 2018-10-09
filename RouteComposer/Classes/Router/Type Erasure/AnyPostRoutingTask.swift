@@ -26,12 +26,12 @@ struct PostRoutingTaskBox<P: PostRoutingTask>: AnyPostRoutingTask, CustomStringC
                  with context: Any?,
                  routingStack: [UIViewController]) throws {
         guard let typedViewController = viewController as? P.ViewController else {
-            throw RoutingError.message("\(String(describing: postRoutingTask.self)) does not support" +
-                    " \(String(describing: viewController.self)).")
+            throw RoutingError.typeMismatch(P.ViewController.self, RoutingError.Context(debugDescription: "\(String(describing: postRoutingTask.self)) does not support" +
+                    " \(String(describing: viewController.self))."))
         }
         guard let typedDestination = Any?.some(context as Any) as? P.Context else {
-            throw RoutingError.message("\(String(describing: postRoutingTask.self)) does not accept" +
-                    "  \(String(describing: context.self)) as a context.")
+            throw RoutingError.typeMismatch(P.Context.self, RoutingError.Context(debugDescription: "\(String(describing: postRoutingTask.self)) does not accept" +
+                    "  \(String(describing: context.self)) as a context."))
         }
         postRoutingTask.execute(on: typedViewController, with: typedDestination, routingStack: routingStack)
     }

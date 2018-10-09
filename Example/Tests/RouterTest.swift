@@ -68,7 +68,7 @@ class RouterTests: XCTestCase {
     struct TestViewControllerBrokenFactory: Factory {
 
         func build(with context: Any?) throws -> TestViewController {
-            throw RoutingError.message("Some error occurred")
+            throw RoutingError.generic(RoutingError.Context(debugDescription: "Some error occurred"))
         }
 
     }

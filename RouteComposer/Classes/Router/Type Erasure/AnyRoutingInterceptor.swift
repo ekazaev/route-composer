@@ -24,7 +24,8 @@ struct RoutingInterceptorBox<R: RoutingInterceptor>: AnyRoutingInterceptor, Cust
 
     mutating func prepare(with context: Any?) throws {
         guard let typedDestination = Any?.some(context as Any) as? R.Context else {
-            throw RoutingError.message("\(String(describing: routingInterceptor.self)) does not accept \(String(describing: context.self)) as a context.")
+            throw RoutingError.typeMismatch(R.Context.self, RoutingError.Context(debugDescription: "\(String(describing: routingInterceptor.self)) does " +
+                    "not accept \(String(describing: context.self)) as a context."))
         }
 
         try self.routingInterceptor.prepare(with: typedDestination)

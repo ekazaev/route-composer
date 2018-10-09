@@ -47,14 +47,14 @@ public struct DefaultRouter: Router, InterceptableRouter {
                                                                     animated: Bool = true,
                                                                     completion: ((_: RoutingResult) -> Void)? = nil) throws {
         guard Thread.isMainThread else {
-            throw RoutingError.message("UI API called on a background thread.")
+            throw RoutingError.generic(RoutingError.Context(debugDescription: "UI API called on a background thread."))
         }
 
         // If the currently visible view controller cannot be dismissed then navigation process cannot occur,
         // otherwise the view controller will disappear.
         if let topMostViewController = UIWindow.key?.topmostViewController as? RoutingInterceptable,
            !topMostViewController.canBeDismissed {
-            throw RoutingError.message("The topmost view controller cannot be dismissed.")
+            throw RoutingError.generic(RoutingError.Context(debugDescription: "The topmost view controller cannot be dismissed."))
         }
 
         let taskStack = try prepareTaskStack(with: context)
@@ -69,7 +69,8 @@ public struct DefaultRouter: Router, InterceptableRouter {
 
         // Checks if the view controllers that are currently presented from the origin view controller, can be dismissed.
         if let viewController = Array([[viewController], viewController.allPresentedViewControllers].joined()).nonDismissibleViewController {
-            throw RoutingError.message("\(String(describing: viewController)) view controller can not be dismissed.")
+            throw RoutingError.generic(RoutingError.Context(debugDescription: "\(String(describing: viewController)) view controller cannot " +
+                    "be dismissed."))
         }
 
         // Executes interceptors associated to each view in the chain. All the interceptors must succeed to
@@ -77,7 +78,7 @@ public struct DefaultRouter: Router, InterceptableRouter {
         taskStack.executeInterceptors { [weak viewController] result in
             func failGracefully(_ message: String) {
                 self.logger?.log(LoggerMessage.error(message))
-                completion?(.unhandled(RoutingError.message(message)))
+                completion?(.unhandled(RoutingError.generic(RoutingError.Context(debugDescription: message))))
             }
 
             if case let .failure(message) = result {
@@ -185,7 +186,7 @@ public struct DefaultRouter: Router, InterceptableRouter {
 
         //Throws an exception if it hasn't found a view controller to start the stack from.
         guard let viewController = viewControllerToStart else {
-            throw RoutingError.message("Unable to start the navigation process as the view controller to start from was not found.")
+            throw RoutingError.generic(RoutingError.Context(debugDescription: "Unable to start the navigation process as the view controller to start from was not found."))
         }
 
         return (rootViewController: viewController, factories: factories)
@@ -225,7 +226,7 @@ public struct DefaultRouter: Router, InterceptableRouter {
                         let message = actionMessage ?? "\(String(describing: factory.action)) has stopped " +
                                 "the navigation process as it was not able to build a view controller in to a stack."
                         self.logger?.log(.error(message))
-                        completion(newViewController, .unhandled(RoutingError.message(message)))
+                        completion(newViewController, .unhandled(RoutingError.generic(RoutingError.Context(debugDescription: message))))
                         return
                     }
                     self.logger?.log(.info("\(String(describing: factory.action)) has applied to " +

@@ -40,19 +40,19 @@ public struct StoryboardFactory<VC: UIViewController, C>: Factory {
         if let viewControllerID = viewControllerID {
             let instantiatedViewController = storyboard.instantiateViewController(withIdentifier: viewControllerID)
             guard let viewController = instantiatedViewController as? VC else {
-                throw RoutingError.message("Unable to instantiate UIViewController with " +
-                        " \(viewControllerID) identifier in \(storyboardName) storyboard")
+                throw RoutingError.compositionFailed(RoutingError.Context(debugDescription: "Unable to instantiate UIViewController with " +
+                        " \(viewControllerID) identifier in \(storyboardName) storyboard"))
             }
             return viewController
         } else {
             guard let abstractViewController = storyboard.instantiateInitialViewController() else {
-                throw RoutingError.message("Unable to instantiate initial UIViewController " +
-                        "in \(storyboardName) storyboard")
+                throw RoutingError.compositionFailed(RoutingError.Context(debugDescription: "Unable to instantiate initial UIViewController " +
+                        "in \(storyboardName) storyboard"))
             }
             guard let viewController = abstractViewController as? ViewController else {
-                throw RoutingError.message("Unable to instantiate the initial UIViewController in \(storyboardName) " +
+                throw RoutingError.compositionFailed(RoutingError.Context(debugDescription: "Unable to instantiate the initial UIViewController in \(storyboardName) " +
                         "storyboard as \(String(describing: type(of: ViewController.self))), " +
-                        "got \(String(describing: abstractViewController)) instead.")
+                        "got \(String(describing: abstractViewController)) instead."))
             }
 
             return viewController

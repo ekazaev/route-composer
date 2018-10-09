@@ -19,7 +19,7 @@ class ImageDetailsFactory: Factory {
     func build(with context: String) throws -> ImageDetailsViewController {
         guard let viewController = UIStoryboard(name: "Images", bundle: Bundle.main)
                 .instantiateViewController(withIdentifier: "ImageDetailsViewController") as? ViewController else {
-            throw RoutingError.message("Could not load ImagesViewController from storyboard.")
+            throw RoutingError.compositionFailed(RoutingError.Context(debugDescription: "Could not load ImagesViewController from storyboard."))
         }
         viewController.delegate = delegate
         viewController.imageID = context

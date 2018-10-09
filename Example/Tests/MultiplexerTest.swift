@@ -36,7 +36,7 @@ class MultiplexerTest: XCTestCase {
     func testRoutingPrepareInterceptorThrow() {
         let interceptors = [
             RoutingInterceptorBox(InlineInterceptor(prepare: { (_: Any?) throws in
-                throw RoutingError.message("Should be handled")
+                throw RoutingError.generic(RoutingError.Context(debugDescription: "Should be handled"))
             }, { (_: Any?) in
 
             }))
@@ -49,7 +49,7 @@ class MultiplexerTest: XCTestCase {
     func testRoutingWrongContextTypeInterceptorThrow() {
         let interceptors = [
             RoutingInterceptorBox(InlineInterceptor(prepare: { (_: Int) throws in
-                throw RoutingError.message("Should be handled")
+                throw RoutingError.generic(RoutingError.Context(debugDescription: "Should be handled"))
             }, { (_: Int) in
 
             }))
