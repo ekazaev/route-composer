@@ -34,8 +34,8 @@ extension ExampleScreenConfiguration {
 
     var homeScreen: DestinationStep<UITabBarController, Any?> {
         return StepAssembly(
-                // Because both factory and finder are Generic, You have to provide to at least one instance
-                // what type of view controller and context to expect. You do not need to do so if you are using at
+                // As both factory and finder are generic, You have to provide with at least one instance
+                // the type of the view controller and the context to be used. You do not need to do so if you are using at
                 // least one custom factory of finder that have set typealias for ViewController and Context.
                 finder: ClassFinder<UITabBarController, Any?>(),
                 factory: StoryboardFactory(storyboardName: "TabBar"))

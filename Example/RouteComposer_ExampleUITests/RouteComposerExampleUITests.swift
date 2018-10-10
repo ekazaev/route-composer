@@ -141,6 +141,7 @@ class RouteComposerExampleUITests: XCTestCase {
         XCTAssertTrue(app.otherElements["secondLevelViewController"].exists)
 
         app.buttons["Go to Home"].tap()
+        sleep(3)
         XCTAssertTrue(app.otherElements["circleViewController"].exists)
 
         app.buttons["Go to product 00"].tap()

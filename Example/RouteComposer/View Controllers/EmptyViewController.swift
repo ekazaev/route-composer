@@ -9,7 +9,7 @@ import RouteComposer
 
 class EmptyViewController: UIViewController, ExampleAnalyticsSupport {
 
-    let screenType = ExampleScreen.empty
+    let screenType = ExampleScreenTypes.empty
 
     override func viewDidLoad() {
         super.viewDidLoad()

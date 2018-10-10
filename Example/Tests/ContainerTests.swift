@@ -24,7 +24,7 @@ class ContainerTests: XCTestCase {
             XCTAssert(false, "Unable to build UINavigationController")
             return
         }
-        XCTAssertEqual(containerViewController.childViewControllers.count, 2)
+        XCTAssertEqual(containerViewController.children.count, 2)
     }
 
     func testNavigationControllerContainer2() {
@@ -36,7 +36,7 @@ class ContainerTests: XCTestCase {
             XCTAssert(false, "Unable to build UINavigationController")
             return
         }
-        XCTAssertEqual(containerViewController.childViewControllers.count, 1)
+        XCTAssertEqual(containerViewController.children.count, 1)
     }
 
     func testTabBarControllerContainer() {
@@ -48,7 +48,7 @@ class ContainerTests: XCTestCase {
             XCTAssert(false, "Unable to build UITabBarController")
             return
         }
-        XCTAssertEqual(containerViewController.childViewControllers.count, 2)
+        XCTAssertEqual(containerViewController.children.count, 2)
     }
 
     func testSplitControllerContainer() {
@@ -60,7 +60,7 @@ class ContainerTests: XCTestCase {
             XCTAssert(false, "Unable to build UISplitViewController")
             return
         }
-        XCTAssertEqual(containerViewController.childViewControllers.count, 2)
+        XCTAssertEqual(containerViewController.children.count, 2)
     }
 
     func testCompleteFactory() {

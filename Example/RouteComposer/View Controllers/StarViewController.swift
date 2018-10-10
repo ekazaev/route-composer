@@ -9,7 +9,7 @@ import RouteComposer
 
 class StarViewController: UIViewController, ExampleAnalyticsSupport {
 
-    let screenType = ExampleScreen.star
+    let screenType = ExampleScreenTypes.star
 
     override func viewDidLoad() {
         super.viewDidLoad()

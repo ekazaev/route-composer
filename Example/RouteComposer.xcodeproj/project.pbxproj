@@ -19,7 +19,7 @@
 		8479E2F5200E7A4400320380 /* Split.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8479E2F1200E7A4400320380 /* Split.storyboard */; };
 		8479E2F6200E7A4400320380 /* PromptScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8479E2F3200E7A4400320380 /* PromptScreen.storyboard */; };
 		8479E30D200E7A7F00320380 /* ExampleConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8479E2F8200E7A7F00320380 /* ExampleConfiguration.swift */; };
-		8479E30E200E7A7F00320380 /* ExampleScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8479E2F9200E7A7F00320380 /* ExampleScreen.swift */; };
+		8479E30E200E7A7F00320380 /* ExampleScreenTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8479E2F9200E7A7F00320380 /* ExampleScreenTypes.swift */; };
 		8479E30F200E7A7F00320380 /* ExampleDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8479E2FA200E7A7F00320380 /* ExampleDestination.swift */; };
 		8479E310200E7A7F00320380 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8479E2FC200E7A7F00320380 /* UIColor.swift */; };
 		8479E311200E7A7F00320380 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8479E2FD200E7A7F00320380 /* ViewController.swift */; };
@@ -50,6 +50,7 @@
 		9AFBC3DB63861EB552A2CD2E /* ExampleUniversalLinksManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCE44839BD245D30ED19C /* ExampleUniversalLinksManager.swift */; };
 		9AFBC3F6DD37FCCE8C0BC6DD /* ImagesWithoutLibraryConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC13BCBBF072FA2CE5A48 /* ImagesWithoutLibraryConfiguration.swift */; };
 		9AFBC466CF915E3C0F137958 /* ProductConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC7FF9D27A17E57FE525C /* ProductConfiguration.swift */; };
+		9AFBC4742A536B8AD7957A1A /* Router+Destination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC1E6621E9E1BB4ABDF1C /* Router+Destination.swift */; };
 		9AFBC53392657942D199D598 /* WishListConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCE40215C25D16CA6A1FB /* WishListConfiguration.swift */; };
 		9AFBC543C6164B0233A6BB88 /* ImageFetcherImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC5D711BEDBDB3B0C6CA9 /* ImageFetcherImpl.swift */; };
 		9AFBC562353240A11591683E /* ExtensionsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCBC0A933CA5103371E7F /* ExtensionsTest.swift */; };
@@ -176,7 +177,7 @@
 		8479E2F2200E7A4400320380 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Split.storyboard; sourceTree = "<group>"; };
 		8479E2F4200E7A4400320380 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/PromptScreen.storyboard; sourceTree = "<group>"; };
 		8479E2F8200E7A7F00320380 /* ExampleConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleConfiguration.swift; sourceTree = "<group>"; };
-		8479E2F9200E7A7F00320380 /* ExampleScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleScreen.swift; sourceTree = "<group>"; };
+		8479E2F9200E7A7F00320380 /* ExampleScreenTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleScreenTypes.swift; sourceTree = "<group>"; };
 		8479E2FA200E7A7F00320380 /* ExampleDestination.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleDestination.swift; sourceTree = "<group>"; };
 		8479E2FC200E7A7F00320380 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		8479E2FD200E7A7F00320380 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -202,6 +203,7 @@
 		9AFBC0A54CF3E1EFC4DB61C0 /* StarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarViewController.swift; sourceTree = "<group>"; };
 		9AFBC13BCBBF072FA2CE5A48 /* ImagesWithoutLibraryConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesWithoutLibraryConfiguration.swift; sourceTree = "<group>"; };
 		9AFBC16A7AED73A4F3C744F7 /* WishListContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WishListContext.swift; sourceTree = "<group>"; };
+		9AFBC1E6621E9E1BB4ABDF1C /* Router+Destination.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Router+Destination.swift"; sourceTree = "<group>"; };
 		9AFBC26291C67F9F347F8654 /* ImageDetailsFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDetailsFactory.swift; sourceTree = "<group>"; };
 		9AFBC33219CADD6450A6392E /* ImageDetailsFetcherImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDetailsFetcherImpl.swift; sourceTree = "<group>"; };
 		9AFBC3D8D3AA2C53D5C17952 /* EmptyContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyContainer.swift; sourceTree = "<group>"; };
@@ -383,7 +385,7 @@
 			isa = PBXGroup;
 			children = (
 				8479E2F8200E7A7F00320380 /* ExampleConfiguration.swift */,
-				8479E2F9200E7A7F00320380 /* ExampleScreen.swift */,
+				8479E2F9200E7A7F00320380 /* ExampleScreenTypes.swift */,
 				8479E2FA200E7A7F00320380 /* ExampleDestination.swift */,
 				9AFBCEB028743A7AC55E1CA6 /* ExampleAnalyticsSupport.swift */,
 				9AFBC560E37AAA325DCE89ED /* ExampleGenericContextTask.swift */,
@@ -400,6 +402,7 @@
 			children = (
 				8479E2FC200E7A7F00320380 /* UIColor.swift */,
 				8479E2FD200E7A7F00320380 /* ViewController.swift */,
+				9AFBC1E6621E9E1BB4ABDF1C /* Router+Destination.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -630,16 +633,17 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1000;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1000;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
 					84B6D46420163CC700B70FF7 = {
 						CreatedOnToolsVersion = 9.2;
 						DevelopmentTeam = PG4V34R8QT;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
@@ -803,7 +807,7 @@
 				8479E31A200E7A7F00320380 /* SquareViewController.swift in Sources */,
 				8479E319200E7A7F00320380 /* RoutingRuleSupportViewController.swift in Sources */,
 				8479E31C200E7A7F00320380 /* ColorURLTranslator.swift in Sources */,
-				8479E30E200E7A7F00320380 /* ExampleScreen.swift in Sources */,
+				8479E30E200E7A7F00320380 /* ExampleScreenTypes.swift in Sources */,
 				8479E316200E7A7F00320380 /* EmptyViewController.swift in Sources */,
 				8479E31D200E7A7F00320380 /* ExampleURLTranslator.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
@@ -843,6 +847,7 @@
 				9AFBC8F0C0631FA73ACA2199 /* BlurredBackgroundPresentationController.swift in Sources */,
 				9AFBCE57C0F8CE5FA2C71E57 /* BlurredBackgroundTransitionAnimator.swift in Sources */,
 				9AFBCE52F3DE5262483447AD /* AnalyticsRouterDecorator.swift in Sources */,
+				9AFBC4742A536B8AD7957A1A /* Router+Destination.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -997,6 +1002,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -1044,6 +1050,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.2;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -1060,8 +1067,7 @@
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.1;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1078,8 +1084,7 @@
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.1;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -1101,7 +1106,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.1;
+				SWIFT_VERSION = 4.2;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RouteComposer_Example.app/RouteComposer_Example";
 			};
 			name = Debug;
@@ -1119,7 +1124,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.1;
+				SWIFT_VERSION = 4.2;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RouteComposer_Example.app/RouteComposer_Example";
 			};
 			name = Release;
@@ -1143,7 +1148,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "ie.giltgroupe.RouteComposer-ExampleUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_VERSION = 4.1;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = RouteComposer_Example;
 			};
@@ -1166,7 +1171,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ie.giltgroupe.RouteComposer-ExampleUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.1;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = RouteComposer_Example;
 			};

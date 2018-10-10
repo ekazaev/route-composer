@@ -11,7 +11,7 @@ import RouteComposer
 
 class CircleViewController: UIViewController, ExampleAnalyticsSupport {
 
-    let screenType = ExampleScreen.circle
+    let screenType = ExampleScreenTypes.circle
 
     override func viewDidLoad() {
         super.viewDidLoad()

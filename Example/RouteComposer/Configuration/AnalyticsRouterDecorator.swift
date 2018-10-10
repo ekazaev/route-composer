@@ -19,7 +19,7 @@ struct AnalyticsRouterDecorator: Router {
                                                              with context: Context,
                                                              animated: Bool = true,
                                                              completion: ((RoutingResult) -> Void)? = nil) throws {
-        var sourceScreen: ExampleScreen?
+        var sourceScreen: ExampleScreenTypes?
 
         if let topmostViewController = UIWindow.key?.topmostViewController,
            let viewController = UIViewController.findViewController(in: topmostViewController,

@@ -33,18 +33,18 @@ public class CustomContainerController: UIViewController {
             return
         }
 
-        let currentViewController = childViewControllers.first
-        currentViewController?.willMove(toParentViewController: nil)
-        currentViewController?.removeFromParentViewController()
+        let currentViewController = children.first
+        currentViewController?.willMove(toParent: nil)
+        currentViewController?.removeFromParent()
         currentViewController?.view.removeFromSuperview()
-        currentViewController?.didMove(toParentViewController: nil)
+        currentViewController?.didMove(toParent: nil)
 
         guard let rootViewController = rootViewController else {
             return
         }
 
-        rootViewController.willMove(toParentViewController: self)
-        self.addChildViewController(rootViewController)
+        rootViewController.willMove(toParent: self)
+        self.addChild(rootViewController)
         containerView.addSubview(rootViewController.view)
         rootViewController.view.translatesAutoresizingMaskIntoConstraints = false
         rootViewController.view.topAnchor.constraint(equalTo: containerView.topAnchor).isActive = true
@@ -52,7 +52,7 @@ public class CustomContainerController: UIViewController {
         rootViewController.view.leftAnchor.constraint(equalTo: containerView.leftAnchor).isActive = true
         rootViewController.view.rightAnchor.constraint(equalTo: containerView.rightAnchor).isActive = true
 
-        rootViewController.didMove(toParentViewController: self)
+        rootViewController.didMove(toParent: self)
     }
 
 }

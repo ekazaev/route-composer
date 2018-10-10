@@ -29,7 +29,7 @@ class ProductContextTask: ContextTask {
 
 class ProductViewController: UIViewController, ExampleAnalyticsSupport {
 
-    let screenType = ExampleScreen.product
+    let screenType = ExampleScreenTypes.product
 
     typealias Model = String
 

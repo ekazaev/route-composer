@@ -8,6 +8,6 @@ import UIKit
 
 protocol ExampleAnalyticsSupport {
 
-    var screenType: ExampleScreen { get }
+    var screenType: ExampleScreenTypes { get }
 
 }

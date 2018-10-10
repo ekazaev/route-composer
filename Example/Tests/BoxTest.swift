@@ -101,10 +101,10 @@ class BoxTests: XCTestCase {
                 return
             }
         }
-        XCTAssertEqual(navigationController.childViewControllers.count, 1)
+        XCTAssertEqual(navigationController.children.count, 1)
 
         actionBox.perform(embedding: UIViewController(), in: &navigationController.viewControllers)
-        XCTAssertEqual(navigationController.childViewControllers.count, 2)
+        XCTAssertEqual(navigationController.children.count, 2)
     }
 
 }
