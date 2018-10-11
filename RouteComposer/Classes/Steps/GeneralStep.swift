@@ -18,7 +18,10 @@ public struct GeneralStep {
             }
 
             func perform(with context: Any?) throws -> StepResult {
-                return try StepResult(UIWindow.key?.rootViewController)
+                guard let viewController = UIWindow.key?.rootViewController else {
+                    throw RoutingError.generic(RoutingError.Context(debugDescription: "Root view controller was not found."))
+                }
+                return .success(viewController)
             }
 
         }
@@ -36,8 +39,10 @@ public struct GeneralStep {
             }
 
             func perform(with context: Any?) throws -> StepResult {
-                let window = UIWindow.key
-                return try StepResult(window?.topmostViewController)
+                guard let viewController = UIWindow.key?.topmostViewController else {
+                    throw RoutingError.generic(RoutingError.Context(debugDescription: "Current view controller was not found."))
+                }
+                return .success(viewController)
             }
 
         }

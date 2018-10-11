@@ -183,7 +183,7 @@ extension UIViewController {
                             animated: Bool,
                             completion: @escaping(_: ActionResult) -> Void) {
             guard let window = UIWindow.key else {
-                completion(.failure(RoutingError.compositionFailed(RoutingError.Context(debugDescription: "Key window hasn't found."))))
+                completion(.failure(RoutingError.compositionFailed(RoutingError.Context(debugDescription: "Key window was not found."))))
                 return
             }
 

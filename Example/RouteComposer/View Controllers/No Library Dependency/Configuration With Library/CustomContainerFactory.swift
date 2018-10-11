@@ -23,7 +23,7 @@ class CustomContainerFactory: SimpleContainer {
     func build(with context: Context, integrating viewControllers: [UIViewController]) throws -> ViewController {
         guard let containerController = UIStoryboard(name: "Images", bundle: Bundle.main)
                 .instantiateViewController(withIdentifier: "CustomContainerController") as? ViewController else {
-            throw RoutingError.compositionFailed(RoutingError.Context(debugDescription: "Could not load CustomContainerController from storyboard."))
+            throw RoutingError.compositionFailed(RoutingError.Context(debugDescription: "Could not load CustomContainerController from the storyboard."))
         }
         containerController.delegate = delegate
 

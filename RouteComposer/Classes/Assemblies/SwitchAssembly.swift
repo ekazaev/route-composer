@@ -34,7 +34,7 @@ public final class SwitchAssembly<ViewController: UIViewController, Context> {
 
         func perform(with context: Any?) throws -> StepResult {
             guard let viewController = finder?.findViewController(with: context) else {
-                throw RoutingError.generic(RoutingError.Context(debugDescription: "A view controller is not found."))
+                throw RoutingError.generic(RoutingError.Context(debugDescription: "A view controller was not found."))
             }
             return .success(viewController)
         }

@@ -82,12 +82,6 @@ extension UISplitViewController {
                             on splitViewController: ViewController,
                             animated: Bool,
                             completion: @escaping (_: ActionResult) -> Void) {
-            guard !splitViewController.viewControllers.isEmpty else {
-                completion(.failure(RoutingError.compositionFailed(RoutingError.Context(debugDescription: "Could not find UISplitViewController in \(splitViewController) " +
-                        "to present master view controller \(viewController)."))))
-                return
-            }
-
             splitViewController.viewControllers[0] = viewController
             completion(.continueRouting)
         }

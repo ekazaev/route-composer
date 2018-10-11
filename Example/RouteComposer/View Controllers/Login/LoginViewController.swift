@@ -28,7 +28,7 @@ class LoginInterceptor<C>: RoutingInterceptor {
             try DefaultRouter(logger: DefaultLogger(.verbose)).navigate(to: destination) { routingResult in
                 guard routingResult.isSuccessful,
                       let viewController = ClassFinder<LoginViewController, Any?>().findViewController(with: nil) else {
-                    completion(.failure(RoutingError.generic(RoutingError.Context(debugDescription: "LoginViewController not found."))))
+                    completion(.failure(RoutingError.generic(RoutingError.Context(debugDescription: "LoginViewController was not found."))))
                     return
                 }
 

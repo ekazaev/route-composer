@@ -21,17 +21,4 @@ enum StepResult {
     /// `Factory` instance to be used by `Router` to build a `UIViewController` for this step.
     case continueRouting(AnyFactory?)
 
-    /// Default init of StepResult enum
-    ///
-    /// - Parameters:
-    ///   - view controller. If view controller is non nil, step result will be .found,
-    /// .continueRouting in case view controller is nil.
-    init(_ viewController: UIViewController?) throws {
-        guard let viewController = viewController else {
-            throw RoutingError.generic(RoutingError.Context(debugDescription: "A resulting view controller is not found."))
-        }
-
-        self = .success(viewController)
-    }
-
 }

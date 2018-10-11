@@ -50,8 +50,8 @@ public struct StoryboardFactory<VC: UIViewController, C>: Factory {
                         "in \(storyboardName) storyboard"))
             }
             guard let viewController = abstractViewController as? ViewController else {
-                throw RoutingError.compositionFailed(RoutingError.Context(debugDescription: "Unable to instantiate the initial UIViewController in \(storyboardName) " +
-                        "storyboard as \(String(describing: type(of: ViewController.self))), " +
+                throw RoutingError.typeMismatch(type(of: abstractViewController), RoutingError.Context(debugDescription: "Unable to instantiate the initial " +
+                        "UIViewController in \(storyboardName) storyboard as \(String(describing: type(of: ViewController.self))), " +
                         "got \(String(describing: abstractViewController)) instead."))
             }
 
