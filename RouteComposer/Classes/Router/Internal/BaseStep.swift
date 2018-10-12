@@ -32,16 +32,14 @@ struct BaseStep<Box: AnyFactoryBox>: RoutingStepWithContext,
                     action: AnyAction,
                     interceptor: AnyRoutingInterceptor?,
                     contextTask: AnyContextTask?,
-                    postTask: AnyPostRoutingTask?,
-                    previousStep: RoutingStep? = nil)
+                    postTask: AnyPostRoutingTask?)
             where F.ViewController == Box.FactoryType.ViewController, F.Context == Box.FactoryType.Context {
-        self.previousStep = previousStep
         self.finder = FinderBox.box(for: finder)
         if let anyFactory = Box.box(for: factory, action: action) {
             self.factory = anyFactory
         } else if let finder = finder, !(finder is NilEntity) {
             self.factory = FactoryBox.box(for: FinderFactory(finder: finder),
-                    action: ActionBox(UIViewController.NilAction()))
+                    action: ActionBox(ViewControllerActions.NilAction()))
         } else {
             self.factory = nil
         }
@@ -50,8 +48,8 @@ struct BaseStep<Box: AnyFactoryBox>: RoutingStepWithContext,
         self.postTask = postTask
         }
 
-    func perform(with context: Any?) -> StepResult {
-        guard let viewController = finder?.findViewController(with: context) else {
+    func perform(with context: Any?) throws -> StepResult {
+        guard let viewController = try finder?.findViewController(with: context) else {
             return .continueRouting(factory)
         }
         return .success(viewController)

@@ -53,7 +53,7 @@ It will work if the user is not in some `UIViewController` that is presented mod
     let screen = StepAssembly(
             finder: ClassFinder<AccountViewController, Any?>(),
             factory: XibFactory())
-            .using(NavigationControllerFactory.pushToNavigation())
+            .using(UINavigationController.pushToNavigation())
             .from(SingleStep(ClassFinder<UINavigationController, Any?>(), NilFactory()))
             .from(GeneralStep.current())
             .assemble()
@@ -68,7 +68,7 @@ It will work if the user is not in some `UIViewController` that is presented mod
     let screen = StepAssembly(
             finder: ClassFinder<AccountViewController, Any?>(),
             factory: XibFactory())
-            .using(NavigationControllerFactory.PushToNavigation())
+            .using(UINavigationController.PushToNavigation())
             .from(SwitchAssembly<UINavigationController, Any?>()
                     .addCase(when: ClassFinder<UINavigationController, Any?>(options: .visible)) // If found - just push in to it
                     .assemble(default: { // else
@@ -87,8 +87,8 @@ It will work if the user is not in some `UIViewController` that is presented mod
     let tabScreen = SingleContainerStep(
             finder: ClassFinder(),
             factory: CompleteFactoryAssembly(factory: TabBarControllerFactory())
-                    .with(XibFactory<HomeViewController, Any?>(), using: TabBarControllerFactory.AddTab())
-                    .with(XibFactory<AccountViewController, Any?>(), using: TabBarControllerFactory.AddTab())
+                    .with(XibFactory<HomeViewController, Any?>(), using: UITabBarController.addTab())
+                    .with(XibFactory<AccountViewController, Any?>(), using: UINavigationController.addTab())
                     .assemble())
             .using(GeneralAction.replaceRoot())
             .from(GeneralStep.root())
@@ -119,23 +119,10 @@ It will work if the user is not in some `UIViewController` that is presented mod
 #### I want to modally present `ForgotPasswordViewController`, but after `LoginViewController` in the `UINavigationController`:
 
 ```swift
-    let screen = StepAssembly(
-            finder: ClassFinder<ForgotPasswordViewController, Any?>(),
-            factory: XibFactory())
-            .using(NavigationControllerFactory.pushToNavigation())
-            .within(SingleStep(finder: ClassFinder<LoginViewController, Any?>, factory: XibFactory()))
-            .using(NavigationControllerFactory.pushToNavigation())
-            .from(SingleContainerStep(finder: ClassFinder(), factory: NavigationControllerFactory()))
-            .using(GeneralAction.presentModally())
-            .from(GeneralStep.current())
-            .assemble()
-```
-Or:
-```swift
     let loginScreen = StepAssembly(
             finder: ClassFinder<LoginViewController, Any?>(),
             factory: XibFactory())
-            .using(NavigationControllerFactory.pushToNavigation())
+            .using(UINavigationController.pushToNavigation())
             .from(NavigationControllerStep())
             .using(GeneralAction.presentModally())
             .from(GeneralStep.current())
@@ -144,16 +131,16 @@ Or:
     let forgotPasswordScreen = StepAssembly(
             finder: ClassFinder<ForgotPasswordViewController, Any?>(),
             factory: XibFactory())
-            .using(NavigationControllerFactory.pushToNavigation())
-            .within(loginScreen)
+            .using(UINavigationController.pushToNavigation())
+            .from(loginScreen.expectingContainer())
             .assemble()
 
 ```
 *With the configuration above you will be able to navigate to both screens using the `Router`*
 
-#### Why do we use `within` here?
+#### Why do we use `expectingContainer` here?
 
-Because `pushToNavigation` action requires `UINavigationController` to be previous `UIViewController` in the chain. `within` method allows us to escape this check. Developer guaranties that it will be there by the time `pushToNavigation` will start to perform.
+Because `pushToNavigation` action requires `UINavigationController` to be previous `UIViewController` in the chain. `expectingContainer` method allows us to escape this check. You guarantee that it will be there by the time `pushToNavigation` will start to perform.
 
 #### What will happen if, in the configuration above, I will replace the `GeneralStep.current` with the `GeneralStep.root`?
 
@@ -179,7 +166,7 @@ There are two ways of implementing this configuration:
     let screen = StepAssembly(
         finder: ModalBagFinder(),
         factory: XibFactory())
-        .using(NavigationControllerFactory.pushToNavigation())
+        .using(UINavigationController.pushToNavigation())
         .from(NavigationControllerStep())
         .using(GeneralAction.presentModally())
         .from(GeneralStep.current())

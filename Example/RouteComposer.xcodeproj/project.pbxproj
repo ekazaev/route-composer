@@ -49,6 +49,7 @@
 		9AFBC38029B845FC7C563685 /* RouterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC407D5F832DE452DD35B /* RouterTest.swift */; };
 		9AFBC3DB63861EB552A2CD2E /* ExampleUniversalLinksManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCE44839BD245D30ED19C /* ExampleUniversalLinksManager.swift */; };
 		9AFBC3F6DD37FCCE8C0BC6DD /* ImagesWithoutLibraryConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC13BCBBF072FA2CE5A48 /* ImagesWithoutLibraryConfiguration.swift */; };
+		9AFBC4085F7930B60F185C0D /* ExampleNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCAC0F2D822F36959DB6E /* ExampleNavigationController.swift */; };
 		9AFBC466CF915E3C0F137958 /* ProductConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC7FF9D27A17E57FE525C /* ProductConfiguration.swift */; };
 		9AFBC4742A536B8AD7957A1A /* Router+Destination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC1E6621E9E1BB4ABDF1C /* Router+Destination.swift */; };
 		9AFBC53392657942D199D598 /* WishListConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCE40215C25D16CA6A1FB /* WishListConfiguration.swift */; };
@@ -67,6 +68,7 @@
 		9AFBC8F26FFD83B86954182F /* ImagesWithoutLibraryHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCC67E59C161432003A86 /* ImagesWithoutLibraryHandler.swift */; };
 		9AFBC915C2F461136B5C1B0D /* SecondModalLevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCAF24C0CD80E0D369EEA /* SecondModalLevelViewController.swift */; };
 		9AFBC91DEB7FCDC286B6AD17 /* WishListContextTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCFA7F490C53D17BA5B40 /* WishListContextTask.swift */; };
+		9AFBC98004695AD801CF23AD /* DestinationStepTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCBADEEB6A4EDCAD336BF /* DestinationStepTests.swift */; };
 		9AFBC9C5E791E8BD9A19B381 /* ImageDetailsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC26291C67F9F347F8654 /* ImageDetailsFactory.swift */; };
 		9AFBC9EF2EE81E6DB9472570 /* FactoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCCA9057265F79C745920 /* FactoryTest.swift */; };
 		9AFBCA728DF14FD91F5AC570 /* StarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC0A54CF3E1EFC4DB61C0 /* StarViewController.swift */; };
@@ -227,9 +229,11 @@
 		9AFBC94CF26AB11E181F7B00 /* CitiesConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CitiesConfiguration.swift; sourceTree = "<group>"; };
 		9AFBC94F95A324DC60F78C23 /* BlurredBackgroundTransitionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlurredBackgroundTransitionController.swift; sourceTree = "<group>"; };
 		9AFBCA4291DB4A6D2A47E5F2 /* CitiesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CitiesTableViewController.swift; sourceTree = "<group>"; };
+		9AFBCAC0F2D822F36959DB6E /* ExampleNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleNavigationController.swift; sourceTree = "<group>"; };
 		9AFBCADE90377FF3B7BBF7F2 /* BoxTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxTest.swift; sourceTree = "<group>"; };
 		9AFBCAF24C0CD80E0D369EEA /* SecondModalLevelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondModalLevelViewController.swift; sourceTree = "<group>"; };
 		9AFBCAF8448C6C949CE3A212 /* BlurredBackgroundPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlurredBackgroundPresentationController.swift; sourceTree = "<group>"; };
+		9AFBCBADEEB6A4EDCAD336BF /* DestinationStepTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DestinationStepTests.swift; sourceTree = "<group>"; };
 		9AFBCBC0A933CA5103371E7F /* ExtensionsTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionsTest.swift; sourceTree = "<group>"; };
 		9AFBCC67E59C161432003A86 /* ImagesWithoutLibraryHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesWithoutLibraryHandler.swift; sourceTree = "<group>"; };
 		9AFBCCA9057265F79C745920 /* FactoryTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FactoryTest.swift; sourceTree = "<group>"; };
@@ -351,6 +355,7 @@
 				9AFBCCA9057265F79C745920 /* FactoryTest.swift */,
 				9AFBCBC0A933CA5103371E7F /* ExtensionsTest.swift */,
 				9AFBC3EAF6F5AD7A7A7D9390 /* AssemblyTest.swift */,
+				9AFBCBADEEB6A4EDCAD336BF /* DestinationStepTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -423,6 +428,7 @@
 				9AFBC0A54CF3E1EFC4DB61C0 /* StarViewController.swift */,
 				9AFBC7DC358700F46FADF768 /* WishList */,
 				9AFBC408291B6E99D0367D07 /* No Library Dependency */,
+				9AFBCAC0F2D822F36959DB6E /* ExampleNavigationController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -848,6 +854,7 @@
 				9AFBCE57C0F8CE5FA2C71E57 /* BlurredBackgroundTransitionAnimator.swift in Sources */,
 				9AFBCE52F3DE5262483447AD /* AnalyticsRouterDecorator.swift in Sources */,
 				9AFBC4742A536B8AD7957A1A /* Router+Destination.swift in Sources */,
+				9AFBC4085F7930B60F185C0D /* ExampleNavigationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -865,6 +872,7 @@
 				9AFBC9EF2EE81E6DB9472570 /* FactoryTest.swift in Sources */,
 				9AFBC562353240A11591683E /* ExtensionsTest.swift in Sources */,
 				9AFBC2C9FD5634435876E1FB /* AssemblyTest.swift in Sources */,
+				9AFBC98004695AD801CF23AD /* DestinationStepTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

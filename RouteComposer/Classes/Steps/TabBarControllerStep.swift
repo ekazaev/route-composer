@@ -6,7 +6,7 @@
 import UIKit
 
 /// Default tab bar container step
-public final class TabBarControllerStep: SingleContainerStep<NilFinder<UITabBarController, Any?>, TabBarControllerFactory> {
+public final class TabBarControllerStep<Context>: SingleContainerStep<NilFinder<UITabBarController, Context>, TabBarControllerFactory<Context>> {
 
     /// Constructor
     public init() {

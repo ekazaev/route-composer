@@ -59,7 +59,7 @@ struct ContainerActionBox<A: ContainerAction>: AnyAction, CustomStringConvertibl
     let embeddable: Bool = true
 
     func perform(with viewController: UIViewController, on existingController: UIViewController, animated: Bool, completion: @escaping (ActionResult) -> Void) {
-        guard let containerController = findContainer(startingFrom: existingController) else {
+        guard let containerController: A.ViewController = UIViewController.findContainer(of: existingController) else {
             completion(.failure(RoutingError.typeMismatch(A.ViewController.self, RoutingError.Context(debugDescription: "Container of " +
                     "\(String(describing: A.ViewController.self)) type cannot be found to perform \(action)"))))
             return
@@ -70,17 +70,6 @@ struct ContainerActionBox<A: ContainerAction>: AnyAction, CustomStringConvertibl
 
     func perform(embedding viewController: UIViewController, in childViewControllers: inout [UIViewController]) {
         action.perform(embedding: viewController, in: &childViewControllers)
-    }
-
-    private func findContainer(startingFrom viewController: UIViewController) -> A.ViewController? {
-        var currentViewController: UIViewController? = viewController
-        while currentViewController != nil {
-            if let containerViewController = currentViewController as? A.ViewController {
-                return containerViewController
-            }
-            currentViewController = currentViewController?.parent
-        }
-        return nil
     }
 
     public var description: String {

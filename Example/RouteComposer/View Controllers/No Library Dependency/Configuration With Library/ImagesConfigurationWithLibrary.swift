@@ -15,7 +15,7 @@ struct ImagesConfigurationWithLibrary {
     private static let imagesContainerStep = ContainerStepAssembly(
             finder: ClassFinder<CustomContainerController, Any?>(),
             factory: CustomContainerFactory(delegate: ImagesWithLibraryHandler.shared))
-            .using(NavigationControllerFactory.pushToNavigation())
+            .using(UINavigationController.pushToNavigation())
             .from(NavigationControllerStep())
             .using(GeneralAction.presentModally())
             .from(GeneralStep.current())
@@ -25,7 +25,7 @@ struct ImagesConfigurationWithLibrary {
         let imagesStep = StepAssembly(
                 finder: ClassFinder(),
                 factory: ImagesFactory(delegate: ImagesWithLibraryHandler.shared))
-                .using(CustomContainerFactory.ReplaceRoot())
+                .using(CustomContainerFactory<Any?>.ReplaceRoot())
                 .from(imagesContainerStep)
                 .assemble()
         return ExampleDestination(step: imagesStep, context: nil)
@@ -35,9 +35,10 @@ struct ImagesConfigurationWithLibrary {
         let imageDetailsStep = StepAssembly(
                 finder: ClassFinder(),
                 factory: ImageDetailsFactory(delegate: ImagesWithLibraryHandler.shared))
-                .using(CustomContainerFactory.ReplaceRoot())
-                .from(imagesContainerStep)
+                .using(CustomContainerFactory<String>.ReplaceRoot())
+                .from(imagesContainerStep.adoptingContext())
                 .assemble()
+
         return ExampleDestination(step: imageDetailsStep, context: imageID)
     }
 

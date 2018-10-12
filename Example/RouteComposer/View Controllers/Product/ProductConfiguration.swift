@@ -22,8 +22,8 @@ class ProductConfiguration {
                 print("After navigation to Produce view controller")
             }))
             .add(ProductContextTask())
-            .using(NavigationControllerFactory.pushToNavigation())
-            .from(SwitchAssembly<UINavigationController, Any?>()
+            .using(UINavigationController.pushToNavigation())
+            .from(SwitchAssembly<UINavigationController, ProductContext>()
                     .addCase { (context: ProductContext) in
                         // If this configuration is requested by a Universal Link (productURL != nil), then present modally.
                         // Try in Mobile Safari dll://productView?product=123
@@ -31,17 +31,17 @@ class ProductConfiguration {
                             return nil
                         }
 
-                        return ChainAssembly.from(NavigationControllerStep())
+                        return ChainAssembly.from(NavigationControllerStep<ProductContext>())
                                 .using(GeneralAction.presentModally())
                                 .from(GeneralStep.current())
                                 .assemble()
 
                     }
                     // If UINavigationController is visible on the screen - just push
-                    .addCase(when: ClassFinder<UINavigationController, Any?>(options: .currentVisibleOnly))
+                    .addCase(from: ClassFinder<UINavigationController, ProductContext>(options: .currentVisibleOnly))
                     .assemble(default: {
                         // Otherwise - present in the UINavigation controller that belongs to Circle tab
-                        return ConfigurationHolder.configuration.circleScreen.asContainer()
+                        return ConfigurationHolder.configuration.circleScreen.expectingContainer()
                     }))
             .assemble()
 

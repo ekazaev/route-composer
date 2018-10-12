@@ -24,7 +24,7 @@ protocol ExampleScreenConfiguration {
 
     var emptyScreen: DestinationStep<EmptyViewController, Any?> { get }
 
-    var secondModalScreen: DestinationStep<SecondModalLevelViewController, Any?> { get }
+    var secondModalScreen: DestinationStep<SecondModalLevelViewController, String> { get }
 
     var welcomeScreen: DestinationStep<PromptViewController, Any?> { get }
 
@@ -37,7 +37,7 @@ extension ExampleScreenConfiguration {
                 // As both factory and finder are generic, You have to provide with at least one instance
                 // the type of the view controller and the context to be used. You do not need to do so if you are using at
                 // least one custom factory of finder that have set typealias for ViewController and Context.
-                finder: ClassFinder<UITabBarController, Any?>(),
+                finder: HomeFinder(),
                 factory: StoryboardFactory(storyboardName: "TabBar"))
                 .using(GeneralAction.replaceRoot())
                 .from(GeneralStep.root())
@@ -46,7 +46,7 @@ extension ExampleScreenConfiguration {
 
     var circleScreen: DestinationStep<CircleViewController, Any?> {
         return StepAssembly(
-                finder: ClassFinder<CircleViewController, Any?>(options: .currentAllStack),
+                finder: ClassFinder<CircleViewController, Any?>(),
                 factory: NilFactory())
                 .add(ExampleGenericContextTask<CircleViewController, Any?>())
                 .from(homeScreen)
@@ -55,7 +55,7 @@ extension ExampleScreenConfiguration {
 
     var squareScreen: DestinationStep<SquareViewController, Any?> {
         return StepAssembly(
-                finder: ClassFinder<SquareViewController, Any?>(options: .currentAllStack),
+                finder: ClassFinder<SquareViewController, Any?>(),
                 factory: NilFactory())
                 .add(ExampleGenericContextTask<SquareViewController, Any?>())
                 .from(homeScreen)
@@ -67,8 +67,8 @@ extension ExampleScreenConfiguration {
                 finder: ColorViewControllerFinder(),
                 factory: ColorViewControllerFactory())
                 .add(ExampleGenericContextTask<ColorViewController, String>())
-                .using(NavigationControllerFactory.pushToNavigation())
-                .from(NavigationControllerStep())
+                .using(ExampleNavigationController.pushToNavigation())
+                .from(SingleContainerStep(finder: NilFinder(), factory: ExampleNavigationFactory<String>()))
                 .using(GeneralAction.presentModally())
                 .from(GeneralStep.current())
                 .assemble()
@@ -79,8 +79,10 @@ extension ExampleScreenConfiguration {
                 finder: ClassFinder<RoutingRuleSupportViewController, String>(options: .currentAllStack),
                 factory: StoryboardFactory(storyboardName: "TabBar", viewControllerID: "RoutingRuleSupportViewController"))
                 .add(ExampleGenericContextTask<RoutingRuleSupportViewController, String>())
-                .using(NavigationControllerFactory.pushToNavigation())
-                .within(colorScreen)
+                .using(UITabBarController.addTab())
+                .from(TabBarControllerStep())
+                .using(UINavigationController.pushToNavigation())
+                .from(colorScreen.expectingContainer())
                 .assemble()
     }
 
@@ -90,17 +92,17 @@ extension ExampleScreenConfiguration {
                 factory: StoryboardFactory(storyboardName: "TabBar", viewControllerID: "EmptyViewController"))
                 .add(LoginInterceptor<Any?>())
                 .add(ExampleGenericContextTask<EmptyViewController, Any?>())
-                .using(NavigationControllerFactory.pushToNavigation())
-                .within(circleScreen)
+                .using(UINavigationController.pushToNavigation())
+                .from(circleScreen.expectingContainer())
                 .assemble()
     }
 
-    var secondModalScreen: DestinationStep<SecondModalLevelViewController, Any?> {
+    var secondModalScreen: DestinationStep<SecondModalLevelViewController, String> {
         return StepAssembly(
-                finder: ClassFinder<SecondModalLevelViewController, Any?>(),
+                finder: ClassFinder<SecondModalLevelViewController, String>(),
                 factory: StoryboardFactory(storyboardName: "TabBar", viewControllerID: "SecondModalLevelViewController"))
-                .add(ExampleGenericContextTask<SecondModalLevelViewController, Any?>())
-                .using(NavigationControllerFactory.pushToNavigation())
+                .add(ExampleGenericContextTask<SecondModalLevelViewController, String>())
+                .using(UINavigationController.pushToNavigation())
                 .from(NavigationControllerStep())
                 .using(GeneralAction.presentModally(transitioningDelegate: transitionController))
                 .from(routingSupportScreen)
@@ -127,7 +129,7 @@ struct ExampleConfiguration: ExampleScreenConfiguration {
                 factory: XibFactory())
                 .add(ExampleGenericContextTask<StarViewController, Any?>())
                 .add(LoginInterceptor<Any?>())
-                .using(TabBarControllerFactory.addTab())
+                .using(UITabBarController.addTab())
                 .from(homeScreen)
                 .assemble()
     }
@@ -142,8 +144,8 @@ struct AlternativeExampleConfiguration: ExampleScreenConfiguration {
                 factory: XibFactory())
                 .add(ExampleGenericContextTask<StarViewController, Any?>())
                 .add(LoginInterceptor())
-                .using(NavigationControllerFactory.pushToNavigation())
-                .within(circleScreen)
+                .using(UINavigationController.pushToNavigation())
+                .from(circleScreen.expectingContainer())
                 .assemble()
     }
 
@@ -153,5 +155,17 @@ class ConfigurationHolder {
 
     // Declared as static to avoid dependency injection in the Example app. So this variable is available everywhere.
     static var configuration: ExampleScreenConfiguration = ExampleConfiguration()
+
+}
+
+// We may have 2 UITabBarControllers in the stack (see routingSupportScreen config). We can distinguish them only by their position.
+// We call `home` only the one that is the window's root controller
+private struct HomeFinder: StackIteratingFinder {
+
+    let options: SearchOptions = .currentAndDown
+
+    func isTarget(_ viewController: UITabBarController, with context: Any?) -> Bool {
+        return UIWindow.key?.rootViewController == viewController
+    }
 
 }

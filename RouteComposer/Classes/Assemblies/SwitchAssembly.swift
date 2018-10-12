@@ -33,14 +33,14 @@ public final class SwitchAssembly<ViewController: UIViewController, Context> {
         }
 
         func perform(with context: Any?) throws -> StepResult {
-            guard let viewController = finder?.findViewController(with: context) else {
+            guard let viewController = try finder?.findViewController(with: context) else {
                 throw RoutingError.generic(RoutingError.Context(debugDescription: "A view controller was not found."))
             }
             return .success(viewController)
         }
     }
 
-    private struct FinderResolver<ViewController: UIViewController, Context>: StepCaseResolver {
+    fileprivate struct FinderResolver<ViewController: UIViewController, Context>: StepCaseResolver {
 
         private let finder: AnyFinder?
 
@@ -52,11 +52,14 @@ public final class SwitchAssembly<ViewController: UIViewController, Context> {
         }
 
         func resolve<C>(with context: C) -> RoutingStep? {
-            return finder?.findViewController(with: context) != nil ? step : nil
+            guard let viewController = try? finder?.findViewController(with: context), viewController != nil else {
+                return nil
+            }
+            return step
         }
     }
 
-    private var resolvers: [StepCaseResolver] = []
+    fileprivate var resolvers: [StepCaseResolver] = []
 
     /// Constructor
     public init() {
@@ -78,7 +81,7 @@ public final class SwitchAssembly<ViewController: UIViewController, Context> {
     ///   - finder: The `Finder` instance searches for a `UIViewController` in the stack
     ///   - step: The `DestinationStep` is to perform if the `Finder` has been able to find a view controller in the stack. If not provided,
     ///   a `UIViewController` found by the `Finder` will be considered as a view controller to start the navigation process from
-    public func addCase<F: Finder>(when finder: F, do step: DestinationStep<ViewController, Context>) -> Self {
+    public func addCase<F: Finder>(when finder: F, from step: DestinationStep<ViewController, Context>) -> Self {
         resolvers.append(FinderResolver(finder: finder, step: step))
         return self
     }
@@ -88,7 +91,7 @@ public final class SwitchAssembly<ViewController: UIViewController, Context> {
     /// - Parameters:
     ///   - finder: The `Finder` instance is to find a `UIViewController` in the stack
     ///   a `UIViewController` found by the `Finder` will be considered as a view controller to start the navigation process from
-    public func addCase<F: Finder>(when finder: F) -> Self {
+    public func addCase<F: Finder>(from finder: F) -> Self where F.ViewController == ViewController, F.Context == Context {
         resolvers.append(FinderResolver<ViewController, Context>(finder: finder, step: nil))
         return self
     }
@@ -109,6 +112,21 @@ public final class SwitchAssembly<ViewController: UIViewController, Context> {
             return resolverBlock()
         }))
         return DestinationStep(SwitcherStep<Context>(resolvers: resolvers))
+    }
+
+}
+
+extension SwitchAssembly where ViewController: ContainerViewController {
+
+    /// Adds a case when a view controller exists - navigation will start from the resulting view controller.
+    /// This method allows to avoid view controller type check.
+    ///
+    /// - Parameters:
+    ///   - finder: The `Finder` instance is to find a `UIViewController` in the stack
+    ///   a `UIViewController` found by the `Finder` will be considered as a view controller to start the navigation process from
+    public func addCase<F: Finder>(expecting finder: F) -> Self where F.Context == Context {
+        resolvers.append(FinderResolver<ViewController, Context>(finder: finder, step: nil))
+        return self
     }
 
 }

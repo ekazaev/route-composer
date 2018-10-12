@@ -6,11 +6,11 @@ import Foundation
 import UIKit
 
 ///  The `Container` that creates a `UITabBarController` instance.
-public struct TabBarControllerFactory: SimpleContainer {
+public struct TabBarControllerFactory<C>: SimpleContainer {
 
     public typealias ViewController = UITabBarController
 
-    public typealias Context = Any?
+    public typealias Context = C
 
     /// `UITabBarControllerDelegate` reference
     public weak var delegate: UITabBarControllerDelegate?

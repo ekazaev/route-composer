@@ -6,12 +6,11 @@ import Foundation
 import UIKit
 
 /// Abstract builder class that helps to create a `DestinationStep` instance with correct settings.
-public class GenericStepAssembly<F: Finder, FC: AbstractFactory>: InterceptableStepAssembling
-        where F.ViewController == FC.ViewController, F.Context == FC.Context {
+public class GenericStepAssembly<VC: UIViewController, C>: InterceptableStepAssembling {
 
-    public typealias ViewController = F.ViewController
+    public typealias ViewController = VC
 
-    public typealias Context = F.Context
+    public typealias Context = C
 
     var taskCollector: TaskCollector = TaskCollector()
 
