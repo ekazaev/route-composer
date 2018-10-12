@@ -8,11 +8,11 @@ import UIKit
 import RouteComposer
 import ContainerViewController
 
-class CustomContainerFactory: SimpleContainer {
+class CustomContainerFactory<C>: SimpleContainer {
 
     typealias ViewController = CustomContainerController
 
-    typealias Context = Any?
+    typealias Context = C
 
     weak var delegate: CustomViewControllerDelegate?
 

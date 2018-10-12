@@ -6,11 +6,11 @@
 import UIKit
 
 /// The `Container` that creates a `UINavigationController` instance.
-public struct NavigationControllerFactory: SimpleContainer {
+public struct NavigationControllerFactory<C>: SimpleContainer {
 
     public typealias ViewController = UINavigationController
 
-    public typealias Context = Any?
+    public typealias Context = C
 
     /// `UINavigationControllerDelegate` reference
     public weak var delegate: UINavigationControllerDelegate?

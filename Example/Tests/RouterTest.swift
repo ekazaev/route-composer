@@ -107,7 +107,7 @@ class RouterTests: XCTestCase {
                 .add(InlinePostTask({ (_: TestViewController, _: Any?, viewControllers: [UIViewController]) in
                     XCTAssertEqual(viewControllers.count, 3)
                 }))
-                .using(NavigationControllerFactory.pushToNavigation())
+                .using(UINavigationController.pushToNavigation())
                 .from(NavigationControllerStep())
                 .using(FakePresentModallyAction())
                 .from(DestinationStep<TestModalPresentableController, Any?>(TestCurrentViewControllerStep(currentViewController: currentViewController)))
@@ -143,7 +143,7 @@ class RouterTests: XCTestCase {
             }
         }
         let screenConfig = StepAssembly(finder: ClassFinder(), factory: TestViewControllerFactory())
-                .using(NavigationControllerFactory.pushToNavigation())
+                .using(UINavigationController.pushToNavigation())
                 .from(SingleContainerStep(finder: FakeClassFinder(currentViewController: presentNavigationController), factory: NavigationControllerFactory()))
                 .using(FakePresentModallyAction())
                 .from(DestinationStep<TestModalPresentableController, Any?>(TestCurrentViewControllerStep(currentViewController: currentViewController)))
@@ -169,8 +169,8 @@ class RouterTests: XCTestCase {
         currentViewController.fakePresentedViewController = presentNavigationController
 
         let screenConfig = StepAssembly(finder: FakeClassFinder(currentViewController: testViewController), factory: TestViewControllerBrokenFactory())
-                .using(NavigationControllerFactory.pushToNavigation())
-                .from(SingleContainerStep(finder: NilFinder(), factory: NavigationControllerFactory()))
+                .using(UINavigationController.pushToNavigation())
+                .from(SingleContainerStep(finder: NilFinder(), factory: NavigationControllerFactory<Any?>()))
                 .using(FakePresentModallyAction())
                 .from(DestinationStep<TestModalPresentableController, Any?>(TestCurrentViewControllerStep(currentViewController: currentViewController)))
                 .assemble()
@@ -233,7 +233,7 @@ class RouterTests: XCTestCase {
         let currentViewController = TestModalPresentableController()
         let testViewController = TestRoutingControllingViewController()
         let screenConfig = StepAssembly(finder: FakeClassFinder(currentViewController: testViewController), factory: NilFactory<TestRoutingControllingViewController, Any?>())
-                .using(NavigationControllerFactory.pushToNavigation())
+                .using(UINavigationController.pushToNavigation())
                 .from(NavigationControllerStep())
                 .using(FakePresentModallyAction())
                 .from(DestinationStep<TestModalPresentableController, Any?>(TestCurrentViewControllerStep(currentViewController: currentViewController)))
@@ -267,7 +267,7 @@ class RouterTests: XCTestCase {
                     contextPostTaskRun += 1
                     XCTAssertEqual(viewControllers.count, 3)
                 }))
-                .using(NavigationControllerFactory.pushToNavigation())
+                .using(UINavigationController.pushToNavigation())
                 .from(NavigationControllerStep())
                 .using(FakePresentModallyAction())
                 .from(DestinationStep<TestModalPresentableController, Any?>(TestCurrentViewControllerStep(currentViewController: currentViewController)))

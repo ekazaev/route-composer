@@ -7,11 +7,11 @@ import Foundation
 import UIKit
 
 ///  The `Container` that creates a `UISplitController` instance.
-public struct SplitControllerFactory: SimpleContainer {
+public struct SplitControllerFactory<C>: SimpleContainer {
 
     public typealias ViewController = UISplitViewController
 
-    public typealias Context = Any?
+    public typealias Context = C
 
     /// `UISplitViewControllerDelegate` reference
     private(set) weak var delegate: UISplitViewControllerDelegate?

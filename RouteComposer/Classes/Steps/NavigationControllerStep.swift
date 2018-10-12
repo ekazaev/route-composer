@@ -6,7 +6,7 @@
 import UIKit
 
 /// Default navigation container step
-public class NavigationControllerStep: SingleContainerStep<NilFinder<UINavigationController, Any?>, NavigationControllerFactory> {
+public class NavigationControllerStep<Context>: SingleContainerStep<NilFinder<UINavigationController, Context>, NavigationControllerFactory<Context>> {
 
     /// Constructor
     public init() {

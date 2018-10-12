@@ -13,7 +13,7 @@ struct WishListConfiguration {
             factory: StoryboardFactory(storyboardName: "TabBar", viewControllerID: "WishListViewController"))
             .add(LoginInterceptor())
             .add(WishListContextTask())
-            .using(NavigationControllerFactory.pushToNavigation())
+            .using(UINavigationController.pushToNavigation())
             .from(NavigationControllerStep())
             .using(GeneralAction.presentModally(presentationStyle: .formSheet))
             .from(GeneralStep.current())

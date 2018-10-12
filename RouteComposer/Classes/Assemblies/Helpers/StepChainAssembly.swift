@@ -18,14 +18,14 @@ public struct StepChainAssembly<ViewController: UIViewController, Context> {
     ///
     /// - Parameter previousStep: The instance of `StepWithActionAssemblable`
     public func from<F: Finder, FC: AbstractFactory>(_ step: StepWithActionAssembly<F, FC>) -> ActionConnectingAssembly<F, FC, ViewController, Context>
-            where F.ViewController == FC.ViewController, F.Context == FC.Context {
+            where F.ViewController == FC.ViewController, F.Context == FC.Context, F.Context == Context {
         return ActionConnectingAssembly<F, FC, ViewController, Context>(stepToFullFill: step, previousSteps: previousSteps)
     }
 
     /// Adds a `DestinationStep` to the chain. This step will be the last one in the chain.
     ///
     /// - Parameter previousStep: The instance of `DestinationStep`
-    public func from<AVC: UIViewController, AC>(_ step: DestinationStep<AVC, AC>) -> LastStepInChainAssembly<ViewController, Context> {
+    public func from<VC: UIViewController>(_ step: DestinationStep<VC, Context>) -> LastStepInChainAssembly<ViewController, Context> {
         var previousSteps = self.previousSteps
         previousSteps.append(step)
         return LastStepInChainAssembly<ViewController, Context>(previousSteps: previousSteps)
@@ -34,9 +34,10 @@ public struct StepChainAssembly<ViewController: UIViewController, Context> {
     /// Connects previously provided `DestinationStep` with a `ViewController` produced by an empty factory.
     ///
     /// - Parameter step: `StepWithActionAssembly` instance to be used.
-    public func from<AF: Finder, AFC: AbstractFactory & NilEntity>(_ step: StepWithActionAssembly<AF, AFC>) -> StepChainAssembly<ViewController, Context> {
+    public func from<F: Finder, FC: AbstractFactory & NilEntity>(_ step: StepWithActionAssembly<F, FC>) -> StepChainAssembly<ViewController, Context>
+            where F.ViewController == FC.ViewController, F.Context == FC.Context, F.Context == Context {
         var previousSteps = self.previousSteps
-        previousSteps.append(step.routingStep(with: UIViewController.NilAction()))
+        previousSteps.append(step.routingStep(with: ViewControllerActions.NilAction()))
         return StepChainAssembly(previousSteps: previousSteps)
     }
 
@@ -44,7 +45,7 @@ public struct StepChainAssembly<ViewController: UIViewController, Context> {
     ///
     /// - Parameter step: An instance of `DestinationStep` to start to build a current step from.
     /// - Returns: An instance of `DestinationStep` with all the provided settings inside.
-    public func assemble<AVC: UIViewController, AC>(from step: DestinationStep<AVC, AC>) -> DestinationStep<ViewController, Context> {
+    public func assemble<VC: UIViewController>(from step: DestinationStep<VC, Context>) -> DestinationStep<ViewController, Context> {
         var previousSteps = self.previousSteps
         previousSteps.append(step)
         return LastStepInChainAssembly<ViewController, Context>(previousSteps: previousSteps).assemble()
@@ -65,23 +66,23 @@ public struct ContainerStepChainAssembly<AcceptableContainer: ContainerViewContr
     ///
     /// - Parameter previousStep: The instance of `StepWithActionAssemblable`
     public func from<F: Finder, FC: AbstractFactory>(_ step: StepWithActionAssembly<F, FC>) -> ActionConnectingAssembly<F, FC, ViewController, Context>
-            where F.ViewController == FC.ViewController, F.Context == FC.Context, F.ViewController == AcceptableContainer {
+            where F.ViewController == FC.ViewController, F.Context == FC.Context, F.ViewController == AcceptableContainer, F.Context == Context {
         return ActionConnectingAssembly<F, FC, ViewController, Context>(stepToFullFill: step, previousSteps: previousSteps)
     }
 
     /// Connects previously provided `DestinationStep` with a `ViewController` produced by an empty factory.
     ///
     /// - Parameter step: `StepWithActionAssembly` instance to be used.
-    public func from<AF: Finder, AFC: AbstractFactory & NilEntity>(_ step: StepWithActionAssembly<AF, AFC>) -> StepChainAssembly<ViewController, Context> {
+    public func from<F: Finder, FC: AbstractFactory & NilEntity>(_ step: StepWithActionAssembly<F, FC>) -> StepChainAssembly<ViewController, Context> where F.Context == Context {
         var previousSteps = self.previousSteps
-        previousSteps.append(step.routingStep(with: UIViewController.NilAction()))
+        previousSteps.append(step.routingStep(with: ViewControllerActions.NilAction()))
         return StepChainAssembly(previousSteps: previousSteps)
     }
 
     /// Adds a `DestinationStep` to the chain. This step will be the last one in the chain.
     ///
     /// - Parameter previousStep: The instance of `DestinationStep`
-    public func from<AC>(_ step: DestinationStep<AcceptableContainer, AC>) -> LastStepInChainAssembly<ViewController, Context> {
+    public func from(_ step: DestinationStep<AcceptableContainer, Context>) -> LastStepInChainAssembly<ViewController, Context> {
         var previousSteps = self.previousSteps
         previousSteps.append(step)
         return LastStepInChainAssembly(previousSteps: previousSteps)
@@ -91,41 +92,21 @@ public struct ContainerStepChainAssembly<AcceptableContainer: ContainerViewContr
     ///
     /// - Parameter step: An instance of `DestinationStep` to build a current stack from.
     /// - Returns: An instance of `DestinationStep` with all the provided settings inside.
-    public func assemble<AC>(from step: DestinationStep<AcceptableContainer, AC>) -> DestinationStep<ViewController, Context> {
+    public func assemble(from step: DestinationStep<AcceptableContainer, Context>) -> DestinationStep<ViewController, Context> {
         var previousSteps = self.previousSteps
         previousSteps.append(step)
         return LastStepInChainAssembly(previousSteps: previousSteps).assemble()
     }
 
-    // MARK: - The methods below allow avoiding required view controller type checks
+    // MARK: - The method allow avoiding required view controller type checks.
 
     /// Connects previously provided `DestinationStep` with `ContainerViewController` factory with a step where the `UIViewController`
-    /// should be to avoid a container view controller type checks.
+    /// should be to avoid a container view controller type check.
     ///
     /// - Parameter step: `StepWithActionAssembly` instance to be used.
-    public func within<F: Finder, FC: AbstractFactory>(_ step: StepWithActionAssembly<F, FC>) -> ActionConnectingAssembly<F, FC, ViewController, Context>
-        where F.ViewController == FC.ViewController, F.Context == FC.Context {
+    public func from1<F: Finder, FC: AbstractFactory>(_ step: StepWithActionAssembly<F, FC>) -> ActionConnectingAssembly<F, FC, ViewController, Context>
+            where F.ViewController == FC.ViewController, F.Context == FC.Context, F.Context == Context {
         return ActionConnectingAssembly(stepToFullFill: step, previousSteps: previousSteps)
-    }
-
-    /// Connects previously provided `DestinationStep` with `ContainerViewController` factory with a step where the `UIViewController`
-    /// should be to avoid a container view controller type checks.
-    ///
-    /// - Parameter step: `DestinationStep` instance to be used.
-    public func within<AVC: UIViewController, AC>(_ step: DestinationStep<AVC, AC>) -> LastStepInChainAssembly<ViewController, Context> {
-        var previousSteps = self.previousSteps
-        previousSteps.append(step)
-        return LastStepInChainAssembly(previousSteps: previousSteps)
-    }
-
-    /// Assembles all the provided settings. Ignores a container view controller type check/
-    ///
-    /// - Parameter step: An instance of `DestinationStep` to build a current step from.
-    /// - Returns: An instance of `DestinationStep` with all the provided settings inside.
-    public func assemble<AVC: UIViewController, AC>(within step: DestinationStep<AVC, AC>) -> DestinationStep<ViewController, Context> {
-        var previousSteps = self.previousSteps
-        previousSteps.append(step)
-        return LastStepInChainAssembly(previousSteps: previousSteps).assemble()
     }
 
 }

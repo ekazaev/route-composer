@@ -12,7 +12,7 @@ class AssemblyTest: XCTestCase {
 
     func testStepAssembly() {
         let lastStepAssembly = StepAssembly(finder: ClassFinder<UIViewController, Any?>(), factory: XibFactory(nibName: "AnyNibName"))
-                .using(NavigationControllerFactory.pushToNavigation())
+                .using(UINavigationController.pushToNavigation())
                 .from(NavigationControllerStep())
                 .using(GeneralAction.presentModally())
         XCTAssertEqual(lastStepAssembly.previousSteps.count, 2)
@@ -31,8 +31,8 @@ class AssemblyTest: XCTestCase {
     }
 
     func testContainerStepAssembly() {
-        let lastStepAssembly = ContainerStepAssembly(finder: ClassFinder(), factory: NavigationControllerFactory())
-                .using(TabBarControllerFactory.addTab())
+        let lastStepAssembly = ContainerStepAssembly(finder: ClassFinder(), factory: NavigationControllerFactory<Any?>())
+                .using(UITabBarController.addTab())
                 .from(TabBarControllerStep())
                 .using(GeneralAction.presentModally())
                 .from(GeneralStep.root())
@@ -52,7 +52,7 @@ class AssemblyTest: XCTestCase {
     }
 
     func testChainAssembly() {
-        let destinationStep = ChainAssembly.from(NavigationControllerStep())
+        let destinationStep = ChainAssembly.from(NavigationControllerStep<Any?>())
                 .using(GeneralAction.presentModally())
                 .from(GeneralStep.root())
                 .assemble()
@@ -73,13 +73,13 @@ class AssemblyTest: XCTestCase {
     }
 
     func testCompleteFactoryAssembly() {
-        let container = CompleteFactoryAssembly(factory: TabBarControllerFactory())
+        let container = CompleteFactoryAssembly(factory: TabBarControllerFactory<Any?>())
                 .with(ClassNameFactory<UIViewController, Any?>())
-                .with(ClassNameFactory<UIViewController, Any?>(), using: TabBarControllerFactory.addTab())
-                .with(CompleteFactoryAssembly(factory: TabBarControllerFactory())
+                .with(ClassNameFactory<UIViewController, Any?>(), using: UITabBarController.addTab())
+                .with(CompleteFactoryAssembly(factory: TabBarControllerFactory<Any?>())
                         .with(ClassNameFactory<UIViewController, Any?>()
                         ).assemble(),
-                        using: TabBarControllerFactory.addTab(at: 1, replacing: true))
+                        using: UITabBarController.addTab(at: 1, replacing: true))
                 .assemble()
         XCTAssertEqual(container.childFactories.count, 3)
         let tabBarController = try? container.build()
@@ -87,14 +87,26 @@ class AssemblyTest: XCTestCase {
     }
 
     func testSwitchAssembly() {
-        let step = SwitchAssembly<UIViewController, Any?>()
-                .addCase(when: ClassFinder<UINavigationController, Any?>())
-                .addCase(when: ClassFinder<UITabBarController, Any?>(), do: GeneralStep.root())
+        let step = SwitchAssembly<UINavigationController, String>()
+                .addCase(from: ClassFinder<UINavigationController, String>())
+                .addCase(expecting: ClassFinder<RouterTests.TestViewController, String>())
+                .addCase(when: ClassFinder<UITabBarController, String>(),
+                        from: ContainerStepAssembly(finder: NilFinder(), factory: NavigationControllerFactory())
+                                .using(GeneralAction.presentModally())
+                                .from(GeneralStep.current())
+                                .assemble())
                 .addCase({ (_: Any?) in
-                    return GeneralStep.current()
+                    return StepAssembly(finder: ClassFinder(), factory: NilFactory())
+                            .from(GeneralStep.current())
+                            .assemble()
                 })
                 .assemble(default: {
-                    return GeneralStep.root()
+                    return ContainerStepAssembly(finder: NilFinder(), factory: NavigationControllerFactory())
+                            .using(UITabBarController.addTab())
+                            .from(TabBarControllerStep())
+                            .using(GeneralAction.presentModally())
+                            .from(GeneralStep.current())
+                            .assemble()
                 }).previousStep as? SwitcherStep<Any?>
 
         XCTAssertNotNil(step)

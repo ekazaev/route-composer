@@ -123,7 +123,7 @@ It will work if the user is not in some `UIViewController` that is presented mod
             finder: ClassFinder<ForgotPasswordViewController, Any?>(),
             factory: XibFactory())
             .using(NavigationControllerFactory.pushToNavigation())
-            .within(SingleStep(finder: ClassFinder<LoginViewController, Any?>, factory: XibFactory()))
+            .from(SingleStep(finder: ClassFinder<LoginViewController, Any?>, factory: XibFactory()))
             .using(NavigationControllerFactory.pushToNavigation())
             .from(SingleContainerStep(finder: ClassFinder(), factory: NavigationControllerFactory()))
             .using(GeneralAction.presentModally())
@@ -145,15 +145,15 @@ Or:
             finder: ClassFinder<ForgotPasswordViewController, Any?>(),
             factory: XibFactory())
             .using(NavigationControllerFactory.pushToNavigation())
-            .within(loginScreen)
+            .from(loginScreen.asContainerWitness())
             .assemble()
 
 ```
 *With the configuration above you will be able to navigate to both screens using the `Router`*
 
-#### Why do we use `within` here?
+#### Why do we use `asContainerWitness` here?
 
-Because `pushToNavigation` action requires `UINavigationController` to be previous `UIViewController` in the chain. `within` method allows us to escape this check. Developer guaranties that it will be there by the time `pushToNavigation` will start to perform.
+Because `pushToNavigation` action requires `UINavigationController` to be previous `UIViewController` in the chain. `asContainerWitness` method allows us to escape this check. You guarantee that it will be there by the time `pushToNavigation` will start to perform.
 
 #### What will happen if, in the configuration above, I will replace the `GeneralStep.current` with the `GeneralStep.root`?
 

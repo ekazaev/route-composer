@@ -6,7 +6,8 @@ import Foundation
 import UIKit
 
 /// A simple class that represents an intermediate `DestinationStep` and allows to add tasks to it.
-public class StepWithActionAssembly<F: Finder, FC: AbstractFactory>: InterceptableStepAssembling where F.ViewController == FC.ViewController, F.Context == FC.Context {
+public class StepWithActionAssembly<F: Finder, FC: AbstractFactory>: InterceptableStepAssembling
+        where F.ViewController == FC.ViewController, F.Context == FC.Context {
 
     public typealias ViewController = F.ViewController
 
