@@ -20,7 +20,7 @@ protocol ExampleScreenConfiguration {
 
     var starScreen: DestinationStep<StarViewController, Any?> { get }
 
-    var routingSupportScreen: DestinationStep<RoutingRuleSupportViewController, Any?> { get }
+    var routingSupportScreen: DestinationStep<RoutingRuleSupportViewController, String> { get }
 
     var emptyScreen: DestinationStep<EmptyViewController, Any?> { get }
 
@@ -74,11 +74,11 @@ extension ExampleScreenConfiguration {
                 .assemble()
     }
 
-    var routingSupportScreen: DestinationStep<RoutingRuleSupportViewController, Any?> {
+    var routingSupportScreen: DestinationStep<RoutingRuleSupportViewController, String> {
         return StepAssembly(
-                finder: ClassFinder<RoutingRuleSupportViewController, Any?>(options: .currentAllStack),
+                finder: ClassFinder<RoutingRuleSupportViewController, String>(options: .currentAllStack),
                 factory: StoryboardFactory(storyboardName: "TabBar", viewControllerID: "RoutingRuleSupportViewController"))
-                .add(ExampleGenericContextTask<RoutingRuleSupportViewController, Any?>())
+                .add(ExampleGenericContextTask<RoutingRuleSupportViewController, String>())
                 .using(NavigationControllerFactory.pushToNavigation())
                 .within(colorScreen)
                 .assemble()

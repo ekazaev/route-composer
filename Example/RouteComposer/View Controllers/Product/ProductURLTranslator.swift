@@ -16,7 +16,7 @@ class ProductURLTranslator: ExampleURLTranslator {
             return nil
         }
 
-        return ExampleDestination(step: ProductConfiguration.productScreen, context: ProductContext(productId: productIdValue, productURL: url)).unsafelyUnwrapped()
+        return ExampleDestination(step: ProductConfiguration.productScreen, context: ProductContext(productId: productIdValue, productURL: url)).unwrapped()
     }
 
 }

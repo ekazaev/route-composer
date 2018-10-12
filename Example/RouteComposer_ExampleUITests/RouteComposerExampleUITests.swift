@@ -343,4 +343,33 @@ class RouteComposerExampleUITests: XCTestCase {
 
     }
 
+    func testLastProductRoute() {
+        app.launch()
+        XCTAssertTrue(app.otherElements["promptViewController"].exists)
+
+        app.buttons["Continue"].tap()
+        XCTAssertTrue(app.otherElements["homeViewController"].exists)
+
+        app.buttons["Go to Square Tab"].tap()
+        XCTAssertTrue(app.otherElements["squareViewController"].exists)
+
+        app.buttons["Go to Split*"].tap()
+        XCTAssertTrue(app.otherElements["loginViewController"].exists)
+
+        app.textFields["loginTextField"].tap()
+        app.textFields["loginTextField"].typeText("abc")
+        app.textFields["passwordTextField"].tap()
+        app.textFields["passwordTextField"].typeText("abc")
+
+        app.buttons["Login"].tap()
+
+        sleep(3)
+
+        XCTAssertTrue(app.otherElements["citiesSplitViewController"].exists)
+
+        app.buttons["Product"].tap()
+        sleep(3)
+        XCTAssertTrue(app.otherElements["productViewController+123"].exists)
+    }
+
 }

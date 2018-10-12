@@ -60,6 +60,18 @@ class CitiesTableViewController: UITableViewController, ExampleAnalyticsSupport 
         try? router.navigate(to: ConfigurationHolder.configuration.squareScreen, with: nil)
     }
 
+    @IBAction func goToProductTapped() {
+        // This is just for demo purposes and to test the last configuration in `ProductConfiguration`
+        let router = self.router
+        try? router.navigate(to: ConfigurationHolder.configuration.welcomeScreen, with: nil, animated: true) { _ in
+            UIApplication.shared.beginIgnoringInteractionEvents()
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(1 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: {
+                UIApplication.shared.endIgnoringInteractionEvents()
+                try? router.navigate(to: ProductConfiguration.productScreen, with: ProductContext(productId: "123"), animated: true, completion: nil)
+            })
+        }
+    }
+
 }
 
 // To show the master view controller first in the compact mode

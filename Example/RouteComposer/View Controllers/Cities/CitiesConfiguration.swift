@@ -33,6 +33,7 @@ class CitiesConfiguration {
             .add(CityDetailContextTask())
             .using(SplitControllerFactory.pushToDetails())
             .within(citiesList)
+            // We are using within as we must provide a UINavigationController step to use `pushToDetails` action.
             .assemble()
 
     static func citiesList(cityId: Int? = nil) -> ExampleDestination<CitiesTableViewController, Int?> {

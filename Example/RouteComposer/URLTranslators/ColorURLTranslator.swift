@@ -16,7 +16,7 @@ class ColorURLTranslator: ExampleURLTranslator {
             return nil
         }
 
-        return ExampleDestination(step: ConfigurationHolder.configuration.colorScreen, context: colorValue).unsafelyUnwrapped()
+        return ExampleDestination(step: ConfigurationHolder.configuration.colorScreen, context: colorValue).unwrapped()
     }
 
 }

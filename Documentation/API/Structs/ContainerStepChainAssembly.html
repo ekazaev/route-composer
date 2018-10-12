@@ -573,14 +573,15 @@
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Connects previously provided <code><a href="../Structs/DestinationStep.html">DestinationStep</a></code> with <code><a href="../Protocols/ContainerViewController.html">ContainerViewController</a></code> factory with a step where the <code>UIViewController</code>
-should be to avoid type checks.</p>
+should be to avoid a container view controller type checks.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">within</span><span class="o">&lt;</span><span class="kt">AF</span><span class="p">,</span> <span class="kt">AFC</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">step</span><span class="p">:</span> <span class="kt"><a href="../Classes/StepWithActionAssembly.html">StepWithActionAssembly</a></span><span class="o">&lt;</span><span class="kt">AF</span><span class="p">,</span> <span class="kt">AFC</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/ActionConnectingAssembly.html">ActionConnectingAssembly</a></span><span class="o">&lt;</span><span class="kt">AF</span><span class="p">,</span> <span class="kt">AFC</span><span class="p">,</span> <span class="kt">ViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">AF</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/Finder.html">Finder</a></span><span class="p">,</span> <span class="kt">AFC</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AbstractFactory.html">AbstractFactory</a></span><span class="p">,</span> <span class="kt">AF</span><span class="o">.</span><span class="kt">Context</span> <span class="o">==</span> <span class="kt">AFC</span><span class="o">.</span><span class="kt">Context</span><span class="p">,</span> <span class="kt">AF</span><span class="o">.</span><span class="kt">ViewController</span> <span class="o">==</span> <span class="kt">AFC</span><span class="o">.</span><span class="kt">ViewController</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">within</span><span class="o">&lt;</span><span class="kt">F</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Finder.html">Finder</a></span><span class="p">,</span> <span class="kt">FC</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AbstractFactory.html">AbstractFactory</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">step</span><span class="p">:</span> <span class="kt"><a href="../Classes/StepWithActionAssembly.html">StepWithActionAssembly</a></span><span class="o">&lt;</span><span class="kt">F</span><span class="p">,</span> <span class="kt">FC</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/ActionConnectingAssembly.html">ActionConnectingAssembly</a></span><span class="o">&lt;</span><span class="kt">F</span><span class="p">,</span> <span class="kt">FC</span><span class="p">,</span> <span class="kt">ViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span>
+    <span class="k">where</span> <span class="kt">F</span><span class="o">.</span><span class="kt">ViewController</span> <span class="o">==</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">F</span><span class="o">.</span><span class="kt">Context</span> <span class="o">==</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">Context</span></code></pre>
 
                         </div>
                       </div>
@@ -620,7 +621,7 @@ should be to avoid type checks.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Connects previously provided <code><a href="../Structs/DestinationStep.html">DestinationStep</a></code> with <code><a href="../Protocols/ContainerViewController.html">ContainerViewController</a></code> factory with a step where the <code>UIViewController</code>
-should be to avoid type checks.</p>
+should be to avoid a container view controller type checks.</p>
 
                       </div>
                       <div class="declaration">
@@ -666,7 +667,7 @@ should be to avoid type checks.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Assembles all the provided settings.</p>
+                        <p>Assembles all the provided settings. Ignores a container view controller type check/</p>
 
                       </div>
                       <div class="declaration">
@@ -708,7 +709,7 @@ should be to avoid type checks.</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-10-11)</p>
+          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-10-12)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

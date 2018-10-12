@@ -100,15 +100,16 @@ public struct ContainerStepChainAssembly<AcceptableContainer: ContainerViewContr
     // MARK: - The methods below allow avoiding required view controller type checks
 
     /// Connects previously provided `DestinationStep` with `ContainerViewController` factory with a step where the `UIViewController`
-    /// should be to avoid type checks.
+    /// should be to avoid a container view controller type checks.
     ///
     /// - Parameter step: `StepWithActionAssembly` instance to be used.
-    public func within<AF: Finder, AFC: AbstractFactory>(_ step: StepWithActionAssembly<AF, AFC>) -> ActionConnectingAssembly<AF, AFC, ViewController, Context> {
+    public func within<F: Finder, FC: AbstractFactory>(_ step: StepWithActionAssembly<F, FC>) -> ActionConnectingAssembly<F, FC, ViewController, Context>
+        where F.ViewController == FC.ViewController, F.Context == FC.Context {
         return ActionConnectingAssembly(stepToFullFill: step, previousSteps: previousSteps)
     }
 
     /// Connects previously provided `DestinationStep` with `ContainerViewController` factory with a step where the `UIViewController`
-    /// should be to avoid type checks.
+    /// should be to avoid a container view controller type checks.
     ///
     /// - Parameter step: `DestinationStep` instance to be used.
     public func within<AVC: UIViewController, AC>(_ step: DestinationStep<AVC, AC>) -> LastStepInChainAssembly<ViewController, Context> {
@@ -117,7 +118,7 @@ public struct ContainerStepChainAssembly<AcceptableContainer: ContainerViewContr
         return LastStepInChainAssembly(previousSteps: previousSteps)
     }
 
-    /// Assembles all the provided settings.
+    /// Assembles all the provided settings. Ignores a container view controller type check/
     ///
     /// - Parameter step: An instance of `DestinationStep` to build a current step from.
     /// - Returns: An instance of `DestinationStep` with all the provided settings inside.

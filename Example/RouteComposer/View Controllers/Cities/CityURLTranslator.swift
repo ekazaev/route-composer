@@ -18,7 +18,7 @@ class CityURLTranslator: ExampleURLTranslator {
         }
 
         let cityDestination = CitiesConfiguration.cityDetail(cityId: cityId)
-        return cityDestination.unsafelyUnwrapped()
+        return cityDestination.unwrapped()
     }
 
 }

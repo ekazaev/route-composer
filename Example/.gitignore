@@ -1,0 +1,12 @@
+# Default ignored files
+/.idea/shelf/
+/.idea/workspace.xml
+
+# Datasource local storage ignored files
+/.idea/dataSources/
+dataSources.local.xml
+
+# Editor-based HTTP Client requests
+/.idea/httpRequests/
+rest-client.private.env.json
+http-client.private.env.json

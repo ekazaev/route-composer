@@ -41,9 +41,7 @@ class ProductConfiguration {
                     .addCase(when: ClassFinder<UINavigationController, Any?>(options: .currentVisibleOnly))
                     .assemble(default: {
                         // Otherwise - present in the UINavigation controller that belongs to Circle tab
-                        return StepAssembly(finder: ClassFinder<UINavigationController, Any?>(), factory: NilFactory())
-                                .from(ConfigurationHolder.configuration.circleScreen)
-                                .assemble()
+                        return ConfigurationHolder.configuration.circleScreen.asContainer()
                     }))
             .assemble()
 

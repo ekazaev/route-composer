@@ -18,12 +18,14 @@ public class StepWithActionAssembly<F: Finder, FC: AbstractFactory>: Interceptab
         taskCollector.add(interceptor)
         return self
     }
+
     public final func add<CT: ContextTask>(_ contextTask: CT) -> Self
             where
             CT.ViewController == ViewController, CT.Context == Context {
         taskCollector.add(contextTask)
         return self
     }
+
     public final func add<P: PostRoutingTask>(_ postTask: P) -> Self where P.Context == Context {
         taskCollector.add(postTask)
         return self

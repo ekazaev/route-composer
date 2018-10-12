@@ -19,7 +19,7 @@ class ExampleDestination<VC: UIViewController, C> {
         self.context = context
     }
 
-    func unsafelyUnwrapped() -> ExampleDestination<UIViewController, Any?> {
+    func unwrapped() -> ExampleDestination<UIViewController, Any?> {
         return ExampleDestination<UIViewController, Any?>(step: step.unsafelyUnwrapped(), context: context)
     }
 
