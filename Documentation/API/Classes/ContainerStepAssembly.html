@@ -228,37 +228,13 @@
                 <a href="../Extensions/UINavigationController.html">UINavigationController</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Extensions/UINavigationController/PushAction.html">– PushAction</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Extensions/UINavigationController/PushAsRootAction.html">– PushAsRootAction</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Extensions/UINavigationController/PushReplacingLastAction.html">– PushReplacingLastAction</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Extensions/UISplitViewController.html">UISplitViewController</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Extensions/UISplitViewController/PushToDetailsAction.html">– PushToDetailsAction</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Extensions/UISplitViewController/SetAsMasterAction.html">– SetAsMasterAction</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Extensions/UITabBarController.html">UITabBarController</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Extensions/UITabBarController/AddTabAction.html">– AddTabAction</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Extensions/UIViewController.html">UIViewController</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Extensions/UIViewController/PresentModallyAction.html">– PresentModallyAction</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Extensions/UIViewController/ReplaceRootAction.html">– ReplaceRootAction</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Extensions/UIWindow.html">UIWindow</a>
@@ -334,10 +310,46 @@
                 <a href="../Structs/LastStepInChainAssembly.html">LastStepInChainAssembly</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Structs/NavigationControllerActions.html">NavigationControllerActions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/NavigationControllerActions/PushAction.html">– PushAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/NavigationControllerActions/PushAsRootAction.html">– PushAsRootAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/NavigationControllerActions/PushReplacingLastAction.html">– PushReplacingLastAction</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Structs/SearchOptions.html">SearchOptions</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Structs/SplitViewControllerActions.html">SplitViewControllerActions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SplitViewControllerActions/PushToDetailsAction.html">– PushToDetailsAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SplitViewControllerActions/SetAsMasterAction.html">– SetAsMasterAction</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Structs/StepChainAssembly.html">StepChainAssembly</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/TabBarControllerActions.html">TabBarControllerActions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/TabBarControllerActions/AddTabAction.html">– AddTabAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ViewControllerActions.html">ViewControllerActions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ViewControllerActions/PresentModallyAction.html">– PresentModallyAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ViewControllerActions/ReplaceRootAction.html">– ReplaceRootAction</a>
               </li>
             </ul>
           </li>
@@ -349,9 +361,8 @@
             <h1>ContainerStepAssembly</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">ContainerStepAssembly</span><span class="o">&lt;</span><span class="kt">F</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Finder.html">Finder</a></span><span class="p">,</span> <span class="kt">FC</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Container.html">Container</a></span><span class="o">&gt;</span><span class="p">:</span> <span class="kt"><a href="../Classes/GenericStepAssembly.html">GenericStepAssembly</a></span><span class="o">&lt;</span><span class="kt">F</span><span class="p">,</span> <span class="kt">FC</span><span class="o">&gt;</span><span class="p">,</span> <span class="kt"><a href="../Protocols/ActionConnecting.html">ActionConnecting</a></span>
-        <span class="k">where</span>
-        <span class="kt">F</span><span class="o">.</span><span class="kt">ViewController</span> <span class="o">==</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">F</span><span class="o">.</span><span class="kt">Context</span> <span class="o">==</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">Context</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">ContainerStepAssembly</span><span class="o">&lt;</span><span class="kt">F</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Finder.html">Finder</a></span><span class="p">,</span> <span class="kt">FC</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Container.html">Container</a></span><span class="o">&gt;</span><span class="p">:</span> <span class="kt"><a href="../Classes/GenericStepAssembly.html">GenericStepAssembly</a></span><span class="o">&lt;</span><span class="kt">F</span><span class="o">.</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">F</span><span class="o">.</span><span class="kt">Context</span><span class="o">&gt;</span><span class="p">,</span> <span class="kt"><a href="../Protocols/ActionConnecting.html">ActionConnecting</a></span>
+        <span class="k">where</span> <span class="kt">F</span><span class="o">.</span><span class="kt">ViewController</span> <span class="o">==</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">F</span><span class="o">.</span><span class="kt">Context</span> <span class="o">==</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">Context</span></code></pre>
 
                 </div>
               </div>
@@ -530,9 +541,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer21ContainerStepAssemblyCA2A9NilEntityR_rlE4fromyAA016ActionConnectingE0Vyqd__qd_0_14ViewControllerQz7ContextQzGAA0d4WithiE0Cyqd__qd_0_GAA6FinderRd__AA15AbstractFactoryRd_0_AJQyd_0_AJRtd__AHQyd_0_AHRtd__r0_lF"></a>
+                    <a name="/s:13RouteComposer21ContainerStepAssemblyCA2A9NilEntityR_rlE4fromyAA016ActionConnectingE0Vyqd__qd_0_14ViewControllerQz7ContextQzGAA0d4WithiE0Cyqd__qd_0_GAA6FinderRd__AA15AbstractFactoryRd_0_AJQyd__AjaQPRt_AJQyd_0_ARRSAHQyd_0_AHRtd__r0_lF"></a>
                     <a name="//apple_ref/swift/Method/from(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer21ContainerStepAssemblyCA2A9NilEntityR_rlE4fromyAA016ActionConnectingE0Vyqd__qd_0_14ViewControllerQz7ContextQzGAA0d4WithiE0Cyqd__qd_0_GAA6FinderRd__AA15AbstractFactoryRd_0_AJQyd_0_AJRtd__AHQyd_0_AHRtd__r0_lF">from(_:)</a>
+                    <a class="token" href="#/s:13RouteComposer21ContainerStepAssemblyCA2A9NilEntityR_rlE4fromyAA016ActionConnectingE0Vyqd__qd_0_14ViewControllerQz7ContextQzGAA0d4WithiE0Cyqd__qd_0_GAA6FinderRd__AA15AbstractFactoryRd_0_AJQyd__AjaQPRt_AJQyd_0_ARRSAHQyd_0_AHRtd__r0_lF">from(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -540,7 +551,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Connects previously provided <code><a href="../Structs/DestinationStep.html">DestinationStep</a></code> with <code><a href="../Other Protocols.html#/s:13RouteComposer9NilEntityP">NilEntity</a></code> factory with a step where the <code>UIViewController</code>
+                        <p>Connects previously provided <code><a href="../Classes/StepWithActionAssembly.html">StepWithActionAssembly</a></code> with <code><a href="../Other Protocols.html#/s:13RouteComposer9NilEntityP">NilEntity</a></code> factory with a step where the <code>UIViewController</code>
 should avoid type checks.</p>
 
                       </div>
@@ -548,7 +559,8 @@ should avoid type checks.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">from</span><span class="o">&lt;</span><span class="kt">AF</span><span class="p">,</span> <span class="kt">AFC</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">step</span><span class="p">:</span> <span class="kt"><a href="../Classes/StepWithActionAssembly.html">StepWithActionAssembly</a></span><span class="o">&lt;</span><span class="kt">AF</span><span class="p">,</span> <span class="kt">AFC</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/ActionConnectingAssembly.html">ActionConnectingAssembly</a></span><span class="o">&lt;</span><span class="kt">AF</span><span class="p">,</span> <span class="kt">AFC</span><span class="p">,</span> <span class="kt">ViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">AF</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/Finder.html">Finder</a></span><span class="p">,</span> <span class="kt">AFC</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/AbstractFactory.html">AbstractFactory</a></span><span class="p">,</span> <span class="kt">AF</span><span class="o">.</span><span class="kt">Context</span> <span class="o">==</span> <span class="kt">AFC</span><span class="o">.</span><span class="kt">Context</span><span class="p">,</span> <span class="kt">AF</span><span class="o">.</span><span class="kt">ViewController</span> <span class="o">==</span> <span class="kt">AFC</span><span class="o">.</span><span class="kt">ViewController</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">from</span><span class="o">&lt;</span><span class="kt">AF</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Finder.html">Finder</a></span><span class="p">,</span> <span class="kt">AFC</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AbstractFactory.html">AbstractFactory</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">step</span><span class="p">:</span> <span class="kt"><a href="../Classes/StepWithActionAssembly.html">StepWithActionAssembly</a></span><span class="o">&lt;</span><span class="kt">AF</span><span class="p">,</span> <span class="kt">AFC</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/ActionConnectingAssembly.html">ActionConnectingAssembly</a></span><span class="o">&lt;</span><span class="kt">AF</span><span class="p">,</span> <span class="kt">AFC</span><span class="p">,</span> <span class="kt">ViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span>
+        <span class="k">where</span> <span class="kt">AF</span><span class="o">.</span><span class="kt">Context</span> <span class="o">==</span> <span class="kt">Context</span></code></pre>
 
                         </div>
                       </div>
@@ -577,9 +589,9 @@ should avoid type checks.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer21ContainerStepAssemblyCA2A9NilEntityR_rlE4fromyAA04Lastd7InChainE0Vy14ViewControllerQz7ContextQzGAA011DestinationD0Vyqd__qd_0_GSo06UIViewM0CRbd__r0_lF"></a>
+                    <a name="/s:13RouteComposer21ContainerStepAssemblyCA2A9NilEntityR_rlE4fromyAA04Lastd7InChainE0Vy14ViewControllerQz7ContextQzGAA011DestinationD0Vyqd__AKGSo06UIViewM0CRbd__lF"></a>
                     <a name="//apple_ref/swift/Method/from(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer21ContainerStepAssemblyCA2A9NilEntityR_rlE4fromyAA04Lastd7InChainE0Vy14ViewControllerQz7ContextQzGAA011DestinationD0Vyqd__qd_0_GSo06UIViewM0CRbd__r0_lF">from(_:)</a>
+                    <a class="token" href="#/s:13RouteComposer21ContainerStepAssemblyCA2A9NilEntityR_rlE4fromyAA04Lastd7InChainE0Vy14ViewControllerQz7ContextQzGAA011DestinationD0Vyqd__AKGSo06UIViewM0CRbd__lF">from(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -595,7 +607,7 @@ should avoid type checks</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">from</span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">step</span><span class="p">:</span> <span class="kt"><a href="../Structs/DestinationStep.html">DestinationStep</a></span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/LastStepInChainAssembly.html">LastStepInChainAssembly</a></span><span class="o">&lt;</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">VC</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">from</span><span class="o">&lt;</span><span class="kt">VC</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">step</span><span class="p">:</span> <span class="kt"><a href="../Structs/DestinationStep.html">DestinationStep</a></span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/LastStepInChainAssembly.html">LastStepInChainAssembly</a></span><span class="o">&lt;</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">VC</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
 
                         </div>
                       </div>
@@ -626,7 +638,7 @@ should avoid type checks</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-10-12)</p>
+          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-10-13)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

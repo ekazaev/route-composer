@@ -228,37 +228,13 @@
                 <a href="../Extensions/UINavigationController.html">UINavigationController</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Extensions/UINavigationController/PushAction.html">– PushAction</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Extensions/UINavigationController/PushAsRootAction.html">– PushAsRootAction</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Extensions/UINavigationController/PushReplacingLastAction.html">– PushReplacingLastAction</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Extensions/UISplitViewController.html">UISplitViewController</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Extensions/UISplitViewController/PushToDetailsAction.html">– PushToDetailsAction</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Extensions/UISplitViewController/SetAsMasterAction.html">– SetAsMasterAction</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Extensions/UITabBarController.html">UITabBarController</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Extensions/UITabBarController/AddTabAction.html">– AddTabAction</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Extensions/UIViewController.html">UIViewController</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Extensions/UIViewController/PresentModallyAction.html">– PresentModallyAction</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Extensions/UIViewController/ReplaceRootAction.html">– ReplaceRootAction</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Extensions/UIWindow.html">UIWindow</a>
@@ -334,10 +310,46 @@
                 <a href="../Structs/LastStepInChainAssembly.html">LastStepInChainAssembly</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Structs/NavigationControllerActions.html">NavigationControllerActions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/NavigationControllerActions/PushAction.html">– PushAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/NavigationControllerActions/PushAsRootAction.html">– PushAsRootAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/NavigationControllerActions/PushReplacingLastAction.html">– PushReplacingLastAction</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Structs/SearchOptions.html">SearchOptions</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Structs/SplitViewControllerActions.html">SplitViewControllerActions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SplitViewControllerActions/PushToDetailsAction.html">– PushToDetailsAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SplitViewControllerActions/SetAsMasterAction.html">– SetAsMasterAction</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Structs/StepChainAssembly.html">StepChainAssembly</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/TabBarControllerActions.html">TabBarControllerActions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/TabBarControllerActions/AddTabAction.html">– AddTabAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ViewControllerActions.html">ViewControllerActions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ViewControllerActions/PresentModallyAction.html">– PresentModallyAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ViewControllerActions/ReplaceRootAction.html">– ReplaceRootAction</a>
               </li>
             </ul>
           </li>
@@ -349,8 +361,7 @@
             <h1>GenericStepAssembly</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">GenericStepAssembly</span><span class="o">&lt;</span><span class="kt">F</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Finder.html">Finder</a></span><span class="p">,</span> <span class="kt">FC</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AbstractFactory.html">AbstractFactory</a></span><span class="o">&gt;</span><span class="p">:</span> <span class="kt"><a href="../Protocols/InterceptableStepAssembling.html">InterceptableStepAssembling</a></span>
-        <span class="k">where</span> <span class="kt">F</span><span class="o">.</span><span class="kt">ViewController</span> <span class="o">==</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">F</span><span class="o">.</span><span class="kt">Context</span> <span class="o">==</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">Context</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">GenericStepAssembly</span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/InterceptableStepAssembling.html">InterceptableStepAssembling</a></span> <span class="k">where</span> <span class="kt">VC</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
 
                 </div>
               </div>
@@ -379,7 +390,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">ViewController</span> <span class="o">=</span> <span class="kt">F</span><span class="o">.</span><span class="kt">ViewController</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">ViewController</span> <span class="o">=</span> <span class="kt">VC</span></code></pre>
 
                         </div>
                       </div>
@@ -405,7 +416,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">Context</span> <span class="o">=</span> <span class="kt">F</span><span class="o">.</span><span class="kt">Context</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">Context</span> <span class="o">=</span> <span class="kt">C</span></code></pre>
 
                         </div>
                       </div>
@@ -415,9 +426,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer19GenericStepAssemblyC3addyACyxq_GXDqd__AA18RoutingInterceptorRd__7ContextQyd__AGRt_lF"></a>
+                    <a name="/s:13RouteComposer19GenericStepAssemblyC3addyACyxq_GXDqd__7ContextQyd__Rs_AA18RoutingInterceptorRd__lF"></a>
                     <a name="//apple_ref/swift/Method/add(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer19GenericStepAssemblyC3addyACyxq_GXDqd__AA18RoutingInterceptorRd__7ContextQyd__AGRt_lF">add(_:)</a>
+                    <a class="token" href="#/s:13RouteComposer19GenericStepAssemblyC3addyACyxq_GXDqd__7ContextQyd__Rs_AA18RoutingInterceptorRd__lF">add(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -433,7 +444,7 @@ This action does not contain type safety checks to avoid complications.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">func</span> <span class="n">add</span><span class="o">&lt;</span><span class="kt">R</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">interceptor</span><span class="p">:</span> <span class="kt">R</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span> <span class="k">where</span> <span class="kt">R</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/RoutingInterceptor.html">RoutingInterceptor</a></span><span class="p">,</span> <span class="kt">FC</span><span class="o">.</span><span class="kt"><a href="../Classes/GenericStepAssembly.html#/s:13RouteComposer27InterceptableStepAssemblingP7ContextQa">Context</a></span> <span class="o">==</span> <span class="kt">R</span><span class="o">.</span><span class="kt"><a href="../Classes/GenericStepAssembly.html#/s:13RouteComposer27InterceptableStepAssemblingP7ContextQa">Context</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">func</span> <span class="n">add</span><span class="o">&lt;</span><span class="kt">R</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">interceptor</span><span class="p">:</span> <span class="kt">R</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span> <span class="k">where</span> <span class="kt">C</span> <span class="o">==</span> <span class="kt">R</span><span class="o">.</span><span class="kt"><a href="../Classes/GenericStepAssembly.html#/s:13RouteComposer27InterceptableStepAssemblingP7ContextQa">Context</a></span><span class="p">,</span> <span class="kt">R</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/RoutingInterceptor.html">RoutingInterceptor</a></span></code></pre>
 
                         </div>
                       </div>
@@ -463,9 +474,9 @@ to this step.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer19GenericStepAssemblyC3addyACyxq_GXDqd__AA11ContextTaskRd__0G0Qyd__AGRt_14ViewControllerQyd__AJRt_lF"></a>
+                    <a name="/s:13RouteComposer19GenericStepAssemblyC3addyACyxq_GXDqd__14ViewControllerQyd__Rsz7ContextQyd__Rs_AA0I4TaskRd__lF"></a>
                     <a name="//apple_ref/swift/Method/add(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer19GenericStepAssemblyC3addyACyxq_GXDqd__AA11ContextTaskRd__0G0Qyd__AGRt_14ViewControllerQyd__AJRt_lF">add(_:)</a>
+                    <a class="token" href="#/s:13RouteComposer19GenericStepAssemblyC3addyACyxq_GXDqd__14ViewControllerQyd__Rsz7ContextQyd__Rs_AA0I4TaskRd__lF">add(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -512,9 +523,9 @@ will find or create a <code>UIViewController</code>.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer19GenericStepAssemblyC3addyACyxq_GXDqd__AA15PostRoutingTaskRd__7ContextQyd__AGRt_lF"></a>
+                    <a name="/s:13RouteComposer19GenericStepAssemblyC3addyACyxq_GXDqd__7ContextQyd__Rs_AA15PostRoutingTaskRd__lF"></a>
                     <a name="//apple_ref/swift/Method/add(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer19GenericStepAssemblyC3addyACyxq_GXDqd__AA15PostRoutingTaskRd__7ContextQyd__AGRt_lF">add(_:)</a>
+                    <a class="token" href="#/s:13RouteComposer19GenericStepAssemblyC3addyACyxq_GXDqd__7ContextQyd__Rs_AA15PostRoutingTaskRd__lF">add(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -530,7 +541,7 @@ This action does not contain type safety checks to avoid complications.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">func</span> <span class="n">add</span><span class="o">&lt;</span><span class="kt">P</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">postTask</span><span class="p">:</span> <span class="kt">P</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span> <span class="k">where</span> <span class="kt">P</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/PostRoutingTask.html">PostRoutingTask</a></span><span class="p">,</span> <span class="kt">FC</span><span class="o">.</span><span class="kt"><a href="../Classes/GenericStepAssembly.html#/s:13RouteComposer27InterceptableStepAssemblingP7ContextQa">Context</a></span> <span class="o">==</span> <span class="kt">P</span><span class="o">.</span><span class="kt"><a href="../Classes/GenericStepAssembly.html#/s:13RouteComposer27InterceptableStepAssemblingP7ContextQa">Context</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">func</span> <span class="n">add</span><span class="o">&lt;</span><span class="kt">P</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">postTask</span><span class="p">:</span> <span class="kt">P</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span> <span class="k">where</span> <span class="kt">C</span> <span class="o">==</span> <span class="kt">P</span><span class="o">.</span><span class="kt"><a href="../Classes/GenericStepAssembly.html#/s:13RouteComposer27InterceptableStepAssemblingP7ContextQa">Context</a></span><span class="p">,</span> <span class="kt">P</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/PostRoutingTask.html">PostRoutingTask</a></span></code></pre>
 
                         </div>
                       </div>
@@ -561,7 +572,7 @@ This action does not contain type safety checks to avoid complications.</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-10-12)</p>
+          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-10-13)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

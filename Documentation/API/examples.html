@@ -227,37 +227,13 @@
                 <a href="Extensions/UINavigationController.html">UINavigationController</a>
               </li>
               <li class="nav-group-task">
-                <a href="Extensions/UINavigationController/PushAction.html">– PushAction</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Extensions/UINavigationController/PushAsRootAction.html">– PushAsRootAction</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Extensions/UINavigationController/PushReplacingLastAction.html">– PushReplacingLastAction</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Extensions/UISplitViewController.html">UISplitViewController</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Extensions/UISplitViewController/PushToDetailsAction.html">– PushToDetailsAction</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Extensions/UISplitViewController/SetAsMasterAction.html">– SetAsMasterAction</a>
               </li>
               <li class="nav-group-task">
                 <a href="Extensions/UITabBarController.html">UITabBarController</a>
               </li>
               <li class="nav-group-task">
-                <a href="Extensions/UITabBarController/AddTabAction.html">– AddTabAction</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Extensions/UIViewController.html">UIViewController</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Extensions/UIViewController/PresentModallyAction.html">– PresentModallyAction</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Extensions/UIViewController/ReplaceRootAction.html">– ReplaceRootAction</a>
               </li>
               <li class="nav-group-task">
                 <a href="Extensions/UIWindow.html">UIWindow</a>
@@ -333,10 +309,46 @@
                 <a href="Structs/LastStepInChainAssembly.html">LastStepInChainAssembly</a>
               </li>
               <li class="nav-group-task">
+                <a href="Structs/NavigationControllerActions.html">NavigationControllerActions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/NavigationControllerActions/PushAction.html">– PushAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/NavigationControllerActions/PushAsRootAction.html">– PushAsRootAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/NavigationControllerActions/PushReplacingLastAction.html">– PushReplacingLastAction</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Structs/SearchOptions.html">SearchOptions</a>
               </li>
               <li class="nav-group-task">
+                <a href="Structs/SplitViewControllerActions.html">SplitViewControllerActions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/SplitViewControllerActions/PushToDetailsAction.html">– PushToDetailsAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/SplitViewControllerActions/SetAsMasterAction.html">– SetAsMasterAction</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Structs/StepChainAssembly.html">StepChainAssembly</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/TabBarControllerActions.html">TabBarControllerActions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/TabBarControllerActions/AddTabAction.html">– AddTabAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/ViewControllerActions.html">ViewControllerActions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/ViewControllerActions/PresentModallyAction.html">– PresentModallyAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/ViewControllerActions/ReplaceRootAction.html">– ReplaceRootAction</a>
               </li>
             </ul>
           </li>
@@ -392,7 +404,7 @@
 <pre class="highlight swift"><code>    <span class="k">let</span> <span class="nv">screen</span> <span class="o">=</span> <span class="kt">StepAssembly</span><span class="p">(</span>
             <span class="nv">finder</span><span class="p">:</span> <span class="kt">ClassFinder</span><span class="o">&lt;</span><span class="kt">AccountViewController</span><span class="p">,</span> <span class="kt">Any</span><span class="p">?</span><span class="o">&gt;</span><span class="p">(),</span>
             <span class="nv">factory</span><span class="p">:</span> <span class="kt">XibFactory</span><span class="p">())</span>
-            <span class="o">.</span><span class="nf">using</span><span class="p">(</span><span class="kt">NavigationControllerFactory</span><span class="o">.</span><span class="nf">pushToNavigation</span><span class="p">())</span>
+            <span class="o">.</span><span class="nf">using</span><span class="p">(</span><span class="kt">UINavigationController</span><span class="o">.</span><span class="nf">pushToNavigation</span><span class="p">())</span>
             <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="kt">SingleStep</span><span class="p">(</span><span class="kt">ClassFinder</span><span class="o">&lt;</span><span class="kt">UINavigationController</span><span class="p">,</span> <span class="kt">Any</span><span class="p">?</span><span class="o">&gt;</span><span class="p">(),</span> <span class="kt">NilFactory</span><span class="p">()))</span>
             <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="kt">GeneralStep</span><span class="o">.</span><span class="nf">current</span><span class="p">())</span>
             <span class="o">.</span><span class="nf">assemble</span><span class="p">()</span>
@@ -404,7 +416,7 @@
 <pre class="highlight swift"><code>    <span class="k">let</span> <span class="nv">screen</span> <span class="o">=</span> <span class="kt">StepAssembly</span><span class="p">(</span>
             <span class="nv">finder</span><span class="p">:</span> <span class="kt">ClassFinder</span><span class="o">&lt;</span><span class="kt">AccountViewController</span><span class="p">,</span> <span class="kt">Any</span><span class="p">?</span><span class="o">&gt;</span><span class="p">(),</span>
             <span class="nv">factory</span><span class="p">:</span> <span class="kt">XibFactory</span><span class="p">())</span>
-            <span class="o">.</span><span class="nf">using</span><span class="p">(</span><span class="kt">NavigationControllerFactory</span><span class="o">.</span><span class="kt">PushToNavigation</span><span class="p">())</span>
+            <span class="o">.</span><span class="nf">using</span><span class="p">(</span><span class="kt">UINavigationController</span><span class="o">.</span><span class="kt">PushToNavigation</span><span class="p">())</span>
             <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="kt">SwitchAssembly</span><span class="o">&lt;</span><span class="kt">UINavigationController</span><span class="p">,</span> <span class="kt">Any</span><span class="p">?</span><span class="o">&gt;</span><span class="p">()</span>
                     <span class="o">.</span><span class="nf">addCase</span><span class="p">(</span><span class="nv">when</span><span class="p">:</span> <span class="kt">ClassFinder</span><span class="o">&lt;</span><span class="kt">UINavigationController</span><span class="p">,</span> <span class="kt">Any</span><span class="p">?</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">options</span><span class="p">:</span> <span class="o">.</span><span class="n">visible</span><span class="p">))</span> <span class="c1">// If found - just push in to it</span>
                     <span class="o">.</span><span class="nf">assemble</span><span class="p">(</span><span class="k">default</span><span class="p">:</span> <span class="p">{</span> <span class="c1">// else</span>
@@ -420,8 +432,8 @@
 <pre class="highlight swift"><code>    <span class="k">let</span> <span class="nv">tabScreen</span> <span class="o">=</span> <span class="kt">SingleContainerStep</span><span class="p">(</span>
             <span class="nv">finder</span><span class="p">:</span> <span class="kt">ClassFinder</span><span class="p">(),</span>
             <span class="nv">factory</span><span class="p">:</span> <span class="kt">CompleteFactoryAssembly</span><span class="p">(</span><span class="nv">factory</span><span class="p">:</span> <span class="kt">TabBarControllerFactory</span><span class="p">())</span>
-                    <span class="o">.</span><span class="nf">with</span><span class="p">(</span><span class="kt">XibFactory</span><span class="o">&lt;</span><span class="kt">HomeViewController</span><span class="p">,</span> <span class="kt">Any</span><span class="p">?</span><span class="o">&gt;</span><span class="p">(),</span> <span class="nv">using</span><span class="p">:</span> <span class="kt">TabBarControllerFactory</span><span class="o">.</span><span class="kt">AddTab</span><span class="p">())</span>
-                    <span class="o">.</span><span class="nf">with</span><span class="p">(</span><span class="kt">XibFactory</span><span class="o">&lt;</span><span class="kt">AccountViewController</span><span class="p">,</span> <span class="kt">Any</span><span class="p">?</span><span class="o">&gt;</span><span class="p">(),</span> <span class="nv">using</span><span class="p">:</span> <span class="kt">TabBarControllerFactory</span><span class="o">.</span><span class="kt">AddTab</span><span class="p">())</span>
+                    <span class="o">.</span><span class="nf">with</span><span class="p">(</span><span class="kt">XibFactory</span><span class="o">&lt;</span><span class="kt">HomeViewController</span><span class="p">,</span> <span class="kt">Any</span><span class="p">?</span><span class="o">&gt;</span><span class="p">(),</span> <span class="nv">using</span><span class="p">:</span> <span class="kt">UITabBarController</span><span class="o">.</span><span class="nf">addTab</span><span class="p">())</span>
+                    <span class="o">.</span><span class="nf">with</span><span class="p">(</span><span class="kt">XibFactory</span><span class="o">&lt;</span><span class="kt">AccountViewController</span><span class="p">,</span> <span class="kt">Any</span><span class="p">?</span><span class="o">&gt;</span><span class="p">(),</span> <span class="nv">using</span><span class="p">:</span> <span class="kt">UINavigationController</span><span class="o">.</span><span class="nf">addTab</span><span class="p">())</span>
                     <span class="o">.</span><span class="nf">assemble</span><span class="p">())</span>
             <span class="o">.</span><span class="nf">using</span><span class="p">(</span><span class="kt">GeneralAction</span><span class="o">.</span><span class="nf">replaceRoot</span><span class="p">())</span>
             <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="kt">GeneralStep</span><span class="o">.</span><span class="nf">root</span><span class="p">())</span>
@@ -443,23 +455,10 @@
 
 <p><em>Why is the <code><a href="Structs/NilFactory.html">NilFactory</a></code> used here? We do not need to build anything: The <code>AccountViewController</code> will be built in the dependent <code>tabScreen</code> configuration. See the <code>tabScreen</code> configuration above.</em></p>
 <h4 id='i-want-to-modally-present-code-forgotpasswordviewcontroller-code-but-after-code-loginviewcontroller-code-in-the-code-uinavigationcontroller-code' class='heading'>I want to modally present <code>ForgotPasswordViewController</code>, but after <code>LoginViewController</code> in the <code>UINavigationController</code>:</h4>
-<pre class="highlight swift"><code>    <span class="k">let</span> <span class="nv">screen</span> <span class="o">=</span> <span class="kt">StepAssembly</span><span class="p">(</span>
-            <span class="nv">finder</span><span class="p">:</span> <span class="kt">ClassFinder</span><span class="o">&lt;</span><span class="kt">ForgotPasswordViewController</span><span class="p">,</span> <span class="kt">Any</span><span class="p">?</span><span class="o">&gt;</span><span class="p">(),</span>
-            <span class="nv">factory</span><span class="p">:</span> <span class="kt">XibFactory</span><span class="p">())</span>
-            <span class="o">.</span><span class="nf">using</span><span class="p">(</span><span class="kt">NavigationControllerFactory</span><span class="o">.</span><span class="nf">pushToNavigation</span><span class="p">())</span>
-            <span class="o">.</span><span class="nf">within</span><span class="p">(</span><span class="kt">SingleStep</span><span class="p">(</span><span class="nv">finder</span><span class="p">:</span> <span class="kt">ClassFinder</span><span class="o">&lt;</span><span class="kt">LoginViewController</span><span class="p">,</span> <span class="kt">Any</span><span class="p">?</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">factory</span><span class="p">:</span> <span class="kt">XibFactory</span><span class="p">()))</span>
-            <span class="o">.</span><span class="nf">using</span><span class="p">(</span><span class="kt">NavigationControllerFactory</span><span class="o">.</span><span class="nf">pushToNavigation</span><span class="p">())</span>
-            <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="kt">SingleContainerStep</span><span class="p">(</span><span class="nv">finder</span><span class="p">:</span> <span class="kt">ClassFinder</span><span class="p">(),</span> <span class="nv">factory</span><span class="p">:</span> <span class="kt">NavigationControllerFactory</span><span class="p">()))</span>
-            <span class="o">.</span><span class="nf">using</span><span class="p">(</span><span class="kt">GeneralAction</span><span class="o">.</span><span class="nf">presentModally</span><span class="p">())</span>
-            <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="kt">GeneralStep</span><span class="o">.</span><span class="nf">current</span><span class="p">())</span>
-            <span class="o">.</span><span class="nf">assemble</span><span class="p">()</span>
-</code></pre>
-
-<p>Or:</p>
 <pre class="highlight swift"><code>    <span class="k">let</span> <span class="nv">loginScreen</span> <span class="o">=</span> <span class="kt">StepAssembly</span><span class="p">(</span>
             <span class="nv">finder</span><span class="p">:</span> <span class="kt">ClassFinder</span><span class="o">&lt;</span><span class="kt">LoginViewController</span><span class="p">,</span> <span class="kt">Any</span><span class="p">?</span><span class="o">&gt;</span><span class="p">(),</span>
             <span class="nv">factory</span><span class="p">:</span> <span class="kt">XibFactory</span><span class="p">())</span>
-            <span class="o">.</span><span class="nf">using</span><span class="p">(</span><span class="kt">NavigationControllerFactory</span><span class="o">.</span><span class="nf">pushToNavigation</span><span class="p">())</span>
+            <span class="o">.</span><span class="nf">using</span><span class="p">(</span><span class="kt">UINavigationController</span><span class="o">.</span><span class="nf">pushToNavigation</span><span class="p">())</span>
             <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="kt">NavigationControllerStep</span><span class="p">())</span>
             <span class="o">.</span><span class="nf">using</span><span class="p">(</span><span class="kt">GeneralAction</span><span class="o">.</span><span class="nf">presentModally</span><span class="p">())</span>
             <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="kt">GeneralStep</span><span class="o">.</span><span class="nf">current</span><span class="p">())</span>
@@ -468,16 +467,16 @@
     <span class="k">let</span> <span class="nv">forgotPasswordScreen</span> <span class="o">=</span> <span class="kt">StepAssembly</span><span class="p">(</span>
             <span class="nv">finder</span><span class="p">:</span> <span class="kt">ClassFinder</span><span class="o">&lt;</span><span class="kt">ForgotPasswordViewController</span><span class="p">,</span> <span class="kt">Any</span><span class="p">?</span><span class="o">&gt;</span><span class="p">(),</span>
             <span class="nv">factory</span><span class="p">:</span> <span class="kt">XibFactory</span><span class="p">())</span>
-            <span class="o">.</span><span class="nf">using</span><span class="p">(</span><span class="kt">NavigationControllerFactory</span><span class="o">.</span><span class="nf">pushToNavigation</span><span class="p">())</span>
-            <span class="o">.</span><span class="nf">within</span><span class="p">(</span><span class="n">loginScreen</span><span class="p">)</span>
+            <span class="o">.</span><span class="nf">using</span><span class="p">(</span><span class="kt">UINavigationController</span><span class="o">.</span><span class="nf">pushToNavigation</span><span class="p">())</span>
+            <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="n">loginScreen</span><span class="o">.</span><span class="nf">expectingContainer</span><span class="p">())</span>
             <span class="o">.</span><span class="nf">assemble</span><span class="p">()</span>
 
 </code></pre>
 
 <p><em>With the configuration above you will be able to navigate to both screens using the <code><a href="Protocols/Router.html">Router</a></code></em></p>
-<h4 id='why-do-we-use-code-within-code-here' class='heading'>Why do we use <code>within</code> here?</h4>
+<h4 id='why-do-we-use-code-expectingcontainer-code-here' class='heading'>Why do we use <code>expectingContainer</code> here?</h4>
 
-<p>Because <code>pushToNavigation</code> action requires <code>UINavigationController</code> to be previous <code>UIViewController</code> in the chain. <code>within</code> method allows us to escape this check. Developer guaranties that it will be there by the time <code>pushToNavigation</code> will start to perform.</p>
+<p>Because <code>pushToNavigation</code> action requires <code>UINavigationController</code> to be previous <code>UIViewController</code> in the chain. <code>expectingContainer</code> method allows us to escape this check. You guarantee that it will be there by the time <code>pushToNavigation</code> will start to perform.</p>
 <h4 id='what-will-happen-if-in-the-configuration-above-i-will-replace-the-code-generalstep-current-code-with-the-code-generalstep-root-code' class='heading'>What will happen if, in the configuration above, I will replace the <code>GeneralStep.current</code> with the <code>GeneralStep.root</code>?</h4>
 
 <p>It will work, but it means that the router has to start building the stack from the root <code>UIViewController</code>, so if the user is in some <code>UIViewController</code> presented modally - the router will close it before it will start the navigation.</p>
@@ -500,7 +499,7 @@
     <span class="k">let</span> <span class="nv">screen</span> <span class="o">=</span> <span class="kt">StepAssembly</span><span class="p">(</span>
         <span class="nv">finder</span><span class="p">:</span> <span class="kt">ModalBagFinder</span><span class="p">(),</span>
         <span class="nv">factory</span><span class="p">:</span> <span class="kt">XibFactory</span><span class="p">())</span>
-        <span class="o">.</span><span class="nf">using</span><span class="p">(</span><span class="kt">NavigationControllerFactory</span><span class="o">.</span><span class="nf">pushToNavigation</span><span class="p">())</span>
+        <span class="o">.</span><span class="nf">using</span><span class="p">(</span><span class="kt">UINavigationController</span><span class="o">.</span><span class="nf">pushToNavigation</span><span class="p">())</span>
         <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="kt">NavigationControllerStep</span><span class="p">())</span>
         <span class="o">.</span><span class="nf">using</span><span class="p">(</span><span class="kt">GeneralAction</span><span class="o">.</span><span class="nf">presentModally</span><span class="p">())</span>
         <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="kt">GeneralStep</span><span class="o">.</span><span class="nf">current</span><span class="p">())</span>
@@ -511,7 +510,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-10-12)</p>
+          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-10-13)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

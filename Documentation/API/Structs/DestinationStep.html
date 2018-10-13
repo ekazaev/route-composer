@@ -228,37 +228,13 @@
                 <a href="../Extensions/UINavigationController.html">UINavigationController</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Extensions/UINavigationController/PushAction.html">– PushAction</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Extensions/UINavigationController/PushAsRootAction.html">– PushAsRootAction</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Extensions/UINavigationController/PushReplacingLastAction.html">– PushReplacingLastAction</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Extensions/UISplitViewController.html">UISplitViewController</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Extensions/UISplitViewController/PushToDetailsAction.html">– PushToDetailsAction</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Extensions/UISplitViewController/SetAsMasterAction.html">– SetAsMasterAction</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Extensions/UITabBarController.html">UITabBarController</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Extensions/UITabBarController/AddTabAction.html">– AddTabAction</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Extensions/UIViewController.html">UIViewController</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Extensions/UIViewController/PresentModallyAction.html">– PresentModallyAction</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Extensions/UIViewController/ReplaceRootAction.html">– ReplaceRootAction</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Extensions/UIWindow.html">UIWindow</a>
@@ -334,10 +310,46 @@
                 <a href="../Structs/LastStepInChainAssembly.html">LastStepInChainAssembly</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Structs/NavigationControllerActions.html">NavigationControllerActions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/NavigationControllerActions/PushAction.html">– PushAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/NavigationControllerActions/PushAsRootAction.html">– PushAsRootAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/NavigationControllerActions/PushReplacingLastAction.html">– PushReplacingLastAction</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Structs/SearchOptions.html">SearchOptions</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Structs/SplitViewControllerActions.html">SplitViewControllerActions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SplitViewControllerActions/PushToDetailsAction.html">– PushToDetailsAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SplitViewControllerActions/SetAsMasterAction.html">– SetAsMasterAction</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Structs/StepChainAssembly.html">StepChainAssembly</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/TabBarControllerActions.html">TabBarControllerActions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/TabBarControllerActions/AddTabAction.html">– AddTabAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ViewControllerActions.html">ViewControllerActions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ViewControllerActions/PresentModallyAction.html">– PresentModallyAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ViewControllerActions/ReplaceRootAction.html">– ReplaceRootAction</a>
               </li>
             </ul>
           </li>
@@ -416,9 +428,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer15DestinationStepV17unsafelyUnwrappedACyqd__qd_0_GySo16UIViewControllerCRbd__r0_lF"></a>
-                    <a name="//apple_ref/swift/Method/unsafelyUnwrapped()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer15DestinationStepV17unsafelyUnwrappedACyqd__qd_0_GySo16UIViewControllerCRbd__r0_lF">unsafelyUnwrapped()</a>
+                    <a name="/s:13RouteComposer15DestinationStepV18unsafelyUnwrappingACyqd__qd_0_GySo16UIViewControllerCRbd__r0_lF"></a>
+                    <a name="//apple_ref/swift/Method/unsafelyUnwrapping()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer15DestinationStepV18unsafelyUnwrappingACyqd__qd_0_GySo16UIViewControllerCRbd__r0_lF">unsafelyUnwrapping()</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -426,14 +438,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Removes context type dependency from a step.</p>
+                        <p>Removes context and view controller type dependencies from a step.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">unsafelyUnwrapped</span><span class="o">&lt;</span><span class="kt">UVC</span><span class="p">,</span> <span class="kt">UC</span><span class="o">&gt;</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">DestinationStep</span><span class="o">&lt;</span><span class="kt">UVC</span><span class="p">,</span> <span class="kt">UC</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">UVC</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">unsafelyUnwrapping</span><span class="o">&lt;</span><span class="kt">UVC</span><span class="p">,</span> <span class="kt">UC</span><span class="o">&gt;</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">DestinationStep</span><span class="o">&lt;</span><span class="kt">UVC</span><span class="p">,</span> <span class="kt">UC</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">UVC</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
 
                         </div>
                       </div>
@@ -443,9 +455,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer15DestinationStepV11asContainerACyqd__q_GyAA0F14ViewControllerRd__lF"></a>
-                    <a name="//apple_ref/swift/Method/asContainer()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer15DestinationStepV11asContainerACyqd__q_GyAA0F14ViewControllerRd__lF">asContainer()</a>
+                    <a name="/s:13RouteComposer15DestinationStepV18expectingContainerACyqd__q_GyAA0F14ViewControllerRd__lF"></a>
+                    <a name="//apple_ref/swift/Method/expectingContainer()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer15DestinationStepV18expectingContainerACyqd__q_GyAA0F14ViewControllerRd__lF">expectingContainer()</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -453,7 +465,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Allows to avoid container view controller checks.</p>
+                        <p>Allows to avoid container view controller check.</p>
 
 <p><em>NB:</em> Developer guaranties that it will be there in runtime.</p>
 
@@ -462,7 +474,70 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">asContainer</span><span class="o">&lt;</span><span class="kt">VC</span><span class="o">&gt;</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">DestinationStep</span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">,</span> <span class="kt"><a href="../Structs/DestinationStep.html#/s:13RouteComposer15DestinationStepV7Contexta">Context</a></span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">VC</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ContainerViewController.html">ContainerViewController</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">expectingContainer</span><span class="o">&lt;</span><span class="kt">VC</span><span class="o">&gt;</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">DestinationStep</span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">,</span> <span class="kt"><a href="../Structs/DestinationStep.html#/s:13RouteComposer15DestinationStepV7Contexta">Context</a></span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">VC</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ContainerViewController.html">ContainerViewController</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer15DestinationStepVAAypSgRs_rlE18expectingContainerACyqd__qd_0_GyAA0F14ViewControllerRd__r0_lF"></a>
+                    <a name="//apple_ref/swift/Method/expectingContainer()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer15DestinationStepVAAypSgRs_rlE18expectingContainerACyqd__qd_0_GyAA0F14ViewControllerRd__r0_lF">expectingContainer()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Allows to avoid container view controller check. This method is available only for the steps that are
+able to accept any type of context.</p>
+
+<p><em>NB:</em> Developer guaranties that it will be there.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">expectingContainer</span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">DestinationStep</span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">VC</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ContainerViewController.html">ContainerViewController</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer15DestinationStepVAAypSgRs_rlE15adoptingContextACyxqd__GylF"></a>
+                    <a name="//apple_ref/swift/Method/adoptingContext()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer15DestinationStepVAAypSgRs_rlE15adoptingContextACyxqd__GylF">adoptingContext()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Allows to avoid context type check. A step that has context equal to Optional(Any) can be build with any type of context passed to the router.</p>
+
+<p><em>NB:</em> Developer guaranties that it will be there.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">adoptingContext</span><span class="o">&lt;</span><span class="kt">C</span><span class="o">&gt;</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">DestinationStep</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/DestinationStep.html#/s:13RouteComposer15DestinationStepV14ViewControllera">ViewController</a></span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -474,7 +549,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-10-12)</p>
+          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-10-13)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
