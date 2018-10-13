@@ -192,6 +192,20 @@ class RouteComposerExampleUITests: XCTestCase {
         app.terminate()
     }
 
+    func testGoToSquareFromModalInTab() {
+        app.launch()
+        XCTAssertTrue(app.otherElements["promptViewController"].exists)
+        app.buttons["Continue"].tap()
+        XCTAssertTrue(app.otherElements["homeViewController"].exists)
+
+        app.buttons["Go to routing control modal"].tap()
+        XCTAssertTrue(app.otherElements["routingRuleViewController"].exists)
+
+        app.buttons["Go to Square Tab"].tap()
+        XCTAssertTrue(app.otherElements["squareViewController"].exists)
+
+    }
+
     func testCollectionsAndReturnHome() {
         app.launch()
 

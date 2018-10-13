@@ -31,8 +31,7 @@ public class SingleContainerStep<F: Finder, FC: Container>: StepWithActionAssemb
                 action: ActionBox(action),
                 interceptor: taskCollector.interceptor(),
                 contextTask: taskCollector.contextTask(),
-                postTask: taskCollector.postTask(),
-                previousStep: nil
+                postTask: taskCollector.postTask()
         )
     }
 
@@ -43,8 +42,7 @@ public class SingleContainerStep<F: Finder, FC: Container>: StepWithActionAssemb
                 action: ContainerActionBox(action),
                 interceptor: taskCollector.interceptor(),
                 contextTask: taskCollector.contextTask(),
-                postTask: taskCollector.postTask(),
-                previousStep: nil
+                postTask: taskCollector.postTask()
         )
     }
 

@@ -270,7 +270,7 @@ let productScreen = StepAssembly(finder: ProductViewControllerFinder(), factory:
         .add(LoginInterceptor<String>()) // Have to specify type till https://bugs.swift.org/browse/SR-8719, https://bugs.swift.org/browse/SR-8705 are fixed
         .add(ProductViewControllerContextTask())
         .add(ProductViewControllerPostTask(analyticsManager: AnalyticsManager.sharedInstance))
-        .using(NavigationControllerFactory.pushToNavigation())
+        .using(UINavigationController.pushToNavigation())
         .from(NavigationControllerStep())
         .using(GeneralActions.presentModally())
         .from(GeneralStep.current())
@@ -305,7 +305,7 @@ struct Configuration {
                 .add(LoginInterceptor<String>())
                 .add(ProductViewControllerContextTask())
                 .add(ProductViewControllerPostTask(analyticsManager: AnalyticsManager.sharedInstance))
-                .using(NavigationControllerFactory.pushToNavigation())
+                .using(UINavigationController.pushToNavigation())
                 .from(NavigationControllerStep())
                 .using(GeneralActions.presentModally())
                 .from(GeneralStep.current())
