@@ -90,15 +90,17 @@ class AssemblyTest: XCTestCase {
         let step = SwitchAssembly<UINavigationController, String>()
                 .addCase(from: ClassFinder<UINavigationController, String>())
                 .addCase(expecting: ClassFinder<RouterTests.TestViewController, String>())
+                .addCase(from: EnclosingContainerFinder(using:ClassFinder<RouterTests.TestViewController, String>()))
                 .addCase(when: ClassFinder<UITabBarController, String>(),
                         from: ContainerStepAssembly(finder: NilFinder(), factory: NavigationControllerFactory())
                                 .using(GeneralAction.presentModally())
                                 .from(GeneralStep.current())
                                 .assemble())
                 .addCase({ (_: Any?) in
-                    return StepAssembly(finder: ClassFinder(), factory: NilFactory())
+                    return StepAssembly(finder: ClassFinder(), factory: EmptyFactory())
+                            .using(GeneralAction.presentModally())
                             .from(GeneralStep.current())
-                            .assemble()
+                            .assemble().expectingContainer()
                 })
                 .assemble(default: {
                     return ContainerStepAssembly(finder: NilFinder(), factory: NavigationControllerFactory())
@@ -110,7 +112,7 @@ class AssemblyTest: XCTestCase {
                 }).previousStep as? SwitcherStep<String>
 
         XCTAssertNotNil(step)
-        XCTAssertEqual(step?.resolvers.count, 5)
+        XCTAssertEqual(step?.resolvers.count, 6)
     }
 
     func testStepWithActionAssembly() {

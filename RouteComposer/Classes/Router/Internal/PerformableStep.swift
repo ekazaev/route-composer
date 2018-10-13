@@ -11,3 +11,22 @@ protocol PerformableStep {
     func perform(with context: Any?) throws -> StepResult
 
 }
+
+protocol FinderFactoryStep: PerformableStep {
+
+    var factory: AnyFactory? { get }
+
+    var finder: AnyFinder? { get }
+
+}
+
+extension FinderFactoryStep {
+
+    func perform(with context: Any?) throws -> StepResult {
+        guard let viewController = try finder?.findViewController(with: context) else {
+            return .continueRouting(factory)
+        }
+        return .success(viewController)
+    }
+
+}
