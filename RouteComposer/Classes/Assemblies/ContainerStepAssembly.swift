@@ -18,9 +18,8 @@ import UIKit
 ///         .from(CurrentControllerStep())
 ///         .assemble()
 /// ```
-public final class ContainerStepAssembly<F: Finder, FC: Container>: GenericStepAssembly<F, FC>, ActionConnecting
-        where
-        F.ViewController == FC.ViewController, F.Context == FC.Context {
+public final class ContainerStepAssembly<F: Finder, FC: Container>: GenericStepAssembly<F.ViewController, F.Context>, ActionConnecting
+        where F.ViewController == FC.ViewController, F.Context == FC.Context {
 
     let finder: F
 
@@ -69,46 +68,6 @@ public final class ContainerStepAssembly<F: Finder, FC: Container>: GenericStepA
                 postTask: taskCollector.postTask())
         previousSteps.append(step)
         return ContainerStepChainAssembly(previousSteps: previousSteps)
-    }
-
-}
-
-public extension ContainerStepAssembly where FC: NilEntity {
-
-    /// Connects previously provided `DestinationStep` with `NilEntity` factory with a step where the `UIViewController`
-    /// should avoid type checks.
-    ///
-    /// - Parameter step: `StepWithActionAssembly` instance to be used.
-    public func from<AF: Finder, AFC: AbstractFactory>(_ step: StepWithActionAssembly<AF, AFC>) -> ActionConnectingAssembly<AF, AFC, ViewController, Context>
-            where AF.Context == Context {
-        var previousSteps = self.previousSteps
-        let currentStep = BaseStep<ContainerFactoryBox<FC>>(
-                finder: self.finder,
-                factory: self.factory,
-                action: ActionBox(ViewControllerActions.NilAction()),
-                interceptor: taskCollector.interceptor(),
-                contextTask: taskCollector.contextTask(),
-                postTask: taskCollector.postTask())
-        previousSteps.append(currentStep)
-        return ActionConnectingAssembly(stepToFullFill: step, previousSteps: previousSteps)
-    }
-
-    /// Connects previously provided `DestinationStep` with `NilEntity` factory with a step where the `UIViewController`
-    /// should avoid type checks
-    ///
-    /// - Parameter step: `DestinationStep` instance to be used.
-    public func from<VC: UIViewController>(_ step: DestinationStep<VC, Context>) -> LastStepInChainAssembly<ViewController, Context> {
-        var previousSteps = self.previousSteps
-        let currentStep = BaseStep<ContainerFactoryBox<FC>>(
-                finder: self.finder,
-                factory: self.factory,
-                action: ActionBox(ViewControllerActions.NilAction()),
-                interceptor: taskCollector.interceptor(),
-                contextTask: taskCollector.contextTask(),
-                postTask: taskCollector.postTask())
-        previousSteps.append(currentStep)
-        previousSteps.append(step)
-        return LastStepInChainAssembly(previousSteps: previousSteps)
     }
 
 }

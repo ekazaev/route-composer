@@ -24,20 +24,16 @@ public final class SwitchAssembly<ViewController: UIViewController, Context> {
         }
     }
 
-    private struct FinderStep: RoutingStep, PerformableStep {
+    private struct FinderStep: RoutingStep, FinderFactoryStep {
 
         let finder: AnyFinder?
+
+        let factory: AnyFactory? = nil
 
         init<F: Finder>(finder: F) {
             self.finder = FinderBox.box(for: finder)
         }
 
-        func perform(with context: Any?) throws -> StepResult {
-            guard let viewController = try finder?.findViewController(with: context) else {
-                throw RoutingError.generic(RoutingError.Context(debugDescription: "A view controller was not found."))
-            }
-            return .success(viewController)
-        }
     }
 
     fileprivate struct FinderResolver<ViewController: UIViewController, Context>: StepCaseResolver {

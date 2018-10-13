@@ -45,21 +45,15 @@ extension ExampleScreenConfiguration {
     }
 
     var circleScreen: DestinationStep<CircleViewController, Any?> {
-        return StepAssembly(
-                finder: ClassFinder<CircleViewController, Any?>(),
-                factory: NilFactory())
+        return EnclosedStepAssembly(finder: ClassFinder<CircleViewController, Any?>())
                 .add(ExampleGenericContextTask<CircleViewController, Any?>())
-                .from(homeScreen)
-                .assemble()
+                .assemble(from: homeScreen)
     }
 
     var squareScreen: DestinationStep<SquareViewController, Any?> {
-        return StepAssembly(
-                finder: ClassFinder<SquareViewController, Any?>(),
-                factory: NilFactory())
+        return EnclosedStepAssembly(finder: ClassFinder<SquareViewController, Any?>())
                 .add(ExampleGenericContextTask<SquareViewController, Any?>())
-                .from(homeScreen)
-                .assemble()
+                .assemble(from: homeScreen)
     }
 
     var colorScreen: DestinationStep<ColorViewController, String> {

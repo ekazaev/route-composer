@@ -10,7 +10,7 @@ struct BaseStep<Box: AnyFactoryBox>: RoutingStepWithContext,
         ChainableStep,
         ChainingStep,
         InterceptableStep,
-        PerformableStep,
+        FinderFactoryStep,
         CustomStringConvertible {
 
     typealias Context = Box.FactoryType.Context
@@ -46,13 +46,6 @@ struct BaseStep<Box: AnyFactoryBox>: RoutingStepWithContext,
         self.interceptor = interceptor
         self.contextTask = contextTask
         self.postTask = postTask
-        }
-
-    func perform(with context: Any?) throws -> StepResult {
-        guard let viewController = try finder?.findViewController(with: context) else {
-            return .continueRouting(factory)
-        }
-        return .success(viewController)
     }
 
     mutating func from(_ step: RoutingStep) {

@@ -19,8 +19,7 @@ class CitiesConfiguration {
             .assemble()
 
     // Cities List
-    private static var citiesList = StepAssembly(finder: ClassFinder<CitiesTableViewController, Int?>(),
-            factory: NilFactory())
+    private static var citiesList = EnclosedStepAssembly(finder: ClassFinder<CitiesTableViewController, Int?>())
             .add(CityTableContextTask())
             .from(city.adoptingContext())
             .assemble()

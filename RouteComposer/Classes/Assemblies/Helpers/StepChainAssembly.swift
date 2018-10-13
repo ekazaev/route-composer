@@ -83,9 +83,7 @@ public struct ContainerStepChainAssembly<AcceptableContainer: ContainerViewContr
     ///
     /// - Parameter previousStep: The instance of `DestinationStep`
     public func from(_ step: DestinationStep<AcceptableContainer, Context>) -> LastStepInChainAssembly<ViewController, Context> {
-        var previousSteps = self.previousSteps
-        previousSteps.append(step)
-        return LastStepInChainAssembly(previousSteps: previousSteps)
+        return LastStepInChainAssembly(previousSteps: Array([previousSteps, [step]].joined()))
     }
 
     /// Assembles all the provided settings.
@@ -93,9 +91,7 @@ public struct ContainerStepChainAssembly<AcceptableContainer: ContainerViewContr
     /// - Parameter step: An instance of `DestinationStep` to build a current stack from.
     /// - Returns: An instance of `DestinationStep` with all the provided settings inside.
     public func assemble(from step: DestinationStep<AcceptableContainer, Context>) -> DestinationStep<ViewController, Context> {
-        var previousSteps = self.previousSteps
-        previousSteps.append(step)
-        return LastStepInChainAssembly(previousSteps: previousSteps).assemble()
+        return from(step).assemble()
     }
 
     // MARK: - The method allow avoiding required view controller type checks.
@@ -104,9 +100,9 @@ public struct ContainerStepChainAssembly<AcceptableContainer: ContainerViewContr
     /// should be to avoid a container view controller type check.
     ///
     /// - Parameter step: `StepWithActionAssembly` instance to be used.
-    public func from1<F: Finder, FC: AbstractFactory>(_ step: StepWithActionAssembly<F, FC>) -> ActionConnectingAssembly<F, FC, ViewController, Context>
-            where F.ViewController == FC.ViewController, F.Context == FC.Context, F.Context == Context {
-        return ActionConnectingAssembly(stepToFullFill: step, previousSteps: previousSteps)
-    }
+//    public func from1<F: Finder, FC: AbstractFactory>(_ step: StepWithActionAssembly<F, FC>) -> ActionConnectingAssembly<F, FC, ViewController, Context>
+//            where F.ViewController == FC.ViewController, F.Context == FC.Context, F.Context == Context {
+//        return ActionConnectingAssembly(stepToFullFill: step, previousSteps: previousSteps)
+//    }
 
 }
