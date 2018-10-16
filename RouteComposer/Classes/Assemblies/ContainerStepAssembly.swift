@@ -18,7 +18,7 @@ import UIKit
 ///         .from(CurrentControllerStep())
 ///         .assemble()
 /// ```
-public final class ContainerStepAssembly<F: Finder, FC: Container>: GenericStepAssembly<F.ViewController, F.Context>, ActionConnecting
+public final class ContainerStepAssembly<F: Finder, FC: ContainerFactory>: GenericStepAssembly<F.ViewController, F.Context>, ActionConnecting
         where F.ViewController == FC.ViewController, F.Context == FC.Context {
 
     let finder: F
@@ -31,7 +31,7 @@ public final class ContainerStepAssembly<F: Finder, FC: Container>: GenericStepA
     ///
     /// - Parameters:
     ///   - finder: The `UIViewController` `Finder` instance.
-    ///   - factory: The `UIViewController` `Container` instance.
+    ///   - factory: The `UIViewController` `ContainerFactory` instance.
     public init(finder: F, factory: FC) {
         self.factory = factory
         self.finder = finder
@@ -47,9 +47,9 @@ public final class ContainerStepAssembly<F: Finder, FC: Container>: GenericStepA
                 finder: self.finder,
                 factory: self.factory,
                 action: ActionBox(action),
-                interceptor: taskCollector.interceptor(),
-                contextTask: taskCollector.contextTask(),
-                postTask: taskCollector.postTask())
+                interceptor: taskCollector.getInterceptorsBoxed(),
+                contextTask: taskCollector.getContextTasksBoxed(),
+                postTask: taskCollector.getPostTasksBoxed())
         previousSteps.append(step)
         return StepChainAssembly(previousSteps: previousSteps)
     }
@@ -63,9 +63,9 @@ public final class ContainerStepAssembly<F: Finder, FC: Container>: GenericStepA
                 finder: self.finder,
                 factory: self.factory,
                 action: ContainerActionBox(action),
-                interceptor: taskCollector.interceptor(),
-                contextTask: taskCollector.contextTask(),
-                postTask: taskCollector.postTask())
+                interceptor: taskCollector.getInterceptorsBoxed(),
+                contextTask: taskCollector.getContextTasksBoxed(),
+                postTask: taskCollector.getPostTasksBoxed())
         previousSteps.append(step)
         return ContainerStepChainAssembly(previousSteps: previousSteps)
     }
@@ -74,20 +74,20 @@ public final class ContainerStepAssembly<F: Finder, FC: Container>: GenericStepA
 
 public extension ContainerStepAssembly where FC: NilEntity {
 
-    /// Connects previously provided `StepWithActionAssembly` with `NilEntity` factory with a step where the `UIViewController`
+    /// Connects previously provided `ActionToStepIntegrator` with `NilEntity` factory with a step where the `UIViewController`
     /// should avoid type checks.
     ///
-    /// - Parameter step: `StepWithActionAssembly` instance to be used.
-    public func from<AF: Finder, AFC: AbstractFactory>(_ step: StepWithActionAssembly<AF, AFC>) -> ActionConnectingAssembly<AF, AFC, ViewController, Context>
+    /// - Parameter step: `ActionToStepIntegrator` instance to be used.
+    public func from<AF: Finder, AFC: AbstractFactory>(_ step: ActionToStepIntegrator<AF, AFC>) -> ActionConnectingAssembly<AF, AFC, ViewController, Context>
             where AF.Context == Context {
         var previousSteps = self.previousSteps
         let currentStep = BaseStep<ContainerFactoryBox<FC>>(
                 finder: self.finder,
                 factory: self.factory,
                 action: ActionBox(ViewControllerActions.NilAction()),
-                interceptor: taskCollector.interceptor(),
-                contextTask: taskCollector.contextTask(),
-                postTask: taskCollector.postTask())
+                interceptor: taskCollector.getInterceptorsBoxed(),
+                contextTask: taskCollector.getContextTasksBoxed(),
+                postTask: taskCollector.getPostTasksBoxed())
         previousSteps.append(currentStep)
         return ActionConnectingAssembly(stepToFullFill: step, previousSteps: previousSteps)
     }
@@ -102,9 +102,9 @@ public extension ContainerStepAssembly where FC: NilEntity {
                 finder: self.finder,
                 factory: self.factory,
                 action: ActionBox(ViewControllerActions.NilAction()),
-                interceptor: taskCollector.interceptor(),
-                contextTask: taskCollector.contextTask(),
-                postTask: taskCollector.postTask())
+                interceptor: taskCollector.getInterceptorsBoxed(),
+                contextTask: taskCollector.getContextTasksBoxed(),
+                postTask: taskCollector.getPostTasksBoxed())
         previousSteps.append(currentStep)
         previousSteps.append(step)
         return LastStepInChainAssembly(previousSteps: previousSteps)

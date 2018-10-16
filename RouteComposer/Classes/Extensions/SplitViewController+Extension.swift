@@ -9,20 +9,20 @@ import UIKit
 // - The `UISplitViewController` extension is to support the `ContainerViewController` protocol
 extension UISplitViewController: ContainerViewController {
 
-    public var containingViewControllers: [UIViewController] {
+    public var containedViewControllers: [UIViewController] {
         return viewControllers
     }
 
     public var visibleViewControllers: [UIViewController] {
-        return containingViewControllers
+        return containedViewControllers
     }
 
     public func makeVisible(_ viewController: UIViewController, animated: Bool) {
         guard viewController.navigationController?.navigationController?.visibleViewController != viewController else {
             return
         }
-        for containingViewController in containingViewControllers where containingViewController == viewController {
-            containingViewController.navigationController?.navigationController?.popToViewController(containingViewController, animated: animated)
+        for containedViewController in containedViewControllers where containedViewController == viewController {
+            containedViewController.navigationController?.navigationController?.popToViewController(containedViewController, animated: animated)
             return
         }
     }
@@ -33,7 +33,7 @@ extension UISplitViewController: ContainerViewController {
 extension UISplitViewController: RoutingInterceptable {
 
     public var canBeDismissed: Bool {
-        return containingViewControllers.canBeDismissed
+        return containedViewControllers.canBeDismissed
     }
 
 }

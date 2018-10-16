@@ -10,15 +10,15 @@ public extension Array where Element: UIViewController {
 
     /// Returns `true` if all `UIViewController` instances can be dismissed.
     var canBeDismissed: Bool {
-        return self.nonDismissibleViewController == nil
+        return nonDismissibleViewController == nil
     }
 
 }
 
-internal extension Array where Element: UIViewController {
+extension Array where Element: UIViewController {
 
     var nonDismissibleViewController: UIViewController? {
-        return self.compactMap {
+        return compactMap {
             $0 as? RoutingInterceptable & UIViewController
         }.first {
             !$0.canBeDismissed
@@ -28,10 +28,10 @@ internal extension Array where Element: UIViewController {
     func uniqueElements() -> [Element] {
         var buffer = [Element]()
         var added = Set<Element>()
-        for elem in self {
-            if !added.contains(elem) {
-                buffer.append(elem)
-                added.insert(elem)
+        for element in self {
+            if !added.contains(element) {
+                buffer.append(element)
+                added.insert(element)
             }
         }
         return buffer

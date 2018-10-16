@@ -9,7 +9,7 @@ import UIKit
 /// - The `UITabBarController` extension is to support the `ContainerViewController` protocol
 extension UITabBarController: ContainerViewController {
 
-    public var containingViewControllers: [UIViewController] {
+    public var containedViewControllers: [UIViewController] {
         guard let viewControllers = self.viewControllers else {
             return []
         }
@@ -27,8 +27,8 @@ extension UITabBarController: ContainerViewController {
         guard selectedViewController != viewController else {
             return
         }
-        for containingViewController in containingViewControllers where containingViewController == viewController {
-            self.selectedViewController = containingViewController
+        for containedViewController in containedViewControllers where containedViewController == viewController {
+            self.selectedViewController = containedViewController
             return
         }
     }
@@ -39,7 +39,7 @@ extension UITabBarController: ContainerViewController {
 extension UITabBarController: RoutingInterceptable {
 
     public var canBeDismissed: Bool {
-        return containingViewControllers.canBeDismissed
+        return containedViewControllers.canBeDismissed
     }
 
 }

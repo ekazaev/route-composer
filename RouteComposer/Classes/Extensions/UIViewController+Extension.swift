@@ -31,12 +31,12 @@ public extension UIViewController {
             if options.contains(.visible) {
                 viewControllers.append(container.visibleViewControllers)
             }
-            if options.contains(.containing) {
-                viewControllers.append(container.containingViewControllers)
+            if options.contains(.contained) {
+                viewControllers.append(container.containedViewControllers)
             }
             for currentViewController in Array(viewControllers.joined()).uniqueElements() {
                 if let foundViewController = findViewController(in: currentViewController,
-                        options: options.contains(.visible) ? .currentVisibleOnly : [.current, .containing],
+                        options: options.contains(.visible) ? .currentVisibleOnly : [.current, .contained],
                         using: comparator) {
                     return foundViewController
                 }

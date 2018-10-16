@@ -5,7 +5,8 @@
 import Foundation
 import UIKit
 
-extension ContainerViewController where Self: UINavigationController {
+/// Actions for `UINavigationController`
+public extension ContainerViewController where Self: UINavigationController {
 
     /// Replaces all the child view controllers in the `UINavigationController`'s children stack
     public static func pushAsRoot() -> NavigationControllerActions.PushAsRootAction<Self> {

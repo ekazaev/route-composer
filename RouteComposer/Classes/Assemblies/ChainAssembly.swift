@@ -17,7 +17,7 @@ public struct ChainAssembly {
     ///         .assemble()
     /// ```
     /// - Parameter step: The instance of `ActionConnectingAssembly`
-    public static func from<F: Finder, FC: AbstractFactory>(_ step: StepWithActionAssembly<F, FC>) -> ActionConnectingAssembly<F, FC, F.ViewController, F.Context>
+    public static func from<F: Finder, FC: AbstractFactory>(_ step: ActionToStepIntegrator<F, FC>) -> ActionConnectingAssembly<F, FC, F.ViewController, F.Context>
             where F.ViewController == FC.ViewController, F.Context == FC.Context {
         return ActionConnectingAssembly(stepToFullFill: step, previousSteps: [])
     }

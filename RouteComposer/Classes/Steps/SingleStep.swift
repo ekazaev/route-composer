@@ -5,15 +5,15 @@
 import Foundation
 import UIKit
 
-/// A simple class that produces an intermediate `StepWithActionAssembly`.
-public final class SingleStep<F: Finder, FC: Factory>: StepWithActionAssembly<F, FC>
+/// A simple class that produces an intermediate `ActionToStepIntegrator`.
+public final class SingleStep<F: Finder, FC: Factory>: ActionToStepIntegrator<F, FC>
         where F.ViewController == FC.ViewController, F.Context == FC.Context {
 
     let finder: F
 
     let factory: FC
 
-    /// A simple class that produces an intermediate `StepWithActionAssembly`.
+    /// A simple class that produces an intermediate `ActionToStepIntegrator`.
     ///
     /// - Parameters:
     ///   - finder: The `UIViewController` `Finder`.
@@ -27,9 +27,9 @@ public final class SingleStep<F: Finder, FC: Factory>: StepWithActionAssembly<F,
         return BaseStep<FactoryBox<FC>>(finder: finder,
                 factory: factory,
                 action: ActionBox(action),
-                interceptor: taskCollector.interceptor(),
-                contextTask: taskCollector.contextTask(),
-                postTask: taskCollector.postTask()
+                interceptor: taskCollector.getInterceptorsBoxed(),
+                contextTask: taskCollector.getContextTasksBoxed(),
+                postTask: taskCollector.getPostTasksBoxed()
         )
     }
 
@@ -37,9 +37,9 @@ public final class SingleStep<F: Finder, FC: Factory>: StepWithActionAssembly<F,
         return BaseStep<FactoryBox<FC>>(finder: finder,
                 factory: factory,
                 action: ContainerActionBox(action),
-                interceptor: taskCollector.interceptor(),
-                contextTask: taskCollector.contextTask(),
-                postTask: taskCollector.postTask()
+                interceptor: taskCollector.getInterceptorsBoxed(),
+                contextTask: taskCollector.getContextTasksBoxed(),
+                postTask: taskCollector.getPostTasksBoxed()
         )
     }
 

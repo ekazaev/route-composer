@@ -8,9 +8,9 @@
 import Foundation
 import UIKit
 
-/// The `CompleteFactory` instance is used by the `CompleteFactoryAssembly` as a `Container` to
-/// pre-populate the `ChildFactories` instead of the `Router`.
-public struct CompleteFactory<FC: Container>: Container, CustomStringConvertible {
+/// The `CompleteFactory` instance is used by the `CompleteFactoryAssembly` as a `ContainerFactory` to
+/// pre-populate the children view controllers instead of the `Router`.
+public struct CompleteFactory<FC: ContainerFactory>: ContainerFactory, CustomStringConvertible {
 
     public typealias ViewController = FC.ViewController
 

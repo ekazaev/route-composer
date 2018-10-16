@@ -14,13 +14,13 @@ import UIKit
 // @objc is mandatory otherwise crashes in runtime everywhere where Self: UIViewController
 
     /// A `UIViewController` instances that `ContainerViewController` currently has in the stack
-    var containingViewControllers: [UIViewController] { get }
+    var containedViewControllers: [UIViewController] { get }
 
-    /// A `UIViewController` instances out of the `containingViewControllers` that are currently visible on the screen
+    /// A `UIViewController` instances out of the `containedViewControllers` that are currently visible on the screen
     var visibleViewControllers: [UIViewController] { get }
 
     /// Each container view controller should conform to this protocol for the `Router` to know how to make
-    /// the particular child view controller visible.
+    /// its particular child view controller visible.
     ///
     /// - Parameters:
     ///   - viewController: The `UIViewController` to make active (visible).

@@ -6,7 +6,8 @@
 import Foundation
 import UIKit
 
-extension UIWindow {
+/// `UIWindow` helper functions.
+public extension UIWindow {
 
     /// The application's `keyWindow`, or `nil` if there isn't one.
     public static var key: UIWindow? {

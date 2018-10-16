@@ -17,7 +17,7 @@ public struct StepChainAssembly<ViewController: UIViewController, Context> {
     /// Adds a single step to the chain
     ///
     /// - Parameter previousStep: The instance of `StepWithActionAssemblable`
-    public func from<F: Finder, FC: AbstractFactory>(_ step: StepWithActionAssembly<F, FC>) -> ActionConnectingAssembly<F, FC, ViewController, Context>
+    public func from<F: Finder, FC: AbstractFactory>(_ step: ActionToStepIntegrator<F, FC>) -> ActionConnectingAssembly<F, FC, ViewController, Context>
             where F.ViewController == FC.ViewController, F.Context == FC.Context, F.Context == Context {
         return ActionConnectingAssembly<F, FC, ViewController, Context>(stepToFullFill: step, previousSteps: previousSteps)
     }
@@ -31,10 +31,10 @@ public struct StepChainAssembly<ViewController: UIViewController, Context> {
         return LastStepInChainAssembly<ViewController, Context>(previousSteps: previousSteps)
     }
 
-    /// Connects previously provided `StepWithActionAssembly` with a `ViewController` produced by an empty factory.
+    /// Connects previously provided `ActionToStepIntegrator` with a `ViewController` produced by an empty factory.
     ///
-    /// - Parameter step: `StepWithActionAssembly` instance to be used.
-    public func from<F: Finder, FC: AbstractFactory & NilEntity>(_ step: StepWithActionAssembly<F, FC>) -> StepChainAssembly<ViewController, Context>
+    /// - Parameter step: `ActionToStepIntegrator` instance to be used.
+    public func from<F: Finder, FC: AbstractFactory & NilEntity>(_ step: ActionToStepIntegrator<F, FC>) -> StepChainAssembly<ViewController, Context>
             where F.ViewController == FC.ViewController, F.Context == FC.Context, F.Context == Context {
         var previousSteps = self.previousSteps
         previousSteps.append(step.routingStep(with: ViewControllerActions.NilAction()))
@@ -65,15 +65,15 @@ public struct ContainerStepChainAssembly<AcceptableContainer: ContainerViewContr
     /// Adds a single step to the chain
     ///
     /// - Parameter previousStep: The instance of `StepWithActionAssemblable`
-    public func from<F: Finder, FC: AbstractFactory>(_ step: StepWithActionAssembly<F, FC>) -> ActionConnectingAssembly<F, FC, ViewController, Context>
+    public func from<F: Finder, FC: AbstractFactory>(_ step: ActionToStepIntegrator<F, FC>) -> ActionConnectingAssembly<F, FC, ViewController, Context>
             where F.ViewController == FC.ViewController, F.Context == FC.Context, F.ViewController == AcceptableContainer, F.Context == Context {
         return ActionConnectingAssembly<F, FC, ViewController, Context>(stepToFullFill: step, previousSteps: previousSteps)
     }
 
-    /// Connects previously provided `StepWithActionAssembly` with a `ViewController` produced by an empty factory.
+    /// Connects previously provided `ActionToStepIntegrator` with a `ViewController` produced by an empty factory.
     ///
-    /// - Parameter step: `StepWithActionAssembly` instance to be used.
-    public func from<F: Finder, FC: AbstractFactory & NilEntity>(_ step: StepWithActionAssembly<F, FC>) -> StepChainAssembly<ViewController, Context> where F.Context == Context {
+    /// - Parameter step: `ActionToStepIntegrator` instance to be used.
+    public func from<F: Finder, FC: AbstractFactory & NilEntity>(_ step: ActionToStepIntegrator<F, FC>) -> StepChainAssembly<ViewController, Context> where F.Context == Context {
         var previousSteps = self.previousSteps
         previousSteps.append(step.routingStep(with: ViewControllerActions.NilAction()))
         return StepChainAssembly(previousSteps: previousSteps)

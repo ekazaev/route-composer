@@ -5,9 +5,9 @@
 import Foundation
 import UIKit
 
-/// A helper protocol to the `Container` protocol. If a container does not need to deal with the children view
+/// A helper protocol to the `ContainerFactory` protocol. If a container does not need to deal with the children view
 /// controller creation, `SimpleContainer` will handle integration of the children view controllers.
-public protocol SimpleContainer: Container {
+public protocol SimpleContainer: ContainerFactory {
 
     /// Type of the `UIViewController` that `SimpleContainer` can build
     associatedtype ViewController = ViewController
@@ -28,7 +28,7 @@ public protocol SimpleContainer: Container {
 
 public extension SimpleContainer {
 
-    /// Default implementation of the `Container`'s `build` method
+    /// Default implementation of the `ContainerFactory`'s `build` method
     func build(with context: Context, integrating coordinator: ChildCoordinator<Context>) throws -> ViewController {
         let viewControllers = try coordinator.build(with: context)
         return try build(with: context, integrating: viewControllers)

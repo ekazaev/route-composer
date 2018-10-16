@@ -6,7 +6,7 @@ import Foundation
 import UIKit
 
 /// Base class for the basic container steps.
-public class SingleContainerStep<F: Finder, FC: Container>: StepWithActionAssembly<F, FC>
+public class SingleContainerStep<F: Finder, FC: ContainerFactory>: ActionToStepIntegrator<F, FC>
         where
         F.ViewController == FC.ViewController, F.Context == FC.Context {
 
@@ -14,11 +14,11 @@ public class SingleContainerStep<F: Finder, FC: Container>: StepWithActionAssemb
 
     let factory: FC
 
-    /// Creates an instance of the `StepWithActionAssembly` describing a container view controller.
+    /// Creates an instance of the `DestinationStep` describing a container view controller.
     ///
     /// - Parameters:
     ///   - finder: The `UIViewController` `Finder`.
-    ///   - factory: The `UIViewController` `Container`.
+    ///   - factory: The `UIViewController` `ContainerFactory`.
     public init(finder: F, factory: FC) {
         self.finder = finder
         self.factory = factory
@@ -29,9 +29,9 @@ public class SingleContainerStep<F: Finder, FC: Container>: StepWithActionAssemb
                 factory:
                 factory,
                 action: ActionBox(action),
-                interceptor: taskCollector.interceptor(),
-                contextTask: taskCollector.contextTask(),
-                postTask: taskCollector.postTask()
+                interceptor: taskCollector.getInterceptorsBoxed(),
+                contextTask: taskCollector.getContextTasksBoxed(),
+                postTask: taskCollector.getPostTasksBoxed()
         )
     }
 
@@ -40,9 +40,9 @@ public class SingleContainerStep<F: Finder, FC: Container>: StepWithActionAssemb
                 factory:
                 factory,
                 action: ContainerActionBox(action),
-                interceptor: taskCollector.interceptor(),
-                contextTask: taskCollector.contextTask(),
-                postTask: taskCollector.postTask()
+                interceptor: taskCollector.getInterceptorsBoxed(),
+                contextTask: taskCollector.getContextTasksBoxed(),
+                postTask: taskCollector.getPostTasksBoxed()
         )
     }
 

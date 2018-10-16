@@ -20,7 +20,7 @@ public struct SearchOptions: OptionSet, CustomStringConvertible {
     public static let visible = SearchOptions(rawValue: 1 << 1)
 
     /// If a view controller is a container, search in all the view controllers it contains
-    public static let containing = SearchOptions(rawValue: 1 << 2)
+    public static let contained = SearchOptions(rawValue: 1 << 2)
 
     /// Start search from the view controller provided and search in all view controllers it presented
     public static let presented = SearchOptions(rawValue: 1 << 3)
@@ -29,7 +29,7 @@ public struct SearchOptions: OptionSet, CustomStringConvertible {
     public static let presenting = SearchOptions(rawValue: 1 << 4)
 
     /// If a view controller is a container, search in all the view controllers it contains
-    public static let currentAllStack: SearchOptions = [.current, .containing]
+    public static let currentAllStack: SearchOptions = [.current, .contained]
 
     /// If a view controller is a container, search in all visible view controllers it contains
     public static let currentVisibleOnly: SearchOptions = [.current, .visible]
@@ -38,7 +38,7 @@ public struct SearchOptions: OptionSet, CustomStringConvertible {
     public static let allVisible: SearchOptions = [.currentVisibleOnly, .presented, .presenting]
 
     /// Iterate through the all view controllers in the stack.
-    public static let fullStack: SearchOptions = [.current, .containing, .presented, .presenting]
+    public static let fullStack: SearchOptions = [.current, .contained, .presented, .presenting]
 
     /// Iterate through the all view controllers on the current level and all the view controllers
     /// presented from the current level.
@@ -50,14 +50,14 @@ public struct SearchOptions: OptionSet, CustomStringConvertible {
 
     public var description: String {
         var descriptionWords: [String] = []
-        for option: SearchOptions in [.current, .visible, .containing] {
+        for option: SearchOptions in [.current, .visible, .contained] {
             guard self.contains(option) else {
                 continue
             }
             switch option {
             case .current: descriptionWords.append("current")
             case .visible: descriptionWords.append("visible")
-            case .containing: descriptionWords.append("containing")
+            case .contained: descriptionWords.append("contained")
             case .presented: descriptionWords.append("presented")
             case .presenting: descriptionWords.append("presenting")
             default: assertionFailure("Unknown SearchOptions")

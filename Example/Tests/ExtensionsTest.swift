@@ -125,7 +125,7 @@ class ExtensionsTest: XCTestCase {
         XCTAssertNil(UIViewController.findViewController(in: testViewController, options: searchOption, using: { $0 is RouterTests.TestViewController }))
         XCTAssertNil(UIViewController.findViewController(in: invisibleController, options: searchOption, using: { $0 is InvisibleViewController }))
 
-        searchOption = [.containing, .presented]
+        searchOption = [.contained, .presented]
         XCTAssertNil(UIViewController.findViewController(in: viewController1, options: searchOption, using: { $0 is UINavigationController }))
         XCTAssertNil(UIViewController.findViewController(in: viewController1, options: searchOption, using: { $0 is RouterTests.TestModalPresentableController }))
         XCTAssertNil(UIViewController.findViewController(in: viewController2, options: searchOption, using: { $0 is UINavigationController }))
@@ -167,7 +167,7 @@ class ExtensionsTest: XCTestCase {
         let viewController2 = UINavigationController()
         let tabBarController = UITabBarController()
         tabBarController.viewControllers = [viewController1, viewController2]
-        XCTAssertEqual(tabBarController.containingViewControllers.count, 2)
+        XCTAssertEqual(tabBarController.containedViewControllers.count, 2)
         XCTAssertEqual(tabBarController.visibleViewControllers.count, 1)
         XCTAssertEqual(tabBarController.visibleViewControllers[0], viewController1)
         tabBarController.makeVisible(viewController2, animated: false)
@@ -179,7 +179,7 @@ class ExtensionsTest: XCTestCase {
         let viewController2 = UIViewController()
         let navigationController = UINavigationController()
         navigationController.viewControllers = [viewController1, viewController2]
-        XCTAssertEqual(navigationController.containingViewControllers.count, 2)
+        XCTAssertEqual(navigationController.containedViewControllers.count, 2)
         XCTAssertEqual(navigationController.visibleViewControllers.count, 1)
         XCTAssertEqual(navigationController.visibleViewControllers[0], viewController2)
         navigationController.makeVisible(viewController1, animated: false)
@@ -192,7 +192,7 @@ class ExtensionsTest: XCTestCase {
         let splitController = UISplitViewController()
         splitController.preferredDisplayMode = .primaryHidden
         splitController.viewControllers = [viewController1, viewController2]
-        XCTAssertEqual(splitController.containingViewControllers.count, 2)
+        XCTAssertEqual(splitController.containedViewControllers.count, 2)
         XCTAssertEqual(splitController.visibleViewControllers.count, splitController.isCollapsed ? 1 : 2)
         XCTAssertEqual(splitController.visibleViewControllers[0], splitController.isCollapsed ? viewController2 : viewController1)
     }

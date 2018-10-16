@@ -9,7 +9,7 @@ import UIKit
 /// - The `UINavigationController` extension is to support the `ContainerViewController` protocol
 extension UINavigationController: ContainerViewController {
 
-    public var containingViewControllers: [UIViewController] {
+    public var containedViewControllers: [UIViewController] {
         return viewControllers
     }
 
@@ -24,8 +24,8 @@ extension UINavigationController: ContainerViewController {
         guard visibleViewController != viewController else {
             return
         }
-        for containingViewController in containingViewControllers where containingViewController == viewController {
-            self.popToViewController(containingViewController, animated: animated)
+        for containedViewController in containedViewControllers where containedViewController == viewController {
+            self.popToViewController(containedViewController, animated: animated)
             return
         }
     }
@@ -36,7 +36,7 @@ extension UINavigationController: ContainerViewController {
 extension UINavigationController: RoutingInterceptable {
 
     public var canBeDismissed: Bool {
-        return containingViewControllers.canBeDismissed
+        return containedViewControllers.canBeDismissed
     }
 
 }

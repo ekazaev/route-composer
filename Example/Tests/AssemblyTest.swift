@@ -114,15 +114,15 @@ class AssemblyTest: XCTestCase {
     }
 
     func testStepWithActionAssembly() {
-        let assembly = StepWithActionAssembly<ClassFinder<RouterTests.TestViewController, Any?>, ClassNameFactory<RouterTests.TestViewController, Any?>>()
+        let assembly = ActionToStepIntegrator<ClassFinder<RouterTests.TestViewController, Any?>, ClassNameFactory<RouterTests.TestViewController, Any?>>()
                 .add(InlineInterceptor({ (_: Any?) in
                 }))
                 .add(InlineContextTask({ (_: RouterTests.TestViewController, _: Any?) in
                 }))
                 .add(InlinePostTask({ (_: RouterTests.TestViewController, _: Any?, _: [UIViewController]) in
                 }))
-        XCTAssertNotNil(assembly.taskCollector.interceptor())
-        XCTAssertNotNil(assembly.taskCollector.contextTask())
-        XCTAssertNotNil(assembly.taskCollector.postTask())
+        XCTAssertNotNil(assembly.taskCollector.getInterceptorsBoxed())
+        XCTAssertNotNil(assembly.taskCollector.getContextTasksBoxed())
+        XCTAssertNotNil(assembly.taskCollector.getPostTasksBoxed())
     }
 }

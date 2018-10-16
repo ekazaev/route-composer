@@ -24,15 +24,15 @@ struct TaskCollector {
         self.postTasks.append(PostRoutingTaskBox(postTask))
     }
 
-    func interceptor() -> AnyRoutingInterceptor? {
+    func getInterceptorsBoxed() -> AnyRoutingInterceptor? {
         return !interceptors.isEmpty ? interceptors.count == 1 ? interceptors.first : InterceptorMultiplexer(interceptors) : nil
     }
 
-    func contextTask() -> AnyContextTask? {
+    func getContextTasksBoxed() -> AnyContextTask? {
         return !contextTasks.isEmpty ? contextTasks.count == 1 ? contextTasks.first : ContextTaskMultiplexer(contextTasks) : nil
     }
 
-    func postTask() -> AnyPostRoutingTask? {
+    func getPostTasksBoxed() -> AnyPostRoutingTask? {
         return !postTasks.isEmpty ? postTasks.count == 1 ? postTasks.first : PostRoutingTaskMultiplexer(postTasks) : nil
     }
 

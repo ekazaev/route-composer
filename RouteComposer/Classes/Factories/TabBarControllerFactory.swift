@@ -5,7 +5,7 @@
 import Foundation
 import UIKit
 
-///  The `Container` that creates a `UITabBarController` instance.
+///  The `ContainerFactory` that creates a `UITabBarController` instance.
 public struct TabBarControllerFactory<C>: SimpleContainer {
 
     public typealias ViewController = UITabBarController
@@ -22,8 +22,8 @@ public struct TabBarControllerFactory<C>: SimpleContainer {
 
     public func build(with context: Context, integrating viewControllers: [UIViewController]) throws -> ViewController {
         guard !viewControllers.isEmpty else {
-            throw RoutingError.compositionFailed(RoutingError.Context(debugDescription: "Unable to build UITabBarController due" +
-                    " to 0 amount of the children view controllers"))
+            throw RoutingError.compositionFailed(RoutingError.Context(debugDescription: "Unable to build UITabBarController due " +
+                    "to 0 amount of the children view controllers"))
         }
         let tabBarController = UITabBarController()
         if let delegate = delegate {

@@ -5,7 +5,7 @@
 import Foundation
 import UIKit
 
-/// Builds a `Container` fulfilled with the children `UIViewController` factories.
+/// Builds a `ContainerFactory` fulfilled with the children `UIViewController` factories.
 ///
 /// ```swift
 /// let rootFactory = CompleteFactoryAssembly(factory: TabBarFactory())
@@ -14,9 +14,9 @@ import UIKit
 ///         .assemble()
 /// ```
 /// *NB: Order matters here*
-public final class CompleteFactoryAssembly<FC: Container> {
+public final class CompleteFactoryAssembly<FC: ContainerFactory> {
 
-    private struct AddAction<C: Container>: ContainerAction {
+    private struct AddAction<C: ContainerFactory>: ContainerAction {
 
         typealias SupportedContainer = C
 
@@ -37,7 +37,7 @@ public final class CompleteFactoryAssembly<FC: Container> {
     /// Constructor
     ///
     /// - Parameters:
-    ///   - factory: The `Container` instance.
+    ///   - factory: The `ContainerFactory` instance.
     public init(factory: FC) {
         self.factory = factory
     }
@@ -57,12 +57,12 @@ public final class CompleteFactoryAssembly<FC: Container> {
         return self
     }
 
-    /// Adds a `Container` that is going to be used as a child
+    /// Adds a `ContainerFactory` that is going to be used as a child
     ///
     /// - Parameters:
-    ///   - childFactory: The instance of `Container`.
-    ///   - action: The instance of `Container` to be used to integrate the view controller produced by the factory.
-    public func with<CFC: Container, A: ContainerAction>(_ childContainer: CFC, using action: A) -> Self
+    ///   - childFactory: The instance of `ContainerFactory`.
+    ///   - action: The instance of `ContainerFactory` to be used to integrate the view controller produced by the factory.
+    public func with<CFC: ContainerFactory, A: ContainerAction>(_ childContainer: CFC, using action: A) -> Self
             where
             CFC.Context == FC.Context, A.ViewController == FC.ViewController {
         guard let factoryBox = ContainerFactoryBox.box(for: childContainer, action: ContainerActionBox(action)) else {
@@ -85,11 +85,11 @@ public final class CompleteFactoryAssembly<FC: Container> {
         return self
     }
 
-    /// Adds a `Container` as the last view controller in the stack.
+    /// Adds a `ContainerFactory` as the last view controller in the stack.
     ///
     /// - Parameters:
-    ///   - childFactory: The instance of `Container`.
-    public func with<CFC: Container>(_ childContainer: CFC) -> Self where CFC.Context == FC.Context {
+    ///   - childFactory: The instance of `ContainerFactory`.
+    public func with<CFC: ContainerFactory>(_ childContainer: CFC) -> Self where CFC.Context == FC.Context {
         guard let factoryBox = ContainerFactoryBox.box(for: childContainer, action: ContainerActionBox(AddAction<FC>())) else {
             return self
         }
@@ -98,7 +98,7 @@ public final class CompleteFactoryAssembly<FC: Container> {
         return self
     }
 
-    /// Assembles all the children factories provided and returns a `Container` instance.
+    /// Assembles all the children factories provided and returns a `ContainerFactory` instance.
     ///
     /// - Returns: The `CompleteFactory` with child factories provided.
     public func assemble() -> CompleteFactory<FC> {

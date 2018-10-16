@@ -36,7 +36,7 @@ class CustomContainerFactory<C>: SimpleContainer {
 
 extension CustomContainerController: ContainerViewController {
 
-    public var containingViewControllers: [UIViewController] {
+    public var containedViewControllers: [UIViewController] {
         guard let rootViewController = rootViewController else {
             return []
         }
@@ -44,7 +44,7 @@ extension CustomContainerController: ContainerViewController {
     }
 
     public var visibleViewControllers: [UIViewController] {
-        return containingViewControllers
+        return containedViewControllers
     }
 
     public func makeVisible(_ viewController: UIViewController, animated: Bool) {
@@ -52,7 +52,7 @@ extension CustomContainerController: ContainerViewController {
     }
 
     public var canBeDismissed: Bool {
-        return containingViewControllers.canBeDismissed
+        return containedViewControllers.canBeDismissed
     }
 
 }

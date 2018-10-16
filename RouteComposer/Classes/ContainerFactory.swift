@@ -6,18 +6,18 @@
 import Foundation
 import UIKit
 
-/// The `Container` protocol should be implemented by the instance that produces any types of the view controllers
+/// The `ContainerFactory` protocol should be implemented by the instance that produces any types of the view controllers
 /// that can be considered as containers (eg: `UINavigationController`, `UITabBarController`, etc)
 ///
 /// The `Router` uses `perform(embedding:)` method of a `ContainerAction` and then populates a full stack of the view controllers
 /// that were built by the associated factories in one go.
 /// Example: `Router` requires to populate N-view controllers into `UINavigationController`'s stack.
-public protocol Container: AbstractFactory {
+public protocol ContainerFactory: AbstractFactory {
 
-    /// Type of the `UIViewController` that `Container` can build. Must be a `ContainerViewController`.
+    /// Type of the `UIViewController` that `ContainerFactory` can build. Must be a `ContainerViewController`.
     associatedtype ViewController = ViewController where ViewController: ContainerViewController
 
-    /// Type of context `Context` instance that `Container` needs
+    /// Type of context `Context` instance that `ContainerFactory` needs
     associatedtype Context = Context
 
     /// Builds a `UIViewController` that will be integrated into the stack
@@ -31,22 +31,22 @@ public protocol Container: AbstractFactory {
 
 }
 
-public extension Container {
+public extension ContainerFactory {
 
     /// Default implementation does nothing
     mutating func prepare(with context: Context) throws {
     }
 
-    /// Builds a `Container` view controller.
+    /// Builds a `ContainerFactory` view controller.
     func build(with context: Context) throws -> ViewController {
         return try build(with: context, integrating: ChildCoordinator(childFactories: []))
     }
 
 }
 
-public extension Container where Context == Any? {
+public extension ContainerFactory where Context == Any? {
 
-    /// Builds a `Container` view controller.
+    /// Builds a `ContainerFactory` view controller.
     func build() throws -> ViewController {
         return try build(with: nil, integrating: ChildCoordinator(childFactories: []))
     }

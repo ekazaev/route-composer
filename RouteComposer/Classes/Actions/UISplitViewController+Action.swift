@@ -6,7 +6,7 @@ import Foundation
 import UIKit
 
 /// Actions for `UISplitViewController`
-extension ContainerViewController where Self: UISplitViewController {
+public extension ContainerViewController where Self: UISplitViewController {
 
     /// Presents a view controller as a master in the `UISplitViewController`
     public static func setAsMaster() -> SplitViewControllerActions.SetAsMasterAction<Self> {

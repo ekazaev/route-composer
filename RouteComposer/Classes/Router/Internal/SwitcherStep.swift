@@ -19,7 +19,7 @@ class SwitcherStep<C>: RoutingStepWithContext, ChainableStep, PerformableStep {
 
     var resolvers: [StepCaseResolver]
 
-    func perform(with context: Any?) throws -> StepResult {
+    func perform(with context: Any?) throws -> PerformableStepResult {
         previousStep = nil
         resolvers.forEach({ resolver in
             guard previousStep == nil, let step = resolver.resolve(with: context) else {
@@ -28,7 +28,7 @@ class SwitcherStep<C>: RoutingStepWithContext, ChainableStep, PerformableStep {
             previousStep = step
         })
 
-        return .continueRouting(nil)
+        return .none
     }
 
     init(resolvers: [StepCaseResolver]) {

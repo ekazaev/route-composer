@@ -6,7 +6,7 @@ import Foundation
 import UIKit
 
 /// Actions for `UITabBarController`
-extension ContainerViewController where Self: UITabBarController {
+public extension ContainerViewController where Self: UITabBarController {
 
     /// Adds a `UIViewController` to a `UITabBarController`
     ///

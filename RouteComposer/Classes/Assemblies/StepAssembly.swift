@@ -48,9 +48,9 @@ public final class StepAssembly<F: Finder, FC: Factory>: GenericStepAssembly<F.V
                 finder: self.finder,
                 factory: self.factory,
                 action: ActionBox(action),
-                interceptor: taskCollector.interceptor(),
-                contextTask: taskCollector.contextTask(),
-                postTask: taskCollector.postTask())
+                interceptor: taskCollector.getInterceptorsBoxed(),
+                contextTask: taskCollector.getContextTasksBoxed(),
+                postTask: taskCollector.getPostTasksBoxed())
         previousSteps.append(step)
         return StepChainAssembly(previousSteps: previousSteps)
     }
@@ -61,9 +61,9 @@ public final class StepAssembly<F: Finder, FC: Factory>: GenericStepAssembly<F.V
                 finder: self.finder,
                 factory: self.factory,
                 action: ContainerActionBox(action),
-                interceptor: taskCollector.interceptor(),
-                contextTask: taskCollector.contextTask(),
-                postTask: taskCollector.postTask())
+                interceptor: taskCollector.getInterceptorsBoxed(),
+                contextTask: taskCollector.getContextTasksBoxed(),
+                postTask: taskCollector.getPostTasksBoxed())
         previousSteps.append(step)
         return ContainerStepChainAssembly(previousSteps: previousSteps)
     }
@@ -72,21 +72,21 @@ public final class StepAssembly<F: Finder, FC: Factory>: GenericStepAssembly<F.V
 
 public extension StepAssembly where FC: NilEntity {
 
-    /// Connects previously provided `StepWithActionAssembly` with `NilEntity` factory with a step where the `UIViewController`
+    /// Connects previously provided `ActionToStepIntegrator` with `NilEntity` factory with a step where the `UIViewController`
     /// should avoid type checks
     /// Example: `UIViewController` instance was loaded as a part of the stack inside of the storyboard.
     ///
-    /// - Parameter step: `StepWithActionAssembly` instance to be used.
-    public func from<AF: Finder, AFC: AbstractFactory>(_ step: StepWithActionAssembly<AF, AFC>) -> ActionConnectingAssembly<AF, AFC, ViewController, Context>
+    /// - Parameter step: `ActionToStepIntegrator` instance to be used.
+    public func from<AF: Finder, AFC: AbstractFactory>(_ step: ActionToStepIntegrator<AF, AFC>) -> ActionConnectingAssembly<AF, AFC, ViewController, Context>
             where AF.Context == Context {
         var previousSteps = self.previousSteps
         let currentStep = BaseStep<FactoryBox<FC>>(
                 finder: self.finder,
                 factory: self.factory,
                 action: ActionBox(ViewControllerActions.NilAction()),
-                interceptor: taskCollector.interceptor(),
-                contextTask: taskCollector.contextTask(),
-                postTask: taskCollector.postTask())
+                interceptor: taskCollector.getInterceptorsBoxed(),
+                contextTask: taskCollector.getContextTasksBoxed(),
+                postTask: taskCollector.getPostTasksBoxed())
         previousSteps.append(currentStep)
         return ActionConnectingAssembly(stepToFullFill: step, previousSteps: previousSteps)
     }
@@ -102,9 +102,9 @@ public extension StepAssembly where FC: NilEntity {
                 finder: self.finder,
                 factory: self.factory,
                 action: ActionBox(ViewControllerActions.NilAction()),
-                interceptor: taskCollector.interceptor(),
-                contextTask: taskCollector.contextTask(),
-                postTask: taskCollector.postTask())
+                interceptor: taskCollector.getInterceptorsBoxed(),
+                contextTask: taskCollector.getContextTasksBoxed(),
+                postTask: taskCollector.getPostTasksBoxed())
         previousSteps.append(currentStep)
         previousSteps.append(step)
         return LastStepInChainAssembly(previousSteps: previousSteps)

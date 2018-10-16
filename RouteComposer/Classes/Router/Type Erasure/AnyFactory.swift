@@ -5,7 +5,6 @@
 import Foundation
 import UIKit
 
-/// Non type safe boxing wrapper for Factory protocol
 protocol AnyFactory {
 
     var action: AnyAction { get }
@@ -14,11 +13,6 @@ protocol AnyFactory {
 
     func build(with context: Any?) throws -> UIViewController
 
-    /// Receives an array of factories whose view controllers should be merged into current container
-    /// factory before it actually builds a container view controller with child view controllers inside.
-    ///
-    /// - Parameter factories: Array of factories to be handled by container factory.
-    /// - Returns: Array of factories that are not supported by this container type. `Router` should decide how to deal with them.
     mutating func scrapeChildren(from factories: [AnyFactory]) throws -> [AnyFactory]
 
 }
@@ -91,7 +85,7 @@ struct FactoryBox<F: Factory>: AnyFactory, AnyFactoryBox, CustomStringConvertibl
 
 }
 
-struct ContainerFactoryBox<F: Container>: AnyFactory, AnyFactoryBox, CustomStringConvertible {
+struct ContainerFactoryBox<F: ContainerFactory>: AnyFactory, AnyFactoryBox, CustomStringConvertible {
 
     typealias FactoryType = F
 

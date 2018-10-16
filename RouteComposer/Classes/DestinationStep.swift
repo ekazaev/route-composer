@@ -25,8 +25,8 @@ public struct DestinationStep<VC: UIViewController, C>: RoutingStepWithContext, 
     }
 
     /// Removes context and view controller type dependencies from a step.
-    public func unsafelyUnwrapping<UVC: UIViewController, UC>() -> DestinationStep<UVC, UC> {
-        return DestinationStep<UVC, UC>(destinationStep)
+    public func unsafelyUnwrapping<VC: UIViewController, C>() -> DestinationStep<VC, C> {
+        return DestinationStep<VC, C>(destinationStep)
     }
 
     /// Allows to avoid container view controller check.

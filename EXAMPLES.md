@@ -12,7 +12,7 @@ Behaviour of the `StackIteratingFinder` can be changed using the `SearchOptions`
 
 - `current`: The topmost view controller
 - `visible`: If the view controller is a container, search in its visible view controllers (Example: `UINavigationController` always has one visible view controller, `UISplitController` which can han have 2 visible controllers if expanded.)
-- `containing`: If the view controller is a container, search in all the view controllers it contains (i.e. All the view controllers in the `UINavigationController` before the one that is currently visible)
+- `contained`: If the view controller is a container, search in all the view controllers it contains (i.e. All the view controllers in the `UINavigationController` before the one that is currently visible)
 - `presenting`: Search in all the view controllers that are under the topmost one
 - *`presented`*: Search from the view controller provided in all the view controllers that it are presented (It does not make sense to use it with the `StackIteratingFinder` as it always starts from the topmost view controller so there won't be any view controllers above)
 

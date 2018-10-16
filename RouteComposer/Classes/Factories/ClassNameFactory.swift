@@ -30,7 +30,8 @@ public struct ClassNameFactory<VC: UIViewController, C>: Factory {
                 throw RoutingError.compositionFailed(RoutingError.Context(debugDescription: "Can not find \(viewControllerName) in the bundle."))
             }
             guard let customViewControllerClass = customClass as? ViewController.Type else {
-                throw RoutingError.typeMismatch(customClass.self, RoutingError.Context(debugDescription: "\(viewControllerName) is not a UIViewController type class."))
+                throw RoutingError.typeMismatch(customClass.self, RoutingError.Context(debugDescription: "\(viewControllerName) is not an " +
+                        "expected UIViewController type class."))
             }
 
             return customViewControllerClass.init(nibName: nil, bundle: nil)

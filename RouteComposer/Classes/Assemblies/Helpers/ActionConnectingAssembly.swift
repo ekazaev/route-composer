@@ -15,9 +15,9 @@ public struct ActionConnectingAssembly<F: Finder, FC: AbstractFactory, VC: UIVie
 
     let previousSteps: [RoutingStep]
 
-    let stepToFullFill: StepWithActionAssembly<F, FC>
+    let stepToFullFill: ActionToStepIntegrator<F, FC>
 
-    init(stepToFullFill: StepWithActionAssembly<F, FC>, previousSteps: [RoutingStep] = []) {
+    init(stepToFullFill: ActionToStepIntegrator<F, FC>, previousSteps: [RoutingStep] = []) {
         self.previousSteps = previousSteps
         self.stepToFullFill = stepToFullFill
     }
