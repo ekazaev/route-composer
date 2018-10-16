@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>StepWithActionAssembly Class Reference</title>
+    <title>ActionToStepIntegrator Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Class/StepWithActionAssembly" class="dashAnchor"></a>
-    <a title="StepWithActionAssembly Class Reference"></a>
+    <a name="//apple_ref/swift/Class/ActionToStepIntegrator" class="dashAnchor"></a>
+    <a title="ActionToStepIntegrator Class Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">RouteComposer Docs</a> (100% documented)</p>
@@ -21,7 +21,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">RouteComposer Reference</a>
         <img id="carat" src="../img/carat.png" />
-        StepWithActionAssembly Class Reference
+        ActionToStepIntegrator Class Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -46,7 +46,7 @@
                 <a href="../Protocols/Factory.html">Factory</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols/Container.html">Container</a>
+                <a href="../Protocols/ContainerFactory.html">ContainerFactory</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Protocols/Action.html">Action</a>
@@ -203,10 +203,10 @@
             <a href="../Other Classes.html">Other Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Classes/GenericStepAssembly.html">GenericStepAssembly</a>
+                <a href="../Classes/ActionToStepIntegrator.html">ActionToStepIntegrator</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/StepWithActionAssembly.html">StepWithActionAssembly</a>
+                <a href="../Classes/GenericStepAssembly.html">GenericStepAssembly</a>
               </li>
             </ul>
           </li>
@@ -358,10 +358,10 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>StepWithActionAssembly</h1>
+            <h1>ActionToStepIntegrator</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">StepWithActionAssembly</span><span class="o">&lt;</span><span class="kt">F</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Finder.html">Finder</a></span><span class="p">,</span> <span class="kt">FC</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AbstractFactory.html">AbstractFactory</a></span><span class="o">&gt;</span><span class="p">:</span> <span class="kt"><a href="../Protocols/InterceptableStepAssembling.html">InterceptableStepAssembling</a></span>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">ActionToStepIntegrator</span><span class="o">&lt;</span><span class="kt">F</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Finder.html">Finder</a></span><span class="p">,</span> <span class="kt">FC</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AbstractFactory.html">AbstractFactory</a></span><span class="o">&gt;</span><span class="p">:</span> <span class="kt"><a href="../Protocols/InterceptableStepAssembling.html">InterceptableStepAssembling</a></span>
         <span class="k">where</span> <span class="kt">F</span><span class="o">.</span><span class="kt">ViewController</span> <span class="o">==</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">F</span><span class="o">.</span><span class="kt">Context</span> <span class="o">==</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">Context</span></code></pre>
 
                 </div>
@@ -443,7 +443,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">func</span> <span class="n">add</span><span class="o">&lt;</span><span class="kt">R</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">interceptor</span><span class="p">:</span> <span class="kt">R</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span> <span class="k">where</span> <span class="kt">R</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/RoutingInterceptor.html">RoutingInterceptor</a></span><span class="p">,</span> <span class="kt">FC</span><span class="o">.</span><span class="kt"><a href="../Classes/StepWithActionAssembly.html#/s:13RouteComposer27InterceptableStepAssemblingP7ContextQa">Context</a></span> <span class="o">==</span> <span class="kt">R</span><span class="o">.</span><span class="kt"><a href="../Classes/StepWithActionAssembly.html#/s:13RouteComposer27InterceptableStepAssemblingP7ContextQa">Context</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">func</span> <span class="n">add</span><span class="o">&lt;</span><span class="kt">R</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">interceptor</span><span class="p">:</span> <span class="kt">R</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span> <span class="k">where</span> <span class="kt">R</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/RoutingInterceptor.html">RoutingInterceptor</a></span><span class="p">,</span> <span class="kt">FC</span><span class="o">.</span><span class="kt"><a href="../Classes/ActionToStepIntegrator.html#/s:13RouteComposer27InterceptableStepAssemblingP7ContextQa">Context</a></span> <span class="o">==</span> <span class="kt">R</span><span class="o">.</span><span class="kt"><a href="../Classes/ActionToStepIntegrator.html#/s:13RouteComposer27InterceptableStepAssemblingP7ContextQa">Context</a></span></code></pre>
 
                         </div>
                       </div>
@@ -471,7 +471,7 @@
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">func</span> <span class="n">add</span><span class="o">&lt;</span><span class="kt">CT</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ContextTask.html">ContextTask</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">contextTask</span><span class="p">:</span> <span class="kt">CT</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span>
         <span class="k">where</span>
-        <span class="kt">CT</span><span class="o">.</span><span class="kt"><a href="../Classes/StepWithActionAssembly.html#/s:13RouteComposer27InterceptableStepAssemblingP14ViewControllerQa">ViewController</a></span> <span class="o">==</span> <span class="kt"><a href="../Classes/StepWithActionAssembly.html#/s:13RouteComposer27InterceptableStepAssemblingP14ViewControllerQa">ViewController</a></span><span class="p">,</span> <span class="kt">CT</span><span class="o">.</span><span class="kt"><a href="../Classes/StepWithActionAssembly.html#/s:13RouteComposer27InterceptableStepAssemblingP7ContextQa">Context</a></span> <span class="o">==</span> <span class="kt"><a href="../Classes/StepWithActionAssembly.html#/s:13RouteComposer27InterceptableStepAssemblingP7ContextQa">Context</a></span></code></pre>
+        <span class="kt">CT</span><span class="o">.</span><span class="kt"><a href="../Classes/ActionToStepIntegrator.html#/s:13RouteComposer27InterceptableStepAssemblingP14ViewControllerQa">ViewController</a></span> <span class="o">==</span> <span class="kt"><a href="../Classes/ActionToStepIntegrator.html#/s:13RouteComposer27InterceptableStepAssemblingP14ViewControllerQa">ViewController</a></span><span class="p">,</span> <span class="kt">CT</span><span class="o">.</span><span class="kt"><a href="../Classes/ActionToStepIntegrator.html#/s:13RouteComposer27InterceptableStepAssemblingP7ContextQa">Context</a></span> <span class="o">==</span> <span class="kt"><a href="../Classes/ActionToStepIntegrator.html#/s:13RouteComposer27InterceptableStepAssemblingP7ContextQa">Context</a></span></code></pre>
 
                         </div>
                       </div>
@@ -497,7 +497,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">func</span> <span class="n">add</span><span class="o">&lt;</span><span class="kt">P</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">postTask</span><span class="p">:</span> <span class="kt">P</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span> <span class="k">where</span> <span class="kt">P</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/PostRoutingTask.html">PostRoutingTask</a></span><span class="p">,</span> <span class="kt">FC</span><span class="o">.</span><span class="kt"><a href="../Classes/StepWithActionAssembly.html#/s:13RouteComposer27InterceptableStepAssemblingP7ContextQa">Context</a></span> <span class="o">==</span> <span class="kt">P</span><span class="o">.</span><span class="kt"><a href="../Classes/StepWithActionAssembly.html#/s:13RouteComposer27InterceptableStepAssemblingP7ContextQa">Context</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">func</span> <span class="n">add</span><span class="o">&lt;</span><span class="kt">P</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">postTask</span><span class="p">:</span> <span class="kt">P</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span> <span class="k">where</span> <span class="kt">P</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/PostRoutingTask.html">PostRoutingTask</a></span><span class="p">,</span> <span class="kt">FC</span><span class="o">.</span><span class="kt"><a href="../Classes/ActionToStepIntegrator.html#/s:13RouteComposer27InterceptableStepAssemblingP7ContextQa">Context</a></span> <span class="o">==</span> <span class="kt">P</span><span class="o">.</span><span class="kt"><a href="../Classes/ActionToStepIntegrator.html#/s:13RouteComposer27InterceptableStepAssemblingP7ContextQa">Context</a></span></code></pre>
 
                         </div>
                       </div>
@@ -509,7 +509,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-10-13)</p>
+          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-10-16)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

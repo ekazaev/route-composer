@@ -46,7 +46,7 @@
                 <a href="Protocols/Factory.html">Factory</a>
               </li>
               <li class="nav-group-task">
-                <a href="Protocols/Container.html">Container</a>
+                <a href="Protocols/ContainerFactory.html">ContainerFactory</a>
               </li>
               <li class="nav-group-task">
                 <a href="Protocols/Action.html">Action</a>
@@ -203,10 +203,10 @@
             <a href="Other Classes.html">Other Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Classes/GenericStepAssembly.html">GenericStepAssembly</a>
+                <a href="Classes/ActionToStepIntegrator.html">ActionToStepIntegrator</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/StepWithActionAssembly.html">StepWithActionAssembly</a>
+                <a href="Classes/GenericStepAssembly.html">GenericStepAssembly</a>
               </li>
             </ul>
           </li>
@@ -433,38 +433,6 @@ been built (eg: push to navigation stack, present modally, push to tab, etc)</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer27InterceptableStepAssemblingP"></a>
-                    <a name="//apple_ref/swift/Protocol/InterceptableStepAssembling" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer27InterceptableStepAssemblingP">InterceptableStepAssembling</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Assembly protocol allowing to build an interceptable step.</p>
-
-                        <a href="Protocols/InterceptableStepAssembling.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">InterceptableStepAssembling</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
                     <a name="/s:13RouteComposer19InterceptableRouterP"></a>
                     <a name="//apple_ref/swift/Protocol/InterceptableRouter" class="dashAnchor"></a>
                     <a class="token" href="#/s:13RouteComposer19InterceptableRouterP">InterceptableRouter</a>
@@ -497,6 +465,38 @@ been built (eg: push to navigation stack, present modally, push to tab, etc)</p>
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:13RouteComposer27InterceptableStepAssemblingP"></a>
+                    <a name="//apple_ref/swift/Protocol/InterceptableStepAssembling" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer27InterceptableStepAssemblingP">InterceptableStepAssembling</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Assembly protocol allowing to build an interceptable step.</p>
+
+                        <a href="Protocols/InterceptableStepAssembling.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">InterceptableStepAssembling</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:13RouteComposer15SimpleContainerP"></a>
                     <a name="//apple_ref/swift/Protocol/SimpleContainer" class="dashAnchor"></a>
                     <a class="token" href="#/s:13RouteComposer15SimpleContainerP">SimpleContainer</a>
@@ -507,7 +507,7 @@ been built (eg: push to navigation stack, present modally, push to tab, etc)</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A helper protocol to the <code><a href="Protocols/Container.html">Container</a></code> protocol. If a container does not need to deal with the children view
+                        <p>A helper protocol to the <code><a href="Protocols/ContainerFactory.html">ContainerFactory</a></code> protocol. If a container does not need to deal with the children view
 controller creation, <code>SimpleContainer</code> will handle integration of the children view controllers.</p>
 
                         <a href="Protocols/SimpleContainer.html" class="slightly-smaller">See more</a>
@@ -516,7 +516,7 @@ controller creation, <code>SimpleContainer</code> will handle integration of the
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">SimpleContainer</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Container.html">Container</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">SimpleContainer</span> <span class="p">:</span> <span class="kt"><a href="Protocols/ContainerFactory.html">ContainerFactory</a></span></code></pre>
 
                         </div>
                       </div>
@@ -623,7 +623,7 @@ controller creation, <code>SimpleContainer</code> will handle integration of the
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-10-13)</p>
+          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-10-16)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

@@ -46,7 +46,7 @@
                 <a href="Protocols/Factory.html">Factory</a>
               </li>
               <li class="nav-group-task">
-                <a href="Protocols/Container.html">Container</a>
+                <a href="Protocols/ContainerFactory.html">ContainerFactory</a>
               </li>
               <li class="nav-group-task">
                 <a href="Protocols/Action.html">Action</a>
@@ -203,10 +203,10 @@
             <a href="Other Classes.html">Other Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Classes/GenericStepAssembly.html">GenericStepAssembly</a>
+                <a href="Classes/ActionToStepIntegrator.html">ActionToStepIntegrator</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/StepWithActionAssembly.html">StepWithActionAssembly</a>
+                <a href="Classes/GenericStepAssembly.html">GenericStepAssembly</a>
               </li>
             </ul>
           </li>
@@ -530,9 +530,9 @@ integrated into the stack by the <code><a href="Protocols/Router.html">Router</a
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer9ContainerP"></a>
-                    <a name="//apple_ref/swift/Protocol/Container" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer9ContainerP">Container</a>
+                    <a name="/s:13RouteComposer16ContainerFactoryP"></a>
+                    <a name="//apple_ref/swift/Protocol/ContainerFactory" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer16ContainerFactoryP">ContainerFactory</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -540,20 +540,20 @@ integrated into the stack by the <code><a href="Protocols/Router.html">Router</a
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The <code>Container</code> protocol should be implemented by the instance that produces any types of the view controllers
+                        <p>The <code>ContainerFactory</code> protocol should be implemented by the instance that produces any types of the view controllers
 that can be considered as containers (eg: <code>UINavigationController</code>, <code>UITabBarController</code>, etc)</p>
 
 <p>The <code><a href="Protocols/Router.html">Router</a></code> uses <code>perform(embedding:)</code> method of a <code><a href="Protocols/ContainerAction.html">ContainerAction</a></code> and then populates a full stack of the view controllers
 that were built by the associated factories in one go.
 Example: <code><a href="Protocols/Router.html">Router</a></code> requires to populate N-view controllers into <code>UINavigationController</code>&lsquo;s stack.</p>
 
-                        <a href="Protocols/Container.html" class="slightly-smaller">See more</a>
+                        <a href="Protocols/ContainerFactory.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">Container</span> <span class="p">:</span> <span class="kt"><a href="Protocols/AbstractFactory.html">AbstractFactory</a></span> <span class="k">where</span> <span class="k">Self</span><span class="o">.</span><span class="kt">ViewController</span> <span class="p">:</span> <span class="kt"><a href="Protocols/ContainerViewController.html">ContainerViewController</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">ContainerFactory</span> <span class="p">:</span> <span class="kt"><a href="Protocols/AbstractFactory.html">AbstractFactory</a></span> <span class="k">where</span> <span class="k">Self</span><span class="o">.</span><span class="kt">ViewController</span> <span class="p">:</span> <span class="kt"><a href="Protocols/ContainerViewController.html">ContainerViewController</a></span></code></pre>
 
                         </div>
                       </div>
@@ -606,7 +606,7 @@ been built (eg: push to navigation stack, present modally, push to tab, etc)</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Represents an action to be used by a <code><a href="Protocols/Container.html">Container</a></code> to build it&rsquo;s children view controller stack</p>
+                        <p>Represents an action to be used by a <code><a href="Protocols/ContainerFactory.html">ContainerFactory</a></code> to build it&rsquo;s children view controller stack</p>
 
                         <a href="Protocols/ContainerAction.html" class="slightly-smaller">See more</a>
                       </div>
@@ -764,7 +764,7 @@ Otherwise, the <code><a href="Protocols/Router.html">Router</a></code> will stay
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-10-13)</p>
+          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-10-16)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

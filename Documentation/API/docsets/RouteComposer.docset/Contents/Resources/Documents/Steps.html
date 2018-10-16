@@ -46,7 +46,7 @@
                 <a href="Protocols/Factory.html">Factory</a>
               </li>
               <li class="nav-group-task">
-                <a href="Protocols/Container.html">Container</a>
+                <a href="Protocols/ContainerFactory.html">ContainerFactory</a>
               </li>
               <li class="nav-group-task">
                 <a href="Protocols/Action.html">Action</a>
@@ -203,10 +203,10 @@
             <a href="Other Classes.html">Other Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Classes/GenericStepAssembly.html">GenericStepAssembly</a>
+                <a href="Classes/ActionToStepIntegrator.html">ActionToStepIntegrator</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/StepWithActionAssembly.html">StepWithActionAssembly</a>
+                <a href="Classes/GenericStepAssembly.html">GenericStepAssembly</a>
               </li>
             </ul>
           </li>
@@ -377,7 +377,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A simple class that produces an intermediate <code><a href="Classes/StepWithActionAssembly.html">StepWithActionAssembly</a></code>.</p>
+                        <p>A simple class that produces an intermediate <code><a href="Classes/ActionToStepIntegrator.html">ActionToStepIntegrator</a></code>.</p>
 
                         <a href="Classes/SingleStep.html" class="slightly-smaller">See more</a>
                       </div>
@@ -385,7 +385,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">SingleStep</span><span class="o">&lt;</span><span class="kt">F</span><span class="p">:</span> <span class="kt"><a href="Protocols/Finder.html">Finder</a></span><span class="p">,</span> <span class="kt">FC</span><span class="p">:</span> <span class="kt"><a href="Protocols/Factory.html">Factory</a></span><span class="o">&gt;</span><span class="p">:</span> <span class="kt"><a href="Classes/StepWithActionAssembly.html">StepWithActionAssembly</a></span><span class="o">&lt;</span><span class="kt">F</span><span class="p">,</span> <span class="kt">FC</span><span class="o">&gt;</span>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">SingleStep</span><span class="o">&lt;</span><span class="kt">F</span><span class="p">:</span> <span class="kt"><a href="Protocols/Finder.html">Finder</a></span><span class="p">,</span> <span class="kt">FC</span><span class="p">:</span> <span class="kt"><a href="Protocols/Factory.html">Factory</a></span><span class="o">&gt;</span><span class="p">:</span> <span class="kt"><a href="Classes/ActionToStepIntegrator.html">ActionToStepIntegrator</a></span><span class="o">&lt;</span><span class="kt">F</span><span class="p">,</span> <span class="kt">FC</span><span class="o">&gt;</span>
         <span class="k">where</span> <span class="kt">F</span><span class="o">.</span><span class="kt">ViewController</span> <span class="o">==</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">F</span><span class="o">.</span><span class="kt">Context</span> <span class="o">==</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">Context</span></code></pre>
 
                         </div>
@@ -418,7 +418,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">SingleContainerStep</span><span class="o">&lt;</span><span class="kt">F</span><span class="p">:</span> <span class="kt"><a href="Protocols/Finder.html">Finder</a></span><span class="p">,</span> <span class="kt">FC</span><span class="p">:</span> <span class="kt"><a href="Protocols/Container.html">Container</a></span><span class="o">&gt;</span><span class="p">:</span> <span class="kt"><a href="Classes/StepWithActionAssembly.html">StepWithActionAssembly</a></span><span class="o">&lt;</span><span class="kt">F</span><span class="p">,</span> <span class="kt">FC</span><span class="o">&gt;</span>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">SingleContainerStep</span><span class="o">&lt;</span><span class="kt">F</span><span class="p">:</span> <span class="kt"><a href="Protocols/Finder.html">Finder</a></span><span class="p">,</span> <span class="kt">FC</span><span class="p">:</span> <span class="kt"><a href="Protocols/ContainerFactory.html">ContainerFactory</a></span><span class="o">&gt;</span><span class="p">:</span> <span class="kt"><a href="Classes/ActionToStepIntegrator.html">ActionToStepIntegrator</a></span><span class="o">&lt;</span><span class="kt">F</span><span class="p">,</span> <span class="kt">FC</span><span class="o">&gt;</span>
         <span class="k">where</span>
         <span class="kt">F</span><span class="o">.</span><span class="kt">ViewController</span> <span class="o">==</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">F</span><span class="o">.</span><span class="kt">Context</span> <span class="o">==</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">Context</span></code></pre>
 
@@ -560,7 +560,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-10-13)</p>
+          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-10-16)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

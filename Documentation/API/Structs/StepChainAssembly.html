@@ -46,7 +46,7 @@
                 <a href="../Protocols/Factory.html">Factory</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols/Container.html">Container</a>
+                <a href="../Protocols/ContainerFactory.html">ContainerFactory</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Protocols/Action.html">Action</a>
@@ -203,10 +203,10 @@
             <a href="../Other Classes.html">Other Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Classes/GenericStepAssembly.html">GenericStepAssembly</a>
+                <a href="../Classes/ActionToStepIntegrator.html">ActionToStepIntegrator</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/StepWithActionAssembly.html">StepWithActionAssembly</a>
+                <a href="../Classes/GenericStepAssembly.html">GenericStepAssembly</a>
               </li>
             </ul>
           </li>
@@ -374,9 +374,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer17StepChainAssemblyV4fromyAA016ActionConnectingE0Vyqd__qd_0_xq_GAA0c4WithgE0Cyqd__qd_0_G7ContextQyd__Rs_AA6FinderRd__AA15AbstractFactoryRd_0_AKQyd_0_ALRS14ViewControllerQyd_0_APRtd__r0_lF"></a>
+                    <a name="/s:13RouteComposer17StepChainAssemblyV4fromyAA016ActionConnectingE0Vyqd__qd_0_xq_GAA0g2ToC10IntegratorCyqd__qd_0_G7ContextQyd__Rs_AA6FinderRd__AA15AbstractFactoryRd_0_AKQyd_0_ALRS14ViewControllerQyd_0_APRtd__r0_lF"></a>
                     <a name="//apple_ref/swift/Method/from(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer17StepChainAssemblyV4fromyAA016ActionConnectingE0Vyqd__qd_0_xq_GAA0c4WithgE0Cyqd__qd_0_G7ContextQyd__Rs_AA6FinderRd__AA15AbstractFactoryRd_0_AKQyd_0_ALRS14ViewControllerQyd_0_APRtd__r0_lF">from(_:)</a>
+                    <a class="token" href="#/s:13RouteComposer17StepChainAssemblyV4fromyAA016ActionConnectingE0Vyqd__qd_0_xq_GAA0g2ToC10IntegratorCyqd__qd_0_G7ContextQyd__Rs_AA6FinderRd__AA15AbstractFactoryRd_0_AKQyd_0_ALRS14ViewControllerQyd_0_APRtd__r0_lF">from(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -391,7 +391,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">from</span><span class="o">&lt;</span><span class="kt">F</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Finder.html">Finder</a></span><span class="p">,</span> <span class="kt">FC</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AbstractFactory.html">AbstractFactory</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">step</span><span class="p">:</span> <span class="kt"><a href="../Classes/StepWithActionAssembly.html">StepWithActionAssembly</a></span><span class="o">&lt;</span><span class="kt">F</span><span class="p">,</span> <span class="kt">FC</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/ActionConnectingAssembly.html">ActionConnectingAssembly</a></span><span class="o">&lt;</span><span class="kt">F</span><span class="p">,</span> <span class="kt">FC</span><span class="p">,</span> <span class="kt">ViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">from</span><span class="o">&lt;</span><span class="kt">F</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Finder.html">Finder</a></span><span class="p">,</span> <span class="kt">FC</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AbstractFactory.html">AbstractFactory</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">step</span><span class="p">:</span> <span class="kt"><a href="../Classes/ActionToStepIntegrator.html">ActionToStepIntegrator</a></span><span class="o">&lt;</span><span class="kt">F</span><span class="p">,</span> <span class="kt">FC</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/ActionConnectingAssembly.html">ActionConnectingAssembly</a></span><span class="o">&lt;</span><span class="kt">F</span><span class="p">,</span> <span class="kt">FC</span><span class="p">,</span> <span class="kt">ViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span>
         <span class="k">where</span> <span class="kt">F</span><span class="o">.</span><span class="kt">ViewController</span> <span class="o">==</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">F</span><span class="o">.</span><span class="kt">Context</span> <span class="o">==</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">Context</span><span class="p">,</span> <span class="kt">F</span><span class="o">.</span><span class="kt">Context</span> <span class="o">==</span> <span class="kt">Context</span></code></pre>
 
                         </div>
@@ -467,9 +467,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer17StepChainAssemblyV4fromyACyxq_GAA0c10WithActionE0Cyqd__qd_0_G7ContextQyd__Rs_AA6FinderRd__AA15AbstractFactoryRd_0_AA9NilEntityRd_0_AiaLPQyd_0_AJRS14ViewControllerANQyd_0_APRtd__r0_lF"></a>
+                    <a name="/s:13RouteComposer17StepChainAssemblyV4fromyACyxq_GAA08ActionToC10IntegratorCyqd__qd_0_G7ContextQyd__Rs_AA6FinderRd__AA15AbstractFactoryRd_0_AA9NilEntityRd_0_AiaLPQyd_0_AJRS14ViewControllerANQyd_0_APRtd__r0_lF"></a>
                     <a name="//apple_ref/swift/Method/from(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer17StepChainAssemblyV4fromyACyxq_GAA0c10WithActionE0Cyqd__qd_0_G7ContextQyd__Rs_AA6FinderRd__AA15AbstractFactoryRd_0_AA9NilEntityRd_0_AiaLPQyd_0_AJRS14ViewControllerANQyd_0_APRtd__r0_lF">from(_:)</a>
+                    <a class="token" href="#/s:13RouteComposer17StepChainAssemblyV4fromyACyxq_GAA08ActionToC10IntegratorCyqd__qd_0_G7ContextQyd__Rs_AA6FinderRd__AA15AbstractFactoryRd_0_AA9NilEntityRd_0_AiaLPQyd_0_AJRS14ViewControllerANQyd_0_APRtd__r0_lF">from(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -477,14 +477,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Connects previously provided <code><a href="../Classes/StepWithActionAssembly.html">StepWithActionAssembly</a></code> with a <code>ViewController</code> produced by an empty factory.</p>
+                        <p>Connects previously provided <code><a href="../Classes/ActionToStepIntegrator.html">ActionToStepIntegrator</a></code> with a <code>ViewController</code> produced by an empty factory.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">from</span><span class="o">&lt;</span><span class="kt">F</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Finder.html">Finder</a></span><span class="p">,</span> <span class="kt">FC</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AbstractFactory.html">AbstractFactory</a></span> <span class="o">&amp;</span> <span class="kt"><a href="../Other Protocols.html#/s:13RouteComposer9NilEntityP">NilEntity</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">step</span><span class="p">:</span> <span class="kt"><a href="../Classes/StepWithActionAssembly.html">StepWithActionAssembly</a></span><span class="o">&lt;</span><span class="kt">F</span><span class="p">,</span> <span class="kt">FC</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">StepChainAssembly</span><span class="o">&lt;</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">from</span><span class="o">&lt;</span><span class="kt">F</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Finder.html">Finder</a></span><span class="p">,</span> <span class="kt">FC</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AbstractFactory.html">AbstractFactory</a></span> <span class="o">&amp;</span> <span class="kt"><a href="../Other Protocols.html#/s:13RouteComposer9NilEntityP">NilEntity</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">step</span><span class="p">:</span> <span class="kt"><a href="../Classes/ActionToStepIntegrator.html">ActionToStepIntegrator</a></span><span class="o">&lt;</span><span class="kt">F</span><span class="p">,</span> <span class="kt">FC</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">StepChainAssembly</span><span class="o">&lt;</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span>
         <span class="k">where</span> <span class="kt">F</span><span class="o">.</span><span class="kt">ViewController</span> <span class="o">==</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">F</span><span class="o">.</span><span class="kt">Context</span> <span class="o">==</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">Context</span><span class="p">,</span> <span class="kt">F</span><span class="o">.</span><span class="kt">Context</span> <span class="o">==</span> <span class="kt">Context</span></code></pre>
 
                         </div>
@@ -501,7 +501,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p><code><a href="../Classes/StepWithActionAssembly.html">StepWithActionAssembly</a></code> instance to be used.</p>
+                                  <p><code><a href="../Classes/ActionToStepIntegrator.html">ActionToStepIntegrator</a></code> instance to be used.</p>
                                 </div>
                               </td>
                             </tr>
@@ -566,7 +566,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-10-13)</p>
+          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-10-16)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

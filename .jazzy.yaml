@@ -13,7 +13,7 @@ custom_categories:
       - Finder
       - AbstractFactory
       - Factory
-      - Container
+      - ContainerFactory
       - Action
       - ContainerAction
       - RoutingInterceptor
