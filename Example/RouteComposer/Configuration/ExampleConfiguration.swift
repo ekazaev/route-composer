@@ -33,89 +33,80 @@ protocol ExampleScreenConfiguration {
 extension ExampleScreenConfiguration {
 
     var homeScreen: DestinationStep<UITabBarController, Any?> {
-        return StepAssembly(
-                // As both factory and finder are generic, You have to provide with at least one instance
-                // the type of the view controller and the context to be used. You do not need to do so if you are using at
-                // least one custom factory of finder that have set typealias for ViewController and Context.
-                finder: HomeFinder(),
-                factory: StoryboardFactory(storyboardName: "TabBar"))
+        return DestinationAssembly(from: GeneralStep.root())
                 .using(GeneralAction.replaceRoot())
-                .from(GeneralStep.root())
+                .present(SingleStep(finder: HomeFinder(), factory: StoryboardFactory(storyboardName: "TabBar")))
                 .assemble()
     }
 
     var circleScreen: DestinationStep<CircleViewController, Any?> {
-        return StepAssembly(
-                finder: ClassFinder<CircleViewController, Any?>(),
-                factory: NilFactory())
-                .adding(ExampleGenericContextTask<CircleViewController, Any?>())
-                .from(homeScreen)
+        return ContainerDestinationAssembly(from: homeScreen)
+                .inside()
+                .present(SingleStep(finder: ClassFinder<CircleViewController, Any?>(), factory: NilFactory())
+                        .adding(ExampleGenericContextTask<CircleViewController, Any?>()))
                 .assemble()
     }
 
     var squareScreen: DestinationStep<SquareViewController, Any?> {
-        return StepAssembly(
-                finder: ClassFinder<SquareViewController, Any?>(),
-                factory: NilFactory())
-                .adding(ExampleGenericContextTask<SquareViewController, Any?>())
-                .from(homeScreen)
+        return ContainerDestinationAssembly(from: homeScreen)
+                .inside()
+                .present(SingleStep(finder: ClassFinder<SquareViewController, Any?>(), factory: NilFactory())
+                        .adding(ExampleGenericContextTask<SquareViewController, Any?>()))
                 .assemble()
     }
 
     var colorScreen: DestinationStep<ColorViewController, String> {
-        return StepAssembly(
-                finder: ColorViewControllerFinder(),
-                factory: ColorViewControllerFactory())
-                .adding(ExampleGenericContextTask<ColorViewController, String>())
-                .using(ExampleNavigationController.pushToNavigation())
-                .from(SingleContainerStep(finder: NilFinder(), factory: ExampleNavigationFactory<String>()))
+        return DestinationAssembly<String>(from: GeneralStep.current())
                 .using(GeneralAction.presentModally())
-                .from(GeneralStep.current())
+                .present(SingleContainerStep(finder: NilFinder<ExampleNavigationController, String>(), factory: ExampleNavigationFactory<String>()))
+                .using(ExampleNavigationController.pushToNavigation())
+                .present(SingleStep(finder: ColorViewControllerFinder(), factory: ColorViewControllerFactory())
+                        .adding(ExampleGenericContextTask<ColorViewController, String>()))
                 .assemble()
     }
 
     var routingSupportScreen: DestinationStep<RoutingRuleSupportViewController, String> {
-        return StepAssembly(
-                finder: ClassFinder<RoutingRuleSupportViewController, String>(options: .currentAllStack),
-                factory: StoryboardFactory(storyboardName: "TabBar", viewControllerID: "RoutingRuleSupportViewController"))
-                .adding(ExampleGenericContextTask<RoutingRuleSupportViewController, String>())
-                .using(UITabBarController.addTab())
-                .from(TabBarControllerStep())
+        return ContainerDestinationAssembly<UINavigationController, String>(from: colorScreen.expectingContainer())
                 .using(UINavigationController.pushToNavigation())
-                .from(colorScreen.expectingContainer())
+                .present(TabBarControllerStep())
+                .using(UITabBarController.addTab())
+                .present(SingleStep(
+                        finder: ClassFinder<RoutingRuleSupportViewController, String>(options: .currentAllStack),
+                        factory: StoryboardFactory(storyboardName: "TabBar", viewControllerID: "RoutingRuleSupportViewController"))
+                        .adding(ExampleGenericContextTask<RoutingRuleSupportViewController, String>()))
                 .assemble()
     }
 
     var emptyScreen: DestinationStep<EmptyViewController, Any?> {
-        return StepAssembly(
-                finder: ClassFinder<EmptyViewController, Any?>(),
-                factory: StoryboardFactory(storyboardName: "TabBar", viewControllerID: "EmptyViewController"))
-                .adding(LoginInterceptor<Any?>())
-                .adding(ExampleGenericContextTask<EmptyViewController, Any?>())
+        return ContainerDestinationAssembly<UINavigationController, Any?>(from: circleScreen.expectingContainer())
                 .using(UINavigationController.pushToNavigation())
-                .from(circleScreen.expectingContainer())
+                .present(SingleStep(
+                        finder: ClassFinder<EmptyViewController, Any?>(),
+                        factory: StoryboardFactory(storyboardName: "TabBar", viewControllerID: "EmptyViewController"))
+                        .adding(LoginInterceptor<Any?>())
+                        .adding(ExampleGenericContextTask<EmptyViewController, Any?>()))
                 .assemble()
     }
 
     var secondModalScreen: DestinationStep<SecondModalLevelViewController, String> {
-        return StepAssembly(
-                finder: ClassFinder<SecondModalLevelViewController, String>(),
-                factory: StoryboardFactory(storyboardName: "TabBar", viewControllerID: "SecondModalLevelViewController"))
-                .adding(ExampleGenericContextTask<SecondModalLevelViewController, String>())
-                .using(UINavigationController.pushToNavigation())
-                .from(NavigationControllerStep())
+        return DestinationAssembly(from: routingSupportScreen)
                 .using(GeneralAction.presentModally(transitioningDelegate: transitionController))
-                .from(routingSupportScreen)
+                .present(NavigationControllerStep())
+                .using(UINavigationController.pushToNavigation())
+                .present(SingleStep(
+                        finder: ClassFinder<SecondModalLevelViewController, String>(),
+                        factory: StoryboardFactory(storyboardName: "TabBar", viewControllerID: "SecondModalLevelViewController"))
+                        .adding(ExampleGenericContextTask<SecondModalLevelViewController, String>()))
                 .assemble()
     }
 
     var welcomeScreen: DestinationStep<PromptViewController, Any?> {
-        return StepAssembly(
-                finder: ClassFinder<PromptViewController, Any?>(),
-                factory: StoryboardFactory(storyboardName: "PromptScreen"))
-                .adding(ExampleGenericContextTask<PromptViewController, Any?>())
+        return DestinationAssembly(from: GeneralStep.root())
                 .using(GeneralAction.replaceRoot())
-                .from(GeneralStep.root())
+                .present(SingleStep(
+                        finder: ClassFinder<PromptViewController, Any?>(),
+                        factory: StoryboardFactory(storyboardName: "PromptScreen"))
+                        .adding(ExampleGenericContextTask<PromptViewController, Any?>()))
                 .assemble()
     }
 
@@ -124,13 +115,13 @@ extension ExampleScreenConfiguration {
 struct ExampleConfiguration: ExampleScreenConfiguration {
 
     var starScreen: DestinationStep<StarViewController, Any?> {
-        return StepAssembly(
-                finder: ClassFinder<StarViewController, Any?>(options: .currentAllStack),
-                factory: XibFactory())
-                .adding(ExampleGenericContextTask<StarViewController, Any?>())
-                .adding(LoginInterceptor<Any?>())
+        return ContainerDestinationAssembly(from: homeScreen)
                 .using(UITabBarController.addTab())
-                .from(homeScreen)
+                .present(SingleStep(
+                        finder: ClassFinder<StarViewController, Any?>(options: .currentAllStack),
+                        factory: XibFactory())
+                        .adding(ExampleGenericContextTask<StarViewController, Any?>())
+                        .adding(LoginInterceptor<Any?>()))
                 .assemble()
     }
 
@@ -139,14 +130,14 @@ struct ExampleConfiguration: ExampleScreenConfiguration {
 struct AlternativeExampleConfiguration: ExampleScreenConfiguration {
 
     var starScreen: DestinationStep<StarViewController, Any?> {
-        return StepAssembly(
-                finder: ClassFinder<StarViewController, Any?>(options: .currentAllStack),
-                factory: XibFactory())
-                .adding(ExampleGenericContextTask<StarViewController, Any?>())
-                .adding(LoginInterceptor())
-                .using(UINavigationController.pushToNavigation())
-                .from(circleScreen.expectingContainer())
-                .assemble()
+        return ContainerDestinationAssembly<UINavigationController, Any?>(from: circleScreen.expectingContainer())
+            .using(UINavigationController.pushToNavigation())
+            .present(SingleStep(
+                    finder: ClassFinder<StarViewController, Any?>(options: .currentAllStack),
+                    factory: XibFactory())
+                    .adding(ExampleGenericContextTask<StarViewController, Any?>())
+                    .adding(LoginInterceptor()))
+            .assemble()
     }
 
 }

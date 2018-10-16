@@ -8,15 +8,15 @@ import UIKit
 import RouteComposer
 
 struct WishListConfiguration {
-    static let wishListScreen = StepAssembly(
-            finder: ClassFinder<WishListViewController, WishListContext>(),
-            factory: StoryboardFactory(storyboardName: "TabBar", viewControllerID: "WishListViewController"))
-            .adding(LoginInterceptor())
-            .adding(WishListContextTask())
-            .using(UINavigationController.pushToNavigation())
-            .from(NavigationControllerStep())
+
+    static let wishListScreen = DestinationAssembly(from: GeneralStep.current())
             .using(GeneralAction.presentModally(presentationStyle: .formSheet))
-            .from(GeneralStep.current())
+            .present(NavigationControllerStep())
+            .using(UINavigationController.pushToNavigation())
+            .present(SingleStep(finder: ClassFinder<WishListViewController, WishListContext>(),
+                    factory: StoryboardFactory(storyboardName: "TabBar", viewControllerID: "WishListViewController"))
+                    .adding(LoginInterceptor())
+                    .adding(WishListContextTask()))
             .assemble()
 
     static func favorites() -> ExampleDestination<WishListViewController, WishListContext> {

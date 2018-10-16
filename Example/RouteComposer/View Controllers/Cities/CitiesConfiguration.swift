@@ -11,31 +11,29 @@ import RouteComposer
 class CitiesConfiguration {
 
     // Split View Controller
-    private static var city = StepAssembly(finder: ClassFinder<UISplitViewController, Any?>(),
-            factory: StoryboardFactory(storyboardName: "Split"))
-            .adding(LoginInterceptor<Any?>())
+    private static var city = DestinationAssembly<Any?>(from: GeneralStep.root())
             .using(GeneralAction.replaceRoot())
-            .from(GeneralStep.root())
+            .present(SingleStep(finder: ClassFinder<UISplitViewController, Any?>(),
+                    factory: StoryboardFactory(storyboardName: "Split"))
+                    .adding(LoginInterceptor<Any?>()))
             .assemble()
 
     // Cities List
-    private static var citiesList = StepAssembly(finder: ClassFinder<CitiesTableViewController, Int?>(),
-            factory: NilFactory())
-            .adding(CityTableContextTask())
-            .from(city.adaptingContext())
+    private static var citiesList = ContainerDestinationAssembly<UISplitViewController, Int?>(from: city.adaptingContext())
+            .inside()
+            .present(SingleStep(finder: ClassFinder<CitiesTableViewController, Int?>(),
+                    factory: NilFactory())
+                    .adding(CityTableContextTask()))
             .assemble()
 
     // City Details
-    private static var cityDetails = StepAssembly(
-            finder: ClassFinder<CityDetailViewController, Int>(),
-            factory: StoryboardFactory(storyboardName: "Split",
-                    viewControllerID: "CityDetailViewController"))
-            .adding(CityDetailContextTask())
+    private static var cityDetails = ContainerDestinationAssembly<UISplitViewController, Int>(from: citiesList.unsafelyRewrapped())
             .using(UISplitViewController.pushToDetails())
-            .from(citiesList.unsafelyRewrapped())
-            // We have to rewrap the step unsafely, as we will take responsibility for the runtime type conversion.
-            // In this particular case it will work as Int can always be converted to Int? and `citiesList` will
-            // be able to select right cell while we are navigating to the `cityDetails`.
+            .present(SingleStep(
+                    finder: ClassFinder<CityDetailViewController, Int>(),
+                    factory: StoryboardFactory(storyboardName: "Split",
+                            viewControllerID: "CityDetailViewController"))
+                    .adding(CityDetailContextTask()))
             .assemble()
 
     static func citiesList(cityId: Int? = nil) -> ExampleDestination<CitiesTableViewController, Int?> {

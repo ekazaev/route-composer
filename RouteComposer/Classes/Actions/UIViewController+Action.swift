@@ -136,16 +136,16 @@ public struct ViewControllerActions {
 
     }
 
-    struct NilAction: Action {
+    public struct NilAction: Action {
 
-        typealias ViewController = UIViewController
+        public typealias ViewController = UIViewController
 
         // Constructor
         init() {
         }
 
         // Does nothing
-        func perform(with viewController: UIViewController, on existingController: UIViewController, animated: Bool, completion: @escaping (ActionResult) -> Void) {
+        public func perform(with viewController: UIViewController, on existingController: UIViewController, animated: Bool, completion: @escaping (ActionResult) -> Void) {
             completion(.continueRouting)
         }
 

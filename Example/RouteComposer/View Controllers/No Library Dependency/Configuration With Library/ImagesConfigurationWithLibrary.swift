@@ -12,33 +12,30 @@ import ContainerViewController
 
 struct ImagesConfigurationWithLibrary {
 
-    private static let imagesContainerStep = ContainerStepAssembly(
-            finder: ClassFinder<CustomContainerController, Any?>(),
-            factory: CustomContainerFactory(delegate: ImagesWithLibraryHandler.shared))
-            .using(UINavigationController.pushToNavigation())
-            .from(NavigationControllerStep())
+    private static let imagesContainerStep = DestinationAssembly(from: GeneralStep.current())
             .using(GeneralAction.presentModally())
-            .from(GeneralStep.current())
+            .present(NavigationControllerStep())
+            .using(UINavigationController.pushToNavigation())
+            .present(SingleContainerStep(finder: ClassFinder<CustomContainerController, Any?>(),
+                    factory: CustomContainerFactory(delegate: ImagesWithLibraryHandler.shared)))
             .assemble()
 
     static func images() -> ExampleDestination<ImagesViewController, Any?> {
-        let imagesStep = StepAssembly(
-                finder: ClassFinder(),
-                factory: ImagesFactory(delegate: ImagesWithLibraryHandler.shared))
+        let imagesStep = ContainerDestinationAssembly(from: imagesContainerStep)
                 .using(CustomContainerFactory<Any?>.ReplaceRoot())
-                .from(imagesContainerStep)
+                .present(SingleStep(
+                        finder: ClassFinder(),
+                        factory: ImagesFactory(delegate: ImagesWithLibraryHandler.shared)))
                 .assemble()
         return ExampleDestination(step: imagesStep, context: nil)
     }
 
     static func imageDetails(for imageID: String) -> ExampleDestination<ImageDetailsViewController, String> {
-        let imageDetailsStep = StepAssembly(
-                finder: ClassFinder(),
-                factory: ImageDetailsFactory(delegate: ImagesWithLibraryHandler.shared))
+        let imageDetailsStep = ContainerDestinationAssembly(from: imagesContainerStep.adaptingContext())
                 .using(CustomContainerFactory<String>.ReplaceRoot())
-                .from(imagesContainerStep.adaptingContext())
+                .present(SingleStep(finder: ClassFinder(),
+                        factory: ImageDetailsFactory(delegate: ImagesWithLibraryHandler.shared)))
                 .assemble()
-
         return ExampleDestination(step: imageDetailsStep, context: imageID)
     }
 
