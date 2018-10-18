@@ -18,7 +18,7 @@ class ExampleNavigationController: UINavigationController {
 
 }
 
-struct ExampleNavigationFactory<C>: SimpleContainer {
+struct ExampleNavigationFactory<C>: SimpleContainerFactory {
 
     func build(with context: C, integrating viewControllers: [UIViewController]) throws -> ExampleNavigationController {
         guard !viewControllers.isEmpty else {

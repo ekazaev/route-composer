@@ -20,7 +20,7 @@ class ExampleDestination<VC: UIViewController, C> {
     }
 
     func unwrapped() -> ExampleDestination<UIViewController, Any?> {
-        return ExampleDestination<UIViewController, Any?>(step: step.unsafelyUnwrapping(), context: context)
+        return ExampleDestination<UIViewController, Any?>(step: step.unsafelyRewrapped(), context: context)
     }
 
 }

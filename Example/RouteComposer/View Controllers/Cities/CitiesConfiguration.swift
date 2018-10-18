@@ -22,7 +22,7 @@ class CitiesConfiguration {
     private static var citiesList = StepAssembly(finder: ClassFinder<CitiesTableViewController, Int?>(),
             factory: NilFactory())
             .add(CityTableContextTask())
-            .from(city.adoptingContext())
+            .from(city.adaptingContext())
             .assemble()
 
     // City Details
@@ -32,8 +32,8 @@ class CitiesConfiguration {
                     viewControllerID: "CityDetailViewController"))
             .add(CityDetailContextTask())
             .using(UISplitViewController.pushToDetails())
-            .from(citiesList.unsafelyUnwrapping())
-            // We have to unwrap the step unsafely, as we will take responsibility for the runtime type conversion.
+            .from(citiesList.unsafelyRewrapped())
+            // We have to rewrap the step unsafely, as we will take responsibility for the runtime type conversion.
             // In this particular case it will work as Int can always be converted to Int? and `citiesList` will
             // be able to select right cell while we are navigating to the `cityDetails`.
             .assemble()

@@ -6,7 +6,7 @@ import Foundation
 import UIKit
 
 ///  The `ContainerFactory` that creates a `UITabBarController` instance.
-public struct TabBarControllerFactory<C>: SimpleContainer {
+public struct TabBarControllerFactory<C>: SimpleContainerFactory {
 
     public typealias ViewController = UITabBarController
 

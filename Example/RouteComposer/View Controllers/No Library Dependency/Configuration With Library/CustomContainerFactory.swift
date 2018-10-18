@@ -8,7 +8,7 @@ import UIKit
 import RouteComposer
 import ContainerViewController
 
-class CustomContainerFactory<C>: SimpleContainer {
+class CustomContainerFactory<C>: SimpleContainerFactory {
 
     typealias ViewController = CustomContainerController
 

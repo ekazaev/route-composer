@@ -5,7 +5,7 @@
 import Foundation
 import UIKit
 
-/// A simple class that produces an intermediate `ActionToStepIntegrator`.
+/// A simple class that produces an intermediate `ActionToStepIntegrator` describing any view controller.
 public final class SingleStep<F: Finder, FC: Factory>: ActionToStepIntegrator<F, FC>
         where F.ViewController == FC.ViewController, F.Context == FC.Context {
 

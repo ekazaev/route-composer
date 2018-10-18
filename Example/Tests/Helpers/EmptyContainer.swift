@@ -7,7 +7,7 @@ import Foundation
 import UIKit
 @testable import RouteComposer
 
-struct EmptyContainer: SimpleContainer {
+struct EmptyContainer: SimpleContainerFactory {
 
     init() {
     }

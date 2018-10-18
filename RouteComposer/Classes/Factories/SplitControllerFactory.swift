@@ -7,7 +7,7 @@ import Foundation
 import UIKit
 
 ///  The `ContainerFactory` that creates a `UISplitController` instance.
-public struct SplitControllerFactory<C>: SimpleContainer {
+public struct SplitControllerFactory<C>: SimpleContainerFactory {
 
     public typealias ViewController = UISplitViewController
 

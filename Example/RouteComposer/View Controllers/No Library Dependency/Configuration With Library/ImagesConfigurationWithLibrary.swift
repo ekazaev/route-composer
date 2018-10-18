@@ -36,7 +36,7 @@ struct ImagesConfigurationWithLibrary {
                 finder: ClassFinder(),
                 factory: ImageDetailsFactory(delegate: ImagesWithLibraryHandler.shared))
                 .using(CustomContainerFactory<String>.ReplaceRoot())
-                .from(imagesContainerStep.adoptingContext())
+                .from(imagesContainerStep.adaptingContext())
                 .assemble()
 
         return ExampleDestination(step: imageDetailsStep, context: imageID)

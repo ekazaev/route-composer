@@ -5,7 +5,7 @@
 import Foundation
 import UIKit
 
-/// Base class for the basic container steps.
+/// A simple class that produces an intermediate `ActionToStepIntegrator` describing a container view controller.
 public class SingleContainerStep<F: Finder, FC: ContainerFactory>: ActionToStepIntegrator<F, FC>
         where
         F.ViewController == FC.ViewController, F.Context == FC.Context {
@@ -14,7 +14,7 @@ public class SingleContainerStep<F: Finder, FC: ContainerFactory>: ActionToStepI
 
     let factory: FC
 
-    /// Creates an instance of the `DestinationStep` describing a container view controller.
+    /// Creates an instance of the `ActionToStepIntegrator` describing a container view controller.
     ///
     /// - Parameters:
     ///   - finder: The `UIViewController` `Finder`.

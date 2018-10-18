@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>SimpleContainer Protocol Reference</title>
+    <title>SimpleContainerFactory Protocol Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Protocol/SimpleContainer" class="dashAnchor"></a>
-    <a title="SimpleContainer Protocol Reference"></a>
+    <a name="//apple_ref/swift/Protocol/SimpleContainerFactory" class="dashAnchor"></a>
+    <a title="SimpleContainerFactory Protocol Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">RouteComposer Docs</a> (100% documented)</p>
@@ -21,7 +21,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">RouteComposer Reference</a>
         <img id="carat" src="../img/carat.png" />
-        SimpleContainer Protocol Reference
+        SimpleContainerFactory Protocol Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -266,7 +266,7 @@
                 <a href="../Other Protocols.html#/s:13RouteComposer9NilEntityP">NilEntity</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols/SimpleContainer.html">SimpleContainer</a>
+                <a href="../Protocols/SimpleContainerFactory.html">SimpleContainerFactory</a>
               </li>
             </ul>
           </li>
@@ -358,15 +358,15 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>SimpleContainer</h1>
+            <h1>SimpleContainerFactory</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">SimpleContainer</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ContainerFactory.html">ContainerFactory</a></span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">SimpleContainerFactory</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ContainerFactory.html">ContainerFactory</a></span></code></pre>
 
                 </div>
               </div>
             <p>A helper protocol to the <code><a href="../Protocols/ContainerFactory.html">ContainerFactory</a></code> protocol. If a container does not need to deal with the children view
-controller creation, <code>SimpleContainer</code> will handle integration of the children view controllers.</p>
+controller creation, <code>SimpleContainerFactory</code> will handle integration of the children view controllers.</p>
 
           </section>
           <section class="section task-group-section">
@@ -375,9 +375,9 @@ controller creation, <code>SimpleContainer</code> will handle integration of the
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer15SimpleContainerP14ViewControllerQa"></a>
+                    <a name="/s:13RouteComposer22SimpleContainerFactoryP14ViewControllerQa"></a>
                     <a name="//apple_ref/swift/Alias/ViewController" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer15SimpleContainerP14ViewControllerQa">ViewController</a>
+                    <a class="token" href="#/s:13RouteComposer22SimpleContainerFactoryP14ViewControllerQa">ViewController</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -385,7 +385,7 @@ controller creation, <code>SimpleContainer</code> will handle integration of the
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Type of the <code>UIViewController</code> that <code>SimpleContainer</code> can build</p>
+                        <p>Type of the <code>UIViewController</code> that <code>SimpleContainerFactory</code> can build</p>
 
                       </div>
                       <div class="declaration">
@@ -402,9 +402,9 @@ controller creation, <code>SimpleContainer</code> will handle integration of the
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer15SimpleContainerP7ContextQa"></a>
+                    <a name="/s:13RouteComposer22SimpleContainerFactoryP7ContextQa"></a>
                     <a name="//apple_ref/swift/Alias/Context" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer15SimpleContainerP7ContextQa">Context</a>
+                    <a class="token" href="#/s:13RouteComposer22SimpleContainerFactoryP7ContextQa">Context</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -412,7 +412,7 @@ controller creation, <code>SimpleContainer</code> will handle integration of the
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Type of context <code>Context</code> instance that <code>SimpleContainer</code> needs</p>
+                        <p>Type of context <code>Context</code> instance that <code>SimpleContainerFactory</code> needs</p>
 
                       </div>
                       <div class="declaration">
@@ -429,9 +429,9 @@ controller creation, <code>SimpleContainer</code> will handle integration of the
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer15SimpleContainerP5build4with11integrating14ViewControllerQz7ContextQz_SaySo06UIViewI0CGtKF"></a>
+                    <a name="/s:13RouteComposer22SimpleContainerFactoryP5build4with11integrating14ViewControllerQz7ContextQz_SaySo06UIViewJ0CGtKF"></a>
                     <a name="//apple_ref/swift/Method/build(with:integrating:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer15SimpleContainerP5build4with11integrating14ViewControllerQz7ContextQz_SaySo06UIViewI0CGtKF">build(with:integrating:)</a>
+                    <a class="token" href="#/s:13RouteComposer22SimpleContainerFactoryP5build4with11integrating14ViewControllerQz7ContextQz_SaySo06UIViewJ0CGtKF">build(with:integrating:)</a>
                     </code>
                       <span class="declaration-note">
                         Default implementation
@@ -445,7 +445,7 @@ controller creation, <code>SimpleContainer</code> will handle integration of the
                         <p>Builds a <code>UIViewController</code> that will be integrated into the stack</p>
 
 <p>Parameters:</p>
-<li>context: A <code><a href="../Protocols/SimpleContainer.html#/s:13RouteComposer15SimpleContainerP7ContextQa">Context</a></code> instance provided to the <code><a href="../Protocols/Router.html">Router</a></code>.</li>
+<li>context: A <code><a href="../Protocols/SimpleContainerFactory.html#/s:13RouteComposer22SimpleContainerFactoryP7ContextQa">Context</a></code> instance provided to the <code><a href="../Protocols/Router.html">Router</a></code>.</li>
 <li>viewControllers: <code>UIViewController</code> instances to be integrated into the container as children view controllers
 <div class="aside aside-throws">
     <p class="aside-title">Throws</p>
@@ -463,7 +463,7 @@ controller creation, <code>SimpleContainer</code> will handle integration of the
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">build</span><span class="p">(</span><span class="n">with</span> <span class="nv">context</span><span class="p">:</span> <span class="kt"><a href="../Protocols/SimpleContainer.html#/s:13RouteComposer15SimpleContainerP7ContextQa">Context</a></span><span class="p">,</span> <span class="n">integrating</span> <span class="nv">viewControllers</span><span class="p">:</span> <span class="p">[</span><span class="kt">UIViewController</span><span class="p">])</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Protocols/SimpleContainer.html#/s:13RouteComposer15SimpleContainerP14ViewControllerQa">ViewController</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">build</span><span class="p">(</span><span class="n">with</span> <span class="nv">context</span><span class="p">:</span> <span class="kt"><a href="../Protocols/SimpleContainerFactory.html#/s:13RouteComposer22SimpleContainerFactoryP7ContextQa">Context</a></span><span class="p">,</span> <span class="n">integrating</span> <span class="nv">viewControllers</span><span class="p">:</span> <span class="p">[</span><span class="kt">UIViewController</span><span class="p">])</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Protocols/SimpleContainerFactory.html#/s:13RouteComposer22SimpleContainerFactoryP14ViewControllerQa">ViewController</a></span></code></pre>
 
                         </div>
                       </div>
@@ -479,7 +479,7 @@ controller creation, <code>SimpleContainer</code> will handle integration of the
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-10-16)</p>
+          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-10-18)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

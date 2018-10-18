@@ -17,7 +17,7 @@ class DestinationStepTests: XCTestCase {
 
     }
 
-    func testSafeExpectingContainer() {
+    func testUniversalExpectingContainer() {
         let nonContainerStepInsideContainer = StepAssembly(finder: TestFinder<UIViewController, Any?>(), factory: NilFactory())
                 .using(UINavigationController.pushToNavigation())
                 .from(NavigationControllerStep())
@@ -38,7 +38,7 @@ class DestinationStepTests: XCTestCase {
         XCTAssertNoThrow(try (step.previousStep as? PerformableStep)?.perform(with: ()))
     }
 
-    func testUnsafeExpectingContainer() {
+    func testStronglyTypedExpectingContainer() {
         let nonContainerStepInsideContainer = StepAssembly(finder: TestFinder<UIViewController, String>(), factory: NilFactory())
                 .using(UINavigationController.pushToNavigation())
                 .from(NavigationControllerStep())
@@ -57,13 +57,13 @@ class DestinationStepTests: XCTestCase {
         XCTAssertThrowsError(try (step.previousStep as? PerformableStep)?.perform(with: ()))
     }
 
-    func testAdoptingContext() {
+    func testAdaptingContext() {
         let nonContainerStepInsideContainer = StepAssembly(finder: TestFinder<UINavigationController, Any?>(), factory: XibFactory())
                 .using(GeneralAction.presentModally())
                 .assemble(from: GeneralStep.current())
 
-        let step1: DestinationStep<UINavigationController, String> = nonContainerStepInsideContainer.adoptingContext()
-        let step2: DestinationStep<UINavigationController, Void> = nonContainerStepInsideContainer.adoptingContext()
+        let step1: DestinationStep<UINavigationController, String> = nonContainerStepInsideContainer.adaptingContext()
+        let step2: DestinationStep<UINavigationController, Void> = nonContainerStepInsideContainer.adaptingContext()
         XCTAssertNoThrow(try (step1.previousStep as? PerformableStep)?.perform(with: nil))
         XCTAssertNoThrow(try (step2.previousStep as? PerformableStep)?.perform(with: nil))
         XCTAssertNoThrow(try (step1.previousStep as? PerformableStep)?.perform(with: "nil"))
