@@ -24,9 +24,9 @@ public final class SingleStep<F: Finder, FC: Factory>: ActionToStepIntegrator<F,
     }
 
     override func routingStep<A: Action>(with action: A) -> RoutingStep {
-        return BaseStep<FactoryBox<FC>>(finder: finder,
-                factory: factory,
-                action: ActionBox(action),
+        let entitiesCollector = BaseEntitiesCollector<FactoryBox<FC>, ActionBox>(finder: finder, factory: factory, action: action)
+        return BaseStep(finder: entitiesCollector.getFinderBoxed(),
+                factory: entitiesCollector.getFactoryBoxed(),
                 interceptor: taskCollector.getInterceptorsBoxed(),
                 contextTask: taskCollector.getContextTasksBoxed(),
                 postTask: taskCollector.getPostTasksBoxed()
@@ -34,9 +34,9 @@ public final class SingleStep<F: Finder, FC: Factory>: ActionToStepIntegrator<F,
     }
 
     override func embeddableRoutingStep<A: ContainerAction>(with action: A) -> RoutingStep {
-        return BaseStep<FactoryBox<FC>>(finder: finder,
-                factory: factory,
-                action: ContainerActionBox(action),
+        let entitiesCollector = BaseEntitiesCollector<FactoryBox<FC>, ContainerActionBox>(finder: finder, factory: factory, action: action)
+        return BaseStep(finder: entitiesCollector.getFinderBoxed(),
+                factory: entitiesCollector.getFactoryBoxed(),
                 interceptor: taskCollector.getInterceptorsBoxed(),
                 contextTask: taskCollector.getContextTasksBoxed(),
                 postTask: taskCollector.getPostTasksBoxed()

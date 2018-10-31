@@ -21,24 +21,13 @@ protocol AnyFactoryBox: AnyFactory {
 
     associatedtype FactoryType: AbstractFactory
 
-    static func box(for factory: FactoryType?, action: AnyAction) -> AnyFactory?
-
     var factory: FactoryType { get set }
 
-    init(_ factory: FactoryType, action: AnyAction)
+    init?(_ factory: FactoryType, action: AnyAction)
 
 }
 
 extension AnyFactoryBox where Self: AnyFactory {
-
-    static func box(for factory: FactoryType?, action: AnyAction) -> AnyFactory? {
-        if factory as? NilEntity != nil {
-            return nil
-        } else if let factory = factory {
-            return Self(factory, action: action)
-        }
-        return nil
-    }
 
     mutating func prepare(with context: Any?) throws {
         guard let typedContext = Any?.some(context as Any) as? FactoryType.Context else {
@@ -70,7 +59,10 @@ struct FactoryBox<F: Factory>: AnyFactory, AnyFactoryBox, CustomStringConvertibl
 
     let action: AnyAction
 
-    init(_ factory: F, action: AnyAction) {
+    init?(_ factory: F, action: AnyAction) {
+        guard !(factory is NilEntity) else {
+            return nil
+        }
         self.factory = factory
         self.action = action
     }
@@ -95,7 +87,10 @@ struct ContainerFactoryBox<F: ContainerFactory>: AnyFactory, AnyFactoryBox, Cust
 
     var children: [DelayedIntegrationFactory<FactoryType.Context>] = []
 
-    init(_ factory: FactoryType, action: AnyAction) {
+    init?(_ factory: FactoryType, action: AnyAction) {
+        guard !(factory is NilEntity) else {
+            return nil
+        }
         self.factory = factory
         self.action = action
     }

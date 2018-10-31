@@ -29,9 +29,7 @@ class RouterTests: XCTestCase {
     }
 
     // Fakes current view controller as we do not have an access to the key UIWindow
-    class TestCurrentViewControllerStep<VC: UIViewController>: RoutingStepWithContext, PerformableStep {
-
-        typealias Context = Any?
+    class TestCurrentViewControllerStep<VC: UIViewController>: RoutingStep, PerformableStep {
 
         let currentViewController: VC
 

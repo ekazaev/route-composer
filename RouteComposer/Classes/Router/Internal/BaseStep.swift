@@ -5,17 +5,14 @@
 import Foundation
 import UIKit
 
-// Handles all step protocols.
-struct BaseStep<Box: AnyFactoryBox>: RoutingStepWithContext,
+struct BaseStep: RoutingStep,
         ChainableStep,
         ChainingStep,
         InterceptableStep,
         PerformableStep,
         CustomStringConvertible {
 
-    typealias Context = Box.FactoryType.Context
-
-    private(set) public var previousStep: RoutingStep?
+    private(set) var previousStep: RoutingStep?
 
     let factory: AnyFactory?
 
@@ -27,26 +24,17 @@ struct BaseStep<Box: AnyFactoryBox>: RoutingStepWithContext,
 
     let contextTask: AnyContextTask?
 
-    init<F: Finder>(finder: F?,
-                    factory: Box.FactoryType?,
-                    action: AnyAction,
-                    interceptor: AnyRoutingInterceptor?,
-                    contextTask: AnyContextTask?,
-                    postTask: AnyPostRoutingTask?)
-            where F.ViewController == Box.FactoryType.ViewController, F.Context == Box.FactoryType.Context {
-        self.finder = FinderBox.box(for: finder)
-        if let anyFactory = Box.box(for: factory, action: action) {
-            self.factory = anyFactory
-        } else if let finder = finder, !(finder is NilEntity) {
-            self.factory = FactoryBox.box(for: FinderFactory(finder: finder),
-                    action: ActionBox(ViewControllerActions.NilAction()))
-        } else {
-            self.factory = nil
-        }
+    init(finder: AnyFinder?,
+         factory: AnyFactory?,
+         interceptor: AnyRoutingInterceptor?,
+         contextTask: AnyContextTask?,
+         postTask: AnyPostRoutingTask?) {
+        self.finder = finder
+        self.factory = factory
         self.interceptor = interceptor
         self.contextTask = contextTask
         self.postTask = postTask
-        }
+    }
 
     func perform(with context: Any?) throws -> PerformableStepResult {
         guard let viewController = try finder?.findViewController(with: context) else {

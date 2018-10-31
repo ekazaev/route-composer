@@ -14,18 +14,12 @@ protocol AnyFinder {
 
 struct FinderBox<F: Finder>: AnyFinder, CustomStringConvertible {
 
-    static func box(for finder: F?) -> AnyFinder? {
-        if finder is NilEntity {
-            return nil
-        } else if let finder = finder {
-            return FinderBox(finder)
-        }
-        return nil
-    }
-
     let finder: F
 
-    fileprivate init(_ finder: F) {
+    init?(_ finder: F) {
+        guard !(finder is NilEntity) else {
+            return nil
+        }
         self.finder = finder
     }
 

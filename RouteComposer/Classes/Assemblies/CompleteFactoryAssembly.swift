@@ -50,7 +50,7 @@ public final class CompleteFactoryAssembly<FC: ContainerFactory> {
     public func with<CFC: Factory, A: ContainerAction>(_ childFactory: CFC, using action: A) -> Self
             where
             CFC.Context == FC.Context, A.ViewController == FC.ViewController {
-        guard let factoryBox = FactoryBox.box(for: childFactory, action: ContainerActionBox(action)) else {
+        guard let factoryBox = FactoryBox(childFactory, action: ContainerActionBox(action)) else {
             return self
         }
         childFactories.append(DelayedIntegrationFactory<CFC.Context>(factoryBox))
@@ -65,7 +65,7 @@ public final class CompleteFactoryAssembly<FC: ContainerFactory> {
     public func with<CFC: ContainerFactory, A: ContainerAction>(_ childContainer: CFC, using action: A) -> Self
             where
             CFC.Context == FC.Context, A.ViewController == FC.ViewController {
-        guard let factoryBox = ContainerFactoryBox.box(for: childContainer, action: ContainerActionBox(action)) else {
+        guard let factoryBox = ContainerFactoryBox(childContainer, action: ContainerActionBox(action)) else {
             return self
         }
 
@@ -78,7 +78,7 @@ public final class CompleteFactoryAssembly<FC: ContainerFactory> {
     /// - Parameters:
     ///   - childFactory: The instance of `Factory`.
     public func with<CFC: Factory>(_ childFactory: CFC) -> Self where CFC.Context == FC.Context {
-        guard let factoryBox = FactoryBox.box(for: childFactory, action: ContainerActionBox(AddAction<FC>())) else {
+        guard let factoryBox = FactoryBox(childFactory, action: ContainerActionBox(AddAction<FC>())) else {
             return self
         }
         childFactories.append(DelayedIntegrationFactory<CFC.Context>(factoryBox))
@@ -90,7 +90,7 @@ public final class CompleteFactoryAssembly<FC: ContainerFactory> {
     /// - Parameters:
     ///   - childFactory: The instance of `ContainerFactory`.
     public func with<CFC: ContainerFactory>(_ childContainer: CFC) -> Self where CFC.Context == FC.Context {
-        guard let factoryBox = ContainerFactoryBox.box(for: childContainer, action: ContainerActionBox(AddAction<FC>())) else {
+        guard let factoryBox = ContainerFactoryBox(childContainer, action: ContainerActionBox(AddAction<FC>())) else {
             return self
         }
 

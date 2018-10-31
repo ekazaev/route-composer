@@ -29,7 +29,7 @@ public final class SwitchAssembly<ViewController: UIViewController, Context> {
         let finder: AnyFinder?
 
         init<F: Finder>(finder: F) {
-            self.finder = FinderBox.box(for: finder)
+            self.finder = FinderBox(finder)
         }
 
         func perform(with context: Any?) throws -> PerformableStepResult {
@@ -48,7 +48,7 @@ public final class SwitchAssembly<ViewController: UIViewController, Context> {
 
         init<F: Finder>(finder: F, step: DestinationStep<ViewController, Context>?) {
             self.step = step ?? DestinationStep(FinderStep(finder: finder))
-            self.finder = FinderBox.box(for: finder)
+            self.finder = FinderBox(finder)
         }
 
         func resolve<C>(with context: C) -> RoutingStep? {
@@ -100,7 +100,7 @@ public final class SwitchAssembly<ViewController: UIViewController, Context> {
     ///
     /// - Returns: instance of a `DestinationStep`
     public func assemble() -> DestinationStep<ViewController, Context> {
-        return DestinationStep(SwitcherStep<Context>(resolvers: resolvers))
+        return DestinationStep(SwitcherStep(resolvers: resolvers))
     }
 
     /// Assembles all the cases in a `DestinationStep` instance and adds the default implementation, providing the step it is to perform
@@ -111,7 +111,7 @@ public final class SwitchAssembly<ViewController: UIViewController, Context> {
         resolvers.append(BlockResolver<Context>(resolverBlock: { _ in
             return resolverBlock()
         }))
-        return DestinationStep(SwitcherStep<Context>(resolvers: resolvers))
+        return DestinationStep(SwitcherStep(resolvers: resolvers))
     }
 
 }

@@ -22,7 +22,10 @@ public struct FinderFactory<F: Finder>: Factory {
     ///
     /// - Parameters:
     ///   - finder: The `Finder` instance to be used by the `Factory`
-    public init(finder: F) {
+    public init?(finder: F) {
+        guard !(finder is NilEntity) else {
+            return nil
+        }
         self.finder = finder
     }
 

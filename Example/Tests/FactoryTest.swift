@@ -35,7 +35,7 @@ class FactoryTest: XCTestCase {
     func testFinderFactory() {
         let navigationController = UINavigationController()
         let factory = FinderFactory<RouterTests.FakeClassFinder<UINavigationController, Any?>>(finder: RouterTests.FakeClassFinder(currentViewController: navigationController))
-        XCTAssertEqual(try factory.build(with: nil), navigationController)
+        XCTAssertEqual(try factory?.build(with: nil), navigationController)
     }
 
     func testNilFactory() {

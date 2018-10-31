@@ -11,9 +11,7 @@ protocol StepCaseResolver {
 
 }
 
-class SwitcherStep<C>: RoutingStepWithContext, ChainableStep, PerformableStep {
-
-    public typealias Context = C
+class SwitcherStep: RoutingStep, ChainableStep, PerformableStep {
 
     private(set) var previousStep: RoutingStep?
 
