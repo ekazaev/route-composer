@@ -6,7 +6,7 @@ import Foundation
 import UIKit
 
 /// Represents a single step for the `Router` to make.
-public struct DestinationStep<VC: UIViewController, C>: RoutingStepWithContext, ChainableStep {
+public struct DestinationStep<VC: UIViewController, C>: RoutingStep, ChainableStep {
 
     /// Type of the `ViewController` associated with the step
     public typealias ViewController = VC

@@ -19,7 +19,15 @@ protocol AnyAction {
 
 }
 
-struct ActionBox<A: Action>: AnyAction, CustomStringConvertible {
+protocol AnyActionBox: AnyAction {
+
+    associatedtype ActionType: AbstractAction
+
+    init(_ action: ActionType)
+
+}
+
+struct ActionBox<A: Action>: AnyAction, AnyActionBox, CustomStringConvertible {
 
     let action: A
 
@@ -31,7 +39,7 @@ struct ActionBox<A: Action>: AnyAction, CustomStringConvertible {
 
     func perform(with viewController: UIViewController, on existingController: UIViewController, animated: Bool, completion: @escaping (ActionResult) -> Void) {
         guard let typedExistingViewController = existingController as? A.ViewController else {
-            completion(.failure(RoutingError.typeMismatch(A.ViewController.self, RoutingError.Context(debugDescription: "Action \(action.self) cannot " +
+            completion(.failure(RoutingError.typeMismatch(ActionType.ViewController.self, RoutingError.Context(debugDescription: "Action \(action.self) cannot " +
                     "be performed on \(existingController)."))))
             return
         }
@@ -48,7 +56,7 @@ struct ActionBox<A: Action>: AnyAction, CustomStringConvertible {
 
 }
 
-struct ContainerActionBox<A: ContainerAction>: AnyAction, CustomStringConvertible {
+struct ContainerActionBox<A: ContainerAction>: AnyAction, AnyActionBox, CustomStringConvertible {
 
     let action: A
 
@@ -60,8 +68,8 @@ struct ContainerActionBox<A: ContainerAction>: AnyAction, CustomStringConvertibl
 
     func perform(with viewController: UIViewController, on existingController: UIViewController, animated: Bool, completion: @escaping (ActionResult) -> Void) {
         guard let containerController: A.ViewController = UIViewController.findContainer(of: existingController) else {
-            completion(.failure(RoutingError.typeMismatch(A.ViewController.self, RoutingError.Context(debugDescription: "Container of " +
-                    "\(String(describing: A.ViewController.self)) type cannot be found to perform \(action)"))))
+            completion(.failure(RoutingError.typeMismatch(ActionType.ViewController.self, RoutingError.Context(debugDescription: "Container of " +
+                    "\(String(describing: ActionType.ViewController.self)) type cannot be found to perform \(action)"))))
             return
         }
 

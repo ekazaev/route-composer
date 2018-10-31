@@ -107,7 +107,7 @@ class AssemblyTest: XCTestCase {
                             .using(GeneralAction.presentModally())
                             .from(GeneralStep.current())
                             .assemble()
-                }).previousStep as? SwitcherStep<String>
+                }).previousStep as? SwitcherStep
 
         XCTAssertNotNil(step)
         XCTAssertEqual(step?.resolvers.count, 5)

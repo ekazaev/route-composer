@@ -44,7 +44,7 @@ class BoxTests: XCTestCase {
                 .using(ViewControllerActions.NilAction())
                 .from(GeneralStep.current())
                 .assemble()
-        let step = routingStep.previousStep as? BaseStep<FactoryBox<NilFactory<UIViewController, Any?>>>
+        let step = routingStep.previousStep as? BaseStep
         XCTAssertNotNil(step)
         XCTAssertNil(step?.factory)
         XCTAssertNil(step?.finder)
@@ -105,6 +105,25 @@ class BoxTests: XCTestCase {
 
         actionBox.perform(embedding: UIViewController(), in: &navigationController.viewControllers)
         XCTAssertEqual(navigationController.children.count, 2)
+    }
+
+    func testBaseEntitiesCollector() {
+        let collector = BaseEntitiesCollector<FactoryBox<ClassNameFactory>, ActionBox>(finder: ClassFinder<UIViewController, Any?>(),
+                factory: ClassNameFactory<UIViewController, Any?>(), action: GeneralAction.replaceRoot())
+        XCTAssertNotNil(collector.getFinderBoxed())
+        XCTAssertNotNil(collector.getFactoryBoxed())
+        XCTAssertTrue(collector.getFinderBoxed() is FinderBox<ClassFinder<UIViewController, Any?>>)
+        XCTAssertTrue(collector.getFactoryBoxed() is FactoryBox<ClassNameFactory<UIViewController, Any?>>)
+        XCTAssertTrue(collector.getFactoryBoxed()?.action is ActionBox<ViewControllerActions.ReplaceRootAction>)
+    }
+
+    func testNilBaseEntitiesCollector() {
+        let collector = BaseEntitiesCollector<FactoryBox<NilFactory>, ActionBox>(finder: NilFinder<UIViewController, Any?>(),
+                factory: NilFactory(), action: ViewControllerActions.NilAction())
+        XCTAssertNil(collector.getFinderBoxed())
+        XCTAssertNotNil(collector.getFactoryBoxed())
+        XCTAssertTrue(collector.getFactoryBoxed() is FactoryBox<FinderFactory<NilFinder<UIViewController, Any?>>>)
+        XCTAssertTrue(collector.getFactoryBoxed()?.action is ActionBox<ViewControllerActions.NilAction>)
     }
 
 }

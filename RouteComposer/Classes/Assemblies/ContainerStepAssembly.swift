@@ -43,10 +43,10 @@ public final class ContainerStepAssembly<F: Finder, FC: ContainerFactory>: Gener
     /// - Parameter action: `Action` instance to be used with a step.
     public func using<A: Action>(_ action: A) -> StepChainAssembly<ViewController, Context> {
         var previousSteps = self.previousSteps
-        let step = BaseStep<ContainerFactoryBox<FC>>(
-                finder: self.finder,
-                factory: self.factory,
-                action: ActionBox(action),
+        let entitiesCollector = BaseEntitiesCollector<ContainerFactoryBox<FC>, ActionBox>(finder: finder, factory: factory, action: action)
+        let step = BaseStep(
+                finder: entitiesCollector.getFinderBoxed(),
+                factory: entitiesCollector.getFactoryBoxed(),
                 interceptor: taskCollector.getInterceptorsBoxed(),
                 contextTask: taskCollector.getContextTasksBoxed(),
                 postTask: taskCollector.getPostTasksBoxed())
@@ -59,10 +59,10 @@ public final class ContainerStepAssembly<F: Finder, FC: ContainerFactory>: Gener
     /// - Parameter action: `ContainerAction` instance to be used with a step.
     public func using<A: ContainerAction>(_ action: A) -> ContainerStepChainAssembly<A.ViewController, ViewController, Context> {
         var previousSteps = self.previousSteps
-        let step = BaseStep<ContainerFactoryBox<FC>>(
-                finder: self.finder,
-                factory: self.factory,
-                action: ContainerActionBox(action),
+        let entitiesCollector = BaseEntitiesCollector<ContainerFactoryBox<FC>, ContainerActionBox>(finder: finder, factory: factory, action: action)
+        let step = BaseStep(
+                finder: entitiesCollector.getFinderBoxed(),
+                factory: entitiesCollector.getFactoryBoxed(),
                 interceptor: taskCollector.getInterceptorsBoxed(),
                 contextTask: taskCollector.getContextTasksBoxed(),
                 postTask: taskCollector.getPostTasksBoxed())
@@ -81,10 +81,10 @@ public extension ContainerStepAssembly where FC: NilEntity {
     public func from<AF: Finder, AFC: AbstractFactory>(_ step: ActionToStepIntegrator<AF, AFC>) -> ActionConnectingAssembly<AF, AFC, ViewController, Context>
             where AF.Context == Context {
         var previousSteps = self.previousSteps
-        let currentStep = BaseStep<ContainerFactoryBox<FC>>(
-                finder: self.finder,
-                factory: self.factory,
-                action: ActionBox(ViewControllerActions.NilAction()),
+        let entitiesCollector = BaseEntitiesCollector<ContainerFactoryBox<FC>, ActionBox>(finder: finder, factory: factory, action: ViewControllerActions.NilAction())
+        let currentStep = BaseStep(
+                finder: entitiesCollector.getFinderBoxed(),
+                factory: entitiesCollector.getFactoryBoxed(),
                 interceptor: taskCollector.getInterceptorsBoxed(),
                 contextTask: taskCollector.getContextTasksBoxed(),
                 postTask: taskCollector.getPostTasksBoxed())
@@ -98,10 +98,10 @@ public extension ContainerStepAssembly where FC: NilEntity {
     /// - Parameter step: `DestinationStep` instance to be used.
     public func from<VC: UIViewController>(_ step: DestinationStep<VC, Context>) -> LastStepInChainAssembly<ViewController, Context> {
         var previousSteps = self.previousSteps
-        let currentStep = BaseStep<ContainerFactoryBox<FC>>(
-                finder: self.finder,
-                factory: self.factory,
-                action: ActionBox(ViewControllerActions.NilAction()),
+        let entitiesCollector = BaseEntitiesCollector<ContainerFactoryBox<FC>, ActionBox>(finder: finder, factory: factory, action: ViewControllerActions.NilAction())
+        let currentStep = BaseStep(
+                finder: entitiesCollector.getFinderBoxed(),
+                factory: entitiesCollector.getFactoryBoxed(),
                 interceptor: taskCollector.getInterceptorsBoxed(),
                 contextTask: taskCollector.getContextTasksBoxed(),
                 postTask: taskCollector.getPostTasksBoxed())

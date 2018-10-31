@@ -173,7 +173,6 @@ public struct DefaultRouter: Router, InterceptableRouter {
                 case .none:
                     logger?.log(.info("\(String(describing: performableStep)) hasn't found a corresponding view " +
                             "controller in the stack, so router will continue to search."))
-                    break
                 }
             }
 
