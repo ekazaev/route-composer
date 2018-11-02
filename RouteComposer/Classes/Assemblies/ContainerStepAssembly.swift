@@ -11,9 +11,9 @@ import UIKit
 /// ### Usage
 /// ```swift
 /// let containerScreen = ContainerStepAssembly(finder: ClassFinder(), factory: NavigationControllerFactory())
-///         .add(LoginInterceptor())
-///         .add(ProductViewControllerContextTask())
-///         .add(ProductViewControllerPostTask(analyticsManager: AnalyticsManager.sharedInstance))
+///         .adding(LoginInterceptor())
+///         .adding(ProductViewControllerContextTask())
+///         .adding(ProductViewControllerPostTask(analyticsManager: AnalyticsManager.sharedInstance))
 ///         .using(GeneralAction.PresentModally())
 ///         .from(CurrentControllerStep())
 ///         .assemble()

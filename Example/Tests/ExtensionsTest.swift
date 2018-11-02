@@ -233,5 +233,5 @@ class ExtensionsTest: XCTestCase {
         XCTAssertEqual(viewController2.allParents[0], viewController1)
         XCTAssertEqual(viewController1.allParents.count, 0)
     }
-    
+
 }

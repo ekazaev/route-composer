@@ -33,7 +33,7 @@ public struct DestinationStep<VC: UIViewController, C>: RoutingStep, ChainableSt
 
     /// Allows to avoid container view controller check.
     ///
-    /// *NB:* Developer guaranties that it will be there in runtime.
+    /// *NB:* Developer guaranties that it will be there in the runtime.
     public func expectingContainer<VC: ContainerViewController>() -> DestinationStep<VC, Context> {
         return DestinationStep<VC, Context>(destinationStep)
     }
@@ -46,7 +46,7 @@ extension DestinationStep where DestinationStep.Context == Any? {
     /// Allows to avoid container view controller check. This method is available only for the steps that are
     /// able to accept any type of context.
     ///
-    /// *NB:* Developer guaranties that it will be there.
+    /// *NB:* Developer guaranties that it will be there in the runtime.
     public func expectingContainer<VC: ContainerViewController, C>() -> DestinationStep<VC, C> {
         return DestinationStep<VC, C>(destinationStep)
     }

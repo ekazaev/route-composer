@@ -24,22 +24,16 @@ public struct DefaultRouter: Router, InterceptableRouter {
         self.logger = logger
     }
 
-    @discardableResult
-    public mutating func add<R: RoutingInterceptor>(_ interceptor: R) -> DefaultRouter where R.Context == Any? {
+    public mutating func add<R: RoutingInterceptor>(_ interceptor: R) where R.Context == Any? {
         self.interceptors.append(RoutingInterceptorBox(interceptor))
-        return self
     }
 
-    @discardableResult
-    public mutating func add<CT: ContextTask>(_ contextTask: CT) -> DefaultRouter where CT.Context == Any? {
+    public mutating func add<CT: ContextTask>(_ contextTask: CT) where CT.Context == Any? {
         self.contextTasks.append(ContextTaskBox(contextTask))
-        return self
     }
 
-    @discardableResult
-    public mutating func add<P: PostRoutingTask>(_ postTask: P) -> DefaultRouter where P.Context == Any? {
+    public mutating func add<P: PostRoutingTask>(_ postTask: P) where P.Context == Any? {
         self.postTasks.append(PostRoutingTaskBox(postTask))
-        return self
     }
 
     public func navigate<ViewController: UIViewController, Context>(to step: DestinationStep<ViewController, Context>,

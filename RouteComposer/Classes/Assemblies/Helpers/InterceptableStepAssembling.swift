@@ -6,7 +6,7 @@ import Foundation
 import UIKit
 
 /// Assembly protocol allowing to build an interceptable step.
-public protocol InterceptableStepAssembling {
+protocol InterceptableStepAssembling {
 
     /// Supported `UIViewController` type
     associatedtype ViewController: UIViewController
@@ -19,18 +19,18 @@ public protocol InterceptableStepAssembling {
     ///
     /// - Parameter interceptor: The `RoutingInterceptor` instance to be executed by `Router` before the navigation process
     ///   to this step.
-    func add<R: RoutingInterceptor>(_ interceptor: R) -> Self where R.Context == Context
+    func adding<R: RoutingInterceptor>(_ interceptor: R) -> Self where R.Context == Context
 
     /// Adds `ContextTask` instance
     ///
     /// - Parameter contextTask: The `ContextTask` instance to be applied by a `Router` immediately after it
     ///   will find or create `UIViewController`.
-    func add<CT: ContextTask>(_ contextTask: CT) -> Self where CT.ViewController == ViewController, CT.Context == Context
+    func adding<CT: ContextTask>(_ contextTask: CT) -> Self where CT.ViewController == ViewController, CT.Context == Context
 
     /// Adds `PostRoutingTask` instance.
     /// This action does not contain type safety checks to avoid complications.
     ///
     /// - Parameter postTask: The `PostRoutingTask` instance to be executed by a `Router` after the navigation process.
-    func add<P: PostRoutingTask>(_ postTask: P) -> Self where P.Context == Context
+    func adding<P: PostRoutingTask>(_ postTask: P) -> Self where P.Context == Context
 
 }

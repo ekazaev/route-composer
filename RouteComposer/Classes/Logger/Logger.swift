@@ -6,30 +6,12 @@
 import Foundation
 import UIKit
 
-/// `Logger` message representation
-///
-/// - info: info message
-/// - `warning`: warning message
-/// - error: error message
-public enum LoggerMessage {
-
-    /// info message
-    case info(String)
-
-    /// warning message
-    case warning(String)
-
-    /// error message
-    case error(String)
-
-}
-
 /// Routing logger protocol
 public protocol Logger {
 
-    /// Will be called by the `Router` to log LoggerMessage instance
+    /// Logs a message
     ///
-    /// - Parameter message: The `LoggerMessage` instance
-    func log(_ message: LoggerMessage)
+    /// - Parameter message: The `LogMessage` instance
+    func log(_ message: LogMessage)
 
 }

@@ -267,9 +267,9 @@ which should be presented modally from any currently visible view controller.*
 
 ```swift
 let productScreen = StepAssembly(finder: ProductViewControllerFinder(), factory: ProductViewControllerFactory())
-        .add(LoginInterceptor<String>()) // Have to specify type till https://bugs.swift.org/browse/SR-8719, https://bugs.swift.org/browse/SR-8705 are fixed
-        .add(ProductViewControllerContextTask())
-        .add(ProductViewControllerPostTask(analyticsManager: AnalyticsManager.sharedInstance))
+        .adding(LoginInterceptor<String>()) // Have to specify type till https://bugs.swift.org/browse/SR-8719, https://bugs.swift.org/browse/SR-8705 are fixed
+        .adding(ProductViewControllerContextTask())
+        .adding(ProductViewControllerPostTask(analyticsManager: AnalyticsManager.sharedInstance))
         .using(UINavigationController.pushToNavigation())
         .from(NavigationControllerStep())
         .using(GeneralActions.presentModally())
@@ -302,9 +302,9 @@ should be logged in to see the product details.*
 struct Configuration {
 
     static let productScreen = StepAssembly(finder: ProductViewControllerFinder(), factory: ProductViewControllerFactory())
-                .add(LoginInterceptor<String>())
-                .add(ProductViewControllerContextTask())
-                .add(ProductViewControllerPostTask(analyticsManager: AnalyticsManager.sharedInstance))
+                .adding(LoginInterceptor<String>())
+                .adding(ProductViewControllerContextTask())
+                .adding(ProductViewControllerPostTask(analyticsManager: AnalyticsManager.sharedInstance))
                 .using(UINavigationController.pushToNavigation())
                 .from(NavigationControllerStep())
                 .using(GeneralActions.presentModally())

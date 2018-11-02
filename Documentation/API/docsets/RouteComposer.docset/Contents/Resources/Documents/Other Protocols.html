@@ -34,13 +34,16 @@
                 <a href="Protocols/Router.html">Router</a>
               </li>
               <li class="nav-group-task">
+                <a href="Enums/RoutingError.html">RoutingError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/RoutingError/Context.html">– Context</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Structs/DestinationStep.html">DestinationStep</a>
               </li>
               <li class="nav-group-task">
                 <a href="Protocols/Finder.html">Finder</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Protocols/AbstractFactory.html">AbstractFactory</a>
               </li>
               <li class="nav-group-task">
                 <a href="Protocols/Factory.html">Factory</a>
@@ -54,6 +57,11 @@
               <li class="nav-group-task">
                 <a href="Protocols/ContainerAction.html">ContainerAction</a>
               </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Tasks.html">Tasks</a>
+            <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="Protocols/RoutingInterceptor.html">RoutingInterceptor</a>
               </li>
@@ -62,12 +70,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="Protocols/PostRoutingTask.html">PostRoutingTask</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Enums/RoutingError.html">RoutingError</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Enums/RoutingError/Context.html">– Context</a>
               </li>
             </ul>
           </li>
@@ -88,6 +90,17 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/CompleteFactoryAssembly.html">CompleteFactoryAssembly</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Additional Assemblies.html">Additional Assemblies</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Classes/SingleStep.html">SingleStep</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/SingleContainerStep.html">SingleContainerStep</a>
               </li>
             </ul>
           </li>
@@ -144,12 +157,6 @@
             <a href="Steps.html">Steps</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Classes/SingleStep.html">SingleStep</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/SingleContainerStep.html">SingleContainerStep</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Structs/GeneralStep.html">GeneralStep</a>
               </li>
               <li class="nav-group-task">
@@ -186,6 +193,20 @@
               <li class="nav-group-task">
                 <a href="Protocols/ContainerViewController.html">ContainerViewController</a>
               </li>
+              <li class="nav-group-task">
+                <a href="Protocols/ContextChecking.html">ContextChecking</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Logging.html">Logging</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Protocols/Logger.html">Logger</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/LogMessage.html">LogMessage</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -207,14 +228,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/GenericStepAssembly.html">GenericStepAssembly</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
-            <a href="Other Enums.html">Other Enumerations</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="Enums/LoggerMessage.html">LoggerMessage</a>
               </li>
             </ul>
           </li>
@@ -248,19 +261,13 @@
                 <a href="Protocols/AbstractAction.html">AbstractAction</a>
               </li>
               <li class="nav-group-task">
+                <a href="Protocols/AbstractFactory.html">AbstractFactory</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Protocols/ActionConnecting.html">ActionConnecting</a>
               </li>
               <li class="nav-group-task">
-                <a href="Protocols/ContextChecking.html">ContextChecking</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Protocols/InterceptableRouter.html">InterceptableRouter</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Protocols/InterceptableStepAssembling.html">InterceptableStepAssembling</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Protocols/Logger.html">Logger</a>
               </li>
               <li class="nav-group-task">
                 <a href="Other Protocols.html#/s:13RouteComposer9NilEntityP">NilEntity</a>
@@ -401,6 +408,40 @@ been built (eg: push to navigation stack, present modally, push to tab, etc)</p>
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:13RouteComposer15AbstractFactoryP"></a>
+                    <a name="//apple_ref/swift/Protocol/AbstractFactory" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer15AbstractFactoryP">AbstractFactory</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Base protocol for all types of factories.
+An instance that extends <code>AbstractFactory</code> builds a <code>UIViewController</code> that will later be
+integrated into the stack by the <code><a href="Protocols/Router.html">Router</a></code></p>
+
+                        <a href="Protocols/AbstractFactory.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">AbstractFactory</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:13RouteComposer16ActionConnectingP"></a>
                     <a name="//apple_ref/swift/Protocol/ActionConnecting" class="dashAnchor"></a>
                     <a class="token" href="#/s:13RouteComposer16ActionConnectingP">ActionConnecting</a>
@@ -465,38 +506,6 @@ been built (eg: push to navigation stack, present modally, push to tab, etc)</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer27InterceptableStepAssemblingP"></a>
-                    <a name="//apple_ref/swift/Protocol/InterceptableStepAssembling" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer27InterceptableStepAssemblingP">InterceptableStepAssembling</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Assembly protocol allowing to build an interceptable step.</p>
-
-                        <a href="Protocols/InterceptableStepAssembling.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">InterceptableStepAssembling</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
                     <a name="/s:13RouteComposer22SimpleContainerFactoryP"></a>
                     <a name="//apple_ref/swift/Protocol/SimpleContainerFactory" class="dashAnchor"></a>
                     <a class="token" href="#/s:13RouteComposer22SimpleContainerFactoryP">SimpleContainerFactory</a>
@@ -517,70 +526,6 @@ controller creation, <code>SimpleContainerFactory</code> will handle integration
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">SimpleContainerFactory</span> <span class="p">:</span> <span class="kt"><a href="Protocols/ContainerFactory.html">ContainerFactory</a></span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:13RouteComposer15ContextCheckingP"></a>
-                    <a name="//apple_ref/swift/Protocol/ContextChecking" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer15ContextCheckingP">ContextChecking</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p><code>UIViewController</code> instance should extend this protocol to be used with <code><a href="Structs/ClassWithContextFinder.html">ClassWithContextFinder</a></code></p>
-
-                        <a href="Protocols/ContextChecking.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">ContextChecking</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:13RouteComposer6LoggerP"></a>
-                    <a name="//apple_ref/swift/Protocol/Logger" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer6LoggerP">Logger</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Routing logger protocol</p>
-
-                        <a href="Protocols/Logger.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">Logger</span></code></pre>
 
                         </div>
                       </div>

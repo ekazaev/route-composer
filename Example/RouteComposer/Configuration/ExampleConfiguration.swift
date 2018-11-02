@@ -48,7 +48,7 @@ extension ExampleScreenConfiguration {
         return StepAssembly(
                 finder: ClassFinder<CircleViewController, Any?>(),
                 factory: NilFactory())
-                .add(ExampleGenericContextTask<CircleViewController, Any?>())
+                .adding(ExampleGenericContextTask<CircleViewController, Any?>())
                 .from(homeScreen)
                 .assemble()
     }
@@ -57,7 +57,7 @@ extension ExampleScreenConfiguration {
         return StepAssembly(
                 finder: ClassFinder<SquareViewController, Any?>(),
                 factory: NilFactory())
-                .add(ExampleGenericContextTask<SquareViewController, Any?>())
+                .adding(ExampleGenericContextTask<SquareViewController, Any?>())
                 .from(homeScreen)
                 .assemble()
     }
@@ -66,7 +66,7 @@ extension ExampleScreenConfiguration {
         return StepAssembly(
                 finder: ColorViewControllerFinder(),
                 factory: ColorViewControllerFactory())
-                .add(ExampleGenericContextTask<ColorViewController, String>())
+                .adding(ExampleGenericContextTask<ColorViewController, String>())
                 .using(ExampleNavigationController.pushToNavigation())
                 .from(SingleContainerStep(finder: NilFinder(), factory: ExampleNavigationFactory<String>()))
                 .using(GeneralAction.presentModally())
@@ -78,7 +78,7 @@ extension ExampleScreenConfiguration {
         return StepAssembly(
                 finder: ClassFinder<RoutingRuleSupportViewController, String>(options: .currentAllStack),
                 factory: StoryboardFactory(storyboardName: "TabBar", viewControllerID: "RoutingRuleSupportViewController"))
-                .add(ExampleGenericContextTask<RoutingRuleSupportViewController, String>())
+                .adding(ExampleGenericContextTask<RoutingRuleSupportViewController, String>())
                 .using(UITabBarController.addTab())
                 .from(TabBarControllerStep())
                 .using(UINavigationController.pushToNavigation())
@@ -90,8 +90,8 @@ extension ExampleScreenConfiguration {
         return StepAssembly(
                 finder: ClassFinder<EmptyViewController, Any?>(),
                 factory: StoryboardFactory(storyboardName: "TabBar", viewControllerID: "EmptyViewController"))
-                .add(LoginInterceptor<Any?>())
-                .add(ExampleGenericContextTask<EmptyViewController, Any?>())
+                .adding(LoginInterceptor<Any?>())
+                .adding(ExampleGenericContextTask<EmptyViewController, Any?>())
                 .using(UINavigationController.pushToNavigation())
                 .from(circleScreen.expectingContainer())
                 .assemble()
@@ -101,7 +101,7 @@ extension ExampleScreenConfiguration {
         return StepAssembly(
                 finder: ClassFinder<SecondModalLevelViewController, String>(),
                 factory: StoryboardFactory(storyboardName: "TabBar", viewControllerID: "SecondModalLevelViewController"))
-                .add(ExampleGenericContextTask<SecondModalLevelViewController, String>())
+                .adding(ExampleGenericContextTask<SecondModalLevelViewController, String>())
                 .using(UINavigationController.pushToNavigation())
                 .from(NavigationControllerStep())
                 .using(GeneralAction.presentModally(transitioningDelegate: transitionController))
@@ -113,7 +113,7 @@ extension ExampleScreenConfiguration {
         return StepAssembly(
                 finder: ClassFinder<PromptViewController, Any?>(),
                 factory: StoryboardFactory(storyboardName: "PromptScreen"))
-                .add(ExampleGenericContextTask<PromptViewController, Any?>())
+                .adding(ExampleGenericContextTask<PromptViewController, Any?>())
                 .using(GeneralAction.replaceRoot())
                 .from(GeneralStep.root())
                 .assemble()
@@ -127,8 +127,8 @@ struct ExampleConfiguration: ExampleScreenConfiguration {
         return StepAssembly(
                 finder: ClassFinder<StarViewController, Any?>(options: .currentAllStack),
                 factory: XibFactory())
-                .add(ExampleGenericContextTask<StarViewController, Any?>())
-                .add(LoginInterceptor<Any?>())
+                .adding(ExampleGenericContextTask<StarViewController, Any?>())
+                .adding(LoginInterceptor<Any?>())
                 .using(UITabBarController.addTab())
                 .from(homeScreen)
                 .assemble()
@@ -142,8 +142,8 @@ struct AlternativeExampleConfiguration: ExampleScreenConfiguration {
         return StepAssembly(
                 finder: ClassFinder<StarViewController, Any?>(options: .currentAllStack),
                 factory: XibFactory())
-                .add(ExampleGenericContextTask<StarViewController, Any?>())
-                .add(LoginInterceptor())
+                .adding(ExampleGenericContextTask<StarViewController, Any?>())
+                .adding(LoginInterceptor())
                 .using(UINavigationController.pushToNavigation())
                 .from(circleScreen.expectingContainer())
                 .assemble()

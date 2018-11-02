@@ -13,7 +13,7 @@ class CitiesConfiguration {
     // Split View Controller
     private static var city = StepAssembly(finder: ClassFinder<UISplitViewController, Any?>(),
             factory: StoryboardFactory(storyboardName: "Split"))
-            .add(LoginInterceptor<Any?>())
+            .adding(LoginInterceptor<Any?>())
             .using(GeneralAction.replaceRoot())
             .from(GeneralStep.root())
             .assemble()
@@ -21,7 +21,7 @@ class CitiesConfiguration {
     // Cities List
     private static var citiesList = StepAssembly(finder: ClassFinder<CitiesTableViewController, Int?>(),
             factory: NilFactory())
-            .add(CityTableContextTask())
+            .adding(CityTableContextTask())
             .from(city.adaptingContext())
             .assemble()
 
@@ -30,7 +30,7 @@ class CitiesConfiguration {
             finder: ClassFinder<CityDetailViewController, Int>(),
             factory: StoryboardFactory(storyboardName: "Split",
                     viewControllerID: "CityDetailViewController"))
-            .add(CityDetailContextTask())
+            .adding(CityDetailContextTask())
             .using(UISplitViewController.pushToDetails())
             .from(citiesList.unsafelyRewrapped())
             // We have to rewrap the step unsafely, as we will take responsibility for the runtime type conversion.

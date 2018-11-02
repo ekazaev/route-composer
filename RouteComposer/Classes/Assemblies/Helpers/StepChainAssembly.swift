@@ -37,7 +37,9 @@ public struct StepChainAssembly<ViewController: UIViewController, Context> {
     public func from<F: Finder, FC: AbstractFactory & NilEntity>(_ step: ActionToStepIntegrator<F, FC>) -> StepChainAssembly<ViewController, Context>
             where F.ViewController == FC.ViewController, F.Context == FC.Context, F.Context == Context {
         var previousSteps = self.previousSteps
-        previousSteps.append(step.routingStep(with: ViewControllerActions.NilAction()))
+        if let routingStep = step.routingStep(with: ViewControllerActions.NilAction()) {
+            previousSteps.append(routingStep)
+        }
         return StepChainAssembly(previousSteps: previousSteps)
     }
 
@@ -75,7 +77,9 @@ public struct ContainerStepChainAssembly<AcceptableContainer: ContainerViewContr
     /// - Parameter step: `ActionToStepIntegrator` instance to be used.
     public func from<F: Finder, FC: AbstractFactory & NilEntity>(_ step: ActionToStepIntegrator<F, FC>) -> StepChainAssembly<ViewController, Context> where F.Context == Context {
         var previousSteps = self.previousSteps
-        previousSteps.append(step.routingStep(with: ViewControllerActions.NilAction()))
+        if let routingStep = step.routingStep(with: ViewControllerActions.NilAction()) {
+            previousSteps.append(routingStep)
+        }
         return StepChainAssembly(previousSteps: previousSteps)
     }
 

@@ -60,6 +60,7 @@
 		95F31763DECB84E53B4C07FF112E164E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 908E902E026C5C22904CF9014A5604AD /* Foundation.framework */; };
 		9657BC7A4ABD61DE837206FB6B3F3512 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D81EE0050AC6D5D07435A9FF247DF /* Router.swift */; };
 		98D29E98C1D59AE354F0FA7FB058199F /* RoutingInterceptable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A5D4B8672C99A9FE229FF1B98E107D /* RoutingInterceptable.swift */; };
+		9AFBC266247A9DE39ED2D47A /* LogMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCBFD109211A197D546FD /* LogMessage.swift */; };
 		9AFBC8C4B0CE545600F5FDE3 /* BaseEntitiesCollector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC4332D0DAA3AECA106D8 /* BaseEntitiesCollector.swift */; };
 		9AFBCB4B5EA94ADC7C1D2F25 /* AbstractAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC2DA5ACBB963FA1B01A5 /* AbstractAction.swift */; };
 		9BEC4505AE49F998BDB882451369C718 /* StoryboardFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8592087A90FFE8D585557A1B3E4504A /* StoryboardFactory.swift */; };
@@ -197,6 +198,7 @@
 		99C747466EA72E423F88D41FF462ADB5 /* PostRoutingTask.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PostRoutingTask.swift; path = RouteComposer/Classes/PostRoutingTask.swift; sourceTree = "<group>"; };
 		9AFBC2DA5ACBB963FA1B01A5 /* AbstractAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AbstractAction.swift; path = RouteComposer/Classes/AbstractAction.swift; sourceTree = "<group>"; };
 		9AFBC4332D0DAA3AECA106D8 /* BaseEntitiesCollector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseEntitiesCollector.swift; sourceTree = "<group>"; };
+		9AFBCBFD109211A197D546FD /* LogMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogMessage.swift; sourceTree = "<group>"; };
 		9B3888F26A8CE1829240AC2132B9CE72 /* ActionConnecting.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ActionConnecting.swift; sourceTree = "<group>"; };
 		9B73E9491472765A969B88B346018B81 /* Pods-RouteComposer_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-RouteComposer_Tests.modulemap"; sourceTree = "<group>"; };
 		A3D391C72BBC07ABB3DDFC95A997F893 /* GeneralStep.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GeneralStep.swift; sourceTree = "<group>"; };
@@ -513,6 +515,7 @@
 				357062B5E84637FE20C3546D4A135D83 /* DefaultLogger.swift */,
 				38726B284EDAAD299E5BF585F08DB295 /* DefaultLogger+LogLevel.swift */,
 				5F2468332AF29E35F2DFD38F9910976D /* Logger.swift */,
+				9AFBCBFD109211A197D546FD /* LogMessage.swift */,
 			);
 			name = Logger;
 			path = RouteComposer/Classes/Logger;
@@ -809,6 +812,7 @@
 				649A86E14552C08C3C5ED6C2B1200816 /* XibFactory.swift in Sources */,
 				9AFBCB4B5EA94ADC7C1D2F25 /* AbstractAction.swift in Sources */,
 				9AFBC8C4B0CE545600F5FDE3 /* BaseEntitiesCollector.swift in Sources */,
+				9AFBC266247A9DE39ED2D47A /* LogMessage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

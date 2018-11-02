@@ -11,9 +11,9 @@ import UIKit
 /// ### Usage
 /// ```swift
 /// let productScreen = StepAssembly(finder: ProductViewControllerFinder(), factory: ProductViewControllerFactory())
-///         .add(LoginInterceptor())
-///         .add(ProductViewControllerContextTask())
-///         .add(ProductViewControllerPostTask(analyticsManager: AnalyticsManager.sharedInstance))
+///         .adding(LoginInterceptor())
+///         .adding(ProductViewControllerContextTask())
+///         .adding(ProductViewControllerPostTask(analyticsManager: AnalyticsManager.sharedInstance))
 ///         .using(PushToNavigationAction())
 ///         .from(NavigationControllerStep())
 ///         .using(DefaultActions.PresentModally())

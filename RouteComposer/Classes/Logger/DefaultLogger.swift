@@ -39,7 +39,7 @@ public struct DefaultLogger: Logger {
         self.osLog = osLog
     }
 
-    public func log(_ message: LoggerMessage) {
+    public func log(_ message: LogMessage) {
         switch message {
         case .warning(let message):
             if logLevel == .verbose || logLevel == .warnings {

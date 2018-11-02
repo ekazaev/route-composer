@@ -24,13 +24,17 @@ public struct ActionConnectingAssembly<F: Finder, FC: AbstractFactory, VC: UIVie
 
     public func using<A: Action>(_ action: A) -> StepChainAssembly<ViewController, Context> {
         var previousSteps = self.previousSteps
-        previousSteps.append(stepToFullFill.routingStep(with: action))
+        if let routingStep = stepToFullFill.routingStep(with: action) {
+            previousSteps.append(routingStep)
+        }
         return StepChainAssembly(previousSteps: previousSteps)
     }
 
     public func using<A: ContainerAction>(_ action: A) -> ContainerStepChainAssembly<A.ViewController, ViewController, Context> {
         var previousSteps = self.previousSteps
-        previousSteps.append(stepToFullFill.embeddableRoutingStep(with: action))
+        if let routingStep = stepToFullFill.embeddableRoutingStep(with: action) {
+            previousSteps.append(routingStep)
+        }
         return ContainerStepChainAssembly(previousSteps: previousSteps)
     }
 

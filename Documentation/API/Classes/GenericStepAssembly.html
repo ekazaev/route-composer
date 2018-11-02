@@ -34,13 +34,16 @@
                 <a href="../Protocols/Router.html">Router</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/RoutingError.html">RoutingError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/RoutingError/Context.html">– Context</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Structs/DestinationStep.html">DestinationStep</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Protocols/Finder.html">Finder</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Protocols/AbstractFactory.html">AbstractFactory</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Protocols/Factory.html">Factory</a>
@@ -54,6 +57,11 @@
               <li class="nav-group-task">
                 <a href="../Protocols/ContainerAction.html">ContainerAction</a>
               </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Tasks.html">Tasks</a>
+            <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="../Protocols/RoutingInterceptor.html">RoutingInterceptor</a>
               </li>
@@ -62,12 +70,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Protocols/PostRoutingTask.html">PostRoutingTask</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Enums/RoutingError.html">RoutingError</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Enums/RoutingError/Context.html">– Context</a>
               </li>
             </ul>
           </li>
@@ -88,6 +90,17 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/CompleteFactoryAssembly.html">CompleteFactoryAssembly</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Additional Assemblies.html">Additional Assemblies</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/SingleStep.html">SingleStep</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SingleContainerStep.html">SingleContainerStep</a>
               </li>
             </ul>
           </li>
@@ -144,12 +157,6 @@
             <a href="../Steps.html">Steps</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Classes/SingleStep.html">SingleStep</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/SingleContainerStep.html">SingleContainerStep</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Structs/GeneralStep.html">GeneralStep</a>
               </li>
               <li class="nav-group-task">
@@ -186,6 +193,20 @@
               <li class="nav-group-task">
                 <a href="../Protocols/ContainerViewController.html">ContainerViewController</a>
               </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/ContextChecking.html">ContextChecking</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Logging.html">Logging</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/Logger.html">Logger</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/LogMessage.html">LogMessage</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -207,14 +228,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/GenericStepAssembly.html">GenericStepAssembly</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
-            <a href="../Other Enums.html">Other Enumerations</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="../Enums/LoggerMessage.html">LoggerMessage</a>
               </li>
             </ul>
           </li>
@@ -248,19 +261,13 @@
                 <a href="../Protocols/AbstractAction.html">AbstractAction</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Protocols/AbstractFactory.html">AbstractFactory</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Protocols/ActionConnecting.html">ActionConnecting</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols/ContextChecking.html">ContextChecking</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Protocols/InterceptableRouter.html">InterceptableRouter</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Protocols/InterceptableStepAssembling.html">InterceptableStepAssembling</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Protocols/Logger.html">Logger</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Other Protocols.html#/s:13RouteComposer9NilEntityP">NilEntity</a>
@@ -361,7 +368,7 @@
             <h1>GenericStepAssembly</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">GenericStepAssembly</span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/InterceptableStepAssembling.html">InterceptableStepAssembling</a></span> <span class="k">where</span> <span class="kt">VC</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">GenericStepAssembly</span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt">InterceptableStepAssembling</span> <span class="k">where</span> <span class="kt">VC</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
 
                 </div>
               </div>
@@ -426,9 +433,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer19GenericStepAssemblyC3addyACyxq_GXDqd__7ContextQyd__Rs_AA18RoutingInterceptorRd__lF"></a>
-                    <a name="//apple_ref/swift/Method/add(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer19GenericStepAssemblyC3addyACyxq_GXDqd__7ContextQyd__Rs_AA18RoutingInterceptorRd__lF">add(_:)</a>
+                    <a name="/s:13RouteComposer19GenericStepAssemblyC6addingyACyxq_GXDqd__7ContextQyd__Rs_AA18RoutingInterceptorRd__lF"></a>
+                    <a name="//apple_ref/swift/Method/adding(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer19GenericStepAssemblyC6addingyACyxq_GXDqd__7ContextQyd__Rs_AA18RoutingInterceptorRd__lF">adding(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -436,7 +443,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Adds navigation interceptor instance.
+                        <p>Adds <code><a href="../Protocols/RoutingInterceptor.html">RoutingInterceptor</a></code> instance.
 This action does not contain type safety checks to avoid complications.</p>
 
                       </div>
@@ -444,7 +451,7 @@ This action does not contain type safety checks to avoid complications.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">func</span> <span class="n">add</span><span class="o">&lt;</span><span class="kt">R</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">interceptor</span><span class="p">:</span> <span class="kt">R</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span> <span class="k">where</span> <span class="kt">C</span> <span class="o">==</span> <span class="kt">R</span><span class="o">.</span><span class="kt"><a href="../Classes/GenericStepAssembly.html#/s:13RouteComposer27InterceptableStepAssemblingP7ContextQa">Context</a></span><span class="p">,</span> <span class="kt">R</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/RoutingInterceptor.html">RoutingInterceptor</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">func</span> <span class="n">adding</span><span class="o">&lt;</span><span class="kt">R</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">interceptor</span><span class="p">:</span> <span class="kt">R</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span> <span class="k">where</span> <span class="kt">C</span> <span class="o">==</span> <span class="kt">R</span><span class="o">.</span><span class="kt"><a href="../Classes/GenericStepAssembly.html#/s:13RouteComposer27InterceptableStepAssemblingP7ContextQa">Context</a></span><span class="p">,</span> <span class="kt">R</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/RoutingInterceptor.html">RoutingInterceptor</a></span></code></pre>
 
                         </div>
                       </div>
@@ -460,7 +467,7 @@ This action does not contain type safety checks to avoid complications.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>The <code><a href="../Protocols/RoutingInterceptor.html">RoutingInterceptor</a></code> instance to be executed by <code><a href="../Protocols/Router.html">Router</a></code> before routing
+                                  <p>The <code><a href="../Protocols/RoutingInterceptor.html">RoutingInterceptor</a></code> instance to be executed by <code><a href="../Protocols/Router.html">Router</a></code> before the navigation process
 to this step.</p>
                                 </div>
                               </td>
@@ -474,9 +481,9 @@ to this step.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer19GenericStepAssemblyC3addyACyxq_GXDqd__14ViewControllerQyd__Rsz7ContextQyd__Rs_AA0I4TaskRd__lF"></a>
-                    <a name="//apple_ref/swift/Method/add(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer19GenericStepAssemblyC3addyACyxq_GXDqd__14ViewControllerQyd__Rsz7ContextQyd__Rs_AA0I4TaskRd__lF">add(_:)</a>
+                    <a name="/s:13RouteComposer19GenericStepAssemblyC6addingyACyxq_GXDqd__14ViewControllerQyd__Rsz7ContextQyd__Rs_AA0I4TaskRd__lF"></a>
+                    <a name="//apple_ref/swift/Method/adding(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer19GenericStepAssemblyC6addingyACyxq_GXDqd__14ViewControllerQyd__Rsz7ContextQyd__Rs_AA0I4TaskRd__lF">adding(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -484,14 +491,14 @@ to this step.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Adds context task instance</p>
+                        <p>Adds <code><a href="../Protocols/ContextTask.html">ContextTask</a></code> instance</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">func</span> <span class="n">add</span><span class="o">&lt;</span><span class="kt">CT</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ContextTask.html">ContextTask</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">contextTask</span><span class="p">:</span> <span class="kt">CT</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">func</span> <span class="n">adding</span><span class="o">&lt;</span><span class="kt">CT</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ContextTask.html">ContextTask</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">contextTask</span><span class="p">:</span> <span class="kt">CT</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span>
         <span class="k">where</span>
         <span class="kt">CT</span><span class="o">.</span><span class="kt"><a href="../Classes/GenericStepAssembly.html#/s:13RouteComposer27InterceptableStepAssemblingP14ViewControllerQa">ViewController</a></span> <span class="o">==</span> <span class="kt"><a href="../Classes/GenericStepAssembly.html#/s:13RouteComposer27InterceptableStepAssemblingP14ViewControllerQa">ViewController</a></span><span class="p">,</span> <span class="kt">CT</span><span class="o">.</span><span class="kt"><a href="../Classes/GenericStepAssembly.html#/s:13RouteComposer27InterceptableStepAssemblingP7ContextQa">Context</a></span> <span class="o">==</span> <span class="kt"><a href="../Classes/GenericStepAssembly.html#/s:13RouteComposer27InterceptableStepAssemblingP7ContextQa">Context</a></span></code></pre>
 
@@ -510,7 +517,7 @@ to this step.</p>
                               <td>
                                 <div>
                                   <p>The <code><a href="../Protocols/ContextTask.html">ContextTask</a></code> instance to be applied by a <code><a href="../Protocols/Router.html">Router</a></code> immediately after it
-will find or create a <code>UIViewController</code>.</p>
+will find or create <code>UIViewController</code>.</p>
                                 </div>
                               </td>
                             </tr>
@@ -523,9 +530,9 @@ will find or create a <code>UIViewController</code>.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer19GenericStepAssemblyC3addyACyxq_GXDqd__7ContextQyd__Rs_AA15PostRoutingTaskRd__lF"></a>
-                    <a name="//apple_ref/swift/Method/add(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer19GenericStepAssemblyC3addyACyxq_GXDqd__7ContextQyd__Rs_AA15PostRoutingTaskRd__lF">add(_:)</a>
+                    <a name="/s:13RouteComposer19GenericStepAssemblyC6addingyACyxq_GXDqd__7ContextQyd__Rs_AA15PostRoutingTaskRd__lF"></a>
+                    <a name="//apple_ref/swift/Method/adding(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer19GenericStepAssemblyC6addingyACyxq_GXDqd__7ContextQyd__Rs_AA15PostRoutingTaskRd__lF">adding(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -533,7 +540,7 @@ will find or create a <code>UIViewController</code>.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Adds PostRoutingTask instance.
+                        <p>Adds <code><a href="../Protocols/PostRoutingTask.html">PostRoutingTask</a></code> instance.
 This action does not contain type safety checks to avoid complications.</p>
 
                       </div>
@@ -541,7 +548,7 @@ This action does not contain type safety checks to avoid complications.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">func</span> <span class="n">add</span><span class="o">&lt;</span><span class="kt">P</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">postTask</span><span class="p">:</span> <span class="kt">P</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span> <span class="k">where</span> <span class="kt">C</span> <span class="o">==</span> <span class="kt">P</span><span class="o">.</span><span class="kt"><a href="../Classes/GenericStepAssembly.html#/s:13RouteComposer27InterceptableStepAssemblingP7ContextQa">Context</a></span><span class="p">,</span> <span class="kt">P</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/PostRoutingTask.html">PostRoutingTask</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">func</span> <span class="n">adding</span><span class="o">&lt;</span><span class="kt">P</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">postTask</span><span class="p">:</span> <span class="kt">P</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span> <span class="k">where</span> <span class="kt">C</span> <span class="o">==</span> <span class="kt">P</span><span class="o">.</span><span class="kt"><a href="../Classes/GenericStepAssembly.html#/s:13RouteComposer27InterceptableStepAssemblingP7ContextQa">Context</a></span><span class="p">,</span> <span class="kt">P</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/PostRoutingTask.html">PostRoutingTask</a></span></code></pre>
 
                         </div>
                       </div>
@@ -557,7 +564,7 @@ This action does not contain type safety checks to avoid complications.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>The <code><a href="../Protocols/PostRoutingTask.html">PostRoutingTask</a></code> instance to be executed by a <code><a href="../Protocols/Router.html">Router</a></code> after routing to this step.</p>
+                                  <p>The <code><a href="../Protocols/PostRoutingTask.html">PostRoutingTask</a></code> instance to be executed by a <code><a href="../Protocols/Router.html">Router</a></code> after the navigation process.</p>
                                 </div>
                               </td>
                             </tr>

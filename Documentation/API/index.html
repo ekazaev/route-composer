@@ -33,13 +33,16 @@
                 <a href="Protocols/Router.html">Router</a>
               </li>
               <li class="nav-group-task">
+                <a href="Enums/RoutingError.html">RoutingError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/RoutingError/Context.html">– Context</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Structs/DestinationStep.html">DestinationStep</a>
               </li>
               <li class="nav-group-task">
                 <a href="Protocols/Finder.html">Finder</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Protocols/AbstractFactory.html">AbstractFactory</a>
               </li>
               <li class="nav-group-task">
                 <a href="Protocols/Factory.html">Factory</a>
@@ -53,6 +56,11 @@
               <li class="nav-group-task">
                 <a href="Protocols/ContainerAction.html">ContainerAction</a>
               </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Tasks.html">Tasks</a>
+            <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="Protocols/RoutingInterceptor.html">RoutingInterceptor</a>
               </li>
@@ -61,12 +69,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="Protocols/PostRoutingTask.html">PostRoutingTask</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Enums/RoutingError.html">RoutingError</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Enums/RoutingError/Context.html">– Context</a>
               </li>
             </ul>
           </li>
@@ -87,6 +89,17 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/CompleteFactoryAssembly.html">CompleteFactoryAssembly</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Additional Assemblies.html">Additional Assemblies</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Classes/SingleStep.html">SingleStep</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/SingleContainerStep.html">SingleContainerStep</a>
               </li>
             </ul>
           </li>
@@ -143,12 +156,6 @@
             <a href="Steps.html">Steps</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Classes/SingleStep.html">SingleStep</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/SingleContainerStep.html">SingleContainerStep</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Structs/GeneralStep.html">GeneralStep</a>
               </li>
               <li class="nav-group-task">
@@ -185,6 +192,20 @@
               <li class="nav-group-task">
                 <a href="Protocols/ContainerViewController.html">ContainerViewController</a>
               </li>
+              <li class="nav-group-task">
+                <a href="Protocols/ContextChecking.html">ContextChecking</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Logging.html">Logging</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Protocols/Logger.html">Logger</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/LogMessage.html">LogMessage</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -206,14 +227,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/GenericStepAssembly.html">GenericStepAssembly</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
-            <a href="Other Enums.html">Other Enumerations</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="Enums/LoggerMessage.html">LoggerMessage</a>
               </li>
             </ul>
           </li>
@@ -247,19 +260,13 @@
                 <a href="Protocols/AbstractAction.html">AbstractAction</a>
               </li>
               <li class="nav-group-task">
+                <a href="Protocols/AbstractFactory.html">AbstractFactory</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Protocols/ActionConnecting.html">ActionConnecting</a>
               </li>
               <li class="nav-group-task">
-                <a href="Protocols/ContextChecking.html">ContextChecking</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Protocols/InterceptableRouter.html">InterceptableRouter</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Protocols/InterceptableStepAssembling.html">InterceptableStepAssembling</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Protocols/Logger.html">Logger</a>
               </li>
               <li class="nav-group-task">
                 <a href="Other Protocols.html#/s:13RouteComposer9NilEntityP">NilEntity</a>
@@ -602,9 +609,9 @@ Use <code><a href="Classes/StepAssembly.html">StepAssembly</a></code> provided b
 <p><em>Example: A <code>ProductViewController</code> configuration that explains to the router that it should be boxed in UINavigationController
 which should be presented modally from any currently visible view controller.</em></p>
 <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">productScreen</span> <span class="o">=</span> <span class="kt">StepAssembly</span><span class="p">(</span><span class="nv">finder</span><span class="p">:</span> <span class="kt">ProductViewControllerFinder</span><span class="p">(),</span> <span class="nv">factory</span><span class="p">:</span> <span class="kt">ProductViewControllerFactory</span><span class="p">())</span>
-        <span class="o">.</span><span class="nf">add</span><span class="p">(</span><span class="kt">LoginInterceptor</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">&gt;</span><span class="p">())</span> <span class="c1">// Have to specify type till https://bugs.swift.org/browse/SR-8719, https://bugs.swift.org/browse/SR-8705 are fixed</span>
-        <span class="o">.</span><span class="nf">add</span><span class="p">(</span><span class="kt">ProductViewControllerContextTask</span><span class="p">())</span>
-        <span class="o">.</span><span class="nf">add</span><span class="p">(</span><span class="kt">ProductViewControllerPostTask</span><span class="p">(</span><span class="nv">analyticsManager</span><span class="p">:</span> <span class="kt">AnalyticsManager</span><span class="o">.</span><span class="n">sharedInstance</span><span class="p">))</span>
+        <span class="o">.</span><span class="nf">adding</span><span class="p">(</span><span class="kt">LoginInterceptor</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">&gt;</span><span class="p">())</span> <span class="c1">// Have to specify type till https://bugs.swift.org/browse/SR-8719, https://bugs.swift.org/browse/SR-8705 are fixed</span>
+        <span class="o">.</span><span class="nf">adding</span><span class="p">(</span><span class="kt">ProductViewControllerContextTask</span><span class="p">())</span>
+        <span class="o">.</span><span class="nf">adding</span><span class="p">(</span><span class="kt">ProductViewControllerPostTask</span><span class="p">(</span><span class="nv">analyticsManager</span><span class="p">:</span> <span class="kt">AnalyticsManager</span><span class="o">.</span><span class="n">sharedInstance</span><span class="p">))</span>
         <span class="o">.</span><span class="nf">using</span><span class="p">(</span><span class="kt">UINavigationController</span><span class="o">.</span><span class="nf">pushToNavigation</span><span class="p">())</span>
         <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="kt">NavigationControllerStep</span><span class="p">())</span>
         <span class="o">.</span><span class="nf">using</span><span class="p">(</span><span class="kt">GeneralActions</span><span class="o">.</span><span class="nf">presentModally</span><span class="p">())</span>
@@ -636,9 +643,9 @@ should be logged in to see the product details.</em></p>
 <span class="kd">struct</span> <span class="kt">Configuration</span> <span class="p">{</span>
 
     <span class="kd">static</span> <span class="k">let</span> <span class="nv">productScreen</span> <span class="o">=</span> <span class="kt">StepAssembly</span><span class="p">(</span><span class="nv">finder</span><span class="p">:</span> <span class="kt">ProductViewControllerFinder</span><span class="p">(),</span> <span class="nv">factory</span><span class="p">:</span> <span class="kt">ProductViewControllerFactory</span><span class="p">())</span>
-                <span class="o">.</span><span class="nf">add</span><span class="p">(</span><span class="kt">LoginInterceptor</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">&gt;</span><span class="p">())</span>
-                <span class="o">.</span><span class="nf">add</span><span class="p">(</span><span class="kt">ProductViewControllerContextTask</span><span class="p">())</span>
-                <span class="o">.</span><span class="nf">add</span><span class="p">(</span><span class="kt">ProductViewControllerPostTask</span><span class="p">(</span><span class="nv">analyticsManager</span><span class="p">:</span> <span class="kt">AnalyticsManager</span><span class="o">.</span><span class="n">sharedInstance</span><span class="p">))</span>
+                <span class="o">.</span><span class="nf">adding</span><span class="p">(</span><span class="kt">LoginInterceptor</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">&gt;</span><span class="p">())</span>
+                <span class="o">.</span><span class="nf">adding</span><span class="p">(</span><span class="kt">ProductViewControllerContextTask</span><span class="p">())</span>
+                <span class="o">.</span><span class="nf">adding</span><span class="p">(</span><span class="kt">ProductViewControllerPostTask</span><span class="p">(</span><span class="nv">analyticsManager</span><span class="p">:</span> <span class="kt">AnalyticsManager</span><span class="o">.</span><span class="n">sharedInstance</span><span class="p">))</span>
                 <span class="o">.</span><span class="nf">using</span><span class="p">(</span><span class="kt">UINavigationController</span><span class="o">.</span><span class="nf">pushToNavigation</span><span class="p">())</span>
                 <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="kt">NavigationControllerStep</span><span class="p">())</span>
                 <span class="o">.</span><span class="nf">using</span><span class="p">(</span><span class="kt">GeneralActions</span><span class="o">.</span><span class="nf">presentModally</span><span class="p">())</span>

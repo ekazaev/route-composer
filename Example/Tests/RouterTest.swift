@@ -102,7 +102,7 @@ class RouterTests: XCTestCase {
     func testNavigateTo() {
         let currentViewController = TestModalPresentableController()
         let screenConfig = StepAssembly(finder: ClassFinder(), factory: TestViewControllerFactory())
-                .add(InlinePostTask({ (_: TestViewController, _: Any?, viewControllers: [UIViewController]) in
+                .adding(InlinePostTask({ (_: TestViewController, _: Any?, viewControllers: [UIViewController]) in
                     XCTAssertEqual(viewControllers.count, 3)
                 }))
                 .using(UINavigationController.pushToNavigation())
@@ -253,15 +253,15 @@ class RouterTests: XCTestCase {
         var globalTaskRun = 0
         var globalPostTaskRun = 0
         let screenConfig = StepAssembly(finder: ClassFinder(), factory: TestViewControllerFactory())
-                .add(InlineInterceptor(prepare: { (_: Any?) throws in
+                .adding(InlineInterceptor(prepare: { (_: Any?) throws in
                     contextInterceptorPrepared += 1
                 }, { (_: Any?) in
                     contextInterceptorRun += 1
                 }))
-                .add(InlineContextTask({ (_: TestViewController, _: Any?) in
+                .adding(InlineContextTask({ (_: TestViewController, _: Any?) in
                     contextTaskRun += 1
                 }))
-                .add(InlinePostTask({ (_: TestViewController, _: Any?, viewControllers: [UIViewController]) in
+                .adding(InlinePostTask({ (_: TestViewController, _: Any?, viewControllers: [UIViewController]) in
                     contextPostTaskRun += 1
                     XCTAssertEqual(viewControllers.count, 3)
                 }))

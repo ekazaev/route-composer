@@ -12,16 +12,16 @@ class ProductConfiguration {
     static let productScreen = StepAssembly(
             finder: ClassWithContextFinder<ProductViewController, ProductContext>(),
             factory: StoryboardFactory(storyboardName: "TabBar", viewControllerID: "ProductViewController"))
-            .add(InlineInterceptor({ (_: ProductContext) in
+            .adding(InlineInterceptor({ (_: ProductContext) in
                 print("On before navigation to Product view controller")
             }))
-            .add(InlineContextTask({ (_: ProductViewController, _: ProductContext) in
+            .adding(InlineContextTask({ (_: ProductViewController, _: ProductContext) in
                 print("Product view controller built or found")
             }))
-            .add(InlinePostTask({ (_: ProductViewController, _: ProductContext, _) in
+            .adding(InlinePostTask({ (_: ProductViewController, _: ProductContext, _) in
                 print("After navigation to Produce view controller")
             }))
-            .add(ProductContextTask())
+            .adding(ProductContextTask())
             .using(UINavigationController.pushToNavigation())
             .from(SwitchAssembly<UINavigationController, ProductContext>()
                     .addCase { (context: ProductContext) in

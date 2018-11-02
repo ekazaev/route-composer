@@ -9,17 +9,19 @@ custom_categories:
   - name: Core Entities
     children:
       - Router
+      - RoutingError
       - DestinationStep
       - Finder
-      - AbstractFactory
       - Factory
       - ContainerFactory
       - Action
       - ContainerAction
+
+  - name: Tasks
+    children:
       - RoutingInterceptor
       - ContextTask
       - PostRoutingTask
-      - RoutingError
 
   - name: Assemblies
     children:
@@ -28,6 +30,11 @@ custom_categories:
       - SwitchAssembly
       - ChainAssembly
       - CompleteFactoryAssembly
+
+  - name: Additional Assemblies
+    children:
+      - SingleStep
+      - SingleContainerStep
 
   - name: Factories
     children:
@@ -50,8 +57,6 @@ custom_categories:
 
   - name: Steps
     children:
-      - SingleStep
-      - SingleContainerStep
       - GeneralStep
       - NavigationControllerStep
       - TabBarControllerStep
@@ -67,3 +72,9 @@ custom_categories:
     children:
       - RoutingInterceptable
       - ContainerViewController
+      - ContextChecking
+
+  - name: Logging
+    children:
+      - Logger
+      - LogMessage
