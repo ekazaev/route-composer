@@ -219,4 +219,19 @@ class ExtensionsTest: XCTestCase {
         XCTAssertEqual(array.uniqueElements()[1], viewController2)
     }
 
+    func testAllParents() {
+        let viewController1 = UIViewController()
+        let viewController2 = UIViewController()
+        let viewController3 = UIViewController()
+        viewController1.addChild(viewController2)
+        viewController2.addChild(viewController3)
+
+        XCTAssertEqual(viewController3.allParents.count, 2)
+        XCTAssertEqual(viewController3.allParents[0], viewController2)
+        XCTAssertEqual(viewController3.allParents[1], viewController1)
+        XCTAssertEqual(viewController2.allParents.count, 1)
+        XCTAssertEqual(viewController2.allParents[0], viewController1)
+        XCTAssertEqual(viewController1.allParents.count, 0)
+    }
+    
 }

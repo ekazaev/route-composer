@@ -56,9 +56,7 @@ class AssemblyTest: XCTestCase {
                 .using(GeneralAction.presentModally())
                 .from(GeneralStep.root())
                 .assemble()
-        var currentStep: RoutingStep? = ChainAssembly.from(
-                        destinationStep)
-                .assemble()
+        var currentStep: RoutingStep? = destinationStep
 
         var chainedStepCount = 0
         while currentStep != nil {
@@ -69,7 +67,7 @@ class AssemblyTest: XCTestCase {
                 currentStep = nil
             }
         }
-        XCTAssertEqual(chainedStepCount, 5)
+        XCTAssertEqual(chainedStepCount, 4)
     }
 
     func testCompleteFactoryAssembly() {

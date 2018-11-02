@@ -78,15 +78,18 @@ extension UIViewController {
         return allPresentedViewControllers
     }
 
-    static func findContainer<Container: ContainerViewController>(of viewController: UIViewController) -> Container? {
-        var currentViewController: UIViewController? = viewController
-        while currentViewController != nil {
-            if let containerViewController = currentViewController as? Container {
-                return containerViewController
-            }
-            currentViewController = currentViewController?.parent
+    var allParents: [UIViewController] {
+        var allParents: [UIViewController] = []
+        var currentViewController: UIViewController? = self.parent
+        while let currentParent = currentViewController {
+            allParents.append(currentParent)
+            currentViewController = currentParent.parent
         }
-        return nil
+        return allParents
+    }
+
+    static func findContainer<Container: ContainerViewController>(of viewController: UIViewController) -> Container? {
+        return [[viewController], viewController.allParents].joined().first(where: { $0 is Container }) as? Container
     }
 
 }

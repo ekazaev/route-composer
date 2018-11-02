@@ -15,9 +15,14 @@ public struct TabBarControllerFactory<C>: SimpleContainerFactory {
     /// `UITabBarControllerDelegate` reference
     public weak var delegate: UITabBarControllerDelegate?
 
+    /// Block to configure `UITabBarController`
+    public let configuration: ((_: UITabBarController) -> Void)?
+
     /// Constructor
-    public init(delegate: UITabBarControllerDelegate? = nil) {
+    public init(delegate: UITabBarControllerDelegate? = nil,
+                configuration: ((_: UITabBarController) -> Void)? = nil) {
         self.delegate = delegate
+        self.configuration = configuration
     }
 
     public func build(with context: Context, integrating viewControllers: [UIViewController]) throws -> ViewController {
@@ -28,6 +33,9 @@ public struct TabBarControllerFactory<C>: SimpleContainerFactory {
         let tabBarController = UITabBarController()
         if let delegate = delegate {
             tabBarController.delegate = delegate
+        }
+        if let configuration = configuration {
+            configuration(tabBarController)
         }
         tabBarController.viewControllers = viewControllers
         return tabBarController

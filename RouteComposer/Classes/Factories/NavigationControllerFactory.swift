@@ -15,11 +15,14 @@ public struct NavigationControllerFactory<C>: SimpleContainerFactory {
     /// `UINavigationControllerDelegate` reference
     public weak var delegate: UINavigationControllerDelegate?
 
+    /// Block to configure `UINavigationController`
+    public let configuration: ((_: UINavigationController) -> Void)?
+
     /// Constructor
-    ///
-    /// - Parameter delegate: `UINavigationControllerDelegate` instance.
-    public init(delegate: UINavigationControllerDelegate? = nil) {
+    public init(delegate: UINavigationControllerDelegate? = nil,
+                configuration: ((_: UINavigationController) -> Void)? = nil) {
         self.delegate = delegate
+        self.configuration = configuration
     }
 
     public func build(with context: Context, integrating viewControllers: [UIViewController]) throws -> ViewController {
@@ -30,6 +33,9 @@ public struct NavigationControllerFactory<C>: SimpleContainerFactory {
         let navigationController = UINavigationController()
         if let delegate = delegate {
             navigationController.delegate = delegate
+        }
+        if let configuration = configuration {
+            configuration(navigationController)
         }
         navigationController.viewControllers = viewControllers
         return navigationController

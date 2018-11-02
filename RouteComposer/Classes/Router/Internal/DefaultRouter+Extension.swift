@@ -96,7 +96,7 @@ extension DefaultRouter {
 
     }
 
-    struct ViewControllerTaskRunner {
+    struct StepTaskTaskRunner {
 
         private let contextTaskRunner: ContextTaskRunner
 
@@ -182,9 +182,9 @@ extension DefaultRouter {
             self.postTaskRunner = postTaskRunner
         }
 
-        func taskRunnerFor(step: RoutingStep?) throws -> ViewControllerTaskRunner {
+        func taskRunnerFor(step: RoutingStep?) throws -> StepTaskTaskRunner {
             guard let interceptableStep = step as? InterceptableStep else {
-                return ViewControllerTaskRunner(contextTaskRunner: self.contextTaskRunner, postTaskRunner: self.postTaskRunner)
+                return StepTaskTaskRunner(contextTaskRunner: self.contextTaskRunner, postTaskRunner: self.postTaskRunner)
             }
             var contextTaskRunner = self.contextTaskRunner
             var postTaskRunner = self.postTaskRunner
@@ -197,7 +197,7 @@ extension DefaultRouter {
             if let postTask = interceptableStep.postTask {
                 try postTaskRunner.add(postTask)
             }
-            return ViewControllerTaskRunner(contextTaskRunner: contextTaskRunner, postTaskRunner: postTaskRunner)
+            return StepTaskTaskRunner(contextTaskRunner: contextTaskRunner, postTaskRunner: postTaskRunner)
         }
 
         func executeInterceptors(completion: @escaping (_: InterceptorResult) -> Void) {
@@ -218,14 +218,14 @@ extension DefaultRouter {
 
         private var factory: AnyFactory
 
-        private let viewControllerTaskRunner: ViewControllerTaskRunner
+        private let stepTaskRunner: StepTaskTaskRunner
 
         let action: AnyAction
 
-        init(factory: AnyFactory, viewControllerTaskRunner: ViewControllerTaskRunner) {
+        init(factory: AnyFactory, viewControllerTaskRunner: StepTaskTaskRunner) {
             self.factory = factory
             self.action = factory.action
-            self.viewControllerTaskRunner = viewControllerTaskRunner
+            self.stepTaskRunner = viewControllerTaskRunner
         }
 
         mutating func prepare(with context: Any?) throws {
@@ -234,7 +234,7 @@ extension DefaultRouter {
 
         func build(with context: Any?) throws -> UIViewController {
             let viewController = try factory.build(with: context)
-            try viewControllerTaskRunner.run(on: viewController)
+            try stepTaskRunner.run(on: viewController)
             return viewController
         }
 

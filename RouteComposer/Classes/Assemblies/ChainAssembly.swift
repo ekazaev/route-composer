@@ -11,7 +11,7 @@ public struct ChainAssembly {
     /// Transforms step into a chain of steps.
     /// ### Usage
     /// ```swift
-    /// let intermediateStep = ChainAssembly(from: NavigationControllerStep())
+    /// let intermediateStep = ChainAssembly.from(NavigationControllerStep())
     ///         .from(using: DefaultActions.PresentModally())
     ///         .from(CurrentViewControllerStep())
     ///         .assemble()
@@ -20,17 +20,6 @@ public struct ChainAssembly {
     public static func from<F: Finder, FC: AbstractFactory>(_ step: ActionToStepIntegrator<F, FC>) -> ActionConnectingAssembly<F, FC, F.ViewController, F.Context>
             where F.ViewController == FC.ViewController, F.Context == FC.Context {
         return ActionConnectingAssembly(stepToFullFill: step, previousSteps: [])
-    }
-
-    /// Transforms step into a chain of steps.
-    /// ### Usage
-    /// ```swift
-    /// let intermediateStep = ChainAssembly(from: previousSteps)
-    ///         .assemble()
-    /// ```
-    /// - Parameter step: The instance of `LastStepInChainAssembly`
-    public static func from<VC, C>(_ step: DestinationStep<VC, C>) -> LastStepInChainAssembly<VC, C> {
-        return LastStepInChainAssembly(previousSteps: [step])
     }
 
 }

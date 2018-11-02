@@ -50,13 +50,6 @@ public struct DefaultRouter: Router, InterceptableRouter {
             throw RoutingError.generic(RoutingError.Context(debugDescription: "UI API called on a background thread."))
         }
 
-        // If the currently visible view controller cannot be dismissed then navigation process cannot occur,
-        // otherwise the view controller will disappear.
-        if let topMostViewController = UIWindow.key?.topmostViewController as? RoutingInterceptable,
-           !topMostViewController.canBeDismissed {
-            throw RoutingError.generic(RoutingError.Context(debugDescription: "The topmost view controller cannot be dismissed."))
-        }
-
         let taskStack = try prepareTaskStack(with: context)
 
         // Builds stack of factories and finds a view controller to start a navigation process from.
@@ -68,7 +61,7 @@ public struct DefaultRouter: Router, InterceptableRouter {
                 factoriesStack = navigationStack.factories
 
         // Checks if the view controllers that are currently presented from the origin view controller, can be dismissed.
-        if let viewController = Array([[viewController], viewController.allPresentedViewControllers].joined()).nonDismissibleViewController {
+        if let viewController = Array([[viewController.allParents.last ?? viewController], viewController.allPresentedViewControllers].joined()).nonDismissibleViewController {
             throw RoutingError.generic(RoutingError.Context(debugDescription: "\(String(describing: viewController)) view controller cannot " +
                     "be dismissed."))
         }
@@ -244,13 +237,13 @@ public struct DefaultRouter: Router, InterceptableRouter {
 
     // Activates the origin view controller of viewController
     private func makeVisibleInParentContainer(_ viewController: UIViewController, animated: Bool) {
-        var iterationViewController = viewController
-        while let parentViewController = iterationViewController.parent {
-            if let container = parentViewController as? ContainerViewController {
-                container.makeVisible(iterationViewController, animated: animated)
+        var currentViewController = viewController
+        viewController.allParents.forEach({
+            if let container = $0 as? ContainerViewController {
+                container.makeVisible(currentViewController, animated: animated)
             }
-            iterationViewController = parentViewController
-        }
+            currentViewController = $0
+        })
     }
 
     // Dismisses all the view controllers presented if there are any

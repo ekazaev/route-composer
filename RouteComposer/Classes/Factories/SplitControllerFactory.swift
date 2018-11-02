@@ -19,18 +19,24 @@ public struct SplitControllerFactory<C>: SimpleContainerFactory {
     /// A property that controls how the primary view controller is hidden and displayed.
     /// A value of `.automatic` specifies the default behavior split view controller, which on an iPad,
     /// corresponds to an overlay mode in portrait and a side-by-side mode in landscape.
-    public let preferredDisplayMode: UISplitViewController.DisplayMode
+    public let preferredDisplayMode: UISplitViewController.DisplayMode?
 
     /// If 'true', hidden view can be presented and dismissed via a swipe gesture. Defaults to 'true'.
-    public let presentsWithGesture: Bool
+    public let presentsWithGesture: Bool?
+
+    /// Block to configure `UISplitViewController`
+    public let configuration: ((_: UISplitViewController) -> Void)?
 
     /// Constructor
     public init(delegate: UISplitViewControllerDelegate? = nil,
-                presentsWithGesture: Bool = true,
-                isCollapsed: Bool = false,
-                preferredDisplayMode: UISplitViewController.DisplayMode = .automatic) {        self.delegate = delegate
+                presentsWithGesture: Bool? = nil,
+                isCollapsed: Bool? = nil,
+                preferredDisplayMode: UISplitViewController.DisplayMode? = nil,
+                configuration: ((_: UISplitViewController) -> Void)? = nil) {
+        self.delegate = delegate
         self.preferredDisplayMode = preferredDisplayMode
         self.presentsWithGesture = presentsWithGesture
+        self.configuration = configuration
     }
 
     public func build(with context: Context, integrating viewControllers: [UIViewController]) throws -> ViewController {
@@ -39,10 +45,17 @@ public struct SplitControllerFactory<C>: SimpleContainerFactory {
         }
 
         let splitController = UISplitViewController(nibName: nil, bundle: nil)
-        splitController.presentsWithGesture = presentsWithGesture
-        splitController.preferredDisplayMode = preferredDisplayMode
+        if let presentsWithGesture = presentsWithGesture {
+            splitController.presentsWithGesture = presentsWithGesture
+        }
+        if let preferredDisplayMode = preferredDisplayMode {
+            splitController.preferredDisplayMode = preferredDisplayMode
+        }
         if let delegate = delegate {
             splitController.delegate = delegate
+        }
+        if let configuration = configuration {
+            configuration(splitController)
         }
         splitController.viewControllers = viewControllers
         return splitController
