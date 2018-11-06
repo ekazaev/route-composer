@@ -267,7 +267,7 @@ which should be presented modally from any currently visible view controller.*
 
 ```swift
 let productScreen = StepAssembly(finder: ProductViewControllerFinder(), factory: ProductViewControllerFactory())
-        .adding(LoginInterceptor<String>()) // Have to specify type till https://bugs.swift.org/browse/SR-8719, https://bugs.swift.org/browse/SR-8705 are fixed
+        .adding(LoginInterceptor<UUID>()) // Have to specify the context type till https://bugs.swift.org/browse/SR-8719, https://bugs.swift.org/browse/SR-8705 are fixed
         .adding(ProductViewControllerContextTask())
         .adding(ProductViewControllerPostTask(analyticsManager: AnalyticsManager.sharedInstance))
         .using(UINavigationController.pushToNavigation())
@@ -302,7 +302,7 @@ should be logged in to see the product details.*
 struct Configuration {
 
     static let productScreen = StepAssembly(finder: ProductViewControllerFinder(), factory: ProductViewControllerFactory())
-                .adding(LoginInterceptor<String>())
+                .adding(LoginInterceptor<UUID>())
                 .adding(ProductViewControllerContextTask())
                 .adding(ProductViewControllerPostTask(analyticsManager: AnalyticsManager.sharedInstance))
                 .using(UINavigationController.pushToNavigation())

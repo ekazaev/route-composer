@@ -15,6 +15,7 @@ public struct InstanceFinder<VC: UIViewController, C>: Finder {
     /// The context type associated with this `InstanceFinder`
     public typealias Context = C
 
+    /// The `UIViewController` instance that `Finder` will provide to the `Router`
     private(set) public weak var instance: VC?
 
     /// Constructor

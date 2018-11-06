@@ -51,7 +51,7 @@
                 <a href="Protocols/ContainerFactory.html">ContainerFactory</a>
               </li>
               <li class="nav-group-task">
-                <a href="Protocols/Action.html">Action</a>
+                <a href="Core Entities.html#/s:13RouteComposer6ActionP">Action</a>
               </li>
               <li class="nav-group-task">
                 <a href="Protocols/ContainerAction.html">ContainerAction</a>
@@ -334,10 +334,10 @@
                 <a href="Structs/SplitViewControllerActions.html">SplitViewControllerActions</a>
               </li>
               <li class="nav-group-task">
-                <a href="Structs/SplitViewControllerActions/PushToDetailsAction.html">– PushToDetailsAction</a>
+                <a href="Structs/SplitViewControllerActions/SetAsMasterAction.html">– SetAsMasterAction</a>
               </li>
               <li class="nav-group-task">
-                <a href="Structs/SplitViewControllerActions/SetAsMasterAction.html">– SetAsMasterAction</a>
+                <a href="Structs/SplitViewControllerActions/PushToDetailsAction.html">– PushToDetailsAction</a>
               </li>
               <li class="nav-group-task">
                 <a href="Structs/StepChainAssembly.html">StepChainAssembly</a>
@@ -432,7 +432,7 @@ and actions you should be familiar with the library concepts and UIKit&rsquo;s v
 <p>For detailed information on using RouteComposer, see <code>Documentation/API</code> folder.</p>
 <h2 id='usage' class='heading'>Usage</h2>
 
-<p>RouteComposer uses 3 main entities (<code><a href="Protocols/Factory.html">Factory</a></code>, <code><a href="Protocols/Finder.html">Finder</a></code>, <code><a href="Protocols/Action.html">Action</a></code>) that should be defined by a host application to support it.
+<p>RouteComposer uses 3 main entities (<code><a href="Protocols/Factory.html">Factory</a></code>, <code><a href="Protocols/Finder.html">Finder</a></code>, <code><a href="Core Entities.html#/s:13RouteComposer6ActionP">Action</a></code>) that should be defined by a host application to support it.
 It also provides 3 helping entities (<code><a href="Protocols/RoutingInterceptor.html">RoutingInterceptor</a></code>, <code><a href="Protocols/ContextTask.html">ContextTask</a></code>, <code><a href="Protocols/PostRoutingTask.html">PostRoutingTask</a></code>) that you may implement to handle some
 default actions during the routing process. There are 2 <code>associatedtype</code> in the description of each entity below:</p>
 
@@ -518,7 +518,7 @@ product in your view controller stack:</em></p>
 <p><code><a href="Structs/SearchOptions.html">SearchOptions</a></code> is an enum that informs <code><a href="Protocols/StackIteratingFinder.html">StackIteratingFinder</a></code> how to iterate through the stack when searching. See documentation.</p>
 <h4 id='3-action' class='heading'>3. Action</h4>
 
-<p>The <code><a href="Protocols/Action.html">Action</a></code> instance explains to the router <strong>how the view controller is created by a <code><a href="Protocols/Factory.html">Factory</a></code> should be integrated into a view controller stack</strong>.
+<p>The <code><a href="Core Entities.html#/s:13RouteComposer6ActionP">Action</a></code> instance explains to the router <strong>how the view controller is created by a <code><a href="Protocols/Factory.html">Factory</a></code> should be integrated into a view controller stack</strong>.
 Most likely, you will not need to implement your own actions because the library provides actions for most of the default actions that can be done in
 <code>UIKit</code> like (<code>PresentModally</code>, <code>AddTab</code>, <code>PushToNavigation</code> etc.). You may need to implement your own actions if you are
 doing something unusual.</p>
@@ -609,7 +609,7 @@ Use <code><a href="Classes/StepAssembly.html">StepAssembly</a></code> provided b
 <p><em>Example: A <code>ProductViewController</code> configuration that explains to the router that it should be boxed in UINavigationController
 which should be presented modally from any currently visible view controller.</em></p>
 <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">productScreen</span> <span class="o">=</span> <span class="kt">StepAssembly</span><span class="p">(</span><span class="nv">finder</span><span class="p">:</span> <span class="kt">ProductViewControllerFinder</span><span class="p">(),</span> <span class="nv">factory</span><span class="p">:</span> <span class="kt">ProductViewControllerFactory</span><span class="p">())</span>
-        <span class="o">.</span><span class="nf">adding</span><span class="p">(</span><span class="kt">LoginInterceptor</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">&gt;</span><span class="p">())</span> <span class="c1">// Have to specify type till https://bugs.swift.org/browse/SR-8719, https://bugs.swift.org/browse/SR-8705 are fixed</span>
+        <span class="o">.</span><span class="nf">adding</span><span class="p">(</span><span class="kt">LoginInterceptor</span><span class="o">&lt;</span><span class="kt">UUID</span><span class="o">&gt;</span><span class="p">())</span> <span class="c1">// Have to specify the context type till https://bugs.swift.org/browse/SR-8719, https://bugs.swift.org/browse/SR-8705 are fixed</span>
         <span class="o">.</span><span class="nf">adding</span><span class="p">(</span><span class="kt">ProductViewControllerContextTask</span><span class="p">())</span>
         <span class="o">.</span><span class="nf">adding</span><span class="p">(</span><span class="kt">ProductViewControllerPostTask</span><span class="p">(</span><span class="nv">analyticsManager</span><span class="p">:</span> <span class="kt">AnalyticsManager</span><span class="o">.</span><span class="n">sharedInstance</span><span class="p">))</span>
         <span class="o">.</span><span class="nf">using</span><span class="p">(</span><span class="kt">UINavigationController</span><span class="o">.</span><span class="nf">pushToNavigation</span><span class="p">())</span>
@@ -643,7 +643,7 @@ should be logged in to see the product details.</em></p>
 <span class="kd">struct</span> <span class="kt">Configuration</span> <span class="p">{</span>
 
     <span class="kd">static</span> <span class="k">let</span> <span class="nv">productScreen</span> <span class="o">=</span> <span class="kt">StepAssembly</span><span class="p">(</span><span class="nv">finder</span><span class="p">:</span> <span class="kt">ProductViewControllerFinder</span><span class="p">(),</span> <span class="nv">factory</span><span class="p">:</span> <span class="kt">ProductViewControllerFactory</span><span class="p">())</span>
-                <span class="o">.</span><span class="nf">adding</span><span class="p">(</span><span class="kt">LoginInterceptor</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">&gt;</span><span class="p">())</span>
+                <span class="o">.</span><span class="nf">adding</span><span class="p">(</span><span class="kt">LoginInterceptor</span><span class="o">&lt;</span><span class="kt">UUID</span><span class="o">&gt;</span><span class="p">())</span>
                 <span class="o">.</span><span class="nf">adding</span><span class="p">(</span><span class="kt">ProductViewControllerContextTask</span><span class="p">())</span>
                 <span class="o">.</span><span class="nf">adding</span><span class="p">(</span><span class="kt">ProductViewControllerPostTask</span><span class="p">(</span><span class="nv">analyticsManager</span><span class="p">:</span> <span class="kt">AnalyticsManager</span><span class="o">.</span><span class="n">sharedInstance</span><span class="p">))</span>
                 <span class="o">.</span><span class="nf">using</span><span class="p">(</span><span class="kt">UINavigationController</span><span class="o">.</span><span class="nf">pushToNavigation</span><span class="p">())</span>
@@ -753,7 +753,7 @@ apologies. <em>Caveat developer.</em></p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-11-02)</p>
+          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-11-06)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

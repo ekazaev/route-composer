@@ -70,7 +70,7 @@ It will work if the user is not in some `UIViewController` that is presented mod
             factory: XibFactory())
             .using(UINavigationController.PushToNavigation())
             .from(SwitchAssembly<UINavigationController, Any?>()
-                    .addCase(when: ClassFinder<UINavigationController, Any?>(options: .visible)) // If found - just push in to it
+                    .addCase(expecting: ClassFinder<UINavigationController, Any?>(options: .visible)) // If found - just push in to it
                     .assemble(default: { // else
                         return ChainAssembly()
                                 .from(SingleContainerStep(finder: NilFinder(), factory: NavigationControllerFactory()))
@@ -88,7 +88,7 @@ It will work if the user is not in some `UIViewController` that is presented mod
             finder: ClassFinder(),
             factory: CompleteFactoryAssembly(factory: TabBarControllerFactory())
                     .with(XibFactory<HomeViewController, Any?>(), using: UITabBarController.addTab())
-                    .with(XibFactory<AccountViewController, Any?>(), using: UINavigationController.addTab())
+                    .with(XibFactory<AccountViewController, Any?>(), using: UITabBarController.addTab())
                     .assemble())
             .using(GeneralAction.replaceRoot())
             .from(GeneralStep.root())

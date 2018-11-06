@@ -51,7 +51,7 @@
                 <a href="Protocols/ContainerFactory.html">ContainerFactory</a>
               </li>
               <li class="nav-group-task">
-                <a href="Protocols/Action.html">Action</a>
+                <a href="Core Entities.html#/s:13RouteComposer6ActionP">Action</a>
               </li>
               <li class="nav-group-task">
                 <a href="Protocols/ContainerAction.html">ContainerAction</a>
@@ -334,10 +334,10 @@
                 <a href="Structs/SplitViewControllerActions.html">SplitViewControllerActions</a>
               </li>
               <li class="nav-group-task">
-                <a href="Structs/SplitViewControllerActions/PushToDetailsAction.html">– PushToDetailsAction</a>
+                <a href="Structs/SplitViewControllerActions/SetAsMasterAction.html">– SetAsMasterAction</a>
               </li>
               <li class="nav-group-task">
-                <a href="Structs/SplitViewControllerActions/SetAsMasterAction.html">– SetAsMasterAction</a>
+                <a href="Structs/SplitViewControllerActions/PushToDetailsAction.html">– PushToDetailsAction</a>
               </li>
               <li class="nav-group-task">
                 <a href="Structs/StepChainAssembly.html">StepChainAssembly</a>
@@ -368,7 +368,7 @@
             <h1 id='deeper-into-the-configuration' class='heading'>Deeper into the configuration</h1>
 <h3 id='how-the-code-router-code-parses-the-configuration' class='heading'>How the <code><a href="Protocols/Router.html">Router</a></code> parses the configuration:</h3>
 
-<p>The <code><a href="Protocols/Router.html">Router</a></code> goes by the chain of steps starting from the first step. If the <code><a href="Protocols/Finder.html">Finder</a></code> of this step says that the <code>UIViewController</code> of this step does not exist, it moves on to the next one. It does this until one of the finders say that it has found the <code>UIViewController</code> described in the chain. Then <code><a href="Protocols/Router.html">Router</a></code> starts to move backwards through the chain of steps and starts to create the <code>UIViewController</code> for each step using its <code><a href="Protocols/Factory.html">Factory</a></code> and integrates it into the stack using the <code><a href="Protocols/Action.html">Action</a></code> attached to this step.</p>
+<p>The <code><a href="Protocols/Router.html">Router</a></code> goes by the chain of steps starting from the first step. If the <code><a href="Protocols/Finder.html">Finder</a></code> of this step says that the <code>UIViewController</code> of this step does not exist, it moves on to the next one. It does this until one of the finders say that it has found the <code>UIViewController</code> described in the chain. Then <code><a href="Protocols/Router.html">Router</a></code> starts to move backwards through the chain of steps and starts to create the <code>UIViewController</code> for each step using its <code><a href="Protocols/Factory.html">Factory</a></code> and integrates it into the stack using the <code><a href="Core Entities.html#/s:13RouteComposer6ActionP">Action</a></code> attached to this step.</p>
 
 <p>It is easier to think about how to configure your routing to the <code>UIViewController</code> if you start to think that the user can be anywhere in the application and has received an universal link that requests your application to show a particular <code>UIViewController</code>.</p>
 <h3 id='code-stackiteratingfinder-code-options' class='heading'><code><a href="Protocols/StackIteratingFinder.html">StackIteratingFinder</a></code> options:</h3>
@@ -418,14 +418,14 @@
 
 </code></pre>
 
-<p><em>Why is the <code><a href="Structs/NilFactory.html">NilFactory</a></code> used here? That means: look for the <code>UINavigationController</code> everywhere, but do not create it if it is not found (the routing will fail in this case). The <code><a href="Structs/NilFactory.html">NilFactory</a></code> can not be accompanied by any <code><a href="Protocols/Action.html">Action</a></code> as the <code>UIViewController</code> already exists in the stack.</em></p>
+<p><em>Why is the <code><a href="Structs/NilFactory.html">NilFactory</a></code> used here? That means: look for the <code>UINavigationController</code> everywhere, but do not create it if it is not found (the routing will fail in this case). The <code><a href="Structs/NilFactory.html">NilFactory</a></code> can not be accompanied by any <code><a href="Core Entities.html#/s:13RouteComposer6ActionP">Action</a></code> as the <code>UIViewController</code> already exists in the stack.</em></p>
 <h4 id='the-code-uiviewcontroller-code-should-be-pushed-into-any-code-uinavigationcontroller-code-if-it-is-present-on-the-screen-if-not-presented-modally' class='heading'>The <code>UIViewController</code> should be pushed into any <code>UINavigationController</code> if it is present on the screen, if not - presented modally:</h4>
 <pre class="highlight swift"><code>    <span class="k">let</span> <span class="nv">screen</span> <span class="o">=</span> <span class="kt">StepAssembly</span><span class="p">(</span>
             <span class="nv">finder</span><span class="p">:</span> <span class="kt">ClassFinder</span><span class="o">&lt;</span><span class="kt">AccountViewController</span><span class="p">,</span> <span class="kt">Any</span><span class="p">?</span><span class="o">&gt;</span><span class="p">(),</span>
             <span class="nv">factory</span><span class="p">:</span> <span class="kt">XibFactory</span><span class="p">())</span>
             <span class="o">.</span><span class="nf">using</span><span class="p">(</span><span class="kt">UINavigationController</span><span class="o">.</span><span class="kt">PushToNavigation</span><span class="p">())</span>
             <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="kt">SwitchAssembly</span><span class="o">&lt;</span><span class="kt">UINavigationController</span><span class="p">,</span> <span class="kt">Any</span><span class="p">?</span><span class="o">&gt;</span><span class="p">()</span>
-                    <span class="o">.</span><span class="nf">addCase</span><span class="p">(</span><span class="nv">when</span><span class="p">:</span> <span class="kt">ClassFinder</span><span class="o">&lt;</span><span class="kt">UINavigationController</span><span class="p">,</span> <span class="kt">Any</span><span class="p">?</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">options</span><span class="p">:</span> <span class="o">.</span><span class="n">visible</span><span class="p">))</span> <span class="c1">// If found - just push in to it</span>
+                    <span class="o">.</span><span class="nf">addCase</span><span class="p">(</span><span class="nv">expecting</span><span class="p">:</span> <span class="kt">ClassFinder</span><span class="o">&lt;</span><span class="kt">UINavigationController</span><span class="p">,</span> <span class="kt">Any</span><span class="p">?</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">options</span><span class="p">:</span> <span class="o">.</span><span class="n">visible</span><span class="p">))</span> <span class="c1">// If found - just push in to it</span>
                     <span class="o">.</span><span class="nf">assemble</span><span class="p">(</span><span class="k">default</span><span class="p">:</span> <span class="p">{</span> <span class="c1">// else</span>
                         <span class="k">return</span> <span class="kt">ChainAssembly</span><span class="p">()</span>
                                 <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="kt">SingleContainerStep</span><span class="p">(</span><span class="nv">finder</span><span class="p">:</span> <span class="kt">NilFinder</span><span class="p">(),</span> <span class="nv">factory</span><span class="p">:</span> <span class="kt">NavigationControllerFactory</span><span class="p">()))</span>
@@ -440,7 +440,7 @@
             <span class="nv">finder</span><span class="p">:</span> <span class="kt">ClassFinder</span><span class="p">(),</span>
             <span class="nv">factory</span><span class="p">:</span> <span class="kt">CompleteFactoryAssembly</span><span class="p">(</span><span class="nv">factory</span><span class="p">:</span> <span class="kt">TabBarControllerFactory</span><span class="p">())</span>
                     <span class="o">.</span><span class="nf">with</span><span class="p">(</span><span class="kt">XibFactory</span><span class="o">&lt;</span><span class="kt">HomeViewController</span><span class="p">,</span> <span class="kt">Any</span><span class="p">?</span><span class="o">&gt;</span><span class="p">(),</span> <span class="nv">using</span><span class="p">:</span> <span class="kt">UITabBarController</span><span class="o">.</span><span class="nf">addTab</span><span class="p">())</span>
-                    <span class="o">.</span><span class="nf">with</span><span class="p">(</span><span class="kt">XibFactory</span><span class="o">&lt;</span><span class="kt">AccountViewController</span><span class="p">,</span> <span class="kt">Any</span><span class="p">?</span><span class="o">&gt;</span><span class="p">(),</span> <span class="nv">using</span><span class="p">:</span> <span class="kt">UINavigationController</span><span class="o">.</span><span class="nf">addTab</span><span class="p">())</span>
+                    <span class="o">.</span><span class="nf">with</span><span class="p">(</span><span class="kt">XibFactory</span><span class="o">&lt;</span><span class="kt">AccountViewController</span><span class="p">,</span> <span class="kt">Any</span><span class="p">?</span><span class="o">&gt;</span><span class="p">(),</span> <span class="nv">using</span><span class="p">:</span> <span class="kt">UITabBarController</span><span class="o">.</span><span class="nf">addTab</span><span class="p">())</span>
                     <span class="o">.</span><span class="nf">assemble</span><span class="p">())</span>
             <span class="o">.</span><span class="nf">using</span><span class="p">(</span><span class="kt">GeneralAction</span><span class="o">.</span><span class="nf">replaceRoot</span><span class="p">())</span>
             <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="kt">GeneralStep</span><span class="o">.</span><span class="nf">root</span><span class="p">())</span>
@@ -517,7 +517,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-11-02)</p>
+          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-11-06)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
