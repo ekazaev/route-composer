@@ -27,22 +27,6 @@ protocol AnyFactoryBox: AnyFactory {
 
 }
 
-protocol AnyPreparableEntity {
-
-    var isPrepared: Bool { get }
-
-}
-
-extension AnyPreparableEntity {
-
-    func assertIfNotPrepared() {
-        if !isPrepared {
-            assertionFailure("Internal inconsistency: prepare(with context:) method has never been called.")
-        }
-    }
-
-}
-
 protocol PreparableAnyFactory: AnyFactory, AnyPreparableEntity {
 
     var isPrepared: Bool { get set }

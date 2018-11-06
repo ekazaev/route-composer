@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'RouteComposer'
-  s.version          = '0.9.21'
+  s.version          = '0.9.22'
   s.summary          = 'Protocol oriented library that helps to handle view controllers composition, routing and deeplinking tasks.'
   s.swift_version    = '4.2'
 
