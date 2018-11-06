@@ -27,18 +27,45 @@ protocol AnyFactoryBox: AnyFactory {
 
 }
 
+protocol AnyPreparableEntity {
+
+    var isPrepared: Bool { get }
+
+}
+
+extension AnyPreparableEntity {
+
+    func assertIfNotPrepared() {
+        if !isPrepared {
+            assertionFailure("Internal inconsistency: prepare(with context:) method has never been called.")
+        }
+    }
+
+}
+
+protocol PreparableAnyFactory: AnyFactory, AnyPreparableEntity {
+
+    var isPrepared: Bool { get set }
+
+}
+
 extension AnyFactoryBox where Self: AnyFactory {
+
+    mutating func scrapeChildren(from factories: [AnyFactory]) throws -> [AnyFactory] {
+        return factories
+    }
+
+}
+
+extension AnyFactoryBox where Self: PreparableAnyFactory {
 
     mutating func prepare(with context: Any?) throws {
         guard let typedContext = Any?.some(context as Any) as? FactoryType.Context else {
             throw RoutingError.typeMismatch(FactoryType.Context.self, RoutingError.Context(debugDescription: "\(String(describing: factory.self)) does " +
                     "not accept \(String(describing: context.self)) as a context."))
         }
-        return try factory.prepare(with: typedContext)
-    }
-
-    mutating func scrapeChildren(from factories: [AnyFactory]) throws -> [AnyFactory] {
-        return factories
+        try factory.prepare(with: typedContext)
+        isPrepared = true
     }
 
 }
@@ -51,13 +78,15 @@ extension AnyFactory where Self: CustomStringConvertible & AnyFactoryBox {
 
 }
 
-struct FactoryBox<F: Factory>: AnyFactory, AnyFactoryBox, CustomStringConvertible {
+struct FactoryBox<F: Factory>: PreparableAnyFactory, AnyFactoryBox, CustomStringConvertible {
 
     typealias FactoryType = F
 
     var factory: F
 
     let action: AnyAction
+
+    var isPrepared = false
 
     init?(_ factory: F, action: AnyAction) {
         guard !(factory is NilEntity) else {
@@ -72,12 +101,13 @@ struct FactoryBox<F: Factory>: AnyFactory, AnyFactoryBox, CustomStringConvertibl
             throw RoutingError.typeMismatch(FactoryType.Context.self, RoutingError.Context(debugDescription: "\(String(describing: factory.self)) does " +
                     "not accept \(String(describing: context.self)) as a context."))
         }
+        assertIfNotPrepared()
         return try factory.build(with: typedContext)
     }
 
 }
 
-struct ContainerFactoryBox<F: ContainerFactory>: AnyFactory, AnyFactoryBox, CustomStringConvertible {
+struct ContainerFactoryBox<F: ContainerFactory>: PreparableAnyFactory, AnyFactoryBox, CustomStringConvertible {
 
     typealias FactoryType = F
 
@@ -86,6 +116,8 @@ struct ContainerFactoryBox<F: ContainerFactory>: AnyFactory, AnyFactoryBox, Cust
     let action: AnyAction
 
     var children: [DelayedIntegrationFactory<FactoryType.Context>] = []
+
+    var isPrepared = false
 
     init?(_ factory: FactoryType, action: AnyAction) {
         guard !(factory is NilEntity) else {
@@ -102,7 +134,7 @@ struct ContainerFactoryBox<F: ContainerFactory>: AnyFactory, AnyFactoryBox, Cust
                 otherFactories.append(child)
                 return nil
             }
-            return DelayedIntegrationFactory(child)
+            return DelayedIntegrationFactory(child, isPrepared: true)
         })
         return otherFactories
     }
@@ -112,6 +144,7 @@ struct ContainerFactoryBox<F: ContainerFactory>: AnyFactory, AnyFactoryBox, Cust
             throw RoutingError.typeMismatch(FactoryType.Context.self, RoutingError.Context(debugDescription: "\(String(describing: factory.self)) does " +
                     "not accept \(String(describing: context.self)) as a context."))
         }
+        assertIfNotPrepared()
         return try factory.build(with: typedContext, integrating: ChildCoordinator(childFactories: children))
     }
 

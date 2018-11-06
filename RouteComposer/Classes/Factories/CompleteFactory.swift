@@ -18,7 +18,7 @@ public struct CompleteFactory<FC: ContainerFactory>: ContainerFactory, CustomStr
 
     private var factory: FC
 
-    let childFactories: [DelayedIntegrationFactory<FC.Context>]
+    var childFactories: [DelayedIntegrationFactory<FC.Context>]
 
     init(factory: FC, childFactories: [DelayedIntegrationFactory<FC.Context>]) {
         self.factory = factory
@@ -27,14 +27,17 @@ public struct CompleteFactory<FC: ContainerFactory>: ContainerFactory, CustomStr
 
     mutating public func prepare(with context: Context) throws {
         try factory.prepare(with: context)
+        childFactories = try childFactories.map({
+            var factory = $0
+            try factory.prepare(with: context)
+            return factory
+        })
     }
 
     public func build(with context: Context, integrating coordinator: ChildCoordinator<Context>) throws -> ViewController {
-        var coordinator = coordinator
         var finalChildFactories = childFactories
         finalChildFactories.append(contentsOf: coordinator.childFactories)
-        coordinator.childFactories = finalChildFactories
-        return try factory.build(with: context, integrating: coordinator)
+        return try factory.build(with: context, integrating: ChildCoordinator(childFactories: finalChildFactories))
     }
 
     public var description: String {

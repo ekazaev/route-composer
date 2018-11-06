@@ -17,9 +17,11 @@ protocol AnyContextTask {
 
 }
 
-struct ContextTaskBox<CT: ContextTask>: AnyContextTask, CustomStringConvertible {
+struct ContextTaskBox<CT: ContextTask>: AnyContextTask, AnyPreparableEntity, CustomStringConvertible {
 
     var contextTask: CT
+
+    var isPrepared = false
 
     init(_ contextTask: CT) {
         self.contextTask = contextTask
@@ -31,6 +33,7 @@ struct ContextTaskBox<CT: ContextTask>: AnyContextTask, CustomStringConvertible 
                             "accept \(String(describing: context.self)) as a context."))
         }
         try contextTask.prepare(with: typedContext)
+        isPrepared = true
     }
 
     func apply(on viewController: UIViewController, with context: Any?) throws {
@@ -39,6 +42,7 @@ struct ContextTaskBox<CT: ContextTask>: AnyContextTask, CustomStringConvertible 
             throw RoutingError.typeMismatch(CT.Context.self, RoutingError.Context(debugDescription: "\(String(describing: contextTask.self)) does not " +
                     "accept \(String(describing: context.self)) as a context."))
         }
+        assertIfNotPrepared()
         try contextTask.apply(on: typedViewController, with: typedContext)
     }
 

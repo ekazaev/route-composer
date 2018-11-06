@@ -61,7 +61,7 @@ public struct TabBarControllerActions {
 
         public func perform(embedding viewController: UIViewController,
                             in childViewControllers: inout [UIViewController]) {
-            processViewController(viewController: viewController, childViewControllers: &childViewControllers)
+            setup(viewController: viewController, at: &childViewControllers, tabIndex: tabIndex)
         }
 
         public func perform(with viewController: UIViewController,
@@ -69,14 +69,14 @@ public struct TabBarControllerActions {
                             animated: Bool,
                             completion: @escaping(_: ActionResult) -> Void) {
             var tabViewControllers = tabBarController.viewControllers ?? []
-            processViewController(viewController: viewController, childViewControllers: &tabViewControllers)
+            setup(viewController: viewController, at: &tabViewControllers, tabIndex: tabIndex)
             tabBarController.setViewControllers(tabViewControllers, animated: animated)
 
             return completion(.continueRouting)
         }
 
-        private func processViewController(viewController: UIViewController,
-                                           childViewControllers: inout [UIViewController]) {
+        private func setup(viewController: UIViewController,
+                           at childViewControllers: inout [UIViewController], tabIndex: Int?) {
             if let tabIndex = tabIndex, tabIndex < childViewControllers.count {
                 if replacing {
                     childViewControllers[tabIndex] = viewController

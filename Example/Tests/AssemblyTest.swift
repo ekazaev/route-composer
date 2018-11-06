@@ -71,7 +71,7 @@ class AssemblyTest: XCTestCase {
     }
 
     func testCompleteFactoryAssembly() {
-        let container = CompleteFactoryAssembly(factory: TabBarControllerFactory<Any?>())
+        var container = CompleteFactoryAssembly(factory: TabBarControllerFactory<Any?>())
                 .with(ClassNameFactory<UIViewController, Any?>())
                 .with(ClassNameFactory<UIViewController, Any?>(), using: UITabBarController.addTab())
                 .with(CompleteFactoryAssembly(factory: TabBarControllerFactory<Any?>())
@@ -80,6 +80,7 @@ class AssemblyTest: XCTestCase {
                         using: UITabBarController.addTab(at: 1, replacing: true))
                 .assemble()
         XCTAssertEqual(container.childFactories.count, 3)
+        try? container.prepare(with: nil)
         let tabBarController = try? container.build()
         XCTAssertEqual(tabBarController?.viewControllers?.count, 2)
     }

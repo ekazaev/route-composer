@@ -13,7 +13,7 @@ public struct NavigationControllerFactory<C>: SimpleContainerFactory {
     public typealias Context = C
 
     /// `UINavigationControllerDelegate` reference
-    public weak var delegate: UINavigationControllerDelegate?
+    private(set) public weak var delegate: UINavigationControllerDelegate?
 
     /// Block to configure `UINavigationController`
     public let configuration: ((_: UINavigationController) -> Void)?

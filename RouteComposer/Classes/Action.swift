@@ -31,15 +31,3 @@ public extension ContainerAction {
     }
 
 }
-
-public extension Action where Self: NilEntity {
-
-    /// Does nothing
-    public func perform(with viewController: UIViewController,
-                        on existingController: UIViewController,
-                        animated: Bool,
-                        completion: @escaping (ActionResult) -> Void) {
-        completion(.continueRouting)
-    }
-
-}

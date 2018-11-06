@@ -14,7 +14,7 @@ public struct SplitControllerFactory<C>: SimpleContainerFactory {
     public typealias Context = C
 
     /// `UISplitViewControllerDelegate` reference
-    private(set) weak var delegate: UISplitViewControllerDelegate?
+    private(set) public weak var delegate: UISplitViewControllerDelegate?
 
     /// A property that controls how the primary view controller is hidden and displayed.
     /// A value of `.automatic` specifies the default behavior split view controller, which on an iPad,

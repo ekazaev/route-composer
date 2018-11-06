@@ -38,19 +38,6 @@ public struct GeneralAction {
 /// A wrapper for general actions that can be applied to any `UIViewController`
 public struct ViewControllerActions {
 
-    /// The dummy `Action` instance is mostly for internal use. However, it can be useful outside of the library
-    /// in combination with the factories that produce the view controllers that should not be integrated into the
-    /// view controller's stack.
-    struct NilAction: Action, NilEntity {
-
-        typealias ViewController = UIViewController
-
-        /// Constructor
-        init() {
-        }
-
-    }
-
     /// Presents a view controller modally
     public struct PresentModallyAction: Action {
 
@@ -69,7 +56,7 @@ public struct ViewControllerActions {
         public let popoverControllerConfigurationBlock: ((_: UIPopoverPresentationController) -> Void)?
 
         /// `UIViewControllerTransitioningDelegate` instance to be used during the transition
-        private(set) weak var transitioningDelegate: UIViewControllerTransitioningDelegate?
+        private(set) public weak var transitioningDelegate: UIViewControllerTransitioningDelegate?
 
         /// Constructor
         ///
@@ -145,6 +132,21 @@ public struct ViewControllerActions {
             window.rootViewController = viewController
             window.makeKeyAndVisible()
             return completion(.continueRouting)
+        }
+
+    }
+
+    struct NilAction: Action {
+
+        typealias ViewController = UIViewController
+
+        // Constructor
+        init() {
+        }
+
+        // Does nothing
+        func perform(with viewController: UIViewController, on existingController: UIViewController, animated: Bool, completion: @escaping (ActionResult) -> Void) {
+            completion(.continueRouting)
         }
 
     }

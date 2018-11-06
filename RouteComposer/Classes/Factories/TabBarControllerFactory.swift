@@ -13,7 +13,7 @@ public struct TabBarControllerFactory<C>: SimpleContainerFactory {
     public typealias Context = C
 
     /// `UITabBarControllerDelegate` reference
-    public weak var delegate: UITabBarControllerDelegate?
+    private(set) public weak var delegate: UITabBarControllerDelegate?
 
     /// Block to configure `UITabBarController`
     public let configuration: ((_: UITabBarController) -> Void)?

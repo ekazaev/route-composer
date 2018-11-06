@@ -10,10 +10,14 @@ import UIKit
 
 struct DelayedIntegrationFactory<Context>: CustomStringConvertible {
 
-    let factory: AnyFactory
+    var factory: AnyFactory
 
-    init(_ factory: AnyFactory) {
+    init(_ factory: AnyFactory, isPrepared: Bool = false) {
         self.factory = factory
+    }
+
+    mutating func prepare(with context: Context) throws {
+        try factory.prepare(with: context)
     }
 
     func build(with context: Context, in childViewControllers: inout [UIViewController]) throws {

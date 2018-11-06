@@ -14,9 +14,11 @@ protocol AnyRoutingInterceptor {
 
 }
 
-struct RoutingInterceptorBox<R: RoutingInterceptor>: AnyRoutingInterceptor, CustomStringConvertible {
+struct RoutingInterceptorBox<R: RoutingInterceptor>: AnyRoutingInterceptor, AnyPreparableEntity, CustomStringConvertible {
 
     var routingInterceptor: R
+
+    var isPrepared = false
 
     init(_ routingInterceptor: R) {
         self.routingInterceptor = routingInterceptor
@@ -29,6 +31,7 @@ struct RoutingInterceptorBox<R: RoutingInterceptor>: AnyRoutingInterceptor, Cust
         }
 
         try self.routingInterceptor.prepare(with: typedDestination)
+        isPrepared = true
     }
 
     func execute(with context: Any?, completion: @escaping (InterceptorResult) -> Void) {
@@ -37,6 +40,7 @@ struct RoutingInterceptorBox<R: RoutingInterceptor>: AnyRoutingInterceptor, Cust
                     "not accept \(String(describing: context.self)) as a context."))))
             return
         }
+        assertIfNotPrepared()
         routingInterceptor.execute(with: typedDestination, completion: completion)
     }
 
