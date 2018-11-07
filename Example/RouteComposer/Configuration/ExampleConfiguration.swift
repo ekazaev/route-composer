@@ -37,7 +37,9 @@ extension ExampleScreenConfiguration {
                 // As both factory and finder are generic, You have to provide with at least one instance
                 // the type of the view controller and the context to be used. You do not need to do so if you are using at
                 // least one custom factory of finder that have set typealias for ViewController and Context.
-                finder: HomeFinder(),
+                // We may have 2 UITabBarControllers in the stack (see routingSupportScreen config). We can distinguish them only by their position.
+                // We call `home` only the one that is the window's root controller
+                finder: ClassFinder<UITabBarController, Any?>(options: .current, startingPoint: .root),
                 factory: StoryboardFactory(storyboardName: "TabBar"))
                 .using(GeneralAction.replaceRoot())
                 .from(GeneralStep.root())
@@ -155,17 +157,5 @@ class ConfigurationHolder {
 
     // Declared as static to avoid dependency injection in the Example app. So this variable is available everywhere.
     static var configuration: ExampleScreenConfiguration = ExampleConfiguration()
-
-}
-
-// We may have 2 UITabBarControllers in the stack (see routingSupportScreen config). We can distinguish them only by their position.
-// We call `home` only the one that is the window's root controller
-private struct HomeFinder: StackIteratingFinder {
-
-    let options: SearchOptions = .currentAndDown
-
-    func isTarget(_ viewController: UITabBarController, with context: Any?) -> Bool {
-        return UIWindow.key?.rootViewController == viewController
-    }
 
 }

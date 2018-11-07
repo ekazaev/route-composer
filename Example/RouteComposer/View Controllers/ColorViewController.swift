@@ -9,11 +9,7 @@ import RouteComposer
 
 class ColorViewControllerFinder: StackIteratingFinder {
 
-    public let options: SearchOptions
-
-    public init(options: SearchOptions = .currentAllStack) {
-        self.options = options
-    }
+    public let iterator: StackIterator = DefaultStackIterator(options: .currentAllStack)
 
     func isTarget(_ viewController: ColorViewController, with colorHex: String) -> Bool {
         viewController.colorHex = colorHex

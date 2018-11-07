@@ -54,6 +54,23 @@ class ExtensionsTest: XCTestCase {
         XCTAssertEqual(navigationController.allPresentedViewControllers.count, 0)
     }
 
+    func testFindViewControllerParent() {
+        let tabBarController = UITabBarController()
+        let navigationController = UINavigationController()
+        let viewController1 = UIViewController()
+        let viewController2 = UIViewController()
+
+        tabBarController.viewControllers = [navigationController]
+        navigationController.viewControllers = [viewController1]
+        viewController1.addChild(viewController2)
+        viewController2.addChild(UISplitViewController())
+
+        XCTAssertEqual(UIViewController.findViewController(in: viewController2, options: [.parent], using: { _ in return true }), viewController1)
+        XCTAssertNil(UIViewController.findViewController(in: viewController2, options: [.current, .parent], using: { $0 is UISplitViewController }))
+        XCTAssertEqual(UIViewController.findViewController(in: viewController2, options: [.current, .parent], using: { $0 is UINavigationController }), navigationController)
+        XCTAssertEqual(UIViewController.findViewController(in: viewController2, options: [.current, .parent], using: { $0 is UITabBarController }), tabBarController)
+    }
+
     func testFindViewController() {
         let viewController1 = RouterTests.TestModalPresentableController()
         let viewController2 = RouterTests.TestModalPresentableController()

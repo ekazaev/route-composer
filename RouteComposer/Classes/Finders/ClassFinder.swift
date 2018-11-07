@@ -15,14 +15,23 @@ public struct ClassFinder<VC: UIViewController, C>: StackIteratingFinder {
     /// A context type associated with this `ClassFinder`
     public typealias Context = C
 
-    /// A `SearchOptions` is to be used by `ClassFinder`
-    public let options: SearchOptions
+    /// A `StackIterator` is to be used by `ClassFinder`
+    public let iterator: StackIterator
 
     /// Constructor
     ///
-    /// - Parameter options: A combination of the `SearchOptions`
-    public init(options: SearchOptions = .currentAndDown) {
-        self.options = options
+    /// Parameters
+    ///   - options: A combination of the `SearchOptions`
+    ///   - startingPoint: `DefaultStackIterator.StartingPoint` value
+    public init(options: SearchOptions, startingPoint: DefaultStackIterator.StartingPoint = .topmost) {
+        self.iterator = DefaultStackIterator(options: options, startingPoint: startingPoint)
+    }
+
+    /// Constructor
+    ///
+    /// - Parameter iterator: A `StackIterator` is to be used by `ClassFinder`
+    public init(iterator: StackIterator = DefaultStackIterator()) {
+        self.iterator = iterator
     }
 
     public func isTarget(_ viewController: ViewController, with context: Context) -> Bool {

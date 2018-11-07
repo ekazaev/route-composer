@@ -263,7 +263,6 @@ class ActionTests: XCTestCase {
         XCTAssertTrue(wasInCompletion)
         XCTAssertEqual(splitController.viewControllers.count, 0)
 
-
         wasInCompletion = false
         splitController.viewControllers = [UIViewController()]
         UISplitViewController.pushToDetails().perform(with: viewController, on: splitController, animated: false) { result in

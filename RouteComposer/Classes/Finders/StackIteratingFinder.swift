@@ -16,8 +16,8 @@ public protocol StackIteratingFinder: Finder {
     /// Type of context `Context` instance that `Finder` can deal with
     associatedtype Context = Context
 
-    /// `SearchOptions` to be used by `StackIteratingFinder`
-    var options: SearchOptions { get }
+    /// `StackIterator` to be used by `StackIteratingFinder`
+    var iterator: StackIterator { get }
 
     /// The method to be implemented by the `StackIteratingFinder` instance
     ///
@@ -39,12 +39,7 @@ public extension StackIteratingFinder {
             return self.isTarget(viewController, with: context)
         }
 
-        guard let rootViewController = UIWindow.key?.topmostViewController,
-              let viewController = UIViewController.findViewController(in: rootViewController, options: options, using: comparator) as? ViewController else {
-            return nil
-        }
-
-        return viewController
+        return iterator.findViewController(using: comparator) as? ViewController
     }
 
 }

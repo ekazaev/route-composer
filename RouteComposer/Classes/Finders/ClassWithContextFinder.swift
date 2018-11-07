@@ -17,14 +17,23 @@ public struct ClassWithContextFinder<VC: ContextChecking, C>: StackIteratingFind
     /// The context type associated with this `ClassWithContextFinder`
     public typealias Context = C
 
-    /// `SearchOptions` is to be used by `ClassWithContextFinder`
-    public let options: SearchOptions
+    /// A `StackIterator` is to be used by `ClassWithContextFinder`
+    public let iterator: StackIterator
 
     /// Constructor
     ///
-    /// - Parameter options: A combination of the `SearchOptions`
-    public init(options: SearchOptions = .currentAndDown) {
-        self.options = options
+    /// Parameters
+    ///   - options: A combination of the `SearchOptions`
+    ///   - startingPoint: `DefaultStackIterator.StartingPoint` value
+    public init(options: SearchOptions, startingPoint: DefaultStackIterator.StartingPoint = .topmost) {
+        self.iterator = DefaultStackIterator(options: options, startingPoint: startingPoint)
+    }
+
+    /// Constructor
+    ///
+    /// - Parameter iterator: A `StackIterator` is to be used by `ClassWithContextFinder`
+    public init(iterator: StackIterator = DefaultStackIterator()) {
+        self.iterator = iterator
     }
 
     public func isTarget(_ viewController: ViewController, with context: Context) -> Bool {

@@ -41,7 +41,7 @@ public struct SplitViewControllerActions {
             integrate(viewController: viewController, in: &splitViewController.viewControllers)
             completion(.continueRouting)
         }
-        
+
         private func integrate(viewController: UIViewController, in childViewControllers: inout [UIViewController]) {
             if childViewControllers.isEmpty {
                 childViewControllers.append(viewController)
@@ -60,7 +60,7 @@ public struct SplitViewControllerActions {
         }
 
         public func perform(embedding viewController: UIViewController, in childViewControllers: inout [UIViewController]) throws {
-            guard childViewControllers.count > 0 else {
+            guard !childViewControllers.isEmpty else {
                 throw RoutingError.compositionFailed(RoutingError.Context(debugDescription: "Master view controller is not set in " +
                         "UISplitViewController to present a detail view controller \(viewController)."))
             }

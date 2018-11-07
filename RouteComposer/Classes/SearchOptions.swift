@@ -28,6 +28,9 @@ public struct SearchOptions: OptionSet, CustomStringConvertible {
     /// Start search from the view controller provided and search in all view controllers that are presenting it
     public static let presenting = SearchOptions(rawValue: 1 << 4)
 
+    /// Start search from the view controller provided and search in all its parent view controllers
+    public static let parent = SearchOptions(rawValue: 1 << 5)
+
     /// If a view controller is a container, search in all the view controllers it contains
     public static let currentAllStack: SearchOptions = [.current, .contained]
 
@@ -60,6 +63,7 @@ public struct SearchOptions: OptionSet, CustomStringConvertible {
             case .contained: descriptionWords.append("contained")
             case .presented: descriptionWords.append("presented")
             case .presenting: descriptionWords.append("presenting")
+            case .parent: descriptionWords.append("parent")
             default: assertionFailure("Unknown SearchOptions")
             }
         }

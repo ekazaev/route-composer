@@ -31,7 +31,7 @@ public struct GeneralStep {
 
         func perform(with context: Any?) throws -> PerformableStepResult {
             guard let viewController = UIWindow.key?.topmostViewController else {
-                throw RoutingError.generic(RoutingError.Context(debugDescription: "Current view controller was not found."))
+                throw RoutingError.generic(RoutingError.Context(debugDescription: "Topmost view controller was not found."))
             }
             return .success(viewController)
         }

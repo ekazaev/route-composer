@@ -62,6 +62,8 @@
 		98D29E98C1D59AE354F0FA7FB058199F /* RoutingInterceptable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A5D4B8672C99A9FE229FF1B98E107D /* RoutingInterceptable.swift */; };
 		9AFBC1ABCA8E382463EBCBEF /* AnyPreparableEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCDD041ED66C96D3DF883 /* AnyPreparableEntity.swift */; };
 		9AFBC266247A9DE39ED2D47A /* LogMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCBFD109211A197D546FD /* LogMessage.swift */; };
+		9AFBC591E7BB01B26FEB8E42 /* StackIterator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC1C9054E4BA0CF9938B3 /* StackIterator.swift */; };
+		9AFBC7FB4E960BEAD0A98BD6 /* DefaultStackIterator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC4EF9A82CC63C2E4F7F0 /* DefaultStackIterator.swift */; };
 		9AFBC8C4B0CE545600F5FDE3 /* BaseEntitiesCollector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC4332D0DAA3AECA106D8 /* BaseEntitiesCollector.swift */; };
 		9AFBCB4B5EA94ADC7C1D2F25 /* AbstractAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC2DA5ACBB963FA1B01A5 /* AbstractAction.swift */; };
 		9BEC4505AE49F998BDB882451369C718 /* StoryboardFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8592087A90FFE8D585557A1B3E4504A /* StoryboardFactory.swift */; };
@@ -197,8 +199,10 @@
 		94184CBA2796F14F17B1A3B2B2A6F310 /* RoutingResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RoutingResult.swift; path = RouteComposer/Classes/RoutingResult.swift; sourceTree = "<group>"; };
 		96596B2207527F65079B139B856025EA /* InterceptableStepAssembling.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = InterceptableStepAssembling.swift; sourceTree = "<group>"; };
 		99C747466EA72E423F88D41FF462ADB5 /* PostRoutingTask.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PostRoutingTask.swift; path = RouteComposer/Classes/PostRoutingTask.swift; sourceTree = "<group>"; };
+		9AFBC1C9054E4BA0CF9938B3 /* StackIterator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackIterator.swift; sourceTree = "<group>"; };
 		9AFBC2DA5ACBB963FA1B01A5 /* AbstractAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AbstractAction.swift; path = RouteComposer/Classes/AbstractAction.swift; sourceTree = "<group>"; };
 		9AFBC4332D0DAA3AECA106D8 /* BaseEntitiesCollector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseEntitiesCollector.swift; sourceTree = "<group>"; };
+		9AFBC4EF9A82CC63C2E4F7F0 /* DefaultStackIterator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultStackIterator.swift; sourceTree = "<group>"; };
 		9AFBCBFD109211A197D546FD /* LogMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogMessage.swift; sourceTree = "<group>"; };
 		9AFBCDD041ED66C96D3DF883 /* AnyPreparableEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyPreparableEntity.swift; sourceTree = "<group>"; };
 		9B3888F26A8CE1829240AC2132B9CE72 /* ActionConnecting.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ActionConnecting.swift; sourceTree = "<group>"; };
@@ -429,6 +433,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		8475C68F219389D200CE630E /* Stack Iterator */ = {
+			isa = PBXGroup;
+			children = (
+				9AFBC1C9054E4BA0CF9938B3 /* StackIterator.swift */,
+				9AFBC4EF9A82CC63C2E4F7F0 /* DefaultStackIterator.swift */,
+			);
+			path = "Stack Iterator";
+			sourceTree = "<group>";
+		};
 		85FA2ADE9604028E2FE32709C749CC63 /* Actions */ = {
 			isa = PBXGroup;
 			children = (
@@ -502,6 +515,7 @@
 		A11AA30CBC5AE95AC705898D6FEA89A4 /* Finders */ = {
 			isa = PBXGroup;
 			children = (
+				8475C68F219389D200CE630E /* Stack Iterator */,
 				B8822F3923B3261E87509EFA95EE1A54 /* ClassFinder.swift */,
 				4A8DFE39BF1557B0C97061D4B5096791 /* ClassWithContextFinder.swift */,
 				BB6D8914EE7F46603D406260EADAB1FB /* InstanceFinder.swift */,
@@ -817,6 +831,8 @@
 				9AFBC8C4B0CE545600F5FDE3 /* BaseEntitiesCollector.swift in Sources */,
 				9AFBC266247A9DE39ED2D47A /* LogMessage.swift in Sources */,
 				9AFBC1ABCA8E382463EBCBEF /* AnyPreparableEntity.swift in Sources */,
+				9AFBC591E7BB01B26FEB8E42 /* StackIterator.swift in Sources */,
+				9AFBC7FB4E960BEAD0A98BD6 /* DefaultStackIterator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -26,6 +26,14 @@ public extension UIViewController {
             return viewController
         }
 
+        if options.contains(.parent),
+           let parentViewController = viewController.parent,
+           let foundViewController = findViewController(in: parentViewController,
+                   options: [.current, .parent],
+                   using: comparator) {
+            return foundViewController
+        }
+
         if let container = viewController as? ContainerViewController {
             var viewControllers: [[UIViewController]] = []
             if options.contains(.visible) {
