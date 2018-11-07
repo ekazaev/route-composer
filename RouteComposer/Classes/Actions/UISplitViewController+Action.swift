@@ -30,20 +30,24 @@ public struct SplitViewControllerActions {
         init() {
         }
 
-        public func perform(embedding viewController: UIViewController, in childViewControllers: inout [UIViewController]) {
-            if !childViewControllers.isEmpty {
-                childViewControllers.insert(viewController, at: 0)
-            } else {
-                childViewControllers.append(viewController)
-            }
+        public func perform(embedding viewController: UIViewController, in childViewControllers: inout [UIViewController]) throws {
+            integrate(viewController: viewController, in: &childViewControllers)
         }
 
         public func perform(with viewController: UIViewController,
                             on splitViewController: ViewController,
                             animated: Bool,
                             completion: @escaping (_: ActionResult) -> Void) {
-            splitViewController.viewControllers[0] = viewController
+            integrate(viewController: viewController, in: &splitViewController.viewControllers)
             completion(.continueRouting)
+        }
+        
+        private func integrate(viewController: UIViewController, in childViewControllers: inout [UIViewController]) {
+            if childViewControllers.isEmpty {
+                childViewControllers.append(viewController)
+            } else {
+                childViewControllers[0] = viewController
+            }
         }
 
     }
@@ -53,6 +57,14 @@ public struct SplitViewControllerActions {
 
         /// Constructor
         init() {
+        }
+
+        public func perform(embedding viewController: UIViewController, in childViewControllers: inout [UIViewController]) throws {
+            guard childViewControllers.count > 0 else {
+                throw RoutingError.compositionFailed(RoutingError.Context(debugDescription: "Master view controller is not set in " +
+                        "UISplitViewController to present a detail view controller \(viewController)."))
+            }
+            childViewControllers.append(viewController)
         }
 
         public func perform(with viewController: UIViewController,

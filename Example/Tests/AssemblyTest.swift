@@ -124,4 +124,11 @@ class AssemblyTest: XCTestCase {
         XCTAssertNotNil(assembly.taskCollector.getContextTasksBoxed())
         XCTAssertNotNil(assembly.taskCollector.getPostTasksBoxed())
     }
+
+    func testActionToStepIntegrator() {
+        let integrator = ActionToStepIntegrator<NilFinder<UIViewController, Any>, NilFactory<UIViewController, Any>>()
+        XCTAssertNil(integrator.routingStep(with: ViewControllerActions.NilAction()))
+        XCTAssertNil(integrator.embeddableRoutingStep(with: UINavigationController.pushToNavigation()))
+    }
+
 }

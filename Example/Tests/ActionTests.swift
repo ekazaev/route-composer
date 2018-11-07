@@ -207,7 +207,74 @@ class ActionTests: XCTestCase {
         })
         XCTAssertTrue(wasInCompletion)
         XCTAssertEqual(tabBarController.viewControllers?.count, 1)
-        XCTAssertTrue(tabBarController.viewControllers?.removeFirst() === viewController)
+        XCTAssertTrue(tabBarController.viewControllers?.first === viewController)
+    }
+
+    func testSetAsMasterInSplit() {
+        var viewControllerStack: [UIViewController] = []
+        try? UISplitViewController.setAsMaster().perform(embedding: UIViewController(), in: &viewControllerStack)
+        XCTAssertEqual(viewControllerStack.count, 1)
+
+        try? UISplitViewController.setAsMaster().perform(embedding: UIViewController(), in: &viewControllerStack)
+        XCTAssertEqual(viewControllerStack.count, 1)
+
+        viewControllerStack.append(UIViewController())
+
+        try? UISplitViewController.setAsMaster().perform(embedding: UIViewController(), in: &viewControllerStack)
+        XCTAssertEqual(viewControllerStack.count, 2)
+
+        var wasInCompletion = false
+        let splitController = UISplitViewController()
+        let viewController = UIViewController()
+        UISplitViewController.setAsMaster().perform(with: viewController, on: splitController, animated: false) { result in
+            wasInCompletion = true
+            if case .failure(_) = result {
+                XCTAssert(false)
+            }
+        }
+        XCTAssertTrue(wasInCompletion)
+        XCTAssertEqual(splitController.viewControllers.count, 1)
+        XCTAssertTrue(splitController.viewControllers.first === viewController)
+    }
+
+    func testSetAsDetailInSplit() {
+        var viewControllerStack: [UIViewController] = []
+        XCTAssertThrowsError(try UISplitViewController.pushToDetails().perform(embedding: UIViewController(), in: &viewControllerStack))
+
+        viewControllerStack.append(UIViewController())
+
+        try? UISplitViewController.pushToDetails().perform(embedding: UIViewController(), in: &viewControllerStack)
+        XCTAssertEqual(viewControllerStack.count, 2)
+
+        let lastViewController = UIViewController()
+        try? UISplitViewController.pushToDetails().perform(embedding: lastViewController, in: &viewControllerStack)
+        XCTAssertEqual(viewControllerStack.count, 3)
+        XCTAssertEqual(viewControllerStack.last, lastViewController)
+
+        var wasInCompletion = false
+        let splitController = UISplitViewController()
+        let viewController = UIViewController()
+        UISplitViewController.pushToDetails().perform(with: viewController, on: splitController, animated: false) { result in
+            wasInCompletion = true
+            if case .continueRouting = result {
+                XCTAssert(false)
+            }
+        }
+        XCTAssertTrue(wasInCompletion)
+        XCTAssertEqual(splitController.viewControllers.count, 0)
+
+
+        wasInCompletion = false
+        splitController.viewControllers = [UIViewController()]
+        UISplitViewController.pushToDetails().perform(with: viewController, on: splitController, animated: false) { result in
+            wasInCompletion = true
+            if case .failure(_) = result {
+                XCTAssert(false)
+            }
+        }
+        XCTAssertTrue(wasInCompletion)
+        XCTAssertEqual(splitController.viewControllers.count, 2)
+        XCTAssertTrue(splitController.viewControllers.last === viewController)
     }
 
 }

@@ -123,6 +123,15 @@ class ContainerTests: XCTestCase {
         XCTAssertEqual(viewController?.viewControllers?.count, 1)
     }
 
+    func testCompleteFactoryDescription() {
+        var children: [DelayedIntegrationFactory<Any?>] = []
+        children.append(DelayedIntegrationFactory<Any?>(FactoryBox(EmptyFactory(), action: ContainerActionBox(UITabBarController.addTab()))!))
+        children.append(DelayedIntegrationFactory<Any?>(FactoryBox(EmptyFactory(), action: ContainerActionBox(UITabBarController.addTab()))!))
+        try? prepare(children: &children)
+        let factory = CompleteFactory(factory: TabBarControllerFactory(), childFactories: children)
+        XCTAssertEqual(factory.description, "TabBarControllerFactory<Optional<Any>>(delegate: nil, configuration: nil)")
+    }
+
     private func prepare(children: inout [DelayedIntegrationFactory<Any?>]) throws {
         children = try children.map({
             var factory = $0

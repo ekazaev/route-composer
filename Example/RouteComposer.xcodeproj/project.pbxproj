@@ -61,6 +61,7 @@
 		9AFBC6A3A55CCF3FC18F1978 /* ImagesConfigurationWithLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC5AF9638E4E5B1D1E443 /* ImagesConfigurationWithLibrary.swift */; };
 		9AFBC6DD79F2059D9547629A /* ImagesFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC7681CD469FE6EB77EC1 /* ImagesFactory.swift */; };
 		9AFBC71B05DD36CEA9519B11 /* ImageDetailsFetcherImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC33219CADD6450A6392E /* ImageDetailsFetcherImpl.swift */; };
+		9AFBC7B044DF4416BD93D7C5 /* FiderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC067DF4E4C264D1840B2 /* FiderTests.swift */; };
 		9AFBC82E50CBF47FB0A0F2D1 /* CityURLTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBCE5527D371C559C69F9E /* CityURLTranslator.swift */; };
 		9AFBC846927D38441DCA0296 /* WishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC80C4D57303B27914E81 /* WishListViewController.swift */; };
 		9AFBC85A77E2623434CDC7B1 /* CustomContainerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC00AF5B223BFDB589161 /* CustomContainerFactory.swift */; };
@@ -202,6 +203,7 @@
 		84C1D86390083DF185C460C2 /* Pods-RouteComposer_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RouteComposer_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RouteComposer_Tests/Pods-RouteComposer_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		99737A56A3D37A621574DCAB /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		9AFBC00AF5B223BFDB589161 /* CustomContainerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomContainerFactory.swift; sourceTree = "<group>"; };
+		9AFBC067DF4E4C264D1840B2 /* FiderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiderTests.swift; sourceTree = "<group>"; };
 		9AFBC0A54CF3E1EFC4DB61C0 /* StarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarViewController.swift; sourceTree = "<group>"; };
 		9AFBC13BCBBF072FA2CE5A48 /* ImagesWithoutLibraryConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesWithoutLibraryConfiguration.swift; sourceTree = "<group>"; };
 		9AFBC16A7AED73A4F3C744F7 /* WishListContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WishListContext.swift; sourceTree = "<group>"; };
@@ -356,6 +358,7 @@
 				9AFBCBC0A933CA5103371E7F /* ExtensionsTest.swift */,
 				9AFBC3EAF6F5AD7A7A7D9390 /* AssemblyTest.swift */,
 				9AFBCBADEEB6A4EDCAD336BF /* DestinationStepTests.swift */,
+				9AFBC067DF4E4C264D1840B2 /* FiderTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -873,6 +876,7 @@
 				9AFBC562353240A11591683E /* ExtensionsTest.swift in Sources */,
 				9AFBC2C9FD5634435876E1FB /* AssemblyTest.swift in Sources */,
 				9AFBC98004695AD801CF23AD /* DestinationStepTests.swift in Sources */,
+				9AFBC7B044DF4416BD93D7C5 /* FiderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

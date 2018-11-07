@@ -20,7 +20,7 @@ public protocol ContainerAction: AbstractAction where ViewController: ContainerV
     /// - Parameters:
     ///   - viewController: The `UIViewController` to be embedded.
     ///   - childViewControllers: The stack of the `UIViewController`s in the current container.
-    func perform(embedding viewController: UIViewController, in childViewControllers: inout [UIViewController])
+    func perform(embedding viewController: UIViewController, in childViewControllers: inout [UIViewController]) throws
 
 }
 

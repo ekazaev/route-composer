@@ -15,7 +15,7 @@ protocol AnyAction {
                  completion: @escaping (_: ActionResult) -> Void)
 
     func perform(embedding viewController: UIViewController,
-                 in childViewControllers: inout [UIViewController])
+                 in childViewControllers: inout [UIViewController]) throws
 
 }
 
@@ -76,8 +76,8 @@ struct ContainerActionBox<A: ContainerAction>: AnyAction, AnyActionBox, CustomSt
         action.perform(with: viewController, on: containerController, animated: animated, completion: completion)
     }
 
-    func perform(embedding viewController: UIViewController, in childViewControllers: inout [UIViewController]) {
-        action.perform(embedding: viewController, in: &childViewControllers)
+    func perform(embedding viewController: UIViewController, in childViewControllers: inout [UIViewController]) throws {
+        try action.perform(embedding: viewController, in: &childViewControllers)
     }
 
     public var description: String {

@@ -36,11 +36,29 @@ class FactoryTest: XCTestCase {
         let navigationController = UINavigationController()
         let factory = FinderFactory<RouterTests.FakeClassFinder<UINavigationController, Any?>>(finder: RouterTests.FakeClassFinder(currentViewController: navigationController))
         XCTAssertEqual(try factory?.build(with: nil), navigationController)
+
+        struct NothingFinder<VC: UIViewController, C>: Finder {
+            func findViewController(with context: C) -> VC? {
+                return nil
+            }
+        }
+        let throwsFactory = FinderFactory<NothingFinder<UIViewController, Any?>>(finder: NothingFinder())
+        XCTAssertThrowsError(try throwsFactory?.build(with: nil))
     }
 
     func testNilFactory() {
         let factory = NilFactory<UIViewController, Any?>()
         XCTAssertThrowsError(try factory.build())
+    }
+
+    func testDelayedIntegrationFactory() {
+        var viewControllerStack: [UIViewController] = []
+        let factory = ClassNameFactory<UIViewController, Any?>()
+        var delayedFactory = DelayedIntegrationFactory<Any?>(FactoryBox(factory, action: ContainerActionBox(UINavigationController.pushToNavigation()))!)
+        XCTAssertNoThrow(try delayedFactory.prepare(with: nil))
+        XCTAssertNoThrow(try delayedFactory.build(with: nil, in: &viewControllerStack))
+        XCTAssertEqual(viewControllerStack.count, 1)
+        XCTAssertEqual(delayedFactory.description, "ClassNameFactory<UIViewController, Optional<Any>>(viewControllerName: nil)")
     }
 
 }
