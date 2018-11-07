@@ -407,6 +407,7 @@ English:
 Russian:
 
   - [Композиция UIViewController-ов и навигация между ними](https://habr.com/post/421097/)
+  - [Примеры конфигурации UIViewController-ов используя RouteComposer](https://habr.com/post/428990/)
 
 ## Author
 
