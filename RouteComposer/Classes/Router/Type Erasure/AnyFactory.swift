@@ -41,9 +41,10 @@ extension AnyFactoryBox where Self: AnyFactory {
 
 }
 
-extension AnyFactoryBox where Self: PreparableAnyFactory {
+extension AnyFactoryBox where Self: PreparableAnyFactory, Self: MainThreadChecking {
 
     mutating func prepare(with context: Any?) throws {
+        assertIfNotMainThread()
         guard let typedContext = Any?.some(context as Any) as? FactoryType.Context else {
             throw RoutingError.typeMismatch(FactoryType.Context.self, RoutingError.Context(debugDescription: "\(String(describing: factory.self)) does " +
                     "not accept \(String(describing: context.self)) as a context."))
@@ -62,7 +63,7 @@ extension AnyFactory where Self: CustomStringConvertible & AnyFactoryBox {
 
 }
 
-struct FactoryBox<F: Factory>: PreparableAnyFactory, AnyFactoryBox, CustomStringConvertible {
+struct FactoryBox<F: Factory>: PreparableAnyFactory, AnyFactoryBox, MainThreadChecking, CustomStringConvertible {
 
     typealias FactoryType = F
 
@@ -85,13 +86,14 @@ struct FactoryBox<F: Factory>: PreparableAnyFactory, AnyFactoryBox, CustomString
             throw RoutingError.typeMismatch(FactoryType.Context.self, RoutingError.Context(debugDescription: "\(String(describing: factory.self)) does " +
                     "not accept \(String(describing: context.self)) as a context."))
         }
+        assertIfNotMainThread()
         assertIfNotPrepared()
         return try factory.build(with: typedContext)
     }
 
 }
 
-struct ContainerFactoryBox<F: ContainerFactory>: PreparableAnyFactory, AnyFactoryBox, CustomStringConvertible {
+struct ContainerFactoryBox<F: ContainerFactory>: PreparableAnyFactory, AnyFactoryBox, MainThreadChecking, CustomStringConvertible {
 
     typealias FactoryType = F
 
@@ -118,7 +120,7 @@ struct ContainerFactoryBox<F: ContainerFactory>: PreparableAnyFactory, AnyFactor
                 otherFactories.append(child)
                 return nil
             }
-            return DelayedIntegrationFactory(child, isPrepared: true)
+            return DelayedIntegrationFactory(child)
         })
         return otherFactories
     }
@@ -128,6 +130,7 @@ struct ContainerFactoryBox<F: ContainerFactory>: PreparableAnyFactory, AnyFactor
             throw RoutingError.typeMismatch(FactoryType.Context.self, RoutingError.Context(debugDescription: "\(String(describing: factory.self)) does " +
                     "not accept \(String(describing: context.self)) as a context."))
         }
+        assertIfNotMainThread()
         assertIfNotPrepared()
         return try factory.build(with: typedContext, integrating: ChildCoordinator(childFactories: children))
     }

@@ -5,7 +5,6 @@
 import Foundation
 import UIKit
 
-/// Non type safe boxing wrapper for RoutingInterceptor protocol
 protocol AnyRoutingInterceptor {
 
     mutating func prepare(with context: Any?) throws
@@ -14,7 +13,7 @@ protocol AnyRoutingInterceptor {
 
 }
 
-struct RoutingInterceptorBox<R: RoutingInterceptor>: AnyRoutingInterceptor, AnyPreparableEntity, CustomStringConvertible {
+struct RoutingInterceptorBox<R: RoutingInterceptor>: AnyRoutingInterceptor, AnyPreparableEntity, CustomStringConvertible, MainThreadChecking {
 
     var routingInterceptor: R
 
@@ -41,7 +40,11 @@ struct RoutingInterceptorBox<R: RoutingInterceptor>: AnyRoutingInterceptor, AnyP
             return
         }
         assertIfNotPrepared()
-        routingInterceptor.execute(with: typedDestination, completion: completion)
+        assertIfNotMainThread()
+        routingInterceptor.execute(with: typedDestination) { result in
+            self.assertIfNotMainThread()
+            completion(result)
+        }
     }
 
     var description: String {

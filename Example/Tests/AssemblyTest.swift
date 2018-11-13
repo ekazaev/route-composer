@@ -120,9 +120,9 @@ class AssemblyTest: XCTestCase {
                 }))
                 .adding(InlinePostTask({ (_: RouterTests.TestViewController, _: Any?, _: [UIViewController]) in
                 }))
-        XCTAssertNotNil(assembly.taskCollector.getInterceptorsBoxed())
-        XCTAssertNotNil(assembly.taskCollector.getContextTasksBoxed())
-        XCTAssertNotNil(assembly.taskCollector.getPostTasksBoxed())
+        XCTAssertNotNil(assembly.taskCollector.interceptor)
+        XCTAssertNotNil(assembly.taskCollector.contextTask)
+        XCTAssertNotNil(assembly.taskCollector.postTask)
     }
 
     func testActionToStepIntegrator() {

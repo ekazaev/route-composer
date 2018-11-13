@@ -5,11 +5,11 @@
 import Foundation
 import UIKit
 
-struct BaseEntitiesCollector<FactoryBoxer: AnyFactoryBox, ActionBoxer: AnyActionBox> {
+struct BaseEntitiesCollector<FactoryBoxer: AnyFactoryBox, ActionBoxer: AnyActionBox>: EntitiesProvider {
 
-    private let factory: AnyFactory?
+    let factory: AnyFactory?
 
-    private let finder: AnyFinder?
+    let finder: AnyFinder?
 
     init<F: Finder>(finder: F, factory: FactoryBoxer.FactoryType, action: ActionBoxer.ActionType)
             where F.ViewController == FactoryBoxer.FactoryType.ViewController, F.Context == FactoryBoxer.FactoryType.Context {
@@ -22,14 +22,6 @@ struct BaseEntitiesCollector<FactoryBoxer: AnyFactoryBox, ActionBoxer: AnyAction
         } else {
             self.factory = nil
         }
-    }
-
-    func getFinderBoxed() -> AnyFinder? {
-        return finder
-    }
-
-    func getFactoryBoxed() -> AnyFactory? {
-        return factory
     }
 
 }

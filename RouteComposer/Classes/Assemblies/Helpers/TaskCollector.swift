@@ -4,7 +4,7 @@
 
 import Foundation
 
-struct TaskCollector {
+struct TaskCollector: TaskProvider {
 
     private var interceptors: [AnyRoutingInterceptor] = []
 
@@ -24,15 +24,15 @@ struct TaskCollector {
         self.postTasks.append(PostRoutingTaskBox(postTask))
     }
 
-    func getInterceptorsBoxed() -> AnyRoutingInterceptor? {
+    var interceptor: AnyRoutingInterceptor? {
         return !interceptors.isEmpty ? interceptors.count == 1 ? interceptors.first : InterceptorMultiplexer(interceptors) : nil
     }
 
-    func getContextTasksBoxed() -> AnyContextTask? {
+    var contextTask: AnyContextTask? {
         return !contextTasks.isEmpty ? contextTasks.count == 1 ? contextTasks.first : ContextTaskMultiplexer(contextTasks) : nil
     }
 
-    func getPostTasksBoxed() -> AnyPostRoutingTask? {
+    var postTask: AnyPostRoutingTask? {
         return !postTasks.isEmpty ? postTasks.count == 1 ? postTasks.first : PostRoutingTaskMultiplexer(postTasks) : nil
     }
 

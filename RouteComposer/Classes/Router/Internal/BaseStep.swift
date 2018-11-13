@@ -5,6 +5,23 @@
 import Foundation
 import UIKit
 
+protocol EntitiesProvider {
+
+    var finder: AnyFinder? { get }
+
+    var factory: AnyFactory? { get }
+
+}
+
+protocol TaskProvider {
+
+    var interceptor: AnyRoutingInterceptor? { get }
+
+    var contextTask: AnyContextTask? { get }
+
+    var postTask: AnyPostRoutingTask? { get }
+}
+
 struct BaseStep: RoutingStep,
         ChainableStep,
         ChainingStep,
@@ -24,16 +41,13 @@ struct BaseStep: RoutingStep,
 
     let contextTask: AnyContextTask?
 
-    init(finder: AnyFinder?,
-         factory: AnyFactory?,
-         interceptor: AnyRoutingInterceptor?,
-         contextTask: AnyContextTask?,
-         postTask: AnyPostRoutingTask?) {
-        self.finder = finder
-        self.factory = factory
-        self.interceptor = interceptor
-        self.contextTask = contextTask
-        self.postTask = postTask
+    init(entitiesProvider: EntitiesProvider,
+         taskProvider: TaskProvider) {
+        self.finder = entitiesProvider.finder
+        self.factory = entitiesProvider.factory
+        self.interceptor = taskProvider.interceptor
+        self.contextTask = taskProvider.contextTask
+        self.postTask = taskProvider.postTask
     }
 
     func perform(with context: Any?) throws -> PerformableStepResult {

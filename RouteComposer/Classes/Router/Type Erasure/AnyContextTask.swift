@@ -8,7 +8,6 @@
 import Foundation
 import UIKit
 
-/// Non type safe boxing wrapper for ContextTask protocol
 protocol AnyContextTask {
 
     mutating func prepare(with context: Any?) throws
@@ -17,7 +16,7 @@ protocol AnyContextTask {
 
 }
 
-struct ContextTaskBox<CT: ContextTask>: AnyContextTask, AnyPreparableEntity, CustomStringConvertible {
+struct ContextTaskBox<CT: ContextTask>: AnyContextTask, AnyPreparableEntity, MainThreadChecking, CustomStringConvertible {
 
     var contextTask: CT
 
@@ -42,6 +41,7 @@ struct ContextTaskBox<CT: ContextTask>: AnyContextTask, AnyPreparableEntity, Cus
             throw RoutingError.typeMismatch(CT.Context.self, RoutingError.Context(debugDescription: "\(String(describing: contextTask.self)) does not " +
                     "accept \(String(describing: context.self)) as a context."))
         }
+        assertIfNotMainThread()
         assertIfNotPrepared()
         try contextTask.apply(on: typedViewController, with: typedContext)
     }

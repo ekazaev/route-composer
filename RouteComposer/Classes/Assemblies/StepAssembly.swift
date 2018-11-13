@@ -45,12 +45,7 @@ public final class StepAssembly<F: Finder, FC: Factory>: GenericStepAssembly<F.V
     public func using<A: Action>(_ action: A) -> StepChainAssembly<ViewController, Context> {
         var previousSteps = self.previousSteps
         let entitiesCollector = BaseEntitiesCollector<FactoryBox<FC>, ActionBox>(finder: finder, factory: factory, action: action)
-        let step = BaseStep(
-                finder: entitiesCollector.getFinderBoxed(),
-                factory: entitiesCollector.getFactoryBoxed(),
-                interceptor: taskCollector.getInterceptorsBoxed(),
-                contextTask: taskCollector.getContextTasksBoxed(),
-                postTask: taskCollector.getPostTasksBoxed())
+        let step = BaseStep(entitiesProvider: entitiesCollector, taskProvider: taskCollector)
         previousSteps.append(step)
         return StepChainAssembly(previousSteps: previousSteps)
     }
@@ -58,12 +53,7 @@ public final class StepAssembly<F: Finder, FC: Factory>: GenericStepAssembly<F.V
     public func using<A: ContainerAction>(_ action: A) -> ContainerStepChainAssembly<A.ViewController, ViewController, Context> {
         var previousSteps = self.previousSteps
         let entitiesCollector = BaseEntitiesCollector<FactoryBox<FC>, ContainerActionBox>(finder: finder, factory: factory, action: action)
-        let step = BaseStep(
-                finder: entitiesCollector.getFinderBoxed(),
-                factory: entitiesCollector.getFactoryBoxed(),
-                interceptor: taskCollector.getInterceptorsBoxed(),
-                contextTask: taskCollector.getContextTasksBoxed(),
-                postTask: taskCollector.getPostTasksBoxed())
+        let step = BaseStep(entitiesProvider: entitiesCollector, taskProvider: taskCollector)
         previousSteps.append(step)
         return ContainerStepChainAssembly(previousSteps: previousSteps)
     }
@@ -81,12 +71,7 @@ public extension StepAssembly where FC: NilEntity {
             where AF.Context == Context {
         var previousSteps = self.previousSteps
         let entitiesCollector = BaseEntitiesCollector<FactoryBox<FC>, ActionBox>(finder: finder, factory: factory, action: ViewControllerActions.NilAction())
-        let currentStep = BaseStep(
-                finder: entitiesCollector.getFinderBoxed(),
-                factory: entitiesCollector.getFactoryBoxed(),
-                interceptor: taskCollector.getInterceptorsBoxed(),
-                contextTask: taskCollector.getContextTasksBoxed(),
-                postTask: taskCollector.getPostTasksBoxed())
+        let currentStep = BaseStep(entitiesProvider: entitiesCollector, taskProvider: taskCollector)
         previousSteps.append(currentStep)
         return ActionConnectingAssembly(stepToFullFill: step, previousSteps: previousSteps)
     }
@@ -99,12 +84,7 @@ public extension StepAssembly where FC: NilEntity {
     public func from<VC: UIViewController>(_ step: DestinationStep<VC, Context>) -> LastStepInChainAssembly<ViewController, Context> {
         var previousSteps = self.previousSteps
         let entitiesCollector = BaseEntitiesCollector<FactoryBox<FC>, ActionBox>(finder: finder, factory: factory, action: ViewControllerActions.NilAction())
-        let currentStep = BaseStep(
-                finder: entitiesCollector.getFinderBoxed(),
-                factory: entitiesCollector.getFactoryBoxed(),
-                interceptor: taskCollector.getInterceptorsBoxed(),
-                contextTask: taskCollector.getContextTasksBoxed(),
-                postTask: taskCollector.getPostTasksBoxed())
+        let currentStep = BaseStep(entitiesProvider: entitiesCollector, taskProvider: taskCollector)
         previousSteps.append(currentStep)
         previousSteps.append(step)
         return LastStepInChainAssembly(previousSteps: previousSteps)

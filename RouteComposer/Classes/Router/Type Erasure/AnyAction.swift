@@ -27,7 +27,7 @@ protocol AnyActionBox: AnyAction {
 
 }
 
-struct ActionBox<A: Action>: AnyAction, AnyActionBox, CustomStringConvertible {
+struct ActionBox<A: Action>: AnyAction, AnyActionBox, CustomStringConvertible, MainThreadChecking {
 
     let action: A
 
@@ -43,7 +43,11 @@ struct ActionBox<A: Action>: AnyAction, AnyActionBox, CustomStringConvertible {
                     "be performed on \(existingController)."))))
             return
         }
-        action.perform(with: viewController, on: typedExistingViewController, animated: animated, completion: completion)
+        assertIfNotMainThread()
+        action.perform(with: viewController, on: typedExistingViewController, animated: animated) { result in
+            self.assertIfNotMainThread()
+            completion(result)
+        }
     }
 
     func perform(embedding viewController: UIViewController, in childViewControllers: inout [UIViewController]) {
@@ -56,7 +60,7 @@ struct ActionBox<A: Action>: AnyAction, AnyActionBox, CustomStringConvertible {
 
 }
 
-struct ContainerActionBox<A: ContainerAction>: AnyAction, AnyActionBox, CustomStringConvertible {
+struct ContainerActionBox<A: ContainerAction>: AnyAction, AnyActionBox, CustomStringConvertible, MainThreadChecking {
 
     let action: A
 
@@ -72,8 +76,11 @@ struct ContainerActionBox<A: ContainerAction>: AnyAction, AnyActionBox, CustomSt
                     "\(String(describing: ActionType.ViewController.self)) type cannot be found to perform \(action)"))))
             return
         }
-
-        action.perform(with: viewController, on: containerController, animated: animated, completion: completion)
+        assertIfNotMainThread()
+        action.perform(with: viewController, on: containerController, animated: animated) { result in
+            self.assertIfNotMainThread()
+            completion(result)
+        }
     }
 
     func perform(embedding viewController: UIViewController, in childViewControllers: inout [UIViewController]) throws {

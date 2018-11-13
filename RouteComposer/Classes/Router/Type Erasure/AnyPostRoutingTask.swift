@@ -5,7 +5,6 @@
 import Foundation
 import UIKit
 
-/// Non type safe boxing wrapper for PostRoutingTask protocol
 protocol AnyPostRoutingTask {
 
     func execute(on viewController: UIViewController,
@@ -14,7 +13,7 @@ protocol AnyPostRoutingTask {
 
 }
 
-struct PostRoutingTaskBox<P: PostRoutingTask>: AnyPostRoutingTask, CustomStringConvertible {
+struct PostRoutingTaskBox<P: PostRoutingTask>: AnyPostRoutingTask, MainThreadChecking, CustomStringConvertible {
 
     let postRoutingTask: P
 
@@ -33,6 +32,7 @@ struct PostRoutingTaskBox<P: PostRoutingTask>: AnyPostRoutingTask, CustomStringC
             throw RoutingError.typeMismatch(P.Context.self, RoutingError.Context(debugDescription: "\(String(describing: postRoutingTask.self)) does not accept" +
                     "  \(String(describing: context.self)) as a context."))
         }
+        assertIfNotMainThread()
         postRoutingTask.execute(on: typedViewController, with: typedDestination, routingStack: routingStack)
     }
 

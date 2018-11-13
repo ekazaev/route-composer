@@ -6,7 +6,7 @@
 import UIKit
 
 /// Default `Router` implementation
-public struct DefaultRouter: Router, InterceptableRouter {
+public struct DefaultRouter: Router, InterceptableRouter, MainThreadChecking {
 
     /// A `Logger` instance to be used by `DefaultRouter`.
     public let logger: Logger?
@@ -40,9 +40,7 @@ public struct DefaultRouter: Router, InterceptableRouter {
                                                                     with context: Context,
                                                                     animated: Bool = true,
                                                                     completion: ((_: RoutingResult) -> Void)? = nil) throws {
-        guard Thread.isMainThread else {
-            throw RoutingError.generic(RoutingError.Context(debugDescription: "UI API called on a background thread."))
-        }
+        assertIfNotMainThread()
 
         let taskStack = try prepareTaskStack(with: context)
 
@@ -63,13 +61,10 @@ public struct DefaultRouter: Router, InterceptableRouter {
         // Executes interceptors associated to each view in the chain. All the interceptors must succeed to
         // continue navigation process. This operation is async.
         taskStack.executeInterceptors { [weak viewController] result in
+            self.assertIfNotMainThread()
+
             if case let .failure(error) = result {
                 completion?(.unhandled(error))
-                return
-            }
-
-            guard Thread.isMainThread else {
-                completion?(.unhandled(RoutingError.generic(RoutingError.Context(debugDescription: "UI API called on a background thread."))))
                 return
             }
 
@@ -209,6 +204,7 @@ public struct DefaultRouter: Router, InterceptableRouter {
                 logger?.log(.info("\(String(describing: factory)) built a " +
                         "\(String(describing: newViewController))."))
                 factory.action.perform(with: newViewController, on: previousViewController, animated: animated) { result in
+                    self.assertIfNotMainThread()
                     if case let .failure(error) = result {
                         self.logger?.log(.error("\(String(describing: factory.action)) has stopped the navigation process " +
                                 "as it was not able to build a view controller in to a stack."))

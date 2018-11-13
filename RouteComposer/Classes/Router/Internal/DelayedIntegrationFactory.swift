@@ -12,7 +12,7 @@ struct DelayedIntegrationFactory<Context>: CustomStringConvertible {
 
     var factory: AnyFactory
 
-    init(_ factory: AnyFactory, isPrepared: Bool = false) {
+    init(_ factory: AnyFactory) {
         self.factory = factory
     }
 

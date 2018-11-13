@@ -110,18 +110,18 @@ class BoxTests: XCTestCase {
     func testBaseEntitiesCollector() {
         let collector = BaseEntitiesCollector<FactoryBox<ClassNameFactory>, ActionBox>(finder: ClassFinder<UIViewController, Any?>(),
                 factory: ClassNameFactory<UIViewController, Any?>(), action: GeneralAction.replaceRoot())
-        XCTAssertNotNil(collector.getFinderBoxed())
-        XCTAssertNotNil(collector.getFactoryBoxed())
-        XCTAssertTrue(collector.getFinderBoxed() is FinderBox<ClassFinder<UIViewController, Any?>>)
-        XCTAssertTrue(collector.getFactoryBoxed() is FactoryBox<ClassNameFactory<UIViewController, Any?>>)
-        XCTAssertTrue(collector.getFactoryBoxed()?.action is ActionBox<ViewControllerActions.ReplaceRootAction>)
+        XCTAssertNotNil(collector.finder)
+        XCTAssertNotNil(collector.factory)
+        XCTAssertTrue(collector.finder is FinderBox<ClassFinder<UIViewController, Any?>>)
+        XCTAssertTrue(collector.factory is FactoryBox<ClassNameFactory<UIViewController, Any?>>)
+        XCTAssertTrue(collector.factory?.action is ActionBox<ViewControllerActions.ReplaceRootAction>)
     }
 
     func testNilBaseEntitiesCollector() {
         let collector = BaseEntitiesCollector<FactoryBox<NilFactory>, ActionBox>(finder: NilFinder<UIViewController, Any?>(),
                 factory: NilFactory(), action: ViewControllerActions.NilAction())
-        XCTAssertNil(collector.getFinderBoxed())
-        XCTAssertNil(collector.getFactoryBoxed())
+        XCTAssertNil(collector.finder)
+        XCTAssertNil(collector.factory)
     }
 
 }
