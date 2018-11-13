@@ -10,9 +10,11 @@ protocol MainThreadChecking {
 
 extension MainThreadChecking {
 
-    func assertIfNotMainThread(functionName: String = #function) {
+    func assertIfNotMainThread(functionName: String = #function, logger: Logger? = nil) {
         if !Thread.isMainThread {
-            assertionFailure("Method \(functionName) requires to be called on the main thread.")
+            let errorMessage = "Method \(functionName) requires to be called on the main thread."
+            logger?.log(.error(errorMessage))
+            assertionFailure(errorMessage)
         }
     }
 

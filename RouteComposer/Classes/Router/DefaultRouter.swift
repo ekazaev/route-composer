@@ -40,7 +40,7 @@ public struct DefaultRouter: Router, InterceptableRouter, MainThreadChecking {
                                                                     with context: Context,
                                                                     animated: Bool = true,
                                                                     completion: ((_: RoutingResult) -> Void)? = nil) throws {
-        assertIfNotMainThread()
+        assertIfNotMainThread(logger: logger)
 
         let taskStack = try prepareTaskStack(with: context)
 
@@ -61,7 +61,7 @@ public struct DefaultRouter: Router, InterceptableRouter, MainThreadChecking {
         // Executes interceptors associated to each view in the chain. All the interceptors must succeed to
         // continue navigation process. This operation is async.
         taskStack.executeInterceptors { [weak viewController] result in
-            self.assertIfNotMainThread()
+            self.assertIfNotMainThread(logger: self.logger)
 
             if case let .failure(error) = result {
                 completion?(.unhandled(error))
@@ -204,16 +204,15 @@ public struct DefaultRouter: Router, InterceptableRouter, MainThreadChecking {
                 logger?.log(.info("\(String(describing: factory)) built a " +
                         "\(String(describing: newViewController))."))
                 factory.action.perform(with: newViewController, on: previousViewController, animated: animated) { result in
-                    self.assertIfNotMainThread()
+                    self.assertIfNotMainThread(logger: self.logger)
                     if case let .failure(error) = result {
                         self.logger?.log(.error("\(String(describing: factory.action)) has stopped the navigation process " +
-                                "as it was not able to build a view controller in to a stack."))
+                                "as it was not able to build a view controller into a stack."))
                         completion(newViewController, .unhandled(error))
                         return
                     }
                     self.logger?.log(.info("\(String(describing: factory.action)) has applied to " +
-                            "\(String(describing: previousViewController)) with " +
-                            "\(String(describing: newViewController))."))
+                            "\(String(describing: previousViewController)) with \(String(describing: newViewController))."))
                     buildViewController(from: newViewController)
                 }
             } catch let error {

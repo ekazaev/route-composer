@@ -280,7 +280,7 @@ let productScreen = StepAssembly(finder: ProductViewControllerFinder(), factory:
 This configuration means:
 
 * Use `ProductViewControllerFinder` to potentially **find** an existing product view controller in the stack, or **create** it using `ProductViewControllerFactory` if it has not been found.
-* If it was created **push** it in to navigation stack
+* If it was created **push** it into a navigation stack
 * Navigation stack should be provided from another step `NavigationControllerStep`, that will create a `UINavigationController` instance
 * The `UINavigationController` instance should be presented modally from any currently visible view controller.
 * Before routing run `LoginInterceptor`
@@ -295,7 +295,7 @@ After you have implemented all necessary classes and configured a routing step, 
 a `DefaultRouter` which is an implementation of the `Router` protocol to handle routing based on the configuration explained above.
 
 *Example: The user taps on a cell in a `UITableView`. It then asks the router to navigate the user to `ProductViewController`. The user
-should be logged in to see the product details.*
+should be logged into see the product details.*
 
 ```swift
 

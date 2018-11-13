@@ -70,7 +70,7 @@ It will work if the user is not in some `UIViewController` that is presented mod
             factory: XibFactory())
             .using(UINavigationController.PushToNavigation())
             .from(SwitchAssembly<UINavigationController, Any?>()
-                    .addCase(expecting: ClassFinder<UINavigationController, Any?>(options: .visible)) // If found - just push in to it
+                    .addCase(expecting: ClassFinder<UINavigationController, Any?>(options: .visible)) // If found - just push into it
                     .assemble(default: { // else
                         return ChainAssembly()
                                 .from(SingleContainerStep(finder: NilFinder(), factory: NavigationControllerFactory()))

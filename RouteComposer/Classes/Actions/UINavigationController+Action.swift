@@ -28,7 +28,7 @@ public extension ContainerViewController where Self: UINavigationController {
 /// Actions for `UINavigationController`
 public struct NavigationControllerActions {
 
-    /// Pushes a view controller in to `UINavigationController`'s child stack
+    /// Pushes a view controller into `UINavigationController`'s child stack
     public struct PushAction<ViewController: UINavigationController>: ContainerAction {
 
         /// Constructor
