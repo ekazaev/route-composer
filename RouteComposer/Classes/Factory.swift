@@ -29,6 +29,13 @@ public extension Factory {
     mutating func prepare(with context: Context) throws {
     }
 
+    /// Prepares the `Factory` and builds a `UIViewController`
+    func buildPrepared(with context: Context) throws -> ViewController {
+        var factory = self
+        try factory.prepare(with: context)
+        return try factory.build(with: context)
+    }
+
 }
 
 public extension Factory where Context == Any? {
@@ -36,6 +43,13 @@ public extension Factory where Context == Any? {
     /// Builds a `Factory`'s view controller.
     func build() throws -> ViewController {
         return try build(with: nil)
+    }
+
+    /// Prepares the `Factory` and builds a `UIViewController`
+    func buildPrepared() throws -> ViewController {
+        var factory = self
+        try factory.prepare()
+        return try factory.build()
     }
 
 }

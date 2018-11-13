@@ -26,3 +26,12 @@ public protocol AbstractFactory {
     mutating func prepare(with context: Context) throws
 
 }
+
+public extension AbstractFactory where Context == Any? {
+
+    /// Prepares the `AbstractFactory`
+    mutating func prepare() throws {
+        try prepare(with: nil)
+    }
+
+}

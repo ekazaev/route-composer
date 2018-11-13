@@ -51,6 +51,42 @@ class FactoryTest: XCTestCase {
         XCTAssertThrowsError(try factory.build())
     }
 
+    func testBuildPreparedFactory() {
+
+        var prepareCount = 0
+        var buildCount = 0
+
+        class TestFactory: Factory {
+
+            var prepareBlock: () -> Void
+
+            var buildBlock: () -> Void
+
+            init(prepareBlock: @escaping () -> Void, buildBlock: @escaping () -> Void) {
+                self.buildBlock = buildBlock
+                self.prepareBlock = prepareBlock
+            }
+
+            func prepare(with context: Context) throws {
+                prepareBlock()
+            }
+
+            func build(with context: Any?) throws -> UIViewController {
+                buildBlock()
+                return UIViewController()
+            }
+
+        }
+        let factory = TestFactory(prepareBlock: { prepareCount += 1 }, buildBlock: { buildCount += 1 })
+        XCTAssertNoThrow(try factory.buildPrepared(with: nil))
+        XCTAssertEqual(prepareCount, 1)
+        XCTAssertEqual(buildCount, 1)
+
+        XCTAssertNoThrow(try factory.buildPrepared())
+        XCTAssertEqual(prepareCount, 2)
+        XCTAssertEqual(buildCount, 2)
+    }
+
     func testDelayedIntegrationFactory() {
         var viewControllerStack: [UIViewController] = []
         let factory = ClassNameFactory<UIViewController, Any?>()

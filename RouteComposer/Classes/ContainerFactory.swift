@@ -42,13 +42,27 @@ public extension ContainerFactory {
         return try build(with: context, integrating: ChildCoordinator(childFactories: []))
     }
 
+    /// Prepares the `Factory` and builds a `UIViewController`
+    func buildPrepared(with context: Context) throws -> ViewController {
+        var factory = self
+        try factory.prepare(with: context)
+        return try factory.build(with: context)
+    }
+
 }
 
 public extension ContainerFactory where Context == Any? {
 
     /// Builds a `ContainerFactory` view controller.
     func build() throws -> ViewController {
-        return try build(with: nil, integrating: ChildCoordinator(childFactories: []))
+        return try build(with: nil)
+    }
+
+    /// Prepares the `Factory` and builds a `UIViewController`
+    func buildPrepared() throws -> ViewController {
+        var factory = self
+        try factory.prepare()
+        return try factory.build()
     }
 
 }

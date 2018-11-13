@@ -112,6 +112,41 @@ class ContainerTests: XCTestCase {
         XCTAssertEqual(childFactory2.prepareCount, 1)
     }
 
+    func testBuildPreparedFactory() {
+        var prepareCount = 0
+        var buildCount = 0
+
+        class TestFactory: ContainerFactory {
+
+            var prepareBlock: () -> Void
+
+            var buildBlock: () -> Void
+
+            init(prepareBlock: @escaping () -> Void, buildBlock: @escaping () -> Void) {
+                self.buildBlock = buildBlock
+                self.prepareBlock = prepareBlock
+            }
+
+            func prepare(with context: Context) throws {
+                prepareBlock()
+            }
+
+            func build(with context: Any?, integrating coordinator: ChildCoordinator<Any?>) throws -> UINavigationController {
+                buildBlock()
+                return UINavigationController()
+            }
+
+        }
+        let factory = TestFactory(prepareBlock: { prepareCount += 1 }, buildBlock: { buildCount += 1 })
+        XCTAssertNoThrow(try factory.buildPrepared(with: nil))
+        XCTAssertEqual(prepareCount, 1)
+        XCTAssertEqual(buildCount, 1)
+
+        XCTAssertNoThrow(try factory.buildPrepared())
+        XCTAssertEqual(prepareCount, 2)
+        XCTAssertEqual(buildCount, 2)
+    }
+
     func testCompleteFactorySmartActions() {
         var children: [DelayedIntegrationFactory<Any?>] = []
         children.append(DelayedIntegrationFactory<Any?>(FactoryBox(EmptyFactory(), action: ContainerActionBox(UITabBarController.addTab()))!))
