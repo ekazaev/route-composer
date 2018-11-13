@@ -632,7 +632,7 @@ which should be presented modally from any currently visible view controller.</e
 
 <ul>
 <li>Use <code>ProductViewControllerFinder</code> to potentially <strong>find</strong> an existing product view controller in the stack, or <strong>create</strong> it using <code>ProductViewControllerFactory</code> if it has not been found.</li>
-<li>If it was created <strong>push</strong> it in to navigation stack</li>
+<li>If it was created <strong>push</strong> it into a navigation stack</li>
 <li>Navigation stack should be provided from another step <code><a href="Classes/NavigationControllerStep.html">NavigationControllerStep</a></code>, that will create a <code>UINavigationController</code> instance</li>
 <li>The <code>UINavigationController</code> instance should be presented modally from any currently visible view controller.</li>
 <li>Before routing run <code>LoginInterceptor</code></li>
@@ -647,7 +647,7 @@ which should be presented modally from any currently visible view controller.</e
 a <code><a href="Structs/DefaultRouter.html">DefaultRouter</a></code> which is an implementation of the <code><a href="Protocols/Router.html">Router</a></code> protocol to handle routing based on the configuration explained above.</p>
 
 <p><em>Example: The user taps on a cell in a <code>UITableView</code>. It then asks the router to navigate the user to <code>ProductViewController</code>. The user
-should be logged in to see the product details.</em></p>
+should be logged into see the product details.</em></p>
 <pre class="highlight swift"><code>
 <span class="kd">struct</span> <span class="kt">Configuration</span> <span class="p">{</span>
 
