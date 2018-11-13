@@ -23,6 +23,7 @@ public protocol Factory: AbstractFactory {
 
 }
 
+/// Default implementation
 public extension Factory {
 
     /// Default implementation does nothing
@@ -38,6 +39,7 @@ public extension Factory {
 
 }
 
+/// Default implementation for any context
 public extension Factory where Context == Any? {
 
     /// Builds a `Factory`'s view controller.

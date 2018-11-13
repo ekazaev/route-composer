@@ -31,6 +31,7 @@ public protocol ContainerFactory: AbstractFactory {
 
 }
 
+/// Default implementation
 public extension ContainerFactory {
 
     /// Default implementation does nothing
@@ -51,6 +52,7 @@ public extension ContainerFactory {
 
 }
 
+/// Default implementation for any context
 public extension ContainerFactory where Context == Any? {
 
     /// Builds a `ContainerFactory` view controller.

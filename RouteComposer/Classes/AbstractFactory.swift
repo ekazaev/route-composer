@@ -27,6 +27,7 @@ public protocol AbstractFactory {
 
 }
 
+/// Default implementation for any context
 public extension AbstractFactory where Context == Any? {
 
     /// Prepares the `AbstractFactory`
