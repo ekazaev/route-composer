@@ -124,4 +124,13 @@ class BoxTests: XCTestCase {
         XCTAssertNil(collector.factory)
     }
 
+    func testNilFactoryBaseEntitiesCollector() {
+        let collector = BaseEntitiesCollector<FactoryBox<NilFactory>, ActionBox>(finder: ClassFinder<UIViewController, Any?>(),
+                factory: NilFactory(), action: ViewControllerActions.NilAction())
+        XCTAssertNotNil(collector.finder)
+        XCTAssertNotNil(collector.factory)
+        XCTAssertTrue(collector.factory is FactoryBox<FinderFactory<ClassFinder<UIViewController, Any?>>>)
+        XCTAssertTrue(collector.factory?.action is ActionBox<ViewControllerActions.NilAction>)
+    }
+
 }

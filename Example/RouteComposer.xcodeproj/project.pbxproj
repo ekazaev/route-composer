@@ -347,18 +347,18 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				607FACEB1AFB9204008FA782 /* ContainerTests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 				9AFBC72E9C2A1D7060E71B00 /* Helpers */,
 				9AFBC6E7758A004A731A9B41 /* ActionTests.swift */,
+				9AFBC3EAF6F5AD7A7A7D9390 /* AssemblyTest.swift */,
 				9AFBCADE90377FF3B7BBF7F2 /* BoxTest.swift */,
+				607FACEB1AFB9204008FA782 /* ContainerTests.swift */,
+				9AFBCBADEEB6A4EDCAD336BF /* DestinationStepTests.swift */,
+				9AFBCBC0A933CA5103371E7F /* ExtensionsTest.swift */,
+				9AFBCCA9057265F79C745920 /* FactoryTest.swift */,
+				9AFBC067DF4E4C264D1840B2 /* FinderTests.swift */,
 				84706C77212AEEDB00980222 /* MultiplexerTest.swift */,
 				9AFBC407D5F832DE452DD35B /* RouterTest.swift */,
-				9AFBCCA9057265F79C745920 /* FactoryTest.swift */,
-				9AFBCBC0A933CA5103371E7F /* ExtensionsTest.swift */,
-				9AFBC3EAF6F5AD7A7A7D9390 /* AssemblyTest.swift */,
-				9AFBCBADEEB6A4EDCAD336BF /* DestinationStepTests.swift */,
-				9AFBC067DF4E4C264D1840B2 /* FinderTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";

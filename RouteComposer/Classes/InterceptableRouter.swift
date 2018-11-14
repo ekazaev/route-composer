@@ -3,6 +3,7 @@
 //
 
 import Foundation
+import UIKit
 
 /// The router implementing this protocol should support global tasks.
 public protocol InterceptableRouter where Self: Router {

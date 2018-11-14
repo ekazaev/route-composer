@@ -53,7 +53,7 @@ public struct SearchOptions: OptionSet, CustomStringConvertible {
 
     public var description: String {
         var descriptionWords: [String] = []
-        for option: SearchOptions in [.current, .visible, .contained] {
+        for option: SearchOptions in [.current, .visible, .contained, .presented, .presenting, .parent] {
             guard self.contains(option) else {
                 continue
             }

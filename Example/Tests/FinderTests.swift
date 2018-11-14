@@ -17,6 +17,11 @@ class FinderTest: XCTestCase {
         XCTAssertEqual(finder.findViewController(with: nil), viewController)
     }
 
+    func testNilFinder() {
+        let finder = NilFinder<UIViewController, Any?>()
+        XCTAssertNil(finder.findViewController(with: nil))
+    }
+
     func testDefaultIteratorDefaultValues() {
         let iterator = DefaultStackIterator()
         XCTAssertEqual(iterator.options, .fullStack)
@@ -31,4 +36,15 @@ class FinderTest: XCTestCase {
         XCTAssertEqual(iterator.startingViewController, UIWindow.key?.rootViewController)
     }
 
+    func testSearchOptionsDescription() {
+        let fullStack = SearchOptions.fullStack
+        XCTAssertEqual(fullStack.description, "current, contained, presented, presenting")
+        
+        let currentVisibleOnly = SearchOptions.currentVisibleOnly
+        XCTAssertEqual(currentVisibleOnly.description, "current, visible")
+
+        let someOptions = [SearchOptions.current, .contained, .parent]
+        XCTAssertEqual(someOptions.description, "[current, contained, parent]")
+    }
+    
 }

@@ -18,7 +18,7 @@ struct BaseEntitiesCollector<FactoryBoxer: AnyFactoryBox, ActionBoxer: AnyAction
         if let factoryBox = FactoryBoxer(factory, action: ActionBoxer(action)) {
             self.factory = factoryBox
         } else if let finderFactory = FinderFactory(finder: finder) {
-            self.factory = FactoryBox(finderFactory, action: ActionBoxer(action))
+            self.factory = FactoryBox(finderFactory, action: ActionBox(ViewControllerActions.NilAction()))
         } else {
             self.factory = nil
         }
