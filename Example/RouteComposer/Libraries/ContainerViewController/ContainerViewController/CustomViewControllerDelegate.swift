@@ -5,7 +5,7 @@
 
 import Foundation
 
-public protocol CustomViewControllerDelegate: class {
+public protocol CustomViewControllerDelegate: AnyObject {
 
     func dismissCustomContainer(controller: CustomContainerController)
 
