@@ -115,9 +115,11 @@ struct ContainerFactoryBox<F: ContainerFactory>: PreparableAnyFactory, AnyFactor
 
     mutating func scrapeChildren(from factories: [AnyFactory]) throws -> [AnyFactory] {
         var otherFactories: [AnyFactory] = []
+        var isNonEmbeddableFound = false
         self.children = factories.compactMap({ child -> DelayedIntegrationFactory<FactoryType.Context>? in
-            guard child.action.embeddable else {
+            guard !isNonEmbeddableFound, child.action.isEmbeddable(to: factory) else {
                 otherFactories.append(child)
+                isNonEmbeddableFound = true
                 return nil
             }
             return DelayedIntegrationFactory(child)

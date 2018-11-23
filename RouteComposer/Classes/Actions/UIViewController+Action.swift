@@ -9,8 +9,8 @@ import UIKit
 public struct GeneralAction {
 
     /// Replaces the root view controller in the key `UIWindow`
-    public static func replaceRoot() -> ViewControllerActions.ReplaceRootAction {
-        return ViewControllerActions.ReplaceRootAction()
+    public static func replaceRoot(windowProvider: WindowProvider = DefaultWindowProvider()) -> ViewControllerActions.ReplaceRootAction {
+        return ViewControllerActions.ReplaceRootAction(windowProvider: windowProvider)
     }
 
     /// Presents a view controller modally
@@ -116,16 +116,24 @@ public struct ViewControllerActions {
 
         public typealias ViewController = UIViewController
 
+        let windowProvider: WindowProvider
+
         /// Constructor
-        init() {
+        init(windowProvider: WindowProvider = DefaultWindowProvider()) {
+            self.windowProvider = windowProvider
         }
 
         public func perform(with viewController: UIViewController,
                             on existingController: UIViewController,
                             animated: Bool,
                             completion: @escaping(_: ActionResult) -> Void) {
-            guard let window = UIWindow.key else {
-                completion(.failure(RoutingError.compositionFailed(RoutingError.Context(debugDescription: "Key window was not found."))))
+            guard let window = windowProvider.window else {
+                completion(.failure(RoutingError.compositionFailed(RoutingError.Context(debugDescription: "Window was not found."))))
+                return
+            }
+            guard window.rootViewController == existingController else {
+                completion(.failure(RoutingError.compositionFailed(RoutingError.Context(debugDescription: "Action should be applied to the root view " +
+                        "controller, got \(String(describing: existingController)) instead."))))
                 return
             }
 

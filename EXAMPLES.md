@@ -140,7 +140,7 @@ It will work if the user is not in some `UIViewController` that is presented mod
 
 #### Why do we use `expectingContainer` here?
 
-Because `pushToNavigation` action requires `UINavigationController` to be previous `UIViewController` in the chain. `expectingContainer` method allows us to escape this check. You guarantee that it will be there by the time `pushToNavigation` will start to perform.
+Because `UINavigationController.push` action requires `UINavigationController` to be previous `UIViewController` in the chain. `expectingContainer` method allows us to escape this check. You guarantee that it will be there by the time `UINavigationController.push` will start to perform.
 
 #### What will happen if, in the configuration above, I will replace the `GeneralStep.current` with the `GeneralStep.root`?
 

@@ -277,6 +277,9 @@
               <li class="nav-group-task">
                 <a href="Protocols/StackIterator.html">StackIterator</a>
               </li>
+              <li class="nav-group-task">
+                <a href="Protocols/WindowProvider.html">WindowProvider</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -308,6 +311,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Structs/DefaultStackIterator/StartingPoint.html">– StartingPoint</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/DefaultWindowProvider.html">DefaultWindowProvider</a>
               </li>
               <li class="nav-group-task">
                 <a href="Structs/GeneralAction.html">GeneralAction</a>
@@ -525,7 +531,7 @@ product in your view controller stack:</em></p>
 
 <p>The <code><a href="Core Entities.html#/s:13RouteComposer6ActionP">Action</a></code> instance explains to the router <strong>how the view controller is created by a <code><a href="Protocols/Factory.html">Factory</a></code> should be integrated into a view controller stack</strong>.
 Most likely, you will not need to implement your own actions because the library provides actions for most of the default actions that can be done in
-<code>UIKit</code> like (<code>PresentModally</code>, <code>AddTab</code>, <code>pushToNavigation</code> etc.). You may need to implement your own actions if you are
+<code>UIKit</code> like (<code>GeneralAction.presentModally</code>, <code>UITabBarController.add</code>, <code>UINavigationController.push</code> etc.). You may need to implement your own actions if you are
 doing something unusual.</p>
 
 <p>Check example app to see a custom action implementation.</p>
@@ -693,7 +699,7 @@ should be logged into see the product details.</em></p>
         <span class="c1">// Handled by ProductViewControllerContextTask</span>
         <span class="n">productViewController</span><span class="o">.</span><span class="n">productID</span> <span class="o">=</span> <span class="n">productID</span>
 
-        <span class="c1">// Handled by NavigationControllerStep and pushToNavigationAction</span>
+        <span class="c1">// Handled by NavigationControllerStep and UINavigationController.push</span>
         <span class="k">let</span> <span class="nv">navigationController</span> <span class="o">=</span> <span class="kt">UINavigationController</span><span class="p">(</span><span class="nv">rootViewController</span><span class="p">:</span> <span class="n">productViewController</span><span class="p">)</span>
 
         <span class="c1">// handled by DefaultActions.PresentModally</span>

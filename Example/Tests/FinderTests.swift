@@ -26,25 +26,25 @@ class FinderTest: XCTestCase {
         let iterator = DefaultStackIterator()
         XCTAssertEqual(iterator.options, .fullStack)
         XCTAssertEqual(iterator.startingPoint, .topmost)
-        XCTAssertEqual(iterator.startingViewController, UIWindow.key?.topmostViewController)
+        XCTAssertEqual(iterator.startingViewController, UIApplication.shared.keyWindow?.topmostViewController)
     }
 
     func testDefaultIteratorNewValues() {
         let iterator = DefaultStackIterator(options: .current, startingPoint: .root)
         XCTAssertEqual(iterator.options, .current)
         XCTAssertEqual(iterator.startingPoint, .root)
-        XCTAssertEqual(iterator.startingViewController, UIWindow.key?.rootViewController)
+        XCTAssertEqual(iterator.startingViewController, UIApplication.shared.keyWindow?.rootViewController)
     }
 
     func testSearchOptionsDescription() {
         let fullStack = SearchOptions.fullStack
         XCTAssertEqual(fullStack.description, "current, contained, presented, presenting")
-        
+
         let currentVisibleOnly = SearchOptions.currentVisibleOnly
         XCTAssertEqual(currentVisibleOnly.description, "current, visible")
 
         let someOptions = [SearchOptions.current, .contained, .parent]
         XCTAssertEqual(someOptions.description, "[current, contained, parent]")
     }
-    
+
 }

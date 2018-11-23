@@ -7,8 +7,6 @@ import UIKit
 
 protocol AnyAction {
 
-    var embeddable: Bool { get }
-
     func perform(with viewController: UIViewController,
                  on existingController: UIViewController,
                  animated: Bool,
@@ -16,6 +14,8 @@ protocol AnyAction {
 
     func perform(embedding viewController: UIViewController,
                  in childViewControllers: inout [UIViewController]) throws
+
+    func isEmbeddable<CF: ContainerFactory>(to container: CF) -> Bool
 
 }
 
@@ -34,8 +34,6 @@ struct ActionBox<A: Action>: AnyAction, AnyActionBox, CustomStringConvertible, M
     init(_ action: A) {
         self.action = action
     }
-
-    let embeddable: Bool = false
 
     func perform(with viewController: UIViewController, on existingController: UIViewController, animated: Bool, completion: @escaping (ActionResult) -> Void) {
         guard let typedExistingViewController = existingController as? A.ViewController else {
@@ -58,6 +56,9 @@ struct ActionBox<A: Action>: AnyAction, AnyActionBox, CustomStringConvertible, M
         return String(describing: action)
     }
 
+    func isEmbeddable<CF: ContainerFactory>(to container: CF) -> Bool {
+        return false
+    }
 }
 
 struct ContainerActionBox<A: ContainerAction>: AnyAction, AnyActionBox, CustomStringConvertible, MainThreadChecking {
@@ -67,8 +68,6 @@ struct ContainerActionBox<A: ContainerAction>: AnyAction, AnyActionBox, CustomSt
     init(_ action: A) {
         self.action = action
     }
-
-    let embeddable: Bool = true
 
     func perform(with viewController: UIViewController, on existingController: UIViewController, animated: Bool, completion: @escaping (ActionResult) -> Void) {
         guard let containerController: A.ViewController = UIViewController.findContainer(of: existingController) else {
@@ -89,6 +88,10 @@ struct ContainerActionBox<A: ContainerAction>: AnyAction, AnyActionBox, CustomSt
 
     public var description: String {
         return String(describing: action)
+    }
+
+    func isEmbeddable<CF: ContainerFactory>(to container: CF) -> Bool {
+        return CF.ViewController.self is A.ViewController.Type
     }
 
 }

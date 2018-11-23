@@ -87,6 +87,9 @@ public struct DefaultRouter: Router, InterceptableRouter, MainThreadChecking {
                         animated: animated) { viewController, result in
                     self.makeVisibleInParentContainer(viewController, animated: animated)
                     do {
+                        if case let .unhandled(error) = result {
+                            throw error
+                        }
                         try taskStack.runPostTasks()
                         self.logger?.log(.info("Successfully finished the navigation process."))
                         completion?(result)

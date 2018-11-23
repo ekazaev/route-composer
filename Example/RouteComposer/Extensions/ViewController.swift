@@ -50,8 +50,7 @@ extension UIViewController {
     }
 
     public var topmostNonContainerViewController: UIViewController? {
-        guard let rootViewController = UIWindow.key?.rootViewController else {
-
+        guard let rootViewController = viewIfLoaded?.window?.rootViewController else {
             return nil
         }
 
