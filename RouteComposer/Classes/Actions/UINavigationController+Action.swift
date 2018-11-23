@@ -14,7 +14,7 @@ public extension ContainerViewController where Self: UINavigationController {
     }
 
     /// Pushes a child view controller into the `UINavigationController`'s children stack
-    public static func pushToNavigation() -> NavigationControllerActions.PushAction<Self> {
+    public static func push() -> NavigationControllerActions.PushAction<Self> {
         return NavigationControllerActions.PushAction()
     }
 

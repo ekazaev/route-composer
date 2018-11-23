@@ -90,7 +90,7 @@ class FactoryTest: XCTestCase {
     func testDelayedIntegrationFactory() {
         var viewControllerStack: [UIViewController] = []
         let factory = ClassNameFactory<UIViewController, Any?>()
-        var delayedFactory = DelayedIntegrationFactory<Any?>(FactoryBox(factory, action: ContainerActionBox(UINavigationController.pushToNavigation()))!)
+        var delayedFactory = DelayedIntegrationFactory<Any?>(FactoryBox(factory, action: ContainerActionBox(UINavigationController.push()))!)
         XCTAssertNoThrow(try delayedFactory.prepare(with: nil))
         XCTAssertNoThrow(try delayedFactory.build(with: nil, in: &viewControllerStack))
         XCTAssertEqual(viewControllerStack.count, 1)

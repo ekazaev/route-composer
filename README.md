@@ -145,11 +145,7 @@ product in your view controller stack:*
 ```swift
 class ProductViewControllerFinder: StackIteratingFinder {
 
-    let options: SearchOptions
-
-    init(options: SearchOptions = .currentAndUp) {
-        self.options = options
-    }
+    let iterator: StackIterator = DefaultStackIterator()
 
     func isTarget(_ productViewController: ProductViewController, with productID: UUID) -> Bool {
         return productViewController.productID == productID
@@ -164,7 +160,7 @@ class ProductViewControllerFinder: StackIteratingFinder {
 
 The `Action` instance explains to the router **how the view controller is created by a `Factory` should be integrated into a view controller stack**.
 Most likely, you will not need to implement your own actions because the library provides actions for most of the default actions that can be done in
-`UIKit` like (`PresentModally`, `AddTab`, `PushToNavigation` etc.). You may need to implement your own actions if you are
+`UIKit` like (`PresentModally`, `AddTab`, `pushToNavigation` etc.). You may need to implement your own actions if you are
 doing something unusual.
 
 Check example app to see a custom action implementation.
@@ -176,11 +172,6 @@ by the library:*
 class PresentModally: Action {
 
     func perform(viewController: UIViewController, on existingController: UIViewController, animated: Bool, completion: @escaping (_: ActionResult) -> Void) {
-        guard existingController.presentedViewController == nil else {
-            completion(.failure("\(existingController) is already presenting a view controller."))
-            return
-        }
-
         existingController.present(viewController, animated: animated, completion: {
             completion(.continueRouting)
         })
@@ -270,7 +261,7 @@ let productScreen = StepAssembly(finder: ProductViewControllerFinder(), factory:
         .adding(LoginInterceptor<UUID>()) // Have to specify the context type till https://bugs.swift.org/browse/SR-8719, https://bugs.swift.org/browse/SR-8705 are fixed
         .adding(ProductViewControllerContextTask())
         .adding(ProductViewControllerPostTask(analyticsManager: AnalyticsManager.sharedInstance))
-        .using(UINavigationController.pushToNavigation())
+        .using(UINavigationController.push())
         .from(NavigationControllerStep())
         .using(GeneralActions.presentModally())
         .from(GeneralStep.current())
@@ -305,7 +296,7 @@ struct Configuration {
                 .adding(LoginInterceptor<UUID>())
                 .adding(ProductViewControllerContextTask())
                 .adding(ProductViewControllerPostTask(analyticsManager: AnalyticsManager.sharedInstance))
-                .using(UINavigationController.pushToNavigation())
+                .using(UINavigationController.push())
                 .from(NavigationControllerStep())
                 .using(GeneralActions.presentModally())
                 .from(GeneralStep.current())
@@ -354,7 +345,7 @@ class ProductArrayViewController: UITableViewController {
         // Handled by ProductViewControllerContextTask
         productViewController.productID = productID
 
-        // Handled by NavigationControllerStep and PushToNavigationAction
+        // Handled by NavigationControllerStep and pushToNavigationAction
         let navigationController = UINavigationController(rootViewController: productViewController)
 
         // handled by DefaultActions.PresentModally

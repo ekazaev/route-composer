@@ -9,8 +9,8 @@ import UIKit
 ///
 /// ```swift
 /// let rootFactory = CompleteFactoryAssembly(factory: TabBarFactory())
-///         .with(XibFactory<HomeViewController, Any?>, using: TabBarControllerFactory.AddTab())
-///         .with(XibFactory<AccountViewController, Any?>, using: TabBarControllerFactory.AddTab())
+///         .with(XibFactory<HomeViewController, Any?>, using: TabBarControllerFactory.add())
+///         .with(XibFactory<AccountViewController, Any?>, using: TabBarControllerFactory.add())
 ///         .assemble()
 /// ```
 /// *NB: Order matters here*

@@ -14,7 +14,7 @@ import UIKit
 ///         .adding(LoginInterceptor())
 ///         .adding(ProductViewControllerContextTask())
 ///         .adding(ProductViewControllerPostTask(analyticsManager: AnalyticsManager.sharedInstance))
-///         .using(PushToNavigationAction())
+///         .using(pushToNavigationAction())
 ///         .from(NavigationControllerStep())
 ///         .using(DefaultActions.PresentModally())
 ///         .from(CurrentControllerStep())

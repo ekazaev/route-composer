@@ -420,7 +420,7 @@
 <pre class="highlight swift"><code>    <span class="k">let</span> <span class="nv">screen</span> <span class="o">=</span> <span class="kt">StepAssembly</span><span class="p">(</span>
             <span class="nv">finder</span><span class="p">:</span> <span class="kt">ClassFinder</span><span class="o">&lt;</span><span class="kt">AccountViewController</span><span class="p">,</span> <span class="kt">Any</span><span class="p">?</span><span class="o">&gt;</span><span class="p">(),</span>
             <span class="nv">factory</span><span class="p">:</span> <span class="kt">XibFactory</span><span class="p">())</span>
-            <span class="o">.</span><span class="nf">using</span><span class="p">(</span><span class="kt">UINavigationController</span><span class="o">.</span><span class="nf">pushToNavigation</span><span class="p">())</span>
+            <span class="o">.</span><span class="nf">using</span><span class="p">(</span><span class="kt">UINavigationController</span><span class="o">.</span><span class="nf">push</span><span class="p">())</span>
             <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="kt">SingleStep</span><span class="p">(</span><span class="kt">ClassFinder</span><span class="o">&lt;</span><span class="kt">UINavigationController</span><span class="p">,</span> <span class="kt">Any</span><span class="p">?</span><span class="o">&gt;</span><span class="p">(),</span> <span class="kt">NilFactory</span><span class="p">()))</span>
             <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="kt">GeneralStep</span><span class="o">.</span><span class="nf">current</span><span class="p">())</span>
             <span class="o">.</span><span class="nf">assemble</span><span class="p">()</span>
@@ -432,7 +432,7 @@
 <pre class="highlight swift"><code>    <span class="k">let</span> <span class="nv">screen</span> <span class="o">=</span> <span class="kt">StepAssembly</span><span class="p">(</span>
             <span class="nv">finder</span><span class="p">:</span> <span class="kt">ClassFinder</span><span class="o">&lt;</span><span class="kt">AccountViewController</span><span class="p">,</span> <span class="kt">Any</span><span class="p">?</span><span class="o">&gt;</span><span class="p">(),</span>
             <span class="nv">factory</span><span class="p">:</span> <span class="kt">XibFactory</span><span class="p">())</span>
-            <span class="o">.</span><span class="nf">using</span><span class="p">(</span><span class="kt">UINavigationController</span><span class="o">.</span><span class="kt">PushToNavigation</span><span class="p">())</span>
+            <span class="o">.</span><span class="nf">using</span><span class="p">(</span><span class="kt">UINavigationController</span><span class="o">.</span><span class="nf">push</span><span class="p">())</span>
             <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="kt">SwitchAssembly</span><span class="o">&lt;</span><span class="kt">UINavigationController</span><span class="p">,</span> <span class="kt">Any</span><span class="p">?</span><span class="o">&gt;</span><span class="p">()</span>
                     <span class="o">.</span><span class="nf">addCase</span><span class="p">(</span><span class="nv">expecting</span><span class="p">:</span> <span class="kt">ClassFinder</span><span class="o">&lt;</span><span class="kt">UINavigationController</span><span class="p">,</span> <span class="kt">Any</span><span class="p">?</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">options</span><span class="p">:</span> <span class="o">.</span><span class="n">visible</span><span class="p">))</span> <span class="c1">// If found - just push into it</span>
                     <span class="o">.</span><span class="nf">assemble</span><span class="p">(</span><span class="k">default</span><span class="p">:</span> <span class="p">{</span> <span class="c1">// else</span>
@@ -448,8 +448,8 @@
 <pre class="highlight swift"><code>    <span class="k">let</span> <span class="nv">tabScreen</span> <span class="o">=</span> <span class="kt">SingleContainerStep</span><span class="p">(</span>
             <span class="nv">finder</span><span class="p">:</span> <span class="kt">ClassFinder</span><span class="p">(),</span>
             <span class="nv">factory</span><span class="p">:</span> <span class="kt">CompleteFactoryAssembly</span><span class="p">(</span><span class="nv">factory</span><span class="p">:</span> <span class="kt">TabBarControllerFactory</span><span class="p">())</span>
-                    <span class="o">.</span><span class="nf">with</span><span class="p">(</span><span class="kt">XibFactory</span><span class="o">&lt;</span><span class="kt">HomeViewController</span><span class="p">,</span> <span class="kt">Any</span><span class="p">?</span><span class="o">&gt;</span><span class="p">(),</span> <span class="nv">using</span><span class="p">:</span> <span class="kt">UITabBarController</span><span class="o">.</span><span class="nf">addTab</span><span class="p">())</span>
-                    <span class="o">.</span><span class="nf">with</span><span class="p">(</span><span class="kt">XibFactory</span><span class="o">&lt;</span><span class="kt">AccountViewController</span><span class="p">,</span> <span class="kt">Any</span><span class="p">?</span><span class="o">&gt;</span><span class="p">(),</span> <span class="nv">using</span><span class="p">:</span> <span class="kt">UITabBarController</span><span class="o">.</span><span class="nf">addTab</span><span class="p">())</span>
+                    <span class="o">.</span><span class="nf">with</span><span class="p">(</span><span class="kt">XibFactory</span><span class="o">&lt;</span><span class="kt">HomeViewController</span><span class="p">,</span> <span class="kt">Any</span><span class="p">?</span><span class="o">&gt;</span><span class="p">(),</span> <span class="nv">using</span><span class="p">:</span> <span class="kt">UITabBarController</span><span class="o">.</span><span class="nf">add</span><span class="p">())</span>
+                    <span class="o">.</span><span class="nf">with</span><span class="p">(</span><span class="kt">XibFactory</span><span class="o">&lt;</span><span class="kt">AccountViewController</span><span class="p">,</span> <span class="kt">Any</span><span class="p">?</span><span class="o">&gt;</span><span class="p">(),</span> <span class="nv">using</span><span class="p">:</span> <span class="kt">UITabBarController</span><span class="o">.</span><span class="nf">add</span><span class="p">())</span>
                     <span class="o">.</span><span class="nf">assemble</span><span class="p">())</span>
             <span class="o">.</span><span class="nf">using</span><span class="p">(</span><span class="kt">GeneralAction</span><span class="o">.</span><span class="nf">replaceRoot</span><span class="p">())</span>
             <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="kt">GeneralStep</span><span class="o">.</span><span class="nf">root</span><span class="p">())</span>
@@ -474,7 +474,7 @@
 <pre class="highlight swift"><code>    <span class="k">let</span> <span class="nv">loginScreen</span> <span class="o">=</span> <span class="kt">StepAssembly</span><span class="p">(</span>
             <span class="nv">finder</span><span class="p">:</span> <span class="kt">ClassFinder</span><span class="o">&lt;</span><span class="kt">LoginViewController</span><span class="p">,</span> <span class="kt">Any</span><span class="p">?</span><span class="o">&gt;</span><span class="p">(),</span>
             <span class="nv">factory</span><span class="p">:</span> <span class="kt">XibFactory</span><span class="p">())</span>
-            <span class="o">.</span><span class="nf">using</span><span class="p">(</span><span class="kt">UINavigationController</span><span class="o">.</span><span class="nf">pushToNavigation</span><span class="p">())</span>
+            <span class="o">.</span><span class="nf">using</span><span class="p">(</span><span class="kt">UINavigationController</span><span class="o">.</span><span class="nf">push</span><span class="p">())</span>
             <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="kt">NavigationControllerStep</span><span class="p">())</span>
             <span class="o">.</span><span class="nf">using</span><span class="p">(</span><span class="kt">GeneralAction</span><span class="o">.</span><span class="nf">presentModally</span><span class="p">())</span>
             <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="kt">GeneralStep</span><span class="o">.</span><span class="nf">current</span><span class="p">())</span>
@@ -483,7 +483,7 @@
     <span class="k">let</span> <span class="nv">forgotPasswordScreen</span> <span class="o">=</span> <span class="kt">StepAssembly</span><span class="p">(</span>
             <span class="nv">finder</span><span class="p">:</span> <span class="kt">ClassFinder</span><span class="o">&lt;</span><span class="kt">ForgotPasswordViewController</span><span class="p">,</span> <span class="kt">Any</span><span class="p">?</span><span class="o">&gt;</span><span class="p">(),</span>
             <span class="nv">factory</span><span class="p">:</span> <span class="kt">XibFactory</span><span class="p">())</span>
-            <span class="o">.</span><span class="nf">using</span><span class="p">(</span><span class="kt">UINavigationController</span><span class="o">.</span><span class="nf">pushToNavigation</span><span class="p">())</span>
+            <span class="o">.</span><span class="nf">using</span><span class="p">(</span><span class="kt">UINavigationController</span><span class="o">.</span><span class="nf">push</span><span class="p">())</span>
             <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="n">loginScreen</span><span class="o">.</span><span class="nf">expectingContainer</span><span class="p">())</span>
             <span class="o">.</span><span class="nf">assemble</span><span class="p">()</span>
 
@@ -515,7 +515,7 @@
     <span class="k">let</span> <span class="nv">screen</span> <span class="o">=</span> <span class="kt">StepAssembly</span><span class="p">(</span>
         <span class="nv">finder</span><span class="p">:</span> <span class="kt">ModalBagFinder</span><span class="p">(),</span>
         <span class="nv">factory</span><span class="p">:</span> <span class="kt">XibFactory</span><span class="p">())</span>
-        <span class="o">.</span><span class="nf">using</span><span class="p">(</span><span class="kt">UINavigationController</span><span class="o">.</span><span class="nf">pushToNavigation</span><span class="p">())</span>
+        <span class="o">.</span><span class="nf">using</span><span class="p">(</span><span class="kt">UINavigationController</span><span class="o">.</span><span class="nf">push</span><span class="p">())</span>
         <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="kt">NavigationControllerStep</span><span class="p">())</span>
         <span class="o">.</span><span class="nf">using</span><span class="p">(</span><span class="kt">GeneralAction</span><span class="o">.</span><span class="nf">presentModally</span><span class="p">())</span>
         <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="kt">GeneralStep</span><span class="o">.</span><span class="nf">current</span><span class="p">())</span>
@@ -526,7 +526,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-11-13)</p>
+          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-11-23)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

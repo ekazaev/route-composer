@@ -69,7 +69,7 @@ extension ExampleScreenConfiguration {
                 finder: ColorViewControllerFinder(),
                 factory: ColorViewControllerFactory())
                 .adding(ExampleGenericContextTask<ColorViewController, String>())
-                .using(ExampleNavigationController.pushToNavigation())
+                .using(ExampleNavigationController.push())
                 .from(SingleContainerStep(finder: NilFinder(), factory: ExampleNavigationFactory<String>()))
                 .using(GeneralAction.presentModally())
                 .from(GeneralStep.current())
@@ -81,9 +81,9 @@ extension ExampleScreenConfiguration {
                 finder: ClassFinder<RoutingRuleSupportViewController, String>(options: .currentAllStack),
                 factory: StoryboardFactory(storyboardName: "TabBar", viewControllerID: "RoutingRuleSupportViewController"))
                 .adding(ExampleGenericContextTask<RoutingRuleSupportViewController, String>())
-                .using(UITabBarController.addTab())
+                .using(UITabBarController.add())
                 .from(TabBarControllerStep())
-                .using(UINavigationController.pushToNavigation())
+                .using(UINavigationController.push())
                 .from(colorScreen.expectingContainer())
                 .assemble()
     }
@@ -94,7 +94,7 @@ extension ExampleScreenConfiguration {
                 factory: StoryboardFactory(storyboardName: "TabBar", viewControllerID: "EmptyViewController"))
                 .adding(LoginInterceptor<Any?>())
                 .adding(ExampleGenericContextTask<EmptyViewController, Any?>())
-                .using(UINavigationController.pushToNavigation())
+                .using(UINavigationController.push())
                 .from(circleScreen.expectingContainer())
                 .assemble()
     }
@@ -104,7 +104,7 @@ extension ExampleScreenConfiguration {
                 finder: ClassFinder<SecondModalLevelViewController, String>(),
                 factory: StoryboardFactory(storyboardName: "TabBar", viewControllerID: "SecondModalLevelViewController"))
                 .adding(ExampleGenericContextTask<SecondModalLevelViewController, String>())
-                .using(UINavigationController.pushToNavigation())
+                .using(UINavigationController.push())
                 .from(NavigationControllerStep())
                 .using(GeneralAction.presentModally(transitioningDelegate: transitionController))
                 .from(routingSupportScreen)
@@ -131,7 +131,7 @@ struct ExampleConfiguration: ExampleScreenConfiguration {
                 factory: XibFactory())
                 .adding(ExampleGenericContextTask<StarViewController, Any?>())
                 .adding(LoginInterceptor<Any?>())
-                .using(UITabBarController.addTab())
+                .using(UITabBarController.add())
                 .from(homeScreen)
                 .assemble()
     }
@@ -146,7 +146,7 @@ struct AlternativeExampleConfiguration: ExampleScreenConfiguration {
                 factory: XibFactory())
                 .adding(ExampleGenericContextTask<StarViewController, Any?>())
                 .adding(LoginInterceptor())
-                .using(UINavigationController.pushToNavigation())
+                .using(UINavigationController.push())
                 .from(circleScreen.expectingContainer())
                 .assemble()
     }

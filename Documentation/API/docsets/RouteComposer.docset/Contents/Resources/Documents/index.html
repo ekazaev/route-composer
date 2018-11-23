@@ -511,11 +511,7 @@ view controller that you are looking for or not.</p>
 product in your view controller stack:</em></p>
 <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">ProductViewControllerFinder</span><span class="p">:</span> <span class="kt">StackIteratingFinder</span> <span class="p">{</span>
 
-    <span class="k">let</span> <span class="nv">options</span><span class="p">:</span> <span class="kt">SearchOptions</span>
-
-    <span class="nf">init</span><span class="p">(</span><span class="nv">options</span><span class="p">:</span> <span class="kt">SearchOptions</span> <span class="o">=</span> <span class="o">.</span><span class="n">currentAndUp</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">self</span><span class="o">.</span><span class="n">options</span> <span class="o">=</span> <span class="n">options</span>
-    <span class="p">}</span>
+    <span class="k">let</span> <span class="nv">iterator</span><span class="p">:</span> <span class="kt">StackIterator</span> <span class="o">=</span> <span class="kt">DefaultStackIterator</span><span class="p">()</span>
 
     <span class="kd">func</span> <span class="nf">isTarget</span><span class="p">(</span><span class="n">_</span> <span class="nv">productViewController</span><span class="p">:</span> <span class="kt">ProductViewController</span><span class="p">,</span> <span class="n">with</span> <span class="nv">productID</span><span class="p">:</span> <span class="kt">UUID</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span> <span class="p">{</span>
         <span class="k">return</span> <span class="n">productViewController</span><span class="o">.</span><span class="n">productID</span> <span class="o">==</span> <span class="n">productID</span>
@@ -529,7 +525,7 @@ product in your view controller stack:</em></p>
 
 <p>The <code><a href="Core Entities.html#/s:13RouteComposer6ActionP">Action</a></code> instance explains to the router <strong>how the view controller is created by a <code><a href="Protocols/Factory.html">Factory</a></code> should be integrated into a view controller stack</strong>.
 Most likely, you will not need to implement your own actions because the library provides actions for most of the default actions that can be done in
-<code>UIKit</code> like (<code>PresentModally</code>, <code>AddTab</code>, <code>PushToNavigation</code> etc.). You may need to implement your own actions if you are
+<code>UIKit</code> like (<code>PresentModally</code>, <code>AddTab</code>, <code>pushToNavigation</code> etc.). You may need to implement your own actions if you are
 doing something unusual.</p>
 
 <p>Check example app to see a custom action implementation.</p>
@@ -539,11 +535,6 @@ by the library:</em></p>
 <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">PresentModally</span><span class="p">:</span> <span class="kt">Action</span> <span class="p">{</span>
 
     <span class="kd">func</span> <span class="nf">perform</span><span class="p">(</span><span class="nv">viewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="n">on</span> <span class="nv">existingController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="kt">ActionResult</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">guard</span> <span class="n">existingController</span><span class="o">.</span><span class="n">presentedViewController</span> <span class="o">==</span> <span class="kc">nil</span> <span class="k">else</span> <span class="p">{</span>
-            <span class="nf">completion</span><span class="p">(</span><span class="o">.</span><span class="nf">failure</span><span class="p">(</span><span class="s">"</span><span class="se">\(</span><span class="n">existingController</span><span class="se">)</span><span class="s"> is already presenting a view controller."</span><span class="p">))</span>
-            <span class="k">return</span>
-        <span class="p">}</span>
-
         <span class="n">existingController</span><span class="o">.</span><span class="nf">present</span><span class="p">(</span><span class="n">viewController</span><span class="p">,</span> <span class="nv">animated</span><span class="p">:</span> <span class="n">animated</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">{</span>
             <span class="nf">completion</span><span class="p">(</span><span class="o">.</span><span class="n">continueRouting</span><span class="p">)</span>
         <span class="p">})</span>
@@ -621,7 +612,7 @@ which should be presented modally from any currently visible view controller.</e
         <span class="o">.</span><span class="nf">adding</span><span class="p">(</span><span class="kt">LoginInterceptor</span><span class="o">&lt;</span><span class="kt">UUID</span><span class="o">&gt;</span><span class="p">())</span> <span class="c1">// Have to specify the context type till https://bugs.swift.org/browse/SR-8719, https://bugs.swift.org/browse/SR-8705 are fixed</span>
         <span class="o">.</span><span class="nf">adding</span><span class="p">(</span><span class="kt">ProductViewControllerContextTask</span><span class="p">())</span>
         <span class="o">.</span><span class="nf">adding</span><span class="p">(</span><span class="kt">ProductViewControllerPostTask</span><span class="p">(</span><span class="nv">analyticsManager</span><span class="p">:</span> <span class="kt">AnalyticsManager</span><span class="o">.</span><span class="n">sharedInstance</span><span class="p">))</span>
-        <span class="o">.</span><span class="nf">using</span><span class="p">(</span><span class="kt">UINavigationController</span><span class="o">.</span><span class="nf">pushToNavigation</span><span class="p">())</span>
+        <span class="o">.</span><span class="nf">using</span><span class="p">(</span><span class="kt">UINavigationController</span><span class="o">.</span><span class="nf">push</span><span class="p">())</span>
         <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="kt">NavigationControllerStep</span><span class="p">())</span>
         <span class="o">.</span><span class="nf">using</span><span class="p">(</span><span class="kt">GeneralActions</span><span class="o">.</span><span class="nf">presentModally</span><span class="p">())</span>
         <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="kt">GeneralStep</span><span class="o">.</span><span class="nf">current</span><span class="p">())</span>
@@ -655,7 +646,7 @@ should be logged into see the product details.</em></p>
                 <span class="o">.</span><span class="nf">adding</span><span class="p">(</span><span class="kt">LoginInterceptor</span><span class="o">&lt;</span><span class="kt">UUID</span><span class="o">&gt;</span><span class="p">())</span>
                 <span class="o">.</span><span class="nf">adding</span><span class="p">(</span><span class="kt">ProductViewControllerContextTask</span><span class="p">())</span>
                 <span class="o">.</span><span class="nf">adding</span><span class="p">(</span><span class="kt">ProductViewControllerPostTask</span><span class="p">(</span><span class="nv">analyticsManager</span><span class="p">:</span> <span class="kt">AnalyticsManager</span><span class="o">.</span><span class="n">sharedInstance</span><span class="p">))</span>
-                <span class="o">.</span><span class="nf">using</span><span class="p">(</span><span class="kt">UINavigationController</span><span class="o">.</span><span class="nf">pushToNavigation</span><span class="p">())</span>
+                <span class="o">.</span><span class="nf">using</span><span class="p">(</span><span class="kt">UINavigationController</span><span class="o">.</span><span class="nf">push</span><span class="p">())</span>
                 <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="kt">NavigationControllerStep</span><span class="p">())</span>
                 <span class="o">.</span><span class="nf">using</span><span class="p">(</span><span class="kt">GeneralActions</span><span class="o">.</span><span class="nf">presentModally</span><span class="p">())</span>
                 <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="kt">GeneralStep</span><span class="o">.</span><span class="nf">current</span><span class="p">())</span>
@@ -702,7 +693,7 @@ should be logged into see the product details.</em></p>
         <span class="c1">// Handled by ProductViewControllerContextTask</span>
         <span class="n">productViewController</span><span class="o">.</span><span class="n">productID</span> <span class="o">=</span> <span class="n">productID</span>
 
-        <span class="c1">// Handled by NavigationControllerStep and PushToNavigationAction</span>
+        <span class="c1">// Handled by NavigationControllerStep and pushToNavigationAction</span>
         <span class="k">let</span> <span class="nv">navigationController</span> <span class="o">=</span> <span class="kt">UINavigationController</span><span class="p">(</span><span class="nv">rootViewController</span><span class="p">:</span> <span class="n">productViewController</span><span class="p">)</span>
 
         <span class="c1">// handled by DefaultActions.PresentModally</span>
@@ -763,7 +754,7 @@ apologies. <em>Caveat developer.</em></p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-11-13)</p>
+          <p>&copy; 2018 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2018-11-23)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

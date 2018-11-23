@@ -29,8 +29,8 @@ class BoxTests: XCTestCase {
         var box = ContainerFactoryBox(factory, action: ActionBox(ViewControllerActions.NilAction()))
         XCTAssertNotNil(box)
         var children: [AnyFactory] = []
-        children.append(FactoryBox(EmptyFactory(), action: ContainerActionBox(UINavigationController.pushToNavigation()))!)
-        children.append(FactoryBox(EmptyFactory(), action: ContainerActionBox(UINavigationController.pushToNavigation()))!)
+        children.append(FactoryBox(EmptyFactory(), action: ContainerActionBox(UINavigationController.push()))!)
+        children.append(FactoryBox(EmptyFactory(), action: ContainerActionBox(UINavigationController.push()))!)
         children.append(FactoryBox(EmptyFactory(), action: ActionBox(ViewControllerActions.NilAction()))!)
 
         let resultChildren = try? box?.scrapeChildren(from: children)
@@ -52,8 +52,8 @@ class BoxTests: XCTestCase {
 
     func testNilInCompleteFactoryAssembly() {
         let factory = CompleteFactoryAssembly(factory: TabBarControllerFactory<Any?>())
-                .with(NilFactory<UIViewController, Any?>(), using: UITabBarController.addTab())
-                .with(NilFactory<UIViewController, Any?>(), using: UITabBarController.addTab())
+                .with(NilFactory<UIViewController, Any?>(), using: UITabBarController.add())
+                .with(NilFactory<UIViewController, Any?>(), using: UITabBarController.add())
                 .assemble()
         XCTAssertEqual(factory.childFactories.count, 0)
     }

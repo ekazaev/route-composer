@@ -22,7 +22,7 @@ class ProductConfiguration {
                 print("After navigation to Produce view controller")
             }))
             .adding(ProductContextTask())
-            .using(UINavigationController.pushToNavigation())
+            .using(UINavigationController.push())
             .from(SwitchAssembly<UINavigationController, ProductContext>()
                     .addCase { (context: ProductContext) in
                         // If this configuration is requested by a Universal Link (productURL != nil), then present modally.
