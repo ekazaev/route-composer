@@ -28,6 +28,47 @@ class ActionTests: XCTestCase {
         XCTAssertTrue(wasInCompletion)
     }
 
+    func testReplaceRoot() {
+        class TestWindow: UIWindow {
+            var isKey: Bool = false
+
+            override func makeKeyAndVisible() {
+                isKey = true
+            }
+
+        }
+        struct TestWindowProvider: WindowProvider {
+            let window: UIWindow?
+            init(window: UIWindow) {
+                self.window = window
+            }
+        }
+
+        let window = TestWindow()
+        let rootViewController = UIViewController()
+        window.rootViewController = rootViewController
+        let windowProvider = TestWindowProvider(window: window)
+        let action = ViewControllerActions.ReplaceRootAction(windowProvider: windowProvider)
+        let newRootViewController = UIViewController()
+        var wasInCompletion = false
+        action.perform(with: newRootViewController, on: rootViewController, animated: false) { _ in
+            wasInCompletion = true
+        }
+        XCTAssertTrue(wasInCompletion)
+        XCTAssertTrue(window.isKey)
+        XCTAssertEqual(window.rootViewController, newRootViewController)
+
+        wasInCompletion = false
+        XCTAssertNoThrow(action.perform(with: newRootViewController, on: rootViewController, animated: false, completion: { result in
+            guard case .failure(_) = result else {
+                XCTAssertTrue(false)
+                return
+            }
+            wasInCompletion = true
+        }))
+        XCTAssertTrue(wasInCompletion)
+    }
+
     func testPresentModally() {
         class PresentingModallyController: UIViewController {
             override func present(_ viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)?) {
@@ -109,7 +150,7 @@ class ActionTests: XCTestCase {
         XCTAssertTrue(navigationController.viewControllers[0] === newRootController)
     }
 
-    func testNavpush() {
+    func testNavPush() {
         var viewControllerStack: [UIViewController] = []
         UINavigationController.push().perform(embedding: UIViewController(), in: &viewControllerStack)
         XCTAssertEqual(viewControllerStack.count, 1)
@@ -134,7 +175,7 @@ class ActionTests: XCTestCase {
         XCTAssertTrue(navigationController.viewControllers.removeLast() === viewController)
     }
 
-    func testTabadd() {
+    func testTabAdd() {
         var viewControllerStack: [UIViewController] = []
         UITabBarController.add().perform(embedding: UIViewController(), in: &viewControllerStack)
         XCTAssertEqual(viewControllerStack.count, 1)
@@ -159,7 +200,7 @@ class ActionTests: XCTestCase {
         XCTAssertTrue(tabBarController.viewControllers?.removeLast() === viewController)
     }
 
-    func testTabAddTabAt() {
+    func testTabAddAt() {
         var viewControllerStack: [UIViewController] = []
         UITabBarController.add(at: 1).perform(embedding: UIViewController(), in: &viewControllerStack)
         XCTAssertEqual(viewControllerStack.count, 1)
@@ -184,7 +225,7 @@ class ActionTests: XCTestCase {
         XCTAssertTrue(tabBarController.viewControllers?.removeFirst() === viewController)
     }
 
-    func testTabAddTabReplacing() {
+    func testTabAddReplacing() {
         var viewControllerStack: [UIViewController] = []
         UITabBarController.add(at: 1, replacing: true).perform(embedding: UIViewController(),
                 in: &viewControllerStack)

@@ -21,7 +21,7 @@ struct AnalyticsRouterDecorator: Router {
                                                              completion: ((RoutingResult) -> Void)? = nil) throws {
         var sourceScreen: ExampleScreenTypes?
 
-        if let topmostViewController = UIWindow.key?.topmostViewController,
+        if let topmostViewController = UIApplication.shared.keyWindow?.topmostViewController,
            let viewController = UIViewController.findViewController(in: topmostViewController,
                    options: [.current, .visible],
                    using: { $0 is ExampleAnalyticsSupport }) as? ExampleAnalyticsSupport {
@@ -31,7 +31,7 @@ struct AnalyticsRouterDecorator: Router {
          try router.navigate(to: step, with: context, animated: animated) { result in
             if let sourceScreen = sourceScreen {
                 print("Source: \(sourceScreen)")
-                if let topmostViewController = UIWindow.key?.topmostViewController,
+                if let topmostViewController = UIApplication.shared.keyWindow?.topmostViewController,
                    let analyticsViewController = UIViewController.findViewController(in: topmostViewController,
                            options: [.current, .visible],
                            using: { $0 is ExampleAnalyticsSupport }) as? ExampleAnalyticsSupport {

@@ -46,7 +46,7 @@ extension AnyFactoryBox where Self: PreparableAnyFactory, Self: MainThreadChecki
     mutating func prepare(with context: Any?) throws {
         assertIfNotMainThread()
         guard let typedContext = Any?.some(context as Any) as? FactoryType.Context else {
-            throw RoutingError.typeMismatch(FactoryType.Context.self, RoutingError.Context(debugDescription: "\(String(describing: factory.self)) does " +
+            throw RoutingError.typeMismatch(FactoryType.Context.self, RoutingError.Context("\(String(describing: factory.self)) does " +
                     "not accept \(String(describing: context.self)) as a context."))
         }
         try factory.prepare(with: typedContext)
@@ -83,7 +83,7 @@ struct FactoryBox<F: Factory>: PreparableAnyFactory, AnyFactoryBox, MainThreadCh
 
     func build(with context: Any?) throws -> UIViewController {
         guard let typedContext = Any?.some(context as Any) as? FactoryType.Context else {
-            throw RoutingError.typeMismatch(FactoryType.Context.self, RoutingError.Context(debugDescription: "\(String(describing: factory.self)) does " +
+            throw RoutingError.typeMismatch(FactoryType.Context.self, RoutingError.Context("\(String(describing: factory.self)) does " +
                     "not accept \(String(describing: context.self)) as a context."))
         }
         assertIfNotMainThread()
@@ -115,9 +115,11 @@ struct ContainerFactoryBox<F: ContainerFactory>: PreparableAnyFactory, AnyFactor
 
     mutating func scrapeChildren(from factories: [AnyFactory]) throws -> [AnyFactory] {
         var otherFactories: [AnyFactory] = []
+        var isNonEmbeddableFound = false
         self.children = factories.compactMap({ child -> DelayedIntegrationFactory<FactoryType.Context>? in
-            guard child.action.embeddable else {
+            guard !isNonEmbeddableFound, child.action.isEmbeddable(to: factory) else {
                 otherFactories.append(child)
+                isNonEmbeddableFound = true
                 return nil
             }
             return DelayedIntegrationFactory(child)
@@ -127,7 +129,7 @@ struct ContainerFactoryBox<F: ContainerFactory>: PreparableAnyFactory, AnyFactor
 
     func build(with context: Any?) throws -> UIViewController {
         guard let typedContext = Any?.some(context as Any) as? FactoryType.Context else {
-            throw RoutingError.typeMismatch(FactoryType.Context.self, RoutingError.Context(debugDescription: "\(String(describing: factory.self)) does " +
+            throw RoutingError.typeMismatch(FactoryType.Context.self, RoutingError.Context("\(String(describing: factory.self)) does " +
                     "not accept \(String(describing: context.self)) as a context."))
         }
         assertIfNotMainThread()

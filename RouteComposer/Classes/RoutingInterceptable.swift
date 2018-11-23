@@ -2,7 +2,7 @@
 //  RoutingInterceptable.swift
 //  RouteComposer
 //
-//  Created by Alexandra Mikhailouskaya on 23/01/2018.
+//  Created by Eugene Kazaev on 23/01/2018.
 //
 
 import Foundation

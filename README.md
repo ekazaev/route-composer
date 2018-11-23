@@ -160,7 +160,7 @@ class ProductViewControllerFinder: StackIteratingFinder {
 
 The `Action` instance explains to the router **how the view controller is created by a `Factory` should be integrated into a view controller stack**.
 Most likely, you will not need to implement your own actions because the library provides actions for most of the default actions that can be done in
-`UIKit` like (`PresentModally`, `AddTab`, `pushToNavigation` etc.). You may need to implement your own actions if you are
+`UIKit` like (`GeneralAction.presentModally`, `UITabBarController.add`, `UINavigationController.push` etc.). You may need to implement your own actions if you are
 doing something unusual.
 
 Check example app to see a custom action implementation.
@@ -345,7 +345,7 @@ class ProductArrayViewController: UITableViewController {
         // Handled by ProductViewControllerContextTask
         productViewController.productID = productID
 
-        // Handled by NavigationControllerStep and pushToNavigationAction
+        // Handled by NavigationControllerStep and UINavigationController.push
         let navigationController = UINavigationController(rootViewController: productViewController)
 
         // handled by DefaultActions.PresentModally

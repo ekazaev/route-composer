@@ -28,19 +28,23 @@ public struct DefaultStackIterator: StackIterator {
     /// A starting point in the `UIViewController`s stack
     public let startingPoint: StartingPoint
 
+    /// `WindowProvider` to get proper `UIWindow`
+    public let windowProvider: WindowProvider
+
     var startingViewController: UIViewController? {
         switch startingPoint {
         case .topmost:
-            return UIWindow.key?.topmostViewController
+            return windowProvider.window?.topmostViewController
         case .root:
-            return UIWindow.key?.rootViewController
+            return windowProvider.window?.rootViewController
         }
     }
 
     /// Constructor
-    public init(options: SearchOptions = .fullStack, startingPoint: StartingPoint = .topmost) {
+    public init(options: SearchOptions = .fullStack, startingPoint: StartingPoint = .topmost, windowProvider: WindowProvider = DefaultWindowProvider()) {
         self.startingPoint = startingPoint
         self.options = options
+        self.windowProvider = windowProvider
     }
 
     /// Returns `UIViewController` instance if found

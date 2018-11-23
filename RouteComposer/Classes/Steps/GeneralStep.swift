@@ -10,13 +10,16 @@ public struct GeneralStep {
 
     struct RootViewControllerStep: RoutingStep, PerformableStep {
 
+        let windowProvider: WindowProvider
+
         /// Constructor
-        init() {
+        init(windowProvider: WindowProvider = DefaultWindowProvider()) {
+            self.windowProvider = windowProvider
         }
 
         func perform(with context: Any?) throws -> PerformableStepResult {
-            guard let viewController = UIWindow.key?.rootViewController else {
-                throw RoutingError.generic(RoutingError.Context(debugDescription: "Root view controller was not found."))
+            guard let viewController = windowProvider.window?.rootViewController else {
+                throw RoutingError.generic(RoutingError.Context("Root view controller was not found."))
             }
             return .success(viewController)
         }
@@ -25,13 +28,16 @@ public struct GeneralStep {
 
     struct CurrentViewControllerStep: RoutingStep, PerformableStep {
 
+        let windowProvider: WindowProvider
+
         /// Constructor
-        init() {
+        init(windowProvider: WindowProvider = DefaultWindowProvider()) {
+            self.windowProvider = windowProvider
         }
 
         func perform(with context: Any?) throws -> PerformableStepResult {
-            guard let viewController = UIWindow.key?.topmostViewController else {
-                throw RoutingError.generic(RoutingError.Context(debugDescription: "Topmost view controller was not found."))
+            guard let viewController = windowProvider.window?.topmostViewController else {
+                throw RoutingError.generic(RoutingError.Context("Topmost view controller was not found."))
             }
             return .success(viewController)
         }
@@ -39,13 +45,13 @@ public struct GeneralStep {
     }
 
     /// Returns the root view controller of the key window.
-    public static func root<C>() -> DestinationStep<UIViewController, C> {
-        return DestinationStep(RootViewControllerStep())
+    public static func root<C>(windowProvider: WindowProvider = DefaultWindowProvider()) -> DestinationStep<UIViewController, C> {
+        return DestinationStep(RootViewControllerStep(windowProvider: windowProvider))
     }
 
     /// Returns the topmost presented view controller.
-    public static func current<C>() -> DestinationStep<UIViewController, C> {
-        return DestinationStep(CurrentViewControllerStep())
+    public static func current<C>(windowProvider: WindowProvider = DefaultWindowProvider()) -> DestinationStep<UIViewController, C> {
+        return DestinationStep(CurrentViewControllerStep(windowProvider: windowProvider))
     }
 
 }

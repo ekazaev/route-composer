@@ -57,7 +57,7 @@ public struct InlineInterceptor<C>: RoutingInterceptor {
             asyncCompletion(context, completion)
         } else {
             assertionFailure("The completion block was not set.")
-            completion(.failure(RoutingError.generic(RoutingError.Context(debugDescription: "The completion block was not set."))))
+            completion(.failure(RoutingError.generic(RoutingError.Context("The completion block was not set."))))
         }
     }
 

@@ -1,6 +1,6 @@
 //
 // Created by Eugene Kazaev on 15/01/2018.
-// Copyright (c) 2018 HBC Tech. All rights reserved.
+// Copyright © 2018 HBC Digital. All rights reserved.
 //
 
 import UIKit
@@ -27,10 +27,10 @@ public struct ClassNameFactory<VC: UIViewController, C>: Factory {
     public func build(with context: Context) throws -> ViewController {
         if let viewControllerName = viewControllerName {
             guard let customClass = NSClassFromString(viewControllerName) else {
-                throw RoutingError.compositionFailed(RoutingError.Context(debugDescription: "Can not find \(viewControllerName) in the bundle."))
+                throw RoutingError.compositionFailed(RoutingError.Context("Can not find \(viewControllerName) in the bundle."))
             }
             guard let customViewControllerClass = customClass as? ViewController.Type else {
-                throw RoutingError.typeMismatch(customClass.self, RoutingError.Context(debugDescription: "\(viewControllerName) is not an " +
+                throw RoutingError.typeMismatch(customClass.self, RoutingError.Context("\(viewControllerName) is not an " +
                         "expected UIViewController type class."))
             }
 

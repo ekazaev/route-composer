@@ -36,7 +36,7 @@ class MultiplexerTest: XCTestCase {
     func testRoutingPrepareInterceptorThrow() {
         let interceptors = [
             RoutingInterceptorBox(InlineInterceptor(prepare: { (_: Any?) throws in
-                throw RoutingError.generic(RoutingError.Context(debugDescription: "Should be handled"))
+                throw RoutingError.generic(RoutingError.Context("Should be handled"))
             }, { (_: Any?) in
 
             }))
@@ -49,7 +49,7 @@ class MultiplexerTest: XCTestCase {
     func testRoutingWrongContextTypeInterceptorThrow() {
         let interceptors = [
             RoutingInterceptorBox(InlineInterceptor(prepare: { (_: Int) throws in
-                throw RoutingError.generic(RoutingError.Context(debugDescription: "Should be handled"))
+                throw RoutingError.generic(RoutingError.Context("Should be handled"))
             }, { (_: Int) in
 
             }))
@@ -120,7 +120,7 @@ class MultiplexerTest: XCTestCase {
 
             func execute(with context: Any?, completion: @escaping (InterceptorResult) -> Void) {
                 guard count == 1 else {
-                    completion(.failure(RoutingError.generic(RoutingError.Context(debugDescription: "Count should be equal to 1"))))
+                    completion(.failure(RoutingError.generic(RoutingError.Context("Count should be equal to 1"))))
                     return
                 }
                 completion(.success)

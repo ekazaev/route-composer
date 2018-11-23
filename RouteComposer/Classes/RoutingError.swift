@@ -19,7 +19,7 @@ public enum RoutingError: Error {
         public let underlyingError: Error?
 
         /// Constructor
-        public init(debugDescription: String, underlyingError: Error? = nil) {
+        public init(_ debugDescription: String, underlyingError: Error? = nil) {
             self.debugDescription = debugDescription
             self.underlyingError = underlyingError
         }

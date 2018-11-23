@@ -66,7 +66,7 @@ class RouterTests: XCTestCase {
     struct TestViewControllerBrokenFactory: Factory {
 
         func build(with context: Any?) throws -> TestViewController {
-            throw RoutingError.generic(RoutingError.Context(debugDescription: "Some error occurred"))
+            throw RoutingError.generic(RoutingError.Context("Some error occurred"))
         }
 
     }
@@ -193,7 +193,7 @@ class RouterTests: XCTestCase {
                          on existingController: TestModalPresentableController,
                          animated: Bool,
                          completion: @escaping (ActionResult) -> Void) {
-                completion(.failure(RoutingError.generic(RoutingError.Context(debugDescription: "Some error occurred"))))
+                completion(.failure(RoutingError.generic(RoutingError.Context("Some error occurred"))))
             }
 
         }

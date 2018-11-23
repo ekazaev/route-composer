@@ -1,6 +1,6 @@
 //
 // Created by Eugene Kazaev on 15/01/2018.
-// Copyright (c) 2018 HBC Tech. All rights reserved.
+// Copyright © 2018 HBC Digital. All rights reserved.
 //
 
 import UIKit
@@ -54,7 +54,7 @@ public struct DefaultRouter: Router, InterceptableRouter, MainThreadChecking {
 
         // Checks if the view controllers that are currently presented from the origin view controller, can be dismissed.
         if let viewController = Array([[viewController.allParents.last ?? viewController], viewController.allPresentedViewControllers].joined()).nonDismissibleViewController {
-            throw RoutingError.generic(RoutingError.Context(debugDescription: "\(String(describing: viewController)) view controller cannot " +
+            throw RoutingError.generic(RoutingError.Context("\(String(describing: viewController)) view controller cannot " +
                     "be dismissed."))
         }
 
@@ -69,7 +69,7 @@ public struct DefaultRouter: Router, InterceptableRouter, MainThreadChecking {
             }
 
             guard let viewController = viewController else {
-                completion?(.unhandled(RoutingError.generic(RoutingError.Context(debugDescription: "A view controller that has been chosen as a " +
+                completion?(.unhandled(RoutingError.generic(RoutingError.Context("A view controller that has been chosen as a " +
                         "starting point of the navigation process was destroyed while the router was waiting for the interceptors to finish."))))
                 return
             }
@@ -87,6 +87,9 @@ public struct DefaultRouter: Router, InterceptableRouter, MainThreadChecking {
                         animated: animated) { viewController, result in
                     self.makeVisibleInParentContainer(viewController, animated: animated)
                     do {
+                        if case let .unhandled(error) = result {
+                            throw error
+                        }
                         try taskStack.runPostTasks()
                         self.logger?.log(.info("Successfully finished the navigation process."))
                         completion?(result)
@@ -168,7 +171,7 @@ public struct DefaultRouter: Router, InterceptableRouter, MainThreadChecking {
 
         //Throws an exception if it hasn't found a view controller to start the stack from.
         guard let viewController = viewControllerToStart else {
-            throw RoutingError.generic(RoutingError.Context(debugDescription: "Unable to start the navigation process as the view controller to start from was not found."))
+            throw RoutingError.generic(RoutingError.Context("Unable to start the navigation process as the view controller to start from was not found."))
         }
 
         return (rootViewController: viewController, factories: factories)

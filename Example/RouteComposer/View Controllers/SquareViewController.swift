@@ -3,7 +3,7 @@
 //  CircumferenceKit
 //
 //  Created by Eugene Kazaev on 18/12/2017.
-//  Copyright © 2017 HBC Tech. All rights reserved.
+//  Copyright © 2018 HBC Digital. All rights reserved.
 //
 
 import UIKit

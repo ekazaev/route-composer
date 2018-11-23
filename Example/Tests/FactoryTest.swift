@@ -47,8 +47,10 @@ class FactoryTest: XCTestCase {
     }
 
     func testNilFactory() {
-        let factory = NilFactory<UIViewController, Any?>()
+        var factory = NilFactory<UIViewController, Any?>()
+        XCTAssertThrowsError(try factory.prepare())
         XCTAssertThrowsError(try factory.build())
+        XCTAssertThrowsError(try factory.buildPrepared())
     }
 
     func testBuildPreparedFactory() {

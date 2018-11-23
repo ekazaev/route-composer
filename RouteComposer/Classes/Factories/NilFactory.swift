@@ -23,8 +23,12 @@ public struct NilFactory<VC: UIViewController, C>: Factory, NilEntity {
     public init() {
     }
 
+    public func prepare(with context: C) throws {
+        throw RoutingError.compositionFailed(RoutingError.Context("This factory can not build any UIViewController."))
+    }
+
     public func build(with context: Context) throws -> ViewController {
-        throw RoutingError.compositionFailed(RoutingError.Context(debugDescription: "This factory should never reach the router."))
+        throw RoutingError.compositionFailed(RoutingError.Context("This factory can not build any UIViewController."))
     }
 
 }

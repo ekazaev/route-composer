@@ -38,6 +38,25 @@ class BoxTests: XCTestCase {
         XCTAssertEqual(box?.children.count, 2)
     }
 
+    func testContainerBoxChildrenScrapeSameAction() {
+        let factory = EmptyContainer()
+        var box = ContainerFactoryBox(factory, action: ActionBox(ViewControllerActions.NilAction()))
+        XCTAssertNotNil(box)
+        var children: [AnyFactory] = []
+        children.append(FactoryBox(ClassNameFactory<UIViewController, Any?>(), action: ContainerActionBox(UINavigationController.push()))!)
+        children.append(FactoryBox(EmptyFactory(), action: ContainerActionBox(UINavigationController.push()))!)
+        children.append(ContainerFactoryBox(NavigationControllerFactory<Any?>(), action: ActionBox(ViewControllerActions.PresentModallyAction()))!)
+        children.append(FactoryBox(EmptyFactory(), action: ContainerActionBox(UINavigationController.push()))!)
+        children.append(FactoryBox(ClassNameFactory<UIViewController, Any?>(), action: ContainerActionBox(UINavigationController.push()))!)
+
+        let resultChildren = try? box?.scrapeChildren(from: children)
+        XCTAssertEqual(resultChildren??.count, 3)
+        XCTAssertEqual(box?.children.count, 2)
+        XCTAssertTrue(resultChildren??.first! is ContainerFactoryBox<NavigationControllerFactory<Any?>>)
+        XCTAssertTrue(box?.children.first!.factory is FactoryBox<ClassNameFactory<UIViewController, Any?>>)
+        XCTAssertTrue(resultChildren??.last! is FactoryBox<ClassNameFactory<UIViewController, Any?>>)
+    }
+
     func testNilInAssembly() {
         let routingStep = StepAssembly(finder: NilFinder<UIViewController, Any?>(),
                 factory: NilFactory<UIViewController, Any?>())
@@ -105,6 +124,22 @@ class BoxTests: XCTestCase {
 
         try? actionBox.perform(embedding: UIViewController(), in: &navigationController.viewControllers)
         XCTAssertEqual(navigationController.children.count, 2)
+    }
+
+    func testActionIsEmbeddable() {
+        let action = ActionBox(GeneralAction.presentModally())
+
+        XCTAssertFalse(action.isEmbeddable(to: NavigationControllerFactory<Any?>()))
+        XCTAssertFalse(action.isEmbeddable(to: TabBarControllerFactory<Any?>()))
+        XCTAssertFalse(action.isEmbeddable(to: SplitControllerFactory<Any?>()))
+    }
+
+    func testContainerActionIsEmbeddable() {
+        let action = ContainerActionBox(UINavigationController.push())
+
+        XCTAssertTrue(action.isEmbeddable(to: NavigationControllerFactory<Any?>()))
+        XCTAssertFalse(action.isEmbeddable(to: TabBarControllerFactory<Any?>()))
+        XCTAssertFalse(action.isEmbeddable(to: SplitControllerFactory<Any?>()))
     }
 
     func testBaseEntitiesCollector() {

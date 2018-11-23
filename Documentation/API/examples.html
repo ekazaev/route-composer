@@ -277,6 +277,9 @@
               <li class="nav-group-task">
                 <a href="Protocols/StackIterator.html">StackIterator</a>
               </li>
+              <li class="nav-group-task">
+                <a href="Protocols/WindowProvider.html">WindowProvider</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -308,6 +311,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Structs/DefaultStackIterator/StartingPoint.html">– StartingPoint</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/DefaultWindowProvider.html">DefaultWindowProvider</a>
               </li>
               <li class="nav-group-task">
                 <a href="Structs/GeneralAction.html">GeneralAction</a>
@@ -492,7 +498,7 @@
 <p><em>With the configuration above you will be able to navigate to both screens using the <code><a href="Protocols/Router.html">Router</a></code></em></p>
 <h4 id='why-do-we-use-code-expectingcontainer-code-here' class='heading'>Why do we use <code>expectingContainer</code> here?</h4>
 
-<p>Because <code>pushToNavigation</code> action requires <code>UINavigationController</code> to be previous <code>UIViewController</code> in the chain. <code>expectingContainer</code> method allows us to escape this check. You guarantee that it will be there by the time <code>pushToNavigation</code> will start to perform.</p>
+<p>Because <code>UINavigationController.push</code> action requires <code>UINavigationController</code> to be previous <code>UIViewController</code> in the chain. <code>expectingContainer</code> method allows us to escape this check. You guarantee that it will be there by the time <code>UINavigationController.push</code> will start to perform.</p>
 <h4 id='what-will-happen-if-in-the-configuration-above-i-will-replace-the-code-generalstep-current-code-with-the-code-generalstep-root-code' class='heading'>What will happen if, in the configuration above, I will replace the <code>GeneralStep.current</code> with the <code>GeneralStep.root</code>?</h4>
 
 <p>It will work, but it means that the router has to start building the stack from the root <code>UIViewController</code>, so if the user is in some <code>UIViewController</code> presented modally - the router will close it before it will start the navigation.</p>

@@ -9,11 +9,6 @@ import UIKit
 /// `UIWindow` helper functions.
 public extension UIWindow {
 
-    /// The application's `keyWindow`, or `nil` if there isn't one.
-    public static var key: UIWindow? {
-        return UIApplication.shared.keyWindow
-    }
-
     /// The topmost `UIViewController` in the view controller stack.
     public var topmostViewController: UIViewController? {
         var topmostViewController = rootViewController

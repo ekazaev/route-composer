@@ -7,8 +7,6 @@ import UIKit
 
 protocol AnyAction {
 
-    var embeddable: Bool { get }
-
     func perform(with viewController: UIViewController,
                  on existingController: UIViewController,
                  animated: Bool,
@@ -16,6 +14,8 @@ protocol AnyAction {
 
     func perform(embedding viewController: UIViewController,
                  in childViewControllers: inout [UIViewController]) throws
+
+    func isEmbeddable<CF: ContainerFactory>(to container: CF) -> Bool
 
 }
 
@@ -35,11 +35,9 @@ struct ActionBox<A: Action>: AnyAction, AnyActionBox, CustomStringConvertible, M
         self.action = action
     }
 
-    let embeddable: Bool = false
-
     func perform(with viewController: UIViewController, on existingController: UIViewController, animated: Bool, completion: @escaping (ActionResult) -> Void) {
         guard let typedExistingViewController = existingController as? A.ViewController else {
-            completion(.failure(RoutingError.typeMismatch(ActionType.ViewController.self, RoutingError.Context(debugDescription: "Action \(action.self) cannot " +
+            completion(.failure(RoutingError.typeMismatch(ActionType.ViewController.self, RoutingError.Context("Action \(action.self) cannot " +
                     "be performed on \(existingController)."))))
             return
         }
@@ -58,6 +56,9 @@ struct ActionBox<A: Action>: AnyAction, AnyActionBox, CustomStringConvertible, M
         return String(describing: action)
     }
 
+    func isEmbeddable<CF: ContainerFactory>(to container: CF) -> Bool {
+        return false
+    }
 }
 
 struct ContainerActionBox<A: ContainerAction>: AnyAction, AnyActionBox, CustomStringConvertible, MainThreadChecking {
@@ -68,11 +69,9 @@ struct ContainerActionBox<A: ContainerAction>: AnyAction, AnyActionBox, CustomSt
         self.action = action
     }
 
-    let embeddable: Bool = true
-
     func perform(with viewController: UIViewController, on existingController: UIViewController, animated: Bool, completion: @escaping (ActionResult) -> Void) {
         guard let containerController: A.ViewController = UIViewController.findContainer(of: existingController) else {
-            completion(.failure(RoutingError.typeMismatch(ActionType.ViewController.self, RoutingError.Context(debugDescription: "Container of " +
+            completion(.failure(RoutingError.typeMismatch(ActionType.ViewController.self, RoutingError.Context("Container of " +
                     "\(String(describing: ActionType.ViewController.self)) type cannot be found to perform \(action)"))))
             return
         }
@@ -89,6 +88,10 @@ struct ContainerActionBox<A: ContainerAction>: AnyAction, AnyActionBox, CustomSt
 
     public var description: String {
         return String(describing: action)
+    }
+
+    func isEmbeddable<CF: ContainerFactory>(to container: CF) -> Bool {
+        return CF.ViewController.self is A.ViewController.Type
     }
 
 }

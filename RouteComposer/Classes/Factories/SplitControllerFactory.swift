@@ -1,6 +1,6 @@
 //
 // Created by Eugene Kazaev on 16/01/2018.
-// Copyright (c) 2018 HBC Tech. All rights reserved.
+// Copyright © 2018 HBC Digital. All rights reserved.
 //
 
 import Foundation
@@ -41,7 +41,7 @@ public struct SplitControllerFactory<C>: SimpleContainerFactory {
 
     public func build(with context: Context, integrating viewControllers: [UIViewController]) throws -> ViewController {
         guard !viewControllers.isEmpty else {
-            throw RoutingError.compositionFailed(RoutingError.Context(debugDescription: "No master or derails view controllers provided."))
+            throw RoutingError.compositionFailed(RoutingError.Context("No master or derails view controllers provided."))
         }
 
         let splitController = UISplitViewController(nibName: nil, bundle: nil)

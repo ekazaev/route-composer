@@ -1,6 +1,6 @@
 //
 // Created by Eugene Kazaev on 15/01/2018.
-// Copyright (c) 2018 HBC Tech. All rights reserved.
+// Copyright © 2018 HBC Digital. All rights reserved.
 //
 
 import UIKit
@@ -50,8 +50,7 @@ extension UIViewController {
     }
 
     public var topmostNonContainerViewController: UIViewController? {
-        guard let rootViewController = UIWindow.key?.rootViewController else {
-
+        guard let rootViewController = viewIfLoaded?.window?.rootViewController else {
             return nil
         }
 
