@@ -28,13 +28,13 @@ extension DefaultRouter {
             interceptors.append(interceptor)
         }
 
-        func run(completion: @escaping (_: InterceptorResult) -> Void) {
+        func run(logger: Logger?, completion: @escaping (_: InterceptorResult) -> Void) {
             guard !interceptors.isEmpty else {
                 completion(.success)
                 return
             }
             let interceptorToRun = interceptors.count == 1 ? interceptors[0] : InterceptorMultiplexer(interceptors)
-            interceptorToRun.execute(with: context, completion: completion)
+            interceptorToRun.execute(with: context, logger: logger, completion: completion)
         }
 
     }
@@ -176,10 +176,13 @@ extension DefaultRouter {
 
         private let postTaskRunner: PostTaskRunner
 
-        init(interceptorRunner: InterceptorRunner, contextTaskRunner: ContextTaskRunner, postTaskRunner: PostTaskRunner) {
+        private let logger: Logger?
+
+        init(logger: Logger?, interceptorRunner: InterceptorRunner, contextTaskRunner: ContextTaskRunner, postTaskRunner: PostTaskRunner) {
             self.interceptorRunner = interceptorRunner
             self.contextTaskRunner = contextTaskRunner
             self.postTaskRunner = postTaskRunner
+            self.logger = logger
         }
 
         func taskRunnerFor(step: RoutingStep?) throws -> StepTaskTaskRunner {
@@ -201,7 +204,7 @@ extension DefaultRouter {
         }
 
         func executeInterceptors(completion: @escaping (_: InterceptorResult) -> Void) {
-            interceptorRunner.run(completion: completion)
+            interceptorRunner.run(logger: logger, completion: completion)
         }
 
         func runPostTasks() throws {

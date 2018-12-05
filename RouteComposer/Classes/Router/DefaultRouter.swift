@@ -107,7 +107,7 @@ public struct DefaultRouter: Router, InterceptableRouter, MainThreadChecking {
         let contextTaskRunner = try ContextTaskRunner(contextTasks: self.contextTasks, context: context)
         let postTaskDelayedRunner = PostTaskDelayedRunner()
         let postTaskRunner = PostTaskRunner(postTasks: self.postTasks, context: context, delayedRunner: postTaskDelayedRunner)
-        return GlobalTaskRunner(interceptorRunner: interceptorRunner, contextTaskRunner: contextTaskRunner, postTaskRunner: postTaskRunner)
+        return GlobalTaskRunner(logger: logger, interceptorRunner: interceptorRunner, contextTaskRunner: contextTaskRunner, postTaskRunner: postTaskRunner)
     }
 
     private func prepareFactoriesStack(to finalStep: RoutingStep, with context: Any?, taskStack: GlobalTaskRunner) throws -> (rootViewController: UIViewController,
@@ -206,7 +206,7 @@ public struct DefaultRouter: Router, InterceptableRouter, MainThreadChecking {
                 let newViewController = try factory.build(with: context)
                 logger?.log(.info("\(String(describing: factory)) built a " +
                         "\(String(describing: newViewController))."))
-                factory.action.perform(with: newViewController, on: previousViewController, animated: animated) { result in
+                factory.action.perform(with: newViewController, on: previousViewController, animated: animated, logger: logger) { result in
                     self.assertIfNotMainThread(logger: self.logger)
                     if case let .failure(error) = result {
                         self.logger?.log(.error("\(String(describing: factory.action)) has stopped the navigation process " +

@@ -10,6 +10,7 @@ protocol AnyAction {
     func perform(with viewController: UIViewController,
                  on existingController: UIViewController,
                  animated: Bool,
+                 logger: Logger?,
                  completion: @escaping (_: ActionResult) -> Void)
 
     func perform(embedding viewController: UIViewController,
@@ -27,7 +28,7 @@ protocol AnyActionBox: AnyAction {
 
 }
 
-struct ActionBox<A: Action>: AnyAction, AnyActionBox, CustomStringConvertible, MainThreadChecking {
+struct ActionBox<A: Action>: AnyAction, AnyActionBox, CustomStringConvertible, MainThreadChecking, CompletionWatching {
 
     let action: A
 
@@ -35,15 +36,17 @@ struct ActionBox<A: Action>: AnyAction, AnyActionBox, CustomStringConvertible, M
         self.action = action
     }
 
-    func perform(with viewController: UIViewController, on existingController: UIViewController, animated: Bool, completion: @escaping (ActionResult) -> Void) {
+    func perform(with viewController: UIViewController, on existingController: UIViewController, animated: Bool, logger: Logger?, completion: @escaping (ActionResult) -> Void) {
         guard let typedExistingViewController = existingController as? A.ViewController else {
             completion(.failure(RoutingError.typeMismatch(ActionType.ViewController.self, RoutingError.Context("Action \(action.self) cannot " +
                     "be performed on \(existingController)."))))
             return
         }
-        assertIfNotMainThread()
+        assertIfNotMainThread(logger: logger)
+        let watchDog = createWatchDog(logger: logger)
         action.perform(with: viewController, on: typedExistingViewController, animated: animated) { result in
-            self.assertIfNotMainThread()
+            watchDog.stop()
+            self.assertIfNotMainThread(logger: logger)
             completion(result)
         }
     }
@@ -61,7 +64,7 @@ struct ActionBox<A: Action>: AnyAction, AnyActionBox, CustomStringConvertible, M
     }
 }
 
-struct ContainerActionBox<A: ContainerAction>: AnyAction, AnyActionBox, CustomStringConvertible, MainThreadChecking {
+struct ContainerActionBox<A: ContainerAction>: AnyAction, AnyActionBox, CustomStringConvertible, MainThreadChecking, CompletionWatching {
 
     let action: A
 
@@ -69,15 +72,17 @@ struct ContainerActionBox<A: ContainerAction>: AnyAction, AnyActionBox, CustomSt
         self.action = action
     }
 
-    func perform(with viewController: UIViewController, on existingController: UIViewController, animated: Bool, completion: @escaping (ActionResult) -> Void) {
+    func perform(with viewController: UIViewController, on existingController: UIViewController, animated: Bool, logger: Logger?, completion: @escaping (ActionResult) -> Void) {
         guard let containerController: A.ViewController = UIViewController.findContainer(of: existingController) else {
             completion(.failure(RoutingError.typeMismatch(ActionType.ViewController.self, RoutingError.Context("Container of " +
                     "\(String(describing: ActionType.ViewController.self)) type cannot be found to perform \(action)"))))
             return
         }
-        assertIfNotMainThread()
+        assertIfNotMainThread(logger: logger)
+        let watchDog = createWatchDog(logger: logger)
         action.perform(with: viewController, on: containerController, animated: animated) { result in
-            self.assertIfNotMainThread()
+            watchDog.stop()
+            self.assertIfNotMainThread(logger: logger)
             completion(result)
         }
     }

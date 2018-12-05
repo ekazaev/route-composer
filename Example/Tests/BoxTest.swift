@@ -89,7 +89,7 @@ class BoxTests: XCTestCase {
         let action = TestAction()
         let actionBox = ActionBox(action)
         let navigationController = UINavigationController()
-        actionBox.perform(with: UIViewController(), on: navigationController, animated: true) { result in
+        actionBox.perform(with: UIViewController(), on: navigationController, animated: true, logger: nil) { result in
             guard case .continueRouting = result else {
                 XCTAssert(false)
                 return
@@ -114,7 +114,7 @@ class BoxTests: XCTestCase {
         let action = TestContainerAction()
         let actionBox = ContainerActionBox(action)
         let navigationController = UINavigationController()
-        actionBox.perform(with: UIViewController(), on: navigationController, animated: true) { result in
+        actionBox.perform(with: UIViewController(), on: navigationController, animated: true, logger: nil) { result in
             guard case .continueRouting = result else {
                 XCTAssert(false)
                 return
@@ -168,4 +168,25 @@ class BoxTests: XCTestCase {
         XCTAssertTrue(collector.factory?.action is ActionBox<ViewControllerActions.NilAction>)
     }
 
+    func testWatchDog() {
+        class TestLogger: Logger {
+
+            var logsCount: Int = 0
+
+            func log(_ message: LogMessage) {
+                logsCount += 1
+            }
+
+        }
+        let logger = TestLogger()
+        var interceptor: RoutingInterceptorBox? = RoutingInterceptorBox(InlineInterceptor({ (_: Any?, _) in
+            // No completion call
+        }))
+
+        try? interceptor?.prepare(with: nil)
+        interceptor?.execute(with: nil, logger: logger, completion: { _ in })
+        interceptor = nil
+
+        XCTAssertEqual(logger.logsCount, 1)
+    }
 }

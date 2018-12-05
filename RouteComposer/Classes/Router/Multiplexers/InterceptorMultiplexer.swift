@@ -20,7 +20,7 @@ struct InterceptorMultiplexer: AnyRoutingInterceptor, MainThreadChecking, Custom
         })
     }
 
-    func execute(with context: Any?, completion: @escaping (InterceptorResult) -> Void) {
+    func execute(with context: Any?, logger: Logger? = nil, completion: @escaping (InterceptorResult) -> Void) {
         guard !self.interceptors.isEmpty else {
             completion(.success)
             return
@@ -29,9 +29,9 @@ struct InterceptorMultiplexer: AnyRoutingInterceptor, MainThreadChecking, Custom
         var interceptors = self.interceptors
 
         func runInterceptor(interceptor: AnyRoutingInterceptor) {
-            self.assertIfNotMainThread()
-            interceptor.execute(with: context) { result in
-                self.assertIfNotMainThread()
+            self.assertIfNotMainThread(logger: logger)
+            interceptor.execute(with: context, logger: logger) { result in
+                self.assertIfNotMainThread(logger: logger)
                 if case .failure(_) = result {
                     completion(result)
                 } else if interceptors.isEmpty {

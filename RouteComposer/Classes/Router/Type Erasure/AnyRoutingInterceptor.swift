@@ -9,11 +9,11 @@ protocol AnyRoutingInterceptor {
 
     mutating func prepare(with context: Any?) throws
 
-    func execute(with context: Any?, completion: @escaping (_: InterceptorResult) -> Void)
+    func execute(with context: Any?, logger: Logger?, completion: @escaping (_: InterceptorResult) -> Void)
 
 }
 
-struct RoutingInterceptorBox<R: RoutingInterceptor>: AnyRoutingInterceptor, AnyPreparableEntity, CustomStringConvertible, MainThreadChecking {
+struct RoutingInterceptorBox<R: RoutingInterceptor>: AnyRoutingInterceptor, AnyPreparableEntity, CustomStringConvertible, MainThreadChecking, CompletionWatching {
 
     var routingInterceptor: R
 
@@ -33,16 +33,18 @@ struct RoutingInterceptorBox<R: RoutingInterceptor>: AnyRoutingInterceptor, AnyP
         isPrepared = true
     }
 
-    func execute(with context: Any?, completion: @escaping (InterceptorResult) -> Void) {
+    func execute(with context: Any?, logger: Logger? = nil, completion: @escaping (InterceptorResult) -> Void) {
         guard let typedDestination = Any?.some(context as Any) as? R.Context else {
             completion(.failure(RoutingError.typeMismatch(R.Context.self, RoutingError.Context("\(String(describing: routingInterceptor.self)) does " +
                     "not accept \(String(describing: context.self)) as a context."))))
             return
         }
         assertIfNotPrepared()
-        assertIfNotMainThread()
+        assertIfNotMainThread(logger: logger)
+        let watchDog = createWatchDog(logger: logger)
         routingInterceptor.execute(with: typedDestination) { result in
-            self.assertIfNotMainThread()
+            watchDog.stop()
+            self.assertIfNotMainThread(logger: logger)
             completion(result)
         }
     }

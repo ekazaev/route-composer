@@ -69,6 +69,8 @@
 		9708BDBA26B925A5F7FA6F6F5D8A0AFD /* BaseStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497DD272C09582ACCF36D9347D3F255F /* BaseStep.swift */; };
 		995896034C59B512753C373249F6298C /* RoutingInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8353B32ECE0AD397ED03175A89F4D9E /* RoutingInterceptor.swift */; };
 		9AFBC5D0275AC519C2FFB9E6 /* DefaultWindowProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC56E1E30D4DE8D9BC132 /* DefaultWindowProvider.swift */; };
+		9AFBC866AC7FC203D4714305 /* WatchDog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC33E297816C5FEC89323 /* WatchDog.swift */; };
+		9AFBC8F3EBFD343B16B7A929 /* CompletionWatching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC2F0B8DD2DEFAB1A7260 /* CompletionWatching.swift */; };
 		9AFBCD30FF07E8918182529F /* WindowProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC4594EA7C7D8DDAD3CFE /* WindowProvider.swift */; };
 		9B3ED4A7877AF4D3B822033DAE2590C8 /* NavigationControllerStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFFA2C3AF0B9F04FE191EC3E9450756 /* NavigationControllerStep.swift */; };
 		9B8009253B3C773F210BBB46AAE7C1B1 /* UIViewController+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6731FF41C1C8F01A0882B4FF2CFA0017 /* UIViewController+Action.swift */; };
@@ -217,6 +219,8 @@
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		95CDDD1FF3EDC275C3F18E746BD08206 /* RouteComposer-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RouteComposer-prefix.pch"; sourceTree = "<group>"; };
 		96B57B30F6BD98C0225945B329EF4003 /* Logger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		9AFBC2F0B8DD2DEFAB1A7260 /* CompletionWatching.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompletionWatching.swift; sourceTree = "<group>"; };
+		9AFBC33E297816C5FEC89323 /* WatchDog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchDog.swift; sourceTree = "<group>"; };
 		9AFBC4594EA7C7D8DDAD3CFE /* WindowProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowProvider.swift; sourceTree = "<group>"; };
 		9AFBC56E1E30D4DE8D9BC132 /* DefaultWindowProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultWindowProvider.swift; sourceTree = "<group>"; };
 		9B73E9491472765A969B88B346018B81 /* Pods-RouteComposer_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-RouteComposer_Tests.modulemap"; sourceTree = "<group>"; };
@@ -631,6 +635,8 @@
 				B8911F299BAEF1D9BCA4DA15FFB29448 /* PerformableStepResult.swift */,
 				208CC5D9AD1E527C374689CE64507D2B /* RoutingStep.swift */,
 				200C48D566B2E3A277D6356C7B714A79 /* SwitcherStep.swift */,
+				9AFBC33E297816C5FEC89323 /* WatchDog.swift */,
+				9AFBC2F0B8DD2DEFAB1A7260 /* CompletionWatching.swift */,
 			);
 			name = Internal;
 			path = Internal;
@@ -858,6 +864,8 @@
 				C2C476F25460A7EDF6DF8DAB9A26B26A /* XibFactory.swift in Sources */,
 				9AFBCD30FF07E8918182529F /* WindowProvider.swift in Sources */,
 				9AFBC5D0275AC519C2FFB9E6 /* DefaultWindowProvider.swift in Sources */,
+				9AFBC866AC7FC203D4714305 /* WatchDog.swift in Sources */,
+				9AFBC8F3EBFD343B16B7A929 /* CompletionWatching.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
