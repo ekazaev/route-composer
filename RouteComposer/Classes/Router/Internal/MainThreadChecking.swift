@@ -12,7 +12,7 @@ extension MainThreadChecking {
 
     func assertIfNotMainThread(functionName: String = #function, logger: Logger? = nil) {
         if !Thread.isMainThread {
-            let errorMessage = "Method \(functionName) requires to be called on the main thread."
+            let errorMessage = "Internal inconsistency: Method \(functionName) requires to be called on the main thread."
             logger?.log(.error(errorMessage))
             assertionFailure(errorMessage)
         }
