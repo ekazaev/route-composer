@@ -44,6 +44,22 @@ public struct GeneralStep {
 
     }
 
+    struct FinderStep: RoutingStep, PerformableStep {
+
+        let finder: AnyFinder?
+
+        init<F: Finder>(finder: F) {
+            self.finder = FinderBox(finder)
+        }
+
+        func perform(with context: Any?) throws -> PerformableStepResult {
+            guard let viewController = try finder?.findViewController(with: context) else {
+                throw RoutingError.generic(RoutingError.Context("A view controller of \(String(describing: finder)) was not found."))
+            }
+            return .success(viewController)
+        }
+    }
+
     /// Returns the root view controller of the key window.
     public static func root<C>(windowProvider: WindowProvider = DefaultWindowProvider()) -> DestinationStep<UIViewController, C> {
         return DestinationStep(RootViewControllerStep(windowProvider: windowProvider))
@@ -52,6 +68,11 @@ public struct GeneralStep {
     /// Returns the topmost presented view controller.
     public static func current<C>(windowProvider: WindowProvider = DefaultWindowProvider()) -> DestinationStep<UIViewController, C> {
         return DestinationStep(CurrentViewControllerStep(windowProvider: windowProvider))
+    }
+
+    /// Returns the resulting view controller of the finder provided.
+    public static func custom<F: Finder>(using finder: F) -> DestinationStep<F.ViewController, F.Context> {
+        return DestinationStep(FinderStep(finder: finder))
     }
 
 }
