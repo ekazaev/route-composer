@@ -8,7 +8,6 @@ import UIKit
 /// Represents an action that has to be applied to the `UIViewController` after it has
 /// been built (eg: push to navigation stack, present modally, push to tab, etc)
 public protocol Action: AbstractAction {
-
 }
 
 /// Represents an action to be used by a `ContainerFactory` to build it's children view controller stack

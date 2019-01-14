@@ -14,7 +14,7 @@ struct PostRoutingTaskMultiplexer: AnyPostRoutingTask, CustomStringConvertible {
     }
 
     func execute(on viewController: UIViewController, with context: Any?, routingStack: [UIViewController]) throws {
-        try self.tasks.forEach({ try $0.execute(on: viewController, with: context, routingStack: routingStack) })
+        try tasks.forEach({ try $0.execute(on: viewController, with: context, routingStack: routingStack) })
     }
 
     var description: String {
