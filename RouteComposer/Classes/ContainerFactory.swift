@@ -12,13 +12,13 @@ import UIKit
 /// The `Router` uses `perform(embedding:)` method of a `ContainerAction` and then populates a full stack of the view controllers
 /// that were built by the associated factories in one go.
 /// Example: `Router` requires to populate N-view controllers into `UINavigationController`'s stack.
-public protocol ContainerFactory: AbstractFactory {
+public protocol ContainerFactory: AbstractFactory where ViewController: ContainerViewController {
 
-    /// Type of the `UIViewController` that `ContainerFactory` can build. Must be a `ContainerViewController`.
-    associatedtype ViewController = ViewController where ViewController: ContainerViewController
+    /// Type of `UIViewController` that `ContainerFactory` can build
+    associatedtype ViewController
 
-    /// Type of context `Context` instance that `ContainerFactory` needs
-    associatedtype Context = Context
+    /// `Context` to be passed into `UIViewController`
+    associatedtype Context
 
     /// Builds a `UIViewController` that will be integrated into the stack
     ///

@@ -2,7 +2,7 @@ podspec: RouteComposer.podspec
 clean: true
 author: HBC Tech
 author_url: https://tech.hbc.com
-output: Documentation/API
+output: docs
 documentation: ./*.md
 
 custom_categories:

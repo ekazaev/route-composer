@@ -15,9 +15,9 @@ public extension UIViewController {
     ///   - comparator: A block that should return `true` if the `UIViewController` instance provided is the
     ///     one that is being searched for.
     /// - Returns: A `UIViewController` instance if found, `nil` otherwise.
-    public static func findViewController(in viewController: UIViewController,
-                                          options: SearchOptions = .currentAndUp,
-                                          using comparator: (UIViewController) -> Bool) -> UIViewController? {
+    static func findViewController(in viewController: UIViewController,
+                                   options: SearchOptions = .currentAndUp,
+                                   using comparator: (UIViewController) -> Bool) -> UIViewController? {
         guard !viewController.isBeingDismissed else {
             return nil
         }

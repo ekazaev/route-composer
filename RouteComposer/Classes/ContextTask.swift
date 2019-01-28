@@ -37,7 +37,7 @@ public protocol ContextTask {
 
 public extension ContextTask {
 
-    public mutating func prepare(with context: Context) throws {
+    mutating func prepare(with context: Context) throws {
 
     }
 

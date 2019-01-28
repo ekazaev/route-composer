@@ -10,17 +10,13 @@ import ContainerViewController
 
 class CustomContainerFactory<C>: SimpleContainerFactory {
 
-    typealias ViewController = CustomContainerController
-
-    typealias Context = C
-
     weak var delegate: CustomViewControllerDelegate?
 
     init(delegate: CustomViewControllerDelegate) {
         self.delegate = delegate
     }
 
-    func build(with context: Context, integrating viewControllers: [UIViewController]) throws -> ViewController {
+    func build(with context: C, integrating viewControllers: [UIViewController]) throws -> CustomContainerController {
         guard let containerController = UIStoryboard(name: "Images", bundle: Bundle.main)
                 .instantiateViewController(withIdentifier: "CustomContainerController") as? ViewController else {
             throw RoutingError.compositionFailed(RoutingError.Context("Could not load CustomContainerController from the storyboard."))

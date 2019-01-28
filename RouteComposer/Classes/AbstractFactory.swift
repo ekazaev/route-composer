@@ -10,7 +10,7 @@ import UIKit
 /// integrated into the stack by the `Router`
 public protocol AbstractFactory {
 
-    /// Type of `UIViewController` that `Factory` can build
+    /// Type of `UIViewController` that `AbstractFactory` can build
     associatedtype ViewController: UIViewController
 
     /// `Context` to be passed into `UIViewController`

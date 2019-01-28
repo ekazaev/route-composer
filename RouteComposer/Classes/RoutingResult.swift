@@ -22,7 +22,7 @@ public enum RoutingResult {
 public extension RoutingResult {
 
     /// Returns `true` if `RoutingResult` is `.handled`
-    public var isSuccessful: Bool {
+    var isSuccessful: Bool {
         guard case .handled = self else {
             return false
         }

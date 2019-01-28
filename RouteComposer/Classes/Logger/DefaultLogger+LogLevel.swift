@@ -11,7 +11,7 @@ public extension DefaultLogger {
     /// - verbose: Log all the messages from a `Router`
     /// - warnings: Log only warnings and errors
     /// - errors: Log only errors
-    public enum LogLevel {
+    enum LogLevel {
 
         /// Log all the messages from `Router`
         case verbose

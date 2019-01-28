@@ -69,7 +69,7 @@ class FactoryTest: XCTestCase {
                 self.prepareBlock = prepareBlock
             }
 
-            func prepare(with context: Context) throws {
+            func prepare(with context: Any?) throws {
                 prepareBlock()
             }
 

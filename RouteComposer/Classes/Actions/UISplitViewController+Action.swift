@@ -9,12 +9,12 @@ import UIKit
 public extension ContainerViewController where Self: UISplitViewController {
 
     /// Presents a view controller as a master in the `UISplitViewController`
-    public static func setAsMaster() -> SplitViewControllerActions.SetAsMasterAction<Self> {
+    static func setAsMaster() -> SplitViewControllerActions.SetAsMasterAction<Self> {
         return SplitViewControllerActions.SetAsMasterAction()
     }
 
     /// Presents a view controller as a detail in the `UISplitViewController`
-    public static func pushToDetails() -> SplitViewControllerActions.PushToDetailsAction<Self> {
+    static func pushToDetails() -> SplitViewControllerActions.PushToDetailsAction<Self> {
         return SplitViewControllerActions.PushToDetailsAction()
     }
 

@@ -25,7 +25,7 @@ public protocol ContainerAction: AbstractAction where ViewController: ContainerV
 
 public extension ContainerAction {
 
-    public func perform(embedding viewController: UIViewController, in childViewControllers: inout [UIViewController]) {
+    func perform(embedding viewController: UIViewController, in childViewControllers: inout [UIViewController]) {
         childViewControllers.append(viewController)
     }
 
