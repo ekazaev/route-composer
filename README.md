@@ -372,7 +372,7 @@ See example app for other examples of defining routing configurations and instan
 
 ## Advanced Configuration:
 
-You can find more configuration examples [here](EXAMPLES.md).
+You can find more configuration examples [here](https://saksdirect.github.io/route-composer/examples.html).
 
 ## Contributing
 
