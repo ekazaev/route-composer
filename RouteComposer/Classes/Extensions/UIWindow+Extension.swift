@@ -10,7 +10,7 @@ import UIKit
 public extension UIWindow {
 
     /// The topmost `UIViewController` in the view controller stack.
-    public var topmostViewController: UIViewController? {
+    var topmostViewController: UIViewController? {
         var topmostViewController = rootViewController
 
         while let presentedViewController = topmostViewController?.presentedViewController, !presentedViewController.isBeingDismissed {

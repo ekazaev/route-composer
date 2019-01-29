@@ -27,8 +27,6 @@ public final class StepAssembly<F: Finder, FC: Factory>: GenericStepAssembly<F.V
 
     let factory: FC
 
-    public typealias Context = F.Context
-
     let previousSteps: [RoutingStep]
 
     /// Constructor
@@ -67,7 +65,7 @@ public extension StepAssembly where FC: NilEntity {
     /// Example: `UIViewController` instance was loaded as a part of the stack inside of the storyboard.
     ///
     /// - Parameter step: `ActionToStepIntegrator` instance to be used.
-    public func from<AF: Finder, AFC: AbstractFactory>(_ step: ActionToStepIntegrator<AF, AFC>) -> ActionConnectingAssembly<AF, AFC, ViewController, Context>
+    func from<AF: Finder, AFC: AbstractFactory>(_ step: ActionToStepIntegrator<AF, AFC>) -> ActionConnectingAssembly<AF, AFC, ViewController, Context>
             where AF.Context == Context {
         var previousSteps = self.previousSteps
         let entitiesCollector = BaseEntitiesCollector<FactoryBox<FC>, ActionBox>(finder: finder, factory: factory, action: ViewControllerActions.NilAction())
@@ -81,7 +79,7 @@ public extension StepAssembly where FC: NilEntity {
     /// Example: `UIViewController` instance was loaded as a part of the stack inside of the storyboard.
     ///
     /// - Parameter step: `DestinationStep` instance to be used.
-    public func from<VC: UIViewController>(_ step: DestinationStep<VC, Context>) -> LastStepInChainAssembly<ViewController, Context> {
+    func from<VC: UIViewController>(_ step: DestinationStep<VC, Context>) -> LastStepInChainAssembly<ViewController, Context> {
         var previousSteps = self.previousSteps
         let entitiesCollector = BaseEntitiesCollector<FactoryBox<FC>, ActionBox>(finder: finder, factory: factory, action: ViewControllerActions.NilAction())
         let currentStep = BaseStep(entitiesProvider: entitiesCollector, taskProvider: taskCollector)

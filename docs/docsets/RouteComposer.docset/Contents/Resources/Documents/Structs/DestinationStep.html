@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>DestinationStep Structure Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Struct/DestinationStep" class="dashAnchor"></a>
+    <a title="DestinationStep Structure Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">RouteComposer Docs</a> (100% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">RouteComposer Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        DestinationStep Structure Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Core Entities.html">Core Entities</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/Router.html">Router</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/RoutingError.html">RoutingError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/RoutingError/Context.html">– Context</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/DestinationStep.html">DestinationStep</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/Finder.html">Finder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/Factory.html">Factory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/ContainerFactory.html">ContainerFactory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Core Entities.html#/s:13RouteComposer6ActionP">Action</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/ContainerAction.html">ContainerAction</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Tasks.html">Tasks</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/RoutingInterceptor.html">RoutingInterceptor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/ContextTask.html">ContextTask</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/PostRoutingTask.html">PostRoutingTask</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Assemblies.html">Assemblies</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/StepAssembly.html">StepAssembly</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ContainerStepAssembly.html">ContainerStepAssembly</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SwitchAssembly.html">SwitchAssembly</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ChainAssembly.html">ChainAssembly</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CompleteFactoryAssembly.html">CompleteFactoryAssembly</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Additional Assemblies.html">Additional Assemblies</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/SingleStep.html">SingleStep</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SingleContainerStep.html">SingleContainerStep</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Factories.html">Factories</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/XibFactory.html">XibFactory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/StoryboardFactory.html">StoryboardFactory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ClassNameFactory.html">ClassNameFactory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/FinderFactory.html">FinderFactory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/NavigationControllerFactory.html">NavigationControllerFactory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/TabBarControllerFactory.html">TabBarControllerFactory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SplitControllerFactory.html">SplitControllerFactory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/NilFactory.html">NilFactory</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Finders.html">Finders</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/StackIteratingFinder.html">StackIteratingFinder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ClassFinder.html">ClassFinder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ClassWithContextFinder.html">ClassWithContextFinder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/InstanceFinder.html">InstanceFinder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/NilFinder.html">NilFinder</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Steps.html">Steps</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/GeneralStep.html">GeneralStep</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NavigationControllerStep.html">NavigationControllerStep</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TabBarControllerStep.html">TabBarControllerStep</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SplitControllerStep.html">SplitControllerStep</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Resulting Enums.html">Resulting Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/RoutingResult.html">RoutingResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ActionResult.html">ActionResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/InterceptorResult.html">InterceptorResult</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../UIViewController&#39;s protocols.html">UIViewController&#39;s protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/RoutingInterceptable.html">RoutingInterceptable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/ContainerViewController.html">ContainerViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/ContextChecking.html">ContextChecking</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Logging.html">Logging</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/Logger.html">Logger</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/LogMessage.html">LogMessage</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Other Guides.html">Other Guides</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../examples.html">EXAMPLES</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../readme.html">README</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Other Classes.html">Other Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/ActionToStepIntegrator.html">ActionToStepIntegrator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GenericStepAssembly.html">GenericStepAssembly</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Other Extensions.html">Other Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/Array.html">Array</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/UINavigationController.html">UINavigationController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/UISplitViewController.html">UISplitViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/UITabBarController.html">UITabBarController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/UIViewController.html">UIViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/UIWindow.html">UIWindow</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Other Protocols.html">Other Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/AbstractAction.html">AbstractAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/AbstractFactory.html">AbstractFactory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/ActionConnecting.html">ActionConnecting</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/InterceptableRouter.html">InterceptableRouter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Other Protocols.html#/s:13RouteComposer9NilEntityP">NilEntity</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/SimpleContainerFactory.html">SimpleContainerFactory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/StackIterator.html">StackIterator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/WindowProvider.html">WindowProvider</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Other Structs.html">Other Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/ActionConnectingAssembly.html">ActionConnectingAssembly</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ChildCoordinator.html">ChildCoordinator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CompleteFactory.html">CompleteFactory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ContainerStepChainAssembly.html">ContainerStepChainAssembly</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/DefaultLogger.html">DefaultLogger</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/DefaultLogger/LogLevel.html">– LogLevel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/DefaultRouter.html">DefaultRouter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/DefaultStackIterator.html">DefaultStackIterator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/DefaultStackIterator/StartingPoint.html">– StartingPoint</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/DefaultWindowProvider.html">DefaultWindowProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/GeneralAction.html">GeneralAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/InlineContextTask.html">InlineContextTask</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/InlineInterceptor.html">InlineInterceptor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/InlinePostTask.html">InlinePostTask</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/LastStepInChainAssembly.html">LastStepInChainAssembly</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/NavigationControllerActions.html">NavigationControllerActions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/NavigationControllerActions/PushAction.html">– PushAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/NavigationControllerActions/PushAsRootAction.html">– PushAsRootAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/NavigationControllerActions/PushReplacingLastAction.html">– PushReplacingLastAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SearchOptions.html">SearchOptions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SplitViewControllerActions.html">SplitViewControllerActions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SplitViewControllerActions/SetAsMasterAction.html">– SetAsMasterAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SplitViewControllerActions/PushToDetailsAction.html">– PushToDetailsAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/StepChainAssembly.html">StepChainAssembly</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/TabBarControllerActions.html">TabBarControllerActions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/TabBarControllerActions/AddTabAction.html">– AddTabAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ViewControllerActions.html">ViewControllerActions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ViewControllerActions/PresentModallyAction.html">– PresentModallyAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ViewControllerActions/ReplaceRootAction.html">– ReplaceRootAction</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>DestinationStep</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DestinationStep</span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt">RoutingStep</span><span class="p">,</span> <span class="kt">ChainableStep</span> <span class="k">where</span> <span class="kt">VC</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+
+                </div>
+              </div>
+            <p>Represents a single step for the <code><a href="../Protocols/Router.html">Router</a></code> to make.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer15DestinationStepV14ViewControllera"></a>
+                    <a name="//apple_ref/swift/Alias/ViewController" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer15DestinationStepV14ViewControllera">ViewController</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Type of the <code>ViewController</code> associated with the step</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">ViewController</span> <span class="o">=</span> <span class="kt">VC</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer15DestinationStepV7Contexta"></a>
+                    <a name="//apple_ref/swift/Alias/Context" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer15DestinationStepV7Contexta">Context</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Type of the <code>Context</code> associated with the step</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">Context</span> <span class="o">=</span> <span class="kt">C</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer15DestinationStepV17unsafelyRewrappedACyqd__qd_0_GySo16UIViewControllerCRbd__r0_lF"></a>
+                    <a name="//apple_ref/swift/Method/unsafelyRewrapped()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer15DestinationStepV17unsafelyRewrappedACyqd__qd_0_GySo16UIViewControllerCRbd__r0_lF">unsafelyRewrapped()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Adapts context and view controller type dependencies.</p>
+
+<p><em>NB:</em> Developer guaranties that this types will compliment in runtime.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">unsafelyRewrapped</span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">DestinationStep</span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">VC</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer15DestinationStepV18expectingContainerACyqd__q_GyAA0F14ViewControllerRd__lF"></a>
+                    <a name="//apple_ref/swift/Method/expectingContainer()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer15DestinationStepV18expectingContainerACyqd__q_GyAA0F14ViewControllerRd__lF">expectingContainer()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Allows to avoid container view controller check.</p>
+
+<p><em>NB:</em> Developer guaranties that it will be there in the runtime.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">expectingContainer</span><span class="o">&lt;</span><span class="kt">VC</span><span class="o">&gt;</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">DestinationStep</span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">,</span> <span class="kt"><a href="../Structs/DestinationStep.html#/s:13RouteComposer15DestinationStepV7Contexta">Context</a></span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">VC</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ContainerViewController.html">ContainerViewController</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer15DestinationStepVAAypSgRs_rlE18expectingContainerACyqd__qd_0_GyAA0F14ViewControllerRd__r0_lF"></a>
+                    <a name="//apple_ref/swift/Method/expectingContainer()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer15DestinationStepVAAypSgRs_rlE18expectingContainerACyqd__qd_0_GyAA0F14ViewControllerRd__r0_lF">expectingContainer()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Allows to avoid container view controller check. This method is available only for the steps that are
+able to accept any type of context.</p>
+
+<p><em>NB:</em> Developer guaranties that it will be there in the runtime.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">expectingContainer</span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">DestinationStep</span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">VC</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ContainerViewController.html">ContainerViewController</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer15DestinationStepVAAypSgRs_rlE15adaptingContextACyxqd__GylF"></a>
+                    <a name="//apple_ref/swift/Method/adaptingContext()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer15DestinationStepVAAypSgRs_rlE15adaptingContextACyxqd__GylF">adaptingContext()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Allows to compliment to the type check. A step that has context equal to Optional(Any) can be build
+with any type of context passed to the router.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">adaptingContext</span><span class="o">&lt;</span><span class="kt">C</span><span class="o">&gt;</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">DestinationStep</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/DestinationStep.html#/s:13RouteComposer15DestinationStepV14ViewControllera">ViewController</a></span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2019 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2019-01-29)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

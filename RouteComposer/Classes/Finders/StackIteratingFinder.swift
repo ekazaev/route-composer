@@ -10,11 +10,11 @@ import UIKit
 /// following the search options provided. It simplifies the creation of the finders for a hosting app.
 public protocol StackIteratingFinder: Finder {
 
-    /// Type of the `UIViewController` that `Finder` can find
-    associatedtype ViewController = ViewController
+    /// Type of `UIViewController` that `StackIteratingFinder` can find
+    associatedtype ViewController
 
-    /// Type of context `Context` instance that `Finder` can deal with
-    associatedtype Context = Context
+    /// Type of `Context` object that `StackIteratingFinder` can deal with
+    associatedtype Context
 
     /// `StackIterator` to be used by `StackIteratingFinder`
     var iterator: StackIterator { get }
