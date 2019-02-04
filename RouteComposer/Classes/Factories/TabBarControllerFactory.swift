@@ -8,10 +8,6 @@ import UIKit
 ///  The `ContainerFactory` that creates a `UITabBarController` instance.
 public struct TabBarControllerFactory<C>: SimpleContainerFactory {
 
-    public typealias ViewController = UITabBarController
-
-    public typealias Context = C
-
     /// `UITabBarControllerDelegate` reference
     private(set) public weak var delegate: UITabBarControllerDelegate?
 
@@ -25,7 +21,7 @@ public struct TabBarControllerFactory<C>: SimpleContainerFactory {
         self.configuration = configuration
     }
 
-    public func build(with context: Context, integrating viewControllers: [UIViewController]) throws -> ViewController {
+    public func build(with context: C, integrating viewControllers: [UIViewController]) throws -> UITabBarController {
         guard !viewControllers.isEmpty else {
             throw RoutingError.compositionFailed(RoutingError.Context("Unable to build UITabBarController due " +
                     "to 0 amount of the children view controllers"))

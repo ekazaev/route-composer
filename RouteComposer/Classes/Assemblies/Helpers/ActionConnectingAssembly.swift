@@ -9,10 +9,6 @@ import UIKit
 public struct ActionConnectingAssembly<F: Finder, FC: AbstractFactory, VC: UIViewController, C>: ActionConnecting
         where F.ViewController == FC.ViewController, F.Context == FC.Context {
 
-    public typealias ViewController = VC
-
-    public typealias Context = C
-
     let previousSteps: [RoutingStep]
 
     let stepToFullFill: ActionToStepIntegrator<F, FC>
@@ -22,7 +18,7 @@ public struct ActionConnectingAssembly<F: Finder, FC: AbstractFactory, VC: UIVie
         self.stepToFullFill = stepToFullFill
     }
 
-    public func using<A: Action>(_ action: A) -> StepChainAssembly<ViewController, Context> {
+    public func using<A: Action>(_ action: A) -> StepChainAssembly<VC, C> {
         var previousSteps = self.previousSteps
         if let routingStep = stepToFullFill.routingStep(with: action) {
             previousSteps.append(routingStep)
@@ -30,7 +26,7 @@ public struct ActionConnectingAssembly<F: Finder, FC: AbstractFactory, VC: UIVie
         return StepChainAssembly(previousSteps: previousSteps)
     }
 
-    public func using<A: ContainerAction>(_ action: A) -> ContainerStepChainAssembly<A.ViewController, ViewController, Context> {
+    public func using<A: ContainerAction>(_ action: A) -> ContainerStepChainAssembly<A.ViewController, VC, C> {
         var previousSteps = self.previousSteps
         if let routingStep = stepToFullFill.embeddableRoutingStep(with: action) {
             previousSteps.append(routingStep)

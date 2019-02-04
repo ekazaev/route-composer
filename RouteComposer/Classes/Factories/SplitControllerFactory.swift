@@ -9,10 +9,6 @@ import UIKit
 ///  The `ContainerFactory` that creates a `UISplitController` instance.
 public struct SplitControllerFactory<C>: SimpleContainerFactory {
 
-    public typealias ViewController = UISplitViewController
-
-    public typealias Context = C
-
     /// `UISplitViewControllerDelegate` reference
     private(set) public weak var delegate: UISplitViewControllerDelegate?
 
@@ -39,7 +35,7 @@ public struct SplitControllerFactory<C>: SimpleContainerFactory {
         self.configuration = configuration
     }
 
-    public func build(with context: Context, integrating viewControllers: [UIViewController]) throws -> ViewController {
+    public func build(with context: C, integrating viewControllers: [UIViewController]) throws -> UISplitViewController {
         guard !viewControllers.isEmpty else {
             throw RoutingError.compositionFailed(RoutingError.Context("No master or derails view controllers provided."))
         }

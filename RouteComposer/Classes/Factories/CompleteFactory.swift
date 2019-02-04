@@ -12,10 +12,6 @@ import UIKit
 /// pre-populate the children view controllers instead of the `Router`.
 public struct CompleteFactory<FC: ContainerFactory>: ContainerFactory, CustomStringConvertible {
 
-    public typealias ViewController = FC.ViewController
-
-    public typealias Context = FC.Context
-
     private var factory: FC
 
     var childFactories: [DelayedIntegrationFactory<FC.Context>]
@@ -25,7 +21,7 @@ public struct CompleteFactory<FC: ContainerFactory>: ContainerFactory, CustomStr
         self.childFactories = childFactories
     }
 
-    mutating public func prepare(with context: Context) throws {
+    mutating public func prepare(with context: FC.Context) throws {
         try factory.prepare(with: context)
         childFactories = try childFactories.map({
             var factory = $0
@@ -34,7 +30,7 @@ public struct CompleteFactory<FC: ContainerFactory>: ContainerFactory, CustomStr
         })
     }
 
-    public func build(with context: Context, integrating coordinator: ChildCoordinator<Context>) throws -> ViewController {
+    public func build(with context: FC.Context, integrating coordinator: ChildCoordinator<FC.Context>) throws -> FC.ViewController {
         var finalChildFactories = childFactories
         finalChildFactories.append(contentsOf: coordinator.childFactories)
         return try factory.build(with: context, integrating: ChildCoordinator(childFactories: finalChildFactories))

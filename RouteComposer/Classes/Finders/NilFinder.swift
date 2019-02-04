@@ -12,12 +12,6 @@ import UIKit
 /// For example, `UIViewController` of this step was already loaded and integrated into a stack by a storyboard.
 public struct NilFinder<VC: UIViewController, C>: Finder, NilEntity {
 
-    /// Type of `UIViewController` that `Finder` can find
-    public typealias ViewController = VC
-
-    /// Type of `Context` object that `Finder` can deal with
-    public typealias Context = C
-
     /// Constructor
     public init() {
     }
@@ -26,7 +20,7 @@ public struct NilFinder<VC: UIViewController, C>: Finder, NilEntity {
     ///
     /// - Parameter context: A context instance provided.
     /// - Returns: always `nil`.
-    public func findViewController(with context: Context) -> ViewController? {
+    public func findViewController(with context: C) -> VC? {
         return nil
     }
 

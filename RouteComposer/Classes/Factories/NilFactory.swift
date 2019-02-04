@@ -15,10 +15,6 @@ import UIKit
 /// storyboard in a previous step.
 public struct NilFactory<VC: UIViewController, C>: Factory, NilEntity {
 
-    public typealias ViewController = VC
-
-    public typealias Context = C
-
     /// Constructor
     public init() {
     }
@@ -27,7 +23,7 @@ public struct NilFactory<VC: UIViewController, C>: Factory, NilEntity {
         throw RoutingError.compositionFailed(RoutingError.Context("This factory can not build any UIViewController."))
     }
 
-    public func build(with context: Context) throws -> ViewController {
+    public func build(with context: C) throws -> VC {
         throw RoutingError.compositionFailed(RoutingError.Context("This factory can not build any UIViewController."))
     }
 

@@ -41,8 +41,6 @@ public struct ViewControllerActions {
     /// Presents a view controller modally
     public struct PresentModallyAction: Action {
 
-        public typealias ViewController = UIViewController
-
         /// `UIModalPresentationStyle` setting
         public let presentationStyle: UIModalPresentationStyle?
 
@@ -113,8 +111,6 @@ public struct ViewControllerActions {
 
     /// Replaces the root view controller in the key `UIWindow`
     public struct ReplaceRootAction: Action {
-
-        public typealias ViewController = UIViewController
 
         let windowProvider: WindowProvider
 

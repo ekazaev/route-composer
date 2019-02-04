@@ -9,12 +9,6 @@ import UIKit
 /// The `Finder` that provides the `Router` a known instance of the `UIViewController`
 public struct InstanceFinder<VC: UIViewController, C>: Finder {
 
-    /// The `UIViewController` type associated with this `InstanceFinder`
-    public typealias ViewController = VC
-
-    /// The context type associated with this `InstanceFinder`
-    public typealias Context = C
-
     /// The `UIViewController` instance that `Finder` will provide to the `Router`
     private(set) public weak var instance: VC?
 
@@ -26,7 +20,7 @@ public struct InstanceFinder<VC: UIViewController, C>: Finder {
         self.instance = instance
     }
 
-    public func findViewController(with context: Context) -> ViewController? {
+    public func findViewController(with context: C) -> VC? {
         return instance
     }
 

@@ -12,10 +12,6 @@ import UIKit
 /// when a `UIViewController` instance was built inside of the parent `ContainerFactory`.
 public struct FinderFactory<F: Finder>: Factory {
 
-    public typealias ViewController = F.ViewController
-
-    public typealias Context = F.Context
-
     private let finder: F
 
     /// Constructor
@@ -29,7 +25,7 @@ public struct FinderFactory<F: Finder>: Factory {
         self.finder = finder
     }
 
-    public func build(with context: Context) throws -> ViewController {
+    public func build(with context: F.Context) throws -> F.ViewController {
         guard let viewController = finder.findViewController(with: context) else {
             throw RoutingError.compositionFailed(RoutingError.Context("\(String(describing: finder)) hasn't found its view controller in the stack."))
         }

@@ -9,23 +9,8 @@ import UIKit
 /// A default implementation of the view controllers finder that searches for a view controller by its name.
 public struct ClassFinder<VC: UIViewController, C>: StackIteratingFinder {
 
-    /// A `UIViewController` type associated with this `ClassFinder`
-    public typealias ViewController = VC
-
-    /// A context type associated with this `ClassFinder`
-    public typealias Context = C
-
     /// A `StackIterator` is to be used by `ClassFinder`
     public let iterator: StackIterator
-
-    /// Constructor
-    ///
-    /// Parameters
-    ///   - options: A combination of the `SearchOptions`
-    ///   - startingPoint: `DefaultStackIterator.StartingPoint` value
-    public init(options: SearchOptions, startingPoint: DefaultStackIterator.StartingPoint = .topmost) {
-        self.iterator = DefaultStackIterator(options: options, startingPoint: startingPoint)
-    }
 
     /// Constructor
     ///
@@ -34,8 +19,22 @@ public struct ClassFinder<VC: UIViewController, C>: StackIteratingFinder {
         self.iterator = iterator
     }
 
-    public func isTarget(_ viewController: ViewController, with context: Context) -> Bool {
+    public func isTarget(_ viewController: VC, with context: C) -> Bool {
         return true
+    }
+
+}
+
+/// Extension to use `DefaultStackIterator` as default iterator.
+public extension ClassFinder {
+
+    /// Constructor
+    ///
+    /// Parameters
+    ///   - options: A combination of the `SearchOptions`
+    ///   - startingPoint: `DefaultStackIterator.StartingPoint` value
+    public init(options: SearchOptions, startingPoint: DefaultStackIterator.StartingPoint = .topmost) {
+        self.iterator = DefaultStackIterator(options: options, startingPoint: startingPoint)
     }
 
 }

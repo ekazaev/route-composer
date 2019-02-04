@@ -8,10 +8,6 @@ import UIKit
 /// The `Factory` that creates a `UIViewController` from a storyboard.
 public struct StoryboardFactory<VC: UIViewController, C>: Factory {
 
-    public typealias ViewController = VC
-
-    public typealias Context = C
-
     /// The name of a storyboard file
     public let storyboardName: String
 
@@ -35,7 +31,7 @@ public struct StoryboardFactory<VC: UIViewController, C>: Factory {
         self.viewControllerID = viewControllerID
     }
 
-    public func build(with context: Context) throws -> ViewController {
+    public func build(with context: C) throws -> VC {
         let storyboard = UIStoryboard(name: storyboardName, bundle: bundle)
         if let viewControllerID = viewControllerID {
             let instantiatedViewController = storyboard.instantiateViewController(withIdentifier: viewControllerID)

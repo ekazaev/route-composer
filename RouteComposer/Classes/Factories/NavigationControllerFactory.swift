@@ -8,10 +8,6 @@ import UIKit
 /// The `ContainerFactory` that creates a `UINavigationController` instance.
 public struct NavigationControllerFactory<C>: SimpleContainerFactory {
 
-    public typealias ViewController = UINavigationController
-
-    public typealias Context = C
-
     /// `UINavigationControllerDelegate` reference
     private(set) public weak var delegate: UINavigationControllerDelegate?
 
@@ -25,7 +21,7 @@ public struct NavigationControllerFactory<C>: SimpleContainerFactory {
         self.configuration = configuration
     }
 
-    public func build(with context: Context, integrating viewControllers: [UIViewController]) throws -> ViewController {
+    public func build(with context: C, integrating viewControllers: [UIViewController]) throws -> UINavigationController {
         guard !viewControllers.isEmpty else {
             throw RoutingError.compositionFailed(RoutingError.Context("Unable to build UINavigationController due to 0 amount " +
                     "of the children view controllers"))

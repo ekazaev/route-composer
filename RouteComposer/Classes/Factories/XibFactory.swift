@@ -11,10 +11,6 @@ import UIKit
 /// The `Factory` that creates a `UIViewController` from a Xib file.
 public struct XibFactory<VC: UIViewController, C>: Factory {
 
-    public typealias ViewController = VC
-
-    public typealias Context = C
-
     /// A Xib file name
     public let nibName: String?
 
@@ -31,7 +27,7 @@ public struct XibFactory<VC: UIViewController, C>: Factory {
         self.bundle = bundle
     }
 
-    public func build(with context: Context) throws -> ViewController {
+    public func build(with context: C) throws -> VC {
         let viewController = ViewController(nibName: nibName, bundle: bundle)
         return viewController
     }

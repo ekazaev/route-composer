@@ -14,8 +14,6 @@ import UIKit
 /// `RoutingInterceptor` instance.
 public struct InlineInterceptor<C>: RoutingInterceptor {
 
-    public typealias Context = C
-
     private let prepareBlock: ((_: C) throws -> Void)?
 
     private let asyncCompletion: ((_: C, _: @escaping (InterceptorResult) -> Void) -> Void)?
@@ -69,10 +67,6 @@ public struct InlineInterceptor<C>: RoutingInterceptor {
 /// `RoutingInterceptor` instance.
 public struct InlineContextTask<VC: UIViewController, C>: ContextTask {
 
-    public typealias ViewController = VC
-
-    public typealias Context = C
-
     private let completion: (_: VC, _: C) throws -> Void
 
     /// Constructor
@@ -83,7 +77,7 @@ public struct InlineContextTask<VC: UIViewController, C>: ContextTask {
         self.completion = completion
     }
 
-    public func apply(on viewController: ViewController, with context: Context) throws {
+    public func apply(on viewController: VC, with context: C) throws {
         try completion(viewController, context)
     }
 
@@ -95,10 +89,6 @@ public struct InlineContextTask<VC: UIViewController, C>: ContextTask {
 /// `PostRoutingTask` instance.
 public struct InlinePostTask<VC: UIViewController, C>: PostRoutingTask {
 
-    public typealias ViewController = VC
-
-    public typealias Context = C
-
     private let completion: (_: VC, _: C, _: [UIViewController]) -> Void
 
     /// Constructor
@@ -109,7 +99,7 @@ public struct InlinePostTask<VC: UIViewController, C>: PostRoutingTask {
         self.completion = completion
     }
 
-    public func execute(on viewController: ViewController, with context: Context, routingStack: [UIViewController]) {
+    public func execute(on viewController: VC, with context: C, routingStack: [UIViewController]) {
         completion(viewController, context, routingStack)
     }
 

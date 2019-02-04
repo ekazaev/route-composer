@@ -8,10 +8,6 @@ import UIKit
 /// The `Factory` that creates a `UIViewController` class by its name
 public struct ClassNameFactory<VC: UIViewController, C>: Factory {
 
-    public typealias ViewController = VC
-
-    public typealias Context = C
-
     /// The name of a `UIViewController` class to be built by the `Factory`
     public let viewControllerName: String?
 
@@ -24,12 +20,12 @@ public struct ClassNameFactory<VC: UIViewController, C>: Factory {
         self.viewControllerName = viewControllerName
     }
 
-    public func build(with context: Context) throws -> ViewController {
+    public func build(with context: C) throws -> VC {
         if let viewControllerName = viewControllerName {
             guard let customClass = NSClassFromString(viewControllerName) else {
                 throw RoutingError.compositionFailed(RoutingError.Context("Can not find \(viewControllerName) in the bundle."))
             }
-            guard let customViewControllerClass = customClass as? ViewController.Type else {
+            guard let customViewControllerClass = customClass as? VC.Type else {
                 throw RoutingError.typeMismatch(customClass.self, RoutingError.Context("\(viewControllerName) is not an " +
                         "expected UIViewController type class."))
             }

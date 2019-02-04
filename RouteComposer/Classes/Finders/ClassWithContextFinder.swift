@@ -11,23 +11,8 @@ import UIKit
 /// The view controller should extend the `ContextChecking` to be used with this finder.
 public struct ClassWithContextFinder<VC: ContextChecking, C>: StackIteratingFinder where VC.Context == C {
 
-    /// `UIViewController` type associated with this `ClassWithContextFinder`
-    public typealias ViewController = VC
-
-    /// The context type associated with this `ClassWithContextFinder`
-    public typealias Context = C
-
     /// A `StackIterator` is to be used by `ClassWithContextFinder`
     public let iterator: StackIterator
-
-    /// Constructor
-    ///
-    /// Parameters
-    ///   - options: A combination of the `SearchOptions`
-    ///   - startingPoint: `DefaultStackIterator.StartingPoint` value
-    public init(options: SearchOptions, startingPoint: DefaultStackIterator.StartingPoint = .topmost) {
-        self.iterator = DefaultStackIterator(options: options, startingPoint: startingPoint)
-    }
 
     /// Constructor
     ///
@@ -36,8 +21,22 @@ public struct ClassWithContextFinder<VC: ContextChecking, C>: StackIteratingFind
         self.iterator = iterator
     }
 
-    public func isTarget(_ viewController: ViewController, with context: Context) -> Bool {
+    public func isTarget(_ viewController: VC, with context: C) -> Bool {
         return viewController.isTarget(for: context)
+    }
+
+}
+
+/// Extension to use `DefaultStackIterator` as default iterator.
+public extension ClassWithContextFinder {
+
+    /// Constructor
+    ///
+    /// Parameters
+    ///   - options: A combination of the `SearchOptions`
+    ///   - startingPoint: `DefaultStackIterator.StartingPoint` value
+    public init(options: SearchOptions, startingPoint: DefaultStackIterator.StartingPoint = .topmost) {
+        self.iterator = DefaultStackIterator(options: options, startingPoint: startingPoint)
     }
 
 }
