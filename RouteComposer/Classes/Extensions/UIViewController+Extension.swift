@@ -34,11 +34,9 @@ public extension UIViewController {
             return foundViewController
         }
 
-        if let container = viewController as? ContainerViewController {
+        if let container = viewController as? ContainerViewController, options.contains(.visible) || options.contains(.contained) {
             var viewControllers: [[UIViewController]] = []
-            if options.contains(.visible) {
-                viewControllers.append(container.visibleViewControllers)
-            }
+            viewControllers.append(container.visibleViewControllers)
             if options.contains(.contained) {
                 viewControllers.append(container.containedViewControllers)
             }

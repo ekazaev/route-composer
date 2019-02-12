@@ -26,4 +26,6 @@ import UIKit
     ///   - animated: If `ContainerViewController` is able to do so - make container active animated or not.
     func makeVisible(_ viewController: UIViewController, animated: Bool)
 
+    func replace(containedViewControllers: [UIViewController], animated: Bool, completion: () -> Void)
+
 }

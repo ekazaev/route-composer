@@ -27,6 +27,11 @@ extension UISplitViewController: ContainerViewController {
         }
     }
 
+    public func replace(containedViewControllers: [UIViewController], animated: Bool, completion: () -> Void) {
+        viewControllers = containedViewControllers
+        completion()
+    }
+
 }
 
 // - The `UISplitViewController` extension is to support the `RoutingInterceptable` protocol

@@ -220,7 +220,7 @@ extension DefaultRouter {
 
         private let stepTaskRunner: StepTaskTaskRunner
 
-        let action: AnyAction
+        var action: AnyAction
 
         init(factory: AnyFactory, viewControllerTaskRunner: StepTaskTaskRunner) {
             self.factory = factory

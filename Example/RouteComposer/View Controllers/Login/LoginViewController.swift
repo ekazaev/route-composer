@@ -87,7 +87,7 @@ class LoginViewController: UIViewController, ExampleAnalyticsSupport {
             activityIndicator.startAnimating()
             mainQueue.asyncAfter(deadline: deadline) {
                 self.loginButton.isEnabled = true
-                self.activityIndicator.startAnimating()
+                self.activityIndicator.stopAnimating()
                 isLoggedIn = true
                 self.dismiss(animated: true) {
                     self.interceptorCompletionBlock?(.success)

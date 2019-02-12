@@ -7,6 +7,8 @@ import UIKit
 
 protocol AnyAction {
 
+    var nestedActionHelper: NestedActionHelper? { get set }
+
     func perform(with viewController: UIViewController,
                  on existingController: UIViewController,
                  animated: Bool,
@@ -15,7 +17,7 @@ protocol AnyAction {
     func perform(embedding viewController: UIViewController,
                  in childViewControllers: inout [UIViewController]) throws
 
-    func isEmbeddable<CF: ContainerFactory>(to container: CF) -> Bool
+    func isEmbeddable(to container: ContainerViewController.Type) -> Bool
 
 }
 
@@ -31,6 +33,8 @@ struct ActionBox<A: Action>: AnyAction, AnyActionBox, CustomStringConvertible, M
 
     let action: A
 
+    var nestedActionHelper: NestedActionHelper?
+
     init(_ action: A) {
         self.action = action
     }
@@ -42,6 +46,15 @@ struct ActionBox<A: Action>: AnyAction, AnyActionBox, CustomStringConvertible, M
             return
         }
         assertIfNotMainThread()
+        if let nestedActionHelper = nestedActionHelper {
+            nestedActionHelper.purge(animated: animated, completion: {
+                action.perform(with: viewController, on: typedExistingViewController, animated: animated) { result in
+                    self.assertIfNotMainThread()
+                    completion(result)
+                }
+            })
+            return
+        }
         action.perform(with: viewController, on: typedExistingViewController, animated: animated) { result in
             self.assertIfNotMainThread()
             completion(result)
@@ -56,30 +69,42 @@ struct ActionBox<A: Action>: AnyAction, AnyActionBox, CustomStringConvertible, M
         return String(describing: action)
     }
 
-    func isEmbeddable<CF: ContainerFactory>(to container: CF) -> Bool {
+    func isEmbeddable(to container: ContainerViewController.Type) -> Bool {
         return false
     }
+
 }
 
-struct ContainerActionBox<A: ContainerAction>: AnyAction, AnyActionBox, CustomStringConvertible, MainThreadChecking {
+class ContainerActionBox<A: ContainerAction>: AnyAction, AnyActionBox, CustomStringConvertible, MainThreadChecking {
 
     let action: A
 
-    init(_ action: A) {
+    var nestedActionHelper: NestedActionHelper?
+
+    required init(_ action: A) {
         self.action = action
     }
 
     func perform(with viewController: UIViewController, on existingController: UIViewController, animated: Bool, completion: @escaping (ActionResult) -> Void) {
+        if let nestedActionHelper = nestedActionHelper {
+            try? action.perform(embedding: viewController, in: &nestedActionHelper.viewControllers)
+            completion(.continueRouting)
+            return
+        }
         guard let containerController: A.ViewController = UIViewController.findContainer(of: existingController) else {
             completion(.failure(RoutingError.typeMismatch(ActionType.ViewController.self, RoutingError.Context("Container of " +
                     "\(String(describing: ActionType.ViewController.self)) type cannot be found to perform \(action)"))))
             return
         }
         assertIfNotMainThread()
-        action.perform(with: viewController, on: containerController, animated: animated) { result in
-            self.assertIfNotMainThread()
-            completion(result)
-        }
+        let nestedActionHelper1 = NestedActionHelper(containerViewController: containerController)
+        self.nestedActionHelper = nestedActionHelper1
+        try? action.perform(embedding: viewController, in: &nestedActionHelper1.viewControllers)
+        completion(.continueRouting)
+//        action.perform(with: viewController, on: containerController, animated: animated) { result in
+//            self.assertIfNotMainThread()
+//            completion(result)
+//        }
     }
 
     func perform(embedding viewController: UIViewController, in childViewControllers: inout [UIViewController]) throws {
@@ -90,8 +115,25 @@ struct ContainerActionBox<A: ContainerAction>: AnyAction, AnyActionBox, CustomSt
         return String(describing: action)
     }
 
-    func isEmbeddable<CF: ContainerFactory>(to container: CF) -> Bool {
-        return CF.ViewController.self is A.ViewController.Type
+    func isEmbeddable(to container: ContainerViewController.Type) -> Bool {
+        return container is A.ViewController.Type
+    }
+
+}
+
+class NestedActionHelper {
+
+    var viewControllers: [UIViewController] = []
+
+    var containerViewController: ContainerViewController
+
+    init(containerViewController: ContainerViewController) {
+        self.containerViewController = containerViewController
+        self.viewControllers = containerViewController.containedViewControllers
+    }
+
+    func purge(animated: Bool, completion: () -> Void) {
+        containerViewController.replace(containedViewControllers: viewControllers, animated: animated, completion: completion)
     }
 
 }
