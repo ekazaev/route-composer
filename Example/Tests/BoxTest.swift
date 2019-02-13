@@ -127,7 +127,11 @@ class BoxTests: XCTestCase {
         XCTAssertEqual(navigationController.children.count, 1)
 
         let anotherEmbeddingController = UIViewController()
-        actionBox.perform(with: anotherEmbeddingController, on: navigationController, with: delayedIntegrationHandler, nextAction: ContainerActionBox(action), animated: true) { result in
+        actionBox.perform(with: anotherEmbeddingController,
+                on: navigationController,
+                with: delayedIntegrationHandler,
+                nextAction: ContainerActionBox(action),
+                animated: true) { result in
             guard case .continueRouting = result else {
                 XCTAssert(false)
                 return
@@ -141,7 +145,7 @@ class BoxTests: XCTestCase {
 
         delayedIntegrationHandler.purge(animated: false, completion: {
             XCTAssertEqual(navigationController.viewControllers.count, 2)
-            
+
             try? actionBox.perform(embedding: UIViewController(), in: &navigationController.viewControllers)
             XCTAssertEqual(navigationController.viewControllers.count, 3)
         })

@@ -51,7 +51,12 @@ struct ActionBox<A: Action>: AnyAction, AnyActionBox, CustomStringConvertible, M
         self.action = action
     }
 
-    func perform(with viewController: UIViewController, on existingController: UIViewController, with delayedIntegrationHandler: DelayedActionIntegrationHandler, nextAction: AnyAction?, animated: Bool, completion: @escaping (ActionResult) -> Void) {
+    func perform(with viewController: UIViewController,
+                 on existingController: UIViewController,
+                 with delayedIntegrationHandler: DelayedActionIntegrationHandler,
+                 nextAction: AnyAction?,
+                 animated: Bool,
+                 completion: @escaping (ActionResult) -> Void) {
         guard let typedExistingViewController = existingController as? A.ViewController else {
             completion(.failure(RoutingError.typeMismatch(ActionType.ViewController.self, RoutingError.Context("Action \(action.self) cannot " +
                     "be performed on \(existingController)."))))
@@ -88,12 +93,22 @@ struct ContainerActionBox<A: ContainerAction>: AnyAction, AnyActionBox, CustomSt
         self.action = action
     }
 
-    func perform(with viewController: UIViewController, on existingController: UIViewController, with delayedIntegrationHandler: DelayedActionIntegrationHandler, nextAction: AnyAction?, animated: Bool, completion: @escaping (ActionResult) -> Void) {
+    func perform(with viewController: UIViewController,
+                 on existingController: UIViewController,
+                 with delayedIntegrationHandler: DelayedActionIntegrationHandler,
+                 nextAction: AnyAction?,
+                 animated: Bool,
+                 completion: @escaping (ActionResult) -> Void) {
         assertIfNotMainThread()
         if let delayedController = delayedIntegrationHandler.containerViewController {
             guard delayedController is A.ViewController else {
                 delayedIntegrationHandler.purge(animated: animated, completion: {
-                    self.perform(with: viewController, on: existingController, with: delayedIntegrationHandler, nextAction: nextAction, animated: animated, completion: completion)
+                    self.perform(with: viewController,
+                            on: existingController,
+                            with: delayedIntegrationHandler,
+                            nextAction: nextAction,
+                            animated: animated,
+                            completion: completion)
                 })
                 return
             }

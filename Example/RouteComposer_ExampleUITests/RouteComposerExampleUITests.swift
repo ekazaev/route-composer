@@ -127,6 +127,18 @@ class RouteComposerExampleUITests: XCTestCase {
         app.buttons["Go to Square Tab"].tap()
         XCTAssertTrue(app.otherElements["squareViewController"].exists)
 
+        app.buttons["Go push nested with Product 03*"].tap()
+        XCTAssertTrue(app.otherElements["productViewController+03"].exists)
+
+        app.navigationBars.buttons.element(boundBy: 0).tap()
+        XCTAssertTrue(app.otherElements["emptyViewController"].exists)
+
+        app.buttons["Go to Circle Tab"].tap()
+        XCTAssertTrue(app.otherElements["circleViewController"].exists)
+
+        app.buttons["Go to Square Tab"].tap()
+        XCTAssertTrue(app.otherElements["squareViewController"].exists)
+
         app.buttons["Go to Circle Tab"].tap()
         XCTAssertTrue(app.otherElements["circleViewController"].exists)
 

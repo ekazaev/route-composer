@@ -18,7 +18,7 @@ import UIKit
     /// A `UIViewController` instances out of the `containedViewControllers` that are currently visible on the screen
     var visibleViewControllers: [UIViewController] { get }
 
-    /// Each container view controller should conform to this protocol for the `Router` to know how to make
+    /// Each container view controller should implement this method for the `Router` to know how to make
     /// its particular child view controller visible.
     ///
     /// - Parameters:
@@ -26,6 +26,12 @@ import UIKit
     ///   - animated: If `ContainerViewController` is able to do so - make container active animated or not.
     func makeVisible(_ viewController: UIViewController, animated: Bool)
 
+    /// Each container view controller should this method for the `Router` to know how to replace all the
+    /// view controllers in this particular container.
+    ///
+    /// - Parameters:
+    ///   - containedViewControllers: A `UIViewController` instances to replace.
+    ///   - animated: If `ContainerViewController` is able to do so - replace contained view controllers animated or not.
     func replace(containedViewControllers: [UIViewController], animated: Bool, completion: () -> Void)
 
 }
