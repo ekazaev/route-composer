@@ -39,15 +39,8 @@ public struct NavigationControllerActions {
                             on navigationController: ViewController,
                             animated: Bool,
                             completion: @escaping(_: ActionResult) -> Void) {
-            if animated {
-                navigationController.pushViewController(viewController, animated: true)
-                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .milliseconds(350)) {
-                    completion(.continueRouting)
-                }
-            } else {
-                navigationController.pushViewController(viewController, animated: false)
-                completion(.continueRouting)
-            }
+            navigationController.pushViewController(viewController, animated: animated)
+            return completion(.continueRouting)
         }
 
     }

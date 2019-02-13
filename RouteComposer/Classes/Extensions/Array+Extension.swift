@@ -37,4 +37,13 @@ extension Array where Element: UIViewController {
         return buffer
     }
 
+    func isEqual(to array: [UIViewController]) -> Bool {
+        guard self.count == array.count else {
+            return false
+        }
+        return self.enumerated().first(where: { (index, vc) in
+            return array[index] !== vc
+        }) == nil
+    }
+
 }

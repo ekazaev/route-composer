@@ -248,4 +248,52 @@ extension DefaultRouter {
 
     }
 
+    final class DefaultDelayedIntegrationHandler: DelayedActionIntegrationHandler {
+
+        var containerViewController: ContainerViewController?
+
+        var delayedViewControllers: [UIViewController] = []
+
+        init() {
+
+        }
+
+        func update(containerViewController: ContainerViewController, animated: Bool, completion: () -> Void) {
+            guard self.containerViewController == nil else {
+                purge(animated: animated, completion: {
+                    self.update(containerViewController: containerViewController, animated: animated, completion: completion)
+                })
+                return
+            }
+            self.containerViewController = containerViewController
+            self.delayedViewControllers = containerViewController.containedViewControllers
+            completion()
+        }
+
+        func update(delayedViewControllers: [UIViewController]) {
+            self.delayedViewControllers = delayedViewControllers
+        }
+
+        func purge(animated: Bool, completion: () -> Void) {
+            guard let containerViewController = containerViewController else {
+                completion()
+                return
+            }
+
+            guard !delayedViewControllers.isEqual(to: containerViewController.containedViewControllers) else {
+                self.containerViewController = nil
+                self.delayedViewControllers = []
+                completion()
+                return
+            }
+
+            containerViewController.replace(containedViewControllers: delayedViewControllers, animated: animated, completion: {
+                self.containerViewController = nil
+                self.delayedViewControllers = []
+                completion()
+            })
+        }
+
+    }
+
 }

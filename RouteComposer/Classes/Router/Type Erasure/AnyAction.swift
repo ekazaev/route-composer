@@ -5,12 +5,25 @@
 import Foundation
 import UIKit
 
-protocol AnyAction {
+protocol DelayedActionIntegrationHandler: AnyObject {
 
-    var nestedActionHelper: NestedActionHelper? { get set }
+    var containerViewController: ContainerViewController? { get }
+
+    var delayedViewControllers: [UIViewController] { get }
+
+    func update(containerViewController: ContainerViewController, animated: Bool, completion: () -> Void)
+
+    func update(delayedViewControllers: [UIViewController])
+
+    func purge(animated: Bool, completion: () -> Void)
+
+}
+
+protocol AnyAction {
 
     func perform(with viewController: UIViewController,
                  on existingController: UIViewController,
+                 with delayedIntegrationHandler: DelayedActionIntegrationHandler,
                  animated: Bool,
                  completion: @escaping (_: ActionResult) -> Void)
 
@@ -33,32 +46,23 @@ struct ActionBox<A: Action>: AnyAction, AnyActionBox, CustomStringConvertible, M
 
     let action: A
 
-    var nestedActionHelper: NestedActionHelper?
-
     init(_ action: A) {
         self.action = action
     }
 
-    func perform(with viewController: UIViewController, on existingController: UIViewController, animated: Bool, completion: @escaping (ActionResult) -> Void) {
+    func perform(with viewController: UIViewController, on existingController: UIViewController, with delayedIntegrationHandler: DelayedActionIntegrationHandler, animated: Bool, completion: @escaping (ActionResult) -> Void) {
         guard let typedExistingViewController = existingController as? A.ViewController else {
             completion(.failure(RoutingError.typeMismatch(ActionType.ViewController.self, RoutingError.Context("Action \(action.self) cannot " +
                     "be performed on \(existingController)."))))
             return
         }
         assertIfNotMainThread()
-        if let nestedActionHelper = nestedActionHelper {
-            nestedActionHelper.purge(animated: animated, completion: {
-                action.perform(with: viewController, on: typedExistingViewController, animated: animated) { result in
-                    self.assertIfNotMainThread()
-                    completion(result)
-                }
-            })
-            return
-        }
-        action.perform(with: viewController, on: typedExistingViewController, animated: animated) { result in
-            self.assertIfNotMainThread()
-            completion(result)
-        }
+        delayedIntegrationHandler.purge(animated: animated, completion: {
+            action.perform(with: viewController, on: typedExistingViewController, animated: animated) { result in
+                self.assertIfNotMainThread()
+                completion(result)
+            }
+        })
     }
 
     func perform(embedding viewController: UIViewController, in childViewControllers: inout [UIViewController]) {
@@ -75,36 +79,45 @@ struct ActionBox<A: Action>: AnyAction, AnyActionBox, CustomStringConvertible, M
 
 }
 
-class ContainerActionBox<A: ContainerAction>: AnyAction, AnyActionBox, CustomStringConvertible, MainThreadChecking {
+struct ContainerActionBox<A: ContainerAction>: AnyAction, AnyActionBox, CustomStringConvertible, MainThreadChecking {
 
     let action: A
 
-    var nestedActionHelper: NestedActionHelper?
-
-    required init(_ action: A) {
+    init(_ action: A) {
         self.action = action
     }
 
-    func perform(with viewController: UIViewController, on existingController: UIViewController, animated: Bool, completion: @escaping (ActionResult) -> Void) {
-        if let nestedActionHelper = nestedActionHelper {
-            try? action.perform(embedding: viewController, in: &nestedActionHelper.viewControllers)
-            completion(.continueRouting)
-            return
-        }
-        guard let containerController: A.ViewController = UIViewController.findContainer(of: existingController) else {
-            completion(.failure(RoutingError.typeMismatch(ActionType.ViewController.self, RoutingError.Context("Container of " +
-                    "\(String(describing: ActionType.ViewController.self)) type cannot be found to perform \(action)"))))
-            return
-        }
+    func perform(with viewController: UIViewController, on existingController: UIViewController, with delayedIntegrationHandler: DelayedActionIntegrationHandler, animated: Bool, completion: @escaping (ActionResult) -> Void) {
         assertIfNotMainThread()
-        let nestedActionHelper1 = NestedActionHelper(containerViewController: containerController)
-        self.nestedActionHelper = nestedActionHelper1
-        try? action.perform(embedding: viewController, in: &nestedActionHelper1.viewControllers)
-        completion(.continueRouting)
-//        action.perform(with: viewController, on: containerController, animated: animated) { result in
-//            self.assertIfNotMainThread()
-//            completion(result)
-//        }
+        if let delayedController = delayedIntegrationHandler.containerViewController {
+            guard delayedController is A.ViewController else {
+                delayedIntegrationHandler.purge(animated: animated, completion: {
+                    self.perform(with: viewController, on: existingController, with: delayedIntegrationHandler, animated: animated, completion: completion)
+                })
+                return
+            }
+            embed(viewController: viewController, with: delayedIntegrationHandler, completion: completion)
+        } else {
+            guard let containerController: A.ViewController = UIViewController.findContainer(of: existingController) else {
+                completion(.failure(RoutingError.typeMismatch(ActionType.ViewController.self, RoutingError.Context("Container of " +
+                        "\(String(describing: ActionType.ViewController.self)) type cannot be found to perform \(action)"))))
+                return
+            }
+            delayedIntegrationHandler.update(containerViewController: containerController, animated: animated, completion: {
+                self.embed(viewController: viewController, with: delayedIntegrationHandler, completion: completion)
+            })
+        }
+    }
+
+    private func embed(viewController: UIViewController, with delayedIntegrationHandler: DelayedActionIntegrationHandler, completion: @escaping (ActionResult) -> Void) {
+        do {
+            var delayedChildControllers = delayedIntegrationHandler.delayedViewControllers
+            try perform(embedding: viewController, in: &delayedChildControllers)
+            delayedIntegrationHandler.update(delayedViewControllers: delayedChildControllers)
+            completion(.continueRouting)
+        } catch let error {
+            completion(.failure(error))
+        }
     }
 
     func perform(embedding viewController: UIViewController, in childViewControllers: inout [UIViewController]) throws {
@@ -117,23 +130,6 @@ class ContainerActionBox<A: ContainerAction>: AnyAction, AnyActionBox, CustomStr
 
     func isEmbeddable(to container: ContainerViewController.Type) -> Bool {
         return container is A.ViewController.Type
-    }
-
-}
-
-class NestedActionHelper {
-
-    var viewControllers: [UIViewController] = []
-
-    var containerViewController: ContainerViewController
-
-    init(containerViewController: ContainerViewController) {
-        self.containerViewController = containerViewController
-        self.viewControllers = containerViewController.containedViewControllers
-    }
-
-    func purge(animated: Bool, completion: () -> Void) {
-        containerViewController.replace(containedViewControllers: viewControllers, animated: animated, completion: completion)
     }
 
 }

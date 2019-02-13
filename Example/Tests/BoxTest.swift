@@ -89,57 +89,66 @@ class BoxTests: XCTestCase {
         let action = TestAction()
         let actionBox = ActionBox(action)
         let navigationController = UINavigationController()
-        actionBox.perform(with: UIViewController(), on: navigationController, animated: true) { result in
+        let delayedIntegrationHandler = DefaultRouter.DefaultDelayedIntegrationHandler()
+        actionBox.perform(with: UIViewController(), on: navigationController, with: delayedIntegrationHandler, animated: true) { result in
             guard case .continueRouting = result else {
                 XCTAssert(false)
                 return
             }
         }
         XCTAssertEqual(navigationController.viewControllers.count, 1)
+        XCTAssertNil(delayedIntegrationHandler.containerViewController)
     }
 
-//    func testContainerActionBox() {
-//
-//        class TestContainerAction: ContainerAction {
-//
-//            func perform(embedding viewController: UIViewController, in childViewControllers: inout [UIViewController]) {
-//                childViewControllers.append(viewController)
-//            }
-//
-//            func perform(with viewController: UIViewController, on existingController: UINavigationController, animated: Bool, completion: @escaping (ActionResult) -> Void) {
-//                existingController.viewControllers = [viewController]
-//            }
-//
-//        }
-//        let action = TestContainerAction()
-//        let actionBox = ContainerActionBox(action)
-//        let navigationController = UINavigationController()
-//        actionBox.perform(with: UIViewController(), on: navigationController, animated: true) { result in
-//            guard case .continueRouting = result else {
-//                XCTAssert(false)
-//                return
-//            }
-//        }
-//        XCTAssertEqual(navigationController.children.count, 1)
-//
-//        try? actionBox.perform(embedding: UIViewController(), in: &navigationController.viewControllers)
-//        XCTAssertEqual(navigationController.children.count, 2)
-//    }
+    func testContainerActionBox() {
+
+        class TestContainerAction: ContainerAction {
+
+            func perform(embedding viewController: UIViewController, in childViewControllers: inout [UIViewController]) {
+                childViewControllers.append(viewController)
+            }
+
+            func perform(with viewController: UIViewController, on existingController: UINavigationController, animated: Bool, completion: @escaping (ActionResult) -> Void) {
+                existingController.viewControllers = [viewController]
+            }
+
+        }
+        let action = TestContainerAction()
+        let actionBox = ContainerActionBox(action)
+        let navigationController = UINavigationController()
+        let delayedIntegrationHandler = DefaultRouter.DefaultDelayedIntegrationHandler()
+        let embeddingController = UIViewController()
+        actionBox.perform(with: embeddingController, on: navigationController, with: delayedIntegrationHandler, animated: true) { result in
+            guard case .continueRouting = result else {
+                XCTAssert(false)
+                return
+            }
+        }
+        XCTAssertEqual(navigationController.children.count, 0)
+        XCTAssertEqual(delayedIntegrationHandler.containerViewController as? UINavigationController, navigationController)
+        XCTAssertEqual(delayedIntegrationHandler.delayedViewControllers.count, 1)
+        XCTAssertEqual(delayedIntegrationHandler.delayedViewControllers.first, embeddingController)
+
+        delayedIntegrationHandler.purge(animated: false, completion: {
+            try? actionBox.perform(embedding: UIViewController(), in: &navigationController.viewControllers)
+            XCTAssertEqual(navigationController.children.count, 2)
+        })
+    }
 
     func testActionIsEmbeddable() {
         let action = ActionBox(GeneralAction.presentModally())
 
-//        XCTAssertFalse(action.isEmbeddable(to: NavigationControllerFactory<Any?>()))
-//        XCTAssertFalse(action.isEmbeddable(to: TabBarControllerFactory<Any?>()))
-//        XCTAssertFalse(action.isEmbeddable(to: SplitControllerFactory<Any?>()))
+        XCTAssertFalse(action.isEmbeddable(to: UINavigationController.self))
+        XCTAssertFalse(action.isEmbeddable(to: UITabBarController.self))
+        XCTAssertFalse(action.isEmbeddable(to: UISplitViewController.self))
     }
 
     func testContainerActionIsEmbeddable() {
         let action = ContainerActionBox(UINavigationController.push())
 
-//        XCTAssertTrue(action.isEmbeddable(to: NavigationControllerFactory<Any?>()))
-//        XCTAssertFalse(action.isEmbeddable(to: TabBarControllerFactory<Any?>()))
-//        XCTAssertFalse(action.isEmbeddable(to: SplitControllerFactory<Any?>()))
+        XCTAssertTrue(action.isEmbeddable(to: UINavigationController.self))
+        XCTAssertFalse(action.isEmbeddable(to: UITabBarController.self))
+        XCTAssertFalse(action.isEmbeddable(to: UISplitViewController.self))
     }
 
     func testBaseEntitiesCollector() {

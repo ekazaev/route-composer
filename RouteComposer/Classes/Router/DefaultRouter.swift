@@ -174,13 +174,6 @@ public struct DefaultRouter: Router, InterceptableRouter, MainThreadChecking {
             throw RoutingError.generic(RoutingError.Context("Unable to start the navigation process as the view controller to start from was not found."))
         }
 
-//        if let containerViewController = viewController as? (ContainerViewController & UIViewController) {
-//            var factoryBox = ExistingContainerFactoryBox(containerViewController: containerViewController)
-//            try factoryBox.prepare(with: context)
-//            factories = try factoryBox.scrapeChildren(from: factories)
-//            factories.insert(factoryBox, at: 0)
-//        }
-//
         return (rootViewController: viewController, factories: factories)
     }
 
@@ -194,18 +187,16 @@ public struct DefaultRouter: Router, InterceptableRouter, MainThreadChecking {
                                              completion: @escaping ((_: UIViewController, _: RoutingResult) -> Void)) {
         var factories = factories
 
-        func buildViewController(from previousViewController: UIViewController, nestedActionHelper: NestedActionHelper? = nil) {
+        let delayedIntegrationHandler = DefaultDelayedIntegrationHandler()
+
+        func buildViewController(from previousViewController: UIViewController) {
             guard !factories.isEmpty else {
-                if let nestedActionHelper = nestedActionHelper {
-                    nestedActionHelper.purge(animated: animated, completion: {
-                        completion(previousViewController, .handled)
-                    })
-                    return
-                }
-                completion(previousViewController, .handled)
+                delayedIntegrationHandler.purge(animated: animated, completion: {
+                    completion(previousViewController, .handled)
+                })
                 return
             }
-            var factory = factories.removeFirst()
+            let factory = factories.removeFirst()
             // If the previous view controller is created/found but it's view is not loaded or it has no window,
             // it was cached by the container view controller like it would be in a `UITabBarController`s
             // tab that was never activated. So the router will have to activate it first.
@@ -219,8 +210,7 @@ public struct DefaultRouter: Router, InterceptableRouter, MainThreadChecking {
                 let newViewController = try factory.build(with: context)
                 logger?.log(.info("\(String(describing: factory)) built a " +
                         "\(String(describing: newViewController))."))
-                factory.action.nestedActionHelper = nestedActionHelper
-                factory.action.perform(with: newViewController, on: previousViewController, animated: animated) { result in
+                factory.action.perform(with: newViewController, on: previousViewController, with: delayedIntegrationHandler, animated: animated) { result in
                     self.assertIfNotMainThread(logger: self.logger)
                     if case let .failure(error) = result {
                         self.logger?.log(.error("\(String(describing: factory.action)) has stopped the navigation process " +
@@ -230,7 +220,7 @@ public struct DefaultRouter: Router, InterceptableRouter, MainThreadChecking {
                     }
                     self.logger?.log(.info("\(String(describing: factory.action)) has applied to " +
                             "\(String(describing: previousViewController)) with \(String(describing: newViewController))."))
-                    buildViewController(from: newViewController, nestedActionHelper: factory.action.nestedActionHelper)
+                    buildViewController(from: newViewController)
                 }
             } catch let error {
                 completion(previousViewController, .unhandled(error))

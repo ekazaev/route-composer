@@ -7,7 +7,7 @@ import UIKit
 
 protocol AnyFactory {
 
-    var action: AnyAction { get set }
+    var action: AnyAction { get }
 
     mutating func prepare(with context: Any?) throws
 
@@ -69,7 +69,7 @@ struct FactoryBox<F: Factory>: PreparableAnyFactory, AnyFactoryBox, MainThreadCh
 
     var factory: F
 
-    var action: AnyAction
+    let action: AnyAction
 
     var isPrepared = false
 
@@ -99,7 +99,7 @@ struct ContainerFactoryBox<F: ContainerFactory>: PreparableAnyFactory, AnyFactor
 
     var factory: FactoryType
 
-    var action: AnyAction
+    let action: AnyAction
 
     var children: [DelayedIntegrationFactory<FactoryType.Context>] = []
 
@@ -138,90 +138,3 @@ struct ContainerFactoryBox<F: ContainerFactory>: PreparableAnyFactory, AnyFactor
     }
 
 }
-
-//struct ExistingContainerFactoryBox: AnyFactory, PreparableAnyFactory, MainThreadChecking, CustomStringConvertible {
-//
-//    class ExistingContainerActionBox: AnyAction {
-//
-//        var nestedActionHelper: NestedActionHelper?
-//
-//        let containerViewController: ContainerViewController & UIViewController
-//
-//        var viewControllersToIntegrate: [UIViewController] = []
-//
-//        init(containerViewController: ContainerViewController & UIViewController) {
-//            self.containerViewController = containerViewController
-//        }
-//
-//        func perform(with viewController: UIViewController, on existingController: UIViewController, animated: Bool, completion: @escaping (ActionResult) -> Void) {
-//            guard !viewControllersToIntegrate.isEmpty else {
-//                completion(.continueRouting)
-//                return
-//            }
-//            containerViewController.replace(containedViewControllers: viewControllersToIntegrate, animated: animated, completion: {
-//                completion(.continueRouting)
-//            })
-//        }
-//
-//        func perform(embedding viewController: UIViewController, in childViewControllers: inout [UIViewController]) throws {
-//        }
-//
-//        func isEmbeddable(to container: ContainerViewController.Type) -> Bool {
-//            return false
-//        }
-//
-//    }
-//
-//    var isPrepared: Bool = false
-//
-//    var action: AnyAction {
-//        return existingContainerAction
-//    }
-//
-//    var children: [DelayedIntegrationFactory<Any?>] = []
-//
-//    let containerViewController: ContainerViewController & UIViewController
-//
-//    let existingContainerAction: ExistingContainerActionBox
-//
-//    init(containerViewController: ContainerViewController & UIViewController) {
-//        self.containerViewController = containerViewController
-//        self.existingContainerAction = ExistingContainerActionBox(containerViewController: containerViewController)
-//    }
-//
-//    mutating func prepare(with context: Any?) throws {
-//        isPrepared = true
-//    }
-//
-//    func build(with context: Any?) throws -> UIViewController {
-//        assertIfNotMainThread()
-//        assertIfNotPrepared()
-//        if !children.isEmpty {
-//            let viewControllers = try ChildCoordinator(childFactories: children).build(with: context, integrating: containerViewController.containedViewControllers)
-//            existingContainerAction.viewControllersToIntegrate = viewControllers
-//            if let lastIntegratedVC = viewControllers.last {
-//                return lastIntegratedVC
-//            }
-//        }
-//        return containerViewController.visibleViewControllers.last!
-//    }
-//
-//    mutating func scrapeChildren(from factories: [AnyFactory]) throws -> [AnyFactory] {
-//        var otherFactories: [AnyFactory] = []
-//        var isNonEmbeddableFound = false
-//        self.children = factories.compactMap({ child -> DelayedIntegrationFactory<Any?>? in
-//            guard !isNonEmbeddableFound, child.action.isEmbeddable(to: type(of: containerViewController)) else {
-//                otherFactories.append(child)
-//                isNonEmbeddableFound = true
-//                return nil
-//            }
-//            return DelayedIntegrationFactory(child)
-//        })
-//        return otherFactories
-//    }
-//
-//    var description: String {
-//        return String(describing: containerViewController)
-//    }
-//
-//}
