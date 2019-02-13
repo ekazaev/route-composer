@@ -13,7 +13,7 @@ class CitiesConfiguration {
     // Split View Controller
     private static var city = StepAssembly(finder: ClassFinder<UISplitViewController, Any?>(),
             factory: StoryboardFactory(storyboardName: "Split"))
-            //.adding(LoginInterceptor<Any?>())
+            .adding(LoginInterceptor<Any?>())
             .using(GeneralAction.replaceRoot())
             .from(GeneralStep.root())
             .assemble()

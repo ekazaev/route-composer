@@ -25,10 +25,25 @@ extension UISplitViewController: ContainerViewController {
             containedViewController.navigationController?.navigationController?.popToViewController(containedViewController, animated: animated)
             return
         }
+//        if let index = containedViewControllers.firstIndex(of: viewController) {
+//            if index == 1, let masterViewController = containedViewControllers.first {
+//                show(masterViewController, sender: self)
+//            } else if let detailsViewController = containedViewControllers.last {
+//                showDetailViewController(detailsViewController, sender: self)
+//            }
+//        }
     }
 
     public func replace(containedViewControllers: [UIViewController], animated: Bool, completion: () -> Void) {
         viewControllers = containedViewControllers
+        if !containedViewControllers.isEmpty {
+            // Do not really understand about presenting master
+/*            if containedViewControllers.count == 1, let masterViewController = containedViewControllers.first {
+                show(masterViewController, sender: self)
+            } else */ if let detailsViewController = containedViewControllers.last {
+                showDetailViewController(detailsViewController, sender: self)
+            }
+        }
         completion()
     }
 

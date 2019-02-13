@@ -197,9 +197,9 @@ public struct DefaultRouter: Router, InterceptableRouter, MainThreadChecking {
         func buildViewController(from previousViewController: UIViewController, nestedActionHelper: NestedActionHelper? = nil) {
             guard !factories.isEmpty else {
                 if let nestedActionHelper = nestedActionHelper {
-//                    nestedActionHelper.purge(animated: animated, completion: {
-//                        completion(previousViewController, .handled)
-//                    })
+                    nestedActionHelper.purge(animated: animated, completion: {
+                        completion(previousViewController, .handled)
+                    })
                     return
                 }
                 completion(previousViewController, .handled)

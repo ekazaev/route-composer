@@ -98,33 +98,33 @@ class BoxTests: XCTestCase {
         XCTAssertEqual(navigationController.viewControllers.count, 1)
     }
 
-    func testContainerActionBox() {
-
-        class TestContainerAction: ContainerAction {
-
-            func perform(embedding viewController: UIViewController, in childViewControllers: inout [UIViewController]) {
-                childViewControllers.append(viewController)
-            }
-
-            func perform(with viewController: UIViewController, on existingController: UINavigationController, animated: Bool, completion: @escaping (ActionResult) -> Void) {
-                existingController.viewControllers = [viewController]
-            }
-
-        }
-        let action = TestContainerAction()
-        let actionBox = ContainerActionBox(action)
-        let navigationController = UINavigationController()
-        actionBox.perform(with: UIViewController(), on: navigationController, animated: true) { result in
-            guard case .continueRouting = result else {
-                XCTAssert(false)
-                return
-            }
-        }
-        XCTAssertEqual(navigationController.children.count, 1)
-
-        try? actionBox.perform(embedding: UIViewController(), in: &navigationController.viewControllers)
-        XCTAssertEqual(navigationController.children.count, 2)
-    }
+//    func testContainerActionBox() {
+//
+//        class TestContainerAction: ContainerAction {
+//
+//            func perform(embedding viewController: UIViewController, in childViewControllers: inout [UIViewController]) {
+//                childViewControllers.append(viewController)
+//            }
+//
+//            func perform(with viewController: UIViewController, on existingController: UINavigationController, animated: Bool, completion: @escaping (ActionResult) -> Void) {
+//                existingController.viewControllers = [viewController]
+//            }
+//
+//        }
+//        let action = TestContainerAction()
+//        let actionBox = ContainerActionBox(action)
+//        let navigationController = UINavigationController()
+//        actionBox.perform(with: UIViewController(), on: navigationController, animated: true) { result in
+//            guard case .continueRouting = result else {
+//                XCTAssert(false)
+//                return
+//            }
+//        }
+//        XCTAssertEqual(navigationController.children.count, 1)
+//
+//        try? actionBox.perform(embedding: UIViewController(), in: &navigationController.viewControllers)
+//        XCTAssertEqual(navigationController.children.count, 2)
+//    }
 
     func testActionIsEmbeddable() {
         let action = ActionBox(GeneralAction.presentModally())
