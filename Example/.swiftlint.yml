@@ -32,7 +32,7 @@ type_body_length:
   - 400 # error
 
 function_body_length:
-  - 100 # warning
+  - 120 # warning
   - 150 # error
 
 cyclomatic_complexity:
@@ -65,7 +65,9 @@ identifier_name:
     - URL
     - GlobalAPIKey
 
-large_tuple: 
+function_parameter_count: 6
+
+large_tuple:
   - 4
   - 10
 reporter: "xcode" # reporter type (xcode, json, csv, checkstyle, junit, html, emoji, sonarqube)

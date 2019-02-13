@@ -51,6 +51,11 @@ extension CustomContainerController: ContainerViewController {
         return containedViewControllers.canBeDismissed
     }
 
+    public func replace(containedViewControllers: [UIViewController], animated: Bool, completion: () -> Void) {
+        rootViewController = containedViewControllers.last
+        completion()
+    }
+
 }
 
 extension CustomContainerFactory {

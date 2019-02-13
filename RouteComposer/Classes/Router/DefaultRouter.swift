@@ -187,9 +187,13 @@ public struct DefaultRouter: Router, InterceptableRouter, MainThreadChecking {
                                              completion: @escaping ((_: UIViewController, _: RoutingResult) -> Void)) {
         var factories = factories
 
+        let delayedIntegrationHandler = DefaultDelayedIntegrationHandler()
+
         func buildViewController(from previousViewController: UIViewController) {
             guard !factories.isEmpty else {
-                completion(previousViewController, .handled)
+                delayedIntegrationHandler.purge(animated: animated, completion: {
+                    return completion(previousViewController, .handled)
+                })
                 return
             }
             let factory = factories.removeFirst()
@@ -206,7 +210,8 @@ public struct DefaultRouter: Router, InterceptableRouter, MainThreadChecking {
                 let newViewController = try factory.build(with: context)
                 logger?.log(.info("\(String(describing: factory)) built a " +
                         "\(String(describing: newViewController))."))
-                factory.action.perform(with: newViewController, on: previousViewController, animated: animated) { result in
+                let nextAction = factories.first?.action
+                factory.action.perform(with: newViewController, on: previousViewController, with: delayedIntegrationHandler, nextAction: nextAction, animated: animated) { result in
                     self.assertIfNotMainThread(logger: self.logger)
                     if case let .failure(error) = result {
                         self.logger?.log(.error("\(String(describing: factory.action)) has stopped the navigation process " +

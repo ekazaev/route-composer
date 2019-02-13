@@ -96,7 +96,7 @@ class RouteComposerExampleUITests: XCTestCase {
         app.textFields["passwordTextField"].typeText("abc")
 
         app.buttons["Login"].tap()
-        sleep(3)
+        sleep(7)
         // We have to wait for login service to succeed
         // Apple uses same technique http://cleanswifter.com/asynchronous-xcode-ui-testing/
         XCTAssertTrue(app.otherElements["cityDetailsViewController+2"].exists)
@@ -119,6 +119,18 @@ class RouteComposerExampleUITests: XCTestCase {
         XCTAssertTrue(app.otherElements["emptyViewController"].exists)
 
         app.buttons["Go to Self!"].tap()
+        XCTAssertTrue(app.otherElements["emptyViewController"].exists)
+
+        app.buttons["Go to Circle Tab"].tap()
+        XCTAssertTrue(app.otherElements["circleViewController"].exists)
+
+        app.buttons["Go to Square Tab"].tap()
+        XCTAssertTrue(app.otherElements["squareViewController"].exists)
+
+        app.buttons["Go push nested with Product 03*"].tap()
+        XCTAssertTrue(app.otherElements["productViewController+03"].exists)
+
+        app.navigationBars.buttons.element(boundBy: 0).tap()
         XCTAssertTrue(app.otherElements["emptyViewController"].exists)
 
         app.buttons["Go to Circle Tab"].tap()
@@ -157,11 +169,13 @@ class RouteComposerExampleUITests: XCTestCase {
         XCTAssertTrue(app.otherElements["squareViewController"].exists)
 
         app.buttons["Go to Star Screen*"].tap()
+        sleep(7)
         XCTAssertTrue(app.otherElements["starViewController"].exists)
 
         app.buttons["Go to Product 02"].tap()
         XCTAssertTrue(app.otherElements["productViewController+02"].exists)
 
+        sleep(1)
         app.buttons["Go to Circle Tab"].tap()
         XCTAssertTrue(app.otherElements["circleViewController"].exists)
 

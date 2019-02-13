@@ -117,7 +117,7 @@ struct ContainerFactoryBox<F: ContainerFactory>: PreparableAnyFactory, AnyFactor
         var otherFactories: [AnyFactory] = []
         var isNonEmbeddableFound = false
         self.children = factories.compactMap({ child -> DelayedIntegrationFactory<FactoryType.Context>? in
-            guard !isNonEmbeddableFound, child.action.isEmbeddable(to: factory) else {
+            guard !isNonEmbeddableFound, child.action.isEmbeddable(to: FactoryType.ViewController.self) else {
                 otherFactories.append(child)
                 isNonEmbeddableFound = true
                 return nil

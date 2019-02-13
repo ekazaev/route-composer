@@ -28,6 +28,8 @@ protocol ExampleScreenConfiguration {
 
     var welcomeScreen: DestinationStep<PromptViewController, Any?> { get }
 
+    var emptyAndProductScreen: DestinationStep<ProductViewController, ProductContext> { get }
+
 }
 
 extension ExampleScreenConfiguration {
@@ -119,6 +121,15 @@ extension ExampleScreenConfiguration {
                 .using(GeneralAction.replaceRoot())
                 .from(GeneralStep.root())
                 .assemble()
+    }
+
+    var emptyAndProductScreen: DestinationStep<ProductViewController, ProductContext> {
+        return StepAssembly(
+                finder: ClassWithContextFinder<ProductViewController, ProductContext>(),
+                factory: StoryboardFactory(storyboardName: "TabBar", viewControllerID: "ProductViewController"))
+                .adding(ProductContextTask())
+                .using(UINavigationController.push())
+                .assemble(from: emptyScreen.expectingContainer())
     }
 
 }

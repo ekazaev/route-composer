@@ -33,6 +33,11 @@ extension UITabBarController: ContainerViewController {
         }
     }
 
+    public func replace(containedViewControllers: [UIViewController], animated: Bool, completion: () -> Void) {
+        setViewControllers(containedViewControllers, animated: animated)
+        completion()
+    }
+
 }
 
 /// - The `UITabBarController` extension is to support the `RoutingInterceptable` protocol

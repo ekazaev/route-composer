@@ -21,3 +21,15 @@ public enum ActionResult {
     case failure(Error)
 
 }
+
+public extension ActionResult {
+
+    /// Returns `true` if `ActionResult` is `.continueRouting`
+    var isSuccessful: Bool {
+        guard case .continueRouting = self else {
+            return false
+        }
+        return true
+    }
+
+}

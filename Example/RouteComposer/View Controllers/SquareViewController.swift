@@ -41,6 +41,10 @@ class SquareViewController: UIViewController, ExampleAnalyticsSupport {
         try? router.navigate(to: WishListConfiguration.collections())
     }
 
+    @IBAction func goEmptyAndProductTapped() {
+        try? router.navigate(to: ConfigurationHolder.configuration.emptyAndProductScreen, with: ProductContext(productId: "03"))
+    }
+
     @IBAction func switchValueChanged(sender: UISwitch) {
         if sender.isOn {
             ConfigurationHolder.configuration = AlternativeExampleConfiguration()

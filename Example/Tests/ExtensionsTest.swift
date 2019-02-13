@@ -236,6 +236,17 @@ class ExtensionsTest: XCTestCase {
         XCTAssertEqual(array.uniqueElements()[1], viewController2)
     }
 
+    func testArrayExtensionIsEqual() {
+        let viewController1 = UIViewController()
+        let viewController2 = RouterTests.TestRoutingControllingViewController()
+        let array = [viewController1, viewController2, viewController1]
+        XCTAssertFalse(array.isEqual(to: []))
+        XCTAssertFalse(array.isEqual(to: [viewController2, viewController1]))
+        XCTAssertFalse(array.isEqual(to: [viewController2, UIViewController()]))
+        XCTAssertFalse(array.isEqual(to: [viewController1, viewController1, viewController2]))
+        XCTAssertTrue(array.isEqual(to: [viewController1, viewController2, viewController1]))
+    }
+
     func testAllParents() {
         let viewController1 = UIViewController()
         let viewController2 = UIViewController()
