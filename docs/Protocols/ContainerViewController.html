@@ -462,7 +462,7 @@ one of the view controllers that they contain visible</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Each container view controller should conform to this protocol for the <code><a href="../Protocols/Router.html">Router</a></code> to know how to make
+                        <p>Each container view controller should implement this method for the <code><a href="../Protocols/Router.html">Router</a></code> to know how to make
 its particular child view controller visible.</p>
 
                       </div>
@@ -499,6 +499,65 @@ its particular child view controller visible.</p>
                               <td>
                                 <div>
                                   <p>If <code>ContainerViewController</code> is able to do so - make container active animated or not.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@RouteComposer@objc(pl)ContainerViewController(im)replaceWithContainedViewControllers:animated:completion:"></a>
+                    <a name="//apple_ref/swift/Method/replace(containedViewControllers:animated:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@RouteComposer@objc(pl)ContainerViewController(im)replaceWithContainedViewControllers:animated:completion:">replace(containedViewControllers:animated:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Each container view controller should this method for the <code><a href="../Protocols/Router.html">Router</a></code> to know how to replace all the
+view controllers in this particular container.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">replace</span><span class="p">(</span><span class="nv">containedViewControllers</span><span class="p">:</span> <span class="p">[</span><span class="kt">UIViewController</span><span class="p">],</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>containedViewControllers</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A <code>UIViewController</code> instances to replace.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>animated</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>If <code>ContainerViewController</code> is able to do so - replace contained view controllers animated or not.</p>
                                 </div>
                               </td>
                             </tr>
@@ -748,7 +807,7 @@ will be added after the latest one.</li>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2019-02-04)</p>
+          <p>&copy; 2019 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2019-02-13)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
