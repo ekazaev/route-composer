@@ -9,7 +9,7 @@ import UIKit
 public struct GeneralAction {
 
     /// Replaces the root view controller in the key `UIWindow`
-    public static func replaceRoot(windowProvider: WindowProvider = DefaultWindowProvider()) -> ViewControllerActions.ReplaceRootAction {
+    public static func replaceRoot(windowProvider: WindowProvider = KeyWindowProvider()) -> ViewControllerActions.ReplaceRootAction {
         return ViewControllerActions.ReplaceRootAction(windowProvider: windowProvider)
     }
 
@@ -115,7 +115,7 @@ public struct ViewControllerActions {
         let windowProvider: WindowProvider
 
         /// Constructor
-        init(windowProvider: WindowProvider = DefaultWindowProvider()) {
+        init(windowProvider: WindowProvider = KeyWindowProvider()) {
             self.windowProvider = windowProvider
         }
 

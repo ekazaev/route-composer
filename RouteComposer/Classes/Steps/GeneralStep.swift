@@ -13,7 +13,7 @@ public struct GeneralStep {
         let windowProvider: WindowProvider
 
         /// Constructor
-        init(windowProvider: WindowProvider = DefaultWindowProvider()) {
+        init(windowProvider: WindowProvider = KeyWindowProvider()) {
             self.windowProvider = windowProvider
         }
 
@@ -31,7 +31,7 @@ public struct GeneralStep {
         let windowProvider: WindowProvider
 
         /// Constructor
-        init(windowProvider: WindowProvider = DefaultWindowProvider()) {
+        init(windowProvider: WindowProvider = KeyWindowProvider()) {
             self.windowProvider = windowProvider
         }
 
@@ -61,12 +61,12 @@ public struct GeneralStep {
     }
 
     /// Returns the root view controller of the key window.
-    public static func root<C>(windowProvider: WindowProvider = DefaultWindowProvider()) -> DestinationStep<UIViewController, C> {
+    public static func root<C>(windowProvider: WindowProvider = KeyWindowProvider()) -> DestinationStep<UIViewController, C> {
         return DestinationStep(RootViewControllerStep(windowProvider: windowProvider))
     }
 
     /// Returns the topmost presented view controller.
-    public static func current<C>(windowProvider: WindowProvider = DefaultWindowProvider()) -> DestinationStep<UIViewController, C> {
+    public static func current<C>(windowProvider: WindowProvider = KeyWindowProvider()) -> DestinationStep<UIViewController, C> {
         return DestinationStep(CurrentViewControllerStep(windowProvider: windowProvider))
     }
 

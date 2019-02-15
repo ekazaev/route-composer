@@ -41,7 +41,7 @@ public struct DefaultStackIterator: StackIterator {
     }
 
     /// Constructor
-    public init(options: SearchOptions = .fullStack, startingPoint: StartingPoint = .topmost, windowProvider: WindowProvider = DefaultWindowProvider()) {
+    public init(options: SearchOptions = .fullStack, startingPoint: StartingPoint = .topmost, windowProvider: WindowProvider = KeyWindowProvider()) {
         self.startingPoint = startingPoint
         self.options = options
         self.windowProvider = windowProvider
