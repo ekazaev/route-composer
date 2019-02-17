@@ -14,7 +14,7 @@ class CitiesConfiguration {
     private static var city = StepAssembly(finder: ClassFinder<UISplitViewController, Any?>(),
             factory: StoryboardFactory(storyboardName: "Split"))
             .adding(LoginInterceptor<Any?>())
-            .using(GeneralAction.replaceRoot())
+            .using(GeneralAction.replaceRoot(animationOptions: .transitionCrossDissolve))
             .from(GeneralStep.root())
             .assemble()
 
