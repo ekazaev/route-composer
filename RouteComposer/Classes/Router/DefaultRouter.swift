@@ -81,7 +81,7 @@ public struct DefaultRouter: Router, InterceptableRouter, MainThreadChecking {
             self.dismissPresentedIfNeeded(from: viewController, animated: animated) {
                 // Builds view controller's stack using factories.
                 // This operation is async.
-                self.runViewControllerBuildStack(starting: viewController,
+                self.buildViewControllerStack(starting: viewController,
                         with: context,
                         using: factoriesStack,
                         animated: animated) { viewController, result in
@@ -180,14 +180,14 @@ public struct DefaultRouter: Router, InterceptableRouter, MainThreadChecking {
     // Loops through the list of factories and builds their view controllers in sequence.
     // Some actions can be asynchronous, like push, modal or presentations,
     // so it performs them asynchronously
-    private func runViewControllerBuildStack(starting rootViewController: UIViewController,
-                                             with context: Any?,
-                                             using factories: [AnyFactory],
-                                             animated: Bool,
-                                             completion: @escaping ((_: UIViewController, _: RoutingResult) -> Void)) {
+    private func buildViewControllerStack(starting rootViewController: UIViewController,
+                                          with context: Any?,
+                                          using factories: [AnyFactory],
+                                          animated: Bool,
+                                          completion: @escaping ((_: UIViewController, _: RoutingResult) -> Void)) {
         var factories = factories
 
-        let delayedIntegrationHandler = DefaultDelayedIntegrationHandler()
+        let delayedIntegrationHandler = DefaultDelayedIntegrationHandler(logger: logger)
 
         func buildViewController(from previousViewController: UIViewController) {
             guard !factories.isEmpty else {
@@ -238,6 +238,7 @@ public struct DefaultRouter: Router, InterceptableRouter, MainThreadChecking {
         viewController.allParents.forEach({
             if let container = $0 as? ContainerViewController {
                 container.makeVisible(currentViewController, animated: animated)
+                logger?.log(.info("Made \(String(describing: currentViewController)) visible in \(String(describing: container))"))
             }
             currentViewController = $0
         })

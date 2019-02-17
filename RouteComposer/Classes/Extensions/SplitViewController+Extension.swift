@@ -43,7 +43,7 @@ extension UISplitViewController: ContainerViewController {
     // Quote:
     // When designing your split view interface, it is best to install primary and secondary view controllers that do not change.
     // A common technique is to install navigation controllers in both positions and then push and pop new content as needed.
-    public func replace(containedViewControllers: [UIViewController], animated: Bool, completion: () -> Void) {
+    public func replace(containedViewControllers: [UIViewController], animated: Bool, completion: @escaping () -> Void) {
         if containedViewControllers.count > 1,
            let primaryViewController = self.containedViewControllers.first,
            primaryViewController === containedViewControllers.first,

@@ -30,7 +30,7 @@ extension UINavigationController: ContainerViewController {
         }
     }
 
-    public func replace(containedViewControllers: [UIViewController], animated: Bool, completion: () -> Void) {
+    public func replace(containedViewControllers: [UIViewController], animated: Bool, completion: @escaping () -> Void) {
         setViewControllers(containedViewControllers, animated: animated)
         completion()
     }

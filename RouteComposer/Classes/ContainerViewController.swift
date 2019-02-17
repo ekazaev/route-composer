@@ -32,6 +32,6 @@ import UIKit
     /// - Parameters:
     ///   - containedViewControllers: A `UIViewController` instances to replace.
     ///   - animated: If `ContainerViewController` is able to do so - replace contained view controllers animated or not.
-    func replace(containedViewControllers: [UIViewController], animated: Bool, completion: () -> Void)
+    func replace(containedViewControllers: [UIViewController], animated: Bool, completion: @escaping () -> Void)
 
 }

@@ -89,7 +89,7 @@ class BoxTests: XCTestCase {
         let action = TestAction()
         let actionBox = ActionBox(action)
         let navigationController = UINavigationController()
-        let delayedIntegrationHandler = DefaultRouter.DefaultDelayedIntegrationHandler()
+        let delayedIntegrationHandler = DefaultRouter.DefaultDelayedIntegrationHandler(logger: nil)
         actionBox.perform(with: UIViewController(), on: navigationController, with: delayedIntegrationHandler, nextAction: nil, animated: true) { result in
             guard case .continueRouting = result else {
                 XCTAssert(false)
@@ -116,7 +116,7 @@ class BoxTests: XCTestCase {
         let action = TestContainerAction()
         let actionBox = ContainerActionBox(action)
         let navigationController = UINavigationController()
-        let delayedIntegrationHandler = DefaultRouter.DefaultDelayedIntegrationHandler()
+        let delayedIntegrationHandler = DefaultRouter.DefaultDelayedIntegrationHandler(logger: nil)
         let embeddingController = UIViewController()
         actionBox.perform(with: embeddingController, on: navigationController, with: delayedIntegrationHandler, nextAction: nil, animated: true) { result in
             guard case .continueRouting = result else {

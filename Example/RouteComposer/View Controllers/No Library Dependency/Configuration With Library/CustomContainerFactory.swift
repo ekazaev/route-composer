@@ -51,7 +51,7 @@ extension CustomContainerController: ContainerViewController {
         return containedViewControllers.canBeDismissed
     }
 
-    public func replace(containedViewControllers: [UIViewController], animated: Bool, completion: () -> Void) {
+    public func replace(containedViewControllers: [UIViewController], animated: Bool, completion: @escaping () -> Void) {
         rootViewController = containedViewControllers.last
         completion()
     }

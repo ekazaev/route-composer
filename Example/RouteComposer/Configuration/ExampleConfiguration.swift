@@ -43,7 +43,7 @@ extension ExampleScreenConfiguration {
                 // We call `home` only the one that is the window's root controller
                 finder: ClassFinder<UITabBarController, Any?>(options: .current, startingPoint: .root),
                 factory: StoryboardFactory(storyboardName: "TabBar"))
-                .using(GeneralAction.replaceRoot())
+                .using(GeneralAction.replaceRoot(animationOptions: .transitionFlipFromLeft))
                 .from(GeneralStep.root())
                 .assemble()
     }

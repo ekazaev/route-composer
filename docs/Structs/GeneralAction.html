@@ -399,9 +399,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer13GeneralActionV11replaceRoot14windowProviderAA21ViewControllerActionsV07ReplacefD0VAA06WindowH0_p_tFZ"></a>
-                    <a name="//apple_ref/swift/Method/replaceRoot(windowProvider:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer13GeneralActionV11replaceRoot14windowProviderAA21ViewControllerActionsV07ReplacefD0VAA06WindowH0_p_tFZ">replaceRoot(windowProvider:)</a>
+                    <a name="/s:13RouteComposer13GeneralActionV11replaceRoot14windowProvider16animationOptions8durationAA21ViewControllerActionsV07ReplacefD0VAA06WindowH0_p_So015UIViewAnimationJ0VSgSdtFZ"></a>
+                    <a name="//apple_ref/swift/Method/replaceRoot(windowProvider:animationOptions:duration:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer13GeneralActionV11replaceRoot14windowProvider16animationOptions8durationAA21ViewControllerActionsV07ReplacefD0VAA06WindowH0_p_So015UIViewAnimationJ0VSgSdtFZ">replaceRoot(windowProvider:animationOptions:duration:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -416,9 +416,54 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">replaceRoot</span><span class="p">(</span><span class="nv">windowProvider</span><span class="p">:</span> <span class="kt"><a href="../Protocols/WindowProvider.html">WindowProvider</a></span> <span class="o">=</span> <span class="kt"><a href="../Structs/KeyWindowProvider.html">KeyWindowProvider</a></span><span class="p">())</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/ViewControllerActions.html">ViewControllerActions</a></span><span class="o">.</span><span class="kt">ReplaceRootAction</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">replaceRoot</span><span class="p">(</span><span class="nv">windowProvider</span><span class="p">:</span> <span class="kt"><a href="../Protocols/WindowProvider.html">WindowProvider</a></span> <span class="o">=</span> <span class="kt"><a href="../Structs/KeyWindowProvider.html">KeyWindowProvider</a></span><span class="p">(),</span>
+                               <span class="nv">animationOptions</span><span class="p">:</span> <span class="kt">UIView</span><span class="o">.</span><span class="kt">AnimationOptions</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+                               <span class="nv">duration</span><span class="p">:</span> <span class="kt">TimeInterval</span> <span class="o">=</span> <span class="mf">0.3</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/ViewControllerActions.html">ViewControllerActions</a></span><span class="o">.</span><span class="kt">ReplaceRootAction</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>windowProvider</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code><a href="../Protocols/WindowProvider.html">WindowProvider</a></code> instance</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>animationOptions</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Set of <code>UIView.AnimationOptions</code>. Transition will happen without animation if not provided.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>duration</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Transition duration.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -526,7 +571,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2019-02-15)</p>
+          <p>&copy; 2019 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2019-02-18)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
