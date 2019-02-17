@@ -187,7 +187,7 @@ public struct DefaultRouter: Router, InterceptableRouter, MainThreadChecking {
                                              completion: @escaping ((_: UIViewController, _: RoutingResult) -> Void)) {
         var factories = factories
 
-        let delayedIntegrationHandler = DefaultDelayedIntegrationHandler()
+        let delayedIntegrationHandler = DefaultDelayedIntegrationHandler(logger: logger)
 
         func buildViewController(from previousViewController: UIViewController) {
             guard !factories.isEmpty else {
@@ -238,6 +238,7 @@ public struct DefaultRouter: Router, InterceptableRouter, MainThreadChecking {
         viewController.allParents.forEach({
             if let container = $0 as? ContainerViewController {
                 container.makeVisible(currentViewController, animated: animated)
+                logger?.log(.info("Made \(String(describing: currentViewController)) visible in \(String(describing: container))"))
             }
             currentViewController = $0
         })

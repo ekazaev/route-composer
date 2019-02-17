@@ -69,6 +69,40 @@ class ActionTests: XCTestCase {
         XCTAssertTrue(wasInCompletion)
     }
 
+    func testReplaceRootAnimated() {
+        class TestWindow: UIWindow {
+            var isKey: Bool = false
+
+            override func makeKeyAndVisible() {
+                isKey = true
+            }
+
+        }
+        struct TestWindowProvider: WindowProvider {
+            let window: UIWindow?
+            init(window: UIWindow) {
+                self.window = window
+            }
+        }
+
+        let expectation = XCTestExpectation(description: "Animated root view controller replacement")
+        let window = TestWindow()
+        let rootViewController = UIViewController()
+        window.rootViewController = rootViewController
+        let windowProvider = TestWindowProvider(window: window)
+        let action = ViewControllerActions.ReplaceRootAction(windowProvider: windowProvider, animationOptions: .transitionCurlUp, duration: 0.3)
+        let newRootViewController = UIViewController()
+        var wasInCompletion = false
+        action.perform(with: newRootViewController, on: rootViewController, animated: false) { _ in
+            wasInCompletion = true
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 0.3)
+        XCTAssertTrue(wasInCompletion)
+        XCTAssertTrue(window.isKey)
+        XCTAssertEqual(window.rootViewController, newRootViewController)
+    }
+
     func testPresentModally() {
         class PresentingModallyController: UIViewController {
             override func present(_ viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)?) {

@@ -9,8 +9,15 @@ import UIKit
 public struct GeneralAction {
 
     /// Replaces the root view controller in the key `UIWindow`
-    public static func replaceRoot(windowProvider: WindowProvider = KeyWindowProvider()) -> ViewControllerActions.ReplaceRootAction {
-        return ViewControllerActions.ReplaceRootAction(windowProvider: windowProvider)
+    ///
+    /// - Parameters:
+    ///   - windowProvider: `WindowProvider` instance
+    ///   - animationOptions: Set of `UIView.AnimationOptions`. Transition will happen without animation if not provided.
+    ///   - duration: Transition duration.
+    public static func replaceRoot(windowProvider: WindowProvider = KeyWindowProvider(),
+                                   animationOptions: UIView.AnimationOptions? = nil,
+                                   duration: TimeInterval = 0.3) -> ViewControllerActions.ReplaceRootAction {
+        return ViewControllerActions.ReplaceRootAction(windowProvider: windowProvider, animationOptions: animationOptions, duration: duration)
     }
 
     /// Presents a view controller modally
@@ -114,9 +121,20 @@ public struct ViewControllerActions {
 
         let windowProvider: WindowProvider
 
+        let animationOptions: UIView.AnimationOptions?
+
+        let duration: TimeInterval
+
         /// Constructor
-        init(windowProvider: WindowProvider = KeyWindowProvider()) {
+        ///
+        /// - Parameters:
+        ///   - windowProvider: `WindowProvider` instance
+        ///   - animationOptions: Set of `UIView.AnimationOptions`. Transition will happen without animation if not provided.
+        ///   - duration: Transition duration.
+        init(windowProvider: WindowProvider = KeyWindowProvider(), animationOptions: UIView.AnimationOptions? = nil, duration: TimeInterval = 0.3) {
             self.windowProvider = windowProvider
+            self.animationOptions = animationOptions
+            self.duration = duration
         }
 
         public func perform(with viewController: UIViewController,
@@ -133,9 +151,22 @@ public struct ViewControllerActions {
                 return
             }
 
-            window.rootViewController = viewController
-            window.makeKeyAndVisible()
-            return completion(.continueRouting)
+            guard animated, let animationOptions = animationOptions, duration > 0 else {
+                window.rootViewController = viewController
+                window.makeKeyAndVisible()
+                return completion(.continueRouting)
+            }
+
+            UIView.transition(with: window, duration: duration, options: animationOptions, animations: {
+                let oldAnimationState = UIView.areAnimationsEnabled
+                UIView.setAnimationsEnabled(false)
+                window.rootViewController = viewController
+                window.rootViewController?.view.setNeedsLayout()
+                window.makeKeyAndVisible()
+                UIView.setAnimationsEnabled(oldAnimationState)
+            }, completion: { _ in
+                completion(.continueRouting)
+            })
         }
 
     }

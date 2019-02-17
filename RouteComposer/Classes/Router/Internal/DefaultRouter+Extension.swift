@@ -254,8 +254,10 @@ extension DefaultRouter {
 
         var delayedViewControllers: [UIViewController] = []
 
-        init() {
-
+        let logger: Logger?
+        
+        init(logger: Logger?) {
+            self.logger = logger
         }
 
         func update(containerViewController: ContainerViewController, animated: Bool, completion: () -> Void) {
@@ -267,6 +269,7 @@ extension DefaultRouter {
             }
             self.containerViewController = containerViewController
             self.delayedViewControllers = containerViewController.containedViewControllers
+            logger?.log(.info("Container \(String(describing: containerViewController)) will be used for the delayed integration."))
             completion()
         }
 
@@ -288,6 +291,7 @@ extension DefaultRouter {
             }
 
             containerViewController.replace(containedViewControllers: delayedViewControllers, animated: animated, completion: {
+                self.logger?.log(.info("View controllers \(String(describing: delayedViewControllers)) were integrated together into \(containerViewController)"))
                 self.containerViewController = nil
                 self.delayedViewControllers = []
                 completion()
