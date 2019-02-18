@@ -260,7 +260,7 @@ extension DefaultRouter {
             self.logger = logger
         }
 
-        func update(containerViewController: ContainerViewController, animated: Bool, completion: () -> Void) {
+        func update(containerViewController: ContainerViewController, animated: Bool, completion: @escaping () -> Void) {
             guard self.containerViewController == nil else {
                 purge(animated: animated, completion: {
                     self.update(containerViewController: containerViewController, animated: animated, completion: completion)
@@ -277,7 +277,7 @@ extension DefaultRouter {
             self.delayedViewControllers = delayedViewControllers
         }
 
-        func purge(animated: Bool, completion: () -> Void) {
+        func purge(animated: Bool, completion: @escaping () -> Void) {
             guard let containerViewController = containerViewController else {
                 completion()
                 return
@@ -291,7 +291,7 @@ extension DefaultRouter {
             }
 
             containerViewController.replace(containedViewControllers: delayedViewControllers, animated: animated, completion: {
-                self.logger?.log(.info("View controllers \(String(describing: delayedViewControllers)) were integrated together into \(containerViewController)"))
+                self.logger?.log(.info("View controllers \(String(describing: self.delayedViewControllers)) were integrated together into \(containerViewController)"))
                 self.containerViewController = nil
                 self.delayedViewControllers = []
                 completion()

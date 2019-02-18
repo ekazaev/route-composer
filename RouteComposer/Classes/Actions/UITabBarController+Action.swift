@@ -68,11 +68,14 @@ public struct TabBarControllerActions {
                             on tabBarController: ViewController,
                             animated: Bool,
                             completion: @escaping(_: ActionResult) -> Void) {
+            CATransaction.begin()
+            CATransaction.setCompletionBlock {
+                completion(.continueRouting)
+            }
             var tabViewControllers = tabBarController.viewControllers ?? []
             setup(viewController: viewController, at: &tabViewControllers, tabIndex: tabIndex)
             tabBarController.setViewControllers(tabViewControllers, animated: animated)
-
-            return completion(.continueRouting)
+            CATransaction.commit()
         }
 
         private func setup(viewController: UIViewController,

@@ -11,11 +11,11 @@ protocol DelayedActionIntegrationHandler: AnyObject {
 
     var delayedViewControllers: [UIViewController] { get }
 
-    func update(containerViewController: ContainerViewController, animated: Bool, completion: () -> Void)
+    func update(containerViewController: ContainerViewController, animated: Bool, completion: @escaping () -> Void)
 
     func update(delayedViewControllers: [UIViewController])
 
-    func purge(animated: Bool, completion: () -> Void)
+    func purge(animated: Bool, completion: @escaping () -> Void)
 
 }
 
@@ -64,7 +64,7 @@ struct ActionBox<A: Action>: AnyAction, AnyActionBox, CustomStringConvertible, M
         }
         assertIfNotMainThread()
         delayedIntegrationHandler.purge(animated: animated, completion: {
-            action.perform(with: viewController, on: typedExistingViewController, animated: animated) { result in
+            self.action.perform(with: viewController, on: typedExistingViewController, animated: animated) { result in
                 self.assertIfNotMainThread()
                 completion(result)
             }
@@ -126,7 +126,7 @@ struct ContainerActionBox<A: ContainerAction>: AnyAction, AnyActionBox, CustomSt
                 })
             } else {
                 delayedIntegrationHandler.purge(animated: animated, completion: {
-                    action.perform(with: viewController, on: containerController, animated: animated) { result in
+                    self.action.perform(with: viewController, on: containerController, animated: animated) { result in
                         self.assertIfNotMainThread()
                         completion(result)
                     }

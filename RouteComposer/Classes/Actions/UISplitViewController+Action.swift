@@ -38,8 +38,12 @@ public struct SplitViewControllerActions {
                             on splitViewController: ViewController,
                             animated: Bool,
                             completion: @escaping (_: ActionResult) -> Void) {
+            CATransaction.begin()
+            CATransaction.setCompletionBlock {
+                completion(.continueRouting)
+            }
             integrate(viewController: viewController, in: &splitViewController.viewControllers)
-            completion(.continueRouting)
+            CATransaction.commit()
         }
 
         private func integrate(viewController: UIViewController, in childViewControllers: inout [UIViewController]) {
@@ -77,8 +81,12 @@ public struct SplitViewControllerActions {
                 return
             }
 
+            CATransaction.begin()
+            CATransaction.setCompletionBlock {
+                completion(.continueRouting)
+            }
             splitViewController.showDetailViewController(viewController, sender: nil)
-            completion(.continueRouting)
+            CATransaction.commit()
         }
     }
 

@@ -33,9 +33,13 @@ extension UITabBarController: ContainerViewController {
         }
     }
 
-    public func replace(containedViewControllers: [UIViewController], animated: Bool, completion: () -> Void) {
+    public func replace(containedViewControllers: [UIViewController], animated: Bool, completion: @escaping () -> Void) {
+        CATransaction.begin()
+        CATransaction.setCompletionBlock {
+            completion()
+        }
         setViewControllers(containedViewControllers, animated: animated)
-        completion()
+        CATransaction.commit()
     }
 
 }

@@ -170,6 +170,7 @@ class ActionTests: XCTestCase {
         XCTAssertEqual(viewControllerStack.count, 1)
         XCTAssert(viewControllerStack.first!.isKind(of: UINavigationController.self))
 
+        let expectation = XCTestExpectation(description: "Animation")
         var wasInCompletion = false
         let navigationController = UINavigationController(rootViewController: UIViewController())
         let newRootController = UIViewController()
@@ -178,7 +179,9 @@ class ActionTests: XCTestCase {
             if case .failure(_) = result {
                 XCTAssert(false)
             }
+            expectation.fulfill()
         })
+        wait(for: [expectation], timeout: 0.5)
         XCTAssertTrue(wasInCompletion)
         XCTAssertEqual(navigationController.viewControllers.count, 1)
         XCTAssertTrue(navigationController.viewControllers[0] === newRootController)
@@ -198,12 +201,15 @@ class ActionTests: XCTestCase {
         var wasInCompletion = false
         let navigationController = UINavigationController(rootViewController: UIViewController())
         let viewController = UIViewController()
+        let expectation = XCTestExpectation(description: "Animation")
         UINavigationController.push().perform(with: viewController, on: navigationController, animated: false, completion: { result in
             wasInCompletion = true
             if case .failure(_) = result {
                 XCTAssert(false)
             }
+            expectation.fulfill()
         })
+        wait(for: [expectation], timeout: 0.5)
         XCTAssertTrue(wasInCompletion)
         XCTAssertEqual(navigationController.viewControllers.count, 2)
         XCTAssertTrue(navigationController.viewControllers.removeLast() === viewController)
@@ -223,12 +229,15 @@ class ActionTests: XCTestCase {
         let tabBarController = UITabBarController()
         tabBarController.viewControllers = [UIViewController()]
         let viewController = UIViewController()
+        let expectation = XCTestExpectation(description: "Animation")
         UITabBarController.add().perform(with: viewController, on: tabBarController, animated: false, completion: { result in
             wasInCompletion = true
             if case .failure(_) = result {
                 XCTAssert(false)
             }
+            expectation.fulfill()
         })
+        wait(for: [expectation], timeout: 0.5)
         XCTAssertTrue(wasInCompletion)
         XCTAssertEqual(tabBarController.viewControllers?.count, 2)
         XCTAssertTrue(tabBarController.viewControllers?.removeLast() === viewController)
@@ -248,12 +257,15 @@ class ActionTests: XCTestCase {
         let tabBarController = UITabBarController()
         tabBarController.viewControllers = [UIViewController()]
         let viewController = UIViewController()
+        let expectation = XCTestExpectation(description: "Animation")
         UITabBarController.add(at: 0).perform(with: viewController, on: tabBarController, animated: false, completion: { result in
             wasInCompletion = true
             if case .failure(_) = result {
                 XCTAssert(false)
             }
+            expectation.fulfill()
         })
+        wait(for: [expectation], timeout: 0.5)
         XCTAssertTrue(wasInCompletion)
         XCTAssertEqual(tabBarController.viewControllers?.count, 2)
         XCTAssertTrue(tabBarController.viewControllers?.removeFirst() === viewController)
@@ -274,12 +286,15 @@ class ActionTests: XCTestCase {
         let tabBarController = UITabBarController()
         tabBarController.viewControllers = [UIViewController()]
         let viewController = UIViewController()
+        let expectation = XCTestExpectation(description: "Animation")
         UITabBarController.add(at: 0, replacing: true).perform(with: viewController, on: tabBarController, animated: false, completion: { result in
             wasInCompletion = true
             if case .failure(_) = result {
                 XCTAssert(false)
             }
+            expectation.fulfill()
         })
+        wait(for: [expectation], timeout: 0.5)
         XCTAssertTrue(wasInCompletion)
         XCTAssertEqual(tabBarController.viewControllers?.count, 1)
         XCTAssertTrue(tabBarController.viewControllers?.first === viewController)
@@ -301,12 +316,15 @@ class ActionTests: XCTestCase {
         var wasInCompletion = false
         let splitController = UISplitViewController()
         let viewController = UIViewController()
+        let expectation = XCTestExpectation(description: "Animation")
         UISplitViewController.setAsMaster().perform(with: viewController, on: splitController, animated: false) { result in
             wasInCompletion = true
             if case .failure(_) = result {
                 XCTAssert(false)
             }
+            expectation.fulfill()
         }
+        wait(for: [expectation], timeout: 0.5)
         XCTAssertTrue(wasInCompletion)
         XCTAssertEqual(splitController.viewControllers.count, 1)
         XCTAssertTrue(splitController.viewControllers.first === viewController)
@@ -329,23 +347,29 @@ class ActionTests: XCTestCase {
         var wasInCompletion = false
         let splitController = UISplitViewController()
         let viewController = UIViewController()
+        let expectation = XCTestExpectation(description: "Animation")
         UISplitViewController.pushToDetails().perform(with: viewController, on: splitController, animated: false) { result in
             wasInCompletion = true
             if case .continueRouting = result {
                 XCTAssert(false)
             }
+            expectation.fulfill()
         }
+        wait(for: [expectation], timeout: 0.5)
         XCTAssertTrue(wasInCompletion)
         XCTAssertEqual(splitController.viewControllers.count, 0)
 
         wasInCompletion = false
         splitController.viewControllers = [UIViewController()]
+        let expectation1 = XCTestExpectation(description: "Animation")
         UISplitViewController.pushToDetails().perform(with: viewController, on: splitController, animated: false) { result in
             wasInCompletion = true
             if case .failure(_) = result {
                 XCTAssert(false)
             }
+            expectation1.fulfill()
         }
+        wait(for: [expectation1], timeout: 0.5)
         XCTAssertTrue(wasInCompletion)
         XCTAssertEqual(splitController.viewControllers.count, 2)
         XCTAssertTrue(splitController.viewControllers.last === viewController)

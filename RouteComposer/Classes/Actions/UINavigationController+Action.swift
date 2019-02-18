@@ -39,8 +39,12 @@ public struct NavigationControllerActions {
                             on navigationController: ViewController,
                             animated: Bool,
                             completion: @escaping(_: ActionResult) -> Void) {
+            CATransaction.begin()
+            CATransaction.setCompletionBlock {
+                completion(.continueRouting)
+            }
             navigationController.pushViewController(viewController, animated: animated)
-            return completion(.continueRouting)
+            CATransaction.commit()
         }
 
     }
@@ -62,8 +66,12 @@ public struct NavigationControllerActions {
                             on navigationController: ViewController,
                             animated: Bool,
                             completion: @escaping(_: ActionResult) -> Void) {
+            CATransaction.begin()
+            CATransaction.setCompletionBlock {
+                completion(.continueRouting)
+            }
             navigationController.setViewControllers([viewController], animated: animated)
-            return completion(.continueRouting)
+            CATransaction.commit()
         }
 
     }
@@ -87,10 +95,14 @@ public struct NavigationControllerActions {
                             on navigationController: ViewController,
                             animated: Bool,
                             completion: @escaping(_: ActionResult) -> Void) {
+            CATransaction.begin()
+            CATransaction.setCompletionBlock {
+                completion(.continueRouting)
+            }
             var viewControllers = navigationController.viewControllers
             perform(embedding: viewController, in: &viewControllers)
             navigationController.setViewControllers(viewControllers, animated: animated)
-            return completion(.continueRouting)
+            CATransaction.commit()
         }
 
     }
