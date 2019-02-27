@@ -386,7 +386,7 @@
             <h1>SingleContainerStep</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">SingleContainerStep</span><span class="o">&lt;</span><span class="kt">F</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Finder.html">Finder</a></span><span class="p">,</span> <span class="kt">FC</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ContainerFactory.html">ContainerFactory</a></span><span class="o">&gt;</span><span class="p">:</span> <span class="kt"><a href="../Classes/ActionToStepIntegrator.html">ActionToStepIntegrator</a></span><span class="o">&lt;</span><span class="kt">F</span><span class="p">,</span> <span class="kt">FC</span><span class="o">&gt;</span>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">SingleContainerStep</span><span class="o">&lt;</span><span class="kt">F</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Finder.html">Finder</a></span><span class="p">,</span> <span class="kt">FC</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ContainerFactory.html">ContainerFactory</a></span><span class="o">&gt;</span><span class="p">:</span> <span class="kt"><a href="../Classes/ActionToStepIntegrator.html">ActionToStepIntegrator</a></span><span class="o">&lt;</span><span class="kt">F</span><span class="o">.</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">F</span><span class="o">.</span><span class="kt">Context</span><span class="o">&gt;</span>
         <span class="k">where</span>
         <span class="kt">F</span><span class="o">.</span><span class="kt">ViewController</span> <span class="o">==</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">F</span><span class="o">.</span><span class="kt">Context</span> <span class="o">==</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">Context</span></code></pre>
 
@@ -452,6 +452,126 @@
                             </tr>
                           </tbody>
                         </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer19SingleContainerStepC17unsafelyRewrappedAA08ActionToE10IntegratorCyqd__qd_0_GySo16UIViewControllerCRbd__r0_lF"></a>
+                    <a name="//apple_ref/swift/Method/unsafelyRewrapped()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer19SingleContainerStepC17unsafelyRewrappedAA08ActionToE10IntegratorCyqd__qd_0_GySo16UIViewControllerCRbd__r0_lF">unsafelyRewrapped()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Adapts context and view controller type dependencies.</p>
+
+<p><em>NB:</em> Developer guaranties that this types will compliment in runtime.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">unsafelyRewrapped</span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/ActionToStepIntegrator.html">ActionToStepIntegrator</a></span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">VC</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer19SingleContainerStepC09expectingD0AA08ActionToE10IntegratorCyqd__7ContextQzGyAA0D14ViewControllerRd__lF"></a>
+                    <a name="//apple_ref/swift/Method/expectingContainer()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer19SingleContainerStepC09expectingD0AA08ActionToE10IntegratorCyqd__7ContextQzGyAA0D14ViewControllerRd__lF">expectingContainer()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Allows to avoid container view controller check.</p>
+
+<p><em>NB:</em> Developer guaranties that it will be there in the runtime.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">expectingContainer</span><span class="o">&lt;</span><span class="kt">VC</span><span class="o">&gt;</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/ActionToStepIntegrator.html">ActionToStepIntegrator</a></span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">,</span> <span class="kt">F</span><span class="o">.</span><span class="kt">Context</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">VC</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ContainerViewController.html">ContainerViewController</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer19SingleContainerStepCAAypSg7ContextRtzAdERt_rlE09expectingD0AA08ActionToE10IntegratorCyqd__qd_0_GyAA0D14ViewControllerRd__r0_lF"></a>
+                    <a name="//apple_ref/swift/Method/expectingContainer()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer19SingleContainerStepCAAypSg7ContextRtzAdERt_rlE09expectingD0AA08ActionToE10IntegratorCyqd__qd_0_GyAA0D14ViewControllerRd__r0_lF">expectingContainer()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Allows to avoid container view controller check. This method is available only for the steps that are
+able to accept any type of context.</p>
+
+<p><em>NB:</em> Developer guaranties that it will be there in the runtime.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">expectingContainer</span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/ActionToStepIntegrator.html">ActionToStepIntegrator</a></span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">VC</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ContainerViewController.html">ContainerViewController</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer19SingleContainerStepCAAypSg7ContextRtzAdERt_rlE08adaptingF0AA08ActionToE10IntegratorCy14ViewControllerQzqd__GylF"></a>
+                    <a name="//apple_ref/swift/Method/adaptingContext()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer19SingleContainerStepCAAypSg7ContextRtzAdERt_rlE08adaptingF0AA08ActionToE10IntegratorCy14ViewControllerQzqd__GylF">adaptingContext()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Allows to compliment to the type check. A step that has context equal to Optional(Any) can be build
+with any type of context passed to the router.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">adaptingContext</span><span class="o">&lt;</span><span class="kt">C</span><span class="o">&gt;</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/ActionToStepIntegrator.html">ActionToStepIntegrator</a></span><span class="o">&lt;</span><span class="kt">F</span><span class="o">.</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
