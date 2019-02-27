@@ -390,10 +390,10 @@
 
                 </div>
               </div>
-            <p>The result of the interceptor&rsquo;s <code>execute</code> method.</p>
+            <p>The result of the interceptor&rsquo;s <code><a href="../Protocols/RoutingInterceptor.html#/s:13RouteComposer18RoutingInterceptorP7execute4with10completiony7ContextQz_yAA0D6ResultOctF">RoutingInterceptor.execute(...)</a></code> method.</p>
 
 <ul>
-<li>success: Interceptor finished its task with success. The <code><a href="../Protocols/Router.html">Router</a></code> may continue navigation process.</li>
+<li>continueRouting: Interceptor finished its task with success. The <code><a href="../Protocols/Router.html">Router</a></code> may continue navigation process.</li>
 <li>failure: Interceptor finished its task with failure. The <code><a href="../Protocols/Router.html">Router</a></code> should stop navigation process.</li>
 </ul>
 
@@ -404,9 +404,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer17InterceptorResultO7successyA2CmF"></a>
-                    <a name="//apple_ref/swift/Element/success" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer17InterceptorResultO7successyA2CmF">success</a>
+                    <a name="/s:13RouteComposer17InterceptorResultO15continueRoutingyA2CmF"></a>
+                    <a name="//apple_ref/swift/Element/continueRouting" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer17InterceptorResultO15continueRoutingyA2CmF">continueRouting</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -421,7 +421,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">success</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">continueRouting</span></code></pre>
 
                         </div>
                       </div>
@@ -449,6 +449,37 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="k">case</span> <span class="nf">failure</span><span class="p">(</span><span class="kt">Error</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer17InterceptorResultO12isSuccessfulSbvp"></a>
+                    <a name="//apple_ref/swift/Property/isSuccessful" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer17InterceptorResultO12isSuccessfulSbvp">isSuccessful</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns <code>true</code> if <code>InterceptorResult</code> is <code><a href="../Enums/InterceptorResult.html#/s:13RouteComposer17InterceptorResultO15continueRoutingyA2CmF">.continueRouting</a></code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">isSuccessful</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>

@@ -7,23 +7,23 @@ import Foundation
 
 /// The result of the navigation process
 ///
-/// - handled: The request to process the navigation resulted in a successful navigation to the destination.
-/// - unhandled: The request to process the navigation was not handled.
+/// - success: The request to process the navigation resulted in a successful navigation to the destination.
+/// - failure: The request to process the navigation was not successful.
 public enum RoutingResult {
 
     /// The request to process the navigation resulted in a successful navigation to the destination.
-    case handled
+    case success
 
-    /// The request to process the navigation was not handled.
-    case unhandled(Error)
+    /// The request to process the navigation was not successful.
+    case failure(Error)
 
 }
 
 public extension RoutingResult {
 
-    /// Returns `true` if `RoutingResult` is `.handled`
+    /// Returns `true` if `RoutingResult` is `success`
     var isSuccessful: Bool {
-        guard case .handled = self else {
+        guard case .success = self else {
             return false
         }
         return true

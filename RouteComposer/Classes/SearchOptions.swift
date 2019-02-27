@@ -5,7 +5,7 @@
 import Foundation
 
 /// A set of options for the `findViewController` method
-public struct SearchOptions: OptionSet, CustomStringConvertible {
+public struct SearchOptions: OptionSet, CaseIterable, CustomStringConvertible {
 
     public let rawValue: Int
 
@@ -50,6 +50,10 @@ public struct SearchOptions: OptionSet, CustomStringConvertible {
     /// Iterate through the all view controllers on the current level and all the view controllers
     /// that are presenting the current level.
     public static let currentAndDown: SearchOptions = [.currentAllStack, .presenting]
+
+    public static var allCases: [SearchOptions] {
+        return [.current, .visible, .contained, .presented, .presenting, .parent]
+    }
 
     public var description: String {
         return [SearchOptions.current, .visible, .contained, .presented, .presenting, .parent].compactMap({ option in

@@ -58,7 +58,7 @@ struct ActionBox<A: Action>: AnyAction, AnyActionBox, CustomStringConvertible, M
                  animated: Bool,
                  completion: @escaping (ActionResult) -> Void) {
         guard let typedExistingViewController = existingController as? A.ViewController else {
-            completion(.failure(RoutingError.typeMismatch(ActionType.ViewController.self, RoutingError.Context("Action \(action.self) cannot " +
+            completion(.failure(RoutingError.typeMismatch(ActionType.ViewController.self, .init("Action \(action.self) cannot " +
                     "be performed on \(existingController)."))))
             return
         }
@@ -115,7 +115,7 @@ struct ContainerActionBox<A: ContainerAction>: AnyAction, AnyActionBox, CustomSt
             embed(viewController: viewController, with: delayedIntegrationHandler, completion: completion)
         } else {
             guard let containerController: A.ViewController = UIViewController.findContainer(of: existingController) else {
-                completion(.failure(RoutingError.typeMismatch(ActionType.ViewController.self, RoutingError.Context("Container of " +
+                completion(.failure(RoutingError.typeMismatch(ActionType.ViewController.self, .init("Container of " +
                         "\(String(describing: ActionType.ViewController.self)) type cannot be found to perform \(action)"))))
                 return
             }

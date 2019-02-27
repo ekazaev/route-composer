@@ -8,7 +8,7 @@ import Foundation
 /// e.g. user should be logged in.
 ///
 /// ### NB
-/// Interceptor is an asynchronous action. For the `Router` to continue the navigation process, the completion block of the interceptor's
+/// Interceptor is an asynchronous action. For the `Router` to continue the navigation process, the `completion` block of the interceptor's
 /// execute method **MUST** be called.
 /// Otherwise, the `Router` will stay in a limbo state waiting for the interceptor to finish its action.
 public protocol RoutingInterceptor {

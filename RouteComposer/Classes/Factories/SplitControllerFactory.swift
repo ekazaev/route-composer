@@ -37,7 +37,7 @@ public struct SplitControllerFactory<C>: SimpleContainerFactory {
 
     public func build(with context: C, integrating viewControllers: [UIViewController]) throws -> UISplitViewController {
         guard !viewControllers.isEmpty else {
-            throw RoutingError.compositionFailed(RoutingError.Context("No master or derails view controllers provided."))
+            throw RoutingError.compositionFailed(.init("No master or derails view controllers provided."))
         }
 
         let splitController = UISplitViewController(nibName: nil, bundle: nil)

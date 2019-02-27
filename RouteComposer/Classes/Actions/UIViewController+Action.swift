@@ -88,7 +88,7 @@ public struct ViewControllerActions {
                             animated: Bool,
                             completion: @escaping (_: ActionResult) -> Void) {
             guard existingController.presentedViewController == nil else {
-                completion(.failure(RoutingError.compositionFailed(RoutingError.Context("\(existingController) is " +
+                completion(.failure(RoutingError.compositionFailed(.init("\(existingController) is " +
                         "already presenting a view controller."))))
                 return
             }
@@ -142,11 +142,11 @@ public struct ViewControllerActions {
                             animated: Bool,
                             completion: @escaping(_: ActionResult) -> Void) {
             guard let window = windowProvider.window else {
-                completion(.failure(RoutingError.compositionFailed(RoutingError.Context("Window was not found."))))
+                completion(.failure(RoutingError.compositionFailed(.init("Window was not found."))))
                 return
             }
             guard window.rootViewController == existingController else {
-                completion(.failure(RoutingError.compositionFailed(RoutingError.Context("Action should be applied to the root view " +
+                completion(.failure(RoutingError.compositionFailed(.init("Action should be applied to the root view " +
                         "controller, got \(String(describing: existingController)) instead."))))
                 return
             }

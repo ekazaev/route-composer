@@ -16,7 +16,7 @@ class LoginInterceptor<C>: RoutingInterceptor {
 
     func execute(with context: Context, completion: @escaping (_: InterceptorResult) -> Void) {
         guard !isLoggedIn else {
-            completion(.success)
+            completion(.continueRouting)
             return
         }
 
@@ -28,14 +28,14 @@ class LoginInterceptor<C>: RoutingInterceptor {
             try DefaultRouter(logger: DefaultLogger(.verbose)).navigate(to: destination) { routingResult in
                 guard routingResult.isSuccessful,
                       let viewController = ClassFinder<LoginViewController, Any?>().findViewController(with: nil) else {
-                    completion(.failure(RoutingError.generic(RoutingError.Context("LoginViewController was not found."))))
+                    completion(.failure(RoutingError.generic(.init("LoginViewController was not found."))))
                     return
                 }
 
                 viewController.interceptorCompletionBlock = completion
             }
         } catch let error {
-            completion(.failure(RoutingError.generic(RoutingError.Context("Could not present login view controller", underlyingError: error))))
+            completion(.failure(RoutingError.generic(.init("Could not present login view controller", underlyingError: error))))
         }
     }
 
@@ -64,7 +64,7 @@ class LoginViewController: UIViewController, ExampleAnalyticsSupport {
                 return
             }
 
-            completion(.failure(RoutingError.generic(RoutingError.Context("New completion block was set. " +
+            completion(.failure(RoutingError.generic(.init("New completion block was set. " +
                     "Previous navigation process should be halted."))))
         }
     }
@@ -90,7 +90,7 @@ class LoginViewController: UIViewController, ExampleAnalyticsSupport {
                 self.activityIndicator.stopAnimating()
                 isLoggedIn = true
                 self.dismiss(animated: true) {
-                    self.interceptorCompletionBlock?(.success)
+                    self.interceptorCompletionBlock?(.continueRouting)
                 }
             }
         } else {
@@ -105,7 +105,7 @@ class LoginViewController: UIViewController, ExampleAnalyticsSupport {
     }
 
     @IBAction func closeTapped() {
-        interceptorCompletionBlock?(.failure(RoutingError.generic(RoutingError.Context("User tapped close button."))))
+        interceptorCompletionBlock?(.failure(RoutingError.generic(.init("User tapped close button."))))
         self.dismiss(animated: true)
     }
 

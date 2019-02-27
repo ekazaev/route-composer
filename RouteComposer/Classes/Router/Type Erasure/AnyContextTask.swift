@@ -28,7 +28,7 @@ struct ContextTaskBox<CT: ContextTask>: AnyContextTask, AnyPreparableEntity, Mai
 
     mutating func prepare(with context: Any?) throws {
         guard let typedContext = Any?.some(context as Any) as? CT.Context else {
-            throw RoutingError.typeMismatch(CT.Context.self, RoutingError.Context("\(String(describing: contextTask.self)) does not " +
+            throw RoutingError.typeMismatch(CT.Context.self, .init("\(String(describing: contextTask.self)) does not " +
                             "accept \(String(describing: context.self)) as a context."))
         }
         try contextTask.prepare(with: typedContext)
@@ -38,7 +38,7 @@ struct ContextTaskBox<CT: ContextTask>: AnyContextTask, AnyPreparableEntity, Mai
     func apply(on viewController: UIViewController, with context: Any?) throws {
         guard let typedViewController = viewController as? CT.ViewController,
               let typedContext = Any?.some(context as Any) as? CT.Context else {
-            throw RoutingError.typeMismatch(CT.Context.self, RoutingError.Context("\(String(describing: contextTask.self)) does not " +
+            throw RoutingError.typeMismatch(CT.Context.self, .init("\(String(describing: contextTask.self)) does not " +
                     "accept \(String(describing: context.self)) as a context."))
         }
         assertIfNotMainThread()

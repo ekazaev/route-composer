@@ -405,8 +405,8 @@
                         <p>The result of the navigation process</p>
 
 <ul>
-<li>handled: The request to process the navigation resulted in a successful navigation to the destination.</li>
-<li>unhandled: The request to process the navigation was not handled.</li>
+<li>success: The request to process the navigation resulted in a successful navigation to the destination.</li>
+<li>failure: The request to process the navigation was not successful.</li>
 </ul>
 
                         <a href="Enums/RoutingResult.html" class="slightly-smaller">See more</a>
@@ -439,7 +439,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The result of the <code><a href="Core Entities.html#/s:13RouteComposer6ActionP">Action</a></code>&lsquo;s <code>perform</code> method.</p>
+                        <p>The result of the <code><a href="Core Entities.html#/s:13RouteComposer6ActionP">Action</a></code>&lsquo;s <code><a href="Protocols/AbstractAction.html#/s:13RouteComposer14AbstractActionP7perform4with2on8animated10completionySo16UIViewControllerC_04ViewK0QzSbyAA0D6ResultOctF">AbstractAction.perform(...)</a></code> method.</p>
 
 <ul>
 <li>continueRouting: The <code><a href="Core Entities.html#/s:13RouteComposer6ActionP">Action</a></code> was able to integrate a view controller into the stack</li>
@@ -476,10 +476,10 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The result of the interceptor&rsquo;s <code>execute</code> method.</p>
+                        <p>The result of the interceptor&rsquo;s <code><a href="Protocols/RoutingInterceptor.html#/s:13RouteComposer18RoutingInterceptorP7execute4with10completiony7ContextQz_yAA0D6ResultOctF">RoutingInterceptor.execute(...)</a></code> method.</p>
 
 <ul>
-<li>success: Interceptor finished its task with success. The <code><a href="Protocols/Router.html">Router</a></code> may continue navigation process.</li>
+<li>continueRouting: Interceptor finished its task with success. The <code><a href="Protocols/Router.html">Router</a></code> may continue navigation process.</li>
 <li>failure: Interceptor finished its task with failure. The <code><a href="Protocols/Router.html">Router</a></code> should stop navigation process.</li>
 </ul>
 

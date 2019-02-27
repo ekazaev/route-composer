@@ -50,12 +50,12 @@ public struct InlineInterceptor<C>: RoutingInterceptor {
     public func execute(with context: C, completion: @escaping (InterceptorResult) -> Void) {
         if let syncCompletion = syncCompletion {
             syncCompletion(context)
-            completion(.success)
+            completion(.continueRouting)
         } else if let asyncCompletion = asyncCompletion {
             asyncCompletion(context, completion)
         } else {
             assertionFailure("The completion block was not set.")
-            completion(.failure(RoutingError.generic(RoutingError.Context("The completion block was not set."))))
+            completion(.failure(RoutingError.generic(.init("The completion block was not set."))))
         }
     }
 
