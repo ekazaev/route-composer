@@ -26,15 +26,11 @@ extension Array where Element: UIViewController {
     }
 
     func uniqueElements() -> [Element] {
-        var buffer = [Element]()
-        var added = Set<Element>()
-        for element in self {
-            if !added.contains(element) {
-                buffer.append(element)
-                added.insert(element)
+        return self.reduce(into: [Element](), {
+            if !$0.contains($1) {
+                $0.append($1)
             }
-        }
-        return buffer
+        })
     }
 
     func isEqual(to array: [UIViewController]) -> Bool {

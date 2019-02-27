@@ -52,22 +52,22 @@ public struct SearchOptions: OptionSet, CustomStringConvertible {
     public static let currentAndDown: SearchOptions = [.currentAllStack, .presenting]
 
     public var description: String {
-        var descriptionWords: [String] = []
-        for option: SearchOptions in [.current, .visible, .contained, .presented, .presenting, .parent] {
+        return [SearchOptions.current, .visible, .contained, .presented, .presenting, .parent].compactMap({ option in
             guard self.contains(option) else {
-                continue
+                return nil
             }
             switch option {
-            case .current: descriptionWords.append("current")
-            case .visible: descriptionWords.append("visible")
-            case .contained: descriptionWords.append("contained")
-            case .presented: descriptionWords.append("presented")
-            case .presenting: descriptionWords.append("presenting")
-            case .parent: descriptionWords.append("parent")
-            default: assertionFailure("Unknown SearchOptions")
+            case .current: return "current"
+            case .visible: return "visible"
+            case .contained: return "contained"
+            case .presented: return "presented"
+            case .presenting: return "presenting"
+            case .parent: return "parent"
+            default:
+                assertionFailure("Unknown SearchOptions")
+                return nil
             }
-        }
-        return descriptionWords.joined(separator: ", ")
+        }).joined(separator: ", ")
     }
 
 }

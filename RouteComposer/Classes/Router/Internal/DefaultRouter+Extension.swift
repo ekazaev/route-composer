@@ -182,7 +182,7 @@ extension DefaultRouter {
             self.postTaskRunner = postTaskRunner
         }
 
-        func taskRunnerFor(step: RoutingStep?) throws -> StepTaskTaskRunner {
+        func taskRunnerFor(step: PerformableStep?) throws -> StepTaskTaskRunner {
             guard let interceptableStep = step as? InterceptableStep else {
                 return StepTaskTaskRunner(contextTaskRunner: self.contextTaskRunner, postTaskRunner: self.postTaskRunner)
             }

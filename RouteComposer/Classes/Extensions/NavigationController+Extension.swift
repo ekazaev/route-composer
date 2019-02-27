@@ -21,13 +21,11 @@ extension UINavigationController: ContainerViewController {
     }
 
     public func makeVisible(_ viewController: UIViewController, animated: Bool) {
-        guard visibleViewController != viewController else {
+        guard visibleViewController != viewController,
+              let viewControllerToMakeVisible = containedViewControllers.first(where: { $0 == viewController }) else {
             return
         }
-        for containedViewController in containedViewControllers where containedViewController == viewController {
-            self.popToViewController(containedViewController, animated: animated)
-            return
-        }
+        self.popToViewController(viewControllerToMakeVisible, animated: animated)
     }
 
     public func replace(containedViewControllers: [UIViewController], animated: Bool, completion: @escaping () -> Void) {
