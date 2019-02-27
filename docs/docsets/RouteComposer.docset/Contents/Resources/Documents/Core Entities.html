@@ -570,7 +570,7 @@ instance is integrated into the view controller stack</p>
                         <p>The <code>ContainerFactory</code> protocol should be implemented by the instance that produces any types of the view controllers
 that can be considered as containers (eg: <code>UINavigationController</code>, <code>UITabBarController</code>, etc)</p>
 
-<p>The <code><a href="Protocols/Router.html">Router</a></code> uses <code>perform(embedding:)</code> method of a <code><a href="Protocols/ContainerAction.html">ContainerAction</a></code> and then populates a full stack of the view controllers
+<p>The <code><a href="Protocols/Router.html">Router</a></code> uses <code><a href="Protocols/ContainerAction.html#/s:13RouteComposer15ContainerActionP7perform9embedding2inySo16UIViewControllerC_SayAHGztKF">ContainerAction.perform(...)</a></code> method of a <code><a href="Protocols/ContainerAction.html">ContainerAction</a></code> and then populates a full stack of the view controllers
 that were built by the associated factories in one go.
 Example: <code><a href="Protocols/Router.html">Router</a></code> requires to populate N-view controllers into <code>UINavigationController</code>&lsquo;s stack.</p>
 

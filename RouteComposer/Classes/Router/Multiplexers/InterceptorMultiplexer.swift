@@ -22,7 +22,7 @@ struct InterceptorMultiplexer: AnyRoutingInterceptor, MainThreadChecking, Custom
 
     func execute(with context: Any?, completion: @escaping (InterceptorResult) -> Void) {
         guard !self.interceptors.isEmpty else {
-            completion(.success)
+            completion(.continueRouting)
             return
         }
 

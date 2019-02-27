@@ -30,7 +30,7 @@ extension DefaultRouter {
 
         func run(completion: @escaping (_: InterceptorResult) -> Void) {
             guard !interceptors.isEmpty else {
-                completion(.success)
+                completion(.continueRouting)
                 return
             }
             let interceptorToRun = interceptors.count == 1 ? interceptors[0] : InterceptorMultiplexer(interceptors)

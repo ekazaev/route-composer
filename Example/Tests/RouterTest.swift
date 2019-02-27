@@ -66,7 +66,7 @@ class RouterTests: XCTestCase {
     struct TestViewControllerBrokenFactory: Factory {
 
         func build(with context: Any?) throws -> TestViewController {
-            throw RoutingError.generic(RoutingError.Context("Some error occurred"))
+            throw RoutingError.generic(.init("Some error occurred"))
         }
 
     }
@@ -193,7 +193,7 @@ class RouterTests: XCTestCase {
                          on existingController: TestModalPresentableController,
                          animated: Bool,
                          completion: @escaping (ActionResult) -> Void) {
-                completion(.failure(RoutingError.generic(RoutingError.Context("Some error occurred"))))
+                completion(.failure(RoutingError.generic(.init("Some error occurred"))))
             }
 
         }
@@ -275,7 +275,7 @@ class RouterTests: XCTestCase {
             globalInterceptorPrepared += 1
         }, { (_: Any?, completion: @escaping (InterceptorResult) -> Void) in
             globalInterceptorRun += 1
-            completion(.success)
+            completion(.continueRouting)
         }))
         router.add(InlineContextTask({ (_: UIViewController, _: Any?) in
             globalTaskRun += 1

@@ -4,13 +4,13 @@
 
 import Foundation
 
-protocol AnyPreparableEntity {
+protocol PreparableEntity {
 
     var isPrepared: Bool { get }
 
 }
 
-extension AnyPreparableEntity {
+extension PreparableEntity {
 
     func assertIfNotPrepared() {
         if !isPrepared {

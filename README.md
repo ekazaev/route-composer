@@ -11,7 +11,7 @@
 `RouteComposer` is the protocol oriented, Cocoa UI abstractions based library that helps to handle view controllers composition, routing
 and deep linking tasks in the iOS application. 
 
-Can be used as an universal replacement for the [Coordinator pattern](https://www.raywenderlich.com/158-coordinator-tutorial-for-ios-getting-started).
+Can be used as the universal replacement for the [Coordinator](https://www.raywenderlich.com/158-coordinator-tutorial-for-ios-getting-started) pattern.
 
 ![](https://habrastorage.org/webt/x7/yt/ll/x7ytllwqwgvgxy2rvtmdwj3qkia.png)
 
@@ -384,7 +384,7 @@ RouteComposer is in active development, and we welcome your contributions.
 If you’d like to contribute to this repo, please
 read [the contribution guidelines](https://github.com/gilt/Cleanroom#contributing-to-the-cleanroom-project).
 
-### License
+## License
 
 RouteComposer is distributed under [the MIT license](https://github.com/saksdirect/RouteComposer/blob/master/LICENSE).
 

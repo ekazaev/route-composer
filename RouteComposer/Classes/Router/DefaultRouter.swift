@@ -54,7 +54,7 @@ public struct DefaultRouter: Router, InterceptableRouter, MainThreadChecking {
 
         // Checks if the view controllers that are currently presented from the origin view controller, can be dismissed.
         if let viewController = Array([[viewController.allParents.last ?? viewController], viewController.allPresentedViewControllers].joined()).nonDismissibleViewController {
-            throw RoutingError.generic(RoutingError.Context("\(String(describing: viewController)) view controller cannot " +
+            throw RoutingError.generic(.init("\(String(describing: viewController)) view controller cannot " +
                     "be dismissed."))
         }
 
@@ -64,12 +64,12 @@ public struct DefaultRouter: Router, InterceptableRouter, MainThreadChecking {
             self.assertIfNotMainThread(logger: self.logger)
 
             if case let .failure(error) = result {
-                completion?(.unhandled(error))
+                completion?(.failure(error))
                 return
             }
 
             guard let viewController = viewController else {
-                completion?(.unhandled(RoutingError.generic(RoutingError.Context("A view controller that has been chosen as a " +
+                completion?(.failure(RoutingError.generic(.init("A view controller that has been chosen as a " +
                         "starting point of the navigation process was destroyed while the router was waiting for the interceptors to finish."))))
                 return
             }
@@ -87,7 +87,7 @@ public struct DefaultRouter: Router, InterceptableRouter, MainThreadChecking {
                         animated: animated) { viewController, result in
                     self.makeVisibleInParentContainer(viewController, animated: animated)
                     do {
-                        if case let .unhandled(error) = result {
+                        if case let .failure(error) = result {
                             throw error
                         }
                         try taskStack.runPostTasks()
@@ -95,7 +95,7 @@ public struct DefaultRouter: Router, InterceptableRouter, MainThreadChecking {
                         completion?(result)
                     } catch let error {
                         self.logger?.log(.info("Unsuccessfully finished the navigation process."))
-                        completion?(.unhandled(error))
+                        completion?(.failure(error))
                     }
                 }
             }
@@ -162,7 +162,7 @@ public struct DefaultRouter: Router, InterceptableRouter, MainThreadChecking {
 
         //Throws an exception if it hasn't found a view controller to start the stack from.
         guard let rootViewController = result.rootViewController else {
-            throw RoutingError.generic(RoutingError.Context("Unable to start the navigation process as the view controller to start from was not found."))
+            throw RoutingError.generic(.init("Unable to start the navigation process as the view controller to start from was not found."))
         }
 
         return (rootViewController: rootViewController, factories: result.factories)
@@ -183,7 +183,7 @@ public struct DefaultRouter: Router, InterceptableRouter, MainThreadChecking {
         func buildViewController(from previousViewController: UIViewController) {
             guard !factories.isEmpty else {
                 delayedIntegrationHandler.purge(animated: animated, completion: {
-                    return completion(previousViewController, .handled)
+                    return completion(previousViewController, .success)
                 })
                 return
             }
@@ -207,7 +207,7 @@ public struct DefaultRouter: Router, InterceptableRouter, MainThreadChecking {
                     if case let .failure(error) = result {
                         self.logger?.log(.error("\(String(describing: factory.action)) has stopped the navigation process " +
                                 "as it was not able to build a view controller into a stack."))
-                        completion(newViewController, .unhandled(error))
+                        completion(newViewController, .failure(error))
                         return
                     }
                     self.logger?.log(.info("\(String(describing: factory.action)) has applied to " +
@@ -215,7 +215,7 @@ public struct DefaultRouter: Router, InterceptableRouter, MainThreadChecking {
                     buildViewController(from: newViewController)
                 }
             } catch let error {
-                completion(previousViewController, .unhandled(error))
+                completion(previousViewController, .failure(error))
             }
         }
 

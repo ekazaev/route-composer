@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-/// The result of the `Action`'s `perform` method.
+/// The result of the `Action`'s `AbstractAction.perform(...)` method.
 ///
 /// - continueRouting: The `Action` was able to integrate a view controller into the stack
 /// - failure: The `Action` was not able to integrate a view controller into the stack. Navigation process should not continue

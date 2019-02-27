@@ -61,7 +61,7 @@ public struct SplitViewControllerActions {
 
         public func perform(embedding viewController: UIViewController, in childViewControllers: inout [UIViewController]) throws {
             guard !childViewControllers.isEmpty else {
-                throw RoutingError.compositionFailed(RoutingError.Context("Master view controller is not set in " +
+                throw RoutingError.compositionFailed(.init("Master view controller is not set in " +
                         "UISplitViewController to present a detail view controller \(viewController)."))
             }
             childViewControllers.append(viewController)
@@ -72,7 +72,7 @@ public struct SplitViewControllerActions {
                             animated: Bool,
                             completion: @escaping (_: ActionResult) -> Void) {
             guard !splitViewController.viewControllers.isEmpty else {
-                completion(.failure(RoutingError.compositionFailed(RoutingError.Context("Master view controller is not set in " +
+                completion(.failure(RoutingError.compositionFailed(.init("Master view controller is not set in " +
                         "\(splitViewController) to present a detail view controller \(viewController)."))))
                 return
             }

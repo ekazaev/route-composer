@@ -24,7 +24,7 @@ public final class SwitchAssembly<ViewController: UIViewController, Context> {
         }
     }
 
-    fileprivate struct FinderResolver<ViewController: UIViewController, Context>: StepCaseResolver {
+    private struct FinderResolver<ViewController: UIViewController, Context>: StepCaseResolver {
 
         private let finder: AnyFinder?
 

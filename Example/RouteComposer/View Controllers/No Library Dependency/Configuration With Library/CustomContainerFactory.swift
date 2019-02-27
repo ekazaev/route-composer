@@ -19,7 +19,7 @@ class CustomContainerFactory<C>: SimpleContainerFactory {
     func build(with context: C, integrating viewControllers: [UIViewController]) throws -> CustomContainerController {
         guard let containerController = UIStoryboard(name: "Images", bundle: Bundle.main)
                 .instantiateViewController(withIdentifier: "CustomContainerController") as? ViewController else {
-            throw RoutingError.compositionFailed(RoutingError.Context("Could not load CustomContainerController from the storyboard."))
+            throw RoutingError.compositionFailed(.init("Could not load CustomContainerController from the storyboard."))
         }
         containerController.delegate = delegate
 
@@ -61,8 +61,6 @@ extension CustomContainerController: ContainerViewController {
 extension CustomContainerFactory {
 
     struct ReplaceRoot: ContainerAction {
-
-        public typealias SupportedContainer = CustomContainerFactory
 
         func perform(with viewController: UIViewController,
                      on customContainerController: CustomContainerController,

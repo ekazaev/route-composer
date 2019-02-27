@@ -18,8 +18,6 @@ public final class CompleteFactoryAssembly<FC: ContainerFactory> {
 
     private struct AddAction<C: ContainerFactory>: ContainerAction {
 
-        typealias SupportedContainer = C
-
         func perform(with viewController: UIViewController, on existingController: C.ViewController, animated: Bool, completion: @escaping (ActionResult) -> Void) {
             assertionFailure("Should never be called")
         }

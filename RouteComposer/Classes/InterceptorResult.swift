@@ -7,16 +7,28 @@
 
 import Foundation
 
-/// The result of the interceptor's `execute` method.
+/// The result of the interceptor's `RoutingInterceptor.execute(...)` method.
 ///
-/// - success: Interceptor finished its task with success. The `Router` may continue navigation process.
+/// - continueRouting: Interceptor finished its task with success. The `Router` may continue navigation process.
 /// - failure: Interceptor finished its task with failure. The `Router` should stop navigation process.
 public enum InterceptorResult {
 
     /// `InterceptorResult` finished its task with success. The `Router` may continue navigation process.
-    case success
+    case continueRouting
 
     /// `InterceptorResult` finished its task with failure. The `Router` should stop navigation process.
     case failure(Error)
+
+}
+
+public extension InterceptorResult {
+
+    /// Returns `true` if `InterceptorResult` is `.continueRouting`
+    var isSuccessful: Bool {
+        guard case .continueRouting = self else {
+            return false
+        }
+        return true
+    }
 
 }
