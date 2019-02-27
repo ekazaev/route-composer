@@ -12,17 +12,17 @@ public extension UIViewController {
     /// - Parameters:
     ///   - viewController: A `UIViewController` instance to start from.
     ///   - options: A combination of `SearchOptions`.
-    ///   - comparator: A block that should return `true` if the `UIViewController` instance provided is the
+    ///   - predicate: A block that should return `true` if the `UIViewController` instance provided is the
     ///     one that is being searched for.
     /// - Returns: A `UIViewController` instance if found, `nil` otherwise.
     static func findViewController(in viewController: UIViewController,
                                    options: SearchOptions = .currentAndUp,
-                                   using comparator: (UIViewController) -> Bool) -> UIViewController? {
+                                   using predicate: (UIViewController) -> Bool) -> UIViewController? {
         guard !viewController.isBeingDismissed else {
             return nil
         }
 
-        if options.contains(.current), comparator(viewController) {
+        if options.contains(.current), predicate(viewController) {
             return viewController
         }
 
@@ -30,7 +30,7 @@ public extension UIViewController {
            let parentViewController = viewController.parent,
            let foundViewController = findViewController(in: parentViewController,
                    options: [.current, .parent],
-                   using: comparator) {
+                   using: predicate) {
             return foundViewController
         }
 
@@ -43,7 +43,7 @@ public extension UIViewController {
             for currentViewController in Array(viewControllers.joined()).uniqueElements() {
                 if let foundViewController = findViewController(in: currentViewController,
                         options: options.contains(.visible) ? .currentVisibleOnly : [.current, .contained],
-                        using: comparator) {
+                        using: predicate) {
                     return foundViewController
                 }
             }
@@ -52,7 +52,7 @@ public extension UIViewController {
         if options.contains(.presented),
            let presentedViewController = viewController.presentedViewController {
             let presentedOptions = options.subtracting(.presenting)
-            if let foundViewController = findViewController(in: presentedViewController, options: presentedOptions, using: comparator) {
+            if let foundViewController = findViewController(in: presentedViewController, options: presentedOptions, using: predicate) {
                 return foundViewController
             }
         }
@@ -60,7 +60,7 @@ public extension UIViewController {
         if options.contains(.presenting),
            let presentingViewController = viewController.presentingViewController {
             let presentingOptions = options.subtracting(.presented)
-            if let foundViewController = findViewController(in: presentingViewController, options: presentingOptions, using: comparator) {
+            if let foundViewController = findViewController(in: presentingViewController, options: presentingOptions, using: predicate) {
                 return foundViewController
             }
         }

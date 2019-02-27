@@ -32,14 +32,14 @@ public protocol StackIteratingFinder: Finder {
 public extension StackIteratingFinder {
 
     func findViewController(with context: Context) -> ViewController? {
-        let comparator: (UIViewController) -> Bool = {
+        let predicate: (UIViewController) -> Bool = {
             guard let viewController = $0 as? ViewController else {
                 return false
             }
             return self.isTarget(viewController, with: context)
         }
 
-        return iterator.findViewController(using: comparator) as? ViewController
+        return iterator.firstViewController(where: predicate) as? ViewController
     }
 
 }

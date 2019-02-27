@@ -10,7 +10,7 @@ public protocol StackIterator {
 
     /// Returns `UIViewController` instance if found
     ///
-    /// - Parameter comparator: A block that contains `UIViewController` matching condition
-    func findViewController(using comparator: (UIViewController) -> Bool) -> UIViewController?
+    /// - Parameter predicate: A block that contains `UIViewController` matching condition
+    func firstViewController(where predicate: (UIViewController) -> Bool) -> UIViewController?
 
 }

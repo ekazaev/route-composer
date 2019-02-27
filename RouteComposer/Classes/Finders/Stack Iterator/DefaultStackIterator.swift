@@ -49,10 +49,10 @@ public struct DefaultStackIterator: StackIterator {
 
     /// Returns `UIViewController` instance if found
     ///
-    /// - Parameter comparator: A block that contains `UIViewController` matching condition
-    public func findViewController(using comparator: (UIViewController) -> Bool) -> UIViewController? {
+    /// - Parameter predicate: A block that contains `UIViewController` matching condition
+    public func firstViewController(where predicate: (UIViewController) -> Bool) -> UIViewController? {
         guard let rootViewController = startingViewController,
-              let viewController = UIViewController.findViewController(in: rootViewController, options: options, using: comparator) else {
+              let viewController = UIViewController.findViewController(in: rootViewController, options: options, using: predicate) else {
             return nil
         }
 
