@@ -65,8 +65,7 @@ public extension StepAssembly where FC: NilEntity {
     /// Example: `UIViewController` instance was loaded as a part of the stack inside of the storyboard.
     ///
     /// - Parameter step: `ActionToStepIntegrator` instance to be used.
-    func from<AF: Finder, AFC: AbstractFactory>(_ step: ActionToStepIntegrator<AF, AFC>) -> ActionConnectingAssembly<AF, AFC, ViewController, Context>
-            where AF.Context == Context {
+    func from<VC: UIViewController>(_ step: ActionToStepIntegrator<VC, Context>) -> ActionConnectingAssembly<VC, ViewController, Context> {
         var previousSteps = self.previousSteps
         let entitiesCollector = BaseEntitiesCollector<FactoryBox<FC>, ActionBox>(finder: finder, factory: factory, action: ViewControllerActions.NilAction())
         let currentStep = BaseStep(entitiesProvider: entitiesCollector, taskProvider: taskCollector)

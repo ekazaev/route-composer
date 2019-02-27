@@ -110,6 +110,7 @@
 		EF15847C594CEB880695EA00 /* RoutingInterceptorBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1587787556C1C54133B66E /* RoutingInterceptorBox.swift */; };
 		EF15859AFB36E63B188C19AD /* FactoryBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1584290C567B9937E17AA2 /* FactoryBox.swift */; };
 		EF1587596E6252293E838410 /* ActionBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF15871DD9E6BEB1304702A2 /* ActionBox.swift */; };
+		EF1587FC4CA5B6FC261080FA /* ContainerStepChainAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1586ECD8ACC4DC30458863 /* ContainerStepChainAssembly.swift */; };
 		EF1589117FBE650406800561 /* ContextTaskBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF15800F14590E05AF61C4F0 /* ContextTaskBox.swift */; };
 		EF158B4418B01EEDB113109F /* AnyFactoryBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF15821EFBEEF8D8109AB3F8 /* AnyFactoryBox.swift */; };
 		EF158B85BA44DA9B07767327 /* AnyActionBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF158FA1968E52F20D7760E7 /* AnyActionBox.swift */; };
@@ -274,6 +275,7 @@
 		EF15821EFBEEF8D8109AB3F8 /* AnyFactoryBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyFactoryBox.swift; sourceTree = "<group>"; };
 		EF1584290C567B9937E17AA2 /* FactoryBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FactoryBox.swift; sourceTree = "<group>"; };
 		EF15866566DA75ACF8ABA4E3 /* ContainerFactoryBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerFactoryBox.swift; sourceTree = "<group>"; };
+		EF1586ECD8ACC4DC30458863 /* ContainerStepChainAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerStepChainAssembly.swift; sourceTree = "<group>"; };
 		EF15871DD9E6BEB1304702A2 /* ActionBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionBox.swift; sourceTree = "<group>"; };
 		EF1587787556C1C54133B66E /* RoutingInterceptorBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutingInterceptorBox.swift; sourceTree = "<group>"; };
 		EF158B722550882BA8B159F2 /* PostRoutingTaskBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostRoutingTaskBox.swift; sourceTree = "<group>"; };
@@ -508,6 +510,7 @@
 				E52EF5F7FC4A9D78A8B8BD7BA5094080 /* LastStepInChainAssembly.swift */,
 				57AC66077BBA382521A8B07A040BBA93 /* StepChainAssembly.swift */,
 				2E51E6CFDA5542AE824376CE451A8539 /* TaskCollector.swift */,
+				EF1586ECD8ACC4DC30458863 /* ContainerStepChainAssembly.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -898,6 +901,7 @@
 				EF158CB05B709C6A30C91245 /* FinderBox.swift in Sources */,
 				EF15815695148A3CC689A32F /* PostRoutingTaskBox.swift in Sources */,
 				EF15847C594CEB880695EA00 /* RoutingInterceptorBox.swift in Sources */,
+				EF1587FC4CA5B6FC261080FA /* ContainerStepChainAssembly.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

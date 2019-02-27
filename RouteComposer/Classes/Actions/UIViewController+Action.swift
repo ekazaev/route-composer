@@ -172,8 +172,6 @@ public struct ViewControllerActions {
 
     struct NilAction: Action {
 
-        typealias ViewController = UIViewController
-
         // Constructor
         init() {
         }
