@@ -6,15 +6,17 @@ import Foundation
 import UIKit
 
 /// A simple class that represents an intermediate `DestinationStep` and allows to add tasks to it.
-public class ActionToStepIntegrator<F: Finder, FC: AbstractFactory>: InterceptableStepAssembling
-        where F.ViewController == FC.ViewController, F.Context == FC.Context {
+public class ActionToStepIntegrator<VC: UIViewController, C>: InterceptableStepAssembling {
 
-    public typealias ViewController = F.ViewController
+    public typealias ViewController = VC
 
-    public typealias Context = F.Context
+    public typealias Context = C
 
-    var taskCollector: TaskCollector = TaskCollector()
+    var taskCollector: TaskCollector
 
+    init(taskCollector: TaskCollector = TaskCollector()) {
+        self.taskCollector = taskCollector
+    }
     /// Adds `RoutingInterceptor` instance.
     /// This action does not contain type safety checks to avoid complications.
     ///

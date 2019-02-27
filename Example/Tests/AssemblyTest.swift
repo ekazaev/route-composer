@@ -113,7 +113,7 @@ class AssemblyTest: XCTestCase {
     }
 
     func testStepWithActionAssembly() {
-        let assembly = ActionToStepIntegrator<ClassFinder<RouterTests.TestViewController, Any?>, ClassNameFactory<RouterTests.TestViewController, Any?>>()
+        let assembly = ActionToStepIntegrator<RouterTests.TestViewController, Any?>()
                 .adding(InlineInterceptor({ (_: Any?) in
                 }))
                 .adding(InlineContextTask({ (_: RouterTests.TestViewController, _: Any?) in
@@ -126,7 +126,7 @@ class AssemblyTest: XCTestCase {
     }
 
     func testActionToStepIntegrator() {
-        let integrator = ActionToStepIntegrator<NilFinder<UIViewController, Any>, NilFactory<UIViewController, Any>>()
+        let integrator = ActionToStepIntegrator<UIViewController, Any>()
         XCTAssertNil(integrator.routingStep(with: ViewControllerActions.NilAction()))
         XCTAssertNil(integrator.embeddableRoutingStep(with: UINavigationController.push()))
     }
