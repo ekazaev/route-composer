@@ -24,13 +24,11 @@ extension UITabBarController: ContainerViewController {
     }
 
     public func makeVisible(_ viewController: UIViewController, animated: Bool) {
-        guard selectedViewController != viewController else {
+        guard selectedViewController != viewController,
+              let viewControllerToSelect = containedViewControllers.first(where: { $0 == viewController }) else {
             return
         }
-        for containedViewController in containedViewControllers where containedViewController == viewController {
-            self.selectedViewController = containedViewController
-            return
-        }
+        self.selectedViewController = viewControllerToSelect
     }
 
     public func replace(containedViewControllers: [UIViewController], animated: Bool, completion: @escaping () -> Void) {

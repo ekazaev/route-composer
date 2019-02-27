@@ -24,12 +24,11 @@ protocol TaskProvider {
 
 struct BaseStep: RoutingStep,
         ChainableStep,
-        ChainingStep,
         InterceptableStep,
         PerformableStep,
         CustomStringConvertible {
 
-    private(set) var previousStep: RoutingStep?
+    private var previousStep: RoutingStep?
 
     let factory: AnyFactory?
 
@@ -48,6 +47,10 @@ struct BaseStep: RoutingStep,
         self.interceptor = taskProvider.interceptor
         self.contextTask = taskProvider.contextTask
         self.postTask = taskProvider.postTask
+    }
+
+    func getPreviousStep(with context: Any?) -> RoutingStep? {
+        return previousStep
     }
 
     func perform(with context: Any?) throws -> PerformableStepResult {

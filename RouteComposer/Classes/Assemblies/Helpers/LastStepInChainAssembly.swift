@@ -26,24 +26,16 @@ public struct LastStepInChainAssembly<ViewController: UIViewController, Context>
             fatalError("No steps provided to chain.")
         }
 
-        var restSteps = steps
-        var currentStep = lastStep
-        restSteps.removeLast()
-
-        for presentingStep in restSteps.reversed() {
-            guard var step = presentingStep as? ChainingStep & RoutingStep else {
-                assertionFailure("\(presentingStep) can not be chained to non chainable step \(currentStep)")
+        let firstStep = steps.dropLast().reversed().reduce(lastStep, { (result, currentStep) in
+            guard var step = currentStep as? BaseStep else {
+                assertionFailure("\(currentStep) can not be chained to non chainable step \(result)")
                 return currentStep
             }
-            if let chainableStep = presentingStep as? ChainableStep, let previousStep = chainableStep.previousStep {
-                assertionFailure("\(presentingStep) is already chained to  \(previousStep)")
-                return currentStep
-            }
-            step.from(currentStep)
-            currentStep = step
-        }
+            step.from(result)
+            return step
+        })
 
-        return currentStep
+        return firstStep
     }
 
 }

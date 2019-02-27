@@ -11,22 +11,17 @@ protocol StepCaseResolver {
 
 }
 
-class SwitcherStep: RoutingStep, ChainableStep, PerformableStep {
-
-    private(set) var previousStep: RoutingStep?
+class SwitcherStep: RoutingStep, ChainableStep {
 
     var resolvers: [StepCaseResolver]
 
-    func perform(with context: Any?) throws -> PerformableStepResult {
-        previousStep = nil
-        resolvers.forEach({ resolver in
-            guard previousStep == nil, let step = resolver.resolve(with: context) else {
-                return
+    func getPreviousStep(with context: Any?) -> RoutingStep? {
+        return resolvers.reduce(nil as RoutingStep?, { (result, resolver) in
+            guard result == nil else {
+                return result
             }
-            previousStep = step
+            return resolver.resolve(with: context)
         })
-
-        return .none
     }
 
     init(resolvers: [StepCaseResolver]) {

@@ -33,9 +33,9 @@ class DestinationStepTests: XCTestCase {
         // Will compile but will not work in runtime.
         let _: DestinationStep<UITabBarController, Any?> = nonContainerStepInsideContainer.expectingContainer()
 
-        XCTAssertNoThrow(try (step.previousStep as? PerformableStep)?.perform(with: nil))
-        XCTAssertNoThrow(try (step.previousStep as? PerformableStep)?.perform(with: "nil"))
-        XCTAssertNoThrow(try (step.previousStep as? PerformableStep)?.perform(with: ()))
+        XCTAssertNoThrow(try (step.getPreviousStep(with: nil) as? PerformableStep)?.perform(with: nil))
+        XCTAssertNoThrow(try (step.getPreviousStep(with: nil) as? PerformableStep)?.perform(with: "nil"))
+        XCTAssertNoThrow(try (step.getPreviousStep(with: nil) as? PerformableStep)?.perform(with: ()))
     }
 
     func testStronglyTypedExpectingContainer() {
@@ -52,9 +52,9 @@ class DestinationStepTests: XCTestCase {
         // Will compile but will not work in runtime.
         let _: DestinationStep<UITabBarController, String> = nonContainerStepInsideContainer.expectingContainer()
 
-        XCTAssertNoThrow(try (step.previousStep as? PerformableStep)?.perform(with: "nil"))
-        XCTAssertThrowsError(try (step.previousStep as? PerformableStep)?.perform(with: nil))
-        XCTAssertThrowsError(try (step.previousStep as? PerformableStep)?.perform(with: ()))
+        XCTAssertNoThrow(try (step.getPreviousStep(with: "") as? PerformableStep)?.perform(with: "nil"))
+        XCTAssertThrowsError(try (step.getPreviousStep(with: "") as? PerformableStep)?.perform(with: nil))
+        XCTAssertThrowsError(try (step.getPreviousStep(with: "") as? PerformableStep)?.perform(with: ()))
     }
 
     func testAdaptingContext() {
@@ -64,12 +64,12 @@ class DestinationStepTests: XCTestCase {
 
         let step1: DestinationStep<UINavigationController, String> = nonContainerStepInsideContainer.adaptingContext()
         let step2: DestinationStep<UINavigationController, Void> = nonContainerStepInsideContainer.adaptingContext()
-        XCTAssertNoThrow(try (step1.previousStep as? PerformableStep)?.perform(with: nil))
-        XCTAssertNoThrow(try (step2.previousStep as? PerformableStep)?.perform(with: nil))
-        XCTAssertNoThrow(try (step1.previousStep as? PerformableStep)?.perform(with: "nil"))
-        XCTAssertNoThrow(try (step2.previousStep as? PerformableStep)?.perform(with: "nil"))
-        XCTAssertNoThrow(try (step1.previousStep as? PerformableStep)?.perform(with: ()))
-        XCTAssertNoThrow(try (step2.previousStep as? PerformableStep)?.perform(with: ()))
+        XCTAssertNoThrow(try (step1.getPreviousStep(with: nil) as? PerformableStep)?.perform(with: nil))
+        XCTAssertNoThrow(try (step2.getPreviousStep(with: nil) as? PerformableStep)?.perform(with: nil))
+        XCTAssertNoThrow(try (step1.getPreviousStep(with: nil) as? PerformableStep)?.perform(with: "nil"))
+        XCTAssertNoThrow(try (step2.getPreviousStep(with: nil) as? PerformableStep)?.perform(with: "nil"))
+        XCTAssertNoThrow(try (step1.getPreviousStep(with: nil) as? PerformableStep)?.perform(with: ()))
+        XCTAssertNoThrow(try (step2.getPreviousStep(with: nil) as? PerformableStep)?.perform(with: ()))
     }
 
 }

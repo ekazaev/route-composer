@@ -63,7 +63,7 @@ class BoxTests: XCTestCase {
                 .using(ViewControllerActions.NilAction())
                 .from(GeneralStep.current())
                 .assemble()
-        let step = routingStep.previousStep as? BaseStep
+        let step = routingStep.getPreviousStep(with: nil) as? BaseStep
         XCTAssertNotNil(step)
         XCTAssertNil(step?.factory)
         XCTAssertNil(step?.finder)
