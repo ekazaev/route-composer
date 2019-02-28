@@ -237,11 +237,14 @@ public struct DefaultRouter: Router, InterceptableRouter, MainThreadChecking {
 
     // Dismisses all the view controllers presented if there are any
     private func dismissPresentedIfNeeded(from viewController: UIViewController, animated: Bool, completion: @escaping (() -> Void)) {
-      self.logger?.log(.info("Trying to dismiss \(String(describing: viewController.presentedViewController))"
-        + " while it isBeingDismissed: \(String(describing: viewController.presentedViewController?.isBeingDismissed))"))
-        if let presentedController = viewController.presentedViewController, !presentedController.isBeingDismissed {
-            viewController.dismiss(animated: animated) {
-                self.logger?.log(.info("Dismissed all the view controllers presented from \(String(describing: viewController))"))
+        if let presentedController = viewController.presentedViewController {
+            if !presentedController.isBeingDismissed {
+                viewController.dismiss(animated: animated) {
+                    self.logger?.log(.info("Dismissed all the view controllers presented from \(String(describing: viewController))"))
+                    completion()
+                }
+            } else {
+                self.logger?.log(.info("Trying to dismiss \(String(describing: presentedController)) while it is being dismissed"))
                 completion()
             }
         } else {
