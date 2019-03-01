@@ -25,7 +25,7 @@ class LoginInterceptor<C>: RoutingInterceptor {
         // This technique will help to avoid opening of another login view controller.
         let destination = LoginConfiguration.login()
         do {
-            try DefaultRouter(logger: DefaultLogger(.verbose)).navigate(to: destination) { routingResult in
+            try UIViewController.router.navigate(to: destination) { routingResult in
                 guard routingResult.isSuccessful,
                       let viewController = ClassFinder<LoginViewController, Any?>().findViewController(with: nil) else {
                     completion(.failure(RoutingError.generic(.init("LoginViewController was not found."))))

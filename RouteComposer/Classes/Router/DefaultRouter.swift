@@ -42,6 +42,32 @@ public struct DefaultRouter: Router, InterceptableRouter, MainThreadChecking {
                                                                     completion: ((_: RoutingResult) -> Void)? = nil) throws {
         assertIfNotMainThread(logger: logger)
 
+        if !self.interceptors.isEmpty {
+            let globalInterceptorRunner = try InterceptorRunner(interceptors: self.interceptors, context: context)
+            globalInterceptorRunner.run(completion: { result in
+                self.assertIfNotMainThread(logger: self.logger)
+                if case let .failure(error) = result {
+                    completion?(.failure(error))
+                    return
+                }
+
+                do {
+                    try self.internalNavigate(to: step, with: context, animated: animated, completion: completion)
+                } catch let error {
+                    completion?(.failure(error))
+                }
+            })
+        } else {
+            try internalNavigate(to: step, with: context, animated: animated, completion: completion)
+        }
+    }
+
+    private func internalNavigate<ViewController: UIViewController, Context>(to step: DestinationStep<ViewController, Context>,
+                                                                             with context: Context,
+                                                                             animated: Bool = true,
+                                                                             completion: ((_: RoutingResult) -> Void)? = nil) throws {
+        assertIfNotMainThread(logger: logger)
+
         let taskStack = try prepareTaskStack(with: context)
 
         // Builds stack of factories and finds a view controller to start a navigation process from.
@@ -103,7 +129,7 @@ public struct DefaultRouter: Router, InterceptableRouter, MainThreadChecking {
     }
 
     private func prepareTaskStack(with context: Any?) throws -> GlobalTaskRunner {
-        let interceptorRunner = try InterceptorRunner(interceptors: self.interceptors, context: context)
+        let interceptorRunner = try InterceptorRunner(interceptors: [], context: context)
         let contextTaskRunner = try ContextTaskRunner(contextTasks: self.contextTasks, context: context)
         let postTaskDelayedRunner = PostTaskDelayedRunner()
         let postTaskRunner = PostTaskRunner(postTasks: self.postTasks, context: context, delayedRunner: postTaskDelayedRunner)

@@ -114,6 +114,7 @@
 		EF1589117FBE650406800561 /* ContextTaskBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF15800F14590E05AF61C4F0 /* ContextTaskBox.swift */; };
 		EF158B4418B01EEDB113109F /* AnyFactoryBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF15821EFBEEF8D8109AB3F8 /* AnyFactoryBox.swift */; };
 		EF158B85BA44DA9B07767327 /* AnyActionBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF158FA1968E52F20D7760E7 /* AnyActionBox.swift */; };
+		EF158BAB52AF8DA62FBC5B65 /* NavigationDelayInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF158265F97B22167AAC15D1 /* NavigationDelayInterceptor.swift */; };
 		EF158C253F724A8A82408A55 /* ContainerActionBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF158E38AA37ED5D1D0800F2 /* ContainerActionBox.swift */; };
 		EF158CB05B709C6A30C91245 /* FinderBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF158EFDD5636CB27DC80A99 /* FinderBox.swift */; };
 		EF1EA7809ADE282A2DA1E19D9A58174D /* InterceptorMultiplexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BE77E61873ADF0907491370E0E81AA /* InterceptorMultiplexer.swift */; };
@@ -273,6 +274,7 @@
 		ECC7AC9930BFD45438CF991AAFDC5644 /* ActionResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ActionResult.swift; path = RouteComposer/Classes/ActionResult.swift; sourceTree = "<group>"; };
 		EF15800F14590E05AF61C4F0 /* ContextTaskBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContextTaskBox.swift; sourceTree = "<group>"; };
 		EF15821EFBEEF8D8109AB3F8 /* AnyFactoryBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyFactoryBox.swift; sourceTree = "<group>"; };
+		EF158265F97B22167AAC15D1 /* NavigationDelayInterceptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationDelayInterceptor.swift; sourceTree = "<group>"; };
 		EF1584290C567B9937E17AA2 /* FactoryBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FactoryBox.swift; sourceTree = "<group>"; };
 		EF15866566DA75ACF8ABA4E3 /* ContainerFactoryBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerFactoryBox.swift; sourceTree = "<group>"; };
 		EF1586ECD8ACC4DC30458863 /* ContainerStepChainAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerStepChainAssembly.swift; sourceTree = "<group>"; };
@@ -322,6 +324,7 @@
 		0D84D3CF35D751F4BA4B325C6093F3AA /* RouteComposer */ = {
 			isa = PBXGroup;
 			children = (
+				450A8C5322298FBD009D0A7E /* Extra */,
 				73CA57BA5CB7004AF0D7EF7927FB44BE /* AbstractAction.swift */,
 				79733958C4E1F5B4B7FDAEE059AEFC65 /* AbstractFactory.swift */,
 				37EEE1A3D7B1E4AB84820BB916444607 /* Action.swift */,
@@ -439,6 +442,15 @@
 				10DEDCB394BAA0C7FEDEBE330207B074 /* iOS */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		450A8C5322298FBD009D0A7E /* Extra */ = {
+			isa = PBXGroup;
+			children = (
+				EF158265F97B22167AAC15D1 /* NavigationDelayInterceptor.swift */,
+			);
+			name = Extra;
+			path = RouteComposer/Classes/Extra;
 			sourceTree = "<group>";
 		};
 		451EEEAE2226AE88003F1AC4 /* Boxes */ = {
@@ -902,6 +914,7 @@
 				EF15815695148A3CC689A32F /* PostRoutingTaskBox.swift in Sources */,
 				EF15847C594CEB880695EA00 /* RoutingInterceptorBox.swift in Sources */,
 				EF1587FC4CA5B6FC261080FA /* ContainerStepChainAssembly.swift in Sources */,
+				EF158BAB52AF8DA62FBC5B65 /* NavigationDelayInterceptor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -400,4 +400,30 @@ class RouteComposerExampleUITests: XCTestCase {
         XCTAssertTrue(app.otherElements["productViewController+123"].exists)
     }
 
+    func testUnexpectedAnimation() {
+        app.launch()
+        XCTAssertTrue(app.otherElements["promptViewController"].exists)
+        app.buttons["Continue"].tap()
+        XCTAssertTrue(app.otherElements["homeViewController"].exists)
+
+        app.buttons["Go to routing control modal"].tap()
+        XCTAssertTrue(app.otherElements["routingRuleViewController"].exists)
+
+        app.buttons["Go to New York*"].tap()
+        sleep(3)
+        XCTAssertTrue(app.otherElements["loginViewController"].exists)
+
+        app.textFields["loginTextField"].tap()
+        app.textFields["loginTextField"].typeText("abc")
+
+        app.textFields["passwordTextField"].tap()
+        app.textFields["passwordTextField"].typeText("abc")
+
+        app.buttons["Login"].tap()
+        sleep(7)
+        // We have to wait for login service to succeed
+        // Apple uses same technique http://cleanswifter.com/asynchronous-xcode-ui-testing/
+        XCTAssertTrue(app.otherElements["cityDetailsViewController+3"].exists)
+    }
+
 }

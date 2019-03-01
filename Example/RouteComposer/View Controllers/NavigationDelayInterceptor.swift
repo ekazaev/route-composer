@@ -41,4 +41,9 @@ class RoutingRuleSupportViewController: UIViewController, RoutingInterceptable, 
         try? router.navigate(to: CitiesConfiguration.cityDetail(cityId: 2))
     }
 
+    @IBAction func goToNewYorkUnexpectedTapped() {
+        try? router.navigate(to: ConfigurationHolder.configuration.secondModalScreen, with: "0000FF")
+        try? router.navigate(to: CitiesConfiguration.cityDetail(cityId: 3))
+    }
+
 }

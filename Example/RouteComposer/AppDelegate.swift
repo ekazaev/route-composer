@@ -39,7 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
 
         do {
-            try DefaultRouter(logger: nil).navigate(to: destination)
+            try UIViewController.router.navigate(to: destination)
             return true
         } catch {
             return false

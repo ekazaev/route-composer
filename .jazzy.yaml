@@ -78,3 +78,7 @@ custom_categories:
     children:
       - Logger
       - LogMessage
+
+  - name: Extras
+    children:
+      - NavigationDelayInterceptor
