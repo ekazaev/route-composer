@@ -11,13 +11,23 @@ public struct ClassNameFactory<VC: UIViewController, C>: Factory {
     /// The name of a `UIViewController` class to be built by the `Factory`
     public let viewControllerName: String?
 
+    /// A Xib file name
+    public let nibName: String?
+
+    /// A `Bundle` instance
+    public let bundle: Bundle?
+
     /// Constructor
     ///
     /// - Parameters:
     ///   - viewControllerName: The name of a `UIViewController` class to be built, if not provided - `ViewController`
     ///     type will be used.
-    public init(viewControllerName: String? = nil) {
+    ///   - nibName: A Xib file name
+    ///   - bundle: A `Bundle` instance if needed
+    public init(viewControllerName: String? = nil, nibName nibNameOrNil: String? = nil, bundle nibBundleOrNil: Bundle? = nil) {
         self.viewControllerName = viewControllerName
+        self.nibName = nibNameOrNil
+        self.bundle = nibBundleOrNil
     }
 
     public func build(with context: C) throws -> VC {
@@ -30,9 +40,9 @@ public struct ClassNameFactory<VC: UIViewController, C>: Factory {
                         "expected UIViewController type class."))
             }
 
-            return customViewControllerClass.init(nibName: nil, bundle: nil)
+            return customViewControllerClass.init(nibName: nibName, bundle: bundle)
         } else {
-            return ViewController(nibName: nil, bundle: nil)
+            return ViewController(nibName: nibName, bundle: bundle)
         }
     }
 

@@ -96,7 +96,7 @@ class FactoryTest: XCTestCase {
         XCTAssertNoThrow(try delayedFactory.prepare(with: nil))
         XCTAssertNoThrow(try delayedFactory.build(with: nil, in: &viewControllerStack))
         XCTAssertEqual(viewControllerStack.count, 1)
-        XCTAssertEqual(delayedFactory.description, "ClassNameFactory<UIViewController, Optional<Any>>(viewControllerName: nil)")
+        XCTAssertEqual(delayedFactory.description, "ClassNameFactory<UIViewController, Optional<Any>>(viewControllerName: nil, nibName: nil, bundle: nil)")
     }
 
 }

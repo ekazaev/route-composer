@@ -42,24 +42,20 @@ public struct DefaultRouter: Router, InterceptableRouter, MainThreadChecking {
                                                                     completion: ((_: RoutingResult) -> Void)? = nil) throws {
         assertIfNotMainThread(logger: logger)
 
-        if !self.interceptors.isEmpty {
-            let globalInterceptorRunner = try InterceptorRunner(interceptors: self.interceptors, context: context)
-            globalInterceptorRunner.run(completion: { result in
-                self.assertIfNotMainThread(logger: self.logger)
-                if case let .failure(error) = result {
-                    completion?(.failure(error))
-                    return
-                }
+        let globalInterceptorRunner = try InterceptorRunner(interceptors: self.interceptors, context: context)
+        globalInterceptorRunner.run(completion: { result in
+            self.assertIfNotMainThread(logger: self.logger)
+            if case let .failure(error) = result {
+                completion?(.failure(error))
+                return
+            }
 
-                do {
-                    try self.internalNavigate(to: step, with: context, animated: animated, completion: completion)
-                } catch let error {
-                    completion?(.failure(error))
-                }
-            })
-        } else {
-            try internalNavigate(to: step, with: context, animated: animated, completion: completion)
-        }
+            do {
+                try self.internalNavigate(to: step, with: context, animated: animated, completion: completion)
+            } catch let error {
+                completion?(.failure(error))
+            }
+        })
     }
 
     private func internalNavigate<ViewController: UIViewController, Context>(to step: DestinationStep<ViewController, Context>,

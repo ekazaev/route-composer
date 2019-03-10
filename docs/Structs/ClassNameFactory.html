@@ -437,9 +437,63 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer16ClassNameFactoryV014viewControllerD0ACyxq_GSSSg_tcfc"></a>
-                    <a name="//apple_ref/swift/Method/init(viewControllerName:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer16ClassNameFactoryV014viewControllerD0ACyxq_GSSSg_tcfc">init(viewControllerName:)</a>
+                    <a name="/s:13RouteComposer16ClassNameFactoryV03nibD0SSSgvp"></a>
+                    <a name="//apple_ref/swift/Property/nibName" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer16ClassNameFactoryV03nibD0SSSgvp">nibName</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A Xib file name</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">nibName</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer16ClassNameFactoryV6bundleSo8NSBundleCSgvp"></a>
+                    <a name="//apple_ref/swift/Property/bundle" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer16ClassNameFactoryV6bundleSo8NSBundleCSgvp">bundle</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A <code>Bundle</code> instance</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">bundle</span><span class="p">:</span> <span class="kt">Bundle</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer16ClassNameFactoryV014viewControllerD003nibD06bundleACyxq_GSSSg_AHSo8NSBundleCSgtcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(viewControllerName:nibName:bundle:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer16ClassNameFactoryV014viewControllerD003nibD06bundleACyxq_GSSSg_AHSo8NSBundleCSgtcfc">init(viewControllerName:nibName:bundle:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -454,7 +508,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">viewControllerName</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">viewControllerName</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="n"><a href="../Structs/ClassNameFactory.html#/s:13RouteComposer16ClassNameFactoryV03nibD0SSSgvp">nibName</a></span> <span class="nv">nibNameOrNil</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="n"><a href="../Structs/ClassNameFactory.html#/s:13RouteComposer16ClassNameFactoryV6bundleSo8NSBundleCSgvp">bundle</a></span> <span class="nv">nibBundleOrNil</span><span class="p">:</span> <span class="kt">Bundle</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -472,6 +526,30 @@
                                 <div>
                                   <p>The name of a <code>UIViewController</code> class to be built, if not provided - <code>ViewController</code>
 type will be used.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>nibName</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A Xib file name</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>bundle</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A <code>Bundle</code> instance if needed</p>
                                 </div>
                               </td>
                             </tr>
@@ -512,7 +590,7 @@ type will be used.</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2019-03-01)</p>
+          <p>&copy; 2019 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2019-03-10)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

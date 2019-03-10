@@ -237,9 +237,11 @@ class RouterTests: XCTestCase {
                 .from(DestinationStep<TestModalPresentableController, Any?>(TestCurrentViewControllerStep(currentViewController: currentViewController)))
                 .assemble()
 
-        XCTAssertThrowsError(try router.navigate(to: screenConfig, with: nil, animated: false, completion: { _ in
-            XCTAssert(false, "Should not be called")
+        var routingResult: RoutingResult!
+        XCTAssertNoThrow(try router.navigate(to: screenConfig, with: nil, animated: false, completion: { result in
+            routingResult = result
         }))
+        XCTAssertFalse(routingResult.isSuccessful)
     }
 
     func testNavigateToWithTasks() {
