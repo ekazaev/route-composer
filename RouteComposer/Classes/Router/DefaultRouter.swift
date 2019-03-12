@@ -6,7 +6,7 @@
 import UIKit
 
 /// Default `Router` implementation
-public struct DefaultRouter: Router, InterceptableRouter, MainThreadChecking {
+public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
 
     /// A `Logger` instance to be used by `DefaultRouter`.
     public let logger: Logger?

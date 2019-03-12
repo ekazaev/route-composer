@@ -9,9 +9,9 @@ import RouteComposer
 // Example that `Router` can be wrapped and you can add your functionality into navigation process
 struct AnalyticsRouterDecorator: Router {
 
-    let router: DefaultRouter
+    let router: Router
 
-    init(router: DefaultRouter) {
+    init(router: Router) {
         self.router = router
     }
 

@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1BD97E052CCA48C8A2BC55DC396412B7"
+               BlueprintIdentifier = "2E00AA068126CDEFF4D3831738B272DB"
                BuildableName = "RouteComposer.framework"
                BlueprintName = "RouteComposer"
                ReferencedContainer = "container:Pods.xcodeproj">

@@ -1,5 +1,5 @@
 PODS:
-  - RouteComposer (1.0.0)
+  - RouteComposer (1.2.3)
 
 DEPENDENCIES:
   - RouteComposer (from `../`)
@@ -9,8 +9,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  RouteComposer: 651eb36f0c2ab9236c28a2085fb1722fbbb12ca0
+  RouteComposer: 4e2e7cbc3cf86d4a18a9d35f7427d5ad1aba6da7
 
 PODFILE CHECKSUM: d15cfb6fc7e8084f423e41814935586c996ed1fd
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.6.0
