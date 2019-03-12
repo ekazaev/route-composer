@@ -81,4 +81,4 @@ custom_categories:
 
   - name: Extras
     children:
-      - NavigationDelayInterceptor
+      - NavigationDelayingInterceptor

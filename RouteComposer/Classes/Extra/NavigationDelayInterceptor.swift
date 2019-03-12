@@ -9,7 +9,11 @@ import Foundation
 /// `RouteComposer` or you have a situation when a few routers work simultaneously, add it to your router to avoid
 /// the router not being able to navigate to the destination because a view controller in the stack is
 /// being presented or dismissed.
-public struct NavigationDelayInterceptor: RoutingInterceptor {
+///
+/// *NB: `UIKit` does not allow simultaneous changes in `UIViewController` stack. The `.wait` strategy does not
+/// guarantee 100% protection from all possible situations. Code must be written in a way that avoids such
+/// situations. The `.wait` strategy can be used only as a temporary solution.*
+public struct NavigationDelayingInterceptor: RoutingInterceptor {
 
     /// The strategy to be used by `NavigationDelayInterceptor`
     ///
@@ -17,11 +21,11 @@ public struct NavigationDelayInterceptor: RoutingInterceptor {
     /// - abort:  Abort tha navigation if some `UIViewController` is being presented or dismissed.
     public enum Strategy {
 
-        /// Wait while some `UIViewController` is being presented or dismissed.
-        case wait
-
         /// Abort tha navigation if some `UIViewController` is being presented or dismissed.
         case abort
+
+        /// Wait while some `UIViewController` is being presented or dismissed.
+        case wait
 
     }
 
@@ -37,7 +41,7 @@ public struct NavigationDelayInterceptor: RoutingInterceptor {
     ///   - windowProvider: `WindowProvider` instance.
     ///   - strategy: Type of `Strategy` to be used.
     ///   - logger: `Logger` instance.
-    public init(windowProvider: WindowProvider = KeyWindowProvider(), strategy: Strategy = .wait, logger: Logger? = nil) {
+    public init(windowProvider: WindowProvider = KeyWindowProvider(), strategy: Strategy = .abort, logger: Logger? = nil) {
         self.windowProvider = windowProvider
         self.logger = logger
         self.strategy = strategy

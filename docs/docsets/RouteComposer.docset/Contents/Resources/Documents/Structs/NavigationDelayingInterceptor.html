@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>NavigationDelayInterceptor Structure Reference</title>
+    <title>NavigationDelayingInterceptor Structure Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Struct/NavigationDelayInterceptor" class="dashAnchor"></a>
-    <a title="NavigationDelayInterceptor Structure Reference"></a>
+    <a name="//apple_ref/swift/Struct/NavigationDelayingInterceptor" class="dashAnchor"></a>
+    <a title="NavigationDelayingInterceptor Structure Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">RouteComposer Docs</a> (100% documented)</p>
@@ -21,7 +21,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">RouteComposer Reference</a>
         <img id="carat" src="../img/carat.png" />
-        NavigationDelayInterceptor Structure Reference
+        NavigationDelayingInterceptor Structure Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -213,10 +213,10 @@
             <a href="../Extras.html">Extras</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Structs/NavigationDelayInterceptor.html">NavigationDelayInterceptor</a>
+                <a href="../Structs/NavigationDelayingInterceptor.html">NavigationDelayingInterceptor</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/NavigationDelayInterceptor/Strategy.html">– Strategy</a>
+                <a href="../Structs/NavigationDelayingInterceptor/Strategy.html">– Strategy</a>
               </li>
             </ul>
           </li>
@@ -394,10 +394,10 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>NavigationDelayInterceptor</h1>
+            <h1>NavigationDelayingInterceptor</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">NavigationDelayInterceptor</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/RoutingInterceptor.html">RoutingInterceptor</a></span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">NavigationDelayingInterceptor</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/RoutingInterceptor.html">RoutingInterceptor</a></span></code></pre>
 
                 </div>
               </div>
@@ -407,6 +407,10 @@ stack are being presented or dismissed. In case your app has some other navigati
 the router not being able to navigate to the destination because a view controller in the stack is
 being presented or dismissed.</p>
 
+<p><em>NB: <code>UIKit</code> does not allow simultaneous changes in <code>UIViewController</code> stack. The <code>.wait</code> strategy does not
+guarantee 100% protection from all possible situations. Code must be written in a way that avoids such
+situations. The <code>.wait</code> strategy can be used only as a temporary solution.</em></p>
+
           </section>
           <section class="section task-group-section">
             <div class="task-group">
@@ -414,9 +418,9 @@ being presented or dismissed.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer26NavigationDelayInterceptorV8StrategyO"></a>
+                    <a name="/s:13RouteComposer29NavigationDelayingInterceptorV8StrategyO"></a>
                     <a name="//apple_ref/swift/Enum/Strategy" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer26NavigationDelayInterceptorV8StrategyO">Strategy</a>
+                    <a class="token" href="#/s:13RouteComposer29NavigationDelayingInterceptorV8StrategyO">Strategy</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -424,14 +428,14 @@ being presented or dismissed.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The strategy to be used by <code><a href="../Structs/NavigationDelayInterceptor.html">NavigationDelayInterceptor</a></code></p>
+                        <p>The strategy to be used by <code>NavigationDelayInterceptor</code></p>
 
 <ul>
 <li>wait: Wait while some <code>UIViewController</code> is being presented or dismissed.</li>
 <li>abort:  Abort tha navigation if some <code>UIViewController</code> is being presented or dismissed.</li>
 </ul>
 
-                        <a href="../Structs/NavigationDelayInterceptor/Strategy.html" class="slightly-smaller">See more</a>
+                        <a href="../Structs/NavigationDelayingInterceptor/Strategy.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -447,9 +451,9 @@ being presented or dismissed.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer26NavigationDelayInterceptorV14windowProvider8strategy6loggerAcA06WindowG0_p_AC8StrategyOAA6Logger_pSgtcfc"></a>
+                    <a name="/s:13RouteComposer29NavigationDelayingInterceptorV14windowProvider8strategy6loggerAcA06WindowG0_p_AC8StrategyOAA6Logger_pSgtcfc"></a>
                     <a name="//apple_ref/swift/Method/init(windowProvider:strategy:logger:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer26NavigationDelayInterceptorV14windowProvider8strategy6loggerAcA06WindowG0_p_AC8StrategyOAA6Logger_pSgtcfc">init(windowProvider:strategy:logger:)</a>
+                    <a class="token" href="#/s:13RouteComposer29NavigationDelayingInterceptorV14windowProvider8strategy6loggerAcA06WindowG0_p_AC8StrategyOAA6Logger_pSgtcfc">init(windowProvider:strategy:logger:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -464,7 +468,7 @@ being presented or dismissed.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">windowProvider</span><span class="p">:</span> <span class="kt"><a href="../Protocols/WindowProvider.html">WindowProvider</a></span> <span class="o">=</span> <span class="kt"><a href="../Structs/KeyWindowProvider.html">KeyWindowProvider</a></span><span class="p">(),</span> <span class="nv">strategy</span><span class="p">:</span> <span class="kt"><a href="../Structs/NavigationDelayInterceptor/Strategy.html">Strategy</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">wait</span><span class="p">,</span> <span class="nv">logger</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Logger.html">Logger</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">windowProvider</span><span class="p">:</span> <span class="kt"><a href="../Protocols/WindowProvider.html">WindowProvider</a></span> <span class="o">=</span> <span class="kt"><a href="../Structs/KeyWindowProvider.html">KeyWindowProvider</a></span><span class="p">(),</span> <span class="nv">strategy</span><span class="p">:</span> <span class="kt"><a href="../Structs/NavigationDelayingInterceptor/Strategy.html">Strategy</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">abort</span><span class="p">,</span> <span class="nv">logger</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Logger.html">Logger</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -492,7 +496,7 @@ being presented or dismissed.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>Type of <code><a href="../Structs/NavigationDelayInterceptor/Strategy.html">Strategy</a></code> to be used.</p>
+                                  <p>Type of <code><a href="../Structs/NavigationDelayingInterceptor/Strategy.html">Strategy</a></code> to be used.</p>
                                 </div>
                               </td>
                             </tr>

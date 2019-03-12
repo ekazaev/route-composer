@@ -213,10 +213,10 @@
             <a href="Extras.html">Extras</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Structs/NavigationDelayInterceptor.html">NavigationDelayInterceptor</a>
+                <a href="Structs/NavigationDelayingInterceptor.html">NavigationDelayingInterceptor</a>
               </li>
               <li class="nav-group-task">
-                <a href="Structs/NavigationDelayInterceptor/Strategy.html">– Strategy</a>
+                <a href="Structs/NavigationDelayingInterceptor/Strategy.html">– Strategy</a>
               </li>
             </ul>
           </li>
@@ -403,9 +403,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer26NavigationDelayInterceptorV"></a>
-                    <a name="//apple_ref/swift/Struct/NavigationDelayInterceptor" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer26NavigationDelayInterceptorV">NavigationDelayInterceptor</a>
+                    <a name="/s:13RouteComposer29NavigationDelayingInterceptorV"></a>
+                    <a name="//apple_ref/swift/Struct/NavigationDelayingInterceptor" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer29NavigationDelayingInterceptorV">NavigationDelayingInterceptor</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -419,13 +419,17 @@ stack are being presented or dismissed. In case your app has some other navigati
 the router not being able to navigate to the destination because a view controller in the stack is
 being presented or dismissed.</p>
 
-                        <a href="Structs/NavigationDelayInterceptor.html" class="slightly-smaller">See more</a>
+<p><em>NB: <code>UIKit</code> does not allow simultaneous changes in <code>UIViewController</code> stack. The <code>.wait</code> strategy does not
+guarantee 100% protection from all possible situations. Code must be written in a way that avoids such
+situations. The <code>.wait</code> strategy can be used only as a temporary solution.</em></p>
+
+                        <a href="Structs/NavigationDelayingInterceptor.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">NavigationDelayInterceptor</span> <span class="p">:</span> <span class="kt"><a href="Protocols/RoutingInterceptor.html">RoutingInterceptor</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">NavigationDelayingInterceptor</span> <span class="p">:</span> <span class="kt"><a href="Protocols/RoutingInterceptor.html">RoutingInterceptor</a></span></code></pre>
 
                         </div>
                       </div>

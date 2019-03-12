@@ -17,7 +17,7 @@ extension UIViewController {
             appRouterLogger = DefaultLogger(.verbose)
         }
         var defaultRouter = DefaultRouter(logger: appRouterLogger)
-        defaultRouter.add(NavigationDelayInterceptor(logger: appRouterLogger))
+        defaultRouter.add(NavigationDelayingInterceptor(strategy: .wait, logger: appRouterLogger))
         return AnalyticsRouterDecorator(router: defaultRouter)
     }()
 
