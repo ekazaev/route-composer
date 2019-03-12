@@ -11,11 +11,8 @@ import UIKit
 /// ### Usage
 /// ```swift
 /// let containerScreen = ContainerStepAssembly(finder: ClassFinder(), factory: NavigationControllerFactory())
-///         .adding(LoginInterceptor())
-///         .adding(ProductViewControllerContextTask())
-///         .adding(ProductViewControllerPostTask(analyticsManager: AnalyticsManager.sharedInstance))
-///         .using(GeneralAction.PresentModally())
-///         .from(CurrentControllerStep())
+///         .using(GeneralAction.presentModally())
+///         .from(GeneralAction.current())
 ///         .assemble()
 /// ```
 public final class ContainerStepAssembly<F: Finder, FC: ContainerFactory>: GenericStepAssembly<F.ViewController, F.Context>, ActionConnecting

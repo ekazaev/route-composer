@@ -12,8 +12,8 @@ public struct ChainAssembly {
     /// ### Usage
     /// ```swift
     /// let intermediateStep = ChainAssembly.from(NavigationControllerStep())
-    ///         .from(using: DefaultActions.PresentModally())
-    ///         .from(CurrentViewControllerStep())
+    ///         .from(using: GeneralAction.presentModally())
+    ///         .from(GeneralStep.current())
     ///         .assemble()
     /// ```
     /// - Parameter step: The instance of `ActionConnectingAssembly`

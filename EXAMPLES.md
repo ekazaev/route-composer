@@ -54,8 +54,7 @@ It will work if the user is not in some `UIViewController` that is presented mod
             finder: ClassFinder<AccountViewController, Any?>(),
             factory: XibFactory())
             .using(UINavigationController.push())
-            .from(SingleStep(ClassFinder<UINavigationController, Any?>(), NilFactory()))
-            .from(GeneralStep.current())
+            .from(GeneralStep.custom(using: ClassFinder<UINavigationController, Any?>()))
             .assemble()
 
 ```

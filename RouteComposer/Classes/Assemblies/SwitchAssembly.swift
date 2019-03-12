@@ -6,6 +6,31 @@ import Foundation
 import UIKit
 
 /// Builds a `DestinationStep` which can contain the conditions to select the steps to be taken by a `Router`.
+/// ### Usage
+/// ```swift
+//        let containerScreen = SwitchAssembly<UINavigationController, ProductContext>()
+//                .addCase { (context: ProductContext) in
+//                    // If this configuration is requested by a Universal Link (productURL != nil), then present modally.
+//                    guard context.productURL != nil else {
+//                        return nil
+//                    }
+//        
+//                    return ChainAssembly.from(NavigationControllerStep<ProductContext>())
+//                            .using(GeneralAction.presentModally())
+//                            .from(GeneralStep.current())
+//                            .assemble()
+//        
+//                }
+//                // If UINavigationController is visible on the screen - just push
+//                .addCase(from: ClassFinder<UINavigationController, ProductContext>(options: .currentVisibleOnly))
+//                .assemble(default: {
+//                    // Otherwise - present modally as well
+//                    return ChainAssembly.from(NavigationControllerStep<ProductContext>())
+//                            .using(GeneralAction.presentModally())
+//                            .from(GeneralStep.current())
+//                            .assemble()
+//                })
+/// ```
 public final class SwitchAssembly<ViewController: UIViewController, Context> {
 
     private struct BlockResolver<C>: StepCaseResolver {

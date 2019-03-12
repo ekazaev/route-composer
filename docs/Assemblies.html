@@ -422,10 +422,10 @@
         <span class="o">.</span><span class="nf">adding</span><span class="p">(</span><span class="kt">LoginInterceptor</span><span class="p">())</span>
         <span class="o">.</span><span class="nf">adding</span><span class="p">(</span><span class="kt">ProductViewControllerContextTask</span><span class="p">())</span>
         <span class="o">.</span><span class="nf">adding</span><span class="p">(</span><span class="kt">ProductViewControllerPostTask</span><span class="p">(</span><span class="nv">analyticsManager</span><span class="p">:</span> <span class="kt">AnalyticsManager</span><span class="o">.</span><span class="n">sharedInstance</span><span class="p">))</span>
-        <span class="o">.</span><span class="nf">using</span><span class="p">(</span><span class="nf">pushToNavigationAction</span><span class="p">())</span>
+        <span class="o">.</span><span class="nf">using</span><span class="p">(</span><span class="kt">UINavigationController</span><span class="o">.</span><span class="nf">push</span><span class="p">())</span>
         <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="kt">NavigationControllerStep</span><span class="p">())</span>
-        <span class="o">.</span><span class="nf">using</span><span class="p">(</span><span class="kt">DefaultActions</span><span class="o">.</span><span class="kt">PresentModally</span><span class="p">())</span>
-        <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="kt">CurrentControllerStep</span><span class="p">())</span>
+        <span class="o">.</span><span class="nf">using</span><span class="p">(</span><span class="kt">GeneralAction</span><span class="o">.</span><span class="nf">presentModally</span><span class="p">())</span>
+        <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="kt">GeneralStep</span><span class="o">.</span><span class="nf">current</span><span class="p">())</span>
         <span class="o">.</span><span class="nf">assemble</span><span class="p">()</span>
 </code></pre>
 
@@ -466,11 +466,8 @@
 <p>Both <code><a href="Protocols/Finder.html">Finder</a></code> and <code><a href="Protocols/Factory.html">Factory</a></code> instances should deal with the same type of <code>UIViewController</code> and <code>Context</code> instances.</p>
 <h3 id='usage' class='heading'>Usage</h3>
 <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">containerScreen</span> <span class="o">=</span> <span class="kt">ContainerStepAssembly</span><span class="p">(</span><span class="nv">finder</span><span class="p">:</span> <span class="kt">ClassFinder</span><span class="p">(),</span> <span class="nv">factory</span><span class="p">:</span> <span class="kt">NavigationControllerFactory</span><span class="p">())</span>
-        <span class="o">.</span><span class="nf">adding</span><span class="p">(</span><span class="kt">LoginInterceptor</span><span class="p">())</span>
-        <span class="o">.</span><span class="nf">adding</span><span class="p">(</span><span class="kt">ProductViewControllerContextTask</span><span class="p">())</span>
-        <span class="o">.</span><span class="nf">adding</span><span class="p">(</span><span class="kt">ProductViewControllerPostTask</span><span class="p">(</span><span class="nv">analyticsManager</span><span class="p">:</span> <span class="kt">AnalyticsManager</span><span class="o">.</span><span class="n">sharedInstance</span><span class="p">))</span>
-        <span class="o">.</span><span class="nf">using</span><span class="p">(</span><span class="kt">GeneralAction</span><span class="o">.</span><span class="kt">PresentModally</span><span class="p">())</span>
-        <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="kt">CurrentControllerStep</span><span class="p">())</span>
+        <span class="o">.</span><span class="nf">using</span><span class="p">(</span><span class="kt">GeneralAction</span><span class="o">.</span><span class="nf">presentModally</span><span class="p">())</span>
+        <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="kt">GeneralAction</span><span class="o">.</span><span class="nf">current</span><span class="p">())</span>
         <span class="o">.</span><span class="nf">assemble</span><span class="p">()</span>
 </code></pre>
 
@@ -505,7 +502,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Builds a <code><a href="Structs/DestinationStep.html">DestinationStep</a></code> which can contain the conditions to select the steps to be taken by a <code><a href="Protocols/Router.html">Router</a></code>.</p>
+                        <pre class="highlight swift"><code></code></pre>
 
                         <a href="Classes/SwitchAssembly.html" class="slightly-smaller">See more</a>
                       </div>
@@ -571,8 +568,8 @@
                       <div class="abstract">
                         <p>Builds a <code><a href="Protocols/ContainerFactory.html">ContainerFactory</a></code> fulfilled with the children <code>UIViewController</code> factories.</p>
 <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">rootFactory</span> <span class="o">=</span> <span class="kt">CompleteFactoryAssembly</span><span class="p">(</span><span class="nv">factory</span><span class="p">:</span> <span class="kt">TabBarFactory</span><span class="p">())</span>
-        <span class="o">.</span><span class="nf">with</span><span class="p">(</span><span class="kt">XibFactory</span><span class="o">&lt;</span><span class="kt">HomeViewController</span><span class="p">,</span> <span class="kt">Any</span><span class="p">?</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">using</span><span class="p">:</span> <span class="kt">TabBarControllerFactory</span><span class="o">.</span><span class="nf">add</span><span class="p">())</span>
-        <span class="o">.</span><span class="nf">with</span><span class="p">(</span><span class="kt">XibFactory</span><span class="o">&lt;</span><span class="kt">AccountViewController</span><span class="p">,</span> <span class="kt">Any</span><span class="p">?</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">using</span><span class="p">:</span> <span class="kt">TabBarControllerFactory</span><span class="o">.</span><span class="nf">add</span><span class="p">())</span>
+        <span class="o">.</span><span class="nf">with</span><span class="p">(</span><span class="kt">XibFactory</span><span class="o">&lt;</span><span class="kt">HomeViewController</span><span class="p">,</span> <span class="kt">Any</span><span class="p">?</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">using</span><span class="p">:</span> <span class="kt">UITabBarController</span><span class="o">.</span><span class="nf">add</span><span class="p">())</span>
+        <span class="o">.</span><span class="nf">with</span><span class="p">(</span><span class="kt">XibFactory</span><span class="o">&lt;</span><span class="kt">AccountViewController</span><span class="p">,</span> <span class="kt">Any</span><span class="p">?</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">using</span><span class="p">:</span> <span class="kt">UITabBarController</span><span class="o">.</span><span class="nf">add</span><span class="p">())</span>
         <span class="o">.</span><span class="nf">assemble</span><span class="p">()</span>
 </code></pre>
 
@@ -596,7 +593,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2019-03-10)</p>
+          <p>&copy; 2019 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2019-03-12)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

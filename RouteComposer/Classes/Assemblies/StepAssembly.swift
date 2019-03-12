@@ -14,10 +14,10 @@ import UIKit
 ///         .adding(LoginInterceptor())
 ///         .adding(ProductViewControllerContextTask())
 ///         .adding(ProductViewControllerPostTask(analyticsManager: AnalyticsManager.sharedInstance))
-///         .using(pushToNavigationAction())
+///         .using(UINavigationController.push())
 ///         .from(NavigationControllerStep())
-///         .using(DefaultActions.PresentModally())
-///         .from(CurrentControllerStep())
+///         .using(GeneralAction.presentModally())
+///         .from(GeneralStep.current())
 ///         .assemble()
 /// ```
 public final class StepAssembly<F: Finder, FC: Factory>: GenericStepAssembly<F.ViewController, FC.Context>, ActionConnecting
