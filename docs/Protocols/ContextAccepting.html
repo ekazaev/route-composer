@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>SwitchAssembly Class Reference</title>
+    <title>ContextAccepting Protocol Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Class/SwitchAssembly" class="dashAnchor"></a>
-    <a title="SwitchAssembly Class Reference"></a>
+    <a name="//apple_ref/swift/Protocol/ContextAccepting" class="dashAnchor"></a>
+    <a title="ContextAccepting Protocol Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">RouteComposer Docs</a> (100% documented)</p>
@@ -21,7 +21,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">RouteComposer Reference</a>
         <img id="carat" src="../img/carat.png" />
-        SwitchAssembly Class Reference
+        ContextAccepting Protocol Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -406,14 +406,14 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>SwitchAssembly</h1>
+            <h1>ContextAccepting</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">SwitchAssembly</span><span class="o">&lt;</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">ViewController</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">ContextAccepting</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
 
                 </div>
               </div>
-            <pre class="highlight swift"><code></code></pre>
+            <p>The protocol for <code>UIViewController</code>&lsquo;s to make it compatible with <code><a href="../Structs/ContextSettingTask.html">ContextSettingTask</a></code>.</p>
 
           </section>
           <section class="section task-group-section">
@@ -422,9 +422,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer14SwitchAssemblyCACyxq_Gycfc"></a>
-                    <a name="//apple_ref/swift/Method/init()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer14SwitchAssemblyCACyxq_Gycfc">init()</a>
+                    <a name="/s:13RouteComposer16ContextAcceptingP0C0Qa"></a>
+                    <a name="//apple_ref/swift/Alias/Context" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer16ContextAcceptingP0C0Qa">Context</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -432,14 +432,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Constructor</p>
+                        <p>Type of <code>Context</code> object that <code>UIViewController</code> can deal with</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">()</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">associatedtype</span> <span class="kt">Context</span></code></pre>
 
                         </div>
                       </div>
@@ -449,9 +449,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer14SwitchAssemblyC7addCaseyACyxq_GXDAA15DestinationStepVyxq_GSgqd__clF"></a>
-                    <a name="//apple_ref/swift/Method/addCase(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer14SwitchAssemblyC7addCaseyACyxq_GXDAA15DestinationStepVyxq_GSgqd__clF">addCase(_:)</a>
+                    <a name="/s:13RouteComposer16ContextAcceptingP5setup4withy0C0Qz_tKF"></a>
+                    <a name="//apple_ref/swift/Method/setup(with:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer16ContextAcceptingP5setup4withy0C0Qz_tKF">setup(with:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -459,15 +459,20 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Adds a block that allows a written decision case for the <code><a href="../Protocols/Router.html">Router</a></code> in the block.
-Returning nil from the block will mean that it has not succeeded.</p>
+                        <p><code><a href="../Structs/ContextSettingTask.html">ContextSettingTask</a></code> will call this method to provide the <code><a href="../Protocols/ContextAccepting.html#/s:13RouteComposer16ContextAcceptingP0C0Qa">Context</a></code> instance to the <code>UIViewController</code>
+that has just been build or found.</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    throws <code>Error</code> if <code><a href="../Protocols/ContextAccepting.html#/s:13RouteComposer16ContextAcceptingP0C0Qa">Context</a></code> instance is not supported. <code><a href="../Protocols/Router.html">Router</a></code> will stop building the rest of the stack in this case.
+
+</div>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">addCase</span><span class="o">&lt;</span><span class="kt">C</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">resolverBlock</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">((</span><span class="nv">_</span><span class="p">:</span> <span class="kt">C</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/DestinationStep.html">DestinationStep</a></span><span class="o">&lt;</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span><span class="p">?))</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">setup</span><span class="p">(</span><span class="n">with</span> <span class="nv">context</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ContextAccepting.html#/s:13RouteComposer16ContextAcceptingP0C0Qa">Context</a></span><span class="p">)</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -478,12 +483,12 @@ Returning nil from the block will mean that it has not succeeded.</p>
                             <tr>
                               <td>
                                 <code>
-                                <em>resolverBlock</em>
+                                <em>context</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>case resolver block</p>
+                                  <p><code><a href="../Protocols/ContextAccepting.html#/s:13RouteComposer16ContextAcceptingP0C0Qa">Context</a></code> instance.</p>
                                 </div>
                               </td>
                             </tr>
@@ -496,24 +501,38 @@ Returning nil from the block will mean that it has not succeeded.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer14SwitchAssemblyC7addCase4when4fromACyxq_GXDqd___AA15DestinationStepVyxq_GtAA6FinderRd__lF"></a>
-                    <a name="//apple_ref/swift/Method/addCase(when:from:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer14SwitchAssemblyC7addCase4when4fromACyxq_GXDqd___AA15DestinationStepVyxq_GtAA6FinderRd__lF">addCase(when:from:)</a>
+                    <a name="/s:13RouteComposer16ContextAcceptingP18checkCompatibility4withy0C0Qz_tKFZ"></a>
+                    <a name="//apple_ref/swift/Method/checkCompatibility(with:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer16ContextAcceptingP18checkCompatibility4withy0C0Qz_tKFZ">checkCompatibility(with:)</a>
                     </code>
+                      <span class="declaration-note">
+                        Default implementation
+                      </span>
                   </div>
                   <div class="height-container">
                     <div class="pointer-container"></div>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Adds a case when a view controller exists in the stack in order to make a particular <code><a href="../Structs/DestinationStep.html">DestinationStep</a></code>.</p>
+                        <p>If <code>UIViewController</code> does not support all the premutations that context instance may have -
+setup the check here.</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    throws <code>Error</code> if <code><a href="../Protocols/ContextAccepting.html#/s:13RouteComposer16ContextAcceptingP0C0Qa">Context</a></code> instance is not supported.
+
+</div>
+
+                      </div>
+                      <h4>Default Implementation</h4>
+                      <div class="default_impl abstract">
+                        <p>Default implementation does nothing.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">addCase</span><span class="o">&lt;</span><span class="kt">F</span><span class="o">&gt;</span><span class="p">(</span><span class="n">when</span> <span class="nv">finder</span><span class="p">:</span> <span class="kt">F</span><span class="p">,</span> <span class="n">from</span> <span class="nv">step</span><span class="p">:</span> <span class="kt"><a href="../Structs/DestinationStep.html">DestinationStep</a></span><span class="o">&lt;</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span> <span class="k">where</span> <span class="kt">F</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/Finder.html">Finder</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">checkCompatibility</span><span class="p">(</span><span class="n">with</span> <span class="nv">context</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ContextAccepting.html#/s:13RouteComposer16ContextAcceptingP0C0Qa">Context</a></span><span class="p">)</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -524,205 +543,12 @@ Returning nil from the block will mean that it has not succeeded.</p>
                             <tr>
                               <td>
                                 <code>
-                                <em>finder</em>
+                                <em>context</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>The <code><a href="../Protocols/Finder.html">Finder</a></code> instance searches for a <code>UIViewController</code> in the stack</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>step</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The <code><a href="../Structs/DestinationStep.html">DestinationStep</a></code> is to perform if the <code><a href="../Protocols/Finder.html">Finder</a></code> has been able to find a view controller in the stack. If not provided,
-a <code>UIViewController</code> found by the <code><a href="../Protocols/Finder.html">Finder</a></code> will be considered as a view controller to start the navigation process from</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:13RouteComposer14SwitchAssemblyC7addCase4fromACyxq_GXDqd___t14ViewControllerQyd__Rsz7ContextQyd__Rs_AA6FinderRd__lF"></a>
-                    <a name="//apple_ref/swift/Method/addCase(from:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer14SwitchAssemblyC7addCase4fromACyxq_GXDqd___t14ViewControllerQyd__Rsz7ContextQyd__Rs_AA6FinderRd__lF">addCase(from:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Adds a case when a view controller exists - navigation will start from the resulting view controller.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">addCase</span><span class="o">&lt;</span><span class="kt">F</span><span class="o">&gt;</span><span class="p">(</span><span class="n">from</span> <span class="nv">finder</span><span class="p">:</span> <span class="kt">F</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span> <span class="k">where</span> <span class="kt">ViewController</span> <span class="o">==</span> <span class="kt">F</span><span class="o">.</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">Context</span> <span class="o">==</span> <span class="kt">F</span><span class="o">.</span><span class="kt">Context</span><span class="p">,</span> <span class="kt">F</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/Finder.html">Finder</a></span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>finder</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The <code><a href="../Protocols/Finder.html">Finder</a></code> instance is to find a <code>UIViewController</code> in the stack
-a <code>UIViewController</code> found by the <code><a href="../Protocols/Finder.html">Finder</a></code> will be considered as a view controller to start the navigation process from</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:13RouteComposer14SwitchAssemblyC8assembleAA15DestinationStepVyxq_GyF"></a>
-                    <a name="//apple_ref/swift/Method/assemble()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer14SwitchAssemblyC8assembleAA15DestinationStepVyxq_GyF">assemble()</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Assembles all the cases into a <code><a href="../Structs/DestinationStep.html">DestinationStep</a></code> implementation</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">assemble</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/DestinationStep.html">DestinationStep</a></span><span class="o">&lt;</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Return Value</h4>
-                        <p>instance of a <code><a href="../Structs/DestinationStep.html">DestinationStep</a></code></p>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:13RouteComposer14SwitchAssemblyC8assemble7defaultAA15DestinationStepVyxq_GAHyc_tF"></a>
-                    <a name="//apple_ref/swift/Method/assemble(default:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer14SwitchAssemblyC8assemble7defaultAA15DestinationStepVyxq_GAHyc_tF">assemble(default:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Assembles all the cases in a <code><a href="../Structs/DestinationStep.html">DestinationStep</a></code> instance and adds the default implementation, providing the step it is to perform</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">assemble</span><span class="p">(</span><span class="k">default</span> <span class="nv">resolverBlock</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(()</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/DestinationStep.html">DestinationStep</a></span><span class="o">&lt;</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span><span class="p">))</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/DestinationStep.html">DestinationStep</a></span><span class="o">&lt;</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>resolverBlock</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>default resolver block</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <div>
-                        <h4>Return Value</h4>
-                        <p>an instance of <code><a href="../Structs/DestinationStep.html">DestinationStep</a></code></p>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:13RouteComposer14SwitchAssemblyCA2A23ContainerViewControllerRzrlE7addCase9expectingACyxq_GXDqd___t7ContextQyd__Rs_AA6FinderRd__lF"></a>
-                    <a name="//apple_ref/swift/Method/addCase(expecting:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer14SwitchAssemblyCA2A23ContainerViewControllerRzrlE7addCase9expectingACyxq_GXDqd___t7ContextQyd__Rs_AA6FinderRd__lF">addCase(expecting:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Adds a case when a view controller exists - navigation will start from the resulting view controller.
-This method allows to avoid view controller type check.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">addCase</span><span class="o">&lt;</span><span class="kt">F</span><span class="o">&gt;</span><span class="p">(</span><span class="n">expecting</span> <span class="nv">finder</span><span class="p">:</span> <span class="kt">F</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span> <span class="k">where</span> <span class="kt">Context</span> <span class="o">==</span> <span class="kt">F</span><span class="o">.</span><span class="kt">Context</span><span class="p">,</span> <span class="kt">F</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/Finder.html">Finder</a></span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>finder</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The <code><a href="../Protocols/Finder.html">Finder</a></code> instance is to find a <code>UIViewController</code> in the stack
-a <code>UIViewController</code> found by the <code><a href="../Protocols/Finder.html">Finder</a></code> will be considered as a view controller to start the navigation process from</p>
+                                  <p><code><a href="../Protocols/ContextAccepting.html#/s:13RouteComposer16ContextAcceptingP0C0Qa">Context</a></code> instance.</p>
                                 </div>
                               </td>
                             </tr>
