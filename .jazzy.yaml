@@ -83,3 +83,5 @@ custom_categories:
     children:
       - NavigationDelayingInterceptor
       - SingleNavigationRouter
+      - ContextSettingTask
+      - ContextAccepting

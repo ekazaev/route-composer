@@ -121,6 +121,8 @@
 		E6C131721FC92742A0DC7A0BAD92EE6F /* RoutingInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C65703E7695DA410E6B988762A304C /* RoutingInterceptor.swift */; };
 		EDFA2F68F0509A764606E5C9B967F06E /* InterceptableStepAssembling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FB94E6C67C3C5AFB4F75EFBF02336E /* InterceptableStepAssembling.swift */; };
 		EED8F5DCB5A25C25F6261CC973BBE911 /* ChainableStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C344150445AC86A8ED82D5AE1EE4A04 /* ChainableStep.swift */; };
+		EF158788BCFC957CDFF603AB /* ContextSettingTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1586C0B634F4D696D8F425 /* ContextSettingTask.swift */; };
+		EF1588657A50B645AB909211 /* ContextAccepting.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1586334EB54352154334E6 /* ContextAccepting.swift */; };
 		F3354F5E02EB2AE54EE6BE181CED69C5 /* RoutingStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB7A293FB87DE41FC06D36D8A892771 /* RoutingStep.swift */; };
 		F3877B380219D1BD6151B03275338540 /* InterceptorResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766F53DAD4510832A98073D75ABC7D8B /* InterceptorResult.swift */; };
 		F9652E4B99EB996430507F056E34A3E6 /* NilFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1CEAFC2E36721869088B82DAAD20F3 /* NilFinder.swift */; };
@@ -490,6 +492,8 @@
 		ECCAA381AD9731EF4A03063392CCA624 /* AnyFactoryBox.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AnyFactoryBox.swift; sourceTree = "<group>"; };
 		ECF2A2B0720AE923C22BED3192888BE0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		EEDE6C35C76CBB1E0C188CAF53E78E43 /* ChildCoordinator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ChildCoordinator.swift; path = RouteComposer/Classes/ChildCoordinator.swift; sourceTree = "<group>"; };
+		EF1586334EB54352154334E6 /* ContextAccepting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContextAccepting.swift; sourceTree = "<group>"; };
+		EF1586C0B634F4D696D8F425 /* ContextSettingTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContextSettingTask.swift; sourceTree = "<group>"; };
 		EF3D529B2B5BB102F21D40C580D7F803 /* NavigationControllerActions.html */ = {isa = PBXFileReference; includeInIndex = 1; name = NavigationControllerActions.html; path = docs/Structs/NavigationControllerActions.html; sourceTree = "<group>"; };
 		EF5871278F5A0F5BB4B39514049979C9 /* Router.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Router.swift; path = RouteComposer/Classes/Router.swift; sourceTree = "<group>"; };
 		F086B46DDC425D29F7A2175F709B3E6C /* GeneralAction.html */ = {isa = PBXFileReference; includeInIndex = 1; name = GeneralAction.html; path = docs/docsets/RouteComposer.docset/Contents/Resources/Documents/Structs/GeneralAction.html; sourceTree = "<group>"; };
@@ -1119,6 +1123,8 @@
 			children = (
 				C8607B08AAC491D63300DE529A2E2602 /* NavigationDelayInterceptor.swift */,
 				FDA5D8519AD5B154007970A4338B8D38 /* SingleNavigationRouter.swift */,
+				EF1586C0B634F4D696D8F425 /* ContextSettingTask.swift */,
+				EF1586334EB54352154334E6 /* ContextAccepting.swift */,
 			);
 			name = Extra;
 			path = RouteComposer/Classes/Extra;
@@ -1435,6 +1441,8 @@
 				7AD4ACF766395A0A76AF3969A367F0DF /* UIWindow+Extension.swift in Sources */,
 				69E63625AFF8D2E2BF659EC455688FEA /* WindowProvider.swift in Sources */,
 				650BCE0CB690AE5147A2C60F79B7A617 /* XibFactory.swift in Sources */,
+				EF158788BCFC957CDFF603AB /* ContextSettingTask.swift in Sources */,
+				EF1588657A50B645AB909211 /* ContextAccepting.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -263,7 +263,7 @@ class RouterTests: XCTestCase {
                 .from(DestinationStep<TestModalPresentableController, Any?>(TestCurrentViewControllerStep(currentViewController: currentViewController)))
                 .assemble()
 
-        XCTAssertThrowsError(try router.navigate(to: screenConfig, with: nil, animated: false, completion: { result in
+        XCTAssertThrowsError(try router.navigate(to: screenConfig, with: nil, animated: false, completion: { _ in
         }))
     }
 

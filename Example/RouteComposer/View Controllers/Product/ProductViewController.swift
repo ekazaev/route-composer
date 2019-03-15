@@ -19,21 +19,13 @@ struct ProductContext {
     }
 }
 
-class ProductContextTask: ContextTask {
-
-    func apply(on viewController: ProductViewController, with context: ProductContext) throws {
-        viewController.productId = context.productId
-    }
-
-}
-
-class ProductViewController: UIViewController, ExampleAnalyticsSupport {
+class ProductViewController: UIViewController, ExampleAnalyticsSupport, ContextAccepting {
 
     let screenType = ExampleScreenTypes.product
 
     typealias Model = String
 
-    var productId: Model? {
+    private(set) var productId: Model? {
         didSet {
             reloadData()
         }
@@ -47,6 +39,16 @@ class ProductViewController: UIViewController, ExampleAnalyticsSupport {
 
         if self.navigationController?.viewControllers.count == 1 {
             self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneTapped))
+        }
+    }
+
+    func setup(with context: ProductContext) throws {
+        productId = context.productId
+    }
+
+    class func checkCompatibility(with context: Context) throws {
+        if context.productId.isEmpty {
+            throw RoutingError.generic(.init("ProductId can not be empty."))
         }
     }
 

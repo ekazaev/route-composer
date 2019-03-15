@@ -21,7 +21,7 @@ class ProductConfiguration {
             .adding(InlinePostTask({ (_: ProductViewController, _: ProductContext, _) in
                 print("After navigation to Produce view controller")
             }))
-            .adding(ProductContextTask())
+            .adding(ContextSettingTask())
             .using(UINavigationController.push())
             .from(SwitchAssembly<UINavigationController, ProductContext>()
                     .addCase { (context: ProductContext) in

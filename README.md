@@ -228,6 +228,8 @@ class ProductViewControllerContextTask: ContextTask {
 
 See example app for the details.
 
+*Or use `ContextSettingTask` provided with the library to avoid extra code.*
+
 #### 6. Post Routing Task
 
 A post-routing task will be called by the router **after it successfully finishes navigating to the target view controller**.

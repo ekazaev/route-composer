@@ -127,7 +127,7 @@ extension ExampleScreenConfiguration {
         return StepAssembly(
                 finder: ClassWithContextFinder<ProductViewController, ProductContext>(),
                 factory: StoryboardFactory(storyboardName: "TabBar", viewControllerID: "ProductViewController"))
-                .adding(ProductContextTask())
+                .adding(ContextSettingTask())
                 .using(UINavigationController.push())
                 .assemble(from: emptyScreen.expectingContainer())
     }
