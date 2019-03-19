@@ -143,9 +143,6 @@
                 <a href="Structs/ClassFinder.html">ClassFinder</a>
               </li>
               <li class="nav-group-task">
-                <a href="Structs/ClassWithContextFinder.html">ClassWithContextFinder</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Structs/InstanceFinder.html">InstanceFinder</a>
               </li>
               <li class="nav-group-task">
@@ -193,9 +190,6 @@
               <li class="nav-group-task">
                 <a href="Protocols/ContainerViewController.html">ContainerViewController</a>
               </li>
-              <li class="nav-group-task">
-                <a href="Protocols/ContextChecking.html">ContextChecking</a>
-              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -226,6 +220,24 @@
               </li>
               <li class="nav-group-task">
                 <a href="Protocols/ContextAccepting.html">ContextAccepting</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/PresentingFinder.html">PresentingFinder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/DismissalMethodProvidingContextTask.html">DismissalMethodProvidingContextTask</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/Dismissible.html">Dismissible</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/DismissibleWithObjCRuntimeStorage.html">DismissibleWithObjCRuntimeStorage</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/ClassWithContextFinder.html">ClassWithContextFinder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/ContextChecking.html">ContextChecking</a>
               </li>
             </ul>
           </li>
@@ -480,41 +492,6 @@ following the search options provided. It simplifies the creation of the finders
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer22ClassWithContextFinderV"></a>
-                    <a name="//apple_ref/swift/Struct/ClassWithContextFinder" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer22ClassWithContextFinderV">ClassWithContextFinder</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>A default implementation of the view controllers finder, that searches for a view controller by its name
-and its <code>Context</code> instance.</p>
-
-<p>The view controller should extend the <code><a href="Protocols/ContextChecking.html">ContextChecking</a></code> to be used with this finder.</p>
-
-                        <a href="Structs/ClassWithContextFinder.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ClassWithContextFinder</span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Protocols/StackIteratingFinder.html">StackIteratingFinder</a></span> <span class="k">where</span> <span class="kt">VC</span> <span class="p">:</span> <span class="kt"><a href="Protocols/ContextChecking.html">ContextChecking</a></span><span class="p">,</span> <span class="kt">C</span> <span class="o">==</span> <span class="kt">VC</span><span class="o">.</span><span class="kt">Context</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
                     <a name="/s:13RouteComposer14InstanceFinderV"></a>
                     <a name="//apple_ref/swift/Struct/InstanceFinder" class="dashAnchor"></a>
                     <a class="token" href="#/s:13RouteComposer14InstanceFinderV">InstanceFinder</a>
@@ -581,7 +558,7 @@ Its only purpose is to provide type safety checks for <code><a href="Classes/Ste
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2019-03-15)</p>
+          <p>&copy; 2019 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2019-03-19)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

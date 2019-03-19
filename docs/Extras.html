@@ -143,9 +143,6 @@
                 <a href="Structs/ClassFinder.html">ClassFinder</a>
               </li>
               <li class="nav-group-task">
-                <a href="Structs/ClassWithContextFinder.html">ClassWithContextFinder</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Structs/InstanceFinder.html">InstanceFinder</a>
               </li>
               <li class="nav-group-task">
@@ -193,9 +190,6 @@
               <li class="nav-group-task">
                 <a href="Protocols/ContainerViewController.html">ContainerViewController</a>
               </li>
-              <li class="nav-group-task">
-                <a href="Protocols/ContextChecking.html">ContextChecking</a>
-              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -226,6 +220,24 @@
               </li>
               <li class="nav-group-task">
                 <a href="Protocols/ContextAccepting.html">ContextAccepting</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/PresentingFinder.html">PresentingFinder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/DismissalMethodProvidingContextTask.html">DismissalMethodProvidingContextTask</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/Dismissible.html">Dismissible</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/DismissibleWithObjCRuntimeStorage.html">DismissibleWithObjCRuntimeStorage</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/ClassWithContextFinder.html">ClassWithContextFinder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/ContextChecking.html">ContextChecking</a>
               </li>
             </ul>
           </li>
@@ -549,10 +561,205 @@ situations. The <code>.wait</code> strategy can be used only as a temporary solu
                 </li>
               </ul>
             </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer16PresentingFinderV"></a>
+                    <a name="//apple_ref/swift/Struct/PresentingFinder" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer16PresentingFinderV">PresentingFinder</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><code>PresentingFinder</code> returns the presenting <code>UIViewController</code> of the topmost one in current stack.</p>
+
+                        <a href="Structs/PresentingFinder.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">PresentingFinder</span><span class="o">&lt;</span><span class="kt">C</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Finder.html">Finder</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer35DismissalMethodProvidingContextTaskV"></a>
+                    <a name="//apple_ref/swift/Struct/DismissalMethodProvidingContextTask" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer35DismissalMethodProvidingContextTaskV">DismissalMethodProvidingContextTask</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><code>DismissalMethodProvidingContextTask</code> allows to provide the way to dismiss the <code>UIViewController</code> using configuration.
+The <code>UIViewController</code> should extend <code><a href="Protocols/Dismissible.html">Dismissible</a></code> protocol and call <code><a href="Protocols/Dismissible.html#/s:13RouteComposer11DismissiblePAAE21dismissViewController4with8animated10completiony22DismissalTargetContextQz_SbyAA13RoutingResultOcSgtF">Dismissible.dismissViewController(...)</a></code> method
+when it needs to be dismissed to trigger the dismissal process implemented in <code><a href="Structs/DismissalMethodProvidingContextTask.html#/s:13RouteComposer35DismissalMethodProvidingContextTaskV14dismissalBlockACyxq_Gy0c6TargetF0Qz_SbyAA13RoutingResultOcSgtc_tcfc">DismissalMethodProvidingContextTask.init(...)</a></code>
+constructor.</p>
+
+                        <a href="Structs/DismissalMethodProvidingContextTask.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DismissalMethodProvidingContextTask</span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Protocols/ContextTask.html">ContextTask</a></span> <span class="k">where</span> <span class="kt">VC</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Dismissible.html">Dismissible</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer11DismissibleP"></a>
+                    <a name="//apple_ref/swift/Protocol/Dismissible" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer11DismissibleP">Dismissible</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><code>UIViewController</code> should conform to <code>Dismissible</code> protocol to be used with <code><a href="Structs/DismissalMethodProvidingContextTask.html">DismissalMethodProvidingContextTask</a></code>.</p>
+
+                        <a href="Protocols/Dismissible.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">Dismissible</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer33DismissibleWithObjCRuntimeStorageP"></a>
+                    <a name="//apple_ref/swift/Protocol/DismissibleWithObjCRuntimeStorage" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer33DismissibleWithObjCRuntimeStorageP">DismissibleWithObjCRuntimeStorage</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><code>DismissibleWithObjCRuntimeStorage</code> simplifies <code><a href="Protocols/Dismissible.html">Dismissible</a></code> protocol conformance implementing required
+<code>dismissalBlock</code> using Objective C runtime.</p>
+
+                        <a href="Protocols/DismissibleWithObjCRuntimeStorage.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">DismissibleWithObjCRuntimeStorage</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Dismissible.html">Dismissible</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer22ClassWithContextFinderV"></a>
+                    <a name="//apple_ref/swift/Struct/ClassWithContextFinder" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer22ClassWithContextFinderV">ClassWithContextFinder</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A default implementation of the view controllers finder, that searches for a view controller by its name
+and its <code>Context</code> instance.</p>
+
+<p>The view controller should extend the <code><a href="Protocols/ContextChecking.html">ContextChecking</a></code> to be used with this finder.</p>
+
+                        <a href="Structs/ClassWithContextFinder.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ClassWithContextFinder</span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Protocols/StackIteratingFinder.html">StackIteratingFinder</a></span> <span class="k">where</span> <span class="kt">VC</span> <span class="p">:</span> <span class="kt"><a href="Protocols/ContextChecking.html">ContextChecking</a></span><span class="p">,</span> <span class="kt">C</span> <span class="o">==</span> <span class="kt">VC</span><span class="o">.</span><span class="kt">Context</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer15ContextCheckingP"></a>
+                    <a name="//apple_ref/swift/Protocol/ContextChecking" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer15ContextCheckingP">ContextChecking</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><code>UIViewController</code> instance should extend this protocol to be used with <code><a href="Structs/ClassWithContextFinder.html">ClassWithContextFinder</a></code></p>
+
+                        <a href="Protocols/ContextChecking.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">ContextChecking</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2019-03-15)</p>
+          <p>&copy; 2019 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2019-03-19)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

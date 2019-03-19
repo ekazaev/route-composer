@@ -32,7 +32,9 @@ class ColorViewControllerFactory: Factory {
 
 }
 
-class ColorViewController: UIViewController, ExampleAnalyticsSupport {
+class ColorViewController: UIViewController, DismissibleWithObjCRuntimeStorage, ExampleAnalyticsSupport {
+
+    typealias DismissalTargetContext = Void
 
     let screenType = ExampleScreenTypes.color
 
@@ -59,7 +61,7 @@ class ColorViewController: UIViewController, ExampleAnalyticsSupport {
     }
 
     @objc func doneTapped() {
-        self.dismiss(animated: true)
+        dismissViewController(animated: true)
     }
 
 }

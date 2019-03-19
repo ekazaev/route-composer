@@ -51,7 +51,6 @@ custom_categories:
     children:
       - StackIteratingFinder
       - ClassFinder
-      - ClassWithContextFinder
       - InstanceFinder
       - NilFinder
 
@@ -72,7 +71,6 @@ custom_categories:
     children:
       - RoutingInterceptable
       - ContainerViewController
-      - ContextChecking
 
   - name: Logging
     children:
@@ -85,3 +83,9 @@ custom_categories:
       - SingleNavigationRouter
       - ContextSettingTask
       - ContextAccepting
+      - PresentingFinder
+      - DismissalMethodProvidingContextTask
+      - Dismissible
+      - DismissibleWithObjCRuntimeStorage
+      - ClassWithContextFinder
+      - ContextChecking

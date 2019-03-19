@@ -1,5 +1,5 @@
 //
-//  SingleNavigationTest.swift
+//  ExtrasTest.swift
 //  RouteComposer_Tests
 //
 //  Created by ekazaev on 12/03/2019.
@@ -11,7 +11,7 @@ import Foundation
 import XCTest
 @testable import RouteComposer
 
-class SingleNavigationTest: XCTestCase {
+class ExtrasTest: XCTestCase {
 
     let router = SingleNavigationRouter(router: DefaultRouter(), lock: SingleNavigationLock())
 
@@ -95,6 +95,36 @@ class SingleNavigationTest: XCTestCase {
         XCTAssertNoThrow(try contextTask.prepare(with: "non empty string"))
         XCTAssertNoThrow(try contextTask.apply(on: viewController, with: "context"))
         XCTAssertEqual(viewController.context, "context")
+    }
+
+    func testDismissalMethodProvidingContextTask() {
+        class DismissingViewController: UIViewController, Dismissible {
+            var dismissalBlock: ((Void, Bool, ((RoutingResult) -> Void)?) -> Void)?
+        }
+
+        let viewController = DismissingViewController()
+        var wasInCompletion = false
+        try? DismissalMethodProvidingContextTask<DismissingViewController, Any?>(dismissalBlock: { (_: Void, animated, _) in
+            XCTAssertEqual(animated, true)
+            wasInCompletion = true
+        }).apply(on: viewController, with: nil)
+        viewController.dismissViewController(animated: true)
+        XCTAssertEqual(wasInCompletion, true)
+    }
+
+    func testDismissibleWithObjCRuntimeStorage() {
+        class DismissingViewController: UIViewController, DismissibleWithObjCRuntimeStorage {
+            typealias DismissalTargetContext = Void
+        }
+
+        var viewController = DismissingViewController()
+        var wasInCompletion = false
+        viewController.dismissalBlock = { context, animated, completion in
+            wasInCompletion = true
+        }
+        XCTAssertNotNil(viewController.dismissalBlock)
+        viewController.dismissalBlock?((), true, nil)
+        XCTAssertEqual(wasInCompletion, true)
     }
 
 }
