@@ -512,7 +512,8 @@ be applied to a view controller it should throw an exception.</p>
                       </div>
                       <h4>Default Implementation</h4>
                       <div class="default_impl abstract">
-                        
+                        <p>Default implementation does nothing</p>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -605,10 +606,190 @@ or found</p>
                 </li>
               </ul>
             </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer11ContextTaskPAAypSg0C0RtzrlE7prepareyyKF"></a>
+                    <a name="//apple_ref/swift/Method/prepare()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer11ContextTaskPAAypSg0C0RtzrlE7prepareyyKF">prepare()</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The <code><a href="../Protocols/Router.html">Router</a></code> will call this method before the navigation process. If the <code>ContextTask</code> is not able to
+be applied to a view controller it should throw an exception.</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    The <code><a href="../Enums/RoutingError.html">RoutingError</a></code> if <code>ContextTask</code> can&rsquo;t be applied.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">mutating</span> <span class="kd">func</span> <span class="nf">prepare</span><span class="p">()</span> <span class="k">throws</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer11ContextTaskPAAypSg0C0RtzrlE5apply2ony14ViewControllerQz_tKF"></a>
+                    <a name="//apple_ref/swift/Method/apply(on:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer11ContextTaskPAAypSg0C0RtzrlE5apply2ony14ViewControllerQz_tKF">apply(on:)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The method that will be called by the <code><a href="../Protocols/Router.html">Router</a></code> to run <code>ContextTask</code> immediately after <code>UIViewController</code> been created
+or found</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">apply</span><span class="p">(</span><span class="n">on</span> <span class="nv">viewController</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ContextTask.html#/s:13RouteComposer11ContextTaskP14ViewControllerQa">ViewController</a></span><span class="p">)</span> <span class="k">throws</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>viewController</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>UIViewController</code> instance described in the step that <code>ContextTask</code> attached to</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer11ContextTaskPAAyt0C0RtzrlE7prepareyyKF"></a>
+                    <a name="//apple_ref/swift/Method/prepare()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer11ContextTaskPAAyt0C0RtzrlE7prepareyyKF">prepare()</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The <code><a href="../Protocols/Router.html">Router</a></code> will call this method before the navigation process. If the <code>ContextTask</code> is not able to
+be applied to a view controller it should throw an exception.</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    The <code><a href="../Enums/RoutingError.html">RoutingError</a></code> if <code>ContextTask</code> can&rsquo;t be applied.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">mutating</span> <span class="kd">func</span> <span class="nf">prepare</span><span class="p">()</span> <span class="k">throws</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer11ContextTaskPAAyt0C0RtzrlE5apply2ony14ViewControllerQz_tKF"></a>
+                    <a name="//apple_ref/swift/Method/apply(on:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer11ContextTaskPAAyt0C0RtzrlE5apply2ony14ViewControllerQz_tKF">apply(on:)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The method that will be called by the <code><a href="../Protocols/Router.html">Router</a></code> to run <code>ContextTask</code> immediately after <code>UIViewController</code> been created
+or found</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">apply</span><span class="p">(</span><span class="n">on</span> <span class="nv">viewController</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ContextTask.html#/s:13RouteComposer11ContextTaskP14ViewControllerQa">ViewController</a></span><span class="p">)</span> <span class="k">throws</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>viewController</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>UIViewController</code> instance described in the step that <code>ContextTask</code> attached to</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2019-03-19)</p>
+          <p>&copy; 2019 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2019-03-20)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

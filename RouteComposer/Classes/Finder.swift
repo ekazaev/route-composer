@@ -23,3 +23,25 @@ public protocol Finder {
     func findViewController(with context: Context) -> ViewController?
 
 }
+
+public extension Finder where Context == Any? {
+
+    /// Returns the view controller instance if it is present in the stack.
+    ///
+    /// - Returns: The `UIViewController` instance that the `Router` is looking for, nil otherwise.
+    func findViewController() -> ViewController? {
+        return findViewController(with: nil)
+    }
+
+}
+
+public extension Finder where Context == Void {
+
+    /// Returns the view controller instance if it is present in the stack.
+    ///
+    /// - Returns: The `UIViewController` instance that the `Router` is looking for, nil otherwise.
+    func findViewController() -> ViewController? {
+        return findViewController(with: ())
+    }
+
+}

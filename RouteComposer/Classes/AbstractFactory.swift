@@ -36,3 +36,13 @@ public extension AbstractFactory where Context == Any? {
     }
 
 }
+
+/// Default implementation for any context
+public extension AbstractFactory where Context == Void {
+
+    /// Prepares the `AbstractFactory`
+    mutating func prepare() throws {
+        try prepare(with: ())
+    }
+
+}

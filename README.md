@@ -1,12 +1,14 @@
 # RouteComposer
 
 [![CI Status](https://travis-ci.org/saksdirect/route-composer.svg?branch=master&style=flat)](https://travis-ci.org/saksdirect/route-composer)
-[![Version](https://img.shields.io/cocoapods/v/RouteComposer.svg?style=flat)](http://cocoapods.org/pods/RouteComposer)
+[![Release](https://img.shields.io/github/release/saksdirect/route-composer.svg?style=flat&color=darkcyan)](https://github.com/saksdirect/route-composer/releases)
+[![Cocoapods](https://img.shields.io/cocoapods/v/RouteComposer.svg?style=flat)](http://cocoapods.org/pods/RouteComposer)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
-[![License](https://img.shields.io/cocoapods/l/RouteComposer.svg?style=flat)](http://cocoapods.org/pods/RouteComposer)
-[![Platform](https://img.shields.io/cocoapods/p/RouteComposer.svg?style=flat)](http://cocoapods.org/pods/RouteComposer)
+[![Swift 4.2](https://img.shields.io/badge/language-Swift4.2-orange.svg?style=flat)](https://developer.apple.com/swift)
+[![Platform iOS](https://img.shields.io/badge/platform-iOS-yellow.svg)](http://cocoapods.org/pods/RouteComposer)
 [![Documentation](https://saksdirect.github.io/route-composer/badge.svg)](https://saksdirect.github.io/route-composer)
-[![Twitter](https://img.shields.io/twitter/url/https/github.com/saksdirect/route-composer.svg?style=social)](https://twitter.com/intent/tweet?text=Check%20it%20out:&url=https%3A%2F%2Fgithub.com%2Fsaksdirect%2Froute-composer)
+[![MIT License](https://img.shields.io/cocoapods/l/RouteComposer.svg?style=flat)](https://github.com/saksdirect/RouteComposer/blob/master/LICENSE)
+[![Twitter](https://img.shields.io/twitter/url/https/github.com/saksdirect/route-composer.svg?style=flat)](https://twitter.com/intent/tweet?text=Check%20it%20out:&url=https%3A%2F%2Fgithub.com%2Fsaksdirect%2Froute-composer)
 
 `RouteComposer` is the protocol oriented, Cocoa UI abstractions based library that helps to handle view controllers composition, routing
 and deep linking tasks in the iOS application. 
@@ -263,9 +265,9 @@ which should be presented modally from any currently visible view controller.*
 
 ```swift
 let productScreen = StepAssembly(finder: ProductViewControllerFinder(), factory: ProductViewControllerFactory())
-        .adding(LoginInterceptor<UUID>()) // Have to specify the context type till https://bugs.swift.org/browse/SR-8719, https://bugs.swift.org/browse/SR-8705 are fixed
-        .adding(ProductViewControllerContextTask())
-        .adding(ProductViewControllerPostTask(analyticsManager: AnalyticsManager.sharedInstance))
+        .add(LoginInterceptor<UUID>()) // Have to specify the context type till https://bugs.swift.org/browse/SR-8719, https://bugs.swift.org/browse/SR-8705 are fixed
+        .add(ProductViewControllerContextTask())
+        .add(ProductViewControllerPostTask(analyticsManager: AnalyticsManager.sharedInstance))
         .using(UINavigationController.push())
         .from(NavigationControllerStep())
         .using(GeneralActions.presentModally())
@@ -298,9 +300,9 @@ should be logged into see the product details.*
 struct Configuration {
 
     static let productScreen = StepAssembly(finder: ProductViewControllerFinder(), factory: ProductViewControllerFactory())
-                .adding(LoginInterceptor<UUID>())
-                .adding(ProductViewControllerContextTask())
-                .adding(ProductViewControllerPostTask(analyticsManager: AnalyticsManager.sharedInstance))
+                .add(LoginInterceptor<UUID>())
+                .add(ProductViewControllerContextTask())
+                .add(ProductViewControllerPostTask(analyticsManager: AnalyticsManager.sharedInstance))
                 .using(UINavigationController.push())
                 .from(NavigationControllerStep())
                 .using(GeneralActions.presentModally())

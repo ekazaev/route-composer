@@ -68,3 +68,20 @@ public extension ContainerFactory where Context == Any? {
     }
 
 }
+
+/// Default implementation for an empty context
+public extension ContainerFactory where Context == Void {
+
+    /// Builds a `ContainerFactory` view controller.
+    func build() throws -> ViewController {
+        return try build(with: ())
+    }
+
+    /// Prepares the `Factory` and builds a `UIViewController`
+    func buildPrepared() throws -> ViewController {
+        var factory = self
+        try factory.prepare()
+        return try factory.build()
+    }
+
+}

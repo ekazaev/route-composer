@@ -492,7 +492,7 @@ with the <code><a href="../Protocols/RoutingInterceptor.html#/s:13RouteComposer1
                       </div>
                       <h4>Default Implementation</h4>
                       <div class="default_impl abstract">
-                        <p>Default implementation.</p>
+                        <p>Default implementation does nothing.</p>
 
                       </div>
                       <div class="declaration">
@@ -590,10 +590,200 @@ Otherwise <code><a href="../Protocols/Router.html">Router</a></code> will stay i
                 </li>
               </ul>
             </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer18RoutingInterceptorPAAypSg7ContextRtzrlE7prepareyyKF"></a>
+                    <a name="//apple_ref/swift/Method/prepare()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer18RoutingInterceptorPAAypSg7ContextRtzrlE7prepareyyKF">prepare()</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The <code><a href="../Protocols/Router.html">Router</a></code> will call this method before the navigation process. If <code>RoutingInterceptor</code> is not able to allow
+the navigation process to start it can stop <code><a href="../Protocols/Router.html">Router</a></code> by throwing an exception.</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    The <code><a href="../Enums/RoutingError.html">RoutingError</a></code> if the <code>RoutingInterceptor</code> cannot prepare itself or if the navigation process cannot start
+with the <code><a href="../Protocols/RoutingInterceptor.html#/s:13RouteComposer18RoutingInterceptorP7ContextQa">Context</a></code> instance provided.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">mutating</span> <span class="kd">func</span> <span class="nf">prepare</span><span class="p">()</span> <span class="k">throws</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer18RoutingInterceptorPAAypSg7ContextRtzrlE7execute10completionyyAA0D6ResultOc_tF"></a>
+                    <a name="//apple_ref/swift/Method/execute(completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer18RoutingInterceptorPAAypSg7ContextRtzrlE7execute10completionyyAA0D6ResultOc_tF">execute(completion:)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Method that will be called by <code><a href="../Protocols/Router.html">Router</a></code> to start interceptor.</p>
+<h3 id='nb' class='heading'>NB</h3>
+
+<p>For the <code><a href="../Protocols/Router.html">Router</a></code> to continue the navigation process, the <code>completion</code> block of interceptor <strong>MUST</strong> be called
+by the implementation of this method.
+Otherwise <code><a href="../Protocols/Router.html">Router</a></code> will stay in limbo waiting for <code>RoutingInterceptor</code> to finish its action.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">execute</span><span class="p">(</span><span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="kt"><a href="../Enums/InterceptorResult.html">InterceptorResult</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Completion block with a result.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer18RoutingInterceptorPAAyt7ContextRtzrlE7prepareyyKF"></a>
+                    <a name="//apple_ref/swift/Method/prepare()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer18RoutingInterceptorPAAyt7ContextRtzrlE7prepareyyKF">prepare()</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The <code><a href="../Protocols/Router.html">Router</a></code> will call this method before the navigation process. If <code>RoutingInterceptor</code> is not able to allow
+the navigation process to start it can stop <code><a href="../Protocols/Router.html">Router</a></code> by throwing an exception.</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    The <code><a href="../Enums/RoutingError.html">RoutingError</a></code> if the <code>RoutingInterceptor</code> cannot prepare itself or if the navigation process cannot start
+with the <code><a href="../Protocols/RoutingInterceptor.html#/s:13RouteComposer18RoutingInterceptorP7ContextQa">Context</a></code> instance provided.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">mutating</span> <span class="kd">func</span> <span class="nf">prepare</span><span class="p">()</span> <span class="k">throws</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer18RoutingInterceptorPAAyt7ContextRtzrlE7execute10completionyyAA0D6ResultOc_tF"></a>
+                    <a name="//apple_ref/swift/Method/execute(completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer18RoutingInterceptorPAAyt7ContextRtzrlE7execute10completionyyAA0D6ResultOc_tF">execute(completion:)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Method that will be called by <code><a href="../Protocols/Router.html">Router</a></code> to start interceptor.</p>
+<h3 id='nb' class='heading'>NB</h3>
+
+<p>For the <code><a href="../Protocols/Router.html">Router</a></code> to continue the navigation process, the <code>completion</code> block of interceptor <strong>MUST</strong> be called
+by the implementation of this method.
+Otherwise <code><a href="../Protocols/Router.html">Router</a></code> will stay in limbo waiting for <code>RoutingInterceptor</code> to finish its action.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">execute</span><span class="p">(</span><span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="kt"><a href="../Enums/InterceptorResult.html">InterceptorResult</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Completion block with a result.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2019-03-19)</p>
+          <p>&copy; 2019 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2019-03-20)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

@@ -43,9 +43,9 @@ ClassFinder<AccountViewController, Any?>(options: [.current, .visible, .presenti
 
 *Do not forget that if you use a combination of abstract `Finder` and `Factory` - you must specify the types of `UIViewController` and `Context` for one of them `ClassFinder<HomeViewController, Any?>`*
 
-#### What will happen if, in the configuration above, I will replace `GeneralStep.root` with `GeneralStep.current`?
+#### What will happen if, in the configuration above, I will replace `GeneralStep.root(...)` with `GeneralStep.current(...)`?
 
-It will work if the user is not in some `UIViewController` that is presented modally. If they are, `ReplaceRoot` can not replace the modally presented `UIViewController` and the navigation will fail. If you want this configuration to work in all cases - you should explain to the router that it should start building the stack from the root view controller. Then the router will dismiss all the modal view controllers above the root view controller if there are any.
+It will work if the user is not in some `UIViewController` that is presented modally. If they are, `GeneralAction.replaceRoot(...)` can not replace the modally presented `UIViewController` and the navigation will fail. If you want this configuration to work in all cases - you should explain to the router that it should start building the stack from the root view controller. Then the router will dismiss all the modal view controllers above the root view controller if there are any.
 
 #### I want to push the `AccountViewController` into any `UINavigationController` that is present anywhere on the screen (even if the `UINavigationController` is under some modal `UIViewController`):
 
@@ -94,13 +94,13 @@ It will work if the user is not in some `UIViewController` that is presented mod
             .assemble()
 ```
 
-#### I want to use custom `UIViewControllerTransitioningDelegate` with the `PresentModally` action:
+#### I want to use custom `UIViewControllerTransitioningDelegate` with the `GeneralAction.presentModally(...)` action:
 
 ```swift
     let transitionController = CustomViewControllerTransitioningDelegate()
 
     // Configuration
-    .using(GeneralAction.PresentModally(transitioningDelegate: transitionController))
+    .using(GeneralAction.presentModally(transitioningDelegate: transitionController))
 ```
 
 #### I want to navigate to the `AccountViewController` if the user is in another tab or even if the user is in some `UIViewController` presented modally:
@@ -137,11 +137,11 @@ It will work if the user is not in some `UIViewController` that is presented mod
 ```
 *With the configuration above you will be able to navigate to both screens using the `Router`*
 
-#### Why do we use `expectingContainer` here?
+#### Why do we use `DestinationStep.expectingContainer(...)` here?
 
-Because `UINavigationController.push` action requires `UINavigationController` to be previous `UIViewController` in the chain. `expectingContainer` method allows us to escape this check. You guarantee that it will be there by the time `UINavigationController.push` will start to perform.
+Because `UINavigationController.push(...)` action requires `UINavigationController` to be previous `UIViewController` in the chain. `DestinationStep.expectingContainer(...)` method allows us to escape this check. You guarantee that it will be there by the time `UINavigationController.push(...)` will start to perform.
 
-#### What will happen if, in the configuration above, I will replace the `GeneralStep.current` with the `GeneralStep.root`?
+#### What will happen if, in the configuration above, I will replace the `GeneralStep.current(...)` with the `GeneralStep.root(...)`?
 
 It will work, but it means that the router has to start building the stack from the root `UIViewController`, so if the user is in some `UIViewController` presented modally - the router will close it before it will start the navigation.
 
