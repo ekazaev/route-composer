@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_RouteComposer_TestsVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_RouteComposer_TestsVersionString[];
+FOUNDATION_EXPORT double Pods_RouteComposer_Example_RouteComposer_TestsVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_RouteComposer_Example_RouteComposer_TestsVersionString[];
 

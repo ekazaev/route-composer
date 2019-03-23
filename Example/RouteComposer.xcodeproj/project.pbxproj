@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3964C13C9510D7C17530911E /* Pods_RouteComposer_Example_RouteComposer_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0293FF29C4D706E5D7F4B94 /* Pods_RouteComposer_Example_RouteComposer_Tests.framework */; };
 		4570AD2A2238769C00809A01 /* ExtrasTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4570AD292238769C00809A01 /* ExtrasTest.swift */; };
-		4F7CDDB480A0D4FAB88D9CDA /* Pods_RouteComposer_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D5D44CE2FD3DEAA3108C874 /* Pods_RouteComposer_Tests.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACDB1AFB9204008FA782 /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* TabBar.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
@@ -163,7 +163,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1CD805AB0D00DEBF564D358F /* Pods-RouteComposer_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RouteComposer_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RouteComposer_Tests/Pods-RouteComposer_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		0B068CD8E2A01AE34431EC7F /* Pods-RouteComposer_Example-RouteComposer_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RouteComposer_Example-RouteComposer_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RouteComposer_Example-RouteComposer_Tests/Pods-RouteComposer_Example-RouteComposer_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		4570AD292238769C00809A01 /* ExtrasTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtrasTest.swift; sourceTree = "<group>"; };
 		4D016BC78C8FFDC66C0F661D /* RouteComposer.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = RouteComposer.podspec; path = ../RouteComposer.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		4D5D44CE2FD3DEAA3108C874 /* Pods_RouteComposer_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RouteComposer_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -202,8 +202,6 @@
 		84B6D46720163CC700B70FF7 /* RouteComposerExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteComposerExampleUITests.swift; sourceTree = "<group>"; };
 		84B6D46920163CC700B70FF7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84B76A652040641400D865B1 /* Images.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Images.storyboard; sourceTree = "<group>"; };
-		84C1D86390083DF185C460C2 /* Pods-RouteComposer_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RouteComposer_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RouteComposer_Tests/Pods-RouteComposer_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		99737A56A3D37A621574DCAB /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		9AFBC00AF5B223BFDB589161 /* CustomContainerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomContainerFactory.swift; sourceTree = "<group>"; };
 		9AFBC067DF4E4C264D1840B2 /* FinderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinderTests.swift; sourceTree = "<group>"; };
 		9AFBC0A54CF3E1EFC4DB61C0 /* StarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarViewController.swift; sourceTree = "<group>"; };
@@ -248,9 +246,12 @@
 		9AFBCE5527D371C559C69F9E /* CityURLTranslator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityURLTranslator.swift; sourceTree = "<group>"; };
 		9AFBCEB028743A7AC55E1CA6 /* ExampleAnalyticsSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleAnalyticsSupport.swift; sourceTree = "<group>"; };
 		9AFBCFA7F490C53D17BA5B40 /* WishListContextTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WishListContextTask.swift; sourceTree = "<group>"; };
+		9E4BEAE755C13F946AD18B6A /* Pods-RouteComposer_Example-RouteComposer_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RouteComposer_Example-RouteComposer_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RouteComposer_Example-RouteComposer_Tests/Pods-RouteComposer_Example-RouteComposer_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		A0293FF29C4D706E5D7F4B94 /* Pods_RouteComposer_Example_RouteComposer_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RouteComposer_Example_RouteComposer_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD8FADE9265A4CD86A75FD85 /* Pods_RouteComposer_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RouteComposer_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7AC8603E217ACA9BCF1FAC2 /* Pods-RouteComposer_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RouteComposer_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-RouteComposer_Example/Pods-RouteComposer_Example.release.xcconfig"; sourceTree = "<group>"; };
 		EE3371C14DEE61C1E517B2F9 /* Pods-RouteComposer_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RouteComposer_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RouteComposer_Example/Pods-RouteComposer_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		EF1584F5E4B89D2045CDF5FA /* CONTRIBUTING.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = CONTRIBUTING.md; path = ../CONTRIBUTING.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -269,7 +270,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F7CDDB480A0D4FAB88D9CDA /* Pods_RouteComposer_Tests.framework in Frameworks */,
+				3964C13C9510D7C17530911E /* Pods_RouteComposer_Example_RouteComposer_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,8 +289,8 @@
 			children = (
 				EE3371C14DEE61C1E517B2F9 /* Pods-RouteComposer_Example.debug.xcconfig */,
 				E7AC8603E217ACA9BCF1FAC2 /* Pods-RouteComposer_Example.release.xcconfig */,
-				1CD805AB0D00DEBF564D358F /* Pods-RouteComposer_Tests.debug.xcconfig */,
-				84C1D86390083DF185C460C2 /* Pods-RouteComposer_Tests.release.xcconfig */,
+				9E4BEAE755C13F946AD18B6A /* Pods-RouteComposer_Example-RouteComposer_Tests.debug.xcconfig */,
+				0B068CD8E2A01AE34431EC7F /* Pods-RouteComposer_Example-RouteComposer_Tests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -304,6 +305,7 @@
 				607FACD11AFB9204008FA782 /* Products */,
 				079F2B751A1ED1AA45C29C22 /* Pods */,
 				89304414051547194EE39AAB /* Frameworks */,
+				EF1584F5E4B89D2045CDF5FA /* CONTRIBUTING.md */,
 			);
 			sourceTree = "<group>";
 		};
@@ -378,7 +380,6 @@
 			isa = PBXGroup;
 			children = (
 				4D016BC78C8FFDC66C0F661D /* RouteComposer.podspec */,
-				99737A56A3D37A621574DCAB /* README.md */,
 				523DE209C4401E98B0605566 /* LICENSE */,
 			);
 			name = "Podspec Metadata";
@@ -479,6 +480,7 @@
 			children = (
 				AD8FADE9265A4CD86A75FD85 /* Pods_RouteComposer_Example.framework */,
 				4D5D44CE2FD3DEAA3108C874 /* Pods_RouteComposer_Tests.framework */,
+				A0293FF29C4D706E5D7F4B94 /* Pods_RouteComposer_Example_RouteComposer_Tests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -600,10 +602,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "RouteComposer_Tests" */;
 			buildPhases = (
-				6808AC1C059F0162AF8373C8 /* [CP] Check Pods Manifest.lock */,
+				454D5A5F0122E70B1E54C83D /* [CP] Check Pods Manifest.lock */,
 				607FACE11AFB9204008FA782 /* Sources */,
 				607FACE21AFB9204008FA782 /* Frameworks */,
 				607FACE31AFB9204008FA782 /* Resources */,
+				4CAECF92777C3A1AEDF68FAB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -752,22 +755,48 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		6808AC1C059F0162AF8373C8 /* [CP] Check Pods Manifest.lock */ = {
+		454D5A5F0122E70B1E54C83D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			inputFileListPaths = (
 			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-RouteComposer_Tests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-RouteComposer_Example-RouteComposer_Tests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4CAECF92777C3A1AEDF68FAB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RouteComposer_Example-RouteComposer_Tests/Pods-RouteComposer_Example-RouteComposer_Tests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/RouteComposer/RouteComposer.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RouteComposer.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RouteComposer_Example-RouteComposer_Tests/Pods-RouteComposer_Example-RouteComposer_Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9D8FCA457F23E4809DEE3514 /* [CP] Embed Pods Frameworks */ = {
@@ -1078,9 +1107,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = RouteComposer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = "ie.hbcdigital.RouteComposer-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1093,9 +1121,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = RouteComposer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = "ie.hbcdigital.RouteComposer-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1103,18 +1130,13 @@
 		};
 		607FACF31AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1CD805AB0D00DEBF564D358F /* Pods-RouteComposer_Tests.debug.xcconfig */;
+			baseConfigurationReference = 9E4BEAE755C13F946AD18B6A /* Pods-RouteComposer_Example-RouteComposer_Tests.debug.xcconfig */;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = Tests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RouteComposer_Example.app/RouteComposer_Example";
@@ -1123,14 +1145,9 @@
 		};
 		607FACF41AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 84C1D86390083DF185C460C2 /* Pods-RouteComposer_Tests.release.xcconfig */;
+			baseConfigurationReference = 0B068CD8E2A01AE34431EC7F /* Pods-RouteComposer_Example-RouteComposer_Tests.release.xcconfig */;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
 				INFOPLIST_FILE = Tests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RouteComposer_Example.app/RouteComposer_Example";
@@ -1152,8 +1169,8 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = RouteComposer_ExampleUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "ie.giltgroupe.RouteComposer-ExampleUITests";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'";
+				PRODUCT_BUNDLE_IDENTIFIER = "ie.hbcdigital.RouteComposer-ExampleUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1175,8 +1192,8 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = RouteComposer_ExampleUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "ie.giltgroupe.RouteComposer-ExampleUITests";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'";
+				PRODUCT_BUNDLE_IDENTIFIER = "ie.hbcdigital.RouteComposer-ExampleUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = RouteComposer_Example;

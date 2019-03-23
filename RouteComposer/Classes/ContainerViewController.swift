@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-/// All the container view controllers should extend this protocol. The `Router` will ask them to make
+/// All the container view controllers should conform to this protocol. The `Router` will ask them to make
 /// one of the view controllers that they contain visible
 @objc public protocol ContainerViewController: RoutingInterceptable {
 

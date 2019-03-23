@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         ConfigurationHolder.configuration = ExampleConfiguration()
 
-        // Try in mobile Safari to test the deeplinking to the app:
+        // Try in mobile Safari to test the deep linking to the app:
         // Try it when you are on any screen in the app to check that you will always land where you have to be
         // depending on the configuration provided.
         //

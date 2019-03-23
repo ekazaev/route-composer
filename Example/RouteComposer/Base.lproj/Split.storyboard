@@ -26,8 +26,8 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xtZ-Bm-1SM">
-                                <rect key="frame" x="307.5" y="994" width="153" height="30"/>
-                                <state key="normal" title="Back programmaticaly"/>
+                                <rect key="frame" x="305.5" y="994" width="157" height="30"/>
+                                <state key="normal" title="Back programmatically"/>
                                 <connections>
                                     <action selector="backProgrammaticallyTapped" destination="dzi-Yh-QPj" eventType="touchUpInside" id="XuW-AG-Kl9"/>
                                 </connections>

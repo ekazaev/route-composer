@@ -1,6 +1,6 @@
 //
 // Created by Eugene Kazaev on 10/07/2018.
-// Copyright (c) 2018 Gilt Groupe. All rights reserved.
+// Copyright (c) 2018 HBC Digital. All rights reserved.
 //
 
 import Foundation

@@ -12,7 +12,7 @@ struct TaskCollector: TaskProvider {
 
     private var postTasks: [AnyPostRoutingTask] = []
 
-    mutating func add<R: RoutingInterceptor>(_ interceptor: R) {
+    mutating func add<RI: RoutingInterceptor>(_ interceptor: RI) {
         self.interceptors.append(RoutingInterceptorBox(interceptor))
     }
 
@@ -20,7 +20,7 @@ struct TaskCollector: TaskProvider {
         self.contextTasks.append(ContextTaskBox(contextTask))
     }
 
-    mutating func add<P: PostRoutingTask>(_ postTask: P) {
+    mutating func add<PT: PostRoutingTask>(_ postTask: PT) {
         self.postTasks.append(PostRoutingTaskBox(postTask))
     }
 

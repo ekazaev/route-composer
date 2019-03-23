@@ -216,13 +216,19 @@
                 <a href="Structs/SingleNavigationRouter.html">SingleNavigationRouter</a>
               </li>
               <li class="nav-group-task">
+                <a href="Structs/PresentingFinder.html">PresentingFinder</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Structs/ContextSettingTask.html">ContextSettingTask</a>
               </li>
               <li class="nav-group-task">
                 <a href="Protocols/ContextAccepting.html">ContextAccepting</a>
               </li>
               <li class="nav-group-task">
-                <a href="Structs/PresentingFinder.html">PresentingFinder</a>
+                <a href="Structs/ClassWithContextFinder.html">ClassWithContextFinder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/ContextChecking.html">ContextChecking</a>
               </li>
               <li class="nav-group-task">
                 <a href="Structs/DismissalMethodProvidingContextTask.html">DismissalMethodProvidingContextTask</a>
@@ -231,19 +237,16 @@
                 <a href="Protocols/Dismissible.html">Dismissible</a>
               </li>
               <li class="nav-group-task">
-                <a href="Protocols/DismissibleWithObjCRuntimeStorage.html">DismissibleWithObjCRuntimeStorage</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Structs/ClassWithContextFinder.html">ClassWithContextFinder</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Protocols/ContextChecking.html">ContextChecking</a>
+                <a href="Protocols/DismissibleWithRuntimeStorage.html">DismissibleWithRuntimeStorage</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
             <a href="Other Guides.html">Other Guides</a>
             <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="contributing.html">CONTRIBUTING</a>
+              </li>
               <li class="nav-group-task">
                 <a href="examples.html">EXAMPLES</a>
               </li>
@@ -488,7 +491,39 @@ situations. The <code>.wait</code> strategy can be used only as a temporary solu
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">SingleNavigationRouter</span><span class="o">&lt;</span><span class="kt">ROUTER</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Router.html">Router</a></span> <span class="k">where</span> <span class="kt">ROUTER</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Router.html">Router</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">SingleNavigationRouter</span><span class="o">&lt;</span><span class="kt">R</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Router.html">Router</a></span> <span class="k">where</span> <span class="kt">R</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Router.html">Router</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer16PresentingFinderV"></a>
+                    <a name="//apple_ref/swift/Struct/PresentingFinder" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer16PresentingFinderV">PresentingFinder</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><code>PresentingFinder</code> returns the presenting <code>UIViewController</code> of the topmost one in current stack.</p>
+
+                        <a href="Structs/PresentingFinder.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">PresentingFinder</span><span class="o">&lt;</span><span class="kt">C</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Finder.html">Finder</a></span></code></pre>
 
                         </div>
                       </div>
@@ -566,9 +601,9 @@ situations. The <code>.wait</code> strategy can be used only as a temporary solu
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer16PresentingFinderV"></a>
-                    <a name="//apple_ref/swift/Struct/PresentingFinder" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer16PresentingFinderV">PresentingFinder</a>
+                    <a name="/s:13RouteComposer22ClassWithContextFinderV"></a>
+                    <a name="//apple_ref/swift/Struct/ClassWithContextFinder" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer22ClassWithContextFinderV">ClassWithContextFinder</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -576,15 +611,50 @@ situations. The <code>.wait</code> strategy can be used only as a temporary solu
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><code>PresentingFinder</code> returns the presenting <code>UIViewController</code> of the topmost one in current stack.</p>
+                        <p>A default implementation of the view controllers finder, that searches for a view controller by its name
+and its <code>Context</code> instance.</p>
 
-                        <a href="Structs/PresentingFinder.html" class="slightly-smaller">See more</a>
+<p>The view controller should conform to the <code><a href="Protocols/ContextChecking.html">ContextChecking</a></code> to be used with this finder.</p>
+
+                        <a href="Structs/ClassWithContextFinder.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">PresentingFinder</span><span class="o">&lt;</span><span class="kt">C</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Finder.html">Finder</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ClassWithContextFinder</span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Protocols/StackIteratingFinder.html">StackIteratingFinder</a></span> <span class="k">where</span> <span class="kt">VC</span> <span class="p">:</span> <span class="kt"><a href="Protocols/ContextChecking.html">ContextChecking</a></span><span class="p">,</span> <span class="kt">C</span> <span class="o">==</span> <span class="kt">VC</span><span class="o">.</span><span class="kt">Context</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer15ContextCheckingP"></a>
+                    <a name="//apple_ref/swift/Protocol/ContextChecking" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer15ContextCheckingP">ContextChecking</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><code>UIViewController</code> instance should conform to this protocol to be used with <code><a href="Structs/ClassWithContextFinder.html">ClassWithContextFinder</a></code></p>
+
+                        <a href="Protocols/ContextChecking.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">ContextChecking</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
 
                         </div>
                       </div>
@@ -608,8 +678,8 @@ situations. The <code>.wait</code> strategy can be used only as a temporary solu
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><code>DismissalMethodProvidingContextTask</code> allows to provide the way to dismiss the <code>UIViewController</code> using configuration.
-The <code>UIViewController</code> should extend <code><a href="Protocols/Dismissible.html">Dismissible</a></code> protocol and call <code><a href="Protocols/Dismissible.html#/s:13RouteComposer11DismissiblePAAE21dismissViewController4with8animated10completiony22DismissalTargetContextQz_SbyAA13RoutingResultOcSgtF">Dismissible.dismissViewController(...)</a></code> method
+                        <p><code>DismissalMethodProvidingContextTask</code> allows to provide the way to dismiss the <code>UIViewController</code> using a preset configuration.
+The <code>UIViewController</code> should conform to <code><a href="Protocols/Dismissible.html">Dismissible</a></code> protocol and call <code><a href="Protocols/Dismissible.html#/s:13RouteComposer11DismissiblePAAE21dismissViewController4with8animated10completiony22DismissalTargetContextQz_SbyAA13RoutingResultOcSgtF">Dismissible.dismissViewController(...)</a></code> method
 when it needs to be dismissed to trigger the dismissal process implemented in <code><a href="Structs/DismissalMethodProvidingContextTask.html#/s:13RouteComposer35DismissalMethodProvidingContextTaskV14dismissalBlockACyxq_Gy0c6TargetF0Qz_SbyAA13RoutingResultOcSgtc_tcfc">DismissalMethodProvidingContextTask.init(...)</a></code>
 constructor.</p>
 
@@ -661,9 +731,9 @@ constructor.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer33DismissibleWithObjCRuntimeStorageP"></a>
-                    <a name="//apple_ref/swift/Protocol/DismissibleWithObjCRuntimeStorage" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer33DismissibleWithObjCRuntimeStorageP">DismissibleWithObjCRuntimeStorage</a>
+                    <a name="/s:13RouteComposer29DismissibleWithRuntimeStorageP"></a>
+                    <a name="//apple_ref/swift/Protocol/DismissibleWithRuntimeStorage" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer29DismissibleWithRuntimeStorageP">DismissibleWithRuntimeStorage</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -671,83 +741,16 @@ constructor.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><code>DismissibleWithObjCRuntimeStorage</code> simplifies <code><a href="Protocols/Dismissible.html">Dismissible</a></code> protocol conformance implementing required
+                        <p><code>DismissibleWithRuntimeStorage</code> simplifies <code><a href="Protocols/Dismissible.html">Dismissible</a></code> protocol conformance implementing required
 <code>dismissalBlock</code> using Objective C runtime.</p>
 
-                        <a href="Protocols/DismissibleWithObjCRuntimeStorage.html" class="slightly-smaller">See more</a>
+                        <a href="Protocols/DismissibleWithRuntimeStorage.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">DismissibleWithObjCRuntimeStorage</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Dismissible.html">Dismissible</a></span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:13RouteComposer22ClassWithContextFinderV"></a>
-                    <a name="//apple_ref/swift/Struct/ClassWithContextFinder" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer22ClassWithContextFinderV">ClassWithContextFinder</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>A default implementation of the view controllers finder, that searches for a view controller by its name
-and its <code>Context</code> instance.</p>
-
-<p>The view controller should extend the <code><a href="Protocols/ContextChecking.html">ContextChecking</a></code> to be used with this finder.</p>
-
-                        <a href="Structs/ClassWithContextFinder.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ClassWithContextFinder</span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Protocols/StackIteratingFinder.html">StackIteratingFinder</a></span> <span class="k">where</span> <span class="kt">VC</span> <span class="p">:</span> <span class="kt"><a href="Protocols/ContextChecking.html">ContextChecking</a></span><span class="p">,</span> <span class="kt">C</span> <span class="o">==</span> <span class="kt">VC</span><span class="o">.</span><span class="kt">Context</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:13RouteComposer15ContextCheckingP"></a>
-                    <a name="//apple_ref/swift/Protocol/ContextChecking" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer15ContextCheckingP">ContextChecking</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p><code>UIViewController</code> instance should extend this protocol to be used with <code><a href="Structs/ClassWithContextFinder.html">ClassWithContextFinder</a></code></p>
-
-                        <a href="Protocols/ContextChecking.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">ContextChecking</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">DismissibleWithRuntimeStorage</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Dismissible.html">Dismissible</a></span></code></pre>
 
                         </div>
                       </div>
@@ -759,7 +762,7 @@ and its <code>Context</code> instance.</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2019-03-20)</p>
+          <p>&copy; 2019 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2019-03-23)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

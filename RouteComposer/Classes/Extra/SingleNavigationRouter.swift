@@ -6,7 +6,7 @@
 import Foundation
 
 /// Lock object to be shared between `SingleNavigationRouter` instances.
-public class SingleNavigationLock {
+public final class SingleNavigationLock {
 
     private var isNavigationInProgressFlag = false
 
@@ -33,9 +33,9 @@ public class SingleNavigationLock {
 ///
 /// It is useful to avoid situations when the application can not control the amount of navigations
 /// (for example, navigations triggered by push notifications)
-public struct SingleNavigationRouter<ROUTER>: Router where ROUTER: Router {
+public struct SingleNavigationRouter<R>: Router where R: Router {
 
-    var router: ROUTER
+    var router: R
 
     let lock: SingleNavigationLock
 
@@ -44,7 +44,7 @@ public struct SingleNavigationRouter<ROUTER>: Router where ROUTER: Router {
     /// - Parameters:
     ///   - router: `Router` instance to proxy.
     ///   - lock: Shared `SingleNavigationLock` instance.
-    public init(router: ROUTER, lock: SingleNavigationLock) {
+    public init(router: R, lock: SingleNavigationLock) {
         self.router = router
         self.lock = lock
     }
@@ -70,9 +70,9 @@ public struct SingleNavigationRouter<ROUTER>: Router where ROUTER: Router {
 
 }
 
-extension SingleNavigationRouter: InterceptableRouter where ROUTER: InterceptableRouter {
+extension SingleNavigationRouter: InterceptableRouter where R: InterceptableRouter {
 
-    public mutating func add<R: RoutingInterceptor>(_ interceptor: R) where R.Context == Any? {
+    public mutating func add<RI: RoutingInterceptor>(_ interceptor: RI) where RI.Context == Any? {
         router.add(interceptor)
     }
 
@@ -80,7 +80,7 @@ extension SingleNavigationRouter: InterceptableRouter where ROUTER: Interceptabl
         router.add(contextTask)
     }
 
-    public mutating func add<P: PostRoutingTask>(_ postTask: P) where P.Context == Any? {
+    public mutating func add<PT: PostRoutingTask>(_ postTask: PT) where PT.Context == Any? {
         router.add(postTask)
     }
 

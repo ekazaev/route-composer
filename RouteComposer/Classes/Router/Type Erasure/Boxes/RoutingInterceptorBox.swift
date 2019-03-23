@@ -1,22 +1,22 @@
 //
-// Created by ekazaev on 2019-02-27.
+// Created by Eugene Kazaev on 2019-02-27.
 //
 
 import Foundation
 
-struct RoutingInterceptorBox<R: RoutingInterceptor>: AnyRoutingInterceptor, PreparableEntity, CustomStringConvertible, MainThreadChecking {
+struct RoutingInterceptorBox<RI: RoutingInterceptor>: AnyRoutingInterceptor, PreparableEntity, CustomStringConvertible, MainThreadChecking {
 
-    var routingInterceptor: R
+    var routingInterceptor: RI
 
     var isPrepared = false
 
-    init(_ routingInterceptor: R) {
+    init(_ routingInterceptor: RI) {
         self.routingInterceptor = routingInterceptor
     }
 
     mutating func prepare(with context: Any?) throws {
-        guard let typedDestination = Any?.some(context as Any) as? R.Context else {
-            throw RoutingError.typeMismatch(R.Context.self, .init("\(String(describing: routingInterceptor.self)) does " +
+        guard let typedDestination = Any?.some(context as Any) as? RI.Context else {
+            throw RoutingError.typeMismatch(RI.Context.self, .init("\(String(describing: routingInterceptor.self)) does " +
                     "not accept \(String(describing: context.self)) as a context."))
         }
 
@@ -25,8 +25,8 @@ struct RoutingInterceptorBox<R: RoutingInterceptor>: AnyRoutingInterceptor, Prep
     }
 
     func execute(with context: Any?, completion: @escaping (InterceptorResult) -> Void) {
-        guard let typedDestination = Any?.some(context as Any) as? R.Context else {
-            completion(.failure(RoutingError.typeMismatch(R.Context.self, .init("\(String(describing: routingInterceptor.self)) does " +
+        guard let typedDestination = Any?.some(context as Any) as? RI.Context else {
+            completion(.failure(RoutingError.typeMismatch(RI.Context.self, .init("\(String(describing: routingInterceptor.self)) does " +
                     "not accept \(String(describing: context.self)) as a context."))))
             return
         }

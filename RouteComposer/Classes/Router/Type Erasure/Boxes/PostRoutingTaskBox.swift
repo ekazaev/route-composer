@@ -1,26 +1,26 @@
 //
-// Created by ekazaev on 2019-02-27.
+// Created by Eugene Kazaev on 2019-02-27.
 //
 
 import Foundation
 
-struct PostRoutingTaskBox<P: PostRoutingTask>: AnyPostRoutingTask, MainThreadChecking, CustomStringConvertible {
+struct PostRoutingTaskBox<PT: PostRoutingTask>: AnyPostRoutingTask, MainThreadChecking, CustomStringConvertible {
 
-    let postRoutingTask: P
+    let postRoutingTask: PT
 
-    init(_ postRoutingTask: P) {
+    init(_ postRoutingTask: PT) {
         self.postRoutingTask = postRoutingTask
     }
 
     func execute(on viewController: UIViewController,
                  with context: Any?,
                  routingStack: [UIViewController]) throws {
-        guard let typedViewController = viewController as? P.ViewController else {
-            throw RoutingError.typeMismatch(P.ViewController.self, .init("\(String(describing: postRoutingTask.self)) does not support" +
+        guard let typedViewController = viewController as? PT.ViewController else {
+            throw RoutingError.typeMismatch(PT.ViewController.self, .init("\(String(describing: postRoutingTask.self)) does not support" +
                     " \(String(describing: viewController.self))."))
         }
-        guard let typedDestination = Any?.some(context as Any) as? P.Context else {
-            throw RoutingError.typeMismatch(P.Context.self, .init("\(String(describing: postRoutingTask.self)) does not accept" +
+        guard let typedDestination = Any?.some(context as Any) as? PT.Context else {
+            throw RoutingError.typeMismatch(PT.Context.self, .init("\(String(describing: postRoutingTask.self)) does not accept" +
                     "  \(String(describing: context.self)) as a context."))
         }
         assertIfNotMainThread()

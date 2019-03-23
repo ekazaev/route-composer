@@ -2,7 +2,7 @@
 //  ExtrasTest.swift
 //  RouteComposer_Tests
 //
-//  Created by ekazaev on 12/03/2019.
+//  Created by Eugene Kazaev on 12/03/2019.
 //  Copyright © 2019 HBC Digital. All rights reserved.
 //
 
@@ -46,7 +46,7 @@ class ExtrasTest: XCTestCase {
 
     }
 
-    func testSimultaniusNavigation() {
+    func testSimultaneousNavigation() {
         let currentViewController = RouterTests.TestModalPresentableController()
         let screenConfig = StepAssembly(finder: ClassFinder(), factory: RouterTests.TestViewControllerFactory())
                 .adding(InlinePostTask({ (_: RouterTests.TestViewController, _: Any?, viewControllers: [UIViewController]) in
@@ -112,8 +112,8 @@ class ExtrasTest: XCTestCase {
         XCTAssertEqual(wasInCompletion, true)
     }
 
-    func testDismissibleWithObjCRuntimeStorage() {
-        class DismissingViewController: UIViewController, DismissibleWithObjCRuntimeStorage {
+    func testDismissibleWithRuntimeStorage() {
+        class DismissingViewController: UIViewController, DismissibleWithRuntimeStorage {
             typealias DismissalTargetContext = Void
         }
 

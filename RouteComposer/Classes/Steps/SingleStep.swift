@@ -7,14 +7,16 @@ import UIKit
 
 /// A simple class that produces an intermediate `ActionToStepIntegrator` describing any view controller.
 public final class SingleStep<F: Finder, FC: Factory>: ActionToStepIntegrator<F.ViewController, F.Context>
-        where F.ViewController == FC.ViewController, F.Context == FC.Context {
+        where
+        F.ViewController == FC.ViewController, F.Context == FC.Context {
 
     let finder: F
 
     let factory: FC
 
     final class UnsafeWrapper<VC: UIViewController, C, F: Finder, FC: Factory>: ActionToStepIntegrator<VC, C>
-            where F.ViewController == FC.ViewController, F.Context == FC.Context {
+            where
+            F.ViewController == FC.ViewController, F.Context == FC.Context {
 
         let step: SingleStep<F, FC>
 

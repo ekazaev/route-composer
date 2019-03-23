@@ -6,7 +6,7 @@
 import Foundation
 import UIKit
 
-/// An instance that extends the `Finder` protocol will be used by the `Router` to find out if some `UIViewController`
+/// An instance that conforms to the `Finder` protocol will be used by the `Router` to find out if some `UIViewController`
 /// instance is integrated into the view controller stack
 public protocol Finder {
 

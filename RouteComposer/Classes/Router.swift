@@ -25,7 +25,6 @@ public protocol Router {
 
 public extension Router {
 
-
     /// Navigates an application to the view controller configured in `DestinationStep` with the `Context` set to `Any?`.
     ///
     /// - Parameters:

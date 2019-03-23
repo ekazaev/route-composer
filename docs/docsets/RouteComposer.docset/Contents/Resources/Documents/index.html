@@ -215,13 +215,19 @@
                 <a href="Structs/SingleNavigationRouter.html">SingleNavigationRouter</a>
               </li>
               <li class="nav-group-task">
+                <a href="Structs/PresentingFinder.html">PresentingFinder</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Structs/ContextSettingTask.html">ContextSettingTask</a>
               </li>
               <li class="nav-group-task">
                 <a href="Protocols/ContextAccepting.html">ContextAccepting</a>
               </li>
               <li class="nav-group-task">
-                <a href="Structs/PresentingFinder.html">PresentingFinder</a>
+                <a href="Structs/ClassWithContextFinder.html">ClassWithContextFinder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/ContextChecking.html">ContextChecking</a>
               </li>
               <li class="nav-group-task">
                 <a href="Structs/DismissalMethodProvidingContextTask.html">DismissalMethodProvidingContextTask</a>
@@ -230,19 +236,16 @@
                 <a href="Protocols/Dismissible.html">Dismissible</a>
               </li>
               <li class="nav-group-task">
-                <a href="Protocols/DismissibleWithObjCRuntimeStorage.html">DismissibleWithObjCRuntimeStorage</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Structs/ClassWithContextFinder.html">ClassWithContextFinder</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Protocols/ContextChecking.html">ContextChecking</a>
+                <a href="Protocols/DismissibleWithRuntimeStorage.html">DismissibleWithRuntimeStorage</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
             <a href="Other Guides.html">Other Guides</a>
             <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="contributing.html">CONTRIBUTING</a>
+              </li>
               <li class="nav-group-task">
                 <a href="examples.html">EXAMPLES</a>
               </li>
@@ -425,7 +428,7 @@
 <a href="http://cocoapods.org/pods/RouteComposer"><img src="https://img.shields.io/cocoapods/v/RouteComposer.svg?style=flat" alt="Cocoapods"></a>
 <a href="https://github.com/Carthage/Carthage"><img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat" alt="Carthage compatible"></a>
 <a href="https://developer.apple.com/swift"><img src="https://img.shields.io/badge/language-Swift4.2-orange.svg?style=flat" alt="Swift 4.2"></a>
-<a href="http://cocoapods.org/pods/RouteComposer"><img src="https://img.shields.io/badge/platform-iOS-yellow.svg" alt="Platform iOS"></a>
+<a href="https://www.apple.com/ios"><img src="https://img.shields.io/badge/platform-iOS-yellow.svg" alt="Platform iOS"></a>
 <a href="https://saksdirect.github.io/route-composer"><img src="https://saksdirect.github.io/route-composer/badge.svg" alt="Documentation"></a>
 <a href="https://github.com/saksdirect/RouteComposer/blob/master/LICENSE"><img src="https://img.shields.io/cocoapods/l/RouteComposer.svg?style=flat" alt="MIT License"></a>
 <a href="https://twitter.com/intent/tweet?text=Check%20it%20out:&url=https%3A%2F%2Fgithub.com%2Fsaksdirect%2Froute-composer"><img src="https://img.shields.io/twitter/url/https/github.com/saksdirect/route-composer.svg?style=flat" alt="Twitter"></a></p>
@@ -539,7 +542,7 @@ handled, in which case the application might open the provided URL in Safari ins
 <h4 id='2-finder' class='heading'>2. Finder</h4>
 
 <p>Finder helps router to <strong>find out if a particular view controller is already present</strong> in view controller stack. All the finder instances
-should extend <code><a href="Protocols/Finder.html">Finder</a></code> protocol.</p>
+should conform to <code><a href="Protocols/Finder.html">Finder</a></code> protocol.</p>
 <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">Finder</span> <span class="p">{</span>
 
     <span class="kd">associatedtype</span> <span class="kt">ViewController</span><span class="p">:</span> <span class="kt">UIViewController</span>
@@ -776,7 +779,7 @@ The library does not break the rules of VIPER or MVVM architectural patterns and
 <p>RouteComposer is in active development, and we welcome your contributions.</p>
 
 <p>If you’d like to contribute to this repo, please
-read <a href="https://github.com/gilt/Cleanroom#contributing-to-the-cleanroom-project">the contribution guidelines</a>.</p>
+read <a href="https://github.com/saksdirect/route-composer/blob/master/CONTRIBUTING.md">the contribution guidelines</a>.</p>
 <h2 id='license' class='heading'>License</h2>
 
 <p>RouteComposer is distributed under <a href="https://github.com/saksdirect/RouteComposer/blob/master/LICENSE">the MIT license</a>.</p>
@@ -805,7 +808,7 @@ apologies. <em>Caveat developer.</em></p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2019-03-20)</p>
+          <p>&copy; 2019 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2019-03-23)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

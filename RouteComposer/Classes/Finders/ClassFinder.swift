@@ -33,7 +33,7 @@ public extension ClassFinder {
     /// Parameters
     ///   - options: A combination of the `SearchOptions`
     ///   - startingPoint: `DefaultStackIterator.StartingPoint` value
-    public init(options: SearchOptions, startingPoint: DefaultStackIterator.StartingPoint = .topmost) {
+    init(options: SearchOptions, startingPoint: DefaultStackIterator.StartingPoint = .topmost) {
         self.iterator = DefaultStackIterator(options: options, startingPoint: startingPoint)
     }
 

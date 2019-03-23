@@ -19,7 +19,7 @@ protocol InterceptableStepAssembling {
     ///
     /// - Parameter interceptor: The `RoutingInterceptor` instance to be executed by `Router` before the navigation process
     ///   to this step.
-    func adding<R: RoutingInterceptor>(_ interceptor: R) -> Self where R.Context == Context
+    func adding<RI: RoutingInterceptor>(_ interceptor: RI) -> Self where RI.Context == Context
 
     /// Adds `ContextTask` instance
     ///
@@ -31,6 +31,6 @@ protocol InterceptableStepAssembling {
     /// This action does not contain type safety checks to avoid complications.
     ///
     /// - Parameter postTask: The `PostRoutingTask` instance to be executed by a `Router` after the navigation process.
-    func adding<P: PostRoutingTask>(_ postTask: P) -> Self where P.Context == Context
+    func adding<PT: PostRoutingTask>(_ postTask: PT) -> Self where PT.Context == Context
 
 }

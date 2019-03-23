@@ -101,14 +101,14 @@ class RouteComposerExampleUITests: XCTestCase {
         // Apple uses same technique http://cleanswifter.com/asynchronous-xcode-ui-testing/
         XCTAssertTrue(app.otherElements["cityDetailsViewController+2"].exists)
 
-        app.buttons["Back programmaticaly"].tap()
+        app.buttons["Back programmatically"].tap()
         sleep(1)
         XCTAssertTrue(app.otherElements["citiesSplitViewController"].exists)
 
         self.app.tables.cells.element(boundBy: 5).tap()
         XCTAssertTrue(app.otherElements["cityDetailsViewController+6"].exists)
 
-        app.buttons["Back programmaticaly"].tap()
+        app.buttons["Back programmatically"].tap()
         sleep(1)
         XCTAssertTrue(app.otherElements["citiesSplitViewController"].exists)
 
@@ -250,7 +250,7 @@ class RouteComposerExampleUITests: XCTestCase {
         app.terminate()
     }
 
-    func testDenieLoginScreenAndReturnHome() {
+    func testCancelLoginScreenAndReturnHome() {
         app.launch()
         XCTAssertTrue(app.otherElements["promptViewController"].exists)
         app.buttons["Continue"].tap()
@@ -336,7 +336,7 @@ class RouteComposerExampleUITests: XCTestCase {
         app.textFields["passwordTextField"].typeText("abc")
 
         app.buttons["Login"].tap()
-        sleep(3)
+        sleep(4)
         XCTAssertTrue(app.otherElements["starViewController"].exists)
 
         app.buttons["Go to Product 02"].tap()

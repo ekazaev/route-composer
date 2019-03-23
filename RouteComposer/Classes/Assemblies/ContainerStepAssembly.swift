@@ -16,7 +16,8 @@ import UIKit
 ///         .assemble()
 /// ```
 public final class ContainerStepAssembly<F: Finder, FC: ContainerFactory>: GenericStepAssembly<F.ViewController, F.Context>, ActionConnecting
-        where F.ViewController == FC.ViewController, F.Context == FC.Context {
+        where
+        F.ViewController == FC.ViewController, F.Context == FC.Context {
 
     let finder: F
 

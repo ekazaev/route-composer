@@ -15,7 +15,8 @@ public class SingleContainerStep<F: Finder, FC: ContainerFactory>: ActionToStepI
     let factory: FC
 
     final class UnsafeWrapper<VC: UIViewController, C, F: Finder, FC: ContainerFactory>: ActionToStepIntegrator<VC, C>
-            where F.ViewController == FC.ViewController, F.Context == FC.Context {
+            where
+            F.ViewController == FC.ViewController, F.Context == FC.Context {
 
         let step: SingleContainerStep<F, FC>
 

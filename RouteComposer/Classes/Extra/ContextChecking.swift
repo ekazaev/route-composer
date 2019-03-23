@@ -6,7 +6,7 @@
 import Foundation
 import UIKit
 
-/// `UIViewController` instance should extend this protocol to be used with `ClassWithContextFinder`
+/// `UIViewController` instance should conform to this protocol to be used with `ClassWithContextFinder`
 public protocol ContextChecking where Self: UIViewController {
 
     /// The context type associated with a `ContextChecking` `UIViewController`

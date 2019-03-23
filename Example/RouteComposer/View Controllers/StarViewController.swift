@@ -28,7 +28,7 @@ class StarViewController: UIViewController, ExampleAnalyticsSupport {
 
     @IBAction func dismissStarTapped() {
         var viewControllers = self.tabBarController?.viewControllers
-        if let index = viewControllers?.index(where: { $0 === self }) {
+        if let index = viewControllers?.firstIndex(of: self) {
             viewControllers?.remove(at: index)
             self.tabBarController?.setViewControllers(viewControllers, animated: true)
         }

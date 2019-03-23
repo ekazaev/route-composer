@@ -81,11 +81,11 @@ custom_categories:
     children:
       - NavigationDelayingInterceptor
       - SingleNavigationRouter
+      - PresentingFinder
       - ContextSettingTask
       - ContextAccepting
-      - PresentingFinder
-      - DismissalMethodProvidingContextTask
-      - Dismissible
-      - DismissibleWithObjCRuntimeStorage
       - ClassWithContextFinder
       - ContextChecking
+      - DismissalMethodProvidingContextTask
+      - Dismissible
+      - DismissibleWithRuntimeStorage

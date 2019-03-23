@@ -11,7 +11,7 @@ public protocol InterceptableRouter: Router {
     /// Adds `RoutingInterceptor` instance
     ///
     /// - Parameter interceptor: The `RoutingInterceptor` instance to be executed by `Router` before routing to this step.
-    mutating func add<R: RoutingInterceptor>(_ interceptor: R) where R.Context == Any?
+    mutating func add<RI: RoutingInterceptor>(_ interceptor: RI) where RI.Context == Any?
 
     /// Adds ContextTask instance
     ///
@@ -22,6 +22,6 @@ public protocol InterceptableRouter: Router {
     /// Adds PostRoutingTask instance
     ///
     /// - Parameter postTask: The `PostRoutingTask` instance to be executed by a `Router` after routing to this step.
-    mutating func add<P: PostRoutingTask>(_ postTask: P) where P.Context == Any?
+    mutating func add<PT: PostRoutingTask>(_ postTask: PT) where PT.Context == Any?
 
 }

@@ -5,7 +5,7 @@
 import Foundation
 import UIKit
 
-/// An assembly that extends this protocol should be able to connect an action to its step.
+/// An assembly that conforms to this protocol should be able to connect an action to its step.
 public protocol ActionConnecting {
 
     /// Associated type of the `UIViewController`

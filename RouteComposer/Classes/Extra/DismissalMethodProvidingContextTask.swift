@@ -6,8 +6,8 @@
 import Foundation
 import UIKit
 
-/// `DismissalMethodProvidingContextTask` allows to provide the way to dismiss the `UIViewController` using configuration.
-/// The `UIViewController` should extend `Dismissible` protocol and call `Dismissible.dismissViewController(...)` method
+/// `DismissalMethodProvidingContextTask` allows to provide the way to dismiss the `UIViewController` using a preset configuration.
+/// The `UIViewController` should conform to `Dismissible` protocol and call `Dismissible.dismissViewController(...)` method
 /// when it needs to be dismissed to trigger the dismissal process implemented in `DismissalMethodProvidingContextTask.init(...)`
 /// constructor.
 public struct DismissalMethodProvidingContextTask<VC: Dismissible, C>: ContextTask {
@@ -16,7 +16,7 @@ public struct DismissalMethodProvidingContextTask<VC: Dismissible, C>: ContextTa
 
     /// Constructor
     ///
-    /// - Parameter dismissalBlock: Block that will trigger the dismissal proces when `Dismissible` `UIViewController` calls
+    /// - Parameter dismissalBlock: Block that will trigger the dismissal process when `Dismissible` `UIViewController` calls
     ///    `Dismissible.dismissViewController(...)` method.
     public init(dismissalBlock: @escaping (_: VC.DismissalTargetContext, _: Bool, _: ((_: RoutingResult) -> Void)?) -> Void) {
         self.dismissalBlock = dismissalBlock

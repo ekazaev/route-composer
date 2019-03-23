@@ -5,7 +5,7 @@
 [![Cocoapods](https://img.shields.io/cocoapods/v/RouteComposer.svg?style=flat)](http://cocoapods.org/pods/RouteComposer)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Swift 4.2](https://img.shields.io/badge/language-Swift4.2-orange.svg?style=flat)](https://developer.apple.com/swift)
-[![Platform iOS](https://img.shields.io/badge/platform-iOS-yellow.svg)](http://cocoapods.org/pods/RouteComposer)
+[![Platform iOS](https://img.shields.io/badge/platform-iOS-yellow.svg)](https://www.apple.com/ios)
 [![Documentation](https://saksdirect.github.io/route-composer/badge.svg)](https://saksdirect.github.io/route-composer)
 [![MIT License](https://img.shields.io/cocoapods/l/RouteComposer.svg?style=flat)](https://github.com/saksdirect/RouteComposer/blob/master/LICENSE)
 [![Twitter](https://img.shields.io/twitter/url/https/github.com/saksdirect/route-composer.svg?style=flat)](https://twitter.com/intent/tweet?text=Check%20it%20out:&url=https%3A%2F%2Fgithub.com%2Fsaksdirect%2Froute-composer)
@@ -125,7 +125,7 @@ class ProductViewControllerFactory: Factory {
 #### 2. Finder
 
 Finder helps router to **find out if a particular view controller is already present** in view controller stack. All the finder instances
-should extend `Finder` protocol.
+should conform to `Finder` protocol.
 
 ```swift
 public protocol Finder {
@@ -386,7 +386,7 @@ You can find more configuration examples [here](https://saksdirect.github.io/rou
 RouteComposer is in active development, and we welcome your contributions.
 
 If you’d like to contribute to this repo, please
-read [the contribution guidelines](https://github.com/gilt/Cleanroom#contributing-to-the-cleanroom-project).
+read [the contribution guidelines](https://github.com/saksdirect/route-composer/blob/master/CONTRIBUTING.md).
 
 ## License
 

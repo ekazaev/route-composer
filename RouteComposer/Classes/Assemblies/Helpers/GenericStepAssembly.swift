@@ -19,7 +19,7 @@ public class GenericStepAssembly<VC: UIViewController, C>: InterceptableStepAsse
     ///
     /// - Parameter interceptor: The `RoutingInterceptor` instance to be executed by `Router` before the navigation process
     ///   to this step.
-    public final func adding<R: RoutingInterceptor>(_ interceptor: R) -> Self where R.Context == Context {
+    public final func adding<RI: RoutingInterceptor>(_ interceptor: RI) -> Self where RI.Context == Context {
         taskCollector.add(interceptor)
         return self
     }
@@ -39,7 +39,7 @@ public class GenericStepAssembly<VC: UIViewController, C>: InterceptableStepAsse
     /// This action does not contain type safety checks to avoid complications.
     ///
     /// - Parameter postTask: The `PostRoutingTask` instance to be executed by a `Router` after the navigation process.
-    public final func adding<P: PostRoutingTask>(_ postTask: P) -> Self where P.Context == Context {
+    public final func adding<PT: PostRoutingTask>(_ postTask: PT) -> Self where PT.Context == Context {
         taskCollector.add(postTask)
         return self
     }

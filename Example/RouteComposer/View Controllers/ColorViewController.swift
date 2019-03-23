@@ -32,7 +32,7 @@ class ColorViewControllerFactory: Factory {
 
 }
 
-class ColorViewController: UIViewController, DismissibleWithObjCRuntimeStorage, ExampleAnalyticsSupport {
+class ColorViewController: UIViewController, DismissibleWithRuntimeStorage, ExampleAnalyticsSupport {
 
     typealias DismissalTargetContext = Void
 

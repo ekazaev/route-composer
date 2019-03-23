@@ -1,10 +1,10 @@
-platform :ios, '10.3'
+platform :ios, '9.3'
 use_frameworks!
 
 target 'RouteComposer_Example' do
   pod 'RouteComposer', :path => '../'
 
   target 'RouteComposer_Tests' do
-    inherit! :search_paths
+    pod 'RouteComposer', :path => '../'
   end
 end

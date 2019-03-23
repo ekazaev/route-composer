@@ -16,9 +16,9 @@ import UIKit
 /// *NB: Order matters here*
 public final class CompleteFactoryAssembly<FC: ContainerFactory> {
 
-    private struct AddAction<C: ContainerFactory>: ContainerAction {
+    private struct AddAction<FC: ContainerFactory>: ContainerAction {
 
-        func perform(with viewController: UIViewController, on existingController: C.ViewController, animated: Bool, completion: @escaping (ActionResult) -> Void) {
+        func perform(with viewController: UIViewController, on existingController: FC.ViewController, animated: Bool, completion: @escaping (ActionResult) -> Void) {
             assertionFailure("Should never be called")
         }
 
@@ -45,13 +45,13 @@ public final class CompleteFactoryAssembly<FC: ContainerFactory> {
     /// - Parameters:
     ///   - childFactory: The instance of `Factory`.
     ///   - action: The instance of `Factory` to be used to integrate the view controller produced by the factory.
-    public func with<CFC: Factory, A: ContainerAction>(_ childFactory: CFC, using action: A) -> Self
+    public func with<ChildFC: Factory, A: ContainerAction>(_ childFactory: ChildFC, using action: A) -> Self
             where
-            CFC.Context == FC.Context, A.ViewController == FC.ViewController {
+            ChildFC.Context == FC.Context, A.ViewController == FC.ViewController {
         guard let factoryBox = FactoryBox(childFactory, action: ContainerActionBox(action)) else {
             return self
         }
-        childFactories.append(DelayedIntegrationFactory<CFC.Context>(factoryBox))
+        childFactories.append(DelayedIntegrationFactory<ChildFC.Context>(factoryBox))
         return self
     }
 
@@ -60,14 +60,14 @@ public final class CompleteFactoryAssembly<FC: ContainerFactory> {
     /// - Parameters:
     ///   - childFactory: The instance of `ContainerFactory`.
     ///   - action: The instance of `ContainerFactory` to be used to integrate the view controller produced by the factory.
-    public func with<CFC: ContainerFactory, A: ContainerAction>(_ childContainer: CFC, using action: A) -> Self
+    public func with<ChildFC: ContainerFactory, A: ContainerAction>(_ childContainer: ChildFC, using action: A) -> Self
             where
-            CFC.Context == FC.Context, A.ViewController == FC.ViewController {
+            ChildFC.Context == FC.Context, A.ViewController == FC.ViewController {
         guard let factoryBox = ContainerFactoryBox(childContainer, action: ContainerActionBox(action)) else {
             return self
         }
 
-        childFactories.append(DelayedIntegrationFactory<CFC.Context>(factoryBox))
+        childFactories.append(DelayedIntegrationFactory<ChildFC.Context>(factoryBox))
         return self
     }
 
@@ -75,11 +75,11 @@ public final class CompleteFactoryAssembly<FC: ContainerFactory> {
     ///
     /// - Parameters:
     ///   - childFactory: The instance of `Factory`.
-    public func with<CFC: Factory>(_ childFactory: CFC) -> Self where CFC.Context == FC.Context {
+    public func with<ChildFC: Factory>(_ childFactory: ChildFC) -> Self where ChildFC.Context == FC.Context {
         guard let factoryBox = FactoryBox(childFactory, action: ContainerActionBox(AddAction<FC>())) else {
             return self
         }
-        childFactories.append(DelayedIntegrationFactory<CFC.Context>(factoryBox))
+        childFactories.append(DelayedIntegrationFactory<ChildFC.Context>(factoryBox))
         return self
     }
 
@@ -87,12 +87,12 @@ public final class CompleteFactoryAssembly<FC: ContainerFactory> {
     ///
     /// - Parameters:
     ///   - childFactory: The instance of `ContainerFactory`.
-    public func with<CFC: ContainerFactory>(_ childContainer: CFC) -> Self where CFC.Context == FC.Context {
+    public func with<ChildFC: ContainerFactory>(_ childContainer: ChildFC) -> Self where ChildFC.Context == FC.Context {
         guard let factoryBox = ContainerFactoryBox(childContainer, action: ContainerActionBox(AddAction<FC>())) else {
             return self
         }
 
-        childFactories.append(DelayedIntegrationFactory<CFC.Context>(factoryBox))
+        childFactories.append(DelayedIntegrationFactory<ChildFC.Context>(factoryBox))
         return self
     }
 
@@ -100,8 +100,7 @@ public final class CompleteFactoryAssembly<FC: ContainerFactory> {
     ///
     /// - Returns: The `CompleteFactory` with child factories provided.
     public func assemble() -> CompleteFactory<FC> {
-        let completeFactory = CompleteFactory(factory: factory, childFactories: childFactories)
-        return completeFactory
+        return CompleteFactory(factory: factory, childFactories: childFactories)
     }
 
 }

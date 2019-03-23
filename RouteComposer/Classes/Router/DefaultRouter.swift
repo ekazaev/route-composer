@@ -24,7 +24,7 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
         self.logger = logger
     }
 
-    public mutating func add<R: RoutingInterceptor>(_ interceptor: R) where R.Context == Any? {
+    public mutating func add<RI: RoutingInterceptor>(_ interceptor: RI) where RI.Context == Any? {
         self.interceptors.append(RoutingInterceptorBox(interceptor))
     }
 
@@ -32,7 +32,7 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
         self.contextTasks.append(ContextTaskBox(contextTask))
     }
 
-    public mutating func add<P: PostRoutingTask>(_ postTask: P) where P.Context == Any? {
+    public mutating func add<PT: PostRoutingTask>(_ postTask: PT) where PT.Context == Any? {
         self.postTasks.append(PostRoutingTaskBox(postTask))
     }
 

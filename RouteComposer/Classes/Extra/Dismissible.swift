@@ -65,12 +65,12 @@ public extension Dismissible where DismissalTargetContext == Void {
 
 }
 
-/// `DismissibleWithObjCRuntimeStorage` simplifies `Dismissible` protocol conformance implementing required
+/// `DismissibleWithRuntimeStorage` simplifies `Dismissible` protocol conformance implementing required
 /// `dismissalBlock` using Objective C runtime.
-public protocol DismissibleWithObjCRuntimeStorage: Dismissible {
+public protocol DismissibleWithRuntimeStorage: Dismissible {
 }
 
-public extension DismissibleWithObjCRuntimeStorage {
+public extension DismissibleWithRuntimeStorage {
 
     var dismissalBlock: ((_: DismissalTargetContext, _: Bool, _: ((_: RoutingResult) -> Void)?) -> Void)? {
         get {

@@ -8,7 +8,7 @@ import UIKit
 /// A default implementation of the view controllers finder, that searches for a view controller by its name
 /// and its `Context` instance.
 ///
-/// The view controller should extend the `ContextChecking` to be used with this finder.
+/// The view controller should conform to the `ContextChecking` to be used with this finder.
 public struct ClassWithContextFinder<VC: ContextChecking, C>: StackIteratingFinder where VC.Context == C {
 
     /// A `StackIterator` is to be used by `ClassWithContextFinder`
@@ -35,7 +35,7 @@ public extension ClassWithContextFinder {
     /// Parameters
     ///   - options: A combination of the `SearchOptions`
     ///   - startingPoint: `DefaultStackIterator.StartingPoint` value
-    public init(options: SearchOptions, startingPoint: DefaultStackIterator.StartingPoint = .topmost) {
+    init(options: SearchOptions, startingPoint: DefaultStackIterator.StartingPoint = .topmost) {
         self.iterator = DefaultStackIterator(options: options, startingPoint: startingPoint)
     }
 
