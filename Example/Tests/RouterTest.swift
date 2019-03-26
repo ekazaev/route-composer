@@ -55,6 +55,11 @@ class RouterTests: XCTestCase {
 
     // Factory that produces TestViewController
     struct TestViewControllerFactory: Factory {
+        
+        typealias ViewController = TestViewController
+        
+        typealias Context = Any?
+        
 
         typealias ViewController = TestViewController
 
