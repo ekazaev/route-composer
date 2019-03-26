@@ -7,6 +7,7 @@
 [![Swift 4.2](https://img.shields.io/badge/language-Swift4.2-orange.svg?style=flat)](https://developer.apple.com/swift)
 [![Platform iOS](https://img.shields.io/badge/platform-iOS-yellow.svg)](https://www.apple.com/ios)
 [![Documentation](https://saksdirect.github.io/route-composer/badge.svg)](https://saksdirect.github.io/route-composer)
+![Code coverage](https://img.shields.io/badge/code%20coverage-86%25-green.svg?style=flat)
 [![MIT License](https://img.shields.io/cocoapods/l/RouteComposer.svg?style=flat)](https://github.com/saksdirect/RouteComposer/blob/master/LICENSE)
 [![Twitter](https://img.shields.io/twitter/url/https/github.com/saksdirect/route-composer.svg?style=flat)](https://twitter.com/intent/tweet?text=Check%20it%20out:&url=https%3A%2F%2Fgithub.com%2Fsaksdirect%2Froute-composer)
 
@@ -16,6 +17,14 @@ and deep linking tasks in the iOS application.
 Can be used as the universal replacement for the [Coordinator](https://www.raywenderlich.com/158-coordinator-tutorial-for-ios-getting-started) pattern.
 
 ![](https://habrastorage.org/webt/x7/yt/ll/x7ytllwqwgvgxy2rvtmdwj3qkia.png)
+
+## Important note
+
+**If you are using XCode 10.2, please use the [XCode 10.2 compatibility mode](https://github.com/saksdirect/route-composer/tree/feature/XCode10.2release-compatibilitymode) branch instead to be able to compile the example app.**
+
+**Swift compiler [bug](https://bugs.swift.org/browse/SR-10186) reported.**
+
+Also, you may notice some "*Failed to produce diagnostic for expression; please file a bug report*" messages. However, the project will compile successfully. 
 
 ## Table of contents
 
