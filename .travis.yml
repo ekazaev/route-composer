@@ -11,4 +11,4 @@ before_install:
 - pod install --project-directory=Example
 script:
 - set -o pipefail && xcodebuild test -enableCodeCoverage YES -workspace Example/RouteComposer.xcworkspace -scheme RouteComposer-Example -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone X,OS=12.1' ONLY_ACTIVE_ARCH=NO | xcpretty
-- pod lib lint --allow-warnings
+- pod lib lint

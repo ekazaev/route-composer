@@ -63,7 +63,7 @@ public final class SwitchAssembly<ViewController: UIViewController, Context> {
         }
 
         func resolve<C>(with context: C) -> RoutingStep? {
-            guard let viewController = try? finder?.findViewController(with: context), viewController != nil else {
+            guard (try? finder?.findViewController(with: context)) != nil else {
                 return nil
             }
             return step

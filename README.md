@@ -4,7 +4,7 @@
 [![Release](https://img.shields.io/github/release/saksdirect/route-composer.svg?style=flat&color=darkcyan)](https://github.com/saksdirect/route-composer/releases)
 [![Cocoapods](https://img.shields.io/cocoapods/v/RouteComposer.svg?style=flat)](http://cocoapods.org/pods/RouteComposer)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
-[![Swift 4.2](https://img.shields.io/badge/language-Swift4.2-orange.svg?style=flat)](https://developer.apple.com/swift)
+[![Swift 5.0](https://img.shields.io/badge/language-Swift5.0-orange.svg?style=flat)](https://developer.apple.com/swift)
 [![Platform iOS](https://img.shields.io/badge/platform-iOS-yellow.svg)](https://www.apple.com/ios)
 [![Documentation](https://saksdirect.github.io/route-composer/badge.svg)](https://saksdirect.github.io/route-composer)
 ![Code coverage](https://img.shields.io/badge/code%20coverage-86%25-green.svg?style=flat)
@@ -46,6 +46,12 @@ it, simply add the following line to your Podfile:
 
 ```ruby
 pod 'RouteComposer'
+```
+
+**For XCode 10.1 / Swift 4.2 Support**
+
+```ruby
+pod 'RouteComposer', '~> 1.4'
 ```
 
 And then run `pod install`.
