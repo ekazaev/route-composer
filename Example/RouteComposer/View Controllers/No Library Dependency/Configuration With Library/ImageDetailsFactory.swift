@@ -10,6 +10,10 @@ import ImageDetailsController
 
 class ImageDetailsFactory: Factory {
 
+    typealias ViewController = ImageDetailsViewController
+
+    typealias Context = String
+
     weak var delegate: ImageDetailsControllerDelegate?
 
     init(delegate: ImageDetailsControllerDelegate) {

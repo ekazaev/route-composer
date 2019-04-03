@@ -114,6 +114,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 849D12D1213727220052FD44;
 			productRefGroup = 849D12DC213727220052FD44 /* Products */;

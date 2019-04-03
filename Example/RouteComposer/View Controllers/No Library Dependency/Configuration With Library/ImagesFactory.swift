@@ -10,6 +10,10 @@ import ImagesController
 
 class ImagesFactory: Factory {
 
+    typealias ViewController = ImagesViewController
+
+    typealias Context = Any?
+
     weak var delegate: ImagesControllerDelegate?
 
     init(delegate: ImagesControllerDelegate) {

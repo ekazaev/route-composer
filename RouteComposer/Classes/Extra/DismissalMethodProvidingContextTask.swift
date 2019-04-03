@@ -23,6 +23,7 @@ public struct DismissalMethodProvidingContextTask<VC: Dismissible, C>: ContextTa
     }
 
     public func apply(on viewController: VC, with context: C) throws {
+        // This warning is here for the compability with the swift version 4.2 in XCode 10.1.
         var viewController = viewController
         viewController.dismissalBlock = dismissalBlock
     }

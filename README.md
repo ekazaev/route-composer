@@ -18,14 +18,6 @@ Can be used as the universal replacement for the [Coordinator](https://www.raywe
 
 ![](https://habrastorage.org/webt/x7/yt/ll/x7ytllwqwgvgxy2rvtmdwj3qkia.png)
 
-## Important note
-
-**If you are using XCode 10.2, please use the [XCode 10.2 compatibility mode](https://github.com/saksdirect/route-composer/tree/feature/XCode10.2release-compatibilitymode) branch instead to be able to compile the example app.**
-
-**Swift compiler [bug](https://bugs.swift.org/browse/SR-10186) reported.**
-
-Also, you may notice some "*Failed to produce diagnostic for expression; please file a bug report*" messages. However, the project will compile successfully. 
-
 ## Table of contents
 
 - [Installation](#installation)
@@ -130,6 +122,8 @@ class ProductViewControllerFactory: Factory {
 
 }
 ```
+*Important note: Automatic `associatedtype` resolution is broken in XCode 10.2, you must set associated types manually using `typealias` keyword. 
+Swift compiler [bug](https://bugs.swift.org/browse/SR-10186) reported.*
 
 #### 2. Finder
 
