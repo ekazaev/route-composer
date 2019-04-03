@@ -130,6 +130,8 @@ class ProductViewControllerFactory: Factory {
 
 }
 ```
+*Important note: Automatic `associatedtype` resolution is broken in XCode 10.2, you must set associated types manually using `typealias` keyword. 
+Swift compiler [bug](https://bugs.swift.org/browse/SR-10186) reported.*
 
 #### 2. Finder
 

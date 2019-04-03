@@ -117,6 +117,10 @@ class ContainerTests: XCTestCase {
         var buildCount = 0
 
         class TestFactory: ContainerFactory {
+            typealias ViewController = UINavigationController
+            
+            typealias Context = Any?
+            
 
             var prepareBlock: () -> Void
 

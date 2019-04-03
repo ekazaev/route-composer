@@ -117,6 +117,7 @@ class ExtrasTest: XCTestCase {
             typealias DismissalTargetContext = Void
         }
 
+        // This warning is here for the compability with the swift version 4.2 in XCode 10.1.
         var viewController = DismissingViewController()
         var wasInCompletion = false
         viewController.dismissalBlock = { context, animated, completion in

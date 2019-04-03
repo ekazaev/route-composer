@@ -10,6 +10,10 @@ import ContainerViewController
 
 class CustomContainerFactory<C>: SimpleContainerFactory {
 
+    typealias ViewController = CustomContainerController
+
+    typealias Context = C
+
     weak var delegate: CustomViewControllerDelegate?
 
     init(delegate: CustomViewControllerDelegate) {
