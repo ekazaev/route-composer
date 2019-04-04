@@ -1,0 +1,5 @@
+xcodeproj: ./Example/RouteComposer.xcodeproj
+workspace: ./Example/RouteComposer.xcworkspace/
+scheme: RouteComposer-Example
+source_directory: ./RouteComposer/Classes
+binary_basename: RouteComposer
