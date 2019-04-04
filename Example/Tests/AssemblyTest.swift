@@ -71,18 +71,60 @@ class AssemblyTest: XCTestCase {
     }
 
     func testCompleteFactoryAssembly() {
-        var container = CompleteFactoryAssembly(factory: TabBarControllerFactory<Any?>())
+
+        class CompleteContextTask<VC: UIViewController, C>: ContextTask {
+
+            typealias ViewController = VC
+
+            typealias Context = C
+
+            var isPrepared: Bool = false
+
+            var isApplied = false
+
+            func prepare(with context: C) throws {
+                guard !isPrepared, !isApplied else {
+                    throw RoutingError.generic(.init("Has been prepared once"))
+                }
+                isPrepared = true
+            }
+
+            func apply(on viewController: ViewController, with context: Context) throws {
+                guard isPrepared else {
+                    throw RoutingError.generic(.init("Hasn't been prepared"))
+                }
+                guard !isApplied else {
+                    throw RoutingError.generic(.init("Has been applied once"))
+                }
+                isApplied = true
+            }
+
+        }
+
+        let contextTask1 = CompleteContextTask<UIViewController, Any?>()
+        let contextTask2 = CompleteContextTask<UIViewController, Any?>()
+        let contextTask3 = CompleteContextTask<UITabBarController, Any?>()
+
+        let container = CompleteFactoryAssembly(factory: TabBarControllerFactory<Any?>())
                 .with(ClassNameFactory<UIViewController, Any?>())
+                .adding(contextTask1)
+                .adding(contextTask2)
                 .with(ClassNameFactory<UIViewController, Any?>(), using: UITabBarController.add())
                 .with(CompleteFactoryAssembly(factory: TabBarControllerFactory<Any?>())
                         .with(ClassNameFactory<UIViewController, Any?>()
                         ).assemble(),
                         using: UITabBarController.add(at: 1, replacing: true))
+                .adding(contextTask3)
                 .assemble()
         XCTAssertEqual(container.childFactories.count, 3)
-        try? container.prepare(with: nil)
-        let tabBarController = try? container.build()
+        let tabBarController = try? container.buildPrepared()
         XCTAssertEqual(tabBarController?.viewControllers?.count, 2)
+        XCTAssertTrue(contextTask1.isPrepared)
+        XCTAssertTrue(contextTask1.isApplied)
+        XCTAssertTrue(contextTask2.isPrepared)
+        XCTAssertTrue(contextTask2.isApplied)
+        XCTAssertTrue(contextTask3.isPrepared)
+        XCTAssertTrue(contextTask3.isApplied)
     }
 
     func testSwitchAssembly() {

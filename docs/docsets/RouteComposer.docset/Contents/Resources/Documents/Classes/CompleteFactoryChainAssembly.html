@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>SplitViewControllerActions Structure Reference</title>
+    <title>CompleteFactoryChainAssembly Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Struct/SplitViewControllerActions" class="dashAnchor"></a>
-    <a title="SplitViewControllerActions Structure Reference"></a>
+    <a name="//apple_ref/swift/Class/CompleteFactoryChainAssembly" class="dashAnchor"></a>
+    <a title="CompleteFactoryChainAssembly Class Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">RouteComposer Docs</a> (100% documented)</p>
@@ -21,7 +21,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">RouteComposer Reference</a>
         <img id="carat" src="../img/carat.png" />
-        SplitViewControllerActions Structure Reference
+        CompleteFactoryChainAssembly Class Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -424,14 +424,14 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>SplitViewControllerActions</h1>
+            <h1>CompleteFactoryChainAssembly</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">SplitViewControllerActions</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">CompleteFactoryChainAssembly</span><span class="o">&lt;</span><span class="kt">FC</span><span class="p">,</span> <span class="kt">ChildVC</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">FC</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ContainerFactory.html">ContainerFactory</a></span><span class="p">,</span> <span class="kt">ChildVC</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
 
                 </div>
               </div>
-            <p>Actions for <code>UISplitViewController</code></p>
+            <p>Builds the chain of assemblies to fulfill the <code><a href="../Protocols/ContainerFactory.html">ContainerFactory</a></code>.</p>
 
           </section>
           <section class="section task-group-section">
@@ -440,9 +440,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer26SplitViewControllerActionsV17SetAsMasterActionV"></a>
-                    <a name="//apple_ref/swift/Struct/SetAsMasterAction" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer26SplitViewControllerActionsV17SetAsMasterActionV">SetAsMasterAction</a>
+                    <a name="/s:13RouteComposer28CompleteFactoryChainAssemblyC4with_5usingACyx14ViewControllerQyd__Gqd___qd_0_tAA0D0Rd__AA15ContainerActionRd_0_7ContextQyd__AKRtzAFQyd_0_AFRtzr0_lF"></a>
+                    <a name="//apple_ref/swift/Method/with(_:using:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer28CompleteFactoryChainAssemblyC4with_5usingACyx14ViewControllerQyd__Gqd___qd_0_tAA0D0Rd__AA15ContainerActionRd_0_7ContextQyd__AKRtzAFQyd_0_AFRtzr0_lF">with(_:using:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -450,17 +450,49 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Presents a master view controller in the <code>UISplitViewController</code></p>
+                        <p>Adds a <code><a href="../Protocols/Factory.html">Factory</a></code> that is going to be used as a child</p>
 
-                        <a href="../Structs/SplitViewControllerActions/SetAsMasterAction.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">SetAsMasterAction</span><span class="o">&lt;</span><span class="kt">ViewController</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ContainerAction.html">ContainerAction</a></span> <span class="k">where</span> <span class="kt">ViewController</span> <span class="p">:</span> <span class="kt">UISplitViewController</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">with</span><span class="o">&lt;</span><span class="kt">ChildFC</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Factory.html">Factory</a></span><span class="p">,</span> <span class="kt">A</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ContainerAction.html">ContainerAction</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">childFactory</span><span class="p">:</span> <span class="kt">ChildFC</span><span class="p">,</span> <span class="n">using</span> <span class="nv">action</span><span class="p">:</span> <span class="kt">A</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">CompleteFactoryChainAssembly</span><span class="o">&lt;</span><span class="kt">FC</span><span class="p">,</span> <span class="kt">ChildFC</span><span class="o">.</span><span class="kt">ViewController</span><span class="o">&gt;</span>
+        <span class="k">where</span>
+        <span class="kt">ChildFC</span><span class="o">.</span><span class="kt">Context</span> <span class="o">==</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">Context</span><span class="p">,</span> <span class="kt">A</span><span class="o">.</span><span class="kt">ViewController</span> <span class="o">==</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">ViewController</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>childFactory</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The instance of <code><a href="../Protocols/Factory.html">Factory</a></code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>action</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The instance of <code><a href="../Protocols/Factory.html">Factory</a></code> to be used to integrate the view controller produced by the factory.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -468,9 +500,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer26SplitViewControllerActionsV19PushToDetailsActionV"></a>
-                    <a name="//apple_ref/swift/Struct/PushToDetailsAction" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer26SplitViewControllerActionsV19PushToDetailsActionV">PushToDetailsAction</a>
+                    <a name="/s:13RouteComposer28CompleteFactoryChainAssemblyC4with_5usingACyx14ViewControllerQyd__Gqd___qd_0_tAA09ContainerD0Rd__AA0K6ActionRd_0_7ContextQyd__AKRtzAFQyd_0_AFRtzr0_lF"></a>
+                    <a name="//apple_ref/swift/Method/with(_:using:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer28CompleteFactoryChainAssemblyC4with_5usingACyx14ViewControllerQyd__Gqd___qd_0_tAA09ContainerD0Rd__AA0K6ActionRd_0_7ContextQyd__AKRtzAFQyd_0_AFRtzr0_lF">with(_:using:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -478,17 +510,218 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Presents a detail view controller in the <code>UISplitViewController</code></p>
+                        <p>Adds a <code><a href="../Protocols/ContainerFactory.html">ContainerFactory</a></code> that is going to be used as a child</p>
 
-                        <a href="../Structs/SplitViewControllerActions/PushToDetailsAction.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">PushToDetailsAction</span><span class="o">&lt;</span><span class="kt">ViewController</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ContainerAction.html">ContainerAction</a></span> <span class="k">where</span> <span class="kt">ViewController</span> <span class="p">:</span> <span class="kt">UISplitViewController</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">with</span><span class="o">&lt;</span><span class="kt">ChildFC</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ContainerFactory.html">ContainerFactory</a></span><span class="p">,</span> <span class="kt">A</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ContainerAction.html">ContainerAction</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">childContainer</span><span class="p">:</span> <span class="kt">ChildFC</span><span class="p">,</span> <span class="n">using</span> <span class="nv">action</span><span class="p">:</span> <span class="kt">A</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">CompleteFactoryChainAssembly</span><span class="o">&lt;</span><span class="kt">FC</span><span class="p">,</span> <span class="kt">ChildFC</span><span class="o">.</span><span class="kt">ViewController</span><span class="o">&gt;</span>
+        <span class="k">where</span>
+        <span class="kt">ChildFC</span><span class="o">.</span><span class="kt">Context</span> <span class="o">==</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">Context</span><span class="p">,</span> <span class="kt">A</span><span class="o">.</span><span class="kt">ViewController</span> <span class="o">==</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">ViewController</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>childFactory</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The instance of <code><a href="../Protocols/ContainerFactory.html">ContainerFactory</a></code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>action</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The instance of <code><a href="../Protocols/ContainerFactory.html">ContainerFactory</a></code> to be used to integrate the view controller produced by the factory.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer28CompleteFactoryChainAssemblyC4withyACyx14ViewControllerQyd__Gqd__AA0D0Rd__7ContextQyd__AIRtzlF"></a>
+                    <a name="//apple_ref/swift/Method/with(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer28CompleteFactoryChainAssemblyC4withyACyx14ViewControllerQyd__Gqd__AA0D0Rd__7ContextQyd__AIRtzlF">with(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Adds a <code><a href="../Protocols/Factory.html">Factory</a></code> as the last view controller in the stack.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">with</span><span class="o">&lt;</span><span class="kt">ChildFC</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">childFactory</span><span class="p">:</span> <span class="kt">ChildFC</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">CompleteFactoryChainAssembly</span><span class="o">&lt;</span><span class="kt">FC</span><span class="p">,</span> <span class="kt">ChildFC</span><span class="o">.</span><span class="kt">ViewController</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">ChildFC</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/Factory.html">Factory</a></span><span class="p">,</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">Context</span> <span class="o">==</span> <span class="kt">ChildFC</span><span class="o">.</span><span class="kt">Context</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>childFactory</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The instance of <code><a href="../Protocols/Factory.html">Factory</a></code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer28CompleteFactoryChainAssemblyC4withyACyx14ViewControllerQyd__Gqd__AA09ContainerD0Rd__7ContextQyd__AIRtzlF"></a>
+                    <a name="//apple_ref/swift/Method/with(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer28CompleteFactoryChainAssemblyC4withyACyx14ViewControllerQyd__Gqd__AA09ContainerD0Rd__7ContextQyd__AIRtzlF">with(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Adds a <code><a href="../Protocols/ContainerFactory.html">ContainerFactory</a></code> as the last view controller in the stack.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">with</span><span class="o">&lt;</span><span class="kt">ChildFC</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">childContainer</span><span class="p">:</span> <span class="kt">ChildFC</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">CompleteFactoryChainAssembly</span><span class="o">&lt;</span><span class="kt">FC</span><span class="p">,</span> <span class="kt">ChildFC</span><span class="o">.</span><span class="kt">ViewController</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">ChildFC</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ContainerFactory.html">ContainerFactory</a></span><span class="p">,</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">Context</span> <span class="o">==</span> <span class="kt">ChildFC</span><span class="o">.</span><span class="kt">Context</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>childFactory</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The instance of <code><a href="../Protocols/ContainerFactory.html">ContainerFactory</a></code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer28CompleteFactoryChainAssemblyC6addingyACyxq_Gqd__14ViewControllerQyd__Rs_AA11ContextTaskRd__0J0Qyd__AIRtzlF"></a>
+                    <a name="//apple_ref/swift/Method/adding(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer28CompleteFactoryChainAssemblyC6addingyACyxq_Gqd__14ViewControllerQyd__Rs_AA11ContextTaskRd__0J0Qyd__AIRtzlF">adding(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Applies a <code><a href="../Protocols/ContextTask.html">ContextTask</a></code> to the child factory after its <code>UIViewController</code> been built.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">adding</span><span class="o">&lt;</span><span class="kt">CT</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">contextTask</span><span class="p">:</span> <span class="kt">CT</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">CompleteFactoryChainAssembly</span><span class="o">&lt;</span><span class="kt">FC</span><span class="p">,</span> <span class="kt">ChildVC</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">ChildVC</span> <span class="o">==</span> <span class="kt">CT</span><span class="o">.</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">CT</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ContextTask.html">ContextTask</a></span><span class="p">,</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">Context</span> <span class="o">==</span> <span class="kt">CT</span><span class="o">.</span><span class="kt">Context</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>contextTask</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The instance of <code><a href="../Protocols/ContextTask.html">ContextTask</a></code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer28CompleteFactoryChainAssemblyC8assembleAA0cD0VyxGyF"></a>
+                    <a name="//apple_ref/swift/Method/assemble()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer28CompleteFactoryChainAssemblyC8assembleAA0cD0VyxGyF">assemble()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Assembles all the children factories provided and returns a <code><a href="../Protocols/ContainerFactory.html">ContainerFactory</a></code> instance.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">assemble</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/CompleteFactory.html">CompleteFactory</a></span><span class="o">&lt;</span><span class="kt">FC</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The <code><a href="../Structs/CompleteFactory.html">CompleteFactory</a></code> with child factories provided.</p>
                       </div>
                     </section>
                   </div>

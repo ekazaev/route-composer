@@ -55,11 +55,10 @@ class RouterTests: XCTestCase {
 
     // Factory that produces TestViewController
     struct TestViewControllerFactory: Factory {
-        
+
         typealias ViewController = TestViewController
-        
+
         typealias Context = Any?
-        
 
         func build(with context: Any?) throws -> TestViewController {
             return TestViewController()

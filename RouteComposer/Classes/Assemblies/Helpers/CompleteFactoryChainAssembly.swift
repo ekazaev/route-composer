@@ -1,41 +1,31 @@
 //
-// Created by Eugene Kazaev on 16/03/2018.
+// Created by Eugene Kazaev on 2019-04-04.
 //
 
 import Foundation
 import UIKit
 
-/// Builds a `ContainerFactory` fulfilled with the children `UIViewController` factories.
-///
-/// ```swift
-/// let rootFactory = CompleteFactoryAssembly(factory: TabBarFactory())
-///         .with(XibFactory<HomeViewController, Any?>, using: UITabBarController.add())
-///         .with(XibFactory<AccountViewController, Any?>, using: UITabBarController.add())
-///         .assemble()
-/// ```
-/// *NB: Order matters here*
-public final class CompleteFactoryAssembly<FC: ContainerFactory> {
-
-    struct AddAction<FC: ContainerFactory>: ContainerAction {
-
-        func perform(with viewController: UIViewController, on existingController: FC.ViewController, animated: Bool, completion: @escaping (ActionResult) -> Void) {
-            assertionFailure("Should never be called")
-        }
-
-        func perform(embedding viewController: UIViewController, in childViewControllers: inout [UIViewController]) {
-            childViewControllers.append(viewController)
-        }
-
-    }
+/// Builds the chain of assemblies to fulfill the `ContainerFactory`.
+public final class CompleteFactoryChainAssembly<FC: ContainerFactory, ChildVC: UIViewController> {
 
     private var factory: FC
 
-    /// Constructor
-    ///
-    /// - Parameters:
-    ///   - factory: The `ContainerFactory` instance.
-    public init(factory: FC) {
+    private let childFactories: [DelayedIntegrationFactory<FC.Context>]
+
+    private let previousChildFactory: DelayedIntegrationFactory<FC.Context>?
+
+    private var integratedChildFactories: [DelayedIntegrationFactory<FC.Context>] {
+        var childFactories = self.childFactories
+        if let previousChildFactory = previousChildFactory {
+            childFactories.append(previousChildFactory)
+        }
+        return childFactories
+    }
+
+    init(factory: FC, childFactories: [DelayedIntegrationFactory<FC.Context>], previousChildFactory: DelayedIntegrationFactory<FC.Context>?) {
         self.factory = factory
+        self.childFactories = childFactories
+        self.previousChildFactory = previousChildFactory
     }
 
     /// Adds a `Factory` that is going to be used as a child
@@ -47,10 +37,10 @@ public final class CompleteFactoryAssembly<FC: ContainerFactory> {
             where
             ChildFC.Context == FC.Context, A.ViewController == FC.ViewController {
         guard let factoryBox = FactoryBox(childFactory, action: ContainerActionBox(action)) else {
-            return CompleteFactoryChainAssembly<FC, ChildFC.ViewController>(factory: factory, childFactories: [], previousChildFactory: nil)
+            return CompleteFactoryChainAssembly<FC, ChildFC.ViewController>(factory: factory, childFactories: integratedChildFactories, previousChildFactory: nil)
         }
         return CompleteFactoryChainAssembly<FC, ChildFC.ViewController>(factory: factory,
-                childFactories: [],
+                childFactories: integratedChildFactories,
                 previousChildFactory: DelayedIntegrationFactory<ChildFC.Context>(factoryBox))
     }
 
@@ -63,11 +53,11 @@ public final class CompleteFactoryAssembly<FC: ContainerFactory> {
             where
             ChildFC.Context == FC.Context, A.ViewController == FC.ViewController {
         guard let factoryBox = ContainerFactoryBox(childContainer, action: ContainerActionBox(action)) else {
-            return CompleteFactoryChainAssembly<FC, ChildFC.ViewController>(factory: factory, childFactories: [], previousChildFactory: nil)
+            return CompleteFactoryChainAssembly<FC, ChildFC.ViewController>(factory: factory, childFactories: integratedChildFactories, previousChildFactory: nil)
         }
 
         return CompleteFactoryChainAssembly<FC, ChildFC.ViewController>(factory: factory,
-                childFactories: [],
+                childFactories: integratedChildFactories,
                 previousChildFactory: DelayedIntegrationFactory<ChildFC.Context>(factoryBox))
     }
 
@@ -76,11 +66,11 @@ public final class CompleteFactoryAssembly<FC: ContainerFactory> {
     /// - Parameters:
     ///   - childFactory: The instance of `Factory`.
     public func with<ChildFC: Factory>(_ childFactory: ChildFC) -> CompleteFactoryChainAssembly<FC, ChildFC.ViewController> where ChildFC.Context == FC.Context {
-        guard let factoryBox = FactoryBox(childFactory, action: ContainerActionBox(AddAction<FC>())) else {
-            return CompleteFactoryChainAssembly<FC, ChildFC.ViewController>(factory: factory, childFactories: [], previousChildFactory: nil)
+        guard let factoryBox = FactoryBox(childFactory, action: ContainerActionBox(CompleteFactoryAssembly<FC>.AddAction<FC>())) else {
+            return CompleteFactoryChainAssembly<FC, ChildFC.ViewController>(factory: factory, childFactories: integratedChildFactories, previousChildFactory: nil)
         }
         return CompleteFactoryChainAssembly<FC, ChildFC.ViewController>(factory: factory,
-                childFactories: [],
+                childFactories: integratedChildFactories,
                 previousChildFactory: DelayedIntegrationFactory<ChildFC.Context>(factoryBox))
     }
 
@@ -89,20 +79,34 @@ public final class CompleteFactoryAssembly<FC: ContainerFactory> {
     /// - Parameters:
     ///   - childFactory: The instance of `ContainerFactory`.
     public func with<ChildFC: ContainerFactory>(_ childContainer: ChildFC) -> CompleteFactoryChainAssembly<FC, ChildFC.ViewController> where ChildFC.Context == FC.Context {
-        guard let factoryBox = ContainerFactoryBox(childContainer, action: ContainerActionBox(AddAction<FC>())) else {
-            return CompleteFactoryChainAssembly<FC, ChildFC.ViewController>(factory: factory, childFactories: [], previousChildFactory: nil)
+        guard let factoryBox = ContainerFactoryBox(childContainer, action: ContainerActionBox(CompleteFactoryAssembly<FC>.AddAction<FC>())) else {
+            return CompleteFactoryChainAssembly<FC, ChildFC.ViewController>(factory: factory, childFactories: integratedChildFactories, previousChildFactory: nil)
         }
 
         return CompleteFactoryChainAssembly<FC, ChildFC.ViewController>(factory: factory,
-                childFactories: [],
+                childFactories: integratedChildFactories,
                 previousChildFactory: DelayedIntegrationFactory<ChildFC.Context>(factoryBox))
+    }
+
+    /// Applies a `ContextTask` to the child factory after its `UIViewController` been built.
+    ///
+    /// - Parameters:
+    ///   - contextTask: The instance of `ContextTask`.
+    public func adding<CT: ContextTask>(_ contextTask: CT) -> CompleteFactoryChainAssembly<FC, ChildVC> where CT.ViewController == ChildVC, CT.Context == FC.Context {
+        guard var previousChildFactory = previousChildFactory else {
+            return CompleteFactoryChainAssembly<FC, ChildVC>(factory: factory, childFactories: childFactories, previousChildFactory: nil)
+        }
+        previousChildFactory.add(ContextTaskBox(contextTask))
+        return CompleteFactoryChainAssembly<FC, ChildVC>(factory: factory,
+                childFactories: childFactories,
+                previousChildFactory: previousChildFactory)
     }
 
     /// Assembles all the children factories provided and returns a `ContainerFactory` instance.
     ///
     /// - Returns: The `CompleteFactory` with child factories provided.
     public func assemble() -> CompleteFactory<FC> {
-        return CompleteFactory<FC>(factory: factory, childFactories: [])
+        return CompleteFactory<FC>(factory: factory, childFactories: integratedChildFactories)
     }
 
 }
