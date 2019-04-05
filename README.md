@@ -4,10 +4,10 @@
 [![Release](https://img.shields.io/github/release/saksdirect/route-composer.svg?style=flat&color=darkcyan)](https://github.com/saksdirect/route-composer/releases)
 [![Cocoapods](https://img.shields.io/cocoapods/v/RouteComposer.svg?style=flat)](http://cocoapods.org/pods/RouteComposer)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
-[![Swift 4.2](https://img.shields.io/badge/language-Swift4.2-orange.svg?style=flat)](https://developer.apple.com/swift)
+[![Swift 5.0](https://img.shields.io/badge/language-Swift5.0-orange.svg?style=flat)](https://developer.apple.com/swift)
 [![Platform iOS](https://img.shields.io/badge/platform-iOS-yellow.svg)](https://www.apple.com/ios)
 [![Documentation](https://saksdirect.github.io/route-composer/badge.svg)](https://saksdirect.github.io/route-composer)
-![Code coverage](https://img.shields.io/badge/code%20coverage-86%25-green.svg?style=flat)
+[![Code coverage](https://img.shields.io/badge/code%20coverage-83%25-green.svg?style=flat)](https://saksdirect.github.io/route-composer/tests/index.html)
 [![MIT License](https://img.shields.io/cocoapods/l/RouteComposer.svg?style=flat)](https://github.com/saksdirect/RouteComposer/blob/master/LICENSE)
 [![Twitter](https://img.shields.io/twitter/url/https/github.com/saksdirect/route-composer.svg?style=flat)](https://twitter.com/intent/tweet?text=Check%20it%20out:&url=https%3A%2F%2Fgithub.com%2Fsaksdirect%2Froute-composer)
 
@@ -46,6 +46,12 @@ it, simply add the following line to your Podfile:
 
 ```ruby
 pod 'RouteComposer'
+```
+
+**For XCode 10.1 / Swift 4.2 Support**
+
+```ruby
+pod 'RouteComposer', '~> 1.4'
 ```
 
 And then run `pod install`.
@@ -409,6 +415,7 @@ Russian:
 
   - [Композиция UIViewController-ов и навигация между ними](https://habr.com/post/421097/)
   - [Примеры конфигурации UIViewController-ов используя RouteComposer](https://habr.com/post/428990/)
+  - [Проблемы паттерна Координатор и при чем тут RouteComposer](https://habr.com/ru/post/446550/)
 
 ## Author
 

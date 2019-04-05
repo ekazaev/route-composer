@@ -1,14 +1,17 @@
 # references:
 # * http://www.objc.io/issue-6/travis-ci.html
 # * https://github.com/supermarin/xcpretty#usage
+# *slather coverage --html --output-directory ./docs/tests --arch x86_64
 
 osx_image: xcode10.2
 language: swift
 cache: cocoapods
 podfile: Example/Podfile
 before_install:
+- gem install slather
 - gem install cocoapods # Since Travis is not always on latest version
 - pod install --project-directory=Example
 script:
-- set -o pipefail && xcodebuild test -enableCodeCoverage YES -workspace Example/RouteComposer.xcworkspace -scheme RouteComposer-Example -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone X,OS=12.1' ONLY_ACTIVE_ARCH=NO | xcpretty
-- pod lib lint --allow-warnings
+- set -o pipefail && xcodebuild test -enableCodeCoverage YES -workspace Example/RouteComposer.xcworkspace -scheme RouteComposer-Example -sdk iphonesimulator -derivedDataPath ${TRAVIS_BUILD_DIR}/myDerivedData -destination 'platform=iOS Simulator,name=iPhone X,OS=12.2' ONLY_ACTIVE_ARCH=YES | xcpretty
+- pod lib lint
+after_success: slather coverage -t -b ${TRAVIS_BUILD_DIR}/myDerivedData --arch x86_64 --verbose

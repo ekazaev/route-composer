@@ -34,7 +34,7 @@ class BoxTests: XCTestCase {
         children.append(FactoryBox(EmptyFactory(), action: ActionBox(ViewControllerActions.NilAction()))!)
 
         let resultChildren = try? box?.scrapeChildren(from: children)
-        XCTAssertEqual(resultChildren??.count, 1)
+        XCTAssertEqual(resultChildren?.count, 1)
         XCTAssertEqual(box?.children.count, 2)
     }
 
@@ -50,11 +50,11 @@ class BoxTests: XCTestCase {
         children.append(FactoryBox(ClassNameFactory<UIViewController, Any?>(), action: ContainerActionBox(UINavigationController.push()))!)
 
         let resultChildren = try? box?.scrapeChildren(from: children)
-        XCTAssertEqual(resultChildren??.count, 3)
+        XCTAssertEqual(resultChildren?.count, 3)
         XCTAssertEqual(box?.children.count, 2)
-        XCTAssertTrue(resultChildren??.first! is ContainerFactoryBox<NavigationControllerFactory<Any?>>)
+        XCTAssertTrue(resultChildren?.first! is ContainerFactoryBox<NavigationControllerFactory<Any?>>)
         XCTAssertTrue(box?.children.first!.factory is FactoryBox<ClassNameFactory<UIViewController, Any?>>)
-        XCTAssertTrue(resultChildren??.last! is FactoryBox<ClassNameFactory<UIViewController, Any?>>)
+        XCTAssertTrue(resultChildren?.last! is FactoryBox<ClassNameFactory<UIViewController, Any?>>)
     }
 
     func testNilInAssembly() {
