@@ -12,13 +12,29 @@ public struct DefaultStackIterator: StackIterator {
     ///
     /// - topMost: Start from the topmost `UIViewController`
     /// - root: Start from the `UIWindow`s root `UIViewController`
-    public enum StartingPoint {
+    public enum StartingPoint: Equatable {
 
         /// Start from the topmost `UIViewController`
         case topmost
 
         /// Start from the `UIWindow`s root `UIViewController`
         case root
+
+        /// Start from the custom `UIViewController`
+        case custom(@autoclosure () -> UIViewController?)
+
+        public static func == (lhs: StartingPoint, rhs: StartingPoint) -> Bool {
+            switch (lhs, rhs) {
+            case (.root, .root):
+                return true
+            case (.topmost, .topmost):
+                return true
+            case let (.custom(lvc), .custom(rvc)):
+                return lvc() === rvc()
+            default:
+                return false
+            }
+        }
 
     }
 
@@ -37,6 +53,8 @@ public struct DefaultStackIterator: StackIterator {
             return windowProvider.window?.topmostViewController
         case .root:
             return windowProvider.window?.rootViewController
+        case let .custom(viewControllerClosure):
+            return viewControllerClosure()
         }
     }
 
