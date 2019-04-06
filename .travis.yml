@@ -1,7 +1,7 @@
 # references:
 # * http://www.objc.io/issue-6/travis-ci.html
 # * https://github.com/supermarin/xcpretty#usage
-# *slather coverage --html --output-directory ./docs/tests --arch x86_64
+# * slather coverage --html --output-directory ./docs/tests --arch x86_64
 
 osx_image: xcode10.2
 language: swift
