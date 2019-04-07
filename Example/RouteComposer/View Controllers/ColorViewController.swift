@@ -59,6 +59,7 @@ class ColorViewController: UIViewController, DismissibleWithRuntimeStorage, Exam
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.accessibilityIdentifier = "colorViewController"
+        self.title = "Color"
         if let colorHex = colorHex {
             self.view.backgroundColor = UIColor(hexString: colorHex)
         } else {

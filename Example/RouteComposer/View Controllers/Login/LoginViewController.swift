@@ -71,6 +71,7 @@ class LoginViewController: UIViewController, ExampleAnalyticsSupport {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Login"
     }
 
     @IBAction func loginTapped() {

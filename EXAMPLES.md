@@ -173,3 +173,17 @@ There are two ways of implementing this configuration:
 
 ```
  
+#### The app has a tab bar controller. User can browse the same content in both tabs. The first tab has the `HotelViewController` and the `RoomViewController` within the `UINavigationController`. Second tab the `HotelViewController` inside. The user is in the first tab, and the `RoomViewController` is visible. If they tap on the button "Show hotel" in the `RoomViewController`, the app should pop to the `HotelViewController` within the current `UINavigationController` but not to switch the tab.
+
+You have to user the `DefaultStackIterator.StartingPoint.custom(...)` option and provide the correct starting point, if you are using the default `ClassFinder` in your configuration. Otherwise, the router will just switch the tab to present the already present `HotelViewController` there.
+
+```swift
+    let screenConfig: DestinationStep<SquareViewController, Any?> = StepAssembly(
+            finder: ClassFinder<SquareViewController, Any?>(options: .currentVisibleOnly,
+                    startingPoint: .custom(ClassFinder<UINavigationController, Any?>(options: .currentVisibleOnly, startingPoint: .root).findViewController())),
+            factory: StoryboardFactory<SquareViewController, Any?>(storyboardName: "TabBar", viewControllerID: "Square"))
+            .adding(ExampleGenericContextTask<SquareViewController, Any?>())
+            .using(UINavigationController.push())
+            .from(GeneralStep.custom(using: ClassFinder<UINavigationController, Any?>(options: .currentVisibleOnly, startingPoint: .root)))
+            .assemble()
+```

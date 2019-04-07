@@ -7,12 +7,13 @@ import Foundation
 import UIKit
 import RouteComposer
 
-class EmptyViewController: UIViewController, ExampleAnalyticsSupport {
+class FiguresViewController: UIViewController, ExampleAnalyticsSupport {
 
     let screenType = ExampleScreenTypes.empty
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Figures"
     }
 
     @IBAction func goToCircleTapped() {

@@ -36,6 +36,7 @@ class CityDetailViewController: UIViewController, ExampleAnalyticsSupport {
         guard isViewLoaded, let city = CitiesDataModel.cities.first(where: { $0.cityId == cityId }) else {
             return
         }
+        self.title = "\(city.city)"
 
         detailsTextView.text = city.city + "\n\n" + city.description
         if let cityId = cityId {

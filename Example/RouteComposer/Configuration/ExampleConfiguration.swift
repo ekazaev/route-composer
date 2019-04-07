@@ -22,7 +22,7 @@ protocol ExampleScreenConfiguration {
 
     var routingSupportScreen: DestinationStep<RoutingRuleSupportViewController, String> { get }
 
-    var emptyScreen: DestinationStep<EmptyViewController, Any?> { get }
+    var emptyScreen: DestinationStep<FiguresViewController, Any?> { get }
 
     var secondModalScreen: DestinationStep<SecondModalLevelViewController, String> { get }
 
@@ -94,12 +94,12 @@ extension ExampleScreenConfiguration {
                 .assemble()
     }
 
-    var emptyScreen: DestinationStep<EmptyViewController, Any?> {
+    var emptyScreen: DestinationStep<FiguresViewController, Any?> {
         return StepAssembly(
-                finder: ClassFinder<EmptyViewController, Any?>(),
+                finder: ClassFinder<FiguresViewController, Any?>(),
                 factory: StoryboardFactory(storyboardName: "TabBar", viewControllerID: "EmptyViewController"))
                 .adding(LoginInterceptor<Any?>())
-                .adding(ExampleGenericContextTask<EmptyViewController, Any?>())
+                .adding(ExampleGenericContextTask<FiguresViewController, Any?>())
                 .using(UINavigationController.push())
                 .from(circleScreen.expectingContainer())
                 .assemble()
