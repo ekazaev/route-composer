@@ -7,9 +7,9 @@
 <body>
 <header><div class="row"><a href="index.html"><img src="logo.jpg" alt="Slather logo"></a></div></header><div class="row"><div id="reports">
 <h2 class="cov_title">
-<span>Coverage for "DefaultRouter.swift" : </span><span class="cov_high">95.69%</span>
+<span>Coverage for "DefaultRouter.swift" : </span><span class="cov_high">97.13%</span>
 </h2>
-<h4 class="cov_subtitle">(200 of 209 relevant lines covered)</h4>
+<h4 class="cov_subtitle">(203 of 209 relevant lines covered)</h4>
 <h4 class="cov_filepath">RouteComposer/Classes/Router/DefaultRouter.swift</h4>
 <table class="source_code">
 <tr class="never">
@@ -125,17 +125,17 @@
 <tr class="covered">
 <td class="num">23</td>
 <td class="src"><pre><code class="objc">    public init(logger: Logger? = nil) {</code></pre></td>
-<td class="coverage">22x</td>
+<td class="coverage">25x</td>
 </tr>
 <tr class="covered">
 <td class="num">24</td>
 <td class="src"><pre><code class="objc">        self.logger = logger</code></pre></td>
-<td class="coverage">22x</td>
+<td class="coverage">25x</td>
 </tr>
 <tr class="covered">
 <td class="num">25</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">22x</td>
+<td class="coverage">25x</td>
 </tr>
 <tr class="never">
 <td class="num">26</td>
@@ -220,77 +220,77 @@
 <tr class="covered">
 <td class="num">42</td>
 <td class="src"><pre><code class="objc">                                                                    completion: ((_: RoutingResult) -&gt; Void)? = nil) throws {</code></pre></td>
-<td class="coverage">92x</td>
+<td class="coverage">93x</td>
 </tr>
 <tr class="covered">
 <td class="num">43</td>
 <td class="src"><pre><code class="objc">        assertIfNotMainThread(logger: logger)</code></pre></td>
-<td class="coverage">92x</td>
+<td class="coverage">93x</td>
 </tr>
 <tr class="covered">
 <td class="num">44</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage">92x</td>
+<td class="coverage">93x</td>
 </tr>
 <tr class="covered">
 <td class="num">45</td>
 <td class="src"><pre><code class="objc">        let taskStack = try prepareTaskStack(with: context)</code></pre></td>
-<td class="coverage">92x</td>
+<td class="coverage">93x</td>
 </tr>
 <tr class="covered">
 <td class="num">46</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage">92x</td>
+<td class="coverage">93x</td>
 </tr>
 <tr class="covered">
 <td class="num">47</td>
 <td class="src"><pre><code class="objc">        // Builds stack of factories and finds a view controller to start a navigation process from.</code></pre></td>
-<td class="coverage">92x</td>
+<td class="coverage">93x</td>
 </tr>
 <tr class="covered">
 <td class="num">48</td>
 <td class="src"><pre><code class="objc">        // Returns (rootViewController, factories) tuple</code></pre></td>
-<td class="coverage">92x</td>
+<td class="coverage">93x</td>
 </tr>
 <tr class="covered">
 <td class="num">49</td>
 <td class="src"><pre><code class="objc">        // where rootViewController is the origin of the chain of views to be built for a given destination.</code></pre></td>
-<td class="coverage">92x</td>
+<td class="coverage">93x</td>
 </tr>
 <tr class="covered">
 <td class="num">50</td>
 <td class="src"><pre><code class="objc">        let navigationStack = try prepareFactoriesStack(to: step, with: context, taskStack: taskStack)</code></pre></td>
-<td class="coverage">92x</td>
+<td class="coverage">93x</td>
 </tr>
 <tr class="covered">
 <td class="num">51</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage">92x</td>
+<td class="coverage">93x</td>
 </tr>
 <tr class="covered">
 <td class="num">52</td>
 <td class="src"><pre><code class="objc">        let viewController = navigationStack.rootViewController,</code></pre></td>
-<td class="coverage">92x</td>
+<td class="coverage">93x</td>
 </tr>
 <tr class="covered">
 <td class="num">53</td>
 <td class="src"><pre><code class="objc">                factoriesStack = navigationStack.factories</code></pre></td>
-<td class="coverage">92x</td>
+<td class="coverage">93x</td>
 </tr>
 <tr class="covered">
 <td class="num">54</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage">92x</td>
+<td class="coverage">93x</td>
 </tr>
 <tr class="covered">
 <td class="num">55</td>
 <td class="src"><pre><code class="objc">        // Checks if the view controllers that are currently presented from the origin view controller, can be dismissed.</code></pre></td>
-<td class="coverage">92x</td>
+<td class="coverage">93x</td>
 </tr>
 <tr class="covered">
 <td class="num">56</td>
 <td class="src"><pre><code class="objc">        if let viewController = Array([[viewController.allParents.last ?? viewController], viewController.allPresentedViewControllers].joined()).nonDismissibleViewController {</code></pre></td>
-<td class="coverage">92x</td>
+<td class="coverage">93x</td>
 </tr>
 <tr class="covered">
 <td class="num">57</td>
@@ -305,27 +305,27 @@
 <tr class="covered">
 <td class="num">59</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">88x</td>
+<td class="coverage">89x</td>
 </tr>
 <tr class="covered">
 <td class="num">60</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage">88x</td>
+<td class="coverage">89x</td>
 </tr>
 <tr class="covered">
 <td class="num">61</td>
 <td class="src"><pre><code class="objc">        // Executes interceptors associated to each view in the chain. All the interceptors must succeed to</code></pre></td>
-<td class="coverage">88x</td>
+<td class="coverage">89x</td>
 </tr>
 <tr class="covered">
 <td class="num">62</td>
 <td class="src"><pre><code class="objc">        // continue navigation process. This operation is async.</code></pre></td>
-<td class="coverage">88x</td>
+<td class="coverage">89x</td>
 </tr>
 <tr class="covered">
 <td class="num">63</td>
 <td class="src"><pre><code class="objc">        taskStack.executeInterceptors { [weak viewController] result in</code></pre></td>
-<td class="coverage">88x</td>
+<td class="coverage">89x</td>
 </tr>
 <tr class="covered">
 <td class="num">64</td>
@@ -525,7 +525,7 @@
 <tr class="covered">
 <td class="num">103</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">88x</td>
+<td class="coverage">89x</td>
 </tr>
 <tr class="never">
 <td class="num">104</td>
@@ -535,37 +535,37 @@
 <tr class="covered">
 <td class="num">105</td>
 <td class="src"><pre><code class="objc">    private func prepareTaskStack(with context: Any?) throws -&gt; GlobalTaskRunner {</code></pre></td>
-<td class="coverage">92x</td>
+<td class="coverage">93x</td>
 </tr>
 <tr class="covered">
 <td class="num">106</td>
 <td class="src"><pre><code class="objc">        let interceptorRunner = try InterceptorRunner(interceptors: self.interceptors, context: context)</code></pre></td>
-<td class="coverage">92x</td>
+<td class="coverage">93x</td>
 </tr>
 <tr class="covered">
 <td class="num">107</td>
 <td class="src"><pre><code class="objc">        let contextTaskRunner = try ContextTaskRunner(contextTasks: self.contextTasks, context: context)</code></pre></td>
-<td class="coverage">92x</td>
+<td class="coverage">93x</td>
 </tr>
 <tr class="covered">
 <td class="num">108</td>
 <td class="src"><pre><code class="objc">        let postTaskDelayedRunner = PostTaskDelayedRunner()</code></pre></td>
-<td class="coverage">92x</td>
+<td class="coverage">93x</td>
 </tr>
 <tr class="covered">
 <td class="num">109</td>
 <td class="src"><pre><code class="objc">        let postTaskRunner = PostTaskRunner(postTasks: self.postTasks, context: context, delayedRunner: postTaskDelayedRunner)</code></pre></td>
-<td class="coverage">92x</td>
+<td class="coverage">93x</td>
 </tr>
 <tr class="covered">
 <td class="num">110</td>
 <td class="src"><pre><code class="objc">        return GlobalTaskRunner(interceptorRunner: interceptorRunner, contextTaskRunner: contextTaskRunner, postTaskRunner: postTaskRunner)</code></pre></td>
-<td class="coverage">92x</td>
+<td class="coverage">93x</td>
 </tr>
 <tr class="covered">
 <td class="num">111</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">92x</td>
+<td class="coverage">93x</td>
 </tr>
 <tr class="never">
 <td class="num">112</td>
@@ -580,37 +580,37 @@
 <tr class="covered">
 <td class="num">114</td>
 <td class="src"><pre><code class="objc">                                                                                                                              factories: [AnyFactory]) {</code></pre></td>
-<td class="coverage">92x</td>
+<td class="coverage">93x</td>
 </tr>
 <tr class="covered">
 <td class="num">115</td>
 <td class="src"><pre><code class="objc">        logger?.log(.info("Started to search for the view controller to start the navigation process from."))</code></pre></td>
-<td class="coverage">92x</td>
+<td class="coverage">93x</td>
 </tr>
 <tr class="covered">
 <td class="num">116</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage">92x</td>
+<td class="coverage">93x</td>
 </tr>
 <tr class="covered">
 <td class="num">117</td>
 <td class="src"><pre><code class="objc">        let result = try sequence(first: finalStep, next: { ($0 as? ChainableStep)?.getPreviousStep(with: context) })</code></pre></td>
-<td class="coverage">546x</td>
+<td class="coverage">550x</td>
 </tr>
 <tr class="covered">
 <td class="num">118</td>
 <td class="src"><pre><code class="objc">                .compactMap({ $0 as? PerformableStep })</code></pre></td>
-<td class="coverage">546x</td>
+<td class="coverage">550x</td>
 </tr>
 <tr class="covered">
 <td class="num">119</td>
 <td class="src"><pre><code class="objc">                .reduce((rootViewController: UIViewController?, factories: [AnyFactory])(rootViewController: nil, factories: []), { (result, step) in</code></pre></td>
-<td class="coverage">286x</td>
+<td class="coverage">288x</td>
 </tr>
 <tr class="covered">
 <td class="num">120</td>
 <td class="src"><pre><code class="objc">                    guard result.rootViewController == nil else {</code></pre></td>
-<td class="coverage">286x</td>
+<td class="coverage">288x</td>
 </tr>
 <tr class="covered">
 <td class="num">121</td>
@@ -620,42 +620,42 @@
 <tr class="covered">
 <td class="num">122</td>
 <td class="src"><pre><code class="objc">                    }</code></pre></td>
-<td class="coverage">202x</td>
+<td class="coverage">204x</td>
 </tr>
 <tr class="covered">
 <td class="num">123</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage">202x</td>
+<td class="coverage">204x</td>
 </tr>
 <tr class="covered">
 <td class="num">124</td>
 <td class="src"><pre><code class="objc">                    // Creates a class responsible to run the tasks for this particular step</code></pre></td>
-<td class="coverage">202x</td>
+<td class="coverage">204x</td>
 </tr>
 <tr class="covered">
 <td class="num">125</td>
 <td class="src"><pre><code class="objc">                    let viewControllerTaskRunner = try taskStack.taskRunnerFor(step: step)</code></pre></td>
-<td class="coverage">202x</td>
+<td class="coverage">204x</td>
 </tr>
 <tr class="covered">
 <td class="num">126</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage">202x</td>
+<td class="coverage">204x</td>
 </tr>
 <tr class="covered">
 <td class="num">127</td>
 <td class="src"><pre><code class="objc">                    // Performs current step</code></pre></td>
-<td class="coverage">202x</td>
+<td class="coverage">204x</td>
 </tr>
 <tr class="covered">
 <td class="num">128</td>
 <td class="src"><pre><code class="objc">                    switch try step.perform(with: context) {</code></pre></td>
-<td class="coverage">202x</td>
+<td class="coverage">204x</td>
 </tr>
 <tr class="covered">
 <td class="num">129</td>
 <td class="src"><pre><code class="objc">                    case .success(let viewController):</code></pre></td>
-<td class="coverage">202x</td>
+<td class="coverage">204x</td>
 </tr>
 <tr class="covered">
 <td class="num">130</td>
@@ -680,7 +680,7 @@
 <tr class="covered">
 <td class="num">134</td>
 <td class="src"><pre><code class="objc">                    case .build(let originalFactory):</code></pre></td>
-<td class="coverage">202x</td>
+<td class="coverage">204x</td>
 </tr>
 <tr class="covered">
 <td class="num">135</td>
@@ -790,47 +790,47 @@
 <tr class="covered">
 <td class="num">156</td>
 <td class="src"><pre><code class="objc">                    case .none:</code></pre></td>
-<td class="coverage">202x</td>
+<td class="coverage">204x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">157</td>
 <td class="src"><pre><code class="objc">                        logger?.log(.info("\(String(describing: step)) hasn't found a corresponding view " +</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">158</td>
 <td class="src"><pre><code class="objc">                                "controller in the stack, so router will continue to search."))</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">159</td>
 <td class="src"><pre><code class="objc">                        return result</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">160</td>
 <td class="src"><pre><code class="objc">                    }</code></pre></td>
-<td class="coverage">202x</td>
+<td class="coverage">204x</td>
 </tr>
 <tr class="covered">
 <td class="num">161</td>
 <td class="src"><pre><code class="objc">                })</code></pre></td>
-<td class="coverage">201x</td>
+<td class="coverage">203x</td>
 </tr>
 <tr class="covered">
 <td class="num">162</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage">92x</td>
+<td class="coverage">93x</td>
 </tr>
 <tr class="covered">
 <td class="num">163</td>
 <td class="src"><pre><code class="objc">        //Throws an exception if it hasn't found a view controller to start the stack from.</code></pre></td>
-<td class="coverage">92x</td>
+<td class="coverage">93x</td>
 </tr>
 <tr class="covered">
 <td class="num">164</td>
 <td class="src"><pre><code class="objc">        guard let rootViewController = result.rootViewController else {</code></pre></td>
-<td class="coverage">92x</td>
+<td class="coverage">93x</td>
 </tr>
 <tr class="missed">
 <td class="num">165</td>
@@ -840,22 +840,22 @@
 <tr class="covered">
 <td class="num">166</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">92x</td>
+<td class="coverage">93x</td>
 </tr>
 <tr class="covered">
 <td class="num">167</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage">92x</td>
+<td class="coverage">93x</td>
 </tr>
 <tr class="covered">
 <td class="num">168</td>
 <td class="src"><pre><code class="objc">        return (rootViewController: rootViewController, factories: result.factories)</code></pre></td>
-<td class="coverage">92x</td>
+<td class="coverage">93x</td>
 </tr>
 <tr class="covered">
 <td class="num">169</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">92x</td>
+<td class="coverage">93x</td>
 </tr>
 <tr class="never">
 <td class="num">170</td>

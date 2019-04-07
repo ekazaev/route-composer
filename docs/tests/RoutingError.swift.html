@@ -7,9 +7,9 @@
 <body>
 <header><div class="row"><a href="index.html"><img src="logo.jpg" alt="Slather logo"></a></div></header><div class="row"><div id="reports">
 <h2 class="cov_title">
-<span>Coverage for "RoutingError.swift" : </span><span class="cov_low">16.00%</span>
+<span>Coverage for "RoutingError.swift" : </span><span class="cov_high">100.00%</span>
 </h2>
-<h4 class="cov_subtitle">(4 of 25 relevant lines covered)</h4>
+<h4 class="cov_subtitle">(25 of 25 relevant lines covered)</h4>
 <h4 class="cov_filepath">RouteComposer/Classes/RoutingError.swift</h4>
 <table class="source_code">
 <tr class="never">
@@ -120,82 +120,82 @@
 <tr class="covered">
 <td class="num">22</td>
 <td class="src"><pre><code class="objc">        public init(_ debugDescription: String, underlyingError: Error? = nil) {</code></pre></td>
-<td class="coverage">28x</td>
+<td class="coverage">38x</td>
 </tr>
 <tr class="covered">
 <td class="num">23</td>
 <td class="src"><pre><code class="objc">            self.debugDescription = debugDescription</code></pre></td>
-<td class="coverage">28x</td>
+<td class="coverage">38x</td>
 </tr>
 <tr class="covered">
 <td class="num">24</td>
 <td class="src"><pre><code class="objc">            self.underlyingError = underlyingError</code></pre></td>
-<td class="coverage">28x</td>
+<td class="coverage">38x</td>
 </tr>
 <tr class="covered">
 <td class="num">25</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">28x</td>
+<td class="coverage">38x</td>
 </tr>
 <tr class="never">
 <td class="num">26</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">27</td>
 <td class="src"><pre><code class="objc">        public var description: String {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">6x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">28</td>
-<td class="src"><pre><code class="objc">            guard !debugDescription.isEmpty else {</code></pre></td>
-<td class="coverage">!</td>
+<td class="src"><pre><code class="objc">            guard debugDescription.isEmpty else {</code></pre></td>
+<td class="coverage">6x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">29</td>
 <td class="src"><pre><code class="objc">                return debugDescription</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">4x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">30</td>
 <td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">4x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">31</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">2x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">32</td>
 <td class="src"><pre><code class="objc">            guard let underlyingError = underlyingError else {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">2x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">33</td>
 <td class="src"><pre><code class="objc">                return "No valuable information provided"</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">34</td>
 <td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">35</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">36</td>
 <td class="src"><pre><code class="objc">            return (underlyingError as CustomStringConvertible).description</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">37</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">2x</td>
 </tr>
 <tr class="never">
 <td class="num">38</td>
@@ -257,55 +257,55 @@
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">50</td>
 <td class="src"><pre><code class="objc">    public var description: String {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">3x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">51</td>
 <td class="src"><pre><code class="objc">        switch self {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">3x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">52</td>
 <td class="src"><pre><code class="objc">        case .typeMismatch(_, let context):</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">3x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">53</td>
 <td class="src"><pre><code class="objc">            return "Type Mismatch Error: \(context.description)"</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">54</td>
 <td class="src"><pre><code class="objc">        case .compositionFailed(let context):</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">3x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">55</td>
 <td class="src"><pre><code class="objc">            return "Composition Failed Error: \(context.description)"</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">56</td>
 <td class="src"><pre><code class="objc">        case .generic(let context):</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">3x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">57</td>
 <td class="src"><pre><code class="objc">            return "Generic Error: \(context.description)"</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">58</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">3x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">59</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">3x</td>
 </tr>
 <tr class="never">
 <td class="num">60</td>

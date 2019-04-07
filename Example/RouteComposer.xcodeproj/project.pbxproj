@@ -85,6 +85,7 @@
 		9AFBCE57C0F8CE5FA2C71E57 /* BlurredBackgroundTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC8BFC3348903C80F7D63 /* BlurredBackgroundTransitionAnimator.swift */; };
 		9AFBCF519040E699D130072D /* CityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC949B2D2D4B8D636B565 /* CityDetailViewController.swift */; };
 		D611D285DB9C77E5E7D8FBF7 /* Pods_RouteComposer_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD8FADE9265A4CD86A75FD85 /* Pods_RouteComposer_Example.framework */; };
+		EF158CB848B405D553F272A8 /* ErrorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF158F4B4B31525D5844012E /* ErrorTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -252,6 +253,7 @@
 		E7AC8603E217ACA9BCF1FAC2 /* Pods-RouteComposer_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RouteComposer_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-RouteComposer_Example/Pods-RouteComposer_Example.release.xcconfig"; sourceTree = "<group>"; };
 		EE3371C14DEE61C1E517B2F9 /* Pods-RouteComposer_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RouteComposer_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RouteComposer_Example/Pods-RouteComposer_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		EF1584F5E4B89D2045CDF5FA /* CONTRIBUTING.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = CONTRIBUTING.md; path = ../CONTRIBUTING.md; sourceTree = "<group>"; };
+		EF158F4B4B31525D5844012E /* ErrorTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -364,6 +366,7 @@
 				84706C77212AEEDB00980222 /* MultiplexerTest.swift */,
 				9AFBC407D5F832DE452DD35B /* RouterTest.swift */,
 				4570AD292238769C00809A01 /* ExtrasTest.swift */,
+				EF158F4B4B31525D5844012E /* ErrorTest.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -910,6 +913,7 @@
 				9AFBC2C9FD5634435876E1FB /* AssemblyTest.swift in Sources */,
 				9AFBC98004695AD801CF23AD /* DestinationStepTests.swift in Sources */,
 				9AFBC7B044DF4416BD93D7C5 /* FinderTests.swift in Sources */,
+				EF158CB848B405D553F272A8 /* ErrorTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

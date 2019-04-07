@@ -7,9 +7,9 @@
 <body>
 <header><div class="row"><a href="index.html"><img src="logo.jpg" alt="Slather logo"></a></div></header><div class="row"><div id="reports">
 <h2 class="cov_title">
-<span>Coverage for "GeneralStep.swift" : </span><span class="cov_high">91.67%</span>
+<span>Coverage for "GeneralStep.swift" : </span><span class="cov_high">94.44%</span>
 </h2>
-<h4 class="cov_subtitle">(33 of 36 relevant lines covered)</h4>
+<h4 class="cov_subtitle">(34 of 36 relevant lines covered)</h4>
 <h4 class="cov_filepath">RouteComposer/Classes/Steps/GeneralStep.swift</h4>
 <table class="source_code">
 <tr class="never">
@@ -265,17 +265,17 @@
 <tr class="covered">
 <td class="num">51</td>
 <td class="src"><pre><code class="objc">        init&lt;F: Finder&gt;(finder: F) {</code></pre></td>
-<td class="coverage">8x</td>
+<td class="coverage">9x</td>
 </tr>
 <tr class="covered">
 <td class="num">52</td>
 <td class="src"><pre><code class="objc">            self.finder = FinderBox(finder)</code></pre></td>
-<td class="coverage">8x</td>
+<td class="coverage">9x</td>
 </tr>
 <tr class="covered">
 <td class="num">53</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">8x</td>
+<td class="coverage">9x</td>
 </tr>
 <tr class="never">
 <td class="num">54</td>
@@ -285,17 +285,17 @@
 <tr class="covered">
 <td class="num">55</td>
 <td class="src"><pre><code class="objc">        func perform(with context: Any?) throws -&gt; PerformableStepResult {</code></pre></td>
-<td class="coverage">6x</td>
+<td class="coverage">7x</td>
 </tr>
 <tr class="covered">
 <td class="num">56</td>
 <td class="src"><pre><code class="objc">            guard let viewController = try finder?.findViewController(with: context) else {</code></pre></td>
-<td class="coverage">6x</td>
+<td class="coverage">7x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">57</td>
 <td class="src"><pre><code class="objc">                throw RoutingError.generic(.init("A view controller of \(String(describing: finder)) was not found."))</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">58</td>
@@ -310,7 +310,7 @@
 <tr class="covered">
 <td class="num">60</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">6x</td>
+<td class="coverage">7x</td>
 </tr>
 <tr class="never">
 <td class="num">61</td>
@@ -380,17 +380,17 @@
 <tr class="covered">
 <td class="num">74</td>
 <td class="src"><pre><code class="objc">    public static func custom&lt;F: Finder&gt;(using finder: F) -&gt; DestinationStep&lt;F.ViewController, F.Context&gt; {</code></pre></td>
-<td class="coverage">3x</td>
+<td class="coverage">4x</td>
 </tr>
 <tr class="covered">
 <td class="num">75</td>
 <td class="src"><pre><code class="objc">        return DestinationStep(FinderStep(finder: finder))</code></pre></td>
-<td class="coverage">3x</td>
+<td class="coverage">4x</td>
 </tr>
 <tr class="covered">
 <td class="num">76</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">3x</td>
+<td class="coverage">4x</td>
 </tr>
 <tr class="never">
 <td class="num">77</td>

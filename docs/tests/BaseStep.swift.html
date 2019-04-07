@@ -7,9 +7,9 @@
 <body>
 <header><div class="row"><a href="index.html"><img src="logo.jpg" alt="Slather logo"></a></div></header><div class="row"><div id="reports">
 <h2 class="cov_title">
-<span>Coverage for "BaseStep.swift" : </span><span class="cov_high">94.12%</span>
+<span>Coverage for "BaseStep.swift" : </span><span class="cov_high">100.00%</span>
 </h2>
-<h4 class="cov_subtitle">(32 of 34 relevant lines covered)</h4>
+<h4 class="cov_subtitle">(34 of 34 relevant lines covered)</h4>
 <h4 class="cov_filepath">RouteComposer/Classes/Router/Internal/BaseStep.swift</h4>
 <table class="source_code">
 <tr class="never">
@@ -230,37 +230,37 @@
 <tr class="covered">
 <td class="num">44</td>
 <td class="src"><pre><code class="objc">         taskProvider: TaskProvider) {</code></pre></td>
-<td class="coverage">201x</td>
+<td class="coverage">202x</td>
 </tr>
 <tr class="covered">
 <td class="num">45</td>
 <td class="src"><pre><code class="objc">        self.finder = entitiesProvider.finder</code></pre></td>
-<td class="coverage">201x</td>
+<td class="coverage">202x</td>
 </tr>
 <tr class="covered">
 <td class="num">46</td>
 <td class="src"><pre><code class="objc">        self.factory = entitiesProvider.factory</code></pre></td>
-<td class="coverage">201x</td>
+<td class="coverage">202x</td>
 </tr>
 <tr class="covered">
 <td class="num">47</td>
 <td class="src"><pre><code class="objc">        self.interceptor = taskProvider.interceptor</code></pre></td>
-<td class="coverage">201x</td>
+<td class="coverage">202x</td>
 </tr>
 <tr class="covered">
 <td class="num">48</td>
 <td class="src"><pre><code class="objc">        self.contextTask = taskProvider.contextTask</code></pre></td>
-<td class="coverage">201x</td>
+<td class="coverage">202x</td>
 </tr>
 <tr class="covered">
 <td class="num">49</td>
 <td class="src"><pre><code class="objc">        self.postTask = taskProvider.postTask</code></pre></td>
-<td class="coverage">201x</td>
+<td class="coverage">202x</td>
 </tr>
 <tr class="covered">
 <td class="num">50</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">201x</td>
+<td class="coverage">202x</td>
 </tr>
 <tr class="never">
 <td class="num">51</td>
@@ -270,17 +270,17 @@
 <tr class="covered">
 <td class="num">52</td>
 <td class="src"><pre><code class="objc">    func getPreviousStep(with context: Any?) -&gt; RoutingStep? {</code></pre></td>
-<td class="coverage">200x</td>
+<td class="coverage">201x</td>
 </tr>
 <tr class="covered">
 <td class="num">53</td>
 <td class="src"><pre><code class="objc">        return previousStep</code></pre></td>
-<td class="coverage">200x</td>
+<td class="coverage">201x</td>
 </tr>
 <tr class="covered">
 <td class="num">54</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">200x</td>
+<td class="coverage">201x</td>
 </tr>
 <tr class="never">
 <td class="num">55</td>
@@ -290,17 +290,17 @@
 <tr class="covered">
 <td class="num">56</td>
 <td class="src"><pre><code class="objc">    func perform(with context: Any?) throws -&gt; PerformableStepResult {</code></pre></td>
-<td class="coverage">177x</td>
+<td class="coverage">178x</td>
 </tr>
 <tr class="covered">
 <td class="num">57</td>
 <td class="src"><pre><code class="objc">        guard let viewController = try finder?.findViewController(with: context) else {</code></pre></td>
-<td class="coverage">177x</td>
+<td class="coverage">178x</td>
 </tr>
 <tr class="covered">
 <td class="num">58</td>
 <td class="src"><pre><code class="objc">            if let factory = factory {</code></pre></td>
-<td class="coverage">130x</td>
+<td class="coverage">131x</td>
 </tr>
 <tr class="covered">
 <td class="num">59</td>
@@ -312,15 +312,15 @@
 <td class="src"><pre><code class="objc">            } else {</code></pre></td>
 <td class="coverage">130x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">61</td>
 <td class="src"><pre><code class="objc">                return .none</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">62</td>
 <td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">63</td>
@@ -335,7 +335,7 @@
 <tr class="covered">
 <td class="num">65</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">177x</td>
+<td class="coverage">178x</td>
 </tr>
 <tr class="never">
 <td class="num">66</td>
@@ -345,17 +345,17 @@
 <tr class="covered">
 <td class="num">67</td>
 <td class="src"><pre><code class="objc">    mutating func from(_ step: RoutingStep) {</code></pre></td>
-<td class="coverage">189x</td>
+<td class="coverage">190x</td>
 </tr>
 <tr class="covered">
 <td class="num">68</td>
 <td class="src"><pre><code class="objc">        previousStep = step</code></pre></td>
-<td class="coverage">189x</td>
+<td class="coverage">190x</td>
 </tr>
 <tr class="covered">
 <td class="num">69</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">189x</td>
+<td class="coverage">190x</td>
 </tr>
 <tr class="never">
 <td class="num">70</td>

@@ -25,7 +25,7 @@ public enum RoutingError: Error, CustomStringConvertible {
         }
 
         public var description: String {
-            guard !debugDescription.isEmpty else {
+            guard debugDescription.isEmpty else {
                 return debugDescription
             }
 
@@ -33,7 +33,7 @@ public enum RoutingError: Error, CustomStringConvertible {
                 return "No valuable information provided"
             }
 
-            return (underlyingError as CustomStringConvertible).description
+            return "\(underlyingError)"
         }
 
     }
