@@ -33,7 +33,7 @@ public enum RoutingError: Error, CustomStringConvertible {
                 return "No valuable information provided"
             }
 
-            return (underlyingError as CustomStringConvertible).description
+            return "\(underlyingError)"
         }
 
     }

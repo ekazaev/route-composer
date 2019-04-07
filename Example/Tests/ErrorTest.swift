@@ -32,7 +32,7 @@ class ErrorTests: XCTestCase {
         XCTAssertEqual(context.description, "No valuable information provided")
 
         context = RoutingError.Context("", underlyingError: RoutingError.generic(.init("Test")))
-        XCTAssertEqual(context.description, "Error Domain=RouteComposer.RoutingError Code=2 \"(null)\"")
+        XCTAssertEqual(context.description, "Generic Error: Test")
     }
 
 }
