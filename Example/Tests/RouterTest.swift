@@ -314,7 +314,7 @@ class RouterTests: XCTestCase {
             XCTAssertEqual(viewControllers.count, 3)
         }))
         var routingResult: RoutingResult!
-        try? router.navigate(to: screenConfig, with: nil, animated: false, completion: { result in
+        try? router.navigate(to: screenConfig, animated: false, completion: { result in
             routingResult = result
             XCTAssertNotNil(currentViewController.presentedViewController)
             XCTAssert(currentViewController.presentedViewController is UINavigationController)
@@ -335,6 +335,14 @@ class RouterTests: XCTestCase {
         XCTAssertEqual(globalPostTaskRun, 3)
 
         XCTAssertTrue(routingResult.isSuccessful)
+    }
+
+    func testAnyOrVoidMethods() {
+        let router: Router = DefaultRouter()
+        let screenConfig = StepAssembly(finder: NilFinder<UIViewController, Void>(), factory: NilFactory())
+                .from(GeneralStep.custom(using: NilFinder<UIViewController, Void>()))
+                .assemble()
+        XCTAssertThrowsError(try router.navigate(to: screenConfig, animated: false, completion: nil))
     }
 
 }

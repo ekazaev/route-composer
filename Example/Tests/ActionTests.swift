@@ -351,4 +351,17 @@ class ActionTests: XCTestCase {
         XCTAssertTrue(splitController.viewControllers.last === viewController)
     }
 
+    func testActionResult() {
+        let result1 = ActionResult.continueRouting
+        XCTAssertTrue(result1.isSuccessful)
+        let result2 = ActionResult.failure(RoutingError.generic(.init("test")))
+        XCTAssertFalse(result2.isSuccessful)
+    }
+
+    func testCustomWindowProvider() {
+        let window = UIWindow()
+        let customProvider = CustomWindowProvider(window: window)
+        XCTAssertEqual(window, customProvider.window)
+    }
+
 }
