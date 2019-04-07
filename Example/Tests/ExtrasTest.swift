@@ -46,6 +46,14 @@ class ExtrasTest: XCTestCase {
 
     }
 
+    func testContextAccepting() {
+        class ContentAcceptingViewController: UIViewController, ContextAccepting {
+            func setup(with context: String) throws {
+            }
+        }
+        XCTAssertNoThrow(try ContentAcceptingViewController.checkCompatibility(with: ""))
+    }
+
     func testSimultaneousNavigation() {
         let currentViewController = RouterTests.TestModalPresentableController()
         let screenConfig = StepAssembly(finder: ClassFinder(), factory: RouterTests.TestViewControllerFactory())

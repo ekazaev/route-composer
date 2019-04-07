@@ -42,6 +42,7 @@ class FactoryTest: XCTestCase {
                 return nil
             }
         }
+
         let throwsFactory = FinderFactory<NothingFinder<UIViewController, Any?>>(finder: NothingFinder())
         XCTAssertThrowsError(try throwsFactory?.build(with: nil))
     }
@@ -83,6 +84,7 @@ class FactoryTest: XCTestCase {
             }
 
         }
+
         let factory = TestFactory(prepareBlock: { prepareCount += 1 }, buildBlock: { buildCount += 1 })
         XCTAssertNoThrow(try factory.buildPrepared(with: nil))
         XCTAssertEqual(prepareCount, 1)
@@ -103,4 +105,27 @@ class FactoryTest: XCTestCase {
         XCTAssertEqual(delayedFactory.description, "ClassNameFactory<UIViewController, Optional<Any>>(viewControllerName: nil, nibName: nil, bundle: nil)")
     }
 
+    func testAnyOrVoidMethods() {
+        class TestFactory<C>: Factory {
+            typealias ViewController = UIViewController
+            typealias Context = C
+            var isPrepared = false
+            var isApplied = false
+
+            func build(with context: C) throws -> UIViewController {
+                isApplied = true
+                return ViewController()
+            }
+
+            func prepare(with context: C) throws {
+                isPrepared = true
+            }
+        }
+
+        let tfc = TestFactory<Any?>()
+        _ = try? tfc.buildPrepared()
+        XCTAssertTrue(tfc.isPrepared)
+        XCTAssertTrue(tfc.isApplied)
+
+    }
 }

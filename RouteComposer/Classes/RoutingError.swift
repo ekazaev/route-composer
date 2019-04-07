@@ -25,7 +25,7 @@ public enum RoutingError: Error, CustomStringConvertible {
         }
 
         public var description: String {
-            guard !debugDescription.isEmpty else {
+            guard debugDescription.isEmpty else {
                 return debugDescription
             }
 

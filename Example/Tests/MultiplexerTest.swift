@@ -126,6 +126,7 @@ class MultiplexerTest: XCTestCase {
                 completion(.continueRouting)
             }
         }
+
         var multiplexer = InterceptorMultiplexer([RoutingInterceptorBox(Interceptor())])
         try? multiplexer.prepare(with: nil)
         multiplexer.execute(with: nil) { (result: InterceptorResult) in
@@ -137,4 +138,95 @@ class MultiplexerTest: XCTestCase {
         }
     }
 
+    func testIsSuccessfulInterceptor() {
+        let result1 = InterceptorResult.continueRouting
+        XCTAssertTrue(result1.isSuccessful)
+        let result2 = InterceptorResult.failure(RoutingError.generic(.init("test")))
+        XCTAssertFalse(result2.isSuccessful)
+    }
+
+    func testAnyOrVoidMethods() {
+        struct TestFinder<C>: Finder {
+            typealias ViewController = UIViewController
+            typealias Context = C
+
+            func findViewController(with context: Context) -> ViewController? {
+                return nil
+            }
+        }
+
+        class TestContextTask<C>: ContextTask {
+            typealias ViewController = UIViewController
+            typealias Context = C
+            var isPrepared = false
+            var isApplied = false
+
+            func prepare(with context: C) throws {
+                isPrepared = true
+            }
+
+            func apply(on viewController: UIViewController, with context: C) throws {
+                isApplied = true
+            }
+        }
+
+        class TestRoutingInterceptor<C>: RoutingInterceptor {
+            typealias ViewController = UIViewController
+            typealias Context = C
+
+            var isPrepared = false
+            var isApplied = false
+
+            func prepare(with context: C) throws {
+                isPrepared = true
+            }
+
+            func execute(with context: C, completion: @escaping (InterceptorResult) -> Void) {
+                isApplied = true
+            }
+        }
+
+        struct TestPostRoutingTask<C>: PostRoutingTask {
+            typealias ViewController = UIViewController
+            typealias Context = C
+
+            func execute(on viewController: UIViewController, with context: C, routingStack: [UIViewController]) {
+                viewController.title = "test"
+            }
+        }
+
+        XCTAssertNil(TestFinder<Any?>().findViewController())
+        XCTAssertNil(TestFinder<Void>().findViewController())
+        let viewController1 = UIViewController()
+        TestPostRoutingTask<Any?>().execute(on: viewController1, routingStack: [])
+        XCTAssertEqual(viewController1.title, "test")
+
+        let viewController2 = UIViewController()
+        TestPostRoutingTask<Void>().execute(on: viewController2, routingStack: [])
+        XCTAssertEqual(viewController1.title, "test")
+
+        var ct1 = TestContextTask<Any?>()
+        try? ct1.prepare()
+        try? ct1.apply(on: viewController1)
+        XCTAssertTrue(ct1.isPrepared)
+        XCTAssertTrue(ct1.isApplied)
+
+        var ct2 = TestContextTask<Void>()
+        try? ct2.prepare()
+        try? ct2.apply(on: viewController1)
+        XCTAssertTrue(ct2.isPrepared)
+        XCTAssertTrue(ct2.isApplied)
+
+        var ri1 = TestRoutingInterceptor<Any?>()
+        try? ri1.prepare()
+        ri1.execute(completion: { _ in })
+        XCTAssertTrue(ri1.isPrepared)
+        XCTAssertTrue(ri1.isApplied)
+
+        var ri2 = TestRoutingInterceptor<Void>()
+        try? ri2.prepare()
+        ri2.execute(completion: { _ in })
+        XCTAssertTrue(ri2.isPrepared)
+        XCTAssertTrue(ri2.isApplied)
+    }
 }
