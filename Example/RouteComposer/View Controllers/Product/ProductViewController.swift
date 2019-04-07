@@ -64,8 +64,10 @@ class ProductViewController: UIViewController, ExampleAnalyticsSupport, ContextA
         productIdLabel.text = productId
         if let productId = productId {
             self.view.accessibilityIdentifier = "productViewController+\(productId)"
+            self.title = "Product \(productId)"
         } else {
             self.view.accessibilityIdentifier = "productViewController"
+            self.title = "Product"
         }
     }
 

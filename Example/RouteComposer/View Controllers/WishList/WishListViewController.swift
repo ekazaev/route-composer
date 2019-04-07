@@ -21,6 +21,7 @@ class WishListViewController: UITableViewController, ExampleAnalyticsSupport {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Wish list"
         segmentController.addTarget(self, action: #selector(segmentChanged), for: UIControl.Event.valueChanged)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneTapped))
         reloadData()

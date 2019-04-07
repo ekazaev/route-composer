@@ -32,6 +32,7 @@ class CitiesTableViewController: UITableViewController, ExampleAnalyticsSupport 
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Cities"
         self.splitViewController?.delegate = self
         self.splitViewController?.preferredDisplayMode = .allVisible
         self.splitViewController?.view.accessibilityIdentifier = "citiesSplitViewController"

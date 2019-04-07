@@ -15,6 +15,7 @@ class SquareViewController: UIViewController, ExampleAnalyticsSupport {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Square"
     }
 
     @IBAction func goToCircleTapped() {
