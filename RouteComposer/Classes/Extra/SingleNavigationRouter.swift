@@ -54,7 +54,7 @@ public struct SingleNavigationRouter<R>: Router where R: Router {
                                                                     animated: Bool,
                                                                     completion: ((RoutingResult) -> Void)?) throws {
         guard !lock.isNavigationInProgress else {
-            throw RoutingError.generic(RoutingError.Context("Navigation is in progress"))
+            throw RoutingError.compositionFailed(.init("Navigation is in progress"))
         }
         lock.startNavigation()
         do {

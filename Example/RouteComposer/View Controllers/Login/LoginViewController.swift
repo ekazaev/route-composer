@@ -28,14 +28,14 @@ class LoginInterceptor<C>: RoutingInterceptor {
             try UIViewController.router.navigate(to: destination) { routingResult in
                 guard routingResult.isSuccessful,
                       let viewController = ClassFinder<LoginViewController, Any?>().findViewController(with: nil) else {
-                    completion(.failure(RoutingError.generic(.init("LoginViewController was not found."))))
+                    completion(.failure(RoutingError.compositionFailed(.init("LoginViewController was not found."))))
                     return
                 }
 
                 viewController.interceptorCompletionBlock = completion
             }
         } catch let error {
-            completion(.failure(RoutingError.generic(.init("Could not present login view controller", underlyingError: error))))
+            completion(.failure(RoutingError.compositionFailed(.init("Could not present login view controller", underlyingError: error))))
         }
     }
 

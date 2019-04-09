@@ -12,6 +12,7 @@ public struct DefaultStackIterator: StackIterator {
     ///
     /// - topMost: Start from the topmost `UIViewController`
     /// - root: Start from the `UIWindow`s root `UIViewController`
+    /// - custom: Start from the custom `UIViewController`
     public enum StartingPoint: Equatable {
 
         /// Start from the topmost `UIViewController`

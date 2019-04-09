@@ -19,7 +19,7 @@ public struct GeneralStep {
 
         func perform(with context: Any?) throws -> PerformableStepResult {
             guard let viewController = windowProvider.window?.rootViewController else {
-                throw RoutingError.generic(.init("Root view controller was not found."))
+                throw RoutingError.compositionFailed(.init("Root view controller was not found."))
             }
             return .success(viewController)
         }
@@ -37,7 +37,7 @@ public struct GeneralStep {
 
         func perform(with context: Any?) throws -> PerformableStepResult {
             guard let viewController = windowProvider.window?.topmostViewController else {
-                throw RoutingError.generic(.init("Topmost view controller was not found."))
+                throw RoutingError.compositionFailed(.init("Topmost view controller was not found."))
             }
             return .success(viewController)
         }
@@ -54,7 +54,7 @@ public struct GeneralStep {
 
         func perform(with context: Any?) throws -> PerformableStepResult {
             guard let viewController = try finder?.findViewController(with: context) else {
-                throw RoutingError.generic(.init("A view controller of \(String(describing: finder)) was not found."))
+                throw RoutingError.compositionFailed(.init("A view controller of \(String(describing: finder)) was not found."))
             }
             return .success(viewController)
         }
