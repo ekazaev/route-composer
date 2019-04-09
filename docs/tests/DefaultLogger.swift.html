@@ -7,9 +7,9 @@
 <body>
 <header><div class="row"><a href="index.html"><img src="logo.jpg" alt="Slather logo"></a></div></header><div class="row"><div id="reports">
 <h2 class="cov_title">
-<span>Coverage for "DefaultLogger.swift" : </span><span class="cov_low">50.00%</span>
+<span>Coverage for "DefaultLogger.swift" : </span><span class="cov_low">57.89%</span>
 </h2>
-<h4 class="cov_subtitle">(19 of 38 relevant lines covered)</h4>
+<h4 class="cov_subtitle">(22 of 38 relevant lines covered)</h4>
 <h4 class="cov_filepath">RouteComposer/Classes/Logger/DefaultLogger.swift</h4>
 <table class="source_code">
 <tr class="never">
@@ -220,17 +220,17 @@
 <tr class="covered">
 <td class="num">42</td>
 <td class="src"><pre><code class="objc">    public func log(_ message: LogMessage) {</code></pre></td>
-<td class="coverage">665x</td>
+<td class="coverage">673x</td>
 </tr>
 <tr class="covered">
 <td class="num">43</td>
 <td class="src"><pre><code class="objc">        switch message {</code></pre></td>
-<td class="coverage">665x</td>
+<td class="coverage">673x</td>
 </tr>
 <tr class="covered">
 <td class="num">44</td>
 <td class="src"><pre><code class="objc">        case .warning(let message):</code></pre></td>
-<td class="coverage">665x</td>
+<td class="coverage">673x</td>
 </tr>
 <tr class="missed">
 <td class="num">45</td>
@@ -265,32 +265,32 @@
 <tr class="covered">
 <td class="num">51</td>
 <td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">665x</td>
+<td class="coverage">673x</td>
 </tr>
 <tr class="covered">
 <td class="num">52</td>
 <td class="src"><pre><code class="objc">        case .info(let message):</code></pre></td>
-<td class="coverage">665x</td>
+<td class="coverage">673x</td>
 </tr>
 <tr class="covered">
 <td class="num">53</td>
 <td class="src"><pre><code class="objc">            if logLevel == .verbose {</code></pre></td>
-<td class="coverage">665x</td>
+<td class="coverage">669x</td>
 </tr>
 <tr class="covered">
 <td class="num">54</td>
 <td class="src"><pre><code class="objc">                if #available(iOS 10, *) {</code></pre></td>
-<td class="coverage">665x</td>
+<td class="coverage">669x</td>
 </tr>
 <tr class="covered">
 <td class="num">55</td>
 <td class="src"><pre><code class="objc">                    os_log("%@", log: self.osLog ?? OSLog.default, type: .info, message)</code></pre></td>
-<td class="coverage">665x</td>
+<td class="coverage">669x</td>
 </tr>
 <tr class="covered">
 <td class="num">56</td>
 <td class="src"><pre><code class="objc">                } else {</code></pre></td>
-<td class="coverage">665x</td>
+<td class="coverage">669x</td>
 </tr>
 <tr class="missed">
 <td class="num">57</td>
@@ -300,32 +300,32 @@
 <tr class="covered">
 <td class="num">58</td>
 <td class="src"><pre><code class="objc">                }</code></pre></td>
-<td class="coverage">665x</td>
+<td class="coverage">669x</td>
 </tr>
 <tr class="covered">
 <td class="num">59</td>
 <td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">665x</td>
+<td class="coverage">673x</td>
 </tr>
 <tr class="covered">
 <td class="num">60</td>
 <td class="src"><pre><code class="objc">        case .error(let message):</code></pre></td>
-<td class="coverage">665x</td>
+<td class="coverage">673x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">61</td>
 <td class="src"><pre><code class="objc">            if #available(iOS 10, *) {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">4x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">62</td>
 <td class="src"><pre><code class="objc">                os_log("%@", log: self.osLog ?? OSLog.default, type: .fault, message)</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">4x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">63</td>
 <td class="src"><pre><code class="objc">            } else {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">4x</td>
 </tr>
 <tr class="missed">
 <td class="num">64</td>
@@ -335,17 +335,17 @@
 <tr class="covered">
 <td class="num">65</td>
 <td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">665x</td>
+<td class="coverage">673x</td>
 </tr>
 <tr class="covered">
 <td class="num">66</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">665x</td>
+<td class="coverage">673x</td>
 </tr>
 <tr class="covered">
 <td class="num">67</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">665x</td>
+<td class="coverage">673x</td>
 </tr>
 <tr class="never">
 <td class="num">68</td>

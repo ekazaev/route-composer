@@ -410,6 +410,7 @@ English:
 
   - [Composition of UIViewControllers and navigation between them](https://itnext.io/composition-of-uiviewcontrollers-and-navigation-between-them-and-not-only-15b825da5ac)
   - [Going deeper into the RouteComposer configuration](https://itnext.io/going-deeper-into-the-routecomposer-configuration-3a54661bb16a)
+  - [Coordinator Pattern’s Issues & What is RouteComposer](https://itnext.io/coordinator-patterns-issues-what-is-routecomposer-8b50a0477917)
 
 Russian:
 
@@ -420,4 +421,6 @@ Russian:
 ## Author
 
 Evgeny Kazaev, eugene.kazaev@hbc.com
+
+*I am happy to answer any questions you may have.*
 
