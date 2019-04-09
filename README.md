@@ -365,7 +365,7 @@ class ProductArrayViewController: UITableViewController {
         let navigationController = UINavigationController(rootViewController: productViewController)
 
         // handled by DefaultActions.PresentModally
-        present(alertController, animated: navigationController) { [weak self]
+        present(navigationController, animated: true) { [weak self]
             // Handled by ProductViewControllerPostTask
             self?.analyticsManager.trackProductView(productID: productID)
         }
