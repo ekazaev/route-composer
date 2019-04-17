@@ -78,16 +78,16 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
         }
     }
 
-    private func prepareTaskStack(with context: Any?) throws -> GlobalTaskRunner {
-        let interceptorRunner = try InterceptorRunner(interceptors: self.interceptors, context: context)
-        let contextTaskRunner = try ContextTaskRunner(contextTasks: self.contextTasks, context: context)
+    private func prepareTaskStack<Context>(with context: Context) throws -> GlobalTaskRunner {
+        let interceptorRunner = try InterceptorRunner(interceptors: self.interceptors, with: context)
+        let contextTaskRunner = try ContextTaskRunner(contextTasks: self.contextTasks, with: context)
         let postTaskDelayedRunner = PostTaskDelayedRunner()
-        let postTaskRunner = PostTaskRunner(postTasks: self.postTasks, context: context, delayedRunner: postTaskDelayedRunner)
+        let postTaskRunner = PostTaskRunner(postTasks: self.postTasks, with: context, delayedRunner: postTaskDelayedRunner)
         return GlobalTaskRunner(interceptorRunner: interceptorRunner, contextTaskRunner: contextTaskRunner, postTaskRunner: postTaskRunner)
     }
 
-    private func prepareFactoriesStack(to finalStep: RoutingStep, with context: Any?, taskStack: GlobalTaskRunner) throws -> (rootViewController: UIViewController,
-                                                                                                                              factories: [AnyFactory]) {
+    private func prepareFactoriesStack<Context>(to finalStep: RoutingStep, with context: Context, taskStack: GlobalTaskRunner) throws -> (rootViewController: UIViewController,
+                                                                                                                                          factories: [AnyFactory]) {
         logger?.log(.info("Started to search for the view controller to start the navigation process from."))
 
         let result = try sequence(first: finalStep, next: { ($0 as? ChainableStep)?.getPreviousStep(with: context) })
@@ -98,14 +98,14 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
                     }
 
                     // Creates a class responsible to run the tasks for this particular step
-                    let viewControllerTaskRunner = try taskStack.taskRunnerFor(step: step)
+                    let viewControllerTaskRunner = try taskStack.taskRunnerFor(step: step, with: context)
 
                     // Performs current step
                     switch try step.perform(with: context) {
                     case .success(let viewController):
                         logger?.log(.info("\(String(describing: step)) found " +
                                 "\(String(describing: viewController)) to start the navigation process from."))
-                        try viewControllerTaskRunner.run(on: viewController)
+                        try viewControllerTaskRunner.run(on: viewController, with: context)
                         return (rootViewController: viewController, result.factories)
                     case .build(let originalFactory):
                         // If the view controller to start from is not found, but the current step has a `Factory` to build it,
@@ -138,7 +138,7 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
 
         //Throws an exception if it hasn't found a view controller to start the stack from.
         guard let rootViewController = result.rootViewController else {
-            throw RoutingError.compositionFailed(.init("Unable to start the navigation process as the view controller to start from was not found."))
+            throw RoutingError.initialController(.notFound, .init("Unable to start the navigation process as the view controller to start from was not found."))
         }
 
         return (rootViewController: rootViewController, factories: result.factories)
@@ -152,7 +152,8 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
                                           completion: @escaping (RoutingResult) -> Void) {
         // Executes interceptors associated to each view in the chain. All the interceptors must succeed to
         // continue navigation process. This operation is async.
-        taskStack.executeInterceptors { [weak viewController] result in
+        let initialControllerDescription = String(describing: viewController)
+        taskStack.executeInterceptors(with: context) { [weak viewController] result in
             self.assertIfNotMainThread(logger: self.logger)
 
             if case let .failure(error) = result {
@@ -161,7 +162,7 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
             }
 
             guard let viewController = viewController else {
-                completion(.failure(RoutingError.compositionFailed(.init("A view controller that has been chosen as a " +
+                completion(.failure(RoutingError.initialController(.deallocated, .init("A view controller \(initialControllerDescription) that has been chosen as a " +
                         "starting point of the navigation process was destroyed while the router was waiting for the interceptors to finish."))))
                 return
             }
@@ -187,7 +188,7 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
                         if case let .failure(error) = result {
                             throw error
                         }
-                        try taskStack.runPostTasks()
+                        try taskStack.runPostTasks(with: context)
                         completion(result)
                     } catch let error {
                         completion(.failure(error))
@@ -200,11 +201,11 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
     // Loops through the list of factories and builds their view controllers in sequence.
     // Some actions can be asynchronous, like push, modal or presentations,
     // so it performs them asynchronously
-    private func buildViewControllerStack(starting rootViewController: UIViewController,
-                                          with context: Any?,
-                                          using factories: [AnyFactory],
-                                          animated: Bool,
-                                          completion: @escaping ((_: UIViewController, _: RoutingResult) -> Void)) {
+    private func buildViewControllerStack<Context>(starting rootViewController: UIViewController,
+                                                   with context: Context,
+                                                   using factories: [AnyFactory],
+                                                   animated: Bool,
+                                                   completion: @escaping ((_: UIViewController, _: RoutingResult) -> Void)) {
         var factories = factories
 
         let delayedIntegrationHandler = DefaultDelayedIntegrationHandler(logger: logger)

@@ -199,7 +199,7 @@
 </tr>
 <tr class="never">
 <td class="num">38</td>
-<td class="src"><pre><code class="objc">    private struct BlockResolver&lt;C&gt;: StepCaseResolver {</code></pre></td>
+<td class="src"><pre><code class="objc">    private struct BlockResolver: StepCaseResolver {</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -209,7 +209,7 @@
 </tr>
 <tr class="never">
 <td class="num">40</td>
-<td class="src"><pre><code class="objc">        let resolverBlock: ((_: C) -&gt; DestinationStep&lt;ViewController, Context&gt;?)</code></pre></td>
+<td class="src"><pre><code class="objc">        let resolverBlock: ((_: Context) -&gt; DestinationStep&lt;ViewController, Context&gt;?)</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -219,7 +219,7 @@
 </tr>
 <tr class="covered">
 <td class="num">42</td>
-<td class="src"><pre><code class="objc">        init(resolverBlock: @escaping ((_: C) -&gt; DestinationStep&lt;ViewController, Context&gt;?)) {</code></pre></td>
+<td class="src"><pre><code class="objc">        init(resolverBlock: @escaping ((_: Context) -&gt; DestinationStep&lt;ViewController, Context&gt;?)) {</code></pre></td>
 <td class="coverage">8x</td>
 </tr>
 <tr class="covered">
@@ -239,12 +239,12 @@
 </tr>
 <tr class="covered">
 <td class="num">46</td>
-<td class="src"><pre><code class="objc">        func resolve(with context: Any?) -&gt; RoutingStep? {</code></pre></td>
+<td class="src"><pre><code class="objc">        func resolve&lt;C&gt;(with context: C) -&gt; RoutingStep? {</code></pre></td>
 <td class="coverage">7x</td>
 </tr>
 <tr class="covered">
 <td class="num">47</td>
-<td class="src"><pre><code class="objc">            guard let typedDestination = context as? C else {</code></pre></td>
+<td class="src"><pre><code class="objc">            guard let typedContext = context as? Context else {</code></pre></td>
 <td class="coverage">7x</td>
 </tr>
 <tr class="missed">
@@ -259,7 +259,7 @@
 </tr>
 <tr class="covered">
 <td class="num">50</td>
-<td class="src"><pre><code class="objc">            return resolverBlock(typedDestination)</code></pre></td>
+<td class="src"><pre><code class="objc">            return resolverBlock(typedContext)</code></pre></td>
 <td class="coverage">7x</td>
 </tr>
 <tr class="covered">
@@ -334,7 +334,7 @@
 </tr>
 <tr class="covered">
 <td class="num">65</td>
-<td class="src"><pre><code class="objc">        func resolve&lt;C&gt;(with context: C) -&gt; RoutingStep? {</code></pre></td>
+<td class="src"><pre><code class="objc">        func resolve&lt;Context&gt;(with context: Context) -&gt; RoutingStep? {</code></pre></td>
 <td class="coverage">5x</td>
 </tr>
 <tr class="covered">
@@ -429,7 +429,7 @@
 </tr>
 <tr class="covered">
 <td class="num">84</td>
-<td class="src"><pre><code class="objc">    public func addCase&lt;C&gt;(_ resolverBlock: @escaping ((_: C) -&gt; DestinationStep&lt;ViewController, Context&gt;?)) -&gt; Self {</code></pre></td>
+<td class="src"><pre><code class="objc">    public func addCase(_ resolverBlock: @escaping ((_: Context) -&gt; DestinationStep&lt;ViewController, Context&gt;?)) -&gt; Self {</code></pre></td>
 <td class="coverage">4x</td>
 </tr>
 <tr class="covered">
@@ -484,7 +484,7 @@
 </tr>
 <tr class="covered">
 <td class="num">95</td>
-<td class="src"><pre><code class="objc">    public func addCase&lt;F: Finder&gt;(when finder: F, from step: DestinationStep&lt;ViewController, Context&gt;) -&gt; Self {</code></pre></td>
+<td class="src"><pre><code class="objc">    public func addCase&lt;F: Finder&gt;(when finder: F, from step: DestinationStep&lt;ViewController, Context&gt;) -&gt; Self where F.Context == Context {</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
@@ -619,7 +619,7 @@
 </tr>
 <tr class="covered">
 <td class="num">122</td>
-<td class="src"><pre><code class="objc">        resolvers.append(BlockResolver&lt;Context&gt;(resolverBlock: { _ in</code></pre></td>
+<td class="src"><pre><code class="objc">        resolvers.append(BlockResolver(resolverBlock: { _ in</code></pre></td>
 <td class="coverage">4x</td>
 </tr>
 <tr class="covered">

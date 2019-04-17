@@ -49,11 +49,11 @@ struct BaseStep: RoutingStep,
         self.postTask = taskProvider.postTask
     }
 
-    func getPreviousStep(with context: Any?) -> RoutingStep? {
+    func getPreviousStep<Context>(with context: Context) -> RoutingStep? {
         return previousStep
     }
 
-    func perform(with context: Any?) throws -> PerformableStepResult {
+    func perform<Context>(with context: Context) throws -> PerformableStepResult {
         guard let viewController = try finder?.findViewController(with: context) else {
             if let factory = factory {
                 return .build(factory)

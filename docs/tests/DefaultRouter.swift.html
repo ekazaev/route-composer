@@ -7,9 +7,9 @@
 <body>
 <header><div class="row"><a href="index.html"><img src="logo.jpg" alt="Slather logo"></a></div></header><div class="row"><div id="reports">
 <h2 class="cov_title">
-<span>Coverage for "DefaultRouter.swift" : </span><span class="cov_high">96.97%</span>
+<span>Coverage for "DefaultRouter.swift" : </span><span class="cov_high">96.98%</span>
 </h2>
-<h4 class="cov_subtitle">(224 of 231 relevant lines covered)</h4>
+<h4 class="cov_subtitle">(225 of 232 relevant lines covered)</h4>
 <h4 class="cov_filepath">RouteComposer/Classes/Router/DefaultRouter.swift</h4>
 <table class="source_code">
 <tr class="never">
@@ -414,17 +414,17 @@
 </tr>
 <tr class="covered">
 <td class="num">81</td>
-<td class="src"><pre><code class="objc">    private func prepareTaskStack(with context: Any?) throws -&gt; GlobalTaskRunner {</code></pre></td>
+<td class="src"><pre><code class="objc">    private func prepareTaskStack&lt;Context&gt;(with context: Context) throws -&gt; GlobalTaskRunner {</code></pre></td>
 <td class="coverage">93x</td>
 </tr>
 <tr class="covered">
 <td class="num">82</td>
-<td class="src"><pre><code class="objc">        let interceptorRunner = try InterceptorRunner(interceptors: self.interceptors, context: context)</code></pre></td>
+<td class="src"><pre><code class="objc">        let interceptorRunner = try InterceptorRunner(interceptors: self.interceptors, with: context)</code></pre></td>
 <td class="coverage">93x</td>
 </tr>
 <tr class="covered">
 <td class="num">83</td>
-<td class="src"><pre><code class="objc">        let contextTaskRunner = try ContextTaskRunner(contextTasks: self.contextTasks, context: context)</code></pre></td>
+<td class="src"><pre><code class="objc">        let contextTaskRunner = try ContextTaskRunner(contextTasks: self.contextTasks, with: context)</code></pre></td>
 <td class="coverage">93x</td>
 </tr>
 <tr class="covered">
@@ -434,7 +434,7 @@
 </tr>
 <tr class="covered">
 <td class="num">85</td>
-<td class="src"><pre><code class="objc">        let postTaskRunner = PostTaskRunner(postTasks: self.postTasks, context: context, delayedRunner: postTaskDelayedRunner)</code></pre></td>
+<td class="src"><pre><code class="objc">        let postTaskRunner = PostTaskRunner(postTasks: self.postTasks, with: context, delayedRunner: postTaskDelayedRunner)</code></pre></td>
 <td class="coverage">93x</td>
 </tr>
 <tr class="covered">
@@ -454,12 +454,12 @@
 </tr>
 <tr class="never">
 <td class="num">89</td>
-<td class="src"><pre><code class="objc">    private func prepareFactoriesStack(to finalStep: RoutingStep, with context: Any?, taskStack: GlobalTaskRunner) throws -&gt; (rootViewController: UIViewController,</code></pre></td>
+<td class="src"><pre><code class="objc">    private func prepareFactoriesStack&lt;Context&gt;(to finalStep: RoutingStep, with context: Context, taskStack: GlobalTaskRunner) throws -&gt; (rootViewController: UIViewController,</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
 <td class="num">90</td>
-<td class="src"><pre><code class="objc">                                                                                                                              factories: [AnyFactory]) {</code></pre></td>
+<td class="src"><pre><code class="objc">                                                                                                                                          factories: [AnyFactory]) {</code></pre></td>
 <td class="coverage">93x</td>
 </tr>
 <tr class="covered">
@@ -514,7 +514,7 @@
 </tr>
 <tr class="covered">
 <td class="num">101</td>
-<td class="src"><pre><code class="objc">                    let viewControllerTaskRunner = try taskStack.taskRunnerFor(step: step)</code></pre></td>
+<td class="src"><pre><code class="objc">                    let viewControllerTaskRunner = try taskStack.taskRunnerFor(step: step, with: context)</code></pre></td>
 <td class="coverage">204x</td>
 </tr>
 <tr class="covered">
@@ -549,7 +549,7 @@
 </tr>
 <tr class="covered">
 <td class="num">108</td>
-<td class="src"><pre><code class="objc">                        try viewControllerTaskRunner.run(on: viewController)</code></pre></td>
+<td class="src"><pre><code class="objc">                        try viewControllerTaskRunner.run(on: viewController, with: context)</code></pre></td>
 <td class="coverage">91x</td>
 </tr>
 <tr class="covered">
@@ -714,7 +714,7 @@
 </tr>
 <tr class="missed">
 <td class="num">141</td>
-<td class="src"><pre><code class="objc">            throw RoutingError.compositionFailed(.init("Unable to start the navigation process as the view controller to start from was not found."))</code></pre></td>
+<td class="src"><pre><code class="objc">            throw RoutingError.initialController(.notFound, .init("Unable to start the navigation process as the view controller to start from was not found."))</code></pre></td>
 <td class="coverage">!</td>
 </tr>
 <tr class="covered">
@@ -784,646 +784,651 @@
 </tr>
 <tr class="covered">
 <td class="num">155</td>
-<td class="src"><pre><code class="objc">        taskStack.executeInterceptors { [weak viewController] result in</code></pre></td>
+<td class="src"><pre><code class="objc">        let initialControllerDescription = String(describing: viewController)</code></pre></td>
 <td class="coverage">87x</td>
 </tr>
 <tr class="covered">
 <td class="num">156</td>
-<td class="src"><pre><code class="objc">            self.assertIfNotMainThread(logger: self.logger)</code></pre></td>
+<td class="src"><pre><code class="objc">        taskStack.executeInterceptors(with: context) { [weak viewController] result in</code></pre></td>
 <td class="coverage">87x</td>
 </tr>
 <tr class="covered">
 <td class="num">157</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="src"><pre><code class="objc">            self.assertIfNotMainThread(logger: self.logger)</code></pre></td>
 <td class="coverage">87x</td>
 </tr>
 <tr class="covered">
 <td class="num">158</td>
-<td class="src"><pre><code class="objc">            if case let .failure(error) = result {</code></pre></td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage">87x</td>
 </tr>
 <tr class="covered">
 <td class="num">159</td>
+<td class="src"><pre><code class="objc">            if case let .failure(error) = result {</code></pre></td>
+<td class="coverage">87x</td>
+</tr>
+<tr class="covered">
+<td class="num">160</td>
 <td class="src"><pre><code class="objc">                completion(.failure(error))</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
-<td class="num">160</td>
+<td class="num">161</td>
 <td class="src"><pre><code class="objc">                return</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
-<td class="num">161</td>
-<td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">86x</td>
-</tr>
-<tr class="covered">
 <td class="num">162</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="src"><pre><code class="objc">            }</code></pre></td>
 <td class="coverage">86x</td>
 </tr>
 <tr class="covered">
 <td class="num">163</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage">86x</td>
+</tr>
+<tr class="covered">
+<td class="num">164</td>
 <td class="src"><pre><code class="objc">            guard let viewController = viewController else {</code></pre></td>
 <td class="coverage">86x</td>
 </tr>
 <tr class="missed">
-<td class="num">164</td>
-<td class="src"><pre><code class="objc">                completion(.failure(RoutingError.compositionFailed(.init("A view controller that has been chosen as a " +</code></pre></td>
-<td class="coverage">!</td>
-</tr>
-<tr class="missed">
 <td class="num">165</td>
-<td class="src"><pre><code class="objc">                        "starting point of the navigation process was destroyed while the router was waiting for the interceptors to finish."))))</code></pre></td>
+<td class="src"><pre><code class="objc">                completion(.failure(RoutingError.initialController(.deallocated, .init("A view controller \(initialControllerDescription) that has been chosen as a " +</code></pre></td>
 <td class="coverage">!</td>
 </tr>
 <tr class="missed">
 <td class="num">166</td>
+<td class="src"><pre><code class="objc">                        "starting point of the navigation process was destroyed while the router was waiting for the interceptors to finish."))))</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">167</td>
 <td class="src"><pre><code class="objc">                return</code></pre></td>
 <td class="coverage">!</td>
 </tr>
 <tr class="covered">
-<td class="num">167</td>
-<td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">86x</td>
-</tr>
-<tr class="covered">
 <td class="num">168</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="src"><pre><code class="objc">            }</code></pre></td>
 <td class="coverage">86x</td>
 </tr>
 <tr class="covered">
 <td class="num">169</td>
-<td class="src"><pre><code class="objc">            // Closes all the presented view controllers above the found view controller to be able</code></pre></td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage">86x</td>
 </tr>
 <tr class="covered">
 <td class="num">170</td>
-<td class="src"><pre><code class="objc">            // to build a new stack if needed.</code></pre></td>
+<td class="src"><pre><code class="objc">            // Closes all the presented view controllers above the found view controller to be able</code></pre></td>
 <td class="coverage">86x</td>
 </tr>
 <tr class="covered">
 <td class="num">171</td>
-<td class="src"><pre><code class="objc">            // This operation is async.</code></pre></td>
+<td class="src"><pre><code class="objc">            // to build a new stack if needed.</code></pre></td>
 <td class="coverage">86x</td>
 </tr>
 <tr class="covered">
 <td class="num">172</td>
-<td class="src"><pre><code class="objc">            // It was already confirmed that they can be dismissed.</code></pre></td>
+<td class="src"><pre><code class="objc">            // This operation is async.</code></pre></td>
 <td class="coverage">86x</td>
 </tr>
 <tr class="covered">
 <td class="num">173</td>
-<td class="src"><pre><code class="objc">            self.dismissPresentedIfNeeded(from: viewController, animated: animated) { result in</code></pre></td>
+<td class="src"><pre><code class="objc">            // It was already confirmed that they can be dismissed.</code></pre></td>
 <td class="coverage">86x</td>
 </tr>
 <tr class="covered">
 <td class="num">174</td>
+<td class="src"><pre><code class="objc">            self.dismissPresentedIfNeeded(from: viewController, animated: animated) { result in</code></pre></td>
+<td class="coverage">86x</td>
+</tr>
+<tr class="covered">
+<td class="num">175</td>
 <td class="src"><pre><code class="objc">                if case let .failure(error) = result {</code></pre></td>
 <td class="coverage">86x</td>
 </tr>
 <tr class="missed">
-<td class="num">175</td>
+<td class="num">176</td>
 <td class="src"><pre><code class="objc">                    completion(.failure(error))</code></pre></td>
 <td class="coverage">!</td>
 </tr>
 <tr class="missed">
-<td class="num">176</td>
+<td class="num">177</td>
 <td class="src"><pre><code class="objc">                    return</code></pre></td>
 <td class="coverage">!</td>
 </tr>
 <tr class="covered">
-<td class="num">177</td>
-<td class="src"><pre><code class="objc">                }</code></pre></td>
-<td class="coverage">86x</td>
-</tr>
-<tr class="covered">
 <td class="num">178</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="src"><pre><code class="objc">                }</code></pre></td>
 <td class="coverage">86x</td>
 </tr>
 <tr class="covered">
 <td class="num">179</td>
-<td class="src"><pre><code class="objc">                // Builds view controller's stack using factories.</code></pre></td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage">86x</td>
 </tr>
 <tr class="covered">
 <td class="num">180</td>
-<td class="src"><pre><code class="objc">                // This operation is async.</code></pre></td>
+<td class="src"><pre><code class="objc">                // Builds view controller's stack using factories.</code></pre></td>
 <td class="coverage">86x</td>
 </tr>
 <tr class="covered">
 <td class="num">181</td>
-<td class="src"><pre><code class="objc">                self.buildViewControllerStack(starting: viewController,</code></pre></td>
+<td class="src"><pre><code class="objc">                // This operation is async.</code></pre></td>
 <td class="coverage">86x</td>
 </tr>
 <tr class="covered">
 <td class="num">182</td>
-<td class="src"><pre><code class="objc">                        with: context,</code></pre></td>
+<td class="src"><pre><code class="objc">                self.buildViewControllerStack(starting: viewController,</code></pre></td>
 <td class="coverage">86x</td>
 </tr>
 <tr class="covered">
 <td class="num">183</td>
-<td class="src"><pre><code class="objc">                        using: factoriesStack,</code></pre></td>
+<td class="src"><pre><code class="objc">                        with: context,</code></pre></td>
 <td class="coverage">86x</td>
 </tr>
 <tr class="covered">
 <td class="num">184</td>
-<td class="src"><pre><code class="objc">                        animated: animated) { viewController, result in</code></pre></td>
+<td class="src"><pre><code class="objc">                        using: factoriesStack,</code></pre></td>
 <td class="coverage">86x</td>
 </tr>
 <tr class="covered">
 <td class="num">185</td>
-<td class="src"><pre><code class="objc">                    self.makeVisibleInParentContainer(viewController, animated: animated)</code></pre></td>
+<td class="src"><pre><code class="objc">                        animated: animated) { viewController, result in</code></pre></td>
 <td class="coverage">86x</td>
 </tr>
 <tr class="covered">
 <td class="num">186</td>
-<td class="src"><pre><code class="objc">                    do {</code></pre></td>
+<td class="src"><pre><code class="objc">                    self.makeVisibleInParentContainer(viewController, animated: animated)</code></pre></td>
 <td class="coverage">86x</td>
 </tr>
 <tr class="covered">
 <td class="num">187</td>
-<td class="src"><pre><code class="objc">                        if case let .failure(error) = result {</code></pre></td>
+<td class="src"><pre><code class="objc">                    do {</code></pre></td>
 <td class="coverage">86x</td>
 </tr>
 <tr class="covered">
 <td class="num">188</td>
+<td class="src"><pre><code class="objc">                        if case let .failure(error) = result {</code></pre></td>
+<td class="coverage">86x</td>
+</tr>
+<tr class="covered">
+<td class="num">189</td>
 <td class="src"><pre><code class="objc">                            throw error</code></pre></td>
 <td class="coverage">2x</td>
 </tr>
 <tr class="covered">
-<td class="num">189</td>
+<td class="num">190</td>
 <td class="src"><pre><code class="objc">                        }</code></pre></td>
 <td class="coverage">84x</td>
 </tr>
 <tr class="covered">
-<td class="num">190</td>
-<td class="src"><pre><code class="objc">                        try taskStack.runPostTasks()</code></pre></td>
-<td class="coverage">84x</td>
-</tr>
-<tr class="covered">
 <td class="num">191</td>
-<td class="src"><pre><code class="objc">                        completion(result)</code></pre></td>
+<td class="src"><pre><code class="objc">                        try taskStack.runPostTasks(with: context)</code></pre></td>
 <td class="coverage">84x</td>
 </tr>
 <tr class="covered">
 <td class="num">192</td>
-<td class="src"><pre><code class="objc">                    } catch let error {</code></pre></td>
+<td class="src"><pre><code class="objc">                        completion(result)</code></pre></td>
 <td class="coverage">84x</td>
 </tr>
 <tr class="covered">
 <td class="num">193</td>
+<td class="src"><pre><code class="objc">                    } catch let error {</code></pre></td>
+<td class="coverage">84x</td>
+</tr>
+<tr class="covered">
+<td class="num">194</td>
 <td class="src"><pre><code class="objc">                        completion(.failure(error))</code></pre></td>
 <td class="coverage">2x</td>
 </tr>
 <tr class="covered">
-<td class="num">194</td>
-<td class="src"><pre><code class="objc">                    }</code></pre></td>
-<td class="coverage">86x</td>
-</tr>
-<tr class="covered">
 <td class="num">195</td>
-<td class="src"><pre><code class="objc">                }</code></pre></td>
+<td class="src"><pre><code class="objc">                    }</code></pre></td>
 <td class="coverage">86x</td>
 </tr>
 <tr class="covered">
 <td class="num">196</td>
-<td class="src"><pre><code class="objc">            }</code></pre></td>
+<td class="src"><pre><code class="objc">                }</code></pre></td>
 <td class="coverage">86x</td>
 </tr>
 <tr class="covered">
 <td class="num">197</td>
-<td class="src"><pre><code class="objc">        }</code></pre></td>
+<td class="src"><pre><code class="objc">            }</code></pre></td>
 <td class="coverage">86x</td>
 </tr>
 <tr class="covered">
 <td class="num">198</td>
+<td class="src"><pre><code class="objc">        }</code></pre></td>
+<td class="coverage">86x</td>
+</tr>
+<tr class="covered">
+<td class="num">199</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
 <td class="coverage">87x</td>
 </tr>
 <tr class="never">
-<td class="num">199</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
 <td class="num">200</td>
-<td class="src"><pre><code class="objc">    // Loops through the list of factories and builds their view controllers in sequence.</code></pre></td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">201</td>
-<td class="src"><pre><code class="objc">    // Some actions can be asynchronous, like push, modal or presentations,</code></pre></td>
+<td class="src"><pre><code class="objc">    // Loops through the list of factories and builds their view controllers in sequence.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">202</td>
-<td class="src"><pre><code class="objc">    // so it performs them asynchronously</code></pre></td>
+<td class="src"><pre><code class="objc">    // Some actions can be asynchronous, like push, modal or presentations,</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">203</td>
-<td class="src"><pre><code class="objc">    private func buildViewControllerStack(starting rootViewController: UIViewController,</code></pre></td>
+<td class="src"><pre><code class="objc">    // so it performs them asynchronously</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">204</td>
-<td class="src"><pre><code class="objc">                                          with context: Any?,</code></pre></td>
+<td class="src"><pre><code class="objc">    private func buildViewControllerStack&lt;Context&gt;(starting rootViewController: UIViewController,</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">205</td>
-<td class="src"><pre><code class="objc">                                          using factories: [AnyFactory],</code></pre></td>
+<td class="src"><pre><code class="objc">                                                   with context: Context,</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">206</td>
-<td class="src"><pre><code class="objc">                                          animated: Bool,</code></pre></td>
+<td class="src"><pre><code class="objc">                                                   using factories: [AnyFactory],</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">207</td>
+<td class="src"><pre><code class="objc">                                                   animated: Bool,</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
-<td class="num">207</td>
-<td class="src"><pre><code class="objc">                                          completion: @escaping ((_: UIViewController, _: RoutingResult) -&gt; Void)) {</code></pre></td>
-<td class="coverage">86x</td>
-</tr>
-<tr class="covered">
 <td class="num">208</td>
-<td class="src"><pre><code class="objc">        var factories = factories</code></pre></td>
+<td class="src"><pre><code class="objc">                                                   completion: @escaping ((_: UIViewController, _: RoutingResult) -&gt; Void)) {</code></pre></td>
 <td class="coverage">86x</td>
 </tr>
 <tr class="covered">
 <td class="num">209</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="src"><pre><code class="objc">        var factories = factories</code></pre></td>
 <td class="coverage">86x</td>
 </tr>
 <tr class="covered">
 <td class="num">210</td>
-<td class="src"><pre><code class="objc">        let delayedIntegrationHandler = DefaultDelayedIntegrationHandler(logger: logger)</code></pre></td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage">86x</td>
 </tr>
 <tr class="covered">
 <td class="num">211</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="src"><pre><code class="objc">        let delayedIntegrationHandler = DefaultDelayedIntegrationHandler(logger: logger)</code></pre></td>
 <td class="coverage">86x</td>
 </tr>
 <tr class="covered">
 <td class="num">212</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage">86x</td>
+</tr>
+<tr class="covered">
+<td class="num">213</td>
 <td class="src"><pre><code class="objc">        func buildViewController(from previousViewController: UIViewController) {</code></pre></td>
 <td class="coverage">159x</td>
 </tr>
 <tr class="covered">
-<td class="num">213</td>
+<td class="num">214</td>
 <td class="src"><pre><code class="objc">            guard !factories.isEmpty else {</code></pre></td>
 <td class="coverage">159x</td>
 </tr>
 <tr class="covered">
-<td class="num">214</td>
+<td class="num">215</td>
 <td class="src"><pre><code class="objc">                delayedIntegrationHandler.purge(animated: animated, completion: {</code></pre></td>
 <td class="coverage">84x</td>
 </tr>
 <tr class="covered">
-<td class="num">215</td>
+<td class="num">216</td>
 <td class="src"><pre><code class="objc">                    return completion(previousViewController, .success)</code></pre></td>
 <td class="coverage">84x</td>
 </tr>
 <tr class="covered">
-<td class="num">216</td>
+<td class="num">217</td>
 <td class="src"><pre><code class="objc">                })</code></pre></td>
 <td class="coverage">84x</td>
 </tr>
 <tr class="covered">
-<td class="num">217</td>
+<td class="num">218</td>
 <td class="src"><pre><code class="objc">                return</code></pre></td>
 <td class="coverage">84x</td>
 </tr>
 <tr class="covered">
-<td class="num">218</td>
+<td class="num">219</td>
 <td class="src"><pre><code class="objc">            }</code></pre></td>
 <td class="coverage">84x</td>
 </tr>
 <tr class="covered">
-<td class="num">219</td>
+<td class="num">220</td>
 <td class="src"><pre><code class="objc">            let factory = factories.removeFirst()</code></pre></td>
 <td class="coverage">75x</td>
 </tr>
 <tr class="covered">
-<td class="num">220</td>
+<td class="num">221</td>
 <td class="src"><pre><code class="objc">            // If the previous view controller is created/found but it's view is not loaded or it has no window,</code></pre></td>
 <td class="coverage">75x</td>
 </tr>
 <tr class="covered">
-<td class="num">221</td>
+<td class="num">222</td>
 <td class="src"><pre><code class="objc">            // it was cached by the container view controller like it would be in a `UITabBarController`s</code></pre></td>
 <td class="coverage">75x</td>
 </tr>
 <tr class="covered">
-<td class="num">222</td>
+<td class="num">223</td>
 <td class="src"><pre><code class="objc">            // tab that was never activated. So the router will have to activate it first.</code></pre></td>
 <td class="coverage">75x</td>
 </tr>
 <tr class="covered">
-<td class="num">223</td>
+<td class="num">224</td>
 <td class="src"><pre><code class="objc">            // Example: `UITabBarController` contains a navigation controller in the tab that was never opened and the router is going</code></pre></td>
 <td class="coverage">75x</td>
 </tr>
 <tr class="covered">
-<td class="num">224</td>
+<td class="num">225</td>
 <td class="src"><pre><code class="objc">            // to push a view controller into. UINavigationController in this case will not be able to update its content properly.</code></pre></td>
 <td class="coverage">75x</td>
 </tr>
 <tr class="covered">
-<td class="num">225</td>
+<td class="num">226</td>
 <td class="src"><pre><code class="objc">            if !previousViewController.isViewLoaded || previousViewController.view.window == nil {</code></pre></td>
 <td class="coverage">75x</td>
 </tr>
 <tr class="covered">
-<td class="num">226</td>
+<td class="num">227</td>
 <td class="src"><pre><code class="objc">                makeVisibleInParentContainer(previousViewController, animated: false)</code></pre></td>
 <td class="coverage">15x</td>
 </tr>
 <tr class="covered">
-<td class="num">227</td>
-<td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">75x</td>
-</tr>
-<tr class="covered">
 <td class="num">228</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="src"><pre><code class="objc">            }</code></pre></td>
 <td class="coverage">75x</td>
 </tr>
 <tr class="covered">
 <td class="num">229</td>
-<td class="src"><pre><code class="objc">            do {</code></pre></td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage">75x</td>
 </tr>
 <tr class="covered">
 <td class="num">230</td>
-<td class="src"><pre><code class="objc">                let newViewController = try factory.build(with: context)</code></pre></td>
+<td class="src"><pre><code class="objc">            do {</code></pre></td>
 <td class="coverage">75x</td>
 </tr>
 <tr class="covered">
 <td class="num">231</td>
-<td class="src"><pre><code class="objc">                logger?.log(.info("\(String(describing: factory)) built a " +</code></pre></td>
+<td class="src"><pre><code class="objc">                let newViewController = try factory.build(with: context)</code></pre></td>
 <td class="coverage">75x</td>
 </tr>
 <tr class="covered">
 <td class="num">232</td>
-<td class="src"><pre><code class="objc">                        "\(String(describing: newViewController))."))</code></pre></td>
+<td class="src"><pre><code class="objc">                logger?.log(.info("\(String(describing: factory)) built a " +</code></pre></td>
 <td class="coverage">75x</td>
 </tr>
 <tr class="covered">
 <td class="num">233</td>
-<td class="src"><pre><code class="objc">                let nextAction = factories.first?.action</code></pre></td>
+<td class="src"><pre><code class="objc">                        "\(String(describing: newViewController))."))</code></pre></td>
 <td class="coverage">75x</td>
 </tr>
 <tr class="covered">
 <td class="num">234</td>
-<td class="src"><pre><code class="objc">                factory.action.perform(with: newViewController, on: previousViewController, with: delayedIntegrationHandler, nextAction: nextAction, animated: animated) { result in</code></pre></td>
+<td class="src"><pre><code class="objc">                let nextAction = factories.first?.action</code></pre></td>
 <td class="coverage">75x</td>
 </tr>
 <tr class="covered">
 <td class="num">235</td>
+<td class="src"><pre><code class="objc">                factory.action.perform(with: newViewController, on: previousViewController, with: delayedIntegrationHandler, nextAction: nextAction, animated: animated) { result in</code></pre></td>
+<td class="coverage">75x</td>
+</tr>
+<tr class="covered">
+<td class="num">236</td>
 <td class="src"><pre><code class="objc">                    self.assertIfNotMainThread(logger: self.logger)</code></pre></td>
 <td class="coverage">74x</td>
 </tr>
 <tr class="covered">
-<td class="num">236</td>
+<td class="num">237</td>
 <td class="src"><pre><code class="objc">                    if case let .failure(error) = result {</code></pre></td>
 <td class="coverage">74x</td>
 </tr>
 <tr class="covered">
-<td class="num">237</td>
+<td class="num">238</td>
 <td class="src"><pre><code class="objc">                        self.logger?.log(.info("\(String(describing: factory.action)) has stopped the navigation process " +</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
-<td class="num">238</td>
+<td class="num">239</td>
 <td class="src"><pre><code class="objc">                                "as it was not able to build a view controller into a stack."))</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
-<td class="num">239</td>
+<td class="num">240</td>
 <td class="src"><pre><code class="objc">                        completion(newViewController, .failure(error))</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
-<td class="num">240</td>
+<td class="num">241</td>
 <td class="src"><pre><code class="objc">                        return</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
-<td class="num">241</td>
+<td class="num">242</td>
 <td class="src"><pre><code class="objc">                    }</code></pre></td>
 <td class="coverage">73x</td>
 </tr>
 <tr class="covered">
-<td class="num">242</td>
+<td class="num">243</td>
 <td class="src"><pre><code class="objc">                    self.logger?.log(.info("\(String(describing: factory.action)) has applied to " +</code></pre></td>
 <td class="coverage">73x</td>
 </tr>
 <tr class="covered">
-<td class="num">243</td>
+<td class="num">244</td>
 <td class="src"><pre><code class="objc">                            "\(String(describing: previousViewController)) with \(String(describing: newViewController))."))</code></pre></td>
 <td class="coverage">73x</td>
 </tr>
 <tr class="covered">
-<td class="num">244</td>
+<td class="num">245</td>
 <td class="src"><pre><code class="objc">                    buildViewController(from: newViewController)</code></pre></td>
 <td class="coverage">73x</td>
 </tr>
 <tr class="covered">
-<td class="num">245</td>
+<td class="num">246</td>
 <td class="src"><pre><code class="objc">                }</code></pre></td>
 <td class="coverage">73x</td>
 </tr>
 <tr class="covered">
-<td class="num">246</td>
+<td class="num">247</td>
 <td class="src"><pre><code class="objc">            } catch let error {</code></pre></td>
 <td class="coverage">75x</td>
 </tr>
 <tr class="covered">
-<td class="num">247</td>
+<td class="num">248</td>
 <td class="src"><pre><code class="objc">                completion(previousViewController, .failure(error))</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
-<td class="num">248</td>
-<td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">75x</td>
-</tr>
-<tr class="covered">
 <td class="num">249</td>
-<td class="src"><pre><code class="objc">        }</code></pre></td>
+<td class="src"><pre><code class="objc">            }</code></pre></td>
 <td class="coverage">75x</td>
 </tr>
 <tr class="covered">
 <td class="num">250</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage">86x</td>
+<td class="src"><pre><code class="objc">        }</code></pre></td>
+<td class="coverage">75x</td>
 </tr>
 <tr class="covered">
 <td class="num">251</td>
-<td class="src"><pre><code class="objc">        logger?.log(.info(factories.isEmpty ? "No view controllers needed to be integrated into the stack." : "Started to build the view controllers stack."))</code></pre></td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage">86x</td>
 </tr>
 <tr class="covered">
 <td class="num">252</td>
-<td class="src"><pre><code class="objc">        buildViewController(from: rootViewController)</code></pre></td>
+<td class="src"><pre><code class="objc">        logger?.log(.info(factories.isEmpty ? "No view controllers needed to be integrated into the stack." : "Started to build the view controllers stack."))</code></pre></td>
 <td class="coverage">86x</td>
 </tr>
 <tr class="covered">
 <td class="num">253</td>
+<td class="src"><pre><code class="objc">        buildViewController(from: rootViewController)</code></pre></td>
+<td class="coverage">86x</td>
+</tr>
+<tr class="covered">
+<td class="num">254</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
 <td class="coverage">86x</td>
 </tr>
 <tr class="never">
-<td class="num">254</td>
+<td class="num">255</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">255</td>
+<td class="num">256</td>
 <td class="src"><pre><code class="objc">    // Activates the origin view controller of viewController</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
-<td class="num">256</td>
+<td class="num">257</td>
 <td class="src"><pre><code class="objc">    private func makeVisibleInParentContainer(_ viewController: UIViewController, animated: Bool) {</code></pre></td>
 <td class="coverage">101x</td>
 </tr>
 <tr class="covered">
-<td class="num">257</td>
+<td class="num">258</td>
 <td class="src"><pre><code class="objc">        var currentViewController = viewController</code></pre></td>
 <td class="coverage">101x</td>
 </tr>
 <tr class="covered">
-<td class="num">258</td>
+<td class="num">259</td>
 <td class="src"><pre><code class="objc">        viewController.allParents.forEach({</code></pre></td>
 <td class="coverage">101x</td>
 </tr>
 <tr class="covered">
-<td class="num">259</td>
+<td class="num">260</td>
 <td class="src"><pre><code class="objc">            if let container = $0 as? ContainerViewController {</code></pre></td>
 <td class="coverage">90x</td>
 </tr>
 <tr class="covered">
-<td class="num">260</td>
+<td class="num">261</td>
 <td class="src"><pre><code class="objc">                container.makeVisible(currentViewController, animated: animated)</code></pre></td>
 <td class="coverage">90x</td>
 </tr>
 <tr class="covered">
-<td class="num">261</td>
+<td class="num">262</td>
 <td class="src"><pre><code class="objc">                logger?.log(.info("Made \(String(describing: currentViewController)) visible in \(String(describing: container))"))</code></pre></td>
 <td class="coverage">90x</td>
 </tr>
 <tr class="covered">
-<td class="num">262</td>
-<td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">90x</td>
-</tr>
-<tr class="covered">
 <td class="num">263</td>
-<td class="src"><pre><code class="objc">            currentViewController = $0</code></pre></td>
+<td class="src"><pre><code class="objc">            }</code></pre></td>
 <td class="coverage">90x</td>
 </tr>
 <tr class="covered">
 <td class="num">264</td>
-<td class="src"><pre><code class="objc">        })</code></pre></td>
+<td class="src"><pre><code class="objc">            currentViewController = $0</code></pre></td>
 <td class="coverage">90x</td>
 </tr>
 <tr class="covered">
 <td class="num">265</td>
+<td class="src"><pre><code class="objc">        })</code></pre></td>
+<td class="coverage">90x</td>
+</tr>
+<tr class="covered">
+<td class="num">266</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
 <td class="coverage">101x</td>
 </tr>
 <tr class="never">
-<td class="num">266</td>
+<td class="num">267</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">267</td>
+<td class="num">268</td>
 <td class="src"><pre><code class="objc">    // Dismisses all the view controllers presented if there are any</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
-<td class="num">268</td>
+<td class="num">269</td>
 <td class="src"><pre><code class="objc">    private func dismissPresentedIfNeeded(from viewController: UIViewController, animated: Bool, completion: @escaping ((_: RoutingResult) -&gt; Void)) {</code></pre></td>
 <td class="coverage">86x</td>
 </tr>
 <tr class="covered">
-<td class="num">269</td>
+<td class="num">270</td>
 <td class="src"><pre><code class="objc">        if let presentedController = viewController.presentedViewController {</code></pre></td>
 <td class="coverage">86x</td>
 </tr>
 <tr class="covered">
-<td class="num">270</td>
+<td class="num">271</td>
 <td class="src"><pre><code class="objc">            if !presentedController.isBeingDismissed {</code></pre></td>
 <td class="coverage">8x</td>
 </tr>
 <tr class="covered">
-<td class="num">271</td>
+<td class="num">272</td>
 <td class="src"><pre><code class="objc">                viewController.dismiss(animated: animated) {</code></pre></td>
 <td class="coverage">8x</td>
 </tr>
 <tr class="covered">
-<td class="num">272</td>
+<td class="num">273</td>
 <td class="src"><pre><code class="objc">                    self.logger?.log(.info("Dismissed all the view controllers presented from \(String(describing: viewController))"))</code></pre></td>
 <td class="coverage">8x</td>
 </tr>
 <tr class="covered">
-<td class="num">273</td>
+<td class="num">274</td>
 <td class="src"><pre><code class="objc">                    completion(.success)</code></pre></td>
 <td class="coverage">8x</td>
 </tr>
 <tr class="covered">
-<td class="num">274</td>
+<td class="num">275</td>
 <td class="src"><pre><code class="objc">                }</code></pre></td>
 <td class="coverage">8x</td>
 </tr>
 <tr class="covered">
-<td class="num">275</td>
+<td class="num">276</td>
 <td class="src"><pre><code class="objc">            } else {</code></pre></td>
 <td class="coverage">8x</td>
 </tr>
 <tr class="missed">
-<td class="num">276</td>
+<td class="num">277</td>
 <td class="src"><pre><code class="objc">                completion(.failure(RoutingError.compositionFailed(.init("Trying to dismiss \(String(describing: presentedController)) while it is being dismissed"))))</code></pre></td>
 <td class="coverage">!</td>
 </tr>
 <tr class="covered">
-<td class="num">277</td>
+<td class="num">278</td>
 <td class="src"><pre><code class="objc">            }</code></pre></td>
 <td class="coverage">8x</td>
 </tr>
 <tr class="covered">
-<td class="num">278</td>
+<td class="num">279</td>
 <td class="src"><pre><code class="objc">        } else {</code></pre></td>
 <td class="coverage">86x</td>
 </tr>
 <tr class="covered">
-<td class="num">279</td>
+<td class="num">280</td>
 <td class="src"><pre><code class="objc">            completion(.success)</code></pre></td>
 <td class="coverage">78x</td>
 </tr>
 <tr class="covered">
-<td class="num">280</td>
+<td class="num">281</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
 <td class="coverage">86x</td>
 </tr>
 <tr class="covered">
-<td class="num">281</td>
+<td class="num">282</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
 <td class="coverage">86x</td>
 </tr>
 <tr class="never">
-<td class="num">282</td>
+<td class="num">283</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">283</td>
+<td class="num">284</td>
 <td class="src"><pre><code class="objc">}</code></pre></td>
 <td class="coverage"></td>
 </tr>

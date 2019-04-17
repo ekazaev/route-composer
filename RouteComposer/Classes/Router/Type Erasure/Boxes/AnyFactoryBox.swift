@@ -30,7 +30,7 @@ extension AnyFactoryBox where Self: AnyFactory {
 
 extension AnyFactoryBox where Self: PreparableAnyFactory, Self: MainThreadChecking {
 
-    mutating func prepare(with context: Any?) throws {
+    mutating func prepare<Context>(with context: Context) throws {
         assertIfNotMainThread()
         guard let typedContext = Any?.some(context as Any) as? FactoryType.Context else {
             throw RoutingError.typeMismatch(FactoryType.Context.self, .init("\(String(describing: factory.self)) does " +

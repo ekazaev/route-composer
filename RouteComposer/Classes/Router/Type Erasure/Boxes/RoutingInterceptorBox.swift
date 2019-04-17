@@ -14,7 +14,7 @@ struct RoutingInterceptorBox<RI: RoutingInterceptor>: AnyRoutingInterceptor, Pre
         self.routingInterceptor = routingInterceptor
     }
 
-    mutating func prepare(with context: Any?) throws {
+    mutating func prepare<Context>(with context: Context) throws {
         guard let typedDestination = Any?.some(context as Any) as? RI.Context else {
             throw RoutingError.typeMismatch(RI.Context.self, .init("\(String(describing: routingInterceptor.self)) does " +
                     "not accept \(String(describing: context.self)) as a context."))
@@ -24,7 +24,7 @@ struct RoutingInterceptorBox<RI: RoutingInterceptor>: AnyRoutingInterceptor, Pre
         isPrepared = true
     }
 
-    func execute(with context: Any?, completion: @escaping (InterceptorResult) -> Void) {
+    func execute<Context>(with context: Context, completion: @escaping (InterceptorResult) -> Void) {
         guard let typedDestination = Any?.some(context as Any) as? RI.Context else {
             completion(.failure(RoutingError.typeMismatch(RI.Context.self, .init("\(String(describing: routingInterceptor.self)) does " +
                     "not accept \(String(describing: context.self)) as a context."))))
