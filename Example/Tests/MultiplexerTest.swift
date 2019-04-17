@@ -29,7 +29,7 @@ class MultiplexerTest: XCTestCase {
         ]
 
         var multiplexer = InterceptorMultiplexer(interceptors)
-        try? multiplexer.prepare(with: nil)
+        try? multiplexer.prepare(with: Optional<Any>.none)
         XCTAssertEqual(prepareCountRun, 10)
     }
 
@@ -43,7 +43,7 @@ class MultiplexerTest: XCTestCase {
         ]
 
         var multiplexer = InterceptorMultiplexer(interceptors)
-        XCTAssertThrowsError(try multiplexer.prepare(with: nil))
+        XCTAssertThrowsError(try multiplexer.prepare(with: Optional<Any>.none))
     }
 
     func testRoutingWrongContextTypeInterceptorThrow() {
@@ -85,8 +85,8 @@ class MultiplexerTest: XCTestCase {
         ]
 
         var multiplexer = ContextTaskMultiplexer(contextTask)
-        try? multiplexer.prepare(with: nil)
-        try? multiplexer.apply(on: UIViewController(), with: nil)
+        try? multiplexer.prepare(with: Optional<Any>.none)
+        try? multiplexer.apply(on: UIViewController(), with: Optional<Any>.none)
     }
 
     func testContextTaskWrongContextTypeThrow() {
@@ -97,7 +97,7 @@ class MultiplexerTest: XCTestCase {
         ]
 
         let multiplexer = ContextTaskMultiplexer(contextTask)
-        XCTAssertThrowsError(try multiplexer.apply(on: UIViewController(), with: nil))
+        XCTAssertThrowsError(try multiplexer.apply(on: UIViewController(), with: Optional<Any>.none))
     }
 
     func testPostTaskWrongContextTypeThrow() {
@@ -128,8 +128,8 @@ class MultiplexerTest: XCTestCase {
         }
 
         var multiplexer = InterceptorMultiplexer([RoutingInterceptorBox(Interceptor())])
-        try? multiplexer.prepare(with: nil)
-        multiplexer.execute(with: nil) { (result: InterceptorResult) in
+        try? multiplexer.prepare(with: Optional<Any>.none)
+        multiplexer.execute(with: Optional<Any>.none) { (result: InterceptorResult) in
             guard case .continueRouting = result else {
                 XCTAssertFalse(true)
                 return

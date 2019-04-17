@@ -9,10 +9,30 @@ import Foundation
 /// - message: Message describing an error that happened
 public enum RoutingError: Error, CustomStringConvertible {
 
+    /// Describes an error happened to the initial view controller
+    public enum InitialControllerErrorState: CustomStringConvertible {
+
+        /// View controller not found
+        case notFound
+
+        /// View controller deallocated
+        case deallocated
+
+        public var description: String {
+            switch self {
+            case .deallocated:
+                return "Initial controller deallocated"
+            case .notFound:
+                return "Initial controller not found"
+            }
+        }
+    }
+
+
     /// Error context holder
     public struct Context: CustomStringConvertible {
 
-        ///  Message describing error that happened
+        /// Message describing error that happened
         public let debugDescription: String
 
         /// Underlying error if present
@@ -47,6 +67,9 @@ public enum RoutingError: Error, CustomStringConvertible {
     /// Message describing error that happened
     case generic(RoutingError.Context)
 
+    /// Initial view controller error
+    case initialController(InitialControllerErrorState, RoutingError.Context)
+
     public var description: String {
         switch self {
         case .typeMismatch(_, let context):
@@ -55,7 +78,10 @@ public enum RoutingError: Error, CustomStringConvertible {
             return "Composition Failed Error: \(context.description)"
         case .generic(let context):
             return "Generic Error: \(context.description)"
+        case .initialController(let state, let context):
+            return "Initial Controller Error (\(state)): \(context.description)"
         }
+
     }
 
 }

@@ -38,7 +38,7 @@ struct ContainerFactoryBox<F: ContainerFactory>: PreparableAnyFactory, AnyFactor
         return otherFactories
     }
 
-    func build(with context: Any?) throws -> UIViewController {
+    func build<Context>(with context: Context) throws -> UIViewController {
         guard let typedContext = Any?.some(context as Any) as? FactoryType.Context else {
             throw RoutingError.typeMismatch(FactoryType.Context.self, .init("\(String(describing: factory.self)) does " +
                     "not accept \(String(describing: context.self)) as a context."))

@@ -14,14 +14,14 @@ public struct DestinationStep<VC: UIViewController, C>: RoutingStep, ChainableSt
     /// Type of the `Context` associated with the step
     public typealias Context = C
 
-    func getPreviousStep(with context: Any?) -> RoutingStep? {
-        return destinationStep
-    }
-
     let destinationStep: RoutingStep
 
     init(_ destinationStep: RoutingStep) {
         self.destinationStep = destinationStep
+    }
+
+    func getPreviousStep<Context>(with context: Context) -> RoutingStep? {
+        return destinationStep
     }
 
     /// Adapts context and view controller type dependencies.

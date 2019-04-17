@@ -37,7 +37,7 @@ class RouterTests: XCTestCase {
             self.currentViewController = currentViewController
         }
 
-        func perform(with context: Any?) -> PerformableStepResult {
+        func perform<Context>(with context: Context) -> PerformableStepResult {
             return .success(currentViewController)
         }
 
