@@ -27,7 +27,7 @@ extension UISplitViewController: ContainerViewController {
             return
         }
         if isCollapsed {
-            guard viewController.navigationController?.visibleViewController != viewController else {
+            guard viewController.navigationController?.topViewController != viewController else {
                 return
             }
             viewController.navigationController?.popToViewController(viewController, animated: animated)

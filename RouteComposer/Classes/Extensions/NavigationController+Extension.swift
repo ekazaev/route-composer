@@ -14,14 +14,14 @@ extension UINavigationController: ContainerViewController {
     }
 
     public var visibleViewControllers: [UIViewController] {
-        guard let visibleViewController = visibleViewController else {
+        guard let topViewController = topViewController else {
             return []
         }
-        return [visibleViewController]
+        return [topViewController]
     }
 
     public func makeVisible(_ viewController: UIViewController, animated: Bool) {
-        guard visibleViewController != viewController,
+        guard topViewController != viewController,
               let viewControllerToMakeVisible = containedViewControllers.first(where: { $0 == viewController }) else {
             return
         }
