@@ -28,7 +28,6 @@ public enum RoutingError: Error, CustomStringConvertible {
         }
     }
 
-
     /// Error context holder
     public struct Context: CustomStringConvertible {
 

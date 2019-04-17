@@ -13,8 +13,8 @@ struct PostRoutingTaskBox<PT: PostRoutingTask>: AnyPostRoutingTask, MainThreadCh
     }
 
     func execute<Context>(on viewController: UIViewController,
-                 with context: Context,
-                 routingStack: [UIViewController]) throws {
+                          with context: Context,
+                          routingStack: [UIViewController]) throws {
         guard let typedViewController = viewController as? PT.ViewController else {
             throw RoutingError.typeMismatch(PT.ViewController.self, .init("\(String(describing: postRoutingTask.self)) does not support" +
                     " \(String(describing: viewController.self))."))

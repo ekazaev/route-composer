@@ -29,7 +29,7 @@ class MultiplexerTest: XCTestCase {
         ]
 
         var multiplexer = InterceptorMultiplexer(interceptors)
-        try? multiplexer.prepare(with: Optional<Any>.none)
+        try? multiplexer.prepare(with: nil as Any?)
         XCTAssertEqual(prepareCountRun, 10)
     }
 
@@ -43,7 +43,7 @@ class MultiplexerTest: XCTestCase {
         ]
 
         var multiplexer = InterceptorMultiplexer(interceptors)
-        XCTAssertThrowsError(try multiplexer.prepare(with: Optional<Any>.none))
+        XCTAssertThrowsError(try multiplexer.prepare(with: nil as Any?))
     }
 
     func testRoutingWrongContextTypeInterceptorThrow() {
@@ -85,8 +85,8 @@ class MultiplexerTest: XCTestCase {
         ]
 
         var multiplexer = ContextTaskMultiplexer(contextTask)
-        try? multiplexer.prepare(with: Optional<Any>.none)
-        try? multiplexer.apply(on: UIViewController(), with: Optional<Any>.none)
+        try? multiplexer.prepare(with: nil as Any?)
+        try? multiplexer.apply(on: UIViewController(), with: nil as Any?)
     }
 
     func testContextTaskWrongContextTypeThrow() {
@@ -97,7 +97,7 @@ class MultiplexerTest: XCTestCase {
         ]
 
         let multiplexer = ContextTaskMultiplexer(contextTask)
-        XCTAssertThrowsError(try multiplexer.apply(on: UIViewController(), with: Optional<Any>.none))
+        XCTAssertThrowsError(try multiplexer.apply(on: UIViewController(), with: nil as Any?))
     }
 
     func testPostTaskWrongContextTypeThrow() {
@@ -128,8 +128,8 @@ class MultiplexerTest: XCTestCase {
         }
 
         var multiplexer = InterceptorMultiplexer([RoutingInterceptorBox(Interceptor())])
-        try? multiplexer.prepare(with: Optional<Any>.none)
-        multiplexer.execute(with: Optional<Any>.none) { (result: InterceptorResult) in
+        try? multiplexer.prepare(with: nil as Any?)
+        multiplexer.execute(with: nil as Any?) { (result: InterceptorResult) in
             guard case .continueRouting = result else {
                 XCTAssertFalse(true)
                 return

@@ -33,9 +33,9 @@ class DestinationStepTests: XCTestCase {
         // Will compile but will not work in runtime.
         let _: DestinationStep<UITabBarController, Any?> = nonContainerStepInsideContainer.expectingContainer()
 
-        XCTAssertNoThrow(try (step.getPreviousStep(with: Optional<Any>.none) as? PerformableStep)?.perform(with: Optional<Any>.none))
-        XCTAssertNoThrow(try (step.getPreviousStep(with: Optional<Any>.none) as? PerformableStep)?.perform(with: "nil"))
-        XCTAssertNoThrow(try (step.getPreviousStep(with: Optional<Any>.none) as? PerformableStep)?.perform(with: ()))
+        XCTAssertNoThrow(try (step.getPreviousStep(with: nil as Any?) as? PerformableStep)?.perform(with: nil as Any?))
+        XCTAssertNoThrow(try (step.getPreviousStep(with: nil as Any?) as? PerformableStep)?.perform(with: "nil"))
+        XCTAssertNoThrow(try (step.getPreviousStep(with: nil as Any?) as? PerformableStep)?.perform(with: ()))
     }
 
     func testStronglyTypedExpectingContainer() {
@@ -53,7 +53,7 @@ class DestinationStepTests: XCTestCase {
         let _: DestinationStep<UITabBarController, String> = nonContainerStepInsideContainer.expectingContainer()
 
         XCTAssertNoThrow(try (step.getPreviousStep(with: "") as? PerformableStep)?.perform(with: "nil"))
-        XCTAssertThrowsError(try (step.getPreviousStep(with: "") as? PerformableStep)?.perform(with: Optional<Any>.none))
+        XCTAssertThrowsError(try (step.getPreviousStep(with: "") as? PerformableStep)?.perform(with: nil as Any?))
         XCTAssertThrowsError(try (step.getPreviousStep(with: "") as? PerformableStep)?.perform(with: ()))
     }
 
@@ -64,12 +64,12 @@ class DestinationStepTests: XCTestCase {
 
         let step1: DestinationStep<UINavigationController, String> = nonContainerStepInsideContainer.adaptingContext()
         let step2: DestinationStep<UINavigationController, Void> = nonContainerStepInsideContainer.adaptingContext()
-        XCTAssertNoThrow(try (step1.getPreviousStep(with: Optional<Any>.none) as? PerformableStep)?.perform(with: Optional<Any>.none))
-        XCTAssertNoThrow(try (step2.getPreviousStep(with: Optional<Any>.none) as? PerformableStep)?.perform(with: Optional<Any>.none))
-        XCTAssertNoThrow(try (step1.getPreviousStep(with: Optional<Any>.none) as? PerformableStep)?.perform(with: "nil"))
-        XCTAssertNoThrow(try (step2.getPreviousStep(with: Optional<Any>.none) as? PerformableStep)?.perform(with: "nil"))
-        XCTAssertNoThrow(try (step1.getPreviousStep(with: Optional<Any>.none) as? PerformableStep)?.perform(with: ()))
-        XCTAssertNoThrow(try (step2.getPreviousStep(with: Optional<Any>.none) as? PerformableStep)?.perform(with: ()))
+        XCTAssertNoThrow(try (step1.getPreviousStep(with: nil as Any?) as? PerformableStep)?.perform(with: nil as Any?))
+        XCTAssertNoThrow(try (step2.getPreviousStep(with: nil as Any?) as? PerformableStep)?.perform(with: nil as Any?))
+        XCTAssertNoThrow(try (step1.getPreviousStep(with: nil as Any?) as? PerformableStep)?.perform(with: "nil"))
+        XCTAssertNoThrow(try (step2.getPreviousStep(with: nil as Any?) as? PerformableStep)?.perform(with: "nil"))
+        XCTAssertNoThrow(try (step1.getPreviousStep(with: nil as Any?) as? PerformableStep)?.perform(with: ()))
+        XCTAssertNoThrow(try (step2.getPreviousStep(with: nil as Any?) as? PerformableStep)?.perform(with: ()))
     }
 
     func testSingleUniversalExpectingContainer() {
@@ -84,7 +84,7 @@ class DestinationStepTests: XCTestCase {
         // Will compile but will not work in runtime.
         let _: ActionToStepIntegrator<UITabBarController, Any?> = nonContainerStepInsideContainer.expectingContainer()
 
-        XCTAssertNoThrow(try (step.routingStep(with: ViewControllerActions.NilAction()) as? PerformableStep)?.perform(with: Optional<Any>.none))
+        XCTAssertNoThrow(try (step.routingStep(with: ViewControllerActions.NilAction()) as? PerformableStep)?.perform(with: nil as Any?))
         XCTAssertNoThrow(try (step.routingStep(with: ViewControllerActions.NilAction()) as? PerformableStep)?.perform(with: "nil"))
         XCTAssertNoThrow(try (step.routingStep(with: ViewControllerActions.NilAction()) as? PerformableStep)?.perform(with: ()))
     }
@@ -103,7 +103,7 @@ class DestinationStepTests: XCTestCase {
         // Will compile but will not work in runtime.
         let _: ActionToStepIntegrator<UITabBarController, String> = nonContainerStepInsideContainer.expectingContainer()
 
-        XCTAssertThrowsError(try (step.routingStep(with: ViewControllerActions.NilAction()) as? PerformableStep)?.perform(with: Optional<Any>.none))
+        XCTAssertThrowsError(try (step.routingStep(with: ViewControllerActions.NilAction()) as? PerformableStep)?.perform(with: nil as Any?))
         XCTAssertNoThrow(try (step.routingStep(with: ViewControllerActions.NilAction()) as? PerformableStep)?.perform(with: "nil"))
         XCTAssertThrowsError(try (step.routingStep(with: ViewControllerActions.NilAction()) as? PerformableStep)?.perform(with: ()))
     }
@@ -113,8 +113,8 @@ class DestinationStepTests: XCTestCase {
 
         let step1: ActionToStepIntegrator<UINavigationController, String> = nonContainerStepInsideContainer.adaptingContext()
         let step2: ActionToStepIntegrator<UINavigationController, Void> = nonContainerStepInsideContainer.adaptingContext()
-        XCTAssertNoThrow(try (step1.routingStep(with: ViewControllerActions.NilAction()) as? PerformableStep)?.perform(with: Optional<Any>.none))
-        XCTAssertNoThrow(try (step2.routingStep(with: ViewControllerActions.NilAction()) as? PerformableStep)?.perform(with: Optional<Any>.none))
+        XCTAssertNoThrow(try (step1.routingStep(with: ViewControllerActions.NilAction()) as? PerformableStep)?.perform(with: nil as Any?))
+        XCTAssertNoThrow(try (step2.routingStep(with: ViewControllerActions.NilAction()) as? PerformableStep)?.perform(with: nil as Any?))
         XCTAssertNoThrow(try (step1.routingStep(with: ViewControllerActions.NilAction()) as? PerformableStep)?.perform(with: "nil"))
         XCTAssertNoThrow(try (step2.routingStep(with: ViewControllerActions.NilAction()) as? PerformableStep)?.perform(with: "nil"))
         XCTAssertNoThrow(try (step1.routingStep(with: ViewControllerActions.NilAction()) as? PerformableStep)?.perform(with: ()))

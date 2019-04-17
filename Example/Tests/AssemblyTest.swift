@@ -22,7 +22,7 @@ class AssemblyTest: XCTestCase {
         while currentStep != nil {
             chainedStepCount += 1
             if let chainableStep = currentStep as? ChainableStep {
-                currentStep = chainableStep.getPreviousStep(with: Optional<Any>.none)
+                currentStep = chainableStep.getPreviousStep(with: nil as Any?)
             } else {
                 currentStep = nil
             }
@@ -43,7 +43,7 @@ class AssemblyTest: XCTestCase {
         while currentStep != nil {
             chainedStepCount += 1
             if let chainableStep = currentStep as? ChainableStep {
-                currentStep = chainableStep.getPreviousStep(with: Optional<Any>.none)
+                currentStep = chainableStep.getPreviousStep(with: nil as Any?)
             } else {
                 currentStep = nil
             }
@@ -62,7 +62,7 @@ class AssemblyTest: XCTestCase {
         while currentStep != nil {
             chainedStepCount += 1
             if let chainableStep = currentStep as? ChainableStep {
-                currentStep = chainableStep.getPreviousStep(with: Optional<Any>.none)
+                currentStep = chainableStep.getPreviousStep(with: nil as Any?)
             } else {
                 currentStep = nil
             }
