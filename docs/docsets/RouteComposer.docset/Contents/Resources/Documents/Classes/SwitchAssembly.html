@@ -37,6 +37,9 @@
                 <a href="../Enums/RoutingError.html">RoutingError</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/RoutingError/InitialControllerErrorState.html">– InitialControllerErrorState</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/RoutingError/Context.html">– Context</a>
               </li>
               <li class="nav-group-task">
@@ -493,9 +496,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer14SwitchAssemblyC7addCaseyACyxq_GXDAA15DestinationStepVyxq_GSgqd__clF"></a>
+                    <a name="/s:13RouteComposer14SwitchAssemblyC7addCaseyACyxq_GXDAA15DestinationStepVyxq_GSgq_cF"></a>
                     <a name="//apple_ref/swift/Method/addCase(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer14SwitchAssemblyC7addCaseyACyxq_GXDAA15DestinationStepVyxq_GSgqd__clF">addCase(_:)</a>
+                    <a class="token" href="#/s:13RouteComposer14SwitchAssemblyC7addCaseyACyxq_GXDAA15DestinationStepVyxq_GSgq_cF">addCase(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -511,7 +514,7 @@ Returning nil from the block will mean that it has not succeeded.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">addCase</span><span class="o">&lt;</span><span class="kt">C</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">resolverBlock</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">((</span><span class="nv">_</span><span class="p">:</span> <span class="kt">C</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/DestinationStep.html">DestinationStep</a></span><span class="o">&lt;</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span><span class="p">?))</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">addCase</span><span class="p">(</span><span class="n">_</span> <span class="nv">resolverBlock</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">((</span><span class="nv">_</span><span class="p">:</span> <span class="kt">Context</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/DestinationStep.html">DestinationStep</a></span><span class="o">&lt;</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span><span class="p">?))</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
 
                         </div>
                       </div>
@@ -540,9 +543,9 @@ Returning nil from the block will mean that it has not succeeded.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer14SwitchAssemblyC7addCase4when4fromACyxq_GXDqd___AA15DestinationStepVyxq_GtAA6FinderRd__lF"></a>
+                    <a name="/s:13RouteComposer14SwitchAssemblyC7addCase4when4fromACyxq_GXDqd___AA15DestinationStepVyxq_Gt7ContextQyd__Rs_AA6FinderRd__lF"></a>
                     <a name="//apple_ref/swift/Method/addCase(when:from:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer14SwitchAssemblyC7addCase4when4fromACyxq_GXDqd___AA15DestinationStepVyxq_GtAA6FinderRd__lF">addCase(when:from:)</a>
+                    <a class="token" href="#/s:13RouteComposer14SwitchAssemblyC7addCase4when4fromACyxq_GXDqd___AA15DestinationStepVyxq_Gt7ContextQyd__Rs_AA6FinderRd__lF">addCase(when:from:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -557,7 +560,7 @@ Returning nil from the block will mean that it has not succeeded.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">addCase</span><span class="o">&lt;</span><span class="kt">F</span><span class="o">&gt;</span><span class="p">(</span><span class="n">when</span> <span class="nv">finder</span><span class="p">:</span> <span class="kt">F</span><span class="p">,</span> <span class="n">from</span> <span class="nv">step</span><span class="p">:</span> <span class="kt"><a href="../Structs/DestinationStep.html">DestinationStep</a></span><span class="o">&lt;</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span> <span class="k">where</span> <span class="kt">F</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/Finder.html">Finder</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">addCase</span><span class="o">&lt;</span><span class="kt">F</span><span class="o">&gt;</span><span class="p">(</span><span class="n">when</span> <span class="nv">finder</span><span class="p">:</span> <span class="kt">F</span><span class="p">,</span> <span class="n">from</span> <span class="nv">step</span><span class="p">:</span> <span class="kt"><a href="../Structs/DestinationStep.html">DestinationStep</a></span><span class="o">&lt;</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span> <span class="k">where</span> <span class="kt">Context</span> <span class="o">==</span> <span class="kt">F</span><span class="o">.</span><span class="kt">Context</span><span class="p">,</span> <span class="kt">F</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/Finder.html">Finder</a></span></code></pre>
 
                         </div>
                       </div>
@@ -781,7 +784,7 @@ a <code>UIViewController</code> found by the <code><a href="../Protocols/Finder.
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2019-04-09)</p>
+          <p>&copy; 2019 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2019-04-17)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

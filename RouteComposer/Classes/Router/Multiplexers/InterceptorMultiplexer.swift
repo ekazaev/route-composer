@@ -12,7 +12,7 @@ struct InterceptorMultiplexer: AnyRoutingInterceptor, MainThreadChecking, Custom
         self.interceptors = interceptors
     }
 
-    mutating func prepare(with context: Any?) throws {
+    mutating func prepare<Context>(with context: Context) throws {
         interceptors = try interceptors.map({
             var interceptor = $0
             try interceptor.prepare(with: context)
@@ -20,7 +20,7 @@ struct InterceptorMultiplexer: AnyRoutingInterceptor, MainThreadChecking, Custom
         })
     }
 
-    func execute(with context: Any?, completion: @escaping (InterceptorResult) -> Void) {
+    func execute<Context>(with context: Context, completion: @escaping (InterceptorResult) -> Void) {
         guard !self.interceptors.isEmpty else {
             completion(.continueRouting)
             return

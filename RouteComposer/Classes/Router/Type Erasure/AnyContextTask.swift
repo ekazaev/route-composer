@@ -10,8 +10,8 @@ import UIKit
 
 protocol AnyContextTask {
 
-    mutating func prepare(with context: Any?) throws
+    mutating func prepare<Context>(with context: Context) throws
 
-    func apply(on viewController: UIViewController, with context: Any?) throws
+    func apply<Context>(on viewController: UIViewController, with context: Context) throws
 
 }

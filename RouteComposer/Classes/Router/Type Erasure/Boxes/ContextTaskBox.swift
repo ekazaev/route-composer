@@ -14,7 +14,7 @@ struct ContextTaskBox<CT: ContextTask>: AnyContextTask, PreparableEntity, MainTh
         self.contextTask = contextTask
     }
 
-    mutating func prepare(with context: Any?) throws {
+    mutating func prepare<Context>(with context: Context) throws {
         guard let typedContext = Any?.some(context as Any) as? CT.Context else {
             throw RoutingError.typeMismatch(CT.Context.self, .init("\(String(describing: contextTask.self)) does not " +
                     "accept \(String(describing: context.self)) as a context."))
@@ -23,7 +23,7 @@ struct ContextTaskBox<CT: ContextTask>: AnyContextTask, PreparableEntity, MainTh
         isPrepared = true
     }
 
-    func apply(on viewController: UIViewController, with context: Any?) throws {
+    func apply<Context>(on viewController: UIViewController, with context: Context) throws {
         guard let typedViewController = viewController as? CT.ViewController,
               let typedContext = Any?.some(context as Any) as? CT.Context else {
             throw RoutingError.typeMismatch(CT.Context.self, .init("\(String(describing: contextTask.self)) does not " +

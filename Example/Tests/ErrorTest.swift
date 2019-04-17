@@ -22,6 +22,14 @@ class ErrorTests: XCTestCase {
         context = RoutingError.Context("Test description")
         error = RoutingError.compositionFailed(context)
         XCTAssertEqual(error.description, "Composition Failed Error: Test description")
+
+        context = RoutingError.Context("Test description")
+        error = RoutingError.initialController(.notFound, context)
+        XCTAssertEqual(error.description, "Initial Controller Error (Initial controller not found): Test description")
+
+        context = RoutingError.Context("Test description")
+        error = RoutingError.initialController(.deallocated, context)
+        XCTAssertEqual(error.description, "Initial Controller Error (Initial controller deallocated): Test description")
     }
 
     func testContextDescription() {
