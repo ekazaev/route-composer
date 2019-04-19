@@ -29,4 +29,23 @@ public extension RoutingResult {
         return true
     }
 
+    // Returns SDK's `Result` value.
+    var value: Result<Void, Error> {
+        switch self {
+        case .success:
+            return .success(())
+        case .failure(let error):
+            return .failure(error)
+        }
+    }
+
+    /// Returns the `Error` instance of the `RoutingResult`.
+    /// - Throws: The `RoutingError` if `RoutingResult` is `success`.
+    func getError() throws -> Error {
+        guard case let .failure(error) = self else {
+            throw RoutingError.generic(.init("Navigation is successful"))
+        }
+        return error
+    }
+
 }

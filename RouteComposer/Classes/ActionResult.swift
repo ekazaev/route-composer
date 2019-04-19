@@ -32,4 +32,23 @@ public extension ActionResult {
         return true
     }
 
+    // Returns SDK's `Result` value.
+    var value: Result<Void, Error> {
+        switch self {
+        case .continueRouting:
+            return .success(())
+        case .failure(let error):
+            return .failure(error)
+        }
+    }
+
+    /// Returns the `Error` instance of the `ActionResult`.
+    /// - Throws: The `RoutingError` if `ActionResult` is `continueRouting`.
+    func getError() throws -> Error {
+        guard case let .failure(error) = self else {
+            throw RoutingError.generic(.init("Action successfully integrated a view controller into the stack"))
+        }
+        return error
+    }
+
 }

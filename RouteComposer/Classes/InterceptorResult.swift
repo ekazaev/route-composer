@@ -31,4 +31,23 @@ public extension InterceptorResult {
         return true
     }
 
+    // Returns SDK's `Result` value.
+    var value: Result<Void, Error> {
+        switch self {
+        case .continueRouting:
+            return .success(())
+        case .failure(let error):
+            return .failure(error)
+        }
+    }
+
+    /// Returns the `Error` instance of the `InterceptorResult`.
+    /// - Throws: The `RoutingError` if `InterceptorResult` is `continueRouting`.
+    func getError() throws -> Error {
+        guard case let .failure(error) = self else {
+            throw RoutingError.generic(.init("Routing Interceptor finished its task with success"))
+        }
+        return error
+    }
+
 }
