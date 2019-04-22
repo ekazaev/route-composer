@@ -56,7 +56,7 @@ public struct NavigationDelayingInterceptor: RoutingInterceptor {
         }
 
         if strategy == .wait {
-            logger?.log(.info("\(topmostViewController) is changing its state. Navigation has been delayed."))
+            logger?.log(.info("\(topmostViewController) is changing its state. Navigation has been postponed."))
             let deadline = DispatchTime.now() + .milliseconds(100)
             DispatchQueue.main.asyncAfter(deadline: deadline) {
                 self.execute(with: context, completion: completion)

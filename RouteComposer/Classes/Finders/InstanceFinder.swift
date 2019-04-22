@@ -20,7 +20,7 @@ public struct InstanceFinder<VC: UIViewController, C>: Finder {
         self.instance = instance
     }
 
-    public func findViewController(with context: C) -> VC? {
+    public func findViewController(with context: C) throws -> VC? {
         return instance
     }
 

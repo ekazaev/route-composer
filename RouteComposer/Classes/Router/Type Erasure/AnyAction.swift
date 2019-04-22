@@ -5,17 +5,17 @@
 import Foundation
 import UIKit
 
-protocol DelayedActionIntegrationHandler: AnyObject {
+protocol PostponedActionIntegrationHandler: AnyObject {
 
     var containerViewController: ContainerViewController? { get }
 
-    var delayedViewControllers: [UIViewController] { get }
+    var postponedViewControllers: [UIViewController] { get }
 
-    func update(containerViewController: ContainerViewController, animated: Bool, completion: @escaping () -> Void)
+    func update(containerViewController: ContainerViewController, animated: Bool, completion: @escaping (_: ActionResult) -> Void) throws
 
-    func update(delayedViewControllers: [UIViewController])
+    func update(postponedViewControllers: [UIViewController])
 
-    func purge(animated: Bool, completion: @escaping () -> Void)
+    func purge(animated: Bool, completion: @escaping () -> Void) throws
 
 }
 
@@ -23,10 +23,10 @@ protocol AnyAction {
 
     func perform(with viewController: UIViewController,
                  on existingController: UIViewController,
-                 with delayedIntegrationHandler: DelayedActionIntegrationHandler,
+                 with postponedIntegrationHandler: PostponedActionIntegrationHandler,
                  nextAction: AnyAction?,
                  animated: Bool,
-                 completion: @escaping (_: ActionResult) -> Void)
+                 completion: @escaping (_: ActionResult) -> Void) throws
 
     func perform(embedding viewController: UIViewController,
                  in childViewControllers: inout [UIViewController]) throws

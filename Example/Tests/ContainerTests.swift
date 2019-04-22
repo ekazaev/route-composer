@@ -5,9 +5,9 @@ import XCTest
 class ContainerTests: XCTestCase {
 
     func testChildViewControllersBuild() {
-        var children: [DelayedIntegrationFactory<Any?>] = []
-        children.append(DelayedIntegrationFactory<Any?>(FactoryBox(EmptyFactory(), action: ContainerActionBox(UINavigationController.push()))!))
-        children.append(DelayedIntegrationFactory<Any?>(FactoryBox(EmptyFactory(), action: ContainerActionBox(UINavigationController.push()))!))
+        var children: [PostponedIntegrationFactory<Any?>] = []
+        children.append(PostponedIntegrationFactory<Any?>(for: FactoryBox(EmptyFactory(), action: ContainerActionBox(UINavigationController.push()))!))
+        children.append(PostponedIntegrationFactory<Any?>(for: FactoryBox(EmptyFactory(), action: ContainerActionBox(UINavigationController.push()))!))
         try? prepare(children: &children)
         guard let childrenControllers = try? ChildCoordinator(childFactories: children).build(with: nil) else {
             XCTAssert(false, "Unable to build children view controllers")
@@ -18,9 +18,9 @@ class ContainerTests: XCTestCase {
 
     func testNavigationControllerContainer() {
         let container = NavigationControllerFactory<Any?>()
-        var children: [DelayedIntegrationFactory<Any?>] = []
-        children.append(DelayedIntegrationFactory<Any?>(FactoryBox(EmptyFactory(), action: ContainerActionBox(UINavigationController.push()))!))
-        children.append(DelayedIntegrationFactory<Any?>(FactoryBox(EmptyFactory(), action: ContainerActionBox(UINavigationController.push()))!))
+        var children: [PostponedIntegrationFactory<Any?>] = []
+        children.append(PostponedIntegrationFactory<Any?>(for: FactoryBox(EmptyFactory(), action: ContainerActionBox(UINavigationController.push()))!))
+        children.append(PostponedIntegrationFactory<Any?>(for: FactoryBox(EmptyFactory(), action: ContainerActionBox(UINavigationController.push()))!))
         try? prepare(children: &children)
         guard let containerViewController = try? container.build(with: nil, integrating: ChildCoordinator(childFactories: children)) else {
             XCTAssert(false, "Unable to build UINavigationController")
@@ -31,9 +31,9 @@ class ContainerTests: XCTestCase {
 
     func testNavigationControllerContainer2() {
         let container = NavigationControllerFactory<Any?>()
-        var children: [DelayedIntegrationFactory<Any?>] = []
-        children.append(DelayedIntegrationFactory<Any?>(FactoryBox(EmptyFactory(), action: ContainerActionBox(UINavigationController.push()))!))
-        children.append(DelayedIntegrationFactory<Any?>(FactoryBox(EmptyFactory(), action: ContainerActionBox(UINavigationController.pushReplacingLast()))!))
+        var children: [PostponedIntegrationFactory<Any?>] = []
+        children.append(PostponedIntegrationFactory<Any?>(for: FactoryBox(EmptyFactory(), action: ContainerActionBox(UINavigationController.push()))!))
+        children.append(PostponedIntegrationFactory<Any?>(for: FactoryBox(EmptyFactory(), action: ContainerActionBox(UINavigationController.pushReplacingLast()))!))
         try? prepare(children: &children)
         guard let containerViewController = try? container.build(with: nil, integrating: ChildCoordinator(childFactories: children)) else {
             XCTAssert(false, "Unable to build UINavigationController")
@@ -44,9 +44,9 @@ class ContainerTests: XCTestCase {
 
     func testTabBarControllerContainer() {
         let container = TabBarControllerFactory<Any?>()
-        var children: [DelayedIntegrationFactory<Any?>] = []
-        children.append(DelayedIntegrationFactory<Any?>(FactoryBox(EmptyFactory(), action: ContainerActionBox(UITabBarController.add()))!))
-        children.append(DelayedIntegrationFactory<Any?>(FactoryBox(EmptyFactory(), action: ContainerActionBox(UITabBarController.add()))!))
+        var children: [PostponedIntegrationFactory<Any?>] = []
+        children.append(PostponedIntegrationFactory<Any?>(for: FactoryBox(EmptyFactory(), action: ContainerActionBox(UITabBarController.add()))!))
+        children.append(PostponedIntegrationFactory<Any?>(for: FactoryBox(EmptyFactory(), action: ContainerActionBox(UITabBarController.add()))!))
         try? prepare(children: &children)
         guard let containerViewController = try? container.build(with: nil, integrating: ChildCoordinator(childFactories: children)) else {
             XCTAssert(false, "Unable to build UITabBarController")
@@ -57,9 +57,9 @@ class ContainerTests: XCTestCase {
 
     func testSplitControllerContainer() {
         let container = SplitControllerFactory<Any?>()
-        var children: [DelayedIntegrationFactory<Any?>] = []
-        children.append(DelayedIntegrationFactory<Any?>(FactoryBox(EmptyFactory(), action: ContainerActionBox(UISplitViewController.setAsMaster()))!))
-        children.append(DelayedIntegrationFactory<Any?>(FactoryBox(EmptyFactory(), action: ContainerActionBox(UISplitViewController.pushToDetails()))!))
+        var children: [PostponedIntegrationFactory<Any?>] = []
+        children.append(PostponedIntegrationFactory<Any?>(for: FactoryBox(EmptyFactory(), action: ContainerActionBox(UISplitViewController.setAsMaster()))!))
+        children.append(PostponedIntegrationFactory<Any?>(for: FactoryBox(EmptyFactory(), action: ContainerActionBox(UISplitViewController.pushToDetails()))!))
         try? prepare(children: &children)
         guard let containerViewController = try? container.build(with: nil, integrating: ChildCoordinator(childFactories: children)) else {
             XCTAssert(false, "Unable to build UISplitViewController")
@@ -69,9 +69,9 @@ class ContainerTests: XCTestCase {
     }
 
     func testCompleteFactory() {
-        var children: [DelayedIntegrationFactory<Any?>] = []
-        children.append(DelayedIntegrationFactory<Any?>(FactoryBox(EmptyFactory(), action: ContainerActionBox(UITabBarController.add()))!))
-        children.append(DelayedIntegrationFactory<Any?>(FactoryBox(EmptyFactory(), action: ContainerActionBox(UITabBarController.add()))!))
+        var children: [PostponedIntegrationFactory<Any?>] = []
+        children.append(PostponedIntegrationFactory<Any?>(for: FactoryBox(EmptyFactory(), action: ContainerActionBox(UITabBarController.add()))!))
+        children.append(PostponedIntegrationFactory<Any?>(for: FactoryBox(EmptyFactory(), action: ContainerActionBox(UITabBarController.add()))!))
         try? prepare(children: &children)
         let factory = CompleteFactory(factory: TabBarControllerFactory(), childFactories: children)
         let viewController = try? factory.build(with: nil)
@@ -100,9 +100,9 @@ class ContainerTests: XCTestCase {
 
         let childFactory1 = EmptyFactory()
         let childFactory2 = EmptyFactory()
-        var children: [DelayedIntegrationFactory<Any?>] = []
-        children.append(DelayedIntegrationFactory<Any?>(FactoryBox(childFactory1, action: ContainerActionBox(UITabBarController.add()))!))
-        children.append(DelayedIntegrationFactory<Any?>(FactoryBox(childFactory2, action: ContainerActionBox(UITabBarController.add()))!))
+        var children: [PostponedIntegrationFactory<Any?>] = []
+        children.append(PostponedIntegrationFactory<Any?>(for: FactoryBox(childFactory1, action: ContainerActionBox(UITabBarController.add()))!))
+        children.append(PostponedIntegrationFactory<Any?>(for: FactoryBox(childFactory2, action: ContainerActionBox(UITabBarController.add()))!))
         var factory = CompleteFactory(factory: TabBarControllerFactory(), childFactories: children)
         try? factory.prepare(with: nil)
         let viewController = try? factory.build(with: nil)
@@ -151,9 +151,9 @@ class ContainerTests: XCTestCase {
     }
 
     func testCompleteFactorySmartActions() {
-        var children: [DelayedIntegrationFactory<Any?>] = []
-        children.append(DelayedIntegrationFactory<Any?>(FactoryBox(EmptyFactory(), action: ContainerActionBox(UITabBarController.add()))!))
-        children.append(DelayedIntegrationFactory<Any?>(FactoryBox(EmptyFactory(), action: ContainerActionBox(UITabBarController.add(at: 0, replacing: true)))!))
+        var children: [PostponedIntegrationFactory<Any?>] = []
+        children.append(PostponedIntegrationFactory<Any?>(for: FactoryBox(EmptyFactory(), action: ContainerActionBox(UITabBarController.add()))!))
+        children.append(PostponedIntegrationFactory<Any?>(for: FactoryBox(EmptyFactory(), action: ContainerActionBox(UITabBarController.add(at: 0, replacing: true)))!))
         try? prepare(children: &children)
         let factory = CompleteFactory(factory: TabBarControllerFactory(), childFactories: children)
         let viewController = try? factory.build(with: nil)
@@ -162,15 +162,15 @@ class ContainerTests: XCTestCase {
     }
 
     func testCompleteFactoryDescription() {
-        var children: [DelayedIntegrationFactory<Any?>] = []
-        children.append(DelayedIntegrationFactory<Any?>(FactoryBox(EmptyFactory(), action: ContainerActionBox(UITabBarController.add()))!))
-        children.append(DelayedIntegrationFactory<Any?>(FactoryBox(EmptyFactory(), action: ContainerActionBox(UITabBarController.add()))!))
+        var children: [PostponedIntegrationFactory<Any?>] = []
+        children.append(PostponedIntegrationFactory<Any?>(for: FactoryBox(EmptyFactory(), action: ContainerActionBox(UITabBarController.add()))!))
+        children.append(PostponedIntegrationFactory<Any?>(for: FactoryBox(EmptyFactory(), action: ContainerActionBox(UITabBarController.add()))!))
         try? prepare(children: &children)
         let factory = CompleteFactory(factory: TabBarControllerFactory(), childFactories: children)
         XCTAssertEqual(factory.description, "TabBarControllerFactory<Optional<Any>>(delegate: nil, configuration: nil)")
     }
 
-    private func prepare(children: inout [DelayedIntegrationFactory<Any?>]) throws {
+    private func prepare(children: inout [PostponedIntegrationFactory<Any?>]) throws {
         children = try children.map({
             var factory = $0
             try factory.prepare(with: nil)

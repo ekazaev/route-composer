@@ -12,7 +12,7 @@ struct ContainerFactoryBox<F: ContainerFactory>: PreparableAnyFactory, AnyFactor
 
     let action: AnyAction
 
-    var children: [DelayedIntegrationFactory<FactoryType.Context>] = []
+    var children: [PostponedIntegrationFactory<FactoryType.Context>] = []
 
     var isPrepared = false
 
@@ -27,13 +27,13 @@ struct ContainerFactoryBox<F: ContainerFactory>: PreparableAnyFactory, AnyFactor
     mutating func scrapeChildren(from factories: [AnyFactory]) throws -> [AnyFactory] {
         var otherFactories: [AnyFactory] = []
         var isNonEmbeddableFound = false
-        self.children = factories.compactMap({ child -> DelayedIntegrationFactory<FactoryType.Context>? in
+        self.children = factories.compactMap({ child -> PostponedIntegrationFactory<FactoryType.Context>? in
             guard !isNonEmbeddableFound, child.action.isEmbeddable(to: FactoryType.ViewController.self) else {
                 otherFactories.append(child)
                 isNonEmbeddableFound = true
                 return nil
             }
-            return DelayedIntegrationFactory(child)
+            return PostponedIntegrationFactory(for: child)
         })
         return otherFactories
     }

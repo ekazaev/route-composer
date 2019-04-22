@@ -59,13 +59,13 @@ class ErrorTests: XCTestCase {
     func testGetError() {
         let context = RoutingError.Context("Test description")
         let error = RoutingError.generic(context)
-        XCTAssertEqual((try! RoutingResult.failure(error).getError() as! RoutingError).description, error.description)
+        XCTAssertEqual((try? RoutingResult.failure(error).getError() as? RoutingError)?.description, error.description)
         XCTAssertThrowsError(try RoutingResult.success.getError())
 
-        XCTAssertEqual((try! ActionResult.failure(error).getError() as! RoutingError).description, error.description)
+        XCTAssertEqual((try? ActionResult.failure(error).getError() as? RoutingError)?.description, error.description)
         XCTAssertThrowsError(try ActionResult.continueRouting.getError())
 
-        XCTAssertEqual((try! InterceptorResult.failure(error).getError() as! RoutingError).description, error.description)
+        XCTAssertEqual((try? InterceptorResult.failure(error).getError() as? RoutingError)?.description, error.description)
         XCTAssertThrowsError(try InterceptorResult.continueRouting.getError())
     }
 

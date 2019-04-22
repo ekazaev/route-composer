@@ -6,7 +6,7 @@
 import Foundation
 import RouteComposer
 
-// Instance like this can represent both final screen and value to provide.
+// Instance like this can represent both final screen configuration and the value to provide.
 // NB: Used for the demo purposes only. Supported by a Router extension in the example app.
 class ExampleDestination<VC: UIViewController, C> {
 

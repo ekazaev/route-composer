@@ -89,15 +89,15 @@ class BoxTests: XCTestCase {
         let action = TestAction()
         let actionBox = ActionBox(action)
         let navigationController = UINavigationController()
-        let delayedIntegrationHandler = DefaultRouter.DefaultDelayedIntegrationHandler(logger: nil)
-        actionBox.perform(with: UIViewController(), on: navigationController, with: delayedIntegrationHandler, nextAction: nil, animated: true) { result in
+        let postponedIntegrationHandler = DefaultRouter.DefaultPostponedIntegrationHandler(logger: nil, containerAdapterProvider: ContainerAdapterRegistry.shared)
+        try? actionBox.perform(with: UIViewController(), on: navigationController, with: postponedIntegrationHandler, nextAction: nil, animated: true) { result in
             guard case .continueRouting = result else {
                 XCTAssert(false)
                 return
             }
         }
         XCTAssertEqual(navigationController.viewControllers.count, 1)
-        XCTAssertNil(delayedIntegrationHandler.containerViewController)
+        XCTAssertNil(postponedIntegrationHandler.containerViewController)
     }
 
     func testContainerActionBox() {
@@ -116,9 +116,9 @@ class BoxTests: XCTestCase {
         let action = TestContainerAction()
         let actionBox = ContainerActionBox(action)
         let navigationController = UINavigationController()
-        let delayedIntegrationHandler = DefaultRouter.DefaultDelayedIntegrationHandler(logger: nil)
+        let postponedIntegrationHandler = DefaultRouter.DefaultPostponedIntegrationHandler(logger: nil, containerAdapterProvider: ContainerAdapterRegistry.shared)
         let embeddingController = UIViewController()
-        actionBox.perform(with: embeddingController, on: navigationController, with: delayedIntegrationHandler, nextAction: nil, animated: true) { result in
+        try? actionBox.perform(with: embeddingController, on: navigationController, with: postponedIntegrationHandler, nextAction: nil, animated: true) { result in
             guard case .continueRouting = result else {
                 XCTAssert(false)
                 return
@@ -127,9 +127,9 @@ class BoxTests: XCTestCase {
         XCTAssertEqual(navigationController.children.count, 1)
 
         let anotherEmbeddingController = UIViewController()
-        actionBox.perform(with: anotherEmbeddingController,
+        try? actionBox.perform(with: anotherEmbeddingController,
                 on: navigationController,
-                with: delayedIntegrationHandler,
+                with: postponedIntegrationHandler,
                 nextAction: ContainerActionBox(action),
                 animated: true) { result in
             guard case .continueRouting = result else {
@@ -138,12 +138,12 @@ class BoxTests: XCTestCase {
             }
         }
         XCTAssertEqual(navigationController.children.count, 1)
-        XCTAssertEqual(delayedIntegrationHandler.containerViewController as? UINavigationController, navigationController)
-        XCTAssertEqual(delayedIntegrationHandler.delayedViewControllers.count, 2)
-        XCTAssertEqual(delayedIntegrationHandler.delayedViewControllers.first, embeddingController)
-        XCTAssertEqual(delayedIntegrationHandler.delayedViewControllers.last, anotherEmbeddingController)
+        XCTAssertEqual(postponedIntegrationHandler.containerViewController as? UINavigationController, navigationController)
+        XCTAssertEqual(postponedIntegrationHandler.postponedViewControllers.count, 2)
+        XCTAssertEqual(postponedIntegrationHandler.postponedViewControllers.first, embeddingController)
+        XCTAssertEqual(postponedIntegrationHandler.postponedViewControllers.last, anotherEmbeddingController)
 
-        delayedIntegrationHandler.purge(animated: false, completion: {
+        try? postponedIntegrationHandler.purge(animated: false, completion: {
             XCTAssertEqual(navigationController.viewControllers.count, 2)
 
             try? actionBox.perform(embedding: UIViewController(), in: &navigationController.viewControllers)

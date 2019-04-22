@@ -14,12 +14,12 @@ class FinderTest: XCTestCase {
         let viewController = UIViewController()
         let finder = InstanceFinder<UIViewController, Any?>(instance: viewController)
         XCTAssertEqual(finder.instance, viewController)
-        XCTAssertEqual(finder.findViewController(with: nil), viewController)
+        XCTAssertEqual(try? finder.findViewController(with: nil), viewController)
     }
 
     func testNilFinder() {
         let finder = NilFinder<UIViewController, Any?>()
-        XCTAssertNil(finder.findViewController(with: nil))
+        XCTAssertNil(try? finder.findViewController(with: nil))
     }
 
     func testDefaultIteratorDefaultValues() {
@@ -53,7 +53,7 @@ class FinderTest: XCTestCase {
 
         var currentViewController: UIViewController? = UIViewController()
         let iterator = DefaultStackIterator(options: .current,
-                startingPoint: .custom(TestInstanceFinder<UIViewController, Any?>(instance: currentViewController).findViewController()))
+                startingPoint: .custom(try? TestInstanceFinder<UIViewController, Any?>(instance: currentViewController).findViewController()))
         XCTAssertEqual(iterator.options, .current)
         XCTAssertEqual(iterator.startingPoint, .custom(currentViewController))
         XCTAssertEqual(iterator.startingViewController, currentViewController)

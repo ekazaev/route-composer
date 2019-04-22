@@ -18,9 +18,9 @@ public struct CompleteFactory<FC: ContainerFactory>: ContainerFactory, CustomStr
 
     private var factory: FC
 
-    var childFactories: [DelayedIntegrationFactory<FC.Context>]
+    var childFactories: [PostponedIntegrationFactory<FC.Context>]
 
-    init(factory: FC, childFactories: [DelayedIntegrationFactory<FC.Context>]) {
+    init(factory: FC, childFactories: [PostponedIntegrationFactory<FC.Context>]) {
         self.factory = factory
         self.childFactories = childFactories
     }

@@ -30,7 +30,7 @@ public struct FinderFactory<F: Finder>: Factory {
     }
 
     public func build(with context: F.Context) throws -> F.ViewController {
-        guard let viewController = finder.findViewController(with: context) else {
+        guard let viewController = try finder.findViewController(with: context) else {
             throw RoutingError.compositionFailed(.init("\(String(describing: finder)) hasn't found its view controller in the stack."))
         }
         return viewController

@@ -84,7 +84,7 @@ class RouterTests: XCTestCase {
             self.currentViewController = currentViewController
         }
 
-        func findViewController(with context: C) -> VC? {
+        func findViewController(with context: C) throws -> VC? {
             return currentViewController
         }
     }

@@ -195,8 +195,8 @@ class MultiplexerTest: XCTestCase {
             }
         }
 
-        XCTAssertNil(TestFinder<Any?>().findViewController())
-        XCTAssertNil(TestFinder<Void>().findViewController())
+        XCTAssertNil(try? TestFinder<Any?>().findViewController())
+        XCTAssertNil(try? TestFinder<Void>().findViewController())
         let viewController1 = UIViewController()
         TestPostRoutingTask<Any?>().execute(on: viewController1, routingStack: [])
         XCTAssertEqual(viewController1.title, "test")

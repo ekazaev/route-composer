@@ -66,11 +66,11 @@ extension DefaultRouter {
 
         var postTasks: [AnyPostRoutingTask]
 
-        let delayedRunner: PostTaskDelayedRunner
+        let postponedRunner: PostponedTaskRunner
 
-        init<Context>(postTasks: [AnyPostRoutingTask], with context: Context, delayedRunner: PostTaskDelayedRunner) {
+        init<Context>(postTasks: [AnyPostRoutingTask], with context: Context, postponedRunner: PostponedTaskRunner) {
             self.postTasks = postTasks
-            self.delayedRunner = delayedRunner
+            self.postponedRunner = postponedRunner
         }
 
         mutating func add<Context>(_ postTask: AnyPostRoutingTask, with context: Context) throws {
@@ -78,11 +78,11 @@ extension DefaultRouter {
         }
 
         func run<Context>(on viewController: UIViewController, with context: Context) throws {
-            delayedRunner.add(postTasks: postTasks, to: viewController)
+            postponedRunner.add(postTasks: postTasks, to: viewController)
         }
 
         func commit<Context>(with context: Context) throws {
-            try delayedRunner.run(with: context)
+            try postponedRunner.run(with: context)
         }
 
     }
@@ -105,7 +105,7 @@ extension DefaultRouter {
 
     }
 
-    final class PostTaskDelayedRunner {
+    final class PostponedTaskRunner {
 
         private struct PostTaskSlip {
             // This reference is weak because even though this view controller was created by a fabric but then some other
@@ -239,54 +239,69 @@ extension DefaultRouter {
 
     }
 
-    final class DefaultDelayedIntegrationHandler: DelayedActionIntegrationHandler {
+    final class DefaultPostponedIntegrationHandler: PostponedActionIntegrationHandler {
 
         var containerViewController: ContainerViewController?
 
-        var delayedViewControllers: [UIViewController] = []
+        var postponedViewControllers: [UIViewController] = []
 
         let logger: Logger?
 
-        init(logger: Logger?) {
+        let containerAdapterProvider: ContainerAdapterProvider
+
+        init(logger: Logger?, containerAdapterProvider: ContainerAdapterProvider) {
             self.logger = logger
+            self.containerAdapterProvider = containerAdapterProvider
         }
 
-        func update(containerViewController: ContainerViewController, animated: Bool, completion: @escaping () -> Void) {
+        func update(containerViewController: ContainerViewController, animated: Bool, completion: @escaping (_: ActionResult) -> Void) throws {
             guard self.containerViewController == nil else {
-                purge(animated: animated, completion: {
-                    self.update(containerViewController: containerViewController, animated: animated, completion: completion)
+                try purge(animated: animated, completion: {
+                    do {
+                        try self.update(containerViewController: containerViewController, animated: animated, completion: completion)
+                    } catch let error {
+                        completion(.failure(error))
+                    }
                 })
                 return
             }
             self.containerViewController = containerViewController
-            self.delayedViewControllers = containerViewController.containedViewControllers
-            logger?.log(.info("Container \(String(describing: containerViewController)) will be used for the delayed integration."))
-            completion()
+            self.postponedViewControllers = try containerAdapterProvider.getAdapter(for: containerViewController).containedViewControllers
+            logger?.log(.info("Container \(String(describing: containerViewController)) will be used for the postponed integration."))
+            completion(.continueRouting)
         }
 
-        func update(delayedViewControllers: [UIViewController]) {
-            self.delayedViewControllers = delayedViewControllers
+        func update(postponedViewControllers: [UIViewController]) {
+            self.postponedViewControllers = postponedViewControllers
         }
 
-        func purge(animated: Bool, completion: @escaping () -> Void) {
+        func purge(animated: Bool, completion: @escaping () -> Void) throws {
             guard let containerViewController = containerViewController else {
                 completion()
                 return
             }
 
-            guard !delayedViewControllers.isEqual(to: containerViewController.containedViewControllers) else {
-                self.containerViewController = nil
-                self.delayedViewControllers = []
+            let containerAdapter = try containerAdapterProvider.getAdapter(for: containerViewController)
+
+            guard !postponedViewControllers.isEqual(to: containerAdapter.containedViewControllers) else {
+                self.reset()
                 completion()
                 return
             }
 
-            containerViewController.replace(containedViewControllers: delayedViewControllers, animated: animated, completion: {
-                self.logger?.log(.info("View controllers \(String(describing: self.delayedViewControllers)) were integrated together into \(containerViewController)"))
-                self.containerViewController = nil
-                self.delayedViewControllers = []
-                completion()
-            })
+            try containerAdapter.setContainedViewControllers(postponedViewControllers,
+                    animated: animated,
+                    completion: {
+                        self.logger?.log(.info("View controllers \(String(describing: self.postponedViewControllers)) were simultaneously "
+                                + "integrated into \(containerViewController)"))
+                        self.reset()
+                        completion()
+                    })
+        }
+
+        private func reset() {
+            containerViewController = nil
+            postponedViewControllers = []
         }
 
     }

@@ -36,28 +36,8 @@ class CustomContainerFactory<C>: SimpleContainerFactory {
 
 extension CustomContainerController: ContainerViewController {
 
-    public var containedViewControllers: [UIViewController] {
-        guard let rootViewController = rootViewController else {
-            return []
-        }
-        return [rootViewController]
-    }
-
-    public var visibleViewControllers: [UIViewController] {
-        return containedViewControllers
-    }
-
-    public func makeVisible(_ viewController: UIViewController, animated: Bool) {
-
-    }
-
     public var canBeDismissed: Bool {
-        return containedViewControllers.canBeDismissed
-    }
-
-    public func replace(containedViewControllers: [UIViewController], animated: Bool, completion: @escaping () -> Void) {
-        rootViewController = containedViewControllers.last
-        completion()
+        return (rootViewController as? RoutingInterceptable)?.canBeDismissed ?? true
     }
 
 }
@@ -74,6 +54,39 @@ extension CustomContainerFactory {
             completion(.continueRouting)
         }
 
+    }
+
+}
+
+// NB: Do not forget to register new container adapter in the `ContainerAdapterRegistry`
+struct CustomContainerControllerAdapter: ConcreteContainerAdapter {
+
+    private let customContainerController: CustomContainerController
+
+    init(with customContainerController: CustomContainerController) {
+        self.customContainerController = customContainerController
+    }
+
+    public var containedViewControllers: [UIViewController] {
+        guard let rootViewController = customContainerController.rootViewController else {
+            return []
+        }
+        return [rootViewController]
+    }
+
+    public var visibleViewControllers: [UIViewController] {
+        return containedViewControllers
+    }
+
+    public func makeVisible(_ viewController: UIViewController, animated: Bool) throws {
+        guard customContainerController.rootViewController != viewController else {
+            throw RoutingError.compositionFailed(.init("\(customContainerController) does not contain \(viewController)"))
+        }
+    }
+
+    public func setContainedViewControllers(_ containedViewControllers: [UIViewController], animated: Bool, completion: @escaping () -> Void) {
+        customContainerController.rootViewController = containedViewControllers.last
+        completion()
     }
 
 }

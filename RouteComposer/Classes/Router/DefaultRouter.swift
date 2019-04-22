@@ -11,6 +11,8 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
     /// A `Logger` instance to be used by `DefaultRouter`.
     public let logger: Logger?
 
+    public let containerAdapterProvider: ContainerAdapterProvider
+
     private var interceptors: [AnyRoutingInterceptor] = []
 
     private var contextTasks: [AnyContextTask] = []
@@ -19,9 +21,13 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
 
     /// Constructor
     ///
-    /// - Parameter logger: A `Logger` instance to be used by the `DefaultRouter`.
-    public init(logger: Logger? = nil) {
+    /// Parameters
+    ///   - logger: A `Logger` instance to be used by the `DefaultRouter`.
+    ///   - containerAdapterProvider: A `ContainerAdapterProvider` instance to be used by the `DefaultRouter`.
+    public init(logger: Logger? = nil,
+                containerAdapterProvider: ContainerAdapterProvider = ContainerAdapterRegistry.shared) {
         self.logger = logger
+        self.containerAdapterProvider = containerAdapterProvider
     }
 
     public mutating func add<RI: RoutingInterceptor>(_ interceptor: RI) where RI.Context == Any? {
@@ -81,8 +87,8 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
     private func prepareTaskStack<Context>(with context: Context) throws -> GlobalTaskRunner {
         let interceptorRunner = try InterceptorRunner(interceptors: self.interceptors, with: context)
         let contextTaskRunner = try ContextTaskRunner(contextTasks: self.contextTasks, with: context)
-        let postTaskDelayedRunner = PostTaskDelayedRunner()
-        let postTaskRunner = PostTaskRunner(postTasks: self.postTasks, with: context, delayedRunner: postTaskDelayedRunner)
+        let postponedTaskRunner = PostponedTaskRunner()
+        let postTaskRunner = PostTaskRunner(postTasks: self.postTasks, with: context, postponedRunner: postponedTaskRunner)
         return GlobalTaskRunner(interceptorRunner: interceptorRunner, contextTaskRunner: contextTaskRunner, postTaskRunner: postTaskRunner)
     }
 
@@ -183,8 +189,8 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
                         with: context,
                         using: factoriesStack,
                         animated: animated) { viewController, result in
-                    self.makeVisibleInParentContainer(viewController, animated: animated)
                     do {
+                        try self.makeVisibleInParentContainer(viewController, animated: animated)
                         if case let .failure(error) = result {
                             throw error
                         }
@@ -208,31 +214,36 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
                                                    completion: @escaping ((_: UIViewController, _: RoutingResult) -> Void)) {
         var factories = factories
 
-        let delayedIntegrationHandler = DefaultDelayedIntegrationHandler(logger: logger)
+        let postponedIntegrationHandler = DefaultPostponedIntegrationHandler(logger: logger,
+                containerAdapterProvider: containerAdapterProvider)
 
         func buildViewController(from previousViewController: UIViewController) {
-            guard !factories.isEmpty else {
-                delayedIntegrationHandler.purge(animated: animated, completion: {
-                    return completion(previousViewController, .success)
-                })
-                return
-            }
-            let factory = factories.removeFirst()
-            // If the previous view controller is created/found but it's view is not loaded or it has no window,
-            // it was cached by the container view controller like it would be in a `UITabBarController`s
-            // tab that was never activated. So the router will have to activate it first.
-            // Example: `UITabBarController` contains a navigation controller in the tab that was never opened and the router is going
-            // to push a view controller into. UINavigationController in this case will not be able to update its content properly.
-            if !previousViewController.isViewLoaded || previousViewController.view.window == nil {
-                makeVisibleInParentContainer(previousViewController, animated: false)
-            }
-
             do {
+                guard !factories.isEmpty else {
+                    try postponedIntegrationHandler.purge(animated: animated, completion: {
+                        return completion(previousViewController, .success)
+                    })
+                    return
+                }
+                let factory = factories.removeFirst()
+                // If the previous view controller is created/found but it's view is not loaded or it has no window,
+                // it was cached by the container view controller like it would be in a `UITabBarController`s
+                // tab that was never activated. So the router will have to activate it first.
+                // Example: `UITabBarController` contains a navigation controller in the tab that was never opened and the router is going
+                // to push a view controller into. UINavigationController in this case will not be able to update its content properly.
+                if !previousViewController.isViewLoaded || previousViewController.view.window == nil {
+                    try makeVisibleInParentContainer(previousViewController, animated: false)
+                }
+
                 let newViewController = try factory.build(with: context)
                 logger?.log(.info("\(String(describing: factory)) built a " +
                         "\(String(describing: newViewController))."))
                 let nextAction = factories.first?.action
-                factory.action.perform(with: newViewController, on: previousViewController, with: delayedIntegrationHandler, nextAction: nextAction, animated: animated) { result in
+                try factory.action.perform(with: newViewController,
+                        on: previousViewController,
+                        with: postponedIntegrationHandler,
+                        nextAction: nextAction,
+                        animated: animated) { result in
                     self.assertIfNotMainThread(logger: self.logger)
                     if case let .failure(error) = result {
                         self.logger?.log(.info("\(String(describing: factory.action)) has stopped the navigation process " +
@@ -254,11 +265,11 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
     }
 
     // Activates the origin view controller of viewController
-    private func makeVisibleInParentContainer(_ viewController: UIViewController, animated: Bool) {
+    private func makeVisibleInParentContainer(_ viewController: UIViewController, animated: Bool) throws {
         var currentViewController = viewController
-        viewController.allParents.forEach({
+        try viewController.allParents.forEach({
             if let container = $0 as? ContainerViewController {
-                container.makeVisible(currentViewController, animated: animated)
+                try containerAdapterProvider.getAdapter(for: container).makeVisible(currentViewController, animated: animated)
                 logger?.log(.info("Made \(String(describing: currentViewController)) visible in \(String(describing: container))"))
             }
             currentViewController = $0

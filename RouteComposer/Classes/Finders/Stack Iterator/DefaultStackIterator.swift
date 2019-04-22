@@ -48,6 +48,8 @@ public struct DefaultStackIterator: StackIterator {
     /// `WindowProvider` to get proper `UIWindow`
     public let windowProvider: WindowProvider
 
+    public let containerAdapterProvider: ContainerAdapterProvider
+
     var startingViewController: UIViewController? {
         switch startingPoint {
         case .topmost:
@@ -60,18 +62,25 @@ public struct DefaultStackIterator: StackIterator {
     }
 
     /// Constructor
-    public init(options: SearchOptions = .fullStack, startingPoint: StartingPoint = .topmost, windowProvider: WindowProvider = KeyWindowProvider()) {
+    public init(options: SearchOptions = .fullStack,
+                startingPoint: StartingPoint = .topmost,
+                windowProvider: WindowProvider = KeyWindowProvider(),
+                containerAdapterProvider: ContainerAdapterProvider = ContainerAdapterRegistry.shared) {
         self.startingPoint = startingPoint
         self.options = options
         self.windowProvider = windowProvider
+        self.containerAdapterProvider = containerAdapterProvider
     }
 
     /// Returns `UIViewController` instance if found
     ///
     /// - Parameter predicate: A block that contains `UIViewController` matching condition
-    public func firstViewController(where predicate: (UIViewController) -> Bool) -> UIViewController? {
+    public func firstViewController(where predicate: (UIViewController) -> Bool) throws -> UIViewController? {
         guard let rootViewController = startingViewController,
-              let viewController = UIViewController.findViewController(in: rootViewController, options: options, using: predicate) else {
+              let viewController = try UIViewController.findViewController(in: rootViewController,
+                      options: options,
+                      containerAdapterProvider: containerAdapterProvider,
+                      using: predicate) else {
             return nil
         }
 

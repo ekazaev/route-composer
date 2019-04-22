@@ -20,7 +20,7 @@ struct FinderBox<F: Finder>: AnyFinder, CustomStringConvertible {
             throw RoutingError.typeMismatch(F.Context.self, .init("\(String(describing: F.self)) does " +
                     "not accept \(String(describing: context.self)) as a context."))
         }
-        return finder.findViewController(with: typedContext)
+        return try finder.findViewController(with: typedContext)
     }
 
     var description: String {

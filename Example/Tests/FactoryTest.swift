@@ -95,14 +95,14 @@ class FactoryTest: XCTestCase {
         XCTAssertEqual(buildCount, 2)
     }
 
-    func testDelayedIntegrationFactory() {
+    func testPostponedIntegrationFactory() {
         var viewControllerStack: [UIViewController] = []
         let factory = ClassNameFactory<UIViewController, Any?>()
-        var delayedFactory = DelayedIntegrationFactory<Any?>(FactoryBox(factory, action: ContainerActionBox(UINavigationController.push()))!)
-        XCTAssertNoThrow(try delayedFactory.prepare(with: nil))
-        XCTAssertNoThrow(try delayedFactory.build(with: nil, in: &viewControllerStack))
+        var postponedFactory = PostponedIntegrationFactory<Any?>(for: FactoryBox(factory, action: ContainerActionBox(UINavigationController.push()))!)
+        XCTAssertNoThrow(try postponedFactory.prepare(with: nil))
+        XCTAssertNoThrow(try postponedFactory.build(with: nil, in: &viewControllerStack))
         XCTAssertEqual(viewControllerStack.count, 1)
-        XCTAssertEqual(delayedFactory.description, "ClassNameFactory<UIViewController, Optional<Any>>(viewControllerName: nil, nibName: nil, bundle: nil)")
+        XCTAssertEqual(postponedFactory.description, "ClassNameFactory<UIViewController, Optional<Any>>(viewControllerName: nil, nibName: nil, bundle: nil)")
     }
 
     func testAnyOrVoidMethods() {

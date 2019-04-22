@@ -8,9 +8,9 @@ import UIKit
 /// Helps to build a child view controller stack
 public struct ChildCoordinator<Context> {
 
-    var childFactories: [DelayedIntegrationFactory<Context>]
+    var childFactories: [PostponedIntegrationFactory<Context>]
 
-    init(childFactories: [DelayedIntegrationFactory<Context>]) {
+    init(childFactories: [PostponedIntegrationFactory<Context>]) {
         self.childFactories = childFactories
     }
 
