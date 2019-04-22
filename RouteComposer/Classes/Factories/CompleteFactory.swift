@@ -12,6 +12,10 @@ import UIKit
 /// pre-populate the children view controllers instead of the `Router`.
 public struct CompleteFactory<FC: ContainerFactory>: ContainerFactory, CustomStringConvertible {
 
+    public typealias ViewController = FC.ViewController
+
+    public typealias Context = FC.Context
+
     private var factory: FC
 
     var childFactories: [DelayedIntegrationFactory<FC.Context>]

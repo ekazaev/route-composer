@@ -9,6 +9,10 @@ import UIKit
 ///  The `ContainerFactory` that creates a `UISplitController` instance.
 public struct SplitControllerFactory<C>: SimpleContainerFactory {
 
+    public typealias ViewController = UISplitViewController
+
+    public typealias Context = C
+
     /// `UISplitViewControllerDelegate` reference
     private(set) public weak var delegate: UISplitViewControllerDelegate?
 

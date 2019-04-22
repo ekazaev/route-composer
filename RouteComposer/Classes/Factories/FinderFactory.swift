@@ -14,6 +14,10 @@ public struct FinderFactory<F: Finder>: Factory {
 
     private let finder: F
 
+    public typealias ViewController = F.ViewController
+
+    public typealias Context = F.Context
+
     /// Constructor
     ///
     /// - Parameters:

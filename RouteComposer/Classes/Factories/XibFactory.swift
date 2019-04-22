@@ -11,6 +11,10 @@ import UIKit
 /// The `Factory` that creates a `UIViewController` from a Xib file.
 public struct XibFactory<VC: UIViewController, C>: Factory {
 
+    public typealias ViewController = VC
+
+    public typealias Context = C
+
     /// A Xib file name
     public let nibName: String?
 

@@ -8,6 +8,10 @@ import UIKit
 ///  The `ContainerFactory` that creates a `UITabBarController` instance.
 public struct TabBarControllerFactory<C>: SimpleContainerFactory {
 
+    public typealias ViewController = UITabBarController
+
+    public typealias Context = C
+
     /// `UITabBarControllerDelegate` reference
     private(set) public weak var delegate: UITabBarControllerDelegate?
 

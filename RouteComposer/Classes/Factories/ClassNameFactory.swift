@@ -8,6 +8,10 @@ import UIKit
 /// The `Factory` that creates a `UIViewController` class by its name
 public struct ClassNameFactory<VC: UIViewController, C>: Factory {
 
+    public typealias ViewController = VC
+
+    public typealias Context = C
+
     /// The name of a `UIViewController` class to be built by the `Factory`
     public let viewControllerName: String?
 

@@ -15,6 +15,10 @@ import UIKit
 /// storyboard in a previous step.
 public struct NilFactory<VC: UIViewController, C>: Factory, NilEntity {
 
+    public typealias ViewController = VC
+
+    public typealias Context = C
+
     /// Constructor
     public init() {
     }
