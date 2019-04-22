@@ -31,7 +31,7 @@ public extension InterceptorResult {
         return true
     }
 
-    // Returns SDK's `Result` value.
+    /// Returns SDK's `Result` value.
     var value: Result<Void, Error> {
         switch self {
         case .continueRouting:
