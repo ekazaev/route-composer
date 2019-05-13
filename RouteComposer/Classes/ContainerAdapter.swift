@@ -10,8 +10,8 @@ import Foundation
 /// are also containers or simple ones. These view controllers are available out of the box: `UINavigationController`,
 /// `UITabBarController` and so on, but there can be custom ones created as well.
 ///
-/// All of them has the following properties:
-///  1. They have a list of all controllers that they contain.
+/// All the container view controller have the following properties:
+///  1. The List of all controllers that they contain.
 ///  2. One or more controllers are currently visible.
 ///  3. They can make one of these controllers visible.
 ///  4. They can replace all of their contained view controllers.

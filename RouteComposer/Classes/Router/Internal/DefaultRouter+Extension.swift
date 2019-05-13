@@ -241,9 +241,9 @@ extension DefaultRouter {
 
     final class DefaultPostponedIntegrationHandler: PostponedActionIntegrationHandler {
 
-        var containerViewController: ContainerViewController?
+        private(set) var containerViewController: ContainerViewController?
 
-        var postponedViewControllers: [UIViewController] = []
+        private(set) var postponedViewControllers: [UIViewController] = []
 
         let logger: Logger?
 
@@ -293,7 +293,7 @@ extension DefaultRouter {
                     animated: animated,
                     completion: {
                         self.logger?.log(.info("View controllers \(String(describing: self.postponedViewControllers)) were simultaneously "
-                                + "integrated into \(containerViewController)"))
+                                + "integrated into \(String(describing: containerViewController))"))
                         self.reset()
                         completion()
                     })

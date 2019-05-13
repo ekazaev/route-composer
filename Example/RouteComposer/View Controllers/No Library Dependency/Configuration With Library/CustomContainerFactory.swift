@@ -34,7 +34,11 @@ class CustomContainerFactory<C>: SimpleContainerFactory {
 
 }
 
-extension CustomContainerController: ContainerViewController {
+extension CustomContainerController: CustomContainerViewController {
+
+    public var adapter: ContainerAdapter {
+        return CustomContainerControllerAdapter(with: self)
+    }
 
     public var canBeDismissed: Bool {
         return (rootViewController as? RoutingInterceptable)?.canBeDismissed ?? true

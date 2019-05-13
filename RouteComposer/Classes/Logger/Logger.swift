@@ -11,7 +11,8 @@ public protocol Logger {
 
     /// Logs a message
     ///
-    /// - Parameter message: The `LogMessage` instance
+    /// - Parameters:
+    ///  - message: The `LogMessage` instance
     func log(_ message: LogMessage)
 
 }

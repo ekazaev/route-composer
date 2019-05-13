@@ -16,8 +16,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        ContainerAdapterRegistry.shared.register(adapterType: CustomContainerControllerAdapter.self)
-
         ConfigurationHolder.configuration = ExampleConfiguration()
 
         // Try in mobile Safari to test the deep linking to the app:

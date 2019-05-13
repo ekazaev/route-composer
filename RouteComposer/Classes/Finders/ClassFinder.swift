@@ -36,7 +36,7 @@ public extension ClassFinder {
     ///   - containerAdapterProvider: A `ContainerAdapterProvider` instance.
     init(options: SearchOptions,
          startingPoint: DefaultStackIterator.StartingPoint = .topmost,
-         containerAdapterProvider: ContainerAdapterProvider = ContainerAdapterRegistry.shared) {
+         containerAdapterProvider: ContainerAdapterProvider = DefaultContainerAdapterProvider()) {
         self.iterator = DefaultStackIterator(options: options, startingPoint: startingPoint, containerAdapterProvider: containerAdapterProvider)
     }
 

@@ -18,7 +18,8 @@ public struct DefaultLogger: Logger {
 
     /// Constructor
     ///
-    /// - Parameter logLevel: DefaultLoggerLevel. Defaulted to warnings.
+    /// - Parameters:
+    ///  - logLevel: DefaultLoggerLevel. Defaulted to warnings.
     public init(_ logLevel: LogLevel = .warnings) {
         self.logLevel = logLevel
         if #available(iOS 10.0, *) {

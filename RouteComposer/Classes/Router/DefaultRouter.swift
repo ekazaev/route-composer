@@ -25,7 +25,7 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
     ///   - logger: A `Logger` instance to be used by the `DefaultRouter`.
     ///   - containerAdapterProvider: A `ContainerAdapterProvider` instance to be used by the `DefaultRouter`.
     public init(logger: Logger? = nil,
-                containerAdapterProvider: ContainerAdapterProvider = ContainerAdapterRegistry.shared) {
+                containerAdapterProvider: ContainerAdapterProvider = DefaultContainerAdapterProvider()) {
         self.logger = logger
         self.containerAdapterProvider = containerAdapterProvider
     }
@@ -142,7 +142,7 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
                     }
                 })
 
-        //Throws an exception if it hasn't found a view controller to start the stack from.
+        //Throws an exception if the router hasn't found a view controller to start the stack from.
         guard let rootViewController = result.rootViewController else {
             throw RoutingError.initialController(.notFound, .init("Unable to start the navigation process as the view controller to start from was not found."))
         }
@@ -190,7 +190,6 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
                         using: factoriesStack,
                         animated: animated) { viewController, result in
                     do {
-                        try self.makeVisibleInParentContainer(viewController, animated: animated)
                         if case let .failure(error) = result {
                             throw error
                         }
@@ -219,13 +218,6 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
 
         func buildViewController(from previousViewController: UIViewController) {
             do {
-                guard !factories.isEmpty else {
-                    try postponedIntegrationHandler.purge(animated: animated, completion: {
-                        return completion(previousViewController, .success)
-                    })
-                    return
-                }
-                let factory = factories.removeFirst()
                 // If the previous view controller is created/found but it's view is not loaded or it has no window,
                 // it was cached by the container view controller like it would be in a `UITabBarController`s
                 // tab that was never activated. So the router will have to activate it first.
@@ -235,10 +227,18 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
                     try makeVisibleInParentContainer(previousViewController, animated: false)
                 }
 
+                guard !factories.isEmpty else {
+                    try postponedIntegrationHandler.purge(animated: animated, completion: {
+                        return completion(previousViewController, .success)
+                    })
+                    return
+                }
+                let factory = factories.removeFirst()
                 let newViewController = try factory.build(with: context)
-                logger?.log(.info("\(String(describing: factory)) built a " +
-                        "\(String(describing: newViewController))."))
+                logger?.log(.info("\(String(describing: factory)) built a \(String(describing: newViewController))."))
+
                 let nextAction = factories.first?.action
+
                 try factory.action.perform(with: newViewController,
                         on: previousViewController,
                         with: postponedIntegrationHandler,
@@ -269,8 +269,11 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
         var currentViewController = viewController
         try viewController.allParents.forEach({
             if let container = $0 as? ContainerViewController {
-                try containerAdapterProvider.getAdapter(for: container).makeVisible(currentViewController, animated: animated)
-                logger?.log(.info("Made \(String(describing: currentViewController)) visible in \(String(describing: container))"))
+                let containerAdapter = try containerAdapterProvider.getAdapter(for: container)
+                if containerAdapter.containedViewControllers.contains(currentViewController) {
+                    try containerAdapter.makeVisible(currentViewController, animated: animated)
+                    logger?.log(.info("Made \(String(describing: currentViewController)) visible in \(String(describing: container))"))
+                }
             }
             currentViewController = $0
         })
@@ -285,7 +288,7 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
                     completion(.success)
                 }
             } else {
-                completion(.failure(RoutingError.compositionFailed(.init("Trying to dismiss \(String(describing: presentedController)) while it is being dismissed"))))
+                completion(.failure(RoutingError.compositionFailed(.init("Attempt to dismiss \(String(describing: presentedController)) while it is being dismissed"))))
             }
         } else {
             completion(.success)

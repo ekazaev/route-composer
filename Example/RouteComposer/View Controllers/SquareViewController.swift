@@ -23,7 +23,7 @@ class SquareViewController: UIViewController, ExampleAnalyticsSupport {
     }
 
     @IBAction func goToHomeTapped() {
-        try? router.navigate(to: ConfigurationHolder.configuration.emptyScreen, with: nil)
+        try? router.navigate(to: ConfigurationHolder.configuration.figuresScreen, with: nil)
     }
 
     @IBAction func goToSplitTapped() {
@@ -43,7 +43,7 @@ class SquareViewController: UIViewController, ExampleAnalyticsSupport {
     }
 
     @IBAction func goEmptyAndProductTapped() {
-        try? router.navigate(to: ConfigurationHolder.configuration.emptyAndProductScreen, with: ProductContext(productId: "03"))
+        try? router.navigate(to: ConfigurationHolder.configuration.figuresAndProductScreen, with: ProductContext(productId: "03"))
     }
 
     @IBAction func switchValueChanged(sender: UISwitch) {

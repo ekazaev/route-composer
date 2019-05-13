@@ -65,7 +65,7 @@ public struct DefaultStackIterator: StackIterator {
     public init(options: SearchOptions = .fullStack,
                 startingPoint: StartingPoint = .topmost,
                 windowProvider: WindowProvider = KeyWindowProvider(),
-                containerAdapterProvider: ContainerAdapterProvider = ContainerAdapterRegistry.shared) {
+                containerAdapterProvider: ContainerAdapterProvider = DefaultContainerAdapterProvider()) {
         self.startingPoint = startingPoint
         self.options = options
         self.windowProvider = windowProvider

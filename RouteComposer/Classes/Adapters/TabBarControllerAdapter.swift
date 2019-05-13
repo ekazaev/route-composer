@@ -31,7 +31,7 @@ public struct TabBarControllerAdapter<VC: UITabBarController>: ConcreteContainer
             return
         }
         guard let viewControllerToSelect = containedViewControllers.first(where: { $0 == viewController }) else {
-            throw RoutingError.compositionFailed(.init("\(tabBarController) does not contain \(viewController)"))
+            throw RoutingError.compositionFailed(.init("\(String(describing: tabBarController)) does not contain \(String(describing: viewController))"))
         }
 
         tabBarController.selectedViewController = viewControllerToSelect

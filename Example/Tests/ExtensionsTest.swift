@@ -72,12 +72,6 @@ class ExtensionsTest: XCTestCase {
     }
 
     func testFindViewController() {
-        let testRegistry = ContainerAdapterRegistry()
-        testRegistry.register(adapterType: NavigationControllerAdapter<UINavigationController>.self)
-        testRegistry.register(adapterType: TabBarControllerAdapter<UITabBarController>.self)
-        testRegistry.register(adapterType: SplitControllerAdapter<UISplitViewController>.self)
-        testRegistry.register(adapterType: NavigationControllerAdapter<FakePresentingNavigationController>.self)
-
         let viewController1 = RouterTests.TestModalPresentableController()
         let viewController2 = RouterTests.TestModalPresentableController()
         let testViewController = RouterTests.TestViewController()
@@ -90,58 +84,34 @@ class ExtensionsTest: XCTestCase {
         viewController3.viewControllers = [invisibleController, testViewController]
 
         var searchOption = SearchOptions.current
-        XCTAssertNil(try? UIViewController.findViewController(in: viewController1, options: searchOption,
-                containerAdapterProvider: testRegistry, using: { $0 is UINavigationController }))
-        XCTAssertNil(try? UIViewController.findViewController(in: viewController2, options: searchOption,
-                containerAdapterProvider: testRegistry, using: { $0 is UINavigationController }))
-        XCTAssertNotNil(try? UIViewController.findViewController(in: viewController3, options: searchOption,
-                containerAdapterProvider: testRegistry, using: { $0 is UINavigationController }))
-        XCTAssertNil(try? UIViewController.findViewController(in: testViewController, options: searchOption,
-                containerAdapterProvider: testRegistry, using: { $0 is UINavigationController }))
-        XCTAssertNotNil(try? UIViewController.findViewController(in: testViewController, options: searchOption,
-                containerAdapterProvider: testRegistry, using: { $0 is RouterTests.TestViewController }))
-        XCTAssertNotNil(try? UIViewController.findViewController(in: invisibleController, options: searchOption,
-                containerAdapterProvider: testRegistry, using: { $0 is InvisibleViewController }))
+        XCTAssertNil(try? UIViewController.findViewController(in: viewController1, options: searchOption, using: { $0 is UINavigationController }))
+        XCTAssertNil(try? UIViewController.findViewController(in: viewController2, options: searchOption, using: { $0 is UINavigationController }))
+        XCTAssertNotNil(try? UIViewController.findViewController(in: viewController3, options: searchOption, using: { $0 is UINavigationController }))
+        XCTAssertNil(try? UIViewController.findViewController(in: testViewController, options: searchOption, using: { $0 is UINavigationController }))
+        XCTAssertNotNil(try? UIViewController.findViewController(in: testViewController, options: searchOption, using: { $0 is RouterTests.TestViewController }))
+        XCTAssertNotNil(try? UIViewController.findViewController(in: invisibleController, options: searchOption, using: { $0 is InvisibleViewController }))
 
         searchOption = .presented
-        XCTAssertNil(try? UIViewController.findViewController(in: viewController1, options: searchOption,
-                containerAdapterProvider: testRegistry, using: { $0 is UINavigationController }))
-        XCTAssertNil(try? UIViewController.findViewController(in: viewController2, options: searchOption,
-                containerAdapterProvider: testRegistry, using: { $0 is UINavigationController }))
-        XCTAssertNil(try? UIViewController.findViewController(in: viewController3, options: searchOption,
-                containerAdapterProvider: testRegistry, using: { $0 is UINavigationController }))
-        XCTAssertNil(try? UIViewController.findViewController(in: testViewController, options: searchOption,
-                containerAdapterProvider: testRegistry, using: { $0 is UINavigationController }))
-        XCTAssertNil(try? UIViewController.findViewController(in: testViewController, options: searchOption,
-                containerAdapterProvider: testRegistry, using: { $0 is RouterTests.TestViewController }))
-        XCTAssertNil(try? UIViewController.findViewController(in: invisibleController, options: searchOption,
-                containerAdapterProvider: testRegistry, using: { $0 is InvisibleViewController }))
+        XCTAssertNil(try? UIViewController.findViewController(in: viewController1, options: searchOption, using: { $0 is UINavigationController }))
+        XCTAssertNil(try? UIViewController.findViewController(in: viewController2, options: searchOption, using: { $0 is UINavigationController }))
+        XCTAssertNil(try? UIViewController.findViewController(in: viewController3, options: searchOption, using: { $0 is UINavigationController }))
+        XCTAssertNil(try? UIViewController.findViewController(in: testViewController, options: searchOption, using: { $0 is UINavigationController }))
+        XCTAssertNil(try? UIViewController.findViewController(in: testViewController, options: searchOption, using: { $0 is RouterTests.TestViewController }))
+        XCTAssertNil(try? UIViewController.findViewController(in: invisibleController, options: searchOption, using: { $0 is InvisibleViewController }))
 
         searchOption = .presenting
-        XCTAssertNil(try? UIViewController.findViewController(in: viewController1, options: searchOption,
-                containerAdapterProvider: testRegistry, using: { $0 is UINavigationController }))
-        XCTAssertNil(try? UIViewController.findViewController(in: viewController2, options: searchOption,
-                containerAdapterProvider: testRegistry, using: { $0 is UINavigationController }))
-        XCTAssertNil(try? UIViewController.findViewController(in: viewController3, options: searchOption,
-                containerAdapterProvider: testRegistry, using: { $0 is UINavigationController }))
-        XCTAssertNil(try? UIViewController.findViewController(in: viewController3, options: searchOption,
-                containerAdapterProvider: testRegistry, using: { $0 is RouterTests.TestModalPresentableController }))
-        XCTAssertNil(try? UIViewController.findViewController(in: viewController3, options: searchOption,
-                containerAdapterProvider: testRegistry, using: { $0 is RouterTests.TestModalPresentableController }))
-        XCTAssertNil(try? UIViewController.findViewController(in: viewController1, options: searchOption,
-                containerAdapterProvider: testRegistry, using: { $0 is RouterTests.TestModalPresentableController }))
-        XCTAssertNil(try? UIViewController.findViewController(in: testViewController, options: searchOption,
-                containerAdapterProvider: testRegistry, using: { $0 is UINavigationController }))
-        XCTAssertNil(try? UIViewController.findViewController(in: testViewController, options: searchOption,
-                containerAdapterProvider: testRegistry, using: { $0 is RouterTests.TestViewController }))
-        XCTAssertNil(try? UIViewController.findViewController(in: invisibleController, options: searchOption,
-                containerAdapterProvider: testRegistry, using: { $0 is InvisibleViewController }))
+        XCTAssertNil(try? UIViewController.findViewController(in: viewController1, options: searchOption, using: { $0 is UINavigationController }))
+        XCTAssertNil(try? UIViewController.findViewController(in: viewController2, options: searchOption, using: { $0 is UINavigationController }))
+        XCTAssertNil(try? UIViewController.findViewController(in: viewController3, options: searchOption, using: { $0 is UINavigationController }))
+        XCTAssertNil(try? UIViewController.findViewController(in: viewController3, options: searchOption, using: { $0 is RouterTests.TestModalPresentableController }))
+        XCTAssertNil(try? UIViewController.findViewController(in: viewController3, options: searchOption, using: { $0 is RouterTests.TestModalPresentableController }))
+        XCTAssertNil(try? UIViewController.findViewController(in: viewController1, options: searchOption, using: { $0 is RouterTests.TestModalPresentableController }))
+        XCTAssertNil(try? UIViewController.findViewController(in: testViewController, options: searchOption, using: { $0 is UINavigationController }))
+        XCTAssertNil(try? UIViewController.findViewController(in: testViewController, options: searchOption, using: { $0 is RouterTests.TestViewController }))
+        XCTAssertNil(try? UIViewController.findViewController(in: invisibleController, options: searchOption, using: { $0 is InvisibleViewController }))
     }
 
     func testFindViewControllerWithCombinedOptions() {
-        let testRegistry = ContainerAdapterRegistry()
-        testRegistry.register(adapterType: NavigationControllerAdapter<FakePresentingNavigationController>.self)
-
         let viewController1 = RouterTests.TestModalPresentableController()
         let viewController2 = RouterTests.TestModalPresentableController()
         let testViewController = RouterTests.TestViewController()
@@ -154,128 +124,72 @@ class ExtensionsTest: XCTestCase {
         viewController3.viewControllers = [invisibleController, testViewController]
 
         var searchOption: SearchOptions = [.presented, .current]
-        XCTAssertNotNil(try? UIViewController.findViewController(in: viewController1, options: searchOption,
-                containerAdapterProvider: testRegistry, using: { $0 is UINavigationController }))
-        XCTAssertNotNil(try? UIViewController.findViewController(in: viewController2, options: searchOption,
-                containerAdapterProvider: testRegistry, using: { $0 is UINavigationController }))
-        XCTAssertNotNil(try? UIViewController.findViewController(in: viewController3, options: searchOption,
-                containerAdapterProvider: testRegistry, using: { $0 is UINavigationController }))
-        XCTAssertNil(try? UIViewController.findViewController(in: testViewController, options: searchOption,
-                containerAdapterProvider: testRegistry, using: { $0 is UINavigationController }))
-        XCTAssertNotNil(try? UIViewController.findViewController(in: testViewController, options: searchOption,
-                containerAdapterProvider: testRegistry, using: { $0 is RouterTests.TestViewController }))
-        XCTAssertNotNil(try? UIViewController.findViewController(in: invisibleController, options: searchOption,
-                containerAdapterProvider: testRegistry, using: { $0 is InvisibleViewController }))
+        XCTAssertNotNil(try? UIViewController.findViewController(in: viewController1, options: searchOption, using: { $0 is UINavigationController }))
+        XCTAssertNotNil(try? UIViewController.findViewController(in: viewController2, options: searchOption, using: { $0 is UINavigationController }))
+        XCTAssertNotNil(try? UIViewController.findViewController(in: viewController3, options: searchOption, using: { $0 is UINavigationController }))
+        XCTAssertNil(try? UIViewController.findViewController(in: testViewController, options: searchOption, using: { $0 is UINavigationController }))
+        XCTAssertNotNil(try? UIViewController.findViewController(in: testViewController, options: searchOption, using: { $0 is RouterTests.TestViewController }))
+        XCTAssertNotNil(try? UIViewController.findViewController(in: invisibleController, options: searchOption, using: { $0 is InvisibleViewController }))
 
         searchOption = [.presenting, .current]
-        XCTAssertNil(try? UIViewController.findViewController(in: viewController1, options: searchOption,
-                containerAdapterProvider: testRegistry, using: { $0 is UINavigationController }))
-        XCTAssertNotNil(try? UIViewController.findViewController(in: viewController1, options: searchOption,
-                containerAdapterProvider: testRegistry, using: { $0 is RouterTests.TestModalPresentableController }))
-        XCTAssertNil(try? UIViewController.findViewController(in: viewController2, options: searchOption,
-                containerAdapterProvider: testRegistry, using: { $0 is UINavigationController }))
-        XCTAssertNotNil(try? UIViewController.findViewController(in: viewController3, options: searchOption,
-                containerAdapterProvider: testRegistry, using: { $0 is RouterTests.TestModalPresentableController }))
-        XCTAssertNotNil(try? UIViewController.findViewController(in: viewController2, options: searchOption,
-                containerAdapterProvider: testRegistry, using: { $0 is RouterTests.TestModalPresentableController }))
-        XCTAssertNotNil(try? UIViewController.findViewController(in: viewController1, options: searchOption,
-                containerAdapterProvider: testRegistry, using: { $0 is RouterTests.TestModalPresentableController }))
-        XCTAssertNotNil(try? UIViewController.findViewController(in: viewController3, options: searchOption,
-                containerAdapterProvider: testRegistry, using: { $0 is UINavigationController }))
-        XCTAssertNil(try? UIViewController.findViewController(in: testViewController, options: searchOption,
-                containerAdapterProvider: testRegistry, using: { $0 is UINavigationController }))
-        XCTAssertNotNil(try? UIViewController.findViewController(in: testViewController, options: searchOption,
-                containerAdapterProvider: testRegistry, using: { $0 is RouterTests.TestViewController }))
-        XCTAssertNotNil(try? UIViewController.findViewController(in: invisibleController, options: searchOption,
-                containerAdapterProvider: testRegistry, using: { $0 is InvisibleViewController }))
+        XCTAssertNil(try? UIViewController.findViewController(in: viewController1, options: searchOption, using: { $0 is UINavigationController }))
+        XCTAssertNotNil(try? UIViewController.findViewController(in: viewController1, options: searchOption, using: { $0 is RouterTests.TestModalPresentableController }))
+        XCTAssertNil(try? UIViewController.findViewController(in: viewController2, options: searchOption, using: { $0 is UINavigationController }))
+        XCTAssertNotNil(try? UIViewController.findViewController(in: viewController3, options: searchOption, using: { $0 is RouterTests.TestModalPresentableController }))
+        XCTAssertNotNil(try? UIViewController.findViewController(in: viewController2, options: searchOption, using: { $0 is RouterTests.TestModalPresentableController }))
+        XCTAssertNotNil(try? UIViewController.findViewController(in: viewController1, options: searchOption, using: { $0 is RouterTests.TestModalPresentableController }))
+        XCTAssertNotNil(try? UIViewController.findViewController(in: viewController3, options: searchOption, using: { $0 is UINavigationController }))
+        XCTAssertNil(try? UIViewController.findViewController(in: testViewController, options: searchOption, using: { $0 is UINavigationController }))
+        XCTAssertNotNil(try? UIViewController.findViewController(in: testViewController, options: searchOption, using: { $0 is RouterTests.TestViewController }))
+        XCTAssertNotNil(try? UIViewController.findViewController(in: invisibleController, options: searchOption, using: { $0 is InvisibleViewController }))
 
         searchOption = [.visible, .presented]
-        XCTAssertNil(try? UIViewController.findViewController(in: viewController1, options: searchOption,
-                containerAdapterProvider: testRegistry, using: { $0 is UINavigationController }))
-        XCTAssertNil(try? UIViewController.findViewController(in: viewController1, options: searchOption,
-                containerAdapterProvider: testRegistry, using: { $0 is RouterTests.TestModalPresentableController }))
-        XCTAssertNil(try? UIViewController.findViewController(in: viewController2, options: searchOption,
-                containerAdapterProvider: testRegistry, using: { $0 is UINavigationController }))
-        XCTAssertNil(try? UIViewController.findViewController(in: viewController2, options: searchOption,
-                containerAdapterProvider: testRegistry, using: { $0 is RouterTests.TestModalPresentableController }))
-        XCTAssertNil(try? UIViewController.findViewController(in: viewController3, options: searchOption,
-                containerAdapterProvider: testRegistry, using: { $0 is UINavigationController }))
-        XCTAssertNotNil(try? UIViewController.findViewController(in: viewController3, options: searchOption,
-                containerAdapterProvider: testRegistry, using: { $0 is RouterTests.TestViewController }))
-        XCTAssertNil(try? UIViewController.findViewController(in: viewController3, options: searchOption,
-                containerAdapterProvider: testRegistry, using: { $0 is InvisibleViewController }))
-        XCTAssertNil(try? UIViewController.findViewController(in: testViewController, options: searchOption,
-                containerAdapterProvider: testRegistry, using: { $0 is UINavigationController }))
-        XCTAssertNil(try? UIViewController.findViewController(in: testViewController, options: searchOption,
-                containerAdapterProvider: testRegistry, using: { $0 is RouterTests.TestViewController }))
-        XCTAssertNil(try? UIViewController.findViewController(in: invisibleController, options: searchOption,
-                containerAdapterProvider: testRegistry, using: { $0 is InvisibleViewController }))
+        XCTAssertNil(try? UIViewController.findViewController(in: viewController1, options: searchOption, using: { $0 is UINavigationController }))
+        XCTAssertNil(try? UIViewController.findViewController(in: viewController1, options: searchOption, using: { $0 is RouterTests.TestModalPresentableController }))
+        XCTAssertNil(try? UIViewController.findViewController(in: viewController2, options: searchOption, using: { $0 is UINavigationController }))
+        XCTAssertNil(try? UIViewController.findViewController(in: viewController2, options: searchOption, using: { $0 is RouterTests.TestModalPresentableController }))
+        XCTAssertNil(try? UIViewController.findViewController(in: viewController3, options: searchOption, using: { $0 is UINavigationController }))
+        XCTAssertNotNil(try? UIViewController.findViewController(in: viewController3, options: searchOption, using: { $0 is RouterTests.TestViewController }))
+        XCTAssertNil(try? UIViewController.findViewController(in: viewController3, options: searchOption, using: { $0 is InvisibleViewController }))
+        XCTAssertNil(try? UIViewController.findViewController(in: testViewController, options: searchOption, using: { $0 is UINavigationController }))
+        XCTAssertNil(try? UIViewController.findViewController(in: testViewController, options: searchOption, using: { $0 is RouterTests.TestViewController }))
+        XCTAssertNil(try? UIViewController.findViewController(in: invisibleController, options: searchOption, using: { $0 is InvisibleViewController }))
 
         searchOption = [.contained, .presented]
-        XCTAssertNil(try? UIViewController.findViewController(in: viewController1, options: searchOption,
-                containerAdapterProvider: testRegistry, using: { $0 is UINavigationController }))
-        XCTAssertNil(try? UIViewController.findViewController(in: viewController1, options: searchOption,
-                containerAdapterProvider: testRegistry, using: { $0 is RouterTests.TestModalPresentableController }))
-        XCTAssertNil(try? UIViewController.findViewController(in: viewController2, options: searchOption,
-                containerAdapterProvider: testRegistry, using: { $0 is UINavigationController }))
-        XCTAssertNil(try? UIViewController.findViewController(in: viewController2, options: searchOption,
-                containerAdapterProvider: testRegistry, using: { $0 is RouterTests.TestModalPresentableController }))
-        XCTAssertNil(try? UIViewController.findViewController(in: viewController3, options: searchOption,
-                containerAdapterProvider: testRegistry, using: { $0 is UINavigationController }))
-        XCTAssertNotNil(try? UIViewController.findViewController(in: viewController3, options: searchOption,
-                containerAdapterProvider: testRegistry, using: { $0 is RouterTests.TestViewController }))
-        XCTAssertNotNil(try? UIViewController.findViewController(in: viewController3, options: searchOption,
-                containerAdapterProvider: testRegistry, using: { $0 is InvisibleViewController }))
-        XCTAssertNil(try? UIViewController.findViewController(in: testViewController, options: searchOption,
-                containerAdapterProvider: testRegistry, using: { $0 is UINavigationController }))
-        XCTAssertNil(try? UIViewController.findViewController(in: testViewController, options: searchOption,
-                containerAdapterProvider: testRegistry, using: { $0 is RouterTests.TestViewController }))
-        XCTAssertNil(try? UIViewController.findViewController(in: invisibleController, options: searchOption,
-                containerAdapterProvider: testRegistry, using: { $0 is InvisibleViewController }))
+        XCTAssertNil(try? UIViewController.findViewController(in: viewController1, options: searchOption, using: { $0 is UINavigationController }))
+        XCTAssertNil(try? UIViewController.findViewController(in: viewController1, options: searchOption, using: { $0 is RouterTests.TestModalPresentableController }))
+        XCTAssertNil(try? UIViewController.findViewController(in: viewController2, options: searchOption, using: { $0 is UINavigationController }))
+        XCTAssertNil(try? UIViewController.findViewController(in: viewController2, options: searchOption, using: { $0 is RouterTests.TestModalPresentableController }))
+        XCTAssertNil(try? UIViewController.findViewController(in: viewController3, options: searchOption, using: { $0 is UINavigationController }))
+        XCTAssertNotNil(try? UIViewController.findViewController(in: viewController3, options: searchOption, using: { $0 is RouterTests.TestViewController }))
+        XCTAssertNotNil(try? UIViewController.findViewController(in: viewController3, options: searchOption, using: { $0 is InvisibleViewController }))
+        XCTAssertNil(try? UIViewController.findViewController(in: testViewController, options: searchOption, using: { $0 is UINavigationController }))
+        XCTAssertNil(try? UIViewController.findViewController(in: testViewController, options: searchOption, using: { $0 is RouterTests.TestViewController }))
+        XCTAssertNil(try? UIViewController.findViewController(in: invisibleController, options: searchOption, using: { $0 is InvisibleViewController }))
 
         searchOption = .currentAllStack
-        XCTAssertNil(try? UIViewController.findViewController(in: viewController1, options: searchOption,
-                containerAdapterProvider: testRegistry, using: { $0 is UINavigationController }))
-        XCTAssertNotNil(try? UIViewController.findViewController(in: viewController1, options: searchOption,
-                containerAdapterProvider: testRegistry, using: { $0 is RouterTests.TestModalPresentableController }))
-        XCTAssertNil(try? UIViewController.findViewController(in: viewController2, options: searchOption,
-                containerAdapterProvider: testRegistry, using: { $0 is UINavigationController }))
-        XCTAssertNotNil(try? UIViewController.findViewController(in: viewController2, options: searchOption,
-                containerAdapterProvider: testRegistry, using: { $0 is RouterTests.TestModalPresentableController }))
-        XCTAssertNotNil(try? UIViewController.findViewController(in: viewController3, options: searchOption,
-                containerAdapterProvider: testRegistry, using: { $0 is UINavigationController }))
-        XCTAssertNotNil(try? UIViewController.findViewController(in: viewController3, options: searchOption,
-                containerAdapterProvider: testRegistry, using: { $0 is RouterTests.TestViewController }))
-        XCTAssertNotNil(try? UIViewController.findViewController(in: viewController3, options: searchOption,
-                containerAdapterProvider: testRegistry, using: { $0 is InvisibleViewController }))
-        XCTAssertNil(try? UIViewController.findViewController(in: testViewController, options: searchOption,
-                containerAdapterProvider: testRegistry, using: { $0 is UINavigationController }))
-        XCTAssertNotNil(try? UIViewController.findViewController(in: testViewController, options: searchOption,
-                containerAdapterProvider: testRegistry, using: { $0 is RouterTests.TestViewController }))
-        XCTAssertNotNil(try? UIViewController.findViewController(in: invisibleController, options: searchOption,
-                containerAdapterProvider: testRegistry, using: { $0 is InvisibleViewController }))
+        XCTAssertNil(try? UIViewController.findViewController(in: viewController1, options: searchOption, using: { $0 is UINavigationController }))
+        XCTAssertNotNil(try? UIViewController.findViewController(in: viewController1, options: searchOption, using: { $0 is RouterTests.TestModalPresentableController }))
+        XCTAssertNil(try? UIViewController.findViewController(in: viewController2, options: searchOption, using: { $0 is UINavigationController }))
+        XCTAssertNotNil(try? UIViewController.findViewController(in: viewController2, options: searchOption, using: { $0 is RouterTests.TestModalPresentableController }))
+        XCTAssertNotNil(try? UIViewController.findViewController(in: viewController3, options: searchOption, using: { $0 is UINavigationController }))
+        XCTAssertNotNil(try? UIViewController.findViewController(in: viewController3, options: searchOption, using: { $0 is RouterTests.TestViewController }))
+        XCTAssertNotNil(try? UIViewController.findViewController(in: viewController3, options: searchOption, using: { $0 is InvisibleViewController }))
+        XCTAssertNil(try? UIViewController.findViewController(in: testViewController, options: searchOption, using: { $0 is UINavigationController }))
+        XCTAssertNotNil(try? UIViewController.findViewController(in: testViewController, options: searchOption, using: { $0 is RouterTests.TestViewController }))
+        XCTAssertNotNil(try? UIViewController.findViewController(in: invisibleController, options: searchOption, using: { $0 is InvisibleViewController }))
 
         searchOption = .currentVisibleOnly
-        XCTAssertNil(try? UIViewController.findViewController(in: viewController1, options: searchOption,
-                containerAdapterProvider: testRegistry, using: { $0 is UINavigationController }))
-        XCTAssertNotNil(try? UIViewController.findViewController(in: viewController1, options: searchOption,
-                containerAdapterProvider: testRegistry, using: { $0 is RouterTests.TestModalPresentableController }))
-        XCTAssertNil(try? UIViewController.findViewController(in: viewController2, options: searchOption,
-                containerAdapterProvider: testRegistry, using: { $0 is UINavigationController }))
-        XCTAssertNotNil(try? UIViewController.findViewController(in: viewController2, options: searchOption,
-                containerAdapterProvider: testRegistry, using: { $0 is RouterTests.TestModalPresentableController }))
-        XCTAssertNotNil(try? UIViewController.findViewController(in: viewController3, options: searchOption,
-                containerAdapterProvider: testRegistry, using: { $0 is UINavigationController }))
-        XCTAssertNotNil(try? UIViewController.findViewController(in: viewController3, options: searchOption,
-                containerAdapterProvider: testRegistry, using: { $0 is RouterTests.TestViewController }))
-        XCTAssertNil(try? UIViewController.findViewController(in: viewController3, options: searchOption,
-                containerAdapterProvider: testRegistry, using: { $0 is InvisibleViewController }))
-        XCTAssertNil(try? UIViewController.findViewController(in: testViewController, options: searchOption,
-                containerAdapterProvider: testRegistry, using: { $0 is UINavigationController }))
-        XCTAssertNotNil(try? UIViewController.findViewController(in: testViewController, options: searchOption,
-                containerAdapterProvider: testRegistry, using: { $0 is RouterTests.TestViewController }))
-        XCTAssertNotNil(try? UIViewController.findViewController(in: invisibleController, options: searchOption,
-                containerAdapterProvider: testRegistry, using: { $0 is InvisibleViewController }))
+        XCTAssertNil(try? UIViewController.findViewController(in: viewController1, options: searchOption, using: { $0 is UINavigationController }))
+        XCTAssertNotNil(try? UIViewController.findViewController(in: viewController1, options: searchOption, using: { $0 is RouterTests.TestModalPresentableController }))
+        XCTAssertNil(try? UIViewController.findViewController(in: viewController2, options: searchOption, using: { $0 is UINavigationController }))
+        XCTAssertNotNil(try? UIViewController.findViewController(in: viewController2, options: searchOption, using: { $0 is RouterTests.TestModalPresentableController }))
+        XCTAssertNotNil(try? UIViewController.findViewController(in: viewController3, options: searchOption, using: { $0 is UINavigationController }))
+        XCTAssertNotNil(try? UIViewController.findViewController(in: viewController3, options: searchOption, using: { $0 is RouterTests.TestViewController }))
+        XCTAssertNil(try? UIViewController.findViewController(in: viewController3, options: searchOption, using: { $0 is InvisibleViewController }))
+        XCTAssertNil(try? UIViewController.findViewController(in: testViewController, options: searchOption, using: { $0 is UINavigationController }))
+        XCTAssertNotNil(try? UIViewController.findViewController(in: testViewController, options: searchOption, using: { $0 is RouterTests.TestViewController }))
+        XCTAssertNotNil(try? UIViewController.findViewController(in: invisibleController, options: searchOption, using: { $0 is InvisibleViewController }))
     }
 
     func testTabBarControllerExtension() {
@@ -283,11 +197,11 @@ class ExtensionsTest: XCTestCase {
         let viewController2 = UINavigationController()
         let tabBarController = UITabBarController()
         tabBarController.viewControllers = [viewController1, viewController2]
-        XCTAssertEqual(try? ContainerAdapterRegistry.shared.getAdapter(for: tabBarController).containedViewControllers.count , 2)
-        XCTAssertEqual(try? ContainerAdapterRegistry.shared.getAdapter(for: tabBarController).visibleViewControllers.count, 1)
-        XCTAssertEqual(try? ContainerAdapterRegistry.shared.getAdapter(for: tabBarController).visibleViewControllers[0], viewController1)
-        try? ContainerAdapterRegistry.shared.getAdapter(for: tabBarController).makeVisible(viewController2, animated: false)
-        XCTAssertEqual(try? ContainerAdapterRegistry.shared.getAdapter(for: tabBarController).visibleViewControllers[0], viewController2)
+        XCTAssertEqual(try? DefaultContainerAdapterProvider().getAdapter(for: tabBarController).containedViewControllers.count, 2)
+        XCTAssertEqual(try? DefaultContainerAdapterProvider().getAdapter(for: tabBarController).visibleViewControllers.count, 1)
+        XCTAssertEqual(try? DefaultContainerAdapterProvider().getAdapter(for: tabBarController).visibleViewControllers[0], viewController1)
+        try? DefaultContainerAdapterProvider().getAdapter(for: tabBarController).makeVisible(viewController2, animated: false)
+        XCTAssertEqual(try? DefaultContainerAdapterProvider().getAdapter(for: tabBarController).visibleViewControllers[0], viewController2)
     }
 
     func testNavigationControllerExtension() {
@@ -295,11 +209,11 @@ class ExtensionsTest: XCTestCase {
         let viewController2 = UIViewController()
         let navigationController = UINavigationController()
         navigationController.viewControllers = [viewController1, viewController2]
-        XCTAssertEqual(try? ContainerAdapterRegistry.shared.getAdapter(for: navigationController).containedViewControllers.count , 2)
-        XCTAssertEqual(try? ContainerAdapterRegistry.shared.getAdapter(for: navigationController).visibleViewControllers.count , 1)
-        XCTAssertEqual(try? ContainerAdapterRegistry.shared.getAdapter(for: navigationController).visibleViewControllers[0], viewController2)
-        try? ContainerAdapterRegistry.shared.getAdapter(for: navigationController).makeVisible(viewController1, animated: false)
-        XCTAssertEqual(try? ContainerAdapterRegistry.shared.getAdapter(for: navigationController).visibleViewControllers[0], viewController1)
+        XCTAssertEqual(try? DefaultContainerAdapterProvider().getAdapter(for: navigationController).containedViewControllers.count, 2)
+        XCTAssertEqual(try? DefaultContainerAdapterProvider().getAdapter(for: navigationController).visibleViewControllers.count, 1)
+        XCTAssertEqual(try? DefaultContainerAdapterProvider().getAdapter(for: navigationController).visibleViewControllers[0], viewController2)
+        try? DefaultContainerAdapterProvider().getAdapter(for: navigationController).makeVisible(viewController1, animated: false)
+        XCTAssertEqual(try? DefaultContainerAdapterProvider().getAdapter(for: navigationController).visibleViewControllers[0], viewController1)
     }
 
     func testSplitControllerExtension() {
@@ -308,9 +222,9 @@ class ExtensionsTest: XCTestCase {
         let splitController = UISplitViewController()
         splitController.preferredDisplayMode = .primaryHidden
         splitController.viewControllers = [viewController1, viewController2]
-        XCTAssertEqual(try? ContainerAdapterRegistry.shared.getAdapter(for: splitController).containedViewControllers.count , 2)
-        XCTAssertEqual(try? ContainerAdapterRegistry.shared.getAdapter(for: splitController).visibleViewControllers.count , splitController.isCollapsed ? 1 : 2)
-        XCTAssertEqual(try? ContainerAdapterRegistry.shared.getAdapter(for: splitController).visibleViewControllers[0],
+        XCTAssertEqual(try? DefaultContainerAdapterProvider().getAdapter(for: splitController).containedViewControllers.count, 2)
+        XCTAssertEqual(try? DefaultContainerAdapterProvider().getAdapter(for: splitController).visibleViewControllers.count, splitController.isCollapsed ? 1 : 2)
+        XCTAssertEqual(try? DefaultContainerAdapterProvider().getAdapter(for: splitController).visibleViewControllers[0],
                 splitController.isCollapsed ? viewController2 : viewController1)
     }
 

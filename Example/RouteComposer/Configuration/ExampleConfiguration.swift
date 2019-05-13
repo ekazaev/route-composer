@@ -22,13 +22,13 @@ protocol ExampleScreenConfiguration {
 
     var routingSupportScreen: DestinationStep<RoutingRuleSupportViewController, String> { get }
 
-    var emptyScreen: DestinationStep<FiguresViewController, Any?> { get }
+    var figuresScreen: DestinationStep<FiguresViewController, Any?> { get }
 
     var secondModalScreen: DestinationStep<SecondModalLevelViewController, String> { get }
 
     var welcomeScreen: DestinationStep<PromptViewController, Any?> { get }
 
-    var emptyAndProductScreen: DestinationStep<ProductViewController, ProductContext> { get }
+    var figuresAndProductScreen: DestinationStep<ProductViewController, ProductContext> { get }
 
 }
 
@@ -94,7 +94,7 @@ extension ExampleScreenConfiguration {
                 .assemble()
     }
 
-    var emptyScreen: DestinationStep<FiguresViewController, Any?> {
+    var figuresScreen: DestinationStep<FiguresViewController, Any?> {
         return StepAssembly(
                 finder: ClassFinder<FiguresViewController, Any?>(),
                 factory: StoryboardFactory(storyboardName: "TabBar", viewControllerID: "EmptyViewController"))
@@ -127,13 +127,13 @@ extension ExampleScreenConfiguration {
                 .assemble()
     }
 
-    var emptyAndProductScreen: DestinationStep<ProductViewController, ProductContext> {
+    var figuresAndProductScreen: DestinationStep<ProductViewController, ProductContext> {
         return StepAssembly(
                 finder: ClassWithContextFinder<ProductViewController, ProductContext>(),
                 factory: StoryboardFactory(storyboardName: "TabBar", viewControllerID: "ProductViewController"))
                 .adding(ContextSettingTask())
                 .using(UINavigationController.push())
-                .assemble(from: emptyScreen.expectingContainer())
+                .assemble(from: figuresScreen.expectingContainer())
     }
 
 }
