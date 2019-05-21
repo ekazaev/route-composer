@@ -34,7 +34,7 @@ class LoginInterceptor<C>: RoutingInterceptor {
 
                 viewController.interceptorCompletionBlock = completion
             }
-        } catch let error {
+        } catch {
             completion(.failure(RoutingError.compositionFailed(.init("Could not present login view controller", underlyingError: error))))
         }
     }

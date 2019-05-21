@@ -5,8 +5,8 @@
 import Foundation
 import UIKit
 
-/// Shared storage of types of the `ContainerAdapter` for the `ContainerAdapterRegistry`
-public struct DefaultContainerAdapterProvider: ContainerAdapterProvider {
+/// Default implementation of `ContainerAdapterLocator`
+public struct DefaultContainerAdapterLocator: ContainerAdapterLocator {
 
     /// Constructor
     public init() {

@@ -5,7 +5,7 @@
 import Foundation
 import UIKit
 
-/// Custom `ContainerViewController`s created outside of the library should extend this protocol, so `DefaultContainerAdapterProvider`
+/// Custom `ContainerViewController`s created outside of the library should extend this protocol, so `DefaultContainerAdapterLocator`
 /// could provide their `ContainerAdapter` to the `DefaultRouter` and other library's instances when needed.
 ///
 /// **NB:** If you want to substitute the `ContainerAdapter` for the container view controllers that are handled by library such as
@@ -21,7 +21,7 @@ import UIKit
 /// ```
 public protocol CustomContainerViewController: ContainerViewController {
 
-    /// `ContainerAdapter` to be provided by `DefaultContainerAdapterProvider`
+    /// `ContainerAdapter` to be provided by `DefaultContainerAdapterLocator`
     var adapter: ContainerAdapter { get }
 
 }

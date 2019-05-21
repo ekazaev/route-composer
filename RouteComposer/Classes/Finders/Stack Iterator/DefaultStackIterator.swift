@@ -48,7 +48,7 @@ public struct DefaultStackIterator: StackIterator {
     /// `WindowProvider` to get proper `UIWindow`
     public let windowProvider: WindowProvider
 
-    public let containerAdapterProvider: ContainerAdapterProvider
+    public let containerAdapterLocator: ContainerAdapterLocator
 
     var startingViewController: UIViewController? {
         switch startingPoint {
@@ -65,11 +65,11 @@ public struct DefaultStackIterator: StackIterator {
     public init(options: SearchOptions = .fullStack,
                 startingPoint: StartingPoint = .topmost,
                 windowProvider: WindowProvider = KeyWindowProvider(),
-                containerAdapterProvider: ContainerAdapterProvider = DefaultContainerAdapterProvider()) {
+                containerAdapterLocator: ContainerAdapterLocator = DefaultContainerAdapterLocator()) {
         self.startingPoint = startingPoint
         self.options = options
         self.windowProvider = windowProvider
-        self.containerAdapterProvider = containerAdapterProvider
+        self.containerAdapterLocator = containerAdapterLocator
     }
 
     /// Returns `UIViewController` instance if found
@@ -79,7 +79,7 @@ public struct DefaultStackIterator: StackIterator {
         guard let rootViewController = startingViewController,
               let viewController = try UIViewController.findViewController(in: rootViewController,
                       options: options,
-                      containerAdapterProvider: containerAdapterProvider,
+                      containerAdapterLocator: containerAdapterLocator,
                       using: predicate) else {
             return nil
         }

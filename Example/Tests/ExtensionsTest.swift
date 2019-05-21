@@ -197,11 +197,11 @@ class ExtensionsTest: XCTestCase {
         let viewController2 = UINavigationController()
         let tabBarController = UITabBarController()
         tabBarController.viewControllers = [viewController1, viewController2]
-        XCTAssertEqual(try? DefaultContainerAdapterProvider().getAdapter(for: tabBarController).containedViewControllers.count, 2)
-        XCTAssertEqual(try? DefaultContainerAdapterProvider().getAdapter(for: tabBarController).visibleViewControllers.count, 1)
-        XCTAssertEqual(try? DefaultContainerAdapterProvider().getAdapter(for: tabBarController).visibleViewControllers[0], viewController1)
-        try? DefaultContainerAdapterProvider().getAdapter(for: tabBarController).makeVisible(viewController2, animated: false)
-        XCTAssertEqual(try? DefaultContainerAdapterProvider().getAdapter(for: tabBarController).visibleViewControllers[0], viewController2)
+        XCTAssertEqual(try? DefaultContainerAdapterLocator().getAdapter(for: tabBarController).containedViewControllers.count, 2)
+        XCTAssertEqual(try? DefaultContainerAdapterLocator().getAdapter(for: tabBarController).visibleViewControllers.count, 1)
+        XCTAssertEqual(try? DefaultContainerAdapterLocator().getAdapter(for: tabBarController).visibleViewControllers[0], viewController1)
+        try? DefaultContainerAdapterLocator().getAdapter(for: tabBarController).makeVisible(viewController2, animated: false, completion: {_ in })
+        XCTAssertEqual(try? DefaultContainerAdapterLocator().getAdapter(for: tabBarController).visibleViewControllers[0], viewController2)
     }
 
     func testNavigationControllerExtension() {
@@ -209,11 +209,11 @@ class ExtensionsTest: XCTestCase {
         let viewController2 = UIViewController()
         let navigationController = UINavigationController()
         navigationController.viewControllers = [viewController1, viewController2]
-        XCTAssertEqual(try? DefaultContainerAdapterProvider().getAdapter(for: navigationController).containedViewControllers.count, 2)
-        XCTAssertEqual(try? DefaultContainerAdapterProvider().getAdapter(for: navigationController).visibleViewControllers.count, 1)
-        XCTAssertEqual(try? DefaultContainerAdapterProvider().getAdapter(for: navigationController).visibleViewControllers[0], viewController2)
-        try? DefaultContainerAdapterProvider().getAdapter(for: navigationController).makeVisible(viewController1, animated: false)
-        XCTAssertEqual(try? DefaultContainerAdapterProvider().getAdapter(for: navigationController).visibleViewControllers[0], viewController1)
+        XCTAssertEqual(try? DefaultContainerAdapterLocator().getAdapter(for: navigationController).containedViewControllers.count, 2)
+        XCTAssertEqual(try? DefaultContainerAdapterLocator().getAdapter(for: navigationController).visibleViewControllers.count, 1)
+        XCTAssertEqual(try? DefaultContainerAdapterLocator().getAdapter(for: navigationController).visibleViewControllers[0], viewController2)
+        try? DefaultContainerAdapterLocator().getAdapter(for: navigationController).makeVisible(viewController1, animated: false, completion: {_ in })
+        XCTAssertEqual(try? DefaultContainerAdapterLocator().getAdapter(for: navigationController).visibleViewControllers[0], viewController1)
     }
 
     func testSplitControllerExtension() {
@@ -222,9 +222,9 @@ class ExtensionsTest: XCTestCase {
         let splitController = UISplitViewController()
         splitController.preferredDisplayMode = .primaryHidden
         splitController.viewControllers = [viewController1, viewController2]
-        XCTAssertEqual(try? DefaultContainerAdapterProvider().getAdapter(for: splitController).containedViewControllers.count, 2)
-        XCTAssertEqual(try? DefaultContainerAdapterProvider().getAdapter(for: splitController).visibleViewControllers.count, splitController.isCollapsed ? 1 : 2)
-        XCTAssertEqual(try? DefaultContainerAdapterProvider().getAdapter(for: splitController).visibleViewControllers[0],
+        XCTAssertEqual(try? DefaultContainerAdapterLocator().getAdapter(for: splitController).containedViewControllers.count, 2)
+        XCTAssertEqual(try? DefaultContainerAdapterLocator().getAdapter(for: splitController).visibleViewControllers.count, splitController.isCollapsed ? 1 : 2)
+        XCTAssertEqual(try? DefaultContainerAdapterLocator().getAdapter(for: splitController).visibleViewControllers[0],
                 splitController.isCollapsed ? viewController2 : viewController1)
     }
 

@@ -17,7 +17,7 @@ public extension UIViewController {
     /// - Returns: A `UIViewController` instance if found, `nil` otherwise.
     static func findViewController(in viewController: UIViewController,
                                    options: SearchOptions = .currentAndUp,
-                                   containerAdapterProvider: ContainerAdapterProvider = DefaultContainerAdapterProvider(),
+                                   containerAdapterLocator: ContainerAdapterLocator = DefaultContainerAdapterLocator(),
                                    using predicate: (UIViewController) -> Bool) throws -> UIViewController? {
         guard !viewController.isBeingDismissed else {
             return nil
@@ -31,14 +31,14 @@ public extension UIViewController {
            let parentViewController = viewController.parent,
            let foundViewController = try findViewController(in: parentViewController,
                    options: [.current, .parent],
-                   containerAdapterProvider: containerAdapterProvider,
+                   containerAdapterLocator: containerAdapterLocator,
                    using: predicate) {
             return foundViewController
         }
 
         if let container = viewController as? ContainerViewController, options.contains(.visible) || options.contains(.contained) {
             var viewControllers: [[UIViewController]] = []
-            let containerAdapter = try containerAdapterProvider.getAdapter(for: container)
+            let containerAdapter = try containerAdapterLocator.getAdapter(for: container)
             viewControllers.append(containerAdapter.visibleViewControllers)
             if options.contains(.contained) {
                 viewControllers.append(containerAdapter.containedViewControllers)
@@ -46,7 +46,7 @@ public extension UIViewController {
             for currentViewController in Array(viewControllers.joined()).uniqueElements() {
                 if let foundViewController = try findViewController(in: currentViewController,
                         options: options.contains(.visible) ? .currentVisibleOnly : [.current, .contained],
-                        containerAdapterProvider: containerAdapterProvider,
+                        containerAdapterLocator: containerAdapterLocator,
                         using: predicate) {
                     return foundViewController
                 }
@@ -58,7 +58,7 @@ public extension UIViewController {
             let presentedOptions = options.subtracting(.presenting)
             if let foundViewController = try findViewController(in: presentedViewController,
                     options: presentedOptions,
-                    containerAdapterProvider: containerAdapterProvider,
+                    containerAdapterLocator: containerAdapterLocator,
                     using: predicate) {
                 return foundViewController
             }
@@ -69,7 +69,7 @@ public extension UIViewController {
             let presentingOptions = options.subtracting(.presented)
             if let foundViewController = try findViewController(in: presentingViewController,
                     options: presentingOptions,
-                    containerAdapterProvider: containerAdapterProvider,
+                    containerAdapterLocator: containerAdapterLocator,
                     using: predicate) {
                 return foundViewController
             }

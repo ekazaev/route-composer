@@ -11,7 +11,7 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
     /// A `Logger` instance to be used by `DefaultRouter`.
     public let logger: Logger?
 
-    public let containerAdapterProvider: ContainerAdapterProvider
+    public let containerAdapterLocator: ContainerAdapterLocator
 
     private var interceptors: [AnyRoutingInterceptor] = []
 
@@ -23,11 +23,11 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
     ///
     /// Parameters
     ///   - logger: A `Logger` instance to be used by the `DefaultRouter`.
-    ///   - containerAdapterProvider: A `ContainerAdapterProvider` instance to be used by the `DefaultRouter`.
+    ///   - containerAdapterLocator: A `ContainerAdapterLocator` instance to be used by the `DefaultRouter`.
     public init(logger: Logger? = nil,
-                containerAdapterProvider: ContainerAdapterProvider = DefaultContainerAdapterProvider()) {
+                containerAdapterLocator: ContainerAdapterLocator = DefaultContainerAdapterLocator()) {
         self.logger = logger
-        self.containerAdapterProvider = containerAdapterProvider
+        self.containerAdapterLocator = containerAdapterLocator
     }
 
     public mutating func add<RI: RoutingInterceptor>(_ interceptor: RI) where RI.Context == Any? {
@@ -77,7 +77,7 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
                         }
                         completion?(result)
                     })
-        } catch let error {
+        } catch {
             self.logger?.log(.error("\(error)"))
             self.logger?.log(.info("Unsuccessfully finished the navigation process."))
             throw error
@@ -188,14 +188,14 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
                 self.buildViewControllerStack(starting: viewController,
                         with: context,
                         using: factoriesStack,
-                        animated: animated) { viewController, result in
+                        animated: animated) { result in
                     do {
                         if case let .failure(error) = result {
                             throw error
                         }
                         try taskStack.runPostTasks(with: context)
                         completion(result)
-                    } catch let error {
+                    } catch {
                         completion(.failure(error))
                     }
                 }
@@ -210,73 +210,106 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
                                                    with context: Context,
                                                    using factories: [AnyFactory],
                                                    animated: Bool,
-                                                   completion: @escaping ((_: UIViewController, _: RoutingResult) -> Void)) {
+                                                   completion: @escaping ((RoutingResult) -> Void)) {
         var factories = factories
 
         let postponedIntegrationHandler = DefaultPostponedIntegrationHandler(logger: logger,
-                containerAdapterProvider: containerAdapterProvider)
+                containerAdapterLocator: containerAdapterLocator)
 
         func buildViewController(from previousViewController: UIViewController) {
-            do {
-                // If the previous view controller is created/found but it's view is not loaded or it has no window,
-                // it was cached by the container view controller like it would be in a `UITabBarController`s
-                // tab that was never activated. So the router will have to activate it first.
-                // Example: `UITabBarController` contains a navigation controller in the tab that was never opened and the router is going
-                // to push a view controller into. UINavigationController in this case will not be able to update its content properly.
-                if !previousViewController.isViewLoaded || previousViewController.view.window == nil {
-                    try makeVisibleInParentContainer(previousViewController, animated: false)
-                }
-
-                guard !factories.isEmpty else {
-                    try postponedIntegrationHandler.purge(animated: animated, completion: {
-                        return completion(previousViewController, .success)
-                    })
-                    return
-                }
-                let factory = factories.removeFirst()
-                let newViewController = try factory.build(with: context)
-                logger?.log(.info("\(String(describing: factory)) built a \(String(describing: newViewController))."))
-
-                let nextAction = factories.first?.action
-
-                try factory.action.perform(with: newViewController,
-                        on: previousViewController,
-                        with: postponedIntegrationHandler,
-                        nextAction: nextAction,
-                        animated: animated) { result in
-                    self.assertIfNotMainThread(logger: self.logger)
-                    if case let .failure(error) = result {
-                        self.logger?.log(.info("\(String(describing: factory.action)) has stopped the navigation process " +
-                                "as it was not able to build a view controller into a stack."))
-                        completion(newViewController, .failure(error))
+            self.makeVisibleIfNeeded(previousViewController, animated: animated, completion: { result in
+                do {
+                    guard result.isSuccessful else {
+                        self.logger?.log(.info("\(String(describing: previousViewController)) has stopped the navigation process " +
+                                "as it was not able to become visible in the parent container."))
+                        completion(result)
                         return
                     }
-                    self.logger?.log(.info("\(String(describing: factory.action)) has applied to " +
-                            "\(String(describing: previousViewController)) with \(String(describing: newViewController))."))
-                    buildViewController(from: newViewController)
+                    guard !factories.isEmpty else {
+                        postponedIntegrationHandler.purge(animated: animated, completion: completion)
+                        return
+                    }
+                    let factory = factories.removeFirst()
+                    let newViewController = try factory.build(with: context)
+                    self.logger?.log(.info("\(String(describing: factory)) built a \(String(describing: newViewController))."))
+
+                    let nextAction = factories.first?.action
+
+                    factory.action.perform(with: newViewController,
+                            on: previousViewController,
+                            with: postponedIntegrationHandler,
+                            nextAction: nextAction,
+                            animated: animated) { result in
+                        self.assertIfNotMainThread(logger: self.logger)
+                        if case let .failure(error) = result {
+                            self.logger?.log(.info("\(String(describing: factory.action)) has stopped the navigation process " +
+                                    "as it was not able to build a view controller into a stack."))
+                            completion(.failure(error))
+                            return
+                        }
+                        self.logger?.log(.info("\(String(describing: factory.action)) has applied to " +
+                                "\(String(describing: previousViewController)) with \(String(describing: newViewController))."))
+                        buildViewController(from: newViewController)
+                    }
+                } catch {
+                    completion(.failure(error))
                 }
-            } catch let error {
-                completion(previousViewController, .failure(error))
-            }
+            })
         }
 
         logger?.log(.info(factories.isEmpty ? "No view controllers needed to be integrated into the stack." : "Started to build the view controllers stack."))
         buildViewController(from: rootViewController)
     }
 
+    private func makeVisibleIfNeeded(_ viewController: UIViewController,
+                                     animated: Bool,
+                                     completion: @escaping (RoutingResult) -> Void) {
+        // If the previous view controller is created/found but it's view is not loaded or it has no window,
+        // then it is cached by the container view controller like it would be in a `UITabBarController`s
+        // tab that was never activated. So the router will have to activate it first.
+        // Example: `UITabBarController` contains a navigation controller in the tab that was never opened and the router is going
+        // to push a view controller into. UINavigationController in this case will not be able to update its content properly.
+        if !viewController.isViewLoaded || viewController.view.window == nil {
+            makeVisibleInParentContainer(viewController, animated: animated, completion: completion)
+        } else {
+            completion(.success)
+        }
+    }
+
     // Activates the origin view controller of viewController
-    private func makeVisibleInParentContainer(_ viewController: UIViewController, animated: Bool) throws {
-        var currentViewController = viewController
-        try viewController.allParents.forEach({
-            if let container = $0 as? ContainerViewController {
-                let containerAdapter = try containerAdapterProvider.getAdapter(for: container)
-                if containerAdapter.containedViewControllers.contains(currentViewController) {
-                    try containerAdapter.makeVisible(currentViewController, animated: animated)
-                    logger?.log(.info("Made \(String(describing: currentViewController)) visible in \(String(describing: container))"))
-                }
+    private func makeVisibleInParentContainer(_ viewController: UIViewController,
+                                              animated: Bool,
+                                              completion: @escaping (RoutingResult) -> Void) {
+        var parentViewControllers = viewController.allParents
+
+        func makeVisible(viewController: UIViewController, completion: @escaping (RoutingResult) -> Void) {
+            guard !parentViewControllers.isEmpty else {
+                completion(.success)
+                return
             }
-            currentViewController = $0
-        })
+            do {
+                let parentViewController = parentViewControllers.removeFirst()
+                if let container = parentViewController as? ContainerViewController {
+                    let containerAdapter = try containerAdapterLocator.getAdapter(for: container)
+                    if containerAdapter.containedViewControllers.contains(viewController) {
+                        containerAdapter.makeVisible(viewController, animated: animated, completion: { result in
+                            guard result.isSuccessful else {
+                                completion(result)
+                                return
+                            }
+                            self.logger?.log(.info("Made \(String(describing: viewController)) visible in \(String(describing: container))"))
+                            makeVisible(viewController: parentViewController, completion: completion)
+                        })
+                        return
+                    }
+                }
+                makeVisible(viewController: parentViewController, completion: completion)
+            } catch {
+                completion(.failure(error))
+            }
+        }
+
+        makeVisible(viewController: viewController, completion: completion)
     }
 
     // Dismisses all the view controllers presented if there are any

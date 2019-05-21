@@ -5,38 +5,48 @@
 import Foundation
 import UIKit
 
+/// Default `ContainerAdapter` for `UINavigationController`
 public struct NavigationControllerAdapter<VC: UINavigationController>: ConcreteContainerAdapter {
 
-    let navigationController: VC
+    weak var navigationController: VC?
 
     public init(with navigationController: VC) {
         self.navigationController = navigationController
     }
 
     public var containedViewControllers: [UIViewController] {
-        return navigationController.viewControllers
+        return navigationController?.viewControllers ?? []
     }
 
     public var visibleViewControllers: [UIViewController] {
-        guard let topViewController = navigationController.topViewController else {
+        guard let topViewController = navigationController?.topViewController else {
             return []
         }
         return [topViewController]
     }
 
-    public func makeVisible(_ viewController: UIViewController, animated: Bool) throws {
+    public func makeVisible(_ viewController: UIViewController, animated: Bool, completion: @escaping (_: RoutingResult) -> Void) {
+        guard let navigationController = navigationController else {
+            return completion(.failure(RoutingError.compositionFailed(.init("\(String(describing: VC.self)) has been deallocated"))))
+        }
         guard navigationController.topViewController != viewController else {
+            completion(.success)
             return
         }
         guard let viewControllerToMakeVisible = containedViewControllers.first(where: { $0 == viewController }) else {
-            throw RoutingError.compositionFailed(.init("\(String(describing: navigationController)) does not contain \(String(describing: viewController))"))
+            completion(.failure(RoutingError.compositionFailed(.init("\(String(describing: navigationController)) does not contain \(String(describing: viewController))"))))
+            return
         }
         navigationController.popToViewController(viewControllerToMakeVisible, animated: animated)
+        completion(.success)
     }
 
-    public func setContainedViewControllers(_ containedViewControllers: [UIViewController], animated: Bool, completion: @escaping () -> Void) {
+    public func setContainedViewControllers(_ containedViewControllers: [UIViewController], animated: Bool, completion: @escaping (_: RoutingResult) -> Void) {
+        guard let navigationController = navigationController else {
+            return completion(.failure(RoutingError.compositionFailed(.init("\(String(describing: VC.self)) has been deallocated"))))
+        }
         navigationController.setViewControllers(containedViewControllers, animated: animated)
-        completion()
+        completion(.success)
     }
 
 }

@@ -17,14 +17,18 @@ struct ActionBox<A: Action>: AnyAction, AnyActionBox, CustomStringConvertible, M
                  with postponedIntegrationHandler: PostponedActionIntegrationHandler,
                  nextAction: AnyAction?,
                  animated: Bool,
-                 completion: @escaping (ActionResult) -> Void) throws {
+                 completion: @escaping (ActionResult) -> Void) {
         guard let typedExistingViewController = existingController as? A.ViewController else {
             completion(.failure(RoutingError.typeMismatch(ActionType.ViewController.self, .init("Action \(action.self) cannot " +
                     "be performed on \(existingController)."))))
             return
         }
         assertIfNotMainThread()
-        try postponedIntegrationHandler.purge(animated: animated, completion: {
+        postponedIntegrationHandler.purge(animated: animated, completion: { result in
+            if case let .failure(error) = result {
+                completion(.failure(error))
+                return
+            }
             self.action.perform(with: viewController, on: typedExistingViewController, animated: animated) { result in
                 self.assertIfNotMainThread()
                 completion(result)

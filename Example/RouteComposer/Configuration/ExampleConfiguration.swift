@@ -71,7 +71,7 @@ extension ExampleScreenConfiguration {
                 finder: ColorViewControllerFinder(),
                 factory: ColorViewControllerFactory())
                 .adding(DismissalMethodProvidingContextTask(dismissalBlock: { (context, animated, completion) in
-                    // Demonstrated an ability to provide dismissal method in configuration using `DismissalMethodProvidingContextTask`
+                    // Demonstrates an ability to provide a dismissal method in the configuration using `DismissalMethodProvidingContextTask`
                     try? UIViewController.router.navigate(to: GeneralStep.custom(using: PresentingFinder()), with: context, animated: animated, completion: completion)
                 }))
                 .adding(ExampleGenericContextTask<ColorViewController, String>())
@@ -97,7 +97,7 @@ extension ExampleScreenConfiguration {
     var figuresScreen: DestinationStep<FiguresViewController, Any?> {
         return StepAssembly(
                 finder: ClassFinder<FiguresViewController, Any?>(),
-                factory: StoryboardFactory(storyboardName: "TabBar", viewControllerID: "EmptyViewController"))
+                factory: StoryboardFactory(storyboardName: "TabBar", viewControllerID: "FiguresViewController"))
                 .adding(LoginInterceptor<Any?>())
                 .adding(ExampleGenericContextTask<FiguresViewController, Any?>())
                 .using(UINavigationController.push())

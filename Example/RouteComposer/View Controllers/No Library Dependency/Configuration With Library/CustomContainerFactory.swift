@@ -62,17 +62,16 @@ extension CustomContainerFactory {
 
 }
 
-// NB: Do not forget to register new container adapter in the `ContainerAdapterRegistry`
 struct CustomContainerControllerAdapter: ConcreteContainerAdapter {
 
-    private let customContainerController: CustomContainerController
+    private weak var customContainerController: CustomContainerController?
 
     init(with customContainerController: CustomContainerController) {
         self.customContainerController = customContainerController
     }
 
     public var containedViewControllers: [UIViewController] {
-        guard let rootViewController = customContainerController.rootViewController else {
+        guard let rootViewController = customContainerController?.rootViewController else {
             return []
         }
         return [rootViewController]
@@ -82,15 +81,22 @@ struct CustomContainerControllerAdapter: ConcreteContainerAdapter {
         return containedViewControllers
     }
 
-    public func makeVisible(_ viewController: UIViewController, animated: Bool) throws {
-        guard customContainerController.rootViewController != viewController else {
-            throw RoutingError.compositionFailed(.init("\(customContainerController) does not contain \(viewController)"))
+    public func makeVisible(_ viewController: UIViewController, animated: Bool, completion: @escaping (_: RoutingResult) -> Void) {
+        guard let customContainerController = customContainerController else {
+            return completion(.failure(RoutingError.compositionFailed(.init("CustomContainerController has been deallocated"))))
         }
+        guard customContainerController.rootViewController != viewController else {
+            return completion(.failure(RoutingError.compositionFailed(.init("\(customContainerController) does not contain \(viewController)"))))
+        }
+        completion(.success)
     }
 
-    public func setContainedViewControllers(_ containedViewControllers: [UIViewController], animated: Bool, completion: @escaping () -> Void) {
+    public func setContainedViewControllers(_ containedViewControllers: [UIViewController], animated: Bool, completion: @escaping (_: RoutingResult) -> Void) {
+        guard let customContainerController = customContainerController else {
+            return completion(.failure(RoutingError.compositionFailed(.init("CustomContainerController has been deallocated"))))
+        }
         customContainerController.rootViewController = containedViewControllers.last
-        completion()
+        completion(.success)
     }
 
 }

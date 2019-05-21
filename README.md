@@ -143,7 +143,7 @@ public protocol Finder {
 
     associatedtype Context
 
-    func findViewController(with context: Context) -> ViewController?
+    func findViewController(with context: Context) throws -> ViewController?
 
 }
 ```

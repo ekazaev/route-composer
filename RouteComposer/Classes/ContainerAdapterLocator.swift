@@ -4,8 +4,8 @@
 
 import Foundation
 
-/// Provides universal `ContainerAdapter` instance.
-public protocol ContainerAdapterProvider {
+/// Provides `ContainerAdapter` instance.
+public protocol ContainerAdapterLocator {
 
     /// Returns the `ContainerAdapter` suitable for the `ContainerViewController`
     ///

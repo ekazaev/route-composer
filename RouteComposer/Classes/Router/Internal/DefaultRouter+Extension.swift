@@ -247,56 +247,68 @@ extension DefaultRouter {
 
         let logger: Logger?
 
-        let containerAdapterProvider: ContainerAdapterProvider
+        let containerAdapterLocator: ContainerAdapterLocator
 
-        init(logger: Logger?, containerAdapterProvider: ContainerAdapterProvider) {
+        init(logger: Logger?, containerAdapterLocator: ContainerAdapterLocator) {
             self.logger = logger
-            self.containerAdapterProvider = containerAdapterProvider
+            self.containerAdapterLocator = containerAdapterLocator
         }
 
-        func update(containerViewController: ContainerViewController, animated: Bool, completion: @escaping (_: ActionResult) -> Void) throws {
-            guard self.containerViewController == nil else {
-                try purge(animated: animated, completion: {
-                    do {
-                        try self.update(containerViewController: containerViewController, animated: animated, completion: completion)
-                    } catch let error {
-                        completion(.failure(error))
-                    }
-                })
-                return
+        func update(containerViewController: ContainerViewController, animated: Bool, completion: @escaping (_: ActionResult) -> Void) {
+            do {
+                guard self.containerViewController == nil else {
+                    purge(animated: animated, completion: { result in
+                        if case let .failure(error) = result {
+                            completion(.failure(error))
+                            return
+                        }
+                        self.update(containerViewController: containerViewController, animated: animated, completion: completion)
+                    })
+                    return
+                }
+                self.containerViewController = containerViewController
+                self.postponedViewControllers = try containerAdapterLocator.getAdapter(for: containerViewController).containedViewControllers
+                logger?.log(.info("Container \(String(describing: containerViewController)) will be used for the postponed integration."))
+                completion(.continueRouting)
+            } catch {
+                completion(.failure(error))
             }
-            self.containerViewController = containerViewController
-            self.postponedViewControllers = try containerAdapterProvider.getAdapter(for: containerViewController).containedViewControllers
-            logger?.log(.info("Container \(String(describing: containerViewController)) will be used for the postponed integration."))
-            completion(.continueRouting)
         }
 
         func update(postponedViewControllers: [UIViewController]) {
             self.postponedViewControllers = postponedViewControllers
         }
 
-        func purge(animated: Bool, completion: @escaping () -> Void) throws {
-            guard let containerViewController = containerViewController else {
-                completion()
-                return
+        func purge(animated: Bool, completion: @escaping (_: RoutingResult) -> Void) {
+            do {
+                guard let containerViewController = containerViewController else {
+                    completion(.success)
+                    return
+                }
+
+                let containerAdapter = try containerAdapterLocator.getAdapter(for: containerViewController)
+
+                guard !postponedViewControllers.isEqual(to: containerAdapter.containedViewControllers) else {
+                    self.reset()
+                    completion(.success)
+                    return
+                }
+
+                containerAdapter.setContainedViewControllers(postponedViewControllers,
+                        animated: animated,
+                        completion: { result in
+                            guard result.isSuccessful else {
+                                completion(result)
+                                return
+                            }
+                            self.logger?.log(.info("View controllers \(String(describing: self.postponedViewControllers)) were simultaneously "
+                                    + "integrated into \(String(describing: containerViewController))"))
+                            self.reset()
+                            completion(.success)
+                        })
+            } catch {
+                completion(.failure(error))
             }
-
-            let containerAdapter = try containerAdapterProvider.getAdapter(for: containerViewController)
-
-            guard !postponedViewControllers.isEqual(to: containerAdapter.containedViewControllers) else {
-                self.reset()
-                completion()
-                return
-            }
-
-            try containerAdapter.setContainedViewControllers(postponedViewControllers,
-                    animated: animated,
-                    completion: {
-                        self.logger?.log(.info("View controllers \(String(describing: self.postponedViewControllers)) were simultaneously "
-                                + "integrated into \(String(describing: containerViewController))"))
-                        self.reset()
-                        completion()
-                    })
         }
 
         private func reset() {
