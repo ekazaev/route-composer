@@ -20,9 +20,9 @@ struct InterceptorMultiplexer: AnyRoutingInterceptor, MainThreadChecking, Custom
         })
     }
 
-    func execute<Context>(with context: Context, completion: @escaping (InterceptorResult) -> Void) {
+    func execute<Context>(with context: Context, completion: @escaping (RoutingResult) -> Void) {
         guard !self.interceptors.isEmpty else {
-            completion(.continueRouting)
+            completion(.success)
             return
         }
 

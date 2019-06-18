@@ -48,10 +48,10 @@ public struct NavigationDelayingInterceptor: RoutingInterceptor {
         self.strategy = strategy
     }
 
-    public func execute(with context: Any?, completion: @escaping (InterceptorResult) -> Void) {
+    public func execute(with context: Any?, completion: @escaping (RoutingResult) -> Void) {
         guard let topmostViewController = getTopmostViewController(),
               topmostViewController.isBeingDismissed || topmostViewController.isBeingPresented else {
-            completion(.continueRouting)
+            completion(.success)
             return
         }
 

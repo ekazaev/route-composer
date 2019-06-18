@@ -15,25 +15,27 @@ class FinderTest: XCTestCase {
         let finder = InstanceFinder<UIViewController, Any?>(instance: viewController)
         XCTAssertEqual(finder.instance, viewController)
         XCTAssertEqual(try? finder.findViewController(with: nil), viewController)
+        XCTAssertEqual(finder.getViewController(with: nil), viewController)
     }
 
     func testNilFinder() {
         let finder = NilFinder<UIViewController, Any?>()
         XCTAssertNil(try? finder.findViewController(with: nil))
+        XCTAssertNil(finder.getViewController(with: nil))
     }
 
     func testDefaultIteratorDefaultValues() {
         let iterator = DefaultStackIterator()
         XCTAssertEqual(iterator.options, .fullStack)
         XCTAssertEqual(iterator.startingPoint, .topmost)
-        XCTAssertEqual(iterator.startingViewController, UIApplication.shared.keyWindow?.topmostViewController)
+        XCTAssertEqual(try? iterator.getStartingViewController(), UIApplication.shared.keyWindow?.topmostViewController)
     }
 
     func testDefaultIteratorNewValues() {
         let iterator = DefaultStackIterator(options: .current, startingPoint: .root)
         XCTAssertEqual(iterator.options, .current)
         XCTAssertEqual(iterator.startingPoint, .root)
-        XCTAssertEqual(iterator.startingViewController, UIApplication.shared.keyWindow?.rootViewController)
+        XCTAssertEqual(try? iterator.getStartingViewController(), UIApplication.shared.keyWindow?.rootViewController)
     }
 
     func testDefaultIteratorCustomStartingPoint() {
@@ -53,14 +55,14 @@ class FinderTest: XCTestCase {
 
         var currentViewController: UIViewController? = UIViewController()
         let iterator = DefaultStackIterator(options: .current,
-                startingPoint: .custom(try? TestInstanceFinder<UIViewController, Any?>(instance: currentViewController).findViewController()))
+                startingPoint: .custom(try TestInstanceFinder<UIViewController, Any?>(instance: currentViewController).findViewController()))
         XCTAssertEqual(iterator.options, .current)
         XCTAssertEqual(iterator.startingPoint, .custom(currentViewController))
-        XCTAssertEqual(iterator.startingViewController, currentViewController)
+        XCTAssertEqual(try? iterator.getStartingViewController(), currentViewController)
 
         currentViewController = nil
         XCTAssertEqual(iterator.startingPoint, .custom(nil))
-        XCTAssertEqual(iterator.startingViewController, nil)
+        XCTAssertEqual(try? iterator.getStartingViewController(), nil)
     }
 
     func testStartingPointEquatable() {
@@ -74,6 +76,10 @@ class FinderTest: XCTestCase {
         XCTAssertNotEqual(DefaultStackIterator.StartingPoint.custom(currentViewController), DefaultStackIterator.StartingPoint.custom(currentViewController1))
         XCTAssertNotEqual(DefaultStackIterator.StartingPoint.custom(currentViewController1), DefaultStackIterator.StartingPoint.custom(currentViewController))
         XCTAssertNotEqual(DefaultStackIterator.StartingPoint.custom(currentViewController1), DefaultStackIterator.StartingPoint.custom(nil))
+        func throwsException() throws -> UIViewController? {
+            throw RoutingError.generic(.init("Test Error"))
+        }
+        XCTAssertNotEqual(DefaultStackIterator.StartingPoint.custom(try throwsException()), DefaultStackIterator.StartingPoint.custom(currentViewController1))
         XCTAssertNotEqual(DefaultStackIterator.StartingPoint.topmost, DefaultStackIterator.StartingPoint.root)
         XCTAssertNotEqual(DefaultStackIterator.StartingPoint.topmost, DefaultStackIterator.StartingPoint.custom(currentViewController))
     }

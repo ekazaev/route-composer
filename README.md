@@ -185,9 +185,9 @@ by the library:*
 ```swift
 class PresentModally: Action {
 
-    func perform(viewController: UIViewController, on existingController: UIViewController, animated: Bool, completion: @escaping (_: ActionResult) -> Void) {
+    func perform(viewController: UIViewController, on existingController: UIViewController, animated: Bool, completion: @escaping (_: RoutingResult) -> Void) {
         existingController.present(viewController, animated: animated, completion: {
-            completion(.continueRouting)
+            completion(.success)
         })
     }
 
@@ -206,7 +206,7 @@ the interceptor should inform the router and it will continue routing or otherwi
 ```swift
 class LoginInterceptor<C>: RoutingInterceptor {
 
-    func execute(with context: C, completion: @escaping (_: InterceptorResult) -> Void) {
+    func execute(with context: C, completion: @escaping (_: RoutingResult) -> Void) {
         guard !LoginManager.sharedInstance.isUserLoggedIn else {
             completion(.failure("User has not been logged in."))
             return

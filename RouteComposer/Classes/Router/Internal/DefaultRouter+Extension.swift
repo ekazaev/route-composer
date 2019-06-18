@@ -25,9 +25,9 @@ extension DefaultRouter {
             interceptors.append(interceptor)
         }
 
-        func run<Context>(with context: Context, completion: @escaping (_: InterceptorResult) -> Void) {
+        func run<Context>(with context: Context, completion: @escaping (_: RoutingResult) -> Void) {
             guard !interceptors.isEmpty else {
-                completion(.continueRouting)
+                completion(.success)
                 return
             }
             let interceptorToRun = interceptors.count == 1 ? interceptors[0] : InterceptorMultiplexer(interceptors)
@@ -191,7 +191,7 @@ extension DefaultRouter {
             return StepTaskTaskRunner(contextTaskRunner: contextTaskRunner, postTaskRunner: postTaskRunner)
         }
 
-        func executeInterceptors<Context>(with context: Context, completion: @escaping (_: InterceptorResult) -> Void) {
+        func executeInterceptors<Context>(with context: Context, completion: @escaping (_: RoutingResult) -> Void) {
             interceptorRunner.run(with: context, completion: completion)
         }
 
@@ -254,13 +254,12 @@ extension DefaultRouter {
             self.containerAdapterLocator = containerAdapterLocator
         }
 
-        func update(containerViewController: ContainerViewController, animated: Bool, completion: @escaping (_: ActionResult) -> Void) {
+        func update(containerViewController: ContainerViewController, animated: Bool, completion: @escaping (_: RoutingResult) -> Void) {
             do {
                 guard self.containerViewController == nil else {
                     purge(animated: animated, completion: { result in
-                        if case let .failure(error) = result {
-                            completion(.failure(error))
-                            return
+                        guard result.isSuccessful else {
+                            return completion(result)
                         }
                         self.update(containerViewController: containerViewController, animated: animated, completion: completion)
                     })
@@ -269,7 +268,7 @@ extension DefaultRouter {
                 self.containerViewController = containerViewController
                 self.postponedViewControllers = try containerAdapterLocator.getAdapter(for: containerViewController).containedViewControllers
                 logger?.log(.info("Container \(String(describing: containerViewController)) will be used for the postponed integration."))
-                completion(.continueRouting)
+                completion(.success)
             } catch {
                 completion(.failure(error))
             }

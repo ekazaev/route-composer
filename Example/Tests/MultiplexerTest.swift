@@ -118,31 +118,24 @@ class MultiplexerTest: XCTestCase {
                 count += 1
             }
 
-            func execute(with context: Any?, completion: @escaping (InterceptorResult) -> Void) {
+            func execute(with context: Any?, completion: @escaping (RoutingResult) -> Void) {
                 guard count == 1 else {
                     completion(.failure(RoutingError.generic(.init("Count should be equal to 1"))))
                     return
                 }
-                completion(.continueRouting)
+                completion(.success)
             }
         }
 
         var multiplexer = InterceptorMultiplexer([RoutingInterceptorBox(Interceptor())])
         try? multiplexer.prepare(with: nil as Any?)
-        multiplexer.execute(with: nil as Any?) { (result: InterceptorResult) in
-            guard case .continueRouting = result else {
+        multiplexer.execute(with: nil as Any?) { (result: RoutingResult) in
+            guard case .success = result else {
                 XCTAssertFalse(true)
                 return
             }
             XCTAssertFalse(false)
         }
-    }
-
-    func testIsSuccessfulInterceptor() {
-        let result1 = InterceptorResult.continueRouting
-        XCTAssertTrue(result1.isSuccessful)
-        let result2 = InterceptorResult.failure(RoutingError.generic(.init("test")))
-        XCTAssertFalse(result2.isSuccessful)
     }
 
     func testAnyOrVoidMethods() {
@@ -181,8 +174,9 @@ class MultiplexerTest: XCTestCase {
                 isPrepared = true
             }
 
-            func execute(with context: C, completion: @escaping (InterceptorResult) -> Void) {
+            func execute(with context: C, completion: @escaping (RoutingResult) -> Void) {
                 isApplied = true
+                completion(.success)
             }
         }
 
@@ -196,7 +190,9 @@ class MultiplexerTest: XCTestCase {
         }
 
         XCTAssertNil(try? TestFinder<Any?>().findViewController())
+        XCTAssertNil(TestFinder<Any?>().getViewController())
         XCTAssertNil(try? TestFinder<Void>().findViewController())
+        XCTAssertNil(TestFinder<Void>().getViewController())
         let viewController1 = UIViewController()
         TestPostRoutingTask<Any?>().execute(on: viewController1, routingStack: [])
         XCTAssertEqual(viewController1.title, "test")

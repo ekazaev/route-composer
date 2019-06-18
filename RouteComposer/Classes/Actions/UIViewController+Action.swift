@@ -86,7 +86,7 @@ public struct ViewControllerActions {
         public func perform(with viewController: UIViewController,
                             on existingController: UIViewController,
                             animated: Bool,
-                            completion: @escaping (_: ActionResult) -> Void) {
+                            completion: @escaping (_: RoutingResult) -> Void) {
             guard existingController.presentedViewController == nil else {
                 completion(.failure(RoutingError.compositionFailed(.init("\(existingController) is " +
                         "already presenting a view controller."))))
@@ -110,7 +110,7 @@ public struct ViewControllerActions {
             }
 
             existingController.present(viewController, animated: animated, completion: {
-                completion(.continueRouting)
+                completion(.success)
             })
         }
 
@@ -140,7 +140,7 @@ public struct ViewControllerActions {
         public func perform(with viewController: UIViewController,
                             on existingController: UIViewController,
                             animated: Bool,
-                            completion: @escaping(_: ActionResult) -> Void) {
+                            completion: @escaping(_: RoutingResult) -> Void) {
             guard let window = windowProvider.window else {
                 completion(.failure(RoutingError.compositionFailed(.init("Window was not found."))))
                 return
@@ -154,7 +154,7 @@ public struct ViewControllerActions {
             guard animated, let animationOptions = animationOptions, duration > 0 else {
                 window.rootViewController = viewController
                 window.makeKeyAndVisible()
-                return completion(.continueRouting)
+                return completion(.success)
             }
 
             UIView.transition(with: window, duration: duration, options: animationOptions, animations: {
@@ -165,7 +165,7 @@ public struct ViewControllerActions {
                 window.makeKeyAndVisible()
                 UIView.setAnimationsEnabled(oldAnimationState)
             })
-            completion(.continueRouting)
+            completion(.success)
         }
 
     }
@@ -177,8 +177,8 @@ public struct ViewControllerActions {
         }
 
         // Does nothing
-        func perform(with viewController: UIViewController, on existingController: UIViewController, animated: Bool, completion: @escaping (ActionResult) -> Void) {
-            completion(.continueRouting)
+        func perform(with viewController: UIViewController, on existingController: UIViewController, animated: Bool, completion: @escaping (RoutingResult) -> Void) {
+            completion(.success)
         }
 
     }

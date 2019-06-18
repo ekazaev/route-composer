@@ -178,9 +178,8 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
             // This operation is async.
             // It was already confirmed that they can be dismissed.
             self.dismissPresentedIfNeeded(from: viewController, animated: animated) { result in
-                if case let .failure(error) = result {
-                    completion(.failure(error))
-                    return
+                guard result.isSuccessful else {
+                    return completion(result)
                 }
 
                 // Builds view controller's stack using factories.
@@ -241,10 +240,10 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
                             nextAction: nextAction,
                             animated: animated) { result in
                         self.assertIfNotMainThread(logger: self.logger)
-                        if case let .failure(error) = result {
+                        guard result.isSuccessful else {
                             self.logger?.log(.info("\(String(describing: factory.action)) has stopped the navigation process " +
                                     "as it was not able to build a view controller into a stack."))
-                            completion(.failure(error))
+                            completion(result)
                             return
                         }
                         self.logger?.log(.info("\(String(describing: factory.action)) has applied to " +

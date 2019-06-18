@@ -74,7 +74,6 @@ public final class SwitchAssembly<ViewController: UIViewController, Context> {
 
     /// Constructor
     public init() {
-
     }
 
     /// Adds a block that allows a written decision case for the `Router` in the block.

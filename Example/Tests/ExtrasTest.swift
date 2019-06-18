@@ -21,11 +21,11 @@ class ExtrasTest: XCTestCase {
         func perform(with viewController: UIViewController,
                      on existingController: RouterTests.TestModalPresentableController,
                      animated: Bool,
-                     completion: @escaping (ActionResult) -> Void) {
+                     completion: @escaping (RoutingResult) -> Void) {
             let deadline = DispatchTime.now() + .milliseconds(100)
             DispatchQueue.main.asyncAfter(deadline: deadline) {
                 existingController.fakePresentedViewController = viewController
-                completion(.continueRouting)
+                completion(.success)
             }
         }
     }

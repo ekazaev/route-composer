@@ -53,9 +53,9 @@ extension CustomContainerFactory {
         func perform(with viewController: UIViewController,
                      on customContainerController: CustomContainerController,
                      animated: Bool,
-                     completion: @escaping (_: ActionResult) -> Void) {
+                     completion: @escaping (_: RoutingResult) -> Void) {
             customContainerController.rootViewController = viewController
-            completion(.continueRouting)
+            completion(.success)
         }
 
     }

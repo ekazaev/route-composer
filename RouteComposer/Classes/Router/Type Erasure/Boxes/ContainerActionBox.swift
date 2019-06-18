@@ -17,14 +17,13 @@ struct ContainerActionBox<A: ContainerAction>: AnyAction, AnyActionBox, CustomSt
                  with postponedIntegrationHandler: PostponedActionIntegrationHandler,
                  nextAction: AnyAction?,
                  animated: Bool,
-                 completion: @escaping (ActionResult) -> Void) {
+                 completion: @escaping (RoutingResult) -> Void) {
         assertIfNotMainThread()
         if let postponedController = postponedIntegrationHandler.containerViewController {
             guard postponedController is A.ViewController else {
                 postponedIntegrationHandler.purge(animated: animated, completion: { result in
-                    if case let .failure(error) = result {
-                        completion(.failure(error))
-                        return
+                    guard result.isSuccessful else {
+                        return completion(result)
                     }
                     self.perform(with: viewController,
                             on: existingController,
@@ -46,17 +45,15 @@ struct ContainerActionBox<A: ContainerAction>: AnyAction, AnyActionBox, CustomSt
             let shouldDelayPerforming = nextAction?.isEmbeddable(to: A.ViewController.self) ?? false
             if shouldDelayPerforming {
                 postponedIntegrationHandler.update(containerViewController: containerController, animated: animated, completion: { result in
-                    if case let .failure(error) = result {
-                        completion(.failure(error))
-                    } else {
-                        self.embed(viewController: viewController, with: postponedIntegrationHandler, completion: completion)
+                    guard result.isSuccessful else {
+                        return completion(result)
                     }
+                    self.embed(viewController: viewController, with: postponedIntegrationHandler, completion: completion)
                 })
             } else {
                 postponedIntegrationHandler.purge(animated: animated, completion: { result in
-                    if case let .failure(error) = result {
-                        completion(.failure(error))
-                        return
+                    guard result.isSuccessful else {
+                        return completion(result)
                     }
                     self.action.perform(with: viewController, on: containerController, animated: animated) { result in
                         self.assertIfNotMainThread()
@@ -67,12 +64,12 @@ struct ContainerActionBox<A: ContainerAction>: AnyAction, AnyActionBox, CustomSt
         }
     }
 
-    private func embed(viewController: UIViewController, with postponedIntegrationHandler: PostponedActionIntegrationHandler, completion: @escaping (ActionResult) -> Void) {
+    private func embed(viewController: UIViewController, with postponedIntegrationHandler: PostponedActionIntegrationHandler, completion: @escaping (RoutingResult) -> Void) {
         do {
             var postponedChildControllers = postponedIntegrationHandler.postponedViewControllers
             try perform(embedding: viewController, in: &postponedChildControllers)
             postponedIntegrationHandler.update(postponedViewControllers: postponedChildControllers)
-            completion(.continueRouting)
+            completion(.success)
         } catch {
             completion(.failure(error))
         }

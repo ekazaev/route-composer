@@ -24,6 +24,23 @@ public protocol Finder {
 
 }
 
+public extension Finder {
+
+    /// Returns the view controller instance if it is present in the stack. Doesn't throw any exceptions in case the search
+    /// can not be performed.
+    ///
+    /// - Parameter context: The `Context` instance passed to the `Router`.
+    /// - Returns: The `UIViewController` instance that the `Router` is looking for, nil otherwise.
+    func getViewController(with context: Context) -> ViewController? {
+        guard let viewController = try? findViewController(with: context) else {
+            return nil
+        }
+
+        return viewController
+    }
+
+}
+
 public extension Finder where Context == Any? {
 
     /// Returns the view controller instance if it is present in the stack.
@@ -31,6 +48,14 @@ public extension Finder where Context == Any? {
     /// - Returns: The `UIViewController` instance that the `Router` is looking for, nil otherwise.
     func findViewController() throws -> ViewController? {
         return try findViewController(with: nil)
+    }
+
+    /// Returns the view controller instance if it is present in the stack. Doesn't throw any exceptions in case the search
+    /// can not be performed.
+    ///
+    /// - Returns: The `UIViewController` instance that the `Router` is looking for, nil otherwise.
+    func getViewController() -> ViewController? {
+        return getViewController(with: nil)
     }
 
 }
@@ -42,6 +67,14 @@ public extension Finder where Context == Void {
     /// - Returns: The `UIViewController` instance that the `Router` is looking for, nil otherwise.
     func findViewController() throws -> ViewController? {
         return try findViewController(with: ())
+    }
+
+    /// Returns the view controller instance if it is present in the stack. Doesn't throw any exceptions in case the search
+    /// can not be performed.
+    ///
+    /// - Returns: The `UIViewController` instance that the `Router` is looking for, nil otherwise.
+    func getViewController() -> ViewController? {
+        return getViewController(with: ())
     }
 
 }

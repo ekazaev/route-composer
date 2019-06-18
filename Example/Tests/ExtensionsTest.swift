@@ -11,7 +11,6 @@ import XCTest
 class ExtensionsTest: XCTestCase {
 
     class InvisibleViewController: UIViewController {
-
     }
 
     class FakePresentingNavigationController: UINavigationController {

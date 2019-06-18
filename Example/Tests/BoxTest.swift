@@ -81,8 +81,9 @@ class BoxTests: XCTestCase {
 
         class TestAction: Action {
 
-            func perform(with viewController: UIViewController, on existingController: UINavigationController, animated: Bool, completion: @escaping (ActionResult) -> Void) {
+            func perform(with viewController: UIViewController, on existingController: UINavigationController, animated: Bool, completion: @escaping (RoutingResult) -> Void) {
                 existingController.viewControllers = [viewController]
+                completion(.success)
             }
 
         }
@@ -91,7 +92,7 @@ class BoxTests: XCTestCase {
         let navigationController = UINavigationController()
         let postponedIntegrationHandler = DefaultRouter.DefaultPostponedIntegrationHandler(logger: nil, containerAdapterLocator: DefaultContainerAdapterLocator())
         actionBox.perform(with: UIViewController(), on: navigationController, with: postponedIntegrationHandler, nextAction: nil, animated: true) { result in
-            guard case .continueRouting = result else {
+            guard case .success = result else {
                 XCTAssert(false)
                 return
             }
@@ -108,8 +109,9 @@ class BoxTests: XCTestCase {
                 childViewControllers.append(viewController)
             }
 
-            func perform(with viewController: UIViewController, on existingController: UINavigationController, animated: Bool, completion: @escaping (ActionResult) -> Void) {
+            func perform(with viewController: UIViewController, on existingController: UINavigationController, animated: Bool, completion: @escaping (RoutingResult) -> Void) {
                 existingController.viewControllers = [viewController]
+                completion(.success)
             }
 
         }
@@ -119,7 +121,7 @@ class BoxTests: XCTestCase {
         let postponedIntegrationHandler = DefaultRouter.DefaultPostponedIntegrationHandler(logger: nil, containerAdapterLocator: DefaultContainerAdapterLocator())
         let embeddingController = UIViewController()
         actionBox.perform(with: embeddingController, on: navigationController, with: postponedIntegrationHandler, nextAction: nil, animated: true) { result in
-            guard case .continueRouting = result else {
+            guard case .success = result else {
                 XCTAssert(false)
                 return
             }
@@ -132,7 +134,7 @@ class BoxTests: XCTestCase {
                 with: postponedIntegrationHandler,
                 nextAction: ContainerActionBox(action),
                 animated: true) { result in
-            guard case .continueRouting = result else {
+            guard case .success = result else {
                 XCTAssert(false)
                 return
             }

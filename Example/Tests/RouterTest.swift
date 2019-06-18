@@ -50,7 +50,6 @@ class RouterTests: XCTestCase {
 
     // View Controller to present
     class TestViewController: UIViewController {
-
     }
 
     // Factory that produces TestViewController
@@ -92,9 +91,9 @@ class RouterTests: XCTestCase {
     // Fakes modal presentation action using `TestModalPresentableController`
     struct FakePresentModallyAction: Action {
         // We can not present modally on the view controllers that are not in the window hierarchy - so we will just fake this action
-        func perform(with viewController: UIViewController, on existingController: TestModalPresentableController, animated: Bool, completion: @escaping (ActionResult) -> Void) {
+        func perform(with viewController: UIViewController, on existingController: TestModalPresentableController, animated: Bool, completion: @escaping (RoutingResult) -> Void) {
             existingController.fakePresentedViewController = viewController
-            completion(.continueRouting)
+            completion(.success)
         }
 
     }
@@ -198,7 +197,7 @@ class RouterTests: XCTestCase {
             func perform(with viewController: UIViewController,
                          on existingController: TestModalPresentableController,
                          animated: Bool,
-                         completion: @escaping (ActionResult) -> Void) {
+                         completion: @escaping (RoutingResult) -> Void) {
                 completion(.failure(RoutingError.generic(.init("Some error occurred"))))
             }
 
@@ -302,9 +301,9 @@ class RouterTests: XCTestCase {
         var router = self.router
         router.add(InlineInterceptor(prepare: { (_: Any?) throws in
             globalInterceptorPrepared += 1
-        }, { (_: Any?, completion: @escaping (InterceptorResult) -> Void) in
+        }, { (_: Any?, completion: @escaping (RoutingResult) -> Void) in
             globalInterceptorRun += 1
-            completion(.continueRouting)
+            completion(.success)
         }))
         router.add(InlineContextTask({ (_: UIViewController, _: Any?) in
             globalTaskRun += 1

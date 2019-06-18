@@ -17,7 +17,7 @@ struct ActionBox<A: Action>: AnyAction, AnyActionBox, CustomStringConvertible, M
                  with postponedIntegrationHandler: PostponedActionIntegrationHandler,
                  nextAction: AnyAction?,
                  animated: Bool,
-                 completion: @escaping (ActionResult) -> Void) {
+                 completion: @escaping (RoutingResult) -> Void) {
         guard let typedExistingViewController = existingController as? A.ViewController else {
             completion(.failure(RoutingError.typeMismatch(ActionType.ViewController.self, .init("Action \(action.self) cannot " +
                     "be performed on \(existingController)."))))
@@ -25,9 +25,8 @@ struct ActionBox<A: Action>: AnyAction, AnyActionBox, CustomStringConvertible, M
         }
         assertIfNotMainThread()
         postponedIntegrationHandler.purge(animated: animated, completion: { result in
-            if case let .failure(error) = result {
-                completion(.failure(error))
-                return
+            guard result.isSuccessful else {
+                return completion(result)
             }
             self.action.perform(with: viewController, on: typedExistingViewController, animated: animated) { result in
                 self.assertIfNotMainThread()

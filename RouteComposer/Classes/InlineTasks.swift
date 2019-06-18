@@ -16,7 +16,7 @@ public struct InlineInterceptor<C>: RoutingInterceptor {
 
     private let prepareBlock: ((_: C) throws -> Void)?
 
-    private let asyncCompletion: ((_: C, _: @escaping (InterceptorResult) -> Void) -> Void)?
+    private let asyncCompletion: ((_: C, _: @escaping (RoutingResult) -> Void) -> Void)?
 
     private let syncCompletion: ((_: C) -> Void)?
 
@@ -25,7 +25,7 @@ public struct InlineInterceptor<C>: RoutingInterceptor {
     /// - Parameter completion: the block to be called when `InlineInterceptor` will take a control over the navigation process.
     ///
     ///     **NB** For `Router` to be able to continue navigation process, completion block method **MUST** be called.
-    public init(prepare: ((_: C) throws -> Void)? = nil, _ completion: @escaping (_: C, _: @escaping (InterceptorResult) -> Void) -> Void) {
+    public init(prepare: ((_: C) throws -> Void)? = nil, _ completion: @escaping (_: C, _: @escaping (RoutingResult) -> Void) -> Void) {
         self.prepareBlock = prepare
         self.asyncCompletion = completion
         self.syncCompletion = nil
@@ -47,10 +47,10 @@ public struct InlineInterceptor<C>: RoutingInterceptor {
         try prepareBlock?(context)
     }
 
-    public func execute(with context: C, completion: @escaping (InterceptorResult) -> Void) {
+    public func execute(with context: C, completion: @escaping (RoutingResult) -> Void) {
         if let syncCompletion = syncCompletion {
             syncCompletion(context)
-            completion(.continueRouting)
+            completion(.success)
         } else if let asyncCompletion = asyncCompletion {
             asyncCompletion(context, completion)
         } else {

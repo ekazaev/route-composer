@@ -5,7 +5,6 @@
 import Foundation
 
 protocol MainThreadChecking {
-
 }
 
 extension MainThreadChecking {
