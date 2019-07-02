@@ -197,28 +197,43 @@
 <td class="src"><pre><code class="objc">    ///   - startingPoint: `DefaultStackIterator.StartingPoint` value</code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="missed">
+<tr class="never">
 <td class="num">38</td>
-<td class="src"><pre><code class="objc">    init(options: SearchOptions, startingPoint: DefaultStackIterator.StartingPoint = .topmost) {</code></pre></td>
-<td class="coverage">!</td>
+<td class="src"><pre><code class="objc">    ///   - containerAdapterLocator: A `ContainerAdapterLocator` instance.</code></pre></td>
+<td class="coverage"></td>
 </tr>
-<tr class="missed">
+<tr class="never">
 <td class="num">39</td>
-<td class="src"><pre><code class="objc">        self.iterator = DefaultStackIterator(options: options, startingPoint: startingPoint)</code></pre></td>
+<td class="src"><pre><code class="objc">    init(options: SearchOptions,</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">40</td>
+<td class="src"><pre><code class="objc">         startingPoint: DefaultStackIterator.StartingPoint = .topmost,</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="missed">
+<td class="num">41</td>
+<td class="src"><pre><code class="objc">         containerAdapterLocator: ContainerAdapterLocator = DefaultContainerAdapterLocator()) {</code></pre></td>
 <td class="coverage">!</td>
 </tr>
 <tr class="missed">
-<td class="num">40</td>
+<td class="num">42</td>
+<td class="src"><pre><code class="objc">        self.iterator = DefaultStackIterator(options: options, startingPoint: startingPoint, containerAdapterLocator: containerAdapterLocator)</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">43</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
 <td class="coverage">!</td>
 </tr>
 <tr class="never">
-<td class="num">41</td>
+<td class="num">44</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">42</td>
+<td class="num">45</td>
 <td class="src"><pre><code class="objc">}</code></pre></td>
 <td class="coverage"></td>
 </tr>

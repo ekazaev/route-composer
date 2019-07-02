@@ -52,6 +52,7 @@ public struct DefaultStackIterator: StackIterator {
     /// `WindowProvider` to get proper `UIWindow`
     public let windowProvider: WindowProvider
 
+    /// `ContainerAdapter` instance.
     public let containerAdapterLocator: ContainerAdapterLocator
 
     /// Constructor

@@ -144,7 +144,7 @@
 </tr>
 <tr class="covered">
 <td class="num">27</td>
-<td class="src"><pre><code class="objc">    func execute&lt;Context&gt;(with context: Context, completion: @escaping (InterceptorResult) -&gt; Void) {</code></pre></td>
+<td class="src"><pre><code class="objc">    func perform&lt;Context&gt;(with context: Context, completion: @escaping (RoutingResult) -&gt; Void) {</code></pre></td>
 <td class="coverage">103x</td>
 </tr>
 <tr class="covered">
@@ -184,7 +184,7 @@
 </tr>
 <tr class="covered">
 <td class="num">35</td>
-<td class="src"><pre><code class="objc">        routingInterceptor.execute(with: typedDestination) { result in</code></pre></td>
+<td class="src"><pre><code class="objc">        routingInterceptor.perform(with: typedDestination) { result in</code></pre></td>
 <td class="coverage">102x</td>
 </tr>
 <tr class="covered">

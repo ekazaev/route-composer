@@ -60,6 +60,9 @@
               <li class="nav-group-task">
                 <a href="../Protocols/ContainerAction.html">ContainerAction</a>
               </li>
+              <li class="nav-group-task">
+                <a href="../Enums/RoutingResult.html">RoutingResult</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -171,20 +174,6 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="../Resulting Enums.html">Resulting Enums</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="../Enums/RoutingResult.html">RoutingResult</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Enums/ActionResult.html">ActionResult</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Enums/InterceptorResult.html">InterceptorResult</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
             <a href="../UIViewController&#39;s protocols.html">UIViewController&#39;s protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
@@ -209,6 +198,15 @@
           <li class="nav-group-name">
             <a href="../Extras.html">Extras</a>
             <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/InlineInterceptor.html">InlineInterceptor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/InlineContextTask.html">InlineContextTask</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/InlinePostTask.html">InlinePostTask</a>
+              </li>
               <li class="nav-group-task">
                 <a href="../Structs/NavigationDelayingInterceptor.html">NavigationDelayingInterceptor</a>
               </li>
@@ -311,6 +309,18 @@
                 <a href="../Protocols/ActionConnecting.html">ActionConnecting</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Protocols/ConcreteContainerAdapter.html">ConcreteContainerAdapter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/ContainerAdapter.html">ContainerAdapter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/ContainerAdapterLocator.html">ContainerAdapterLocator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/CustomContainerViewController.html">CustomContainerViewController</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Protocols/InterceptableRouter.html">InterceptableRouter</a>
               </li>
               <li class="nav-group-task">
@@ -346,6 +356,9 @@
                 <a href="../Structs/CustomWindowProvider.html">CustomWindowProvider</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Structs/DefaultContainerAdapterLocator.html">DefaultContainerAdapterLocator</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Structs/DefaultLogger.html">DefaultLogger</a>
               </li>
               <li class="nav-group-task">
@@ -362,15 +375,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/GeneralAction.html">GeneralAction</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Structs/InlineContextTask.html">InlineContextTask</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Structs/InlineInterceptor.html">InlineInterceptor</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Structs/InlinePostTask.html">InlinePostTask</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/KeyWindowProvider.html">KeyWindowProvider</a>
@@ -391,7 +395,13 @@
                 <a href="../Structs/NavigationControllerActions/PushReplacingLastAction.html">– PushReplacingLastAction</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Structs/NavigationControllerAdapter.html">NavigationControllerAdapter</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Structs/SearchOptions.html">SearchOptions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SplitControllerAdapter.html">SplitControllerAdapter</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/SplitViewControllerActions.html">SplitViewControllerActions</a>
@@ -410,6 +420,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/TabBarControllerActions/AddTabAction.html">– AddTabAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/TabBarControllerAdapter.html">TabBarControllerAdapter</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/ViewControllerActions.html">ViewControllerActions</a>
@@ -557,9 +570,9 @@ be applied to a view controller it should throw an exception.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer11ContextTaskP5apply2on4withy14ViewControllerQz_0C0QztKF"></a>
-                    <a name="//apple_ref/swift/Method/apply(on:with:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer11ContextTaskP5apply2on4withy14ViewControllerQz_0C0QztKF">apply(on:with:)</a>
+                    <a name="/s:13RouteComposer11ContextTaskP7perform2on4withy14ViewControllerQz_0C0QztKF"></a>
+                    <a name="//apple_ref/swift/Method/perform(on:with:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer11ContextTaskP7perform2on4withy14ViewControllerQz_0C0QztKF">perform(on:with:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -575,7 +588,7 @@ or found</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">apply</span><span class="p">(</span><span class="n">on</span> <span class="nv">viewController</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ContextTask.html#/s:13RouteComposer11ContextTaskP14ViewControllerQa">ViewController</a></span><span class="p">,</span> <span class="n">with</span> <span class="nv">context</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ContextTask.html#/s:13RouteComposer11ContextTaskP0C0Qa">Context</a></span><span class="p">)</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">perform</span><span class="p">(</span><span class="n">on</span> <span class="nv">viewController</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ContextTask.html#/s:13RouteComposer11ContextTaskP14ViewControllerQa">ViewController</a></span><span class="p">,</span> <span class="n">with</span> <span class="nv">context</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ContextTask.html#/s:13RouteComposer11ContextTaskP0C0Qa">Context</a></span><span class="p">)</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -616,6 +629,54 @@ or found</p>
               </ul>
             </div>
             <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Helper%20Functions"></a>
+                <a name="//apple_ref/swift/Section/Helper Functions" class="dashAnchor"></a>
+                <a href="#/Helper%20Functions">
+                  <h3 class="section-name">Helper Functions</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer11ContextTaskPAAE7execute2on4withy14ViewControllerQz_0C0QztKF"></a>
+                    <a name="//apple_ref/swift/Method/execute(on:with:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer11ContextTaskPAAE7execute2on4withy14ViewControllerQz_0C0QztKF">execute(on:with:)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Prepares the <code>ContextTask</code> and executes it</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">execute</span><span class="p">(</span><span class="n">on</span> <span class="nv">viewController</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ContextTask.html#/s:13RouteComposer11ContextTaskP14ViewControllerQa">ViewController</a></span><span class="p">,</span> <span class="n">with</span> <span class="nv">context</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ContextTask.html#/s:13RouteComposer11ContextTaskP0C0Qa">Context</a></span><span class="p">)</span> <span class="k">throws</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Helper%20Functions2"></a>
+                <a name="//apple_ref/swift/Section/Helper Functions" class="dashAnchor"></a>
+                <a href="#/Helper%20Functions2">
+                  <h3 class="section-name">Helper Functions</h3>
+                </a>
+              </div>
               <ul>
                 <li class="item">
                   <div>
@@ -656,9 +717,9 @@ be applied to a view controller it should throw an exception.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer11ContextTaskPAAypSg0C0RtzrlE5apply2ony14ViewControllerQz_tKF"></a>
-                    <a name="//apple_ref/swift/Method/apply(on:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer11ContextTaskPAAypSg0C0RtzrlE5apply2ony14ViewControllerQz_tKF">apply(on:)</a>
+                    <a name="/s:13RouteComposer11ContextTaskPAAypSg0C0RtzrlE7perform2ony14ViewControllerQz_tKF"></a>
+                    <a name="//apple_ref/swift/Method/perform(on:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer11ContextTaskPAAypSg0C0RtzrlE7perform2ony14ViewControllerQz_tKF">perform(on:)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -677,7 +738,7 @@ or found</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">apply</span><span class="p">(</span><span class="n">on</span> <span class="nv">viewController</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ContextTask.html#/s:13RouteComposer11ContextTaskP14ViewControllerQa">ViewController</a></span><span class="p">)</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">perform</span><span class="p">(</span><span class="n">on</span> <span class="nv">viewController</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ContextTask.html#/s:13RouteComposer11ContextTaskP14ViewControllerQa">ViewController</a></span><span class="p">)</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -703,9 +764,46 @@ or found</p>
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer11ContextTaskPAAypSg0C0RtzrlE7execute2ony14ViewControllerQz_tKF"></a>
+                    <a name="//apple_ref/swift/Method/execute(on:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer11ContextTaskPAAypSg0C0RtzrlE7execute2ony14ViewControllerQz_tKF">execute(on:)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Prepares the <code>ContextTask</code> and executes it</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">execute</span><span class="p">(</span><span class="n">on</span> <span class="nv">viewController</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ContextTask.html#/s:13RouteComposer11ContextTaskP14ViewControllerQa">ViewController</a></span><span class="p">)</span> <span class="k">throws</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
             <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Helper%20Functions3"></a>
+                <a name="//apple_ref/swift/Section/Helper Functions" class="dashAnchor"></a>
+                <a href="#/Helper%20Functions3">
+                  <h3 class="section-name">Helper Functions</h3>
+                </a>
+              </div>
               <ul>
                 <li class="item">
                   <div>
@@ -746,9 +844,9 @@ be applied to a view controller it should throw an exception.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer11ContextTaskPAAyt0C0RtzrlE5apply2ony14ViewControllerQz_tKF"></a>
-                    <a name="//apple_ref/swift/Method/apply(on:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer11ContextTaskPAAyt0C0RtzrlE5apply2ony14ViewControllerQz_tKF">apply(on:)</a>
+                    <a name="/s:13RouteComposer11ContextTaskPAAyt0C0RtzrlE7perform2ony14ViewControllerQz_tKF"></a>
+                    <a name="//apple_ref/swift/Method/perform(on:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer11ContextTaskPAAyt0C0RtzrlE7perform2ony14ViewControllerQz_tKF">perform(on:)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -767,7 +865,7 @@ or found</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">apply</span><span class="p">(</span><span class="n">on</span> <span class="nv">viewController</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ContextTask.html#/s:13RouteComposer11ContextTaskP14ViewControllerQa">ViewController</a></span><span class="p">)</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">perform</span><span class="p">(</span><span class="n">on</span> <span class="nv">viewController</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ContextTask.html#/s:13RouteComposer11ContextTaskP14ViewControllerQa">ViewController</a></span><span class="p">)</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -793,12 +891,42 @@ or found</p>
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer11ContextTaskPAAyt0C0RtzrlE7execute2ony14ViewControllerQz_tKF"></a>
+                    <a name="//apple_ref/swift/Method/execute(on:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer11ContextTaskPAAyt0C0RtzrlE7execute2ony14ViewControllerQz_tKF">execute(on:)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Prepares the <code>ContextTask</code> and executes it</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">execute</span><span class="p">(</span><span class="n">on</span> <span class="nv">viewController</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ContextTask.html#/s:13RouteComposer11ContextTaskP14ViewControllerQa">ViewController</a></span><span class="p">)</span> <span class="k">throws</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2019-04-22)</p>
+          <p>&copy; 2019 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2019-07-02)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

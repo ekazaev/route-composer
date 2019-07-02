@@ -264,7 +264,7 @@
 </tr>
 <tr class="covered">
 <td class="num">51</td>
-<td class="src"><pre><code class="objc">    public func execute(with context: Any?, completion: @escaping (InterceptorResult) -&gt; Void) {</code></pre></td>
+<td class="src"><pre><code class="objc">    public func perform(with context: Any?, completion: @escaping (RoutingResult) -&gt; Void) {</code></pre></td>
 <td class="coverage">84x</td>
 </tr>
 <tr class="covered">
@@ -279,7 +279,7 @@
 </tr>
 <tr class="covered">
 <td class="num">54</td>
-<td class="src"><pre><code class="objc">            completion(.continueRouting)</code></pre></td>
+<td class="src"><pre><code class="objc">            completion(.success)</code></pre></td>
 <td class="coverage">80x</td>
 </tr>
 <tr class="covered">
@@ -304,7 +304,7 @@
 </tr>
 <tr class="covered">
 <td class="num">59</td>
-<td class="src"><pre><code class="objc">            logger?.log(.info("\(topmostViewController) is changing its state. Navigation has been delayed."))</code></pre></td>
+<td class="src"><pre><code class="objc">            logger?.log(.info("\(topmostViewController) is changing its state. Navigation has been postponed."))</code></pre></td>
 <td class="coverage">4x</td>
 </tr>
 <tr class="covered">
@@ -319,7 +319,7 @@
 </tr>
 <tr class="covered">
 <td class="num">62</td>
-<td class="src"><pre><code class="objc">                self.execute(with: context, completion: completion)</code></pre></td>
+<td class="src"><pre><code class="objc">                self.perform(with: context, completion: completion)</code></pre></td>
 <td class="coverage">4x</td>
 </tr>
 <tr class="covered">

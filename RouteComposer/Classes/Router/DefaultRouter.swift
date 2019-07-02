@@ -8,9 +8,10 @@ import UIKit
 /// Default `Router` implementation
 public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
 
-    /// A `Logger` instance to be used by `DefaultRouter`.
+    /// `Logger` instance to be used by `DefaultRouter`.
     public let logger: Logger?
 
+    /// `ContainerAdapter` instance.
     public let containerAdapterLocator: ContainerAdapterLocator
 
     private var interceptors: [AnyRoutingInterceptor] = []

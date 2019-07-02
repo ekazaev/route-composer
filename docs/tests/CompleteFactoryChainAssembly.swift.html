@@ -74,7 +74,7 @@
 </tr>
 <tr class="never">
 <td class="num">13</td>
-<td class="src"><pre><code class="objc">    private let childFactories: [DelayedIntegrationFactory&lt;FC.Context&gt;]</code></pre></td>
+<td class="src"><pre><code class="objc">    private let childFactories: [PostponedIntegrationFactory&lt;FC.Context&gt;]</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -84,7 +84,7 @@
 </tr>
 <tr class="never">
 <td class="num">15</td>
-<td class="src"><pre><code class="objc">    private let previousChildFactory: DelayedIntegrationFactory&lt;FC.Context&gt;?</code></pre></td>
+<td class="src"><pre><code class="objc">    private let previousChildFactory: PostponedIntegrationFactory&lt;FC.Context&gt;?</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -94,7 +94,7 @@
 </tr>
 <tr class="covered">
 <td class="num">17</td>
-<td class="src"><pre><code class="objc">    private var integratedChildFactories: [DelayedIntegrationFactory&lt;FC.Context&gt;] {</code></pre></td>
+<td class="src"><pre><code class="objc">    private var integratedChildFactories: [PostponedIntegrationFactory&lt;FC.Context&gt;] {</code></pre></td>
 <td class="coverage">6x</td>
 </tr>
 <tr class="covered">
@@ -134,7 +134,7 @@
 </tr>
 <tr class="covered">
 <td class="num">25</td>
-<td class="src"><pre><code class="objc">    init(factory: FC, childFactories: [DelayedIntegrationFactory&lt;FC.Context&gt;], previousChildFactory: DelayedIntegrationFactory&lt;FC.Context&gt;?) {</code></pre></td>
+<td class="src"><pre><code class="objc">    init(factory: FC, childFactories: [PostponedIntegrationFactory&lt;FC.Context&gt;], previousChildFactory: PostponedIntegrationFactory&lt;FC.Context&gt;?) {</code></pre></td>
 <td class="coverage">9x</td>
 </tr>
 <tr class="covered">
@@ -229,7 +229,7 @@
 </tr>
 <tr class="covered">
 <td class="num">44</td>
-<td class="src"><pre><code class="objc">                previousChildFactory: DelayedIntegrationFactory&lt;ChildFC.Context&gt;(factoryBox))</code></pre></td>
+<td class="src"><pre><code class="objc">                previousChildFactory: PostponedIntegrationFactory&lt;ChildFC.Context&gt;(for: factoryBox))</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
@@ -314,7 +314,7 @@
 </tr>
 <tr class="covered">
 <td class="num">61</td>
-<td class="src"><pre><code class="objc">                previousChildFactory: DelayedIntegrationFactory&lt;ChildFC.Context&gt;(factoryBox))</code></pre></td>
+<td class="src"><pre><code class="objc">                previousChildFactory: PostponedIntegrationFactory&lt;ChildFC.Context&gt;(for: factoryBox))</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
@@ -379,7 +379,7 @@
 </tr>
 <tr class="missed">
 <td class="num">74</td>
-<td class="src"><pre><code class="objc">                previousChildFactory: DelayedIntegrationFactory&lt;ChildFC.Context&gt;(factoryBox))</code></pre></td>
+<td class="src"><pre><code class="objc">                previousChildFactory: PostponedIntegrationFactory&lt;ChildFC.Context&gt;(for: factoryBox))</code></pre></td>
 <td class="coverage">!</td>
 </tr>
 <tr class="missed">
@@ -449,7 +449,7 @@
 </tr>
 <tr class="missed">
 <td class="num">88</td>
-<td class="src"><pre><code class="objc">                previousChildFactory: DelayedIntegrationFactory&lt;ChildFC.Context&gt;(factoryBox))</code></pre></td>
+<td class="src"><pre><code class="objc">                previousChildFactory: PostponedIntegrationFactory&lt;ChildFC.Context&gt;(for: factoryBox))</code></pre></td>
 <td class="coverage">!</td>
 </tr>
 <tr class="missed">

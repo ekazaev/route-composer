@@ -144,12 +144,12 @@
 </tr>
 <tr class="covered">
 <td class="num">27</td>
-<td class="src"><pre><code class="objc">    func apply&lt;Context&gt;(on viewController: UIViewController, with context: Context) throws {</code></pre></td>
+<td class="src"><pre><code class="objc">    func perform&lt;Context&gt;(on viewController: UIViewController, with context: Context) throws {</code></pre></td>
 <td class="coverage">17x</td>
 </tr>
 <tr class="covered">
 <td class="num">28</td>
-<td class="src"><pre><code class="objc">        try tasks.forEach({ try $0.apply(on: viewController, with: context) })</code></pre></td>
+<td class="src"><pre><code class="objc">        try tasks.forEach({ try $0.perform(on: viewController, with: context) })</code></pre></td>
 <td class="coverage">32x</td>
 </tr>
 <tr class="covered">

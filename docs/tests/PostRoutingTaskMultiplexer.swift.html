@@ -89,12 +89,12 @@
 </tr>
 <tr class="covered">
 <td class="num">16</td>
-<td class="src"><pre><code class="objc">    func execute&lt;Context&gt;(on viewController: UIViewController, with context: Context, routingStack: [UIViewController]) throws {</code></pre></td>
+<td class="src"><pre><code class="objc">    func perform&lt;Context&gt;(on viewController: UIViewController, with context: Context, routingStack: [UIViewController]) throws {</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">17</td>
-<td class="src"><pre><code class="objc">        try tasks.forEach({ try $0.execute(on: viewController, with: context, routingStack: routingStack) })</code></pre></td>
+<td class="src"><pre><code class="objc">        try tasks.forEach({ try $0.perform(on: viewController, with: context, routingStack: routingStack) })</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">

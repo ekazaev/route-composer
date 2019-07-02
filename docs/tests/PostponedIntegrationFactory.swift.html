@@ -1,16 +1,16 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <html>
 <head>
-<title>DelayedIntegrationFactory.swift - Slather</title>
+<title>PostponedIntegrationFactory.swift - Slather</title>
 <link href="slather.css" media="all" rel="stylesheet">
 </head>
 <body>
 <header><div class="row"><a href="index.html"><img src="logo.jpg" alt="Slather logo"></a></div></header><div class="row"><div id="reports">
 <h2 class="cov_title">
-<span>Coverage for "DelayedIntegrationFactory.swift" : </span><span class="cov_high">100.00%</span>
+<span>Coverage for "PostponedIntegrationFactory.swift" : </span><span class="cov_high">100.00%</span>
 </h2>
 <h4 class="cov_subtitle">(23 of 23 relevant lines covered)</h4>
-<h4 class="cov_filepath">RouteComposer/Classes/Router/Internal/DelayedIntegrationFactory.swift</h4>
+<h4 class="cov_filepath">RouteComposer/Classes/Router/Internal/PostponedIntegrationFactory.swift</h4>
 <table class="source_code">
 <tr class="never">
 <td class="num">1</td>
@@ -19,7 +19,7 @@
 </tr>
 <tr class="never">
 <td class="num">2</td>
-<td class="src"><pre><code class="objc">//  DelayedIntegrationFactory.swift</code></pre></td>
+<td class="src"><pre><code class="objc">//  PostponedIntegrationFactory.swift</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -64,7 +64,7 @@
 </tr>
 <tr class="never">
 <td class="num">11</td>
-<td class="src"><pre><code class="objc">struct DelayedIntegrationFactory&lt;Context&gt;: CustomStringConvertible {</code></pre></td>
+<td class="src"><pre><code class="objc">struct PostponedIntegrationFactory&lt;Context&gt;: CustomStringConvertible {</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -94,7 +94,7 @@
 </tr>
 <tr class="covered">
 <td class="num">17</td>
-<td class="src"><pre><code class="objc">    init(_ factory: AnyFactory, contextTasks: [AnyContextTask] = []) {</code></pre></td>
+<td class="src"><pre><code class="objc">    init(for factory: AnyFactory, with contextTasks: [AnyContextTask] = []) {</code></pre></td>
 <td class="coverage">56x</td>
 </tr>
 <tr class="covered">
@@ -194,7 +194,7 @@
 </tr>
 <tr class="covered">
 <td class="num">37</td>
-<td class="src"><pre><code class="objc">        try contextTasks.forEach({ try $0.apply(on: viewController, with: context)})</code></pre></td>
+<td class="src"><pre><code class="objc">        try contextTasks.forEach({ try $0.perform(on: viewController, with: context) })</code></pre></td>
 <td class="coverage">50x</td>
 </tr>
 <tr class="covered">

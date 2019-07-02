@@ -60,6 +60,9 @@
               <li class="nav-group-task">
                 <a href="Protocols/ContainerAction.html">ContainerAction</a>
               </li>
+              <li class="nav-group-task">
+                <a href="Enums/RoutingResult.html">RoutingResult</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -171,20 +174,6 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="Resulting Enums.html">Resulting Enums</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="Enums/RoutingResult.html">RoutingResult</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Enums/ActionResult.html">ActionResult</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Enums/InterceptorResult.html">InterceptorResult</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
             <a href="UIViewController&#39;s protocols.html">UIViewController&#39;s protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
@@ -209,6 +198,15 @@
           <li class="nav-group-name">
             <a href="Extras.html">Extras</a>
             <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Structs/InlineInterceptor.html">InlineInterceptor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/InlineContextTask.html">InlineContextTask</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/InlinePostTask.html">InlinePostTask</a>
+              </li>
               <li class="nav-group-task">
                 <a href="Structs/NavigationDelayingInterceptor.html">NavigationDelayingInterceptor</a>
               </li>
@@ -311,6 +309,18 @@
                 <a href="Protocols/ActionConnecting.html">ActionConnecting</a>
               </li>
               <li class="nav-group-task">
+                <a href="Protocols/ConcreteContainerAdapter.html">ConcreteContainerAdapter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/ContainerAdapter.html">ContainerAdapter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/ContainerAdapterLocator.html">ContainerAdapterLocator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/CustomContainerViewController.html">CustomContainerViewController</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Protocols/InterceptableRouter.html">InterceptableRouter</a>
               </li>
               <li class="nav-group-task">
@@ -346,6 +356,9 @@
                 <a href="Structs/CustomWindowProvider.html">CustomWindowProvider</a>
               </li>
               <li class="nav-group-task">
+                <a href="Structs/DefaultContainerAdapterLocator.html">DefaultContainerAdapterLocator</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Structs/DefaultLogger.html">DefaultLogger</a>
               </li>
               <li class="nav-group-task">
@@ -362,15 +375,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="Structs/GeneralAction.html">GeneralAction</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Structs/InlineContextTask.html">InlineContextTask</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Structs/InlineInterceptor.html">InlineInterceptor</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Structs/InlinePostTask.html">InlinePostTask</a>
               </li>
               <li class="nav-group-task">
                 <a href="Structs/KeyWindowProvider.html">KeyWindowProvider</a>
@@ -391,7 +395,13 @@
                 <a href="Structs/NavigationControllerActions/PushReplacingLastAction.html">– PushReplacingLastAction</a>
               </li>
               <li class="nav-group-task">
+                <a href="Structs/NavigationControllerAdapter.html">NavigationControllerAdapter</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Structs/SearchOptions.html">SearchOptions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/SplitControllerAdapter.html">SplitControllerAdapter</a>
               </li>
               <li class="nav-group-task">
                 <a href="Structs/SplitViewControllerActions.html">SplitViewControllerActions</a>
@@ -410,6 +420,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Structs/TabBarControllerActions/AddTabAction.html">– AddTabAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/TabBarControllerAdapter.html">TabBarControllerAdapter</a>
               </li>
               <li class="nav-group-task">
                 <a href="Structs/ViewControllerActions.html">ViewControllerActions</a>
@@ -436,9 +449,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@M@RouteComposer@objc(pl)RoutingInterceptable"></a>
+                    <a name="/s:13RouteComposer20RoutingInterceptableP"></a>
                     <a name="//apple_ref/swift/Protocol/RoutingInterceptable" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@M@RouteComposer@objc(pl)RoutingInterceptable">RoutingInterceptable</a>
+                    <a class="token" href="#/s:13RouteComposer20RoutingInterceptableP">RoutingInterceptable</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -456,8 +469,7 @@ Return false if the view controller can be dismissed.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@objc</span>
-<span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">RoutingInterceptable</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">RoutingInterceptable</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
 
                         </div>
                       </div>
@@ -471,9 +483,9 @@ Return false if the view controller can be dismissed.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@M@RouteComposer@objc(pl)ContainerViewController"></a>
+                    <a name="/s:13RouteComposer23ContainerViewControllerP"></a>
                     <a name="//apple_ref/swift/Protocol/ContainerViewController" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@M@RouteComposer@objc(pl)ContainerViewController">ContainerViewController</a>
+                    <a class="token" href="#/s:13RouteComposer23ContainerViewControllerP">ContainerViewController</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -481,8 +493,10 @@ Return false if the view controller can be dismissed.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>All the container view controllers should conform to this protocol. The <code><a href="Protocols/Router.html">Router</a></code> will ask them to make
-one of the view controllers that they contain visible</p>
+                        <p>All the container view controllers should conform to this protocol.</p>
+
+<p>All the methods <code>ContainerViewController</code> supports are implemented in corresponding <code><a href="Protocols/ContainerAdapter.html">ContainerAdapter</a></code>
+provided by <code><a href="Protocols/ContainerAdapterLocator.html">ContainerAdapterLocator</a></code>.</p>
 
                         <a href="Protocols/ContainerViewController.html" class="slightly-smaller">See more</a>
                       </div>
@@ -490,8 +504,7 @@ one of the view controllers that they contain visible</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@objc</span>
-<span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">ContainerViewController</span> <span class="p">:</span> <span class="kt"><a href="Protocols/RoutingInterceptable.html">RoutingInterceptable</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">ContainerViewController</span> <span class="p">:</span> <span class="kt"><a href="Protocols/RoutingInterceptable.html">RoutingInterceptable</a></span></code></pre>
 
                         </div>
                       </div>
@@ -503,7 +516,7 @@ one of the view controllers that they contain visible</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2019-04-22)</p>
+          <p>&copy; 2019 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2019-07-02)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

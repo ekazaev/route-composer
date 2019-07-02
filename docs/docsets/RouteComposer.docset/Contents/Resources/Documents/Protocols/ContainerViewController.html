@@ -60,6 +60,9 @@
               <li class="nav-group-task">
                 <a href="../Protocols/ContainerAction.html">ContainerAction</a>
               </li>
+              <li class="nav-group-task">
+                <a href="../Enums/RoutingResult.html">RoutingResult</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -171,20 +174,6 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="../Resulting Enums.html">Resulting Enums</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="../Enums/RoutingResult.html">RoutingResult</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Enums/ActionResult.html">ActionResult</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Enums/InterceptorResult.html">InterceptorResult</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
             <a href="../UIViewController&#39;s protocols.html">UIViewController&#39;s protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
@@ -209,6 +198,15 @@
           <li class="nav-group-name">
             <a href="../Extras.html">Extras</a>
             <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/InlineInterceptor.html">InlineInterceptor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/InlineContextTask.html">InlineContextTask</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/InlinePostTask.html">InlinePostTask</a>
+              </li>
               <li class="nav-group-task">
                 <a href="../Structs/NavigationDelayingInterceptor.html">NavigationDelayingInterceptor</a>
               </li>
@@ -311,6 +309,18 @@
                 <a href="../Protocols/ActionConnecting.html">ActionConnecting</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Protocols/ConcreteContainerAdapter.html">ConcreteContainerAdapter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/ContainerAdapter.html">ContainerAdapter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/ContainerAdapterLocator.html">ContainerAdapterLocator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/CustomContainerViewController.html">CustomContainerViewController</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Protocols/InterceptableRouter.html">InterceptableRouter</a>
               </li>
               <li class="nav-group-task">
@@ -346,6 +356,9 @@
                 <a href="../Structs/CustomWindowProvider.html">CustomWindowProvider</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Structs/DefaultContainerAdapterLocator.html">DefaultContainerAdapterLocator</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Structs/DefaultLogger.html">DefaultLogger</a>
               </li>
               <li class="nav-group-task">
@@ -362,15 +375,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/GeneralAction.html">GeneralAction</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Structs/InlineContextTask.html">InlineContextTask</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Structs/InlineInterceptor.html">InlineInterceptor</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Structs/InlinePostTask.html">InlinePostTask</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/KeyWindowProvider.html">KeyWindowProvider</a>
@@ -391,7 +395,13 @@
                 <a href="../Structs/NavigationControllerActions/PushReplacingLastAction.html">– PushReplacingLastAction</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Structs/NavigationControllerAdapter.html">NavigationControllerAdapter</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Structs/SearchOptions.html">SearchOptions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SplitControllerAdapter.html">SplitControllerAdapter</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/SplitViewControllerActions.html">SplitViewControllerActions</a>
@@ -412,6 +422,9 @@
                 <a href="../Structs/TabBarControllerActions/AddTabAction.html">– AddTabAction</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Structs/TabBarControllerAdapter.html">TabBarControllerAdapter</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Structs/ViewControllerActions.html">ViewControllerActions</a>
               </li>
               <li class="nav-group-task">
@@ -430,192 +443,17 @@
             <h1>ContainerViewController</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">@objc</span>
-<span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">ContainerViewController</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/RoutingInterceptable.html">RoutingInterceptable</a></span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">ContainerViewController</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/RoutingInterceptable.html">RoutingInterceptable</a></span></code></pre>
 
                 </div>
               </div>
-            <p>All the container view controllers should conform to this protocol. The <code><a href="../Protocols/Router.html">Router</a></code> will ask them to make
-one of the view controllers that they contain visible</p>
+            <p>All the container view controllers should conform to this protocol.</p>
+
+<p>All the methods <code>ContainerViewController</code> supports are implemented in corresponding <code><a href="../Protocols/ContainerAdapter.html">ContainerAdapter</a></code>
+provided by <code><a href="../Protocols/ContainerAdapterLocator.html">ContainerAdapterLocator</a></code>.</p>
 
           </section>
           <section class="section task-group-section">
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:@M@RouteComposer@objc(pl)ContainerViewController(py)containedViewControllers"></a>
-                    <a name="//apple_ref/swift/Property/containedViewControllers" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@M@RouteComposer@objc(pl)ContainerViewController(py)containedViewControllers">containedViewControllers</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>A <code>UIViewController</code> instances that <code>ContainerViewController</code> currently has in the stack</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">containedViewControllers</span><span class="p">:</span> <span class="p">[</span><span class="kt">UIViewController</span><span class="p">]</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:@M@RouteComposer@objc(pl)ContainerViewController(py)visibleViewControllers"></a>
-                    <a name="//apple_ref/swift/Property/visibleViewControllers" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@M@RouteComposer@objc(pl)ContainerViewController(py)visibleViewControllers">visibleViewControllers</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>A <code>UIViewController</code> instances out of the <code><a href="../Protocols/ContainerViewController.html#/c:@M@RouteComposer@objc(pl)ContainerViewController(py)containedViewControllers">containedViewControllers</a></code> that are currently visible on the screen</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">visibleViewControllers</span><span class="p">:</span> <span class="p">[</span><span class="kt">UIViewController</span><span class="p">]</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:@M@RouteComposer@objc(pl)ContainerViewController(im)makeVisible:animated:"></a>
-                    <a name="//apple_ref/swift/Method/makeVisible(_:animated:)" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@M@RouteComposer@objc(pl)ContainerViewController(im)makeVisible:animated:">makeVisible(_:animated:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Each container view controller should implement this method for the <code><a href="../Protocols/Router.html">Router</a></code> to know how to make
-its particular child view controller visible.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">makeVisible</span><span class="p">(</span><span class="n">_</span> <span class="nv">viewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>viewController</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The <code>UIViewController</code> to make active (visible).</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>animated</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>If <code>ContainerViewController</code> is able to do so - make container active animated or not.</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:@M@RouteComposer@objc(pl)ContainerViewController(im)replaceWithContainedViewControllers:animated:completion:"></a>
-                    <a name="//apple_ref/swift/Method/replace(containedViewControllers:animated:completion:)" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@M@RouteComposer@objc(pl)ContainerViewController(im)replaceWithContainedViewControllers:animated:completion:">replace(containedViewControllers:animated:completion:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Each container view controller should this method for the <code><a href="../Protocols/Router.html">Router</a></code> to know how to replace all the
-view controllers in this particular container.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">replace</span><span class="p">(</span><span class="nv">containedViewControllers</span><span class="p">:</span> <span class="p">[</span><span class="kt">UIViewController</span><span class="p">],</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>containedViewControllers</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>A <code>UIViewController</code> instances to replace.</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>animated</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>If <code>ContainerViewController</code> is able to do so - replace contained view controllers animated or not.</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
             <div class="task-group">
               <ul>
                 <li class="item">
@@ -854,7 +692,7 @@ will be added after the latest one.</li>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2019-04-22)</p>
+          <p>&copy; 2019 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2019-07-02)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

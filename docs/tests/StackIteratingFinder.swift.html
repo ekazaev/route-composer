@@ -179,7 +179,7 @@
 </tr>
 <tr class="covered">
 <td class="num">34</td>
-<td class="src"><pre><code class="objc">    func findViewController(with context: Context) -&gt; ViewController? {</code></pre></td>
+<td class="src"><pre><code class="objc">    func findViewController(with context: Context) throws -&gt; ViewController? {</code></pre></td>
 <td class="coverage">149x</td>
 </tr>
 <tr class="covered">
@@ -219,7 +219,7 @@
 </tr>
 <tr class="covered">
 <td class="num">42</td>
-<td class="src"><pre><code class="objc">        return iterator.firstViewController(where: predicate) as? ViewController</code></pre></td>
+<td class="src"><pre><code class="objc">        return try iterator.firstViewController(where: predicate) as? ViewController</code></pre></td>
 <td class="coverage">149x</td>
 </tr>
 <tr class="covered">

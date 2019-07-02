@@ -60,6 +60,9 @@
               <li class="nav-group-task">
                 <a href="Protocols/ContainerAction.html">ContainerAction</a>
               </li>
+              <li class="nav-group-task">
+                <a href="Enums/RoutingResult.html">RoutingResult</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -171,20 +174,6 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="Resulting Enums.html">Resulting Enums</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="Enums/RoutingResult.html">RoutingResult</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Enums/ActionResult.html">ActionResult</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Enums/InterceptorResult.html">InterceptorResult</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
             <a href="UIViewController&#39;s protocols.html">UIViewController&#39;s protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
@@ -209,6 +198,15 @@
           <li class="nav-group-name">
             <a href="Extras.html">Extras</a>
             <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Structs/InlineInterceptor.html">InlineInterceptor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/InlineContextTask.html">InlineContextTask</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/InlinePostTask.html">InlinePostTask</a>
+              </li>
               <li class="nav-group-task">
                 <a href="Structs/NavigationDelayingInterceptor.html">NavigationDelayingInterceptor</a>
               </li>
@@ -311,6 +309,18 @@
                 <a href="Protocols/ActionConnecting.html">ActionConnecting</a>
               </li>
               <li class="nav-group-task">
+                <a href="Protocols/ConcreteContainerAdapter.html">ConcreteContainerAdapter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/ContainerAdapter.html">ContainerAdapter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/ContainerAdapterLocator.html">ContainerAdapterLocator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/CustomContainerViewController.html">CustomContainerViewController</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Protocols/InterceptableRouter.html">InterceptableRouter</a>
               </li>
               <li class="nav-group-task">
@@ -346,6 +356,9 @@
                 <a href="Structs/CustomWindowProvider.html">CustomWindowProvider</a>
               </li>
               <li class="nav-group-task">
+                <a href="Structs/DefaultContainerAdapterLocator.html">DefaultContainerAdapterLocator</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Structs/DefaultLogger.html">DefaultLogger</a>
               </li>
               <li class="nav-group-task">
@@ -362,15 +375,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="Structs/GeneralAction.html">GeneralAction</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Structs/InlineContextTask.html">InlineContextTask</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Structs/InlineInterceptor.html">InlineInterceptor</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Structs/InlinePostTask.html">InlinePostTask</a>
               </li>
               <li class="nav-group-task">
                 <a href="Structs/KeyWindowProvider.html">KeyWindowProvider</a>
@@ -391,7 +395,13 @@
                 <a href="Structs/NavigationControllerActions/PushReplacingLastAction.html">– PushReplacingLastAction</a>
               </li>
               <li class="nav-group-task">
+                <a href="Structs/NavigationControllerAdapter.html">NavigationControllerAdapter</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Structs/SearchOptions.html">SearchOptions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/SplitControllerAdapter.html">SplitControllerAdapter</a>
               </li>
               <li class="nav-group-task">
                 <a href="Structs/SplitViewControllerActions.html">SplitViewControllerActions</a>
@@ -410,6 +420,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Structs/TabBarControllerActions/AddTabAction.html">– AddTabAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/TabBarControllerAdapter.html">TabBarControllerAdapter</a>
               </li>
               <li class="nav-group-task">
                 <a href="Structs/ViewControllerActions.html">ViewControllerActions</a>
@@ -580,6 +593,134 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ViewControllerActions</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer30DefaultContainerAdapterLocatorV"></a>
+                    <a name="//apple_ref/swift/Struct/DefaultContainerAdapterLocator" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer30DefaultContainerAdapterLocatorV">DefaultContainerAdapterLocator</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Default implementation of <code><a href="Protocols/ContainerAdapterLocator.html">ContainerAdapterLocator</a></code></p>
+
+                        <a href="Structs/DefaultContainerAdapterLocator.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DefaultContainerAdapterLocator</span> <span class="p">:</span> <span class="kt"><a href="Protocols/ContainerAdapterLocator.html">ContainerAdapterLocator</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer27NavigationControllerAdapterV"></a>
+                    <a name="//apple_ref/swift/Struct/NavigationControllerAdapter" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer27NavigationControllerAdapterV">NavigationControllerAdapter</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Default <code><a href="Protocols/ContainerAdapter.html">ContainerAdapter</a></code> for <code>UINavigationController</code></p>
+
+                        <a href="Structs/NavigationControllerAdapter.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">NavigationControllerAdapter</span><span class="o">&lt;</span><span class="kt">VC</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Protocols/ConcreteContainerAdapter.html">ConcreteContainerAdapter</a></span> <span class="k">where</span> <span class="kt">VC</span> <span class="p">:</span> <span class="kt">UINavigationController</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer22SplitControllerAdapterV"></a>
+                    <a name="//apple_ref/swift/Struct/SplitControllerAdapter" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer22SplitControllerAdapterV">SplitControllerAdapter</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Default <code><a href="Protocols/ContainerAdapter.html">ContainerAdapter</a></code> for <code>UISplitViewController</code></p>
+
+                        <a href="Structs/SplitControllerAdapter.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">SplitControllerAdapter</span><span class="o">&lt;</span><span class="kt">VC</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Protocols/ConcreteContainerAdapter.html">ConcreteContainerAdapter</a></span> <span class="k">where</span> <span class="kt">VC</span> <span class="p">:</span> <span class="kt">UISplitViewController</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer23TabBarControllerAdapterV"></a>
+                    <a name="//apple_ref/swift/Struct/TabBarControllerAdapter" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer23TabBarControllerAdapterV">TabBarControllerAdapter</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Default <code><a href="Protocols/ContainerAdapter.html">ContainerAdapter</a></code> for <code>UITabBarController</code></p>
+
+                        <a href="Structs/TabBarControllerAdapter.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">TabBarControllerAdapter</span><span class="o">&lt;</span><span class="kt">VC</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Protocols/ConcreteContainerAdapter.html">ConcreteContainerAdapter</a></span> <span class="k">where</span> <span class="kt">VC</span> <span class="p">:</span> <span class="kt">UITabBarController</span></code></pre>
 
                         </div>
                       </div>
@@ -882,103 +1023,6 @@ pre-populate the children view controllers instead of the <code><a href="Protoco
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer17InlineInterceptorV"></a>
-                    <a name="//apple_ref/swift/Struct/InlineInterceptor" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer17InlineInterceptorV">InlineInterceptor</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p><code>InlineInterceptor</code></p>
-
-<p><strong>NB:</strong> It may be used for the purpose of configuration testing, but then replaced with a strongly typed
-<code><a href="Protocols/RoutingInterceptor.html">RoutingInterceptor</a></code> instance.</p>
-
-                        <a href="Structs/InlineInterceptor.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">InlineInterceptor</span><span class="o">&lt;</span><span class="kt">C</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Protocols/RoutingInterceptor.html">RoutingInterceptor</a></span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:13RouteComposer17InlineContextTaskV"></a>
-                    <a name="//apple_ref/swift/Struct/InlineContextTask" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer17InlineContextTaskV">InlineContextTask</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p><code>InlineContextTask</code></p>
-
-<p><strong>NB:</strong> It may be used for the purpose of configuration testing, but then replaced with a strongly typed
-<code><a href="Protocols/RoutingInterceptor.html">RoutingInterceptor</a></code> instance.</p>
-
-                        <a href="Structs/InlineContextTask.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">InlineContextTask</span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Protocols/ContextTask.html">ContextTask</a></span> <span class="k">where</span> <span class="kt">VC</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:13RouteComposer14InlinePostTaskV"></a>
-                    <a name="//apple_ref/swift/Struct/InlinePostTask" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer14InlinePostTaskV">InlinePostTask</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p><code>InlinePostTask</code> is the inline context task.</p>
-
-<p><strong>NB:</strong> It may be used for the purpose of configuration testing, but then replaced with a strongly typed
-<code><a href="Protocols/PostRoutingTask.html">PostRoutingTask</a></code> instance.</p>
-
-                        <a href="Structs/InlinePostTask.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">InlinePostTask</span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Protocols/PostRoutingTask.html">PostRoutingTask</a></span> <span class="k">where</span> <span class="kt">VC</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
                     <a name="/s:13RouteComposer13DefaultLoggerV"></a>
                     <a name="//apple_ref/swift/Struct/DefaultLogger" class="dashAnchor"></a>
                     <a class="token" href="#/s:13RouteComposer13DefaultLoggerV">DefaultLogger</a>
@@ -1073,7 +1117,7 @@ pre-populate the children view controllers instead of the <code><a href="Protoco
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2019-04-22)</p>
+          <p>&copy; 2019 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2019-07-02)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

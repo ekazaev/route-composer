@@ -84,7 +84,7 @@
 </tr>
 <tr class="never">
 <td class="num">15</td>
-<td class="src"><pre><code class="objc">    var children: [DelayedIntegrationFactory&lt;FactoryType.Context&gt;] = []</code></pre></td>
+<td class="src"><pre><code class="objc">    var children: [PostponedIntegrationFactory&lt;FactoryType.Context&gt;] = []</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -159,7 +159,7 @@
 </tr>
 <tr class="covered">
 <td class="num">30</td>
-<td class="src"><pre><code class="objc">        self.children = factories.compactMap({ child -&gt; DelayedIntegrationFactory&lt;FactoryType.Context&gt;? in</code></pre></td>
+<td class="src"><pre><code class="objc">        self.children = factories.compactMap({ child -&gt; PostponedIntegrationFactory&lt;FactoryType.Context&gt;? in</code></pre></td>
 <td class="coverage">41x</td>
 </tr>
 <tr class="covered">
@@ -189,7 +189,7 @@
 </tr>
 <tr class="covered">
 <td class="num">36</td>
-<td class="src"><pre><code class="objc">            return DelayedIntegrationFactory(child)</code></pre></td>
+<td class="src"><pre><code class="objc">            return PostponedIntegrationFactory(for: child)</code></pre></td>
 <td class="coverage">33x</td>
 </tr>
 <tr class="covered">
