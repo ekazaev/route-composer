@@ -50,7 +50,6 @@ class RouterTests: XCTestCase {
 
     // View Controller to present
     class TestViewController: UIViewController {
-
     }
 
     // Factory that produces TestViewController
@@ -84,7 +83,7 @@ class RouterTests: XCTestCase {
             self.currentViewController = currentViewController
         }
 
-        func findViewController(with context: C) -> VC? {
+        func findViewController(with context: C) throws -> VC? {
             return currentViewController
         }
     }
@@ -92,9 +91,9 @@ class RouterTests: XCTestCase {
     // Fakes modal presentation action using `TestModalPresentableController`
     struct FakePresentModallyAction: Action {
         // We can not present modally on the view controllers that are not in the window hierarchy - so we will just fake this action
-        func perform(with viewController: UIViewController, on existingController: TestModalPresentableController, animated: Bool, completion: @escaping (ActionResult) -> Void) {
+        func perform(with viewController: UIViewController, on existingController: TestModalPresentableController, animated: Bool, completion: @escaping (RoutingResult) -> Void) {
             existingController.fakePresentedViewController = viewController
-            completion(.continueRouting)
+            completion(.success)
         }
 
     }
@@ -198,7 +197,7 @@ class RouterTests: XCTestCase {
             func perform(with viewController: UIViewController,
                          on existingController: TestModalPresentableController,
                          animated: Bool,
-                         completion: @escaping (ActionResult) -> Void) {
+                         completion: @escaping (RoutingResult) -> Void) {
                 completion(.failure(RoutingError.generic(.init("Some error occurred"))))
             }
 
@@ -255,7 +254,7 @@ class RouterTests: XCTestCase {
                 throw RoutingError.generic(.init("Should be handler synchronously"))
             }
 
-            func apply(on viewController: VC, with context: C) throws {
+            func perform(on viewController: VC, with context: C) throws {
                 throw RoutingError.generic(.init("Should be handler synchronously"))
             }
         }
@@ -302,9 +301,9 @@ class RouterTests: XCTestCase {
         var router = self.router
         router.add(InlineInterceptor(prepare: { (_: Any?) throws in
             globalInterceptorPrepared += 1
-        }, { (_: Any?, completion: @escaping (InterceptorResult) -> Void) in
+        }, { (_: Any?, completion: @escaping (RoutingResult) -> Void) in
             globalInterceptorRun += 1
-            completion(.continueRouting)
+            completion(.success)
         }))
         router.add(InlineContextTask({ (_: UIViewController, _: Any?) in
             globalTaskRun += 1
@@ -339,10 +338,27 @@ class RouterTests: XCTestCase {
 
     func testAnyOrVoidMethods() {
         let router: Router = DefaultRouter()
-        let screenConfig = StepAssembly(finder: NilFinder<UIViewController, Void>(), factory: NilFactory())
+        let screenConfigVoid = StepAssembly(finder: NilFinder<UIViewController, Void>(), factory: NilFactory())
                 .from(GeneralStep.custom(using: NilFinder<UIViewController, Void>()))
                 .assemble()
-        XCTAssertThrowsError(try router.navigate(to: screenConfig, animated: false, completion: nil))
+        XCTAssertThrowsError(try router.navigate(to: screenConfigVoid, animated: false, completion: nil))
+        var wasInCompletion = false
+        router.commitNavigation(to: screenConfigVoid, animated: false) { result in
+            wasInCompletion = true
+            XCTAssertFalse(result.isSuccessful)
+        }
+        XCTAssertTrue(wasInCompletion)
+
+        let screenConfigAny = StepAssembly(finder: NilFinder<UIViewController, Any?>(), factory: NilFactory())
+                .from(GeneralStep.custom(using: NilFinder<UIViewController, Any?>()))
+                .assemble()
+        XCTAssertThrowsError(try router.navigate(to: screenConfigAny, animated: false, completion: nil))
+        wasInCompletion = false
+        router.commitNavigation(to: screenConfigAny, animated: false) { result in
+            wasInCompletion = true
+            XCTAssertFalse(result.isSuccessful)
+        }
+        XCTAssertTrue(wasInCompletion)
     }
 
 }

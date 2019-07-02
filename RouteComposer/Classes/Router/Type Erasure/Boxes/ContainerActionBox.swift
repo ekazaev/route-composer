@@ -14,37 +14,47 @@ struct ContainerActionBox<A: ContainerAction>: AnyAction, AnyActionBox, CustomSt
 
     func perform(with viewController: UIViewController,
                  on existingController: UIViewController,
-                 with delayedIntegrationHandler: DelayedActionIntegrationHandler,
+                 with postponedIntegrationHandler: PostponedActionIntegrationHandler,
                  nextAction: AnyAction?,
                  animated: Bool,
-                 completion: @escaping (ActionResult) -> Void) {
+                 completion: @escaping (RoutingResult) -> Void) {
         assertIfNotMainThread()
-        if let delayedController = delayedIntegrationHandler.containerViewController {
-            guard delayedController is A.ViewController else {
-                delayedIntegrationHandler.purge(animated: animated, completion: {
+        if let postponedController = postponedIntegrationHandler.containerViewController {
+            guard postponedController is A.ViewController else {
+                postponedIntegrationHandler.purge(animated: animated, completion: { result in
+                    guard result.isSuccessful else {
+                        return completion(result)
+                    }
                     self.perform(with: viewController,
                             on: existingController,
-                            with: delayedIntegrationHandler,
+                            with: postponedIntegrationHandler,
                             nextAction: nextAction,
                             animated: animated,
                             completion: completion)
                 })
                 return
             }
-            embed(viewController: viewController, with: delayedIntegrationHandler, completion: completion)
+            embed(viewController: viewController, with: postponedIntegrationHandler, completion: completion)
         } else {
             guard let containerController: A.ViewController = UIViewController.findContainer(of: existingController) else {
                 completion(.failure(RoutingError.typeMismatch(ActionType.ViewController.self, .init("Container of " +
-                        "\(String(describing: ActionType.ViewController.self)) type cannot be found to perform \(action)"))))
+                        "\(String(describing: ActionType.ViewController.self)) type cannot be found in the parents of " +
+                        "\(String(describing: existingController)) to perform \(action)"))))
                 return
             }
             let shouldDelayPerforming = nextAction?.isEmbeddable(to: A.ViewController.self) ?? false
             if shouldDelayPerforming {
-                delayedIntegrationHandler.update(containerViewController: containerController, animated: animated, completion: {
-                    self.embed(viewController: viewController, with: delayedIntegrationHandler, completion: completion)
+                postponedIntegrationHandler.update(containerViewController: containerController, animated: animated, completion: { result in
+                    guard result.isSuccessful else {
+                        return completion(result)
+                    }
+                    self.embed(viewController: viewController, with: postponedIntegrationHandler, completion: completion)
                 })
             } else {
-                delayedIntegrationHandler.purge(animated: animated, completion: {
+                postponedIntegrationHandler.purge(animated: animated, completion: { result in
+                    guard result.isSuccessful else {
+                        return completion(result)
+                    }
                     self.action.perform(with: viewController, on: containerController, animated: animated) { result in
                         self.assertIfNotMainThread()
                         completion(result)
@@ -54,13 +64,13 @@ struct ContainerActionBox<A: ContainerAction>: AnyAction, AnyActionBox, CustomSt
         }
     }
 
-    private func embed(viewController: UIViewController, with delayedIntegrationHandler: DelayedActionIntegrationHandler, completion: @escaping (ActionResult) -> Void) {
+    private func embed(viewController: UIViewController, with postponedIntegrationHandler: PostponedActionIntegrationHandler, completion: @escaping (RoutingResult) -> Void) {
         do {
-            var delayedChildControllers = delayedIntegrationHandler.delayedViewControllers
-            try perform(embedding: viewController, in: &delayedChildControllers)
-            delayedIntegrationHandler.update(delayedViewControllers: delayedChildControllers)
-            completion(.continueRouting)
-        } catch let error {
+            var postponedChildControllers = postponedIntegrationHandler.postponedViewControllers
+            try perform(embedding: viewController, in: &postponedChildControllers)
+            postponedIntegrationHandler.update(postponedViewControllers: postponedChildControllers)
+            completion(.success)
+        } catch {
             completion(.failure(error))
         }
     }

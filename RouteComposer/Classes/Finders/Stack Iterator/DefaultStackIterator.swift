@@ -22,7 +22,7 @@ public struct DefaultStackIterator: StackIterator {
         case root
 
         /// Start from the custom `UIViewController`
-        case custom(@autoclosure () -> UIViewController?)
+        case custom(@autoclosure () throws -> UIViewController?)
 
         public static func == (lhs: StartingPoint, rhs: StartingPoint) -> Bool {
             switch (lhs, rhs) {
@@ -31,7 +31,11 @@ public struct DefaultStackIterator: StackIterator {
             case (.topmost, .topmost):
                 return true
             case let (.custom(lvc), .custom(rvc)):
-                return lvc() === rvc()
+                do {
+                    return try lvc() === rvc()
+                } catch {
+                    return false
+                }
             default:
                 return false
             }
@@ -48,34 +52,43 @@ public struct DefaultStackIterator: StackIterator {
     /// `WindowProvider` to get proper `UIWindow`
     public let windowProvider: WindowProvider
 
-    var startingViewController: UIViewController? {
+    public let containerAdapterLocator: ContainerAdapterLocator
+
+    /// Constructor
+    public init(options: SearchOptions = .fullStack,
+                startingPoint: StartingPoint = .topmost,
+                windowProvider: WindowProvider = KeyWindowProvider(),
+                containerAdapterLocator: ContainerAdapterLocator = DefaultContainerAdapterLocator()) {
+        self.startingPoint = startingPoint
+        self.options = options
+        self.windowProvider = windowProvider
+        self.containerAdapterLocator = containerAdapterLocator
+    }
+
+    /// Returns `UIViewController` instance if found
+    ///
+    /// - Parameter predicate: A block that contains `UIViewController` matching condition
+    public func firstViewController(where predicate: (UIViewController) -> Bool) throws -> UIViewController? {
+        guard let rootViewController = try getStartingViewController(),
+              let viewController = try UIViewController.findViewController(in: rootViewController,
+                      options: options,
+                      containerAdapterLocator: containerAdapterLocator,
+                      using: predicate) else {
+            return nil
+        }
+
+        return viewController
+    }
+
+    func getStartingViewController() throws -> UIViewController? {
         switch startingPoint {
         case .topmost:
             return windowProvider.window?.topmostViewController
         case .root:
             return windowProvider.window?.rootViewController
         case let .custom(viewControllerClosure):
-            return viewControllerClosure()
+            return try viewControllerClosure()
         }
-    }
-
-    /// Constructor
-    public init(options: SearchOptions = .fullStack, startingPoint: StartingPoint = .topmost, windowProvider: WindowProvider = KeyWindowProvider()) {
-        self.startingPoint = startingPoint
-        self.options = options
-        self.windowProvider = windowProvider
-    }
-
-    /// Returns `UIViewController` instance if found
-    ///
-    /// - Parameter predicate: A block that contains `UIViewController` matching condition
-    public func firstViewController(where predicate: (UIViewController) -> Bool) -> UIViewController? {
-        guard let rootViewController = startingViewController,
-              let viewController = UIViewController.findViewController(in: rootViewController, options: options, using: predicate) else {
-            return nil
-        }
-
-        return viewController
     }
 
 }

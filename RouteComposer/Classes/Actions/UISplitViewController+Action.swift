@@ -37,9 +37,9 @@ public struct SplitViewControllerActions {
         public func perform(with viewController: UIViewController,
                             on splitViewController: ViewController,
                             animated: Bool,
-                            completion: @escaping (_: ActionResult) -> Void) {
+                            completion: @escaping (_: RoutingResult) -> Void) {
             integrate(viewController: viewController, in: &splitViewController.viewControllers)
-            completion(.continueRouting)
+            completion(.success)
         }
 
         private func integrate(viewController: UIViewController, in childViewControllers: inout [UIViewController]) {
@@ -70,7 +70,7 @@ public struct SplitViewControllerActions {
         public func perform(with viewController: UIViewController,
                             on splitViewController: ViewController,
                             animated: Bool,
-                            completion: @escaping (_: ActionResult) -> Void) {
+                            completion: @escaping (_: RoutingResult) -> Void) {
             guard !splitViewController.viewControllers.isEmpty else {
                 completion(.failure(RoutingError.compositionFailed(.init("Master view controller is not set in " +
                         "\(splitViewController) to present a detail view controller \(viewController)."))))
@@ -78,7 +78,7 @@ public struct SplitViewControllerActions {
             }
 
             splitViewController.showDetailViewController(viewController, sender: nil)
-            completion(.continueRouting)
+            completion(.success)
         }
     }
 

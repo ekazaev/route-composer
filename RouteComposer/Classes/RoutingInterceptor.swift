@@ -35,7 +35,7 @@ public protocol RoutingInterceptor {
     /// For the `Router` to continue the navigation process, the `completion` block of interceptor **MUST** be called
     /// by the implementation of this method.
     /// Otherwise `Router` will stay in limbo waiting for `RoutingInterceptor` to finish its action.
-    func execute(with context: Context, completion: @escaping (_: InterceptorResult) -> Void)
+    func perform(with context: Context, completion: @escaping (_: RoutingResult) -> Void)
 
 }
 
@@ -43,7 +43,19 @@ public extension RoutingInterceptor {
 
     /// Default implementation does nothing.
     func prepare(with context: Context) throws {
+    }
 
+}
+
+// MARK: Helper Functions
+
+public extension RoutingInterceptor {
+
+    /// Prepares the `RoutingInterceptor` and executes it
+    func execute(with context: Context, completion: @escaping (_: RoutingResult) -> Void) throws {
+        var interceptor = self
+        try interceptor.prepare(with: context)
+        interceptor.perform(with: context, completion: completion)
     }
 
 }
@@ -68,8 +80,13 @@ public extension RoutingInterceptor where Context == Any? {
     /// For the `Router` to continue the navigation process, the `completion` block of interceptor **MUST** be called
     /// by the implementation of this method.
     /// Otherwise `Router` will stay in limbo waiting for `RoutingInterceptor` to finish its action.
-    func execute(completion: @escaping (_: InterceptorResult) -> Void) {
-        execute(with: nil, completion: completion)
+    func perform(completion: @escaping (_: RoutingResult) -> Void) {
+        perform(with: nil, completion: completion)
+    }
+
+    /// Prepares the `RoutingInterceptor` and executes it
+    func execute(completion: @escaping (_: RoutingResult) -> Void) throws {
+        try execute(with: nil, completion: completion)
     }
 
 }
@@ -94,8 +111,12 @@ public extension RoutingInterceptor where Context == Void {
     /// For the `Router` to continue the navigation process, the `completion` block of interceptor **MUST** be called
     /// by the implementation of this method.
     /// Otherwise `Router` will stay in limbo waiting for `RoutingInterceptor` to finish its action.
-    func execute(completion: @escaping (_: InterceptorResult) -> Void) {
-        execute(with: (), completion: completion)
+    func perform(completion: @escaping (_: RoutingResult) -> Void) {
+        perform(with: (), completion: completion)
     }
 
+    /// Prepares the `RoutingInterceptor` and executes it
+    func execute(completion: @escaping (_: RoutingResult) -> Void) throws {
+        try execute(with: (), completion: completion)
+    }
 }

@@ -25,13 +25,13 @@ extension DefaultRouter {
             interceptors.append(interceptor)
         }
 
-        func run<Context>(with context: Context, completion: @escaping (_: InterceptorResult) -> Void) {
+        func perform<Context>(with context: Context, completion: @escaping (_: RoutingResult) -> Void) {
             guard !interceptors.isEmpty else {
-                completion(.continueRouting)
+                completion(.success)
                 return
             }
             let interceptorToRun = interceptors.count == 1 ? interceptors[0] : InterceptorMultiplexer(interceptors)
-            interceptorToRun.execute(with: context, completion: completion)
+            interceptorToRun.perform(with: context, completion: completion)
         }
 
     }
@@ -54,9 +54,9 @@ extension DefaultRouter {
             contextTasks.append(contextTask)
         }
 
-        func run<Context>(on viewController: UIViewController, with context: Context) throws {
+        func perform<Context>(on viewController: UIViewController, with context: Context) throws {
             try contextTasks.forEach({
-                try $0.apply(on: viewController, with: context)
+                try $0.perform(on: viewController, with: context)
             })
         }
 
@@ -66,23 +66,23 @@ extension DefaultRouter {
 
         var postTasks: [AnyPostRoutingTask]
 
-        let delayedRunner: PostTaskDelayedRunner
+        let postponedRunner: PostponedTaskRunner
 
-        init<Context>(postTasks: [AnyPostRoutingTask], with context: Context, delayedRunner: PostTaskDelayedRunner) {
+        init<Context>(postTasks: [AnyPostRoutingTask], with context: Context, postponedRunner: PostponedTaskRunner) {
             self.postTasks = postTasks
-            self.delayedRunner = delayedRunner
+            self.postponedRunner = postponedRunner
         }
 
         mutating func add<Context>(_ postTask: AnyPostRoutingTask, with context: Context) throws {
             postTasks.append(postTask)
         }
 
-        func run<Context>(on viewController: UIViewController, with context: Context) throws {
-            delayedRunner.add(postTasks: postTasks, to: viewController)
+        func perform<Context>(on viewController: UIViewController, with context: Context) throws {
+            postponedRunner.add(postTasks: postTasks, to: viewController)
         }
 
         func commit<Context>(with context: Context) throws {
-            try delayedRunner.run(with: context)
+            try postponedRunner.perform(with: context)
         }
 
     }
@@ -98,14 +98,14 @@ extension DefaultRouter {
             self.postTaskRunner = postTaskRunner
         }
 
-        func run<Context>(on viewController: UIViewController, with context: Context) throws {
-            try contextTaskRunner.run(on: viewController, with: context)
-            try postTaskRunner.run(on: viewController, with: context)
+        func perform<Context>(on viewController: UIViewController, with context: Context) throws {
+            try contextTaskRunner.perform(on: viewController, with: context)
+            try postTaskRunner.perform(on: viewController, with: context)
         }
 
     }
 
-    final class PostTaskDelayedRunner {
+    final class PostponedTaskRunner {
 
         private struct PostTaskSlip {
             // This reference is weak because even though this view controller was created by a fabric but then some other
@@ -121,7 +121,7 @@ extension DefaultRouter {
         // store a reference there.
         private struct EmptyPostTask: AnyPostRoutingTask {
 
-            func execute<Context>(on viewController: UIViewController, with context: Context, routingStack: [UIViewController]) {
+            func perform<Context>(on viewController: UIViewController, with context: Context, routingStack: [UIViewController]) {
             }
 
         }
@@ -141,7 +141,7 @@ extension DefaultRouter {
             })
         }
 
-        func run(with context: Any?) throws {
+        func perform(with context: Any?) throws {
             var viewControllers: [UIViewController] = []
             taskSlips.forEach({
                 guard let viewController = $0.viewController, !viewControllers.contains(viewController) else {
@@ -154,7 +154,7 @@ extension DefaultRouter {
                 guard let viewController = slip.viewController else {
                     return
                 }
-                try slip.postTask.execute(on: viewController, with: context, routingStack: viewControllers)
+                try slip.postTask.perform(on: viewController, with: context, routingStack: viewControllers)
             })
         }
     }
@@ -173,7 +173,7 @@ extension DefaultRouter {
             self.postTaskRunner = postTaskRunner
         }
 
-        func taskRunnerFor<Context>(step: PerformableStep?, with context: Context) throws -> StepTaskTaskRunner {
+        func taskRunner<Context>(for step: PerformableStep?, with context: Context) throws -> StepTaskTaskRunner {
             guard let interceptableStep = step as? InterceptableStep else {
                 return StepTaskTaskRunner(contextTaskRunner: self.contextTaskRunner, postTaskRunner: self.postTaskRunner)
             }
@@ -191,11 +191,11 @@ extension DefaultRouter {
             return StepTaskTaskRunner(contextTaskRunner: contextTaskRunner, postTaskRunner: postTaskRunner)
         }
 
-        func executeInterceptors<Context>(with context: Context, completion: @escaping (_: InterceptorResult) -> Void) {
-            interceptorRunner.run(with: context, completion: completion)
+        func performInterceptors<Context>(with context: Context, completion: @escaping (_: RoutingResult) -> Void) {
+            interceptorRunner.perform(with: context, completion: completion)
         }
 
-        func runPostTasks<Context>(with context: Context) throws {
+        func performPostTasks<Context>(with context: Context) throws {
             try postTaskRunner.commit(with: context)
         }
 
@@ -213,10 +213,10 @@ extension DefaultRouter {
 
         let action: AnyAction
 
-        init(factory: AnyFactory, viewControllerTaskRunner: StepTaskTaskRunner) {
+        init(factory: AnyFactory, stepTaskRunner: StepTaskTaskRunner) {
             self.factory = factory
             self.action = factory.action
-            self.stepTaskRunner = viewControllerTaskRunner
+            self.stepTaskRunner = stepTaskRunner
         }
 
         mutating func prepare<Context>(with context: Context) throws {
@@ -225,7 +225,7 @@ extension DefaultRouter {
 
         func build<Context>(with context: Context) throws -> UIViewController {
             let viewController = try factory.build(with: context)
-            try stepTaskRunner.run(on: viewController, with: context)
+            try stepTaskRunner.perform(on: viewController, with: context)
             return viewController
         }
 
@@ -239,54 +239,80 @@ extension DefaultRouter {
 
     }
 
-    final class DefaultDelayedIntegrationHandler: DelayedActionIntegrationHandler {
+    final class DefaultPostponedIntegrationHandler: PostponedActionIntegrationHandler {
 
-        var containerViewController: ContainerViewController?
+        private(set) var containerViewController: ContainerViewController?
 
-        var delayedViewControllers: [UIViewController] = []
+        private(set) var postponedViewControllers: [UIViewController] = []
 
         let logger: Logger?
 
-        init(logger: Logger?) {
+        let containerAdapterLocator: ContainerAdapterLocator
+
+        init(logger: Logger?, containerAdapterLocator: ContainerAdapterLocator) {
             self.logger = logger
+            self.containerAdapterLocator = containerAdapterLocator
         }
 
-        func update(containerViewController: ContainerViewController, animated: Bool, completion: @escaping () -> Void) {
-            guard self.containerViewController == nil else {
-                purge(animated: animated, completion: {
-                    self.update(containerViewController: containerViewController, animated: animated, completion: completion)
-                })
-                return
+        func update(containerViewController: ContainerViewController, animated: Bool, completion: @escaping (_: RoutingResult) -> Void) {
+            do {
+                guard self.containerViewController == nil else {
+                    purge(animated: animated, completion: { result in
+                        guard result.isSuccessful else {
+                            return completion(result)
+                        }
+                        self.update(containerViewController: containerViewController, animated: animated, completion: completion)
+                    })
+                    return
+                }
+                self.containerViewController = containerViewController
+                self.postponedViewControllers = try containerAdapterLocator.getAdapter(for: containerViewController).containedViewControllers
+                logger?.log(.info("Container \(String(describing: containerViewController)) will be used for the postponed integration."))
+                completion(.success)
+            } catch {
+                completion(.failure(error))
             }
-            self.containerViewController = containerViewController
-            self.delayedViewControllers = containerViewController.containedViewControllers
-            logger?.log(.info("Container \(String(describing: containerViewController)) will be used for the delayed integration."))
-            completion()
         }
 
-        func update(delayedViewControllers: [UIViewController]) {
-            self.delayedViewControllers = delayedViewControllers
+        func update(postponedViewControllers: [UIViewController]) {
+            self.postponedViewControllers = postponedViewControllers
         }
 
-        func purge(animated: Bool, completion: @escaping () -> Void) {
-            guard let containerViewController = containerViewController else {
-                completion()
-                return
-            }
+        func purge(animated: Bool, completion: @escaping (_: RoutingResult) -> Void) {
+            do {
+                guard let containerViewController = containerViewController else {
+                    completion(.success)
+                    return
+                }
 
-            guard !delayedViewControllers.isEqual(to: containerViewController.containedViewControllers) else {
-                self.containerViewController = nil
-                self.delayedViewControllers = []
-                completion()
-                return
-            }
+                let containerAdapter = try containerAdapterLocator.getAdapter(for: containerViewController)
 
-            containerViewController.replace(containedViewControllers: delayedViewControllers, animated: animated, completion: {
-                self.logger?.log(.info("View controllers \(String(describing: self.delayedViewControllers)) were integrated together into \(containerViewController)"))
-                self.containerViewController = nil
-                self.delayedViewControllers = []
-                completion()
-            })
+                guard !postponedViewControllers.isEqual(to: containerAdapter.containedViewControllers) else {
+                    self.reset()
+                    completion(.success)
+                    return
+                }
+
+                containerAdapter.setContainedViewControllers(postponedViewControllers,
+                        animated: animated,
+                        completion: { result in
+                            guard result.isSuccessful else {
+                                completion(result)
+                                return
+                            }
+                            self.logger?.log(.info("View controllers \(String(describing: self.postponedViewControllers)) were simultaneously "
+                                    + "integrated into \(String(describing: containerViewController))"))
+                            self.reset()
+                            completion(.success)
+                        })
+            } catch {
+                completion(.failure(error))
+            }
+        }
+
+        private func reset() {
+            containerViewController = nil
+            postponedViewControllers = []
         }
 
     }

@@ -89,7 +89,7 @@ class AssemblyTest: XCTestCase {
                 isPrepared = true
             }
 
-            func apply(on viewController: ViewController, with context: Context) throws {
+            func perform(on viewController: ViewController, with context: Context) throws {
                 guard isPrepared else {
                     throw RoutingError.generic(.init("Hasn't been prepared"))
                 }
@@ -117,7 +117,7 @@ class AssemblyTest: XCTestCase {
                 .adding(contextTask3)
                 .assemble()
         XCTAssertEqual(container.childFactories.count, 3)
-        let tabBarController = try? container.buildPrepared()
+        let tabBarController = try? container.execute()
         XCTAssertEqual(tabBarController?.viewControllers?.count, 2)
         XCTAssertTrue(contextTask1.isPrepared)
         XCTAssertTrue(contextTask1.isApplied)

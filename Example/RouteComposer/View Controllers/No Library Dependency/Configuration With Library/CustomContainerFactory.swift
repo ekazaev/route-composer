@@ -34,30 +34,14 @@ class CustomContainerFactory<C>: SimpleContainerFactory {
 
 }
 
-extension CustomContainerController: ContainerViewController {
+extension CustomContainerController: CustomContainerViewController {
 
-    public var containedViewControllers: [UIViewController] {
-        guard let rootViewController = rootViewController else {
-            return []
-        }
-        return [rootViewController]
-    }
-
-    public var visibleViewControllers: [UIViewController] {
-        return containedViewControllers
-    }
-
-    public func makeVisible(_ viewController: UIViewController, animated: Bool) {
-
+    public var adapter: ContainerAdapter {
+        return CustomContainerControllerAdapter(with: self)
     }
 
     public var canBeDismissed: Bool {
-        return containedViewControllers.canBeDismissed
-    }
-
-    public func replace(containedViewControllers: [UIViewController], animated: Bool, completion: @escaping () -> Void) {
-        rootViewController = containedViewControllers.last
-        completion()
+        return (rootViewController as? RoutingInterceptable)?.canBeDismissed ?? true
     }
 
 }
@@ -69,11 +53,50 @@ extension CustomContainerFactory {
         func perform(with viewController: UIViewController,
                      on customContainerController: CustomContainerController,
                      animated: Bool,
-                     completion: @escaping (_: ActionResult) -> Void) {
+                     completion: @escaping (_: RoutingResult) -> Void) {
             customContainerController.rootViewController = viewController
-            completion(.continueRouting)
+            completion(.success)
         }
 
+    }
+
+}
+
+struct CustomContainerControllerAdapter: ConcreteContainerAdapter {
+
+    private weak var customContainerController: CustomContainerController?
+
+    init(with customContainerController: CustomContainerController) {
+        self.customContainerController = customContainerController
+    }
+
+    public var containedViewControllers: [UIViewController] {
+        guard let rootViewController = customContainerController?.rootViewController else {
+            return []
+        }
+        return [rootViewController]
+    }
+
+    public var visibleViewControllers: [UIViewController] {
+        return containedViewControllers
+    }
+
+    public func makeVisible(_ viewController: UIViewController, animated: Bool, completion: @escaping (_: RoutingResult) -> Void) {
+        guard let customContainerController = customContainerController else {
+            return completion(.failure(RoutingError.compositionFailed(.init("CustomContainerController has been deallocated"))))
+        }
+        guard customContainerController.rootViewController != viewController else {
+            return completion(.failure(RoutingError.compositionFailed(.init("\(customContainerController) does not contain \(viewController)"))))
+        }
+        completion(.success)
+    }
+
+    public func setContainedViewControllers(_ containedViewControllers: [UIViewController], animated: Bool, completion: @escaping (_: RoutingResult) -> Void) {
+        guard let customContainerController = customContainerController else {
+            return completion(.failure(RoutingError.compositionFailed(.init("CustomContainerController has been deallocated"))))
+        }
+        customContainerController.rootViewController = containedViewControllers.last
+        completion(.success)
     }
 
 }

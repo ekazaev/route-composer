@@ -14,9 +14,9 @@ class LoginInterceptor<C>: RoutingInterceptor {
 
     typealias Context = C
 
-    func execute(with context: Context, completion: @escaping (_: InterceptorResult) -> Void) {
+    func perform(with context: Context, completion: @escaping (_: RoutingResult) -> Void) {
         guard !isLoggedIn else {
-            completion(.continueRouting)
+            completion(.success)
             return
         }
 
@@ -27,14 +27,14 @@ class LoginInterceptor<C>: RoutingInterceptor {
         do {
             try UIViewController.router.navigate(to: destination) { routingResult in
                 guard routingResult.isSuccessful,
-                      let viewController = ClassFinder<LoginViewController, Any?>().findViewController(with: nil) else {
+                      let viewController = ClassFinder<LoginViewController, Any?>().getViewController() else {
                     completion(.failure(RoutingError.compositionFailed(.init("LoginViewController was not found."))))
                     return
                 }
 
                 viewController.interceptorCompletionBlock = completion
             }
-        } catch let error {
+        } catch {
             completion(.failure(RoutingError.compositionFailed(.init("Could not present login view controller", underlyingError: error))))
         }
     }
@@ -53,7 +53,7 @@ class LoginViewController: UIViewController, ExampleAnalyticsSupport {
 
     @IBOutlet private var activityIndicator: UIActivityIndicatorView!
 
-    var interceptorCompletionBlock: ((_: InterceptorResult) -> Void)? {
+    var interceptorCompletionBlock: ((_: RoutingResult) -> Void)? {
         // This will help to handle the rare situation that user is in the middle of deep linking to the login restricted,
         // area and he taps on another link to another restricted area. Interceptor will replace this completion block
         // without dismissing a view controller. By a contract interceptor implementation MUST call completion block
@@ -91,7 +91,7 @@ class LoginViewController: UIViewController, ExampleAnalyticsSupport {
                 self.activityIndicator.stopAnimating()
                 isLoggedIn = true
                 self.dismiss(animated: true) {
-                    self.interceptorCompletionBlock?(.continueRouting)
+                    self.interceptorCompletionBlock?(.success)
                 }
             }
         } else {

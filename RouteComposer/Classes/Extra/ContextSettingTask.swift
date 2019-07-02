@@ -17,7 +17,7 @@ public struct ContextSettingTask<VC: ContextAccepting>: ContextTask {
         try VC.checkCompatibility(with: context)
     }
 
-    public func apply(on viewController: VC, with context: VC.Context) throws {
+    public func perform(on viewController: VC, with context: VC.Context) throws {
         try viewController.setup(with: context)
     }
 

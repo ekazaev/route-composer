@@ -25,6 +25,6 @@ public protocol AbstractAction {
     func perform(with viewController: UIViewController,
                  on existingController: ViewController,
                  animated: Bool,
-                 completion: @escaping (_: ActionResult) -> Void)
+                 completion: @escaping (_: RoutingResult) -> Void)
 
 }

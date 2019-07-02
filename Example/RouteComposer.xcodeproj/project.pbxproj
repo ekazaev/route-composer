@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3964C13C9510D7C17530911E /* Pods_RouteComposer_Example_RouteComposer_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0293FF29C4D706E5D7F4B94 /* Pods_RouteComposer_Example_RouteComposer_Tests.framework */; };
+		453BC2E32288C6F100314B33 /* ContainerLocatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453BC2E22288C6F100314B33 /* ContainerLocatorTests.swift */; };
 		4570AD2A2238769C00809A01 /* ExtrasTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4570AD292238769C00809A01 /* ExtrasTest.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACDB1AFB9204008FA782 /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* TabBar.storyboard */; };
@@ -28,7 +29,7 @@
 		8479E315200E7A7F00320380 /* ColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8479E302200E7A7F00320380 /* ColorViewController.swift */; };
 		8479E316200E7A7F00320380 /* FiguresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8479E303200E7A7F00320380 /* FiguresViewController.swift */; };
 		8479E318200E7A7F00320380 /* PromptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8479E305200E7A7F00320380 /* PromptViewController.swift */; };
-		8479E319200E7A7F00320380 /* NavigationDelayInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8479E306200E7A7F00320380 /* NavigationDelayInterceptor.swift */; };
+		8479E319200E7A7F00320380 /* RoutingRuleSupportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8479E306200E7A7F00320380 /* RoutingRuleSupportViewController.swift */; };
 		8479E31A200E7A7F00320380 /* SquareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8479E307200E7A7F00320380 /* SquareViewController.swift */; };
 		8479E31C200E7A7F00320380 /* ColorURLTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8479E30A200E7A7F00320380 /* ColorURLTranslator.swift */; };
 		8479E31D200E7A7F00320380 /* ExampleURLTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8479E30B200E7A7F00320380 /* ExampleURLTranslator.swift */; };
@@ -165,6 +166,7 @@
 
 /* Begin PBXFileReference section */
 		0B068CD8E2A01AE34431EC7F /* Pods-RouteComposer_Example-RouteComposer_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RouteComposer_Example-RouteComposer_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RouteComposer_Example-RouteComposer_Tests/Pods-RouteComposer_Example-RouteComposer_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		453BC2E22288C6F100314B33 /* ContainerLocatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerLocatorTests.swift; sourceTree = "<group>"; };
 		4570AD292238769C00809A01 /* ExtrasTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtrasTest.swift; sourceTree = "<group>"; };
 		4D016BC78C8FFDC66C0F661D /* RouteComposer.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = RouteComposer.podspec; path = ../RouteComposer.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		4D5D44CE2FD3DEAA3108C874 /* Pods_RouteComposer_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RouteComposer_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -191,7 +193,7 @@
 		8479E302200E7A7F00320380 /* ColorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorViewController.swift; sourceTree = "<group>"; };
 		8479E303200E7A7F00320380 /* FiguresViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiguresViewController.swift; sourceTree = "<group>"; };
 		8479E305200E7A7F00320380 /* PromptViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PromptViewController.swift; sourceTree = "<group>"; };
-		8479E306200E7A7F00320380 /* NavigationDelayInterceptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationDelayInterceptor.swift; sourceTree = "<group>"; };
+		8479E306200E7A7F00320380 /* RoutingRuleSupportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutingRuleSupportViewController.swift; sourceTree = "<group>"; };
 		8479E307200E7A7F00320380 /* SquareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SquareViewController.swift; sourceTree = "<group>"; };
 		8479E30A200E7A7F00320380 /* ColorURLTranslator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorURLTranslator.swift; sourceTree = "<group>"; };
 		8479E30B200E7A7F00320380 /* ExampleURLTranslator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleURLTranslator.swift; sourceTree = "<group>"; };
@@ -367,6 +369,7 @@
 				9AFBC407D5F832DE452DD35B /* RouterTest.swift */,
 				4570AD292238769C00809A01 /* ExtrasTest.swift */,
 				EF158F4B4B31525D5844012E /* ErrorTest.swift */,
+				453BC2E22288C6F100314B33 /* ContainerLocatorTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -429,7 +432,7 @@
 				8479E302200E7A7F00320380 /* ColorViewController.swift */,
 				8479E303200E7A7F00320380 /* FiguresViewController.swift */,
 				8479E305200E7A7F00320380 /* PromptViewController.swift */,
-				8479E306200E7A7F00320380 /* NavigationDelayInterceptor.swift */,
+				8479E306200E7A7F00320380 /* RoutingRuleSupportViewController.swift */,
 				8479E307200E7A7F00320380 /* SquareViewController.swift */,
 				9AFBC47AB52EB65AC08C0A93 /* Cities */,
 				9AFBC98664CF07654A83DF67 /* Login */,
@@ -849,7 +852,7 @@
 				8479E310200E7A7F00320380 /* UIColor.swift in Sources */,
 				8479E311200E7A7F00320380 /* ViewController.swift in Sources */,
 				8479E31A200E7A7F00320380 /* SquareViewController.swift in Sources */,
-				8479E319200E7A7F00320380 /* NavigationDelayInterceptor.swift in Sources */,
+				8479E319200E7A7F00320380 /* RoutingRuleSupportViewController.swift in Sources */,
 				8479E31C200E7A7F00320380 /* ColorURLTranslator.swift in Sources */,
 				8479E30E200E7A7F00320380 /* ExampleScreenTypes.swift in Sources */,
 				8479E316200E7A7F00320380 /* FiguresViewController.swift in Sources */,
@@ -901,6 +904,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				841DFE552108AE7D007C82D3 /* EmptyContainer.swift in Sources */,
+				453BC2E32288C6F100314B33 /* ContainerLocatorTests.swift in Sources */,
 				84706C78212AEEDB00980222 /* MultiplexerTest.swift in Sources */,
 				841DFE532108ADB5007C82D3 /* EmptyFactory.swift in Sources */,
 				607FACEC1AFB9204008FA782 /* ContainerTests.swift in Sources */,

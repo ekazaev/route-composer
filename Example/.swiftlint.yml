@@ -28,12 +28,12 @@ line_length: 180
 
 # they can set both implicitly with an array
 type_body_length:
-  - 300 # warning
-  - 400 # error
+  - 400 # warning
+  - 500 # error
 
 function_body_length:
-  - 120 # warning
-  - 150 # error
+  - 150 # warning
+  - 200 # error
 
 cyclomatic_complexity:
   - 15 # warning

@@ -143,7 +143,7 @@ public protocol Finder {
 
     associatedtype Context
 
-    func findViewController(with context: Context) -> ViewController?
+    func findViewController(with context: Context) throws -> ViewController?
 
 }
 ```
@@ -185,9 +185,9 @@ by the library:*
 ```swift
 class PresentModally: Action {
 
-    func perform(viewController: UIViewController, on existingController: UIViewController, animated: Bool, completion: @escaping (_: ActionResult) -> Void) {
+    func perform(viewController: UIViewController, on existingController: UIViewController, animated: Bool, completion: @escaping (_: RoutingResult) -> Void) {
         existingController.present(viewController, animated: animated, completion: {
-            completion(.continueRouting)
+            completion(.success)
         })
     }
 
@@ -206,7 +206,7 @@ the interceptor should inform the router and it will continue routing or otherwi
 ```swift
 class LoginInterceptor<C>: RoutingInterceptor {
 
-    func execute(with context: C, completion: @escaping (_: InterceptorResult) -> Void) {
+    func perform(with context: C, completion: @escaping (_: RoutingResult) -> Void) {
         guard !LoginManager.sharedInstance.isUserLoggedIn else {
             completion(.failure("User has not been logged in."))
             return
@@ -230,7 +230,7 @@ present a product.*
 ```swift
 class ProductViewControllerContextTask: ContextTask {
 
-    func apply(on productViewController: ProductViewController, with productID: UUID) {
+    func perform(on productViewController: ProductViewController, with productID: UUID) {
         productViewController.productID = productID
     }
 
@@ -257,7 +257,7 @@ class ProductViewControllerPostTask: PostRoutingTask {
         self.analyticsManager = analyticsManager
     }
 
-    func execute(on productViewController: ProductViewController, with productID: UUID, routingStack: [UIViewController]) {
+    func perform(on productViewController: ProductViewController, with productID: UUID, routingStack: [UIViewController]) {
         analyticsManager.trackProductView(productID: productViewController.productID)
     }
 

@@ -18,7 +18,7 @@ public struct PresentingFinder<C>: Finder {
         self.windowProvider = windowProvider
     }
 
-    public func findViewController(with context: C) -> UIViewController? {
+    public func findViewController(with context: C) throws -> UIViewController? {
         return windowProvider.window?.topmostViewController?.presentingViewController
     }
 

@@ -22,13 +22,13 @@ protocol ExampleScreenConfiguration {
 
     var routingSupportScreen: DestinationStep<RoutingRuleSupportViewController, String> { get }
 
-    var emptyScreen: DestinationStep<FiguresViewController, Any?> { get }
+    var figuresScreen: DestinationStep<FiguresViewController, Any?> { get }
 
     var secondModalScreen: DestinationStep<SecondModalLevelViewController, String> { get }
 
     var welcomeScreen: DestinationStep<PromptViewController, Any?> { get }
 
-    var emptyAndProductScreen: DestinationStep<ProductViewController, ProductContext> { get }
+    var figuresAndProductScreen: DestinationStep<ProductViewController, ProductContext> { get }
 
 }
 
@@ -71,8 +71,8 @@ extension ExampleScreenConfiguration {
                 finder: ColorViewControllerFinder(),
                 factory: ColorViewControllerFactory())
                 .adding(DismissalMethodProvidingContextTask(dismissalBlock: { (context, animated, completion) in
-                    // Demonstrated an ability to provide dismissal method in configuration using `DismissalMethodProvidingContextTask`
-                    try? UIViewController.router.navigate(to: GeneralStep.custom(using: PresentingFinder()), with: context, animated: animated, completion: completion)
+                    // Demonstrates ability to provide a dismissal method in the configuration using `DismissalMethodProvidingContextTask`
+                    UIViewController.router.commitNavigation(to: GeneralStep.custom(using: PresentingFinder()), with: context, animated: animated, completion: completion)
                 }))
                 .adding(ExampleGenericContextTask<ColorViewController, String>())
                 .using(ExampleNavigationController.push())
@@ -94,10 +94,10 @@ extension ExampleScreenConfiguration {
                 .assemble()
     }
 
-    var emptyScreen: DestinationStep<FiguresViewController, Any?> {
+    var figuresScreen: DestinationStep<FiguresViewController, Any?> {
         return StepAssembly(
                 finder: ClassFinder<FiguresViewController, Any?>(),
-                factory: StoryboardFactory(storyboardName: "TabBar", viewControllerID: "EmptyViewController"))
+                factory: StoryboardFactory(storyboardName: "TabBar", viewControllerID: "FiguresViewController"))
                 .adding(LoginInterceptor<Any?>())
                 .adding(ExampleGenericContextTask<FiguresViewController, Any?>())
                 .using(UINavigationController.push())
@@ -127,13 +127,13 @@ extension ExampleScreenConfiguration {
                 .assemble()
     }
 
-    var emptyAndProductScreen: DestinationStep<ProductViewController, ProductContext> {
+    var figuresAndProductScreen: DestinationStep<ProductViewController, ProductContext> {
         return StepAssembly(
                 finder: ClassWithContextFinder<ProductViewController, ProductContext>(),
                 factory: StoryboardFactory(storyboardName: "TabBar", viewControllerID: "ProductViewController"))
                 .adding(ContextSettingTask())
                 .using(UINavigationController.push())
-                .assemble(from: emptyScreen.expectingContainer())
+                .assemble(from: figuresScreen.expectingContainer())
     }
 
 }

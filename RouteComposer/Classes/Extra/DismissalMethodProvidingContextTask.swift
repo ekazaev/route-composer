@@ -22,7 +22,7 @@ public struct DismissalMethodProvidingContextTask<VC: Dismissible, C>: ContextTa
         self.dismissalBlock = dismissalBlock
     }
 
-    public func apply(on viewController: VC, with context: C) throws {
+    public func perform(on viewController: VC, with context: C) throws {
         viewController.dismissalBlock = dismissalBlock
     }
 

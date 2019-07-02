@@ -25,7 +25,7 @@ class FiguresViewController: UIViewController, ExampleAnalyticsSupport {
     }
 
     @IBAction func goToSelfTapped() {
-        try? router.navigate(to: ConfigurationHolder.configuration.emptyScreen, with: nil)
+        try? router.navigate(to: ConfigurationHolder.configuration.figuresScreen, with: nil)
     }
 
 }

@@ -62,7 +62,7 @@ public struct SingleNavigationRouter<R>: Router where R: Router {
                 self.lock.stopNavigation()
                 completion?(success)
             })
-        } catch let error {
+        } catch {
             lock.stopNavigation()
             throw error
         }

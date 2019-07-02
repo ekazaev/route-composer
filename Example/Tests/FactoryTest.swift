@@ -51,7 +51,7 @@ class FactoryTest: XCTestCase {
         var factory = NilFactory<UIViewController, Any?>()
         XCTAssertThrowsError(try factory.prepare())
         XCTAssertThrowsError(try factory.build())
-        XCTAssertThrowsError(try factory.buildPrepared())
+        XCTAssertThrowsError(try factory.execute())
     }
 
     func testBuildPreparedFactory() {
@@ -86,23 +86,23 @@ class FactoryTest: XCTestCase {
         }
 
         let factory = TestFactory(prepareBlock: { prepareCount += 1 }, buildBlock: { buildCount += 1 })
-        XCTAssertNoThrow(try factory.buildPrepared(with: nil))
+        XCTAssertNoThrow(try factory.execute(with: nil))
         XCTAssertEqual(prepareCount, 1)
         XCTAssertEqual(buildCount, 1)
 
-        XCTAssertNoThrow(try factory.buildPrepared())
+        XCTAssertNoThrow(try factory.execute())
         XCTAssertEqual(prepareCount, 2)
         XCTAssertEqual(buildCount, 2)
     }
 
-    func testDelayedIntegrationFactory() {
+    func testPostponedIntegrationFactory() {
         var viewControllerStack: [UIViewController] = []
         let factory = ClassNameFactory<UIViewController, Any?>()
-        var delayedFactory = DelayedIntegrationFactory<Any?>(FactoryBox(factory, action: ContainerActionBox(UINavigationController.push()))!)
-        XCTAssertNoThrow(try delayedFactory.prepare(with: nil))
-        XCTAssertNoThrow(try delayedFactory.build(with: nil, in: &viewControllerStack))
+        var postponedFactory = PostponedIntegrationFactory<Any?>(for: FactoryBox(factory, action: ContainerActionBox(UINavigationController.push()))!)
+        XCTAssertNoThrow(try postponedFactory.prepare(with: nil))
+        XCTAssertNoThrow(try postponedFactory.build(with: nil, in: &viewControllerStack))
         XCTAssertEqual(viewControllerStack.count, 1)
-        XCTAssertEqual(delayedFactory.description, "ClassNameFactory<UIViewController, Optional<Any>>(viewControllerName: nil, nibName: nil, bundle: nil)")
+        XCTAssertEqual(postponedFactory.description, "ClassNameFactory<UIViewController, Optional<Any>>(viewControllerName: nil, nibName: nil, bundle: nil)")
     }
 
     func testAnyOrVoidMethods() {
@@ -123,7 +123,7 @@ class FactoryTest: XCTestCase {
         }
 
         let tfc = TestFactory<Any?>()
-        _ = try? tfc.buildPrepared()
+        _ = try? tfc.execute()
         XCTAssertTrue(tfc.isPrepared)
         XCTAssertTrue(tfc.isApplied)
 

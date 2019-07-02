@@ -31,7 +31,7 @@ public protocol ContextTask {
     /// - Parameters:
     ///   - viewController: The `UIViewController` instance described in the step that `ContextTask` attached to
     ///   - context: The `Context` instance that was passed to the `Router`
-    func apply(on viewController: ViewController, with context: Context) throws
+    func perform(on viewController: ViewController, with context: Context) throws
 
 }
 
@@ -39,7 +39,19 @@ public extension ContextTask {
 
     /// Default implementation does nothing
     mutating func prepare(with context: Context) throws {
+    }
 
+}
+
+// MARK: Helper Functions
+
+public extension ContextTask {
+
+    /// Prepares the `ContextTask` and executes it
+    func execute(on viewController: ViewController, with context: Context) throws {
+        var contextTask = self
+        try contextTask.prepare(with: context)
+        try contextTask.perform(on: viewController, with: context)
     }
 
 }
@@ -59,8 +71,13 @@ public extension ContextTask where Context == Any? {
     ///
     /// - Parameters:
     ///   - viewController: The `UIViewController` instance described in the step that `ContextTask` attached to
-    func apply(on viewController: ViewController) throws {
-        try apply(on: viewController, with: nil)
+    func perform(on viewController: ViewController) throws {
+        try perform(on: viewController, with: nil)
+    }
+
+    /// Prepares the `ContextTask` and executes it
+    func execute(on viewController: ViewController) throws {
+        try execute(on: viewController, with: nil)
     }
 
 }
@@ -80,8 +97,13 @@ public extension ContextTask where Context == Void {
     ///
     /// - Parameters:
     ///   - viewController: The `UIViewController` instance described in the step that `ContextTask` attached to
-    func apply(on viewController: ViewController) throws {
-        try apply(on: viewController, with: ())
+    func perform(on viewController: ViewController) throws {
+        try perform(on: viewController, with: ())
+    }
+
+    /// Prepares the `ContextTask` and executes it
+    func execute(on viewController: ViewController) throws {
+        try execute(on: viewController, with: ())
     }
 
 }

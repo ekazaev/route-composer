@@ -38,9 +38,9 @@ public struct NavigationControllerActions {
         public func perform(with viewController: UIViewController,
                             on navigationController: ViewController,
                             animated: Bool,
-                            completion: @escaping(_: ActionResult) -> Void) {
+                            completion: @escaping(_: RoutingResult) -> Void) {
             navigationController.pushViewController(viewController, animated: animated)
-            return completion(.continueRouting)
+            return completion(.success)
         }
 
     }
@@ -61,9 +61,9 @@ public struct NavigationControllerActions {
         public func perform(with viewController: UIViewController,
                             on navigationController: ViewController,
                             animated: Bool,
-                            completion: @escaping(_: ActionResult) -> Void) {
+                            completion: @escaping(_: RoutingResult) -> Void) {
             navigationController.setViewControllers([viewController], animated: animated)
-            return completion(.continueRouting)
+            return completion(.success)
         }
 
     }
@@ -86,11 +86,11 @@ public struct NavigationControllerActions {
         public func perform(with viewController: UIViewController,
                             on navigationController: ViewController,
                             animated: Bool,
-                            completion: @escaping(_: ActionResult) -> Void) {
+                            completion: @escaping(_: RoutingResult) -> Void) {
             var viewControllers = navigationController.viewControllers
             perform(embedding: viewController, in: &viewControllers)
             navigationController.setViewControllers(viewControllers, animated: animated)
-            return completion(.continueRouting)
+            return completion(.success)
         }
 
     }

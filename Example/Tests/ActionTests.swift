@@ -111,7 +111,6 @@ class ActionTests: XCTestCase {
         }
 
         class TransitionDelegate: NSObject, UIViewControllerTransitioningDelegate {
-
         }
 
         var wasInCompletion = false
@@ -143,7 +142,7 @@ class ActionTests: XCTestCase {
         wasInCompletion = false
         GeneralAction.presentModally().perform(with: UIViewController(), on: presentedViewController, animated: true, completion: { result in
             wasInCompletion = true
-            if case .continueRouting = result {
+            if case .success = result {
                 XCTAssert(false)
             }
         })
@@ -331,7 +330,7 @@ class ActionTests: XCTestCase {
         let viewController = UIViewController()
         UISplitViewController.pushToDetails().perform(with: viewController, on: splitController, animated: false) { result in
             wasInCompletion = true
-            if case .continueRouting = result {
+            if case .success = result {
                 XCTAssert(false)
             }
         }
@@ -349,13 +348,6 @@ class ActionTests: XCTestCase {
         XCTAssertTrue(wasInCompletion)
         XCTAssertEqual(splitController.viewControllers.count, 2)
         XCTAssertTrue(splitController.viewControllers.last === viewController)
-    }
-
-    func testActionResult() {
-        let result1 = ActionResult.continueRouting
-        XCTAssertTrue(result1.isSuccessful)
-        let result2 = ActionResult.failure(RoutingError.generic(.init("test")))
-        XCTAssertFalse(result2.isSuccessful)
     }
 
     func testCustomWindowProvider() {

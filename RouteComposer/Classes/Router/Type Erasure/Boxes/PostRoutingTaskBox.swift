@@ -12,7 +12,7 @@ struct PostRoutingTaskBox<PT: PostRoutingTask>: AnyPostRoutingTask, MainThreadCh
         self.postRoutingTask = postRoutingTask
     }
 
-    func execute<Context>(on viewController: UIViewController,
+    func perform<Context>(on viewController: UIViewController,
                           with context: Context,
                           routingStack: [UIViewController]) throws {
         guard let typedViewController = viewController as? PT.ViewController else {
@@ -24,7 +24,7 @@ struct PostRoutingTaskBox<PT: PostRoutingTask>: AnyPostRoutingTask, MainThreadCh
                     "  \(String(describing: context.self)) as a context."))
         }
         assertIfNotMainThread()
-        postRoutingTask.execute(on: typedViewController, with: typedDestination, routingStack: routingStack)
+        postRoutingTask.perform(on: typedViewController, with: typedDestination, routingStack: routingStack)
     }
 
     var description: String {

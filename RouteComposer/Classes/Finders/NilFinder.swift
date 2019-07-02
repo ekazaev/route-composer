@@ -20,7 +20,7 @@ public struct NilFinder<VC: UIViewController, C>: Finder, NilEntity {
     ///
     /// - Parameter context: A context instance provided.
     /// - Returns: always `nil`.
-    public func findViewController(with context: C) -> VC? {
+    public func findViewController(with context: C) throws -> VC? {
         return nil
     }
 

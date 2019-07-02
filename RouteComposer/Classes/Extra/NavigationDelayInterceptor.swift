@@ -48,18 +48,18 @@ public struct NavigationDelayingInterceptor: RoutingInterceptor {
         self.strategy = strategy
     }
 
-    public func execute(with context: Any?, completion: @escaping (InterceptorResult) -> Void) {
+    public func perform(with context: Any?, completion: @escaping (RoutingResult) -> Void) {
         guard let topmostViewController = getTopmostViewController(),
               topmostViewController.isBeingDismissed || topmostViewController.isBeingPresented else {
-            completion(.continueRouting)
+            completion(.success)
             return
         }
 
         if strategy == .wait {
-            logger?.log(.info("\(topmostViewController) is changing its state. Navigation has been delayed."))
+            logger?.log(.info("\(topmostViewController) is changing its state. Navigation has been postponed."))
             let deadline = DispatchTime.now() + .milliseconds(100)
             DispatchQueue.main.asyncAfter(deadline: deadline) {
-                self.execute(with: context, completion: completion)
+                self.perform(with: context, completion: completion)
             }
         } else {
             completion(.failure(RoutingError.compositionFailed(.init("\(topmostViewController) is changing its state. Navigation has been aborted."))))

@@ -56,7 +56,7 @@ class MultiplexerTest: XCTestCase {
         ]
 
         let multiplexer = InterceptorMultiplexer(interceptors)
-        multiplexer.execute(with: "Wrong Context Type", completion: { result in
+        multiplexer.perform(with: "Wrong Context Type", completion: { result in
             guard case .failure = result else {
                 XCTAssertFalse(true)
                 return
@@ -69,14 +69,14 @@ class MultiplexerTest: XCTestCase {
 
         struct CustomContextTask: ContextTask {
 
-            var prepareCalledCount = 0
+            var prepareCallsCount = 0
 
             mutating func prepare(with context: Any?) throws {
-                prepareCalledCount += 1
+                prepareCallsCount += 1
             }
 
-            func apply(on viewController: UIViewController, with context: Any?) throws {
-                XCTAssertEqual(prepareCalledCount, 1)
+            func perform(on viewController: UIViewController, with context: Any?) throws {
+                XCTAssertEqual(prepareCallsCount, 1)
             }
         }
 
@@ -86,7 +86,7 @@ class MultiplexerTest: XCTestCase {
 
         var multiplexer = ContextTaskMultiplexer(contextTask)
         try? multiplexer.prepare(with: nil as Any?)
-        try? multiplexer.apply(on: UIViewController(), with: nil as Any?)
+        try? multiplexer.perform(on: UIViewController(), with: nil as Any?)
     }
 
     func testContextTaskWrongContextTypeThrow() {
@@ -97,7 +97,7 @@ class MultiplexerTest: XCTestCase {
         ]
 
         let multiplexer = ContextTaskMultiplexer(contextTask)
-        XCTAssertThrowsError(try multiplexer.apply(on: UIViewController(), with: nil as Any?))
+        XCTAssertThrowsError(try multiplexer.perform(on: UIViewController(), with: nil as Any?))
     }
 
     func testPostTaskWrongContextTypeThrow() {
@@ -107,7 +107,7 @@ class MultiplexerTest: XCTestCase {
         ]
 
         let multiplexer = PostRoutingTaskMultiplexer(postTasks)
-        XCTAssertThrowsError(try multiplexer.execute(on: UIViewController(), with: "Wrong Context Type", routingStack: [UIViewController()]))
+        XCTAssertThrowsError(try multiplexer.perform(on: UIViewController(), with: "Wrong Context Type", routingStack: [UIViewController()]))
     }
 
     func testRoutingInterceptorMutation() {
@@ -118,31 +118,24 @@ class MultiplexerTest: XCTestCase {
                 count += 1
             }
 
-            func execute(with context: Any?, completion: @escaping (InterceptorResult) -> Void) {
+            func perform(with context: Any?, completion: @escaping (RoutingResult) -> Void) {
                 guard count == 1 else {
                     completion(.failure(RoutingError.generic(.init("Count should be equal to 1"))))
                     return
                 }
-                completion(.continueRouting)
+                completion(.success)
             }
         }
 
         var multiplexer = InterceptorMultiplexer([RoutingInterceptorBox(Interceptor())])
         try? multiplexer.prepare(with: nil as Any?)
-        multiplexer.execute(with: nil as Any?) { (result: InterceptorResult) in
-            guard case .continueRouting = result else {
+        multiplexer.perform(with: nil as Any?) { (result: RoutingResult) in
+            guard case .success = result else {
                 XCTAssertFalse(true)
                 return
             }
             XCTAssertFalse(false)
         }
-    }
-
-    func testIsSuccessfulInterceptor() {
-        let result1 = InterceptorResult.continueRouting
-        XCTAssertTrue(result1.isSuccessful)
-        let result2 = InterceptorResult.failure(RoutingError.generic(.init("test")))
-        XCTAssertFalse(result2.isSuccessful)
     }
 
     func testAnyOrVoidMethods() {
@@ -165,7 +158,7 @@ class MultiplexerTest: XCTestCase {
                 isPrepared = true
             }
 
-            func apply(on viewController: UIViewController, with context: C) throws {
+            func perform(on viewController: UIViewController, with context: C) throws {
                 isApplied = true
             }
         }
@@ -181,8 +174,9 @@ class MultiplexerTest: XCTestCase {
                 isPrepared = true
             }
 
-            func execute(with context: C, completion: @escaping (InterceptorResult) -> Void) {
+            func perform(with context: C, completion: @escaping (RoutingResult) -> Void) {
                 isApplied = true
+                completion(.success)
             }
         }
 
@@ -190,42 +184,44 @@ class MultiplexerTest: XCTestCase {
             typealias ViewController = UIViewController
             typealias Context = C
 
-            func execute(on viewController: UIViewController, with context: C, routingStack: [UIViewController]) {
+            func perform(on viewController: UIViewController, with context: C, routingStack: [UIViewController]) {
                 viewController.title = "test"
             }
         }
 
-        XCTAssertNil(TestFinder<Any?>().findViewController())
-        XCTAssertNil(TestFinder<Void>().findViewController())
+        XCTAssertNil(try? TestFinder<Any?>().findViewController())
+        XCTAssertNil(TestFinder<Any?>().getViewController())
+        XCTAssertNil(try? TestFinder<Void>().findViewController())
+        XCTAssertNil(TestFinder<Void>().getViewController())
         let viewController1 = UIViewController()
-        TestPostRoutingTask<Any?>().execute(on: viewController1, routingStack: [])
+        TestPostRoutingTask<Any?>().perform(on: viewController1, routingStack: [])
         XCTAssertEqual(viewController1.title, "test")
 
         let viewController2 = UIViewController()
-        TestPostRoutingTask<Void>().execute(on: viewController2, routingStack: [])
+        TestPostRoutingTask<Void>().perform(on: viewController2, routingStack: [])
         XCTAssertEqual(viewController1.title, "test")
 
         var ct1 = TestContextTask<Any?>()
         try? ct1.prepare()
-        try? ct1.apply(on: viewController1)
+        try? ct1.perform(on: viewController1)
         XCTAssertTrue(ct1.isPrepared)
         XCTAssertTrue(ct1.isApplied)
 
         var ct2 = TestContextTask<Void>()
         try? ct2.prepare()
-        try? ct2.apply(on: viewController1)
+        try? ct2.perform(on: viewController1)
         XCTAssertTrue(ct2.isPrepared)
         XCTAssertTrue(ct2.isApplied)
 
         var ri1 = TestRoutingInterceptor<Any?>()
         try? ri1.prepare()
-        ri1.execute(completion: { _ in })
+        ri1.perform(completion: { _ in })
         XCTAssertTrue(ri1.isPrepared)
         XCTAssertTrue(ri1.isApplied)
 
         var ri2 = TestRoutingInterceptor<Void>()
         try? ri2.prepare()
-        ri2.execute(completion: { _ in })
+        ri2.perform(completion: { _ in })
         XCTAssertTrue(ri2.isPrepared)
         XCTAssertTrue(ri2.isApplied)
     }

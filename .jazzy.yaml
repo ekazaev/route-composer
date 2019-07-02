@@ -16,6 +16,7 @@ custom_categories:
       - ContainerFactory
       - Action
       - ContainerAction
+      - RoutingResult
 
   - name: Tasks
     children:
@@ -61,12 +62,6 @@ custom_categories:
       - TabBarControllerStep
       - SplitControllerStep
 
-  - name: Resulting Enums
-    children:
-      - RoutingResult
-      - ActionResult
-      - InterceptorResult
-
   - name: UIViewController's protocols
     children:
       - RoutingInterceptable
@@ -79,6 +74,9 @@ custom_categories:
 
   - name: Extras
     children:
+      - InlineInterceptor
+      - InlineContextTask
+      - InlinePostTask
       - NavigationDelayingInterceptor
       - SingleNavigationRouter
       - PresentingFinder

@@ -10,11 +10,11 @@ public final class CompleteFactoryChainAssembly<FC: ContainerFactory, ChildVC: U
 
     private var factory: FC
 
-    private let childFactories: [DelayedIntegrationFactory<FC.Context>]
+    private let childFactories: [PostponedIntegrationFactory<FC.Context>]
 
-    private let previousChildFactory: DelayedIntegrationFactory<FC.Context>?
+    private let previousChildFactory: PostponedIntegrationFactory<FC.Context>?
 
-    private var integratedChildFactories: [DelayedIntegrationFactory<FC.Context>] {
+    private var integratedChildFactories: [PostponedIntegrationFactory<FC.Context>] {
         var childFactories = self.childFactories
         if let previousChildFactory = previousChildFactory {
             childFactories.append(previousChildFactory)
@@ -22,7 +22,7 @@ public final class CompleteFactoryChainAssembly<FC: ContainerFactory, ChildVC: U
         return childFactories
     }
 
-    init(factory: FC, childFactories: [DelayedIntegrationFactory<FC.Context>], previousChildFactory: DelayedIntegrationFactory<FC.Context>?) {
+    init(factory: FC, childFactories: [PostponedIntegrationFactory<FC.Context>], previousChildFactory: PostponedIntegrationFactory<FC.Context>?) {
         self.factory = factory
         self.childFactories = childFactories
         self.previousChildFactory = previousChildFactory
@@ -41,7 +41,7 @@ public final class CompleteFactoryChainAssembly<FC: ContainerFactory, ChildVC: U
         }
         return CompleteFactoryChainAssembly<FC, ChildFC.ViewController>(factory: factory,
                 childFactories: integratedChildFactories,
-                previousChildFactory: DelayedIntegrationFactory<ChildFC.Context>(factoryBox))
+                previousChildFactory: PostponedIntegrationFactory<ChildFC.Context>(for: factoryBox))
     }
 
     /// Adds a `ContainerFactory` that is going to be used as a child
@@ -58,7 +58,7 @@ public final class CompleteFactoryChainAssembly<FC: ContainerFactory, ChildVC: U
 
         return CompleteFactoryChainAssembly<FC, ChildFC.ViewController>(factory: factory,
                 childFactories: integratedChildFactories,
-                previousChildFactory: DelayedIntegrationFactory<ChildFC.Context>(factoryBox))
+                previousChildFactory: PostponedIntegrationFactory<ChildFC.Context>(for: factoryBox))
     }
 
     /// Adds a `Factory` as the last view controller in the stack.
@@ -71,7 +71,7 @@ public final class CompleteFactoryChainAssembly<FC: ContainerFactory, ChildVC: U
         }
         return CompleteFactoryChainAssembly<FC, ChildFC.ViewController>(factory: factory,
                 childFactories: integratedChildFactories,
-                previousChildFactory: DelayedIntegrationFactory<ChildFC.Context>(factoryBox))
+                previousChildFactory: PostponedIntegrationFactory<ChildFC.Context>(for: factoryBox))
     }
 
     /// Adds a `ContainerFactory` as the last view controller in the stack.
@@ -85,7 +85,7 @@ public final class CompleteFactoryChainAssembly<FC: ContainerFactory, ChildVC: U
 
         return CompleteFactoryChainAssembly<FC, ChildFC.ViewController>(factory: factory,
                 childFactories: integratedChildFactories,
-                previousChildFactory: DelayedIntegrationFactory<ChildFC.Context>(factoryBox))
+                previousChildFactory: PostponedIntegrationFactory<ChildFC.Context>(for: factoryBox))
     }
 
     /// Applies a `ContextTask` to the child factory after its `UIViewController` been built.
