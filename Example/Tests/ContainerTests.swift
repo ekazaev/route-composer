@@ -112,7 +112,7 @@ class ContainerTests: XCTestCase {
         XCTAssertEqual(childFactory2.prepareCount, 1)
     }
 
-    func testBuildPreparedFactory() {
+    func testExecuteFactory() {
         var prepareCount = 0
         var buildCount = 0
 
@@ -141,11 +141,11 @@ class ContainerTests: XCTestCase {
 
         }
         let factory = TestFactory(prepareBlock: { prepareCount += 1 }, buildBlock: { buildCount += 1 })
-        XCTAssertNoThrow(try factory.buildPrepared(with: nil))
+        XCTAssertNoThrow(try factory.execute(with: nil))
         XCTAssertEqual(prepareCount, 1)
         XCTAssertEqual(buildCount, 1)
 
-        XCTAssertNoThrow(try factory.buildPrepared())
+        XCTAssertNoThrow(try factory.execute())
         XCTAssertEqual(prepareCount, 2)
         XCTAssertEqual(buildCount, 2)
     }

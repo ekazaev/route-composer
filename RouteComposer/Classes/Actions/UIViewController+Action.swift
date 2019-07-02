@@ -140,7 +140,7 @@ public struct ViewControllerActions {
         public func perform(with viewController: UIViewController,
                             on existingController: UIViewController,
                             animated: Bool,
-                            completion: @escaping(_: RoutingResult) -> Void) {
+                            completion: @escaping (_: RoutingResult) -> Void) {
             guard let window = windowProvider.window else {
                 completion(.failure(RoutingError.compositionFailed(.init("Window was not found."))))
                 return

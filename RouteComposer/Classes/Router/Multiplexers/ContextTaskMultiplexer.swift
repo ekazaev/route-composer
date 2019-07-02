@@ -24,8 +24,8 @@ struct ContextTaskMultiplexer: AnyContextTask, CustomStringConvertible {
         })
     }
 
-    func apply<Context>(on viewController: UIViewController, with context: Context) throws {
-        try tasks.forEach({ try $0.apply(on: viewController, with: context) })
+    func perform<Context>(on viewController: UIViewController, with context: Context) throws {
+        try tasks.forEach({ try $0.perform(on: viewController, with: context) })
     }
 
     var description: String {

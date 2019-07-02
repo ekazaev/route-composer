@@ -71,8 +71,8 @@ extension ExampleScreenConfiguration {
                 finder: ColorViewControllerFinder(),
                 factory: ColorViewControllerFactory())
                 .adding(DismissalMethodProvidingContextTask(dismissalBlock: { (context, animated, completion) in
-                    // Demonstrates an ability to provide a dismissal method in the configuration using `DismissalMethodProvidingContextTask`
-                    try? UIViewController.router.navigate(to: GeneralStep.custom(using: PresentingFinder()), with: context, animated: animated, completion: completion)
+                    // Demonstrates ability to provide a dismissal method in the configuration using `DismissalMethodProvidingContextTask`
+                    UIViewController.router.commitNavigation(to: GeneralStep.custom(using: PresentingFinder()), with: context, animated: animated, completion: completion)
                 }))
                 .adding(ExampleGenericContextTask<ColorViewController, String>())
                 .using(ExampleNavigationController.push())

@@ -199,7 +199,7 @@ class ExtensionsTest: XCTestCase {
         XCTAssertEqual(try? DefaultContainerAdapterLocator().getAdapter(for: tabBarController).containedViewControllers.count, 2)
         XCTAssertEqual(try? DefaultContainerAdapterLocator().getAdapter(for: tabBarController).visibleViewControllers.count, 1)
         XCTAssertEqual(try? DefaultContainerAdapterLocator().getAdapter(for: tabBarController).visibleViewControllers[0], viewController1)
-        try? DefaultContainerAdapterLocator().getAdapter(for: tabBarController).makeVisible(viewController2, animated: false, completion: {_ in })
+        try? DefaultContainerAdapterLocator().getAdapter(for: tabBarController).makeVisible(viewController2, animated: false, completion: { _ in })
         XCTAssertEqual(try? DefaultContainerAdapterLocator().getAdapter(for: tabBarController).visibleViewControllers[0], viewController2)
     }
 
@@ -211,7 +211,7 @@ class ExtensionsTest: XCTestCase {
         XCTAssertEqual(try? DefaultContainerAdapterLocator().getAdapter(for: navigationController).containedViewControllers.count, 2)
         XCTAssertEqual(try? DefaultContainerAdapterLocator().getAdapter(for: navigationController).visibleViewControllers.count, 1)
         XCTAssertEqual(try? DefaultContainerAdapterLocator().getAdapter(for: navigationController).visibleViewControllers[0], viewController2)
-        try? DefaultContainerAdapterLocator().getAdapter(for: navigationController).makeVisible(viewController1, animated: false, completion: {_ in })
+        try? DefaultContainerAdapterLocator().getAdapter(for: navigationController).makeVisible(viewController1, animated: false, completion: { _ in })
         XCTAssertEqual(try? DefaultContainerAdapterLocator().getAdapter(for: navigationController).visibleViewControllers[0], viewController1)
     }
 
@@ -273,6 +273,89 @@ class ExtensionsTest: XCTestCase {
         XCTAssertEqual(viewController2.allParents.count, 1)
         XCTAssertEqual(viewController2.allParents[0], viewController1)
         XCTAssertEqual(viewController1.allParents.count, 0)
+    }
+
+    func testRoutingInterceptorHelpers() {
+
+        class TestInterceptor<C>: RoutingInterceptor {
+
+            typealias Context = C
+
+            var prepareCallsCount = 0
+
+            var performCallsCount = 0
+
+            func prepare(with context: Context) throws {
+                prepareCallsCount += 1
+            }
+
+            func perform(with context: Context, completion: @escaping (RoutingResult) -> Void) {
+                performCallsCount += 1
+                completion(.success)
+            }
+        }
+
+        let interceptor1 = TestInterceptor<String>()
+        var wasInCompletion = false
+        XCTAssertNoThrow(try interceptor1.execute(with: "test", completion: { _ in
+            wasInCompletion = true
+        }))
+        XCTAssertTrue(wasInCompletion)
+        XCTAssertEqual(interceptor1.prepareCallsCount, 1)
+        XCTAssertEqual(interceptor1.performCallsCount, 1)
+
+        let interceptor2 = TestInterceptor<Any?>()
+        wasInCompletion = false
+        XCTAssertNoThrow(try interceptor2.execute(completion: { _ in
+            wasInCompletion = true
+        }))
+        XCTAssertTrue(wasInCompletion)
+        XCTAssertEqual(interceptor2.prepareCallsCount, 1)
+        XCTAssertEqual(interceptor2.performCallsCount, 1)
+
+        let interceptor3 = TestInterceptor<Any?>()
+        wasInCompletion = false
+        XCTAssertNoThrow(try interceptor3.execute(completion: { _ in
+            wasInCompletion = true
+        }))
+        XCTAssertTrue(wasInCompletion)
+        XCTAssertEqual(interceptor3.prepareCallsCount, 1)
+        XCTAssertEqual(interceptor3.performCallsCount, 1)
+    }
+
+    func testContextTaskHelpers() {
+        class TestContextTask<VC: UIViewController, C>: ContextTask {
+
+            typealias ViewController = VC
+            typealias Context = C
+
+            var prepareCallsCount = 0
+
+            var performCallsCount = 0
+
+            func prepare(with context: Context) throws {
+                prepareCallsCount += 1
+            }
+
+            func perform(on viewController: ViewController, with context: C) throws {
+                performCallsCount += 1
+            }
+        }
+
+        let contextTask1 = TestContextTask<UIViewController, String>()
+        XCTAssertNoThrow(try contextTask1.execute(on: UIViewController(), with: "Test"))
+        XCTAssertEqual(contextTask1.prepareCallsCount, 1)
+        XCTAssertEqual(contextTask1.performCallsCount, 1)
+
+        let contextTask2 = TestContextTask<UIViewController, Any?>()
+        XCTAssertNoThrow(try contextTask2.execute(on: UIViewController()))
+        XCTAssertEqual(contextTask2.prepareCallsCount, 1)
+        XCTAssertEqual(contextTask2.performCallsCount, 1)
+
+        let contextTask3 = TestContextTask<UIViewController, Any?>()
+        XCTAssertNoThrow(try contextTask3.execute(on: UIViewController()))
+        XCTAssertEqual(contextTask3.prepareCallsCount, 1)
+        XCTAssertEqual(contextTask3.performCallsCount, 1)
     }
 
 }

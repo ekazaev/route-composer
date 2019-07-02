@@ -9,7 +9,7 @@ import RouteComposer
 
 class CityDetailContextTask: ContextTask {
 
-    func apply(on viewController: CityDetailViewController, with context: Int) throws {
+    func perform(on viewController: CityDetailViewController, with context: Int) throws {
         viewController.cityId = context
     }
 

@@ -7,7 +7,7 @@ import UIKit
 
 protocol AnyPostRoutingTask {
 
-    func execute<Context>(on viewController: UIViewController,
+    func perform<Context>(on viewController: UIViewController,
                           with context: Context,
                           routingStack: [UIViewController]) throws
 

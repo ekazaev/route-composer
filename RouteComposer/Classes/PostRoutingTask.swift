@@ -21,9 +21,11 @@ public protocol PostRoutingTask {
     ///   - context: The `Context` instance provided to the `Router`
     ///   - routingStack: An array of all the view controllers that been built by the `Router` to
     ///     reach the final destination
-    func execute(on viewController: ViewController, with context: Context, routingStack: [UIViewController])
+    func perform(on viewController: ViewController, with context: Context, routingStack: [UIViewController])
 
 }
+
+// MARK: Helper Functions
 
 public extension PostRoutingTask where Context == Any? {
 
@@ -33,8 +35,8 @@ public extension PostRoutingTask where Context == Any? {
     ///   - viewController: The `UIViewController` instance that this post-task has been attached to
     ///   - routingStack: An array of all the view controllers that been built by the `Router` to
     ///     reach the final destination
-    func execute(on viewController: ViewController, routingStack: [UIViewController]) {
-        execute(on: viewController, with: nil, routingStack: routingStack)
+    func perform(on viewController: ViewController, routingStack: [UIViewController]) {
+        perform(on: viewController, with: nil, routingStack: routingStack)
     }
 
 }
@@ -47,8 +49,8 @@ public extension PostRoutingTask where Context == Void {
     ///   - viewController: The `UIViewController` instance that this post-task has been attached to
     ///   - routingStack: An array of all the view controllers that been built by the `Router` to
     ///     reach the final destination
-    func execute(on viewController: ViewController, routingStack: [UIViewController]) {
-        execute(on: viewController, with: (), routingStack: routingStack)
+    func perform(on viewController: ViewController, routingStack: [UIViewController]) {
+        perform(on: viewController, with: (), routingStack: routingStack)
     }
 
 }

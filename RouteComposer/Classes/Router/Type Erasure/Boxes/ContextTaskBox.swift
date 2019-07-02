@@ -23,7 +23,7 @@ struct ContextTaskBox<CT: ContextTask>: AnyContextTask, PreparableEntity, MainTh
         isPrepared = true
     }
 
-    func apply<Context>(on viewController: UIViewController, with context: Context) throws {
+    func perform<Context>(on viewController: UIViewController, with context: Context) throws {
         guard let typedViewController = viewController as? CT.ViewController,
               let typedContext = Any?.some(context as Any) as? CT.Context else {
             throw RoutingError.typeMismatch(CT.Context.self, .init("\(String(describing: contextTask.self)) does not " +
@@ -31,7 +31,7 @@ struct ContextTaskBox<CT: ContextTask>: AnyContextTask, PreparableEntity, MainTh
         }
         assertIfNotMainThread()
         assertIfNotPrepared()
-        try contextTask.apply(on: typedViewController, with: typedContext)
+        try contextTask.perform(on: typedViewController, with: typedContext)
     }
 
     var description: String {

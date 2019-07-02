@@ -20,7 +20,7 @@ struct InterceptorMultiplexer: AnyRoutingInterceptor, MainThreadChecking, Custom
         })
     }
 
-    func execute<Context>(with context: Context, completion: @escaping (RoutingResult) -> Void) {
+    func perform<Context>(with context: Context, completion: @escaping (RoutingResult) -> Void) {
         guard !self.interceptors.isEmpty else {
             completion(.success)
             return
@@ -30,7 +30,7 @@ struct InterceptorMultiplexer: AnyRoutingInterceptor, MainThreadChecking, Custom
 
         func runInterceptor(interceptor: AnyRoutingInterceptor) {
             self.assertIfNotMainThread()
-            interceptor.execute(with: context) { result in
+            interceptor.perform(with: context) { result in
                 self.assertIfNotMainThread()
                 if case .failure(_) = result {
                     completion(result)

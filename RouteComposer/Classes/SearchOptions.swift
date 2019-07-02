@@ -56,7 +56,7 @@ public struct SearchOptions: OptionSet, CaseIterable, CustomStringConvertible {
     }
 
     public var description: String {
-        return [SearchOptions.current, .visible, .contained, .presented, .presenting, .parent].compactMap({ option in
+        return SearchOptions.allCases.compactMap({ option in
             guard self.contains(option) else {
                 return nil
             }

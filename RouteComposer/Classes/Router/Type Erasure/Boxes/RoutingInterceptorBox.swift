@@ -24,7 +24,7 @@ struct RoutingInterceptorBox<RI: RoutingInterceptor>: AnyRoutingInterceptor, Pre
         isPrepared = true
     }
 
-    func execute<Context>(with context: Context, completion: @escaping (RoutingResult) -> Void) {
+    func perform<Context>(with context: Context, completion: @escaping (RoutingResult) -> Void) {
         guard let typedDestination = Any?.some(context as Any) as? RI.Context else {
             completion(.failure(RoutingError.typeMismatch(RI.Context.self, .init("\(String(describing: routingInterceptor.self)) does " +
                     "not accept \(String(describing: context.self)) as a context."))))
@@ -32,7 +32,7 @@ struct RoutingInterceptorBox<RI: RoutingInterceptor>: AnyRoutingInterceptor, Pre
         }
         assertIfNotPrepared()
         assertIfNotMainThread()
-        routingInterceptor.execute(with: typedDestination) { result in
+        routingInterceptor.perform(with: typedDestination) { result in
             self.assertIfNotMainThread()
             completion(result)
         }

@@ -14,7 +14,7 @@ class LoginInterceptor<C>: RoutingInterceptor {
 
     typealias Context = C
 
-    func execute(with context: Context, completion: @escaping (_: RoutingResult) -> Void) {
+    func perform(with context: Context, completion: @escaping (_: RoutingResult) -> Void) {
         guard !isLoggedIn else {
             completion(.success)
             return
@@ -27,7 +27,7 @@ class LoginInterceptor<C>: RoutingInterceptor {
         do {
             try UIViewController.router.navigate(to: destination) { routingResult in
                 guard routingResult.isSuccessful,
-                      let viewController = try? ClassFinder<LoginViewController, Any?>().findViewController(with: nil) else {
+                      let viewController = ClassFinder<LoginViewController, Any?>().getViewController() else {
                     completion(.failure(RoutingError.compositionFailed(.init("LoginViewController was not found."))))
                     return
                 }

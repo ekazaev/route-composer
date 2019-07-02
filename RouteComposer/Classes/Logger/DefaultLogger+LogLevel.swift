@@ -11,7 +11,7 @@ public extension DefaultLogger {
     /// - verbose: Log all the messages from a `Router`
     /// - warnings: Log only warnings and errors
     /// - errors: Log only errors
-    enum LogLevel {
+    enum LogLevel: CaseIterable {
 
         /// Log all the messages from `Router`
         case verbose

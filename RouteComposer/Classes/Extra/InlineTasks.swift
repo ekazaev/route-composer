@@ -47,7 +47,7 @@ public struct InlineInterceptor<C>: RoutingInterceptor {
         try prepareBlock?(context)
     }
 
-    public func execute(with context: C, completion: @escaping (RoutingResult) -> Void) {
+    public func perform(with context: C, completion: @escaping (RoutingResult) -> Void) {
         if let syncCompletion = syncCompletion {
             syncCompletion(context)
             completion(.success)
@@ -77,7 +77,7 @@ public struct InlineContextTask<VC: UIViewController, C>: ContextTask {
         self.completion = completion
     }
 
-    public func apply(on viewController: VC, with context: C) throws {
+    public func perform(on viewController: VC, with context: C) throws {
         try completion(viewController, context)
     }
 
@@ -99,7 +99,7 @@ public struct InlinePostTask<VC: UIViewController, C>: PostRoutingTask {
         self.completion = completion
     }
 
-    public func execute(on viewController: VC, with context: C, routingStack: [UIViewController]) {
+    public func perform(on viewController: VC, with context: C, routingStack: [UIViewController]) {
         completion(viewController, context, routingStack)
     }
 

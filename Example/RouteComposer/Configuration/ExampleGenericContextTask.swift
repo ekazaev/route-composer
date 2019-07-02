@@ -9,7 +9,7 @@ import RouteComposer
 
 struct ExampleGenericContextTask<VC: UIViewController, C>: ContextTask {
 
-    func apply(on viewController: VC, with context: C) throws {
+    func perform(on viewController: VC, with context: C) throws {
         print("View controller name is \(String(describing: viewController))")
     }
 

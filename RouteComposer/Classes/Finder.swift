@@ -24,6 +24,8 @@ public protocol Finder {
 
 }
 
+// MARK: Helper Functions
+
 public extension Finder {
 
     /// Returns the view controller instance if it is present in the stack. Doesn't throw any exceptions in case the search

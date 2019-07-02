@@ -206,7 +206,7 @@ the interceptor should inform the router and it will continue routing or otherwi
 ```swift
 class LoginInterceptor<C>: RoutingInterceptor {
 
-    func execute(with context: C, completion: @escaping (_: RoutingResult) -> Void) {
+    func perform(with context: C, completion: @escaping (_: RoutingResult) -> Void) {
         guard !LoginManager.sharedInstance.isUserLoggedIn else {
             completion(.failure("User has not been logged in."))
             return
@@ -230,7 +230,7 @@ present a product.*
 ```swift
 class ProductViewControllerContextTask: ContextTask {
 
-    func apply(on productViewController: ProductViewController, with productID: UUID) {
+    func perform(on productViewController: ProductViewController, with productID: UUID) {
         productViewController.productID = productID
     }
 
@@ -257,7 +257,7 @@ class ProductViewControllerPostTask: PostRoutingTask {
         self.analyticsManager = analyticsManager
     }
 
-    func execute(on productViewController: ProductViewController, with productID: UUID, routingStack: [UIViewController]) {
+    func perform(on productViewController: ProductViewController, with productID: UUID, routingStack: [UIViewController]) {
         analyticsManager.trackProductView(productID: productViewController.productID)
     }
 

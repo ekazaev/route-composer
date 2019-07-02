@@ -104,14 +104,14 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
                     }
 
                     // Creates a class responsible to run the tasks for this particular step
-                    let viewControllerTaskRunner = try taskStack.taskRunnerFor(step: step, with: context)
+                    let stepTaskRunner = try taskStack.taskRunner(for: step, with: context)
 
                     // Performs current step
                     switch try step.perform(with: context) {
                     case .success(let viewController):
                         logger?.log(.info("\(String(describing: step)) found " +
                                 "\(String(describing: viewController)) to start the navigation process from."))
-                        try viewControllerTaskRunner.run(on: viewController, with: context)
+                        try stepTaskRunner.perform(on: viewController, with: context)
                         return (rootViewController: viewController, result.factories)
                     case .build(let originalFactory):
                         // If the view controller to start from is not found, but the current step has a `Factory` to build it,
@@ -121,8 +121,7 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
 
                         // Wrap the `Factory` with the decorator that will
                         // handle the view controller and post task chain after the view controller creation.
-                        var factory = FactoryDecorator(factory: originalFactory,
-                                viewControllerTaskRunner: viewControllerTaskRunner)
+                        var factory = FactoryDecorator(factory: originalFactory, stepTaskRunner: stepTaskRunner)
 
                         // Prepares the `Factory` for integration
                         // If a `Factory` cannot prepare itself (e.g. does not have enough data in context)
@@ -159,7 +158,7 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
         // Executes interceptors associated to each view in the chain. All the interceptors must succeed to
         // continue navigation process. This operation is async.
         let initialControllerDescription = String(describing: viewController)
-        taskStack.executeInterceptors(with: context) { [weak viewController] result in
+        taskStack.performInterceptors(with: context) { [weak viewController] result in
             self.assertIfNotMainThread(logger: self.logger)
 
             if case let .failure(error) = result {
@@ -192,7 +191,7 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
                         if case let .failure(error) = result {
                             throw error
                         }
-                        try taskStack.runPostTasks(with: context)
+                        try taskStack.performPostTasks(with: context)
                         completion(result)
                     } catch {
                         completion(.failure(error))

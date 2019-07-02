@@ -101,7 +101,7 @@ class ExtrasTest: XCTestCase {
 
         XCTAssertThrowsError(try contextTask.prepare(with: ""))
         XCTAssertNoThrow(try contextTask.prepare(with: "non empty string"))
-        XCTAssertNoThrow(try contextTask.apply(on: viewController, with: "context"))
+        XCTAssertNoThrow(try contextTask.perform(on: viewController, with: "context"))
         XCTAssertEqual(viewController.context, "context")
     }
 
@@ -115,7 +115,7 @@ class ExtrasTest: XCTestCase {
         try? DismissalMethodProvidingContextTask<DismissingViewController, Any?>(dismissalBlock: { (_: Void, animated, _) in
             XCTAssertEqual(animated, true)
             wasInCompletion = true
-        }).apply(on: viewController, with: nil)
+        }).perform(on: viewController, with: nil)
         viewController.dismissViewController(animated: true)
         XCTAssertEqual(wasInCompletion, true)
     }

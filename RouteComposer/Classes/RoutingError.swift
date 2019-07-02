@@ -63,11 +63,11 @@ public enum RoutingError: Error, CustomStringConvertible {
     /// The view controllers stack integration failed
     case compositionFailed(RoutingError.Context)
 
-    /// Message describing error that happened
-    case generic(RoutingError.Context)
-
     /// Initial view controller error
     case initialController(InitialControllerErrorState, RoutingError.Context)
+
+    /// Message describing error that happened
+    case generic(RoutingError.Context)
 
     public var description: String {
         switch self {
@@ -75,10 +75,10 @@ public enum RoutingError: Error, CustomStringConvertible {
             return "Type Mismatch Error: \(context.description)"
         case .compositionFailed(let context):
             return "Composition Failed Error: \(context.description)"
-        case .generic(let context):
-            return "Generic Error: \(context.description)"
         case .initialController(let state, let context):
             return "Initial Controller Error (\(state)): \(context.description)"
+        case .generic(let context):
+            return "Generic Error: \(context.description)"
         }
 
     }

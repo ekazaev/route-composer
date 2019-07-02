@@ -25,13 +25,13 @@ extension DefaultRouter {
             interceptors.append(interceptor)
         }
 
-        func run<Context>(with context: Context, completion: @escaping (_: RoutingResult) -> Void) {
+        func perform<Context>(with context: Context, completion: @escaping (_: RoutingResult) -> Void) {
             guard !interceptors.isEmpty else {
                 completion(.success)
                 return
             }
             let interceptorToRun = interceptors.count == 1 ? interceptors[0] : InterceptorMultiplexer(interceptors)
-            interceptorToRun.execute(with: context, completion: completion)
+            interceptorToRun.perform(with: context, completion: completion)
         }
 
     }
@@ -54,9 +54,9 @@ extension DefaultRouter {
             contextTasks.append(contextTask)
         }
 
-        func run<Context>(on viewController: UIViewController, with context: Context) throws {
+        func perform<Context>(on viewController: UIViewController, with context: Context) throws {
             try contextTasks.forEach({
-                try $0.apply(on: viewController, with: context)
+                try $0.perform(on: viewController, with: context)
             })
         }
 
@@ -77,12 +77,12 @@ extension DefaultRouter {
             postTasks.append(postTask)
         }
 
-        func run<Context>(on viewController: UIViewController, with context: Context) throws {
+        func perform<Context>(on viewController: UIViewController, with context: Context) throws {
             postponedRunner.add(postTasks: postTasks, to: viewController)
         }
 
         func commit<Context>(with context: Context) throws {
-            try postponedRunner.run(with: context)
+            try postponedRunner.perform(with: context)
         }
 
     }
@@ -98,9 +98,9 @@ extension DefaultRouter {
             self.postTaskRunner = postTaskRunner
         }
 
-        func run<Context>(on viewController: UIViewController, with context: Context) throws {
-            try contextTaskRunner.run(on: viewController, with: context)
-            try postTaskRunner.run(on: viewController, with: context)
+        func perform<Context>(on viewController: UIViewController, with context: Context) throws {
+            try contextTaskRunner.perform(on: viewController, with: context)
+            try postTaskRunner.perform(on: viewController, with: context)
         }
 
     }
@@ -121,7 +121,7 @@ extension DefaultRouter {
         // store a reference there.
         private struct EmptyPostTask: AnyPostRoutingTask {
 
-            func execute<Context>(on viewController: UIViewController, with context: Context, routingStack: [UIViewController]) {
+            func perform<Context>(on viewController: UIViewController, with context: Context, routingStack: [UIViewController]) {
             }
 
         }
@@ -141,7 +141,7 @@ extension DefaultRouter {
             })
         }
 
-        func run(with context: Any?) throws {
+        func perform(with context: Any?) throws {
             var viewControllers: [UIViewController] = []
             taskSlips.forEach({
                 guard let viewController = $0.viewController, !viewControllers.contains(viewController) else {
@@ -154,7 +154,7 @@ extension DefaultRouter {
                 guard let viewController = slip.viewController else {
                     return
                 }
-                try slip.postTask.execute(on: viewController, with: context, routingStack: viewControllers)
+                try slip.postTask.perform(on: viewController, with: context, routingStack: viewControllers)
             })
         }
     }
@@ -173,7 +173,7 @@ extension DefaultRouter {
             self.postTaskRunner = postTaskRunner
         }
 
-        func taskRunnerFor<Context>(step: PerformableStep?, with context: Context) throws -> StepTaskTaskRunner {
+        func taskRunner<Context>(for step: PerformableStep?, with context: Context) throws -> StepTaskTaskRunner {
             guard let interceptableStep = step as? InterceptableStep else {
                 return StepTaskTaskRunner(contextTaskRunner: self.contextTaskRunner, postTaskRunner: self.postTaskRunner)
             }
@@ -191,11 +191,11 @@ extension DefaultRouter {
             return StepTaskTaskRunner(contextTaskRunner: contextTaskRunner, postTaskRunner: postTaskRunner)
         }
 
-        func executeInterceptors<Context>(with context: Context, completion: @escaping (_: RoutingResult) -> Void) {
-            interceptorRunner.run(with: context, completion: completion)
+        func performInterceptors<Context>(with context: Context, completion: @escaping (_: RoutingResult) -> Void) {
+            interceptorRunner.perform(with: context, completion: completion)
         }
 
-        func runPostTasks<Context>(with context: Context) throws {
+        func performPostTasks<Context>(with context: Context) throws {
             try postTaskRunner.commit(with: context)
         }
 
@@ -213,10 +213,10 @@ extension DefaultRouter {
 
         let action: AnyAction
 
-        init(factory: AnyFactory, viewControllerTaskRunner: StepTaskTaskRunner) {
+        init(factory: AnyFactory, stepTaskRunner: StepTaskTaskRunner) {
             self.factory = factory
             self.action = factory.action
-            self.stepTaskRunner = viewControllerTaskRunner
+            self.stepTaskRunner = stepTaskRunner
         }
 
         mutating func prepare<Context>(with context: Context) throws {
@@ -225,7 +225,7 @@ extension DefaultRouter {
 
         func build<Context>(with context: Context) throws -> UIViewController {
             let viewController = try factory.build(with: context)
-            try stepTaskRunner.run(on: viewController, with: context)
+            try stepTaskRunner.perform(on: viewController, with: context)
             return viewController
         }
 

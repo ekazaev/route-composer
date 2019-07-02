@@ -74,6 +74,9 @@ custom_categories:
 
   - name: Extras
     children:
+      - InlineInterceptor
+      - InlineContextTask
+      - InlinePostTask
       - NavigationDelayingInterceptor
       - SingleNavigationRouter
       - PresentingFinder
