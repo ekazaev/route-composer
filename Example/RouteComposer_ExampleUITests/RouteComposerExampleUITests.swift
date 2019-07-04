@@ -240,7 +240,7 @@ class RouteComposerExampleUITests: XCTestCase {
         app.textFields["passwordTextField"].typeText("abc")
 
         app.buttons["Login"].tap()
-        sleep(3)
+        sleep(5)
 
         XCTAssertTrue(app.tables["collectionsViewController"].exists)
 
