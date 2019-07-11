@@ -19,6 +19,8 @@ public enum RoutingResult {
 
 }
 
+// MARK: Helper Methods
+
 public extension RoutingResult {
 
     /// Returns `true` if `RoutingResult` is `success`

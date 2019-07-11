@@ -8,11 +8,15 @@ import UIKit
 /// The task to be executed after navigation process happened.
 public protocol PostRoutingTask {
 
+    // MARK: Associated types
+
     /// `UIViewController` type associated with this `PostRoutingTask`
     associatedtype ViewController: UIViewController
 
     /// `Context` type associated with this `PostRoutingTask`
     associatedtype Context
+
+    // MARK: Methods to implement
 
     /// Method to be executed by the `Router` after all the view controllers have been built into the stack.
     ///
@@ -25,7 +29,7 @@ public protocol PostRoutingTask {
 
 }
 
-// MARK: Helper Functions
+// MARK: Helper Methods
 
 public extension PostRoutingTask where Context == Any? {
 

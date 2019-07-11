@@ -13,6 +13,8 @@ public protocol Action: AbstractAction {
 /// Represents an action to be used by a `ContainerFactory` to build it's children view controller stack
 public protocol ContainerAction: AbstractAction where ViewController: ContainerViewController {
 
+    // MARK: Methods to implement
+
     /// If current `UIViewController` has to be pushed/added/etc to the existing stack of the view controllers,
     /// this method should be called instead.
     ///
@@ -22,6 +24,8 @@ public protocol ContainerAction: AbstractAction where ViewController: ContainerV
     func perform(embedding viewController: UIViewController, in childViewControllers: inout [UIViewController]) throws
 
 }
+
+// MARK: Default implementation
 
 public extension ContainerAction {
 

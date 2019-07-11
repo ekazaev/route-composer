@@ -89,47 +89,47 @@
 </tr>
 <tr class="never">
 <td class="num">16</td>
-<td class="src"><pre><code class="objc">    /// If current `UIViewController` has to be pushed/added/etc to the existing stack of the view controllers,</code></pre></td>
+<td class="src"><pre><code class="objc">    // MARK: Methods to implement</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">17</td>
-<td class="src"><pre><code class="objc">    /// this method should be called instead.</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">18</td>
-<td class="src"><pre><code class="objc">    ///</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">19</td>
-<td class="src"><pre><code class="objc">    /// - Parameters:</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">20</td>
-<td class="src"><pre><code class="objc">    ///   - viewController: The `UIViewController` to be embedded.</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">21</td>
-<td class="src"><pre><code class="objc">    ///   - childViewControllers: The stack of the `UIViewController`s in the current container.</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">22</td>
-<td class="src"><pre><code class="objc">    func perform(embedding viewController: UIViewController, in childViewControllers: inout [UIViewController]) throws</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">23</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
+<td class="num">18</td>
+<td class="src"><pre><code class="objc">    /// If current `UIViewController` has to be pushed/added/etc to the existing stack of the view controllers,</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">19</td>
+<td class="src"><pre><code class="objc">    /// this method should be called instead.</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">20</td>
+<td class="src"><pre><code class="objc">    ///</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">21</td>
+<td class="src"><pre><code class="objc">    /// - Parameters:</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">22</td>
+<td class="src"><pre><code class="objc">    ///   - viewController: The `UIViewController` to be embedded.</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">23</td>
+<td class="src"><pre><code class="objc">    ///   - childViewControllers: The stack of the `UIViewController`s in the current container.</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
 <td class="num">24</td>
-<td class="src"><pre><code class="objc">}</code></pre></td>
+<td class="src"><pre><code class="objc">    func perform(embedding viewController: UIViewController, in childViewControllers: inout [UIViewController]) throws</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -139,7 +139,7 @@
 </tr>
 <tr class="never">
 <td class="num">26</td>
-<td class="src"><pre><code class="objc">public extension ContainerAction {</code></pre></td>
+<td class="src"><pre><code class="objc">}</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -147,28 +147,48 @@
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="covered">
+<tr class="never">
 <td class="num">28</td>
-<td class="src"><pre><code class="objc">    func perform(embedding viewController: UIViewController, in childViewControllers: inout [UIViewController]) {</code></pre></td>
-<td class="coverage">33x</td>
+<td class="src"><pre><code class="objc">// MARK: Default implementation</code></pre></td>
+<td class="coverage"></td>
 </tr>
-<tr class="covered">
+<tr class="never">
 <td class="num">29</td>
-<td class="src"><pre><code class="objc">        childViewControllers.append(viewController)</code></pre></td>
-<td class="coverage">33x</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
 </tr>
-<tr class="covered">
+<tr class="never">
 <td class="num">30</td>
-<td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">33x</td>
+<td class="src"><pre><code class="objc">public extension ContainerAction {</code></pre></td>
+<td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">31</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="never">
+<tr class="covered">
 <td class="num">32</td>
+<td class="src"><pre><code class="objc">    func perform(embedding viewController: UIViewController, in childViewControllers: inout [UIViewController]) {</code></pre></td>
+<td class="coverage">33x</td>
+</tr>
+<tr class="covered">
+<td class="num">33</td>
+<td class="src"><pre><code class="objc">        childViewControllers.append(viewController)</code></pre></td>
+<td class="coverage">33x</td>
+</tr>
+<tr class="covered">
+<td class="num">34</td>
+<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="coverage">33x</td>
+</tr>
+<tr class="never">
+<td class="num">35</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">36</td>
 <td class="src"><pre><code class="objc">}</code></pre></td>
 <td class="coverage"></td>
 </tr>

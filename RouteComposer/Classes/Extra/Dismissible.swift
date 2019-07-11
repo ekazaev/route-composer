@@ -11,13 +11,19 @@ var associatedObjectHandle: UInt8 = 0
 /// `UIViewController` should conform to `Dismissible` protocol to be used with `DismissalMethodProvidingContextTask`.
 public protocol Dismissible where Self: UIViewController {
 
+    // MARK: Associated types
+
     /// Type of instance that `Dismissible` `UIViewController` will provide on dismissal.
     associatedtype DismissalTargetContext
+
+    // MARK: Methods to implement
 
     /// Property to store the dismissal block provided by `DismissalMethodProvidingContextTask`
     var dismissalBlock: ((_: DismissalTargetContext, _: Bool, _: ((_: RoutingResult) -> Void)?) -> Void)? { get set }
 
 }
+
+// MARK: Helper Methods
 
 public extension Dismissible {
 

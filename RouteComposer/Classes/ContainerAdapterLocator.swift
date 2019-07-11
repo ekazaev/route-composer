@@ -7,6 +7,8 @@ import Foundation
 /// Provides `ContainerAdapter` instance.
 public protocol ContainerAdapterLocator {
 
+    // MARK: Methods to implement
+
     /// Returns the `ContainerAdapter` suitable for the `ContainerViewController`
     ///
     /// - Parameter containerViewController: The `ContainerViewController` instance

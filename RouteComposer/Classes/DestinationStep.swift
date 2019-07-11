@@ -8,13 +8,19 @@ import UIKit
 /// Represents a single step for the `Router` to make.
 public struct DestinationStep<VC: UIViewController, C>: RoutingStep, ChainableStep {
 
+    // MARK: Associated types
+
     /// Type of the `ViewController` associated with the step
     public typealias ViewController = VC
 
     /// Type of the `Context` associated with the step
     public typealias Context = C
 
+    // MARK: Properties
+
     let destinationStep: RoutingStep
+
+    // MARK: Methods
 
     init(_ destinationStep: RoutingStep) {
         self.destinationStep = destinationStep
@@ -39,6 +45,8 @@ public struct DestinationStep<VC: UIViewController, C>: RoutingStep, ChainableSt
     }
 
 }
+
+// MARK: Helper Methods
 
 /// A step that has a context type Optional(Any) can be build with any type of context passed to the router.
 extension DestinationStep where DestinationStep.Context == Any? {

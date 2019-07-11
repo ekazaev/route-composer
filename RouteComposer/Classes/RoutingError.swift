@@ -9,6 +9,8 @@ import Foundation
 /// - message: Message describing an error that happened
 public enum RoutingError: Error, CustomStringConvertible {
 
+    // MARK: Data
+
     /// Describes an error happened to the initial view controller
     public enum InitialControllerErrorState: CustomStringConvertible {
 
@@ -57,6 +59,8 @@ public enum RoutingError: Error, CustomStringConvertible {
 
     }
 
+    // MARK: Error types
+
     /// Type mismatch error
     case typeMismatch(Any.Type, RoutingError.Context)
 
@@ -68,6 +72,8 @@ public enum RoutingError: Error, CustomStringConvertible {
 
     /// Message describing error that happened
     case generic(RoutingError.Context)
+
+    // MARK: Helper Methods
 
     public var description: String {
         switch self {

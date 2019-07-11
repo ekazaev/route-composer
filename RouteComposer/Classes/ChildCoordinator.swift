@@ -8,7 +8,11 @@ import UIKit
 /// Helps to build a child view controller stack
 public struct ChildCoordinator<Context> {
 
+    // MARK: Properties
+
     var childFactories: [PostponedIntegrationFactory<Context>]
+
+    // MARK: Methods
 
     init(childFactories: [PostponedIntegrationFactory<Context>]) {
         self.childFactories = childFactories

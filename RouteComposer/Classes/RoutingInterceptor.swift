@@ -13,8 +13,12 @@ import Foundation
 /// Otherwise, the `Router` will stay in a limbo state waiting for the interceptor to finish its action.
 public protocol RoutingInterceptor {
 
+    // MARK: Associated types
+
     /// `Context` type associated with `RoutingInterceptor`
     associatedtype Context
+
+    // MARK: Methods to implement
 
     /// The `Router` will call this method before the navigation process. If `RoutingInterceptor` is not able to allow
     /// the navigation process to start it can stop `Router` by throwing an exception.
@@ -39,6 +43,8 @@ public protocol RoutingInterceptor {
 
 }
 
+// MARK: Default implementation
+
 public extension RoutingInterceptor {
 
     /// Default implementation does nothing.
@@ -47,7 +53,7 @@ public extension RoutingInterceptor {
 
 }
 
-// MARK: Helper Functions
+// MARK: Helper Methods
 
 public extension RoutingInterceptor {
 

@@ -13,6 +13,8 @@ public struct SearchOptions: OptionSet, CaseIterable, CustomStringConvertible {
         self.rawValue = rawValue
     }
 
+    // MARK: Options
+
     /// Compare to a view controller provided
     public static let current = SearchOptions(rawValue: 1 << 0)
 
@@ -30,6 +32,8 @@ public struct SearchOptions: OptionSet, CaseIterable, CustomStringConvertible {
 
     /// Start search from the view controller provided and search in all its parent view controllers
     public static let parent = SearchOptions(rawValue: 1 << 5)
+
+    // MARK: Combinations
 
     /// If a view controller is a container, search in all the view controllers it contains
     public static let currentAllStack: SearchOptions = [.current, .contained]
@@ -50,6 +54,8 @@ public struct SearchOptions: OptionSet, CaseIterable, CustomStringConvertible {
     /// Iterate through the all view controllers on the current level and all the view controllers
     /// that are presenting the current level.
     public static let currentAndDown: SearchOptions = [.currentAllStack, .presenting]
+
+    // MARK: Methods
 
     public static var allCases: [SearchOptions] {
         return [.current, .visible, .contained, .presented, .presenting, .parent]

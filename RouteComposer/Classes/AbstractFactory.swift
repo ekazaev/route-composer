@@ -10,11 +10,15 @@ import UIKit
 /// integrated into the stack by the `Router`
 public protocol AbstractFactory {
 
+    // MARK: Associated types
+
     /// Type of `UIViewController` that `AbstractFactory` can build
     associatedtype ViewController: UIViewController
 
     /// `Context` to be passed into `UIViewController`
     associatedtype Context
+
+    // MARK: Methods to implement
 
     /// The `Router` will call it before the navigation process and if the `AbstractFactory` is not able to
     /// build a view controller it should throw an exception. (example: it has to build a product view
@@ -27,7 +31,8 @@ public protocol AbstractFactory {
 
 }
 
-/// Default implementation for any context
+// MARK: Helper Methods
+
 public extension AbstractFactory where Context == Any? {
 
     /// Prepares the `AbstractFactory`
@@ -37,7 +42,6 @@ public extension AbstractFactory where Context == Any? {
 
 }
 
-/// Default implementation for any context
 public extension AbstractFactory where Context == Void {
 
     /// Prepares the `AbstractFactory`

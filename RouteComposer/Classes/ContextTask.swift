@@ -11,11 +11,15 @@ import UIKit
 /// The task to be applied after a `UIViewController` was created or found.
 public protocol ContextTask {
 
+    // MARK: Associated types
+
     /// A`UIViewController` type associated with this `ContextTask`
     associatedtype ViewController: UIViewController
 
     /// A Context type associated with this `ContextTask`
     associatedtype Context
+
+    // MARK: Methods to implement
 
     /// The `Router` will call this method before the navigation process. If the `ContextTask` is not able to
     /// be applied to a view controller it should throw an exception.
@@ -25,7 +29,7 @@ public protocol ContextTask {
     /// - Throws: The `RoutingError` if `ContextTask` can't be applied.
     mutating func prepare(with context: Context) throws
 
-    /// The method that will be called by the `Router` to run `ContextTask` immediately after `UIViewController` been created
+    /// The `Router` will call this method to run the `ContextTask` immediately after `UIViewController` been created
     /// or found
     ///
     /// - Parameters:
@@ -35,6 +39,8 @@ public protocol ContextTask {
 
 }
 
+// MARK: Default implementation
+
 public extension ContextTask {
 
     /// Default implementation does nothing
@@ -43,7 +49,7 @@ public extension ContextTask {
 
 }
 
-// MARK: Helper Functions
+// MARK: Helper Methods
 
 public extension ContextTask {
 
@@ -66,7 +72,7 @@ public extension ContextTask where Context == Any? {
         try prepare(with: nil)
     }
 
-    /// The method that will be called by the `Router` to run `ContextTask` immediately after `UIViewController` been created
+    /// The `Router` will call this method to run the `ContextTask` immediately after `UIViewController` been created
     /// or found
     ///
     /// - Parameters:

@@ -64,37 +64,37 @@
 </tr>
 <tr class="never">
 <td class="num">11</td>
-<td class="src"><pre><code class="objc">    /// Type of the `ViewController` associated with the step</code></pre></td>
+<td class="src"><pre><code class="objc">    // MARK: Associated types</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">12</td>
-<td class="src"><pre><code class="objc">    public typealias ViewController = VC</code></pre></td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">13</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="src"><pre><code class="objc">    /// Type of the `ViewController` associated with the step</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">14</td>
-<td class="src"><pre><code class="objc">    /// Type of the `Context` associated with the step</code></pre></td>
+<td class="src"><pre><code class="objc">    public typealias ViewController = VC</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">15</td>
-<td class="src"><pre><code class="objc">    public typealias Context = C</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">16</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
+<td class="num">16</td>
+<td class="src"><pre><code class="objc">    /// Type of the `Context` associated with the step</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
 <td class="num">17</td>
-<td class="src"><pre><code class="objc">    let destinationStep: RoutingStep</code></pre></td>
+<td class="src"><pre><code class="objc">    public typealias Context = C</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -102,175 +102,175 @@
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="covered">
+<tr class="never">
 <td class="num">19</td>
-<td class="src"><pre><code class="objc">    init(_ destinationStep: RoutingStep) {</code></pre></td>
-<td class="coverage">283x</td>
+<td class="src"><pre><code class="objc">    // MARK: Properties</code></pre></td>
+<td class="coverage"></td>
 </tr>
-<tr class="covered">
+<tr class="never">
 <td class="num">20</td>
-<td class="src"><pre><code class="objc">        self.destinationStep = destinationStep</code></pre></td>
-<td class="coverage">283x</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
 </tr>
-<tr class="covered">
+<tr class="never">
 <td class="num">21</td>
-<td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">283x</td>
+<td class="src"><pre><code class="objc">    let destinationStep: RoutingStep</code></pre></td>
+<td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">22</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="covered">
+<tr class="never">
 <td class="num">23</td>
+<td class="src"><pre><code class="objc">    // MARK: Methods</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">24</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="covered">
+<td class="num">25</td>
+<td class="src"><pre><code class="objc">    init(_ destinationStep: RoutingStep) {</code></pre></td>
+<td class="coverage">283x</td>
+</tr>
+<tr class="covered">
+<td class="num">26</td>
+<td class="src"><pre><code class="objc">        self.destinationStep = destinationStep</code></pre></td>
+<td class="coverage">283x</td>
+</tr>
+<tr class="covered">
+<td class="num">27</td>
+<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="coverage">283x</td>
+</tr>
+<tr class="never">
+<td class="num">28</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="covered">
+<td class="num">29</td>
 <td class="src"><pre><code class="objc">    func getPreviousStep&lt;Context&gt;(with context: Context) -&gt; RoutingStep? {</code></pre></td>
 <td class="coverage">282x</td>
 </tr>
 <tr class="covered">
-<td class="num">24</td>
+<td class="num">30</td>
 <td class="src"><pre><code class="objc">        return destinationStep</code></pre></td>
 <td class="coverage">282x</td>
 </tr>
 <tr class="covered">
-<td class="num">25</td>
+<td class="num">31</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
 <td class="coverage">282x</td>
 </tr>
 <tr class="never">
-<td class="num">26</td>
+<td class="num">32</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">27</td>
+<td class="num">33</td>
 <td class="src"><pre><code class="objc">    /// Adapts context and view controller type dependencies.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">28</td>
-<td class="src"><pre><code class="objc">    ///</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">29</td>
-<td class="src"><pre><code class="objc">    /// *NB:* Developer guaranties that this types will compliment in runtime.</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="covered">
-<td class="num">30</td>
-<td class="src"><pre><code class="objc">    public func unsafelyRewrapped&lt;VC: UIViewController, C&gt;() -&gt; DestinationStep&lt;VC, C&gt; {</code></pre></td>
-<td class="coverage">3x</td>
-</tr>
-<tr class="covered">
-<td class="num">31</td>
-<td class="src"><pre><code class="objc">        return DestinationStep&lt;VC, C&gt;(destinationStep)</code></pre></td>
-<td class="coverage">3x</td>
-</tr>
-<tr class="covered">
-<td class="num">32</td>
-<td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">3x</td>
-</tr>
-<tr class="never">
-<td class="num">33</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
 <td class="num">34</td>
-<td class="src"><pre><code class="objc">    /// Allows to avoid container view controller check.</code></pre></td>
+<td class="src"><pre><code class="objc">    ///</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">35</td>
-<td class="src"><pre><code class="objc">    ///</code></pre></td>
+<td class="src"><pre><code class="objc">    /// *NB:* Developer guaranties that this types will compliment in runtime.</code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="never">
+<tr class="covered">
 <td class="num">36</td>
-<td class="src"><pre><code class="objc">    /// *NB:* Developer guaranties that it will be there in the runtime.</code></pre></td>
-<td class="coverage"></td>
+<td class="src"><pre><code class="objc">    public func unsafelyRewrapped&lt;VC: UIViewController, C&gt;() -&gt; DestinationStep&lt;VC, C&gt; {</code></pre></td>
+<td class="coverage">3x</td>
 </tr>
 <tr class="covered">
 <td class="num">37</td>
-<td class="src"><pre><code class="objc">    public func expectingContainer&lt;VC: ContainerViewController&gt;() -&gt; DestinationStep&lt;VC, Context&gt; {</code></pre></td>
-<td class="coverage">9x</td>
+<td class="src"><pre><code class="objc">        return DestinationStep&lt;VC, C&gt;(destinationStep)</code></pre></td>
+<td class="coverage">3x</td>
 </tr>
 <tr class="covered">
 <td class="num">38</td>
-<td class="src"><pre><code class="objc">        return DestinationStep&lt;VC, Context&gt;(destinationStep)</code></pre></td>
-<td class="coverage">9x</td>
-</tr>
-<tr class="covered">
-<td class="num">39</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">9x</td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="never">
+<td class="num">39</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">40</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="src"><pre><code class="objc">    /// Allows to avoid container view controller check.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">41</td>
-<td class="src"><pre><code class="objc">}</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">42</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">43</td>
-<td class="src"><pre><code class="objc">/// A step that has a context type Optional(Any) can be build with any type of context passed to the router.</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">44</td>
-<td class="src"><pre><code class="objc">extension DestinationStep where DestinationStep.Context == Any? {</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">45</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">46</td>
-<td class="src"><pre><code class="objc">    /// Allows to avoid container view controller check. This method is available only for the steps that are</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">47</td>
-<td class="src"><pre><code class="objc">    /// able to accept any type of context.</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">48</td>
 <td class="src"><pre><code class="objc">    ///</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">49</td>
+<td class="num">42</td>
 <td class="src"><pre><code class="objc">    /// *NB:* Developer guaranties that it will be there in the runtime.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
-<td class="num">50</td>
-<td class="src"><pre><code class="objc">    public func expectingContainer&lt;VC: ContainerViewController, C&gt;() -&gt; DestinationStep&lt;VC, C&gt; {</code></pre></td>
-<td class="coverage">12x</td>
+<td class="num">43</td>
+<td class="src"><pre><code class="objc">    public func expectingContainer&lt;VC: ContainerViewController&gt;() -&gt; DestinationStep&lt;VC, Context&gt; {</code></pre></td>
+<td class="coverage">9x</td>
 </tr>
 <tr class="covered">
-<td class="num">51</td>
-<td class="src"><pre><code class="objc">        return DestinationStep&lt;VC, C&gt;(destinationStep)</code></pre></td>
-<td class="coverage">12x</td>
+<td class="num">44</td>
+<td class="src"><pre><code class="objc">        return DestinationStep&lt;VC, Context&gt;(destinationStep)</code></pre></td>
+<td class="coverage">9x</td>
 </tr>
 <tr class="covered">
-<td class="num">52</td>
+<td class="num">45</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">9x</td>
+</tr>
+<tr class="never">
+<td class="num">46</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">47</td>
+<td class="src"><pre><code class="objc">}</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">48</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">49</td>
+<td class="src"><pre><code class="objc">// MARK: Helper Methods</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">50</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">51</td>
+<td class="src"><pre><code class="objc">/// A step that has a context type Optional(Any) can be build with any type of context passed to the router.</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">52</td>
+<td class="src"><pre><code class="objc">extension DestinationStep where DestinationStep.Context == Any? {</code></pre></td>
+<td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">53</td>
@@ -279,36 +279,76 @@
 </tr>
 <tr class="never">
 <td class="num">54</td>
-<td class="src"><pre><code class="objc">    /// Allows to compliment to the type check. A step that has context equal to Optional(Any) can be build</code></pre></td>
+<td class="src"><pre><code class="objc">    /// Allows to avoid container view controller check. This method is available only for the steps that are</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">55</td>
-<td class="src"><pre><code class="objc">    /// with any type of context passed to the router.</code></pre></td>
+<td class="src"><pre><code class="objc">    /// able to accept any type of context.</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">56</td>
+<td class="src"><pre><code class="objc">    ///</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">57</td>
+<td class="src"><pre><code class="objc">    /// *NB:* Developer guaranties that it will be there in the runtime.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
-<td class="num">56</td>
-<td class="src"><pre><code class="objc">    public func adaptingContext&lt;C&gt;() -&gt; DestinationStep&lt;ViewController, C&gt; {</code></pre></td>
-<td class="coverage">7x</td>
-</tr>
-<tr class="covered">
-<td class="num">57</td>
-<td class="src"><pre><code class="objc">        return DestinationStep&lt;ViewController, C&gt;(destinationStep)</code></pre></td>
-<td class="coverage">7x</td>
-</tr>
-<tr class="covered">
 <td class="num">58</td>
+<td class="src"><pre><code class="objc">    public func expectingContainer&lt;VC: ContainerViewController, C&gt;() -&gt; DestinationStep&lt;VC, C&gt; {</code></pre></td>
+<td class="coverage">12x</td>
+</tr>
+<tr class="covered">
+<td class="num">59</td>
+<td class="src"><pre><code class="objc">        return DestinationStep&lt;VC, C&gt;(destinationStep)</code></pre></td>
+<td class="coverage">12x</td>
+</tr>
+<tr class="covered">
+<td class="num">60</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">7x</td>
+<td class="coverage">12x</td>
 </tr>
 <tr class="never">
-<td class="num">59</td>
+<td class="num">61</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">60</td>
+<td class="num">62</td>
+<td class="src"><pre><code class="objc">    /// Allows to compliment to the type check. A step that has context equal to Optional(Any) can be build</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">63</td>
+<td class="src"><pre><code class="objc">    /// with any type of context passed to the router.</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="covered">
+<td class="num">64</td>
+<td class="src"><pre><code class="objc">    public func adaptingContext&lt;C&gt;() -&gt; DestinationStep&lt;ViewController, C&gt; {</code></pre></td>
+<td class="coverage">7x</td>
+</tr>
+<tr class="covered">
+<td class="num">65</td>
+<td class="src"><pre><code class="objc">        return DestinationStep&lt;ViewController, C&gt;(destinationStep)</code></pre></td>
+<td class="coverage">7x</td>
+</tr>
+<tr class="covered">
+<td class="num">66</td>
+<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="coverage">7x</td>
+</tr>
+<tr class="never">
+<td class="num">67</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">68</td>
 <td class="src"><pre><code class="objc">}</code></pre></td>
 <td class="coverage"></td>
 </tr>

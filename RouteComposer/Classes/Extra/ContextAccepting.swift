@@ -9,8 +9,12 @@ import UIKit
 /// The protocol for `UIViewController`'s to make it compatible with `ContextSettingTask`.
 public protocol ContextAccepting where Self: UIViewController {
 
+    // MARK: Associated types
+
     /// Type of `Context` object that `UIViewController` can deal with
     associatedtype Context
+
+    // MARK: Methods to implement
 
     /// `ContextSettingTask` will call this method to provide the `Context` instance to the `UIViewController`
     /// that has just been build or found.
@@ -27,6 +31,8 @@ public protocol ContextAccepting where Self: UIViewController {
     static func checkCompatibility(with context: Context) throws
 
 }
+
+// MARK: Default implementation
 
 public extension ContextAccepting {
 

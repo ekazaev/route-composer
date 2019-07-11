@@ -8,11 +8,15 @@ import UIKit
 /// The `Factory` protocol should be implemented by the instance that produces any types of the view controllers
 public protocol Factory: AbstractFactory {
 
+    // MARK: Associated types
+
     /// Type of `UIViewController` that `Factory` can build
     associatedtype ViewController
 
     /// `Context` to be passed into `UIViewController`
     associatedtype Context
+
+    // MARK: Methods to implement
 
     /// Builds a `UIViewController` that will be integrated into the stack
     ///
@@ -23,7 +27,8 @@ public protocol Factory: AbstractFactory {
 
 }
 
-/// Default implementation
+// MARK: Default implementation
+
 public extension Factory {
 
     /// Default implementation does nothing
@@ -32,7 +37,7 @@ public extension Factory {
 
 }
 
-// MARK: Helper Functions
+// MARK: Helper Methods
 
 public extension Factory {
 

@@ -64,7 +64,7 @@
 </tr>
 <tr class="never">
 <td class="num">11</td>
-<td class="src"><pre><code class="objc">    var childFactories: [PostponedIntegrationFactory&lt;Context&gt;]</code></pre></td>
+<td class="src"><pre><code class="objc">    // MARK: Properties</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -72,98 +72,118 @@
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="covered">
+<tr class="never">
 <td class="num">13</td>
-<td class="src"><pre><code class="objc">    init(childFactories: [PostponedIntegrationFactory&lt;Context&gt;]) {</code></pre></td>
-<td class="coverage">40x</td>
+<td class="src"><pre><code class="objc">    var childFactories: [PostponedIntegrationFactory&lt;Context&gt;]</code></pre></td>
+<td class="coverage"></td>
 </tr>
-<tr class="covered">
+<tr class="never">
 <td class="num">14</td>
-<td class="src"><pre><code class="objc">        self.childFactories = childFactories</code></pre></td>
-<td class="coverage">40x</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
 </tr>
-<tr class="covered">
+<tr class="never">
 <td class="num">15</td>
-<td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">40x</td>
+<td class="src"><pre><code class="objc">    // MARK: Methods</code></pre></td>
+<td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">16</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="never">
+<tr class="covered">
 <td class="num">17</td>
-<td class="src"><pre><code class="objc">    /// Builds child view controller stack with the context instance provided.</code></pre></td>
-<td class="coverage"></td>
+<td class="src"><pre><code class="objc">    init(childFactories: [PostponedIntegrationFactory&lt;Context&gt;]) {</code></pre></td>
+<td class="coverage">40x</td>
 </tr>
-<tr class="never">
+<tr class="covered">
 <td class="num">18</td>
-<td class="src"><pre><code class="objc">    ///</code></pre></td>
-<td class="coverage"></td>
+<td class="src"><pre><code class="objc">        self.childFactories = childFactories</code></pre></td>
+<td class="coverage">40x</td>
 </tr>
-<tr class="never">
+<tr class="covered">
 <td class="num">19</td>
-<td class="src"><pre><code class="objc">    /// - Parameters:</code></pre></td>
-<td class="coverage"></td>
+<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="coverage">40x</td>
 </tr>
 <tr class="never">
 <td class="num">20</td>
-<td class="src"><pre><code class="objc">    ///   - context: A `Context` instance that is provided to the `Router`.</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">21</td>
-<td class="src"><pre><code class="objc">    ///   - existingViewControllers: Current view controller stack of the container.</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">22</td>
-<td class="src"><pre><code class="objc">    /// - Returns: Built child view controller stack</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="covered">
-<td class="num">23</td>
-<td class="src"><pre><code class="objc">    public func build(with context: Context, integrating existingViewControllers: [UIViewController] = []) throws -&gt; [UIViewController] {</code></pre></td>
-<td class="coverage">33x</td>
-</tr>
-<tr class="covered">
-<td class="num">24</td>
-<td class="src"><pre><code class="objc">        var childrenViewControllers = existingViewControllers</code></pre></td>
-<td class="coverage">33x</td>
-</tr>
-<tr class="covered">
-<td class="num">25</td>
-<td class="src"><pre><code class="objc">        for factory in childFactories {</code></pre></td>
-<td class="coverage">49x</td>
-</tr>
-<tr class="covered">
-<td class="num">26</td>
-<td class="src"><pre><code class="objc">            try factory.build(with: context, in: &amp;childrenViewControllers)</code></pre></td>
-<td class="coverage">49x</td>
-</tr>
-<tr class="covered">
-<td class="num">27</td>
-<td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">49x</td>
-</tr>
-<tr class="covered">
-<td class="num">28</td>
-<td class="src"><pre><code class="objc">        return childrenViewControllers</code></pre></td>
-<td class="coverage">33x</td>
-</tr>
-<tr class="covered">
-<td class="num">29</td>
-<td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">33x</td>
-</tr>
-<tr class="never">
-<td class="num">30</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
+<td class="num">21</td>
+<td class="src"><pre><code class="objc">    /// Builds child view controller stack with the context instance provided.</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">22</td>
+<td class="src"><pre><code class="objc">    ///</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">23</td>
+<td class="src"><pre><code class="objc">    /// - Parameters:</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">24</td>
+<td class="src"><pre><code class="objc">    ///   - context: A `Context` instance that is provided to the `Router`.</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">25</td>
+<td class="src"><pre><code class="objc">    ///   - existingViewControllers: Current view controller stack of the container.</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">26</td>
+<td class="src"><pre><code class="objc">    /// - Returns: Built child view controller stack</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="covered">
+<td class="num">27</td>
+<td class="src"><pre><code class="objc">    public func build(with context: Context, integrating existingViewControllers: [UIViewController] = []) throws -&gt; [UIViewController] {</code></pre></td>
+<td class="coverage">33x</td>
+</tr>
+<tr class="covered">
+<td class="num">28</td>
+<td class="src"><pre><code class="objc">        var childrenViewControllers = existingViewControllers</code></pre></td>
+<td class="coverage">33x</td>
+</tr>
+<tr class="covered">
+<td class="num">29</td>
+<td class="src"><pre><code class="objc">        for factory in childFactories {</code></pre></td>
+<td class="coverage">49x</td>
+</tr>
+<tr class="covered">
+<td class="num">30</td>
+<td class="src"><pre><code class="objc">            try factory.build(with: context, in: &amp;childrenViewControllers)</code></pre></td>
+<td class="coverage">49x</td>
+</tr>
+<tr class="covered">
 <td class="num">31</td>
+<td class="src"><pre><code class="objc">        }</code></pre></td>
+<td class="coverage">49x</td>
+</tr>
+<tr class="covered">
+<td class="num">32</td>
+<td class="src"><pre><code class="objc">        return childrenViewControllers</code></pre></td>
+<td class="coverage">33x</td>
+</tr>
+<tr class="covered">
+<td class="num">33</td>
+<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="coverage">33x</td>
+</tr>
+<tr class="never">
+<td class="num">34</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">35</td>
 <td class="src"><pre><code class="objc">}</code></pre></td>
 <td class="coverage"></td>
 </tr>

@@ -8,8 +8,12 @@ import UIKit
 /// been built (eg: push to navigation stack, present modally, push to tab, etc)
 public protocol AbstractAction {
 
+    // MARK: Associated types
+
     /// Type of the `UIViewController` that `Action` can start from.
     associatedtype ViewController: UIViewController
+
+    // MARK: Methods to implement
 
     /// Performs provided action to the view controller.
     ///

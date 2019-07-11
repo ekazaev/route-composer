@@ -9,7 +9,7 @@ import Foundation
 /// Base router protocol.
 public protocol Router {
 
-    /// Navigates an application to the view controller configured in `DestinationStep` with the `Context` provided.
+    /// Navigates the application to the view controller configured in `DestinationStep` with the `Context` provided.
     ///
     /// - Parameters:
     ///   - step: `DestinationStep` instance.
@@ -23,11 +23,11 @@ public protocol Router {
 
 }
 
-// MARK: Helper Functions
+// MARK: Helper Methods
 
 public extension Router {
 
-    /// Navigates an application to the view controller configured in `DestinationStep` with the `Context` set to `Any?`.
+    /// Navigates the application to the view controller configured in `DestinationStep` with the `Context` set to `Any?`.
     ///
     /// - Parameters:
     ///   - step: `DestinationStep` instance.
@@ -39,7 +39,7 @@ public extension Router {
         try navigate(to: step, with: nil, animated: animated, completion: completion)
     }
 
-    /// Navigates an application to the view controller configured in `DestinationStep` with the `Context` set to `Void`.
+    /// Navigates the application to the view controller configured in `DestinationStep` with the `Context` set to `Void`.
     ///
     /// - Parameters:
     ///   - step: `DestinationStep` instance.
@@ -55,7 +55,7 @@ public extension Router {
 
 public extension Router {
 
-    /// Navigates an application to the view controller configured in `DestinationStep` with the `Context` provided.
+    /// Navigates the application to the view controller configured in `DestinationStep` with the `Context` provided.
     /// Method does not throw errors, but propagates them to the completion block
     ///
     /// - Parameters:
@@ -74,7 +74,7 @@ public extension Router {
         }
     }
 
-    /// Navigates an application to the view controller configured in `DestinationStep` with the `Context` set to `Any?`.
+    /// Navigates the application to the view controller configured in `DestinationStep` with the `Context` set to `Any?`.
     /// Method does not throw errors, but propagates them to the completion block
     ///
     /// - Parameters:
@@ -91,7 +91,7 @@ public extension Router {
         }
     }
 
-    /// Navigates an application to the view controller configured in `DestinationStep` with the `Context` set to `Void`.
+    /// Navigates the application to the view controller configured in `DestinationStep` with the `Context` set to `Void`.
     /// Method does not throw errors, but propagates them to the completion block
     ///
     /// - Parameters:

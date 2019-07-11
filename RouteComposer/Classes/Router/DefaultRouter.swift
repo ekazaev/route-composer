@@ -8,6 +8,8 @@ import UIKit
 /// Default `Router` implementation
 public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
 
+    // MARK: Properties
+
     /// `Logger` instance to be used by `DefaultRouter`.
     public let logger: Logger?
 
@@ -19,6 +21,8 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
     private var contextTasks: [AnyContextTask] = []
 
     private var postTasks: [AnyPostRoutingTask] = []
+
+    // MARK: Methods
 
     /// Constructor
     ///

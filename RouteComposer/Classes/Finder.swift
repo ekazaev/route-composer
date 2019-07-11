@@ -10,11 +10,15 @@ import UIKit
 /// instance is integrated into the view controller stack
 public protocol Finder {
 
+    // MARK: Associated types
+
     /// Type of `UIViewController` that `Finder` can find
     associatedtype ViewController: UIViewController
 
     /// Type of `Context` object that `Finder` can deal with
     associatedtype Context
+
+    // MARK: Methods to implement
 
     /// Returns the view controller instance if it is present in the stack.
     ///
@@ -24,7 +28,7 @@ public protocol Finder {
 
 }
 
-// MARK: Helper Functions
+// MARK: Helper Methods
 
 public extension Finder {
 
