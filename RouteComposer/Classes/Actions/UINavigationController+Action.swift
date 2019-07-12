@@ -5,7 +5,8 @@
 import Foundation
 import UIKit
 
-/// Actions for `UINavigationController`
+// MARK: Actions for UINavigationController
+
 public extension ContainerViewController where Self: UINavigationController {
 
     /// Replaces all the child view controllers in the `UINavigationController`'s children stack

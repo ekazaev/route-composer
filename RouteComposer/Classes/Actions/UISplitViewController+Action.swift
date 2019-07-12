@@ -5,7 +5,8 @@
 import Foundation
 import UIKit
 
-/// Actions for `UISplitViewController`
+// MARK: Actions for UISplitViewController
+
 public extension ContainerViewController where Self: UISplitViewController {
 
     /// Presents a view controller as a master in the `UISplitViewController`

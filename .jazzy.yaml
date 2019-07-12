@@ -67,6 +67,10 @@ custom_categories:
       - RoutingInterceptable
       - ContainerViewController
 
+  - name: General Actions
+    children:
+      - GeneralAction
+
   - name: Logging
     children:
       - Logger

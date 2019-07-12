@@ -5,7 +5,8 @@
 import Foundation
 import UIKit
 
-/// Actions for `UITabBarController`
+// MARK: Actions for UITabBarController
+
 public extension ContainerViewController where Self: UITabBarController {
 
     /// Adds a `UIViewController` to a `UITabBarController`
