@@ -7,9 +7,9 @@
 <body>
 <header><div class="row"><a href="index.html"><img src="logo.jpg" alt="Slather logo"></a></div></header><div class="row"><div id="reports">
 <h2 class="cov_title">
-<span>Coverage for "NavigationControllerFactory.swift" : </span><span class="cov_medium">78.95%</span>
+<span>Coverage for "NavigationControllerFactory.swift" : </span><span class="cov_high">100.00%</span>
 </h2>
-<h4 class="cov_subtitle">(15 of 19 relevant lines covered)</h4>
+<h4 class="cov_subtitle">(19 of 19 relevant lines covered)</h4>
 <h4 class="cov_filepath">RouteComposer/Classes/Factories/NavigationControllerFactory.swift</h4>
 <table class="source_code">
 <tr class="never">
@@ -125,22 +125,22 @@
 <tr class="covered">
 <td class="num">23</td>
 <td class="src"><pre><code class="objc">                configuration: ((_: UINavigationController) -&gt; Void)? = nil) {</code></pre></td>
-<td class="coverage">20x</td>
+<td class="coverage">21x</td>
 </tr>
 <tr class="covered">
 <td class="num">24</td>
 <td class="src"><pre><code class="objc">        self.delegate = delegate</code></pre></td>
-<td class="coverage">20x</td>
+<td class="coverage">21x</td>
 </tr>
 <tr class="covered">
 <td class="num">25</td>
 <td class="src"><pre><code class="objc">        self.configuration = configuration</code></pre></td>
-<td class="coverage">20x</td>
+<td class="coverage">21x</td>
 </tr>
 <tr class="covered">
 <td class="num">26</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">20x</td>
+<td class="coverage">21x</td>
 </tr>
 <tr class="never">
 <td class="num">27</td>
@@ -150,22 +150,22 @@
 <tr class="covered">
 <td class="num">28</td>
 <td class="src"><pre><code class="objc">    public func build(with context: C, integrating viewControllers: [UIViewController]) throws -&gt; UINavigationController {</code></pre></td>
-<td class="coverage">10x</td>
+<td class="coverage">11x</td>
 </tr>
 <tr class="covered">
 <td class="num">29</td>
 <td class="src"><pre><code class="objc">        guard !viewControllers.isEmpty else {</code></pre></td>
-<td class="coverage">10x</td>
+<td class="coverage">11x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">30</td>
 <td class="src"><pre><code class="objc">            throw RoutingError.compositionFailed(.init("Unable to build UINavigationController due to 0 amount " +</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">31</td>
 <td class="src"><pre><code class="objc">                    "of the children view controllers"))</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">32</td>
@@ -182,10 +182,10 @@
 <td class="src"><pre><code class="objc">        if let delegate = delegate {</code></pre></td>
 <td class="coverage">10x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">35</td>
 <td class="src"><pre><code class="objc">            navigationController.delegate = delegate</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">36</td>
@@ -197,10 +197,10 @@
 <td class="src"><pre><code class="objc">        if let configuration = configuration {</code></pre></td>
 <td class="coverage">10x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">38</td>
 <td class="src"><pre><code class="objc">            configuration(navigationController)</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">39</td>

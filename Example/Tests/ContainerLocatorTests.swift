@@ -91,6 +91,26 @@ class ContainerLocatorTests: XCTestCase {
         tabAdapter.setContainedViewControllers([], animated: true) { result in
             XCTAssertFalse(result.isSuccessful)
         }
+        XCTAssertTrue(tabAdapter.visibleViewControllers.isEmpty)
+        XCTAssertTrue(tabAdapter.containedViewControllers.isEmpty)
+    }
+
+    func testTabViewControllerAdapterSetContainedViewControllers() {
+        let tabAdapter = TabBarControllerAdapter<UITabBarController>(with: UITabBarController())
+        var wasInCompletion = false
+        tabAdapter.setContainedViewControllers([UIViewController(), UINavigationController()], animated: false, completion: { result in
+            wasInCompletion = true
+            XCTAssertTrue(result.isSuccessful)
+            XCTAssertEqual(tabAdapter.containedViewControllers.count, 2)
+            XCTAssertTrue(tabAdapter.containedViewControllers.last is UINavigationController)
+        })
+        XCTAssertTrue(wasInCompletion)
+        wasInCompletion = false
+        tabAdapter.makeVisible(UIViewController(), animated: false, completion: { result in
+            wasInCompletion = true
+            XCTAssertFalse(result.isSuccessful)
+        })
+        XCTAssertTrue(wasInCompletion)
     }
 
 }

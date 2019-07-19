@@ -30,7 +30,6 @@ public struct SplitControllerFactory<C>: SimpleContainerFactory {
     /// Constructor
     public init(delegate: UISplitViewControllerDelegate? = nil,
                 presentsWithGesture: Bool? = nil,
-                isCollapsed: Bool? = nil,
                 preferredDisplayMode: UISplitViewController.DisplayMode? = nil,
                 configuration: ((_: UISplitViewController) -> Void)? = nil) {
         self.delegate = delegate

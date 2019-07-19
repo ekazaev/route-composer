@@ -75,17 +75,17 @@
 <tr class="covered">
 <td class="num">13</td>
 <td class="src"><pre><code class="objc">    init(previousSteps: [RoutingStep]) {</code></pre></td>
-<td class="coverage">151x</td>
+<td class="coverage">152x</td>
 </tr>
 <tr class="covered">
 <td class="num">14</td>
 <td class="src"><pre><code class="objc">        self.previousSteps = previousSteps</code></pre></td>
-<td class="coverage">151x</td>
+<td class="coverage">152x</td>
 </tr>
 <tr class="covered">
 <td class="num">15</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">151x</td>
+<td class="coverage">152x</td>
 </tr>
 <tr class="never">
 <td class="num">16</td>
@@ -110,17 +110,17 @@
 <tr class="covered">
 <td class="num">20</td>
 <td class="src"><pre><code class="objc">    public func assemble() -&gt; DestinationStep&lt;ViewController, Context&gt; {</code></pre></td>
-<td class="coverage">151x</td>
+<td class="coverage">152x</td>
 </tr>
 <tr class="covered">
 <td class="num">21</td>
 <td class="src"><pre><code class="objc">        return DestinationStep(chain(previousSteps))</code></pre></td>
-<td class="coverage">151x</td>
+<td class="coverage">152x</td>
 </tr>
 <tr class="covered">
 <td class="num">22</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">151x</td>
+<td class="coverage">152x</td>
 </tr>
 <tr class="never">
 <td class="num">23</td>
@@ -130,12 +130,12 @@
 <tr class="covered">
 <td class="num">24</td>
 <td class="src"><pre><code class="objc">    private func chain(_ steps: [RoutingStep]) -&gt; RoutingStep {</code></pre></td>
-<td class="coverage">151x</td>
+<td class="coverage">152x</td>
 </tr>
 <tr class="covered">
 <td class="num">25</td>
 <td class="src"><pre><code class="objc">        guard let lastStep = steps.last else {</code></pre></td>
-<td class="coverage">151x</td>
+<td class="coverage">152x</td>
 </tr>
 <tr class="missed">
 <td class="num">26</td>
@@ -145,22 +145,22 @@
 <tr class="covered">
 <td class="num">27</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">151x</td>
+<td class="coverage">152x</td>
 </tr>
 <tr class="covered">
 <td class="num">28</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage">151x</td>
+<td class="coverage">152x</td>
 </tr>
 <tr class="covered">
 <td class="num">29</td>
 <td class="src"><pre><code class="objc">        let firstStep = steps.dropLast().reversed().reduce(lastStep, { (result, currentStep) in</code></pre></td>
-<td class="coverage">191x</td>
+<td class="coverage">193x</td>
 </tr>
 <tr class="covered">
 <td class="num">30</td>
 <td class="src"><pre><code class="objc">            guard var step = currentStep as? BaseStep else {</code></pre></td>
-<td class="coverage">191x</td>
+<td class="coverage">193x</td>
 </tr>
 <tr class="missed">
 <td class="num">31</td>
@@ -175,37 +175,37 @@
 <tr class="covered">
 <td class="num">33</td>
 <td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">191x</td>
+<td class="coverage">193x</td>
 </tr>
 <tr class="covered">
 <td class="num">34</td>
 <td class="src"><pre><code class="objc">            step.from(result)</code></pre></td>
-<td class="coverage">191x</td>
+<td class="coverage">193x</td>
 </tr>
 <tr class="covered">
 <td class="num">35</td>
 <td class="src"><pre><code class="objc">            return step</code></pre></td>
-<td class="coverage">191x</td>
+<td class="coverage">193x</td>
 </tr>
 <tr class="covered">
 <td class="num">36</td>
 <td class="src"><pre><code class="objc">        })</code></pre></td>
-<td class="coverage">191x</td>
+<td class="coverage">193x</td>
 </tr>
 <tr class="covered">
 <td class="num">37</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage">151x</td>
+<td class="coverage">152x</td>
 </tr>
 <tr class="covered">
 <td class="num">38</td>
 <td class="src"><pre><code class="objc">        return firstStep</code></pre></td>
-<td class="coverage">151x</td>
+<td class="coverage">152x</td>
 </tr>
 <tr class="covered">
 <td class="num">39</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">151x</td>
+<td class="coverage">152x</td>
 </tr>
 <tr class="never">
 <td class="num">40</td>

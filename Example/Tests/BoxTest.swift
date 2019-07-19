@@ -101,6 +101,23 @@ class BoxTests: XCTestCase {
         XCTAssertNil(postponedIntegrationHandler.containerViewController)
     }
 
+    func testActionBoxPerformEmbedding() {
+
+        class TestAction: Action {
+
+            func perform(with viewController: UIViewController, on existingController: UINavigationController, animated: Bool, completion: @escaping (RoutingResult) -> Void) {
+                existingController.viewControllers = [viewController]
+                completion(.success)
+            }
+
+        }
+        let action = TestAction()
+        let actionBox = ActionBox(action)
+        var viewControllers = [UIViewController(), UIViewController()]
+        actionBox.perform(embedding: UIViewController(), in: &viewControllers)
+        XCTAssertEqual(viewControllers.count, 3)
+    }
+
     func testContainerActionBox() {
 
         class TestContainerAction: ContainerAction {

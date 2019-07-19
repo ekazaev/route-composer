@@ -7,9 +7,9 @@
 <body>
 <header><div class="row"><a href="index.html"><img src="logo.jpg" alt="Slather logo"></a></div></header><div class="row"><div id="reports">
 <h2 class="cov_title">
-<span>Coverage for "ContainerFactory.swift" : </span><span class="cov_low">69.23%</span>
+<span>Coverage for "ContainerFactory.swift" : </span><span class="cov_high">100.00%</span>
 </h2>
-<h4 class="cov_subtitle">(18 of 26 relevant lines covered)</h4>
+<h4 class="cov_subtitle">(26 of 26 relevant lines covered)</h4>
 <h4 class="cov_filepath">RouteComposer/Classes/ContainerFactory.swift</h4>
 <table class="source_code">
 <tr class="never">
@@ -275,17 +275,17 @@
 <tr class="covered">
 <td class="num">53</td>
 <td class="src"><pre><code class="objc">    func build(with context: Context) throws -&gt; ViewController {</code></pre></td>
-<td class="coverage">6x</td>
+<td class="coverage">7x</td>
 </tr>
 <tr class="covered">
 <td class="num">54</td>
 <td class="src"><pre><code class="objc">        return try build(with: context, integrating: ChildCoordinator(childFactories: []))</code></pre></td>
-<td class="coverage">6x</td>
+<td class="coverage">7x</td>
 </tr>
 <tr class="covered">
 <td class="num">55</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">6x</td>
+<td class="coverage">7x</td>
 </tr>
 <tr class="never">
 <td class="num">56</td>
@@ -432,20 +432,20 @@
 <td class="src"><pre><code class="objc">    /// Builds a `ContainerFactory` view controller.</code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">85</td>
 <td class="src"><pre><code class="objc">    func build() throws -&gt; ViewController {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">86</td>
 <td class="src"><pre><code class="objc">        return try build(with: ())</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">87</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="never">
 <td class="num">88</td>
@@ -457,30 +457,30 @@
 <td class="src"><pre><code class="objc">    /// Prepares the `Factory` and builds its `UIViewController`</code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">90</td>
 <td class="src"><pre><code class="objc">    func execute() throws -&gt; ViewController {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">91</td>
 <td class="src"><pre><code class="objc">        var factory = self</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">92</td>
 <td class="src"><pre><code class="objc">        try factory.prepare()</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">93</td>
 <td class="src"><pre><code class="objc">        return try factory.build()</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">94</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="never">
 <td class="num">95</td>

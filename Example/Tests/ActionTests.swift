@@ -158,6 +158,16 @@ class ActionTests: XCTestCase {
                 in: &viewControllerStack)
         XCTAssertEqual(viewControllerStack.count, 1)
         XCTAssert(viewControllerStack.first!.isKind(of: UINavigationController.self))
+
+        let testViewController = UIViewController()
+        let navigationController = UINavigationController(rootViewController: UIViewController())
+        var wasInCompletion = false
+        UINavigationController.pushReplacingLast().perform(with: testViewController, on: navigationController, animated: false, completion: { result in
+            XCTAssert(result.isSuccessful)
+            XCTAssertEqual(testViewController, navigationController.viewControllers.first)
+            wasInCompletion = true
+        })
+        XCTAssertTrue(wasInCompletion)
     }
 
     func testNavPushAsRoot() {

@@ -100,6 +100,15 @@ class MultiplexerTest: XCTestCase {
         XCTAssertThrowsError(try multiplexer.perform(on: UIViewController(), with: nil as Any?))
     }
 
+    func testContextTaskDescription() {
+        let contextTask = [
+            ContextTaskBox(ContextSettingTask<ExtrasTest.ContentAcceptingViewController>())
+        ]
+
+        let multiplexer = ContextTaskMultiplexer(contextTask)
+        XCTAssertEqual(multiplexer.description, "[ContextSettingTask<ContentAcceptingViewController>()]")
+    }
+
     func testPostTaskWrongContextTypeThrow() {
         let postTasks = [
             PostRoutingTaskBox(InlinePostTask({ (_: UIViewController, _: Int, _: [UIViewController]) in
@@ -108,6 +117,16 @@ class MultiplexerTest: XCTestCase {
 
         let multiplexer = PostRoutingTaskMultiplexer(postTasks)
         XCTAssertThrowsError(try multiplexer.perform(on: UIViewController(), with: "Wrong Context Type", routingStack: [UIViewController()]))
+    }
+
+    func testPostTaskDescription() {
+        let postTasks = [
+            PostRoutingTaskBox(InlinePostTask({ (_: UIViewController, _: Int, _: [UIViewController]) in
+            }))
+        ]
+
+        let multiplexer = PostRoutingTaskMultiplexer(postTasks)
+        XCTAssertEqual(multiplexer.description, "[InlinePostTask<UIViewController, Int>(completion: (Function))]")
     }
 
     func testRoutingInterceptorMutation() {

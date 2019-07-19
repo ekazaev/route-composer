@@ -70,6 +70,27 @@ class AssemblyTest: XCTestCase {
         XCTAssertEqual(chainedStepCount, 4)
     }
 
+    func testStepChainAssembly() {
+        let destinationStep = StepAssembly(finder: NilFinder<UIViewController, Any?>(),
+                factory: NilFactory<UIViewController, Any?>())
+                .using(ViewControllerActions.NilAction())
+                .from(NavigationControllerStep<Any?>())
+                .using(ViewControllerActions.NilAction())
+                .from(GeneralStep.root())
+                .assemble()
+        var currentStep: RoutingStep? = destinationStep
+        var chainedStepCount = 0
+        while currentStep != nil {
+            chainedStepCount += 1
+            if let chainableStep = currentStep as? ChainableStep {
+                currentStep = chainableStep.getPreviousStep(with: nil as Any?)
+            } else {
+                currentStep = nil
+            }
+        }
+        XCTAssertEqual(chainedStepCount, 5)
+    }
+
     func testCompleteFactoryAssembly() {
 
         class CompleteContextTask<VC: UIViewController, C>: ContextTask {

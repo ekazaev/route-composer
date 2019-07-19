@@ -7,7 +7,7 @@
 [![Swift 5.0](https://img.shields.io/badge/language-Swift5.0-orange.svg?style=flat)](https://developer.apple.com/swift)
 [![Platform iOS](https://img.shields.io/badge/platform-iOS%209%20—%20iOS%2013-yellow.svg)](https://www.apple.com/ios)
 [![Documentation](https://saksdirect.github.io/route-composer/badge.svg)](https://saksdirect.github.io/route-composer)
-[![Code coverage](https://img.shields.io/badge/code%20coverage-87%25-green.svg?style=flat)](https://saksdirect.github.io/route-composer/tests/index.html)
+[![Code coverage](https://img.shields.io/badge/code%20coverage-90%25-green.svg?style=flat)](https://saksdirect.github.io/route-composer/tests/index.html)
 [![MIT License](https://img.shields.io/cocoapods/l/RouteComposer.svg?style=flat)](https://github.com/saksdirect/RouteComposer/blob/master/LICENSE)
 [![Twitter](https://img.shields.io/twitter/url/https/github.com/saksdirect/route-composer.svg?style=flat)](https://twitter.com/intent/tweet?text=Check%20it%20out:&url=https%3A%2F%2Fgithub.com%2Fsaksdirect%2Froute-composer)
 
@@ -422,5 +422,5 @@ Russian:
 
 Evgeny Kazaev, eugene.kazaev@hbc.com
 
-*I am happy to answer any questions you may have.*
+*I am happy to answer any questions you may have. Just create a [new issue](https://github.com/saksdirect/route-composer/issues/new).*
 

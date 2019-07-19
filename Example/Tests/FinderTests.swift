@@ -10,12 +10,27 @@ import XCTest
 
 class FinderTest: XCTestCase {
 
+    class TestContextCheckingViewController: UIViewController, ContextChecking {
+
+        var context: String = "123"
+
+        func isTarget(for context: String) -> Bool {
+            return self.context == context
+        }
+    }
+
     func testInstanceFinder() {
         let viewController = UIViewController()
         let finder = InstanceFinder<UIViewController, Any?>(instance: viewController)
         XCTAssertEqual(finder.instance, viewController)
         XCTAssertEqual(try? finder.findViewController(with: nil), viewController)
         XCTAssertEqual(finder.getViewController(with: nil), viewController)
+    }
+
+    func testClassWithContextFinder() {
+        let viewController = TestContextCheckingViewController()
+        let finder = ClassWithContextFinder<TestContextCheckingViewController, String>(options: .currentAllStack, startingPoint: .custom(viewController))
+        XCTAssertEqual(try? finder.findViewController(with: "123"), viewController)
     }
 
     func testNilFinder() {
@@ -76,9 +91,11 @@ class FinderTest: XCTestCase {
         XCTAssertNotEqual(DefaultStackIterator.StartingPoint.custom(currentViewController), DefaultStackIterator.StartingPoint.custom(currentViewController1))
         XCTAssertNotEqual(DefaultStackIterator.StartingPoint.custom(currentViewController1), DefaultStackIterator.StartingPoint.custom(currentViewController))
         XCTAssertNotEqual(DefaultStackIterator.StartingPoint.custom(currentViewController1), DefaultStackIterator.StartingPoint.custom(nil))
+
         func throwsException() throws -> UIViewController? {
             throw RoutingError.generic(.init("Test Error"))
         }
+
         XCTAssertNotEqual(DefaultStackIterator.StartingPoint.custom(try throwsException()), DefaultStackIterator.StartingPoint.custom(currentViewController1))
         XCTAssertNotEqual(DefaultStackIterator.StartingPoint.topmost, DefaultStackIterator.StartingPoint.root)
         XCTAssertNotEqual(DefaultStackIterator.StartingPoint.topmost, DefaultStackIterator.StartingPoint.custom(currentViewController))

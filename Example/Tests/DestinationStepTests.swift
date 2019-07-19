@@ -108,6 +108,19 @@ class DestinationStepTests: XCTestCase {
         XCTAssertThrowsError(try (step.routingStep(with: ViewControllerActions.NilAction()) as? PerformableStep)?.perform(with: ()))
     }
 
+    func testSingleStepUnwrap() {
+        let nonContainerStepInsideContainer = SingleStep(finder: TestFinder<UIViewController, String>(), factory: NilFactory())
+        let newStep: ActionToStepIntegrator<UINavigationController, Int> = nonContainerStepInsideContainer.unsafelyRewrapped()
+        XCTAssertThrowsError(try (newStep.routingStep(with: ViewControllerActions.NilAction()) as? PerformableStep)?.perform(with: 123))
+    }
+
+    func testSingleStepEmbeddable() {
+        let nonContainerStepInsideContainer = SingleStep(finder: TestFinder<UIViewController, String>(), factory: NilFactory())
+        let newStep = nonContainerStepInsideContainer.embeddableRoutingStep(with: UINavigationController.push()) as? PerformableStep
+        XCTAssertThrowsError(try (newStep?.perform(with: 123)))
+        XCTAssertNoThrow(try? (newStep?.perform(with: "string")))
+    }
+
     func testSingleAdaptingContext() {
         let nonContainerStepInsideContainer = SingleStep(finder: TestFinder<UINavigationController, Any?>(), factory: NilFactory())
 

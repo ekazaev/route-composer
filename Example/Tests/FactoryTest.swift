@@ -32,6 +32,11 @@ class FactoryTest: XCTestCase {
         XCTAssertThrowsError(try factory.build())
     }
 
+    func testStoryboardFactoryWrongType() {
+        let factory = StoryboardFactory<UINavigationController, Any?>(storyboardName: "TabBar")
+        XCTAssertThrowsError(try factory.build())
+    }
+
     func testFinderFactory() {
         let navigationController = UINavigationController()
         let factory = FinderFactory<RouterTests.FakeClassFinder<UINavigationController, Any?>>(finder: RouterTests.FakeClassFinder(currentViewController: navigationController))
@@ -52,6 +57,23 @@ class FactoryTest: XCTestCase {
         XCTAssertThrowsError(try factory.prepare())
         XCTAssertThrowsError(try factory.build())
         XCTAssertThrowsError(try factory.execute())
+    }
+
+    func testVoidFactory() {
+        struct TestVoidViewControllerFactory: Factory {
+
+            typealias ViewController = UIViewController
+
+            typealias Context = Void
+
+            func build(with context: Void) throws -> UIViewController {
+                return UIViewController()
+            }
+
+        }
+
+        let factory = TestVoidViewControllerFactory()
+        XCTAssertNotNil(try factory.execute())
     }
 
     func testBuildPreparedFactory() {
@@ -127,5 +149,15 @@ class FactoryTest: XCTestCase {
         XCTAssertTrue(tfc.isPrepared)
         XCTAssertTrue(tfc.isApplied)
 
+    }
+
+    func testRootStep() {
+        let step = GeneralStep.RootViewControllerStep(windowProvider: CustomWindowProvider(window: UIWindow()))
+        XCTAssertThrowsError(try step.perform(with: nil as Any?))
+    }
+
+    func testSplitControllerStep() {
+        let step = SplitControllerStep<Any?>()
+        XCTAssertThrowsError(try step.factory.build(with: nil, integrating: []))
     }
 }
