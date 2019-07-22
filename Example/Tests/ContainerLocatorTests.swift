@@ -96,7 +96,8 @@ class ContainerLocatorTests: XCTestCase {
     }
 
     func testTabViewControllerAdapterSetContainedViewControllers() {
-        let tabAdapter = TabBarControllerAdapter<UITabBarController>(with: UITabBarController())
+        let tabBarController = UITabBarController()
+        let tabAdapter = TabBarControllerAdapter<UITabBarController>(with: tabBarController)
         var wasInCompletion = false
         tabAdapter.setContainedViewControllers([UIViewController(), UINavigationController()], animated: false, completion: { result in
             wasInCompletion = true
