@@ -16,19 +16,16 @@ public struct InlineInterceptor<C>: RoutingInterceptor {
 
     private let prepareBlock: ((_: C) throws -> Void)?
 
-    private let asyncCompletion: ((_: C, _: @escaping (RoutingResult) -> Void) -> Void)?
-
-    private let syncCompletion: ((_: C) -> Void)?
+    private let performBlock: ((_: C, _: @escaping (RoutingResult) -> Void) -> Void)
 
     /// Constructor
     ///
     /// - Parameter completion: the block to be called when `InlineInterceptor` will take a control over the navigation process.
     ///
     ///     **NB** For `Router` to be able to continue navigation process, completion block method **MUST** be called.
-    public init(prepare: ((_: C) throws -> Void)? = nil, _ completion: @escaping (_: C, _: @escaping (RoutingResult) -> Void) -> Void) {
-        self.prepareBlock = prepare
-        self.asyncCompletion = completion
-        self.syncCompletion = nil
+    public init(prepare prepareBlock: ((_: C) throws -> Void)? = nil, _ performBlock: @escaping (_: C, _: @escaping (RoutingResult) -> Void) -> Void) {
+        self.prepareBlock = prepareBlock
+        self.performBlock = performBlock
     }
 
     /// Constructor
@@ -37,10 +34,16 @@ public struct InlineInterceptor<C>: RoutingInterceptor {
     ///
     ///     **NB** completion method will be called automatically, do not use this constructor if your interceptor
     ///     task is asynchronous.
-    public init(prepare: ((_: C) throws -> Void)? = nil, _ completion: @escaping (_: C) -> Void) {
-        self.prepareBlock = prepare
-        self.syncCompletion = completion
-        self.asyncCompletion = nil
+    public init(prepare prepareBlock: ((_: C) throws -> Void)? = nil, _ inlineBlock: @escaping (_: C) throws -> Void) {
+        self.prepareBlock = prepareBlock
+        self.performBlock = { context, completion in
+            do {
+                try inlineBlock(context)
+                completion(.success)
+            } catch {
+                completion(.failure(error))
+            }
+        }
     }
 
     public func prepare(with context: C) throws {
@@ -48,15 +51,7 @@ public struct InlineInterceptor<C>: RoutingInterceptor {
     }
 
     public func perform(with context: C, completion: @escaping (RoutingResult) -> Void) {
-        if let syncCompletion = syncCompletion {
-            syncCompletion(context)
-            completion(.success)
-        } else if let asyncCompletion = asyncCompletion {
-            asyncCompletion(context, completion)
-        } else {
-            assertionFailure("The completion block was not set.")
-            completion(.failure(RoutingError.generic(.init("The completion block was not set."))))
-        }
+        performBlock(context, completion)
     }
 
 }

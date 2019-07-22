@@ -51,6 +51,7 @@ class ExtrasTest: XCTestCase {
             func setup(with context: String) throws {
             }
         }
+
         XCTAssertNoThrow(try ContentAcceptingViewController.checkCompatibility(with: ""))
     }
 
@@ -133,6 +134,25 @@ class ExtrasTest: XCTestCase {
         XCTAssertNotNil(viewController.dismissalBlock)
         viewController.dismissalBlock?((), true, nil)
         XCTAssertEqual(wasInCompletion, true)
+    }
+
+    func testNavigationDelayingInterceptor() {
+        class DismissingViewController: UIViewController {
+            override var isBeingDismissed: Bool {
+                return true
+            }
+        }
+
+        let window = UIWindow()
+        window.rootViewController = DismissingViewController()
+        let interceptor = NavigationDelayingInterceptor(windowProvider: CustomWindowProvider(window: window), strategy: .abort)
+
+        var wasInCompletion = false
+        interceptor.perform(with: nil, completion: { result in
+            wasInCompletion = true
+            XCTAssertFalse(result.isSuccessful)
+        })
+        XCTAssertTrue(wasInCompletion)
     }
 
 }

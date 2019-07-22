@@ -36,27 +36,31 @@ public struct StoryboardFactory<VC: UIViewController, C>: Factory {
     }
 
     public func build(with context: C) throws -> VC {
-        let storyboard = UIStoryboard(name: storyboardName, bundle: bundle)
-        if let viewControllerID = viewControllerID {
-            let instantiatedViewController = storyboard.instantiateViewController(withIdentifier: viewControllerID)
-            guard let viewController = instantiatedViewController as? VC else {
-                throw RoutingError.compositionFailed(.init("Unable to instantiate UIViewController with " +
-                        " \(viewControllerID) identifier in \(storyboardName) storyboard"))
-            }
-            return viewController
-        } else {
-            guard let abstractViewController = storyboard.instantiateInitialViewController() else {
-                throw RoutingError.compositionFailed(.init("Unable to instantiate initial UIViewController " +
-                        "in \(storyboardName) storyboard"))
-            }
-            guard let viewController = abstractViewController as? ViewController else {
-                throw RoutingError.typeMismatch(type(of: abstractViewController), .init("Unable to instantiate the initial " +
-                        "UIViewController in \(storyboardName) storyboard as \(String(describing: type(of: ViewController.self))), " +
-                        "got \(String(describing: abstractViewController)) instead."))
-            }
-
-            return viewController
+        guard let viewControllerID = viewControllerID else {
+            return try buildInitialViewController()
         }
+        let storyboard = UIStoryboard(name: storyboardName, bundle: bundle)
+        let instantiatedViewController = storyboard.instantiateViewController(withIdentifier: viewControllerID)
+        guard let viewController = instantiatedViewController as? VC else {
+            throw RoutingError.compositionFailed(.init("Unable to instantiate UIViewController with " +
+                    " \(viewControllerID) identifier in \(storyboardName) storyboard " +
+                    "as \(String(describing: type(of: VC.self))), got \(String(describing: instantiatedViewController)) instead."))
+        }
+        return viewController
+    }
+
+    private func buildInitialViewController() throws -> VC {
+        let storyboard = UIStoryboard(name: storyboardName, bundle: bundle)
+        guard let abstractViewController = storyboard.instantiateInitialViewController() else {
+            throw RoutingError.compositionFailed(.init("Unable to instantiate initial UIViewController " +
+                    "in \(storyboardName) storyboard"))
+        }
+        guard let viewController = abstractViewController as? VC else {
+            throw RoutingError.typeMismatch(type(of: abstractViewController), .init("Unable to instantiate the initial " +
+                    "UIViewController in \(storyboardName) storyboard as \(String(describing: type(of: VC.self))), " +
+                    "got \(String(describing: abstractViewController)) instead."))
+        }
+        return viewController
     }
 
 }

@@ -7,9 +7,9 @@
 <body>
 <header><div class="row"><a href="index.html"><img src="logo.jpg" alt="Slather logo"></a></div></header><div class="row"><div id="reports">
 <h2 class="cov_title">
-<span>Coverage for "InlineTasks.swift" : </span><span class="cov_high">100.00%</span>
+<span>Coverage for "InlineTasks.swift" : </span><span class="cov_high">96.97%</span>
 </h2>
-<h4 class="cov_subtitle">(36 of 36 relevant lines covered)</h4>
+<h4 class="cov_subtitle">(32 of 33 relevant lines covered)</h4>
 <h4 class="cov_filepath">RouteComposer/Classes/Extra/InlineTasks.swift</h4>
 <table class="source_code">
 <tr class="never">
@@ -104,7 +104,7 @@
 </tr>
 <tr class="never">
 <td class="num">19</td>
-<td class="src"><pre><code class="objc">    private let asyncCompletion: ((_: C, _: @escaping (RoutingResult) -&gt; Void) -&gt; Void)?</code></pre></td>
+<td class="src"><pre><code class="objc">    private let performBlock: ((_: C, _: @escaping (RoutingResult) -&gt; Void) -&gt; Void)</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -114,17 +114,17 @@
 </tr>
 <tr class="never">
 <td class="num">21</td>
-<td class="src"><pre><code class="objc">    private let syncCompletion: ((_: C) -&gt; Void)?</code></pre></td>
+<td class="src"><pre><code class="objc">    /// Constructor</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">22</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="src"><pre><code class="objc">    ///</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">23</td>
-<td class="src"><pre><code class="objc">    /// Constructor</code></pre></td>
+<td class="src"><pre><code class="objc">    /// - Parameter completion: the block to be called when `InlineInterceptor` will take a control over the navigation process.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -134,411 +134,386 @@
 </tr>
 <tr class="never">
 <td class="num">25</td>
-<td class="src"><pre><code class="objc">    /// - Parameter completion: the block to be called when `InlineInterceptor` will take a control over the navigation process.</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">26</td>
-<td class="src"><pre><code class="objc">    ///</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">27</td>
 <td class="src"><pre><code class="objc">    ///     **NB** For `Router` to be able to continue navigation process, completion block method **MUST** be called.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
+<td class="num">26</td>
+<td class="src"><pre><code class="objc">    public init(prepare prepareBlock: ((_: C) throws -&gt; Void)? = nil, _ performBlock: @escaping (_: C, _: @escaping (RoutingResult) -&gt; Void) -&gt; Void) {</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">27</td>
+<td class="src"><pre><code class="objc">        self.prepareBlock = prepareBlock</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
 <td class="num">28</td>
-<td class="src"><pre><code class="objc">    public init(prepare: ((_: C) throws -&gt; Void)? = nil, _ completion: @escaping (_: C, _: @escaping (RoutingResult) -&gt; Void) -&gt; Void) {</code></pre></td>
+<td class="src"><pre><code class="objc">        self.performBlock = performBlock</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">29</td>
-<td class="src"><pre><code class="objc">        self.prepareBlock = prepare</code></pre></td>
-<td class="coverage">1x</td>
-</tr>
-<tr class="covered">
-<td class="num">30</td>
-<td class="src"><pre><code class="objc">        self.asyncCompletion = completion</code></pre></td>
-<td class="coverage">1x</td>
-</tr>
-<tr class="covered">
-<td class="num">31</td>
-<td class="src"><pre><code class="objc">        self.syncCompletion = nil</code></pre></td>
-<td class="coverage">1x</td>
-</tr>
-<tr class="covered">
-<td class="num">32</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="never">
-<td class="num">33</td>
+<td class="num">30</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">34</td>
+<td class="num">31</td>
 <td class="src"><pre><code class="objc">    /// Constructor</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">35</td>
+<td class="num">32</td>
 <td class="src"><pre><code class="objc">    ///</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">36</td>
+<td class="num">33</td>
 <td class="src"><pre><code class="objc">    /// - Parameter completion: the block to be called when `InlineInterceptor` will take a control over the navigation process.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">37</td>
+<td class="num">34</td>
 <td class="src"><pre><code class="objc">    ///</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">38</td>
+<td class="num">35</td>
 <td class="src"><pre><code class="objc">    ///     **NB** completion method will be called automatically, do not use this constructor if your interceptor</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">39</td>
+<td class="num">36</td>
 <td class="src"><pre><code class="objc">    ///     task is asynchronous.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
-<td class="num">40</td>
-<td class="src"><pre><code class="objc">    public init(prepare: ((_: C) throws -&gt; Void)? = nil, _ completion: @escaping (_: C) -&gt; Void) {</code></pre></td>
+<td class="num">37</td>
+<td class="src"><pre><code class="objc">    public init(prepare prepareBlock: ((_: C) throws -&gt; Void)? = nil, _ inlineBlock: @escaping (_: C) throws -&gt; Void) {</code></pre></td>
 <td class="coverage">9x</td>
+</tr>
+<tr class="covered">
+<td class="num">38</td>
+<td class="src"><pre><code class="objc">        self.prepareBlock = prepareBlock</code></pre></td>
+<td class="coverage">9x</td>
+</tr>
+<tr class="covered">
+<td class="num">39</td>
+<td class="src"><pre><code class="objc">        self.performBlock = { context, completion in</code></pre></td>
+<td class="coverage">9x</td>
+</tr>
+<tr class="covered">
+<td class="num">40</td>
+<td class="src"><pre><code class="objc">            do {</code></pre></td>
+<td class="coverage">6x</td>
 </tr>
 <tr class="covered">
 <td class="num">41</td>
-<td class="src"><pre><code class="objc">        self.prepareBlock = prepare</code></pre></td>
-<td class="coverage">9x</td>
+<td class="src"><pre><code class="objc">                try inlineBlock(context)</code></pre></td>
+<td class="coverage">6x</td>
 </tr>
 <tr class="covered">
 <td class="num">42</td>
-<td class="src"><pre><code class="objc">        self.syncCompletion = completion</code></pre></td>
-<td class="coverage">9x</td>
+<td class="src"><pre><code class="objc">                completion(.success)</code></pre></td>
+<td class="coverage">6x</td>
 </tr>
 <tr class="covered">
 <td class="num">43</td>
-<td class="src"><pre><code class="objc">        self.asyncCompletion = nil</code></pre></td>
-<td class="coverage">9x</td>
+<td class="src"><pre><code class="objc">            } catch {</code></pre></td>
+<td class="coverage">6x</td>
+</tr>
+<tr class="missed">
+<td class="num">44</td>
+<td class="src"><pre><code class="objc">                completion(.failure(error))</code></pre></td>
+<td class="coverage">!</td>
 </tr>
 <tr class="covered">
-<td class="num">44</td>
+<td class="num">45</td>
+<td class="src"><pre><code class="objc">            }</code></pre></td>
+<td class="coverage">6x</td>
+</tr>
+<tr class="covered">
+<td class="num">46</td>
+<td class="src"><pre><code class="objc">        }</code></pre></td>
+<td class="coverage">6x</td>
+</tr>
+<tr class="covered">
+<td class="num">47</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
 <td class="coverage">9x</td>
 </tr>
 <tr class="never">
-<td class="num">45</td>
+<td class="num">48</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
-<td class="num">46</td>
+<td class="num">49</td>
 <td class="src"><pre><code class="objc">    public func prepare(with context: C) throws {</code></pre></td>
 <td class="coverage">10x</td>
 </tr>
 <tr class="covered">
-<td class="num">47</td>
+<td class="num">50</td>
 <td class="src"><pre><code class="objc">        try prepareBlock?(context)</code></pre></td>
 <td class="coverage">10x</td>
 </tr>
 <tr class="covered">
-<td class="num">48</td>
+<td class="num">51</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
 <td class="coverage">10x</td>
 </tr>
 <tr class="never">
-<td class="num">49</td>
+<td class="num">52</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
-<td class="num">50</td>
+<td class="num">53</td>
 <td class="src"><pre><code class="objc">    public func perform(with context: C, completion: @escaping (RoutingResult) -&gt; Void) {</code></pre></td>
 <td class="coverage">7x</td>
 </tr>
 <tr class="covered">
-<td class="num">51</td>
-<td class="src"><pre><code class="objc">        if let syncCompletion = syncCompletion {</code></pre></td>
-<td class="coverage">7x</td>
-</tr>
-<tr class="covered">
-<td class="num">52</td>
-<td class="src"><pre><code class="objc">            syncCompletion(context)</code></pre></td>
-<td class="coverage">6x</td>
-</tr>
-<tr class="covered">
-<td class="num">53</td>
-<td class="src"><pre><code class="objc">            completion(.success)</code></pre></td>
-<td class="coverage">6x</td>
-</tr>
-<tr class="covered">
 <td class="num">54</td>
-<td class="src"><pre><code class="objc">        } else if let asyncCompletion = asyncCompletion {</code></pre></td>
+<td class="src"><pre><code class="objc">        performBlock(context, completion)</code></pre></td>
 <td class="coverage">7x</td>
 </tr>
 <tr class="covered">
 <td class="num">55</td>
-<td class="src"><pre><code class="objc">            asyncCompletion(context, completion)</code></pre></td>
-<td class="coverage">1x</td>
-</tr>
-<tr class="covered">
-<td class="num">56</td>
-<td class="src"><pre><code class="objc">        } else {</code></pre></td>
-<td class="coverage">7x</td>
-</tr>
-<tr class="covered">
-<td class="num">57</td>
-<td class="src"><pre><code class="objc">            assertionFailure("The completion block was not set.")</code></pre></td>
-<td class="coverage">6x</td>
-</tr>
-<tr class="covered">
-<td class="num">58</td>
-<td class="src"><pre><code class="objc">            completion(.failure(RoutingError.generic(.init("The completion block was not set."))))</code></pre></td>
-<td class="coverage">6x</td>
-</tr>
-<tr class="covered">
-<td class="num">59</td>
-<td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">7x</td>
-</tr>
-<tr class="covered">
-<td class="num">60</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
 <td class="coverage">7x</td>
 </tr>
 <tr class="never">
-<td class="num">61</td>
+<td class="num">56</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">62</td>
+<td class="num">57</td>
 <td class="src"><pre><code class="objc">}</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">63</td>
+<td class="num">58</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">64</td>
+<td class="num">59</td>
 <td class="src"><pre><code class="objc">/// `InlineContextTask`</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">65</td>
+<td class="num">60</td>
 <td class="src"><pre><code class="objc">///</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">66</td>
+<td class="num">61</td>
 <td class="src"><pre><code class="objc">/// **NB:** It may be used for the purpose of configuration testing, but then replaced with a strongly typed</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">67</td>
+<td class="num">62</td>
 <td class="src"><pre><code class="objc">/// `RoutingInterceptor` instance.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">68</td>
+<td class="num">63</td>
 <td class="src"><pre><code class="objc">public struct InlineContextTask&lt;VC: UIViewController, C&gt;: ContextTask {</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">69</td>
+<td class="num">64</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">70</td>
+<td class="num">65</td>
 <td class="src"><pre><code class="objc">    private let completion: (_: VC, _: C) throws -&gt; Void</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">71</td>
+<td class="num">66</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">72</td>
+<td class="num">67</td>
 <td class="src"><pre><code class="objc">    /// Constructor</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">73</td>
+<td class="num">68</td>
 <td class="src"><pre><code class="objc">    ///</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">74</td>
+<td class="num">69</td>
 <td class="src"><pre><code class="objc">    /// - Parameter completion: the block to be called when `InlineContextTask` will be applied to the `UIViewController`</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">75</td>
+<td class="num">70</td>
 <td class="src"><pre><code class="objc">    ///    instance.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
-<td class="num">76</td>
+<td class="num">71</td>
 <td class="src"><pre><code class="objc">    public init(_ completion: @escaping (_: VC, _: C) throws -&gt; Void) {</code></pre></td>
 <td class="coverage">7x</td>
 </tr>
 <tr class="covered">
-<td class="num">77</td>
+<td class="num">72</td>
 <td class="src"><pre><code class="objc">        self.completion = completion</code></pre></td>
 <td class="coverage">7x</td>
 </tr>
 <tr class="covered">
-<td class="num">78</td>
+<td class="num">73</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
 <td class="coverage">7x</td>
 </tr>
 <tr class="never">
-<td class="num">79</td>
+<td class="num">74</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
-<td class="num">80</td>
+<td class="num">75</td>
 <td class="src"><pre><code class="objc">    public func perform(on viewController: VC, with context: C) throws {</code></pre></td>
 <td class="coverage">9x</td>
 </tr>
 <tr class="covered">
-<td class="num">81</td>
+<td class="num">76</td>
 <td class="src"><pre><code class="objc">        try completion(viewController, context)</code></pre></td>
 <td class="coverage">9x</td>
 </tr>
 <tr class="covered">
-<td class="num">82</td>
+<td class="num">77</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
 <td class="coverage">9x</td>
 </tr>
 <tr class="never">
-<td class="num">83</td>
+<td class="num">78</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">84</td>
+<td class="num">79</td>
 <td class="src"><pre><code class="objc">}</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">85</td>
+<td class="num">80</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">86</td>
+<td class="num">81</td>
 <td class="src"><pre><code class="objc">/// `InlinePostTask` is the inline context task.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">87</td>
+<td class="num">82</td>
 <td class="src"><pre><code class="objc">///</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">88</td>
+<td class="num">83</td>
 <td class="src"><pre><code class="objc">/// **NB:** It may be used for the purpose of configuration testing, but then replaced with a strongly typed</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">89</td>
+<td class="num">84</td>
 <td class="src"><pre><code class="objc">/// `PostRoutingTask` instance.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">90</td>
+<td class="num">85</td>
 <td class="src"><pre><code class="objc">public struct InlinePostTask&lt;VC: UIViewController, C&gt;: PostRoutingTask {</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">91</td>
+<td class="num">86</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">92</td>
+<td class="num">87</td>
 <td class="src"><pre><code class="objc">    private let completion: (_: VC, _: C, _: [UIViewController]) -&gt; Void</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">93</td>
+<td class="num">88</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">94</td>
+<td class="num">89</td>
 <td class="src"><pre><code class="objc">    /// Constructor</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">95</td>
+<td class="num">90</td>
 <td class="src"><pre><code class="objc">    ///</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">96</td>
+<td class="num">91</td>
 <td class="src"><pre><code class="objc">    /// - Parameter completion: the block to be called when `InlinePostTask` will be called at the end of the navigation process</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">97</td>
+<td class="num">92</td>
 <td class="src"><pre><code class="objc">    ///   process.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
-<td class="num">98</td>
+<td class="num">93</td>
 <td class="src"><pre><code class="objc">    public init(_ completion: @escaping (_: VC, _: C, _: [UIViewController]) -&gt; Void) {</code></pre></td>
 <td class="coverage">10x</td>
 </tr>
 <tr class="covered">
-<td class="num">99</td>
+<td class="num">94</td>
 <td class="src"><pre><code class="objc">        self.completion = completion</code></pre></td>
 <td class="coverage">10x</td>
 </tr>
 <tr class="covered">
-<td class="num">100</td>
+<td class="num">95</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
 <td class="coverage">10x</td>
 </tr>
 <tr class="never">
-<td class="num">101</td>
+<td class="num">96</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
-<td class="num">102</td>
+<td class="num">97</td>
 <td class="src"><pre><code class="objc">    public func perform(on viewController: VC, with context: C, routingStack: [UIViewController]) {</code></pre></td>
 <td class="coverage">11x</td>
 </tr>
 <tr class="covered">
-<td class="num">103</td>
+<td class="num">98</td>
 <td class="src"><pre><code class="objc">        completion(viewController, context, routingStack)</code></pre></td>
 <td class="coverage">11x</td>
 </tr>
 <tr class="covered">
-<td class="num">104</td>
+<td class="num">99</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
 <td class="coverage">11x</td>
 </tr>
 <tr class="never">
-<td class="num">105</td>
+<td class="num">100</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">106</td>
+<td class="num">101</td>
 <td class="src"><pre><code class="objc">}</code></pre></td>
 <td class="coverage"></td>
 </tr>

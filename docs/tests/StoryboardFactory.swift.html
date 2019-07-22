@@ -7,9 +7,9 @@
 <body>
 <header><div class="row"><a href="index.html"><img src="logo.jpg" alt="Slather logo"></a></div></header><div class="row"><div id="reports">
 <h2 class="cov_title">
-<span>Coverage for "StoryboardFactory.swift" : </span><span class="cov_medium">82.14%</span>
+<span>Coverage for "StoryboardFactory.swift" : </span><span class="cov_medium">83.87%</span>
 </h2>
-<h4 class="cov_subtitle">(23 of 28 relevant lines covered)</h4>
+<h4 class="cov_subtitle">(26 of 31 relevant lines covered)</h4>
 <h4 class="cov_filepath">RouteComposer/Classes/Factories/StoryboardFactory.swift</h4>
 <table class="source_code">
 <tr class="never">
@@ -204,121 +204,141 @@
 </tr>
 <tr class="covered">
 <td class="num">39</td>
-<td class="src"><pre><code class="objc">        let storyboard = UIStoryboard(name: storyboardName, bundle: bundle)</code></pre></td>
+<td class="src"><pre><code class="objc">        guard let viewControllerID = viewControllerID else {</code></pre></td>
 <td class="coverage">47x</td>
 </tr>
 <tr class="covered">
 <td class="num">40</td>
-<td class="src"><pre><code class="objc">        if let viewControllerID = viewControllerID {</code></pre></td>
-<td class="coverage">47x</td>
+<td class="src"><pre><code class="objc">            return try buildInitialViewController()</code></pre></td>
+<td class="coverage">26x</td>
 </tr>
 <tr class="covered">
 <td class="num">41</td>
-<td class="src"><pre><code class="objc">            let instantiatedViewController = storyboard.instantiateViewController(withIdentifier: viewControllerID)</code></pre></td>
-<td class="coverage">21x</td>
+<td class="src"><pre><code class="objc">        }</code></pre></td>
+<td class="coverage">26x</td>
 </tr>
 <tr class="covered">
 <td class="num">42</td>
-<td class="src"><pre><code class="objc">            guard let viewController = instantiatedViewController as? VC else {</code></pre></td>
+<td class="src"><pre><code class="objc">        let storyboard = UIStoryboard(name: storyboardName, bundle: bundle)</code></pre></td>
 <td class="coverage">21x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">43</td>
-<td class="src"><pre><code class="objc">                throw RoutingError.compositionFailed(.init("Unable to instantiate UIViewController with " +</code></pre></td>
+<td class="src"><pre><code class="objc">        let instantiatedViewController = storyboard.instantiateViewController(withIdentifier: viewControllerID)</code></pre></td>
+<td class="coverage">21x</td>
+</tr>
+<tr class="covered">
+<td class="num">44</td>
+<td class="src"><pre><code class="objc">        guard let viewController = instantiatedViewController as? VC else {</code></pre></td>
+<td class="coverage">21x</td>
+</tr>
+<tr class="missed">
+<td class="num">45</td>
+<td class="src"><pre><code class="objc">            throw RoutingError.compositionFailed(.init("Unable to instantiate UIViewController with " +</code></pre></td>
 <td class="coverage">!</td>
 </tr>
 <tr class="missed">
-<td class="num">44</td>
-<td class="src"><pre><code class="objc">                        " \(viewControllerID) identifier in \(storyboardName) storyboard"))</code></pre></td>
+<td class="num">46</td>
+<td class="src"><pre><code class="objc">                    " \(viewControllerID) identifier in \(storyboardName) storyboard " +</code></pre></td>
 <td class="coverage">!</td>
 </tr>
-<tr class="covered">
-<td class="num">45</td>
-<td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">21x</td>
-</tr>
-<tr class="covered">
-<td class="num">46</td>
-<td class="src"><pre><code class="objc">            return viewController</code></pre></td>
-<td class="coverage">21x</td>
-</tr>
-<tr class="covered">
+<tr class="missed">
 <td class="num">47</td>
-<td class="src"><pre><code class="objc">        } else {</code></pre></td>
-<td class="coverage">26x</td>
+<td class="src"><pre><code class="objc">                    "as \(String(describing: type(of: VC.self))), got \(String(describing: instantiatedViewController)) instead."))</code></pre></td>
+<td class="coverage">!</td>
 </tr>
 <tr class="covered">
 <td class="num">48</td>
-<td class="src"><pre><code class="objc">            guard let abstractViewController = storyboard.instantiateInitialViewController() else {</code></pre></td>
-<td class="coverage">26x</td>
-</tr>
-<tr class="missed">
-<td class="num">49</td>
-<td class="src"><pre><code class="objc">                throw RoutingError.compositionFailed(.init("Unable to instantiate initial UIViewController " +</code></pre></td>
-<td class="coverage">!</td>
-</tr>
-<tr class="missed">
-<td class="num">50</td>
-<td class="src"><pre><code class="objc">                        "in \(storyboardName) storyboard"))</code></pre></td>
-<td class="coverage">!</td>
+<td class="src"><pre><code class="objc">        }</code></pre></td>
+<td class="coverage">21x</td>
 </tr>
 <tr class="covered">
+<td class="num">49</td>
+<td class="src"><pre><code class="objc">        return viewController</code></pre></td>
+<td class="coverage">21x</td>
+</tr>
+<tr class="covered">
+<td class="num">50</td>
+<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="coverage">21x</td>
+</tr>
+<tr class="never">
 <td class="num">51</td>
-<td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">26x</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
 </tr>
 <tr class="covered">
 <td class="num">52</td>
-<td class="src"><pre><code class="objc">            guard let viewController = abstractViewController as? ViewController else {</code></pre></td>
+<td class="src"><pre><code class="objc">    private func buildInitialViewController() throws -&gt; VC {</code></pre></td>
 <td class="coverage">26x</td>
 </tr>
 <tr class="covered">
 <td class="num">53</td>
-<td class="src"><pre><code class="objc">                throw RoutingError.typeMismatch(type(of: abstractViewController), .init("Unable to instantiate the initial " +</code></pre></td>
-<td class="coverage">1x</td>
+<td class="src"><pre><code class="objc">        let storyboard = UIStoryboard(name: storyboardName, bundle: bundle)</code></pre></td>
+<td class="coverage">26x</td>
 </tr>
 <tr class="covered">
 <td class="num">54</td>
-<td class="src"><pre><code class="objc">                        "UIViewController in \(storyboardName) storyboard as \(String(describing: type(of: ViewController.self))), " +</code></pre></td>
-<td class="coverage">1x</td>
-</tr>
-<tr class="covered">
-<td class="num">55</td>
-<td class="src"><pre><code class="objc">                        "got \(String(describing: abstractViewController)) instead."))</code></pre></td>
-<td class="coverage">1x</td>
-</tr>
-<tr class="covered">
-<td class="num">56</td>
-<td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">25x</td>
-</tr>
-<tr class="covered">
-<td class="num">57</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage">25x</td>
-</tr>
-<tr class="covered">
-<td class="num">58</td>
-<td class="src"><pre><code class="objc">            return viewController</code></pre></td>
-<td class="coverage">25x</td>
-</tr>
-<tr class="covered">
-<td class="num">59</td>
-<td class="src"><pre><code class="objc">        }</code></pre></td>
+<td class="src"><pre><code class="objc">        guard let abstractViewController = storyboard.instantiateInitialViewController() else {</code></pre></td>
 <td class="coverage">26x</td>
 </tr>
 <tr class="missed">
-<td class="num">60</td>
-<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="num">55</td>
+<td class="src"><pre><code class="objc">            throw RoutingError.compositionFailed(.init("Unable to instantiate initial UIViewController " +</code></pre></td>
 <td class="coverage">!</td>
 </tr>
-<tr class="never">
+<tr class="missed">
+<td class="num">56</td>
+<td class="src"><pre><code class="objc">                    "in \(storyboardName) storyboard"))</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="covered">
+<td class="num">57</td>
+<td class="src"><pre><code class="objc">        }</code></pre></td>
+<td class="coverage">26x</td>
+</tr>
+<tr class="covered">
+<td class="num">58</td>
+<td class="src"><pre><code class="objc">        guard let viewController = abstractViewController as? VC else {</code></pre></td>
+<td class="coverage">26x</td>
+</tr>
+<tr class="covered">
+<td class="num">59</td>
+<td class="src"><pre><code class="objc">            throw RoutingError.typeMismatch(type(of: abstractViewController), .init("Unable to instantiate the initial " +</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">60</td>
+<td class="src"><pre><code class="objc">                    "UIViewController in \(storyboardName) storyboard as \(String(describing: type(of: VC.self))), " +</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
 <td class="num">61</td>
+<td class="src"><pre><code class="objc">                    "got \(String(describing: abstractViewController)) instead."))</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">62</td>
+<td class="src"><pre><code class="objc">        }</code></pre></td>
+<td class="coverage">25x</td>
+</tr>
+<tr class="covered">
+<td class="num">63</td>
+<td class="src"><pre><code class="objc">        return viewController</code></pre></td>
+<td class="coverage">25x</td>
+</tr>
+<tr class="covered">
+<td class="num">64</td>
+<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="coverage">26x</td>
+</tr>
+<tr class="never">
+<td class="num">65</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">62</td>
+<td class="num">66</td>
 <td class="src"><pre><code class="objc">}</code></pre></td>
 <td class="coverage"></td>
 </tr>

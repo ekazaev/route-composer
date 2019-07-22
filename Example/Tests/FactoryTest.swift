@@ -27,6 +27,11 @@ class FactoryTest: XCTestCase {
         XCTAssertThrowsError(try factory.build())
     }
 
+    func testClassNameFactoryNotExistingClass() {
+        let factory = ClassNameFactory<UIViewController, Any?>(viewControllerName: "RandomViewControllerClass")
+        XCTAssertThrowsError(try factory.build())
+    }
+
     func testClassNameFactoryWrongType() {
         let factory = ClassNameFactory<UINavigationController, Any?>(viewControllerName: "UITabBarController")
         XCTAssertThrowsError(try factory.build())

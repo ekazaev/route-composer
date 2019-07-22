@@ -54,15 +54,14 @@ public struct NavigationDelayingInterceptor: RoutingInterceptor {
             completion(.success)
             return
         }
+        guard strategy == .wait else {
+            return completion(.failure(RoutingError.compositionFailed(.init("\(topmostViewController) is changing its state. Navigation has been aborted."))))
+        }
 
-        if strategy == .wait {
-            logger?.log(.info("\(topmostViewController) is changing its state. Navigation has been postponed."))
-            let deadline = DispatchTime.now() + .milliseconds(100)
-            DispatchQueue.main.asyncAfter(deadline: deadline) {
-                self.perform(with: context, completion: completion)
-            }
-        } else {
-            completion(.failure(RoutingError.compositionFailed(.init("\(topmostViewController) is changing its state. Navigation has been aborted."))))
+        logger?.log(.info("\(topmostViewController) is changing its state. Navigation has been postponed."))
+        let deadline = DispatchTime.now() + .milliseconds(100)
+        DispatchQueue.main.asyncAfter(deadline: deadline) {
+            self.perform(with: context, completion: completion)
         }
     }
 
