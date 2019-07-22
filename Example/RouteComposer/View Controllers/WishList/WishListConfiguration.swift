@@ -19,12 +19,12 @@ struct WishListConfiguration {
             .from(GeneralStep.current())
             .assemble()
 
-    static func favorites() -> ExampleDestination<WishListViewController, WishListContext> {
-        return ExampleDestination(step: wishListScreen, context: WishListContext.favorites)
+    static func favorites() -> Destination<WishListViewController, WishListContext> {
+        return Destination(to: wishListScreen, with: WishListContext.favorites)
     }
 
-    static func collections() -> ExampleDestination<WishListViewController, WishListContext> {
-        return ExampleDestination(step: wishListScreen, context: WishListContext.collections)
+    static func collections() -> Destination<WishListViewController, WishListContext> {
+        return Destination(to: wishListScreen, with: WishListContext.collections)
     }
 
 }

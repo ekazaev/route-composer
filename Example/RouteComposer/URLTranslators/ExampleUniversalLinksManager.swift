@@ -5,7 +5,10 @@
 
 import Foundation
 import UIKit
+import RouteComposer
 
+// Simplest universal link manager. You can use any library or your own implementation using the similar strategy
+// transforming data that is contained in the `URL` into `AnyDestination` instance.
 struct ExampleUniversalLinksManager {
 
     private static var translators: [ExampleURLTranslator] = []
@@ -14,7 +17,7 @@ struct ExampleUniversalLinksManager {
         translators.append(translator)
     }
 
-    static func destination(for url: URL) -> ExampleDestination<UIViewController, Any?>? {
+    static func destination(for url: URL) -> AnyDestination? {
         guard let translator = translators.first(where: { $0.destination(from: url) != nil }) else {
             return nil
         }

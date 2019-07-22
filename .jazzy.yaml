@@ -78,6 +78,8 @@ custom_categories:
 
   - name: Extras
     children:
+      - Destination
+      - AnyDestination
       - InlineInterceptor
       - InlineContextTask
       - InlinePostTask

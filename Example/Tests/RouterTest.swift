@@ -115,7 +115,8 @@ class RouterTests: XCTestCase {
                 .assemble()
 
         var routingResult: RoutingResult!
-        try? router.navigate(to: screenConfig, with: nil, animated: false, completion: { result in
+        let destination = Destination(to: screenConfig).unwrapped()
+        try? router.navigate(to: destination.step, with: destination.context, animated: false, completion: { result in
             routingResult = result
             XCTAssertNotNil(currentViewController.presentedViewController)
             XCTAssert(currentViewController.presentedViewController is UINavigationController)

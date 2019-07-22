@@ -5,9 +5,10 @@
 
 import Foundation
 import UIKit
+import RouteComposer
 
 protocol ExampleURLTranslator {
 
-    func destination(from url: URL) -> ExampleDestination<UIViewController, Any?>?
+    func destination(from url: URL) -> AnyDestination?
 
 }

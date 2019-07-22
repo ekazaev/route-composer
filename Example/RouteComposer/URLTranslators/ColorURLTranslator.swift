@@ -5,10 +5,11 @@
 
 import Foundation
 import UIKit
+import RouteComposer
 
 class ColorURLTranslator: ExampleURLTranslator {
 
-    func destination(from url: URL) -> ExampleDestination<UIViewController, Any?>? {
+    func destination(from url: URL) -> AnyDestination? {
         guard let urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false),
               let queryItems = urlComponents.queryItems,
               let colorItem = queryItems.first(where: { $0.name == "color" }),
@@ -16,7 +17,7 @@ class ColorURLTranslator: ExampleURLTranslator {
             return nil
         }
 
-        return ExampleDestination(step: ConfigurationHolder.configuration.colorScreen, context: colorValue).unwrapped()
+        return Destination(to: ConfigurationHolder.configuration.colorScreen, with: colorValue).unwrapped()
     }
 
 }

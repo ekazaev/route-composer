@@ -22,7 +22,6 @@
 		8479E2F6200E7A4400320380 /* PromptScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8479E2F3200E7A4400320380 /* PromptScreen.storyboard */; };
 		8479E30D200E7A7F00320380 /* ExampleConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8479E2F8200E7A7F00320380 /* ExampleConfiguration.swift */; };
 		8479E30E200E7A7F00320380 /* ExampleScreenTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8479E2F9200E7A7F00320380 /* ExampleScreenTypes.swift */; };
-		8479E30F200E7A7F00320380 /* ExampleDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8479E2FA200E7A7F00320380 /* ExampleDestination.swift */; };
 		8479E310200E7A7F00320380 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8479E2FC200E7A7F00320380 /* UIColor.swift */; };
 		8479E311200E7A7F00320380 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8479E2FD200E7A7F00320380 /* ViewController.swift */; };
 		8479E312200E7A7F00320380 /* CircleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8479E2FF200E7A7F00320380 /* CircleViewController.swift */; };
@@ -186,7 +185,6 @@
 		8479E2F4200E7A4400320380 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/PromptScreen.storyboard; sourceTree = "<group>"; };
 		8479E2F8200E7A7F00320380 /* ExampleConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleConfiguration.swift; sourceTree = "<group>"; };
 		8479E2F9200E7A7F00320380 /* ExampleScreenTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleScreenTypes.swift; sourceTree = "<group>"; };
-		8479E2FA200E7A7F00320380 /* ExampleDestination.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleDestination.swift; sourceTree = "<group>"; };
 		8479E2FC200E7A7F00320380 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		8479E2FD200E7A7F00320380 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8479E2FF200E7A7F00320380 /* CircleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleViewController.swift; sourceTree = "<group>"; };
@@ -404,7 +402,6 @@
 			children = (
 				8479E2F8200E7A7F00320380 /* ExampleConfiguration.swift */,
 				8479E2F9200E7A7F00320380 /* ExampleScreenTypes.swift */,
-				8479E2FA200E7A7F00320380 /* ExampleDestination.swift */,
 				9AFBCEB028743A7AC55E1CA6 /* ExampleAnalyticsSupport.swift */,
 				9AFBC560E37AAA325DCE89ED /* ExampleGenericContextTask.swift */,
 				9AFBC94F95A324DC60F78C23 /* BlurredBackgroundTransitionController.swift */,
@@ -861,7 +858,6 @@
 				8479E312200E7A7F00320380 /* CircleViewController.swift in Sources */,
 				8479E315200E7A7F00320380 /* ColorViewController.swift in Sources */,
 				8479E318200E7A7F00320380 /* PromptViewController.swift in Sources */,
-				8479E30F200E7A7F00320380 /* ExampleDestination.swift in Sources */,
 				9AFBC82E50CBF47FB0A0F2D1 /* CityURLTranslator.swift in Sources */,
 				9AFBCF519040E699D130072D /* CityDetailViewController.swift in Sources */,
 				9AFBCAFFB71568FAE9054699 /* CitiesTableViewController.swift in Sources */,

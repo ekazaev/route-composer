@@ -21,17 +21,17 @@ struct ImagesConfigurationWithLibrary {
             .from(GeneralStep.current())
             .assemble()
 
-    static func images() -> ExampleDestination<ImagesViewController, Any?> {
+    static func images() -> Destination<ImagesViewController, Any?> {
         let imagesStep = StepAssembly(
                 finder: ClassFinder(),
                 factory: ImagesFactory(delegate: ImagesWithLibraryHandler.shared))
                 .using(CustomContainerFactory<Any?>.ReplaceRoot())
                 .from(imagesContainerStep)
                 .assemble()
-        return ExampleDestination(step: imagesStep, context: nil)
+        return Destination(to: imagesStep)
     }
 
-    static func imageDetails(for imageID: String) -> ExampleDestination<ImageDetailsViewController, String> {
+    static func imageDetails(for imageID: String) -> Destination<ImageDetailsViewController, String> {
         let imageDetailsStep = StepAssembly(
                 finder: ClassFinder(),
                 factory: ImageDetailsFactory(delegate: ImagesWithLibraryHandler.shared))
@@ -39,7 +39,7 @@ struct ImagesConfigurationWithLibrary {
                 .from(imagesContainerStep.adaptingContext())
                 .assemble()
 
-        return ExampleDestination(step: imageDetailsStep, context: imageID)
+        return Destination(to: imageDetailsStep, with: imageID)
     }
 
 }

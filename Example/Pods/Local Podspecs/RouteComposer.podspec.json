@@ -1,6 +1,6 @@
 {
   "name": "RouteComposer",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "summary": "Protocol oriented library that helps to handle view controllers composition, navigation and deep linking tasks.",
   "swift_version": "5.0",
   "description": "RouteComposer is the protocol oriented, Cocoa UI abstractions based library that helps to handle view controllers composition, navigation\nand deep linking tasks in the iOS application. Can be used as the universal replacement for the Coordinator pattern.",
@@ -14,7 +14,7 @@
   },
   "source": {
     "git": "https://github.com/saksdirect/route-composer.git",
-    "tag": "2.0.0"
+    "tag": "2.0.1"
   },
   "platforms": {
     "ios": "9.0"

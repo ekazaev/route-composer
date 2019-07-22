@@ -7,9 +7,10 @@ import Foundation
 import UIKit
 import RouteComposer
 
+/// Simple extension to support `Destination` instance directly by the `Router`.
 extension Router {
 
-    func navigate<VC: UIViewController, C>(to destination: ExampleDestination<VC, C>, animated: Bool = true, completion: ((_: RoutingResult) -> Void)? = nil) throws {
+    func navigate<VC: UIViewController, C>(to destination: Destination<VC, C>, animated: Bool = true, completion: ((_: RoutingResult) -> Void)? = nil) throws {
         try self.navigate(to: destination.step, with: destination.context, animated: animated, completion: completion)
     }
 

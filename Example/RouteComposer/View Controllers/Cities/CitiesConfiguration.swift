@@ -38,12 +38,12 @@ class CitiesConfiguration {
             // be able to select right cell while we are navigating to the `cityDetails`.
             .assemble()
 
-    static func citiesList(cityId: Int? = nil) -> ExampleDestination<CitiesTableViewController, Int?> {
-        return ExampleDestination(step: citiesList, context: cityId)
+    static func citiesList(cityId: Int? = nil) -> Destination<CitiesTableViewController, Int?> {
+        return Destination(to: citiesList, with: cityId)
     }
 
-    static func cityDetail(cityId: Int) -> ExampleDestination<CityDetailViewController, Int> {
-        return ExampleDestination(step: cityDetails, context: cityId)
+    static func cityDetail(cityId: Int) -> Destination<CityDetailViewController, Int> {
+        return Destination(to: cityDetails, with: cityId)
     }
 
 }

@@ -5,10 +5,11 @@
 
 import Foundation
 import UIKit
+import RouteComposer
 
 class CityURLTranslator: ExampleURLTranslator {
 
-    func destination(from url: URL) -> ExampleDestination<UIViewController, Any?>? {
+    func destination(from url: URL) -> AnyDestination? {
         guard let urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false),
               let queryItems = urlComponents.queryItems,
               let cityItem = queryItems.first(where: { $0.name == "city" }),
