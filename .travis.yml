@@ -14,4 +14,6 @@ before_install:
 script:
 - set -o pipefail && xcodebuild test -enableCodeCoverage YES -workspace Example/RouteComposer.xcworkspace -scheme RouteComposer-Example -sdk iphonesimulator -derivedDataPath ${TRAVIS_BUILD_DIR}/myDerivedData -destination 'platform=iOS Simulator,name=iPhone X,OS=12.2' ONLY_ACTIVE_ARCH=YES | xcpretty
 - pod lib lint
-after_success: slather coverage -t -b ${TRAVIS_BUILD_DIR}/myDerivedData --arch x86_64 --verbose
+after_success:
+  - slather coverage -t -b ${TRAVIS_BUILD_DIR}/myDerivedData --arch x86_64 --verbose
+  - bash <(curl -s https://codecov.io/bash)
