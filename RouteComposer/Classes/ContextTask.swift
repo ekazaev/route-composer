@@ -9,6 +9,9 @@ import Foundation
 import UIKit
 
 /// The task to be applied after a `UIViewController` was created or found.
+///
+/// ### NB
+/// The `ContextTask` will be applied to the new `UIViewController` before it's integration into the stack.
 public protocol ContextTask {
 
     // MARK: Associated types
