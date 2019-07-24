@@ -16,4 +16,4 @@ script:
 - pod lib lint
 after_success:
   - slather coverage -t -b ${TRAVIS_BUILD_DIR}/myDerivedData --cobertura-xml --output-directory ${TRAVIS_BUILD_DIR}/tests --arch x86_64 --verbose
-  - bash <(curl -s https://codecov.io/bash) -f ${TRAVIS_BUILD_DIR}/cobertura.xml -X coveragepy -X gcov -X xcode -t 9438422d-c067-4351-9e4f-f560c3ffbfa8
+  - bash <(curl -s https://codecov.io/bash) -f ${TRAVIS_BUILD_DIR}/tests/cobertura.xml -X coveragepy -X gcov -X xcode -t 9438422d-c067-4351-9e4f-f560c3ffbfa8

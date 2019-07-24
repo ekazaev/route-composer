@@ -352,7 +352,7 @@ class ExtensionsTest: XCTestCase {
         XCTAssertEqual(contextTask2.prepareCallsCount, 1)
         XCTAssertEqual(contextTask2.performCallsCount, 1)
 
-        let contextTask3 = TestContextTask<UIViewController, Any?>()
+        let contextTask3 = TestContextTask<UIViewController, Void>()
         XCTAssertNoThrow(try contextTask3.execute(on: UIViewController()))
         XCTAssertEqual(contextTask3.prepareCallsCount, 1)
         XCTAssertEqual(contextTask3.performCallsCount, 1)
