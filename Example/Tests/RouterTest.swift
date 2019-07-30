@@ -8,6 +8,14 @@ import Foundation
 import XCTest
 @testable import RouteComposer
 
+private protocol TestProtocol {
+    
+}
+
+private struct TestImplementation: TestProtocol {
+
+}
+
 class RouterTests: XCTestCase {
 
     let router = DefaultRouter()
@@ -53,13 +61,13 @@ class RouterTests: XCTestCase {
     }
 
     // Factory that produces TestViewController
-    struct TestViewControllerFactory: Factory {
+    struct TestViewControllerFactory<C>: Factory {
 
         typealias ViewController = TestViewController
 
-        typealias Context = Any?
+        typealias Context = C
 
-        func build(with context: Any?) throws -> TestViewController {
+        func build(with context: C) throws -> TestViewController {
             return TestViewController()
         }
 
@@ -281,23 +289,23 @@ class RouterTests: XCTestCase {
         var globalInterceptorRun = 0
         var globalTaskRun = 0
         var globalPostTaskRun = 0
-        let screenConfig = StepAssembly(finder: ClassFinder(), factory: TestViewControllerFactory())
-                .adding(InlineInterceptor(prepare: { (_: Any?) throws in
+        let screenConfig = StepAssembly(finder: ClassFinder(), factory: TestViewControllerFactory<TestProtocol>())
+                .adding(InlineInterceptor(prepare: { (_: TestProtocol) throws in
                     contextInterceptorPrepared += 1
                 }, { (_: Any?) in
                     contextInterceptorRun += 1
                 }))
-                .adding(InlineContextTask({ (_: TestViewController, _: Any?) in
+                .adding(InlineContextTask({ (_: TestViewController, _: TestProtocol) in
                     contextTaskRun += 1
                 }))
-                .adding(InlinePostTask({ (_: TestViewController, _: Any?, viewControllers: [UIViewController]) in
+                .adding(InlinePostTask({ (_: TestViewController, _: TestProtocol, viewControllers: [UIViewController]) in
                     contextPostTaskRun += 1
                     XCTAssertEqual(viewControllers.count, 3)
                 }))
                 .using(UINavigationController.push())
                 .from(NavigationControllerStep())
                 .using(FakePresentModallyAction())
-                .from(DestinationStep<TestModalPresentableController, Any?>(TestCurrentViewControllerStep(currentViewController: currentViewController)))
+                .from(DestinationStep<TestModalPresentableController, TestProtocol>(TestCurrentViewControllerStep(currentViewController: currentViewController)))
                 .assemble()
         var router = self.router
         router.add(InlineInterceptor(prepare: { (_: Any?) throws in
@@ -314,7 +322,7 @@ class RouterTests: XCTestCase {
             XCTAssertEqual(viewControllers.count, 3)
         }))
         var routingResult: RoutingResult!
-        try? router.navigate(to: screenConfig, animated: false, completion: { result in
+        try? router.navigate(to: screenConfig, with: TestImplementation(), animated: false, completion: { result in
             routingResult = result
             XCTAssertNotNil(currentViewController.presentedViewController)
             XCTAssert(currentViewController.presentedViewController is UINavigationController)
@@ -360,6 +368,27 @@ class RouterTests: XCTestCase {
             XCTAssertFalse(result.isSuccessful)
         }
         XCTAssertTrue(wasInCompletion)
+    }
+
+    func testPostponedTaskRunner() {
+        class TestPostRoutingTask<VC: UIViewController, C>: PostRoutingTask {
+
+            var wasInPerform = false
+
+            func perform(on viewController: VC, with context: C, routingStack: [UIViewController]) {
+                wasInPerform = true
+            }
+
+        }
+
+        let postTask = TestPostRoutingTask<UIViewController, TestProtocol>()
+        let runner = DefaultRouter.PostponedTaskRunner()
+        let viewController = UIViewController()
+        runner.add(postTasks: [PostRoutingTaskBox(postTask)], to: viewController)
+        XCTAssertThrowsError(try runner.perform(with: nil as Any?))
+        XCTAssertFalse(postTask.wasInPerform)
+        XCTAssertNoThrow(try runner.perform(with: TestImplementation()))
+        XCTAssertTrue(postTask.wasInPerform)
     }
 
 }

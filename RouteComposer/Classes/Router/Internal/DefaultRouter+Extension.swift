@@ -68,16 +68,16 @@ extension DefaultRouter {
 
         let postponedRunner: PostponedTaskRunner
 
-        init<Context>(postTasks: [AnyPostRoutingTask], with context: Context, postponedRunner: PostponedTaskRunner) {
+        init(postTasks: [AnyPostRoutingTask], postponedRunner: PostponedTaskRunner) {
             self.postTasks = postTasks
             self.postponedRunner = postponedRunner
         }
 
-        mutating func add<Context>(_ postTask: AnyPostRoutingTask, with context: Context) throws {
+        mutating func add(_ postTask: AnyPostRoutingTask) throws {
             postTasks.append(postTask)
         }
 
-        func perform<Context>(on viewController: UIViewController, with context: Context) throws {
+        func perform(on viewController: UIViewController) throws {
             postponedRunner.add(postTasks: postTasks, to: viewController)
         }
 
@@ -100,7 +100,7 @@ extension DefaultRouter {
 
         func perform<Context>(on viewController: UIViewController, with context: Context) throws {
             try contextTaskRunner.perform(on: viewController, with: context)
-            try postTaskRunner.perform(on: viewController, with: context)
+            try postTaskRunner.perform(on: viewController)
         }
 
     }
@@ -141,7 +141,7 @@ extension DefaultRouter {
             })
         }
 
-        func perform(with context: Any?) throws {
+        func perform<Context>(with context: Context) throws {
             var viewControllers: [UIViewController] = []
             taskSlips.forEach({
                 guard let viewController = $0.viewController, !viewControllers.contains(viewController) else {
@@ -186,7 +186,7 @@ extension DefaultRouter {
                 try contextTaskRunner.add(contextTask, with: context)
             }
             if let postTask = interceptableStep.postTask {
-                try postTaskRunner.add(postTask, with: context)
+                try postTaskRunner.add(postTask)
             }
             return StepTaskTaskRunner(contextTaskRunner: contextTaskRunner, postTaskRunner: postTaskRunner)
         }
