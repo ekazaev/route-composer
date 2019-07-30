@@ -187,6 +187,16 @@ class BoxTests: XCTestCase {
         XCTAssertFalse(action.isEmbeddable(to: UISplitViewController.self))
     }
 
+    func testPostRoutingTaskBoxInvalidController() {
+        let postTask = RouterTests.TestPostRoutingTask<UINavigationController, String?>()
+        let task = PostRoutingTaskBox(postTask)
+        XCTAssertThrowsError(try task.perform(on: UIViewController(), with: nil as String?, routingStack: [UIViewController]()))
+        XCTAssertThrowsError(try task.perform(on: UINavigationController(), with: 12, routingStack: [UIViewController]()))
+        XCTAssertFalse(postTask.wasInPerform)
+        XCTAssertNoThrow(try task.perform(on: UINavigationController(), with: nil as String?, routingStack: [UIViewController]()))
+        XCTAssertTrue(postTask.wasInPerform)
+    }
+
     func testBaseEntitiesCollector() {
         let collector = BaseEntitiesCollector<FactoryBox<ClassNameFactory>, ActionBox>(finder: ClassFinder<UIViewController, Any?>(),
                 factory: ClassNameFactory<UIViewController, Any?>(), action: GeneralAction.replaceRoot())

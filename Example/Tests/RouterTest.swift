@@ -20,6 +20,16 @@ class RouterTests: XCTestCase {
 
     let router = DefaultRouter()
 
+    class TestPostRoutingTask<VC: UIViewController, C>: PostRoutingTask {
+
+        var wasInPerform = false
+
+        func perform(on viewController: VC, with context: C, routingStack: [UIViewController]) {
+            wasInPerform = true
+        }
+
+    }
+
     // To fake modal presentation
     class TestModalPresentableController: UIViewController {
 
@@ -371,16 +381,6 @@ class RouterTests: XCTestCase {
     }
 
     func testPostponedTaskRunner() {
-        class TestPostRoutingTask<VC: UIViewController, C>: PostRoutingTask {
-
-            var wasInPerform = false
-
-            func perform(on viewController: VC, with context: C, routingStack: [UIViewController]) {
-                wasInPerform = true
-            }
-
-        }
-
         let postTask = TestPostRoutingTask<UIViewController, TestProtocol>()
         let runner = DefaultRouter.PostponedTaskRunner()
         let viewController = UIViewController()
