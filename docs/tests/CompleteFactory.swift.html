@@ -125,22 +125,22 @@
 <tr class="covered">
 <td class="num">23</td>
 <td class="src"><pre><code class="objc">    init(factory: FC, childFactories: [PostponedIntegrationFactory&lt;FC.Context&gt;]) {</code></pre></td>
-<td class="coverage">7x</td>
+<td class="coverage">9x</td>
 </tr>
 <tr class="covered">
 <td class="num">24</td>
 <td class="src"><pre><code class="objc">        self.factory = factory</code></pre></td>
-<td class="coverage">7x</td>
+<td class="coverage">9x</td>
 </tr>
 <tr class="covered">
 <td class="num">25</td>
 <td class="src"><pre><code class="objc">        self.childFactories = childFactories</code></pre></td>
-<td class="coverage">7x</td>
+<td class="coverage">9x</td>
 </tr>
 <tr class="covered">
 <td class="num">26</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">7x</td>
+<td class="coverage">9x</td>
 </tr>
 <tr class="never">
 <td class="num">27</td>
@@ -150,42 +150,42 @@
 <tr class="covered">
 <td class="num">28</td>
 <td class="src"><pre><code class="objc">    mutating public func prepare(with context: FC.Context) throws {</code></pre></td>
-<td class="coverage">3x</td>
+<td class="coverage">5x</td>
 </tr>
 <tr class="covered">
 <td class="num">29</td>
 <td class="src"><pre><code class="objc">        try factory.prepare(with: context)</code></pre></td>
-<td class="coverage">3x</td>
+<td class="coverage">5x</td>
 </tr>
 <tr class="covered">
 <td class="num">30</td>
 <td class="src"><pre><code class="objc">        childFactories = try childFactories.map({</code></pre></td>
-<td class="coverage">6x</td>
+<td class="coverage">9x</td>
 </tr>
 <tr class="covered">
 <td class="num">31</td>
 <td class="src"><pre><code class="objc">            var factory = $0</code></pre></td>
-<td class="coverage">6x</td>
+<td class="coverage">9x</td>
 </tr>
 <tr class="covered">
 <td class="num">32</td>
 <td class="src"><pre><code class="objc">            try factory.prepare(with: context)</code></pre></td>
-<td class="coverage">6x</td>
+<td class="coverage">9x</td>
 </tr>
 <tr class="covered">
 <td class="num">33</td>
 <td class="src"><pre><code class="objc">            return factory</code></pre></td>
-<td class="coverage">6x</td>
+<td class="coverage">9x</td>
 </tr>
 <tr class="covered">
 <td class="num">34</td>
 <td class="src"><pre><code class="objc">        })</code></pre></td>
-<td class="coverage">6x</td>
+<td class="coverage">9x</td>
 </tr>
 <tr class="covered">
 <td class="num">35</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">3x</td>
+<td class="coverage">5x</td>
 </tr>
 <tr class="never">
 <td class="num">36</td>
@@ -195,27 +195,27 @@
 <tr class="covered">
 <td class="num">37</td>
 <td class="src"><pre><code class="objc">    public func build(with context: FC.Context, integrating coordinator: ChildCoordinator&lt;FC.Context&gt;) throws -&gt; FC.ViewController {</code></pre></td>
-<td class="coverage">5x</td>
+<td class="coverage">7x</td>
 </tr>
 <tr class="covered">
 <td class="num">38</td>
 <td class="src"><pre><code class="objc">        var finalChildFactories = childFactories</code></pre></td>
-<td class="coverage">5x</td>
+<td class="coverage">7x</td>
 </tr>
 <tr class="covered">
 <td class="num">39</td>
 <td class="src"><pre><code class="objc">        finalChildFactories.append(contentsOf: coordinator.childFactories)</code></pre></td>
-<td class="coverage">5x</td>
+<td class="coverage">7x</td>
 </tr>
 <tr class="covered">
 <td class="num">40</td>
 <td class="src"><pre><code class="objc">        return try factory.build(with: context, integrating: ChildCoordinator(childFactories: finalChildFactories))</code></pre></td>
-<td class="coverage">5x</td>
+<td class="coverage">7x</td>
 </tr>
 <tr class="covered">
 <td class="num">41</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">5x</td>
+<td class="coverage">7x</td>
 </tr>
 <tr class="never">
 <td class="num">42</td>

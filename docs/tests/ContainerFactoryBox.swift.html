@@ -7,9 +7,9 @@
 <body>
 <header><div class="row"><a href="index.html"><img src="logo.jpg" alt="Slather logo"></a></div></header><div class="row"><div id="reports">
 <h2 class="cov_title">
-<span>Coverage for "ContainerFactoryBox.swift" : </span><span class="cov_high">89.66%</span>
+<span>Coverage for "ContainerFactoryBox.swift" : </span><span class="cov_high">100.00%</span>
 </h2>
-<h4 class="cov_subtitle">(26 of 29 relevant lines covered)</h4>
+<h4 class="cov_subtitle">(29 of 29 relevant lines covered)</h4>
 <h4 class="cov_filepath">RouteComposer/Classes/Router/Type Erasure/Boxes/ContainerFactoryBox.swift</h4>
 <table class="source_code">
 <tr class="never">
@@ -105,37 +105,37 @@
 <tr class="covered">
 <td class="num">19</td>
 <td class="src"><pre><code class="objc">    init?(_ factory: FactoryType, action: AnyAction) {</code></pre></td>
-<td class="coverage">43x</td>
+<td class="coverage">47x</td>
 </tr>
 <tr class="covered">
 <td class="num">20</td>
 <td class="src"><pre><code class="objc">        guard !(factory is NilEntity) else {</code></pre></td>
-<td class="coverage">43x</td>
+<td class="coverage">47x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">21</td>
 <td class="src"><pre><code class="objc">            return nil</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">22</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">43x</td>
+<td class="coverage">46x</td>
 </tr>
 <tr class="covered">
 <td class="num">23</td>
 <td class="src"><pre><code class="objc">        self.factory = factory</code></pre></td>
-<td class="coverage">43x</td>
+<td class="coverage">46x</td>
 </tr>
 <tr class="covered">
 <td class="num">24</td>
 <td class="src"><pre><code class="objc">        self.action = action</code></pre></td>
-<td class="coverage">43x</td>
+<td class="coverage">46x</td>
 </tr>
 <tr class="covered">
 <td class="num">25</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">43x</td>
+<td class="coverage">46x</td>
 </tr>
 <tr class="never">
 <td class="num">26</td>
@@ -215,47 +215,47 @@
 <tr class="covered">
 <td class="num">41</td>
 <td class="src"><pre><code class="objc">    func build&lt;Context&gt;(with context: Context) throws -&gt; UIViewController {</code></pre></td>
-<td class="coverage">24x</td>
+<td class="coverage">27x</td>
 </tr>
 <tr class="covered">
 <td class="num">42</td>
 <td class="src"><pre><code class="objc">        guard let typedContext = Any?.some(context as Any) as? FactoryType.Context else {</code></pre></td>
-<td class="coverage">24x</td>
+<td class="coverage">27x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">43</td>
 <td class="src"><pre><code class="objc">            throw RoutingError.typeMismatch(FactoryType.Context.self, .init("\(String(describing: factory.self)) does " +</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">44</td>
 <td class="src"><pre><code class="objc">                    "not accept \(String(describing: context.self)) as a context."))</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">45</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">24x</td>
+<td class="coverage">26x</td>
 </tr>
 <tr class="covered">
 <td class="num">46</td>
 <td class="src"><pre><code class="objc">        assertIfNotMainThread()</code></pre></td>
-<td class="coverage">24x</td>
+<td class="coverage">26x</td>
 </tr>
 <tr class="covered">
 <td class="num">47</td>
 <td class="src"><pre><code class="objc">        assertIfNotPrepared()</code></pre></td>
-<td class="coverage">24x</td>
+<td class="coverage">26x</td>
 </tr>
 <tr class="covered">
 <td class="num">48</td>
 <td class="src"><pre><code class="objc">        return try factory.build(with: typedContext, integrating: ChildCoordinator(childFactories: children))</code></pre></td>
-<td class="coverage">24x</td>
+<td class="coverage">26x</td>
 </tr>
 <tr class="covered">
 <td class="num">49</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">24x</td>
+<td class="coverage">27x</td>
 </tr>
 <tr class="never">
 <td class="num">50</td>

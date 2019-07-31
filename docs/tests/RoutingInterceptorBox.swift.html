@@ -7,9 +7,9 @@
 <body>
 <header><div class="row"><a href="index.html"><img src="logo.jpg" alt="Slather logo"></a></div></header><div class="row"><div id="reports">
 <h2 class="cov_title">
-<span>Coverage for "RoutingInterceptorBox.swift" : </span><span class="cov_high">92.86%</span>
+<span>Coverage for "RoutingInterceptorBox.swift" : </span><span class="cov_high">100.00%</span>
 </h2>
-<h4 class="cov_subtitle">(26 of 28 relevant lines covered)</h4>
+<h4 class="cov_subtitle">(28 of 28 relevant lines covered)</h4>
 <h4 class="cov_filepath">RouteComposer/Classes/Router/Type Erasure/Boxes/RoutingInterceptorBox.swift</h4>
 <table class="source_code">
 <tr class="never">
@@ -75,17 +75,17 @@
 <tr class="covered">
 <td class="num">13</td>
 <td class="src"><pre><code class="objc">    init(_ routingInterceptor: RI) {</code></pre></td>
-<td class="coverage">33x</td>
+<td class="coverage">35x</td>
 </tr>
 <tr class="covered">
 <td class="num">14</td>
 <td class="src"><pre><code class="objc">        self.routingInterceptor = routingInterceptor</code></pre></td>
-<td class="coverage">33x</td>
+<td class="coverage">35x</td>
 </tr>
 <tr class="covered">
 <td class="num">15</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">33x</td>
+<td class="coverage">35x</td>
 </tr>
 <tr class="never">
 <td class="num">16</td>
@@ -95,47 +95,47 @@
 <tr class="covered">
 <td class="num">17</td>
 <td class="src"><pre><code class="objc">    mutating func prepare&lt;Context&gt;(with context: Context) throws {</code></pre></td>
-<td class="coverage">109x</td>
+<td class="coverage">112x</td>
 </tr>
 <tr class="covered">
 <td class="num">18</td>
 <td class="src"><pre><code class="objc">        guard let typedDestination = Any?.some(context as Any) as? RI.Context else {</code></pre></td>
-<td class="coverage">109x</td>
+<td class="coverage">112x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">19</td>
 <td class="src"><pre><code class="objc">            throw RoutingError.typeMismatch(RI.Context.self, .init("\(String(describing: routingInterceptor.self)) does " +</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">20</td>
 <td class="src"><pre><code class="objc">                    "not accept \(String(describing: context.self)) as a context."))</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">21</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">109x</td>
+<td class="coverage">111x</td>
 </tr>
 <tr class="covered">
 <td class="num">22</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage">109x</td>
+<td class="coverage">111x</td>
 </tr>
 <tr class="covered">
 <td class="num">23</td>
 <td class="src"><pre><code class="objc">        try self.routingInterceptor.prepare(with: typedDestination)</code></pre></td>
-<td class="coverage">109x</td>
+<td class="coverage">111x</td>
 </tr>
 <tr class="covered">
 <td class="num">24</td>
 <td class="src"><pre><code class="objc">        isPrepared = true</code></pre></td>
-<td class="coverage">109x</td>
+<td class="coverage">111x</td>
 </tr>
 <tr class="covered">
 <td class="num">25</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">109x</td>
+<td class="coverage">111x</td>
 </tr>
 <tr class="never">
 <td class="num">26</td>
@@ -145,12 +145,12 @@
 <tr class="covered">
 <td class="num">27</td>
 <td class="src"><pre><code class="objc">    func perform&lt;Context&gt;(with context: Context, completion: @escaping (RoutingResult) -&gt; Void) {</code></pre></td>
-<td class="coverage">103x</td>
+<td class="coverage">105x</td>
 </tr>
 <tr class="covered">
 <td class="num">28</td>
 <td class="src"><pre><code class="objc">        guard let typedDestination = Any?.some(context as Any) as? RI.Context else {</code></pre></td>
-<td class="coverage">103x</td>
+<td class="coverage">105x</td>
 </tr>
 <tr class="covered">
 <td class="num">29</td>
@@ -170,42 +170,42 @@
 <tr class="covered">
 <td class="num">32</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">102x</td>
+<td class="coverage">104x</td>
 </tr>
 <tr class="covered">
 <td class="num">33</td>
 <td class="src"><pre><code class="objc">        assertIfNotPrepared()</code></pre></td>
-<td class="coverage">102x</td>
+<td class="coverage">104x</td>
 </tr>
 <tr class="covered">
 <td class="num">34</td>
 <td class="src"><pre><code class="objc">        assertIfNotMainThread()</code></pre></td>
-<td class="coverage">102x</td>
+<td class="coverage">104x</td>
 </tr>
 <tr class="covered">
 <td class="num">35</td>
 <td class="src"><pre><code class="objc">        routingInterceptor.perform(with: typedDestination) { result in</code></pre></td>
-<td class="coverage">102x</td>
+<td class="coverage">104x</td>
 </tr>
 <tr class="covered">
 <td class="num">36</td>
 <td class="src"><pre><code class="objc">            self.assertIfNotMainThread()</code></pre></td>
-<td class="coverage">102x</td>
+<td class="coverage">104x</td>
 </tr>
 <tr class="covered">
 <td class="num">37</td>
 <td class="src"><pre><code class="objc">            completion(result)</code></pre></td>
-<td class="coverage">102x</td>
+<td class="coverage">104x</td>
 </tr>
 <tr class="covered">
 <td class="num">38</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">102x</td>
+<td class="coverage">104x</td>
 </tr>
 <tr class="covered">
 <td class="num">39</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">102x</td>
+<td class="coverage">104x</td>
 </tr>
 <tr class="never">
 <td class="num">40</td>

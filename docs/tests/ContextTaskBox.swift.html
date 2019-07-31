@@ -7,9 +7,9 @@
 <body>
 <header><div class="row"><a href="index.html"><img src="logo.jpg" alt="Slather logo"></a></div></header><div class="row"><div id="reports">
 <h2 class="cov_title">
-<span>Coverage for "ContextTaskBox.swift" : </span><span class="cov_high">91.67%</span>
+<span>Coverage for "ContextTaskBox.swift" : </span><span class="cov_high">100.00%</span>
 </h2>
-<h4 class="cov_subtitle">(22 of 24 relevant lines covered)</h4>
+<h4 class="cov_subtitle">(24 of 24 relevant lines covered)</h4>
 <h4 class="cov_filepath">RouteComposer/Classes/Router/Type Erasure/Boxes/ContextTaskBox.swift</h4>
 <table class="source_code">
 <tr class="never">
@@ -95,22 +95,22 @@
 <tr class="covered">
 <td class="num">17</td>
 <td class="src"><pre><code class="objc">    mutating func prepare&lt;Context&gt;(with context: Context) throws {</code></pre></td>
-<td class="coverage">102x</td>
+<td class="coverage">103x</td>
 </tr>
 <tr class="covered">
 <td class="num">18</td>
 <td class="src"><pre><code class="objc">        guard let typedContext = Any?.some(context as Any) as? CT.Context else {</code></pre></td>
-<td class="coverage">102x</td>
+<td class="coverage">103x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">19</td>
 <td class="src"><pre><code class="objc">            throw RoutingError.typeMismatch(CT.Context.self, .init("\(String(describing: contextTask.self)) does not " +</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">20</td>
 <td class="src"><pre><code class="objc">                    "accept \(String(describing: context.self)) as a context."))</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">21</td>

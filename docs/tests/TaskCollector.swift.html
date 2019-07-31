@@ -85,17 +85,17 @@
 <tr class="covered">
 <td class="num">15</td>
 <td class="src"><pre><code class="objc">    mutating func add&lt;RI: RoutingInterceptor&gt;(_ interceptor: RI) {</code></pre></td>
-<td class="coverage">18x</td>
+<td class="coverage">19x</td>
 </tr>
 <tr class="covered">
 <td class="num">16</td>
 <td class="src"><pre><code class="objc">        self.interceptors.append(RoutingInterceptorBox(interceptor))</code></pre></td>
-<td class="coverage">18x</td>
+<td class="coverage">19x</td>
 </tr>
 <tr class="covered">
 <td class="num">17</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">18x</td>
+<td class="coverage">19x</td>
 </tr>
 <tr class="never">
 <td class="num">18</td>
@@ -145,17 +145,17 @@
 <tr class="covered">
 <td class="num">27</td>
 <td class="src"><pre><code class="objc">    var interceptor: AnyRoutingInterceptor? {</code></pre></td>
-<td class="coverage">208x</td>
+<td class="coverage">211x</td>
 </tr>
 <tr class="covered">
 <td class="num">28</td>
 <td class="src"><pre><code class="objc">        return !interceptors.isEmpty ? interceptors.count == 1 ? interceptors.first : InterceptorMultiplexer(interceptors) : nil</code></pre></td>
-<td class="coverage">208x</td>
+<td class="coverage">211x</td>
 </tr>
 <tr class="covered">
 <td class="num">29</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">208x</td>
+<td class="coverage">211x</td>
 </tr>
 <tr class="never">
 <td class="num">30</td>
@@ -165,17 +165,17 @@
 <tr class="covered">
 <td class="num">31</td>
 <td class="src"><pre><code class="objc">    var contextTask: AnyContextTask? {</code></pre></td>
-<td class="coverage">208x</td>
+<td class="coverage">211x</td>
 </tr>
 <tr class="covered">
 <td class="num">32</td>
 <td class="src"><pre><code class="objc">        return !contextTasks.isEmpty ? contextTasks.count == 1 ? contextTasks.first : ContextTaskMultiplexer(contextTasks) : nil</code></pre></td>
-<td class="coverage">208x</td>
+<td class="coverage">211x</td>
 </tr>
 <tr class="covered">
 <td class="num">33</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">208x</td>
+<td class="coverage">211x</td>
 </tr>
 <tr class="never">
 <td class="num">34</td>
@@ -185,17 +185,17 @@
 <tr class="covered">
 <td class="num">35</td>
 <td class="src"><pre><code class="objc">    var postTask: AnyPostRoutingTask? {</code></pre></td>
-<td class="coverage">208x</td>
+<td class="coverage">211x</td>
 </tr>
 <tr class="covered">
 <td class="num">36</td>
 <td class="src"><pre><code class="objc">        return !postTasks.isEmpty ? postTasks.count == 1 ? postTasks.first : PostRoutingTaskMultiplexer(postTasks) : nil</code></pre></td>
-<td class="coverage">208x</td>
+<td class="coverage">211x</td>
 </tr>
 <tr class="covered">
 <td class="num">37</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">208x</td>
+<td class="coverage">211x</td>
 </tr>
 <tr class="never">
 <td class="num">38</td>

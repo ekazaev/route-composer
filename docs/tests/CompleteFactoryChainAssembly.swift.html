@@ -7,9 +7,9 @@
 <body>
 <header><div class="row"><a href="index.html"><img src="logo.jpg" alt="Slather logo"></a></div></header><div class="row"><div id="reports">
 <h2 class="cov_title">
-<span>Coverage for "CompleteFactoryChainAssembly.swift" : </span><span class="cov_low">67.24%</span>
+<span>Coverage for "CompleteFactoryChainAssembly.swift" : </span><span class="cov_medium">81.03%</span>
 </h2>
-<h4 class="cov_subtitle">(39 of 58 relevant lines covered)</h4>
+<h4 class="cov_subtitle">(47 of 58 relevant lines covered)</h4>
 <h4 class="cov_filepath">RouteComposer/Classes/Assemblies/Helpers/CompleteFactoryChainAssembly.swift</h4>
 <table class="source_code">
 <tr class="never">
@@ -95,37 +95,37 @@
 <tr class="covered">
 <td class="num">17</td>
 <td class="src"><pre><code class="objc">    private var integratedChildFactories: [PostponedIntegrationFactory&lt;FC.Context&gt;] {</code></pre></td>
-<td class="coverage">6x</td>
+<td class="coverage">9x</td>
 </tr>
 <tr class="covered">
 <td class="num">18</td>
 <td class="src"><pre><code class="objc">        var childFactories = self.childFactories</code></pre></td>
-<td class="coverage">6x</td>
+<td class="coverage">9x</td>
 </tr>
 <tr class="covered">
 <td class="num">19</td>
 <td class="src"><pre><code class="objc">        if let previousChildFactory = previousChildFactory {</code></pre></td>
-<td class="coverage">6x</td>
+<td class="coverage">9x</td>
 </tr>
 <tr class="covered">
 <td class="num">20</td>
 <td class="src"><pre><code class="objc">            childFactories.append(previousChildFactory)</code></pre></td>
-<td class="coverage">4x</td>
+<td class="coverage">7x</td>
 </tr>
 <tr class="covered">
 <td class="num">21</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">6x</td>
+<td class="coverage">9x</td>
 </tr>
 <tr class="covered">
 <td class="num">22</td>
 <td class="src"><pre><code class="objc">        return childFactories</code></pre></td>
-<td class="coverage">6x</td>
+<td class="coverage">9x</td>
 </tr>
 <tr class="covered">
 <td class="num">23</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">6x</td>
+<td class="coverage">9x</td>
 </tr>
 <tr class="never">
 <td class="num">24</td>
@@ -135,27 +135,27 @@
 <tr class="covered">
 <td class="num">25</td>
 <td class="src"><pre><code class="objc">    init(factory: FC, childFactories: [PostponedIntegrationFactory&lt;FC.Context&gt;], previousChildFactory: PostponedIntegrationFactory&lt;FC.Context&gt;?) {</code></pre></td>
-<td class="coverage">9x</td>
+<td class="coverage">12x</td>
 </tr>
 <tr class="covered">
 <td class="num">26</td>
 <td class="src"><pre><code class="objc">        self.factory = factory</code></pre></td>
-<td class="coverage">9x</td>
+<td class="coverage">12x</td>
 </tr>
 <tr class="covered">
 <td class="num">27</td>
 <td class="src"><pre><code class="objc">        self.childFactories = childFactories</code></pre></td>
-<td class="coverage">9x</td>
+<td class="coverage">12x</td>
 </tr>
 <tr class="covered">
 <td class="num">28</td>
 <td class="src"><pre><code class="objc">        self.previousChildFactory = previousChildFactory</code></pre></td>
-<td class="coverage">9x</td>
+<td class="coverage">12x</td>
 </tr>
 <tr class="covered">
 <td class="num">29</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">9x</td>
+<td class="coverage">12x</td>
 </tr>
 <tr class="never">
 <td class="num">30</td>
@@ -354,7 +354,7 @@
 </tr>
 <tr class="missed">
 <td class="num">69</td>
-<td class="src"><pre><code class="objc">        guard let factoryBox = FactoryBox(childFactory, action: ContainerActionBox(CompleteFactoryAssembly&lt;FC&gt;.AddAction&lt;FC&gt;())) else {</code></pre></td>
+<td class="src"><pre><code class="objc">        guard let factoryBox = FactoryBox(childFactory, action: ContainerActionBox(CompleteFactoryAssembly&lt;FC&gt;.SimpleAddAction&lt;FC&gt;())) else {</code></pre></td>
 <td class="coverage">!</td>
 </tr>
 <tr class="missed">
@@ -412,50 +412,50 @@
 <td class="src"><pre><code class="objc">    ///   - childFactory: The instance of `ContainerFactory`.</code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">81</td>
 <td class="src"><pre><code class="objc">    public func with&lt;ChildFC: ContainerFactory&gt;(_ childContainer: ChildFC) -&gt; CompleteFactoryChainAssembly&lt;FC, ChildFC.ViewController&gt; where ChildFC.Context == FC.Context {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">82</td>
-<td class="src"><pre><code class="objc">        guard let factoryBox = ContainerFactoryBox(childContainer, action: ContainerActionBox(CompleteFactoryAssembly&lt;FC&gt;.AddAction&lt;FC&gt;())) else {</code></pre></td>
-<td class="coverage">!</td>
+<td class="src"><pre><code class="objc">        guard let factoryBox = ContainerFactoryBox(childContainer, action: ContainerActionBox(CompleteFactoryAssembly&lt;FC&gt;.SimpleAddAction&lt;FC&gt;())) else {</code></pre></td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="missed">
 <td class="num">83</td>
 <td class="src"><pre><code class="objc">            return CompleteFactoryChainAssembly&lt;FC, ChildFC.ViewController&gt;(factory: factory, childFactories: integratedChildFactories, previousChildFactory: nil)</code></pre></td>
 <td class="coverage">!</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">84</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">85</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">86</td>
 <td class="src"><pre><code class="objc">        return CompleteFactoryChainAssembly&lt;FC, ChildFC.ViewController&gt;(factory: factory,</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">87</td>
 <td class="src"><pre><code class="objc">                childFactories: integratedChildFactories,</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">88</td>
 <td class="src"><pre><code class="objc">                previousChildFactory: PostponedIntegrationFactory&lt;ChildFC.Context&gt;(for: factoryBox))</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">89</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="never">
 <td class="num">90</td>
@@ -550,17 +550,17 @@
 <tr class="covered">
 <td class="num">108</td>
 <td class="src"><pre><code class="objc">    public func assemble() -&gt; CompleteFactory&lt;FC&gt; {</code></pre></td>
-<td class="coverage">3x</td>
+<td class="coverage">5x</td>
 </tr>
 <tr class="covered">
 <td class="num">109</td>
 <td class="src"><pre><code class="objc">        return CompleteFactory&lt;FC&gt;(factory: factory, childFactories: integratedChildFactories)</code></pre></td>
-<td class="coverage">3x</td>
+<td class="coverage">5x</td>
 </tr>
 <tr class="covered">
 <td class="num">110</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">3x</td>
+<td class="coverage">5x</td>
 </tr>
 <tr class="never">
 <td class="num">111</td>

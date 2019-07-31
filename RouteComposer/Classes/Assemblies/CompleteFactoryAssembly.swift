@@ -16,7 +16,7 @@ import UIKit
 /// *NB: Order matters here*
 public final class CompleteFactoryAssembly<FC: ContainerFactory> {
 
-    struct AddAction<FC: ContainerFactory>: ContainerAction {
+    struct SimpleAddAction<FC: ContainerFactory>: ContainerAction {
 
         func perform(with viewController: UIViewController, on existingController: FC.ViewController, animated: Bool, completion: @escaping (RoutingResult) -> Void) {
             assertionFailure("Should never be called")
@@ -76,12 +76,7 @@ public final class CompleteFactoryAssembly<FC: ContainerFactory> {
     /// - Parameters:
     ///   - childFactory: The instance of `Factory`.
     public func with<ChildFC: Factory>(_ childFactory: ChildFC) -> CompleteFactoryChainAssembly<FC, ChildFC.ViewController> where ChildFC.Context == FC.Context {
-        guard let factoryBox = FactoryBox(childFactory, action: ContainerActionBox(AddAction<FC>())) else {
-            return CompleteFactoryChainAssembly<FC, ChildFC.ViewController>(factory: factory, childFactories: [], previousChildFactory: nil)
-        }
-        return CompleteFactoryChainAssembly<FC, ChildFC.ViewController>(factory: factory,
-                childFactories: [],
-                previousChildFactory: PostponedIntegrationFactory<ChildFC.Context>(for: factoryBox))
+        return with(childFactory, using: SimpleAddAction<FC>())
     }
 
     /// Adds a `ContainerFactory` as the last view controller in the stack.
@@ -89,13 +84,7 @@ public final class CompleteFactoryAssembly<FC: ContainerFactory> {
     /// - Parameters:
     ///   - childFactory: The instance of `ContainerFactory`.
     public func with<ChildFC: ContainerFactory>(_ childContainer: ChildFC) -> CompleteFactoryChainAssembly<FC, ChildFC.ViewController> where ChildFC.Context == FC.Context {
-        guard let factoryBox = ContainerFactoryBox(childContainer, action: ContainerActionBox(AddAction<FC>())) else {
-            return CompleteFactoryChainAssembly<FC, ChildFC.ViewController>(factory: factory, childFactories: [], previousChildFactory: nil)
-        }
-
-        return CompleteFactoryChainAssembly<FC, ChildFC.ViewController>(factory: factory,
-                childFactories: [],
-                previousChildFactory: PostponedIntegrationFactory<ChildFC.Context>(for: factoryBox))
+        return with(childContainer, using: SimpleAddAction<FC>())
     }
 
     /// Assembles all the children factories provided and returns a `ContainerFactory` instance.

@@ -24,6 +24,34 @@ class BoxTests: XCTestCase {
         XCTAssertNil(FactoryBox(factory, action: ActionBox(ViewControllerActions.NilAction())))
     }
 
+    func testNilContainerFactoryBox() {
+        struct NilContainerFactory<VC: ContainerViewController, C>: ContainerFactory, NilEntity {
+            typealias ViewController = VC
+            typealias Context = C
+
+            func build(with context: Context, integrating coordinator: ChildCoordinator<Context>) throws -> ViewController {
+                fatalError()
+            }
+        }
+
+        let factory = NilContainerFactory<UINavigationController, Any?>()
+        XCTAssertNil(ContainerFactoryBox(factory, action: ActionBox(ViewControllerActions.NilAction())))
+    }
+
+    func testFactoryBoxWrongContext() {
+        let factory = ClassNameFactory<UIViewController, Int>()
+        var box = FactoryBox(factory, action: ActionBox(ViewControllerActions.NilAction()))
+        XCTAssertThrowsError(try box?.prepare(with: "Wrong Context Type"))
+        XCTAssertThrowsError(try box?.build(with: "Wrong Context Type"))
+    }
+
+    func testContainerFactoryBoxWrongContext() {
+        let factory = NavigationControllerFactory<Int>()
+        var box = ContainerFactoryBox(factory, action: ContainerActionBox(UINavigationController.push()))
+        XCTAssertThrowsError(try box?.prepare(with: "Wrong Context Type"))
+        XCTAssertThrowsError(try box?.build(with: "Wrong Context Type"))
+    }
+
     func testContainerBoxChildrenScrape() {
         let factory = EmptyContainer()
         var box = ContainerFactoryBox(factory, action: ActionBox(ViewControllerActions.NilAction()))
@@ -87,6 +115,7 @@ class BoxTests: XCTestCase {
             }
 
         }
+
         let action = TestAction()
         let actionBox = ActionBox(action)
         let navigationController = UINavigationController()
@@ -111,6 +140,7 @@ class BoxTests: XCTestCase {
             }
 
         }
+
         let action = TestAction()
         let actionBox = ActionBox(action)
         var viewControllers = [UIViewController(), UIViewController()]
@@ -132,6 +162,7 @@ class BoxTests: XCTestCase {
             }
 
         }
+
         let action = TestContainerAction()
         let actionBox = ContainerActionBox(action)
         let navigationController = UINavigationController()

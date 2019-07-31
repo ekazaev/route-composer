@@ -66,7 +66,7 @@ public final class CompleteFactoryChainAssembly<FC: ContainerFactory, ChildVC: U
     /// - Parameters:
     ///   - childFactory: The instance of `Factory`.
     public func with<ChildFC: Factory>(_ childFactory: ChildFC) -> CompleteFactoryChainAssembly<FC, ChildFC.ViewController> where ChildFC.Context == FC.Context {
-        guard let factoryBox = FactoryBox(childFactory, action: ContainerActionBox(CompleteFactoryAssembly<FC>.AddAction<FC>())) else {
+        guard let factoryBox = FactoryBox(childFactory, action: ContainerActionBox(CompleteFactoryAssembly<FC>.SimpleAddAction<FC>())) else {
             return CompleteFactoryChainAssembly<FC, ChildFC.ViewController>(factory: factory, childFactories: integratedChildFactories, previousChildFactory: nil)
         }
         return CompleteFactoryChainAssembly<FC, ChildFC.ViewController>(factory: factory,
@@ -79,7 +79,7 @@ public final class CompleteFactoryChainAssembly<FC: ContainerFactory, ChildVC: U
     /// - Parameters:
     ///   - childFactory: The instance of `ContainerFactory`.
     public func with<ChildFC: ContainerFactory>(_ childContainer: ChildFC) -> CompleteFactoryChainAssembly<FC, ChildFC.ViewController> where ChildFC.Context == FC.Context {
-        guard let factoryBox = ContainerFactoryBox(childContainer, action: ContainerActionBox(CompleteFactoryAssembly<FC>.AddAction<FC>())) else {
+        guard let factoryBox = ContainerFactoryBox(childContainer, action: ContainerActionBox(CompleteFactoryAssembly<FC>.SimpleAddAction<FC>())) else {
             return CompleteFactoryChainAssembly<FC, ChildFC.ViewController>(factory: factory, childFactories: integratedChildFactories, previousChildFactory: nil)
         }
 

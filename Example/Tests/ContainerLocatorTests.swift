@@ -114,4 +114,15 @@ class ContainerLocatorTests: XCTestCase {
         XCTAssertTrue(wasInCompletion)
     }
 
+    func testNavigationViewControllerWrongControllerToMakeVisible() {
+        let navigationController = UINavigationController(rootViewController: UIViewController())
+        let navigationAdapter = NavigationControllerAdapter(with: navigationController)
+        var wasInCompletion = false
+        navigationAdapter.makeVisible(UIViewController(), animated: true) { result in
+            wasInCompletion = true
+            XCTAssertFalse(result.isSuccessful)
+        }
+        XCTAssertTrue(wasInCompletion)
+    }
+
 }

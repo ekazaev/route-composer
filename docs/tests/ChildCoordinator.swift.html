@@ -95,17 +95,17 @@
 <tr class="covered">
 <td class="num">17</td>
 <td class="src"><pre><code class="objc">    init(childFactories: [PostponedIntegrationFactory&lt;Context&gt;]) {</code></pre></td>
-<td class="coverage">44x</td>
+<td class="coverage">48x</td>
 </tr>
 <tr class="covered">
 <td class="num">18</td>
 <td class="src"><pre><code class="objc">        self.childFactories = childFactories</code></pre></td>
-<td class="coverage">44x</td>
+<td class="coverage">48x</td>
 </tr>
 <tr class="covered">
 <td class="num">19</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">44x</td>
+<td class="coverage">48x</td>
 </tr>
 <tr class="never">
 <td class="num">20</td>
@@ -145,37 +145,37 @@
 <tr class="covered">
 <td class="num">27</td>
 <td class="src"><pre><code class="objc">    public func build(with context: Context, integrating existingViewControllers: [UIViewController] = []) throws -&gt; [UIViewController] {</code></pre></td>
-<td class="coverage">36x</td>
+<td class="coverage">38x</td>
 </tr>
 <tr class="covered">
 <td class="num">28</td>
 <td class="src"><pre><code class="objc">        var childrenViewControllers = existingViewControllers</code></pre></td>
-<td class="coverage">36x</td>
+<td class="coverage">38x</td>
 </tr>
 <tr class="covered">
 <td class="num">29</td>
 <td class="src"><pre><code class="objc">        for factory in childFactories {</code></pre></td>
-<td class="coverage">49x</td>
+<td class="coverage">52x</td>
 </tr>
 <tr class="covered">
 <td class="num">30</td>
 <td class="src"><pre><code class="objc">            try factory.build(with: context, in: &amp;childrenViewControllers)</code></pre></td>
-<td class="coverage">49x</td>
+<td class="coverage">52x</td>
 </tr>
 <tr class="covered">
 <td class="num">31</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">49x</td>
+<td class="coverage">52x</td>
 </tr>
 <tr class="covered">
 <td class="num">32</td>
 <td class="src"><pre><code class="objc">        return childrenViewControllers</code></pre></td>
-<td class="coverage">36x</td>
+<td class="coverage">38x</td>
 </tr>
 <tr class="covered">
 <td class="num">33</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">36x</td>
+<td class="coverage">38x</td>
 </tr>
 <tr class="never">
 <td class="num">34</td>

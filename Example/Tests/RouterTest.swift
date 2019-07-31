@@ -9,7 +9,7 @@ import XCTest
 @testable import RouteComposer
 
 private protocol TestProtocol {
-    
+
 }
 
 private struct TestImplementation: TestProtocol {
@@ -302,7 +302,7 @@ class RouterTests: XCTestCase {
         let screenConfig = StepAssembly(finder: ClassFinder(), factory: TestViewControllerFactory<TestProtocol>())
                 .adding(InlineInterceptor(prepare: { (_: TestProtocol) throws in
                     contextInterceptorPrepared += 1
-                }, { (_: Any?) in
+                }, { (_: TestProtocol) in
                     contextInterceptorRun += 1
                 }))
                 .adding(InlineContextTask({ (_: TestViewController, _: TestProtocol) in
@@ -355,6 +355,46 @@ class RouterTests: XCTestCase {
         XCTAssertTrue(routingResult.isSuccessful)
     }
 
+    func testVCToStartDeallocated() {
+        let expectation = XCTestExpectation(description: "Animated root view controller replacement")
+        let router: Router = DefaultRouter()
+        var viewController: UIViewController? = UINavigationController()
+        let screenConfigVoid = StepAssembly(finder: NilFinder<UIViewController, Void>(), factory: NilFactory())
+                .adding(InlineInterceptor({ (_: Void, completion: @escaping (RoutingResult) -> Void) in
+                    viewController = nil
+                    let deadline = DispatchTime.now() + .milliseconds(100)
+                    DispatchQueue.main.asyncAfter(deadline: deadline) {
+                        completion(.success)
+                    }
+
+                }))
+                .from(GeneralStep.custom(using: InstanceFinder(instance: viewController!)))
+                .assemble()
+        var wasInCompletion = false
+        try? router.navigate(to: screenConfigVoid, animated: false, completion: { result in
+            expectation.fulfill()
+            wasInCompletion = true
+            XCTAssertFalse(result.isSuccessful)
+        })
+        wait(for: [expectation], timeout: 0.3)
+        XCTAssertTrue(wasInCompletion)
+    }
+
+    func testVCToStartNotFound() {
+        struct NoneStep: RoutingStep, PerformableStep {
+
+            func perform<Context>(with context: Context) throws -> PerformableStepResult {
+                return .none
+            }
+        }
+
+        let router: Router = DefaultRouter()
+        let screenConfigVoid = StepAssembly(finder: NilFinder<UIViewController, Void>(), factory: NilFactory())
+                .from(DestinationStep(NoneStep()))
+                .assemble()
+        XCTAssertThrowsError(try router.navigate(to: screenConfigVoid, animated: false, completion: nil))
+    }
+
     func testAnyOrVoidMethods() {
         let router: Router = DefaultRouter()
         let screenConfigVoid = StepAssembly(finder: NilFinder<UIViewController, Void>(), factory: NilFactory())
@@ -374,6 +414,17 @@ class RouterTests: XCTestCase {
         XCTAssertThrowsError(try router.navigate(to: screenConfigAny, animated: false, completion: nil))
         wasInCompletion = false
         router.commitNavigation(to: screenConfigAny, animated: false) { result in
+            wasInCompletion = true
+            XCTAssertFalse(result.isSuccessful)
+        }
+        XCTAssertTrue(wasInCompletion)
+
+        let screenConfigString = StepAssembly(finder: NilFinder<UIViewController, String>(), factory: NilFactory())
+                .from(GeneralStep.custom(using: NilFinder<UIViewController, String>()))
+                .assemble()
+        XCTAssertThrowsError(try router.navigate(to: screenConfigAny, animated: false, completion: nil))
+        wasInCompletion = false
+        router.commitNavigation(to: screenConfigString, with: "test", animated: false) { result in
             wasInCompletion = true
             XCTAssertFalse(result.isSuccessful)
         }

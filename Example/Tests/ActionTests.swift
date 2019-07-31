@@ -37,8 +37,10 @@ class ActionTests: XCTestCase {
             }
 
         }
+
         struct TestWindowProvider: WindowProvider {
             let window: UIWindow?
+
             init(window: UIWindow) {
                 self.window = window
             }
@@ -78,8 +80,10 @@ class ActionTests: XCTestCase {
             }
 
         }
+
         struct TestWindowProvider: WindowProvider {
             let window: UIWindow?
+
             init(window: UIWindow) {
                 self.window = window
             }
@@ -103,6 +107,20 @@ class ActionTests: XCTestCase {
         XCTAssertEqual(window.rootViewController, newRootViewController)
     }
 
+    func testReplaceNoKeyWindow() {
+        var window: UIWindow? = UIWindow()
+        let action = ViewControllerActions.ReplaceRootAction(windowProvider: CustomWindowProvider(window: window!), animationOptions: .transitionCurlUp, duration: 0.3)
+        window = nil
+        let rootViewController = UIViewController()
+        let newRootViewController = UIViewController()
+        var wasInCompletion = false
+        action.perform(with: newRootViewController, on: rootViewController, animated: false) { result in
+            wasInCompletion = true
+            XCTAssertFalse(result.isSuccessful)
+        }
+        XCTAssertTrue(wasInCompletion)
+    }
+
     func testPresentModally() {
         class PresentingModallyController: UIViewController {
             override func present(_ viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)?) {
@@ -122,8 +140,8 @@ class ActionTests: XCTestCase {
                 transitioningDelegate: transitionDelegate,
                 preferredContentSize: CGSize(width: 100, height: 100),
                 popoverConfiguration: { _ in
-            wasInPopoverConfig = true
-        }).perform(with: viewController, on: PresentingModallyController(), animated: true, completion: { result in
+                    wasInPopoverConfig = true
+                }).perform(with: viewController, on: PresentingModallyController(), animated: true, completion: { result in
             wasInCompletion = true
             XCTAssertEqual(viewController.modalPresentationStyle, UIModalPresentationStyle.popover)
             XCTAssertEqual(viewController.modalTransitionStyle, UIModalTransitionStyle.crossDissolve)
