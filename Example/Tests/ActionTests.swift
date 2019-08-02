@@ -377,13 +377,13 @@ class ActionTests: XCTestCase {
         XCTAssertEqual(splitController.viewControllers.count, 2)
         XCTAssertTrue(splitController.viewControllers.last === viewController)
     }
-  
+
     func testPushOnToDetailsInSplit() {
         var viewControllerStack: [UIViewController] = []
         XCTAssertThrowsError(try UISplitViewController.pushOnToDetails().perform(embedding: UIViewController(), in: &viewControllerStack))
 
         viewControllerStack.append(UIViewController())
-      
+
         try? UISplitViewController.pushOnToDetails().perform(embedding: UIViewController(), in: &viewControllerStack)
         XCTAssertEqual(viewControllerStack.count, 2)
 
@@ -403,7 +403,7 @@ class ActionTests: XCTestCase {
         }
         XCTAssertTrue(wasInCompletion)
         XCTAssertEqual(splitController.viewControllers.count, 0)
-    
+
         wasInCompletion = false
         let navController: UINavigationController = UINavigationController()
         splitController.viewControllers = [UIViewController(), navController]
@@ -416,7 +416,7 @@ class ActionTests: XCTestCase {
         XCTAssertTrue(wasInCompletion)
         XCTAssertEqual(navController.viewControllers.count, 1)
         XCTAssertTrue(navController.viewControllers.last === viewController)
-      
+
         viewController = UIViewController()
         UISplitViewController.pushOnToDetails().perform(with: viewController, on: splitController, animated: false) { result in
           wasInCompletion = true
@@ -427,8 +427,8 @@ class ActionTests: XCTestCase {
         XCTAssertTrue(wasInCompletion)
         XCTAssertEqual(navController.viewControllers.count, 2)
         XCTAssertTrue(navController.viewControllers.last === viewController)
-     }
-    
+    }
+
     func testCustomWindowProvider() {
         let window = UIWindow()
         let customProvider = CustomWindowProvider(window: window)
@@ -436,3 +436,4 @@ class ActionTests: XCTestCase {
     }
 
 }
+

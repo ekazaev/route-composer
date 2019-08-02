@@ -86,14 +86,14 @@ public struct SplitViewControllerActions {
             completion(.success)
         }
     }
-  
+
     /// Pushes a view controller *onto* the detail stack in the `UISplitViewController`, where the detail is a `UINavigationController`
     public struct PushOnToDetailsAction<ViewController: UISplitViewController>: ContainerAction {
-      
+
       /// Constructor
       init() {
       }
-      
+
       public func perform(embedding viewController: UIViewController, in childViewControllers: inout [UIViewController]) throws {
         guard !childViewControllers.isEmpty else {
           throw RoutingError.compositionFailed(.init("Master view controller is not set in " +
@@ -101,7 +101,7 @@ public struct SplitViewControllerActions {
         }
         childViewControllers.append(viewController)
       }
-      
+
       public func perform(with viewController: UIViewController,
                           on splitViewController: ViewController,
                           animated: Bool,
@@ -111,16 +111,17 @@ public struct SplitViewControllerActions {
             "\(splitViewController) to push on a detail view controller \(viewController)."))))
           return
         }
-        
+
         guard let navController = (splitViewController.viewControllers.last as? UINavigationController) else {
           completion(.failure(RoutingError.compositionFailed(.init("Detail navigation controller is not set in " +
             "\(splitViewController) to push on a detail view controller \(viewController)."))))
           return
         }
-        
+
         navController.pushViewController(viewController, animated: animated)
         completion(.success)
       }
     }
-    
+
 }
+
