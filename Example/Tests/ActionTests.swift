@@ -434,6 +434,4 @@ class ActionTests: XCTestCase {
         let customProvider = CustomWindowProvider(window: window)
         XCTAssertEqual(window, customProvider.window)
     }
-
 }
-

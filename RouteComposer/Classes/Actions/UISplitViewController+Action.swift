@@ -122,6 +122,4 @@ public struct SplitViewControllerActions {
         completion(.success)
       }
     }
-
 }
-
