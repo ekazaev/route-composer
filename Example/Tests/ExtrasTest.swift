@@ -155,4 +155,44 @@ class ExtrasTest: XCTestCase {
         XCTAssertTrue(wasInCompletion)
     }
 
+    func testNavigationDetailsFinder() {
+        let emptyFinder = DetailsNavigationFinder<Any?>(options: SearchOptions.current)
+        XCTAssertNil(try emptyFinder.findViewController())
+
+        let splitViewController = UISplitViewController()
+        let finder = DetailsNavigationFinder<Any?>(options: SearchOptions.current, startingPoint: DefaultStackIterator.StartingPoint.custom(splitViewController))
+        splitViewController.viewControllers = [UINavigationController()]
+        XCTAssertNil(try finder.findViewController())
+
+        let navigationController = UINavigationController()
+        splitViewController.viewControllers = [UINavigationController(), navigationController]
+        XCTAssertEqual(try finder.findViewController(), navigationController)
+
+        class SpecialSplitNavigationController: UINavigationController {
+            let nestedNavigaionController: UINavigationController
+
+            init(nestedNavigaionController: UINavigationController) {
+                self.nestedNavigaionController = nestedNavigaionController
+                super.init(nibName: nil, bundle: nil)
+            }
+
+            required init?(coder aDecoder: NSCoder) {
+                fatalError("init(coder:) has not been implemented")
+            }
+
+            override var viewControllers: [UIViewController] {
+                get {
+                    return [nestedNavigaionController]
+                }
+                set {
+                    super.viewControllers = newValue
+                }
+            }
+        }
+
+        let secondNavigationController = SpecialSplitNavigationController(nestedNavigaionController: navigationController)
+        splitViewController.viewControllers = [secondNavigationController]
+        XCTAssertEqual(try finder.findViewController(), navigationController)
+    }
+
 }

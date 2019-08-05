@@ -17,21 +17,3 @@ class ExampleNavigationController: UINavigationController {
     }
 
 }
-
-struct ExampleNavigationFactory<C>: SimpleContainerFactory {
-
-    typealias ViewController = ExampleNavigationController
-
-    typealias Context = C
-
-    func build(with context: C, integrating viewControllers: [UIViewController]) throws -> ExampleNavigationController {
-        guard !viewControllers.isEmpty else {
-            throw RoutingError.compositionFailed(.init("Unable to build UINavigationController due to 0 amount " +
-                    "of the children view controllers"))
-        }
-        let navigationController = ExampleNavigationController()
-        navigationController.viewControllers = viewControllers
-        return navigationController
-    }
-
-}

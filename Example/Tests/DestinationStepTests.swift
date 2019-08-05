@@ -58,7 +58,7 @@ class DestinationStepTests: XCTestCase {
     }
 
     func testAdaptingContext() {
-        let nonContainerStepInsideContainer = StepAssembly(finder: TestFinder<UINavigationController, Any?>(), factory: XibFactory())
+        let nonContainerStepInsideContainer = StepAssembly(finder: TestFinder<UINavigationController, Any?>(), factory: ClassFactory())
                 .using(GeneralAction.presentModally())
                 .assemble(from: GeneralStep.current())
 

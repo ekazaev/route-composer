@@ -19,8 +19,9 @@ struct ActionBox<A: Action>: AnyAction, AnyActionBox, CustomStringConvertible, M
                  animated: Bool,
                  completion: @escaping (RoutingResult) -> Void) {
         guard let typedExistingViewController = existingController as? A.ViewController else {
-            completion(.failure(RoutingError.typeMismatch(ActionType.ViewController.self, .init("Action \(action.self) cannot " +
-                    "be performed on \(existingController)."))))
+            completion(.failure(RoutingError.typeMismatch(type: type(of: existingController),
+                    expectedType: ActionType.ViewController.self,
+                    .init("Action \(action.self) cannot be performed on \(existingController)."))))
             return
         }
         assertIfNotMainThread()

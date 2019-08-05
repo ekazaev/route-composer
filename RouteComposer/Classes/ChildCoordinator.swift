@@ -12,6 +12,11 @@ public struct ChildCoordinator<Context> {
 
     var childFactories: [PostponedIntegrationFactory<Context>]
 
+    /// Returns `true` if the coordinator contains child factories to build
+    public var isEmpty: Bool {
+        return childFactories.isEmpty
+    }
+
     // MARK: Methods
 
     init(childFactories: [PostponedIntegrationFactory<Context>]) {

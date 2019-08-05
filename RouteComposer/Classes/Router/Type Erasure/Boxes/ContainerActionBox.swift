@@ -37,9 +37,10 @@ struct ContainerActionBox<A: ContainerAction>: AnyAction, AnyActionBox, CustomSt
             embed(viewController: viewController, with: postponedIntegrationHandler, completion: completion)
         } else {
             guard let containerController: A.ViewController = UIViewController.findContainer(of: existingController) else {
-                completion(.failure(RoutingError.typeMismatch(ActionType.ViewController.self, .init("Container of " +
-                        "\(String(describing: ActionType.ViewController.self)) type cannot be found in the parents of " +
-                        "\(String(describing: existingController)) to perform \(action)"))))
+                completion(.failure(RoutingError.typeMismatch(type: type(of: existingController),
+                        expectedType: ActionType.ViewController.self,
+                        .init("Container of \(String(describing: ActionType.ViewController.self)) type cannot be found in the parents of " +
+                                "\(String(describing: existingController)) to perform \(action)"))))
                 return
             }
             let shouldDelayPerforming = nextAction?.isEmbeddable(to: A.ViewController.self) ?? false

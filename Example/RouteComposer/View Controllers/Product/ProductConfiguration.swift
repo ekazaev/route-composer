@@ -11,7 +11,7 @@ class ProductConfiguration {
 
     static let productScreen = StepAssembly(
             finder: ClassWithContextFinder<ProductViewController, ProductContext>(),
-            factory: StoryboardFactory(storyboardName: "TabBar", viewControllerID: "ProductViewController"))
+            factory: StoryboardFactory(name: "TabBar", identifier: "ProductViewController"))
             .adding(InlineInterceptor({ (_: ProductContext) in
                 print("On before navigation to Product view controller")
             }))
@@ -31,7 +31,7 @@ class ProductConfiguration {
                             return nil
                         }
 
-                        return ChainAssembly.from(NavigationControllerStep<ProductContext>())
+                        return ChainAssembly.from(NavigationControllerStep())
                                 .using(GeneralAction.presentModally())
                                 .from(GeneralStep.current())
                                 .assemble()

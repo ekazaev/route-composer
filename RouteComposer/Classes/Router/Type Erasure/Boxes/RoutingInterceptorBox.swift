@@ -16,8 +16,9 @@ struct RoutingInterceptorBox<RI: RoutingInterceptor>: AnyRoutingInterceptor, Pre
 
     mutating func prepare<Context>(with context: Context) throws {
         guard let typedDestination = Any?.some(context as Any) as? RI.Context else {
-            throw RoutingError.typeMismatch(RI.Context.self, .init("\(String(describing: routingInterceptor.self)) does " +
-                    "not accept \(String(describing: context.self)) as a context."))
+            throw RoutingError.typeMismatch(type: type(of: context),
+                    expectedType: RI.Context.self,
+                    .init("\(String(describing: routingInterceptor.self)) does not accept \(String(describing: context.self)) as a context."))
         }
 
         try self.routingInterceptor.prepare(with: typedDestination)
@@ -26,8 +27,9 @@ struct RoutingInterceptorBox<RI: RoutingInterceptor>: AnyRoutingInterceptor, Pre
 
     func perform<Context>(with context: Context, completion: @escaping (RoutingResult) -> Void) {
         guard let typedDestination = Any?.some(context as Any) as? RI.Context else {
-            completion(.failure(RoutingError.typeMismatch(RI.Context.self, .init("\(String(describing: routingInterceptor.self)) does " +
-                    "not accept \(String(describing: context.self)) as a context."))))
+            completion(.failure(RoutingError.typeMismatch(type: type(of: context),
+                    expectedType: RI.Context.self,
+                    .init("\(String(describing: routingInterceptor.self)) does not accept \(String(describing: context.self)) as a context."))))
             return
         }
         assertIfNotPrepared()

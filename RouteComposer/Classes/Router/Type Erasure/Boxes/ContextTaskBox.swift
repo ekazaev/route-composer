@@ -16,8 +16,9 @@ struct ContextTaskBox<CT: ContextTask>: AnyContextTask, PreparableEntity, MainTh
 
     mutating func prepare<Context>(with context: Context) throws {
         guard let typedContext = Any?.some(context as Any) as? CT.Context else {
-            throw RoutingError.typeMismatch(CT.Context.self, .init("\(String(describing: contextTask.self)) does not " +
-                    "accept \(String(describing: context.self)) as a context."))
+            throw RoutingError.typeMismatch(type: type(of: context),
+                    expectedType:CT.Context.self,
+                    .init("\(String(describing: contextTask.self)) does not accept \(String(describing: context.self)) as a context."))
         }
         try contextTask.prepare(with: typedContext)
         isPrepared = true
@@ -26,8 +27,9 @@ struct ContextTaskBox<CT: ContextTask>: AnyContextTask, PreparableEntity, MainTh
     func perform<Context>(on viewController: UIViewController, with context: Context) throws {
         guard let typedViewController = viewController as? CT.ViewController,
               let typedContext = Any?.some(context as Any) as? CT.Context else {
-            throw RoutingError.typeMismatch(CT.Context.self, .init("\(String(describing: contextTask.self)) does not " +
-                    "accept \(String(describing: context.self)) as a context."))
+            throw RoutingError.typeMismatch(type: type(of: context),
+                    expectedType: CT.Context.self,
+                    .init("\(String(describing: contextTask.self)) does not accept \(String(describing: context.self)) as a context."))
         }
         assertIfNotMainThread()
         assertIfNotPrepared()

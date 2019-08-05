@@ -17,7 +17,7 @@ class ContainerTests: XCTestCase {
     }
 
     func testNavigationControllerContainer() {
-        let container = NavigationControllerFactory<Any?>()
+        let container = NavigationControllerFactory<UINavigationController, Any?>()
         var children: [PostponedIntegrationFactory<Any?>] = []
         children.append(PostponedIntegrationFactory<Any?>(for: FactoryBox(EmptyFactory(), action: ContainerActionBox(UINavigationController.push()))!))
         children.append(PostponedIntegrationFactory<Any?>(for: FactoryBox(EmptyFactory(), action: ContainerActionBox(UINavigationController.push()))!))
@@ -37,7 +37,7 @@ class ContainerTests: XCTestCase {
         }
 
         let delegate = Delegate()
-        let container = NavigationControllerFactory<Any?>(delegate: delegate, configuration: { controller in
+        let container = NavigationControllerFactory<UINavigationController, Any?>(delegate: delegate, configuration: { controller in
             wasInConfiguration = true
             XCTAssertTrue(controller.delegate === delegate)
         })
@@ -51,7 +51,6 @@ class ContainerTests: XCTestCase {
         }
         XCTAssertEqual(containerViewController.children.count, 1)
         XCTAssertTrue(wasInConfiguration)
-        XCTAssertThrowsError(try container.build(with: nil, integrating: ChildCoordinator(childFactories: [])))
     }
 
     func testTabBarControllerContainer() {
@@ -62,7 +61,7 @@ class ContainerTests: XCTestCase {
         }
 
         let delegate = Delegate()
-        let container = TabBarControllerFactory<Any?>(delegate: delegate, configuration: { controller in
+        let container = TabBarControllerFactory<UITabBarController, Any?>(delegate: delegate, configuration: { controller in
             wasInConfiguration = true
             XCTAssertTrue(controller.delegate === delegate)
         })
@@ -76,7 +75,6 @@ class ContainerTests: XCTestCase {
         }
         XCTAssertEqual(containerViewController.children.count, 2)
         XCTAssertTrue(wasInConfiguration)
-        XCTAssertThrowsError(try container.build(with: nil, integrating: ChildCoordinator(childFactories: [])))
     }
 
     func testSplitControllerContainer() {
@@ -87,7 +85,7 @@ class ContainerTests: XCTestCase {
         }
 
         let delegate = Delegate()
-        let container = SplitControllerFactory<Any?>(delegate: delegate,
+        let container = SplitControllerFactory<UISplitViewController, Any?>(delegate: delegate,
                 presentsWithGesture: true,
                 preferredDisplayMode: .allVisible,
                 configuration: { controller in
@@ -106,7 +104,6 @@ class ContainerTests: XCTestCase {
         }
         XCTAssertEqual(containerViewController.children.count, 2)
         XCTAssertTrue(wasInConfiguration)
-        XCTAssertThrowsError(try container.build(with: nil, integrating: ChildCoordinator(childFactories: [])))
     }
 
     func testCompleteFactory() {
@@ -214,7 +211,7 @@ class ContainerTests: XCTestCase {
         children.append(PostponedIntegrationFactory<Any?>(for: FactoryBox(EmptyFactory(), action: ContainerActionBox(UITabBarController.add()))!))
         try? prepare(children: &children)
         let factory = CompleteFactory(factory: TabBarControllerFactory(), childFactories: children)
-        XCTAssertEqual(factory.description, "TabBarControllerFactory<Optional<Any>>(delegate: nil, configuration: nil)")
+        XCTAssertEqual(factory.description, "TabBarControllerFactory<UITabBarController, Optional<Any>>(nibName: nil, bundle: nil, delegate: nil, configuration: nil)")
     }
 
     private func prepare(children: inout [PostponedIntegrationFactory<Any?>]) throws {

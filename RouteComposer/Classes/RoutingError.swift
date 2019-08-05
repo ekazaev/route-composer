@@ -46,15 +46,18 @@ public enum RoutingError: Error, CustomStringConvertible {
         }
 
         public var description: String {
-            guard debugDescription.isEmpty else {
-                return debugDescription
+            let errorDescription: String?
+            if let underlyingError = underlyingError {
+                errorDescription = "\(underlyingError)"
+            } else {
+                errorDescription = nil
+            }
+            let descriptionParts = [!debugDescription.isEmpty ? debugDescription : nil, errorDescription].compactMap({ $0 })
+            guard descriptionParts.isEmpty else {
+                return descriptionParts.joined(separator: " -> ")
             }
 
-            guard let underlyingError = underlyingError else {
-                return "No valuable information provided"
-            }
-
-            return "\(underlyingError)"
+            return "No valuable information provided"
         }
 
     }
@@ -62,7 +65,7 @@ public enum RoutingError: Error, CustomStringConvertible {
     // MARK: Error types
 
     /// Type mismatch error
-    case typeMismatch(Any.Type, RoutingError.Context)
+    case typeMismatch(type: Any.Type, expectedType: Any.Type, RoutingError.Context)
 
     /// The view controllers stack integration failed
     case compositionFailed(RoutingError.Context)
@@ -73,16 +76,17 @@ public enum RoutingError: Error, CustomStringConvertible {
     /// Message describing error that happened
     case generic(RoutingError.Context)
 
-    // MARK: Helper Methods
+    // MARK: Helper methods
 
     public var description: String {
         switch self {
-        case .typeMismatch(_, let context):
-            return "Type Mismatch Error: \(context.description)"
+        case .typeMismatch(let type, let expectedType, let context):
+            return "Type Mismatch Error: Type \(String(describing: type)) is not equal to the expected type \(String(describing: expectedType)). " +
+                    "\(context.description)"
         case .compositionFailed(let context):
             return "Composition Failed Error: \(context.description)"
         case .initialController(let state, let context):
-            return "Initial Controller Error (\(state)): \(context.description)"
+            return "Initial Controller Error: \(state). \(context.description)"
         case .generic(let context):
             return "Generic Error: \(context.description)"
         }

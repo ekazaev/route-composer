@@ -16,6 +16,21 @@ class FactoryTest: XCTestCase {
         XCTAssertTrue(viewController != nil)
     }
 
+    func testXibFactoryByType() {
+        let factory = XibFactory<UITabBarController, Any?>()
+        let viewController = try? factory.build()
+        XCTAssertTrue(viewController != nil)
+    }
+
+    func testClassFactoryByType() {
+        let factory = ClassFactory<UITabBarController, Any?>(configuration: { viewController in
+            viewController.setViewControllers([UIViewController(), UINavigationController()], animated: false)
+        })
+        let viewController = try? factory.build()
+        XCTAssertTrue(viewController != nil)
+        XCTAssertEqual(viewController?.viewControllers?.count, 2)
+    }
+
     func testClassNameFactoryByName() {
         let factory = ClassNameFactory<UITabBarController, Any?>(viewControllerName: "UITabBarController")
         let viewController = try? factory.build()
@@ -39,6 +54,11 @@ class FactoryTest: XCTestCase {
 
     func testStoryboardFactoryWrongType() {
         let factory = StoryboardFactory<UINavigationController, Any?>(storyboardName: "TabBar")
+        XCTAssertThrowsError(try factory.build())
+    }
+
+    func testStoryboardFactoryWrongTypeNewConstructor() {
+        let factory = StoryboardFactory<UINavigationController, Any?>(name: "TabBar")
         XCTAssertThrowsError(try factory.build())
     }
 
@@ -124,12 +144,12 @@ class FactoryTest: XCTestCase {
 
     func testPostponedIntegrationFactory() {
         var viewControllerStack: [UIViewController] = []
-        let factory = ClassNameFactory<UIViewController, Any?>()
+        let factory = ClassFactory<UIViewController, Any?>()
         var postponedFactory = PostponedIntegrationFactory<Any?>(for: FactoryBox(factory, action: ContainerActionBox(UINavigationController.push()))!)
         XCTAssertNoThrow(try postponedFactory.prepare(with: nil))
         XCTAssertNoThrow(try postponedFactory.build(with: nil, in: &viewControllerStack))
         XCTAssertEqual(viewControllerStack.count, 1)
-        XCTAssertEqual(postponedFactory.description, "ClassNameFactory<UIViewController, Optional<Any>>(viewControllerName: nil, nibName: nil, bundle: nil)")
+        XCTAssertEqual(postponedFactory.description, "ClassFactory<UIViewController, Optional<Any>>(nibName: nil, bundle: nil, configuration: nil)")
     }
 
     func testAnyOrVoidMethods() {
@@ -162,7 +182,8 @@ class FactoryTest: XCTestCase {
     }
 
     func testSplitControllerStep() {
-        let step = SplitControllerStep<Any?>()
-        XCTAssertThrowsError(try step.factory.build(with: nil, integrating: []))
+        let step = SplitControllerStep<UISplitViewController, Any?>()
+        XCTAssertNoThrow(try step.factory.build(with: nil, integrating: ChildCoordinator(childFactories: [])))
     }
+
 }

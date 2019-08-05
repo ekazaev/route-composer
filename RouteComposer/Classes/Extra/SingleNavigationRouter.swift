@@ -37,7 +37,8 @@ public struct SingleNavigationRouter<R>: Router where R: Router {
 
     var router: R
 
-    let lock: SingleNavigationLock
+    /// Shared `SingleNavigationLock` instance
+    public let lock: SingleNavigationLock
 
     /// Constructor
     ///

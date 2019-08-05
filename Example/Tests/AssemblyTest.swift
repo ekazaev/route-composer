@@ -11,7 +11,7 @@ import XCTest
 class AssemblyTest: XCTestCase {
 
     func testStepAssembly() {
-        let lastStepAssembly = StepAssembly(finder: ClassFinder<UIViewController, Any?>(), factory: XibFactory(nibName: "AnyNibName"))
+        let lastStepAssembly = StepAssembly(finder: ClassFinder<UIViewController, Any?>(), factory: ClassFactory(nibName: "AnyNibName"))
                 .using(UINavigationController.push())
                 .from(NavigationControllerStep())
                 .using(GeneralAction.presentModally())
@@ -31,7 +31,7 @@ class AssemblyTest: XCTestCase {
     }
 
     func testContainerStepAssembly() {
-        let lastStepAssembly = ContainerStepAssembly(finder: ClassFinder(), factory: NavigationControllerFactory<Any?>())
+        let lastStepAssembly = ContainerStepAssembly(finder: ClassFinder(), factory: NavigationControllerFactory<UINavigationController, Any?>())
                 .using(UITabBarController.add())
                 .from(TabBarControllerStep())
                 .using(GeneralAction.presentModally())
@@ -52,7 +52,7 @@ class AssemblyTest: XCTestCase {
     }
 
     func testChainAssembly() {
-        let destinationStep = ChainAssembly.from(NavigationControllerStep<Any?>())
+        let destinationStep = ChainAssembly.from(NavigationControllerStep<UINavigationController, Any?>())
                 .using(GeneralAction.presentModally())
                 .from(GeneralStep.root())
                 .assemble()
@@ -74,7 +74,7 @@ class AssemblyTest: XCTestCase {
         let destinationStep = StepAssembly(finder: NilFinder<UIViewController, Any?>(),
                 factory: NilFactory<UIViewController, Any?>())
                 .using(ViewControllerActions.NilAction())
-                .from(NavigationControllerStep<Any?>())
+                .from(NavigationControllerStep<UINavigationController, Any?>())
                 .using(ViewControllerActions.NilAction())
                 .from(GeneralStep.root())
                 .assemble()
@@ -126,19 +126,19 @@ class AssemblyTest: XCTestCase {
         let contextTask2 = CompleteContextTask<UIViewController, Any?>()
         let contextTask3 = CompleteContextTask<UITabBarController, Any?>()
 
-        let container = CompleteFactoryAssembly(factory: TabBarControllerFactory<Any?>())
-                .with(ClassNameFactory<UIViewController, Any?>())
+        let container = CompleteFactoryAssembly(factory: TabBarControllerFactory<UITabBarController, Any?>())
+                .with(ClassFactory<UIViewController, Any?>())
                 .adding(contextTask1)
                 .adding(contextTask2)
-                .with(ClassNameFactory<UIViewController, Any?>(), using: UITabBarController.add())
-                .with(CompleteFactoryAssembly(factory: TabBarControllerFactory<Any?>())
-                        .with(ClassNameFactory<UIViewController, Any?>()
+                .with(ClassFactory<UIViewController, Any?>(), using: UITabBarController.add())
+                .with(CompleteFactoryAssembly(factory: TabBarControllerFactory<UITabBarController, Any?>())
+                        .with(ClassFactory<UIViewController, Any?>()
                         ).assemble(),
                         using: UITabBarController.add(at: 1, replacing: true))
                 .adding(contextTask3)
-                .with(CompleteFactoryAssembly(factory: NavigationControllerFactory<Any?>())
-                        .with(CompleteFactoryAssembly(factory: TabBarControllerFactory<Any?>())
-                                .with(ClassNameFactory<UIViewController, Any?>()
+                .with(CompleteFactoryAssembly(factory: NavigationControllerFactory<UINavigationController, Any?>())
+                        .with(CompleteFactoryAssembly(factory: TabBarControllerFactory<UITabBarController, Any?>())
+                                .with(ClassFactory<UIViewController, Any?>()
                                 ).assemble()
                         ).assemble())
                 .assemble()

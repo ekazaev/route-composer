@@ -16,8 +16,18 @@ class ErrorTests: XCTestCase {
         XCTAssertEqual(error.description, "Generic Error: Test description")
 
         context = RoutingError.Context("Test description")
-        error = RoutingError.typeMismatch(String.self, context)
-        XCTAssertEqual(error.description, "Type Mismatch Error: Test description")
+        error = RoutingError.typeMismatch(type: Int.self, expectedType: String.self, context)
+        XCTAssertEqual(error.description, "Type Mismatch Error: Type Int is not equal to the expected type String. Test description")
+
+        context = RoutingError.Context("Test description")
+        error = RoutingError.typeMismatch(type: Int?.self, expectedType: String.self, context)
+        XCTAssertEqual(error.description, "Type Mismatch Error: Type Optional<Int> is not equal to the expected type String. Test description")
+
+        context = RoutingError.Context("Test description",
+                underlyingError: DecodingError.valueNotFound(String.self, .init(codingPath: [], debugDescription: "Second description")))
+        error = RoutingError.typeMismatch(type: Int?.self, expectedType: String.self, context)
+        XCTAssertEqual(error.description, "Type Mismatch Error: Type Optional<Int> is not equal to the expected type String. " +
+                "Test description -> valueNotFound(Swift.String, Swift.DecodingError.Context(codingPath: [], debugDescription: \"Second description\", underlyingError: nil))")
 
         context = RoutingError.Context("Test description")
         error = RoutingError.compositionFailed(context)
@@ -25,11 +35,11 @@ class ErrorTests: XCTestCase {
 
         context = RoutingError.Context("Test description")
         error = RoutingError.initialController(.notFound, context)
-        XCTAssertEqual(error.description, "Initial Controller Error (Initial controller not found): Test description")
+        XCTAssertEqual(error.description, "Initial Controller Error: Initial controller not found. Test description")
 
         context = RoutingError.Context("Test description")
         error = RoutingError.initialController(.deallocated, context)
-        XCTAssertEqual(error.description, "Initial Controller Error (Initial controller deallocated): Test description")
+        XCTAssertEqual(error.description, "Initial Controller Error: Initial controller deallocated. Test description")
     }
 
     func testContextDescription() {
@@ -41,13 +51,16 @@ class ErrorTests: XCTestCase {
 
         context = RoutingError.Context("", underlyingError: RoutingError.generic(.init("Test")))
         XCTAssertEqual(context.description, "Generic Error: Test")
+
+        context = RoutingError.Context("Test description", underlyingError: RoutingError.generic(.init("Test")))
+        XCTAssertEqual(context.description, "Test description -> Generic Error: Test")
     }
 
     func testErrorValues() {
         let context = RoutingError.Context("Test description")
         let error = RoutingError.generic(context)
-        XCTAssertThrowsError(try RoutingResult.failure(error).value.get())
-        XCTAssertNoThrow(try RoutingResult.success.value.get())
+        XCTAssertThrowsError(try RoutingResult.failure(error).swiftResult.get())
+        XCTAssertNoThrow(try RoutingResult.success.swiftResult.get())
     }
 
     func testGetError() {

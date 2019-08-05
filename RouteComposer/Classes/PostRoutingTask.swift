@@ -29,7 +29,7 @@ public protocol PostRoutingTask {
 
 }
 
-// MARK: Helper Methods
+// MARK: Helper methods where the Context is Any?
 
 public extension PostRoutingTask where Context == Any? {
 
@@ -44,6 +44,8 @@ public extension PostRoutingTask where Context == Any? {
     }
 
 }
+
+// MARK: Helper methods where the Context is Void
 
 public extension PostRoutingTask where Context == Void {
 

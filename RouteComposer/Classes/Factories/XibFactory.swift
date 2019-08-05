@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 /// The `Factory` that creates a `UIViewController` from a Xib file.
+@available(*, deprecated, renamed: "ClassFactory")
 public struct XibFactory<VC: UIViewController, C>: Factory {
 
     public typealias ViewController = VC

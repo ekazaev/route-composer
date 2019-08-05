@@ -125,4 +125,20 @@ class ContainerLocatorTests: XCTestCase {
         XCTAssertTrue(wasInCompletion)
     }
 
+    func testContainerAdapterContainsAndVisible() {
+        let navigationController = UINavigationController()
+        let tabBarController = UITabBarController()
+        let viewController = UIViewController()
+        navigationController.setViewControllers([tabBarController, viewController], animated: false)
+        let navigationAdapter = NavigationControllerAdapter(with: navigationController)
+        XCTAssertTrue(navigationAdapter.contains(tabBarController))
+        XCTAssertTrue(navigationAdapter.contains(viewController))
+        XCTAssertFalse(navigationAdapter.contains(UIViewController()))
+        XCTAssertFalse(navigationAdapter.contains(navigationController))
+        XCTAssertFalse(navigationAdapter.isVisible(tabBarController))
+        XCTAssertTrue(navigationAdapter.isVisible(viewController))
+        XCTAssertFalse(navigationAdapter.isVisible(UIViewController()))
+        XCTAssertFalse(navigationAdapter.isVisible(navigationController))
+    }
+
 }

@@ -47,3 +47,25 @@ public protocol ContainerAdapter {
     func setContainedViewControllers(_ containedViewControllers: [UIViewController], animated: Bool, completion: @escaping (_: RoutingResult) -> Void)
 
 }
+
+// MARK: Helper methods
+
+public extension ContainerAdapter {
+
+    /// Checks if the provided view controller is present amongst the contained view controllers.
+    ///
+    /// - Parameter viewController: `UIViewController` instance
+    /// - Returns: `true` if present, `false` otherwise.
+    func contains(_ viewController: UIViewController) -> Bool {
+        return containedViewControllers.contains(viewController)
+    }
+
+    /// Checks if the provided view controller is present amongst the visible view controllers.
+    ///
+    /// - Parameter viewController: `UIViewController` instance
+    /// - Returns: `true` if present, `false` otherwise.
+    func isVisible(_ viewController: UIViewController) -> Bool {
+        return visibleViewControllers.contains(viewController)
+    }
+
+}

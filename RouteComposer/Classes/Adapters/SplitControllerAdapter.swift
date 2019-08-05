@@ -32,6 +32,10 @@ public struct SplitControllerAdapter<VC: UISplitViewController>: ConcreteContain
         guard splitViewController != nil else {
             return completion(.failure(RoutingError.compositionFailed(.init("\(String(describing: VC.self)) has been deallocated"))))
         }
+        guard contains(viewController) else {
+            completion(.failure(RoutingError.compositionFailed(.init("\(String(describing: splitViewController)) does not contain \(String(describing: viewController))"))))
+            return
+        }
         completion(.success)
     }
 
