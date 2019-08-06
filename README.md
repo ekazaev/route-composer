@@ -75,7 +75,8 @@ and actions you should be familiar with the library concepts and UIKit's view co
 
 ### API documentation
 
-For detailed information on using RouteComposer, see `Documentation/API` folder.
+Detailed information on using RouteComposer can be found [here](https://github.com/saksdirect/route-composer). 
+Test coverage - [here](https://codecov.io/gh/saksdirect/route-composer) 
 
 ## Usage
 
@@ -210,6 +211,7 @@ class LoginInterceptor<C>: RoutingInterceptor {
         guard !LoginManager.sharedInstance.isUserLoggedIn else {
             completion(.failure("User has not been logged in."))
             return
+            // Or present the LoginViewController. See Example app for more information. 
         }
         completion(.success)
     }
