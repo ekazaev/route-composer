@@ -90,12 +90,12 @@
 <tr class="covered">
 <td class="num">16</td>
 <td class="src"><pre><code class="objc">    public var containedViewControllers: [UIViewController] {</code></pre></td>
-<td class="coverage">171x</td>
+<td class="coverage">136x</td>
 </tr>
 <tr class="covered">
 <td class="num">17</td>
 <td class="src"><pre><code class="objc">        guard let viewControllers = tabBarController?.viewControllers else {</code></pre></td>
-<td class="coverage">171x</td>
+<td class="coverage">136x</td>
 </tr>
 <tr class="covered">
 <td class="num">18</td>
@@ -105,17 +105,17 @@
 <tr class="covered">
 <td class="num">19</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">170x</td>
+<td class="coverage">135x</td>
 </tr>
 <tr class="covered">
 <td class="num">20</td>
 <td class="src"><pre><code class="objc">        return viewControllers</code></pre></td>
-<td class="coverage">170x</td>
+<td class="coverage">135x</td>
 </tr>
 <tr class="covered">
 <td class="num">21</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">171x</td>
+<td class="coverage">136x</td>
 </tr>
 <tr class="never">
 <td class="num">22</td>
@@ -199,8 +199,8 @@
 </tr>
 <tr class="covered">
 <td class="num">38</td>
-<td class="src"><pre><code class="objc">        guard let viewControllerToSelect = containedViewControllers.first(where: { $0 == viewController }) else {</code></pre></td>
-<td class="coverage">45x</td>
+<td class="src"><pre><code class="objc">        guard contains(viewController) else {</code></pre></td>
+<td class="coverage">24x</td>
 </tr>
 <tr class="covered">
 <td class="num">39</td>
@@ -224,7 +224,7 @@
 </tr>
 <tr class="covered">
 <td class="num">43</td>
-<td class="src"><pre><code class="objc">        tabBarController.selectedViewController = viewControllerToSelect</code></pre></td>
+<td class="src"><pre><code class="objc">        tabBarController.selectedViewController = viewController</code></pre></td>
 <td class="coverage">23x</td>
 </tr>
 <tr class="covered">

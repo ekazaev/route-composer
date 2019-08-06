@@ -114,13 +114,10 @@
             <a href="../Factories.html">Factories</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Structs/XibFactory.html">XibFactory</a>
+                <a href="../Structs/ClassFactory.html">ClassFactory</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/StoryboardFactory.html">StoryboardFactory</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Structs/ClassNameFactory.html">ClassNameFactory</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/FinderFactory.html">FinderFactory</a>
@@ -253,6 +250,20 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Protocols/DismissibleWithRuntimeStorage.html">DismissibleWithRuntimeStorage</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/DetailsNavigationFinder.html">DetailsNavigationFinder</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Deprecated.html">Deprecated</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/XibFactory.html">XibFactory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ClassNameFactory.html">ClassNameFactory</a>
               </li>
             </ul>
           </li>
@@ -424,6 +435,9 @@
                 <a href="../Structs/SplitViewControllerActions/PushToDetailsAction.html">– PushToDetailsAction</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Structs/SplitViewControllerActions/PushOnToDetailsAction.html">– PushOnToDetailsAction</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Structs/StepChainAssembly.html">StepChainAssembly</a>
               </li>
               <li class="nav-group-task">
@@ -465,7 +479,7 @@ the router not being able to navigate to the destination because a view controll
 being presented or dismissed.</p>
 
 <p><em>NB: <code>UIKit</code> does not allow simultaneous changes in <code>UIViewController</code> stack. The <code>.wait</code> strategy does not
-guarantee 100% protection from all possible situations. Code must be written in a way that avoids such
+guarantee 100% protection from all possible situations. The code must be written in a way that avoids such
 situations. The <code>.wait</code> strategy can be used only as a temporary solution.</em></p>
 
           </section>
@@ -499,6 +513,87 @@ situations. The <code>.wait</code> strategy can be used only as a temporary solu
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">Strategy</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer29NavigationDelayingInterceptorV14windowProviderAA06WindowG0_pvp"></a>
+                    <a name="//apple_ref/swift/Property/windowProvider" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer29NavigationDelayingInterceptorV14windowProviderAA06WindowG0_pvp">windowProvider</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><code><a href="../Protocols/WindowProvider.html">WindowProvider</a></code> instance.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">windowProvider</span><span class="p">:</span> <span class="kt"><a href="../Protocols/WindowProvider.html">WindowProvider</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer29NavigationDelayingInterceptorV6loggerAA6Logger_pSgvp"></a>
+                    <a name="//apple_ref/swift/Property/logger" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer29NavigationDelayingInterceptorV6loggerAA6Logger_pSgvp">logger</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Type of <code><a href="../Structs/NavigationDelayingInterceptor/Strategy.html">Strategy</a></code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">logger</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Logger.html">Logger</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer29NavigationDelayingInterceptorV8strategyAC8StrategyOvp"></a>
+                    <a name="//apple_ref/swift/Property/strategy" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer29NavigationDelayingInterceptorV8strategyAC8StrategyOvp">strategy</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><code><a href="../Protocols/Logger.html">Logger</a></code> instance.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">strategy</span><span class="p">:</span> <span class="kt"><a href="../Structs/NavigationDelayingInterceptor/Strategy.html">Strategy</a></span></code></pre>
 
                         </div>
                       </div>
@@ -606,7 +701,7 @@ situations. The <code>.wait</code> strategy can be used only as a temporary solu
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2019-07-30)</p>
+          <p>&copy; 2019 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2019-08-06)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

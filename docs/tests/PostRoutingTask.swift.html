@@ -169,7 +169,7 @@
 </tr>
 <tr class="never">
 <td class="num">32</td>
-<td class="src"><pre><code class="objc">// MARK: Helper Methods</code></pre></td>
+<td class="src"><pre><code class="objc">// MARK: Helper methods where the Context is Any?</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -249,7 +249,7 @@
 </tr>
 <tr class="never">
 <td class="num">48</td>
-<td class="src"><pre><code class="objc">public extension PostRoutingTask where Context == Void {</code></pre></td>
+<td class="src"><pre><code class="objc">// MARK: Helper methods where the Context is Void</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -259,56 +259,66 @@
 </tr>
 <tr class="never">
 <td class="num">50</td>
-<td class="src"><pre><code class="objc">    /// Method to be executed by the `Router` after all the view controllers have been built into the stack.</code></pre></td>
+<td class="src"><pre><code class="objc">public extension PostRoutingTask where Context == Void {</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">51</td>
-<td class="src"><pre><code class="objc">    ///</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">52</td>
-<td class="src"><pre><code class="objc">    /// - Parameters:</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">53</td>
-<td class="src"><pre><code class="objc">    ///   - viewController: The `UIViewController` instance that this post-task has been attached to</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">54</td>
-<td class="src"><pre><code class="objc">    ///   - routingStack: An array of all the view controllers that been built by the `Router` to</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">55</td>
-<td class="src"><pre><code class="objc">    ///     reach the final destination</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="covered">
-<td class="num">56</td>
-<td class="src"><pre><code class="objc">    func perform(on viewController: ViewController, routingStack: [UIViewController]) {</code></pre></td>
-<td class="coverage">1x</td>
-</tr>
-<tr class="covered">
-<td class="num">57</td>
-<td class="src"><pre><code class="objc">        perform(on: viewController, with: (), routingStack: routingStack)</code></pre></td>
-<td class="coverage">1x</td>
-</tr>
-<tr class="covered">
-<td class="num">58</td>
-<td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">1x</td>
-</tr>
-<tr class="never">
-<td class="num">59</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
+<td class="num">52</td>
+<td class="src"><pre><code class="objc">    /// Method to be executed by the `Router` after all the view controllers have been built into the stack.</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">53</td>
+<td class="src"><pre><code class="objc">    ///</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">54</td>
+<td class="src"><pre><code class="objc">    /// - Parameters:</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">55</td>
+<td class="src"><pre><code class="objc">    ///   - viewController: The `UIViewController` instance that this post-task has been attached to</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">56</td>
+<td class="src"><pre><code class="objc">    ///   - routingStack: An array of all the view controllers that been built by the `Router` to</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">57</td>
+<td class="src"><pre><code class="objc">    ///     reach the final destination</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="covered">
+<td class="num">58</td>
+<td class="src"><pre><code class="objc">    func perform(on viewController: ViewController, routingStack: [UIViewController]) {</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">59</td>
+<td class="src"><pre><code class="objc">        perform(on: viewController, with: (), routingStack: routingStack)</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
 <td class="num">60</td>
+<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="never">
+<td class="num">61</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">62</td>
 <td class="src"><pre><code class="objc">}</code></pre></td>
 <td class="coverage"></td>
 </tr>

@@ -204,7 +204,7 @@
 </tr>
 <tr class="never">
 <td class="num">39</td>
-<td class="src"><pre><code class="objc">// MARK: Helper Methods</code></pre></td>
+<td class="src"><pre><code class="objc">// MARK: Helper methods where the Context is Any?</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -279,7 +279,7 @@
 </tr>
 <tr class="never">
 <td class="num">54</td>
-<td class="src"><pre><code class="objc">public extension Destination where C == Void {</code></pre></td>
+<td class="src"><pre><code class="objc">// MARK: Helper methods where the Context is Void</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -289,51 +289,61 @@
 </tr>
 <tr class="never">
 <td class="num">56</td>
-<td class="src"><pre><code class="objc">    /// Constructor</code></pre></td>
+<td class="src"><pre><code class="objc">public extension Destination where C == Void {</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">57</td>
-<td class="src"><pre><code class="objc">    ///</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">58</td>
-<td class="src"><pre><code class="objc">    /// - Parameters:</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">59</td>
-<td class="src"><pre><code class="objc">    ///   - step: `DestinationStep` instance containing the navigation configuration.</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="covered">
-<td class="num">60</td>
-<td class="src"><pre><code class="objc">    init(to step: DestinationStep&lt;VC, C&gt;) {</code></pre></td>
-<td class="coverage">7x</td>
-</tr>
-<tr class="covered">
-<td class="num">61</td>
-<td class="src"><pre><code class="objc">        self.step = step</code></pre></td>
-<td class="coverage">7x</td>
-</tr>
-<tr class="covered">
-<td class="num">62</td>
-<td class="src"><pre><code class="objc">        self.context = ()</code></pre></td>
-<td class="coverage">7x</td>
-</tr>
-<tr class="covered">
-<td class="num">63</td>
-<td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">7x</td>
-</tr>
-<tr class="never">
-<td class="num">64</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
+<td class="num">58</td>
+<td class="src"><pre><code class="objc">    /// Constructor</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">59</td>
+<td class="src"><pre><code class="objc">    ///</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">60</td>
+<td class="src"><pre><code class="objc">    /// - Parameters:</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">61</td>
+<td class="src"><pre><code class="objc">    ///   - step: `DestinationStep` instance containing the navigation configuration.</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="covered">
+<td class="num">62</td>
+<td class="src"><pre><code class="objc">    init(to step: DestinationStep&lt;VC, C&gt;) {</code></pre></td>
+<td class="coverage">7x</td>
+</tr>
+<tr class="covered">
+<td class="num">63</td>
+<td class="src"><pre><code class="objc">        self.step = step</code></pre></td>
+<td class="coverage">7x</td>
+</tr>
+<tr class="covered">
+<td class="num">64</td>
+<td class="src"><pre><code class="objc">        self.context = ()</code></pre></td>
+<td class="coverage">7x</td>
+</tr>
+<tr class="covered">
 <td class="num">65</td>
+<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="coverage">7x</td>
+</tr>
+<tr class="never">
+<td class="num">66</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">67</td>
 <td class="src"><pre><code class="objc">}</code></pre></td>
 <td class="coverage"></td>
 </tr>

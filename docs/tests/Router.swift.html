@@ -139,7 +139,7 @@
 </tr>
 <tr class="never">
 <td class="num">26</td>
-<td class="src"><pre><code class="objc">// MARK: Helper Methods</code></pre></td>
+<td class="src"><pre><code class="objc">// MARK: Helper methods</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -289,7 +289,7 @@
 </tr>
 <tr class="never">
 <td class="num">56</td>
-<td class="src"><pre><code class="objc">public extension Router {</code></pre></td>
+<td class="src"><pre><code class="objc">// MARK: Navigation without the exception throwing</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -299,271 +299,281 @@
 </tr>
 <tr class="never">
 <td class="num">58</td>
-<td class="src"><pre><code class="objc">    /// Navigates the application to the view controller configured in `DestinationStep` with the `Context` provided.</code></pre></td>
+<td class="src"><pre><code class="objc">public extension Router {</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">59</td>
-<td class="src"><pre><code class="objc">    /// Method does not throw errors, but propagates them to the completion block</code></pre></td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">60</td>
-<td class="src"><pre><code class="objc">    ///</code></pre></td>
+<td class="src"><pre><code class="objc">    /// Navigates the application to the view controller configured in `DestinationStep` with the `Context` provided.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">61</td>
-<td class="src"><pre><code class="objc">    /// - Parameters:</code></pre></td>
+<td class="src"><pre><code class="objc">    /// Method does not throw errors, but propagates them to the completion block</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">62</td>
-<td class="src"><pre><code class="objc">    ///   - step: `DestinationStep` instance.</code></pre></td>
+<td class="src"><pre><code class="objc">    ///</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">63</td>
-<td class="src"><pre><code class="objc">    ///   - context: `Context` instance.</code></pre></td>
+<td class="src"><pre><code class="objc">    /// - Parameters:</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">64</td>
-<td class="src"><pre><code class="objc">    ///   - animated: if true - the navigation should be animated where it is possible.</code></pre></td>
+<td class="src"><pre><code class="objc">    ///   - step: `DestinationStep` instance.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">65</td>
-<td class="src"><pre><code class="objc">    ///   - completion: completion block.</code></pre></td>
+<td class="src"><pre><code class="objc">    ///   - context: `Context` instance.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">66</td>
-<td class="src"><pre><code class="objc">    func commitNavigation&lt;ViewController, Context&gt;(to step: DestinationStep&lt;ViewController, Context&gt;,</code></pre></td>
+<td class="src"><pre><code class="objc">    ///   - animated: if true - the navigation should be animated where it is possible.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">67</td>
-<td class="src"><pre><code class="objc">                                                   with context: Context,</code></pre></td>
+<td class="src"><pre><code class="objc">    ///   - completion: completion block.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">68</td>
+<td class="src"><pre><code class="objc">    func commitNavigation&lt;ViewController, Context&gt;(to step: DestinationStep&lt;ViewController, Context&gt;,</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">69</td>
+<td class="src"><pre><code class="objc">                                                   with context: Context,</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">70</td>
 <td class="src"><pre><code class="objc">                                                   animated: Bool,</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
-<td class="num">69</td>
+<td class="num">71</td>
 <td class="src"><pre><code class="objc">                                                   completion: ((RoutingResult) -&gt; Void)?) where ViewController: UIViewController {</code></pre></td>
 <td class="coverage">4x</td>
 </tr>
 <tr class="covered">
-<td class="num">70</td>
-<td class="src"><pre><code class="objc">        do {</code></pre></td>
-<td class="coverage">4x</td>
-</tr>
-<tr class="covered">
-<td class="num">71</td>
-<td class="src"><pre><code class="objc">            try navigate(to: step, with: context, animated: animated, completion: completion)</code></pre></td>
-<td class="coverage">4x</td>
-</tr>
-<tr class="covered">
 <td class="num">72</td>
-<td class="src"><pre><code class="objc">        } catch {</code></pre></td>
+<td class="src"><pre><code class="objc">        do {</code></pre></td>
 <td class="coverage">4x</td>
 </tr>
 <tr class="covered">
 <td class="num">73</td>
-<td class="src"><pre><code class="objc">            completion?(.failure(error))</code></pre></td>
-<td class="coverage">1x</td>
+<td class="src"><pre><code class="objc">            try navigate(to: step, with: context, animated: animated, completion: completion)</code></pre></td>
+<td class="coverage">4x</td>
 </tr>
 <tr class="covered">
 <td class="num">74</td>
-<td class="src"><pre><code class="objc">        }</code></pre></td>
+<td class="src"><pre><code class="objc">        } catch {</code></pre></td>
 <td class="coverage">4x</td>
 </tr>
 <tr class="covered">
 <td class="num">75</td>
+<td class="src"><pre><code class="objc">            completion?(.failure(error))</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">76</td>
+<td class="src"><pre><code class="objc">        }</code></pre></td>
+<td class="coverage">4x</td>
+</tr>
+<tr class="covered">
+<td class="num">77</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
 <td class="coverage">4x</td>
 </tr>
 <tr class="never">
-<td class="num">76</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">77</td>
-<td class="src"><pre><code class="objc">    /// Navigates the application to the view controller configured in `DestinationStep` with the `Context` set to `Any?`.</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
 <td class="num">78</td>
-<td class="src"><pre><code class="objc">    /// Method does not throw errors, but propagates them to the completion block</code></pre></td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">79</td>
-<td class="src"><pre><code class="objc">    ///</code></pre></td>
+<td class="src"><pre><code class="objc">    /// Navigates the application to the view controller configured in `DestinationStep` with the `Context` set to `Any?`.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">80</td>
-<td class="src"><pre><code class="objc">    /// - Parameters:</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">81</td>
-<td class="src"><pre><code class="objc">    ///   - step: `DestinationStep` instance.</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">82</td>
-<td class="src"><pre><code class="objc">    ///   - animated: if true - the navigation should be animated where it is possible.</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">83</td>
-<td class="src"><pre><code class="objc">    ///   - completion: completion block.</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">84</td>
-<td class="src"><pre><code class="objc">    func commitNavigation&lt;ViewController&gt;(to step: DestinationStep&lt;ViewController, Any?&gt;,</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">85</td>
-<td class="src"><pre><code class="objc">                                          animated: Bool,</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="covered">
-<td class="num">86</td>
-<td class="src"><pre><code class="objc">                                          completion: ((RoutingResult) -&gt; Void)?) where ViewController: UIViewController {</code></pre></td>
-<td class="coverage">1x</td>
-</tr>
-<tr class="covered">
-<td class="num">87</td>
-<td class="src"><pre><code class="objc">        do {</code></pre></td>
-<td class="coverage">1x</td>
-</tr>
-<tr class="covered">
-<td class="num">88</td>
-<td class="src"><pre><code class="objc">            try navigate(to: step, with: nil, animated: animated, completion: completion)</code></pre></td>
-<td class="coverage">1x</td>
-</tr>
-<tr class="covered">
-<td class="num">89</td>
-<td class="src"><pre><code class="objc">        } catch {</code></pre></td>
-<td class="coverage">1x</td>
-</tr>
-<tr class="covered">
-<td class="num">90</td>
-<td class="src"><pre><code class="objc">            completion?(.failure(error))</code></pre></td>
-<td class="coverage">1x</td>
-</tr>
-<tr class="covered">
-<td class="num">91</td>
-<td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">1x</td>
-</tr>
-<tr class="covered">
-<td class="num">92</td>
-<td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">1x</td>
-</tr>
-<tr class="never">
-<td class="num">93</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">94</td>
-<td class="src"><pre><code class="objc">    /// Navigates the application to the view controller configured in `DestinationStep` with the `Context` set to `Void`.</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">95</td>
 <td class="src"><pre><code class="objc">    /// Method does not throw errors, but propagates them to the completion block</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">96</td>
+<td class="num">81</td>
 <td class="src"><pre><code class="objc">    ///</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">97</td>
+<td class="num">82</td>
 <td class="src"><pre><code class="objc">    /// - Parameters:</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">98</td>
+<td class="num">83</td>
 <td class="src"><pre><code class="objc">    ///   - step: `DestinationStep` instance.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">99</td>
+<td class="num">84</td>
 <td class="src"><pre><code class="objc">    ///   - animated: if true - the navigation should be animated where it is possible.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">100</td>
+<td class="num">85</td>
 <td class="src"><pre><code class="objc">    ///   - completion: completion block.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">101</td>
-<td class="src"><pre><code class="objc">    func commitNavigation&lt;ViewController&gt;(to step: DestinationStep&lt;ViewController, Void&gt;,</code></pre></td>
+<td class="num">86</td>
+<td class="src"><pre><code class="objc">    func commitNavigation&lt;ViewController&gt;(to step: DestinationStep&lt;ViewController, Any?&gt;,</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">102</td>
+<td class="num">87</td>
 <td class="src"><pre><code class="objc">                                          animated: Bool,</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
-<td class="num">103</td>
+<td class="num">88</td>
 <td class="src"><pre><code class="objc">                                          completion: ((RoutingResult) -&gt; Void)?) where ViewController: UIViewController {</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
-<td class="num">104</td>
+<td class="num">89</td>
 <td class="src"><pre><code class="objc">        do {</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
-<td class="num">105</td>
-<td class="src"><pre><code class="objc">            try navigate(to: step, with: (), animated: animated, completion: completion)</code></pre></td>
+<td class="num">90</td>
+<td class="src"><pre><code class="objc">            try navigate(to: step, with: nil, animated: animated, completion: completion)</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
-<td class="num">106</td>
+<td class="num">91</td>
 <td class="src"><pre><code class="objc">        } catch {</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
-<td class="num">107</td>
+<td class="num">92</td>
 <td class="src"><pre><code class="objc">            completion?(.failure(error))</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
-<td class="num">108</td>
+<td class="num">93</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
-<td class="num">109</td>
+<td class="num">94</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="never">
-<td class="num">110</td>
+<td class="num">95</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
+<td class="num">96</td>
+<td class="src"><pre><code class="objc">    /// Navigates the application to the view controller configured in `DestinationStep` with the `Context` set to `Void`.</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">97</td>
+<td class="src"><pre><code class="objc">    /// Method does not throw errors, but propagates them to the completion block</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">98</td>
+<td class="src"><pre><code class="objc">    ///</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">99</td>
+<td class="src"><pre><code class="objc">    /// - Parameters:</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">100</td>
+<td class="src"><pre><code class="objc">    ///   - step: `DestinationStep` instance.</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">101</td>
+<td class="src"><pre><code class="objc">    ///   - animated: if true - the navigation should be animated where it is possible.</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">102</td>
+<td class="src"><pre><code class="objc">    ///   - completion: completion block.</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">103</td>
+<td class="src"><pre><code class="objc">    func commitNavigation&lt;ViewController&gt;(to step: DestinationStep&lt;ViewController, Void&gt;,</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">104</td>
+<td class="src"><pre><code class="objc">                                          animated: Bool,</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="covered">
+<td class="num">105</td>
+<td class="src"><pre><code class="objc">                                          completion: ((RoutingResult) -&gt; Void)?) where ViewController: UIViewController {</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">106</td>
+<td class="src"><pre><code class="objc">        do {</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">107</td>
+<td class="src"><pre><code class="objc">            try navigate(to: step, with: (), animated: animated, completion: completion)</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">108</td>
+<td class="src"><pre><code class="objc">        } catch {</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">109</td>
+<td class="src"><pre><code class="objc">            completion?(.failure(error))</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">110</td>
+<td class="src"><pre><code class="objc">        }</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
 <td class="num">111</td>
+<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="never">
+<td class="num">112</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">113</td>
 <td class="src"><pre><code class="objc">}</code></pre></td>
 <td class="coverage"></td>
 </tr>

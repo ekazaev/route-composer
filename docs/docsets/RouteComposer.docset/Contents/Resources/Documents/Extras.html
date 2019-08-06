@@ -114,13 +114,10 @@
             <a href="Factories.html">Factories</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Structs/XibFactory.html">XibFactory</a>
+                <a href="Structs/ClassFactory.html">ClassFactory</a>
               </li>
               <li class="nav-group-task">
                 <a href="Structs/StoryboardFactory.html">StoryboardFactory</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Structs/ClassNameFactory.html">ClassNameFactory</a>
               </li>
               <li class="nav-group-task">
                 <a href="Structs/FinderFactory.html">FinderFactory</a>
@@ -253,6 +250,20 @@
               </li>
               <li class="nav-group-task">
                 <a href="Protocols/DismissibleWithRuntimeStorage.html">DismissibleWithRuntimeStorage</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/DetailsNavigationFinder.html">DetailsNavigationFinder</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Deprecated.html">Deprecated</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Structs/XibFactory.html">XibFactory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/ClassNameFactory.html">ClassNameFactory</a>
               </li>
             </ul>
           </li>
@@ -424,6 +435,9 @@
                 <a href="Structs/SplitViewControllerActions/PushToDetailsAction.html">– PushToDetailsAction</a>
               </li>
               <li class="nav-group-task">
+                <a href="Structs/SplitViewControllerActions/PushOnToDetailsAction.html">– PushOnToDetailsAction</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Structs/StepChainAssembly.html">StepChainAssembly</a>
               </li>
               <li class="nav-group-task">
@@ -549,6 +563,10 @@ of <code>UIViewController</code> and the context of any type.</p>
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -580,6 +598,10 @@ of <code>UIViewController</code> and the context of any type.</p>
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -635,7 +657,7 @@ the router not being able to navigate to the destination because a view controll
 being presented or dismissed.</p>
 
 <p><em>NB: <code>UIKit</code> does not allow simultaneous changes in <code>UIViewController</code> stack. The <code>.wait</code> strategy does not
-guarantee 100% protection from all possible situations. Code must be written in a way that avoids such
+guarantee 100% protection from all possible situations. The code must be written in a way that avoids such
 situations. The <code>.wait</code> strategy can be used only as a temporary solution.</em></p>
 
                         <a href="Structs/NavigationDelayingInterceptor.html" class="slightly-smaller">See more</a>
@@ -920,10 +942,10 @@ constructor.</p>
             </div>
             <div class="task-group">
               <div class="task-name-container">
-                <a name="/Helper%20Methods"></a>
-                <a name="//apple_ref/swift/Section/Helper Methods" class="dashAnchor"></a>
-                <a href="#/Helper%20Methods">
-                  <h3 class="section-name">Helper Methods</h3>
+                <a name="/Helper%20methods%20where%20the%20DismissalTargetContext%20is%20Void"></a>
+                <a name="//apple_ref/swift/Section/Helper methods where the DismissalTargetContext is Void" class="dashAnchor"></a>
+                <a href="#/Helper%20methods%20where%20the%20DismissalTargetContext%20is%20Void">
+                  <h3 class="section-name">Helper methods where the DismissalTargetContext is Void</h3>
                 </a>
               </div>
               <ul>
@@ -958,10 +980,42 @@ constructor.</p>
                 </li>
               </ul>
             </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer23DetailsNavigationFinderV"></a>
+                    <a name="//apple_ref/swift/Struct/DetailsNavigationFinder" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer23DetailsNavigationFinderV">DetailsNavigationFinder</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><code><a href="Protocols/Finder.html">Finder</a></code> that helps to find the <code>UINavigationController</code> inside of the details of the <code>UISplitController</code></p>
+
+                        <a href="Structs/DetailsNavigationFinder.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DetailsNavigationFinder</span><span class="o">&lt;</span><span class="kt">C</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Finder.html">Finder</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2019-07-30)</p>
+          <p>&copy; 2019 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2019-08-06)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

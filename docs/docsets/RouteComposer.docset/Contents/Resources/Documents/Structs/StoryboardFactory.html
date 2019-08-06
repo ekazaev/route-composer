@@ -114,13 +114,10 @@
             <a href="../Factories.html">Factories</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Structs/XibFactory.html">XibFactory</a>
+                <a href="../Structs/ClassFactory.html">ClassFactory</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/StoryboardFactory.html">StoryboardFactory</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Structs/ClassNameFactory.html">ClassNameFactory</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/FinderFactory.html">FinderFactory</a>
@@ -253,6 +250,20 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Protocols/DismissibleWithRuntimeStorage.html">DismissibleWithRuntimeStorage</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/DetailsNavigationFinder.html">DetailsNavigationFinder</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Deprecated.html">Deprecated</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/XibFactory.html">XibFactory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ClassNameFactory.html">ClassNameFactory</a>
               </li>
             </ul>
           </li>
@@ -424,6 +435,9 @@
                 <a href="../Structs/SplitViewControllerActions/PushToDetailsAction.html">– PushToDetailsAction</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Structs/SplitViewControllerActions/PushOnToDetailsAction.html">– PushOnToDetailsAction</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Structs/StepChainAssembly.html">StepChainAssembly</a>
               </li>
               <li class="nav-group-task">
@@ -519,9 +533,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer17StoryboardFactoryV14storyboardNameSSvp"></a>
-                    <a name="//apple_ref/swift/Property/storyboardName" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer17StoryboardFactoryV14storyboardNameSSvp">storyboardName</a>
+                    <a name="/s:13RouteComposer17StoryboardFactoryV4nameSSvp"></a>
+                    <a name="//apple_ref/swift/Property/name" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer17StoryboardFactoryV4nameSSvp">name</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -536,7 +550,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">storyboardName</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span></code></pre>
 
                         </div>
                       </div>
@@ -573,9 +587,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer17StoryboardFactoryV16viewControllerIDSSSgvp"></a>
-                    <a name="//apple_ref/swift/Property/viewControllerID" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer17StoryboardFactoryV16viewControllerIDSSSgvp">viewControllerID</a>
+                    <a name="/s:13RouteComposer17StoryboardFactoryV10identifierSSSgvp"></a>
+                    <a name="//apple_ref/swift/Property/identifier" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer17StoryboardFactoryV10identifierSSSgvp">identifier</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -591,7 +605,34 @@ to create the storyboards initial <code>UIViewController</code></p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">viewControllerID</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">identifier</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer17StoryboardFactoryV13configurationyxcSgvp"></a>
+                    <a name="//apple_ref/swift/Property/configuration" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer17StoryboardFactoryV13configurationyxcSgvp">configuration</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The additional configuration block</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">configuration</span><span class="p">:</span> <span class="p">((</span><span class="kt">VC</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span></code></pre>
 
                         </div>
                       </div>
@@ -618,7 +659,8 @@ to create the storyboards initial <code>UIViewController</code></p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">storyboardName</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">bundle</span><span class="p">:</span> <span class="kt">Bundle</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">viewControllerID</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated, renamed: "init(name:bundle:identifier:configuration:﹚")</span>
+<span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">storyboardName</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">bundle</span><span class="p">:</span> <span class="kt">Bundle</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">viewControllerID</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -672,6 +714,90 @@ to create the storyboards initial <code>UIViewController</code></p>
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:13RouteComposer17StoryboardFactoryV4name6bundle10identifier13configurationACyxq_GSS_So8NSBundleCSgSSSgyxcSgtcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(name:bundle:identifier:configuration:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer17StoryboardFactoryV4name6bundle10identifier13configurationACyxq_GSS_So8NSBundleCSgSSSgyxcSgtcfc">init(name:bundle:identifier:configuration:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Constructor</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">bundle</span><span class="p">:</span> <span class="kt">Bundle</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">identifier</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">configuration</span><span class="p">:</span> <span class="p">((</span><span class="kt">VC</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>storyboardName</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The name of a storyboard file</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>bundle</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>Bundle</code> instance if needed</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>identifier</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>UIViewController</code> identifier in the storyboard. If it is not set, the <code><a href="../Protocols/Factory.html">Factory</a></code> will try
+to create the storyboards initial <code>UIViewController</code></p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>configuration</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A block of code that will be used for the extended configuration of the created <code>UIViewController</code>. Can be used for
+           a quick configuration instead of <code><a href="../Protocols/ContextTask.html">ContextTask</a></code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:13RouteComposer7FactoryP5build4with14ViewControllerQz7ContextQz_tKF"></a>
                     <a name="//apple_ref/swift/Method/build(with:)" class="dashAnchor"></a>
                     <a class="token" href="#/s:13RouteComposer7FactoryP5build4with14ViewControllerQz7ContextQz_tKF">build(with:)</a>
@@ -700,7 +826,7 @@ to create the storyboards initial <code>UIViewController</code></p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2019-07-30)</p>
+          <p>&copy; 2019 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2019-08-06)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

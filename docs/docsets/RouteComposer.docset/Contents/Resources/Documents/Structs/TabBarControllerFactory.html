@@ -114,13 +114,10 @@
             <a href="../Factories.html">Factories</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Structs/XibFactory.html">XibFactory</a>
+                <a href="../Structs/ClassFactory.html">ClassFactory</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/StoryboardFactory.html">StoryboardFactory</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Structs/ClassNameFactory.html">ClassNameFactory</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/FinderFactory.html">FinderFactory</a>
@@ -253,6 +250,20 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Protocols/DismissibleWithRuntimeStorage.html">DismissibleWithRuntimeStorage</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/DetailsNavigationFinder.html">DetailsNavigationFinder</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Deprecated.html">Deprecated</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/XibFactory.html">XibFactory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ClassNameFactory.html">ClassNameFactory</a>
               </li>
             </ul>
           </li>
@@ -424,6 +435,9 @@
                 <a href="../Structs/SplitViewControllerActions/PushToDetailsAction.html">– PushToDetailsAction</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Structs/SplitViewControllerActions/PushOnToDetailsAction.html">– PushOnToDetailsAction</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Structs/StepChainAssembly.html">StepChainAssembly</a>
               </li>
               <li class="nav-group-task">
@@ -454,7 +468,7 @@
             <h1>TabBarControllerFactory</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">TabBarControllerFactory</span><span class="o">&lt;</span><span class="kt">C</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/SimpleContainerFactory.html">SimpleContainerFactory</a></span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">TabBarControllerFactory</span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ContainerFactory.html">ContainerFactory</a></span> <span class="k">where</span> <span class="kt">VC</span> <span class="p">:</span> <span class="kt">UITabBarController</span></code></pre>
 
                 </div>
               </div>
@@ -467,9 +481,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer22SimpleContainerFactoryP14ViewControllerQa"></a>
+                    <a name="/s:13RouteComposer16ContainerFactoryP14ViewControllerQa"></a>
                     <a name="//apple_ref/swift/Alias/ViewController" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer22SimpleContainerFactoryP14ViewControllerQa">ViewController</a>
+                    <a class="token" href="#/s:13RouteComposer16ContainerFactoryP14ViewControllerQa">ViewController</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -483,7 +497,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">ViewController</span> <span class="o">=</span> <span class="kt">UITabBarController</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">ViewController</span> <span class="o">=</span> <span class="kt">VC</span></code></pre>
 
                         </div>
                       </div>
@@ -493,9 +507,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer22SimpleContainerFactoryP7ContextQa"></a>
+                    <a name="/s:13RouteComposer16ContainerFactoryP7ContextQa"></a>
                     <a name="//apple_ref/swift/Alias/Context" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer22SimpleContainerFactoryP7ContextQa">Context</a>
+                    <a class="token" href="#/s:13RouteComposer16ContainerFactoryP7ContextQa">Context</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -510,6 +524,60 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">Context</span> <span class="o">=</span> <span class="kt">C</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer23TabBarControllerFactoryV7nibNameSSSgvp"></a>
+                    <a name="//apple_ref/swift/Property/nibName" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer23TabBarControllerFactoryV7nibNameSSSgvp">nibName</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A Xib file name</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">nibName</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer23TabBarControllerFactoryV6bundleSo8NSBundleCSgvp"></a>
+                    <a name="//apple_ref/swift/Property/bundle" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer23TabBarControllerFactoryV6bundleSo8NSBundleCSgvp">bundle</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A <code>Bundle</code> instance</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">bundle</span><span class="p">:</span> <span class="kt">Bundle</span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -548,9 +616,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer23TabBarControllerFactoryV13configurationySo05UITabdE0CcSgvp"></a>
+                    <a name="/s:13RouteComposer23TabBarControllerFactoryV13configurationyxcSgvp"></a>
                     <a name="//apple_ref/swift/Property/configuration" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer23TabBarControllerFactoryV13configurationySo05UITabdE0CcSgvp">configuration</a>
+                    <a class="token" href="#/s:13RouteComposer23TabBarControllerFactoryV13configurationyxcSgvp">configuration</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -558,14 +626,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Block to configure <code>UITabBarController</code></p>
+                        <p>The additional configuration block</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">configuration</span><span class="p">:</span> <span class="p">((</span><span class="kt">UITabBarController</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">configuration</span><span class="p">:</span> <span class="p">((</span><span class="kt">VC</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span></code></pre>
 
                         </div>
                       </div>
@@ -575,9 +643,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer23TabBarControllerFactoryV8delegate13configurationACyxGSo05UITabdE8Delegate_pSg_ySo0idE0CcSgtcfc"></a>
-                    <a name="//apple_ref/swift/Method/init(delegate:configuration:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer23TabBarControllerFactoryV8delegate13configurationACyxGSo05UITabdE8Delegate_pSg_ySo0idE0CcSgtcfc">init(delegate:configuration:)</a>
+                    <a name="/s:13RouteComposer23TabBarControllerFactoryV7nibName6bundle8delegate13configurationACyxq_GSSSg_So8NSBundleCSgSo05UITabdE8Delegate_pSgyxcSgtcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(nibName:bundle:delegate:configuration:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer23TabBarControllerFactoryV7nibName6bundle8delegate13configurationACyxq_GSSSg_So8NSBundleCSgSo05UITabdE8Delegate_pSgyxcSgtcfc">init(nibName:bundle:delegate:configuration:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -592,8 +660,10 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">delegate</span><span class="p">:</span> <span class="kt">UITabBarControllerDelegate</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
-            <span class="nv">configuration</span><span class="p">:</span> <span class="p">((</span><span class="nv">_</span><span class="p">:</span> <span class="kt">UITabBarController</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n"><a href="../Structs/TabBarControllerFactory.html#/s:13RouteComposer23TabBarControllerFactoryV7nibNameSSSgvp">nibName</a></span> <span class="nv">nibNameOrNil</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+            <span class="n"><a href="../Structs/TabBarControllerFactory.html#/s:13RouteComposer23TabBarControllerFactoryV6bundleSo8NSBundleCSgvp">bundle</a></span> <span class="nv">nibBundleOrNil</span><span class="p">:</span> <span class="kt">Bundle</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+            <span class="nv">delegate</span><span class="p">:</span> <span class="kt">UITabBarControllerDelegate</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+            <span class="nv">configuration</span><span class="p">:</span> <span class="p">((</span><span class="nv">_</span><span class="p">:</span> <span class="kt">VC</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -603,9 +673,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer22SimpleContainerFactoryP5build4with11integrating14ViewControllerQz7ContextQz_SaySo06UIViewJ0CGtKF"></a>
+                    <a name="/s:13RouteComposer16ContainerFactoryP5build4with11integrating14ViewControllerQz7ContextQz_AA16ChildCoordinatorVyAJGtKF"></a>
                     <a name="//apple_ref/swift/Method/build(with:integrating:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer22SimpleContainerFactoryP5build4with11integrating14ViewControllerQz7ContextQz_SaySo06UIViewJ0CGtKF">build(with:integrating:)</a>
+                    <a class="token" href="#/s:13RouteComposer16ContainerFactoryP5build4with11integrating14ViewControllerQz7ContextQz_AA16ChildCoordinatorVyAJGtKF">build(with:integrating:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -619,7 +689,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">build</span><span class="p">(</span><span class="n">with</span> <span class="nv">context</span><span class="p">:</span> <span class="kt">C</span><span class="p">,</span> <span class="n">integrating</span> <span class="nv">viewControllers</span><span class="p">:</span> <span class="p">[</span><span class="kt">UIViewController</span><span class="p">])</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">UITabBarController</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">build</span><span class="p">(</span><span class="n">with</span> <span class="nv">context</span><span class="p">:</span> <span class="kt">C</span><span class="p">,</span> <span class="n">integrating</span> <span class="nv">coordinator</span><span class="p">:</span> <span class="kt"><a href="../Structs/ChildCoordinator.html">ChildCoordinator</a></span><span class="o">&lt;</span><span class="kt">C</span><span class="o">&gt;</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">VC</span></code></pre>
 
                         </div>
                       </div>
@@ -631,7 +701,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2019-07-30)</p>
+          <p>&copy; 2019 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2019-08-06)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

@@ -54,7 +54,7 @@
 </tr>
 <tr class="never">
 <td class="num">9</td>
-<td class="src"><pre><code class="objc">public class NavigationControllerStep&lt;Context&gt;: SingleContainerStep&lt;NilFinder&lt;UINavigationController, Context&gt;, NavigationControllerFactory&lt;Context&gt;&gt; {</code></pre></td>
+<td class="src"><pre><code class="objc">public final class NavigationControllerStep&lt;VC: UINavigationController, Context&gt;: SingleContainerStep&lt;NilFinder&lt;VC, Context&gt;, NavigationControllerFactory&lt;VC, Context&gt;&gt; {</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -74,7 +74,7 @@
 </tr>
 <tr class="covered">
 <td class="num">13</td>
-<td class="src"><pre><code class="objc">        super.init(finder: NilFinder(), factory: NavigationControllerFactory())</code></pre></td>
+<td class="src"><pre><code class="objc">        super.init(finder: NilFinder(), factory: NavigationControllerFactory&lt;VC, Context&gt;())</code></pre></td>
 <td class="coverage">14x</td>
 </tr>
 <tr class="covered">

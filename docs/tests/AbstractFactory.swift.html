@@ -179,7 +179,7 @@
 </tr>
 <tr class="never">
 <td class="num">34</td>
-<td class="src"><pre><code class="objc">// MARK: Helper Methods</code></pre></td>
+<td class="src"><pre><code class="objc">// MARK: Helper methods where the Context is Any?</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -234,7 +234,7 @@
 </tr>
 <tr class="never">
 <td class="num">45</td>
-<td class="src"><pre><code class="objc">public extension AbstractFactory where Context == Void {</code></pre></td>
+<td class="src"><pre><code class="objc">// MARK: Helper methods where the Context is Void</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -244,31 +244,41 @@
 </tr>
 <tr class="never">
 <td class="num">47</td>
-<td class="src"><pre><code class="objc">    /// Prepares the `AbstractFactory`</code></pre></td>
+<td class="src"><pre><code class="objc">public extension AbstractFactory where Context == Void {</code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="covered">
-<td class="num">48</td>
-<td class="src"><pre><code class="objc">    mutating func prepare() throws {</code></pre></td>
-<td class="coverage">2x</td>
-</tr>
-<tr class="covered">
-<td class="num">49</td>
-<td class="src"><pre><code class="objc">        try prepare(with: ())</code></pre></td>
-<td class="coverage">2x</td>
-</tr>
-<tr class="covered">
-<td class="num">50</td>
-<td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">2x</td>
-</tr>
 <tr class="never">
-<td class="num">51</td>
+<td class="num">48</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
+<td class="num">49</td>
+<td class="src"><pre><code class="objc">    /// Prepares the `AbstractFactory`</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="covered">
+<td class="num">50</td>
+<td class="src"><pre><code class="objc">    mutating func prepare() throws {</code></pre></td>
+<td class="coverage">2x</td>
+</tr>
+<tr class="covered">
+<td class="num">51</td>
+<td class="src"><pre><code class="objc">        try prepare(with: ())</code></pre></td>
+<td class="coverage">2x</td>
+</tr>
+<tr class="covered">
 <td class="num">52</td>
+<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="coverage">2x</td>
+</tr>
+<tr class="never">
+<td class="num">53</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">54</td>
 <td class="src"><pre><code class="objc">}</code></pre></td>
 <td class="coverage"></td>
 </tr>
