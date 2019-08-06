@@ -378,10 +378,60 @@ class ActionTests: XCTestCase {
         XCTAssertTrue(splitController.viewControllers.last === viewController)
     }
 
+    func testPushOnToDetailsInSplit() {
+        var viewControllerStack: [UIViewController] = []
+        XCTAssertThrowsError(try UISplitViewController.pushOnToDetails().perform(embedding: UIViewController(), in: &viewControllerStack))
+
+        viewControllerStack.append(UIViewController())
+
+        try? UISplitViewController.pushOnToDetails().perform(embedding: UIViewController(), in: &viewControllerStack)
+        XCTAssertEqual(viewControllerStack.count, 2)
+
+        let lastViewController = UIViewController()
+        try? UISplitViewController.pushOnToDetails().perform(embedding: lastViewController, in: &viewControllerStack)
+        XCTAssertEqual(viewControllerStack.count, 3)
+        XCTAssertEqual(viewControllerStack.last, lastViewController)
+
+        var wasInCompletion = false
+        let splitController = UISplitViewController()
+        var viewController = UIViewController()
+        UISplitViewController.pushOnToDetails().perform(with: viewController, on: splitController, animated: false) { result in
+            wasInCompletion = true
+            if case .success = result {
+                XCTAssert(false)
+            }
+        }
+        XCTAssertTrue(wasInCompletion)
+        XCTAssertEqual(splitController.viewControllers.count, 0)
+
+        wasInCompletion = false
+        let navController: UINavigationController = UINavigationController()
+        splitController.viewControllers = [UIViewController(), navController]
+        UISplitViewController.pushOnToDetails().perform(with: viewController, on: splitController, animated: false) { result in
+            wasInCompletion = true
+            if case .failure(_) = result {
+                XCTAssert(false)
+            }
+        }
+        XCTAssertTrue(wasInCompletion)
+        XCTAssertEqual(navController.viewControllers.count, 1)
+        XCTAssertTrue(navController.viewControllers.last === viewController)
+
+        viewController = UIViewController()
+        UISplitViewController.pushOnToDetails().perform(with: viewController, on: splitController, animated: false) { result in
+          wasInCompletion = true
+          if case .failure(_) = result {
+            XCTAssert(false)
+          }
+        }
+        XCTAssertTrue(wasInCompletion)
+        XCTAssertEqual(navController.viewControllers.count, 2)
+        XCTAssertTrue(navController.viewControllers.last === viewController)
+    }
+
     func testCustomWindowProvider() {
         let window = UIWindow()
         let customProvider = CustomWindowProvider(window: window)
         XCTAssertEqual(window, customProvider.window)
     }
-
 }
