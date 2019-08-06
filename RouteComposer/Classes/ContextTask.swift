@@ -52,7 +52,7 @@ public extension ContextTask {
 
 }
 
-// MARK: Helper Methods
+// MARK: Helper methods
 
 public extension ContextTask {
 
@@ -64,6 +64,8 @@ public extension ContextTask {
     }
 
 }
+
+// MARK: Helper methods where the Context is Any?
 
 public extension ContextTask where Context == Any? {
 
@@ -90,6 +92,8 @@ public extension ContextTask where Context == Any? {
     }
 
 }
+
+// MARK: Helper methods where the Context is Void
 
 public extension ContextTask where Context == Void {
 

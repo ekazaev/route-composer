@@ -40,7 +40,7 @@ extension ExampleScreenConfiguration {
                 // the type of the view controller and the context to be used. You do not need to do so if you are using at
                 // least one custom factory of finder that have set typealias for ViewController and Context.
                 finder: ClassFinder<UITabBarController, Any?>(options: .current, startingPoint: .root),
-                factory: StoryboardFactory(storyboardName: "TabBar"))
+                factory: StoryboardFactory(name: "TabBar"))
                 .using(GeneralAction.replaceRoot(animationOptions: .transitionFlipFromLeft))
                 .from(GeneralStep.root())
                 .assemble()
@@ -74,7 +74,7 @@ extension ExampleScreenConfiguration {
                 }))
                 .adding(ExampleGenericContextTask<ColorViewController, String>())
                 .using(ExampleNavigationController.push())
-                .from(SingleContainerStep(finder: NilFinder(), factory: ExampleNavigationFactory<String>()))
+                .from(SingleContainerStep(finder: NilFinder(), factory: NavigationControllerFactory<ExampleNavigationController, String>()))
                 .using(GeneralAction.presentModally())
                 .from(GeneralStep.current())
                 .assemble()
@@ -83,7 +83,7 @@ extension ExampleScreenConfiguration {
     var routingSupportScreen: DestinationStep<RoutingRuleSupportViewController, String> {
         return StepAssembly(
                 finder: ClassFinder<RoutingRuleSupportViewController, String>(options: .currentAllStack),
-                factory: StoryboardFactory(storyboardName: "TabBar", viewControllerID: "RoutingRuleSupportViewController"))
+                factory: StoryboardFactory(name: "TabBar", identifier: "RoutingRuleSupportViewController"))
                 .adding(ExampleGenericContextTask<RoutingRuleSupportViewController, String>())
                 .using(UITabBarController.add())
                 .from(TabBarControllerStep())
@@ -95,7 +95,7 @@ extension ExampleScreenConfiguration {
     var figuresScreen: DestinationStep<FiguresViewController, Any?> {
         return StepAssembly(
                 finder: ClassFinder<FiguresViewController, Any?>(),
-                factory: StoryboardFactory(storyboardName: "TabBar", viewControllerID: "FiguresViewController"))
+                factory: StoryboardFactory(name: "TabBar", identifier: "FiguresViewController"))
                 .adding(LoginInterceptor<Any?>())
                 .adding(ExampleGenericContextTask<FiguresViewController, Any?>())
                 .using(UINavigationController.push())
@@ -106,7 +106,7 @@ extension ExampleScreenConfiguration {
     var secondModalScreen: DestinationStep<SecondModalLevelViewController, String> {
         return StepAssembly(
                 finder: ClassFinder<SecondModalLevelViewController, String>(),
-                factory: StoryboardFactory(storyboardName: "TabBar", viewControllerID: "SecondModalLevelViewController"))
+                factory: StoryboardFactory(name: "TabBar", identifier: "SecondModalLevelViewController"))
                 .adding(ExampleGenericContextTask<SecondModalLevelViewController, String>())
                 .using(UINavigationController.push())
                 .from(NavigationControllerStep())
@@ -118,7 +118,7 @@ extension ExampleScreenConfiguration {
     var welcomeScreen: DestinationStep<PromptViewController, Any?> {
         return StepAssembly(
                 finder: ClassFinder<PromptViewController, Any?>(),
-                factory: StoryboardFactory(storyboardName: "PromptScreen"))
+                factory: StoryboardFactory(name: "PromptScreen"))
                 .adding(ExampleGenericContextTask<PromptViewController, Any?>())
                 .using(GeneralAction.replaceRoot())
                 .from(GeneralStep.root())
@@ -128,7 +128,7 @@ extension ExampleScreenConfiguration {
     var figuresAndProductScreen: DestinationStep<ProductViewController, ProductContext> {
         return StepAssembly(
                 finder: ClassWithContextFinder<ProductViewController, ProductContext>(),
-                factory: StoryboardFactory(storyboardName: "TabBar", viewControllerID: "ProductViewController"))
+                factory: StoryboardFactory(name: "TabBar", identifier: "ProductViewController"))
                 .adding(ContextSettingTask())
                 .using(UINavigationController.push())
                 .assemble(from: figuresScreen.expectingContainer())
@@ -141,7 +141,7 @@ struct ExampleConfiguration: ExampleScreenConfiguration {
     var starScreen: DestinationStep<StarViewController, Any?> {
         return StepAssembly(
                 finder: ClassFinder<StarViewController, Any?>(options: .currentAllStack),
-                factory: XibFactory())
+                factory: ClassFactory())
                 .adding(ExampleGenericContextTask<StarViewController, Any?>())
                 .adding(LoginInterceptor<Any?>())
                 .using(UITabBarController.add())
@@ -156,7 +156,7 @@ struct AlternativeExampleConfiguration: ExampleScreenConfiguration {
     var starScreen: DestinationStep<StarViewController, Any?> {
         return StepAssembly(
                 finder: ClassFinder<StarViewController, Any?>(options: .currentAllStack),
-                factory: XibFactory())
+                factory: ClassFactory())
                 .adding(ExampleGenericContextTask<StarViewController, Any?>())
                 .adding(LoginInterceptor())
                 .using(UINavigationController.push())

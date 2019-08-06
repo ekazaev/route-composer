@@ -23,7 +23,7 @@ public struct LastStepInChainAssembly<ViewController: UIViewController, Context>
 
     private func chain(_ steps: [RoutingStep]) -> RoutingStep {
         guard let lastStep = steps.last else {
-            fatalError("No steps provided to chain.")
+            preconditionFailure("No steps provided to chain.")
         }
 
         let firstStep = steps.dropLast().reversed().reduce(lastStep, { (result, currentStep) in

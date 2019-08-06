@@ -10,7 +10,7 @@ import RouteComposer
 struct WishListConfiguration {
     static let wishListScreen = StepAssembly(
             finder: ClassFinder<WishListViewController, WishListContext>(),
-            factory: StoryboardFactory(storyboardName: "TabBar", viewControllerID: "WishListViewController"))
+            factory: StoryboardFactory(name: "TabBar", identifier: "WishListViewController"))
             .adding(LoginInterceptor())
             .adding(WishListContextTask())
             .using(UINavigationController.push())

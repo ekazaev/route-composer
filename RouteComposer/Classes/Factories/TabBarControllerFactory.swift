@@ -6,38 +6,46 @@ import Foundation
 import UIKit
 
 ///  The `ContainerFactory` that creates a `UITabBarController` instance.
-public struct TabBarControllerFactory<C>: SimpleContainerFactory {
+public struct TabBarControllerFactory<VC: UITabBarController, C>: ContainerFactory {
 
-    public typealias ViewController = UITabBarController
+    public typealias ViewController = VC
 
     public typealias Context = C
+
+    /// A Xib file name
+    public let nibName: String?
+
+    /// A `Bundle` instance
+    public let bundle: Bundle?
 
     /// `UITabBarControllerDelegate` reference
     private(set) public weak var delegate: UITabBarControllerDelegate?
 
-    /// Block to configure `UITabBarController`
-    public let configuration: ((_: UITabBarController) -> Void)?
+    /// The additional configuration block
+    public let configuration: ((_: VC) -> Void)?
 
     /// Constructor
-    public init(delegate: UITabBarControllerDelegate? = nil,
-                configuration: ((_: UITabBarController) -> Void)? = nil) {
+    public init(nibName nibNameOrNil: String? = nil,
+                bundle nibBundleOrNil: Bundle? = nil,
+                delegate: UITabBarControllerDelegate? = nil,
+                configuration: ((_: VC) -> Void)? = nil) {
+        self.nibName = nibNameOrNil
+        self.bundle = nibBundleOrNil
         self.delegate = delegate
         self.configuration = configuration
     }
 
-    public func build(with context: C, integrating viewControllers: [UIViewController]) throws -> UITabBarController {
-        guard !viewControllers.isEmpty else {
-            throw RoutingError.compositionFailed(.init("Unable to build UITabBarController due " +
-                    "to 0 amount of the children view controllers"))
-        }
-        let tabBarController = UITabBarController()
+    public func build(with context: C, integrating coordinator: ChildCoordinator<C>) throws -> VC {
+        let tabBarController = VC(nibName: nibName, bundle: bundle)
         if let delegate = delegate {
             tabBarController.delegate = delegate
         }
         if let configuration = configuration {
             configuration(tabBarController)
         }
-        tabBarController.viewControllers = viewControllers
+        if !coordinator.isEmpty {
+            tabBarController.viewControllers = try coordinator.build(with: context, integrating: tabBarController.viewControllers ?? [])
+        }
         return tabBarController
     }
 

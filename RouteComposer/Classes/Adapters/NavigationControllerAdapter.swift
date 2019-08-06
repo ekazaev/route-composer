@@ -33,11 +33,11 @@ public struct NavigationControllerAdapter<VC: UINavigationController>: ConcreteC
             completion(.success)
             return
         }
-        guard let viewControllerToMakeVisible = containedViewControllers.first(where: { $0 == viewController }) else {
+        guard contains(viewController) else {
             completion(.failure(RoutingError.compositionFailed(.init("\(String(describing: navigationController)) does not contain \(String(describing: viewController))"))))
             return
         }
-        navigationController.popToViewController(viewControllerToMakeVisible, animated: animated)
+        navigationController.popToViewController(viewController, animated: animated)
         completion(.success)
     }
 

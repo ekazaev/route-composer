@@ -23,7 +23,7 @@ public protocol Router {
 
 }
 
-// MARK: Helper Methods
+// MARK: Helper methods
 
 public extension Router {
 
@@ -52,6 +52,8 @@ public extension Router {
     }
 
 }
+
+// MARK: Navigation without the exception throwing
 
 public extension Router {
 

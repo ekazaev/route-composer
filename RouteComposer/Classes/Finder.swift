@@ -28,7 +28,7 @@ public protocol Finder {
 
 }
 
-// MARK: Helper Methods
+// MARK: Helper methods
 
 public extension Finder {
 
@@ -46,6 +46,8 @@ public extension Finder {
     }
 
 }
+
+// MARK: Helper methods where the Context is Any?
 
 public extension Finder where Context == Any? {
 
@@ -65,6 +67,8 @@ public extension Finder where Context == Any? {
     }
 
 }
+
+// MARK: Helper methods where the Context is Void
 
 public extension Finder where Context == Void {
 

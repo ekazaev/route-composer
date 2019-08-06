@@ -9,6 +9,10 @@ import UIKit
 /// A default implementation of the view controllers finder that searches for a view controller by its name.
 public struct ClassFinder<VC: UIViewController, C>: StackIteratingFinder {
 
+    public typealias ViewController = VC
+
+    public typealias Context = C
+
     /// A `StackIterator` is to be used by `ClassFinder`
     public let iterator: StackIterator
 

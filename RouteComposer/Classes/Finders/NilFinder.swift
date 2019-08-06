@@ -12,6 +12,10 @@ import UIKit
 /// For example, `UIViewController` of this step was already loaded and integrated into a stack by a storyboard.
 public struct NilFinder<VC: UIViewController, C>: Finder, NilEntity {
 
+    public typealias ViewController = VC
+
+    public typealias Context = C
+
     /// Constructor
     public init() {
     }

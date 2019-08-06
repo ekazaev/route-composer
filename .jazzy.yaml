@@ -39,9 +39,8 @@ custom_categories:
 
   - name: Factories
     children:
-      - XibFactory
+      - ClassFactory
       - StoryboardFactory
-      - ClassNameFactory
       - FinderFactory
       - NavigationControllerFactory
       - TabBarControllerFactory
@@ -93,3 +92,9 @@ custom_categories:
       - DismissalMethodProvidingContextTask
       - Dismissible
       - DismissibleWithRuntimeStorage
+      - DetailsNavigationFinder
+
+  - name: Deprecated
+    children:
+      - XibFactory
+      - ClassNameFactory

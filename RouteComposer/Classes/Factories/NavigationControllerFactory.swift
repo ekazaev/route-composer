@@ -6,38 +6,46 @@
 import UIKit
 
 /// The `ContainerFactory` that creates a `UINavigationController` instance.
-public struct NavigationControllerFactory<C>: SimpleContainerFactory {
+public struct NavigationControllerFactory<VC: UINavigationController, C>: ContainerFactory {
 
-    public typealias ViewController = UINavigationController
+    public typealias ViewController = VC
 
     public typealias Context = C
+
+    /// A Xib file name
+    public let nibName: String?
+
+    /// A `Bundle` instance
+    public let bundle: Bundle?
 
     /// `UINavigationControllerDelegate` reference
     private(set) public weak var delegate: UINavigationControllerDelegate?
 
-    /// Block to configure `UINavigationController`
-    public let configuration: ((_: UINavigationController) -> Void)?
+    /// The additional configuration block
+    public let configuration: ((_: VC) -> Void)?
 
     /// Constructor
-    public init(delegate: UINavigationControllerDelegate? = nil,
-                configuration: ((_: UINavigationController) -> Void)? = nil) {
+    public init(nibName nibNameOrNil: String? = nil,
+                bundle nibBundleOrNil: Bundle? = nil,
+                delegate: UINavigationControllerDelegate? = nil,
+                configuration: ((_: VC) -> Void)? = nil) {
+        self.nibName = nibNameOrNil
+        self.bundle = nibBundleOrNil
         self.delegate = delegate
         self.configuration = configuration
     }
 
-    public func build(with context: C, integrating viewControllers: [UIViewController]) throws -> UINavigationController {
-        guard !viewControllers.isEmpty else {
-            throw RoutingError.compositionFailed(.init("Unable to build UINavigationController due to 0 amount " +
-                    "of the children view controllers"))
-        }
-        let navigationController = UINavigationController()
+    public func build(with context: C, integrating coordinator: ChildCoordinator<C>) throws -> VC {
+        let navigationController = VC(nibName: nibName, bundle: bundle)
         if let delegate = delegate {
             navigationController.delegate = delegate
         }
         if let configuration = configuration {
             configuration(navigationController)
         }
-        navigationController.viewControllers = viewControllers
+        if !coordinator.isEmpty {
+            navigationController.viewControllers = try coordinator.build(with: context, integrating: navigationController.viewControllers)
+        }
         return navigationController
     }
 

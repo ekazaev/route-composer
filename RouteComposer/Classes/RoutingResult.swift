@@ -19,7 +19,7 @@ public enum RoutingResult {
 
 }
 
-// MARK: Helper Methods
+// MARK: Helper methods
 
 public extension RoutingResult {
 
@@ -32,7 +32,7 @@ public extension RoutingResult {
     }
 
     /// Returns SDK's `Result` value.
-    var value: Result<Void, Error> {
+    var swiftResult: Result<Void, Error> {
         switch self {
         case .success:
             return .success(())

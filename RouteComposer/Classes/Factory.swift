@@ -37,7 +37,7 @@ public extension Factory {
 
 }
 
-// MARK: Helper Methods
+// MARK: Helper methods
 
 public extension Factory {
 
@@ -50,7 +50,8 @@ public extension Factory {
 
 }
 
-/// Default implementation for any context
+// MARK: Helper methods where the Context is Any?
+
 public extension Factory where Context == Any? {
 
     /// Builds a `Factory`'s view controller.
@@ -67,7 +68,8 @@ public extension Factory where Context == Any? {
 
 }
 
-/// Default implementation for an empty context
+// MARK: Helper methods where the Context is Void
+
 public extension Factory where Context == Void {
 
     /// Builds a `Factory`'s view controller.

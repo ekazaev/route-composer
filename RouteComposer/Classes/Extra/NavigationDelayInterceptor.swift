@@ -12,7 +12,7 @@ import Foundation
 /// being presented or dismissed.
 ///
 /// *NB: `UIKit` does not allow simultaneous changes in `UIViewController` stack. The `.wait` strategy does not
-/// guarantee 100% protection from all possible situations. Code must be written in a way that avoids such
+/// guarantee 100% protection from all possible situations. The code must be written in a way that avoids such
 /// situations. The `.wait` strategy can be used only as a temporary solution.*
 public struct NavigationDelayingInterceptor: RoutingInterceptor {
 
@@ -30,11 +30,14 @@ public struct NavigationDelayingInterceptor: RoutingInterceptor {
 
     }
 
-    let windowProvider: WindowProvider
+    /// `WindowProvider` instance.
+    public let windowProvider: WindowProvider
 
-    let logger: Logger?
+    /// Type of `Strategy`.
+    public let logger: Logger?
 
-    let strategy: Strategy
+    /// `Logger` instance.
+    public let strategy: Strategy
 
     /// Constructor
     ///

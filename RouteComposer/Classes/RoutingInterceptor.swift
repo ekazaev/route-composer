@@ -53,7 +53,7 @@ public extension RoutingInterceptor {
 
 }
 
-// MARK: Helper Methods
+// MARK: Helper methods
 
 public extension RoutingInterceptor {
 
@@ -65,6 +65,8 @@ public extension RoutingInterceptor {
     }
 
 }
+
+// MARK: Helper methods where the Context is Any?
 
 public extension RoutingInterceptor where Context == Any? {
 
@@ -96,6 +98,8 @@ public extension RoutingInterceptor where Context == Any? {
     }
 
 }
+
+// MARK: Helper methods where the Context is Void
 
 public extension RoutingInterceptor where Context == Void {
 

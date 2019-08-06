@@ -6,6 +6,7 @@
 import UIKit
 
 /// The `Factory` that creates a `UIViewController` class by its name
+@available(*, deprecated, renamed: "ClassFactory")
 public struct ClassNameFactory<VC: UIViewController, C>: Factory {
 
     public typealias ViewController = VC
@@ -36,14 +37,15 @@ public struct ClassNameFactory<VC: UIViewController, C>: Factory {
 
     public func build(with context: C) throws -> VC {
         guard let viewControllerName = viewControllerName else {
-            return ViewController(nibName: nibName, bundle: bundle)
+            return VC(nibName: nibName, bundle: bundle)
         }
         guard let customClass = NSClassFromString(viewControllerName) else {
             throw RoutingError.compositionFailed(.init("Can not find \(viewControllerName) in the bundle."))
         }
         guard let customViewControllerClass = customClass as? VC.Type else {
-            throw RoutingError.typeMismatch(customClass.self, .init("Unable to instantiate UIViewController as " +
-                    "\(String(describing: type(of: VC.self))), got \(String(describing: customClass)) instead."))
+            throw RoutingError.typeMismatch(type: customClass.self, expectedType: VC.self,
+                    .init("Unable to instantiate UIViewController as " +
+                            "\(String(describing: type(of: VC.self))), got \(String(describing: customClass)) instead."))
         }
 
         return customViewControllerClass.init(nibName: nibName, bundle: bundle)

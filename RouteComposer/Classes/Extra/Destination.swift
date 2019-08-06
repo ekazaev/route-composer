@@ -36,7 +36,7 @@ public struct Destination<VC: UIViewController, C> {
 
 }
 
-// MARK: Helper Methods
+// MARK: Helper methods where the Context is Any?
 
 public extension Destination where C == Any? {
 
@@ -50,6 +50,8 @@ public extension Destination where C == Any? {
     }
 
 }
+
+// MARK: Helper methods where the Context is Void
 
 public extension Destination where C == Void {
 

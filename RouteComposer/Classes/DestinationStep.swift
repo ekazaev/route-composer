@@ -46,7 +46,7 @@ public struct DestinationStep<VC: UIViewController, C>: RoutingStep, ChainableSt
 
 }
 
-// MARK: Helper Methods
+// MARK: Helper methods where the Context is Any?
 
 /// A step that has a context type Optional(Any) can be build with any type of context passed to the router.
 extension DestinationStep where DestinationStep.Context == Any? {

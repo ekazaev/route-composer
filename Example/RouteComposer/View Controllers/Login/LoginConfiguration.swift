@@ -13,7 +13,7 @@ struct LoginConfiguration {
                 factory: NilFactory()) //Login view controller will be created when UINavigationController will be loaded from storyboard.
                 .from(SingleStep(
                         finder: NilFinder(),
-                        factory: StoryboardFactory<UINavigationController, Void>(storyboardName: "Login")))
+                        factory: StoryboardFactory<UINavigationController, Void>(name: "Login")))
                 .using(GeneralAction.presentModally(presentationStyle: .formSheet))
                 .from(GeneralStep.current())
                 .assemble()

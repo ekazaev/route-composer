@@ -45,7 +45,7 @@ public extension ContainerFactory {
 
 }
 
-// MARK: Helper Methods
+// MARK: Helper methods
 
 public extension ContainerFactory {
 
@@ -63,6 +63,8 @@ public extension ContainerFactory {
 
 }
 
+// MARK: Helper methods where the Context is Any?
+
 public extension ContainerFactory where Context == Any? {
 
     /// Builds a `ContainerFactory` view controller.
@@ -78,6 +80,8 @@ public extension ContainerFactory where Context == Any? {
     }
 
 }
+
+// MARK: Helper methods where the Context is Void
 
 public extension ContainerFactory where Context == Void {
 

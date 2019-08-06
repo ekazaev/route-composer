@@ -39,14 +39,14 @@ class BoxTests: XCTestCase {
     }
 
     func testFactoryBoxWrongContext() {
-        let factory = ClassNameFactory<UIViewController, Int>()
+        let factory = ClassFactory<UIViewController, Int>()
         var box = FactoryBox(factory, action: ActionBox(ViewControllerActions.NilAction()))
         XCTAssertThrowsError(try box?.prepare(with: "Wrong Context Type"))
         XCTAssertThrowsError(try box?.build(with: "Wrong Context Type"))
     }
 
     func testContainerFactoryBoxWrongContext() {
-        let factory = NavigationControllerFactory<Int>()
+        let factory = NavigationControllerFactory<UINavigationController, Int>()
         var box = ContainerFactoryBox(factory, action: ContainerActionBox(UINavigationController.push()))
         XCTAssertThrowsError(try box?.prepare(with: "Wrong Context Type"))
         XCTAssertThrowsError(try box?.build(with: "Wrong Context Type"))
@@ -71,18 +71,18 @@ class BoxTests: XCTestCase {
         var box = ContainerFactoryBox(factory, action: ActionBox(ViewControllerActions.NilAction()))
         XCTAssertNotNil(box)
         var children: [AnyFactory] = []
-        children.append(FactoryBox(ClassNameFactory<UIViewController, Any?>(), action: ContainerActionBox(UINavigationController.push()))!)
+        children.append(FactoryBox(ClassFactory<UIViewController, Any?>(), action: ContainerActionBox(UINavigationController.push()))!)
         children.append(FactoryBox(EmptyFactory(), action: ContainerActionBox(UINavigationController.push()))!)
-        children.append(ContainerFactoryBox(NavigationControllerFactory<Any?>(), action: ActionBox(ViewControllerActions.PresentModallyAction()))!)
+        children.append(ContainerFactoryBox(NavigationControllerFactory<UINavigationController, Any?>(), action: ActionBox(ViewControllerActions.PresentModallyAction()))!)
         children.append(FactoryBox(EmptyFactory(), action: ContainerActionBox(UINavigationController.push()))!)
-        children.append(FactoryBox(ClassNameFactory<UIViewController, Any?>(), action: ContainerActionBox(UINavigationController.push()))!)
+        children.append(FactoryBox(ClassFactory<UIViewController, Any?>(), action: ContainerActionBox(UINavigationController.push()))!)
 
         let resultChildren = try? box?.scrapeChildren(from: children)
         XCTAssertEqual(resultChildren?.count, 3)
         XCTAssertEqual(box?.children.count, 2)
-        XCTAssertTrue(resultChildren?.first! is ContainerFactoryBox<NavigationControllerFactory<Any?>>)
-        XCTAssertTrue(box?.children.first!.factory is FactoryBox<ClassNameFactory<UIViewController, Any?>>)
-        XCTAssertTrue(resultChildren?.last! is FactoryBox<ClassNameFactory<UIViewController, Any?>>)
+        XCTAssertTrue(resultChildren?.first! is ContainerFactoryBox<NavigationControllerFactory<UINavigationController, Any?>>)
+        XCTAssertTrue(box?.children.first!.factory is FactoryBox<ClassFactory<UIViewController, Any?>>)
+        XCTAssertTrue(resultChildren?.last! is FactoryBox<ClassFactory<UIViewController, Any?>>)
     }
 
     func testNilInAssembly() {
@@ -98,7 +98,7 @@ class BoxTests: XCTestCase {
     }
 
     func testNilInCompleteFactoryAssembly() {
-        let factory = CompleteFactoryAssembly(factory: TabBarControllerFactory<Any?>())
+        let factory = CompleteFactoryAssembly(factory: TabBarControllerFactory<UITabBarController, Any?>())
                 .with(NilFactory<UIViewController, Any?>(), using: UITabBarController.add())
                 .with(NilFactory<UIViewController, Any?>(), using: UITabBarController.add())
                 .assemble()
@@ -229,12 +229,12 @@ class BoxTests: XCTestCase {
     }
 
     func testBaseEntitiesCollector() {
-        let collector = BaseEntitiesCollector<FactoryBox<ClassNameFactory>, ActionBox>(finder: ClassFinder<UIViewController, Any?>(),
-                factory: ClassNameFactory<UIViewController, Any?>(), action: GeneralAction.replaceRoot())
+        let collector = BaseEntitiesCollector<FactoryBox<ClassFactory>, ActionBox>(finder: ClassFinder<UIViewController, Any?>(),
+                factory: ClassFactory<UIViewController, Any?>(), action: GeneralAction.replaceRoot())
         XCTAssertNotNil(collector.finder)
         XCTAssertNotNil(collector.factory)
         XCTAssertTrue(collector.finder is FinderBox<ClassFinder<UIViewController, Any?>>)
-        XCTAssertTrue(collector.factory is FactoryBox<ClassNameFactory<UIViewController, Any?>>)
+        XCTAssertTrue(collector.factory is FactoryBox<ClassFactory<UIViewController, Any?>>)
         XCTAssertTrue(collector.factory?.action is ActionBox<ViewControllerActions.ReplaceRootAction>)
     }
 

@@ -215,23 +215,22 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
                                                    animated: Bool,
                                                    completion: @escaping ((RoutingResult) -> Void)) {
         var factories = factories
-
         let postponedIntegrationHandler = DefaultPostponedIntegrationHandler(logger: logger,
                 containerAdapterLocator: containerAdapterLocator)
 
         func buildViewController(from previousViewController: UIViewController) {
             self.makeVisibleIfNeeded(previousViewController, animated: animated, completion: { result in
+                guard result.isSuccessful else {
+                    self.logger?.log(.info("\(String(describing: previousViewController)) has stopped the navigation process " +
+                            "as it was not able to become visible in the parent container."))
+                    completion(result)
+                    return
+                }
+                guard !factories.isEmpty else {
+                    postponedIntegrationHandler.purge(animated: animated, completion: completion)
+                    return
+                }
                 do {
-                    guard result.isSuccessful else {
-                        self.logger?.log(.info("\(String(describing: previousViewController)) has stopped the navigation process " +
-                                "as it was not able to become visible in the parent container."))
-                        completion(result)
-                        return
-                    }
-                    guard !factories.isEmpty else {
-                        postponedIntegrationHandler.purge(animated: animated, completion: completion)
-                        return
-                    }
                     let factory = factories.removeFirst()
                     let newViewController = try factory.build(with: context)
                     self.logger?.log(.info("\(String(describing: factory)) built a \(String(describing: newViewController))."))
@@ -294,19 +293,17 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
                 let parentViewController = parentViewControllers.removeFirst()
                 if let container = parentViewController as? ContainerViewController {
                     let containerAdapter = try containerAdapterLocator.getAdapter(for: container)
-                    if containerAdapter.containedViewControllers.contains(viewController) {
-                        containerAdapter.makeVisible(viewController, animated: animated, completion: { result in
-                            guard result.isSuccessful else {
-                                completion(result)
-                                return
-                            }
-                            self.logger?.log(.info("Made \(String(describing: viewController)) visible in \(String(describing: container))"))
-                            makeVisible(viewController: parentViewController, completion: completion)
-                        })
-                        return
-                    }
+                    containerAdapter.makeVisible(viewController, animated: animated, completion: { result in
+                        guard result.isSuccessful else {
+                            completion(result)
+                            return
+                        }
+                        self.logger?.log(.info("Made \(String(describing: viewController)) visible in \(String(describing: container))"))
+                        makeVisible(viewController: parentViewController, completion: completion)
+                    })
+                } else {
+                    makeVisible(viewController: parentViewController, completion: completion)
                 }
-                makeVisible(viewController: parentViewController, completion: completion)
             } catch {
                 completion(.failure(error))
             }

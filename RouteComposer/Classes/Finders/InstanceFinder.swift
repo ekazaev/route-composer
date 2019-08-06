@@ -9,6 +9,10 @@ import UIKit
 /// The `Finder` that provides the `Router` a known instance of the `UIViewController`
 public struct InstanceFinder<VC: UIViewController, C>: Finder {
 
+    public typealias ViewController = VC
+
+    public typealias Context = C
+
     /// The `UIViewController` instance that `Finder` will provide to the `Router`
     private(set) public weak var instance: VC?
 

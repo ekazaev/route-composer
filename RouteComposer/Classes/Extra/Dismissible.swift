@@ -23,7 +23,7 @@ public protocol Dismissible where Self: UIViewController {
 
 }
 
-// MARK: Helper Methods
+// MARK: Helper methods
 
 public extension Dismissible {
 
@@ -45,6 +45,8 @@ public extension Dismissible {
 
 }
 
+// MARK: Helper methods where the DismissalTargetContext is Any?
+
 public extension Dismissible where DismissalTargetContext == Any? {
 
     /// Dismisses current `UIViewController` using dismissal block provided by `DismissalMethodProvidingContextTask`
@@ -57,6 +59,8 @@ public extension Dismissible where DismissalTargetContext == Any? {
     }
 
 }
+
+// MARK: Helper methods where the DismissalTargetContext is Void
 
 public extension Dismissible where DismissalTargetContext == Void {
 
