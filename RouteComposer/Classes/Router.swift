@@ -86,11 +86,7 @@ public extension Router {
     func commitNavigation<ViewController>(to step: DestinationStep<ViewController, Any?>,
                                           animated: Bool,
                                           completion: ((RoutingResult) -> Void)?) where ViewController: UIViewController {
-        do {
-            try navigate(to: step, with: nil, animated: animated, completion: completion)
-        } catch {
-            completion?(.failure(error))
-        }
+        commitNavigation(to: step, with: nil, animated: animated, completion: completion)
     }
 
     /// Navigates the application to the view controller configured in `DestinationStep` with the `Context` set to `Void`.
@@ -103,11 +99,7 @@ public extension Router {
     func commitNavigation<ViewController>(to step: DestinationStep<ViewController, Void>,
                                           animated: Bool,
                                           completion: ((RoutingResult) -> Void)?) where ViewController: UIViewController {
-        do {
-            try navigate(to: step, with: (), animated: animated, completion: completion)
-        } catch {
-            completion?(.failure(error))
-        }
+        commitNavigation(to: step, with: (), animated: animated, completion: completion)
     }
 
 }

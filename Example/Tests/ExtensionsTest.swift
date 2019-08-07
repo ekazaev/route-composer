@@ -110,6 +110,33 @@ class ExtensionsTest: XCTestCase {
         XCTAssertNil(try? UIViewController.findViewController(in: invisibleController, options: searchOption, using: { $0 is InvisibleViewController }))
     }
 
+    func testFindViewControllerIsBeingDismissed() {
+        class FakeBeingDismissedController: UIViewController {
+            var isBeingDismissedValue = true
+            var isBeingDismissedWasCalled = false
+            override var isBeingDismissed: Bool {
+                isBeingDismissedWasCalled = true
+                return isBeingDismissedValue
+            }
+        }
+
+        let viewController = FakeBeingDismissedController()
+        let viewController2 = FakePresentingNavigationController()
+        viewController2.fakePresentingViewController = viewController
+
+        XCTAssertNil(try? UIViewController.findViewController(in: viewController, options: .current, using: { $0 is FakeBeingDismissedController }))
+        XCTAssertTrue(viewController.isBeingDismissedWasCalled)
+
+        viewController.isBeingDismissedWasCalled = false
+        XCTAssertNil(try? UIViewController.findViewController(in: viewController2, options: [.current, .presenting], using: { $0 is FakeBeingDismissedController }))
+        XCTAssertTrue(viewController.isBeingDismissedWasCalled)
+
+        viewController.isBeingDismissedWasCalled = false
+        viewController.isBeingDismissedValue = false
+        XCTAssertNotNil(try? UIViewController.findViewController(in: viewController2, options: [.current, .presenting], using: { $0 is FakeBeingDismissedController }))
+        XCTAssertTrue(viewController.isBeingDismissedWasCalled)
+    }
+
     func testFindViewControllerWithCombinedOptions() {
         let viewController1 = RouterTests.TestModalPresentableController()
         let viewController2 = RouterTests.TestModalPresentableController()

@@ -20,6 +20,7 @@ public final class CompleteFactoryAssembly<FC: ContainerFactory> {
 
         func perform(with viewController: UIViewController, on existingController: FC.ViewController, animated: Bool, completion: @escaping (RoutingResult) -> Void) {
             assertionFailure("Should never be called")
+            completion(.success)
         }
 
         func perform(embedding viewController: UIViewController, in childViewControllers: inout [UIViewController]) {
