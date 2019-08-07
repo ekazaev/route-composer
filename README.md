@@ -7,11 +7,11 @@
 [![Swift 5.0](https://img.shields.io/badge/language-Swift5.0-orange.svg?style=flat)](https://developer.apple.com/swift)
 [![Platform iOS](https://img.shields.io/badge/platform-iOS%209%20—%20iOS%2013-yellow.svg)](https://www.apple.com/ios)
 [![Documentation](https://saksdirect.github.io/route-composer/badge.svg)](https://saksdirect.github.io/route-composer)
-[![Code coverage](https://img.shields.io/badge/code%20coverage-92%25-green.svg?style=flat)](https://saksdirect.github.io/route-composer/tests/index.html)
+[![Code coverage](https://codecov.io/gh/saksdirect/route-composer/branch/master/graphs/badge.svg?style=flat)](https://saksdirect.github.io/route-composer/tests/index.html)
 [![MIT License](https://img.shields.io/cocoapods/l/RouteComposer.svg?style=flat)](https://github.com/saksdirect/RouteComposer/blob/master/LICENSE)
 [![Twitter](https://img.shields.io/twitter/url/https/github.com/saksdirect/route-composer.svg?style=flat)](https://twitter.com/intent/tweet?text=Check%20it%20out:&url=https%3A%2F%2Fgithub.com%2Fsaksdirect%2Froute-composer)
 
-`RouteComposer` is the protocol oriented, Cocoa UI abstractions based library that helps to handle view controllers composition, routing
+`RouteComposer` is the protocol oriented, Cocoa UI abstractions based library that helps to handle view controllers composition, navigation
 and deep linking tasks in the iOS application. 
 
 Can be used as the universal replacement for the [Coordinator](https://www.raywenderlich.com/158-coordinator-tutorial-for-ios-getting-started) pattern.
