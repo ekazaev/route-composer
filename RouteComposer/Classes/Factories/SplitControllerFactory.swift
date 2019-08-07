@@ -53,14 +53,14 @@ public struct SplitControllerFactory<VC: UISplitViewController, C>: ContainerFac
         if let presentsWithGesture = presentsWithGesture {
             splitViewController.presentsWithGesture = presentsWithGesture
         }
-        if let preferredDisplayMode = preferredDisplayMode {
-            splitViewController.preferredDisplayMode = preferredDisplayMode
-        }
         if let delegate = delegate {
             splitViewController.delegate = delegate
         }
         if !coordinator.isEmpty {
             splitViewController.viewControllers = try coordinator.build(with: context, integrating: splitViewController.viewControllers)
+        }
+        if let preferredDisplayMode = preferredDisplayMode {
+            splitViewController.preferredDisplayMode = preferredDisplayMode
         }
         if let configuration = configuration {
             configuration(splitViewController)

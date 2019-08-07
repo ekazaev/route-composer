@@ -289,12 +289,12 @@
 </tr>
 <tr class="covered">
 <td class="num">56</td>
-<td class="src"><pre><code class="objc">        if let preferredDisplayMode = preferredDisplayMode {</code></pre></td>
+<td class="src"><pre><code class="objc">        if let delegate = delegate {</code></pre></td>
 <td class="coverage">2x</td>
 </tr>
 <tr class="covered">
 <td class="num">57</td>
-<td class="src"><pre><code class="objc">            splitViewController.preferredDisplayMode = preferredDisplayMode</code></pre></td>
+<td class="src"><pre><code class="objc">            splitViewController.delegate = delegate</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
@@ -304,12 +304,12 @@
 </tr>
 <tr class="covered">
 <td class="num">59</td>
-<td class="src"><pre><code class="objc">        if let delegate = delegate {</code></pre></td>
+<td class="src"><pre><code class="objc">        if !coordinator.isEmpty {</code></pre></td>
 <td class="coverage">2x</td>
 </tr>
 <tr class="covered">
 <td class="num">60</td>
-<td class="src"><pre><code class="objc">            splitViewController.delegate = delegate</code></pre></td>
+<td class="src"><pre><code class="objc">            splitViewController.viewControllers = try coordinator.build(with: context, integrating: splitViewController.viewControllers)</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
@@ -319,12 +319,12 @@
 </tr>
 <tr class="covered">
 <td class="num">62</td>
-<td class="src"><pre><code class="objc">        if !coordinator.isEmpty {</code></pre></td>
+<td class="src"><pre><code class="objc">        if let preferredDisplayMode = preferredDisplayMode {</code></pre></td>
 <td class="coverage">2x</td>
 </tr>
 <tr class="covered">
 <td class="num">63</td>
-<td class="src"><pre><code class="objc">            splitViewController.viewControllers = try coordinator.build(with: context, integrating: splitViewController.viewControllers)</code></pre></td>
+<td class="src"><pre><code class="objc">            splitViewController.preferredDisplayMode = preferredDisplayMode</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
