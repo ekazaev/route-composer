@@ -224,13 +224,13 @@
 </tr>
 <tr class="covered">
 <td class="num">43</td>
-<td class="src"><pre><code class="objc">        if let configuration = configuration {</code></pre></td>
+<td class="src"><pre><code class="objc">        if !coordinator.isEmpty {</code></pre></td>
 <td class="coverage">19x</td>
 </tr>
 <tr class="covered">
 <td class="num">44</td>
-<td class="src"><pre><code class="objc">            configuration(navigationController)</code></pre></td>
-<td class="coverage">1x</td>
+<td class="src"><pre><code class="objc">            navigationController.viewControllers = try coordinator.build(with: context, integrating: navigationController.viewControllers)</code></pre></td>
+<td class="coverage">19x</td>
 </tr>
 <tr class="covered">
 <td class="num">45</td>
@@ -239,13 +239,13 @@
 </tr>
 <tr class="covered">
 <td class="num">46</td>
-<td class="src"><pre><code class="objc">        if !coordinator.isEmpty {</code></pre></td>
+<td class="src"><pre><code class="objc">        if let configuration = configuration {</code></pre></td>
 <td class="coverage">19x</td>
 </tr>
 <tr class="covered">
 <td class="num">47</td>
-<td class="src"><pre><code class="objc">            navigationController.viewControllers = try coordinator.build(with: context, integrating: navigationController.viewControllers)</code></pre></td>
-<td class="coverage">19x</td>
+<td class="src"><pre><code class="objc">            configuration(navigationController)</code></pre></td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">48</td>

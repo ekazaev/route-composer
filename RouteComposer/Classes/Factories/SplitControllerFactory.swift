@@ -59,11 +59,11 @@ public struct SplitControllerFactory<VC: UISplitViewController, C>: ContainerFac
         if let delegate = delegate {
             splitViewController.delegate = delegate
         }
-        if let configuration = configuration {
-            configuration(splitViewController)
-        }
         if !coordinator.isEmpty {
             splitViewController.viewControllers = try coordinator.build(with: context, integrating: splitViewController.viewControllers)
+        }
+        if let configuration = configuration {
+            configuration(splitViewController)
         }
         return splitViewController
     }

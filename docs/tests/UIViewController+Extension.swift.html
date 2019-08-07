@@ -7,9 +7,9 @@
 <body>
 <header><div class="row"><a href="index.html"><img src="logo.jpg" alt="Slather logo"></a></div></header><div class="row"><div id="reports">
 <h2 class="cov_title">
-<span>Coverage for "UIViewController+Extension.swift" : </span><span class="cov_high">98.78%</span>
+<span>Coverage for "UIViewController+Extension.swift" : </span><span class="cov_high">98.31%</span>
 </h2>
-<h4 class="cov_subtitle">(81 of 82 relevant lines covered)</h4>
+<h4 class="cov_subtitle">(58 of 59 relevant lines covered)</h4>
 <h4 class="cov_filepath">RouteComposer/Classes/Extensions/UIViewController+Extension.swift</h4>
 <table class="source_code">
 <tr class="never">
@@ -414,156 +414,6 @@
 </tr>
 <tr class="never">
 <td class="num">81</td>
-<td class="src"><pre><code class="objc">}</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">82</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">83</td>
-<td class="src"><pre><code class="objc">extension UIViewController {</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">84</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="covered">
-<td class="num">85</td>
-<td class="src"><pre><code class="objc">    var allPresentedViewControllers: [UIViewController] {</code></pre></td>
-<td class="coverage">95x</td>
-</tr>
-<tr class="covered">
-<td class="num">86</td>
-<td class="src"><pre><code class="objc">        var allPresentedViewControllers: [UIViewController] = []</code></pre></td>
-<td class="coverage">95x</td>
-</tr>
-<tr class="covered">
-<td class="num">87</td>
-<td class="src"><pre><code class="objc">        var presentingViewController = self</code></pre></td>
-<td class="coverage">95x</td>
-</tr>
-<tr class="covered">
-<td class="num">88</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage">95x</td>
-</tr>
-<tr class="covered">
-<td class="num">89</td>
-<td class="src"><pre><code class="objc">        while let presentedViewController = presentingViewController.presentedViewController, !presentedViewController.isBeingDismissed {</code></pre></td>
-<td class="coverage">95x</td>
-</tr>
-<tr class="covered">
-<td class="num">90</td>
-<td class="src"><pre><code class="objc">            allPresentedViewControllers.append(presentedViewController)</code></pre></td>
-<td class="coverage">18x</td>
-</tr>
-<tr class="covered">
-<td class="num">91</td>
-<td class="src"><pre><code class="objc">            presentingViewController = presentedViewController</code></pre></td>
-<td class="coverage">18x</td>
-</tr>
-<tr class="covered">
-<td class="num">92</td>
-<td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">95x</td>
-</tr>
-<tr class="covered">
-<td class="num">93</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage">95x</td>
-</tr>
-<tr class="covered">
-<td class="num">94</td>
-<td class="src"><pre><code class="objc">        return allPresentedViewControllers</code></pre></td>
-<td class="coverage">95x</td>
-</tr>
-<tr class="covered">
-<td class="num">95</td>
-<td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">95x</td>
-</tr>
-<tr class="never">
-<td class="num">96</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="covered">
-<td class="num">97</td>
-<td class="src"><pre><code class="objc">    var allParents: [UIViewController] {</code></pre></td>
-<td class="coverage">177x</td>
-</tr>
-<tr class="covered">
-<td class="num">98</td>
-<td class="src"><pre><code class="objc">        var allParents: [UIViewController] = []</code></pre></td>
-<td class="coverage">177x</td>
-</tr>
-<tr class="covered">
-<td class="num">99</td>
-<td class="src"><pre><code class="objc">        var currentViewController: UIViewController? = self.parent</code></pre></td>
-<td class="coverage">177x</td>
-</tr>
-<tr class="covered">
-<td class="num">100</td>
-<td class="src"><pre><code class="objc">        while let currentParent = currentViewController {</code></pre></td>
-<td class="coverage">177x</td>
-</tr>
-<tr class="covered">
-<td class="num">101</td>
-<td class="src"><pre><code class="objc">            allParents.append(currentParent)</code></pre></td>
-<td class="coverage">161x</td>
-</tr>
-<tr class="covered">
-<td class="num">102</td>
-<td class="src"><pre><code class="objc">            currentViewController = currentParent.parent</code></pre></td>
-<td class="coverage">161x</td>
-</tr>
-<tr class="covered">
-<td class="num">103</td>
-<td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">177x</td>
-</tr>
-<tr class="covered">
-<td class="num">104</td>
-<td class="src"><pre><code class="objc">        return allParents</code></pre></td>
-<td class="coverage">177x</td>
-</tr>
-<tr class="covered">
-<td class="num">105</td>
-<td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">177x</td>
-</tr>
-<tr class="never">
-<td class="num">106</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="covered">
-<td class="num">107</td>
-<td class="src"><pre><code class="objc">    static func findContainer&lt;Container: ContainerViewController&gt;(of viewController: UIViewController) -&gt; Container? {</code></pre></td>
-<td class="coverage">19x</td>
-</tr>
-<tr class="covered">
-<td class="num">108</td>
-<td class="src"><pre><code class="objc">        return [[viewController], viewController.allParents].joined().first(where: { $0 is Container }) as? Container</code></pre></td>
-<td class="coverage">31x</td>
-</tr>
-<tr class="covered">
-<td class="num">109</td>
-<td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">19x</td>
-</tr>
-<tr class="never">
-<td class="num">110</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">111</td>
 <td class="src"><pre><code class="objc">}</code></pre></td>
 <td class="coverage"></td>
 </tr>

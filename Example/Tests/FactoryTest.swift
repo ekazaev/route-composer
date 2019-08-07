@@ -64,8 +64,12 @@ class FactoryTest: XCTestCase {
 
     func testFinderFactory() {
         let navigationController = UINavigationController()
-        let factory = FinderFactory<RouterTests.FakeClassFinder<UINavigationController, Any?>>(finder: RouterTests.FakeClassFinder(currentViewController: navigationController))
+        let factory = FinderFactory<RouterTests.FakeClassFinder<UINavigationController, Any?>>(finder: RouterTests.FakeClassFinder(currentViewController: navigationController),
+                configuration: { viewController in
+                    viewController.viewControllers = [UIViewController()]
+                })
         XCTAssertEqual(try factory?.build(with: nil), navigationController)
+        XCTAssertEqual(navigationController.viewControllers.count, 1)
 
         struct NothingFinder<VC: UIViewController, C>: Finder {
             func findViewController(with context: C) -> VC? {

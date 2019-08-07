@@ -11,7 +11,7 @@ public struct ChainAssembly {
     /// Transforms step into a chain of steps.
     /// ### Usage
     /// ```swift
-    /// let intermediateStep = ChainAssembly.from(NavigationControllerStep())
+    /// let intermediateStep = ChainAssembly.from(NavigationControllerStep<UINavigationController, Any?>())
     ///         .from(using: GeneralAction.presentModally())
     ///         .from(GeneralStep.current())
     ///         .assemble()

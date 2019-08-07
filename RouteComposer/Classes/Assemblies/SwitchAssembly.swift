@@ -15,7 +15,7 @@ import UIKit
 ///                        return nil
 ///                    }
 ///
-///                    return ChainAssembly.from(NavigationControllerStep<ProductContext>())
+///                    return ChainAssembly.from(NavigationControllerStep<UINavigationController, ProductContext>())
 ///                            .using(GeneralAction.presentModally())
 ///                            .from(GeneralStep.current())
 ///                            .assemble()
@@ -27,7 +27,7 @@ import UIKit
 ///
 ///                // Otherwise - present modally
 ///                .assemble(default: {
-///                    return ChainAssembly.from(NavigationControllerStep<ProductContext>())
+///                    return ChainAssembly.from(NavigationControllerStep<UINavigationController, ProductContext>())
 ///                            .using(GeneralAction.presentModally())
 ///                            .from(GeneralStep.current())
 ///                            .assemble()

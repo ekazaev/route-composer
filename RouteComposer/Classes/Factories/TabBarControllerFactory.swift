@@ -40,11 +40,11 @@ public struct TabBarControllerFactory<VC: UITabBarController, C>: ContainerFacto
         if let delegate = delegate {
             tabBarController.delegate = delegate
         }
-        if let configuration = configuration {
-            configuration(tabBarController)
-        }
         if !coordinator.isEmpty {
             tabBarController.viewControllers = try coordinator.build(with: context, integrating: tabBarController.viewControllers ?? [])
+        }
+        if let configuration = configuration {
+            configuration(tabBarController)
         }
         return tabBarController
     }

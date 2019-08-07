@@ -10,7 +10,7 @@ import UIKit
 /// Both `Finder` and `Factory` instances should deal with the same type of `UIViewController` and `Context` instances.
 /// ### Usage
 /// ```swift
-/// let containerScreen = ContainerStepAssembly(finder: ClassFinder(), factory: NavigationControllerFactory())
+/// let containerScreen = ContainerStepAssembly(finder: ClassFinder(), factory: NavigationControllerFactory<UINavigationController, Any?>())
 ///         .using(GeneralAction.presentModally())
 ///         .from(GeneralAction.current())
 ///         .assemble()

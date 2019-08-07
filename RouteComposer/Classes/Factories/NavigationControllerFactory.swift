@@ -40,11 +40,11 @@ public struct NavigationControllerFactory<VC: UINavigationController, C>: Contai
         if let delegate = delegate {
             navigationController.delegate = delegate
         }
-        if let configuration = configuration {
-            configuration(navigationController)
-        }
         if !coordinator.isEmpty {
             navigationController.viewControllers = try coordinator.build(with: context, integrating: navigationController.viewControllers)
+        }
+        if let configuration = configuration {
+            configuration(navigationController)
         }
         return navigationController
     }

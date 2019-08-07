@@ -135,6 +135,8 @@
 		E856E4685EEADD249F8133EB892B6454 /* StackIterator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFABA716C89AD224884307891A69F44 /* StackIterator.swift */; };
 		E8C9CED1DAB72B7D2BF4862587E3BD4D /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0964B30DF37FEC2F983D7020E72C8439 /* Action.swift */; };
 		EDF594DE944C1DD71E5EC3839A8C0276 /* ContextTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B82CF5C163F22FA60F8AA436B2BF22 /* ContextTask.swift */; };
+		EF1581AF9487FFEDBF8B589E /* Array+PrivateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF158D368E29F17089FC4D91 /* Array+PrivateExtension.swift */; };
+		EF158EF6D5E03771A8AE2856 /* UIViewController+PrivateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF15889615530178BC1EB325 /* UIViewController+PrivateExtension.swift */; };
 		F09A8EE75BD51053392F18D43304BA84 /* TabBarViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC50F01E9CDA3D08752CCB9002CE82DE /* TabBarViewController+Extension.swift */; };
 		F21C9FDFDCBFFC5964C77C63E7E53D04 /* AnyContextTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = C898ECA14D3C4E209286B38BF977D417 /* AnyContextTask.swift */; };
 		F297E354239B0737F2B5462673970207 /* CustomWindowProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93B4275A4EB90A1F79A94026FCAF283 /* CustomWindowProvider.swift */; };
@@ -313,6 +315,8 @@
 		ECF2A2B0720AE923C22BED3192888BE0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		EDB39F545D57687020666252ECB36DA3 /* Pods_RouteComposer_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_RouteComposer_Example.framework; path = "Pods-RouteComposer_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE0E8B4322A55A3C9B3DAA9703C685E6 /* NilEntity.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NilEntity.swift; sourceTree = "<group>"; };
+		EF15889615530178BC1EB325 /* UIViewController+PrivateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+PrivateExtension.swift"; sourceTree = "<group>"; };
+		EF158D368E29F17089FC4D91 /* Array+PrivateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+PrivateExtension.swift"; sourceTree = "<group>"; };
 		EF285B1BB83D840FEAF2F7CAFF20930B /* ChildCoordinator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ChildCoordinator.swift; path = RouteComposer/Classes/ChildCoordinator.swift; sourceTree = "<group>"; };
 		F06DC6E5BFC4F6AD514E7EF80EA669A1 /* StepChainAssembly.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StepChainAssembly.swift; sourceTree = "<group>"; };
 		F35D950550E863CBFE775A00918BF40C /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
@@ -405,6 +409,8 @@
 				C8E098F370B5B61F166FD8CD0E401F2E /* PreparableEntity.swift */,
 				ADFEE9EABE8DD3E37116C79FC32CAB8A /* RoutingStep.swift */,
 				137CDD68B9BF74E8C1253DAAD9B4DFA5 /* SwitcherStep.swift */,
+				EF158D368E29F17089FC4D91 /* Array+PrivateExtension.swift */,
+				EF15889615530178BC1EB325 /* UIViewController+PrivateExtension.swift */,
 			);
 			name = Internal;
 			path = Internal;
@@ -1040,6 +1046,8 @@
 				5D440CED59819DFF770E8598C146D35B /* UIWindow+Extension.swift in Sources */,
 				7CBEB7A0AEDC12CB33FA5E972225A0D4 /* WindowProvider.swift in Sources */,
 				7EDCB56F202231FF1ADDD9779811489D /* XibFactory.swift in Sources */,
+				EF1581AF9487FFEDBF8B589E /* Array+PrivateExtension.swift in Sources */,
+				EF158EF6D5E03771A8AE2856 /* UIViewController+PrivateExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
