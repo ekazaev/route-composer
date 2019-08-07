@@ -75,7 +75,7 @@ and actions you should be familiar with the library concepts and UIKit's view co
 
 ### API documentation
 
-Detailed information on using RouteComposer can be found [here](https://github.com/saksdirect/route-composer). 
+Detailed information on using RouteComposer can be found [here](https://saksdirect.github.io/route-composer/). 
 Test coverage - [here](https://codecov.io/gh/saksdirect/route-composer) 
 
 ## Usage
