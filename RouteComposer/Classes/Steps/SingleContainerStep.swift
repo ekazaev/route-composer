@@ -71,6 +71,8 @@ public class SingleContainerStep<F: Finder, FC: ContainerFactory>: ActionToStepI
 
 }
 
+// MARK: Helper methods where the Context is Any?
+
 extension SingleContainerStep where FC.Context == Any? {
 
     /// Allows to avoid container view controller check. This method is available only for the steps that are

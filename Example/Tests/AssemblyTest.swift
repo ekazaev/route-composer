@@ -10,6 +10,50 @@ import XCTest
 
 class AssemblyTest: XCTestCase {
 
+    struct NilContainerFactory<VC: ContainerViewController, C>: ContainerFactory, NilEntity {
+
+        typealias ViewController = VC
+
+        public typealias Context = C
+
+        func prepare(with context: Context) throws {
+            fatalError("Should never be called")
+        }
+
+        func build(with context: Context, integrating coordinator: ChildCoordinator<Context>) throws -> ViewController {
+            fatalError("Should never be called")
+        }
+    }
+
+    class CompleteContextTask<VC: UIViewController, C>: ContextTask {
+
+        typealias ViewController = VC
+
+        typealias Context = C
+
+        var isPrepared: Bool = false
+
+        var isApplied = false
+
+        func prepare(with context: C) throws {
+            guard !isPrepared, !isApplied else {
+                throw RoutingError.generic(.init("Has been prepared once"))
+            }
+            isPrepared = true
+        }
+
+        func perform(on viewController: ViewController, with context: Context) throws {
+            guard isPrepared else {
+                throw RoutingError.generic(.init("Hasn't been prepared"))
+            }
+            guard !isApplied else {
+                throw RoutingError.generic(.init("Has been applied once"))
+            }
+            isApplied = true
+        }
+
+    }
+
     func testStepAssembly() {
         let lastStepAssembly = StepAssembly(finder: ClassFinder<UIViewController, Any?>(), factory: ClassFactory(nibName: "AnyNibName"))
                 .using(UINavigationController.push())
@@ -92,36 +136,6 @@ class AssemblyTest: XCTestCase {
     }
 
     func testCompleteFactoryAssembly() {
-
-        class CompleteContextTask<VC: UIViewController, C>: ContextTask {
-
-            typealias ViewController = VC
-
-            typealias Context = C
-
-            var isPrepared: Bool = false
-
-            var isApplied = false
-
-            func prepare(with context: C) throws {
-                guard !isPrepared, !isApplied else {
-                    throw RoutingError.generic(.init("Has been prepared once"))
-                }
-                isPrepared = true
-            }
-
-            func perform(on viewController: ViewController, with context: Context) throws {
-                guard isPrepared else {
-                    throw RoutingError.generic(.init("Hasn't been prepared"))
-                }
-                guard !isApplied else {
-                    throw RoutingError.generic(.init("Has been applied once"))
-                }
-                isApplied = true
-            }
-
-        }
-
         let contextTask1 = CompleteContextTask<UIViewController, Any?>()
         let contextTask2 = CompleteContextTask<UIViewController, Any?>()
         let contextTask3 = CompleteContextTask<UITabBarController, Any?>()
@@ -151,6 +165,19 @@ class AssemblyTest: XCTestCase {
         XCTAssertTrue(contextTask2.isApplied)
         XCTAssertTrue(contextTask3.isPrepared)
         XCTAssertTrue(contextTask3.isApplied)
+    }
+
+    func testCompleteFactoryAssemblyWithNilFactory() {
+        var container = CompleteFactoryAssembly(factory: TabBarControllerFactory<UITabBarController, Any?>()).assemble()
+        XCTAssertEqual(container.childFactories.count, 0)
+
+        container = CompleteFactoryAssembly(factory: TabBarControllerFactory<UITabBarController, Any?>())
+                .with(NilContainerFactory<UINavigationController, Any?>())
+                .adding(CompleteContextTask<UINavigationController, Any?>())
+                .with(NilContainerFactory<UINavigationController, Any?>())
+                .with(ClassFactory<UIViewController, Any?>())
+                .assemble()
+        XCTAssertEqual(container.childFactories.count, 1)
     }
 
     func testSwitchAssembly() {

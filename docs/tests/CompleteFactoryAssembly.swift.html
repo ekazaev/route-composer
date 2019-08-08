@@ -7,9 +7,9 @@
 <body>
 <header><div class="row"><a href="index.html"><img src="logo.jpg" alt="Slather logo"></a></div></header><div class="row"><div id="reports">
 <h2 class="cov_title">
-<span>Coverage for "CompleteFactoryAssembly.swift" : </span><span class="cov_medium">77.78%</span>
+<span>Coverage for "CompleteFactoryAssembly.swift" : </span><span class="cov_high">88.89%</span>
 </h2>
-<h4 class="cov_subtitle">(28 of 36 relevant lines covered)</h4>
+<h4 class="cov_subtitle">(32 of 36 relevant lines covered)</h4>
 <h4 class="cov_filepath">RouteComposer/Classes/Assemblies/CompleteFactoryAssembly.swift</h4>
 <table class="source_code">
 <tr class="never">
@@ -200,17 +200,17 @@
 <tr class="covered">
 <td class="num">38</td>
 <td class="src"><pre><code class="objc">    public init(factory: FC) {</code></pre></td>
-<td class="coverage">5x</td>
+<td class="coverage">7x</td>
 </tr>
 <tr class="covered">
 <td class="num">39</td>
 <td class="src"><pre><code class="objc">        self.factory = factory</code></pre></td>
-<td class="coverage">5x</td>
+<td class="coverage">7x</td>
 </tr>
 <tr class="covered">
 <td class="num">40</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">5x</td>
+<td class="coverage">7x</td>
 </tr>
 <tr class="never">
 <td class="num">41</td>
@@ -335,17 +335,17 @@
 <tr class="covered">
 <td class="num">65</td>
 <td class="src"><pre><code class="objc">            ChildFC.Context == FC.Context, A.ViewController == FC.ViewController {</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">2x</td>
 </tr>
 <tr class="covered">
 <td class="num">66</td>
 <td class="src"><pre><code class="objc">        guard let factoryBox = ContainerFactoryBox(childContainer, action: ContainerActionBox(action)) else {</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">2x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">67</td>
 <td class="src"><pre><code class="objc">            return CompleteFactoryChainAssembly&lt;FC, ChildFC.ViewController&gt;(factory: factory, childFactories: [], previousChildFactory: nil)</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">68</td>
@@ -375,7 +375,7 @@
 <tr class="covered">
 <td class="num">73</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">2x</td>
 </tr>
 <tr class="never">
 <td class="num">74</td>
@@ -445,17 +445,17 @@
 <tr class="covered">
 <td class="num">87</td>
 <td class="src"><pre><code class="objc">    public func with&lt;ChildFC: ContainerFactory&gt;(_ childContainer: ChildFC) -&gt; CompleteFactoryChainAssembly&lt;FC, ChildFC.ViewController&gt; where ChildFC.Context == FC.Context {</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">2x</td>
 </tr>
 <tr class="covered">
 <td class="num">88</td>
 <td class="src"><pre><code class="objc">        return with(childContainer, using: SimpleAddAction&lt;FC&gt;())</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">2x</td>
 </tr>
 <tr class="covered">
 <td class="num">89</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">2x</td>
 </tr>
 <tr class="never">
 <td class="num">90</td>
@@ -477,20 +477,20 @@
 <td class="src"><pre><code class="objc">    /// - Returns: The `CompleteFactory` with child factories provided.</code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">94</td>
 <td class="src"><pre><code class="objc">    public func assemble() -&gt; CompleteFactory&lt;FC&gt; {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">95</td>
 <td class="src"><pre><code class="objc">        return CompleteFactory&lt;FC&gt;(factory: factory, childFactories: [])</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">96</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="never">
 <td class="num">97</td>

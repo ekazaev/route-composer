@@ -71,6 +71,8 @@ public final class SingleStep<F: Finder, FC: Factory>: ActionToStepIntegrator<F.
 
 }
 
+// MARK: Helper methods where the Context is Any?
+
 extension SingleStep where FC.Context == Any? {
 
     /// Allows to avoid container view controller check. This method is available only for the steps that are

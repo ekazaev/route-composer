@@ -95,6 +95,11 @@ class ContainerLocatorTests: XCTestCase {
         XCTAssertTrue(tabAdapter.containedViewControllers.isEmpty)
     }
 
+    func testNavigationControllerAdepter() {
+        let navigationAdapter = NavigationControllerAdapter<UINavigationController>(with: UINavigationController())
+        XCTAssertEqual(navigationAdapter.visibleViewControllers.count, 0)
+    }
+
     func testTabViewControllerAdapterSetContainedViewControllers() {
         let tabBarController = UITabBarController()
         let tabAdapter = TabBarControllerAdapter<UITabBarController>(with: tabBarController)
