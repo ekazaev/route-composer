@@ -3,6 +3,7 @@
 //
 
 import Foundation
+import UIKit
 
 /// Provides universal properties and methods of the `ContainerViewController` instance.
 ///

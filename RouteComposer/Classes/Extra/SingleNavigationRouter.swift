@@ -4,6 +4,7 @@
 //
 
 import Foundation
+import UIKit
 
 /// Lock object to be shared between `SingleNavigationRouter` instances.
 public final class SingleNavigationLock {

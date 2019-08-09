@@ -3,6 +3,7 @@
 //
 
 import Foundation
+import UIKit
 
 /// Default `ContainerAdapter` for `UITabBarController`
 public struct TabBarControllerAdapter<VC: UITabBarController>: ConcreteContainerAdapter {

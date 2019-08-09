@@ -3,6 +3,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct ActionBox<A: Action>: AnyAction, AnyActionBox, CustomStringConvertible, MainThreadChecking {
 

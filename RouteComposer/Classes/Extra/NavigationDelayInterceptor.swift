@@ -4,6 +4,7 @@
 //
 
 import Foundation
+import UIKit
 
 /// `NavigationDelayInterceptor` delays the router from starting the navigation, while any view controllers in the
 /// stack are being presented or dismissed. In case your app has some other navigation instruments rather than

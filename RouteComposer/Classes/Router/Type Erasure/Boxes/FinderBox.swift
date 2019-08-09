@@ -3,6 +3,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct FinderBox<F: Finder>: AnyFinder, CustomStringConvertible {
 

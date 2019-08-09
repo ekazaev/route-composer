@@ -3,6 +3,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct ContextTaskBox<CT: ContextTask>: AnyContextTask, PreparableEntity, MainThreadChecking, CustomStringConvertible {
 

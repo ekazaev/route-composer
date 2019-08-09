@@ -3,6 +3,7 @@
 //
 
 import Foundation
+import UIKit
 
 /// Returns key `UIWindow`
 public struct KeyWindowProvider: WindowProvider {

@@ -3,6 +3,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct FactoryBox<F: Factory>: PreparableAnyFactory, AnyFactoryBox, MainThreadChecking, CustomStringConvertible {
 

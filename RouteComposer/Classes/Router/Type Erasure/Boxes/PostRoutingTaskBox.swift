@@ -3,6 +3,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct PostRoutingTaskBox<PT: PostRoutingTask>: AnyPostRoutingTask, MainThreadChecking, CustomStringConvertible {
 
