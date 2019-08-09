@@ -42,7 +42,7 @@ class ErrorTests: XCTestCase {
         XCTAssertEqual(error.description, "Initial Controller Error: Initial controller deallocated. Test description")
     }
 
-    func testContextDescription() {
+    func testErrorContextDescription() {
         var context = RoutingError.Context("Test description")
         XCTAssertEqual(context.description, "Test description")
 

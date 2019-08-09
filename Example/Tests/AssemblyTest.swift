@@ -207,7 +207,26 @@ class AssemblyTest: XCTestCase {
         XCTAssertEqual(step?.resolvers.count, 5)
     }
 
-    func testStepWithActionAssembly() {
+    func testSwitchAssemblyAssemble() {
+        let step = SwitchAssembly<UIViewController, Any?>().assemble()
+        XCTAssertEqual((step.destinationStep as? SwitcherStep)?.resolvers.count, 0)
+    }
+
+    func testSwitchAssemblyResolversWithWrongContext() {
+        let viewController = UIViewController()
+        let step = SwitchAssembly<UIViewController, String>()
+                .addCase(when: InstanceFinder(instance: viewController), from: SwitchAssembly<UIViewController, String>().assemble())
+                .assemble(default: {
+            return SwitchAssembly<UIViewController, String>().assemble()
+        })
+        XCTAssertEqual((step.destinationStep as? SwitcherStep)?.resolvers.count, 2)
+        XCTAssertNotNil((step.destinationStep as? SwitcherStep)?.resolvers.first?.resolve(with: "10"))
+        XCTAssertNotNil((step.destinationStep as? SwitcherStep)?.resolvers.last?.resolve(with: "10"))
+        XCTAssertNil((step.destinationStep as? SwitcherStep)?.resolvers.first?.resolve(with: 10))
+        XCTAssertNil((step.destinationStep as? SwitcherStep)?.resolvers.last?.resolve(with: 10))
+    }
+
+    func testActionToStepIntegratorWithTasks() {
         let assembly = ActionToStepIntegrator<RouterTests.TestViewController, Any?>()
                 .adding(InlineInterceptor({ (_: Any?) in
                 }))
@@ -224,6 +243,40 @@ class AssemblyTest: XCTestCase {
         let integrator = ActionToStepIntegrator<UIViewController, Any>()
         XCTAssertNil(integrator.routingStep(with: ViewControllerActions.NilAction()))
         XCTAssertNil(integrator.embeddableRoutingStep(with: UINavigationController.push()))
+    }
+
+    func testSingleStepUnsafeWrapper() {
+        let step: ActionToStepIntegrator<UIViewController, Any?> =
+                SingleStep(finder: NilFinder<UIViewController, String>(), factory: NilFactory()).unsafelyRewrapped()
+        XCTAssertNotNil(step.routingStep(with: ViewControllerActions.NilAction()))
+        XCTAssertNotNil(step.embeddableRoutingStep(with: UINavigationController.push()))
+
+        let stepAdaptingContext: ActionToStepIntegrator<UIViewController, String> =
+                SingleStep(finder: NilFinder<UIViewController, Any?>(), factory: NilFactory()).adaptingContext()
+        XCTAssertNotNil(stepAdaptingContext.routingStep(with: ViewControllerActions.NilAction()))
+        XCTAssertNotNil(stepAdaptingContext.embeddableRoutingStep(with: UINavigationController.push()))
+    }
+
+    func testSingleContainerStepUnsafeWrapper() {
+        let step: ActionToStepIntegrator<UIViewController, Any?> =
+                SingleContainerStep(finder: NilFinder<UINavigationController, String>(), factory: NilContainerFactory()).unsafelyRewrapped()
+        XCTAssertNotNil(step.routingStep(with: ViewControllerActions.NilAction()))
+        XCTAssertNotNil(step.embeddableRoutingStep(with: UINavigationController.push()))
+
+        let stepAdaptingContext: ActionToStepIntegrator<UINavigationController, String> =
+                SingleContainerStep(finder: NilFinder<UINavigationController, Any?>(), factory: NilContainerFactory()).adaptingContext()
+        XCTAssertNotNil(stepAdaptingContext.routingStep(with: ViewControllerActions.NilAction()))
+        XCTAssertNotNil(stepAdaptingContext.embeddableRoutingStep(with: UINavigationController.push()))
+
+        let stepExpectingContainer: ActionToStepIntegrator<UINavigationController, Any?> =
+                SingleContainerStep(finder: NilFinder<UINavigationController, Any?>(), factory: NilContainerFactory()).expectingContainer()
+        XCTAssertNotNil(stepExpectingContainer.routingStep(with: ViewControllerActions.NilAction()))
+        XCTAssertNotNil(stepExpectingContainer.embeddableRoutingStep(with: UINavigationController.push()))
+
+        let stepExpectingContainerTyped: ActionToStepIntegrator<UINavigationController, String> =
+                SingleContainerStep(finder: NilFinder<UINavigationController, String>(), factory: NilContainerFactory()).expectingContainer()
+        XCTAssertNotNil(stepExpectingContainerTyped.routingStep(with: ViewControllerActions.NilAction()))
+        XCTAssertNotNil(stepExpectingContainerTyped.embeddableRoutingStep(with: UINavigationController.push()))
     }
 
 }

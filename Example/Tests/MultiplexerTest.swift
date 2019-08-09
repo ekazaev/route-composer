@@ -33,7 +33,7 @@ class MultiplexerTest: XCTestCase {
         XCTAssertEqual(prepareCountRun, 10)
     }
 
-    func testRoutingPrepareInterceptorThrow() {
+    func testRoutingPrepareInterceptorPrepareThrows() {
         let interceptors = [
             RoutingInterceptorBox(InlineInterceptor(prepare: { (_: Any?) throws in
                 throw RoutingError.generic(.init("Should be handled"))
@@ -46,7 +46,7 @@ class MultiplexerTest: XCTestCase {
         XCTAssertThrowsError(try multiplexer.prepare(with: nil as Any?))
     }
 
-    func testRoutingPerformInterceptorThrow() {
+    func testRoutingInterceptorPerformThrows() {
         let interceptors = [
             RoutingInterceptorBox(InlineInterceptor(prepare: { (_: Any?) throws in
             }, { (_: Any?) in
@@ -64,7 +64,7 @@ class MultiplexerTest: XCTestCase {
         XCTAssertTrue(wasInCompletion)
     }
 
-    func testRoutingWrongContextTypeInterceptorThrow() {
+    func testRoutingInterceptorWithWrongContextTypeThrows() {
         let interceptors = [
             RoutingInterceptorBox(InlineInterceptor(prepare: { (_: Int) throws in
                 throw RoutingError.generic(.init("Should be handled"))
@@ -108,7 +108,7 @@ class MultiplexerTest: XCTestCase {
         try? multiplexer.perform(on: UIViewController(), with: nil as Any?)
     }
 
-    func testContextTaskWrongContextTypeThrow() {
+    func testContextTaskWithWrongContextTypeThrows() {
         let contextTask = [
             ContextTaskBox(InlineContextTask { (_: UIViewController, _: String) throws in
 
@@ -129,7 +129,7 @@ class MultiplexerTest: XCTestCase {
         XCTAssertEqual(multiplexer.description, "[ContextSettingTask<ContentAcceptingViewController>()]")
     }
 
-    func testPostTaskWrongContextTypeThrow() {
+    func testPostTaskWithWrongContextTypeThrow() {
         let postTasks = [
             PostRoutingTaskBox(InlinePostTask({ (_: UIViewController, _: Int, _: [UIViewController]) in
             }))
@@ -177,7 +177,7 @@ class MultiplexerTest: XCTestCase {
         }
     }
 
-    func testAnyOrVoidMethods() {
+    func testTasksWithAnyOrVoidContext() {
         struct TestFinder<C>: Finder {
             typealias ViewController = UIViewController
             typealias Context = C

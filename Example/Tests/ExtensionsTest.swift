@@ -218,43 +218,7 @@ class ExtensionsTest: XCTestCase {
         XCTAssertNotNil(try? UIViewController.findViewController(in: invisibleController, options: searchOption, using: { $0 is InvisibleViewController }))
     }
 
-    func testTabBarControllerExtension() {
-        let viewController1 = UIViewController()
-        let viewController2 = UINavigationController()
-        let tabBarController = UITabBarController()
-        tabBarController.viewControllers = [viewController1, viewController2]
-        XCTAssertEqual(try? DefaultContainerAdapterLocator().getAdapter(for: tabBarController).containedViewControllers.count, 2)
-        XCTAssertEqual(try? DefaultContainerAdapterLocator().getAdapter(for: tabBarController).visibleViewControllers.count, 1)
-        XCTAssertEqual(try? DefaultContainerAdapterLocator().getAdapter(for: tabBarController).visibleViewControllers[0], viewController1)
-        try? DefaultContainerAdapterLocator().getAdapter(for: tabBarController).makeVisible(viewController2, animated: false, completion: { _ in })
-        XCTAssertEqual(try? DefaultContainerAdapterLocator().getAdapter(for: tabBarController).visibleViewControllers[0], viewController2)
-    }
-
-    func testNavigationControllerExtension() {
-        let viewController1 = UIViewController()
-        let viewController2 = UIViewController()
-        let navigationController = UINavigationController()
-        navigationController.viewControllers = [viewController1, viewController2]
-        XCTAssertEqual(try? DefaultContainerAdapterLocator().getAdapter(for: navigationController).containedViewControllers.count, 2)
-        XCTAssertEqual(try? DefaultContainerAdapterLocator().getAdapter(for: navigationController).visibleViewControllers.count, 1)
-        XCTAssertEqual(try? DefaultContainerAdapterLocator().getAdapter(for: navigationController).visibleViewControllers[0], viewController2)
-        try? DefaultContainerAdapterLocator().getAdapter(for: navigationController).makeVisible(viewController1, animated: false, completion: { _ in })
-        XCTAssertEqual(try? DefaultContainerAdapterLocator().getAdapter(for: navigationController).visibleViewControllers[0], viewController1)
-    }
-
-    func testSplitControllerExtension() {
-        let viewController1 = UIViewController()
-        let viewController2 = UIViewController()
-        let splitController = UISplitViewController()
-        splitController.preferredDisplayMode = .primaryHidden
-        splitController.viewControllers = [viewController1, viewController2]
-        XCTAssertEqual(try? DefaultContainerAdapterLocator().getAdapter(for: splitController).containedViewControllers.count, 2)
-        XCTAssertEqual(try? DefaultContainerAdapterLocator().getAdapter(for: splitController).visibleViewControllers.count, splitController.isCollapsed ? 1 : 2)
-        XCTAssertEqual(try? DefaultContainerAdapterLocator().getAdapter(for: splitController).visibleViewControllers[0],
-                splitController.isCollapsed ? viewController2 : viewController1)
-    }
-
-    func testArrayExtension() {
+    func testArrayNonDismissibleViewController() {
         let array1 = [UIViewController(), RouterTests.TestRoutingControllingViewController()]
         let array2 = [UIViewController(), UINavigationController(rootViewController: RouterTests.TestRoutingControllingViewController())]
         let array3 = [UIViewController(), UIViewController()]
@@ -267,7 +231,7 @@ class ExtensionsTest: XCTestCase {
         XCTAssert(array3.nonDismissibleViewController == nil)
     }
 
-    func testArrayExtensionUniqueElements() {
+    func testArrayUniqueElements() {
         let viewController1 = UIViewController()
         let viewController2 = RouterTests.TestRoutingControllingViewController()
         let array = [viewController1, viewController2, viewController1]
@@ -276,7 +240,7 @@ class ExtensionsTest: XCTestCase {
         XCTAssertEqual(array.uniqueElements()[1], viewController2)
     }
 
-    func testArrayExtensionIsEqual() {
+    func testArrayIsEqual() {
         let viewController1 = UIViewController()
         let viewController2 = RouterTests.TestRoutingControllingViewController()
         let array = [viewController1, viewController2, viewController1]
@@ -287,7 +251,7 @@ class ExtensionsTest: XCTestCase {
         XCTAssertTrue(array.isEqual(to: [viewController1, viewController2, viewController1]))
     }
 
-    func testAllParents() {
+    func testViewControllerAllParents() {
         let viewController1 = UIViewController()
         let viewController2 = UIViewController()
         let viewController3 = UIViewController()
@@ -302,7 +266,7 @@ class ExtensionsTest: XCTestCase {
         XCTAssertEqual(viewController1.allParents.count, 0)
     }
 
-    func testRoutingInterceptorHelpers() {
+    func testRoutingInterceptorExecute() {
 
         class TestInterceptor<C>: RoutingInterceptor {
 
@@ -340,7 +304,7 @@ class ExtensionsTest: XCTestCase {
         XCTAssertEqual(interceptor2.prepareCallsCount, 1)
         XCTAssertEqual(interceptor2.performCallsCount, 1)
 
-        let interceptor3 = TestInterceptor<Any?>()
+        let interceptor3 = TestInterceptor<Void>()
         wasInCompletion = false
         XCTAssertNoThrow(try interceptor3.execute(completion: { _ in
             wasInCompletion = true
@@ -350,7 +314,7 @@ class ExtensionsTest: XCTestCase {
         XCTAssertEqual(interceptor3.performCallsCount, 1)
     }
 
-    func testContextTaskHelpers() {
+    func testContextTaskExecute() {
         class TestContextTask<VC: UIViewController, C>: ContextTask {
 
             typealias ViewController = VC

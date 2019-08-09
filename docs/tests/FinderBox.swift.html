@@ -65,32 +65,32 @@
 <tr class="covered">
 <td class="num">11</td>
 <td class="src"><pre><code class="objc">    init?(_ finder: F) {</code></pre></td>
-<td class="coverage">231x</td>
+<td class="coverage">244x</td>
 </tr>
 <tr class="covered">
 <td class="num">12</td>
 <td class="src"><pre><code class="objc">        guard !(finder is NilEntity) else {</code></pre></td>
-<td class="coverage">231x</td>
+<td class="coverage">244x</td>
 </tr>
 <tr class="covered">
 <td class="num">13</td>
 <td class="src"><pre><code class="objc">            return nil</code></pre></td>
-<td class="coverage">53x</td>
+<td class="coverage">65x</td>
 </tr>
 <tr class="covered">
 <td class="num">14</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">178x</td>
+<td class="coverage">179x</td>
 </tr>
 <tr class="covered">
 <td class="num">15</td>
 <td class="src"><pre><code class="objc">        self.finder = finder</code></pre></td>
-<td class="coverage">178x</td>
+<td class="coverage">179x</td>
 </tr>
 <tr class="covered">
 <td class="num">16</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">178x</td>
+<td class="coverage">179x</td>
 </tr>
 <tr class="never">
 <td class="num">17</td>
@@ -100,42 +100,42 @@
 <tr class="covered">
 <td class="num">18</td>
 <td class="src"><pre><code class="objc">    func findViewController&lt;Context&gt;(with context: Context) throws -&gt; UIViewController? {</code></pre></td>
-<td class="coverage">163x</td>
+<td class="coverage">165x</td>
 </tr>
 <tr class="covered">
 <td class="num">19</td>
 <td class="src"><pre><code class="objc">        guard let typedContext = Any?.some(context as Any) as? F.Context else {</code></pre></td>
-<td class="coverage">163x</td>
+<td class="coverage">165x</td>
 </tr>
 <tr class="covered">
 <td class="num">20</td>
 <td class="src"><pre><code class="objc">            throw RoutingError.typeMismatch(type: type(of: context),</code></pre></td>
-<td class="coverage">6x</td>
+<td class="coverage">7x</td>
 </tr>
 <tr class="covered">
 <td class="num">21</td>
 <td class="src"><pre><code class="objc">                    expectedType: F.Context.self,</code></pre></td>
-<td class="coverage">6x</td>
+<td class="coverage">7x</td>
 </tr>
 <tr class="covered">
 <td class="num">22</td>
 <td class="src"><pre><code class="objc">                    .init("\(String(describing: F.self)) does not accept \(String(describing: context.self)) as a context."))</code></pre></td>
-<td class="coverage">6x</td>
+<td class="coverage">7x</td>
 </tr>
 <tr class="covered">
 <td class="num">23</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">157x</td>
+<td class="coverage">158x</td>
 </tr>
 <tr class="covered">
 <td class="num">24</td>
 <td class="src"><pre><code class="objc">        return try finder.findViewController(with: typedContext)</code></pre></td>
-<td class="coverage">157x</td>
+<td class="coverage">158x</td>
 </tr>
 <tr class="covered">
 <td class="num">25</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">163x</td>
+<td class="coverage">165x</td>
 </tr>
 <tr class="never">
 <td class="num">26</td>

@@ -210,7 +210,7 @@ class RouterTests: XCTestCase {
         XCTAssertTrue(routingResult.isSuccessful)
     }
 
-    func testNavigateToActionProblem() {
+    func testNavigateToActionWithIssue() {
         struct TestPresentModallyBrokenAction: Action {
 
             func perform(with viewController: UIViewController,
@@ -236,7 +236,7 @@ class RouterTests: XCTestCase {
         XCTAssertFalse(routingResult.isSuccessful)
     }
 
-    func testNavigateToFactoryProblem() {
+    func testNavigateToFactoryWithIssue() {
         let currentViewController = TestModalPresentableController()
         let screenConfig = StepAssembly(finder: ClassFinder(), factory: TestViewControllerBrokenFactory())
                 .using(FakePresentModallyAction())
@@ -355,7 +355,7 @@ class RouterTests: XCTestCase {
         XCTAssertTrue(routingResult.isSuccessful)
     }
 
-    func testVCToStartDeallocated() {
+    func testNavigateToWithDeallocatedViewController() {
         let expectation = XCTestExpectation(description: "Animated root view controller replacement")
         let router: Router = DefaultRouter()
         var viewController: UIViewController? = UINavigationController()
@@ -380,7 +380,7 @@ class RouterTests: XCTestCase {
         XCTAssertTrue(wasInCompletion)
     }
 
-    func testVCToStartNotFound() {
+    func testNavigateToWithViewControllerNotFound() {
         struct NoneStep: RoutingStep, PerformableStep {
 
             func perform<Context>(with context: Context) throws -> PerformableStepResult {
@@ -395,7 +395,7 @@ class RouterTests: XCTestCase {
         XCTAssertThrowsError(try router.navigate(to: screenConfigVoid, animated: false, completion: nil))
     }
 
-    func testAnyOrVoidMethods() {
+    func testRouterWithAnyOrVoidContext() {
         let router: Router = DefaultRouter()
         let screenConfigVoid = StepAssembly(finder: NilFinder<UIViewController, Void>(), factory: NilFactory())
                 .from(GeneralStep.custom(using: NilFinder<UIViewController, Void>()))

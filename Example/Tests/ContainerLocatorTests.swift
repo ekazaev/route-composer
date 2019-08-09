@@ -95,12 +95,13 @@ class ContainerLocatorTests: XCTestCase {
         XCTAssertTrue(tabAdapter.containedViewControllers.isEmpty)
     }
 
-    func testNavigationControllerAdepter() {
+    func testNavigationControllerAdepterEmptyViewControllers() {
         let navigationAdapter = NavigationControllerAdapter<UINavigationController>(with: UINavigationController())
+        XCTAssertEqual(navigationAdapter.containedViewControllers.count, 0)
         XCTAssertEqual(navigationAdapter.visibleViewControllers.count, 0)
     }
 
-    func testTabViewControllerAdapterSetContainedViewControllers() {
+    func testTabBarControllerAdapterSetContainedViewControllers() {
         let tabBarController = UITabBarController()
         let tabAdapter = TabBarControllerAdapter<UITabBarController>(with: tabBarController)
         var wasInCompletion = false
@@ -119,7 +120,7 @@ class ContainerLocatorTests: XCTestCase {
         XCTAssertTrue(wasInCompletion)
     }
 
-    func testNavigationViewControllerWrongControllerToMakeVisible() {
+    func testNavigationControllerAdapterWrongControllerToMakeVisible() {
         let navigationController = UINavigationController(rootViewController: UIViewController())
         let navigationAdapter = NavigationControllerAdapter(with: navigationController)
         var wasInCompletion = false
@@ -130,7 +131,7 @@ class ContainerLocatorTests: XCTestCase {
         XCTAssertTrue(wasInCompletion)
     }
 
-    func testContainerAdapterContainsAndVisible() {
+    func testControllerAdapterContainsAndVisible() {
         let navigationController = UINavigationController()
         let tabBarController = UITabBarController()
         let viewController = UIViewController()
@@ -144,6 +145,42 @@ class ContainerLocatorTests: XCTestCase {
         XCTAssertTrue(navigationAdapter.isVisible(viewController))
         XCTAssertFalse(navigationAdapter.isVisible(UIViewController()))
         XCTAssertFalse(navigationAdapter.isVisible(navigationController))
+    }
+
+    func testTabBarControllerAdapterMakeVisible() {
+        let viewController1 = UIViewController()
+        let viewController2 = UINavigationController()
+        let tabBarController = UITabBarController()
+        tabBarController.viewControllers = [viewController1, viewController2]
+        XCTAssertEqual(try? DefaultContainerAdapterLocator().getAdapter(for: tabBarController).containedViewControllers.count, 2)
+        XCTAssertEqual(try? DefaultContainerAdapterLocator().getAdapter(for: tabBarController).visibleViewControllers.count, 1)
+        XCTAssertEqual(try? DefaultContainerAdapterLocator().getAdapter(for: tabBarController).visibleViewControllers[0], viewController1)
+        try? DefaultContainerAdapterLocator().getAdapter(for: tabBarController).makeVisible(viewController2, animated: false, completion: { _ in })
+        XCTAssertEqual(try? DefaultContainerAdapterLocator().getAdapter(for: tabBarController).visibleViewControllers[0], viewController2)
+    }
+
+    func testNavigationControllerAdapterMakeVisible() {
+        let viewController1 = UIViewController()
+        let viewController2 = UIViewController()
+        let navigationController = UINavigationController()
+        navigationController.viewControllers = [viewController1, viewController2]
+        XCTAssertEqual(try? DefaultContainerAdapterLocator().getAdapter(for: navigationController).containedViewControllers.count, 2)
+        XCTAssertEqual(try? DefaultContainerAdapterLocator().getAdapter(for: navigationController).visibleViewControllers.count, 1)
+        XCTAssertEqual(try? DefaultContainerAdapterLocator().getAdapter(for: navigationController).visibleViewControllers[0], viewController2)
+        try? DefaultContainerAdapterLocator().getAdapter(for: navigationController).makeVisible(viewController1, animated: false, completion: { _ in })
+        XCTAssertEqual(try? DefaultContainerAdapterLocator().getAdapter(for: navigationController).visibleViewControllers[0], viewController1)
+    }
+
+    func testSplitControllerAdapterMakeVisible() {
+        let viewController1 = UIViewController()
+        let viewController2 = UIViewController()
+        let splitController = UISplitViewController()
+        splitController.preferredDisplayMode = .primaryHidden
+        splitController.viewControllers = [viewController1, viewController2]
+        XCTAssertEqual(try? DefaultContainerAdapterLocator().getAdapter(for: splitController).containedViewControllers.count, 2)
+        XCTAssertEqual(try? DefaultContainerAdapterLocator().getAdapter(for: splitController).visibleViewControllers.count, splitController.isCollapsed ? 1 : 2)
+        XCTAssertEqual(try? DefaultContainerAdapterLocator().getAdapter(for: splitController).visibleViewControllers[0],
+                splitController.isCollapsed ? viewController2 : viewController1)
     }
 
 }

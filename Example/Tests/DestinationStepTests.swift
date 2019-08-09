@@ -17,7 +17,7 @@ class DestinationStepTests: XCTestCase {
 
     }
 
-    func testUniversalExpectingContainer() {
+    func testExpectingContainer() {
         let nonContainerStepInsideContainer = StepAssembly(finder: TestFinder<UIViewController, Any?>(), factory: NilFactory())
                 .using(UINavigationController.push())
                 .from(NavigationControllerStep())
@@ -38,7 +38,7 @@ class DestinationStepTests: XCTestCase {
         XCTAssertNoThrow(try (step.getPreviousStep(with: nil as Any?) as? PerformableStep)?.perform(with: ()))
     }
 
-    func testStronglyTypedExpectingContainer() {
+    func testExpectingContainerStronglyTyped() {
         let nonContainerStepInsideContainer = StepAssembly(finder: TestFinder<UIViewController, String>(), factory: NilFactory())
                 .using(UINavigationController.push())
                 .from(NavigationControllerStep())
@@ -72,7 +72,7 @@ class DestinationStepTests: XCTestCase {
         XCTAssertNoThrow(try (step2.getPreviousStep(with: nil as Any?) as? PerformableStep)?.perform(with: ()))
     }
 
-    func testSingleUniversalExpectingContainer() {
+    func testSingleStepExpectingContainer() {
         let nonContainerStepInsideContainer = SingleStep(finder: TestFinder<UIViewController, Any?>(), factory: NilFactory())
 
         let step: ActionToStepIntegrator<UINavigationController, Any?> = nonContainerStepInsideContainer.expectingContainer()
@@ -89,7 +89,7 @@ class DestinationStepTests: XCTestCase {
         XCTAssertNoThrow(try (step.routingStep(with: ViewControllerActions.NilAction()) as? PerformableStep)?.perform(with: ()))
     }
 
-    func testSingleStronglyTypedExpectingContainer() {
+    func testSingleStepExpectingContainerStronglyTyped() {
         let nonContainerStepInsideContainer = SingleStep(finder: TestFinder<UIViewController, String>(), factory: NilFactory())
 
         let step: ActionToStepIntegrator<UINavigationController, String> = nonContainerStepInsideContainer.expectingContainer()
@@ -108,7 +108,7 @@ class DestinationStepTests: XCTestCase {
         XCTAssertThrowsError(try (step.routingStep(with: ViewControllerActions.NilAction()) as? PerformableStep)?.perform(with: ()))
     }
 
-    func testSingleStepUnwrap() {
+    func testSingleStepUnsafelyRewrapped() {
         let nonContainerStepInsideContainer = SingleStep(finder: TestFinder<UIViewController, String>(), factory: NilFactory())
         let newStep: ActionToStepIntegrator<UINavigationController, Int> = nonContainerStepInsideContainer.unsafelyRewrapped()
         XCTAssertThrowsError(try (newStep.routingStep(with: ViewControllerActions.NilAction()) as? PerformableStep)?.perform(with: 123))

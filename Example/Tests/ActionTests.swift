@@ -28,7 +28,7 @@ class ActionTests: XCTestCase {
         XCTAssertTrue(wasInCompletion)
     }
 
-    func testReplaceRoot() {
+    func testReplaceRootAction() {
         class TestWindow: UIWindow {
             var isKey: Bool = false
 
@@ -71,7 +71,7 @@ class ActionTests: XCTestCase {
         XCTAssertTrue(wasInCompletion)
     }
 
-    func testReplaceRootAnimated() {
+    func testReplaceRootActionAnimated() {
         class TestWindow: UIWindow {
             var isKey: Bool = false
 
@@ -107,7 +107,7 @@ class ActionTests: XCTestCase {
         XCTAssertEqual(window.rootViewController, newRootViewController)
     }
 
-    func testReplaceNoKeyWindow() {
+    func testReplaceRootActionNoKeyWindow() {
         var window: UIWindow? = UIWindow()
         let action = ViewControllerActions.ReplaceRootAction(windowProvider: CustomWindowProvider(window: window!), animationOptions: .transitionCurlUp, duration: 0.3)
         window = nil
@@ -121,7 +121,7 @@ class ActionTests: XCTestCase {
         XCTAssertTrue(wasInCompletion)
     }
 
-    func testPresentModally() {
+    func testPresentModallyAction() {
         class PresentingModallyController: UIViewController {
             override func present(_ viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)?) {
                 completion?()
@@ -167,7 +167,7 @@ class ActionTests: XCTestCase {
         XCTAssertTrue(wasInCompletion)
     }
 
-    func testNavReplacingLast() {
+    func testPushReplacingLastAction() {
         var viewControllerStack: [UIViewController] = []
         UINavigationController.pushReplacingLast().perform(embedding: UIViewController(), in: &viewControllerStack)
         XCTAssertEqual(viewControllerStack.count, 1)
@@ -188,7 +188,7 @@ class ActionTests: XCTestCase {
         XCTAssertTrue(wasInCompletion)
     }
 
-    func testNavPushAsRoot() {
+    func testPushAsRootAction() {
         var viewControllerStack: [UIViewController] = []
         UINavigationController.pushAsRoot().perform(embedding: UIViewController(), in: &viewControllerStack)
         XCTAssertEqual(viewControllerStack.count, 1)
@@ -211,7 +211,7 @@ class ActionTests: XCTestCase {
         XCTAssertTrue(navigationController.viewControllers[0] === newRootController)
     }
 
-    func testNavPush() {
+    func testPushAction() {
         var viewControllerStack: [UIViewController] = []
         UINavigationController.push().perform(embedding: UIViewController(), in: &viewControllerStack)
         XCTAssertEqual(viewControllerStack.count, 1)
@@ -236,7 +236,7 @@ class ActionTests: XCTestCase {
         XCTAssertTrue(navigationController.viewControllers.removeLast() === viewController)
     }
 
-    func testTabAdd() {
+    func testAddTabAction() {
         var viewControllerStack: [UIViewController] = []
         UITabBarController.add().perform(embedding: UIViewController(), in: &viewControllerStack)
         XCTAssertEqual(viewControllerStack.count, 1)
@@ -261,7 +261,7 @@ class ActionTests: XCTestCase {
         XCTAssertTrue(tabBarController.viewControllers?.removeLast() === viewController)
     }
 
-    func testTabAddAt() {
+    func testAddTabActionAtIndex() {
         var viewControllerStack: [UIViewController] = []
         UITabBarController.add(at: 1).perform(embedding: UIViewController(), in: &viewControllerStack)
         XCTAssertEqual(viewControllerStack.count, 1)
@@ -286,7 +286,7 @@ class ActionTests: XCTestCase {
         XCTAssertTrue(tabBarController.viewControllers?.removeFirst() === viewController)
     }
 
-    func testTabAddReplacing() {
+    func testAddTabActionReplacingAtIndex() {
         var viewControllerStack: [UIViewController] = []
         UITabBarController.add(at: 1, replacing: true).perform(embedding: UIViewController(),
                 in: &viewControllerStack)
@@ -312,7 +312,7 @@ class ActionTests: XCTestCase {
         XCTAssertTrue(tabBarController.viewControllers?.first === viewController)
     }
 
-    func testSetAsMasterInSplit() {
+    func testSetAsMasterAction() {
         var viewControllerStack: [UIViewController] = []
         try? UISplitViewController.setAsMaster().perform(embedding: UIViewController(), in: &viewControllerStack)
         XCTAssertEqual(viewControllerStack.count, 1)
@@ -339,7 +339,7 @@ class ActionTests: XCTestCase {
         XCTAssertTrue(splitController.viewControllers.first === viewController)
     }
 
-    func testSetAsDetailInSplit() {
+    func testPushToDetailsAction() {
         var viewControllerStack: [UIViewController] = []
         XCTAssertThrowsError(try UISplitViewController.pushToDetails().perform(embedding: UIViewController(), in: &viewControllerStack))
 
@@ -378,7 +378,7 @@ class ActionTests: XCTestCase {
         XCTAssertTrue(splitController.viewControllers.last === viewController)
     }
 
-    func testPushOnToDetailsInSplit() {
+    func testPushOnToDetailsAction() {
         var viewControllerStack: [UIViewController] = []
         XCTAssertThrowsError(try UISplitViewController.pushOnToDetails().perform(embedding: UIViewController(), in: &viewControllerStack))
 
@@ -451,4 +451,5 @@ class ActionTests: XCTestCase {
         let customProvider = CustomWindowProvider(window: window)
         XCTAssertEqual(window, customProvider.window)
     }
+
 }

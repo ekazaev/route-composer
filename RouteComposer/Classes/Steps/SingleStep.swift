@@ -25,11 +25,11 @@ public final class SingleStep<F: Finder, FC: Factory>: ActionToStepIntegrator<F.
             super.init(taskCollector: step.taskCollector)
         }
 
-        override func routingStep<A: Action>(with action: A) -> RoutingStep {
+        override func routingStep<A: Action>(with action: A) -> RoutingStep? {
             return step.routingStep(with: action)
         }
 
-        override func embeddableRoutingStep<A: ContainerAction>(with action: A) -> RoutingStep {
+        override func embeddableRoutingStep<A: ContainerAction>(with action: A) -> RoutingStep? {
             return step.embeddableRoutingStep(with: action)
         }
 

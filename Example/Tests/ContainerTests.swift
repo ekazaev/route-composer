@@ -4,7 +4,7 @@ import XCTest
 
 class ContainerTests: XCTestCase {
 
-    func testChildViewControllersBuild() {
+    func testChildCoordinatorBuild() {
         var children: [PostponedIntegrationFactory<Any?>] = []
         children.append(PostponedIntegrationFactory<Any?>(for: FactoryBox(EmptyFactory(), action: ContainerActionBox(UINavigationController.push()))!))
         children.append(PostponedIntegrationFactory<Any?>(for: FactoryBox(EmptyFactory(), action: ContainerActionBox(UINavigationController.push()))!))
@@ -16,7 +16,7 @@ class ContainerTests: XCTestCase {
         XCTAssertEqual(childrenControllers.count, 2)
     }
 
-    func testNavigationControllerContainer() {
+    func testNavigationControllerContainerBuildSameActions() {
         let container = NavigationControllerFactory<UINavigationController, Any?>()
         var children: [PostponedIntegrationFactory<Any?>] = []
         children.append(PostponedIntegrationFactory<Any?>(for: FactoryBox(EmptyFactory(), action: ContainerActionBox(UINavigationController.push()))!))
@@ -29,7 +29,7 @@ class ContainerTests: XCTestCase {
         XCTAssertEqual(containerViewController.children.count, 2)
     }
 
-    func testNavigationControllerContainer2() {
+    func testNavigationControllerContainerBuildDifferentActions() {
         var wasInConfiguration = false
 
         class Delegate: NSObject, UINavigationControllerDelegate {
@@ -53,7 +53,7 @@ class ContainerTests: XCTestCase {
         XCTAssertTrue(wasInConfiguration)
     }
 
-    func testTabBarControllerContainer() {
+    func testTabBarControllerContainerBuild() {
         var wasInConfiguration = false
 
         class Delegate: NSObject, UITabBarControllerDelegate {
@@ -77,7 +77,7 @@ class ContainerTests: XCTestCase {
         XCTAssertTrue(wasInConfiguration)
     }
 
-    func testSplitControllerContainer() {
+    func testSplitControllerContainerBuild() {
         var wasInConfiguration = false
 
         class Delegate: UISplitViewControllerDelegate {
@@ -106,7 +106,7 @@ class ContainerTests: XCTestCase {
         XCTAssertTrue(wasInConfiguration)
     }
 
-    func testCompleteFactory() {
+    func testCompleteFactoryBuild() {
         var children: [PostponedIntegrationFactory<Any?>] = []
         children.append(PostponedIntegrationFactory<Any?>(for: FactoryBox(EmptyFactory(), action: ContainerActionBox(UITabBarController.add()))!))
         children.append(PostponedIntegrationFactory<Any?>(for: FactoryBox(EmptyFactory(), action: ContainerActionBox(UITabBarController.add()))!))
@@ -117,7 +117,7 @@ class ContainerTests: XCTestCase {
         XCTAssertEqual(viewController?.viewControllers?.count, 2)
     }
 
-    func testCompleteFactoryPrepareMethod() {
+    func testCompleteFactoryPrepare() {
 
         class EmptyFactory: Factory {
 
@@ -150,7 +150,7 @@ class ContainerTests: XCTestCase {
         XCTAssertEqual(childFactory2.prepareCount, 1)
     }
 
-    func testExecuteFactory() {
+    func testFactoryExecute() {
         var prepareCount = 0
         var buildCount = 0
 
@@ -194,7 +194,7 @@ class ContainerTests: XCTestCase {
         XCTAssertEqual(buildCount, 3)
     }
 
-    func testCompleteFactorySmartActions() {
+    func testCompleteFactoryBuildWithDifferentActions() {
         var children: [PostponedIntegrationFactory<Any?>] = []
         children.append(PostponedIntegrationFactory<Any?>(for: FactoryBox(EmptyFactory(), action: ContainerActionBox(UITabBarController.add()))!))
         children.append(PostponedIntegrationFactory<Any?>(for: FactoryBox(EmptyFactory(), action: ContainerActionBox(UITabBarController.add(at: 0, replacing: true)))!))

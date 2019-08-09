@@ -55,7 +55,7 @@ class ExtrasTest: XCTestCase {
         XCTAssertNoThrow(try ContentAcceptingViewController.checkCompatibility(with: ""))
     }
 
-    func testSimultaneousNavigation() {
+    func testSingleNavigationRouterSimultaneousNavigation() {
         let currentViewController = RouterTests.TestModalPresentableController()
         let screenConfig = StepAssembly(finder: ClassFinder(), factory: RouterTests.TestViewControllerFactory())
                 .adding(InlinePostTask({ (_: RouterTests.TestViewController, _: Any?, viewControllers: [UIViewController]) in
@@ -136,7 +136,7 @@ class ExtrasTest: XCTestCase {
         XCTAssertEqual(wasInCompletion, true)
     }
 
-    func testNavigationDelayingInterceptor() {
+    func testNavigationDelayingInterceptorPerform() {
         class DismissingViewController: UIViewController {
             override var isBeingDismissed: Bool {
                 return true

@@ -39,21 +39,21 @@ class FinderTest: XCTestCase {
         XCTAssertNil(finder.getViewController(with: nil))
     }
 
-    func testDefaultIteratorDefaultValues() {
+    func testDefaultStackIteratorDefaultValues() {
         let iterator = DefaultStackIterator()
         XCTAssertEqual(iterator.options, .fullStack)
         XCTAssertEqual(iterator.startingPoint, .topmost)
         XCTAssertEqual(try? iterator.getStartingViewController(), UIApplication.shared.keyWindow?.topmostViewController)
     }
 
-    func testDefaultIteratorNewValues() {
+    func testDefaultStackIteratorNewValues() {
         let iterator = DefaultStackIterator(options: .current, startingPoint: .root)
         XCTAssertEqual(iterator.options, .current)
         XCTAssertEqual(iterator.startingPoint, .root)
         XCTAssertEqual(try? iterator.getStartingViewController(), UIApplication.shared.keyWindow?.rootViewController)
     }
 
-    func testDefaultIteratorCustomStartingPoint() {
+    func testDefaultStackIteratorCustomStartingPoint() {
 
         struct TestInstanceFinder<VC: UIViewController, C>: Finder {
             private(set) weak var instance: VC?

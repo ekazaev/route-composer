@@ -105,7 +105,7 @@ class FactoryTest: XCTestCase {
         XCTAssertNotNil(try factory.execute())
     }
 
-    func testBuildPreparedFactory() {
+    func testFactoryExecute() {
 
         var prepareCount = 0
         var buildCount = 0
@@ -156,7 +156,7 @@ class FactoryTest: XCTestCase {
         XCTAssertEqual(postponedFactory.description, "ClassFactory<UIViewController, Optional<Any>>(nibName: nil, bundle: nil, configuration: nil)")
     }
 
-    func testAnyOrVoidMethods() {
+    func testFactoryExecuteWithAnyOrVoid() {
         class TestFactory<C>: Factory {
             typealias ViewController = UIViewController
             typealias Context = C

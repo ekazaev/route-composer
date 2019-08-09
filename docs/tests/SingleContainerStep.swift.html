@@ -7,9 +7,9 @@
 <body>
 <header><div class="row"><a href="index.html"><img src="logo.jpg" alt="Slather logo"></a></div></header><div class="row"><div id="reports">
 <h2 class="cov_title">
-<span>Coverage for "SingleContainerStep.swift" : </span><span class="cov_low">35.29%</span>
+<span>Coverage for "SingleContainerStep.swift" : </span><span class="cov_high">100.00%</span>
 </h2>
-<h4 class="cov_subtitle">(12 of 34 relevant lines covered)</h4>
+<h4 class="cov_subtitle">(34 of 34 relevant lines covered)</h4>
 <h4 class="cov_filepath">RouteComposer/Classes/Steps/SingleContainerStep.swift</h4>
 <table class="source_code">
 <tr class="never">
@@ -122,65 +122,65 @@
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">23</td>
 <td class="src"><pre><code class="objc">        init(step: SingleContainerStep&lt;F, FC&gt;) {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">4x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">24</td>
 <td class="src"><pre><code class="objc">            self.step = step</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">4x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">25</td>
 <td class="src"><pre><code class="objc">            super.init(taskCollector: step.taskCollector)</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">4x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">26</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">4x</td>
 </tr>
 <tr class="never">
 <td class="num">27</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">28</td>
-<td class="src"><pre><code class="objc">        override func routingStep&lt;A: Action&gt;(with action: A) -&gt; RoutingStep {</code></pre></td>
-<td class="coverage">!</td>
+<td class="src"><pre><code class="objc">        override func routingStep&lt;A: Action&gt;(with action: A) -&gt; RoutingStep? {</code></pre></td>
+<td class="coverage">4x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">29</td>
 <td class="src"><pre><code class="objc">            return step.routingStep(with: action)</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">4x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">30</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">4x</td>
 </tr>
 <tr class="never">
 <td class="num">31</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">32</td>
-<td class="src"><pre><code class="objc">        override func embeddableRoutingStep&lt;A: ContainerAction&gt;(with action: A) -&gt; RoutingStep {</code></pre></td>
-<td class="coverage">!</td>
+<td class="src"><pre><code class="objc">        override func embeddableRoutingStep&lt;A: ContainerAction&gt;(with action: A) -&gt; RoutingStep? {</code></pre></td>
+<td class="coverage">4x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">33</td>
 <td class="src"><pre><code class="objc">            return step.embeddableRoutingStep(with: action)</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">4x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">34</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">4x</td>
 </tr>
 <tr class="never">
 <td class="num">35</td>
@@ -225,22 +225,22 @@
 <tr class="covered">
 <td class="num">43</td>
 <td class="src"><pre><code class="objc">    public init(finder: F, factory: FC) {</code></pre></td>
-<td class="coverage">36x</td>
+<td class="coverage">40x</td>
 </tr>
 <tr class="covered">
 <td class="num">44</td>
 <td class="src"><pre><code class="objc">        self.finder = finder</code></pre></td>
-<td class="coverage">36x</td>
+<td class="coverage">40x</td>
 </tr>
 <tr class="covered">
 <td class="num">45</td>
 <td class="src"><pre><code class="objc">        self.factory = factory</code></pre></td>
-<td class="coverage">36x</td>
+<td class="coverage">40x</td>
 </tr>
 <tr class="covered">
 <td class="num">46</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">36x</td>
+<td class="coverage">40x</td>
 </tr>
 <tr class="never">
 <td class="num">47</td>
@@ -250,22 +250,22 @@
 <tr class="covered">
 <td class="num">48</td>
 <td class="src"><pre><code class="objc">    override func routingStep&lt;A: Action&gt;(with action: A) -&gt; RoutingStep {</code></pre></td>
-<td class="coverage">28x</td>
+<td class="coverage">32x</td>
 </tr>
 <tr class="covered">
 <td class="num">49</td>
 <td class="src"><pre><code class="objc">        let entitiesCollector = BaseEntitiesCollector&lt;ContainerFactoryBox&lt;FC&gt;, ActionBox&gt;(finder: finder, factory: factory, action: action)</code></pre></td>
-<td class="coverage">28x</td>
+<td class="coverage">32x</td>
 </tr>
 <tr class="covered">
 <td class="num">50</td>
 <td class="src"><pre><code class="objc">        return BaseStep(entitiesProvider: entitiesCollector, taskProvider: taskCollector)</code></pre></td>
-<td class="coverage">28x</td>
+<td class="coverage">32x</td>
 </tr>
 <tr class="covered">
 <td class="num">51</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">28x</td>
+<td class="coverage">32x</td>
 </tr>
 <tr class="never">
 <td class="num">52</td>
@@ -275,22 +275,22 @@
 <tr class="covered">
 <td class="num">53</td>
 <td class="src"><pre><code class="objc">    override func embeddableRoutingStep&lt;A: ContainerAction&gt;(with action: A) -&gt; RoutingStep {</code></pre></td>
-<td class="coverage">7x</td>
+<td class="coverage">11x</td>
 </tr>
 <tr class="covered">
 <td class="num">54</td>
 <td class="src"><pre><code class="objc">        let entitiesCollector = BaseEntitiesCollector&lt;ContainerFactoryBox&lt;FC&gt;, ContainerActionBox&gt;(finder: finder, factory: factory, action: action)</code></pre></td>
-<td class="coverage">7x</td>
+<td class="coverage">11x</td>
 </tr>
 <tr class="covered">
 <td class="num">55</td>
 <td class="src"><pre><code class="objc">        return BaseStep(entitiesProvider: entitiesCollector, taskProvider: taskCollector)</code></pre></td>
-<td class="coverage">7x</td>
+<td class="coverage">11x</td>
 </tr>
 <tr class="covered">
 <td class="num">56</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">7x</td>
+<td class="coverage">11x</td>
 </tr>
 <tr class="never">
 <td class="num">57</td>
@@ -312,20 +312,20 @@
 <td class="src"><pre><code class="objc">    /// *NB:* Developer guaranties that this types will compliment in runtime.</code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">61</td>
 <td class="src"><pre><code class="objc">    public func unsafelyRewrapped&lt;VC: UIViewController, C&gt;() -&gt; ActionToStepIntegrator&lt;VC, C&gt; {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">62</td>
 <td class="src"><pre><code class="objc">        return UnsafeWrapper(step: self)</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">63</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="never">
 <td class="num">64</td>
@@ -347,20 +347,20 @@
 <td class="src"><pre><code class="objc">    /// *NB:* Developer guaranties that it will be there in the runtime.</code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">68</td>
 <td class="src"><pre><code class="objc">    public func expectingContainer&lt;VC: ContainerViewController&gt;() -&gt; ActionToStepIntegrator&lt;VC, F.Context&gt; {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">69</td>
 <td class="src"><pre><code class="objc">        return UnsafeWrapper(step: self)</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">70</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="never">
 <td class="num">71</td>
@@ -417,20 +417,20 @@
 <td class="src"><pre><code class="objc">    /// *NB:* Developer guaranties that it will be there in the runtime.</code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">82</td>
 <td class="src"><pre><code class="objc">    public func expectingContainer&lt;VC: ContainerViewController, C&gt;() -&gt; ActionToStepIntegrator&lt;VC, C&gt; {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">83</td>
 <td class="src"><pre><code class="objc">        return UnsafeWrapper(step: self)</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">84</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="never">
 <td class="num">85</td>
@@ -447,20 +447,20 @@
 <td class="src"><pre><code class="objc">    /// with any type of context passed to the router.</code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">88</td>
 <td class="src"><pre><code class="objc">    public func adaptingContext&lt;C&gt;() -&gt; ActionToStepIntegrator&lt;F.ViewController, C&gt; {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">89</td>
 <td class="src"><pre><code class="objc">        return UnsafeWrapper(step: self)</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">90</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="never">
 <td class="num">91</td>
