@@ -4,467 +4,485 @@
     <title>DestinationStep Structure Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
-    <meta charset='utf-8'>
+    <meta charset="utf-8">
     <script src="../js/jquery.min.js" defer></script>
     <script src="../js/jazzy.js" defer></script>
     
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
+
     <a name="//apple_ref/swift/Struct/DestinationStep" class="dashAnchor"></a>
+
     <a title="DestinationStep Structure Reference"></a>
-    <header>
-      <div class="content-wrapper">
-        <p><a href="../index.html">RouteComposer Docs</a> (100% documented)</p>
-      </div>
-    </header>
-    <div class="content-wrapper">
-      <p id="breadcrumbs">
-        <a href="../index.html">RouteComposer Reference</a>
-        <img id="carat" src="../img/carat.png" />
-        DestinationStep Structure Reference
+
+    <header class="header">
+      <p class="header-col header-col--primary">
+        <a class="header-link" href="../index.html">
+          RouteComposer Docs
+        </a>
+         (100% documented)
       </p>
-    </div>
+    
+      <p class="header-col--secondary">
+        <form role="search" action="../search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
+      </p>
+    
+    
+    </header>
+
+    <p class="breadcrumbs">
+      <a class="breadcrumb" href="../index.html">RouteComposer Reference</a>
+      <img class="carat" src="../img/carat.png" />
+      DestinationStep Structure Reference
+    </p>
+
     <div class="content-wrapper">
-      <nav class="sidebar">
+      <nav class="navigation">
         <ul class="nav-groups">
           <li class="nav-group-name">
-            <a href="../Core Entities.html">Core Entities</a>
+            <a class="nav-group-name-link" href="../Core Entities.html">Core Entities</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Protocols/Router.html">Router</a>
+                <a class="nav-group-task-link" href="../Protocols/Router.html">Router</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Enums/RoutingError.html">RoutingError</a>
+                <a class="nav-group-task-link" href="../Enums/RoutingError.html">RoutingError</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Enums/RoutingError/InitialControllerErrorState.html">– InitialControllerErrorState</a>
+                <a class="nav-group-task-link" href="../Enums/RoutingError/InitialControllerErrorState.html">– InitialControllerErrorState</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Enums/RoutingError/Context.html">– Context</a>
+                <a class="nav-group-task-link" href="../Enums/RoutingError/Context.html">– Context</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/DestinationStep.html">DestinationStep</a>
+                <a class="nav-group-task-link" href="../Structs/DestinationStep.html">DestinationStep</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols/Finder.html">Finder</a>
+                <a class="nav-group-task-link" href="../Protocols/Finder.html">Finder</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols/Factory.html">Factory</a>
+                <a class="nav-group-task-link" href="../Protocols/Factory.html">Factory</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols/ContainerFactory.html">ContainerFactory</a>
+                <a class="nav-group-task-link" href="../Protocols/ContainerFactory.html">ContainerFactory</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Core Entities.html#/s:13RouteComposer6ActionP">Action</a>
+                <a class="nav-group-task-link" href="../Core Entities.html#/s:13RouteComposer6ActionP">Action</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols/ContainerAction.html">ContainerAction</a>
+                <a class="nav-group-task-link" href="../Protocols/ContainerAction.html">ContainerAction</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Enums/RoutingResult.html">RoutingResult</a>
+                <a class="nav-group-task-link" href="../Enums/RoutingResult.html">RoutingResult</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="../Tasks.html">Tasks</a>
+            <a class="nav-group-name-link" href="../Tasks.html">Tasks</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Protocols/RoutingInterceptor.html">RoutingInterceptor</a>
+                <a class="nav-group-task-link" href="../Protocols/RoutingInterceptor.html">RoutingInterceptor</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols/ContextTask.html">ContextTask</a>
+                <a class="nav-group-task-link" href="../Protocols/ContextTask.html">ContextTask</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols/PostRoutingTask.html">PostRoutingTask</a>
+                <a class="nav-group-task-link" href="../Protocols/PostRoutingTask.html">PostRoutingTask</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="../Assemblies.html">Assemblies</a>
+            <a class="nav-group-name-link" href="../Assemblies.html">Assemblies</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Classes/StepAssembly.html">StepAssembly</a>
+                <a class="nav-group-task-link" href="../Classes/StepAssembly.html">StepAssembly</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/ContainerStepAssembly.html">ContainerStepAssembly</a>
+                <a class="nav-group-task-link" href="../Classes/ContainerStepAssembly.html">ContainerStepAssembly</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/SwitchAssembly.html">SwitchAssembly</a>
+                <a class="nav-group-task-link" href="../Classes/SwitchAssembly.html">SwitchAssembly</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/ChainAssembly.html">ChainAssembly</a>
+                <a class="nav-group-task-link" href="../Structs/ChainAssembly.html">ChainAssembly</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/CompleteFactoryAssembly.html">CompleteFactoryAssembly</a>
+                <a class="nav-group-task-link" href="../Classes/CompleteFactoryAssembly.html">CompleteFactoryAssembly</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="../Additional Assemblies.html">Additional Assemblies</a>
+            <a class="nav-group-name-link" href="../Additional Assemblies.html">Additional Assemblies</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Classes/SingleStep.html">SingleStep</a>
+                <a class="nav-group-task-link" href="../Classes/SingleStep.html">SingleStep</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/SingleContainerStep.html">SingleContainerStep</a>
+                <a class="nav-group-task-link" href="../Classes/SingleContainerStep.html">SingleContainerStep</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="../Factories.html">Factories</a>
+            <a class="nav-group-name-link" href="../Factories.html">Factories</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Structs/ClassFactory.html">ClassFactory</a>
+                <a class="nav-group-task-link" href="../Structs/ClassFactory.html">ClassFactory</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/StoryboardFactory.html">StoryboardFactory</a>
+                <a class="nav-group-task-link" href="../Structs/StoryboardFactory.html">StoryboardFactory</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/FinderFactory.html">FinderFactory</a>
+                <a class="nav-group-task-link" href="../Structs/FinderFactory.html">FinderFactory</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/NavigationControllerFactory.html">NavigationControllerFactory</a>
+                <a class="nav-group-task-link" href="../Structs/NavigationControllerFactory.html">NavigationControllerFactory</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/TabBarControllerFactory.html">TabBarControllerFactory</a>
+                <a class="nav-group-task-link" href="../Structs/TabBarControllerFactory.html">TabBarControllerFactory</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/SplitControllerFactory.html">SplitControllerFactory</a>
+                <a class="nav-group-task-link" href="../Structs/SplitControllerFactory.html">SplitControllerFactory</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/NilFactory.html">NilFactory</a>
+                <a class="nav-group-task-link" href="../Structs/NilFactory.html">NilFactory</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="../Finders.html">Finders</a>
+            <a class="nav-group-name-link" href="../Finders.html">Finders</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Protocols/StackIteratingFinder.html">StackIteratingFinder</a>
+                <a class="nav-group-task-link" href="../Protocols/StackIteratingFinder.html">StackIteratingFinder</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/ClassFinder.html">ClassFinder</a>
+                <a class="nav-group-task-link" href="../Structs/ClassFinder.html">ClassFinder</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/InstanceFinder.html">InstanceFinder</a>
+                <a class="nav-group-task-link" href="../Structs/InstanceFinder.html">InstanceFinder</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/NilFinder.html">NilFinder</a>
+                <a class="nav-group-task-link" href="../Structs/NilFinder.html">NilFinder</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="../Steps.html">Steps</a>
+            <a class="nav-group-name-link" href="../Steps.html">Steps</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Structs/GeneralStep.html">GeneralStep</a>
+                <a class="nav-group-task-link" href="../Structs/GeneralStep.html">GeneralStep</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/NavigationControllerStep.html">NavigationControllerStep</a>
+                <a class="nav-group-task-link" href="../Classes/NavigationControllerStep.html">NavigationControllerStep</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/TabBarControllerStep.html">TabBarControllerStep</a>
+                <a class="nav-group-task-link" href="../Classes/TabBarControllerStep.html">TabBarControllerStep</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/SplitControllerStep.html">SplitControllerStep</a>
+                <a class="nav-group-task-link" href="../Classes/SplitControllerStep.html">SplitControllerStep</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="../UIViewController&#39;s protocols.html">UIViewController&#39;s protocols</a>
+            <a class="nav-group-name-link" href="../UIViewController&#39;s protocols.html">UIViewController&#39;s protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Protocols/RoutingInterceptable.html">RoutingInterceptable</a>
+                <a class="nav-group-task-link" href="../Protocols/RoutingInterceptable.html">RoutingInterceptable</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols/ContainerViewController.html">ContainerViewController</a>
+                <a class="nav-group-task-link" href="../Protocols/ContainerViewController.html">ContainerViewController</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="../General Actions.html">General Actions</a>
+            <a class="nav-group-name-link" href="../General Actions.html">General Actions</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Structs/GeneralAction.html">GeneralAction</a>
+                <a class="nav-group-task-link" href="../Structs/GeneralAction.html">GeneralAction</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="../Logging.html">Logging</a>
+            <a class="nav-group-name-link" href="../Logging.html">Logging</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Protocols/Logger.html">Logger</a>
+                <a class="nav-group-task-link" href="../Protocols/Logger.html">Logger</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Enums/LogMessage.html">LogMessage</a>
+                <a class="nav-group-task-link" href="../Enums/LogMessage.html">LogMessage</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="../Extras.html">Extras</a>
+            <a class="nav-group-name-link" href="../Extras.html">Extras</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Structs/Destination.html">Destination</a>
+                <a class="nav-group-task-link" href="../Structs/Destination.html">Destination</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Extras.html#/s:13RouteComposer14AnyDestinationa">AnyDestination</a>
+                <a class="nav-group-task-link" href="../Extras.html#/s:13RouteComposer14AnyDestinationa">AnyDestination</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/InlineInterceptor.html">InlineInterceptor</a>
+                <a class="nav-group-task-link" href="../Structs/InlineInterceptor.html">InlineInterceptor</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/InlineContextTask.html">InlineContextTask</a>
+                <a class="nav-group-task-link" href="../Structs/InlineContextTask.html">InlineContextTask</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/InlinePostTask.html">InlinePostTask</a>
+                <a class="nav-group-task-link" href="../Structs/InlinePostTask.html">InlinePostTask</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/NavigationDelayingInterceptor.html">NavigationDelayingInterceptor</a>
+                <a class="nav-group-task-link" href="../Structs/NavigationDelayingInterceptor.html">NavigationDelayingInterceptor</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/NavigationDelayingInterceptor/Strategy.html">– Strategy</a>
+                <a class="nav-group-task-link" href="../Structs/NavigationDelayingInterceptor/Strategy.html">– Strategy</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/SingleNavigationRouter.html">SingleNavigationRouter</a>
+                <a class="nav-group-task-link" href="../Structs/SingleNavigationRouter.html">SingleNavigationRouter</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/PresentingFinder.html">PresentingFinder</a>
+                <a class="nav-group-task-link" href="../Structs/PresentingFinder.html">PresentingFinder</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/ContextSettingTask.html">ContextSettingTask</a>
+                <a class="nav-group-task-link" href="../Structs/ContextSettingTask.html">ContextSettingTask</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols/ContextAccepting.html">ContextAccepting</a>
+                <a class="nav-group-task-link" href="../Protocols/ContextAccepting.html">ContextAccepting</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/ClassWithContextFinder.html">ClassWithContextFinder</a>
+                <a class="nav-group-task-link" href="../Structs/ClassWithContextFinder.html">ClassWithContextFinder</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols/ContextChecking.html">ContextChecking</a>
+                <a class="nav-group-task-link" href="../Protocols/ContextChecking.html">ContextChecking</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/DismissalMethodProvidingContextTask.html">DismissalMethodProvidingContextTask</a>
+                <a class="nav-group-task-link" href="../Structs/DismissalMethodProvidingContextTask.html">DismissalMethodProvidingContextTask</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols/Dismissible.html">Dismissible</a>
+                <a class="nav-group-task-link" href="../Protocols/Dismissible.html">Dismissible</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols/DismissibleWithRuntimeStorage.html">DismissibleWithRuntimeStorage</a>
+                <a class="nav-group-task-link" href="../Protocols/DismissibleWithRuntimeStorage.html">DismissibleWithRuntimeStorage</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/DetailsNavigationFinder.html">DetailsNavigationFinder</a>
+                <a class="nav-group-task-link" href="../Structs/DetailsNavigationFinder.html">DetailsNavigationFinder</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="../Deprecated.html">Deprecated</a>
+            <a class="nav-group-name-link" href="../Deprecated.html">Deprecated</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Structs/XibFactory.html">XibFactory</a>
+                <a class="nav-group-task-link" href="../Structs/XibFactory.html">XibFactory</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/ClassNameFactory.html">ClassNameFactory</a>
+                <a class="nav-group-task-link" href="../Structs/ClassNameFactory.html">ClassNameFactory</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="../Other Guides.html">Other Guides</a>
+            <a class="nav-group-name-link" href="../Other Guides.html">Other Guides</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../contributing.html">CONTRIBUTING</a>
+                <a class="nav-group-task-link" href="../contributing.html">CONTRIBUTING</a>
               </li>
               <li class="nav-group-task">
-                <a href="../examples.html">EXAMPLES</a>
+                <a class="nav-group-task-link" href="../examples.html">EXAMPLES</a>
               </li>
               <li class="nav-group-task">
-                <a href="../readme.html">README</a>
+                <a class="nav-group-task-link" href="../readme.html">README</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="../Other Classes.html">Other Classes</a>
+            <a class="nav-group-name-link" href="../Other Classes.html">Other Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Classes/ActionToStepIntegrator.html">ActionToStepIntegrator</a>
+                <a class="nav-group-task-link" href="../Classes/ActionToStepIntegrator.html">ActionToStepIntegrator</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/CompleteFactoryChainAssembly.html">CompleteFactoryChainAssembly</a>
+                <a class="nav-group-task-link" href="../Classes/CompleteFactoryChainAssembly.html">CompleteFactoryChainAssembly</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/GenericStepAssembly.html">GenericStepAssembly</a>
+                <a class="nav-group-task-link" href="../Classes/GenericStepAssembly.html">GenericStepAssembly</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/SingleNavigationLock.html">SingleNavigationLock</a>
+                <a class="nav-group-task-link" href="../Classes/SingleNavigationLock.html">SingleNavigationLock</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="../Other Extensions.html">Other Extensions</a>
+            <a class="nav-group-name-link" href="../Other Extensions.html">Other Extensions</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Extensions/Array.html">Array</a>
+                <a class="nav-group-task-link" href="../Extensions/Array.html">Array</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Extensions/UINavigationController.html">UINavigationController</a>
+                <a class="nav-group-task-link" href="../Extensions/UINavigationController.html">UINavigationController</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Extensions/UISplitViewController.html">UISplitViewController</a>
+                <a class="nav-group-task-link" href="../Extensions/UISplitViewController.html">UISplitViewController</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Extensions/UITabBarController.html">UITabBarController</a>
+                <a class="nav-group-task-link" href="../Extensions/UITabBarController.html">UITabBarController</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Extensions/UIViewController.html">UIViewController</a>
+                <a class="nav-group-task-link" href="../Extensions/UIViewController.html">UIViewController</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Extensions/UIWindow.html">UIWindow</a>
+                <a class="nav-group-task-link" href="../Extensions/UIWindow.html">UIWindow</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="../Other Protocols.html">Other Protocols</a>
+            <a class="nav-group-name-link" href="../Other Protocols.html">Other Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Protocols/AbstractAction.html">AbstractAction</a>
+                <a class="nav-group-task-link" href="../Protocols/AbstractAction.html">AbstractAction</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols/AbstractFactory.html">AbstractFactory</a>
+                <a class="nav-group-task-link" href="../Protocols/AbstractFactory.html">AbstractFactory</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols/ActionConnecting.html">ActionConnecting</a>
+                <a class="nav-group-task-link" href="../Protocols/ActionConnecting.html">ActionConnecting</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols/ConcreteContainerAdapter.html">ConcreteContainerAdapter</a>
+                <a class="nav-group-task-link" href="../Protocols/ConcreteContainerAdapter.html">ConcreteContainerAdapter</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols/ContainerAdapter.html">ContainerAdapter</a>
+                <a class="nav-group-task-link" href="../Protocols/ContainerAdapter.html">ContainerAdapter</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols/ContainerAdapterLocator.html">ContainerAdapterLocator</a>
+                <a class="nav-group-task-link" href="../Protocols/ContainerAdapterLocator.html">ContainerAdapterLocator</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols/CustomContainerViewController.html">CustomContainerViewController</a>
+                <a class="nav-group-task-link" href="../Protocols/CustomContainerViewController.html">CustomContainerViewController</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols/InterceptableRouter.html">InterceptableRouter</a>
+                <a class="nav-group-task-link" href="../Protocols/InterceptableRouter.html">InterceptableRouter</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Other Protocols.html#/s:13RouteComposer9NilEntityP">NilEntity</a>
+                <a class="nav-group-task-link" href="../Other Protocols.html#/s:13RouteComposer9NilEntityP">NilEntity</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols/SimpleContainerFactory.html">SimpleContainerFactory</a>
+                <a class="nav-group-task-link" href="../Protocols/SimpleContainerFactory.html">SimpleContainerFactory</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols/StackIterator.html">StackIterator</a>
+                <a class="nav-group-task-link" href="../Protocols/StackIterator.html">StackIterator</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols/WindowProvider.html">WindowProvider</a>
+                <a class="nav-group-task-link" href="../Protocols/WindowProvider.html">WindowProvider</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="../Other Structs.html">Other Structures</a>
+            <a class="nav-group-name-link" href="../Other Structs.html">Other Structures</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Structs/ActionConnectingAssembly.html">ActionConnectingAssembly</a>
+                <a class="nav-group-task-link" href="../Structs/ActionConnectingAssembly.html">ActionConnectingAssembly</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/ChildCoordinator.html">ChildCoordinator</a>
+                <a class="nav-group-task-link" href="../Structs/ChildCoordinator.html">ChildCoordinator</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/CompleteFactory.html">CompleteFactory</a>
+                <a class="nav-group-task-link" href="../Structs/CompleteFactory.html">CompleteFactory</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/ContainerStepChainAssembly.html">ContainerStepChainAssembly</a>
+                <a class="nav-group-task-link" href="../Structs/ContainerStepChainAssembly.html">ContainerStepChainAssembly</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/CustomWindowProvider.html">CustomWindowProvider</a>
+                <a class="nav-group-task-link" href="../Structs/CustomWindowProvider.html">CustomWindowProvider</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/DefaultContainerAdapterLocator.html">DefaultContainerAdapterLocator</a>
+                <a class="nav-group-task-link" href="../Structs/DefaultContainerAdapterLocator.html">DefaultContainerAdapterLocator</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/DefaultLogger.html">DefaultLogger</a>
+                <a class="nav-group-task-link" href="../Structs/DefaultLogger.html">DefaultLogger</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/DefaultLogger/LogLevel.html">– LogLevel</a>
+                <a class="nav-group-task-link" href="../Structs/DefaultLogger/LogLevel.html">– LogLevel</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/DefaultRouter.html">DefaultRouter</a>
+                <a class="nav-group-task-link" href="../Structs/DefaultRouter.html">DefaultRouter</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/DefaultStackIterator.html">DefaultStackIterator</a>
+                <a class="nav-group-task-link" href="../Structs/DefaultStackIterator.html">DefaultStackIterator</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/DefaultStackIterator/StartingPoint.html">– StartingPoint</a>
+                <a class="nav-group-task-link" href="../Structs/DefaultStackIterator/StartingPoint.html">– StartingPoint</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/KeyWindowProvider.html">KeyWindowProvider</a>
+                <a class="nav-group-task-link" href="../Structs/KeyWindowProvider.html">KeyWindowProvider</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/LastStepInChainAssembly.html">LastStepInChainAssembly</a>
+                <a class="nav-group-task-link" href="../Structs/LastStepInChainAssembly.html">LastStepInChainAssembly</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/NavigationControllerActions.html">NavigationControllerActions</a>
+                <a class="nav-group-task-link" href="../Structs/NavigationControllerActions.html">NavigationControllerActions</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/NavigationControllerActions/PushAction.html">– PushAction</a>
+                <a class="nav-group-task-link" href="../Structs/NavigationControllerActions/PushAction.html">– PushAction</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/NavigationControllerActions/PushAsRootAction.html">– PushAsRootAction</a>
+                <a class="nav-group-task-link" href="../Structs/NavigationControllerActions/PushAsRootAction.html">– PushAsRootAction</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/NavigationControllerActions/PushReplacingLastAction.html">– PushReplacingLastAction</a>
+                <a class="nav-group-task-link" href="../Structs/NavigationControllerActions/PushReplacingLastAction.html">– PushReplacingLastAction</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/NavigationControllerAdapter.html">NavigationControllerAdapter</a>
+                <a class="nav-group-task-link" href="../Structs/NavigationControllerAdapter.html">NavigationControllerAdapter</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/SearchOptions.html">SearchOptions</a>
+                <a class="nav-group-task-link" href="../Structs/SearchOptions.html">SearchOptions</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/SplitControllerAdapter.html">SplitControllerAdapter</a>
+                <a class="nav-group-task-link" href="../Structs/SplitControllerAdapter.html">SplitControllerAdapter</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/SplitViewControllerActions.html">SplitViewControllerActions</a>
+                <a class="nav-group-task-link" href="../Structs/SplitViewControllerActions.html">SplitViewControllerActions</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/SplitViewControllerActions/SetAsMasterAction.html">– SetAsMasterAction</a>
+                <a class="nav-group-task-link" href="../Structs/SplitViewControllerActions/SetAsMasterAction.html">– SetAsMasterAction</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/SplitViewControllerActions/PushToDetailsAction.html">– PushToDetailsAction</a>
+                <a class="nav-group-task-link" href="../Structs/SplitViewControllerActions/PushToDetailsAction.html">– PushToDetailsAction</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/SplitViewControllerActions/PushOnToDetailsAction.html">– PushOnToDetailsAction</a>
+                <a class="nav-group-task-link" href="../Structs/SplitViewControllerActions/PushOnToDetailsAction.html">– PushOnToDetailsAction</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/StepChainAssembly.html">StepChainAssembly</a>
+                <a class="nav-group-task-link" href="../Structs/StepChainAssembly.html">StepChainAssembly</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/TabBarControllerActions.html">TabBarControllerActions</a>
+                <a class="nav-group-task-link" href="../Structs/TabBarControllerActions.html">TabBarControllerActions</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/TabBarControllerActions/AddTabAction.html">– AddTabAction</a>
+                <a class="nav-group-task-link" href="../Structs/TabBarControllerActions/AddTabAction.html">– AddTabAction</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/TabBarControllerAdapter.html">TabBarControllerAdapter</a>
+                <a class="nav-group-task-link" href="../Structs/TabBarControllerAdapter.html">TabBarControllerAdapter</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/ViewControllerActions.html">ViewControllerActions</a>
+                <a class="nav-group-task-link" href="../Structs/ViewControllerActions.html">ViewControllerActions</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/ViewControllerActions/PresentModallyAction.html">– PresentModallyAction</a>
+                <a class="nav-group-task-link" href="../Structs/ViewControllerActions/PresentModallyAction.html">– PresentModallyAction</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/ViewControllerActions/ReplaceRootAction.html">– ReplaceRootAction</a>
+                <a class="nav-group-task-link" href="../Structs/ViewControllerActions/ReplaceRootAction.html">– ReplaceRootAction</a>
               </li>
             </ul>
           </li>
         </ul>
       </nav>
       <article class="main-content">
-        <section>
-          <section class="section">
+
+        <section class="section">
+          <div class="section-content">
             <h1>DestinationStep</h1>
               <div class="declaration">
                 <div class="language">
@@ -474,8 +492,11 @@
               </div>
             <p>Represents a single step for the <code><a href="../Protocols/Router.html">Router</a></code> to make.</p>
 
-          </section>
-          <section class="section task-group-section">
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-content">
             <div class="task-group">
               <div class="task-name-container">
                 <a name="/Associated%20types"></a>
@@ -484,7 +505,7 @@
                   <h3 class="section-name">Associated types</h3>
                 </a>
               </div>
-              <ul>
+              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
@@ -549,7 +570,7 @@
                   <h3 class="section-name">Methods</h3>
                 </a>
               </div>
-              <ul>
+              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
@@ -618,7 +639,7 @@
                   <h3 class="section-name">Helper methods where the Context is Any?</h3>
                 </a>
               </div>
-              <ul>
+              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
@@ -679,14 +700,15 @@ with any type of context passed to the router.</p>
                 </li>
               </ul>
             </div>
-          </section>
+          </div>
         </section>
-        <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2019-08-08)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
-        </section>
+
       </article>
     </div>
+    <section class="footer">
+      <p>&copy; 2019 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2019-08-12)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.10.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+    </section>
   </body>
 </div>
 </html>

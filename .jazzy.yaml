@@ -4,6 +4,7 @@ author: HBC Tech
 author_url: https://tech.hbc.com
 output: docs
 documentation: ./*.md
+theme: fullwidth
 
 custom_categories:
   - name: Core Entities
