@@ -7,9 +7,9 @@
 <body>
 <header><div class="row"><a href="index.html"><img src="logo.jpg" alt="Slather logo"></a></div></header><div class="row"><div id="reports">
 <h2 class="cov_title">
-<span>Coverage for "StoryboardFactory.swift" : </span><span class="cov_medium">84.44%</span>
+<span>Coverage for "StoryboardFactory.swift" : </span><span class="cov_high">86.67%</span>
 </h2>
-<h4 class="cov_subtitle">(38 of 45 relevant lines covered)</h4>
+<h4 class="cov_subtitle">(39 of 45 relevant lines covered)</h4>
 <h4 class="cov_filepath">RouteComposer/Classes/Factories/StoryboardFactory.swift</h4>
 <table class="source_code">
 <tr class="never">
@@ -270,32 +270,32 @@
 <tr class="covered">
 <td class="num">52</td>
 <td class="src"><pre><code class="objc">    public init(name: String, bundle: Bundle? = nil, identifier: String? = nil, configuration: ((_: VC) -&gt; Void)? = nil) {</code></pre></td>
-<td class="coverage">79x</td>
+<td class="coverage">80x</td>
 </tr>
 <tr class="covered">
 <td class="num">53</td>
 <td class="src"><pre><code class="objc">        self.name = name</code></pre></td>
-<td class="coverage">79x</td>
+<td class="coverage">80x</td>
 </tr>
 <tr class="covered">
 <td class="num">54</td>
 <td class="src"><pre><code class="objc">        self.bundle = bundle</code></pre></td>
-<td class="coverage">79x</td>
+<td class="coverage">80x</td>
 </tr>
 <tr class="covered">
 <td class="num">55</td>
 <td class="src"><pre><code class="objc">        self.identifier = identifier</code></pre></td>
-<td class="coverage">79x</td>
+<td class="coverage">80x</td>
 </tr>
 <tr class="covered">
 <td class="num">56</td>
 <td class="src"><pre><code class="objc">        self.configuration = configuration</code></pre></td>
-<td class="coverage">79x</td>
+<td class="coverage">80x</td>
 </tr>
 <tr class="covered">
 <td class="num">57</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">79x</td>
+<td class="coverage">80x</td>
 </tr>
 <tr class="never">
 <td class="num">58</td>
@@ -305,12 +305,12 @@
 <tr class="covered">
 <td class="num">59</td>
 <td class="src"><pre><code class="objc">    public func build(with context: C) throws -&gt; VC {</code></pre></td>
-<td class="coverage">48x</td>
+<td class="coverage">49x</td>
 </tr>
 <tr class="covered">
 <td class="num">60</td>
 <td class="src"><pre><code class="objc">        guard let viewControllerID = identifier else {</code></pre></td>
-<td class="coverage">48x</td>
+<td class="coverage">49x</td>
 </tr>
 <tr class="covered">
 <td class="num">61</td>
@@ -325,17 +325,17 @@
 <tr class="covered">
 <td class="num">63</td>
 <td class="src"><pre><code class="objc">        let storyboard = UIStoryboard(name: name, bundle: bundle)</code></pre></td>
-<td class="coverage">21x</td>
+<td class="coverage">22x</td>
 </tr>
 <tr class="covered">
 <td class="num">64</td>
 <td class="src"><pre><code class="objc">        let instantiatedViewController = storyboard.instantiateViewController(withIdentifier: viewControllerID)</code></pre></td>
-<td class="coverage">21x</td>
+<td class="coverage">22x</td>
 </tr>
 <tr class="covered">
 <td class="num">65</td>
 <td class="src"><pre><code class="objc">        guard let viewController = instantiatedViewController as? VC else {</code></pre></td>
-<td class="coverage">21x</td>
+<td class="coverage">22x</td>
 </tr>
 <tr class="missed">
 <td class="num">66</td>
@@ -355,32 +355,32 @@
 <tr class="covered">
 <td class="num">69</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">21x</td>
+<td class="coverage">22x</td>
 </tr>
 <tr class="covered">
 <td class="num">70</td>
 <td class="src"><pre><code class="objc">        if let configuration = configuration {</code></pre></td>
-<td class="coverage">21x</td>
+<td class="coverage">22x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">71</td>
 <td class="src"><pre><code class="objc">            configuration(viewController)</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">72</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">21x</td>
+<td class="coverage">22x</td>
 </tr>
 <tr class="covered">
 <td class="num">73</td>
 <td class="src"><pre><code class="objc">        return viewController</code></pre></td>
-<td class="coverage">21x</td>
+<td class="coverage">22x</td>
 </tr>
 <tr class="covered">
 <td class="num">74</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">21x</td>
+<td class="coverage">22x</td>
 </tr>
 <tr class="never">
 <td class="num">75</td>

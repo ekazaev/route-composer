@@ -7,9 +7,9 @@
 <body>
 <header><div class="row"><a href="index.html"><img src="logo.jpg" alt="Slather logo"></a></div></header><div class="row"><div id="reports">
 <h2 class="cov_title">
-<span>Coverage for "SplitControllerAdapter.swift" : </span><span class="cov_low">63.64%</span>
+<span>Coverage for "SplitControllerAdapter.swift" : </span><span class="cov_low">69.70%</span>
 </h2>
-<h4 class="cov_subtitle">(21 of 33 relevant lines covered)</h4>
+<h4 class="cov_subtitle">(23 of 33 relevant lines covered)</h4>
 <h4 class="cov_filepath">RouteComposer/Classes/Adapters/SplitControllerAdapter.swift</h4>
 <table class="source_code">
 <tr class="never">
@@ -75,17 +75,17 @@
 <tr class="covered">
 <td class="num">13</td>
 <td class="src"><pre><code class="objc">    public init(with splitViewController: VC) {</code></pre></td>
-<td class="coverage">36x</td>
+<td class="coverage">38x</td>
 </tr>
 <tr class="covered">
 <td class="num">14</td>
 <td class="src"><pre><code class="objc">        self.splitViewController = splitViewController</code></pre></td>
-<td class="coverage">36x</td>
+<td class="coverage">38x</td>
 </tr>
 <tr class="covered">
 <td class="num">15</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">36x</td>
+<td class="coverage">38x</td>
 </tr>
 <tr class="never">
 <td class="num">16</td>
@@ -95,17 +95,17 @@
 <tr class="covered">
 <td class="num">17</td>
 <td class="src"><pre><code class="objc">    public var containedViewControllers: [UIViewController] {</code></pre></td>
-<td class="coverage">45x</td>
+<td class="coverage">47x</td>
 </tr>
 <tr class="covered">
 <td class="num">18</td>
 <td class="src"><pre><code class="objc">        return splitViewController?.viewControllers ?? []</code></pre></td>
-<td class="coverage">45x</td>
+<td class="coverage">47x</td>
 </tr>
 <tr class="covered">
 <td class="num">19</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">45x</td>
+<td class="coverage">47x</td>
 </tr>
 <tr class="never">
 <td class="num">20</td>
@@ -165,12 +165,12 @@
 <tr class="covered">
 <td class="num">31</td>
 <td class="src"><pre><code class="objc">    public func makeVisible(_ viewController: UIViewController, animated: Bool, completion: @escaping (_: RoutingResult) -&gt; Void) {</code></pre></td>
-<td class="coverage">8x</td>
+<td class="coverage">10x</td>
 </tr>
 <tr class="covered">
 <td class="num">32</td>
 <td class="src"><pre><code class="objc">        guard splitViewController != nil else {</code></pre></td>
-<td class="coverage">8x</td>
+<td class="coverage">10x</td>
 </tr>
 <tr class="covered">
 <td class="num">33</td>
@@ -180,37 +180,37 @@
 <tr class="covered">
 <td class="num">34</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">7x</td>
+<td class="coverage">9x</td>
 </tr>
 <tr class="covered">
 <td class="num">35</td>
 <td class="src"><pre><code class="objc">        guard contains(viewController) else {</code></pre></td>
-<td class="coverage">7x</td>
+<td class="coverage">9x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">36</td>
 <td class="src"><pre><code class="objc">            completion(.failure(RoutingError.compositionFailed(.init("\(String(describing: splitViewController)) does not contain \(String(describing: viewController))"))))</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">37</td>
 <td class="src"><pre><code class="objc">            return</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">38</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">7x</td>
+<td class="coverage">8x</td>
 </tr>
 <tr class="covered">
 <td class="num">39</td>
 <td class="src"><pre><code class="objc">        completion(.success)</code></pre></td>
-<td class="coverage">7x</td>
+<td class="coverage">8x</td>
 </tr>
 <tr class="covered">
 <td class="num">40</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">7x</td>
+<td class="coverage">8x</td>
 </tr>
 <tr class="never">
 <td class="num">41</td>

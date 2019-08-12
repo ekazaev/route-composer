@@ -75,17 +75,17 @@
 <tr class="covered">
 <td class="num">13</td>
 <td class="src"><pre><code class="objc">    public init(with navigationController: VC) {</code></pre></td>
-<td class="coverage">324x</td>
+<td class="coverage">326x</td>
 </tr>
 <tr class="covered">
 <td class="num">14</td>
 <td class="src"><pre><code class="objc">        self.navigationController = navigationController</code></pre></td>
-<td class="coverage">324x</td>
+<td class="coverage">326x</td>
 </tr>
 <tr class="covered">
 <td class="num">15</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">324x</td>
+<td class="coverage">326x</td>
 </tr>
 <tr class="never">
 <td class="num">16</td>
@@ -95,17 +95,17 @@
 <tr class="covered">
 <td class="num">17</td>
 <td class="src"><pre><code class="objc">    public var containedViewControllers: [UIViewController] {</code></pre></td>
-<td class="coverage">175x</td>
+<td class="coverage">176x</td>
 </tr>
 <tr class="covered">
 <td class="num">18</td>
 <td class="src"><pre><code class="objc">        return navigationController?.viewControllers ?? []</code></pre></td>
-<td class="coverage">175x</td>
+<td class="coverage">176x</td>
 </tr>
 <tr class="covered">
 <td class="num">19</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">175x</td>
+<td class="coverage">176x</td>
 </tr>
 <tr class="never">
 <td class="num">20</td>
@@ -150,12 +150,12 @@
 <tr class="covered">
 <td class="num">28</td>
 <td class="src"><pre><code class="objc">    public func makeVisible(_ viewController: UIViewController, animated: Bool, completion: @escaping (_: RoutingResult) -&gt; Void) {</code></pre></td>
-<td class="coverage">32x</td>
+<td class="coverage">34x</td>
 </tr>
 <tr class="covered">
 <td class="num">29</td>
 <td class="src"><pre><code class="objc">        guard let navigationController = navigationController else {</code></pre></td>
-<td class="coverage">32x</td>
+<td class="coverage">34x</td>
 </tr>
 <tr class="covered">
 <td class="num">30</td>
@@ -165,42 +165,42 @@
 <tr class="covered">
 <td class="num">31</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">31x</td>
+<td class="coverage">33x</td>
 </tr>
 <tr class="covered">
 <td class="num">32</td>
 <td class="src"><pre><code class="objc">        guard navigationController.topViewController != viewController else {</code></pre></td>
-<td class="coverage">31x</td>
+<td class="coverage">33x</td>
 </tr>
 <tr class="covered">
 <td class="num">33</td>
 <td class="src"><pre><code class="objc">            completion(.success)</code></pre></td>
-<td class="coverage">20x</td>
+<td class="coverage">21x</td>
 </tr>
 <tr class="covered">
 <td class="num">34</td>
 <td class="src"><pre><code class="objc">            return</code></pre></td>
-<td class="coverage">20x</td>
+<td class="coverage">21x</td>
 </tr>
 <tr class="covered">
 <td class="num">35</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">20x</td>
+<td class="coverage">21x</td>
 </tr>
 <tr class="covered">
 <td class="num">36</td>
 <td class="src"><pre><code class="objc">        guard contains(viewController) else {</code></pre></td>
-<td class="coverage">11x</td>
+<td class="coverage">12x</td>
 </tr>
 <tr class="covered">
 <td class="num">37</td>
 <td class="src"><pre><code class="objc">            completion(.failure(RoutingError.compositionFailed(.init("\(String(describing: navigationController)) does not contain \(String(describing: viewController))"))))</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">2x</td>
 </tr>
 <tr class="covered">
 <td class="num">38</td>
 <td class="src"><pre><code class="objc">            return</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">2x</td>
 </tr>
 <tr class="covered">
 <td class="num">39</td>

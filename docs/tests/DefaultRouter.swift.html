@@ -200,17 +200,17 @@
 <tr class="covered">
 <td class="num">38</td>
 <td class="src"><pre><code class="objc">    public mutating func add&lt;RI: RoutingInterceptor&gt;(_ interceptor: RI) where RI.Context == Any? {</code></pre></td>
-<td class="coverage">10x</td>
+<td class="coverage">11x</td>
 </tr>
 <tr class="covered">
 <td class="num">39</td>
 <td class="src"><pre><code class="objc">        self.interceptors.append(RoutingInterceptorBox(interceptor))</code></pre></td>
-<td class="coverage">10x</td>
+<td class="coverage">11x</td>
 </tr>
 <tr class="covered">
 <td class="num">40</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">10x</td>
+<td class="coverage">11x</td>
 </tr>
 <tr class="never">
 <td class="num">41</td>
@@ -220,17 +220,17 @@
 <tr class="covered">
 <td class="num">42</td>
 <td class="src"><pre><code class="objc">    public mutating func add&lt;CT: ContextTask&gt;(_ contextTask: CT) where CT.Context == Any? {</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">2x</td>
 </tr>
 <tr class="covered">
 <td class="num">43</td>
 <td class="src"><pre><code class="objc">        self.contextTasks.append(ContextTaskBox(contextTask))</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">2x</td>
 </tr>
 <tr class="covered">
 <td class="num">44</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">2x</td>
 </tr>
 <tr class="never">
 <td class="num">45</td>
@@ -240,17 +240,17 @@
 <tr class="covered">
 <td class="num">46</td>
 <td class="src"><pre><code class="objc">    public mutating func add&lt;PT: PostRoutingTask&gt;(_ postTask: PT) where PT.Context == Any? {</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">2x</td>
 </tr>
 <tr class="covered">
 <td class="num">47</td>
 <td class="src"><pre><code class="objc">        self.postTasks.append(PostRoutingTaskBox(postTask))</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">2x</td>
 </tr>
 <tr class="covered">
 <td class="num">48</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">2x</td>
 </tr>
 <tr class="never">
 <td class="num">49</td>

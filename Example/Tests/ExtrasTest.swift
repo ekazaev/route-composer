@@ -68,7 +68,24 @@ class ExtrasTest: XCTestCase {
                 .assemble()
 
         let expectation = XCTestExpectation(description: "Navigation to finish")
-
+        var globalInterceptorPrepared = 0
+        var globalInterceptorRun = 0
+        var globalTaskRun = 0
+        var globalPostTaskRun = 0
+        var router = self.router
+        router.add(InlineInterceptor(prepare: { (_: Any?) throws in
+            globalInterceptorPrepared += 1
+        }, { (_: Any?, completion: @escaping (RoutingResult) -> Void) in
+            globalInterceptorRun += 1
+            completion(.success)
+        }))
+        router.add(InlineContextTask({ (_: UIViewController, _: Any?) in
+            globalTaskRun += 1
+        }))
+        router.add(InlinePostTask({ (_: UIViewController, _: Any?, viewControllers: [UIViewController]) in
+            globalPostTaskRun += 1
+            XCTAssertEqual(viewControllers.count, 3)
+        }))
         XCTAssertNoThrow(try router.navigate(to: screenConfig, with: nil, animated: false, completion: { result in
             XCTAssertTrue(result.isSuccessful)
             XCTAssertNotNil(currentViewController.presentedViewController)
@@ -85,6 +102,10 @@ class ExtrasTest: XCTestCase {
         }))
 
         wait(for: [expectation], timeout: 0.3)
+        XCTAssertEqual(globalInterceptorPrepared, 1)
+        XCTAssertEqual(globalInterceptorRun, 1)
+        XCTAssertEqual(globalTaskRun, 3)
+        XCTAssertEqual(globalPostTaskRun, 3)
     }
 
     func testSingleNavigationLock() {
@@ -107,18 +128,28 @@ class ExtrasTest: XCTestCase {
     }
 
     func testDismissalMethodProvidingContextTask() {
-        class DismissingViewController: UIViewController, Dismissible {
-            var dismissalBlock: ((Void, Bool, ((RoutingResult) -> Void)?) -> Void)?
+        class DismissingViewController<C>: UIViewController, Dismissible {
+            var dismissalBlock: ((C, Bool, ((RoutingResult) -> Void)?) -> Void)?
         }
 
-        let viewController = DismissingViewController()
+        let viewControllerVoid = DismissingViewController<Void>()
         var wasInCompletion = false
         try? DismissalMethodProvidingContextTask<DismissingViewController, Any?>(dismissalBlock: { (_: Void, animated, _) in
             XCTAssertEqual(animated, true)
             wasInCompletion = true
-        }).perform(on: viewController, with: nil)
-        viewController.dismissViewController(animated: true)
+        }).perform(on: viewControllerVoid, with: nil)
+        viewControllerVoid.dismissViewController(animated: true)
         XCTAssertEqual(wasInCompletion, true)
+
+        let viewControllerAny = DismissingViewController<Any?>()
+        wasInCompletion = false
+        try? DismissalMethodProvidingContextTask<DismissingViewController, Any?>(dismissalBlock: { (_: Any?, animated, _) in
+            XCTAssertEqual(animated, true)
+            wasInCompletion = true
+        }).perform(on: viewControllerAny, with: nil)
+        viewControllerAny.dismissViewController(animated: true)
+        XCTAssertEqual(wasInCompletion, true)
+
     }
 
     func testDismissibleWithRuntimeStorage() {

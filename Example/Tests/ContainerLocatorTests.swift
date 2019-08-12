@@ -157,6 +157,20 @@ class ContainerLocatorTests: XCTestCase {
         XCTAssertEqual(try? DefaultContainerAdapterLocator().getAdapter(for: tabBarController).visibleViewControllers[0], viewController1)
         try? DefaultContainerAdapterLocator().getAdapter(for: tabBarController).makeVisible(viewController2, animated: false, completion: { _ in })
         XCTAssertEqual(try? DefaultContainerAdapterLocator().getAdapter(for: tabBarController).visibleViewControllers[0], viewController2)
+
+        var wasInCompletion = false
+        try? DefaultContainerAdapterLocator().getAdapter(for: tabBarController).makeVisible(UIViewController(), animated: false, completion: { result in
+            wasInCompletion = true
+            XCTAssertFalse(result.isSuccessful)
+        })
+        XCTAssertTrue(wasInCompletion)
+
+        wasInCompletion = false
+        try? DefaultContainerAdapterLocator().getAdapter(for: tabBarController).makeVisible(viewController1, animated: false, completion: { result in
+            wasInCompletion = true
+            XCTAssertTrue(result.isSuccessful)
+        })
+        XCTAssertTrue(wasInCompletion)
     }
 
     func testNavigationControllerAdapterMakeVisible() {
@@ -169,6 +183,20 @@ class ContainerLocatorTests: XCTestCase {
         XCTAssertEqual(try? DefaultContainerAdapterLocator().getAdapter(for: navigationController).visibleViewControllers[0], viewController2)
         try? DefaultContainerAdapterLocator().getAdapter(for: navigationController).makeVisible(viewController1, animated: false, completion: { _ in })
         XCTAssertEqual(try? DefaultContainerAdapterLocator().getAdapter(for: navigationController).visibleViewControllers[0], viewController1)
+
+        var wasInCompletion = false
+        try? DefaultContainerAdapterLocator().getAdapter(for: navigationController).makeVisible(UIViewController(), animated: false, completion: { result in
+            wasInCompletion = true
+            XCTAssertFalse(result.isSuccessful)
+        })
+        XCTAssertTrue(wasInCompletion)
+
+        wasInCompletion = false
+        try? DefaultContainerAdapterLocator().getAdapter(for: navigationController).makeVisible(viewController1, animated: false, completion: { result in
+            wasInCompletion = true
+            XCTAssertTrue(result.isSuccessful)
+        })
+        XCTAssertTrue(wasInCompletion)
     }
 
     func testSplitControllerAdapterMakeVisible() {
@@ -181,6 +209,20 @@ class ContainerLocatorTests: XCTestCase {
         XCTAssertEqual(try? DefaultContainerAdapterLocator().getAdapter(for: splitController).visibleViewControllers.count, splitController.isCollapsed ? 1 : 2)
         XCTAssertEqual(try? DefaultContainerAdapterLocator().getAdapter(for: splitController).visibleViewControllers[0],
                 splitController.isCollapsed ? viewController2 : viewController1)
+
+        var wasInCompletion = false
+        try? DefaultContainerAdapterLocator().getAdapter(for: splitController).makeVisible(UIViewController(), animated: false, completion: { result in
+            wasInCompletion = true
+            XCTAssertFalse(result.isSuccessful)
+        })
+        XCTAssertTrue(wasInCompletion)
+
+        wasInCompletion = false
+        try? DefaultContainerAdapterLocator().getAdapter(for: splitController).makeVisible(viewController1, animated: false, completion: { result in
+            wasInCompletion = true
+            XCTAssertTrue(result.isSuccessful)
+        })
+        XCTAssertTrue(wasInCompletion)
     }
 
 }

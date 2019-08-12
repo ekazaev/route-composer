@@ -31,6 +31,9 @@ class MultiplexerTest: XCTestCase {
         var multiplexer = InterceptorMultiplexer(interceptors)
         try? multiplexer.prepare(with: nil as Any?)
         XCTAssertEqual(prepareCountRun, 10)
+        XCTAssertEqual(multiplexer.description, "[InlineInterceptor<Optional<Any>>(prepareBlock: Optional((Function)), " +
+                "performBlock: (Function)), InlineInterceptor<Optional<Any>>(prepareBlock: Optional((Function)), " +
+                "performBlock: (Function))]")
     }
 
     func testRoutingPrepareInterceptorPrepareThrows() {
@@ -60,6 +63,17 @@ class MultiplexerTest: XCTestCase {
         multiplexer.perform(with: nil as Any?, completion: { result in
             wasInCompletion = true
             XCTAssertFalse(result.isSuccessful)
+        })
+        XCTAssertTrue(wasInCompletion)
+    }
+
+    func testRoutingInterceptorPerformNoInterceptors() {
+        var multiplexer = InterceptorMultiplexer([])
+        XCTAssertNoThrow(try multiplexer.prepare(with: nil as Any?))
+        var wasInCompletion = false
+        multiplexer.perform(with: nil as Any?, completion: { result in
+            wasInCompletion = true
+            XCTAssertTrue(result.isSuccessful)
         })
         XCTAssertTrue(wasInCompletion)
     }

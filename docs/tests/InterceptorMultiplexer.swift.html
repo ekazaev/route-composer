@@ -7,9 +7,9 @@
 <body>
 <header><div class="row"><a href="index.html"><img src="logo.jpg" alt="Slather logo"></a></div></header><div class="row"><div id="reports">
 <h2 class="cov_title">
-<span>Coverage for "InterceptorMultiplexer.swift" : </span><span class="cov_high">86.49%</span>
+<span>Coverage for "InterceptorMultiplexer.swift" : </span><span class="cov_high">100.00%</span>
 </h2>
-<h4 class="cov_subtitle">(32 of 37 relevant lines covered)</h4>
+<h4 class="cov_subtitle">(37 of 37 relevant lines covered)</h4>
 <h4 class="cov_filepath">RouteComposer/Classes/Router/Multiplexers/InterceptorMultiplexer.swift</h4>
 <table class="source_code">
 <tr class="never">
@@ -65,17 +65,17 @@
 <tr class="covered">
 <td class="num">11</td>
 <td class="src"><pre><code class="objc">    init(_ interceptors: [AnyRoutingInterceptor]) {</code></pre></td>
-<td class="coverage">25x</td>
+<td class="coverage">26x</td>
 </tr>
 <tr class="covered">
 <td class="num">12</td>
 <td class="src"><pre><code class="objc">        self.interceptors = interceptors</code></pre></td>
-<td class="coverage">25x</td>
+<td class="coverage">26x</td>
 </tr>
 <tr class="covered">
 <td class="num">13</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">25x</td>
+<td class="coverage">26x</td>
 </tr>
 <tr class="never">
 <td class="num">14</td>
@@ -85,7 +85,7 @@
 <tr class="covered">
 <td class="num">15</td>
 <td class="src"><pre><code class="objc">    mutating func prepare&lt;Context&gt;(with context: Context) throws {</code></pre></td>
-<td class="coverage">5x</td>
+<td class="coverage">6x</td>
 </tr>
 <tr class="covered">
 <td class="num">16</td>
@@ -115,7 +115,7 @@
 <tr class="covered">
 <td class="num">21</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">5x</td>
+<td class="coverage">6x</td>
 </tr>
 <tr class="never">
 <td class="num">22</td>
@@ -125,22 +125,22 @@
 <tr class="covered">
 <td class="num">23</td>
 <td class="src"><pre><code class="objc">    func perform&lt;Context&gt;(with context: Context, completion: @escaping (RoutingResult) -&gt; Void) {</code></pre></td>
-<td class="coverage">23x</td>
+<td class="coverage">24x</td>
 </tr>
 <tr class="covered">
 <td class="num">24</td>
 <td class="src"><pre><code class="objc">        guard !self.interceptors.isEmpty else {</code></pre></td>
-<td class="coverage">23x</td>
+<td class="coverage">24x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">25</td>
 <td class="src"><pre><code class="objc">            completion(.success)</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">26</td>
 <td class="src"><pre><code class="objc">            return</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">27</td>
@@ -247,20 +247,20 @@
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">48</td>
 <td class="src"><pre><code class="objc">    var description: String {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">49</td>
 <td class="src"><pre><code class="objc">        return String(describing: interceptors)</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">50</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="never">
 <td class="num">51</td>

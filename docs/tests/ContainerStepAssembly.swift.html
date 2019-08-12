@@ -7,9 +7,9 @@
 <body>
 <header><div class="row"><a href="index.html"><img src="logo.jpg" alt="Slather logo"></a></div></header><div class="row"><div id="reports">
 <h2 class="cov_title">
-<span>Coverage for "ContainerStepAssembly.swift" : </span><span class="cov_low">55.88%</span>
+<span>Coverage for "ContainerStepAssembly.swift" : </span><span class="cov_high">100.00%</span>
 </h2>
-<h4 class="cov_subtitle">(19 of 34 relevant lines covered)</h4>
+<h4 class="cov_subtitle">(34 of 34 relevant lines covered)</h4>
 <h4 class="cov_filepath">RouteComposer/Classes/Assemblies/ContainerStepAssembly.swift</h4>
 <table class="source_code">
 <tr class="never">
@@ -175,27 +175,27 @@
 <tr class="covered">
 <td class="num">33</td>
 <td class="src"><pre><code class="objc">    public init(finder: F, factory: FC) {</code></pre></td>
-<td class="coverage">3x</td>
+<td class="coverage">5x</td>
 </tr>
 <tr class="covered">
 <td class="num">34</td>
 <td class="src"><pre><code class="objc">        self.factory = factory</code></pre></td>
-<td class="coverage">3x</td>
+<td class="coverage">5x</td>
 </tr>
 <tr class="covered">
 <td class="num">35</td>
 <td class="src"><pre><code class="objc">        self.finder = finder</code></pre></td>
-<td class="coverage">3x</td>
+<td class="coverage">5x</td>
 </tr>
 <tr class="covered">
 <td class="num">36</td>
 <td class="src"><pre><code class="objc">        self.previousSteps = []</code></pre></td>
-<td class="coverage">3x</td>
+<td class="coverage">5x</td>
 </tr>
 <tr class="covered">
 <td class="num">37</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">3x</td>
+<td class="coverage">5x</td>
 </tr>
 <tr class="never">
 <td class="num">38</td>
@@ -352,40 +352,40 @@
 <td class="src"><pre><code class="objc">    /// - Parameter step: `ActionToStepIntegrator` instance to be used.</code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">69</td>
 <td class="src"><pre><code class="objc">    func from&lt;VC: UIViewController&gt;(_ step: ActionToStepIntegrator&lt;VC, Context&gt;) -&gt; ActionConnectingAssembly&lt;VC, ViewController, Context&gt; {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">70</td>
 <td class="src"><pre><code class="objc">        var previousSteps = self.previousSteps</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">71</td>
 <td class="src"><pre><code class="objc">        let entitiesCollector = BaseEntitiesCollector&lt;ContainerFactoryBox&lt;FC&gt;, ActionBox&gt;(finder: finder, factory: factory, action: ViewControllerActions.NilAction())</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">72</td>
 <td class="src"><pre><code class="objc">        let currentStep = BaseStep(entitiesProvider: entitiesCollector, taskProvider: taskCollector)</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">73</td>
 <td class="src"><pre><code class="objc">        previousSteps.append(currentStep)</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">74</td>
 <td class="src"><pre><code class="objc">        return ActionConnectingAssembly(stepToFullFill: step, previousSteps: previousSteps)</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">75</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="never">
 <td class="num">76</td>
@@ -412,45 +412,45 @@
 <td class="src"><pre><code class="objc">    /// - Parameter step: `DestinationStep` instance to be used.</code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">81</td>
 <td class="src"><pre><code class="objc">    func from&lt;VC: UIViewController&gt;(_ step: DestinationStep&lt;VC, Context&gt;) -&gt; LastStepInChainAssembly&lt;ViewController, Context&gt; {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">82</td>
 <td class="src"><pre><code class="objc">        var previousSteps = self.previousSteps</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">83</td>
 <td class="src"><pre><code class="objc">        let entitiesCollector = BaseEntitiesCollector&lt;ContainerFactoryBox&lt;FC&gt;, ActionBox&gt;(finder: finder, factory: factory, action: ViewControllerActions.NilAction())</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">84</td>
 <td class="src"><pre><code class="objc">        let currentStep = BaseStep(entitiesProvider: entitiesCollector, taskProvider: taskCollector)</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">85</td>
 <td class="src"><pre><code class="objc">        previousSteps.append(currentStep)</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">86</td>
 <td class="src"><pre><code class="objc">        previousSteps.append(step)</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">87</td>
 <td class="src"><pre><code class="objc">        return LastStepInChainAssembly(previousSteps: previousSteps)</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">88</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="never">
 <td class="num">89</td>

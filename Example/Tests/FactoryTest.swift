@@ -52,6 +52,24 @@ class FactoryTest: XCTestCase {
         XCTAssertThrowsError(try factory.build())
     }
 
+    func testStoryboardFactory() {
+        var wasInCompletion = false
+        var builtViewController: UIViewController?
+        let factory = StoryboardFactory<UIViewController, Any?>(name: "TabBar",
+                bundle: Bundle.main,
+                identifier: "FiguresViewController",
+                configuration: { viewController in
+                    wasInCompletion = true
+                    builtViewController = viewController
+                })
+        XCTAssertEqual(factory.identifier, "FiguresViewController")
+        XCTAssertEqual(factory.name, "TabBar")
+        XCTAssertNotNil(factory.configuration)
+        XCTAssertNotNil(factory.bundle?.bundleIdentifier)
+        XCTAssertEqual(try? factory.build(), builtViewController)
+        XCTAssertTrue(wasInCompletion)
+    }
+
     func testStoryboardFactoryWrongType() {
         let factory = StoryboardFactory<UINavigationController, Any?>(storyboardName: "TabBar")
         XCTAssertThrowsError(try factory.build())

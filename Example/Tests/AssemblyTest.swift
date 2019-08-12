@@ -82,17 +82,27 @@ class AssemblyTest: XCTestCase {
                 .from(GeneralStep.root())
         XCTAssertEqual(lastStepAssembly.previousSteps.count, 3)
 
-        var currentStep: RoutingStep? = lastStepAssembly.assemble()
-        var chainedStepCount = 0
-        while currentStep != nil {
-            chainedStepCount += 1
-            if let chainableStep = currentStep as? ChainableStep {
-                currentStep = chainableStep.getPreviousStep(with: nil as Any?)
-            } else {
-                currentStep = nil
-            }
-        }
+        let currentStep: RoutingStep? = lastStepAssembly.assemble()
+        let chainedStepCount = countSteps(currentStep: currentStep)
         XCTAssertEqual(chainedStepCount, 5)
+    }
+
+    func testContainerStepAssemblyNilFactory() {
+        var lastStepAssembly = ContainerStepAssembly(finder: ClassFinder(), factory: NilContainerFactory<UINavigationController, Any?>())
+                .from(TabBarControllerStep())
+                .using(GeneralAction.presentModally())
+                .from(GeneralStep.root())
+        XCTAssertEqual(lastStepAssembly.previousSteps.count, 3)
+
+        var chainedStepCount = countSteps(currentStep: lastStepAssembly.assemble())
+        XCTAssertEqual(chainedStepCount, 5)
+
+        lastStepAssembly = ContainerStepAssembly(finder: ClassFinder(), factory: NilContainerFactory<UINavigationController, Any?>())
+                .from(GeneralStep.root())
+        XCTAssertEqual(lastStepAssembly.previousSteps.count, 2)
+
+        chainedStepCount = countSteps(currentStep: lastStepAssembly.assemble())
+        XCTAssertEqual(chainedStepCount, 4)
     }
 
     func testChainAssembly() {
@@ -217,8 +227,8 @@ class AssemblyTest: XCTestCase {
         let step = SwitchAssembly<UIViewController, String>()
                 .addCase(when: InstanceFinder(instance: viewController), from: SwitchAssembly<UIViewController, String>().assemble())
                 .assemble(default: {
-            return SwitchAssembly<UIViewController, String>().assemble()
-        })
+                    return SwitchAssembly<UIViewController, String>().assemble()
+                })
         XCTAssertEqual((step.destinationStep as? SwitcherStep)?.resolvers.count, 2)
         XCTAssertNotNil((step.destinationStep as? SwitcherStep)?.resolvers.first?.resolve(with: "10"))
         XCTAssertNotNil((step.destinationStep as? SwitcherStep)?.resolvers.last?.resolve(with: "10"))
@@ -277,6 +287,20 @@ class AssemblyTest: XCTestCase {
                 SingleContainerStep(finder: NilFinder<UINavigationController, String>(), factory: NilContainerFactory()).expectingContainer()
         XCTAssertNotNil(stepExpectingContainerTyped.routingStep(with: ViewControllerActions.NilAction()))
         XCTAssertNotNil(stepExpectingContainerTyped.embeddableRoutingStep(with: UINavigationController.push()))
+    }
+
+    private func countSteps(currentStep: RoutingStep?) -> Int {
+        var currentStep = currentStep
+        var chainedStepCount = 0
+        while currentStep != nil {
+            chainedStepCount += 1
+            if let chainableStep = currentStep as? ChainableStep {
+                currentStep = chainableStep.getPreviousStep(with: nil as Any?)
+            } else {
+                currentStep = nil
+            }
+        }
+        return chainedStepCount
     }
 
 }

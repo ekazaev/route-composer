@@ -10,6 +10,7 @@
 		3964C13C9510D7C17530911E /* Pods_RouteComposer_Example_RouteComposer_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0293FF29C4D706E5D7F4B94 /* Pods_RouteComposer_Example_RouteComposer_Tests.framework */; };
 		453BC2E32288C6F100314B33 /* ContainerLocatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453BC2E22288C6F100314B33 /* ContainerLocatorTests.swift */; };
 		4552B83D22FDAE2E006E2A5D /* ShortUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4552B83C22FDAE2E006E2A5D /* ShortUITests.swift */; };
+		4552B84B23018943006E2A5D /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* TabBar.storyboard */; };
 		4570AD2A2238769C00809A01 /* ExtrasTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4570AD292238769C00809A01 /* ExtrasTest.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACDB1AFB9204008FA782 /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* TabBar.storyboard */; };
@@ -748,6 +749,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4552B84B23018943006E2A5D /* TabBar.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -90,22 +90,22 @@
 <tr class="covered">
 <td class="num">16</td>
 <td class="src"><pre><code class="objc">                var interceptor = $0</code></pre></td>
-<td class="coverage">84x</td>
+<td class="coverage">85x</td>
 </tr>
 <tr class="covered">
 <td class="num">17</td>
 <td class="src"><pre><code class="objc">                try interceptor.prepare(with: context)</code></pre></td>
-<td class="coverage">84x</td>
+<td class="coverage">85x</td>
 </tr>
 <tr class="covered">
 <td class="num">18</td>
 <td class="src"><pre><code class="objc">                return interceptor</code></pre></td>
-<td class="coverage">84x</td>
+<td class="coverage">85x</td>
 </tr>
 <tr class="covered">
 <td class="num">19</td>
 <td class="src"><pre><code class="objc">            })</code></pre></td>
-<td class="coverage">84x</td>
+<td class="coverage">85x</td>
 </tr>
 <tr class="covered">
 <td class="num">20</td>
@@ -160,32 +160,32 @@
 <tr class="covered">
 <td class="num">30</td>
 <td class="src"><pre><code class="objc">                completion(.success)</code></pre></td>
-<td class="coverage">6x</td>
+<td class="coverage">5x</td>
 </tr>
 <tr class="covered">
 <td class="num">31</td>
 <td class="src"><pre><code class="objc">                return</code></pre></td>
-<td class="coverage">6x</td>
+<td class="coverage">5x</td>
 </tr>
 <tr class="covered">
 <td class="num">32</td>
 <td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">82x</td>
+<td class="coverage">83x</td>
 </tr>
 <tr class="covered">
 <td class="num">33</td>
 <td class="src"><pre><code class="objc">            let interceptorToRun = interceptors.count == 1 ? interceptors[0] : InterceptorMultiplexer(interceptors)</code></pre></td>
-<td class="coverage">82x</td>
+<td class="coverage">83x</td>
 </tr>
 <tr class="covered">
 <td class="num">34</td>
 <td class="src"><pre><code class="objc">            interceptorToRun.perform(with: context, completion: completion)</code></pre></td>
-<td class="coverage">82x</td>
+<td class="coverage">83x</td>
 </tr>
 <tr class="covered">
 <td class="num">35</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">82x</td>
+<td class="coverage">83x</td>
 </tr>
 <tr class="never">
 <td class="num">36</td>
@@ -235,22 +235,22 @@
 <tr class="covered">
 <td class="num">45</td>
 <td class="src"><pre><code class="objc">                var contextTask = $0</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">2x</td>
 </tr>
 <tr class="covered">
 <td class="num">46</td>
 <td class="src"><pre><code class="objc">                try contextTask.prepare(with: context)</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">2x</td>
 </tr>
 <tr class="covered">
 <td class="num">47</td>
 <td class="src"><pre><code class="objc">                return contextTask</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">2x</td>
 </tr>
 <tr class="covered">
 <td class="num">48</td>
 <td class="src"><pre><code class="objc">            })</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">2x</td>
 </tr>
 <tr class="covered">
 <td class="num">49</td>
@@ -305,12 +305,12 @@
 <tr class="covered">
 <td class="num">59</td>
 <td class="src"><pre><code class="objc">                try $0.perform(on: viewController, with: context)</code></pre></td>
-<td class="coverage">80x</td>
+<td class="coverage">83x</td>
 </tr>
 <tr class="covered">
 <td class="num">60</td>
 <td class="src"><pre><code class="objc">            })</code></pre></td>
-<td class="coverage">80x</td>
+<td class="coverage">83x</td>
 </tr>
 <tr class="covered">
 <td class="num">61</td>
@@ -630,12 +630,12 @@
 <tr class="covered">
 <td class="num">124</td>
 <td class="src"><pre><code class="objc">            func perform&lt;Context&gt;(on viewController: UIViewController, with context: Context, routingStack: [UIViewController]) {</code></pre></td>
-<td class="coverage">176x</td>
+<td class="coverage">174x</td>
 </tr>
 <tr class="covered">
 <td class="num">125</td>
 <td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">176x</td>
+<td class="coverage">174x</td>
 </tr>
 <tr class="never">
 <td class="num">126</td>
@@ -675,52 +675,52 @@
 <tr class="covered">
 <td class="num">133</td>
 <td class="src"><pre><code class="objc">                let postTaskSlip = PostTaskSlip(viewController: viewController, postTask: EmptyPostTask())</code></pre></td>
-<td class="coverage">185x</td>
+<td class="coverage">183x</td>
 </tr>
 <tr class="covered">
 <td class="num">134</td>
 <td class="src"><pre><code class="objc">                taskSlips.append(postTaskSlip)</code></pre></td>
-<td class="coverage">185x</td>
+<td class="coverage">183x</td>
 </tr>
 <tr class="covered">
 <td class="num">135</td>
 <td class="src"><pre><code class="objc">                return</code></pre></td>
-<td class="coverage">185x</td>
+<td class="coverage">183x</td>
 </tr>
 <tr class="covered">
 <td class="num">136</td>
 <td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">185x</td>
+<td class="coverage">183x</td>
 </tr>
 <tr class="covered">
 <td class="num">137</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage">11x</td>
+<td class="coverage">13x</td>
 </tr>
 <tr class="covered">
 <td class="num">138</td>
 <td class="src"><pre><code class="objc">            postTasks.forEach({</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">15x</td>
 </tr>
 <tr class="covered">
 <td class="num">139</td>
 <td class="src"><pre><code class="objc">                let postTaskSlip = PostTaskSlip(viewController: viewController, postTask: $0)</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">15x</td>
 </tr>
 <tr class="covered">
 <td class="num">140</td>
 <td class="src"><pre><code class="objc">                taskSlips.append(postTaskSlip)</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">15x</td>
 </tr>
 <tr class="covered">
 <td class="num">141</td>
 <td class="src"><pre><code class="objc">            })</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">15x</td>
 </tr>
 <tr class="covered">
 <td class="num">142</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">11x</td>
+<td class="coverage">13x</td>
 </tr>
 <tr class="never">
 <td class="num">143</td>
@@ -740,17 +740,17 @@
 <tr class="covered">
 <td class="num">146</td>
 <td class="src"><pre><code class="objc">            taskSlips.forEach({</code></pre></td>
-<td class="coverage">189x</td>
+<td class="coverage">190x</td>
 </tr>
 <tr class="covered">
 <td class="num">147</td>
 <td class="src"><pre><code class="objc">                guard let viewController = $0.viewController, !viewControllers.contains(viewController) else {</code></pre></td>
-<td class="coverage">189x</td>
+<td class="coverage">190x</td>
 </tr>
 <tr class="covered">
 <td class="num">148</td>
 <td class="src"><pre><code class="objc">                    return</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">2x</td>
 </tr>
 <tr class="covered">
 <td class="num">149</td>
@@ -775,12 +775,12 @@
 <tr class="covered">
 <td class="num">153</td>
 <td class="src"><pre><code class="objc">            try taskSlips.forEach({ slip in</code></pre></td>
-<td class="coverage">189x</td>
+<td class="coverage">190x</td>
 </tr>
 <tr class="covered">
 <td class="num">154</td>
 <td class="src"><pre><code class="objc">                guard let viewController = slip.viewController else {</code></pre></td>
-<td class="coverage">189x</td>
+<td class="coverage">190x</td>
 </tr>
 <tr class="missed">
 <td class="num">155</td>
@@ -790,17 +790,17 @@
 <tr class="covered">
 <td class="num">156</td>
 <td class="src"><pre><code class="objc">                }</code></pre></td>
-<td class="coverage">189x</td>
+<td class="coverage">190x</td>
 </tr>
 <tr class="covered">
 <td class="num">157</td>
 <td class="src"><pre><code class="objc">                try slip.postTask.perform(on: viewController, with: context, routingStack: viewControllers)</code></pre></td>
-<td class="coverage">189x</td>
+<td class="coverage">190x</td>
 </tr>
 <tr class="covered">
 <td class="num">158</td>
 <td class="src"><pre><code class="objc">            })</code></pre></td>
-<td class="coverage">189x</td>
+<td class="coverage">190x</td>
 </tr>
 <tr class="covered">
 <td class="num">159</td>

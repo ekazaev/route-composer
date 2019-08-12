@@ -120,14 +120,73 @@ class BoxTests: XCTestCase {
         let actionBox = ActionBox(action)
         let navigationController = UINavigationController()
         let postponedIntegrationHandler = DefaultRouter.DefaultPostponedIntegrationHandler(logger: nil, containerAdapterLocator: DefaultContainerAdapterLocator())
+        var wasInCompletion = false
         actionBox.perform(with: UIViewController(), on: navigationController, with: postponedIntegrationHandler, nextAction: nil, animated: true) { result in
+            wasInCompletion = true
             guard case .success = result else {
                 XCTAssert(false)
                 return
             }
         }
+        XCTAssertEqual(wasInCompletion, true)
         XCTAssertEqual(navigationController.viewControllers.count, 1)
         XCTAssertNil(postponedIntegrationHandler.containerViewController)
+
+        let tabBarController = UITabBarController()
+        wasInCompletion = false
+        actionBox.perform(with: UIViewController(), on: tabBarController, with: postponedIntegrationHandler, nextAction: nil, animated: true) { result in
+            wasInCompletion = true
+            XCTAssertFalse(result.isSuccessful)
+        }
+        XCTAssertEqual(wasInCompletion, true)
+        XCTAssertEqual(navigationController.viewControllers.count, 1)
+        XCTAssertNil(postponedIntegrationHandler.containerViewController)
+    }
+
+    func testActionBoxPerformWithUnsuccessfulPurge() {
+
+        class TestPostponedActionIntegrationHandler: PostponedActionIntegrationHandler {
+            private(set) var containerViewController: ContainerViewController?
+            private(set) var postponedViewControllers: [UIViewController] = []
+
+            func update(containerViewController: ContainerViewController, animated: Bool, completion: @escaping (RoutingResult) -> Void) {
+                fatalError()
+            }
+
+            func update(postponedViewControllers: [UIViewController]) {
+                fatalError()
+            }
+
+            func purge(animated: Bool, completion: @escaping (RoutingResult) -> Void) {
+                completion(.failure(RoutingError.compositionFailed(.init("Test"))))
+            }
+        }
+
+        class TestAction: Action {
+
+            func perform(with viewController: UIViewController, on existingController: UINavigationController, animated: Bool, completion: @escaping (RoutingResult) -> Void) {
+                existingController.viewControllers = [viewController]
+                completion(.success)
+            }
+
+        }
+
+        let action = TestAction()
+        let actionBox = ActionBox(action)
+        let navigationController = UINavigationController()
+        let postponedIntegrationHandler = TestPostponedActionIntegrationHandler()
+        var wasInCompletion = false
+        actionBox.perform(with: UIViewController(), on: navigationController, with: postponedIntegrationHandler, nextAction: nil, animated: true) { result in
+            wasInCompletion = true
+            XCTAssertFalse(result.isSuccessful)
+            guard let routingError = try? result.getError() as? RoutingError,
+                  case let .compositionFailed(context) = routingError else {
+                XCTAssertFalse(true)
+                return
+            }
+            XCTAssertEqual(context.description, "Test")
+        }
+        XCTAssertEqual(wasInCompletion, true)
     }
 
     func testActionBoxPerformEmbedding() {
