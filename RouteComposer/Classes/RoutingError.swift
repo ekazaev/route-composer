@@ -90,7 +90,6 @@ public enum RoutingError: Error, CustomStringConvertible {
         case .generic(let context):
             return "Generic Error: \(context.description)"
         }
-
     }
 
 }

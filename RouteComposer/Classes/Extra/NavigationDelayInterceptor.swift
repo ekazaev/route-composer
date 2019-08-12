@@ -6,7 +6,7 @@
 import Foundation
 import UIKit
 
-/// `NavigationDelayInterceptor` delays the router from starting the navigation, while any view controllers in the
+/// `NavigationDelayingInterceptor` delays the router from starting the navigation, while any view controllers in the
 /// stack are being presented or dismissed. In case your app has some other navigation instruments rather than
 /// `RouteComposer` or you have a situation when a few routers work simultaneously, add it to your router to avoid
 /// the router not being able to navigate to the destination because a view controller in the stack is
@@ -17,7 +17,7 @@ import UIKit
 /// situations. The `.wait` strategy can be used only as a temporary solution.*
 public struct NavigationDelayingInterceptor: RoutingInterceptor {
 
-    /// The strategy to be used by `NavigationDelayInterceptor`
+    /// The strategy to be used by `NavigationDelayingInterceptor`
     ///
     /// - wait: Wait while some `UIViewController` is being presented or dismissed.
     /// - abort:  Abort tha navigation if some `UIViewController` is being presented or dismissed.

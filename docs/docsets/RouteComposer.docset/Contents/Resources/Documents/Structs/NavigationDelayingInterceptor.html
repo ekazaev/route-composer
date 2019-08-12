@@ -490,7 +490,7 @@
 
                 </div>
               </div>
-            <p><code>NavigationDelayInterceptor</code> delays the router from starting the navigation, while any view controllers in the
+            <p><code>NavigationDelayingInterceptor</code> delays the router from starting the navigation, while any view controllers in the
 stack are being presented or dismissed. In case your app has some other navigation instruments rather than
 <code>RouteComposer</code> or you have a situation when a few routers work simultaneously, add it to your router to avoid
 the router not being able to navigate to the destination because a view controller in the stack is
@@ -520,7 +520,7 @@ situations. The <code>.wait</code> strategy can be used only as a temporary solu
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The strategy to be used by <code>NavigationDelayInterceptor</code></p>
+                        <p>The strategy to be used by <code><a href="../Structs/NavigationDelayingInterceptor.html">NavigationDelayingInterceptor</a></code></p>
 
 <ul>
 <li>wait: Wait while some <code>UIViewController</code> is being presented or dismissed.</li>

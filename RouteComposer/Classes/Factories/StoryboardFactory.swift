@@ -63,9 +63,11 @@ public struct StoryboardFactory<VC: UIViewController, C>: Factory {
         let storyboard = UIStoryboard(name: name, bundle: bundle)
         let instantiatedViewController = storyboard.instantiateViewController(withIdentifier: viewControllerID)
         guard let viewController = instantiatedViewController as? VC else {
-            throw RoutingError.compositionFailed(.init("Unable to instantiate UIViewController with " +
-                    " \(viewControllerID) identifier in \(name) storyboard " +
-                    "as \(String(describing: type(of: VC.self))), got \(String(describing: instantiatedViewController)) instead."))
+            throw RoutingError.typeMismatch(type: type(of: instantiatedViewController),
+                    expectedType: VC.self,
+                    .init("Unable to instantiate UIViewController with " +
+                            " \(viewControllerID) identifier in \(name) storyboard " +
+                            "as \(String(describing: type(of: VC.self))), got \(String(describing: instantiatedViewController)) instead."))
         }
         if let configuration = configuration {
             configuration(viewController)

@@ -108,6 +108,31 @@ class ExtrasTest: XCTestCase {
         XCTAssertEqual(globalPostTaskRun, 3)
     }
 
+    func testSingleNavigationRouterThrowingException() {
+        class FaultyTestRouter: Router {
+            func navigate<ViewController: UIViewController, Context>(to step: DestinationStep<ViewController, Context>,
+                                                                     with context: Context,
+                                                                     animated: Bool,
+                                                                     completion: ((RoutingResult) -> Void)?) throws {
+                throw RoutingError.generic(.init("Test"))
+            }
+        }
+
+        let window = UIWindow()
+        let windowProvider = CustomWindowProvider(window: window)
+        let lock = SingleNavigationLock()
+        let router = SingleNavigationRouter(router: FaultyTestRouter(), lock: lock)
+        var wasInCompletion = false
+        XCTAssertThrowsError(try router.navigate(to: GeneralStep.current(windowProvider: windowProvider),
+                with: "test",
+                animated: false,
+                completion: { _ in
+                    wasInCompletion = true
+                }))
+        XCTAssertFalse(wasInCompletion)
+        XCTAssertFalse(lock.isNavigationInProgress)
+    }
+
     func testSingleNavigationLock() {
         let lock = SingleNavigationLock()
         XCTAssertFalse(lock.isNavigationInProgress)
@@ -224,6 +249,62 @@ class ExtrasTest: XCTestCase {
         let secondNavigationController = SpecialSplitNavigationController(nestedNavigaionController: navigationController)
         splitViewController.viewControllers = [secondNavigationController]
         XCTAssertEqual(try finder.findViewController(), navigationController)
+    }
+
+    func testRouterNavigationToDestination() {
+        class TestRouter: Router {
+            func navigate<ViewController: UIViewController, Context>(to step: DestinationStep<ViewController, Context>,
+                                                                     with context: Context,
+                                                                     animated: Bool,
+                                                                     completion: ((RoutingResult) -> Void)?) throws {
+                XCTAssertTrue(animated)
+                XCTAssertNotNil(completion)
+                completion?(.success)
+            }
+        }
+
+        class FaultyTestRouter: Router {
+            func navigate<ViewController: UIViewController, Context>(to step: DestinationStep<ViewController, Context>,
+                                                                     with context: Context,
+                                                                     animated: Bool,
+                                                                     completion: ((RoutingResult) -> Void)?) throws {
+                XCTAssertFalse(animated)
+                XCTAssertNotNil(completion)
+                throw RoutingError.generic(.init("Test"))
+            }
+        }
+
+        let testRouter = TestRouter()
+        let window = UIWindow()
+        let windowProvider = CustomWindowProvider(window: window)
+        let destination = Destination(to: GeneralStep.current(windowProvider: windowProvider), with: "test")
+        var wasInCompletion = false
+        try? testRouter.navigate(to: destination, animated: true, completion: { result in
+            wasInCompletion = true
+            XCTAssertTrue(result.isSuccessful)
+        })
+        XCTAssertEqual(wasInCompletion, true)
+
+        wasInCompletion = false
+        testRouter.commitNavigation(to: destination, animated: true, completion: { result in
+            wasInCompletion = true
+            XCTAssertTrue(result.isSuccessful)
+        })
+        XCTAssertEqual(wasInCompletion, true)
+
+        let faultyRouter = FaultyTestRouter()
+        wasInCompletion = false
+        try? faultyRouter.navigate(to: destination, animated: false, completion: { _ in
+            wasInCompletion = true
+        })
+        XCTAssertEqual(wasInCompletion, false)
+
+        wasInCompletion = false
+        faultyRouter.commitNavigation(to: destination, animated: false, completion: { result in
+            wasInCompletion = true
+            XCTAssertFalse(result.isSuccessful)
+        })
+        XCTAssertEqual(wasInCompletion, true)
     }
 
 }
