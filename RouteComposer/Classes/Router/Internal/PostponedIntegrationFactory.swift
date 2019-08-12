@@ -20,7 +20,7 @@ struct PostponedIntegrationFactory<Context>: CustomStringConvertible {
     }
 
     mutating func add(_ contextTask: AnyContextTask) {
-        self.contextTasks.append(contextTask)
+        contextTasks.append(contextTask)
     }
 
     mutating func prepare(with context: Context) throws {

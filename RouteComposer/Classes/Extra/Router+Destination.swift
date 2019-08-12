@@ -16,7 +16,7 @@ public extension Router {
     ///   - animated: if true - the navigation should be animated where it is possible.
     ///   - completion: completion block.
     func navigate<VC: UIViewController, C>(to destination: Destination<VC, C>, animated: Bool = true, completion: ((_: RoutingResult) -> Void)? = nil) throws {
-        try self.navigate(to: destination.step, with: destination.context, animated: animated, completion: completion)
+        try navigate(to: destination.step, with: destination.context, animated: animated, completion: completion)
     }
 
     /// Navigates the application to the view controller configured in `Destination` with the `Context` provided.
@@ -28,7 +28,7 @@ public extension Router {
     ///   - completion: completion block.
     func commitNavigation<VC: UIViewController, C>(to destination: Destination<VC, C>, animated: Bool = true, completion: ((_: RoutingResult) -> Void)? = nil) {
         do {
-            try self.navigate(to: destination, animated: animated, completion: completion)
+            try navigate(to: destination, animated: animated, completion: completion)
         } catch {
             completion?(.failure(error))
         }

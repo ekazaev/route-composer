@@ -34,10 +34,10 @@ public struct NavigationDelayingInterceptor: RoutingInterceptor {
     /// `WindowProvider` instance.
     public let windowProvider: WindowProvider
 
-    /// Type of `Strategy`.
+    /// `Logger` instance.
     public let logger: Logger?
 
-    /// `Logger` instance.
+    /// Type of `Strategy`.
     public let strategy: Strategy
 
     /// Constructor

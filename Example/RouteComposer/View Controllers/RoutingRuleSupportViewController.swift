@@ -26,7 +26,7 @@ class RoutingRuleSupportViewController: UIViewController, RoutingInterceptable, 
     }
 
     @objc func doneTapped() {
-        self.dismiss(animated: true)
+        dismiss(animated: true)
     }
 
     @IBAction func goToColorTapped() {

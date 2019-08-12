@@ -8,6 +8,14 @@ import Foundation
 import XCTest
 @testable import RouteComposer
 
+extension RoutingError.Context: Equatable {
+
+    public static func == (lhs: RoutingError.Context, rhs: RoutingError.Context) -> Bool {
+        return lhs.description == rhs.description && "\(String(describing: lhs.underlyingError))" == "\(String(describing: rhs.underlyingError))"
+    }
+
+}
+
 class ErrorTests: XCTestCase {
 
     func testErrorDescription() {
@@ -40,6 +48,25 @@ class ErrorTests: XCTestCase {
         context = RoutingError.Context("Test description")
         error = RoutingError.initialController(.deallocated, context)
         XCTAssertEqual(error.description, "Initial Controller Error: Initial controller deallocated. Test description")
+    }
+
+    func testErrorContext() {
+        let context = RoutingError.Context("Test description", underlyingError: DecodingError.valueNotFound(String.self,
+                .init(codingPath: [], debugDescription: "Second description")))
+        var error = RoutingError.generic(context)
+        XCTAssertEqual(error.context, context)
+
+        error = RoutingError.typeMismatch(type: Int.self, expectedType: String.self, context)
+        XCTAssertEqual(error.context, context)
+
+        error = RoutingError.compositionFailed(context)
+        XCTAssertEqual(error.context, context)
+
+        error = RoutingError.initialController(.notFound, context)
+        XCTAssertEqual(error.context, context)
+
+        error = RoutingError.generic(context)
+        XCTAssertEqual(error.context, context)
     }
 
     func testErrorContextDescription() {

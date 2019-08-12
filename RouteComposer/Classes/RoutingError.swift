@@ -5,8 +5,6 @@
 import Foundation
 
 /// Routing `Error` representation
-///
-/// - message: Message describing an error that happened
 public enum RoutingError: Error, CustomStringConvertible {
 
     // MARK: Data
@@ -28,6 +26,7 @@ public enum RoutingError: Error, CustomStringConvertible {
                 return "Initial controller not found"
             }
         }
+
     }
 
     /// Error context holder
@@ -89,6 +88,20 @@ public enum RoutingError: Error, CustomStringConvertible {
             return "Initial Controller Error: \(state). \(context.description)"
         case .generic(let context):
             return "Generic Error: \(context.description)"
+        }
+    }
+
+    /// Returns `RoutingError.Context` instance
+    public var context: RoutingError.Context {
+        switch self {
+        case .typeMismatch(_, _, let context):
+            return context
+        case .compositionFailed(let context):
+            return context
+        case .initialController(_, let context):
+            return context
+        case .generic(let context):
+            return context
         }
     }
 
