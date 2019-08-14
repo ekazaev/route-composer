@@ -10,9 +10,7 @@ public final class SingleStep<F: Finder, FC: Factory>: ActionToStepIntegrator<F.
         where
         F.ViewController == FC.ViewController, F.Context == FC.Context {
 
-    let finder: F
-
-    let factory: FC
+    // MARK: Internal entities
 
     final class UnsafeWrapper<VC: UIViewController, C, F: Finder, FC: Factory>: ActionToStepIntegrator<VC, C>
             where
@@ -34,6 +32,14 @@ public final class SingleStep<F: Finder, FC: Factory>: ActionToStepIntegrator<F.
         }
 
     }
+
+    // MARK: Properties
+
+    let finder: F
+
+    let factory: FC
+
+    // MARK: Methods
 
     /// A simple class that produces an intermediate `ActionToStepIntegrator`.
     ///

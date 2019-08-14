@@ -8,7 +8,11 @@ import UIKit
 /// Helper class to build a chain of steps. Can not be used directly.
 public struct LastStepInChainAssembly<ViewController: UIViewController, Context> {
 
+    // MARK: Properties
+
     let previousSteps: [RoutingStep]
+
+    // MARK: Methods
 
     init(previousSteps: [RoutingStep]) {
         self.previousSteps = previousSteps

@@ -10,6 +10,8 @@ import UIKit
 /// following the search options provided. It simplifies the creation of the finders for a hosting app.
 public protocol StackIteratingFinder: Finder {
 
+    // MARK: Associated types
+
     /// Type of `UIViewController` that `StackIteratingFinder` can find
     associatedtype ViewController
 
@@ -18,6 +20,8 @@ public protocol StackIteratingFinder: Finder {
 
     /// `StackIterator` to be used by `StackIteratingFinder`
     var iterator: StackIterator { get }
+
+    // MARK: Methods to implement
 
     /// The method to be implemented by the `StackIteratingFinder` instance
     ///

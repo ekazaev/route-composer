@@ -9,6 +9,8 @@ import UIKit
 
 public extension ContainerViewController where Self: UISplitViewController {
 
+    // MARK: Steps
+
     /// Presents a view controller as a master in the `UISplitViewController`
     static func setAsMaster() -> SplitViewControllerActions.SetAsMasterAction<Self> {
         return SplitViewControllerActions.SetAsMasterAction()
@@ -30,8 +32,12 @@ public extension ContainerViewController where Self: UISplitViewController {
 /// Actions for `UISplitViewController`
 public struct SplitViewControllerActions {
 
+    // MARK: Internal entities
+
     /// Presents a master view controller in the `UISplitViewController`
     public struct SetAsMasterAction<ViewController: UISplitViewController>: ContainerAction {
+
+        // MARK: Methods
 
         /// Constructor
         init() {
@@ -62,6 +68,8 @@ public struct SplitViewControllerActions {
     /// Presents a detail view controller in the `UISplitViewController`, *replacing* the previous detail.
     public struct PushToDetailsAction<ViewController: UISplitViewController>: ContainerAction {
 
+        // MARK: Methods
+
         /// Constructor
         init() {
         }
@@ -91,6 +99,8 @@ public struct SplitViewControllerActions {
 
     /// Pushes a view controller *onto* the detail stack in the `UISplitViewController`, where the detail is a `UINavigationController`
     public struct PushOnToDetailsAction<ViewController: UISplitViewController>: ContainerAction {
+
+        // MARK: Methods
 
         /// Constructor
         init() {

@@ -19,11 +19,15 @@ public final class ContainerStepAssembly<F: Finder, FC: ContainerFactory>: Gener
         where
         F.ViewController == FC.ViewController, F.Context == FC.Context {
 
+    // MARK: Properties
+
     let finder: F
 
     let factory: FC
 
     let previousSteps: [RoutingStep]
+
+    // MARK: Methods
 
     /// Constructor
     ///
@@ -59,6 +63,8 @@ public final class ContainerStepAssembly<F: Finder, FC: ContainerFactory>: Gener
     }
 
 }
+
+// MARK: Methods for the NilFactory
 
 public extension ContainerStepAssembly where FC: NilEntity {
 

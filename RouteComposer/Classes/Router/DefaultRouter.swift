@@ -89,6 +89,8 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
         }
     }
 
+    // MARK: Private Methods
+
     private func prepareTaskStack<Context>(with context: Context) throws -> GlobalTaskRunner {
         let interceptorRunner = try InterceptorRunner(interceptors: self.interceptors, with: context)
         let contextTaskRunner = try ContextTaskRunner(contextTasks: self.contextTasks, with: context)

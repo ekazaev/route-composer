@@ -12,14 +12,20 @@ import UIKit
 /// when a `UIViewController` instance was built inside of the parent `ContainerFactory`.
 public struct FinderFactory<F: Finder>: Factory {
 
+    // MARK: Associated types
+
     public typealias ViewController = F.ViewController
 
     public typealias Context = F.Context
+
+    // MARK: Properties
 
     /// The additional configuration block
     public let configuration: ((_: F.ViewController) -> Void)?
 
     private let finder: F
+
+    // MARK: Methods
 
     /// Constructor
     ///

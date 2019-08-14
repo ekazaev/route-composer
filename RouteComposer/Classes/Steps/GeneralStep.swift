@@ -8,6 +8,8 @@ import UIKit
 /// A wrapper for the general steps that can be applied to any `UIViewController`
 public struct GeneralStep {
 
+    // MARK: Internal entities
+
     struct RootViewControllerStep: RoutingStep, PerformableStep {
 
         let windowProvider: WindowProvider
@@ -59,6 +61,8 @@ public struct GeneralStep {
             return .success(viewController)
         }
     }
+
+    // MARK: Steps
 
     /// Returns the root view controller of the key window.
     public static func root<C>(windowProvider: WindowProvider = KeyWindowProvider()) -> DestinationStep<UIViewController, C> {

@@ -24,11 +24,15 @@ public final class StepAssembly<F: Finder, FC: Factory>: GenericStepAssembly<F.V
         where
         F.ViewController == FC.ViewController, F.Context == FC.Context {
 
+    // MARK: Properties
+
     let finder: F
 
     let factory: FC
 
     let previousSteps: [RoutingStep]
+
+    // MARK: Methods
 
     /// Constructor
     ///
@@ -58,6 +62,8 @@ public final class StepAssembly<F: Finder, FC: Factory>: GenericStepAssembly<F.V
     }
 
 }
+
+// MARK: Methods for the NilFactory
 
 public extension StepAssembly where FC: NilEntity {
 

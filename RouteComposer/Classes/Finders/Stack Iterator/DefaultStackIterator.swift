@@ -8,6 +8,8 @@ import UIKit
 /// Default implementation of `StackIterator` protocol
 public struct DefaultStackIterator: StackIterator {
 
+    // MARK: Internal entities
+
     /// A starting point in the `UIViewController`s stack
     ///
     /// - topMost: Start from the topmost `UIViewController`
@@ -43,6 +45,8 @@ public struct DefaultStackIterator: StackIterator {
 
     }
 
+    // MARK: Properties
+
     /// `SearchOptions` to be used by `StackIteratingFinder`
     public let options: SearchOptions
 
@@ -54,6 +58,8 @@ public struct DefaultStackIterator: StackIterator {
 
     /// `ContainerAdapter` instance.
     public let containerAdapterLocator: ContainerAdapterLocator
+
+    // MARK: Methods
 
     /// Constructor
     public init(options: SearchOptions = .fullStack,

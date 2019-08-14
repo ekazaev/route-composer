@@ -8,11 +8,13 @@ import UIKit
 /// Builds a chain of steps.
 public struct ChainAssembly {
 
+    // MARK: Methods
+
     /// Transforms step into a chain of steps.
     /// ### Usage
     /// ```swift
     /// let intermediateStep = ChainAssembly.from(NavigationControllerStep<UINavigationController, Any?>())
-    ///         .from(using: GeneralAction.presentModally())
+    ///         .using(GeneralAction.presentModally())
     ///         .from(GeneralStep.current())
     ///         .assemble()
     /// ```

@@ -11,7 +11,11 @@ import UIKit
 /// `RoutingInterceptor` instance.
 public struct InlineContextTask<VC: UIViewController, C>: ContextTask {
 
+    // MARK: Properties
+
     private let completion: (_: VC, _: C) throws -> Void
+
+    // MARK: Methods
 
     /// Constructor
     ///

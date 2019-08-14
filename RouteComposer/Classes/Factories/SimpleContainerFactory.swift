@@ -9,11 +9,15 @@ import UIKit
 /// controller creation, `SimpleContainerFactory` will handle integration of the children view controllers.
 public protocol SimpleContainerFactory: ContainerFactory {
 
+    // MARK: Associated types
+
     /// Type of `UIViewController` that `SimpleContainerFactory` can build
     associatedtype ViewController
 
     /// `Context` to be passed into `UIViewController`
     associatedtype Context
+
+    // MARK: Methods to implement
 
     /// Builds a `UIViewController` that will be integrated into the stack
     ///

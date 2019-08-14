@@ -11,10 +11,14 @@ import os.log
 /// Default Logger implementation
 public struct DefaultLogger: Logger {
 
+    // MARK: Properties
+
     /// Log level
     public let logLevel: LogLevel
 
     private let osLog: OSLog?
+
+    // MARK: Methods
 
     /// Constructor
     ///

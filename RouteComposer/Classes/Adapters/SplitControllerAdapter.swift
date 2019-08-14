@@ -8,7 +8,11 @@ import UIKit
 /// Default `ContainerAdapter` for `UISplitViewController`
 public struct SplitControllerAdapter<VC: UISplitViewController>: ConcreteContainerAdapter {
 
+    // MARK: Properties
+
     weak var splitViewController: VC?
+
+    // MARK: Methods
 
     public init(with splitViewController: VC) {
         self.splitViewController = splitViewController

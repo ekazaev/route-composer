@@ -10,9 +10,7 @@ public class SingleContainerStep<F: Finder, FC: ContainerFactory>: ActionToStepI
         where
         F.ViewController == FC.ViewController, F.Context == FC.Context {
 
-    let finder: F
-
-    let factory: FC
+    // MARK: Internal entities
 
     final class UnsafeWrapper<VC: UIViewController, C, F: Finder, FC: ContainerFactory>: ActionToStepIntegrator<VC, C>
             where
@@ -34,6 +32,14 @@ public class SingleContainerStep<F: Finder, FC: ContainerFactory>: ActionToStepI
         }
 
     }
+
+    // MARK: Properties
+
+    let finder: F
+
+    let factory: FC
+
+    // MARK: Methods
 
     /// Creates an instance of the `ActionToStepIntegrator` describing a container view controller.
     ///

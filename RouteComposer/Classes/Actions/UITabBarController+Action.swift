@@ -9,6 +9,8 @@ import UIKit
 
 public extension ContainerViewController where Self: UITabBarController {
 
+    // MARK: Steps
+
     /// Adds a `UIViewController` to a `UITabBarController`
     ///
     ///   - tabIndex: index of a tab.
@@ -33,12 +35,20 @@ public extension ContainerViewController where Self: UITabBarController {
 /// Actions for `UITabBarController`
 public struct TabBarControllerActions {
 
+    // MARK: Internal entities
+
     /// Integrates a `UIViewController` in to a `UITabBarController`
     public struct AddTabAction<ViewController: UITabBarController>: ContainerAction {
 
-        let tabIndex: Int?
+        // MARK: Properties
 
-        let replacing: Bool
+        /// The index of the tab after which one a view controller should be added.
+        public let tabIndex: Int?
+
+        /// The flag that tab should be replaced instead.
+        public let replacing: Bool
+
+        // MARK: Methods
 
         /// Constructor
         ///

@@ -8,12 +8,18 @@ import Foundation
 /// `Finder` that helps to find the `UINavigationController` inside of the details of the `UISplitController`
 public struct DetailsNavigationFinder<C>: Finder {
 
+    // MARK: Associated types
+
     public typealias ViewController = UINavigationController
 
     public typealias Context = C
 
+    // MARK: Properties
+
     /// A `StackIterator` is to be used by `ClassFinder`
     public let iterator: StackIterator
+
+    // MARK: Methods
 
     /// Constructor
     ///

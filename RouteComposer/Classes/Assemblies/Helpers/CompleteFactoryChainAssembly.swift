@@ -8,6 +8,8 @@ import UIKit
 /// Builds the chain of assemblies to fulfill the `ContainerFactory`.
 public final class CompleteFactoryChainAssembly<FC: ContainerFactory, ChildVC: UIViewController> {
 
+    // MARK: Properties
+
     private var factory: FC
 
     private let childFactories: [PostponedIntegrationFactory<FC.Context>]
@@ -21,6 +23,8 @@ public final class CompleteFactoryChainAssembly<FC: ContainerFactory, ChildVC: U
         }
         return childFactories
     }
+
+    // MARK: Methods
 
     init(factory: FC, childFactories: [PostponedIntegrationFactory<FC.Context>], previousChildFactory: PostponedIntegrationFactory<FC.Context>?) {
         self.factory = factory

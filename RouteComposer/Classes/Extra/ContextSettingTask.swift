@@ -9,6 +9,8 @@ import UIKit
 /// `ContextTask` that simplifies setting of the context to the `UIViewController` that implements `ContextAccepting` protocol.
 public struct ContextSettingTask<VC: ContextAccepting>: ContextTask {
 
+    // MARK: Methods
+
     /// Constructor
     public init() {
     }

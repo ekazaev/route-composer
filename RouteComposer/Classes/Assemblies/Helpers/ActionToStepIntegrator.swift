@@ -8,15 +8,24 @@ import UIKit
 /// A simple class that represents an intermediate `DestinationStep` and allows to add tasks to it.
 public class ActionToStepIntegrator<VC: UIViewController, C>: InterceptableStepAssembling {
 
+    // MARK: Associated types
+
     public typealias ViewController = VC
 
     public typealias Context = C
 
+    // MARK: Properties
+
     var taskCollector: TaskCollector
+
+    // MARK: Methods
 
     init(taskCollector: TaskCollector = TaskCollector()) {
         self.taskCollector = taskCollector
     }
+
+    // MARK: Add a Task to the Step
+
     /// Adds `RoutingInterceptor` instance.
     /// This action does not contain type safety checks to avoid complications.
     ///

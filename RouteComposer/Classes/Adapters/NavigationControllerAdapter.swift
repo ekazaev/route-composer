@@ -8,7 +8,11 @@ import UIKit
 /// Default `ContainerAdapter` for `UINavigationController`
 public struct NavigationControllerAdapter<VC: UINavigationController>: ConcreteContainerAdapter {
 
+    // MARK: Properties
+
     weak var navigationController: VC?
+
+    // MARK: Methods
 
     public init(with navigationController: VC) {
         self.navigationController = navigationController

@@ -11,9 +11,13 @@ import UIKit
 /// `RoutingInterceptor` instance.
 public struct InlineInterceptor<C>: RoutingInterceptor {
 
+    // MARK: Properties
+
     private let prepareBlock: ((_: C) throws -> Void)?
 
     private let performBlock: ((_: C, _: @escaping (RoutingResult) -> Void) -> Void)
+
+    // MARK: Methods
 
     /// Constructor
     ///

@@ -16,6 +16,8 @@ import UIKit
 /// *NB: Order matters here*
 public final class CompleteFactoryAssembly<FC: ContainerFactory> {
 
+    // MARK: Internal entities
+
     struct SimpleAddAction<FC: ContainerFactory>: ContainerAction {
 
         func perform(with viewController: UIViewController, on existingController: FC.ViewController, animated: Bool, completion: @escaping (RoutingResult) -> Void) {
@@ -29,7 +31,11 @@ public final class CompleteFactoryAssembly<FC: ContainerFactory> {
 
     }
 
+    // MARK: Properties
+
     private var factory: FC
+
+    // MARK: Methods
 
     /// Constructor
     ///

@@ -8,7 +8,11 @@ import UIKit
 /// Default `ContainerAdapter` for `UITabBarController`
 public struct TabBarControllerAdapter<VC: UITabBarController>: ConcreteContainerAdapter {
 
+    // MARK: Properties
+
     weak var tabBarController: VC?
+
+    // MARK: Methods
 
     public init(with navigationController: VC) {
         self.tabBarController = navigationController

@@ -9,9 +9,13 @@ import UIKit
 ///  The `ContainerFactory` that creates a `UISplitController` instance.
 public struct SplitControllerFactory<VC: UISplitViewController, C>: ContainerFactory {
 
+    // MARK: Associated types
+
     public typealias ViewController = VC
 
     public typealias Context = C
+
+    // MARK: Properties
 
     /// A Xib file name
     public let nibName: String?
@@ -32,6 +36,8 @@ public struct SplitControllerFactory<VC: UISplitViewController, C>: ContainerFac
 
     /// The additional configuration block
     public let configuration: ((_: VC) -> Void)?
+
+    // MARK: Methods
 
     /// Constructor
     public init(nibName nibNameOrNil: String? = nil,

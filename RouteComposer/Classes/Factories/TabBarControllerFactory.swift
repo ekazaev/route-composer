@@ -8,9 +8,13 @@ import UIKit
 ///  The `ContainerFactory` that creates a `UITabBarController` instance.
 public struct TabBarControllerFactory<VC: UITabBarController, C>: ContainerFactory {
 
+    // MARK: Associated types
+
     public typealias ViewController = VC
 
     public typealias Context = C
+
+    // MARK: Properties
 
     /// A Xib file name
     public let nibName: String?
@@ -23,6 +27,8 @@ public struct TabBarControllerFactory<VC: UITabBarController, C>: ContainerFacto
 
     /// The additional configuration block
     public let configuration: ((_: VC) -> Void)?
+
+    // MARK: Methods
 
     /// Constructor
     public init(nibName nibNameOrNil: String? = nil,

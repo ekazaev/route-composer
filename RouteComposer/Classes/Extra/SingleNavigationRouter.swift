@@ -36,10 +36,14 @@ public final class SingleNavigationLock {
 /// (for example, navigations triggered by push notifications)
 public struct SingleNavigationRouter<R>: Router where R: Router {
 
+    // MARK: Properties
+
     var router: R
 
     /// Shared `SingleNavigationLock` instance
     public let lock: SingleNavigationLock
+
+    // MARK: Methods
 
     /// Constructor
     ///

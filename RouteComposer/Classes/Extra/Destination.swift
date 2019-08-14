@@ -13,11 +13,15 @@ public typealias AnyDestination = Destination<UIViewController, Any?>
 /// there is a need to wrap both values into a single DTO value.
 public struct Destination<VC: UIViewController, C> {
 
+    // MARK: Properties
+
     /// Final configuration.
     public let step: DestinationStep<VC, C>
 
     /// Data to be provided to the configuration.
     public let context: C
+
+    // MARK: Methods
 
     /// Constructor
     ///

@@ -8,6 +8,8 @@ import UIKit
 /// A wrapper for general actions that can be applied to any `UIViewController`
 public struct GeneralAction {
 
+    // MARK: Actions
+
     /// Replaces the root view controller in the key `UIWindow`
     ///
     /// - Parameters:
@@ -45,8 +47,12 @@ public struct GeneralAction {
 /// A wrapper for general actions that can be applied to any `UIViewController`
 public struct ViewControllerActions {
 
+    // MARK: Internal entities
+
     /// Presents a view controller modally
     public struct PresentModallyAction: Action {
+
+        // MARK: Properties
 
         /// `UIModalPresentationStyle` setting
         public let presentationStyle: UIModalPresentationStyle?
@@ -62,6 +68,8 @@ public struct ViewControllerActions {
 
         /// `UIViewControllerTransitioningDelegate` instance to be used during the transition
         private(set) public weak var transitioningDelegate: UIViewControllerTransitioningDelegate?
+
+        // MARK: Methods
 
         /// Constructor
         ///
@@ -119,11 +127,18 @@ public struct ViewControllerActions {
     /// Replaces the root view controller in the key `UIWindow`
     public struct ReplaceRootAction: Action {
 
-        let windowProvider: WindowProvider
+        // MARK: Properties
 
-        let animationOptions: UIView.AnimationOptions?
+        /// `WindowProvider` instance
+        public let windowProvider: WindowProvider
 
-        let duration: TimeInterval
+        /// Set of `UIView.AnimationOptions`
+        public let animationOptions: UIView.AnimationOptions?
+
+        /// Transition duration.
+        public let duration: TimeInterval
+
+        // MARK: Methods
 
         /// Constructor
         ///
@@ -171,6 +186,8 @@ public struct ViewControllerActions {
     }
 
     struct NilAction: Action {
+
+        // MARK: Methods
 
         // Constructor
         init() {

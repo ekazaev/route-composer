@@ -12,7 +12,11 @@ import UIKit
 /// constructor.
 public struct DismissalMethodProvidingContextTask<VC: Dismissible, C>: ContextTask {
 
+    // MARK: Properties
+
     let dismissalBlock: (_: VC.DismissalTargetContext, _: Bool, _: ((_: RoutingResult) -> Void)?) -> Void
+
+    // MARK: Methods
 
     /// Constructor
     ///

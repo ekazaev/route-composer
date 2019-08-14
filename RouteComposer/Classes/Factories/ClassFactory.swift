@@ -7,9 +7,13 @@ import UIKit
 /// The `Factory` that creates a `UIViewController` instance using its type.
 public struct ClassFactory<VC: UIViewController, C>: Factory {
 
+    // MARK: Associated types
+
     public typealias ViewController = VC
 
     public typealias Context = C
+
+    // MARK: Properties
 
     /// A Xib file name
     public let nibName: String?
@@ -19,6 +23,8 @@ public struct ClassFactory<VC: UIViewController, C>: Factory {
 
     /// The additional configuration block
     public let configuration: ((_: VC) -> Void)?
+
+    // MARK: Methods
 
     /// Constructor
     ///

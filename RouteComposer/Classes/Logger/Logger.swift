@@ -9,6 +9,8 @@ import UIKit
 /// Routing logger protocol
 public protocol Logger {
 
+    // MARK: Methods to implement
+
     /// Logs a message
     ///
     /// - Parameters:

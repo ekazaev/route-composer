@@ -79,7 +79,7 @@
 </tr>
 <tr class="never">
 <td class="num">14</td>
-<td class="src"><pre><code class="objc">    private let completion: (_: VC, _: C) throws -&gt; Void</code></pre></td>
+<td class="src"><pre><code class="objc">    // MARK: Properties</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -89,66 +89,86 @@
 </tr>
 <tr class="never">
 <td class="num">16</td>
-<td class="src"><pre><code class="objc">    /// Constructor</code></pre></td>
+<td class="src"><pre><code class="objc">    private let completion: (_: VC, _: C) throws -&gt; Void</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">17</td>
-<td class="src"><pre><code class="objc">    ///</code></pre></td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">18</td>
-<td class="src"><pre><code class="objc">    /// - Parameter completion: the block to be called when `InlineContextTask` will be applied to the `UIViewController`</code></pre></td>
+<td class="src"><pre><code class="objc">    // MARK: Methods</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">19</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">20</td>
+<td class="src"><pre><code class="objc">    /// Constructor</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">21</td>
+<td class="src"><pre><code class="objc">    ///</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">22</td>
+<td class="src"><pre><code class="objc">    /// - Parameter completion: the block to be called when `InlineContextTask` will be applied to the `UIViewController`</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">23</td>
 <td class="src"><pre><code class="objc">    ///    instance.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
-<td class="num">20</td>
+<td class="num">24</td>
 <td class="src"><pre><code class="objc">    public init(_ completion: @escaping (_: VC, _: C) throws -&gt; Void) {</code></pre></td>
 <td class="coverage">8x</td>
 </tr>
 <tr class="covered">
-<td class="num">21</td>
+<td class="num">25</td>
 <td class="src"><pre><code class="objc">        self.completion = completion</code></pre></td>
 <td class="coverage">8x</td>
 </tr>
 <tr class="covered">
-<td class="num">22</td>
-<td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">8x</td>
-</tr>
-<tr class="never">
-<td class="num">23</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="covered">
-<td class="num">24</td>
-<td class="src"><pre><code class="objc">    public func perform(on viewController: VC, with context: C) throws {</code></pre></td>
-<td class="coverage">12x</td>
-</tr>
-<tr class="covered">
-<td class="num">25</td>
-<td class="src"><pre><code class="objc">        try completion(viewController, context)</code></pre></td>
-<td class="coverage">12x</td>
-</tr>
-<tr class="covered">
 <td class="num">26</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">8x</td>
 </tr>
 <tr class="never">
 <td class="num">27</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="never">
+<tr class="covered">
 <td class="num">28</td>
+<td class="src"><pre><code class="objc">    public func perform(on viewController: VC, with context: C) throws {</code></pre></td>
+<td class="coverage">12x</td>
+</tr>
+<tr class="covered">
+<td class="num">29</td>
+<td class="src"><pre><code class="objc">        try completion(viewController, context)</code></pre></td>
+<td class="coverage">12x</td>
+</tr>
+<tr class="covered">
+<td class="num">30</td>
+<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="coverage">12x</td>
+</tr>
+<tr class="never">
+<td class="num">31</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">32</td>
 <td class="src"><pre><code class="objc">}</code></pre></td>
 <td class="coverage"></td>
 </tr>

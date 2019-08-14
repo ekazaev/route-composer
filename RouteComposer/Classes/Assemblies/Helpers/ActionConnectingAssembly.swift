@@ -8,9 +8,13 @@ import UIKit
 /// Helper class to build a chain of steps. Can not be used directly.
 public struct ActionConnectingAssembly<PVC: UIViewController, VC: UIViewController, C>: ActionConnecting {
 
+    // MARK: Properties
+
     let previousSteps: [RoutingStep]
 
     let stepToFullFill: ActionToStepIntegrator<PVC, C>
+
+    // MARK: Methods
 
     init(stepToFullFill: ActionToStepIntegrator<PVC, C>, previousSteps: [RoutingStep] = []) {
         self.previousSteps = previousSteps

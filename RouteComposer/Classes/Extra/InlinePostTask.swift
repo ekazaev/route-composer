@@ -11,7 +11,11 @@ import UIKit
 /// `PostRoutingTask` instance.
 public struct InlinePostTask<VC: UIViewController, C>: PostRoutingTask {
 
+    // MARK: Properties
+
     private let completion: (_: VC, _: C, _: [UIViewController]) -> Void
+
+    // MARK: Methods
 
     /// Constructor
     ///

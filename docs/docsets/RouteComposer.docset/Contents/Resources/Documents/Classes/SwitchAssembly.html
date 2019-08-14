@@ -492,9 +492,9 @@
               </div>
             <p>Builds a <code><a href="../Structs/DestinationStep.html">DestinationStep</a></code> which can contain the conditions to select the steps to be taken by a <code><a href="../Protocols/Router.html">Router</a></code>.</p>
 <h3 id='usage' class='heading'>Usage</h3>
-<pre class="highlight swift"><code>       <span class="k">let</span> <span class="nv">containerScreen</span> <span class="o">=</span> <span class="kt">SwitchAssembly</span><span class="o">&lt;</span><span class="kt">UINavigationController</span><span class="p">,</span> <span class="kt">ProductContext</span><span class="o">&gt;</span><span class="p">()</span>
+<pre class="highlight swift"><code>       <span class="k">let</span> <span class="nv">containerStep</span> <span class="o">=</span> <span class="kt">SwitchAssembly</span><span class="o">&lt;</span><span class="kt">UINavigationController</span><span class="p">,</span> <span class="kt">ProductContext</span><span class="o">&gt;</span><span class="p">()</span>
                <span class="o">.</span><span class="n">addCase</span> <span class="p">{</span> <span class="p">(</span><span class="nv">context</span><span class="p">:</span> <span class="kt">ProductContext</span><span class="p">)</span> <span class="k">in</span>
-                   <span class="c1">// If this configuration is requested by a Universal Link (productURL != nil), then present modally.</span>
+                   <span class="c1">// If this configuration is requested by a Universal Link (productURL != nil), skip this case otherwise.</span>
                    <span class="k">guard</span> <span class="n">context</span><span class="o">.</span><span class="n">productURL</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="k">else</span> <span class="p">{</span>
                        <span class="k">return</span> <span class="kc">nil</span>
                    <span class="p">}</span>
@@ -506,10 +506,10 @@
 
                <span class="p">}</span>
 
-               <span class="c1">// If UINavigationController is visible on the screen - just push</span>
+               <span class="c1">// If UINavigationController is visible on the screen - use it</span>
                <span class="o">.</span><span class="nf">addCase</span><span class="p">(</span><span class="nv">from</span><span class="p">:</span> <span class="kt">ClassFinder</span><span class="o">&lt;</span><span class="kt">UINavigationController</span><span class="p">,</span> <span class="kt">ProductContext</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">options</span><span class="p">:</span> <span class="o">.</span><span class="n">currentVisibleOnly</span><span class="p">))</span>
 
-               <span class="c1">// Otherwise - present modally</span>
+               <span class="c1">// Otherwise - create a UINavigationController and present modally</span>
                <span class="o">.</span><span class="nf">assemble</span><span class="p">(</span><span class="k">default</span><span class="p">:</span> <span class="p">{</span>
                    <span class="k">return</span> <span class="kt">ChainAssembly</span><span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="kt">NavigationControllerStep</span><span class="o">&lt;</span><span class="kt">UINavigationController</span><span class="p">,</span> <span class="kt">ProductContext</span><span class="o">&gt;</span><span class="p">())</span>
                            <span class="o">.</span><span class="nf">using</span><span class="p">(</span><span class="kt">GeneralAction</span><span class="o">.</span><span class="nf">presentModally</span><span class="p">())</span>
@@ -524,6 +524,13 @@
         <section class="section">
           <div class="section-content">
             <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Methods"></a>
+                <a name="//apple_ref/swift/Section/Methods" class="dashAnchor"></a>
+                <a href="#/Methods">
+                  <h3 class="section-name">Methods</h3>
+                </a>
+              </div>
               <ul class="item-container">
                 <li class="item">
                   <div>
@@ -789,6 +796,13 @@ a <code>UIViewController</code> found by the <code><a href="../Protocols/Finder.
               </ul>
             </div>
             <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Methods%20for%20ContainerViewController"></a>
+                <a name="//apple_ref/swift/Section/Methods for ContainerViewController" class="dashAnchor"></a>
+                <a href="#/Methods%20for%20ContainerViewController">
+                  <h3 class="section-name">Methods for ContainerViewController</h3>
+                </a>
+              </div>
               <ul class="item-container">
                 <li class="item">
                   <div>
@@ -846,7 +860,7 @@ a <code>UIViewController</code> found by the <code><a href="../Protocols/Finder.
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2019-08-12)</p>
+      <p>&copy; 2019 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2019-08-15)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.10.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

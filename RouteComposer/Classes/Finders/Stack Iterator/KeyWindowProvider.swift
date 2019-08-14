@@ -8,6 +8,8 @@ import UIKit
 /// Returns key `UIWindow`
 public struct KeyWindowProvider: WindowProvider {
 
+    // MARK: Properties
+
     /// `UIWindow` instance
     public var window: UIWindow? {
         guard let window = UIApplication.shared.keyWindow else {
@@ -16,6 +18,8 @@ public struct KeyWindowProvider: WindowProvider {
         }
         return window
     }
+
+    // MARK: Methods
 
     /// Constructor
     public init() {

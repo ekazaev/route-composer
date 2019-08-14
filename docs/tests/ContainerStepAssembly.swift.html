@@ -119,7 +119,7 @@
 </tr>
 <tr class="never">
 <td class="num">22</td>
-<td class="src"><pre><code class="objc">    let finder: F</code></pre></td>
+<td class="src"><pre><code class="objc">    // MARK: Properties</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -129,7 +129,7 @@
 </tr>
 <tr class="never">
 <td class="num">24</td>
-<td class="src"><pre><code class="objc">    let factory: FC</code></pre></td>
+<td class="src"><pre><code class="objc">    let finder: F</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -139,7 +139,7 @@
 </tr>
 <tr class="never">
 <td class="num">26</td>
-<td class="src"><pre><code class="objc">    let previousSteps: [RoutingStep]</code></pre></td>
+<td class="src"><pre><code class="objc">    let factory: FC</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -149,183 +149,183 @@
 </tr>
 <tr class="never">
 <td class="num">28</td>
-<td class="src"><pre><code class="objc">    /// Constructor</code></pre></td>
+<td class="src"><pre><code class="objc">    let previousSteps: [RoutingStep]</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">29</td>
-<td class="src"><pre><code class="objc">    ///</code></pre></td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">30</td>
-<td class="src"><pre><code class="objc">    /// - Parameters:</code></pre></td>
+<td class="src"><pre><code class="objc">    // MARK: Methods</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">31</td>
-<td class="src"><pre><code class="objc">    ///   - finder: The `UIViewController` `Finder` instance.</code></pre></td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">32</td>
+<td class="src"><pre><code class="objc">    /// Constructor</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">33</td>
+<td class="src"><pre><code class="objc">    ///</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">34</td>
+<td class="src"><pre><code class="objc">    /// - Parameters:</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">35</td>
+<td class="src"><pre><code class="objc">    ///   - finder: The `UIViewController` `Finder` instance.</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">36</td>
 <td class="src"><pre><code class="objc">    ///   - factory: The `UIViewController` `ContainerFactory` instance.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
-<td class="num">33</td>
+<td class="num">37</td>
 <td class="src"><pre><code class="objc">    public init(finder: F, factory: FC) {</code></pre></td>
 <td class="coverage">5x</td>
 </tr>
 <tr class="covered">
-<td class="num">34</td>
+<td class="num">38</td>
 <td class="src"><pre><code class="objc">        self.factory = factory</code></pre></td>
 <td class="coverage">5x</td>
 </tr>
 <tr class="covered">
-<td class="num">35</td>
+<td class="num">39</td>
 <td class="src"><pre><code class="objc">        self.finder = finder</code></pre></td>
 <td class="coverage">5x</td>
 </tr>
 <tr class="covered">
-<td class="num">36</td>
+<td class="num">40</td>
 <td class="src"><pre><code class="objc">        self.previousSteps = []</code></pre></td>
 <td class="coverage">5x</td>
 </tr>
 <tr class="covered">
-<td class="num">37</td>
+<td class="num">41</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
 <td class="coverage">5x</td>
 </tr>
 <tr class="never">
-<td class="num">38</td>
+<td class="num">42</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">39</td>
+<td class="num">43</td>
 <td class="src"><pre><code class="objc">    /// Connects previously provided `DestinationStep` instance with an `Action`</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">40</td>
+<td class="num">44</td>
 <td class="src"><pre><code class="objc">    ///</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">41</td>
+<td class="num">45</td>
 <td class="src"><pre><code class="objc">    /// - Parameter action: `Action` instance to be used with a step.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
-<td class="num">42</td>
+<td class="num">46</td>
 <td class="src"><pre><code class="objc">    public func using&lt;A: Action&gt;(_ action: A) -&gt; StepChainAssembly&lt;ViewController, Context&gt; {</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
-<td class="num">43</td>
-<td class="src"><pre><code class="objc">        var previousSteps = self.previousSteps</code></pre></td>
-<td class="coverage">1x</td>
-</tr>
-<tr class="covered">
-<td class="num">44</td>
-<td class="src"><pre><code class="objc">        let entitiesCollector = BaseEntitiesCollector&lt;ContainerFactoryBox&lt;FC&gt;, ActionBox&gt;(finder: finder, factory: factory, action: action)</code></pre></td>
-<td class="coverage">1x</td>
-</tr>
-<tr class="covered">
-<td class="num">45</td>
-<td class="src"><pre><code class="objc">        let step = BaseStep(entitiesProvider: entitiesCollector, taskProvider: taskCollector)</code></pre></td>
-<td class="coverage">1x</td>
-</tr>
-<tr class="covered">
-<td class="num">46</td>
-<td class="src"><pre><code class="objc">        previousSteps.append(step)</code></pre></td>
-<td class="coverage">1x</td>
-</tr>
-<tr class="covered">
 <td class="num">47</td>
-<td class="src"><pre><code class="objc">        return StepChainAssembly(previousSteps: previousSteps)</code></pre></td>
+<td class="src"><pre><code class="objc">        var previousSteps = self.previousSteps</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">48</td>
+<td class="src"><pre><code class="objc">        let entitiesCollector = BaseEntitiesCollector&lt;ContainerFactoryBox&lt;FC&gt;, ActionBox&gt;(finder: finder, factory: factory, action: action)</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">49</td>
+<td class="src"><pre><code class="objc">        let step = BaseStep(entitiesProvider: entitiesCollector, taskProvider: taskCollector)</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">50</td>
+<td class="src"><pre><code class="objc">        previousSteps.append(step)</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">51</td>
+<td class="src"><pre><code class="objc">        return StepChainAssembly(previousSteps: previousSteps)</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">52</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="never">
-<td class="num">49</td>
+<td class="num">53</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">50</td>
+<td class="num">54</td>
 <td class="src"><pre><code class="objc">    /// Connects previously provided `DestinationStep` instance with an `Action`</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">51</td>
+<td class="num">55</td>
 <td class="src"><pre><code class="objc">    ///</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">52</td>
+<td class="num">56</td>
 <td class="src"><pre><code class="objc">    /// - Parameter action: `ContainerAction` instance to be used with a step.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
-<td class="num">53</td>
+<td class="num">57</td>
 <td class="src"><pre><code class="objc">    public func using&lt;A: ContainerAction&gt;(_ action: A) -&gt; ContainerStepChainAssembly&lt;A.ViewController, ViewController, Context&gt; {</code></pre></td>
 <td class="coverage">2x</td>
 </tr>
 <tr class="covered">
-<td class="num">54</td>
+<td class="num">58</td>
 <td class="src"><pre><code class="objc">        var previousSteps = self.previousSteps</code></pre></td>
 <td class="coverage">2x</td>
 </tr>
 <tr class="covered">
-<td class="num">55</td>
+<td class="num">59</td>
 <td class="src"><pre><code class="objc">        let entitiesCollector = BaseEntitiesCollector&lt;ContainerFactoryBox&lt;FC&gt;, ContainerActionBox&gt;(finder: finder, factory: factory, action: action)</code></pre></td>
 <td class="coverage">2x</td>
 </tr>
 <tr class="covered">
-<td class="num">56</td>
+<td class="num">60</td>
 <td class="src"><pre><code class="objc">        let step = BaseStep(entitiesProvider: entitiesCollector, taskProvider: taskCollector)</code></pre></td>
 <td class="coverage">2x</td>
 </tr>
 <tr class="covered">
-<td class="num">57</td>
+<td class="num">61</td>
 <td class="src"><pre><code class="objc">        previousSteps.append(step)</code></pre></td>
 <td class="coverage">2x</td>
 </tr>
 <tr class="covered">
-<td class="num">58</td>
+<td class="num">62</td>
 <td class="src"><pre><code class="objc">        return ContainerStepChainAssembly(previousSteps: previousSteps)</code></pre></td>
 <td class="coverage">2x</td>
 </tr>
 <tr class="covered">
-<td class="num">59</td>
+<td class="num">63</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
 <td class="coverage">2x</td>
-</tr>
-<tr class="never">
-<td class="num">60</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">61</td>
-<td class="src"><pre><code class="objc">}</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">62</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">63</td>
-<td class="src"><pre><code class="objc">public extension ContainerStepAssembly where FC: NilEntity {</code></pre></td>
-<td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">64</td>
@@ -334,131 +334,161 @@
 </tr>
 <tr class="never">
 <td class="num">65</td>
-<td class="src"><pre><code class="objc">    /// Connects previously provided `ActionToStepIntegrator` with `NilEntity` factory with a step where the `UIViewController`</code></pre></td>
+<td class="src"><pre><code class="objc">}</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">66</td>
-<td class="src"><pre><code class="objc">    /// should avoid type checks.</code></pre></td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">67</td>
-<td class="src"><pre><code class="objc">    ///</code></pre></td>
+<td class="src"><pre><code class="objc">// MARK: Methods for the NilFactory</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">68</td>
-<td class="src"><pre><code class="objc">    /// - Parameter step: `ActionToStepIntegrator` instance to be used.</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="covered">
-<td class="num">69</td>
-<td class="src"><pre><code class="objc">    func from&lt;VC: UIViewController&gt;(_ step: ActionToStepIntegrator&lt;VC, Context&gt;) -&gt; ActionConnectingAssembly&lt;VC, ViewController, Context&gt; {</code></pre></td>
-<td class="coverage">1x</td>
-</tr>
-<tr class="covered">
-<td class="num">70</td>
-<td class="src"><pre><code class="objc">        var previousSteps = self.previousSteps</code></pre></td>
-<td class="coverage">1x</td>
-</tr>
-<tr class="covered">
-<td class="num">71</td>
-<td class="src"><pre><code class="objc">        let entitiesCollector = BaseEntitiesCollector&lt;ContainerFactoryBox&lt;FC&gt;, ActionBox&gt;(finder: finder, factory: factory, action: ViewControllerActions.NilAction())</code></pre></td>
-<td class="coverage">1x</td>
-</tr>
-<tr class="covered">
-<td class="num">72</td>
-<td class="src"><pre><code class="objc">        let currentStep = BaseStep(entitiesProvider: entitiesCollector, taskProvider: taskCollector)</code></pre></td>
-<td class="coverage">1x</td>
-</tr>
-<tr class="covered">
-<td class="num">73</td>
-<td class="src"><pre><code class="objc">        previousSteps.append(currentStep)</code></pre></td>
-<td class="coverage">1x</td>
-</tr>
-<tr class="covered">
-<td class="num">74</td>
-<td class="src"><pre><code class="objc">        return ActionConnectingAssembly(stepToFullFill: step, previousSteps: previousSteps)</code></pre></td>
-<td class="coverage">1x</td>
-</tr>
-<tr class="covered">
-<td class="num">75</td>
-<td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">1x</td>
-</tr>
-<tr class="never">
-<td class="num">76</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">77</td>
-<td class="src"><pre><code class="objc">    /// Connects previously provided `DestinationStep` with `NilEntity` factory with a step where the `UIViewController`</code></pre></td>
+<td class="num">69</td>
+<td class="src"><pre><code class="objc">public extension ContainerStepAssembly where FC: NilEntity {</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">78</td>
-<td class="src"><pre><code class="objc">    /// should avoid type checks</code></pre></td>
+<td class="num">70</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">79</td>
+<td class="num">71</td>
+<td class="src"><pre><code class="objc">    /// Connects previously provided `ActionToStepIntegrator` with `NilEntity` factory with a step where the `UIViewController`</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">72</td>
+<td class="src"><pre><code class="objc">    /// should avoid type checks.</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">73</td>
 <td class="src"><pre><code class="objc">    ///</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">80</td>
-<td class="src"><pre><code class="objc">    /// - Parameter step: `DestinationStep` instance to be used.</code></pre></td>
+<td class="num">74</td>
+<td class="src"><pre><code class="objc">    /// - Parameter step: `ActionToStepIntegrator` instance to be used.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
-<td class="num">81</td>
-<td class="src"><pre><code class="objc">    func from&lt;VC: UIViewController&gt;(_ step: DestinationStep&lt;VC, Context&gt;) -&gt; LastStepInChainAssembly&lt;ViewController, Context&gt; {</code></pre></td>
+<td class="num">75</td>
+<td class="src"><pre><code class="objc">    func from&lt;VC: UIViewController&gt;(_ step: ActionToStepIntegrator&lt;VC, Context&gt;) -&gt; ActionConnectingAssembly&lt;VC, ViewController, Context&gt; {</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
-<td class="num">82</td>
+<td class="num">76</td>
 <td class="src"><pre><code class="objc">        var previousSteps = self.previousSteps</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
-<td class="num">83</td>
+<td class="num">77</td>
 <td class="src"><pre><code class="objc">        let entitiesCollector = BaseEntitiesCollector&lt;ContainerFactoryBox&lt;FC&gt;, ActionBox&gt;(finder: finder, factory: factory, action: ViewControllerActions.NilAction())</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
-<td class="num">84</td>
+<td class="num">78</td>
 <td class="src"><pre><code class="objc">        let currentStep = BaseStep(entitiesProvider: entitiesCollector, taskProvider: taskCollector)</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
-<td class="num">85</td>
+<td class="num">79</td>
 <td class="src"><pre><code class="objc">        previousSteps.append(currentStep)</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
-<td class="num">86</td>
-<td class="src"><pre><code class="objc">        previousSteps.append(step)</code></pre></td>
+<td class="num">80</td>
+<td class="src"><pre><code class="objc">        return ActionConnectingAssembly(stepToFullFill: step, previousSteps: previousSteps)</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
-<td class="num">87</td>
-<td class="src"><pre><code class="objc">        return LastStepInChainAssembly(previousSteps: previousSteps)</code></pre></td>
-<td class="coverage">1x</td>
-</tr>
-<tr class="covered">
-<td class="num">88</td>
+<td class="num">81</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="never">
-<td class="num">89</td>
+<td class="num">82</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
+<td class="num">83</td>
+<td class="src"><pre><code class="objc">    /// Connects previously provided `DestinationStep` with `NilEntity` factory with a step where the `UIViewController`</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">84</td>
+<td class="src"><pre><code class="objc">    /// should avoid type checks</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">85</td>
+<td class="src"><pre><code class="objc">    ///</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">86</td>
+<td class="src"><pre><code class="objc">    /// - Parameter step: `DestinationStep` instance to be used.</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="covered">
+<td class="num">87</td>
+<td class="src"><pre><code class="objc">    func from&lt;VC: UIViewController&gt;(_ step: DestinationStep&lt;VC, Context&gt;) -&gt; LastStepInChainAssembly&lt;ViewController, Context&gt; {</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">88</td>
+<td class="src"><pre><code class="objc">        var previousSteps = self.previousSteps</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">89</td>
+<td class="src"><pre><code class="objc">        let entitiesCollector = BaseEntitiesCollector&lt;ContainerFactoryBox&lt;FC&gt;, ActionBox&gt;(finder: finder, factory: factory, action: ViewControllerActions.NilAction())</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
 <td class="num">90</td>
+<td class="src"><pre><code class="objc">        let currentStep = BaseStep(entitiesProvider: entitiesCollector, taskProvider: taskCollector)</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">91</td>
+<td class="src"><pre><code class="objc">        previousSteps.append(currentStep)</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">92</td>
+<td class="src"><pre><code class="objc">        previousSteps.append(step)</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">93</td>
+<td class="src"><pre><code class="objc">        return LastStepInChainAssembly(previousSteps: previousSteps)</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">94</td>
+<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="never">
+<td class="num">95</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">96</td>
 <td class="src"><pre><code class="objc">}</code></pre></td>
 <td class="coverage"></td>
 </tr>

@@ -8,11 +8,15 @@ import UIKit
 /// Assembly protocol allowing to build an interceptable step.
 protocol InterceptableStepAssembling {
 
+    // MARK: Associated types
+
     /// Supported `UIViewController` type
     associatedtype ViewController: UIViewController
 
     /// Supported `Context` type
     associatedtype Context
+
+    // MARK: Methods to implement
 
     /// Adds `RoutingInterceptor` instance.
     /// This action does not contain type safety checks to avoid complications.

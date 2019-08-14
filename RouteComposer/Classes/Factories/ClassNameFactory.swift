@@ -9,9 +9,13 @@ import UIKit
 @available(*, deprecated, renamed: "ClassFactory")
 public struct ClassNameFactory<VC: UIViewController, C>: Factory {
 
+    // MARK: Associated types
+
     public typealias ViewController = VC
 
     public typealias Context = C
+
+    // MARK: Properties
 
     /// The name of a `UIViewController` class to be built by the `Factory`
     public let viewControllerName: String?
@@ -21,6 +25,8 @@ public struct ClassNameFactory<VC: UIViewController, C>: Factory {
 
     /// A `Bundle` instance
     public let bundle: Bundle?
+
+    // MARK: Methods
 
     /// Constructor
     ///

@@ -8,9 +8,9 @@ import UIKit
 /// Builds a `DestinationStep` which can contain the conditions to select the steps to be taken by a `Router`.
 /// ### Usage
 /// ```swift
-///        let containerScreen = SwitchAssembly<UINavigationController, ProductContext>()
+///        let containerStep = SwitchAssembly<UINavigationController, ProductContext>()
 ///                .addCase { (context: ProductContext) in
-///                    // If this configuration is requested by a Universal Link (productURL != nil), then present modally.
+///                    // If this configuration is requested by a Universal Link (productURL != nil), skip this case otherwise.
 ///                    guard context.productURL != nil else {
 ///                        return nil
 ///                    }
@@ -22,10 +22,10 @@ import UIKit
 ///
 ///                }
 ///
-///                // If UINavigationController is visible on the screen - just push
+///                // If UINavigationController is visible on the screen - use it
 ///                .addCase(from: ClassFinder<UINavigationController, ProductContext>(options: .currentVisibleOnly))
 ///
-///                // Otherwise - present modally
+///                // Otherwise - create a UINavigationController and present modally
 ///                .assemble(default: {
 ///                    return ChainAssembly.from(NavigationControllerStep<UINavigationController, ProductContext>())
 ///                            .using(GeneralAction.presentModally())
@@ -34,6 +34,8 @@ import UIKit
 ///                })
 /// ```
 public final class SwitchAssembly<ViewController: UIViewController, Context> {
+
+    // MARK: Internal entities
 
     private struct BlockResolver: StepCaseResolver {
 
@@ -70,7 +72,11 @@ public final class SwitchAssembly<ViewController: UIViewController, Context> {
         }
     }
 
+    // MARK: Properties
+
     private var resolvers: [StepCaseResolver] = []
+
+    // MARK: Methods
 
     /// Constructor
     public init() {
@@ -125,6 +131,8 @@ public final class SwitchAssembly<ViewController: UIViewController, Context> {
     }
 
 }
+
+// MARK: Methods for ContainerViewController
 
 extension SwitchAssembly where ViewController: ContainerViewController {
 

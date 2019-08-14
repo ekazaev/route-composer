@@ -7,7 +7,7 @@ import Foundation
 /// Routing `Error` representation
 public enum RoutingError: Error, CustomStringConvertible {
 
-    // MARK: Data
+    // MARK: Internal entities
 
     /// Describes an error happened to the initial view controller
     public enum InitialControllerErrorState: CustomStringConvertible {

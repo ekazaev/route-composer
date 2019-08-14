@@ -12,15 +12,21 @@ import UIKit
 @available(*, deprecated, renamed: "ClassFactory")
 public struct XibFactory<VC: UIViewController, C>: Factory {
 
+    // MARK: Associated types
+
     public typealias ViewController = VC
 
     public typealias Context = C
+
+    // MARK: Properties
 
     /// A Xib file name
     public let nibName: String?
 
     /// A `Bundle` instance
     public let bundle: Bundle?
+
+    // MARK: Methods
 
     /// Constructor
     ///

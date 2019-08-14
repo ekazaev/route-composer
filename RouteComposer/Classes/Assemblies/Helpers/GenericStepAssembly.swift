@@ -8,11 +8,17 @@ import UIKit
 /// Abstract builder class that helps to create a `DestinationStep` instance with correct settings.
 public class GenericStepAssembly<VC: UIViewController, C>: InterceptableStepAssembling {
 
+    // MARK: Associated types
+
     public typealias ViewController = VC
 
     public typealias Context = C
 
+    // MARK: Properties
+
     var taskCollector: TaskCollector = TaskCollector()
+
+    // MARK: Add a Task to the Step
 
     /// Adds `RoutingInterceptor` instance.
     /// This action does not contain type safety checks to avoid complications.

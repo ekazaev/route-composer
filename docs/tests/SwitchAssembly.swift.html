@@ -64,7 +64,7 @@
 </tr>
 <tr class="never">
 <td class="num">11</td>
-<td class="src"><pre><code class="objc">///        let containerScreen = SwitchAssembly&lt;UINavigationController, ProductContext&gt;()</code></pre></td>
+<td class="src"><pre><code class="objc">///        let containerStep = SwitchAssembly&lt;UINavigationController, ProductContext&gt;()</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -74,7 +74,7 @@
 </tr>
 <tr class="never">
 <td class="num">13</td>
-<td class="src"><pre><code class="objc">///                    // If this configuration is requested by a Universal Link (productURL != nil), then present modally.</code></pre></td>
+<td class="src"><pre><code class="objc">///                    // If this configuration is requested by a Universal Link (productURL != nil), skip this case otherwise.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -134,7 +134,7 @@
 </tr>
 <tr class="never">
 <td class="num">25</td>
-<td class="src"><pre><code class="objc">///                // If UINavigationController is visible on the screen - just push</code></pre></td>
+<td class="src"><pre><code class="objc">///                // If UINavigationController is visible on the screen - use it</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -149,7 +149,7 @@
 </tr>
 <tr class="never">
 <td class="num">28</td>
-<td class="src"><pre><code class="objc">///                // Otherwise - present modally</code></pre></td>
+<td class="src"><pre><code class="objc">///                // Otherwise - create a UINavigationController and present modally</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -199,7 +199,7 @@
 </tr>
 <tr class="never">
 <td class="num">38</td>
-<td class="src"><pre><code class="objc">    private struct BlockResolver: StepCaseResolver {</code></pre></td>
+<td class="src"><pre><code class="objc">    // MARK: Internal entities</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -209,7 +209,7 @@
 </tr>
 <tr class="never">
 <td class="num">40</td>
-<td class="src"><pre><code class="objc">        let resolverBlock: ((_: Context) -&gt; DestinationStep&lt;ViewController, Context&gt;?)</code></pre></td>
+<td class="src"><pre><code class="objc">    private struct BlockResolver: StepCaseResolver {</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -217,69 +217,69 @@
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="covered">
+<tr class="never">
 <td class="num">42</td>
+<td class="src"><pre><code class="objc">        let resolverBlock: ((_: Context) -&gt; DestinationStep&lt;ViewController, Context&gt;?)</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">43</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="covered">
+<td class="num">44</td>
 <td class="src"><pre><code class="objc">        init(resolverBlock: @escaping ((_: Context) -&gt; DestinationStep&lt;ViewController, Context&gt;?)) {</code></pre></td>
 <td class="coverage">9x</td>
 </tr>
 <tr class="covered">
-<td class="num">43</td>
+<td class="num">45</td>
 <td class="src"><pre><code class="objc">            self.resolverBlock = resolverBlock</code></pre></td>
 <td class="coverage">9x</td>
 </tr>
 <tr class="covered">
-<td class="num">44</td>
+<td class="num">46</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
 <td class="coverage">9x</td>
 </tr>
 <tr class="never">
-<td class="num">45</td>
+<td class="num">47</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
-<td class="num">46</td>
+<td class="num">48</td>
 <td class="src"><pre><code class="objc">        func resolve&lt;C&gt;(with context: C) -&gt; RoutingStep? {</code></pre></td>
 <td class="coverage">9x</td>
 </tr>
 <tr class="covered">
-<td class="num">47</td>
+<td class="num">49</td>
 <td class="src"><pre><code class="objc">            guard let typedContext = context as? Context else {</code></pre></td>
 <td class="coverage">9x</td>
 </tr>
 <tr class="covered">
-<td class="num">48</td>
+<td class="num">50</td>
 <td class="src"><pre><code class="objc">                return nil</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
-<td class="num">49</td>
+<td class="num">51</td>
 <td class="src"><pre><code class="objc">            }</code></pre></td>
 <td class="coverage">8x</td>
 </tr>
 <tr class="covered">
-<td class="num">50</td>
+<td class="num">52</td>
 <td class="src"><pre><code class="objc">            return resolverBlock(typedContext)</code></pre></td>
 <td class="coverage">8x</td>
 </tr>
 <tr class="covered">
-<td class="num">51</td>
+<td class="num">53</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
 <td class="coverage">9x</td>
 </tr>
 <tr class="never">
-<td class="num">52</td>
-<td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">53</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
 <td class="num">54</td>
-<td class="src"><pre><code class="objc">    private struct FinderResolver&lt;ViewController: UIViewController, Context&gt;: StepCaseResolver {</code></pre></td>
+<td class="src"><pre><code class="objc">    }</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -289,7 +289,7 @@
 </tr>
 <tr class="never">
 <td class="num">56</td>
-<td class="src"><pre><code class="objc">        private let finder: AnyFinder?</code></pre></td>
+<td class="src"><pre><code class="objc">    private struct FinderResolver&lt;ViewController: UIViewController, Context&gt;: StepCaseResolver {</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -299,7 +299,7 @@
 </tr>
 <tr class="never">
 <td class="num">58</td>
-<td class="src"><pre><code class="objc">        private let step: DestinationStep&lt;ViewController, Context&gt;</code></pre></td>
+<td class="src"><pre><code class="objc">        private let finder: AnyFinder?</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -307,74 +307,74 @@
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="covered">
+<tr class="never">
 <td class="num">60</td>
+<td class="src"><pre><code class="objc">        private let step: DestinationStep&lt;ViewController, Context&gt;</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">61</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="covered">
+<td class="num">62</td>
 <td class="src"><pre><code class="objc">        init&lt;F: Finder&gt;(finder: F, step: DestinationStep&lt;ViewController, Context&gt;?) {</code></pre></td>
 <td class="coverage">7x</td>
 </tr>
 <tr class="covered">
-<td class="num">61</td>
+<td class="num">63</td>
 <td class="src"><pre><code class="objc">            self.step = step ?? DestinationStep(GeneralStep.FinderStep(finder: finder))</code></pre></td>
 <td class="coverage">7x</td>
 </tr>
 <tr class="covered">
-<td class="num">62</td>
+<td class="num">64</td>
 <td class="src"><pre><code class="objc">            self.finder = FinderBox(finder)</code></pre></td>
 <td class="coverage">7x</td>
 </tr>
 <tr class="covered">
-<td class="num">63</td>
+<td class="num">65</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
 <td class="coverage">7x</td>
 </tr>
 <tr class="never">
-<td class="num">64</td>
+<td class="num">66</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
-<td class="num">65</td>
+<td class="num">67</td>
 <td class="src"><pre><code class="objc">        func resolve&lt;Context&gt;(with context: Context) -&gt; RoutingStep? {</code></pre></td>
 <td class="coverage">7x</td>
 </tr>
 <tr class="covered">
-<td class="num">66</td>
+<td class="num">68</td>
 <td class="src"><pre><code class="objc">            guard (try? finder?.findViewController(with: context)) != nil else {</code></pre></td>
 <td class="coverage">7x</td>
 </tr>
 <tr class="covered">
-<td class="num">67</td>
+<td class="num">69</td>
 <td class="src"><pre><code class="objc">                return nil</code></pre></td>
 <td class="coverage">3x</td>
 </tr>
 <tr class="covered">
-<td class="num">68</td>
+<td class="num">70</td>
 <td class="src"><pre><code class="objc">            }</code></pre></td>
 <td class="coverage">4x</td>
 </tr>
 <tr class="covered">
-<td class="num">69</td>
+<td class="num">71</td>
 <td class="src"><pre><code class="objc">            return step</code></pre></td>
 <td class="coverage">4x</td>
 </tr>
 <tr class="covered">
-<td class="num">70</td>
+<td class="num">72</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
 <td class="coverage">7x</td>
 </tr>
 <tr class="never">
-<td class="num">71</td>
-<td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">72</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
 <td class="num">73</td>
-<td class="src"><pre><code class="objc">    private var resolvers: [StepCaseResolver] = []</code></pre></td>
+<td class="src"><pre><code class="objc">    }</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -384,18 +384,18 @@
 </tr>
 <tr class="never">
 <td class="num">75</td>
-<td class="src"><pre><code class="objc">    /// Constructor</code></pre></td>
+<td class="src"><pre><code class="objc">    // MARK: Properties</code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="covered">
+<tr class="never">
 <td class="num">76</td>
-<td class="src"><pre><code class="objc">    public init() {</code></pre></td>
-<td class="coverage">8x</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
 </tr>
-<tr class="covered">
+<tr class="never">
 <td class="num">77</td>
-<td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">8x</td>
+<td class="src"><pre><code class="objc">    private var resolvers: [StepCaseResolver] = []</code></pre></td>
+<td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">78</td>
@@ -404,321 +404,361 @@
 </tr>
 <tr class="never">
 <td class="num">79</td>
-<td class="src"><pre><code class="objc">    /// Adds a block that allows a written decision case for the `Router` in the block.</code></pre></td>
+<td class="src"><pre><code class="objc">    // MARK: Methods</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">80</td>
-<td class="src"><pre><code class="objc">    /// Returning nil from the block will mean that it has not succeeded.</code></pre></td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">81</td>
-<td class="src"><pre><code class="objc">    ///</code></pre></td>
+<td class="src"><pre><code class="objc">    /// Constructor</code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="never">
+<tr class="covered">
 <td class="num">82</td>
-<td class="src"><pre><code class="objc">    /// - Parameter resolverBlock: case resolver block</code></pre></td>
-<td class="coverage"></td>
+<td class="src"><pre><code class="objc">    public init() {</code></pre></td>
+<td class="coverage">8x</td>
 </tr>
 <tr class="covered">
 <td class="num">83</td>
-<td class="src"><pre><code class="objc">    public func addCase(_ resolverBlock: @escaping ((_: Context) -&gt; DestinationStep&lt;ViewController, Context&gt;?)) -&gt; Self {</code></pre></td>
-<td class="coverage">4x</td>
-</tr>
-<tr class="covered">
-<td class="num">84</td>
-<td class="src"><pre><code class="objc">        resolvers.append(BlockResolver(resolverBlock: resolverBlock))</code></pre></td>
-<td class="coverage">4x</td>
-</tr>
-<tr class="covered">
-<td class="num">85</td>
-<td class="src"><pre><code class="objc">        return self</code></pre></td>
-<td class="coverage">4x</td>
-</tr>
-<tr class="covered">
-<td class="num">86</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">4x</td>
+<td class="coverage">8x</td>
+</tr>
+<tr class="never">
+<td class="num">84</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">85</td>
+<td class="src"><pre><code class="objc">    /// Adds a block that allows a written decision case for the `Router` in the block.</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">86</td>
+<td class="src"><pre><code class="objc">    /// Returning nil from the block will mean that it has not succeeded.</code></pre></td>
+<td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">87</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="src"><pre><code class="objc">    ///</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">88</td>
+<td class="src"><pre><code class="objc">    /// - Parameter resolverBlock: case resolver block</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="covered">
+<td class="num">89</td>
+<td class="src"><pre><code class="objc">    public func addCase(_ resolverBlock: @escaping ((_: Context) -&gt; DestinationStep&lt;ViewController, Context&gt;?)) -&gt; Self {</code></pre></td>
+<td class="coverage">4x</td>
+</tr>
+<tr class="covered">
+<td class="num">90</td>
+<td class="src"><pre><code class="objc">        resolvers.append(BlockResolver(resolverBlock: resolverBlock))</code></pre></td>
+<td class="coverage">4x</td>
+</tr>
+<tr class="covered">
+<td class="num">91</td>
+<td class="src"><pre><code class="objc">        return self</code></pre></td>
+<td class="coverage">4x</td>
+</tr>
+<tr class="covered">
+<td class="num">92</td>
+<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="coverage">4x</td>
+</tr>
+<tr class="never">
+<td class="num">93</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">94</td>
 <td class="src"><pre><code class="objc">    /// Adds a case when a view controller exists in the stack in order to make a particular `DestinationStep`.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">89</td>
+<td class="num">95</td>
 <td class="src"><pre><code class="objc">    ///</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">90</td>
+<td class="num">96</td>
 <td class="src"><pre><code class="objc">    /// - Parameters:</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">91</td>
+<td class="num">97</td>
 <td class="src"><pre><code class="objc">    ///   - finder: The `Finder` instance searches for a `UIViewController` in the stack</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">92</td>
+<td class="num">98</td>
 <td class="src"><pre><code class="objc">    ///   - step: The `DestinationStep` is to perform if the `Finder` has been able to find a view controller in the stack. If not provided,</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">93</td>
+<td class="num">99</td>
 <td class="src"><pre><code class="objc">    ///   a `UIViewController` found by the `Finder` will be considered as a view controller to start the navigation process from</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
-<td class="num">94</td>
+<td class="num">100</td>
 <td class="src"><pre><code class="objc">    public func addCase&lt;F: Finder&gt;(when finder: F, from step: DestinationStep&lt;ViewController, Context&gt;) -&gt; Self where F.Context == Context {</code></pre></td>
 <td class="coverage">2x</td>
 </tr>
 <tr class="covered">
-<td class="num">95</td>
+<td class="num">101</td>
 <td class="src"><pre><code class="objc">        resolvers.append(FinderResolver(finder: finder, step: step))</code></pre></td>
 <td class="coverage">2x</td>
 </tr>
 <tr class="covered">
-<td class="num">96</td>
+<td class="num">102</td>
 <td class="src"><pre><code class="objc">        return self</code></pre></td>
 <td class="coverage">2x</td>
 </tr>
 <tr class="covered">
-<td class="num">97</td>
+<td class="num">103</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
 <td class="coverage">2x</td>
 </tr>
 <tr class="never">
-<td class="num">98</td>
+<td class="num">104</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">99</td>
+<td class="num">105</td>
 <td class="src"><pre><code class="objc">    /// Adds a case when a view controller exists - navigation will start from the resulting view controller.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">100</td>
+<td class="num">106</td>
 <td class="src"><pre><code class="objc">    ///</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">101</td>
+<td class="num">107</td>
 <td class="src"><pre><code class="objc">    /// - Parameters:</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">102</td>
-<td class="src"><pre><code class="objc">    ///   - finder: The `Finder` instance is to find a `UIViewController` in the stack</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">103</td>
-<td class="src"><pre><code class="objc">    ///   a `UIViewController` found by the `Finder` will be considered as a view controller to start the navigation process from</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="covered">
-<td class="num">104</td>
-<td class="src"><pre><code class="objc">    public func addCase&lt;F: Finder&gt;(from finder: F) -&gt; Self where F.ViewController == ViewController, F.Context == Context {</code></pre></td>
-<td class="coverage">4x</td>
-</tr>
-<tr class="covered">
-<td class="num">105</td>
-<td class="src"><pre><code class="objc">        resolvers.append(FinderResolver&lt;ViewController, Context&gt;(finder: finder, step: nil))</code></pre></td>
-<td class="coverage">4x</td>
-</tr>
-<tr class="covered">
-<td class="num">106</td>
-<td class="src"><pre><code class="objc">        return self</code></pre></td>
-<td class="coverage">4x</td>
-</tr>
-<tr class="covered">
-<td class="num">107</td>
-<td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">4x</td>
-</tr>
-<tr class="never">
 <td class="num">108</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="src"><pre><code class="objc">    ///   - finder: The `Finder` instance is to find a `UIViewController` in the stack</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">109</td>
-<td class="src"><pre><code class="objc">    /// Assembles all the cases into a `DestinationStep` implementation</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">110</td>
-<td class="src"><pre><code class="objc">    ///</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">111</td>
-<td class="src"><pre><code class="objc">    /// - Returns: instance of a `DestinationStep`</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="covered">
-<td class="num">112</td>
-<td class="src"><pre><code class="objc">    public func assemble() -&gt; DestinationStep&lt;ViewController, Context&gt; {</code></pre></td>
-<td class="coverage">3x</td>
-</tr>
-<tr class="covered">
-<td class="num">113</td>
-<td class="src"><pre><code class="objc">        return DestinationStep(SwitcherStep(resolvers: resolvers))</code></pre></td>
-<td class="coverage">3x</td>
-</tr>
-<tr class="covered">
-<td class="num">114</td>
-<td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">3x</td>
-</tr>
-<tr class="never">
-<td class="num">115</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">116</td>
-<td class="src"><pre><code class="objc">    /// Assembles all the cases in a `DestinationStep` instance and adds the default implementation, providing the step it is to perform</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">117</td>
-<td class="src"><pre><code class="objc">    ///</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">118</td>
-<td class="src"><pre><code class="objc">    /// - Parameter resolverBlock: default resolver block</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">119</td>
-<td class="src"><pre><code class="objc">    /// - Returns: an instance of `DestinationStep`</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="covered">
-<td class="num">120</td>
-<td class="src"><pre><code class="objc">    public func assemble(default resolverBlock: @escaping (() -&gt; DestinationStep&lt;ViewController, Context&gt;)) -&gt; DestinationStep&lt;ViewController, Context&gt; {</code></pre></td>
-<td class="coverage">5x</td>
-</tr>
-<tr class="covered">
-<td class="num">121</td>
-<td class="src"><pre><code class="objc">        resolvers.append(BlockResolver(resolverBlock: { _ in</code></pre></td>
-<td class="coverage">5x</td>
-</tr>
-<tr class="covered">
-<td class="num">122</td>
-<td class="src"><pre><code class="objc">            return resolverBlock()</code></pre></td>
-<td class="coverage">3x</td>
-</tr>
-<tr class="covered">
-<td class="num">123</td>
-<td class="src"><pre><code class="objc">        }))</code></pre></td>
-<td class="coverage">3x</td>
-</tr>
-<tr class="covered">
-<td class="num">124</td>
-<td class="src"><pre><code class="objc">        return DestinationStep(SwitcherStep(resolvers: resolvers))</code></pre></td>
-<td class="coverage">5x</td>
-</tr>
-<tr class="covered">
-<td class="num">125</td>
-<td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">5x</td>
-</tr>
-<tr class="never">
-<td class="num">126</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">127</td>
-<td class="src"><pre><code class="objc">}</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">128</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">129</td>
-<td class="src"><pre><code class="objc">extension SwitchAssembly where ViewController: ContainerViewController {</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">130</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">131</td>
-<td class="src"><pre><code class="objc">    /// Adds a case when a view controller exists - navigation will start from the resulting view controller.</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">132</td>
-<td class="src"><pre><code class="objc">    /// This method allows to avoid view controller type check.</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">133</td>
-<td class="src"><pre><code class="objc">    ///</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">134</td>
-<td class="src"><pre><code class="objc">    /// - Parameters:</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">135</td>
-<td class="src"><pre><code class="objc">    ///   - finder: The `Finder` instance is to find a `UIViewController` in the stack</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">136</td>
 <td class="src"><pre><code class="objc">    ///   a `UIViewController` found by the `Finder` will be considered as a view controller to start the navigation process from</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
-<td class="num">137</td>
-<td class="src"><pre><code class="objc">    public func addCase&lt;F: Finder&gt;(expecting finder: F) -&gt; Self where F.Context == Context {</code></pre></td>
-<td class="coverage">1x</td>
+<td class="num">110</td>
+<td class="src"><pre><code class="objc">    public func addCase&lt;F: Finder&gt;(from finder: F) -&gt; Self where F.ViewController == ViewController, F.Context == Context {</code></pre></td>
+<td class="coverage">4x</td>
 </tr>
 <tr class="covered">
-<td class="num">138</td>
+<td class="num">111</td>
 <td class="src"><pre><code class="objc">        resolvers.append(FinderResolver&lt;ViewController, Context&gt;(finder: finder, step: nil))</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">4x</td>
 </tr>
 <tr class="covered">
-<td class="num">139</td>
+<td class="num">112</td>
 <td class="src"><pre><code class="objc">        return self</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">4x</td>
 </tr>
 <tr class="covered">
-<td class="num">140</td>
+<td class="num">113</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">4x</td>
 </tr>
 <tr class="never">
-<td class="num">141</td>
+<td class="num">114</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
+<td class="num">115</td>
+<td class="src"><pre><code class="objc">    /// Assembles all the cases into a `DestinationStep` implementation</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">116</td>
+<td class="src"><pre><code class="objc">    ///</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">117</td>
+<td class="src"><pre><code class="objc">    /// - Returns: instance of a `DestinationStep`</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="covered">
+<td class="num">118</td>
+<td class="src"><pre><code class="objc">    public func assemble() -&gt; DestinationStep&lt;ViewController, Context&gt; {</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">119</td>
+<td class="src"><pre><code class="objc">        return DestinationStep(SwitcherStep(resolvers: resolvers))</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">120</td>
+<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="never">
+<td class="num">121</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">122</td>
+<td class="src"><pre><code class="objc">    /// Assembles all the cases in a `DestinationStep` instance and adds the default implementation, providing the step it is to perform</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">123</td>
+<td class="src"><pre><code class="objc">    ///</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">124</td>
+<td class="src"><pre><code class="objc">    /// - Parameter resolverBlock: default resolver block</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">125</td>
+<td class="src"><pre><code class="objc">    /// - Returns: an instance of `DestinationStep`</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="covered">
+<td class="num">126</td>
+<td class="src"><pre><code class="objc">    public func assemble(default resolverBlock: @escaping (() -&gt; DestinationStep&lt;ViewController, Context&gt;)) -&gt; DestinationStep&lt;ViewController, Context&gt; {</code></pre></td>
+<td class="coverage">5x</td>
+</tr>
+<tr class="covered">
+<td class="num">127</td>
+<td class="src"><pre><code class="objc">        resolvers.append(BlockResolver(resolverBlock: { _ in</code></pre></td>
+<td class="coverage">5x</td>
+</tr>
+<tr class="covered">
+<td class="num">128</td>
+<td class="src"><pre><code class="objc">            return resolverBlock()</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">129</td>
+<td class="src"><pre><code class="objc">        }))</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">130</td>
+<td class="src"><pre><code class="objc">        return DestinationStep(SwitcherStep(resolvers: resolvers))</code></pre></td>
+<td class="coverage">5x</td>
+</tr>
+<tr class="covered">
+<td class="num">131</td>
+<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="coverage">5x</td>
+</tr>
+<tr class="never">
+<td class="num">132</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">133</td>
+<td class="src"><pre><code class="objc">}</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">134</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">135</td>
+<td class="src"><pre><code class="objc">// MARK: Methods for ContainerViewController</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">136</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">137</td>
+<td class="src"><pre><code class="objc">extension SwitchAssembly where ViewController: ContainerViewController {</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">138</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">139</td>
+<td class="src"><pre><code class="objc">    /// Adds a case when a view controller exists - navigation will start from the resulting view controller.</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">140</td>
+<td class="src"><pre><code class="objc">    /// This method allows to avoid view controller type check.</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">141</td>
+<td class="src"><pre><code class="objc">    ///</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
 <td class="num">142</td>
+<td class="src"><pre><code class="objc">    /// - Parameters:</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">143</td>
+<td class="src"><pre><code class="objc">    ///   - finder: The `Finder` instance is to find a `UIViewController` in the stack</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">144</td>
+<td class="src"><pre><code class="objc">    ///   a `UIViewController` found by the `Finder` will be considered as a view controller to start the navigation process from</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="covered">
+<td class="num">145</td>
+<td class="src"><pre><code class="objc">    public func addCase&lt;F: Finder&gt;(expecting finder: F) -&gt; Self where F.Context == Context {</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">146</td>
+<td class="src"><pre><code class="objc">        resolvers.append(FinderResolver&lt;ViewController, Context&gt;(finder: finder, step: nil))</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">147</td>
+<td class="src"><pre><code class="objc">        return self</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">148</td>
+<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="never">
+<td class="num">149</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">150</td>
 <td class="src"><pre><code class="objc">}</code></pre></td>
 <td class="coverage"></td>
 </tr>

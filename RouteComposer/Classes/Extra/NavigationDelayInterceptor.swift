@@ -17,6 +17,8 @@ import UIKit
 /// situations. The `.wait` strategy can be used only as a temporary solution.*
 public struct NavigationDelayingInterceptor: RoutingInterceptor {
 
+    // MARK: Internal entities
+
     /// The strategy to be used by `NavigationDelayingInterceptor`
     ///
     /// - wait: Wait while some `UIViewController` is being presented or dismissed.
@@ -31,6 +33,8 @@ public struct NavigationDelayingInterceptor: RoutingInterceptor {
 
     }
 
+    // MARK: Properties
+
     /// `WindowProvider` instance.
     public let windowProvider: WindowProvider
 
@@ -39,6 +43,8 @@ public struct NavigationDelayingInterceptor: RoutingInterceptor {
 
     /// Type of `Strategy`.
     public let strategy: Strategy
+
+    // MARK: Methods
 
     /// Constructor
     ///

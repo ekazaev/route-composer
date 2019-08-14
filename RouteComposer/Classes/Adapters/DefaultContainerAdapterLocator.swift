@@ -8,6 +8,8 @@ import UIKit
 /// Default implementation of `ContainerAdapterLocator`
 public struct DefaultContainerAdapterLocator: ContainerAdapterLocator {
 
+    // MARK: Methods
+
     /// Constructor
     public init() {
     }

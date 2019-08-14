@@ -20,6 +20,8 @@ Can be used as the universal replacement for the [Coordinator](https://www.raywe
 
 ## Table of contents
 
+- [Navigation concerns](#navigation-concerns)
+- [RouteComposer helps](#routecomposer-helps)
 - [Installation](#installation)
 - [Example](#example)
 - [Requirements](#requirements)
@@ -38,6 +40,28 @@ Can be used as the universal replacement for the [Coordinator](https://www.raywe
 - [License](#license)
 - [Articles](#articles)
 - [Author](#author)
+
+## Navigation concerns
+
+There are 2 ways of implementing the navigation available in the iOS application:
+- Built-in mechanism provided by Apple using storyboards and segues
+- Pragmatical navigation directly in the code
+
+The downsides of these two solutions:
+- Built-in mechanism: navigation in the storyboards is relatively static and often requires the extra navigation code in the 
+`UIViewController`s and can lead to a lot of boilerplate code
+- Pragmatical navigation: forces `UIViewController`s coupling or can be complex depending on the chosen design 
+pattern (Router, Coordinator) 
+
+## RouteComposer helps
+
+- Facilitate the cutting of an application into small logical steps of navigation
+- Provide the navigation configuration in a declarative way and address the majority of the navigation cases
+- Remove navigation code from `UIViewController`s
+- Allow the composition of the `UIViewController`s in different ways according to the application state
+- Make every `UIViewController` deep-linkable out of the box
+- Simplify the creation of the User facing A/B tests with the different navigation and layout patterns
+- Able to work side-by-side with any other navigation mechanism that exist in the IOs application: Builtin or custom
 
 ## Installation
 
@@ -75,7 +99,7 @@ and actions you should be familiar with the library concepts and UIKit's view co
 
 ### API documentation
 
-Detailed information on using RouteComposer can be found [here](https://saksdirect.github.io/route-composer/). 
+Detailed API documentation can be found [here](https://saksdirect.github.io/route-composer/). 
 Test coverage - [here](https://codecov.io/gh/saksdirect/route-composer) 
 
 ## Usage

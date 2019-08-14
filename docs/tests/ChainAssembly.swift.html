@@ -64,71 +64,81 @@
 </tr>
 <tr class="never">
 <td class="num">11</td>
-<td class="src"><pre><code class="objc">    /// Transforms step into a chain of steps.</code></pre></td>
+<td class="src"><pre><code class="objc">    // MARK: Methods</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">12</td>
-<td class="src"><pre><code class="objc">    /// ### Usage</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">13</td>
-<td class="src"><pre><code class="objc">    /// ```swift</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">14</td>
-<td class="src"><pre><code class="objc">    /// let intermediateStep = ChainAssembly.from(NavigationControllerStep&lt;UINavigationController, Any?&gt;())</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">15</td>
-<td class="src"><pre><code class="objc">    ///         .from(using: GeneralAction.presentModally())</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">16</td>
-<td class="src"><pre><code class="objc">    ///         .from(GeneralStep.current())</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">17</td>
-<td class="src"><pre><code class="objc">    ///         .assemble()</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">18</td>
-<td class="src"><pre><code class="objc">    /// ```</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">19</td>
-<td class="src"><pre><code class="objc">    /// - Parameter step: The instance of `ActionConnectingAssembly`</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="covered">
-<td class="num">20</td>
-<td class="src"><pre><code class="objc">    public static func from&lt;VC: UIViewController, C&gt;(_ step: ActionToStepIntegrator&lt;VC, C&gt;) -&gt; ActionConnectingAssembly&lt;VC, VC, C&gt; {</code></pre></td>
-<td class="coverage">1x</td>
-</tr>
-<tr class="covered">
-<td class="num">21</td>
-<td class="src"><pre><code class="objc">        return ActionConnectingAssembly(stepToFullFill: step, previousSteps: [])</code></pre></td>
-<td class="coverage">1x</td>
-</tr>
-<tr class="covered">
-<td class="num">22</td>
-<td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">1x</td>
-</tr>
-<tr class="never">
-<td class="num">23</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
+<td class="num">13</td>
+<td class="src"><pre><code class="objc">    /// Transforms step into a chain of steps.</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">14</td>
+<td class="src"><pre><code class="objc">    /// ### Usage</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">15</td>
+<td class="src"><pre><code class="objc">    /// ```swift</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">16</td>
+<td class="src"><pre><code class="objc">    /// let intermediateStep = ChainAssembly.from(NavigationControllerStep&lt;UINavigationController, Any?&gt;())</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">17</td>
+<td class="src"><pre><code class="objc">    ///         .using(GeneralAction.presentModally())</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">18</td>
+<td class="src"><pre><code class="objc">    ///         .from(GeneralStep.current())</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">19</td>
+<td class="src"><pre><code class="objc">    ///         .assemble()</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">20</td>
+<td class="src"><pre><code class="objc">    /// ```</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">21</td>
+<td class="src"><pre><code class="objc">    /// - Parameter step: The instance of `ActionConnectingAssembly`</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="covered">
+<td class="num">22</td>
+<td class="src"><pre><code class="objc">    public static func from&lt;VC: UIViewController, C&gt;(_ step: ActionToStepIntegrator&lt;VC, C&gt;) -&gt; ActionConnectingAssembly&lt;VC, VC, C&gt; {</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">23</td>
+<td class="src"><pre><code class="objc">        return ActionConnectingAssembly(stepToFullFill: step, previousSteps: [])</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
 <td class="num">24</td>
+<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="never">
+<td class="num">25</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">26</td>
 <td class="src"><pre><code class="objc">}</code></pre></td>
 <td class="coverage"></td>
 </tr>

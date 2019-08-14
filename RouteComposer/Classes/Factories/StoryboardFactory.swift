@@ -8,9 +8,13 @@ import UIKit
 /// The `Factory` that creates a `UIViewController` from a storyboard.
 public struct StoryboardFactory<VC: UIViewController, C>: Factory {
 
+    // MARK: Associated types
+
     public typealias ViewController = VC
 
     public typealias Context = C
+
+    // MARK: Properties
 
     /// The name of a storyboard file
     public let name: String
@@ -24,6 +28,8 @@ public struct StoryboardFactory<VC: UIViewController, C>: Factory {
 
     /// The additional configuration block
     public let configuration: ((_: VC) -> Void)?
+
+    // MARK: Methods
 
     /// Constructor
     ///
