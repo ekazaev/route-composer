@@ -1,5 +1,6 @@
 # RouteComposer
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/a80ff85b146d4cc0ace9620b989ff271)](https://app.codacy.com/app/ekazaev/route-composer?utm_source=github.com&utm_medium=referral&utm_content=saksdirect/route-composer&utm_campaign=Badge_Grade_Settings)
 [![CI Status](https://travis-ci.org/saksdirect/route-composer.svg?branch=master&style=flat)](https://travis-ci.org/saksdirect/route-composer)
 [![Release](https://img.shields.io/github/release/saksdirect/route-composer.svg?style=flat&color=darkcyan)](https://github.com/saksdirect/route-composer/releases)
 [![Cocoapods](https://img.shields.io/cocoapods/v/RouteComposer.svg?style=flat)](http://cocoapods.org/pods/RouteComposer)
