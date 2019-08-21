@@ -8,6 +8,7 @@
 [![Platform iOS](https://img.shields.io/badge/platform-iOS%209%20—%20iOS%2013-yellow.svg)](https://www.apple.com/ios)
 [![Documentation](https://saksdirect.github.io/route-composer/badge.svg)](https://saksdirect.github.io/route-composer)
 [![Code coverage](https://codecov.io/gh/saksdirect/route-composer/branch/master/graphs/badge.svg?style=flat)](https://saksdirect.github.io/route-composer/tests/index.html)
+[![Codacy Quality Badge](https://api.codacy.com/project/badge/Grade/a80ff85b146d4cc0ace9620b989ff271)](https://app.codacy.com/app/ekazaev/route-composer?utm_source=github.com&utm_medium=referral&utm_content=saksdirect/route-composer&utm_campaign=Badge_Grade_Settings)
 [![MIT License](https://img.shields.io/cocoapods/l/RouteComposer.svg?style=flat)](https://github.com/saksdirect/RouteComposer/blob/master/LICENSE)
 [![Twitter](https://img.shields.io/twitter/url/https/github.com/saksdirect/route-composer.svg?style=flat)](https://twitter.com/intent/tweet?text=Check%20it%20out:&url=https%3A%2F%2Fgithub.com%2Fsaksdirect%2Froute-composer)
 

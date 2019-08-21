@@ -16,6 +16,9 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
     /// `ContainerAdapter` instance.
     public let containerAdapterLocator: ContainerAdapterLocator
 
+    /// `StackPresentationHandler` instance
+    public let stackPresentationHandler: StackPresentationHandler
+
     private var interceptors: [AnyRoutingInterceptor] = []
 
     private var contextTasks: [AnyContextTask] = []
@@ -28,10 +31,13 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
     ///
     /// Parameters
     ///   - logger: A `Logger` instance to be used by the `DefaultRouter`.
+    ///   - stackPresentationHandler: A `StackPresentationHandler` instance to be used by the `DefaultRouter`.
     ///   - containerAdapterLocator: A `ContainerAdapterLocator` instance to be used by the `DefaultRouter`.
-    public init(logger: Logger? = nil,
+    public init(logger: Logger? = DefaultLogger(.warnings),
+                stackPresentationHandler: StackPresentationHandler = DefaultStackPresentationHandler(),
                 containerAdapterLocator: ContainerAdapterLocator = DefaultContainerAdapterLocator()) {
         self.logger = logger
+        self.stackPresentationHandler = stackPresentationHandler
         self.containerAdapterLocator = containerAdapterLocator
     }
 
@@ -179,30 +185,20 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
                 return
             }
 
-            // Closes all the presented view controllers above the found view controller to be able
-            // to build a new stack if needed.
+            // Builds view controller's stack using factories.
             // This operation is async.
-            // It was already confirmed that they can be dismissed.
-            self.dismissPresentedIfNeeded(from: viewController, animated: animated) { result in
-                guard result.isSuccessful else {
-                    return completion(result)
-                }
-
-                // Builds view controller's stack using factories.
-                // This operation is async.
-                self.buildViewControllerStack(starting: viewController,
-                        with: context,
-                        using: factoriesStack,
-                        animated: animated) { result in
-                    do {
-                        if case let .failure(error) = result {
-                            throw error
-                        }
-                        try taskStack.performPostTasks(with: context)
-                        completion(result)
-                    } catch {
-                        completion(.failure(error))
+            self.buildViewControllerStack(starting: viewController,
+                    with: context,
+                    using: factoriesStack,
+                    animated: animated) { result in
+                do {
+                    if case let .failure(error) = result {
+                        throw error
                     }
+                    try taskStack.performPostTasks(with: context)
+                    completion(result)
+                } catch {
+                    completion(.failure(error))
                 }
             }
         }
@@ -221,10 +217,10 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
                 containerAdapterLocator: containerAdapterLocator)
 
         func buildViewController(from previousViewController: UIViewController) {
-            self.makeVisibleIfNeeded(previousViewController, animated: animated, completion: { result in
+            self.stackPresentationHandler.makeActive(previousViewController, animated: animated) { result in
                 guard result.isSuccessful else {
                     self.logger?.log(.info("\(String(describing: previousViewController)) has stopped the navigation process " +
-                            "as it was not able to become visible in the parent container."))
+                            "as it was not able to become active."))
                     completion(result)
                     return
                 }
@@ -258,76 +254,11 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
                 } catch {
                     completion(.failure(error))
                 }
-            })
+            }
         }
 
         logger?.log(.info(factories.isEmpty ? "No view controllers needed to be integrated into the stack." : "Started to build the view controllers stack."))
         buildViewController(from: rootViewController)
-    }
-
-    private func makeVisibleIfNeeded(_ viewController: UIViewController,
-                                     animated: Bool,
-                                     completion: @escaping (RoutingResult) -> Void) {
-        // If the previous view controller is created/found but it's view is not loaded or it has no window,
-        // then it is cached by the container view controller like it would be in a `UITabBarController`s
-        // tab that was never activated. So the router will have to activate it first.
-        // Example: `UITabBarController` contains a navigation controller in the tab that was never opened and the router is going
-        // to push a view controller into. UINavigationController in this case will not be able to update its content properly.
-        if !viewController.isViewLoaded || viewController.view.window == nil {
-            makeVisibleInParentContainer(viewController, animated: animated, completion: completion)
-        } else {
-            completion(.success)
-        }
-    }
-
-    // Activates the origin view controller of viewController
-    private func makeVisibleInParentContainer(_ viewController: UIViewController,
-                                              animated: Bool,
-                                              completion: @escaping (RoutingResult) -> Void) {
-        var parentViewControllers = viewController.allParents
-
-        func makeVisible(viewController: UIViewController, completion: @escaping (RoutingResult) -> Void) {
-            guard !parentViewControllers.isEmpty else {
-                completion(.success)
-                return
-            }
-            do {
-                let parentViewController = parentViewControllers.removeFirst()
-                if let container = parentViewController as? ContainerViewController {
-                    let containerAdapter = try containerAdapterLocator.getAdapter(for: container)
-                    containerAdapter.makeVisible(viewController, animated: animated, completion: { result in
-                        guard result.isSuccessful else {
-                            completion(result)
-                            return
-                        }
-                        self.logger?.log(.info("Made \(String(describing: viewController)) visible in \(String(describing: container))"))
-                        makeVisible(viewController: parentViewController, completion: completion)
-                    })
-                } else {
-                    makeVisible(viewController: parentViewController, completion: completion)
-                }
-            } catch {
-                completion(.failure(error))
-            }
-        }
-
-        makeVisible(viewController: viewController, completion: completion)
-    }
-
-    // Dismisses all the view controllers presented if there are any
-    private func dismissPresentedIfNeeded(from viewController: UIViewController, animated: Bool, completion: @escaping ((_: RoutingResult) -> Void)) {
-        if let presentedController = viewController.presentedViewController {
-            if !presentedController.isBeingDismissed {
-                viewController.dismiss(animated: animated) {
-                    self.logger?.log(.info("Dismissed all the view controllers presented from \(String(describing: viewController))"))
-                    completion(.success)
-                }
-            } else {
-                completion(.failure(RoutingError.compositionFailed(.init("Attempt to dismiss \(String(describing: presentedController)) while it is being dismissed"))))
-            }
-        } else {
-            completion(.success)
-        }
     }
 
 }
