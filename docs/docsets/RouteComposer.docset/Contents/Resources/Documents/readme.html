@@ -513,7 +513,6 @@ and deep linking tasks in the iOS application. </p>
 
 <ul>
 <li><a href="#navigation-concerns">Navigation concerns</a></li>
-<li><a href="#routecomposer-helps">RouteComposer helps</a></li>
 <li><a href="#installation">Installation</a></li>
 <li><a href="#example">Example</a></li>
 <li><a href="#requirements">Requirements</a></li>
@@ -531,7 +530,8 @@ and deep linking tasks in the iOS application. </p>
 <li><a href="#6-post-routing-task">Post Routing Task</a></li>
 </ul></li>
 <li><a href="#configuring-step">Configuring Step</a></li>
-<li><a href="#routing">Routing</a></li>
+<li><a href="#navigation">Navigation</a></li>
+<li><a href="#deep-linking">Deep-linking</a></li>
 </ul></li>
 <li><a href="#advanced-configuration">Advanced Configuration</a></li>
 <li><a href="#contributing">Contributing</a></li>
@@ -795,7 +795,7 @@ which should be presented modally from any currently visible view controller.</e
 </ul>
 
 <p><em>See example app to find out different ways to provide and store routing step configurations.</em></p>
-<h3 id='routing' class='heading'>Routing</h3>
+<h3 id='navigation' class='heading'>Navigation</h3>
 
 <p>After you have implemented all necessary classes and configured a routing step, you can start to use the <code><a href="Protocols/Router.html">Router</a></code> to navigate. The library provides
 a <code><a href="Structs/DefaultRouter.html">DefaultRouter</a></code> which is an implementation of the <code><a href="Protocols/Router.html">Router</a></code> protocol to handle routing based on the configuration explained above.</p>
@@ -880,6 +880,23 @@ navigation process into small reusable pieces. The router will call them in a pr
 The library does not break the rules of VIPER or MVVM architectural patterns and can be used in parallel with them.</p>
 
 <p>See example app for other examples of defining routing configurations and instantiating router.</p>
+<h2 id='deep-linking' class='heading'>Deep-linking</h2>
+
+<p>With <code>RouteComposer</code> every view controller becomes deep-linkable out of the box. You can also provide different configuration in case
+the screen is being opened using universal link. See Example app for more information. </p>
+<pre class="highlight swift"><code>    <span class="k">let</span> <span class="nv">router</span> <span class="o">=</span> <span class="kt">DefaultRouter</span><span class="p">()</span>
+
+    <span class="kd">func</span> <span class="nf">application</span><span class="p">(</span><span class="n">_</span> <span class="nv">application</span><span class="p">:</span> <span class="kt">UIApplication</span><span class="p">,</span>
+                     <span class="kd">open</span> <span class="nv">url</span><span class="p">:</span> <span class="kt">URL</span><span class="p">,</span>
+                     <span class="nv">sourceApplication</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span>
+                     <span class="nv">annotation</span><span class="p">:</span> <span class="kt">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span> <span class="p">{</span>
+        <span class="k">guard</span> <span class="k">let</span> <span class="nv">productID</span> <span class="o">=</span> <span class="nf">extractProductId</span><span class="p">(</span><span class="nv">from</span><span class="p">:</span> <span class="n">url</span><span class="p">)</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="kc">false</span>
+        <span class="p">}</span>
+        <span class="k">try</span><span class="p">?</span> <span class="n">router</span><span class="o">.</span><span class="nf">navigate</span><span class="p">(</span><span class="nv">to</span><span class="p">:</span> <span class="kt">Configuration</span><span class="o">.</span><span class="n">productScreen</span><span class="p">,</span> <span class="nv">with</span><span class="p">:</span> <span class="n">productID</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">true</span>
+    <span class="p">}</span>
+</code></pre>
 <h2 id='advanced-configuration' class='heading'>Advanced Configuration:</h2>
 
 <p>You can find more configuration examples <a href="https://saksdirect.github.io/route-composer/examples.html">here</a>.</p>

@@ -22,7 +22,6 @@ Can be used as the universal replacement for the [Coordinator](https://www.raywe
 ## Table of contents
 
 - [Navigation concerns](#navigation-concerns)
-- [RouteComposer helps](#routecomposer-helps)
 - [Installation](#installation)
 - [Example](#example)
 - [Requirements](#requirements)
@@ -35,7 +34,8 @@ Can be used as the universal replacement for the [Coordinator](https://www.raywe
         - [Context Task](#5-context-task)
         - [Post Routing Task](#6-post-routing-task)
     - [Configuring Step](#configuring-step)
-    - [Routing](#routing)
+    - [Navigation](#navigation)
+    - [Deep-linking](#deep-linking)
 - [Advanced Configuration](#advanced-configuration)
 - [Contributing](#contributing)
 - [License](#license)
@@ -323,7 +323,7 @@ This configuration means:
 
 *See example app to find out different ways to provide and store routing step configurations.*
 
-### Routing
+### Navigation
 
 After you have implemented all necessary classes and configured a routing step, you can start to use the `Router` to navigate. The library provides
 a `DefaultRouter` which is an implementation of the `Router` protocol to handle routing based on the configuration explained above.
@@ -413,6 +413,25 @@ The library does not break the rules of VIPER or MVVM architectural patterns and
 
 See example app for other examples of defining routing configurations and instantiating router.
 
+## Deep-linking
+
+With `RouteComposer` every view controller becomes deep-linkable out of the box. You can also provide different configuration in case
+the screen is being opened using universal link. See Example app for more information. 
+
+```swift
+    let router = DefaultRouter()
+
+    func application(_ application: UIApplication,
+                     open url: URL,
+                     sourceApplication: String?,
+                     annotation: Any) -> Bool {
+        guard let productID = extractProductId(from: url) else {
+            return false
+        }
+        try? router.navigate(to: Configuration.productScreen, with: productID)
+        return true
+    }
+```
 ## Advanced Configuration:
 
 You can find more configuration examples [here](https://saksdirect.github.io/route-composer/examples.html).
