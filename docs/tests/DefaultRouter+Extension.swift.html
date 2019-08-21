@@ -430,17 +430,17 @@
 <tr class="covered">
 <td class="num">84</td>
 <td class="src"><pre><code class="objc">        func commit&lt;Context&gt;(with context: Context) throws {</code></pre></td>
-<td class="coverage">84x</td>
+<td class="coverage">82x</td>
 </tr>
 <tr class="covered">
 <td class="num">85</td>
 <td class="src"><pre><code class="objc">            try postponedRunner.perform(with: context)</code></pre></td>
-<td class="coverage">84x</td>
+<td class="coverage">82x</td>
 </tr>
 <tr class="covered">
 <td class="num">86</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">84x</td>
+<td class="coverage">82x</td>
 </tr>
 <tr class="never">
 <td class="num">87</td>
@@ -630,12 +630,12 @@
 <tr class="covered">
 <td class="num">124</td>
 <td class="src"><pre><code class="objc">            func perform&lt;Context&gt;(on viewController: UIViewController, with context: Context, routingStack: [UIViewController]) {</code></pre></td>
-<td class="coverage">174x</td>
+<td class="coverage">170x</td>
 </tr>
 <tr class="covered">
 <td class="num">125</td>
 <td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">174x</td>
+<td class="coverage">170x</td>
 </tr>
 <tr class="never">
 <td class="num">126</td>
@@ -730,22 +730,22 @@
 <tr class="covered">
 <td class="num">144</td>
 <td class="src"><pre><code class="objc">        func perform&lt;Context&gt;(with context: Context) throws {</code></pre></td>
-<td class="coverage">86x</td>
+<td class="coverage">84x</td>
 </tr>
 <tr class="covered">
 <td class="num">145</td>
 <td class="src"><pre><code class="objc">            var viewControllers: [UIViewController] = []</code></pre></td>
-<td class="coverage">86x</td>
+<td class="coverage">84x</td>
 </tr>
 <tr class="covered">
 <td class="num">146</td>
 <td class="src"><pre><code class="objc">            taskSlips.forEach({</code></pre></td>
-<td class="coverage">190x</td>
+<td class="coverage">186x</td>
 </tr>
 <tr class="covered">
 <td class="num">147</td>
 <td class="src"><pre><code class="objc">                guard let viewController = $0.viewController, !viewControllers.contains(viewController) else {</code></pre></td>
-<td class="coverage">190x</td>
+<td class="coverage">186x</td>
 </tr>
 <tr class="covered">
 <td class="num">148</td>
@@ -755,32 +755,32 @@
 <tr class="covered">
 <td class="num">149</td>
 <td class="src"><pre><code class="objc">                }</code></pre></td>
-<td class="coverage">188x</td>
+<td class="coverage">184x</td>
 </tr>
 <tr class="covered">
 <td class="num">150</td>
 <td class="src"><pre><code class="objc">                viewControllers.append(viewController)</code></pre></td>
-<td class="coverage">188x</td>
+<td class="coverage">184x</td>
 </tr>
 <tr class="covered">
 <td class="num">151</td>
 <td class="src"><pre><code class="objc">            })</code></pre></td>
-<td class="coverage">188x</td>
+<td class="coverage">184x</td>
 </tr>
 <tr class="covered">
 <td class="num">152</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage">86x</td>
+<td class="coverage">84x</td>
 </tr>
 <tr class="covered">
 <td class="num">153</td>
 <td class="src"><pre><code class="objc">            try taskSlips.forEach({ slip in</code></pre></td>
-<td class="coverage">190x</td>
+<td class="coverage">186x</td>
 </tr>
 <tr class="covered">
 <td class="num">154</td>
 <td class="src"><pre><code class="objc">                guard let viewController = slip.viewController else {</code></pre></td>
-<td class="coverage">190x</td>
+<td class="coverage">186x</td>
 </tr>
 <tr class="missed">
 <td class="num">155</td>
@@ -790,22 +790,22 @@
 <tr class="covered">
 <td class="num">156</td>
 <td class="src"><pre><code class="objc">                }</code></pre></td>
-<td class="coverage">190x</td>
+<td class="coverage">186x</td>
 </tr>
 <tr class="covered">
 <td class="num">157</td>
 <td class="src"><pre><code class="objc">                try slip.postTask.perform(on: viewController, with: context, routingStack: viewControllers)</code></pre></td>
-<td class="coverage">190x</td>
+<td class="coverage">186x</td>
 </tr>
 <tr class="covered">
 <td class="num">158</td>
 <td class="src"><pre><code class="objc">            })</code></pre></td>
-<td class="coverage">190x</td>
+<td class="coverage">186x</td>
 </tr>
 <tr class="covered">
 <td class="num">159</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">86x</td>
+<td class="coverage">84x</td>
 </tr>
 <tr class="never">
 <td class="num">160</td>
@@ -1000,17 +1000,17 @@
 <tr class="covered">
 <td class="num">198</td>
 <td class="src"><pre><code class="objc">        func performPostTasks&lt;Context&gt;(with context: Context) throws {</code></pre></td>
-<td class="coverage">84x</td>
+<td class="coverage">82x</td>
 </tr>
 <tr class="covered">
 <td class="num">199</td>
 <td class="src"><pre><code class="objc">            try postTaskRunner.commit(with: context)</code></pre></td>
-<td class="coverage">84x</td>
+<td class="coverage">82x</td>
 </tr>
 <tr class="covered">
 <td class="num">200</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">84x</td>
+<td class="coverage">82x</td>
 </tr>
 <tr class="never">
 <td class="num">201</td>
@@ -1190,17 +1190,17 @@
 <tr class="covered">
 <td class="num">236</td>
 <td class="src"><pre><code class="objc">        var description: String {</code></pre></td>
-<td class="coverage">69x</td>
+<td class="coverage">74x</td>
 </tr>
 <tr class="covered">
 <td class="num">237</td>
 <td class="src"><pre><code class="objc">            return String(describing: factory)</code></pre></td>
-<td class="coverage">69x</td>
+<td class="coverage">74x</td>
 </tr>
 <tr class="covered">
 <td class="num">238</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">69x</td>
+<td class="coverage">74x</td>
 </tr>
 <tr class="never">
 <td class="num">239</td>
@@ -1415,32 +1415,32 @@
 <tr class="covered">
 <td class="num">281</td>
 <td class="src"><pre><code class="objc">        func purge(animated: Bool, completion: @escaping (_: RoutingResult) -&gt; Void) {</code></pre></td>
-<td class="coverage">159x</td>
+<td class="coverage">157x</td>
 </tr>
 <tr class="covered">
 <td class="num">282</td>
 <td class="src"><pre><code class="objc">            do {</code></pre></td>
-<td class="coverage">159x</td>
+<td class="coverage">157x</td>
 </tr>
 <tr class="covered">
 <td class="num">283</td>
 <td class="src"><pre><code class="objc">                guard let containerViewController = containerViewController else {</code></pre></td>
-<td class="coverage">159x</td>
+<td class="coverage">157x</td>
 </tr>
 <tr class="covered">
 <td class="num">284</td>
 <td class="src"><pre><code class="objc">                    completion(.success)</code></pre></td>
-<td class="coverage">157x</td>
+<td class="coverage">155x</td>
 </tr>
 <tr class="covered">
 <td class="num">285</td>
 <td class="src"><pre><code class="objc">                    return</code></pre></td>
-<td class="coverage">157x</td>
+<td class="coverage">155x</td>
 </tr>
 <tr class="covered">
 <td class="num">286</td>
 <td class="src"><pre><code class="objc">                }</code></pre></td>
-<td class="coverage">157x</td>
+<td class="coverage">155x</td>
 </tr>
 <tr class="covered">
 <td class="num">287</td>

@@ -375,6 +375,9 @@
                 <a class="nav-group-task-link" href="../Protocols/StackIterator.html">StackIterator</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/StackPresentationHandler.html">StackPresentationHandler</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/WindowProvider.html">WindowProvider</a>
               </li>
             </ul>
@@ -414,6 +417,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DefaultStackIterator/StartingPoint.html">– StartingPoint</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/DefaultStackPresentationHandler.html">DefaultStackPresentationHandler</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/KeyWindowProvider.html">KeyWindowProvider</a>
@@ -560,6 +566,33 @@
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer13DefaultRouterV24stackPresentationHandlerAA05StackfG0_pvp"></a>
+                    <a name="//apple_ref/swift/Property/stackPresentationHandler" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer13DefaultRouterV24stackPresentationHandlerAA05StackfG0_pvp">stackPresentationHandler</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><code><a href="../Protocols/StackPresentationHandler.html">StackPresentationHandler</a></code> instance</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">stackPresentationHandler</span><span class="p">:</span> <span class="kt"><a href="../Protocols/StackPresentationHandler.html">StackPresentationHandler</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
             <div class="task-group">
@@ -574,9 +607,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer13DefaultRouterV6logger23containerAdapterLocatorAcA6Logger_pSg_AA09ContainergH0_ptcfc"></a>
-                    <a name="//apple_ref/swift/Method/init(logger:containerAdapterLocator:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer13DefaultRouterV6logger23containerAdapterLocatorAcA6Logger_pSg_AA09ContainergH0_ptcfc">init(logger:containerAdapterLocator:)</a>
+                    <a name="/s:13RouteComposer13DefaultRouterV6logger24stackPresentationHandler23containerAdapterLocatorAcA6Logger_pSg_AA05StackgH0_pAA09ContainerjK0_ptcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(logger:stackPresentationHandler:containerAdapterLocator:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer13DefaultRouterV6logger24stackPresentationHandler23containerAdapterLocatorAcA6Logger_pSg_AA05StackgH0_pAA09ContainerjK0_ptcfc">init(logger:stackPresentationHandler:containerAdapterLocator:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -590,6 +623,7 @@
 
 <ul>
 <li>logger: A <code><a href="../Protocols/Logger.html">Logger</a></code> instance to be used by the <code>DefaultRouter</code>.</li>
+<li>stackPresentationHandler: A <code><a href="../Protocols/StackPresentationHandler.html">StackPresentationHandler</a></code> instance to be used by the <code>DefaultRouter</code>.</li>
 <li>containerAdapterLocator: A <code><a href="../Protocols/ContainerAdapterLocator.html">ContainerAdapterLocator</a></code> instance to be used by the <code>DefaultRouter</code>.</li>
 </ul>
 
@@ -598,7 +632,8 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">logger</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Logger.html">Logger</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">logger</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Logger.html">Logger</a></span><span class="p">?</span> <span class="o">=</span> <span class="kt"><a href="../Structs/DefaultLogger.html">DefaultLogger</a></span><span class="p">(</span><span class="o">.</span><span class="n">warnings</span><span class="p">),</span>
+            <span class="nv">stackPresentationHandler</span><span class="p">:</span> <span class="kt"><a href="../Protocols/StackPresentationHandler.html">StackPresentationHandler</a></span> <span class="o">=</span> <span class="kt"><a href="../Structs/DefaultStackPresentationHandler.html">DefaultStackPresentationHandler</a></span><span class="p">(),</span>
             <span class="nv">containerAdapterLocator</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ContainerAdapterLocator.html">ContainerAdapterLocator</a></span> <span class="o">=</span> <span class="kt"><a href="../Structs/DefaultContainerAdapterLocator.html">DefaultContainerAdapterLocator</a></span><span class="p">())</span></code></pre>
 
                         </div>
@@ -721,7 +756,7 @@
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2019-08-15)</p>
+      <p>&copy; 2019 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2019-08-21)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.10.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
