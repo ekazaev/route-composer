@@ -323,6 +323,8 @@ This configuration means:
 
 *See example app to find out different ways to provide and store routing step configurations.*
 
+*See advanced `ProductViewController` configuration [here](https://saksdirect.github.io/route-composer/examples.html#the-productviewcontroller-should-be-pushed-into-any-uinavigationcontroller-if-it-is-present-on-the-screen-if-not---presented-modally).*
+
 ### Navigation
 
 After you have implemented all necessary classes and configured a routing step, you can start to use the `Router` to navigate. The library provides

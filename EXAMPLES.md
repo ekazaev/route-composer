@@ -14,7 +14,7 @@ Behaviour of the `StackIteratingFinder` can be changed using the `SearchOptions`
 - `visible`: If the view controller is a container, search in its visible view controllers (Example: `UINavigationController` always has one visible view controller, `UISplitController` which can han have 2 visible controllers if expanded.)
 - `contained`: If the view controller is a container, search in all the view controllers it contains (i.e. All the view controllers in the `UINavigationController` before the one that is currently visible)
 - `presenting`: Search in all the view controllers that are under the topmost one
-- *`presented`*: Search from the view controller provided in all the view controllers that it are presented (It does not make sense to use it with the `StackIteratingFinder` as it always starts from the topmost view controller so there won't be any view controllers above)
+- `presented`: Search from the view controller provided in all the view controllers that it are presented
 
 The next image may help you to imagine `SearchOptions` in the real app:
 
@@ -33,13 +33,13 @@ ClassFinder<AccountViewController, Any?>(options: [.current, .visible, .presenti
 ```swift
     let screen = StepAssembly(
             finder: ClassFinder<HomeViewController, Any?>(),
-            factory: XibFactory())
+            factory: ClassFactory())
             .using(GeneralAction.replaceRoot())
             .from(GeneralStep.root())
             .assemble()
 
 ```
-*The `XibFactory` will load the `HomeViewController` from the xib file named `HomeViewController.xib`*
+*The `ClassFactory` will load the `HomeViewController` from the xib file named `HomeViewController.xib`*
 
 *Do not forget that if you use a combination of abstract `Finder` and `Factory` - you must specify the types of `UIViewController` and `Context` for one of them `ClassFinder<HomeViewController, Any?>`*
 
@@ -47,26 +47,24 @@ ClassFinder<AccountViewController, Any?>(options: [.current, .visible, .presenti
 
 It will work if the user is not in some `UIViewController` that is presented modally. If they are, `GeneralAction.replaceRoot(...)` can not replace the modally presented `UIViewController` and the navigation will fail. If you want this configuration to work in all cases - you should explain to the router that it should start building the stack from the root view controller. Then the router will dismiss all the modal view controllers above the root view controller if there are any.
 
-#### I want to push the `AccountViewController` into any `UINavigationController` that is present anywhere on the screen (even if the `UINavigationController` is under some modal `UIViewController`):
+#### I want to push the `ProductViewController` into any `UINavigationController` that is present anywhere on the screen (even if the `UINavigationController` is under some modal `UIViewController`):
 
 ```swift
     let screen = StepAssembly(
-            finder: ClassFinder<AccountViewController, Any?>(),
-            factory: XibFactory())
+            finder: ClassFinder<ProductViewController, Any?>(),
+            factory: ClassFactory())
             .using(UINavigationController.push())
             .from(GeneralStep.custom(using: ClassFinder<UINavigationController, Any?>()))
             .assemble()
 
 ```
 
-*Why is the `NilFactory` used here? That means: look for the `UINavigationController` everywhere, but do not create it if it is not found (the routing will fail in this case). The `NilFactory` can not be accompanied by any `Action` as the `UIViewController` already exists in the stack.*
-
-#### The `UIViewController` should be pushed into any `UINavigationController` if it is present on the screen, if not - presented modally:
+#### The `ProductViewController` should be pushed into any `UINavigationController` if it is present on the screen, if not - presented modally:
 
 ```swift
     let screen = StepAssembly(
-            finder: ClassFinder<AccountViewController, Any?>(),
-            factory: XibFactory())
+            finder: ClassFinder<ProductViewController, Any?>(),
+            factory: ClassFactory())
             .using(UINavigationController.push())
             .from(SwitchAssembly<UINavigationController, Any?>()
                     .addCase(expecting: ClassFinder<UINavigationController, Any?>(options: .visible)) // If found - just push into it
@@ -86,8 +84,8 @@ It will work if the user is not in some `UIViewController` that is presented mod
     let tabScreen = SingleContainerStep(
             finder: ClassFinder(),
             factory: CompleteFactoryAssembly(factory: TabBarControllerFactory())
-                    .with(XibFactory<HomeViewController, Any?>(), using: UITabBarController.add())
-                    .with(XibFactory<AccountViewController, Any?>(), using: UITabBarController.add())
+                    .with(ClassFactory<HomeViewController, Any?>(), using: UITabBarController.add())
+                    .with(ClassFactory<AccountViewController, Any?>(), using: UITabBarController.add())
                     .assemble())
             .using(GeneralAction.replaceRoot())
             .from(GeneralStep.root())
@@ -120,7 +118,7 @@ It will work if the user is not in some `UIViewController` that is presented mod
 ```swift
     let loginScreen = StepAssembly(
             finder: ClassFinder<LoginViewController, Any?>(),
-            factory: XibFactory())
+            factory: ClassFactory())
             .using(UINavigationController.push())
             .from(NavigationControllerStep())
             .using(GeneralAction.presentModally())
@@ -129,7 +127,7 @@ It will work if the user is not in some `UIViewController` that is presented mod
 
     let forgotPasswordScreen = StepAssembly(
             finder: ClassFinder<ForgotPasswordViewController, Any?>(),
-            factory: XibFactory())
+            factory: ClassFactory())
             .using(UINavigationController.push())
             .from(loginScreen.expectingContainer())
             .assemble()
@@ -164,7 +162,7 @@ There are two ways of implementing this configuration:
 
     let screen = StepAssembly(
         finder: ModalBagFinder(),
-        factory: XibFactory())
+        factory: ClassFactory())
         .using(UINavigationController.push())
         .from(NavigationControllerStep())
         .using(GeneralAction.presentModally())
