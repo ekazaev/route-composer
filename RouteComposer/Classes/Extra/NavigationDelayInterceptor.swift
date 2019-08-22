@@ -1,6 +1,5 @@
 //
 // Created by Eugene Kazaev on 2019-03-01.
-// Copyright © 2019 HBC Digital. All rights reserved.
 //
 
 import Foundation

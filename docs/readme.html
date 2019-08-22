@@ -491,17 +491,17 @@
             
             <h1 id='routecomposer' class='heading'>RouteComposer</h1>
 
-<p><a href="https://travis-ci.org/saksdirect/route-composer"><img src="https://travis-ci.org/saksdirect/route-composer.svg?branch=master&style=flat" alt="CI Status"></a>
-<a href="https://github.com/saksdirect/route-composer/releases"><img src="https://img.shields.io/github/release/saksdirect/route-composer.svg?style=flat&color=darkcyan" alt="Release"></a>
+<p><a href="https://travis-ci.org/ekazaev/route-composer"><img src="https://travis-ci.org/ekazaev/route-composer.svg?branch=master&style=flat" alt="CI Status"></a>
+<a href="https://github.com/ekazaev/route-composer/releases"><img src="https://img.shields.io/github/release/ekazaev/route-composer.svg?style=flat&color=darkcyan" alt="Release"></a>
 <a href="http://cocoapods.org/pods/RouteComposer"><img src="https://img.shields.io/cocoapods/v/RouteComposer.svg?style=flat" alt="Cocoapods"></a>
 <a href="https://github.com/Carthage/Carthage"><img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat" alt="Carthage compatible"></a>
 <a href="https://developer.apple.com/swift"><img src="https://img.shields.io/badge/language-Swift5.0-orange.svg?style=flat" alt="Swift 5.0"></a>
 <a href="https://www.apple.com/ios"><img src="https://img.shields.io/badge/platform-iOS%209%20%E2%80%94%20iOS%2013-yellow.svg" alt="Platform iOS"></a>
-<a href="https://saksdirect.github.io/route-composer"><img src="https://saksdirect.github.io/route-composer/badge.svg" alt="Documentation"></a>
-<a href="https://saksdirect.github.io/route-composer/tests/index.html"><img src="https://codecov.io/gh/saksdirect/route-composer/branch/master/graphs/badge.svg?style=flat" alt="Code coverage"></a>
-<a href="https://app.codacy.com/app/ekazaev/route-composer?utm_source=github.com&utm_medium=referral&utm_content=saksdirect/route-composer&utm_campaign=Badge_Grade_Settings"><img src="https://api.codacy.com/project/badge/Grade/a80ff85b146d4cc0ace9620b989ff271" alt="Codacy Quality Badge"></a>
-<a href="https://github.com/saksdirect/RouteComposer/blob/master/LICENSE"><img src="https://img.shields.io/cocoapods/l/RouteComposer.svg?style=flat" alt="MIT License"></a>
-<a href="https://twitter.com/intent/tweet?text=Check%20it%20out:&url=https%3A%2F%2Fgithub.com%2Fsaksdirect%2Froute-composer"><img src="https://img.shields.io/twitter/url/https/github.com/saksdirect/route-composer.svg?style=flat" alt="Twitter"></a></p>
+<a href="https://ekazaev.github.io/route-composer"><img src="https://ekazaev.github.io/route-composer/badge.svg" alt="Documentation"></a>
+<a href="https://ekazaev.github.io/route-composer/tests/index.html"><img src="https://codecov.io/gh/ekazaev/route-composer/branch/master/graphs/badge.svg?style=flat" alt="Code coverage"></a>
+<a href="https://app.codacy.com/app/ekazaev/route-composer?utm_source=github.com&utm_medium=referral&utm_content=ekazaev/route-composer&utm_campaign=Badge_Grade_Settings"><img src="https://api.codacy.com/project/badge/Grade/a80ff85b146d4cc0ace9620b989ff271" alt="Codacy Quality Badge"></a>
+<a href="https://github.com/ekazaev/RouteComposer/blob/master/LICENSE"><img src="https://img.shields.io/cocoapods/l/RouteComposer.svg?style=flat" alt="MIT License"></a>
+<a href="https://twitter.com/intent/tweet?text=Check%20it%20out:&url=https%3A%2F%2Fgithub.com%2Fekazaev%2Froute-composer"><img src="https://img.shields.io/twitter/url/https/github.com/ekazaev/route-composer.svg?style=flat" alt="Twitter"></a></p>
 
 <p><code>RouteComposer</code> is the protocol oriented, Cocoa UI abstractions based library that helps to handle view controllers composition, navigation
 and deep linking tasks in the iOS application. </p>
@@ -594,8 +594,8 @@ it, simply add the following line to your Podfile:</p>
 and actions you should be familiar with the library concepts and UIKit&rsquo;s view controller navigation stack intricacies.</p>
 <h3 id='api-documentation' class='heading'>API documentation</h3>
 
-<p>Detailed API documentation can be found <a href="https://saksdirect.github.io/route-composer/">here</a>. 
-Test coverage - <a href="https://codecov.io/gh/saksdirect/route-composer">here</a> </p>
+<p>Detailed API documentation can be found <a href="https://ekazaev.github.io/route-composer/">here</a>. 
+Test coverage - <a href="https://codecov.io/gh/ekazaev/route-composer">here</a> </p>
 <h2 id='usage' class='heading'>Usage</h2>
 
 <p>RouteComposer uses 3 main entities (<code><a href="Protocols/Factory.html">Factory</a></code>, <code><a href="Protocols/Finder.html">Finder</a></code>, <code><a href="Core Entities.html#/s:13RouteComposer6ActionP">Action</a></code>) that should be defined by a host application to support it.
@@ -796,7 +796,7 @@ which should be presented modally from any currently visible view controller.</e
 
 <p><em>See example app to find out different ways to provide and store routing step configurations.</em></p>
 
-<p><em>See advanced <code>ProductViewController</code> configuration <a href="https://saksdirect.github.io/route-composer/examples.html#the-productviewcontroller-should-be-pushed-into-any-uinavigationcontroller-if-it-is-present-on-the-screen-if-not---presented-modally">here</a>.</em></p>
+<p><em>See advanced <code>ProductViewController</code> configuration <a href="https://ekazaev.github.io/route-composer/examples.html#the-code-productviewcontroller-code-should-be-pushed-into-any-code-uinavigationcontroller-code-if-it-is-present-on-the-screen-if-not-presented-modally">here</a>.</em></p>
 <h3 id='navigation' class='heading'>Navigation</h3>
 
 <p>After you have implemented all necessary classes and configured a routing step, you can start to use the <code><a href="Protocols/Router.html">Router</a></code> to navigate. The library provides
@@ -901,16 +901,16 @@ the screen is being opened using universal link. See Example app for more inform
 </code></pre>
 <h2 id='advanced-configuration' class='heading'>Advanced Configuration:</h2>
 
-<p>You can find more configuration examples <a href="https://saksdirect.github.io/route-composer/examples.html">here</a>.</p>
+<p>You can find more configuration examples <a href="https://ekazaev.github.io/route-composer/examples.html">here</a>.</p>
 <h2 id='contributing' class='heading'>Contributing</h2>
 
 <p>RouteComposer is in active development, and we welcome your contributions.</p>
 
 <p>If you’d like to contribute to this repo, please
-read <a href="https://github.com/saksdirect/route-composer/blob/master/CONTRIBUTING.md">the contribution guidelines</a>.</p>
+read <a href="https://github.com/ekazaev/route-composer/blob/master/CONTRIBUTING.md">the contribution guidelines</a>.</p>
 <h2 id='license' class='heading'>License</h2>
 
-<p>RouteComposer is distributed under <a href="https://github.com/saksdirect/RouteComposer/blob/master/LICENSE">the MIT license</a>.</p>
+<p>RouteComposer is distributed under <a href="https://github.com/ekazaev/RouteComposer/blob/master/LICENSE">the MIT license</a>.</p>
 
 <p>RouteComposer is provided for your use, free-of-charge, on an as-is basis. We make no guarantees, promises or
 apologies. <em>Caveat developer.</em></p>
@@ -935,7 +935,7 @@ apologies. <em>Caveat developer.</em></p>
 
 <p>Evgeny Kazaev, <a href="mailto:eugene.kazaev@hbc.com">eugene.kazaev@hbc.com</a></p>
 
-<p><em>I am happy to answer any questions you may have. Just create a <a href="https://github.com/saksdirect/route-composer/issues/new">new issue</a>.</em></p>
+<p><em>I am happy to answer any questions you may have. Just create a <a href="https://github.com/ekazaev/route-composer/issues/new">new issue</a>.</em></p>
 
           </div>
         </section>
@@ -944,7 +944,7 @@ apologies. <em>Caveat developer.</em></p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2019-08-21)</p>
+      <p>&copy; 2019 <a class="link" href="https://tech.hbc.com" target="_blank" rel="external">HBC Tech</a>. All rights reserved. (Last updated: 2019-08-22)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.10.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

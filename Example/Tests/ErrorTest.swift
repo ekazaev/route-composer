@@ -1,6 +1,5 @@
 //
 // Created by Eugene Kazaev on 2019-04-07.
-// Copyright (c) 2019 HBC Digital. All rights reserved.
 //
 
 import UIKit

@@ -3,7 +3,6 @@
 //  RouteComposer_Tests
 //
 //  Created by Eugene Kazaev on 12/03/2019.
-//  Copyright © 2019 HBC Digital. All rights reserved.
 //
 
 import UIKit

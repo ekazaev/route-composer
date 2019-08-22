@@ -3,7 +3,6 @@
 //  RouteComposer_ExampleUITests
 //
 //  Created by Eugene Kazaev on 22/01/2018.
-//  Copyright © 2018 HBC Digital. All rights reserved.
 //
 
 import XCTest
