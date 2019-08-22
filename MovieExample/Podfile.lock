@@ -1,0 +1,33 @@
+PODS:
+  - RouteComposer (2.3.0)
+  - RxCocoa (5.0.0):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxRelay (5.0.0):
+    - RxSwift (~> 5)
+  - RxSwift (5.0.0)
+
+DEPENDENCIES:
+  - RouteComposer (from `../`)
+  - RxCocoa
+  - RxSwift
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - RxCocoa
+    - RxRelay
+    - RxSwift
+
+EXTERNAL SOURCES:
+  RouteComposer:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  RouteComposer: 664986d8421558d0c087d1dab57965f91f62e9f7
+  RxCocoa: fcf32050ac00d801f34a7f71d5e8e7f23026dcd8
+  RxRelay: 4f7409406a51a55cd88483f21ed898c234d60f18
+  RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
+
+PODFILE CHECKSUM: db39712f895d77d00f00d5f35b41c94ddb6f4306
+
+COCOAPODS: 1.6.0

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="H1z-IH-PNg">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Movie Detail View Controller-->
+        <scene sceneID="StW-sz-1iF">
+            <objects>
+                <viewController storyboardIdentifier="MovieDetailViewController" id="H1z-IH-PNg" customClass="MovieDetailViewController" customModule="MovieDetailViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dgh-Po-i9Y">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DtM-l1-maQ">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="ckC-HF-X0Q">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="436"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kqK-1C-JI9">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="414"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="kqK-1C-JI9" secondAttribute="height" multiplier="1:1" id="11D-rx-Dx7"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JbS-dX-B9Z">
+                                                <rect key="frame" x="0.0" y="414" width="414" height="0.0"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UO2-Hi-RG7">
+                                                <rect key="frame" x="0.0" y="414" width="414" height="22"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="nm2-56-Une">
+                                                        <rect key="frame" x="8" y="0.0" width="116" height="22"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ea6-E6-ETh" customClass="RoundedButton" customModule="RoundedButton">
+                                                                <rect key="frame" x="0.0" y="0.0" width="54" height="22"/>
+                                                                <state key="normal" title="Button">
+                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </state>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="buttonColor">
+                                                                        <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VaK-Mk-2tC" customClass="RoundedButton" customModule="RoundedButton">
+                                                                <rect key="frame" x="62" y="0.0" width="54" height="22"/>
+                                                                <state key="normal" title="Button">
+                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </state>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="buttonColor">
+                                                                        <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="nm2-56-Une" secondAttribute="bottom" id="918-YD-gku"/>
+                                                    <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="nm2-56-Une" secondAttribute="trailing" id="FUs-en-LDt"/>
+                                                    <constraint firstItem="nm2-56-Une" firstAttribute="top" secondItem="UO2-Hi-RG7" secondAttribute="top" id="O6c-7v-a9k"/>
+                                                    <constraint firstItem="nm2-56-Une" firstAttribute="leading" secondItem="UO2-Hi-RG7" secondAttribute="leadingMargin" id="dY8-uH-at7"/>
+                                                </constraints>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jw6-L4-kGK">
+                                                <rect key="frame" x="0.0" y="436" width="414" height="0.0"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" priority="750" constant="376" placeholder="YES" id="epy-gF-8fk"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="ckC-HF-X0Q" secondAttribute="bottom" id="C5L-xk-dAb"/>
+                                    <constraint firstItem="ckC-HF-X0Q" firstAttribute="leading" secondItem="DtM-l1-maQ" secondAttribute="leading" id="EDF-5X-PvK"/>
+                                    <constraint firstItem="ckC-HF-X0Q" firstAttribute="width" secondItem="DtM-l1-maQ" secondAttribute="width" id="QWn-Iu-Fzv"/>
+                                    <constraint firstItem="ckC-HF-X0Q" firstAttribute="top" secondItem="DtM-l1-maQ" secondAttribute="top" id="a2l-w8-MC0"/>
+                                    <constraint firstAttribute="trailing" secondItem="ckC-HF-X0Q" secondAttribute="trailing" id="gD8-Ia-nRt"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="DtM-l1-maQ" secondAttribute="bottom" id="7eW-hG-lKA"/>
+                            <constraint firstItem="DtM-l1-maQ" firstAttribute="leading" secondItem="dgh-Po-i9Y" secondAttribute="leading" id="Mzr-g2-NAM"/>
+                            <constraint firstAttribute="trailing" secondItem="DtM-l1-maQ" secondAttribute="trailing" id="lwH-Ao-qC0"/>
+                            <constraint firstItem="DtM-l1-maQ" firstAttribute="top" secondItem="dgh-Po-i9Y" secondAttribute="top" id="mwT-uX-Pkr"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Yfo-Jd-6kH"/>
+                    </view>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="Jw6-L4-kGK" id="Var-3E-pV9"/>
+                        <outlet property="posterImageView" destination="kqK-1C-JI9" id="Ua0-qj-Etj"/>
+                        <outlet property="titleLabel" destination="JbS-dX-B9Z" id="RWD-CS-Eou"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3b8-ig-Bvb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4.3478260869565224" y="180.80357142857142"/>
+        </scene>
+    </scenes>
+</document>

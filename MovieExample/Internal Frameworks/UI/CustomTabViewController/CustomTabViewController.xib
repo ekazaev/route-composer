@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomTabViewController" customModule="CustomTabViewController">
+            <connections>
+                <outlet property="containerView" destination="OUL-mO-MKt" id="JPe-5Y-i4y"/>
+                <outlet property="segmentedControl" destination="qMj-vq-xCc" id="vY9-qE-3Av"/>
+                <outlet property="view" destination="iN0-l3-epB" id="e2Z-Ia-IYw"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="qMj-vq-xCc">
+                    <rect key="frame" x="20" y="52" width="374" height="29"/>
+                    <segments>
+                        <segment title="First"/>
+                        <segment title="Second"/>
+                    </segments>
+                    <connections>
+                        <action selector="segmentValueChanged" destination="-1" eventType="valueChanged" id="XB6-PZ-voT"/>
+                    </connections>
+                </segmentedControl>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OUL-mO-MKt">
+                    <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <viewLayoutGuide key="safeArea" id="5lf-wh-is6"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailingMargin" secondItem="qMj-vq-xCc" secondAttribute="trailing" id="357-iL-ksM"/>
+                <constraint firstAttribute="bottom" secondItem="OUL-mO-MKt" secondAttribute="bottom" id="Bid-R8-YDF"/>
+                <constraint firstItem="qMj-vq-xCc" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="8" id="CI6-Or-nIM"/>
+                <constraint firstItem="qMj-vq-xCc" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="N8T-gO-Eeb"/>
+                <constraint firstItem="OUL-mO-MKt" firstAttribute="top" secondItem="qMj-vq-xCc" secondAttribute="bottom" constant="8" id="X1p-r6-uRV"/>
+                <constraint firstAttribute="trailing" secondItem="OUL-mO-MKt" secondAttribute="trailing" id="YL4-QB-E6o"/>
+                <constraint firstAttribute="leading" secondItem="OUL-mO-MKt" secondAttribute="leading" id="icm-AZ-nxh"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+        </view>
+    </objects>
+</document>
