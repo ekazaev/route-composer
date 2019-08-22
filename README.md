@@ -1,16 +1,16 @@
 # RouteComposer
 
-[![CI Status](https://travis-ci.org/saksdirect/route-composer.svg?branch=master&style=flat)](https://travis-ci.org/saksdirect/route-composer)
-[![Release](https://img.shields.io/github/release/saksdirect/route-composer.svg?style=flat&color=darkcyan)](https://github.com/saksdirect/route-composer/releases)
+[![CI Status](https://travis-ci.org/ekazaev/route-composer.svg?branch=master&style=flat)](https://travis-ci.org/ekazaev/route-composer)
+[![Release](https://img.shields.io/github/release/ekazaev/route-composer.svg?style=flat&color=darkcyan)](https://github.com/ekazaev/route-composer/releases)
 [![Cocoapods](https://img.shields.io/cocoapods/v/RouteComposer.svg?style=flat)](http://cocoapods.org/pods/RouteComposer)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Swift 5.0](https://img.shields.io/badge/language-Swift5.0-orange.svg?style=flat)](https://developer.apple.com/swift)
 [![Platform iOS](https://img.shields.io/badge/platform-iOS%209%20—%20iOS%2013-yellow.svg)](https://www.apple.com/ios)
-[![Documentation](https://saksdirect.github.io/route-composer/badge.svg)](https://saksdirect.github.io/route-composer)
-[![Code coverage](https://codecov.io/gh/saksdirect/route-composer/branch/master/graphs/badge.svg?style=flat)](https://saksdirect.github.io/route-composer/tests/index.html)
-[![Codacy Quality Badge](https://api.codacy.com/project/badge/Grade/a80ff85b146d4cc0ace9620b989ff271)](https://app.codacy.com/app/ekazaev/route-composer?utm_source=github.com&utm_medium=referral&utm_content=saksdirect/route-composer&utm_campaign=Badge_Grade_Settings)
-[![MIT License](https://img.shields.io/cocoapods/l/RouteComposer.svg?style=flat)](https://github.com/saksdirect/RouteComposer/blob/master/LICENSE)
-[![Twitter](https://img.shields.io/twitter/url/https/github.com/saksdirect/route-composer.svg?style=flat)](https://twitter.com/intent/tweet?text=Check%20it%20out:&url=https%3A%2F%2Fgithub.com%2Fsaksdirect%2Froute-composer)
+[![Documentation](https://ekazaev.github.io/route-composer/badge.svg)](https://ekazaev.github.io/route-composer)
+[![Code coverage](https://codecov.io/gh/ekazaev/route-composer/branch/master/graphs/badge.svg?style=flat)](https://ekazaev.github.io/route-composer/tests/index.html)
+[![Codacy Quality Badge](https://api.codacy.com/project/badge/Grade/a80ff85b146d4cc0ace9620b989ff271)](https://app.codacy.com/app/ekazaev/route-composer?utm_source=github.com&utm_medium=referral&utm_content=ekazaev/route-composer&utm_campaign=Badge_Grade_Settings)
+[![MIT License](https://img.shields.io/cocoapods/l/RouteComposer.svg?style=flat)](https://github.com/ekazaev/RouteComposer/blob/master/LICENSE)
+[![Twitter](https://img.shields.io/twitter/url/https/github.com/ekazaev/route-composer.svg?style=flat)](https://twitter.com/intent/tweet?text=Check%20it%20out:&url=https%3A%2F%2Fgithub.com%2Fekazaev%2Froute-composer)
 
 `RouteComposer` is the protocol oriented, Cocoa UI abstractions based library that helps to handle view controllers composition, navigation
 and deep linking tasks in the iOS application. 
@@ -100,8 +100,8 @@ and actions you should be familiar with the library concepts and UIKit's view co
 
 ### API documentation
 
-Detailed API documentation can be found [here](https://saksdirect.github.io/route-composer/). 
-Test coverage - [here](https://codecov.io/gh/saksdirect/route-composer) 
+Detailed API documentation can be found [here](https://ekazaev.github.io/route-composer/). 
+Test coverage - [here](https://codecov.io/gh/ekazaev/route-composer) 
 
 ## Usage
 
@@ -323,7 +323,7 @@ This configuration means:
 
 *See example app to find out different ways to provide and store routing step configurations.*
 
-*See advanced `ProductViewController` configuration [here](https://saksdirect.github.io/route-composer/examples.html#the-code-productviewcontroller-code-should-be-pushed-into-any-code-uinavigationcontroller-code-if-it-is-present-on-the-screen-if-not-presented-modally).*
+*See advanced `ProductViewController` configuration [here](https://ekazaev.github.io/route-composer/examples.html#the-code-productviewcontroller-code-should-be-pushed-into-any-code-uinavigationcontroller-code-if-it-is-present-on-the-screen-if-not-presented-modally).*
 
 ### Navigation
 
@@ -436,18 +436,18 @@ the screen is being opened using universal link. See Example app for more inform
 ```
 ## Advanced Configuration:
 
-You can find more configuration examples [here](https://saksdirect.github.io/route-composer/examples.html).
+You can find more configuration examples [here](https://ekazaev.github.io/route-composer/examples.html).
 
 ## Contributing
 
 RouteComposer is in active development, and we welcome your contributions.
 
 If you’d like to contribute to this repo, please
-read [the contribution guidelines](https://github.com/saksdirect/route-composer/blob/master/CONTRIBUTING.md).
+read [the contribution guidelines](https://github.com/ekazaev/route-composer/blob/master/CONTRIBUTING.md).
 
 ## License
 
-RouteComposer is distributed under [the MIT license](https://github.com/saksdirect/RouteComposer/blob/master/LICENSE).
+RouteComposer is distributed under [the MIT license](https://github.com/ekazaev/RouteComposer/blob/master/LICENSE).
 
 RouteComposer is provided for your use, free-of-charge, on an as-is basis. We make no guarantees, promises or
 apologies. *Caveat developer.*
@@ -470,5 +470,5 @@ Russian:
 
 Evgeny Kazaev, eugene.kazaev@hbc.com
 
-*I am happy to answer any questions you may have. Just create a [new issue](https://github.com/saksdirect/route-composer/issues/new).*
+*I am happy to answer any questions you may have. Just create a [new issue](https://github.com/ekazaev/route-composer/issues/new).*
 

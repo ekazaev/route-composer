@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'RouteComposer'
-  s.version          = '2.1.2'
+  s.version          = '2.1.3'
   s.summary          = 'Protocol oriented library that helps to handle view controllers composition, navigation and deep linking tasks.'
   s.swift_version    = '5.0'
 
@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.homepage         = 'https://github.com/saksdirect/route-composer'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Evgeny Kazaev' => 'eugene.kazaev@hbc.com' }
-  s.source           = { :git => 'https://github.com/saksdirect/route-composer.git', :tag => s.version }
+  s.source           = { :git => 'https://github.com/ekazaev/route-composer.git', :tag => s.version }
 
   s.ios.deployment_target = '9.0'
   s.source_files = 'RouteComposer/Classes/**/*'
