@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -166,19 +165,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="qmT-KF-0TS">
-                                <rect key="frame" x="60" y="235.5" width="255" height="216"/>
+                                <rect key="frame" x="59.5" y="235.5" width="256.5" height="216"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cVV-nf-uxP">
-                                        <rect key="frame" x="0.0" y="0.0" width="255" height="31"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="256.5" height="31"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Can be dissmissed:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ydE-El-pE1">
-                                                <rect key="frame" x="0.0" y="0.0" width="206" height="31"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="207.5" height="31"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CSL-4b-ZSF">
-                                                <rect key="frame" x="206" y="0.0" width="51" height="31"/>
+                                                <rect key="frame" x="207.5" y="0.0" width="51" height="31"/>
                                                 <accessibility key="accessibilityConfiguration" identifier="dissmissalSwitchControl"/>
                                                 <connections>
                                                     <action selector="switchValueChangedWithSender:" destination="1IK-g0-E80" eventType="valueChanged" id="i1r-rl-4F6"/>
@@ -187,35 +186,35 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="stj-9m-zaF">
-                                        <rect key="frame" x="0.0" y="42" width="255" height="30"/>
+                                        <rect key="frame" x="0.0" y="42" width="256.5" height="30"/>
                                         <state key="normal" title="Go to Yellow color"/>
                                         <connections>
                                             <action selector="goToColorTapped" destination="1IK-g0-E80" eventType="touchUpInside" id="a6j-wA-zBy"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y3o-AY-MGp">
-                                        <rect key="frame" x="0.0" y="83" width="255" height="30"/>
+                                        <rect key="frame" x="0.0" y="83" width="256.5" height="30"/>
                                         <state key="normal" title="Go to Square Tab"/>
                                         <connections>
                                             <action selector="goToSquareTapped" destination="1IK-g0-E80" eventType="touchUpInside" id="K13-FY-jCo"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ecO-Gb-PsB">
-                                        <rect key="frame" x="0.0" y="124" width="255" height="30"/>
+                                        <rect key="frame" x="0.0" y="124" width="256.5" height="30"/>
                                         <state key="normal" title="Go to Moscow*"/>
                                         <connections>
                                             <action selector="goToMoscowTapped" destination="1IK-g0-E80" eventType="touchUpInside" id="rIm-aL-VNK"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XF5-FD-Qpt">
-                                        <rect key="frame" x="0.0" y="165" width="255" height="30"/>
+                                        <rect key="frame" x="0.0" y="165" width="256.5" height="30"/>
                                         <state key="normal" title="Go to New York*"/>
                                         <connections>
                                             <action selector="goToNewYorkUnexpectedTapped" destination="1IK-g0-E80" eventType="touchUpInside" id="JCY-HH-EeG"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Navigation to New York will trigger unexpected animation as well" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mE6-aL-VMn">
-                                        <rect key="frame" x="0.0" y="206" width="255" height="10"/>
+                                        <rect key="frame" x="0.0" y="206" width="256.5" height="10"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="8"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -354,36 +353,43 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="Gr7-65-ful">
-                                <rect key="frame" x="129.5" y="84.5" width="116" height="175"/>
+                                <rect key="frame" x="83" y="64" width="209" height="216"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ProductID:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V9o-X3-gYi">
-                                        <rect key="frame" x="0.0" y="0.0" width="116" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="209" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gJM-YS-55p">
-                                        <rect key="frame" x="0.0" y="31.5" width="116" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="31.5" width="209" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fPr-xC-PO0">
-                                        <rect key="frame" x="0.0" y="63" width="116" height="30"/>
+                                        <rect key="frame" x="0.0" y="63" width="209" height="30"/>
                                         <state key="normal" title="Go to Circle Tab"/>
                                         <connections>
                                             <action selector="goToCircleTapped" destination="xt5-6D-ZK0" eventType="touchUpInside" id="ZST-yb-sHk"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Vd-qV-bLI">
-                                        <rect key="frame" x="0.0" y="104" width="116" height="30"/>
+                                        <rect key="frame" x="0.0" y="104" width="209" height="30"/>
                                         <state key="normal" title="Go to Product 01"/>
                                         <connections>
                                             <action selector="goToProductTapped" destination="xt5-6D-ZK0" eventType="touchUpInside" id="A9b-fT-Elz"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m22-30-L1f">
+                                        <rect key="frame" x="0.0" y="145" width="209" height="30"/>
+                                        <state key="normal" title="Go to next Product from Circle"/>
+                                        <connections>
+                                            <action selector="goToProductFromCircleTapped" destination="xt5-6D-ZK0" eventType="touchUpInside" id="vbs-Iu-6l4"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dya-OG-PLs">
-                                        <rect key="frame" x="0.0" y="145" width="116" height="30"/>
+                                        <rect key="frame" x="0.0" y="186" width="209" height="30"/>
                                         <state key="normal" title="Go to Split*"/>
                                         <connections>
                                             <action selector="goToSplitTapped" destination="xt5-6D-ZK0" eventType="touchUpInside" id="R2S-1W-MAu"/>
