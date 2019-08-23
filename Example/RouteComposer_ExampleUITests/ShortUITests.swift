@@ -265,7 +265,7 @@ class ShortUITests: XCTestCase {
         XCTAssertTrue(app.otherElements["cityDetailsViewController+3"].exists)
     }
 
-    func testGoTProductFromCircle() {
+    func testGoProductFromCircle() {
         app.launch()
         XCTAssertTrue(app.otherElements["promptViewController"].exists)
         app.buttons["Continue"].tap()

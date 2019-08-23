@@ -40,7 +40,8 @@ extension ExampleScreenConfiguration {
                 // least one custom factory of finder that have set typealias for ViewController and Context.
                 finder: ClassFinder<UITabBarController, Any?>(options: .current, startingPoint: .root),
                 factory: StoryboardFactory(name: "TabBar"))
-                .using(GeneralAction.replaceRoot(animationOptions: .transitionFlipFromLeft))
+                .using(CATransaction.wrap(GeneralAction.replaceRoot(animationOptions: .transitionFlipFromLeft)))
+                // `CATransaction.wrap(...)` is here just for the testing purposes and not needed in the real app
                 .from(GeneralStep.root())
                 .assemble()
     }

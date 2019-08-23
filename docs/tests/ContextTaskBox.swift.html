@@ -80,17 +80,17 @@
 <tr class="covered">
 <td class="num">14</td>
 <td class="src"><pre><code class="objc">    init(_ contextTask: CT) {</code></pre></td>
-<td class="coverage">103x</td>
+<td class="coverage">104x</td>
 </tr>
 <tr class="covered">
 <td class="num">15</td>
 <td class="src"><pre><code class="objc">        self.contextTask = contextTask</code></pre></td>
-<td class="coverage">103x</td>
+<td class="coverage">104x</td>
 </tr>
 <tr class="covered">
 <td class="num">16</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">103x</td>
+<td class="coverage">104x</td>
 </tr>
 <tr class="never">
 <td class="num">17</td>
@@ -100,12 +100,12 @@
 <tr class="covered">
 <td class="num">18</td>
 <td class="src"><pre><code class="objc">    mutating func prepare&lt;Context&gt;(with context: Context) throws {</code></pre></td>
-<td class="coverage">114x</td>
+<td class="coverage">116x</td>
 </tr>
 <tr class="covered">
 <td class="num">19</td>
 <td class="src"><pre><code class="objc">        guard let typedContext = Any?.some(context as Any) as? CT.Context else {</code></pre></td>
-<td class="coverage">114x</td>
+<td class="coverage">116x</td>
 </tr>
 <tr class="covered">
 <td class="num">20</td>
@@ -125,22 +125,22 @@
 <tr class="covered">
 <td class="num">23</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">113x</td>
+<td class="coverage">115x</td>
 </tr>
 <tr class="covered">
 <td class="num">24</td>
 <td class="src"><pre><code class="objc">        try contextTask.prepare(with: typedContext)</code></pre></td>
-<td class="coverage">113x</td>
+<td class="coverage">115x</td>
 </tr>
 <tr class="covered">
 <td class="num">25</td>
 <td class="src"><pre><code class="objc">        isPrepared = true</code></pre></td>
-<td class="coverage">113x</td>
+<td class="coverage">115x</td>
 </tr>
 <tr class="covered">
 <td class="num">26</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">113x</td>
+<td class="coverage">115x</td>
 </tr>
 <tr class="never">
 <td class="num">27</td>
@@ -150,17 +150,17 @@
 <tr class="covered">
 <td class="num">28</td>
 <td class="src"><pre><code class="objc">    func perform&lt;Context&gt;(on viewController: UIViewController, with context: Context) throws {</code></pre></td>
-<td class="coverage">113x</td>
+<td class="coverage">115x</td>
 </tr>
 <tr class="covered">
 <td class="num">29</td>
 <td class="src"><pre><code class="objc">        guard let typedViewController = viewController as? CT.ViewController,</code></pre></td>
-<td class="coverage">113x</td>
+<td class="coverage">115x</td>
 </tr>
 <tr class="covered">
 <td class="num">30</td>
 <td class="src"><pre><code class="objc">              let typedContext = Any?.some(context as Any) as? CT.Context else {</code></pre></td>
-<td class="coverage">113x</td>
+<td class="coverage">115x</td>
 </tr>
 <tr class="covered">
 <td class="num">31</td>
@@ -180,27 +180,27 @@
 <tr class="covered">
 <td class="num">34</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">112x</td>
+<td class="coverage">114x</td>
 </tr>
 <tr class="covered">
 <td class="num">35</td>
 <td class="src"><pre><code class="objc">        assertIfNotMainThread()</code></pre></td>
-<td class="coverage">112x</td>
+<td class="coverage">114x</td>
 </tr>
 <tr class="covered">
 <td class="num">36</td>
 <td class="src"><pre><code class="objc">        assertIfNotPrepared()</code></pre></td>
-<td class="coverage">112x</td>
+<td class="coverage">114x</td>
 </tr>
 <tr class="covered">
 <td class="num">37</td>
 <td class="src"><pre><code class="objc">        try contextTask.perform(on: typedViewController, with: typedContext)</code></pre></td>
-<td class="coverage">112x</td>
+<td class="coverage">114x</td>
 </tr>
 <tr class="covered">
 <td class="num">38</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">112x</td>
+<td class="coverage">114x</td>
 </tr>
 <tr class="never">
 <td class="num">39</td>

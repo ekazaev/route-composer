@@ -306,4 +306,42 @@ class ExtrasTest: XCTestCase {
         XCTAssertEqual(wasInCompletion, true)
     }
 
+    func testCATransactionalContainerActionPerformEmbedding() {
+        let action = CATransaction.wrap(UINavigationController.pushReplacingLast())
+        var viewControllers = [UIViewController()]
+        let tabBarController = UITabBarController()
+        try? action.perform(embedding: tabBarController, in: &viewControllers)
+        XCTAssertEqual(viewControllers.count, 1)
+        XCTAssertEqual(viewControllers.last, tabBarController)
+    }
+
+    func testCATransactionalContainerActionPerform() {
+        let action = CATransaction.wrap(UINavigationController.push())
+        let navigationController = UINavigationController()
+        let newViewController = UIViewController()
+        var wasInCompletion = false
+        action.perform(with: newViewController, on: navigationController, animated: false, completion: { result in
+            wasInCompletion = true
+            XCTAssertTrue(result.isSuccessful)
+        })
+        XCTAssertEqual(wasInCompletion, true)
+        XCTAssertEqual(navigationController.viewControllers.count, 1)
+        XCTAssertEqual(navigationController.viewControllers.last, newViewController)
+    }
+
+    func testCATransactionalActionPerform() {
+        let window = UIWindow()
+        window.rootViewController = UINavigationController()
+        let windowProvider = CustomWindowProvider(window: window)
+        let action = CATransaction.wrap(GeneralAction.replaceRoot(windowProvider: windowProvider))
+        var wasInCompletion = false
+        let newViewController = UIViewController()
+        action.perform(with: newViewController, on: window.rootViewController!, animated: false, completion: { result in
+            wasInCompletion = true
+            XCTAssertTrue(result.isSuccessful)
+        })
+        XCTAssertEqual(wasInCompletion, true)
+        XCTAssertEqual(window.rootViewController, newViewController)
+    }
+
 }
