@@ -46,12 +46,12 @@ Can be used as the universal replacement for the [Coordinator](https://www.raywe
 
 There are 2 ways of implementing the navigation available in the iOS application:
 - Built-in mechanism provided by Apple using storyboards and segues
-- Pragmatical navigation directly in the code
+- Programmatic navigation directly in the code
 
 The downsides of these two solutions:
 - Built-in mechanism: navigation in the storyboards is relatively static and often requires the extra navigation code in the 
 `UIViewController`s and can lead to a lot of boilerplate code
-- Pragmatical navigation: forces `UIViewController`s coupling or can be complex depending on the chosen design 
+- Programmatic navigation: forces `UIViewController`s coupling or can be complex depending on the chosen design 
 pattern (Router, Coordinator) 
 
 ## RouteComposer helps
