@@ -230,37 +230,37 @@
 <tr class="covered">
 <td class="num">44</td>
 <td class="src"><pre><code class="objc">         taskProvider: TaskProvider) {</code></pre></td>
-<td class="coverage">225x</td>
+<td class="coverage">232x</td>
 </tr>
 <tr class="covered">
 <td class="num">45</td>
 <td class="src"><pre><code class="objc">        self.finder = entitiesProvider.finder</code></pre></td>
-<td class="coverage">225x</td>
+<td class="coverage">232x</td>
 </tr>
 <tr class="covered">
 <td class="num">46</td>
 <td class="src"><pre><code class="objc">        self.factory = entitiesProvider.factory</code></pre></td>
-<td class="coverage">225x</td>
+<td class="coverage">232x</td>
 </tr>
 <tr class="covered">
 <td class="num">47</td>
 <td class="src"><pre><code class="objc">        self.interceptor = taskProvider.interceptor</code></pre></td>
-<td class="coverage">225x</td>
+<td class="coverage">232x</td>
 </tr>
 <tr class="covered">
 <td class="num">48</td>
 <td class="src"><pre><code class="objc">        self.contextTask = taskProvider.contextTask</code></pre></td>
-<td class="coverage">225x</td>
+<td class="coverage">232x</td>
 </tr>
 <tr class="covered">
 <td class="num">49</td>
 <td class="src"><pre><code class="objc">        self.postTask = taskProvider.postTask</code></pre></td>
-<td class="coverage">225x</td>
+<td class="coverage">232x</td>
 </tr>
 <tr class="covered">
 <td class="num">50</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">225x</td>
+<td class="coverage">232x</td>
 </tr>
 <tr class="never">
 <td class="num">51</td>
@@ -270,17 +270,17 @@
 <tr class="covered">
 <td class="num">52</td>
 <td class="src"><pre><code class="objc">    func getPreviousStep&lt;Context&gt;(with context: Context) -&gt; RoutingStep? {</code></pre></td>
-<td class="coverage">213x</td>
+<td class="coverage">227x</td>
 </tr>
 <tr class="covered">
 <td class="num">53</td>
 <td class="src"><pre><code class="objc">        return previousStep</code></pre></td>
-<td class="coverage">213x</td>
+<td class="coverage">227x</td>
 </tr>
 <tr class="covered">
 <td class="num">54</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">213x</td>
+<td class="coverage">227x</td>
 </tr>
 <tr class="never">
 <td class="num">55</td>
@@ -290,27 +290,27 @@
 <tr class="covered">
 <td class="num">56</td>
 <td class="src"><pre><code class="objc">    func perform&lt;Context&gt;(with context: Context) throws -&gt; PerformableStepResult {</code></pre></td>
-<td class="coverage">188x</td>
+<td class="coverage">197x</td>
 </tr>
 <tr class="covered">
 <td class="num">57</td>
 <td class="src"><pre><code class="objc">        guard let viewController = try finder?.findViewController(with: context) else {</code></pre></td>
-<td class="coverage">188x</td>
+<td class="coverage">197x</td>
 </tr>
 <tr class="covered">
 <td class="num">58</td>
 <td class="src"><pre><code class="objc">            if let factory = factory {</code></pre></td>
-<td class="coverage">139x</td>
+<td class="coverage">144x</td>
 </tr>
 <tr class="covered">
 <td class="num">59</td>
 <td class="src"><pre><code class="objc">                return .build(factory)</code></pre></td>
-<td class="coverage">131x</td>
+<td class="coverage">136x</td>
 </tr>
 <tr class="covered">
 <td class="num">60</td>
 <td class="src"><pre><code class="objc">            } else {</code></pre></td>
-<td class="coverage">131x</td>
+<td class="coverage">136x</td>
 </tr>
 <tr class="covered">
 <td class="num">61</td>
@@ -325,17 +325,17 @@
 <tr class="covered">
 <td class="num">63</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">49x</td>
+<td class="coverage">53x</td>
 </tr>
 <tr class="covered">
 <td class="num">64</td>
 <td class="src"><pre><code class="objc">        return .success(viewController)</code></pre></td>
-<td class="coverage">49x</td>
+<td class="coverage">53x</td>
 </tr>
 <tr class="covered">
 <td class="num">65</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">188x</td>
+<td class="coverage">197x</td>
 </tr>
 <tr class="never">
 <td class="num">66</td>
@@ -345,17 +345,17 @@
 <tr class="covered">
 <td class="num">67</td>
 <td class="src"><pre><code class="objc">    mutating func from(_ step: RoutingStep) {</code></pre></td>
-<td class="coverage">199x</td>
+<td class="coverage">206x</td>
 </tr>
 <tr class="covered">
 <td class="num">68</td>
 <td class="src"><pre><code class="objc">        previousStep = step</code></pre></td>
-<td class="coverage">199x</td>
+<td class="coverage">206x</td>
 </tr>
 <tr class="covered">
 <td class="num">69</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">199x</td>
+<td class="coverage">206x</td>
 </tr>
 <tr class="never">
 <td class="num">70</td>
@@ -365,57 +365,57 @@
 <tr class="covered">
 <td class="num">71</td>
 <td class="src"><pre><code class="objc">    public var description: String {</code></pre></td>
-<td class="coverage">174x</td>
+<td class="coverage">183x</td>
 </tr>
 <tr class="covered">
 <td class="num">72</td>
 <td class="src"><pre><code class="objc">        var finderDescription = "None"</code></pre></td>
-<td class="coverage">174x</td>
+<td class="coverage">183x</td>
 </tr>
 <tr class="covered">
 <td class="num">73</td>
 <td class="src"><pre><code class="objc">        var factoryDescription = "None"</code></pre></td>
-<td class="coverage">174x</td>
+<td class="coverage">183x</td>
 </tr>
 <tr class="covered">
 <td class="num">74</td>
 <td class="src"><pre><code class="objc">        if let finder = finder {</code></pre></td>
-<td class="coverage">174x</td>
+<td class="coverage">183x</td>
 </tr>
 <tr class="covered">
 <td class="num">75</td>
 <td class="src"><pre><code class="objc">            finderDescription = String(describing: finder)</code></pre></td>
-<td class="coverage">124x</td>
+<td class="coverage">133x</td>
 </tr>
 <tr class="covered">
 <td class="num">76</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">174x</td>
+<td class="coverage">183x</td>
 </tr>
 <tr class="covered">
 <td class="num">77</td>
 <td class="src"><pre><code class="objc">        if let factory = factory {</code></pre></td>
-<td class="coverage">174x</td>
+<td class="coverage">183x</td>
 </tr>
 <tr class="covered">
 <td class="num">78</td>
 <td class="src"><pre><code class="objc">            factoryDescription = String(describing: factory)</code></pre></td>
-<td class="coverage">153x</td>
+<td class="coverage">162x</td>
 </tr>
 <tr class="covered">
 <td class="num">79</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">174x</td>
+<td class="coverage">183x</td>
 </tr>
 <tr class="covered">
 <td class="num">80</td>
 <td class="src"><pre><code class="objc">        return "BaseStep&lt;\(finderDescription) : \(factoryDescription))&gt;"</code></pre></td>
-<td class="coverage">174x</td>
+<td class="coverage">183x</td>
 </tr>
 <tr class="covered">
 <td class="num">81</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">174x</td>
+<td class="coverage">183x</td>
 </tr>
 <tr class="never">
 <td class="num">82</td>

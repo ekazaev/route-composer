@@ -115,17 +115,17 @@
 <tr class="covered">
 <td class="num">21</td>
 <td class="src"><pre><code class="objc">                                   duration: TimeInterval = 0.3) -&gt; ViewControllerActions.ReplaceRootAction {</code></pre></td>
-<td class="coverage">51x</td>
+<td class="coverage">54x</td>
 </tr>
 <tr class="covered">
 <td class="num">22</td>
 <td class="src"><pre><code class="objc">        return ViewControllerActions.ReplaceRootAction(windowProvider: windowProvider, animationOptions: animationOptions, duration: duration)</code></pre></td>
-<td class="coverage">51x</td>
+<td class="coverage">54x</td>
 </tr>
 <tr class="covered">
 <td class="num">23</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">51x</td>
+<td class="coverage">54x</td>
 </tr>
 <tr class="never">
 <td class="num">24</td>
@@ -755,27 +755,27 @@
 <tr class="covered">
 <td class="num">149</td>
 <td class="src"><pre><code class="objc">        init(windowProvider: WindowProvider = KeyWindowProvider(), animationOptions: UIView.AnimationOptions? = nil, duration: TimeInterval = 0.3) {</code></pre></td>
-<td class="coverage">54x</td>
+<td class="coverage">57x</td>
 </tr>
 <tr class="covered">
 <td class="num">150</td>
 <td class="src"><pre><code class="objc">            self.windowProvider = windowProvider</code></pre></td>
-<td class="coverage">54x</td>
+<td class="coverage">57x</td>
 </tr>
 <tr class="covered">
 <td class="num">151</td>
 <td class="src"><pre><code class="objc">            self.animationOptions = animationOptions</code></pre></td>
-<td class="coverage">54x</td>
+<td class="coverage">57x</td>
 </tr>
 <tr class="covered">
 <td class="num">152</td>
 <td class="src"><pre><code class="objc">            self.duration = duration</code></pre></td>
-<td class="coverage">54x</td>
+<td class="coverage">57x</td>
 </tr>
 <tr class="covered">
 <td class="num">153</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">54x</td>
+<td class="coverage">57x</td>
 </tr>
 <tr class="never">
 <td class="num">154</td>
@@ -800,12 +800,12 @@
 <tr class="covered">
 <td class="num">158</td>
 <td class="src"><pre><code class="objc">                            completion: @escaping (_: RoutingResult) -&gt; Void) {</code></pre></td>
-<td class="coverage">22x</td>
+<td class="coverage">23x</td>
 </tr>
 <tr class="covered">
 <td class="num">159</td>
 <td class="src"><pre><code class="objc">            guard let window = windowProvider.window else {</code></pre></td>
-<td class="coverage">22x</td>
+<td class="coverage">23x</td>
 </tr>
 <tr class="covered">
 <td class="num">160</td>
@@ -820,12 +820,12 @@
 <tr class="covered">
 <td class="num">162</td>
 <td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">21x</td>
+<td class="coverage">22x</td>
 </tr>
 <tr class="covered">
 <td class="num">163</td>
 <td class="src"><pre><code class="objc">            guard window.rootViewController == existingController else {</code></pre></td>
-<td class="coverage">21x</td>
+<td class="coverage">22x</td>
 </tr>
 <tr class="covered">
 <td class="num">164</td>
@@ -845,17 +845,17 @@
 <tr class="covered">
 <td class="num">167</td>
 <td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">20x</td>
+<td class="coverage">21x</td>
 </tr>
 <tr class="covered">
 <td class="num">168</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage">20x</td>
+<td class="coverage">21x</td>
 </tr>
 <tr class="covered">
 <td class="num">169</td>
 <td class="src"><pre><code class="objc">            guard animated, let animationOptions = animationOptions, duration &gt; 0 else {</code></pre></td>
-<td class="coverage">20x</td>
+<td class="coverage">21x</td>
 </tr>
 <tr class="covered">
 <td class="num">170</td>
@@ -875,62 +875,62 @@
 <tr class="covered">
 <td class="num">173</td>
 <td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">13x</td>
 </tr>
 <tr class="covered">
 <td class="num">174</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">13x</td>
 </tr>
 <tr class="covered">
 <td class="num">175</td>
 <td class="src"><pre><code class="objc">            UIView.transition(with: window, duration: duration, options: animationOptions, animations: {</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">13x</td>
 </tr>
 <tr class="covered">
 <td class="num">176</td>
 <td class="src"><pre><code class="objc">                let oldAnimationState = UIView.areAnimationsEnabled</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">13x</td>
 </tr>
 <tr class="covered">
 <td class="num">177</td>
 <td class="src"><pre><code class="objc">                UIView.setAnimationsEnabled(false)</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">13x</td>
 </tr>
 <tr class="covered">
 <td class="num">178</td>
 <td class="src"><pre><code class="objc">                window.rootViewController = viewController</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">13x</td>
 </tr>
 <tr class="covered">
 <td class="num">179</td>
 <td class="src"><pre><code class="objc">                window.rootViewController?.view.setNeedsLayout()</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">13x</td>
 </tr>
 <tr class="covered">
 <td class="num">180</td>
 <td class="src"><pre><code class="objc">                window.makeKeyAndVisible()</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">13x</td>
 </tr>
 <tr class="covered">
 <td class="num">181</td>
 <td class="src"><pre><code class="objc">                UIView.setAnimationsEnabled(oldAnimationState)</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">13x</td>
 </tr>
 <tr class="covered">
 <td class="num">182</td>
 <td class="src"><pre><code class="objc">            })</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">13x</td>
 </tr>
 <tr class="covered">
 <td class="num">183</td>
 <td class="src"><pre><code class="objc">            completion(.success)</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">13x</td>
 </tr>
 <tr class="covered">
 <td class="num">184</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">13x</td>
 </tr>
 <tr class="never">
 <td class="num">185</td>
@@ -975,12 +975,12 @@
 <tr class="covered">
 <td class="num">193</td>
 <td class="src"><pre><code class="objc">        init() {</code></pre></td>
-<td class="coverage">143x</td>
+<td class="coverage">147x</td>
 </tr>
 <tr class="covered">
 <td class="num">194</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">143x</td>
+<td class="coverage">147x</td>
 </tr>
 <tr class="never">
 <td class="num">195</td>

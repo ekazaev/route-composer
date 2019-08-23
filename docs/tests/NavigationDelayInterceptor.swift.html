@@ -280,27 +280,27 @@
 <tr class="covered">
 <td class="num">54</td>
 <td class="src"><pre><code class="objc">    public init(windowProvider: WindowProvider = KeyWindowProvider(), strategy: Strategy = .abort, logger: Logger? = nil) {</code></pre></td>
-<td class="coverage">10x</td>
+<td class="coverage">11x</td>
 </tr>
 <tr class="covered">
 <td class="num">55</td>
 <td class="src"><pre><code class="objc">        self.windowProvider = windowProvider</code></pre></td>
-<td class="coverage">10x</td>
+<td class="coverage">11x</td>
 </tr>
 <tr class="covered">
 <td class="num">56</td>
 <td class="src"><pre><code class="objc">        self.logger = logger</code></pre></td>
-<td class="coverage">10x</td>
+<td class="coverage">11x</td>
 </tr>
 <tr class="covered">
 <td class="num">57</td>
 <td class="src"><pre><code class="objc">        self.strategy = strategy</code></pre></td>
-<td class="coverage">10x</td>
+<td class="coverage">11x</td>
 </tr>
 <tr class="covered">
 <td class="num">58</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">10x</td>
+<td class="coverage">11x</td>
 </tr>
 <tr class="never">
 <td class="num">59</td>
@@ -310,32 +310,32 @@
 <tr class="covered">
 <td class="num">60</td>
 <td class="src"><pre><code class="objc">    public func perform(with context: Any?, completion: @escaping (RoutingResult) -&gt; Void) {</code></pre></td>
-<td class="coverage">85x</td>
+<td class="coverage">92x</td>
 </tr>
 <tr class="covered">
 <td class="num">61</td>
 <td class="src"><pre><code class="objc">        guard let topmostViewController = getTopmostViewController(),</code></pre></td>
-<td class="coverage">85x</td>
+<td class="coverage">92x</td>
 </tr>
 <tr class="covered">
 <td class="num">62</td>
 <td class="src"><pre><code class="objc">              topmostViewController.isBeingDismissed || topmostViewController.isBeingPresented else {</code></pre></td>
-<td class="coverage">85x</td>
+<td class="coverage">92x</td>
 </tr>
 <tr class="covered">
 <td class="num">63</td>
 <td class="src"><pre><code class="objc">            completion(.success)</code></pre></td>
-<td class="coverage">80x</td>
+<td class="coverage">87x</td>
 </tr>
 <tr class="covered">
 <td class="num">64</td>
 <td class="src"><pre><code class="objc">            return</code></pre></td>
-<td class="coverage">80x</td>
+<td class="coverage">87x</td>
 </tr>
 <tr class="covered">
 <td class="num">65</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">80x</td>
+<td class="coverage">87x</td>
 </tr>
 <tr class="covered">
 <td class="num">66</td>
@@ -395,22 +395,22 @@
 <tr class="covered">
 <td class="num">77</td>
 <td class="src"><pre><code class="objc">    private func getTopmostViewController() -&gt; UIViewController? {</code></pre></td>
-<td class="coverage">85x</td>
+<td class="coverage">92x</td>
 </tr>
 <tr class="covered">
 <td class="num">78</td>
 <td class="src"><pre><code class="objc">        var topmostViewController = windowProvider.window?.rootViewController</code></pre></td>
-<td class="coverage">85x</td>
+<td class="coverage">92x</td>
 </tr>
 <tr class="covered">
 <td class="num">79</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage">85x</td>
+<td class="coverage">92x</td>
 </tr>
 <tr class="covered">
 <td class="num">80</td>
 <td class="src"><pre><code class="objc">        while let presentedViewController = topmostViewController?.presentedViewController {</code></pre></td>
-<td class="coverage">85x</td>
+<td class="coverage">92x</td>
 </tr>
 <tr class="covered">
 <td class="num">81</td>
@@ -420,22 +420,22 @@
 <tr class="covered">
 <td class="num">82</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">85x</td>
+<td class="coverage">92x</td>
 </tr>
 <tr class="covered">
 <td class="num">83</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage">85x</td>
+<td class="coverage">92x</td>
 </tr>
 <tr class="covered">
 <td class="num">84</td>
 <td class="src"><pre><code class="objc">        return topmostViewController</code></pre></td>
-<td class="coverage">85x</td>
+<td class="coverage">92x</td>
 </tr>
 <tr class="covered">
 <td class="num">85</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">85x</td>
+<td class="coverage">92x</td>
 </tr>
 <tr class="never">
 <td class="num">86</td>

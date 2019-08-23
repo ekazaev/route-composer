@@ -135,17 +135,17 @@
 <tr class="covered">
 <td class="num">25</td>
 <td class="src"><pre><code class="objc">    mutating func scrapeChildren(from factories: [AnyFactory]) throws -&gt; [AnyFactory] {</code></pre></td>
-<td class="coverage">87x</td>
+<td class="coverage">92x</td>
 </tr>
 <tr class="covered">
 <td class="num">26</td>
 <td class="src"><pre><code class="objc">        return factories</code></pre></td>
-<td class="coverage">87x</td>
+<td class="coverage">92x</td>
 </tr>
 <tr class="covered">
 <td class="num">27</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">87x</td>
+<td class="coverage">92x</td>
 </tr>
 <tr class="never">
 <td class="num">28</td>
@@ -175,17 +175,17 @@
 <tr class="covered">
 <td class="num">33</td>
 <td class="src"><pre><code class="objc">    mutating func prepare&lt;Context&gt;(with context: Context) throws {</code></pre></td>
-<td class="coverage">138x</td>
+<td class="coverage">143x</td>
 </tr>
 <tr class="covered">
 <td class="num">34</td>
 <td class="src"><pre><code class="objc">        assertIfNotMainThread()</code></pre></td>
-<td class="coverage">138x</td>
+<td class="coverage">143x</td>
 </tr>
 <tr class="covered">
 <td class="num">35</td>
 <td class="src"><pre><code class="objc">        guard let typedContext = Any?.some(context as Any) as? FactoryType.Context else {</code></pre></td>
-<td class="coverage">138x</td>
+<td class="coverage">143x</td>
 </tr>
 <tr class="covered">
 <td class="num">36</td>
@@ -205,22 +205,22 @@
 <tr class="covered">
 <td class="num">39</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">136x</td>
+<td class="coverage">141x</td>
 </tr>
 <tr class="covered">
 <td class="num">40</td>
 <td class="src"><pre><code class="objc">        try factory.prepare(with: typedContext)</code></pre></td>
-<td class="coverage">136x</td>
+<td class="coverage">141x</td>
 </tr>
 <tr class="covered">
 <td class="num">41</td>
 <td class="src"><pre><code class="objc">        isPrepared = true</code></pre></td>
-<td class="coverage">136x</td>
+<td class="coverage">141x</td>
 </tr>
 <tr class="covered">
 <td class="num">42</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">136x</td>
+<td class="coverage">141x</td>
 </tr>
 <tr class="never">
 <td class="num">43</td>
@@ -250,17 +250,17 @@
 <tr class="covered">
 <td class="num">48</td>
 <td class="src"><pre><code class="objc">    var description: String {</code></pre></td>
-<td class="coverage">344x</td>
+<td class="coverage">363x</td>
 </tr>
 <tr class="covered">
 <td class="num">49</td>
 <td class="src"><pre><code class="objc">        return String(describing: factory)</code></pre></td>
-<td class="coverage">344x</td>
+<td class="coverage">363x</td>
 </tr>
 <tr class="covered">
 <td class="num">50</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">344x</td>
+<td class="coverage">363x</td>
 </tr>
 <tr class="never">
 <td class="num">51</td>
