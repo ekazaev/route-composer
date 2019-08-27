@@ -98,7 +98,7 @@ extension ExampleScreenConfiguration {
                 factory: StoryboardFactory(name: "TabBar", identifier: "FiguresViewController"))
                 .adding(LoginInterceptor<Any?>())
                 .adding(ExampleGenericContextTask<FiguresViewController, Any?>())
-                .using(UINavigationController.push())
+                .using(CATransaction.wrap(UINavigationController.push())) // `CATransaction.wrap(...)` here is for test purposes only
                 .from(circleScreen.expectingContainer())
                 .assemble()
     }

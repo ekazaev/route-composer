@@ -275,18 +275,22 @@ class ShortUITests: XCTestCase {
         XCTAssertTrue(app.otherElements["productViewController+00"].exists)
 
         app.buttons["Go to next Product from Circle"].tap()
+        sleep(2)
         XCTAssertTrue(app.otherElements["productViewController+01"].exists)
 
         app.buttons["Go to next Product from Circle"].tap()
+        sleep(2)
         XCTAssertTrue(app.otherElements["productViewController+02"].exists)
 
         app.buttons["Go to Product 01"].tap()
         XCTAssertTrue(app.otherElements["productViewController+01"].exists)
 
         app.buttons["Go to next Product from Circle"].tap()
+        sleep(2)
         XCTAssertTrue(app.otherElements["productViewController+02"].exists)
 
         app.buttons["Go to Circle Tab"].tap()
+        sleep(2)
         XCTAssertTrue(app.otherElements["circleViewController"].exists)
     }
 
