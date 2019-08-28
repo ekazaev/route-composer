@@ -28,24 +28,7 @@ public struct DefaultStackPresentationHandler: StackPresentationHandler {
         self.containerAdapterLocator = containerAdapterLocator
     }
 
-    /// Dismisses all the `UIViewController`s presented on top of the provided `UIViewController` and makes it visible in
-    /// the enclosing containers.
-    ///
-    /// - Parameters:
-    ///   - viewController: `UIViewController` to make active.
-    ///   - animated: Update stack with animation where possible.
-    ///   - completion: Completion block
-    public func makeActive(_ viewController: UIViewController, animated: Bool, completion: @escaping (RoutingResult) -> Void) {
-        dismissPresented(from: viewController, animated: animated) { result in
-            guard result.isSuccessful else {
-                return completion(result)
-            }
-
-            self.makeVisibleInParentContainer(viewController, animated: animated, completion: completion)
-        }
-    }
-
-    private func dismissPresented(from viewController: UIViewController, animated: Bool, completion: @escaping ((_: RoutingResult) -> Void)) {
+    public func dismissPresented(from viewController: UIViewController, animated: Bool, completion: @escaping ((_: RoutingResult) -> Void)) {
         if let presentedController = viewController.presentedViewController {
             if !presentedController.isBeingDismissed {
                 viewController.dismiss(animated: animated) {
@@ -60,7 +43,7 @@ public struct DefaultStackPresentationHandler: StackPresentationHandler {
         }
     }
 
-    private func makeVisibleInParentContainer(_ viewController: UIViewController,
+    public func makeVisibleInParentContainers(_ viewController: UIViewController,
                                               animated: Bool,
                                               completion: @escaping (RoutingResult) -> Void) {
         var parentViewControllers = viewController.allParents
@@ -74,6 +57,9 @@ public struct DefaultStackPresentationHandler: StackPresentationHandler {
                 let parentViewController = parentViewControllers.removeFirst()
                 if let container = parentViewController as? ContainerViewController {
                     let containerAdapter = try containerAdapterLocator.getAdapter(for: container)
+                    guard !containerAdapter.isVisible(viewController) else {
+                        return makeVisible(viewController: parentViewController, completion: completion)
+                    }
                     containerAdapter.makeVisible(viewController, animated: animated, completion: { result in
                         guard result.isSuccessful else {
                             completion(result)

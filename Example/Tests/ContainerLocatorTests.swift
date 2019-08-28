@@ -104,7 +104,8 @@ class ContainerLocatorTests: XCTestCase {
         let tabBarController = UITabBarController()
         let tabAdapter = TabBarControllerAdapter<UITabBarController>(with: tabBarController)
         var wasInCompletion = false
-        tabAdapter.setContainedViewControllers([UIViewController(), UINavigationController()], animated: false, completion: { result in
+        let viewController = UIViewController()
+        tabAdapter.setContainedViewControllers([viewController, UINavigationController()], animated: false, completion: { result in
             wasInCompletion = true
             XCTAssertTrue(result.isSuccessful)
             XCTAssertEqual(tabAdapter.containedViewControllers.count, 2)
@@ -117,6 +118,15 @@ class ContainerLocatorTests: XCTestCase {
             XCTAssertFalse(result.isSuccessful)
         })
         XCTAssertTrue(wasInCompletion)
+
+        wasInCompletion = false
+        tabBarController.selectedIndex = 0
+        tabAdapter.makeVisible(viewController, animated: false, completion: { result in
+            wasInCompletion = true
+            XCTAssertTrue(result.isSuccessful)
+        })
+        XCTAssertTrue(wasInCompletion)
+        XCTAssertEqual(tabBarController.selectedViewController, viewController)
     }
 
     func testNavigationControllerAdapterWrongControllerToMakeVisible() {

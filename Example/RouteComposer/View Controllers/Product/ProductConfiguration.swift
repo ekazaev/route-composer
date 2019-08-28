@@ -53,7 +53,19 @@ class ProductConfiguration {
                     finder: NilFinder(),
                     factory: StoryboardFactory<ProductViewController, ProductContext>(name: "TabBar", identifier: "ProductViewController"))
                     .adding(ContextSettingTask()))
-            .using(CATransaction.wrap(UINavigationController.push()))
+            .using(UINavigationController.push())
+            .from(NavigationControllerStep())
+            .using(GeneralAction.presentModally())
+            .from(SingleStep(
+                    finder: ClassWithContextFinder<ProductViewController, ProductContext>(),
+                    factory: NilFactory())
+                    .adding(ContextSettingTask()))
+            .using(GeneralAction.nilAction())
+            .from(SingleStep(
+                    finder: NilFinder(),
+                    factory: StoryboardFactory<ProductViewController, ProductContext>(name: "TabBar", identifier: "ProductViewController"))
+                    .adding(ContextSettingTask()))
+            .using(CATransaction.wrap(UINavigationController.push())) // `CATransaction.wrap(...)` here is for test purposes only
             .from(ConfigurationHolder.configuration.circleScreen.expectingContainer())
             .assemble()
 

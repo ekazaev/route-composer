@@ -184,20 +184,30 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
                 return
             }
 
-            // Builds view controller's stack using factories.
+            // Closes all the presented view controllers above the found view controller to be able
+            // to build a new stack if needed.
             // This operation is async.
-            self.buildViewControllerStack(starting: viewController,
-                    with: context,
-                    using: factoriesStack,
-                    animated: animated) { result in
-                do {
-                    if case let .failure(error) = result {
-                        throw error
+            // It was already confirmed that they can be dismissed.
+            self.stackPresentationHandler.dismissPresented(from: viewController, animated: animated) { result in
+                guard result.isSuccessful else {
+                    return completion(result)
+                }
+
+                // Builds view controller's stack using factories.
+                // This operation is async.
+                self.buildViewControllerStack(starting: viewController,
+                        with: context,
+                        using: factoriesStack,
+                        animated: animated) { result in
+                    do {
+                        if case let .failure(error) = result {
+                            throw error
+                        }
+                        try taskStack.performPostTasks(with: context)
+                        completion(result)
+                    } catch {
+                        completion(.failure(error))
                     }
-                    try taskStack.performPostTasks(with: context)
-                    completion(result)
-                } catch {
-                    completion(.failure(error))
                 }
             }
         }
@@ -216,7 +226,7 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
                 containerAdapterLocator: containerAdapterLocator)
 
         func buildViewController(from previousViewController: UIViewController) {
-            self.stackPresentationHandler.makeActive(previousViewController, animated: animated) { result in
+            self.stackPresentationHandler.makeVisibleInParentContainers(previousViewController, animated: factories.isEmpty ? animated : false) { result in
                 guard result.isSuccessful else {
                     self.logger?.log(.info("\(String(describing: previousViewController)) has stopped the navigation process " +
                             "as it was not able to become active."))

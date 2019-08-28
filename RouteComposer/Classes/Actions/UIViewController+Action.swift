@@ -42,6 +42,11 @@ public struct GeneralAction {
                 popoverConfiguration: popoverConfiguration)
     }
 
+    /// `Action` does nothing, but can be helpful for testing or writing the sequences of steps with the `NilFactory`
+    public static func nilAction() -> ViewControllerActions.NilAction {
+        return ViewControllerActions.NilAction()
+    }
+
 }
 
 /// A wrapper for general actions that can be applied to any `UIViewController`
@@ -185,16 +190,17 @@ public struct ViewControllerActions {
 
     }
 
-    struct NilAction: Action {
+    /// Helper `Action` that does nothing
+    public struct NilAction: Action {
 
         // MARK: Methods
 
-        // Constructor
+        /// Constructor
         init() {
         }
 
-        // Does nothing
-        func perform(with viewController: UIViewController, on existingController: UIViewController, animated: Bool, completion: @escaping (RoutingResult) -> Void) {
+        /// Does nothing and always succeeds
+        public func perform(with viewController: UIViewController, on existingController: UIViewController, animated: Bool, completion: @escaping (RoutingResult) -> Void) {
             completion(.success)
         }
 
