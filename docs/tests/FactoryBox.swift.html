@@ -100,37 +100,37 @@
 <tr class="covered">
 <td class="num">18</td>
 <td class="src"><pre><code class="objc">    init?(_ factory: F, action: AnyAction) {</code></pre></td>
-<td class="coverage">287x</td>
+<td class="coverage">290x</td>
 </tr>
 <tr class="covered">
 <td class="num">19</td>
 <td class="src"><pre><code class="objc">        guard !(factory is NilEntity) else {</code></pre></td>
-<td class="coverage">287x</td>
+<td class="coverage">290x</td>
 </tr>
 <tr class="covered">
 <td class="num">20</td>
 <td class="src"><pre><code class="objc">            return nil</code></pre></td>
-<td class="coverage">77x</td>
+<td class="coverage">78x</td>
 </tr>
 <tr class="covered">
 <td class="num">21</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">210x</td>
+<td class="coverage">212x</td>
 </tr>
 <tr class="covered">
 <td class="num">22</td>
 <td class="src"><pre><code class="objc">        self.factory = factory</code></pre></td>
-<td class="coverage">210x</td>
+<td class="coverage">212x</td>
 </tr>
 <tr class="covered">
 <td class="num">23</td>
 <td class="src"><pre><code class="objc">        self.action = action</code></pre></td>
-<td class="coverage">210x</td>
+<td class="coverage">212x</td>
 </tr>
 <tr class="covered">
 <td class="num">24</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">210x</td>
+<td class="coverage">212x</td>
 </tr>
 <tr class="never">
 <td class="num">25</td>
@@ -140,12 +140,12 @@
 <tr class="covered">
 <td class="num">26</td>
 <td class="src"><pre><code class="objc">    func build&lt;Context&gt;(with context: Context) throws -&gt; UIViewController {</code></pre></td>
-<td class="coverage">110x</td>
+<td class="coverage">114x</td>
 </tr>
 <tr class="covered">
 <td class="num">27</td>
 <td class="src"><pre><code class="objc">        guard let typedContext = Any?.some(context as Any) as? FactoryType.Context else {</code></pre></td>
-<td class="coverage">110x</td>
+<td class="coverage">114x</td>
 </tr>
 <tr class="covered">
 <td class="num">28</td>
@@ -165,27 +165,27 @@
 <tr class="covered">
 <td class="num">31</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">109x</td>
+<td class="coverage">113x</td>
 </tr>
 <tr class="covered">
 <td class="num">32</td>
 <td class="src"><pre><code class="objc">        assertIfNotMainThread()</code></pre></td>
-<td class="coverage">109x</td>
+<td class="coverage">113x</td>
 </tr>
 <tr class="covered">
 <td class="num">33</td>
 <td class="src"><pre><code class="objc">        assertIfNotPrepared()</code></pre></td>
-<td class="coverage">109x</td>
+<td class="coverage">113x</td>
 </tr>
 <tr class="covered">
 <td class="num">34</td>
 <td class="src"><pre><code class="objc">        return try factory.build(with: typedContext)</code></pre></td>
-<td class="coverage">109x</td>
+<td class="coverage">113x</td>
 </tr>
 <tr class="covered">
 <td class="num">35</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">110x</td>
+<td class="coverage">114x</td>
 </tr>
 <tr class="never">
 <td class="num">36</td>

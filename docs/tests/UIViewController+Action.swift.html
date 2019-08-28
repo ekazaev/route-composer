@@ -9,7 +9,7 @@
 <h2 class="cov_title">
 <span>Coverage for "UIViewController+Action.swift" : </span><span class="cov_high">100.00%</span>
 </h2>
-<h4 class="cov_subtitle">(81 of 81 relevant lines covered)</h4>
+<h4 class="cov_subtitle">(84 of 84 relevant lines covered)</h4>
 <h4 class="cov_filepath">RouteComposer/Classes/Actions/UIViewController+Action.swift</h4>
 <table class="source_code">
 <tr class="never">
@@ -195,37 +195,37 @@
 <tr class="covered">
 <td class="num">37</td>
 <td class="src"><pre><code class="objc">                                      popoverConfiguration: ((_: UIPopoverPresentationController) -&gt; Void)? = nil) -&gt; ViewControllerActions.PresentModallyAction {</code></pre></td>
-<td class="coverage">34x</td>
+<td class="coverage">35x</td>
 </tr>
 <tr class="covered">
 <td class="num">38</td>
 <td class="src"><pre><code class="objc">        return ViewControllerActions.PresentModallyAction(presentationStyle: presentationStyle,</code></pre></td>
-<td class="coverage">34x</td>
+<td class="coverage">35x</td>
 </tr>
 <tr class="covered">
 <td class="num">39</td>
 <td class="src"><pre><code class="objc">                transitionStyle: transitionStyle,</code></pre></td>
-<td class="coverage">34x</td>
+<td class="coverage">35x</td>
 </tr>
 <tr class="covered">
 <td class="num">40</td>
 <td class="src"><pre><code class="objc">                transitioningDelegate: transitioningDelegate,</code></pre></td>
-<td class="coverage">34x</td>
+<td class="coverage">35x</td>
 </tr>
 <tr class="covered">
 <td class="num">41</td>
 <td class="src"><pre><code class="objc">                preferredContentSize: preferredContentSize,</code></pre></td>
-<td class="coverage">34x</td>
+<td class="coverage">35x</td>
 </tr>
 <tr class="covered">
 <td class="num">42</td>
 <td class="src"><pre><code class="objc">                popoverConfiguration: popoverConfiguration)</code></pre></td>
-<td class="coverage">34x</td>
+<td class="coverage">35x</td>
 </tr>
 <tr class="covered">
 <td class="num">43</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">34x</td>
+<td class="coverage">35x</td>
 </tr>
 <tr class="never">
 <td class="num">44</td>
@@ -234,23 +234,23 @@
 </tr>
 <tr class="never">
 <td class="num">45</td>
-<td class="src"><pre><code class="objc">}</code></pre></td>
+<td class="src"><pre><code class="objc">    /// `Action` does nothing, but can be helpful for testing or writing the sequences of steps with the `NilFactory`</code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="never">
+<tr class="covered">
 <td class="num">46</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
+<td class="src"><pre><code class="objc">    public static func nilAction() -&gt; ViewControllerActions.NilAction {</code></pre></td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="never">
+<tr class="covered">
 <td class="num">47</td>
-<td class="src"><pre><code class="objc">/// A wrapper for general actions that can be applied to any `UIViewController`</code></pre></td>
-<td class="coverage"></td>
+<td class="src"><pre><code class="objc">        return ViewControllerActions.NilAction()</code></pre></td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="never">
+<tr class="covered">
 <td class="num">48</td>
-<td class="src"><pre><code class="objc">public struct ViewControllerActions {</code></pre></td>
-<td class="coverage"></td>
+<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="never">
 <td class="num">49</td>
@@ -259,7 +259,7 @@
 </tr>
 <tr class="never">
 <td class="num">50</td>
-<td class="src"><pre><code class="objc">    // MARK: Internal entities</code></pre></td>
+<td class="src"><pre><code class="objc">}</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -269,12 +269,12 @@
 </tr>
 <tr class="never">
 <td class="num">52</td>
-<td class="src"><pre><code class="objc">    /// Presents a view controller modally</code></pre></td>
+<td class="src"><pre><code class="objc">/// A wrapper for general actions that can be applied to any `UIViewController`</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">53</td>
-<td class="src"><pre><code class="objc">    public struct PresentModallyAction: Action {</code></pre></td>
+<td class="src"><pre><code class="objc">public struct ViewControllerActions {</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -284,7 +284,7 @@
 </tr>
 <tr class="never">
 <td class="num">55</td>
-<td class="src"><pre><code class="objc">        // MARK: Properties</code></pre></td>
+<td class="src"><pre><code class="objc">    // MARK: Internal entities</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -294,12 +294,12 @@
 </tr>
 <tr class="never">
 <td class="num">57</td>
-<td class="src"><pre><code class="objc">        /// `UIModalPresentationStyle` setting</code></pre></td>
+<td class="src"><pre><code class="objc">    /// Presents a view controller modally</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">58</td>
-<td class="src"><pre><code class="objc">        public let presentationStyle: UIModalPresentationStyle?</code></pre></td>
+<td class="src"><pre><code class="objc">    public struct PresentModallyAction: Action {</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -309,67 +309,67 @@
 </tr>
 <tr class="never">
 <td class="num">60</td>
-<td class="src"><pre><code class="objc">        /// `UIModalTransitionStyle` setting</code></pre></td>
+<td class="src"><pre><code class="objc">        // MARK: Properties</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">61</td>
-<td class="src"><pre><code class="objc">        public let transitionStyle: UIModalTransitionStyle?</code></pre></td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">62</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="src"><pre><code class="objc">        /// `UIModalPresentationStyle` setting</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">63</td>
-<td class="src"><pre><code class="objc">        /// The preferredContentSize is used for any container laying out a child view controller.</code></pre></td>
+<td class="src"><pre><code class="objc">        public let presentationStyle: UIModalPresentationStyle?</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">64</td>
-<td class="src"><pre><code class="objc">        public let preferredContentSize: CGSize?</code></pre></td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">65</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="src"><pre><code class="objc">        /// `UIModalTransitionStyle` setting</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">66</td>
-<td class="src"><pre><code class="objc">        /// Block to configure `UIPopoverPresentationController`</code></pre></td>
+<td class="src"><pre><code class="objc">        public let transitionStyle: UIModalTransitionStyle?</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">67</td>
-<td class="src"><pre><code class="objc">        public let popoverControllerConfigurationBlock: ((_: UIPopoverPresentationController) -&gt; Void)?</code></pre></td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">68</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="src"><pre><code class="objc">        /// The preferredContentSize is used for any container laying out a child view controller.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">69</td>
-<td class="src"><pre><code class="objc">        /// `UIViewControllerTransitioningDelegate` instance to be used during the transition</code></pre></td>
+<td class="src"><pre><code class="objc">        public let preferredContentSize: CGSize?</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">70</td>
-<td class="src"><pre><code class="objc">        private(set) public weak var transitioningDelegate: UIViewControllerTransitioningDelegate?</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">71</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
+<td class="num">71</td>
+<td class="src"><pre><code class="objc">        /// Block to configure `UIPopoverPresentationController`</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
 <td class="num">72</td>
-<td class="src"><pre><code class="objc">        // MARK: Methods</code></pre></td>
+<td class="src"><pre><code class="objc">        public let popoverControllerConfigurationBlock: ((_: UIPopoverPresentationController) -&gt; Void)?</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -379,278 +379,278 @@
 </tr>
 <tr class="never">
 <td class="num">74</td>
-<td class="src"><pre><code class="objc">        /// Constructor</code></pre></td>
+<td class="src"><pre><code class="objc">        /// `UIViewControllerTransitioningDelegate` instance to be used during the transition</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">75</td>
-<td class="src"><pre><code class="objc">        ///</code></pre></td>
+<td class="src"><pre><code class="objc">        private(set) public weak var transitioningDelegate: UIViewControllerTransitioningDelegate?</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">76</td>
-<td class="src"><pre><code class="objc">        /// - Parameters:</code></pre></td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">77</td>
-<td class="src"><pre><code class="objc">        ///   - presentationStyle: `UIModalPresentationStyle` setting, default value: .fullScreen</code></pre></td>
+<td class="src"><pre><code class="objc">        // MARK: Methods</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">78</td>
-<td class="src"><pre><code class="objc">        ///   - transitionStyle: `UIModalTransitionStyle` setting, default value: .coverVertical</code></pre></td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">79</td>
-<td class="src"><pre><code class="objc">        ///   - transitioningDelegate: `UIViewControllerTransitioningDelegate` instance to be used during the transition</code></pre></td>
+<td class="src"><pre><code class="objc">        /// Constructor</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">80</td>
-<td class="src"><pre><code class="objc">        ///   - preferredContentSize: The preferredContentSize is used for any container laying out a child view controller.</code></pre></td>
+<td class="src"><pre><code class="objc">        ///</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">81</td>
-<td class="src"><pre><code class="objc">        ///   - popoverControllerConfigurationBlock: Block to configure `UIPopoverPresentationController`.</code></pre></td>
+<td class="src"><pre><code class="objc">        /// - Parameters:</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">82</td>
-<td class="src"><pre><code class="objc">        init(presentationStyle: UIModalPresentationStyle? = .fullScreen,</code></pre></td>
+<td class="src"><pre><code class="objc">        ///   - presentationStyle: `UIModalPresentationStyle` setting, default value: .fullScreen</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">83</td>
-<td class="src"><pre><code class="objc">             transitionStyle: UIModalTransitionStyle? = .coverVertical,</code></pre></td>
+<td class="src"><pre><code class="objc">        ///   - transitionStyle: `UIModalTransitionStyle` setting, default value: .coverVertical</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">84</td>
-<td class="src"><pre><code class="objc">             transitioningDelegate: UIViewControllerTransitioningDelegate? = nil,</code></pre></td>
+<td class="src"><pre><code class="objc">        ///   - transitioningDelegate: `UIViewControllerTransitioningDelegate` instance to be used during the transition</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">85</td>
+<td class="src"><pre><code class="objc">        ///   - preferredContentSize: The preferredContentSize is used for any container laying out a child view controller.</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">86</td>
+<td class="src"><pre><code class="objc">        ///   - popoverControllerConfigurationBlock: Block to configure `UIPopoverPresentationController`.</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">87</td>
+<td class="src"><pre><code class="objc">        init(presentationStyle: UIModalPresentationStyle? = .fullScreen,</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">88</td>
+<td class="src"><pre><code class="objc">             transitionStyle: UIModalTransitionStyle? = .coverVertical,</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">89</td>
+<td class="src"><pre><code class="objc">             transitioningDelegate: UIViewControllerTransitioningDelegate? = nil,</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">90</td>
 <td class="src"><pre><code class="objc">             preferredContentSize: CGSize? = nil,</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
-<td class="num">86</td>
-<td class="src"><pre><code class="objc">             popoverConfiguration: ((_: UIPopoverPresentationController) -&gt; Void)? = nil) {</code></pre></td>
-<td class="coverage">35x</td>
-</tr>
-<tr class="covered">
-<td class="num">87</td>
-<td class="src"><pre><code class="objc">            self.presentationStyle = presentationStyle</code></pre></td>
-<td class="coverage">35x</td>
-</tr>
-<tr class="covered">
-<td class="num">88</td>
-<td class="src"><pre><code class="objc">            self.transitionStyle = transitionStyle</code></pre></td>
-<td class="coverage">35x</td>
-</tr>
-<tr class="covered">
-<td class="num">89</td>
-<td class="src"><pre><code class="objc">            self.transitioningDelegate = transitioningDelegate</code></pre></td>
-<td class="coverage">35x</td>
-</tr>
-<tr class="covered">
-<td class="num">90</td>
-<td class="src"><pre><code class="objc">            self.preferredContentSize = preferredContentSize</code></pre></td>
-<td class="coverage">35x</td>
-</tr>
-<tr class="covered">
 <td class="num">91</td>
-<td class="src"><pre><code class="objc">            self.popoverControllerConfigurationBlock = popoverConfiguration</code></pre></td>
-<td class="coverage">35x</td>
+<td class="src"><pre><code class="objc">             popoverConfiguration: ((_: UIPopoverPresentationController) -&gt; Void)? = nil) {</code></pre></td>
+<td class="coverage">36x</td>
 </tr>
 <tr class="covered">
 <td class="num">92</td>
+<td class="src"><pre><code class="objc">            self.presentationStyle = presentationStyle</code></pre></td>
+<td class="coverage">36x</td>
+</tr>
+<tr class="covered">
+<td class="num">93</td>
+<td class="src"><pre><code class="objc">            self.transitionStyle = transitionStyle</code></pre></td>
+<td class="coverage">36x</td>
+</tr>
+<tr class="covered">
+<td class="num">94</td>
+<td class="src"><pre><code class="objc">            self.transitioningDelegate = transitioningDelegate</code></pre></td>
+<td class="coverage">36x</td>
+</tr>
+<tr class="covered">
+<td class="num">95</td>
+<td class="src"><pre><code class="objc">            self.preferredContentSize = preferredContentSize</code></pre></td>
+<td class="coverage">36x</td>
+</tr>
+<tr class="covered">
+<td class="num">96</td>
+<td class="src"><pre><code class="objc">            self.popoverControllerConfigurationBlock = popoverConfiguration</code></pre></td>
+<td class="coverage">36x</td>
+</tr>
+<tr class="covered">
+<td class="num">97</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">35x</td>
+<td class="coverage">36x</td>
 </tr>
 <tr class="never">
-<td class="num">93</td>
+<td class="num">98</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">94</td>
+<td class="num">99</td>
 <td class="src"><pre><code class="objc">        public func perform(with viewController: UIViewController,</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">95</td>
+<td class="num">100</td>
 <td class="src"><pre><code class="objc">                            on existingController: UIViewController,</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">96</td>
+<td class="num">101</td>
 <td class="src"><pre><code class="objc">                            animated: Bool,</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
-<td class="num">97</td>
+<td class="num">102</td>
 <td class="src"><pre><code class="objc">                            completion: @escaping (_: RoutingResult) -&gt; Void) {</code></pre></td>
-<td class="coverage">22x</td>
+<td class="coverage">24x</td>
 </tr>
 <tr class="covered">
-<td class="num">98</td>
+<td class="num">103</td>
 <td class="src"><pre><code class="objc">            guard existingController.presentedViewController == nil else {</code></pre></td>
-<td class="coverage">22x</td>
+<td class="coverage">24x</td>
 </tr>
 <tr class="covered">
-<td class="num">99</td>
+<td class="num">104</td>
 <td class="src"><pre><code class="objc">                completion(.failure(RoutingError.compositionFailed(.init("\(existingController) is " +</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
-<td class="num">100</td>
+<td class="num">105</td>
 <td class="src"><pre><code class="objc">                        "already presenting a view controller."))))</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
-<td class="num">101</td>
+<td class="num">106</td>
 <td class="src"><pre><code class="objc">                return</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
-<td class="num">102</td>
-<td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">21x</td>
-</tr>
-<tr class="covered">
-<td class="num">103</td>
-<td class="src"><pre><code class="objc">            if let presentationStyle = presentationStyle {</code></pre></td>
-<td class="coverage">21x</td>
-</tr>
-<tr class="covered">
-<td class="num">104</td>
-<td class="src"><pre><code class="objc">                viewController.modalPresentationStyle = presentationStyle</code></pre></td>
-<td class="coverage">21x</td>
-</tr>
-<tr class="covered">
-<td class="num">105</td>
-<td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">21x</td>
-</tr>
-<tr class="covered">
-<td class="num">106</td>
-<td class="src"><pre><code class="objc">            if let transitionStyle = transitionStyle {</code></pre></td>
-<td class="coverage">21x</td>
-</tr>
-<tr class="covered">
 <td class="num">107</td>
-<td class="src"><pre><code class="objc">                viewController.modalTransitionStyle = transitionStyle</code></pre></td>
-<td class="coverage">21x</td>
+<td class="src"><pre><code class="objc">            }</code></pre></td>
+<td class="coverage">23x</td>
 </tr>
 <tr class="covered">
 <td class="num">108</td>
-<td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">21x</td>
+<td class="src"><pre><code class="objc">            if let presentationStyle = presentationStyle {</code></pre></td>
+<td class="coverage">23x</td>
 </tr>
 <tr class="covered">
 <td class="num">109</td>
-<td class="src"><pre><code class="objc">            if let transitioningDelegate = transitioningDelegate {</code></pre></td>
-<td class="coverage">21x</td>
+<td class="src"><pre><code class="objc">                viewController.modalPresentationStyle = presentationStyle</code></pre></td>
+<td class="coverage">23x</td>
 </tr>
 <tr class="covered">
 <td class="num">110</td>
+<td class="src"><pre><code class="objc">            }</code></pre></td>
+<td class="coverage">23x</td>
+</tr>
+<tr class="covered">
+<td class="num">111</td>
+<td class="src"><pre><code class="objc">            if let transitionStyle = transitionStyle {</code></pre></td>
+<td class="coverage">23x</td>
+</tr>
+<tr class="covered">
+<td class="num">112</td>
+<td class="src"><pre><code class="objc">                viewController.modalTransitionStyle = transitionStyle</code></pre></td>
+<td class="coverage">23x</td>
+</tr>
+<tr class="covered">
+<td class="num">113</td>
+<td class="src"><pre><code class="objc">            }</code></pre></td>
+<td class="coverage">23x</td>
+</tr>
+<tr class="covered">
+<td class="num">114</td>
+<td class="src"><pre><code class="objc">            if let transitioningDelegate = transitioningDelegate {</code></pre></td>
+<td class="coverage">23x</td>
+</tr>
+<tr class="covered">
+<td class="num">115</td>
 <td class="src"><pre><code class="objc">                viewController.transitioningDelegate = transitioningDelegate</code></pre></td>
 <td class="coverage">4x</td>
 </tr>
 <tr class="covered">
-<td class="num">111</td>
+<td class="num">116</td>
 <td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">21x</td>
+<td class="coverage">23x</td>
 </tr>
 <tr class="covered">
-<td class="num">112</td>
+<td class="num">117</td>
 <td class="src"><pre><code class="objc">            if let preferredContentSize = preferredContentSize {</code></pre></td>
-<td class="coverage">21x</td>
+<td class="coverage">23x</td>
 </tr>
 <tr class="covered">
-<td class="num">113</td>
+<td class="num">118</td>
 <td class="src"><pre><code class="objc">                viewController.preferredContentSize = preferredContentSize</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
-<td class="num">114</td>
+<td class="num">119</td>
 <td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">21x</td>
+<td class="coverage">23x</td>
 </tr>
 <tr class="covered">
-<td class="num">115</td>
+<td class="num">120</td>
 <td class="src"><pre><code class="objc">            if let popoverPresentationController = viewController.popoverPresentationController,</code></pre></td>
-<td class="coverage">21x</td>
+<td class="coverage">23x</td>
 </tr>
 <tr class="covered">
-<td class="num">116</td>
+<td class="num">121</td>
 <td class="src"><pre><code class="objc">               let popoverControllerConfigurationBlock = popoverControllerConfigurationBlock {</code></pre></td>
-<td class="coverage">21x</td>
+<td class="coverage">23x</td>
 </tr>
 <tr class="covered">
-<td class="num">117</td>
+<td class="num">122</td>
 <td class="src"><pre><code class="objc">                popoverControllerConfigurationBlock(popoverPresentationController)</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
-<td class="num">118</td>
-<td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">21x</td>
-</tr>
-<tr class="covered">
-<td class="num">119</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage">21x</td>
-</tr>
-<tr class="covered">
-<td class="num">120</td>
-<td class="src"><pre><code class="objc">            existingController.present(viewController, animated: animated, completion: {</code></pre></td>
-<td class="coverage">21x</td>
-</tr>
-<tr class="covered">
-<td class="num">121</td>
-<td class="src"><pre><code class="objc">                completion(.success)</code></pre></td>
-<td class="coverage">21x</td>
-</tr>
-<tr class="covered">
-<td class="num">122</td>
-<td class="src"><pre><code class="objc">            })</code></pre></td>
-<td class="coverage">21x</td>
-</tr>
-<tr class="covered">
 <td class="num">123</td>
-<td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">21x</td>
+<td class="src"><pre><code class="objc">            }</code></pre></td>
+<td class="coverage">23x</td>
 </tr>
-<tr class="never">
+<tr class="covered">
 <td class="num">124</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
+<td class="coverage">23x</td>
 </tr>
-<tr class="never">
+<tr class="covered">
 <td class="num">125</td>
-<td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage"></td>
+<td class="src"><pre><code class="objc">            existingController.present(viewController, animated: animated, completion: {</code></pre></td>
+<td class="coverage">23x</td>
 </tr>
-<tr class="never">
+<tr class="covered">
 <td class="num">126</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
+<td class="src"><pre><code class="objc">                completion(.success)</code></pre></td>
+<td class="coverage">23x</td>
 </tr>
-<tr class="never">
+<tr class="covered">
 <td class="num">127</td>
-<td class="src"><pre><code class="objc">    /// Replaces the root view controller in the key `UIWindow`</code></pre></td>
-<td class="coverage"></td>
+<td class="src"><pre><code class="objc">            })</code></pre></td>
+<td class="coverage">23x</td>
 </tr>
-<tr class="never">
+<tr class="covered">
 <td class="num">128</td>
-<td class="src"><pre><code class="objc">    public struct ReplaceRootAction: Action {</code></pre></td>
-<td class="coverage"></td>
+<td class="src"><pre><code class="objc">        }</code></pre></td>
+<td class="coverage">23x</td>
 </tr>
 <tr class="never">
 <td class="num">129</td>
@@ -659,7 +659,7 @@
 </tr>
 <tr class="never">
 <td class="num">130</td>
-<td class="src"><pre><code class="objc">        // MARK: Properties</code></pre></td>
+<td class="src"><pre><code class="objc">    }</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -669,12 +669,12 @@
 </tr>
 <tr class="never">
 <td class="num">132</td>
-<td class="src"><pre><code class="objc">        /// `WindowProvider` instance</code></pre></td>
+<td class="src"><pre><code class="objc">    /// Replaces the root view controller in the key `UIWindow`</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">133</td>
-<td class="src"><pre><code class="objc">        public let windowProvider: WindowProvider</code></pre></td>
+<td class="src"><pre><code class="objc">    public struct ReplaceRootAction: Action {</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -684,37 +684,37 @@
 </tr>
 <tr class="never">
 <td class="num">135</td>
-<td class="src"><pre><code class="objc">        /// Set of `UIView.AnimationOptions`</code></pre></td>
+<td class="src"><pre><code class="objc">        // MARK: Properties</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">136</td>
-<td class="src"><pre><code class="objc">        public let animationOptions: UIView.AnimationOptions?</code></pre></td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">137</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="src"><pre><code class="objc">        /// `WindowProvider` instance</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">138</td>
-<td class="src"><pre><code class="objc">        /// Transition duration.</code></pre></td>
+<td class="src"><pre><code class="objc">        public let windowProvider: WindowProvider</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">139</td>
-<td class="src"><pre><code class="objc">        public let duration: TimeInterval</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">140</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
+<td class="num">140</td>
+<td class="src"><pre><code class="objc">        /// Set of `UIView.AnimationOptions`</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
 <td class="num">141</td>
-<td class="src"><pre><code class="objc">        // MARK: Methods</code></pre></td>
+<td class="src"><pre><code class="objc">        public let animationOptions: UIView.AnimationOptions?</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -724,117 +724,117 @@
 </tr>
 <tr class="never">
 <td class="num">143</td>
-<td class="src"><pre><code class="objc">        /// Constructor</code></pre></td>
+<td class="src"><pre><code class="objc">        /// Transition duration.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">144</td>
-<td class="src"><pre><code class="objc">        ///</code></pre></td>
+<td class="src"><pre><code class="objc">        public let duration: TimeInterval</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">145</td>
-<td class="src"><pre><code class="objc">        /// - Parameters:</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">146</td>
-<td class="src"><pre><code class="objc">        ///   - windowProvider: `WindowProvider` instance</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">147</td>
-<td class="src"><pre><code class="objc">        ///   - animationOptions: Set of `UIView.AnimationOptions`. Transition will happen without animation if not provided.</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">148</td>
-<td class="src"><pre><code class="objc">        ///   - duration: Transition duration.</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="covered">
-<td class="num">149</td>
-<td class="src"><pre><code class="objc">        init(windowProvider: WindowProvider = KeyWindowProvider(), animationOptions: UIView.AnimationOptions? = nil, duration: TimeInterval = 0.3) {</code></pre></td>
-<td class="coverage">58x</td>
-</tr>
-<tr class="covered">
-<td class="num">150</td>
-<td class="src"><pre><code class="objc">            self.windowProvider = windowProvider</code></pre></td>
-<td class="coverage">58x</td>
-</tr>
-<tr class="covered">
-<td class="num">151</td>
-<td class="src"><pre><code class="objc">            self.animationOptions = animationOptions</code></pre></td>
-<td class="coverage">58x</td>
-</tr>
-<tr class="covered">
-<td class="num">152</td>
-<td class="src"><pre><code class="objc">            self.duration = duration</code></pre></td>
-<td class="coverage">58x</td>
-</tr>
-<tr class="covered">
-<td class="num">153</td>
-<td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">58x</td>
-</tr>
-<tr class="never">
-<td class="num">154</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
+<td class="num">146</td>
+<td class="src"><pre><code class="objc">        // MARK: Methods</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">147</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">148</td>
+<td class="src"><pre><code class="objc">        /// Constructor</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">149</td>
+<td class="src"><pre><code class="objc">        ///</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">150</td>
+<td class="src"><pre><code class="objc">        /// - Parameters:</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">151</td>
+<td class="src"><pre><code class="objc">        ///   - windowProvider: `WindowProvider` instance</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">152</td>
+<td class="src"><pre><code class="objc">        ///   - animationOptions: Set of `UIView.AnimationOptions`. Transition will happen without animation if not provided.</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">153</td>
+<td class="src"><pre><code class="objc">        ///   - duration: Transition duration.</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="covered">
+<td class="num">154</td>
+<td class="src"><pre><code class="objc">        init(windowProvider: WindowProvider = KeyWindowProvider(), animationOptions: UIView.AnimationOptions? = nil, duration: TimeInterval = 0.3) {</code></pre></td>
+<td class="coverage">58x</td>
+</tr>
+<tr class="covered">
 <td class="num">155</td>
+<td class="src"><pre><code class="objc">            self.windowProvider = windowProvider</code></pre></td>
+<td class="coverage">58x</td>
+</tr>
+<tr class="covered">
+<td class="num">156</td>
+<td class="src"><pre><code class="objc">            self.animationOptions = animationOptions</code></pre></td>
+<td class="coverage">58x</td>
+</tr>
+<tr class="covered">
+<td class="num">157</td>
+<td class="src"><pre><code class="objc">            self.duration = duration</code></pre></td>
+<td class="coverage">58x</td>
+</tr>
+<tr class="covered">
+<td class="num">158</td>
+<td class="src"><pre><code class="objc">        }</code></pre></td>
+<td class="coverage">58x</td>
+</tr>
+<tr class="never">
+<td class="num">159</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">160</td>
 <td class="src"><pre><code class="objc">        public func perform(with viewController: UIViewController,</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">156</td>
+<td class="num">161</td>
 <td class="src"><pre><code class="objc">                            on existingController: UIViewController,</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">157</td>
+<td class="num">162</td>
 <td class="src"><pre><code class="objc">                            animated: Bool,</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
-<td class="num">158</td>
+<td class="num">163</td>
 <td class="src"><pre><code class="objc">                            completion: @escaping (_: RoutingResult) -&gt; Void) {</code></pre></td>
 <td class="coverage">24x</td>
 </tr>
 <tr class="covered">
-<td class="num">159</td>
+<td class="num">164</td>
 <td class="src"><pre><code class="objc">            guard let window = windowProvider.window else {</code></pre></td>
 <td class="coverage">24x</td>
 </tr>
 <tr class="covered">
-<td class="num">160</td>
-<td class="src"><pre><code class="objc">                completion(.failure(RoutingError.compositionFailed(.init("Window was not found."))))</code></pre></td>
-<td class="coverage">1x</td>
-</tr>
-<tr class="covered">
-<td class="num">161</td>
-<td class="src"><pre><code class="objc">                return</code></pre></td>
-<td class="coverage">1x</td>
-</tr>
-<tr class="covered">
-<td class="num">162</td>
-<td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">23x</td>
-</tr>
-<tr class="covered">
-<td class="num">163</td>
-<td class="src"><pre><code class="objc">            guard window.rootViewController == existingController else {</code></pre></td>
-<td class="coverage">23x</td>
-</tr>
-<tr class="covered">
-<td class="num">164</td>
-<td class="src"><pre><code class="objc">                completion(.failure(RoutingError.compositionFailed(.init("Action should be applied to the root view " +</code></pre></td>
-<td class="coverage">1x</td>
-</tr>
-<tr class="covered">
 <td class="num">165</td>
-<td class="src"><pre><code class="objc">                        "controller, got \(String(describing: existingController)) instead."))))</code></pre></td>
+<td class="src"><pre><code class="objc">                completion(.failure(RoutingError.compositionFailed(.init("Window was not found."))))</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
@@ -845,142 +845,142 @@
 <tr class="covered">
 <td class="num">167</td>
 <td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">22x</td>
+<td class="coverage">23x</td>
 </tr>
 <tr class="covered">
 <td class="num">168</td>
+<td class="src"><pre><code class="objc">            guard window.rootViewController == existingController else {</code></pre></td>
+<td class="coverage">23x</td>
+</tr>
+<tr class="covered">
+<td class="num">169</td>
+<td class="src"><pre><code class="objc">                completion(.failure(RoutingError.compositionFailed(.init("Action should be applied to the root view " +</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">170</td>
+<td class="src"><pre><code class="objc">                        "controller, got \(String(describing: existingController)) instead."))))</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">171</td>
+<td class="src"><pre><code class="objc">                return</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">172</td>
+<td class="src"><pre><code class="objc">            }</code></pre></td>
+<td class="coverage">22x</td>
+</tr>
+<tr class="covered">
+<td class="num">173</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage">22x</td>
 </tr>
 <tr class="covered">
-<td class="num">169</td>
+<td class="num">174</td>
 <td class="src"><pre><code class="objc">            guard animated, let animationOptions = animationOptions, duration &gt; 0 else {</code></pre></td>
 <td class="coverage">22x</td>
 </tr>
 <tr class="covered">
-<td class="num">170</td>
+<td class="num">175</td>
 <td class="src"><pre><code class="objc">                window.rootViewController = viewController</code></pre></td>
 <td class="coverage">9x</td>
 </tr>
 <tr class="covered">
-<td class="num">171</td>
+<td class="num">176</td>
 <td class="src"><pre><code class="objc">                window.makeKeyAndVisible()</code></pre></td>
 <td class="coverage">9x</td>
 </tr>
 <tr class="covered">
-<td class="num">172</td>
+<td class="num">177</td>
 <td class="src"><pre><code class="objc">                return completion(.success)</code></pre></td>
 <td class="coverage">9x</td>
 </tr>
 <tr class="covered">
-<td class="num">173</td>
+<td class="num">178</td>
 <td class="src"><pre><code class="objc">            }</code></pre></td>
 <td class="coverage">13x</td>
 </tr>
 <tr class="covered">
-<td class="num">174</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage">13x</td>
-</tr>
-<tr class="covered">
-<td class="num">175</td>
-<td class="src"><pre><code class="objc">            UIView.transition(with: window, duration: duration, options: animationOptions, animations: {</code></pre></td>
-<td class="coverage">13x</td>
-</tr>
-<tr class="covered">
-<td class="num">176</td>
-<td class="src"><pre><code class="objc">                let oldAnimationState = UIView.areAnimationsEnabled</code></pre></td>
-<td class="coverage">13x</td>
-</tr>
-<tr class="covered">
-<td class="num">177</td>
-<td class="src"><pre><code class="objc">                UIView.setAnimationsEnabled(false)</code></pre></td>
-<td class="coverage">13x</td>
-</tr>
-<tr class="covered">
-<td class="num">178</td>
-<td class="src"><pre><code class="objc">                window.rootViewController = viewController</code></pre></td>
-<td class="coverage">13x</td>
-</tr>
-<tr class="covered">
 <td class="num">179</td>
-<td class="src"><pre><code class="objc">                window.rootViewController?.view.setNeedsLayout()</code></pre></td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage">13x</td>
 </tr>
 <tr class="covered">
 <td class="num">180</td>
-<td class="src"><pre><code class="objc">                window.makeKeyAndVisible()</code></pre></td>
+<td class="src"><pre><code class="objc">            UIView.transition(with: window, duration: duration, options: animationOptions, animations: {</code></pre></td>
 <td class="coverage">13x</td>
 </tr>
 <tr class="covered">
 <td class="num">181</td>
-<td class="src"><pre><code class="objc">                UIView.setAnimationsEnabled(oldAnimationState)</code></pre></td>
+<td class="src"><pre><code class="objc">                let oldAnimationState = UIView.areAnimationsEnabled</code></pre></td>
 <td class="coverage">13x</td>
 </tr>
 <tr class="covered">
 <td class="num">182</td>
-<td class="src"><pre><code class="objc">            })</code></pre></td>
+<td class="src"><pre><code class="objc">                UIView.setAnimationsEnabled(false)</code></pre></td>
 <td class="coverage">13x</td>
 </tr>
 <tr class="covered">
 <td class="num">183</td>
-<td class="src"><pre><code class="objc">            completion(.success)</code></pre></td>
+<td class="src"><pre><code class="objc">                window.rootViewController = viewController</code></pre></td>
 <td class="coverage">13x</td>
 </tr>
 <tr class="covered">
 <td class="num">184</td>
+<td class="src"><pre><code class="objc">                window.rootViewController?.view.setNeedsLayout()</code></pre></td>
+<td class="coverage">13x</td>
+</tr>
+<tr class="covered">
+<td class="num">185</td>
+<td class="src"><pre><code class="objc">                window.makeKeyAndVisible()</code></pre></td>
+<td class="coverage">13x</td>
+</tr>
+<tr class="covered">
+<td class="num">186</td>
+<td class="src"><pre><code class="objc">                UIView.setAnimationsEnabled(oldAnimationState)</code></pre></td>
+<td class="coverage">13x</td>
+</tr>
+<tr class="covered">
+<td class="num">187</td>
+<td class="src"><pre><code class="objc">            })</code></pre></td>
+<td class="coverage">13x</td>
+</tr>
+<tr class="covered">
+<td class="num">188</td>
+<td class="src"><pre><code class="objc">            completion(.success)</code></pre></td>
+<td class="coverage">13x</td>
+</tr>
+<tr class="covered">
+<td class="num">189</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
 <td class="coverage">13x</td>
 </tr>
 <tr class="never">
-<td class="num">185</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">186</td>
-<td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">187</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">188</td>
-<td class="src"><pre><code class="objc">    struct NilAction: Action {</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">189</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
 <td class="num">190</td>
-<td class="src"><pre><code class="objc">        // MARK: Methods</code></pre></td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">191</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="src"><pre><code class="objc">    }</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">192</td>
-<td class="src"><pre><code class="objc">        // Constructor</code></pre></td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="covered">
+<tr class="never">
 <td class="num">193</td>
-<td class="src"><pre><code class="objc">        init() {</code></pre></td>
-<td class="coverage">149x</td>
+<td class="src"><pre><code class="objc">    /// Helper `Action` that does nothing</code></pre></td>
+<td class="coverage"></td>
 </tr>
-<tr class="covered">
+<tr class="never">
 <td class="num">194</td>
-<td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">149x</td>
+<td class="src"><pre><code class="objc">    public struct NilAction: Action {</code></pre></td>
+<td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">195</td>
@@ -989,41 +989,71 @@
 </tr>
 <tr class="never">
 <td class="num">196</td>
-<td class="src"><pre><code class="objc">        // Does nothing</code></pre></td>
+<td class="src"><pre><code class="objc">        // MARK: Methods</code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="covered">
-<td class="num">197</td>
-<td class="src"><pre><code class="objc">        func perform(with viewController: UIViewController, on existingController: UIViewController, animated: Bool, completion: @escaping (RoutingResult) -&gt; Void) {</code></pre></td>
-<td class="coverage">17x</td>
-</tr>
-<tr class="covered">
-<td class="num">198</td>
-<td class="src"><pre><code class="objc">            completion(.success)</code></pre></td>
-<td class="coverage">17x</td>
-</tr>
-<tr class="covered">
-<td class="num">199</td>
-<td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">17x</td>
-</tr>
 <tr class="never">
-<td class="num">200</td>
+<td class="num">197</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
+<td class="num">198</td>
+<td class="src"><pre><code class="objc">        /// Constructor</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="covered">
+<td class="num">199</td>
+<td class="src"><pre><code class="objc">        init() {</code></pre></td>
+<td class="coverage">151x</td>
+</tr>
+<tr class="covered">
+<td class="num">200</td>
+<td class="src"><pre><code class="objc">        }</code></pre></td>
+<td class="coverage">151x</td>
+</tr>
+<tr class="never">
 <td class="num">201</td>
-<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">202</td>
+<td class="src"><pre><code class="objc">        /// Does nothing and always succeeds</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="covered">
+<td class="num">203</td>
+<td class="src"><pre><code class="objc">        public func perform(with viewController: UIViewController, on existingController: UIViewController, animated: Bool, completion: @escaping (RoutingResult) -&gt; Void) {</code></pre></td>
+<td class="coverage">19x</td>
+</tr>
+<tr class="covered">
+<td class="num">204</td>
+<td class="src"><pre><code class="objc">            completion(.success)</code></pre></td>
+<td class="coverage">19x</td>
+</tr>
+<tr class="covered">
+<td class="num">205</td>
+<td class="src"><pre><code class="objc">        }</code></pre></td>
+<td class="coverage">19x</td>
+</tr>
+<tr class="never">
+<td class="num">206</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">203</td>
+<td class="num">207</td>
+<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">208</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">209</td>
 <td class="src"><pre><code class="objc">}</code></pre></td>
 <td class="coverage"></td>
 </tr>
