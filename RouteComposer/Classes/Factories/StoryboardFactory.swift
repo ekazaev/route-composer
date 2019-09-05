@@ -35,21 +35,6 @@ public struct StoryboardFactory<VC: UIViewController, C>: Factory {
     /// - Parameters:
     ///   - storyboardName: The name of a storyboard file
     ///   - bundle: The `Bundle` instance if needed
-    ///   - viewControllerID: The `UIViewController` identifier in the storyboard. If it is not set, the `Factory` will try
-    ///     to create the storyboards initial `UIViewController`
-    @available(*, deprecated, renamed: "init(name:bundle:identifier:configuration:)")
-    public init(storyboardName: String, bundle: Bundle? = nil, viewControllerID: String? = nil) {
-        self.name = storyboardName
-        self.bundle = bundle
-        self.identifier = viewControllerID
-        self.configuration = nil
-    }
-
-    /// Constructor
-    ///
-    /// - Parameters:
-    ///   - storyboardName: The name of a storyboard file
-    ///   - bundle: The `Bundle` instance if needed
     ///   - identifier: The `UIViewController` identifier in the storyboard. If it is not set, the `Factory` will try
     ///     to create the storyboards initial `UIViewController`
     ///   - configuration: A block of code that will be used for the extended configuration of the created `UIViewController`. Can be used for

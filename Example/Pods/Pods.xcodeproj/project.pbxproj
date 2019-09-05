@@ -11,7 +11,6 @@
 		024AD2951A008D45AEF9FD80D463679C /* UITabBarController+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53EEE301EC1DEB0F2A6CE0874BFBCB1 /* UITabBarController+Action.swift */; };
 		04A1D500E84917EEFED17EB1393FE799 /* DefaultRouter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFE781737623C695732E019DCE839F8 /* DefaultRouter+Extension.swift */; };
 		0540A71D911EE350AAC35857271FF7A8 /* NavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDED186BBC05F567CCBB8951F56339E8 /* NavigationController+Extension.swift */; };
-		06F32EA25590D2D0173ED58A54D855C0 /* XibFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1E8BA44865F26C923C7EB842A7B330 /* XibFactory.swift */; };
 		06F5A0788C5243519E384A68001B2B77 /* CompleteFactoryChainAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274E118CA9C4E1BEF23A15291D66C9FC /* CompleteFactoryChainAssembly.swift */; };
 		0885DAA44C65A23ADA662FB598AE5130 /* StepAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEB091AAB1CF1643BACDE81714B939E /* StepAssembly.swift */; };
 		0BF9A40C12B4C6C2CDE64585F944B6E7 /* NilEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2644563E5362FBDD6A54E5DEA431CE /* NilEntity.swift */; };
@@ -46,7 +45,7 @@
 		3CFB96989445E97E841AD81BF007F35B /* DefaultContainerAdapterLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4390381B3F0807CD7461B3931FA39638 /* DefaultContainerAdapterLocator.swift */; };
 		4324DBA25008C42E4B91286522978F78 /* SimpleContainerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99C3158F2A566335C74AA9503BB059C /* SimpleContainerFactory.swift */; };
 		4538F8AC59758870C4825ADF45A57DB5 /* SplitViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C179B68975C91831F4A1817EAE5E1DA8 /* SplitViewController+Extension.swift */; };
-		453A3AD323109EE700EDC6F4 /* CATransactionAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453A3AD223109EE600EDC6F4 /* CATransactionAction.swift */; };
+		453A3AD323109EE700EDC6F4 /* CATransaction+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453A3AD223109EE600EDC6F4 /* CATransaction+Action.swift */; };
 		462908246E321568871121013B263556 /* NavigationControllerAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1A224EE7C6A15BF33EBC576EBBAD7D /* NavigationControllerAdapter.swift */; };
 		48AFAF89B2CFF0DA71552620E771D07B /* Pods-RouteComposer_Example-RouteComposer_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4FCFC6C731703BD30865DF5732800DD0 /* Pods-RouteComposer_Example-RouteComposer_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4A28D22D528BD106B8C470D03B4B1A4F /* DefaultRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7F55B476687E352FA4D214F661E884 /* DefaultRouter.swift */; };
@@ -128,7 +127,6 @@
 		D1A0660C329B36DCBF35201AC75A6250 /* ClassFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C878505C3689D82AC0813ABD5FDD8337 /* ClassFinder.swift */; };
 		D21C010E85B0A01E33E401995DCAD53C /* DefaultLogger+LogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA99711ED81102B713FB0F0D360EFD3C /* DefaultLogger+LogLevel.swift */; };
 		D36616944A2B1D2ECBBD97C50606343A /* Pods-RouteComposer_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = AFDF04AE0F6D759B82AFD6850A056200 /* Pods-RouteComposer_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D3C627EEE09561E5908CB31E065CA296 /* ClassNameFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D5BF6142FBCA71F782EC1A8B4EEF23 /* ClassNameFactory.swift */; };
 		D875AA651903C0A093E79DCACB455664 /* ActionConnectingAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749AF0E8BC23703B9DB8D5EA25040FFF /* ActionConnectingAssembly.swift */; };
 		DFD8A5B93E8AECC984811B2F407548D2 /* InterceptorMultiplexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5587EFD4DA5C5CDA657F03C561E86BED /* InterceptorMultiplexer.swift */; };
 		E11D4E8C0E43970548E869B11EF2A209 /* PostRoutingTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD65D36E2CF26F3377A0FB560E75E07 /* PostRoutingTask.swift */; };
@@ -139,6 +137,7 @@
 		EB5CA727BA1E0A470B8369C499676966 /* NilFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681BA5589EDBE1D87E903117DF803150 /* NilFinder.swift */; };
 		EC836FF9ECB2A24939BCD368FDC64FE5 /* InterceptableStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E109F23E33DC7A315C1B2C980284C60 /* InterceptableStep.swift */; };
 		EE6A427F8B77E58D2DCD1D7D83050849 /* Array+PrivateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1687E95A2995E49F325C30469B85B0 /* Array+PrivateExtension.swift */; };
+		EF15822CEFEC3A9DC3EDE369 /* DispatchQueue+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF158363E92F01F65DB0FCCF /* DispatchQueue+Action.swift */; };
 		F0C550B5305B6518DD92B19081673716 /* SplitControllerAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F458A14171ECF0D585B8AA012C335A /* SplitControllerAdapter.swift */; };
 		F0CAD51E81838331580179CE45F30DB9 /* RoutingStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D149F2069800BFAC92405F37EB587A /* RoutingStep.swift */; };
 		F4146460AB5365C412111D8B836345C1 /* CompleteFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F67C90D7AE99D3ED571267BCA93BEC1 /* CompleteFactory.swift */; };
@@ -210,7 +209,7 @@
 		4118AD388887E74E0255F90DB5DCB878 /* AbstractFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AbstractFactory.swift; path = RouteComposer/Classes/AbstractFactory.swift; sourceTree = "<group>"; };
 		4390381B3F0807CD7461B3931FA39638 /* DefaultContainerAdapterLocator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DefaultContainerAdapterLocator.swift; sourceTree = "<group>"; };
 		4476F8ABD8FC1D1EAC228CA5635A4C68 /* UINavigationController+Action.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Action.swift"; sourceTree = "<group>"; };
-		453A3AD223109EE600EDC6F4 /* CATransactionAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CATransactionAction.swift; sourceTree = "<group>"; };
+		453A3AD223109EE600EDC6F4 /* CATransaction+Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CATransaction+Action.swift"; sourceTree = "<group>"; };
 		45408942DF1145D55F7F4CB0E5080378 /* SingleStep.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SingleStep.swift; sourceTree = "<group>"; };
 		459BEE31734EE908F9231C5B4B90C2B7 /* ContainerStepAssembly.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ContainerStepAssembly.swift; sourceTree = "<group>"; };
 		4631ECBB86E2BFCB4B21BA355B81F0EE /* RouteComposer-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "RouteComposer-dummy.m"; sourceTree = "<group>"; };
@@ -288,7 +287,6 @@
 		B66E5BE3D474760ACD10085F29B18E1D /* Destination.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Destination.swift; sourceTree = "<group>"; };
 		B7806283357DB820583E307EA7685D0F /* ContextSettingTask.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ContextSettingTask.swift; sourceTree = "<group>"; };
 		B78CDA4C14F0EE65AD993846A1938AA1 /* Pods-RouteComposer_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-RouteComposer_Example-frameworks.sh"; sourceTree = "<group>"; };
-		B7D5BF6142FBCA71F782EC1A8B4EEF23 /* ClassNameFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ClassNameFactory.swift; sourceTree = "<group>"; };
 		B8914859D071BA4FA9313097609B6C15 /* DestinationStep.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DestinationStep.swift; path = RouteComposer/Classes/DestinationStep.swift; sourceTree = "<group>"; };
 		B9EBC80FC339966FBA042FBC440C9F05 /* RouteComposer-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RouteComposer-umbrella.h"; sourceTree = "<group>"; };
 		BA30DFE0C338F931423886919F265BEF /* SplitControllerFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SplitControllerFactory.swift; sourceTree = "<group>"; };
@@ -312,7 +310,6 @@
 		D53EEE301EC1DEB0F2A6CE0874BFBCB1 /* UITabBarController+Action.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UITabBarController+Action.swift"; sourceTree = "<group>"; };
 		D65FA61B65D778EA2706B796434E5254 /* PostponedIntegrationFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PostponedIntegrationFactory.swift; sourceTree = "<group>"; };
 		D6C6AF7067B7F180AC457959401C4F1E /* InlinePostTask.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = InlinePostTask.swift; sourceTree = "<group>"; };
-		DF1E8BA44865F26C923C7EB842A7B330 /* XibFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = XibFactory.swift; sourceTree = "<group>"; };
 		E5CDCD6AE95060B5F96D5A0E2F15ABDF /* Pods-RouteComposer_Example-RouteComposer_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RouteComposer_Example-RouteComposer_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		E83C2D8F5065642889211C8F4D464729 /* PerformableStepResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PerformableStepResult.swift; sourceTree = "<group>"; };
 		EA99711ED81102B713FB0F0D360EFD3C /* DefaultLogger+LogLevel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "DefaultLogger+LogLevel.swift"; sourceTree = "<group>"; };
@@ -324,6 +321,7 @@
 		ED8BA3EC8A2F37D348FB2CB6BDE18F35 /* AnyContextTask.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AnyContextTask.swift; sourceTree = "<group>"; };
 		EDB39F545D57687020666252ECB36DA3 /* Pods_RouteComposer_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RouteComposer_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE2498CBEDC8635BB11F3729C57507BB /* ContextTaskBox.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ContextTaskBox.swift; sourceTree = "<group>"; };
+		EF158363E92F01F65DB0FCCF /* DispatchQueue+Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Action.swift"; sourceTree = "<group>"; };
 		EF4969E28C63F4176BDB3AFC46B42E9F /* Router.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Router.swift; path = RouteComposer/Classes/Router.swift; sourceTree = "<group>"; };
 		F1D735EED6FADD39DF9C0C59119752FA /* KeyWindowProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = KeyWindowProvider.swift; sourceTree = "<group>"; };
 		F516AECB3D92F4707F383AEA9A9889E8 /* SingleContainerStep.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SingleContainerStep.swift; sourceTree = "<group>"; };
@@ -450,7 +448,6 @@
 			isa = PBXGroup;
 			children = (
 				BEC75481534F1CAEC456883A4BBA7EEA /* ClassFactory.swift */,
-				B7D5BF6142FBCA71F782EC1A8B4EEF23 /* ClassNameFactory.swift */,
 				7F67C90D7AE99D3ED571267BCA93BEC1 /* CompleteFactory.swift */,
 				28B8367AEC02DD8DE48BDAD5414473F1 /* FinderFactory.swift */,
 				5CF2DAFB26EF3D6B0CB1337203221B50 /* NavigationControllerFactory.swift */,
@@ -459,7 +456,6 @@
 				BA30DFE0C338F931423886919F265BEF /* SplitControllerFactory.swift */,
 				627AE4474CA763E4E4E93555EFA71F0F /* StoryboardFactory.swift */,
 				535981D83A325D55BA079325896C176A /* TabBarControllerFactory.swift */,
-				DF1E8BA44865F26C923C7EB842A7B330 /* XibFactory.swift */,
 			);
 			name = Factories;
 			path = RouteComposer/Classes/Factories;
@@ -544,7 +540,8 @@
 				5691C64725CAB5956C31916579578AEB /* PresentingFinder.swift */,
 				69BF41DCCB73C3B23300C00B37443699 /* Router+Destination.swift */,
 				8DBDFF88E85F38E3C6C457C73385BE5F /* SingleNavigationRouter.swift */,
-				453A3AD223109EE600EDC6F4 /* CATransactionAction.swift */,
+				453A3AD223109EE600EDC6F4 /* CATransaction+Action.swift */,
+				EF158363E92F01F65DB0FCCF /* DispatchQueue+Action.swift */,
 			);
 			name = Extra;
 			path = RouteComposer/Classes/Extra;
@@ -948,7 +945,6 @@
 				C38010FF92DF97B36B2E18CF8723A3E2 /* ChildCoordinator.swift in Sources */,
 				821975E07ACF9E5C3432D6491F06C038 /* ClassFactory.swift in Sources */,
 				D1A0660C329B36DCBF35201AC75A6250 /* ClassFinder.swift in Sources */,
-				D3C627EEE09561E5908CB31E065CA296 /* ClassNameFactory.swift in Sources */,
 				3B72D933EA1B23AB1F4AF55BFC5D005F /* ClassWithContextFinder.swift in Sources */,
 				F4146460AB5365C412111D8B836345C1 /* CompleteFactory.swift in Sources */,
 				BE06207144B047275D4EE87DC620DB68 /* CompleteFactoryAssembly.swift in Sources */,
@@ -1014,7 +1010,7 @@
 				BD76D5DFED09EBF7C1656A79ADEFF930 /* PerformableStepResult.swift in Sources */,
 				F7602BADA765C6A0F138B1847E6D6F3C /* PostponedIntegrationFactory.swift in Sources */,
 				E11D4E8C0E43970548E869B11EF2A209 /* PostRoutingTask.swift in Sources */,
-				453A3AD323109EE700EDC6F4 /* CATransactionAction.swift in Sources */,
+				453A3AD323109EE700EDC6F4 /* CATransaction+Action.swift in Sources */,
 				5C90F47DB4ACB9731E3285FDE4A6EDF4 /* PostRoutingTaskBox.swift in Sources */,
 				18AB49C15126B002377E7D662E6BE740 /* PostRoutingTaskMultiplexer.swift in Sources */,
 				4DA6D79E2E43B63E7779C813B2A96869 /* PreparableEntity.swift in Sources */,
@@ -1058,7 +1054,7 @@
 				1BE05D5DC0B69D2C1C9409323E97643B /* UIViewController+PrivateExtension.swift in Sources */,
 				7445799EB27AEC51663D0AD21B759739 /* UIWindow+Extension.swift in Sources */,
 				8255DBB47E88552D9B61BD19575F7748 /* WindowProvider.swift in Sources */,
-				06F32EA25590D2D0173ED58A54D855C0 /* XibFactory.swift in Sources */,
+				EF15822CEFEC3A9DC3EDE369 /* DispatchQueue+Action.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

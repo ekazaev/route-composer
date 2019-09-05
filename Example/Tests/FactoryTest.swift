@@ -9,18 +9,6 @@ import XCTest
 
 class FactoryTest: XCTestCase {
 
-    func testClassNameFactoryByType() {
-        let factory = ClassNameFactory<UITabBarController, Any?>()
-        let viewController = try? factory.build()
-        XCTAssertTrue(viewController != nil)
-    }
-
-    func testXibFactoryByType() {
-        let factory = XibFactory<UITabBarController, Any?>()
-        let viewController = try? factory.build()
-        XCTAssertTrue(viewController != nil)
-    }
-
     func testClassFactoryByType() {
         let factory = ClassFactory<UITabBarController, Any?>(configuration: { viewController in
             viewController.setViewControllers([UIViewController(), UINavigationController()], animated: false)
@@ -28,27 +16,6 @@ class FactoryTest: XCTestCase {
         let viewController = try? factory.build()
         XCTAssertTrue(viewController != nil)
         XCTAssertEqual(viewController?.viewControllers?.count, 2)
-    }
-
-    func testClassNameFactoryByName() {
-        let factory = ClassNameFactory<UITabBarController, Any?>(viewControllerName: "UITabBarController")
-        let viewController = try? factory.build()
-        XCTAssertTrue(viewController != nil)
-    }
-
-    func testClassNameFactoryWrongName() {
-        let factory = ClassNameFactory<UIViewController, Any?>(viewControllerName: "NSString")
-        XCTAssertThrowsError(try factory.build())
-    }
-
-    func testClassNameFactoryNotExistingClass() {
-        let factory = ClassNameFactory<UIViewController, Any?>(viewControllerName: "RandomViewControllerClass")
-        XCTAssertThrowsError(try factory.build())
-    }
-
-    func testClassNameFactoryWrongType() {
-        let factory = ClassNameFactory<UINavigationController, Any?>(viewControllerName: "UITabBarController")
-        XCTAssertThrowsError(try factory.build())
     }
 
     func testStoryboardFactory() {
@@ -70,7 +37,7 @@ class FactoryTest: XCTestCase {
     }
 
     func testStoryboardFactoryWrongType() {
-        let factory = StoryboardFactory<UINavigationController, Any?>(storyboardName: "TabBar")
+        let factory = StoryboardFactory<UINavigationController, Any?>(name: "TabBar")
         XCTAssertThrowsError(try factory.build())
     }
 
