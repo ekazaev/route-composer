@@ -85,5 +85,23 @@ extension CitiesTableViewController: UISplitViewControllerDelegate {
         // Return true to prevent UIKit from applying its default behavior
         return true
     }
+    
+    func primaryViewController(forExpanding splitViewController: UISplitViewController) -> UIViewController? {
+        print("primaryViewController(forExpanding splitViewController: UISplitViewController)")
+        return nil
+    }
+
+    func splitViewController(_ splitViewController: UISplitViewController, separateSecondaryFrom primaryViewController: UIViewController) -> UIViewController? {
+        print("splitViewController(_ splitViewController: UISplitViewController, separateSecondaryFrom primaryViewController: UIViewController)")
+        guard let primaryNavigationController = primaryViewController as? UINavigationController, primaryNavigationController.viewControllers.count > 1 else {
+            return UINavigationController()
+        }
+        let detailsViewControllers = primaryNavigationController.viewControllers.filter({ $0 !== primaryNavigationController.viewControllers.first! })
+        let navigationController = UINavigationController()
+        primaryNavigationController.setViewControllers([primaryNavigationController.viewControllers.first!], animated: false)
+        (splitViewController.viewControllers.first as? UINavigationController)?.popToRootViewController(animated: false)
+        navigationController.setViewControllers(detailsViewControllers, animated: false)
+        return navigationController
+    }
 
 }
