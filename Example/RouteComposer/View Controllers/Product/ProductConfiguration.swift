@@ -30,9 +30,9 @@ class ProductConfiguration {
                             return nil
                         }
 
-                        return ChainAssembly.from(NavigationControllerStep())
-                                .using(GeneralAction.presentModally())
-                                .from(GeneralStep.current())
+                        return ChainAssembly.from(SingleStep(finder: ClassFinder<ProductViewController, Any?>(), factory: NilFactory<ProductViewController, Any?>()).unsafelyRewrapped())
+                                .using(GeneralAction.nilAction())
+                                .from(CitiesConfiguration.citiesTab.adaptingContext())
                                 .assemble()
 
                     }
