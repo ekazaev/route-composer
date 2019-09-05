@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>ContextAccepting Protocol Reference</title>
+    <title>DispatchQueue Extension Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset="utf-8">
@@ -14,9 +14,9 @@
   </head>
   <body>
 
-    <a name="//apple_ref/swift/Protocol/ContextAccepting" class="dashAnchor"></a>
+    <a name="//apple_ref/swift/Extension/DispatchQueue" class="dashAnchor"></a>
 
-    <a title="ContextAccepting Protocol Reference"></a>
+    <a title="DispatchQueue Extension Reference"></a>
 
     <header class="header">
       <p class="header-col header-col--primary">
@@ -38,7 +38,7 @@
     <p class="breadcrumbs">
       <a class="breadcrumb" href="../index.html">RouteComposer Reference</a>
       <img class="carat" src="../img/carat.png" />
-      ContextAccepting Protocol Reference
+      DispatchQueue Extension Reference
     </p>
 
     <div class="content-wrapper">
@@ -499,14 +499,16 @@
 
         <section class="section">
           <div class="section-content">
-            <h1>ContextAccepting</h1>
+            <h1>DispatchQueue</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">ContextAccepting</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">extension</span> <span class="kt">DispatchQueue</span></code></pre>
 
                 </div>
               </div>
-            <p>The protocol for <code>UIViewController</code>&lsquo;s to make it compatible with <code><a href="../Structs/ContextSettingTask.html">ContextSettingTask</a></code>.</p>
+            <p>Extension that wraps actions into <code>DispatchQueue</code> and delays it for the provided time interval.</p>
+
+<p>Can be used to test action implementation or the configuration issues.</p>
 
           </div>
         </section>
@@ -514,20 +516,13 @@
         <section class="section">
           <div class="section-content">
             <div class="task-group">
-              <div class="task-name-container">
-                <a name="/Associated%20types"></a>
-                <a name="//apple_ref/swift/Section/Associated types" class="dashAnchor"></a>
-                <a href="#/Associated%20types">
-                  <h3 class="section-name">Associated types</h3>
-                </a>
-              </div>
               <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer16ContextAcceptingP0C0Qa"></a>
-                    <a name="//apple_ref/swift/Alias/Context" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer16ContextAcceptingP0C0Qa">Context</a>
+                    <a name="/s:So17OS_dispatch_queueC13RouteComposerE5delay_3forAC26DispatchQueueWrappedActionVyxGx_0H00H12TimeIntervalOtAC0K0RzlFZ"></a>
+                    <a name="//apple_ref/swift/Method/delay(_:for:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:So17OS_dispatch_queueC13RouteComposerE5delay_3forAC26DispatchQueueWrappedActionVyxGx_0H00H12TimeIntervalOtAC0K0RzlFZ">delay(_:for:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -535,79 +530,23 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Type of <code>Context</code> object that <code>UIViewController</code> can deal with</p>
+                        <p>Wraps <code><a href="../Core Entities.html#/s:13RouteComposer6ActionP">Action</a></code> in to <code>DispatchQueue</code></p>
+
+<p>Parameters:</p>
+
+<ul>
+<li>action: <code><a href="../Core Entities.html#/s:13RouteComposer6ActionP">Action</a></code> instance</li>
+<li>timeInterval: <code>DispatchTimeInterval</code> instance</li>
+</ul>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">associatedtype</span> <span class="kt">Context</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="n">delay</span><span class="o">&lt;</span><span class="kt">A</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">action</span><span class="p">:</span> <span class="kt">A</span><span class="p">,</span> <span class="k">for</span> <span class="nv">timeInterval</span><span class="p">:</span> <span class="kt">DispatchTimeInterval</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/DispatchQueueWrappedAction.html">DispatchQueueWrappedAction</a></span><span class="o">&lt;</span><span class="kt">A</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">A</span> <span class="p">:</span> <span class="kt"><a href="../Core Entities.html#/s:13RouteComposer6ActionP">Action</a></span></code></pre>
 
                         </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
-                <a name="/Methods%20to%20implement"></a>
-                <a name="//apple_ref/swift/Section/Methods to implement" class="dashAnchor"></a>
-                <a href="#/Methods%20to%20implement">
-                  <h3 class="section-name">Methods to implement</h3>
-                </a>
-              </div>
-              <ul class="item-container">
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:13RouteComposer16ContextAcceptingP5setup4withy0C0Qz_tKF"></a>
-                    <a name="//apple_ref/swift/Method/setup(with:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer16ContextAcceptingP5setup4withy0C0Qz_tKF">setup(with:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p><code><a href="../Structs/ContextSettingTask.html">ContextSettingTask</a></code> will call this method to provide the <code><a href="../Protocols/ContextAccepting.html#/s:13RouteComposer16ContextAcceptingP0C0Qa">Context</a></code> instance to the <code>UIViewController</code>
-that has just been build or found.</p>
-<div class="aside aside-throws">
-    <p class="aside-title">Throws</p>
-    throws <code>Error</code> if <code><a href="../Protocols/ContextAccepting.html#/s:13RouteComposer16ContextAcceptingP0C0Qa">Context</a></code> instance is not supported. <code><a href="../Protocols/Router.html">Router</a></code> will stop building the rest of the stack in this case.
-
-</div>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">setup</span><span class="p">(</span><span class="n">with</span> <span class="nv">context</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ContextAccepting.html#/s:13RouteComposer16ContextAcceptingP0C0Qa">Context</a></span><span class="p">)</span> <span class="k">throws</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>context</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p><code><a href="../Protocols/ContextAccepting.html#/s:13RouteComposer16ContextAcceptingP0C0Qa">Context</a></code> instance.</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
                       </div>
                     </section>
                   </div>
@@ -615,59 +554,33 @@ that has just been build or found.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer16ContextAcceptingP18checkCompatibility4withy0C0Qz_tKFZ"></a>
-                    <a name="//apple_ref/swift/Method/checkCompatibility(with:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer16ContextAcceptingP18checkCompatibility4withy0C0Qz_tKFZ">checkCompatibility(with:)</a>
+                    <a name="/s:So17OS_dispatch_queueC13RouteComposerE5delay_3forAC35DispatchQueueWrappedContainerActionVyxGx_0H00H12TimeIntervalOtAC0kL0RzlFZ"></a>
+                    <a name="//apple_ref/swift/Method/delay(_:for:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:So17OS_dispatch_queueC13RouteComposerE5delay_3forAC35DispatchQueueWrappedContainerActionVyxGx_0H00H12TimeIntervalOtAC0kL0RzlFZ">delay(_:for:)</a>
                     </code>
-                      <span class="declaration-note">
-                        Default implementation
-                      </span>
                   </div>
                   <div class="height-container">
                     <div class="pointer-container"></div>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>If <code>UIViewController</code> does not support all the permutations that context instance may have -
-setup the check here.</p>
-<div class="aside aside-throws">
-    <p class="aside-title">Throws</p>
-    throws <code>Error</code> if <code><a href="../Protocols/ContextAccepting.html#/s:13RouteComposer16ContextAcceptingP0C0Qa">Context</a></code> instance is not supported.
+                        <p>Wraps <code><a href="../Protocols/ContainerAction.html">ContainerAction</a></code> in to <code>DispatchQueue</code></p>
 
-</div>
+<p>Parameters:</p>
 
-                      </div>
-                      <h4>Default Implementation</h4>
-                      <div class="default_impl abstract">
-                        <p>Default implementation does nothing.</p>
+<ul>
+<li>action: <code><a href="../Protocols/ContainerAction.html">ContainerAction</a></code> instance</li>
+<li>timeInterval: <code>DispatchTimeInterval</code> instance</li>
+</ul>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">checkCompatibility</span><span class="p">(</span><span class="n">with</span> <span class="nv">context</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ContextAccepting.html#/s:13RouteComposer16ContextAcceptingP0C0Qa">Context</a></span><span class="p">)</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="n">delay</span><span class="o">&lt;</span><span class="kt">A</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">action</span><span class="p">:</span> <span class="kt">A</span><span class="p">,</span> <span class="k">for</span> <span class="nv">timeInterval</span><span class="p">:</span> <span class="kt">DispatchTimeInterval</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/DispatchQueueWrappedContainerAction.html">DispatchQueueWrappedContainerAction</a></span><span class="o">&lt;</span><span class="kt">A</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">A</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ContainerAction.html">ContainerAction</a></span></code></pre>
 
                         </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>context</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p><code><a href="../Protocols/ContextAccepting.html#/s:13RouteComposer16ContextAcceptingP0C0Qa">Context</a></code> instance.</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
                       </div>
                     </section>
                   </div>

@@ -55,8 +55,7 @@ public struct StoryboardFactory<VC: UIViewController, C>: Factory {
         guard let viewController = instantiatedViewController as? VC else {
             throw RoutingError.typeMismatch(type: type(of: instantiatedViewController),
                     expectedType: VC.self,
-                    .init("Unable to instantiate UIViewController with " +
-                            " \(viewControllerID) identifier in \(name) storyboard " +
+                    .init("Unable to instantiate UIViewController with \(viewControllerID) identifier in \(name) storyboard " +
                             "as \(String(describing: type(of: VC.self))), got \(String(describing: instantiatedViewController)) instead."))
         }
         if let configuration = configuration {

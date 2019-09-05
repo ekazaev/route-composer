@@ -1,7 +1,7 @@
 podspec: RouteComposer.podspec
 clean: true
-author: HBC Tech
-author_url: https://tech.hbc.com
+author: Evgeny Kazaev
+author_url: https://github.com/ekazaev
 output: docs
 documentation: ./*.md
 theme: fullwidth
@@ -96,8 +96,3 @@ custom_categories:
       - DetailsNavigationFinder
       - CATransaction
       - DispatchQueue
-
-  - name: Deprecated
-    children:
-      - XibFactory
-      - ClassNameFactory
