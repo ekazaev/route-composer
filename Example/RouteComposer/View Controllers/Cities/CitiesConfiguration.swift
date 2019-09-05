@@ -62,6 +62,12 @@ class CitiesConfiguration {
 // Just to distinguish from other tabs and split controllers on the experiment
 class CitiesSplitController: UISplitViewController {
 
+    let cityDelegate = CitiesSplitViewControllerDelegate()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.delegate = cityDelegate
+    }
 }
 class CitiesTabBarController: UITabBarController {
 

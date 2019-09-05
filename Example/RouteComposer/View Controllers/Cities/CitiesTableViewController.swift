@@ -32,7 +32,6 @@ class CitiesTableViewController: UITableViewController, ExampleAnalyticsSupport 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Cities"
-        self.splitViewController?.delegate = self
         self.splitViewController?.preferredDisplayMode = .allVisible
         self.splitViewController?.view.accessibilityIdentifier = "citiesSplitViewController"
         self.view.accessibilityIdentifier = "citiesViewController"
@@ -76,16 +75,8 @@ class CitiesTableViewController: UITableViewController, ExampleAnalyticsSupport 
 
 // To show the master view controller first in the compact mode
 // https://stackoverflow.com/questions/29506713/open-uisplitviewcontroller-to-master-view-rather-than-detail
-extension CitiesTableViewController: UISplitViewControllerDelegate {
+class CitiesSplitViewControllerDelegate: UISplitViewControllerDelegate {
 
-    func splitViewController(
-            _ splitViewController: UISplitViewController,
-            collapseSecondary secondaryViewController: UIViewController,
-            onto primaryViewController: UIViewController) -> Bool {
-        // Return true to prevent UIKit from applying its default behavior
-        return true
-    }
-    
     func primaryViewController(forExpanding splitViewController: UISplitViewController) -> UIViewController? {
         print("primaryViewController(forExpanding splitViewController: UISplitViewController)")
         return nil
@@ -104,4 +95,8 @@ extension CitiesTableViewController: UISplitViewControllerDelegate {
         return navigationController
     }
 
+    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
+        print("splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController)")
+        return true
+    }
 }
