@@ -95,6 +95,7 @@ custom_categories:
       - DismissibleWithRuntimeStorage
       - DetailsNavigationFinder
       - CATransaction
+      - DispatchQueue
 
   - name: Deprecated
     children:

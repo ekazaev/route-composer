@@ -344,4 +344,80 @@ class ExtrasTest: XCTestCase {
         XCTAssertEqual(window.rootViewController, newViewController)
     }
 
+    func testDispatchQueueDelayActionPreform() {
+        var window: UIWindow? = UIWindow()
+        window?.rootViewController = UINavigationController()
+        let windowProvider = CustomWindowProvider(window: window!)
+        let action = DispatchQueue.delay(GeneralAction.replaceRoot(windowProvider: windowProvider), for: .milliseconds(3))
+        let newViewController = UIViewController()
+        var expectation = XCTestExpectation(description: "Action to finish")
+        action.perform(with: newViewController, on: window!.rootViewController!, animated: true, completion: { result in
+            expectation.fulfill()
+            XCTAssertTrue(result.isSuccessful)
+        })
+        wait(for: [expectation], timeout: 0.3)
+        XCTAssertEqual(window?.rootViewController, newViewController)
+        window = nil
+
+        expectation = XCTestExpectation(description: "Action to finish")
+        action.perform(with: newViewController, on: UIViewController(), animated: true, completion: { result in
+            expectation.fulfill()
+            XCTAssertFalse(result.isSuccessful)
+        })
+        wait(for: [expectation], timeout: 0.3)
+
+        var wasInCompletion = false
+        action.perform(with: newViewController, on: UIViewController(), animated: false, completion: { result in
+            wasInCompletion = true
+            XCTAssertFalse(result.isSuccessful)
+        })
+        XCTAssertEqual(wasInCompletion, true)
+    }
+
+    func testDispatchQueueDelayContainerActionPreform() {
+        struct TestAction: ContainerAction {
+            let result: RoutingResult
+
+            func perform(with viewController: UIViewController, on existingController: UITabBarController, animated: Bool, completion: @escaping (RoutingResult) -> Void) {
+                guard result.isSuccessful else {
+                    return completion(result)
+                }
+                existingController.setViewControllers([viewController], animated: false)
+                completion(result)
+            }
+        }
+
+        var action = DispatchQueue.delay(TestAction(result: .success), for: .milliseconds(3))
+        let tabBarController = UITabBarController()
+        var expectation = XCTestExpectation(description: "Action to finish")
+        action.perform(with: UIViewController(), on: tabBarController, animated: true, completion: { result in
+            expectation.fulfill()
+            XCTAssertTrue(result.isSuccessful)
+        })
+        wait(for: [expectation], timeout: 0.3)
+        XCTAssertEqual(tabBarController.viewControllers?.count, 1)
+        tabBarController.setViewControllers([], animated: false)
+
+        action = DispatchQueue.delay(TestAction(result: .failure(RoutingError.compositionFailed(.init("test")))), for: .milliseconds(3))
+        expectation = XCTestExpectation(description: "Action to finish")
+        action.perform(with: UIViewController(), on: tabBarController, animated: true, completion: { result in
+            expectation.fulfill()
+            XCTAssertFalse(result.isSuccessful)
+        })
+        wait(for: [expectation], timeout: 0.3)
+        XCTAssertEqual(tabBarController.viewControllers?.count, 0)
+
+        var wasInCompletion = false
+        action.perform(with: UIViewController(), on: tabBarController, animated: false, completion: { result in
+            wasInCompletion = true
+            XCTAssertFalse(result.isSuccessful)
+        })
+        XCTAssertEqual(wasInCompletion, true)
+        XCTAssertEqual(tabBarController.viewControllers?.count, 0)
+
+        var viewControllers: [UIViewController] = []
+        try? action.perform(embedding: UIViewController(), in: &viewControllers)
+        XCTAssertEqual(viewControllers.count, 1)
+    }
+
 }
