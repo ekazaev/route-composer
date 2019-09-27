@@ -59,10 +59,6 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
         assertIfNotMainThread(logger: logger)
         do {
             let taskStack = try prepareTaskStack(with: context)
-
-            // Builds stack of factories and finds a view controller to start a navigation process from.
-            // Returns (rootViewController, factories) tuple
-            // where rootViewController is the origin of the chain of views to be built for a given destination.
             let navigationStack = try prepareFactoriesStack(to: step, with: context, taskStack: taskStack)
 
             let viewController = navigationStack.rootViewController, factoriesStack = navigationStack.factories
@@ -118,7 +114,6 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
                     // Creates a class responsible to run the tasks for this particular step
                     let stepTaskRunner = try taskStack.taskRunner(for: step, with: context)
 
-                    // Performs current step
                     switch try step.perform(with: context) {
                     case .success(let viewController):
                         logger?.log(.info("\(String(describing: step)) found " +
@@ -126,8 +121,6 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
                         try stepTaskRunner.perform(on: viewController, with: context)
                         return (rootViewController: viewController, result.factories)
                     case .build(let originalFactory):
-                        // If the view controller to start from is not found, but the current step has a `Factory` to build it,
-                        // then add factory to the stack
                         logger?.log(.info("\(String(describing: step)) hasn't found a corresponding view " +
                                 "controller in the stack, so it will be built using \(String(describing: originalFactory))."))
 
@@ -153,7 +146,7 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
                     }
                 })
 
-        //Throws an exception if the router hasn't found a view controller to start the stack from.
+        //Throw an exception if the router hasn't found a view controller to start the stack from.
         guard let rootViewController = result.rootViewController else {
             throw RoutingError.initialController(.notFound, .init("Unable to start the navigation process as the view controller to start from was not found."))
         }

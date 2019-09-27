@@ -26,12 +26,10 @@ import UIKit
 ///                .addCase(from: ClassFinder<UINavigationController, ProductContext>(options: .currentVisibleOnly))
 ///
 ///                // Otherwise - create a UINavigationController and present modally
-///                .assemble(default: {
-///                    return ChainAssembly.from(NavigationControllerStep<UINavigationController, ProductContext>())
-///                            .using(GeneralAction.presentModally())
-///                            .from(GeneralStep.current())
-///                            .assemble()
-///                })
+///                .assemble(default: ChainAssembly.from(NavigationControllerStep<UINavigationController, ProductContext>())
+///                    .using(GeneralAction.presentModally())
+///                    .from(GeneralStep.current())
+///                    .assemble())
 /// ```
 public final class SwitchAssembly<ViewController: UIViewController, Context> {
 
@@ -126,6 +124,17 @@ public final class SwitchAssembly<ViewController: UIViewController, Context> {
     public func assemble(default resolverBlock: @escaping (() -> DestinationStep<ViewController, Context>)) -> DestinationStep<ViewController, Context> {
         resolvers.append(BlockResolver(resolverBlock: { _ in
             return resolverBlock()
+        }))
+        return DestinationStep(SwitcherStep(resolvers: resolvers))
+    }
+
+    /// Assembles all the cases in a `DestinationStep` instance and adds the default implementation, providing the step it is to perform
+    ///
+    /// - Parameter step: an instance of `DestinationStep`
+    /// - Returns: a final instance of `DestinationStep`
+    public func assemble(default step: DestinationStep<ViewController, Context>) -> DestinationStep<ViewController, Context> {
+        resolvers.append(BlockResolver(resolverBlock: { _ in
+            return step
         }))
         return DestinationStep(SwitcherStep(resolvers: resolvers))
     }

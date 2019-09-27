@@ -212,16 +212,16 @@ class ExtrasTest: XCTestCase {
 
     func testNavigationDetailsFinder() {
         let emptyFinder = DetailsNavigationFinder<Any?>(options: SearchOptions.current)
-        XCTAssertNil(try emptyFinder.findViewController())
+        XCTAssertNil(emptyFinder.getViewController())
 
         let splitViewController = UISplitViewController()
         let finder = DetailsNavigationFinder<Any?>(options: SearchOptions.current, startingPoint: DefaultStackIterator.StartingPoint.custom(splitViewController))
         splitViewController.viewControllers = [UINavigationController()]
-        XCTAssertNil(try finder.findViewController())
+        XCTAssertNil(finder.getViewController())
 
         let navigationController = UINavigationController()
         splitViewController.viewControllers = [UINavigationController(), navigationController]
-        XCTAssertEqual(try finder.findViewController(), navigationController)
+        XCTAssertEqual(finder.getViewController(), navigationController)
 
         class SpecialSplitNavigationController: UINavigationController {
             let nestedNavigaionController: UINavigationController
@@ -247,7 +247,7 @@ class ExtrasTest: XCTestCase {
 
         let secondNavigationController = SpecialSplitNavigationController(nestedNavigaionController: navigationController)
         splitViewController.viewControllers = [secondNavigationController]
-        XCTAssertEqual(try finder.findViewController(), navigationController)
+        XCTAssertEqual(finder.getViewController(), navigationController)
     }
 
     func testRouterNavigationToDestination() {
@@ -348,14 +348,14 @@ class ExtrasTest: XCTestCase {
         var window: UIWindow? = UIWindow()
         window?.rootViewController = UINavigationController()
         let windowProvider = CustomWindowProvider(window: window!)
-        let action = DispatchQueue.delay(GeneralAction.replaceRoot(windowProvider: windowProvider), for: .milliseconds(3))
+        let action = DispatchQueue.delay(GeneralAction.replaceRoot(windowProvider: windowProvider))
         let newViewController = UIViewController()
         var expectation = XCTestExpectation(description: "Action to finish")
         action.perform(with: newViewController, on: window!.rootViewController!, animated: true, completion: { result in
             expectation.fulfill()
             XCTAssertTrue(result.isSuccessful)
         })
-        wait(for: [expectation], timeout: 0.3)
+        wait(for: [expectation], timeout: 0.4)
         XCTAssertEqual(window?.rootViewController, newViewController)
         window = nil
 
@@ -364,7 +364,7 @@ class ExtrasTest: XCTestCase {
             expectation.fulfill()
             XCTAssertFalse(result.isSuccessful)
         })
-        wait(for: [expectation], timeout: 0.3)
+        wait(for: [expectation], timeout: 0.4)
 
         var wasInCompletion = false
         action.perform(with: newViewController, on: UIViewController(), animated: false, completion: { result in
@@ -387,24 +387,24 @@ class ExtrasTest: XCTestCase {
             }
         }
 
-        var action = DispatchQueue.delay(TestAction(result: .success), for: .milliseconds(3))
+        var action = DispatchQueue.delay(TestAction(result: .success))
         let tabBarController = UITabBarController()
         var expectation = XCTestExpectation(description: "Action to finish")
         action.perform(with: UIViewController(), on: tabBarController, animated: true, completion: { result in
             expectation.fulfill()
             XCTAssertTrue(result.isSuccessful)
         })
-        wait(for: [expectation], timeout: 0.3)
+        wait(for: [expectation], timeout: 0.4)
         XCTAssertEqual(tabBarController.viewControllers?.count, 1)
         tabBarController.setViewControllers([], animated: false)
 
-        action = DispatchQueue.delay(TestAction(result: .failure(RoutingError.compositionFailed(.init("test")))), for: .milliseconds(3))
+        action = DispatchQueue.delay(TestAction(result: .failure(RoutingError.compositionFailed(.init("test")))))
         expectation = XCTestExpectation(description: "Action to finish")
         action.perform(with: UIViewController(), on: tabBarController, animated: true, completion: { result in
             expectation.fulfill()
             XCTAssertFalse(result.isSuccessful)
         })
-        wait(for: [expectation], timeout: 0.3)
+        wait(for: [expectation], timeout: 0.4)
         XCTAssertEqual(tabBarController.viewControllers?.count, 0)
 
         var wasInCompletion = false

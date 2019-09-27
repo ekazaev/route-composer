@@ -7,6 +7,27 @@ import UIKit
 import XCTest
 @testable import RouteComposer
 
+extension DefaultStackIterator.StartingPoint: Equatable {
+
+    public static func == (lhs: DefaultStackIterator.StartingPoint, rhs: DefaultStackIterator.StartingPoint) -> Bool {
+        switch (lhs, rhs) {
+        case (.root, .root):
+            return true
+        case (.topmost, .topmost):
+            return true
+        case let (.custom(lvc), .custom(rvc)):
+            do {
+                return try lvc() === rvc()
+            } catch {
+                return false
+            }
+        default:
+            return false
+        }
+    }
+
+}
+
 class FinderTest: XCTestCase {
 
     class TestContextCheckingViewController: UIViewController, ContextChecking {
@@ -69,7 +90,7 @@ class FinderTest: XCTestCase {
 
         var currentViewController: UIViewController? = UIViewController()
         let iterator = DefaultStackIterator(options: .current,
-                startingPoint: .custom(try TestInstanceFinder<UIViewController, Any?>(instance: currentViewController).findViewController()))
+                startingPoint: .custom(TestInstanceFinder<UIViewController, Any?>(instance: currentViewController).getViewController()))
         XCTAssertEqual(iterator.options, .current)
         XCTAssertEqual(iterator.startingPoint, .custom(currentViewController))
         XCTAssertEqual(try? iterator.getStartingViewController(), currentViewController)

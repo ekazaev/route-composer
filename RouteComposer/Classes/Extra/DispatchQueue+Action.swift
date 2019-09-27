@@ -15,7 +15,7 @@ public extension DispatchQueue {
     /// Parameters:
     ///  - action: `Action` instance
     ///  - timeInterval: `DispatchTimeInterval` instance
-    static func delay<A: Action>(_ action: A, for timeInterval: DispatchTimeInterval) -> DispatchQueueWrappedAction<A> {
+    static func delay<A: Action>(_ action: A, for timeInterval: DispatchTimeInterval = .milliseconds(300)) -> DispatchQueueWrappedAction<A> {
         return DispatchQueueWrappedAction(action, timeInterval: timeInterval)
     }
 
@@ -24,7 +24,7 @@ public extension DispatchQueue {
     /// Parameters:
     ///  - action: `ContainerAction` instance
     ///  - timeInterval: `DispatchTimeInterval` instance
-    static func delay<A: ContainerAction>(_ action: A, for timeInterval: DispatchTimeInterval) -> DispatchQueueWrappedContainerAction<A> {
+    static func delay<A: ContainerAction>(_ action: A, for timeInterval: DispatchTimeInterval = .milliseconds(300)) -> DispatchQueueWrappedContainerAction<A> {
         return DispatchQueueWrappedContainerAction(action, timeInterval: timeInterval)
     }
 

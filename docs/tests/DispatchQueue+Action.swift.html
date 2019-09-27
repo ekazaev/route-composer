@@ -99,7 +99,7 @@
 </tr>
 <tr class="covered">
 <td class="num">18</td>
-<td class="src"><pre><code class="objc">    static func delay&lt;A: Action&gt;(_ action: A, for timeInterval: DispatchTimeInterval) -&gt; DispatchQueueWrappedAction&lt;A&gt; {</code></pre></td>
+<td class="src"><pre><code class="objc">    static func delay&lt;A: Action&gt;(_ action: A, for timeInterval: DispatchTimeInterval = .milliseconds(300)) -&gt; DispatchQueueWrappedAction&lt;A&gt; {</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
@@ -144,7 +144,7 @@
 </tr>
 <tr class="covered">
 <td class="num">27</td>
-<td class="src"><pre><code class="objc">    static func delay&lt;A: ContainerAction&gt;(_ action: A, for timeInterval: DispatchTimeInterval) -&gt; DispatchQueueWrappedContainerAction&lt;A&gt; {</code></pre></td>
+<td class="src"><pre><code class="objc">    static func delay&lt;A: ContainerAction&gt;(_ action: A, for timeInterval: DispatchTimeInterval = .milliseconds(300)) -&gt; DispatchQueueWrappedContainerAction&lt;A&gt; {</code></pre></td>
 <td class="coverage">2x</td>
 </tr>
 <tr class="covered">
