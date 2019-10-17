@@ -224,10 +224,10 @@ class ExtrasTest: XCTestCase {
         XCTAssertEqual(finder.getViewController(), navigationController)
 
         class SpecialSplitNavigationController: UINavigationController {
-            let nestedNavigaionController: UINavigationController
+            let nestedNavigationController: UINavigationController
 
-            init(nestedNavigaionController: UINavigationController) {
-                self.nestedNavigaionController = nestedNavigaionController
+            init(nestedNavigationController: UINavigationController) {
+                self.nestedNavigationController = nestedNavigationController
                 super.init(nibName: nil, bundle: nil)
             }
 
@@ -237,7 +237,7 @@ class ExtrasTest: XCTestCase {
 
             override var viewControllers: [UIViewController] {
                 get {
-                    return [nestedNavigaionController]
+                    return [nestedNavigationController]
                 }
                 set {
                     super.viewControllers = newValue
@@ -245,7 +245,7 @@ class ExtrasTest: XCTestCase {
             }
         }
 
-        let secondNavigationController = SpecialSplitNavigationController(nestedNavigaionController: navigationController)
+        let secondNavigationController = SpecialSplitNavigationController(nestedNavigationController: navigationController)
         splitViewController.viewControllers = [secondNavigationController]
         XCTAssertEqual(finder.getViewController(), navigationController)
     }
