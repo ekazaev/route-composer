@@ -36,6 +36,7 @@ Can be used as the universal replacement for the [Coordinator](https://www.raywe
     - [Configuring Step](#configuring-step)
     - [Navigation](#navigation)
     - [Deep-linking](#deep-linking)
+    - [Troubleshooting](#troubleshooting)
 - [Advanced Configuration](#advanced-configuration)
 - [Contributing](#contributing)
 - [License](#license)
@@ -434,6 +435,35 @@ the screen is being opened using universal link. See Example app for more inform
         return true
     }
 ```
+
+## Troubleshooting
+
+If for some reason you are unsatisfied with the result and you think that it is the Routers issue, or you found that your particular case is not covered, you can always
+temporarily replace the router with your custom implementation and implement simple routing yourself. Please, create a [new issue](https://github.com/ekazaev/route-composer/issues/new)
+and we will try to fix the issue as soon as possible.
+
+*Example:*
+```swift
+     func goToProduct(with productId: UUID) {
+        // If view controller with this product id is present on the screen - do nothing
+        guard ProductViewControllerFinder(options: .currentVisibleOnly).getViewController(with: productId) == nil else {
+            return
+        }
+        
+        /// Otherwise, find visible `UINavigationController`, build `ProductViewController`
+        guard let navigationController = ClassFinder<UINavigationController, Any?>(options: .currentVisibleOnly).getViewController(),
+              let productController = try? ProductViewControllerFactory().execute(with: productId) else {
+            return
+        }
+        
+        /// Apply context task if necessary
+        try? ProductViewControllerContextTask().execute(on: productController, with: productId)
+
+        /// Push `ProductViewController` into `UINavigationController`
+        navigationController.pushViewController(productController, animated: true)
+    }
+```
+
 ## Advanced Configuration:
 
 You can find more configuration examples [here](https://ekazaev.github.io/route-composer/examples.html).

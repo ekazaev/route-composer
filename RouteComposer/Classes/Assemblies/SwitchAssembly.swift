@@ -100,6 +100,36 @@ public final class SwitchAssembly<ViewController: UIViewController, Context> {
         return self
     }
 
+    /// Adds a case when a certain condition is valid to use a particular `DestinationStep`.
+    ///
+    /// - Parameters:
+    ///   - condition: A condition to use the provided step.
+    ///   - step: The `DestinationStep` is to perform.
+    public func addCase(when condition: @autoclosure @escaping () -> Bool, from step: DestinationStep<ViewController, Context>) -> Self {
+        resolvers.append(BlockResolver(resolverBlock: { _ in
+            guard condition() else {
+                return nil
+            }
+            return step
+        }))
+        return self
+    }
+
+    /// Adds a case when a certain condition is valid to use a particular `DestinationStep`.
+    ///
+    /// - Parameters:
+    ///   - conditionBlock: A condition to use the provided step.
+    ///   - step: The `DestinationStep` is to perform.
+    public func addCase(when conditionBlock: @escaping (Context) -> Bool, from step: DestinationStep<ViewController, Context>) -> Self {
+        resolvers.append(BlockResolver(resolverBlock: { context in
+            guard conditionBlock(context) else {
+                return nil
+            }
+            return step
+        }))
+        return self
+    }
+
     /// Adds a case when a view controller exists - navigation will start from the resulting view controller.
     ///
     /// - Parameters:
