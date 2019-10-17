@@ -28,17 +28,20 @@ public struct GeneralAction {
     ///   - presentationStyle: `UIModalPresentationStyle` setting, default value: .fullScreen
     ///   - transitionStyle: `UIModalTransitionStyle` setting, default value: .coverVertical
     ///   - transitioningDelegate: `UIViewControllerTransitioningDelegate` instance to be used during the transition
+    ///   - isModalInPresentation: A Boolean value indicating whether the view controller enforces a modal behavior.
     ///   - preferredContentSize: The preferredContentSize is used for any container laying out a child view controller.
     ///   - popoverControllerConfigurationBlock: Block to configure `UIPopoverPresentationController`.
     public static func presentModally(presentationStyle: UIModalPresentationStyle? = .fullScreen,
                                       transitionStyle: UIModalTransitionStyle? = .coverVertical,
                                       transitioningDelegate: UIViewControllerTransitioningDelegate? = nil,
                                       preferredContentSize: CGSize? = nil,
+                                      isModalInPresentation: Bool? = nil,
                                       popoverConfiguration: ((_: UIPopoverPresentationController) -> Void)? = nil) -> ViewControllerActions.PresentModallyAction {
         return ViewControllerActions.PresentModallyAction(presentationStyle: presentationStyle,
                 transitionStyle: transitionStyle,
                 transitioningDelegate: transitioningDelegate,
                 preferredContentSize: preferredContentSize,
+                isModalInPresentation: isModalInPresentation,
                 popoverConfiguration: popoverConfiguration)
     }
 
@@ -62,6 +65,9 @@ public struct ViewControllerActions {
         /// `UIModalPresentationStyle` setting
         public let presentationStyle: UIModalPresentationStyle?
 
+        /// A Boolean value indicating whether the view controller enforces a modal behavior.
+        public let isModalInPresentation: Bool?
+
         /// `UIModalTransitionStyle` setting
         public let transitionStyle: UIModalTransitionStyle?
 
@@ -83,17 +89,20 @@ public struct ViewControllerActions {
         ///   - transitionStyle: `UIModalTransitionStyle` setting, default value: .coverVertical
         ///   - transitioningDelegate: `UIViewControllerTransitioningDelegate` instance to be used during the transition
         ///   - preferredContentSize: The preferredContentSize is used for any container laying out a child view controller.
+        ///   - isModalInPresentation: A Boolean value indicating whether the view controller enforces a modal behavior.
         ///   - popoverControllerConfigurationBlock: Block to configure `UIPopoverPresentationController`.
         init(presentationStyle: UIModalPresentationStyle? = .fullScreen,
              transitionStyle: UIModalTransitionStyle? = .coverVertical,
              transitioningDelegate: UIViewControllerTransitioningDelegate? = nil,
              preferredContentSize: CGSize? = nil,
+             isModalInPresentation: Bool? = nil,
              popoverConfiguration: ((_: UIPopoverPresentationController) -> Void)? = nil) {
             self.presentationStyle = presentationStyle
             self.transitionStyle = transitionStyle
             self.transitioningDelegate = transitioningDelegate
             self.preferredContentSize = preferredContentSize
             self.popoverControllerConfigurationBlock = popoverConfiguration
+            self.isModalInPresentation = isModalInPresentation
         }
 
         public func perform(with viewController: UIViewController,
@@ -121,7 +130,9 @@ public struct ViewControllerActions {
                let popoverControllerConfigurationBlock = popoverControllerConfigurationBlock {
                 popoverControllerConfigurationBlock(popoverPresentationController)
             }
-
+            if #available(iOS 13, *), let isModalInPresentation = isModalInPresentation {
+                viewController.isModalInPresentation = isModalInPresentation
+            }
             existingController.present(viewController, animated: animated, completion: {
                 completion(.success)
             })
