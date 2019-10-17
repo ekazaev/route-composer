@@ -5,7 +5,7 @@
 import Foundation
 import UIKit
 
-public class ImageDetailsViewController: UIViewController {
+public final class ImageDetailsViewController: UIViewController {
 
     @IBOutlet private var imageView: UIImageView!
 

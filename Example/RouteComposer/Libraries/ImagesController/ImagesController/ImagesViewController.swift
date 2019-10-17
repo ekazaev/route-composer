@@ -5,7 +5,7 @@
 import Foundation
 import UIKit
 
-public class ImagesViewController: UITableViewController {
+public final class ImagesViewController: UITableViewController {
 
     public weak var delegate: ImagesControllerDelegate?
 

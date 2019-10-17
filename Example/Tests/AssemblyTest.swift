@@ -190,8 +190,17 @@ class AssemblyTest: XCTestCase {
     }
 
     func testSwitchAssembly() {
+        var bool = false
         let step = SwitchAssembly<UINavigationController, String>()
                 .addCase(from: ClassFinder<UINavigationController, String>())
+                .addCase(when: bool,
+                        from: StepAssembly(finder: ClassFinder(), factory: NilFactory())
+                                .from(GeneralStep.current())
+                                .assemble())
+                .addCase(when: { $0 == "test"},
+                        from: StepAssembly(finder: ClassFinder(), factory: NilFactory())
+                                .from(GeneralStep.current())
+                                .assemble())
                 .addCase(expecting: ClassFinder<RouterTests.TestViewController, String>())
                 .addCase(when: ClassFinder<UITabBarController, String>(),
                         from: ContainerStepAssembly(finder: NilFinder(), factory: NavigationControllerFactory())
@@ -213,7 +222,16 @@ class AssemblyTest: XCTestCase {
                 }).getPreviousStep(with: "context") as? SwitcherStep
 
         XCTAssertNotNil(step)
-        XCTAssertEqual(step?.resolvers.count, 5)
+        XCTAssertEqual(step?.resolvers.count, 7)
+        var result = step?.resolvers[1].resolve(with: "test")
+        XCTAssertNil(result)
+        bool = true
+        result = step?.resolvers[1].resolve(with: "test")
+        XCTAssertNotNil(result)
+        result = step?.resolvers[2].resolve(with: "test")
+        XCTAssertNotNil(result)
+        result = step?.resolvers[2].resolve(with: "test1")
+        XCTAssertNil(result)
     }
 
     func testSwitchAssemblyAssemble() {

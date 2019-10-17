@@ -23,19 +23,13 @@ class ProductConfiguration {
             .adding(ContextSettingTask())
             .using(UINavigationController.push())
             .from(SwitchAssembly<UINavigationController, ProductContext>()
-                    .addCase({ (context: ProductContext) in
-                        // If this configuration is requested by a Universal Link (productURL != nil), then present modally.
-                        // Try in Mobile Safari dll://productView?product=123
-                        guard context.productURL != nil else {
-                            return nil
-                        }
-
-                        return ChainAssembly.from(NavigationControllerStep())
-                                .using(GeneralAction.presentModally())
-                                .from(GeneralStep.current())
-                                .assemble()
-
-                    })
+                    // If this configuration is requested by a Universal Link (productURL != nil), then present modally.
+                    // Try in Mobile Safari dll://productView?product=123
+                    .addCase(when: { $0.productURL != nil },
+                            from: ChainAssembly.from(NavigationControllerStep<UINavigationController, ProductContext>())
+                                    .using(GeneralAction.presentModally())
+                                    .from(GeneralStep.current())
+                                    .assemble())
                     // If UINavigationController is visible on the screen - just push
                     .addCase(from: ClassFinder<UINavigationController, ProductContext>(options: .currentVisibleOnly))
                     // Otherwise - present in the UINavigation controller that belongs to Circle tab

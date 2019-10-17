@@ -5,7 +5,7 @@
 import Foundation
 import UIKit
 
-public class CustomContainerController: UIViewController {
+public final class CustomContainerController: UIViewController {
 
     @IBOutlet private var containerView: UIView!
 
