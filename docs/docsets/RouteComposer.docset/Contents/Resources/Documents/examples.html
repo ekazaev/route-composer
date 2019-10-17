@@ -44,7 +44,7 @@
       <nav class="navigation">
         <ul class="nav-groups">
           <li class="nav-group-name">
-            <a class="nav-group-name-link" href="Core Entities.html">Core Entities</a>
+            <a class="nav-group-name-link" href="Core%20Entities.html">Core Entities</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Protocols/Router.html">Router</a>
@@ -71,7 +71,7 @@
                 <a class="nav-group-task-link" href="Protocols/ContainerFactory.html">ContainerFactory</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Core Entities.html#/s:13RouteComposer6ActionP">Action</a>
+                <a class="nav-group-task-link" href="Core%20Entities.html#/s:13RouteComposer6ActionP">Action</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Protocols/ContainerAction.html">ContainerAction</a>
@@ -116,7 +116,7 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a class="nav-group-name-link" href="Additional Assemblies.html">Additional Assemblies</a>
+            <a class="nav-group-name-link" href="Additional%20Assemblies.html">Additional Assemblies</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Classes/SingleStep.html">SingleStep</a>
@@ -187,7 +187,7 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a class="nav-group-name-link" href="UIViewController&#39;s protocols.html">UIViewController&#39;s protocols</a>
+            <a class="nav-group-name-link" href="UIViewController%27s%20protocols.html">UIViewController&#39;s protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Protocols/RoutingInterceptable.html">RoutingInterceptable</a>
@@ -198,7 +198,7 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a class="nav-group-name-link" href="General Actions.html">General Actions</a>
+            <a class="nav-group-name-link" href="General%20Actions.html">General Actions</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Structs/GeneralAction.html">GeneralAction</a>
@@ -279,7 +279,7 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a class="nav-group-name-link" href="Other Guides.html">Other Guides</a>
+            <a class="nav-group-name-link" href="Other%20Guides.html">Other Guides</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="contributing.html">CONTRIBUTING</a>
@@ -293,7 +293,7 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a class="nav-group-name-link" href="Other Classes.html">Other Classes</a>
+            <a class="nav-group-name-link" href="Other%20Classes.html">Other Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Classes/ActionToStepIntegrator.html">ActionToStepIntegrator</a>
@@ -310,7 +310,7 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a class="nav-group-name-link" href="Other Extensions.html">Other Extensions</a>
+            <a class="nav-group-name-link" href="Other%20Extensions.html">Other Extensions</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Extensions/Array.html">Array</a>
@@ -333,7 +333,7 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a class="nav-group-name-link" href="Other Protocols.html">Other Protocols</a>
+            <a class="nav-group-name-link" href="Other%20Protocols.html">Other Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Protocols/AbstractAction.html">AbstractAction</a>
@@ -360,7 +360,7 @@
                 <a class="nav-group-task-link" href="Protocols/InterceptableRouter.html">InterceptableRouter</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Other Protocols.html#/s:13RouteComposer9NilEntityP">NilEntity</a>
+                <a class="nav-group-task-link" href="Other%20Protocols.html#/s:13RouteComposer9NilEntityP">NilEntity</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Protocols/SimpleContainerFactory.html">SimpleContainerFactory</a>
@@ -377,7 +377,7 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a class="nav-group-name-link" href="Other Structs.html">Other Structures</a>
+            <a class="nav-group-name-link" href="Other%20Structs.html">Other Structures</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Structs/ActionConnectingAssembly.html">ActionConnectingAssembly</a>
@@ -502,7 +502,7 @@
             <h1 id='deeper-into-the-configuration' class='heading'>Deeper into the configuration</h1>
 <h3 id='how-the-code-router-code-parses-the-configuration' class='heading'>How the <code><a href="Protocols/Router.html">Router</a></code> parses the configuration:</h3>
 
-<p>The <code><a href="Protocols/Router.html">Router</a></code> goes by the chain of steps starting from the first step. If the <code><a href="Protocols/Finder.html">Finder</a></code> of this step says that the <code>UIViewController</code> of this step does not exist, it moves on to the next one. It does this until one of the finders say that it has found the <code>UIViewController</code> described in the chain. Then <code><a href="Protocols/Router.html">Router</a></code> starts to move backwards through the chain of steps and starts to create the <code>UIViewController</code> for each step using its <code><a href="Protocols/Factory.html">Factory</a></code> and integrates it into the stack using the <code><a href="Core Entities.html#/s:13RouteComposer6ActionP">Action</a></code> attached to this step.</p>
+<p>The <code><a href="Protocols/Router.html">Router</a></code> goes by the chain of steps starting from the first step. If the <code><a href="Protocols/Finder.html">Finder</a></code> of this step says that the <code>UIViewController</code> of this step does not exist, it moves on to the next one. It does this until one of the finders say that it has found the <code>UIViewController</code> described in the chain. Then <code><a href="Protocols/Router.html">Router</a></code> starts to move backwards through the chain of steps and starts to create the <code>UIViewController</code> for each step using its <code><a href="Protocols/Factory.html">Factory</a></code> and integrates it into the stack using the <code><a href="Core%20Entities.html#/s:13RouteComposer6ActionP">Action</a></code> attached to this step.</p>
 
 <p>It is easier to think about how to configure your routing to the <code>UIViewController</code> if you start to think that the user can be anywhere in the application and has received an universal link that requests your application to show a particular <code>UIViewController</code>.</p>
 <h3 id='code-stackiteratingfinder-code-options' class='heading'><code><a href="Protocols/StackIteratingFinder.html">StackIteratingFinder</a></code> options:</h3>
@@ -664,8 +664,8 @@
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://github.com/ekazaev" target="_blank" rel="external">Evgeny Kazaev</a>. All rights reserved. (Last updated: 2019-09-05)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.10.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2019 <a class="link" href="https://github.com/ekazaev" target="_blank" rel="external">Evgeny Kazaev</a>. All rights reserved. (Last updated: 2019-10-17)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

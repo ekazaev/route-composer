@@ -105,22 +105,22 @@
 <tr class="covered">
 <td class="num">19</td>
 <td class="src"><pre><code class="objc">    init(stepToFullFill: ActionToStepIntegrator&lt;PVC, C&gt;, previousSteps: [RoutingStep] = []) {</code></pre></td>
-<td class="coverage">47x</td>
+<td class="coverage">51x</td>
 </tr>
 <tr class="covered">
 <td class="num">20</td>
 <td class="src"><pre><code class="objc">        self.previousSteps = previousSteps</code></pre></td>
-<td class="coverage">47x</td>
+<td class="coverage">51x</td>
 </tr>
 <tr class="covered">
 <td class="num">21</td>
 <td class="src"><pre><code class="objc">        self.stepToFullFill = stepToFullFill</code></pre></td>
-<td class="coverage">47x</td>
+<td class="coverage">51x</td>
 </tr>
 <tr class="covered">
 <td class="num">22</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">47x</td>
+<td class="coverage">51x</td>
 </tr>
 <tr class="never">
 <td class="num">23</td>
@@ -130,37 +130,37 @@
 <tr class="covered">
 <td class="num">24</td>
 <td class="src"><pre><code class="objc">    public func using&lt;A: Action&gt;(_ action: A) -&gt; StepChainAssembly&lt;VC, C&gt; {</code></pre></td>
-<td class="coverage">38x</td>
+<td class="coverage">42x</td>
 </tr>
 <tr class="covered">
 <td class="num">25</td>
 <td class="src"><pre><code class="objc">        var previousSteps = self.previousSteps</code></pre></td>
-<td class="coverage">38x</td>
+<td class="coverage">42x</td>
 </tr>
 <tr class="covered">
 <td class="num">26</td>
 <td class="src"><pre><code class="objc">        if let routingStep = stepToFullFill.routingStep(with: action) {</code></pre></td>
-<td class="coverage">38x</td>
+<td class="coverage">42x</td>
 </tr>
 <tr class="covered">
 <td class="num">27</td>
 <td class="src"><pre><code class="objc">            previousSteps.append(routingStep)</code></pre></td>
-<td class="coverage">38x</td>
+<td class="coverage">42x</td>
 </tr>
 <tr class="covered">
 <td class="num">28</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">38x</td>
+<td class="coverage">42x</td>
 </tr>
 <tr class="covered">
 <td class="num">29</td>
 <td class="src"><pre><code class="objc">        return StepChainAssembly(previousSteps: previousSteps)</code></pre></td>
-<td class="coverage">38x</td>
+<td class="coverage">42x</td>
 </tr>
 <tr class="covered">
 <td class="num">30</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">38x</td>
+<td class="coverage">42x</td>
 </tr>
 <tr class="never">
 <td class="num">31</td>

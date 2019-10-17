@@ -220,27 +220,27 @@
 <tr class="covered">
 <td class="num">42</td>
 <td class="src"><pre><code class="objc">    public init(finder: F, factory: FC) {</code></pre></td>
-<td class="coverage">162x</td>
+<td class="coverage">164x</td>
 </tr>
 <tr class="covered">
 <td class="num">43</td>
 <td class="src"><pre><code class="objc">        self.factory = factory</code></pre></td>
-<td class="coverage">162x</td>
+<td class="coverage">164x</td>
 </tr>
 <tr class="covered">
 <td class="num">44</td>
 <td class="src"><pre><code class="objc">        self.finder = finder</code></pre></td>
-<td class="coverage">162x</td>
+<td class="coverage">164x</td>
 </tr>
 <tr class="covered">
 <td class="num">45</td>
 <td class="src"><pre><code class="objc">        self.previousSteps = []</code></pre></td>
-<td class="coverage">162x</td>
+<td class="coverage">164x</td>
 </tr>
 <tr class="covered">
 <td class="num">46</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">162x</td>
+<td class="coverage">164x</td>
 </tr>
 <tr class="never">
 <td class="num">47</td>
@@ -450,42 +450,42 @@
 <tr class="covered">
 <td class="num">88</td>
 <td class="src"><pre><code class="objc">    func from&lt;VC: UIViewController&gt;(_ step: DestinationStep&lt;VC, Context&gt;) -&gt; LastStepInChainAssembly&lt;ViewController, Context&gt; {</code></pre></td>
-<td class="coverage">43x</td>
+<td class="coverage">45x</td>
 </tr>
 <tr class="covered">
 <td class="num">89</td>
 <td class="src"><pre><code class="objc">        var previousSteps = self.previousSteps</code></pre></td>
-<td class="coverage">43x</td>
+<td class="coverage">45x</td>
 </tr>
 <tr class="covered">
 <td class="num">90</td>
 <td class="src"><pre><code class="objc">        let entitiesCollector = BaseEntitiesCollector&lt;FactoryBox&lt;FC&gt;, ActionBox&gt;(finder: finder, factory: factory, action: ViewControllerActions.NilAction())</code></pre></td>
-<td class="coverage">43x</td>
+<td class="coverage">45x</td>
 </tr>
 <tr class="covered">
 <td class="num">91</td>
 <td class="src"><pre><code class="objc">        let currentStep = BaseStep(entitiesProvider: entitiesCollector, taskProvider: taskCollector)</code></pre></td>
-<td class="coverage">43x</td>
+<td class="coverage">45x</td>
 </tr>
 <tr class="covered">
 <td class="num">92</td>
 <td class="src"><pre><code class="objc">        previousSteps.append(currentStep)</code></pre></td>
-<td class="coverage">43x</td>
+<td class="coverage">45x</td>
 </tr>
 <tr class="covered">
 <td class="num">93</td>
 <td class="src"><pre><code class="objc">        previousSteps.append(step)</code></pre></td>
-<td class="coverage">43x</td>
+<td class="coverage">45x</td>
 </tr>
 <tr class="covered">
 <td class="num">94</td>
 <td class="src"><pre><code class="objc">        return LastStepInChainAssembly(previousSteps: previousSteps)</code></pre></td>
-<td class="coverage">43x</td>
+<td class="coverage">45x</td>
 </tr>
 <tr class="covered">
 <td class="num">95</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">43x</td>
+<td class="coverage">45x</td>
 </tr>
 <tr class="never">
 <td class="num">96</td>
