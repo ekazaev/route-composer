@@ -100,7 +100,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0940;
-				ORGANIZATIONNAME = "HBC Digital";
+				ORGANIZATIONNAME = "Evgeny Kazaev";
 				TargetAttributes = {
 					849D12B72137263A0052FD44 = {
 						CreatedOnToolsVersion = 9.4.1;

@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
 
   s.homepage         = 'https://github.com/saksdirect/route-composer'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'Evgeny Kazaev' => 'eugene.kazaev@hbc.com' }
+  s.author           = { 'Evgeny Kazaev' => 'eugene.kazaev@gmail.com' }
   s.source           = { :git => 'https://github.com/ekazaev/route-composer.git', :tag => s.version }
 
   s.ios.deployment_target = '9.0'

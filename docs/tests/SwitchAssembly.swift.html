@@ -444,7 +444,7 @@
 </tr>
 <tr class="covered">
 <td class="num">87</td>
-<td class="src"><pre><code class="objc">    public func addCase(_ resolverBlock: @escaping ((_: Context) -&gt; DestinationStep&lt;ViewController, Context&gt;?)) -&gt; Self {</code></pre></td>
+<td class="src"><pre><code class="objc">    public final func addCase(_ resolverBlock: @escaping ((_: Context) -&gt; DestinationStep&lt;ViewController, Context&gt;?)) -&gt; Self {</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
@@ -499,7 +499,7 @@
 </tr>
 <tr class="covered">
 <td class="num">98</td>
-<td class="src"><pre><code class="objc">    public func addCase&lt;F: Finder&gt;(when finder: F, from step: DestinationStep&lt;ViewController, Context&gt;) -&gt; Self where F.Context == Context {</code></pre></td>
+<td class="src"><pre><code class="objc">    public final func addCase&lt;F: Finder&gt;(when finder: F, from step: DestinationStep&lt;ViewController, Context&gt;) -&gt; Self where F.Context == Context {</code></pre></td>
 <td class="coverage">2x</td>
 </tr>
 <tr class="covered">
@@ -549,7 +549,7 @@
 </tr>
 <tr class="covered">
 <td class="num">108</td>
-<td class="src"><pre><code class="objc">    public func addCase(when condition: @autoclosure @escaping () -&gt; Bool, from step: DestinationStep&lt;ViewController, Context&gt;) -&gt; Self {</code></pre></td>
+<td class="src"><pre><code class="objc">    public final func addCase(when condition: @autoclosure @escaping () -&gt; Bool, from step: DestinationStep&lt;ViewController, Context&gt;) -&gt; Self {</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
@@ -624,7 +624,7 @@
 </tr>
 <tr class="covered">
 <td class="num">123</td>
-<td class="src"><pre><code class="objc">    public func addCase(when conditionBlock: @escaping (Context) -&gt; Bool, from step: DestinationStep&lt;ViewController, Context&gt;) -&gt; Self {</code></pre></td>
+<td class="src"><pre><code class="objc">    public final func addCase(when conditionBlock: @escaping (Context) -&gt; Bool, from step: DestinationStep&lt;ViewController, Context&gt;) -&gt; Self {</code></pre></td>
 <td class="coverage">5x</td>
 </tr>
 <tr class="covered">
@@ -699,7 +699,7 @@
 </tr>
 <tr class="covered">
 <td class="num">138</td>
-<td class="src"><pre><code class="objc">    public func addCase&lt;F: Finder&gt;(from finder: F) -&gt; Self where F.ViewController == ViewController, F.Context == Context {</code></pre></td>
+<td class="src"><pre><code class="objc">    public final func addCase&lt;F: Finder&gt;(from finder: F) -&gt; Self where F.ViewController == ViewController, F.Context == Context {</code></pre></td>
 <td class="coverage">5x</td>
 </tr>
 <tr class="covered">
@@ -739,7 +739,7 @@
 </tr>
 <tr class="covered">
 <td class="num">146</td>
-<td class="src"><pre><code class="objc">    public func assemble() -&gt; DestinationStep&lt;ViewController, Context&gt; {</code></pre></td>
+<td class="src"><pre><code class="objc">    public final func assemble() -&gt; DestinationStep&lt;ViewController, Context&gt; {</code></pre></td>
 <td class="coverage">3x</td>
 </tr>
 <tr class="covered">
@@ -779,7 +779,7 @@
 </tr>
 <tr class="covered">
 <td class="num">154</td>
-<td class="src"><pre><code class="objc">    public func assemble(default resolverBlock: @escaping (() -&gt; DestinationStep&lt;ViewController, Context&gt;)) -&gt; DestinationStep&lt;ViewController, Context&gt; {</code></pre></td>
+<td class="src"><pre><code class="objc">    public final  func assemble(default resolverBlock: @escaping (() -&gt; DestinationStep&lt;ViewController, Context&gt;)) -&gt; DestinationStep&lt;ViewController, Context&gt; {</code></pre></td>
 <td class="coverage">2x</td>
 </tr>
 <tr class="covered">
@@ -834,7 +834,7 @@
 </tr>
 <tr class="covered">
 <td class="num">165</td>
-<td class="src"><pre><code class="objc">    public func assemble(default step: DestinationStep&lt;ViewController, Context&gt;) -&gt; DestinationStep&lt;ViewController, Context&gt; {</code></pre></td>
+<td class="src"><pre><code class="objc">    public final func assemble(default step: DestinationStep&lt;ViewController, Context&gt;) -&gt; DestinationStep&lt;ViewController, Context&gt; {</code></pre></td>
 <td class="coverage">4x</td>
 </tr>
 <tr class="covered">
@@ -929,7 +929,7 @@
 </tr>
 <tr class="covered">
 <td class="num">184</td>
-<td class="src"><pre><code class="objc">    public func addCase&lt;F: Finder&gt;(expecting finder: F) -&gt; Self where F.Context == Context {</code></pre></td>
+<td class="src"><pre><code class="objc">    public final func addCase&lt;F: Finder&gt;(expecting finder: F) -&gt; Self where F.Context == Context {</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">

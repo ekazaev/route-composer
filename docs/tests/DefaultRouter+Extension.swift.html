@@ -654,7 +654,7 @@
 </tr>
 <tr class="never">
 <td class="num">129</td>
-<td class="src"><pre><code class="objc">        private var taskSlips: [PostTaskSlip] = []</code></pre></td>
+<td class="src"><pre><code class="objc">        private final var taskSlips: [PostTaskSlip] = []</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -664,7 +664,7 @@
 </tr>
 <tr class="covered">
 <td class="num">131</td>
-<td class="src"><pre><code class="objc">        func add(postTasks: [AnyPostRoutingTask], to viewController: UIViewController) {</code></pre></td>
+<td class="src"><pre><code class="objc">        final func add(postTasks: [AnyPostRoutingTask], to viewController: UIViewController) {</code></pre></td>
 <td class="coverage">216x</td>
 </tr>
 <tr class="covered">
@@ -729,7 +729,7 @@
 </tr>
 <tr class="covered">
 <td class="num">144</td>
-<td class="src"><pre><code class="objc">        func perform&lt;Context&gt;(with context: Context) throws {</code></pre></td>
+<td class="src"><pre><code class="objc">        final func perform&lt;Context&gt;(with context: Context) throws {</code></pre></td>
 <td class="coverage">93x</td>
 </tr>
 <tr class="covered">
@@ -819,7 +819,7 @@
 </tr>
 <tr class="never">
 <td class="num">162</td>
-<td class="src"><pre><code class="objc">    class GlobalTaskRunner {</code></pre></td>
+<td class="src"><pre><code class="objc">    final class GlobalTaskRunner {</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -829,7 +829,7 @@
 </tr>
 <tr class="never">
 <td class="num">164</td>
-<td class="src"><pre><code class="objc">        private var interceptorRunner: InterceptorRunner</code></pre></td>
+<td class="src"><pre><code class="objc">        private final var interceptorRunner: InterceptorRunner</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -839,7 +839,7 @@
 </tr>
 <tr class="never">
 <td class="num">166</td>
-<td class="src"><pre><code class="objc">        private let contextTaskRunner: ContextTaskRunner</code></pre></td>
+<td class="src"><pre><code class="objc">        private final let contextTaskRunner: ContextTaskRunner</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -849,7 +849,7 @@
 </tr>
 <tr class="never">
 <td class="num">168</td>
-<td class="src"><pre><code class="objc">        private let postTaskRunner: PostTaskRunner</code></pre></td>
+<td class="src"><pre><code class="objc">        private final let postTaskRunner: PostTaskRunner</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -889,7 +889,7 @@
 </tr>
 <tr class="covered">
 <td class="num">176</td>
-<td class="src"><pre><code class="objc">        func taskRunner&lt;Context&gt;(for step: PerformableStep?, with context: Context) throws -&gt; StepTaskTaskRunner {</code></pre></td>
+<td class="src"><pre><code class="objc">        final func taskRunner&lt;Context&gt;(for step: PerformableStep?, with context: Context) throws -&gt; StepTaskTaskRunner {</code></pre></td>
 <td class="coverage">238x</td>
 </tr>
 <tr class="covered">
@@ -979,7 +979,7 @@
 </tr>
 <tr class="covered">
 <td class="num">194</td>
-<td class="src"><pre><code class="objc">        func performInterceptors&lt;Context&gt;(with context: Context, completion: @escaping (_: RoutingResult) -&gt; Void) {</code></pre></td>
+<td class="src"><pre><code class="objc">        final func performInterceptors&lt;Context&gt;(with context: Context, completion: @escaping (_: RoutingResult) -&gt; Void) {</code></pre></td>
 <td class="coverage">95x</td>
 </tr>
 <tr class="covered">
@@ -999,7 +999,7 @@
 </tr>
 <tr class="covered">
 <td class="num">198</td>
-<td class="src"><pre><code class="objc">        func performPostTasks&lt;Context&gt;(with context: Context) throws {</code></pre></td>
+<td class="src"><pre><code class="objc">        final func performPostTasks&lt;Context&gt;(with context: Context) throws {</code></pre></td>
 <td class="coverage">91x</td>
 </tr>
 <tr class="covered">
@@ -1229,7 +1229,7 @@
 </tr>
 <tr class="never">
 <td class="num">244</td>
-<td class="src"><pre><code class="objc">        private(set) var containerViewController: ContainerViewController?</code></pre></td>
+<td class="src"><pre><code class="objc">        private(set) final var containerViewController: ContainerViewController?</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -1239,7 +1239,7 @@
 </tr>
 <tr class="never">
 <td class="num">246</td>
-<td class="src"><pre><code class="objc">        private(set) var postponedViewControllers: [UIViewController] = []</code></pre></td>
+<td class="src"><pre><code class="objc">        private(set) final var postponedViewControllers: [UIViewController] = []</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -1249,7 +1249,7 @@
 </tr>
 <tr class="never">
 <td class="num">248</td>
-<td class="src"><pre><code class="objc">        let logger: Logger?</code></pre></td>
+<td class="src"><pre><code class="objc">        final let logger: Logger?</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -1259,7 +1259,7 @@
 </tr>
 <tr class="never">
 <td class="num">250</td>
-<td class="src"><pre><code class="objc">        let containerAdapterLocator: ContainerAdapterLocator</code></pre></td>
+<td class="src"><pre><code class="objc">        final let containerAdapterLocator: ContainerAdapterLocator</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -1294,7 +1294,7 @@
 </tr>
 <tr class="covered">
 <td class="num">257</td>
-<td class="src"><pre><code class="objc">        func update(containerViewController: ContainerViewController, animated: Bool, completion: @escaping (_: RoutingResult) -&gt; Void) {</code></pre></td>
+<td class="src"><pre><code class="objc">        final func update(containerViewController: ContainerViewController, animated: Bool, completion: @escaping (_: RoutingResult) -&gt; Void) {</code></pre></td>
 <td class="coverage">2x</td>
 </tr>
 <tr class="covered">
@@ -1394,7 +1394,7 @@
 </tr>
 <tr class="covered">
 <td class="num">277</td>
-<td class="src"><pre><code class="objc">        func update(postponedViewControllers: [UIViewController]) {</code></pre></td>
+<td class="src"><pre><code class="objc">        final func update(postponedViewControllers: [UIViewController]) {</code></pre></td>
 <td class="coverage">3x</td>
 </tr>
 <tr class="covered">
@@ -1414,7 +1414,7 @@
 </tr>
 <tr class="covered">
 <td class="num">281</td>
-<td class="src"><pre><code class="objc">        func purge(animated: Bool, completion: @escaping (_: RoutingResult) -&gt; Void) {</code></pre></td>
+<td class="src"><pre><code class="objc">        final func purge(animated: Bool, completion: @escaping (_: RoutingResult) -&gt; Void) {</code></pre></td>
 <td class="coverage">177x</td>
 </tr>
 <tr class="covered">
@@ -1574,7 +1574,7 @@
 </tr>
 <tr class="covered">
 <td class="num">313</td>
-<td class="src"><pre><code class="objc">        private func reset() {</code></pre></td>
+<td class="src"><pre><code class="objc">        private final func reset() {</code></pre></td>
 <td class="coverage">2x</td>
 </tr>
 <tr class="covered">

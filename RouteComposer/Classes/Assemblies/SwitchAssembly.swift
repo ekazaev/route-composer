@@ -84,7 +84,7 @@ public final class SwitchAssembly<ViewController: UIViewController, Context> {
     /// Returning nil from the block will mean that it has not succeeded.
     ///
     /// - Parameter resolverBlock: case resolver block
-    public func addCase(_ resolverBlock: @escaping ((_: Context) -> DestinationStep<ViewController, Context>?)) -> Self {
+    public final func addCase(_ resolverBlock: @escaping ((_: Context) -> DestinationStep<ViewController, Context>?)) -> Self {
         resolvers.append(BlockResolver(resolverBlock: resolverBlock))
         return self
     }
@@ -95,7 +95,7 @@ public final class SwitchAssembly<ViewController: UIViewController, Context> {
     ///   - finder: The `Finder` instance searches for a `UIViewController` in the stack
     ///   - step: The `DestinationStep` is to perform if the `Finder` has been able to find a view controller in the stack. If not provided,
     ///   a `UIViewController` found by the `Finder` will be considered as a view controller to start the navigation process from
-    public func addCase<F: Finder>(when finder: F, from step: DestinationStep<ViewController, Context>) -> Self where F.Context == Context {
+    public final func addCase<F: Finder>(when finder: F, from step: DestinationStep<ViewController, Context>) -> Self where F.Context == Context {
         resolvers.append(FinderResolver(finder: finder, step: step))
         return self
     }
@@ -105,7 +105,7 @@ public final class SwitchAssembly<ViewController: UIViewController, Context> {
     /// - Parameters:
     ///   - condition: A condition to use the provided step.
     ///   - step: The `DestinationStep` is to perform.
-    public func addCase(when condition: @autoclosure @escaping () -> Bool, from step: DestinationStep<ViewController, Context>) -> Self {
+    public final func addCase(when condition: @autoclosure @escaping () -> Bool, from step: DestinationStep<ViewController, Context>) -> Self {
         resolvers.append(BlockResolver(resolverBlock: { _ in
             guard condition() else {
                 return nil
@@ -120,7 +120,7 @@ public final class SwitchAssembly<ViewController: UIViewController, Context> {
     /// - Parameters:
     ///   - conditionBlock: A condition to use the provided step.
     ///   - step: The `DestinationStep` is to perform.
-    public func addCase(when conditionBlock: @escaping (Context) -> Bool, from step: DestinationStep<ViewController, Context>) -> Self {
+    public final func addCase(when conditionBlock: @escaping (Context) -> Bool, from step: DestinationStep<ViewController, Context>) -> Self {
         resolvers.append(BlockResolver(resolverBlock: { context in
             guard conditionBlock(context) else {
                 return nil
@@ -135,7 +135,7 @@ public final class SwitchAssembly<ViewController: UIViewController, Context> {
     /// - Parameters:
     ///   - finder: The `Finder` instance is to find a `UIViewController` in the stack
     ///   a `UIViewController` found by the `Finder` will be considered as a view controller to start the navigation process from
-    public func addCase<F: Finder>(from finder: F) -> Self where F.ViewController == ViewController, F.Context == Context {
+    public final func addCase<F: Finder>(from finder: F) -> Self where F.ViewController == ViewController, F.Context == Context {
         resolvers.append(FinderResolver<ViewController, Context>(finder: finder, step: nil))
         return self
     }
@@ -143,7 +143,7 @@ public final class SwitchAssembly<ViewController: UIViewController, Context> {
     /// Assembles all the cases into a `DestinationStep` implementation
     ///
     /// - Returns: instance of a `DestinationStep`
-    public func assemble() -> DestinationStep<ViewController, Context> {
+    public final func assemble() -> DestinationStep<ViewController, Context> {
         return DestinationStep(SwitcherStep(resolvers: resolvers))
     }
 
@@ -151,7 +151,7 @@ public final class SwitchAssembly<ViewController: UIViewController, Context> {
     ///
     /// - Parameter resolverBlock: default resolver block
     /// - Returns: an instance of `DestinationStep`
-    public func assemble(default resolverBlock: @escaping (() -> DestinationStep<ViewController, Context>)) -> DestinationStep<ViewController, Context> {
+    public final  func assemble(default resolverBlock: @escaping (() -> DestinationStep<ViewController, Context>)) -> DestinationStep<ViewController, Context> {
         resolvers.append(BlockResolver(resolverBlock: { _ in
             return resolverBlock()
         }))
@@ -162,7 +162,7 @@ public final class SwitchAssembly<ViewController: UIViewController, Context> {
     ///
     /// - Parameter step: an instance of `DestinationStep`
     /// - Returns: a final instance of `DestinationStep`
-    public func assemble(default step: DestinationStep<ViewController, Context>) -> DestinationStep<ViewController, Context> {
+    public final func assemble(default step: DestinationStep<ViewController, Context>) -> DestinationStep<ViewController, Context> {
         resolvers.append(BlockResolver(resolverBlock: { _ in
             return step
         }))
@@ -181,7 +181,7 @@ extension SwitchAssembly where ViewController: ContainerViewController {
     /// - Parameters:
     ///   - finder: The `Finder` instance is to find a `UIViewController` in the stack
     ///   a `UIViewController` found by the `Finder` will be considered as a view controller to start the navigation process from
-    public func addCase<F: Finder>(expecting finder: F) -> Self where F.Context == Context {
+    public final func addCase<F: Finder>(expecting finder: F) -> Self where F.Context == Context {
         resolvers.append(FinderResolver<ViewController, Context>(finder: finder, step: nil))
         return self
     }

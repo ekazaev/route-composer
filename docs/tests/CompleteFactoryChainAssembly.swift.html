@@ -209,7 +209,7 @@
 </tr>
 <tr class="never">
 <td class="num">40</td>
-<td class="src"><pre><code class="objc">    public func with&lt;ChildFC: Factory, A: ContainerAction&gt;(_ childFactory: ChildFC, using action: A) -&gt; CompleteFactoryChainAssembly&lt;FC, ChildFC.ViewController&gt;</code></pre></td>
+<td class="src"><pre><code class="objc">    public final func with&lt;ChildFC: Factory, A: ContainerAction&gt;(_ childFactory: ChildFC, using action: A) -&gt; CompleteFactoryChainAssembly&lt;FC, ChildFC.ViewController&gt;</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -289,7 +289,7 @@
 </tr>
 <tr class="never">
 <td class="num">56</td>
-<td class="src"><pre><code class="objc">    public func with&lt;ChildFC: ContainerFactory, A: ContainerAction&gt;(_ childContainer: ChildFC, using action: A) -&gt; CompleteFactoryChainAssembly&lt;FC, ChildFC.ViewController&gt;</code></pre></td>
+<td class="src"><pre><code class="objc">    public final func with&lt;ChildFC: ContainerFactory, A: ContainerAction&gt;(_ childContainer: ChildFC, using action: A) -&gt; CompleteFactoryChainAssembly&lt;FC, ChildFC.ViewController&gt;</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -369,7 +369,7 @@
 </tr>
 <tr class="covered">
 <td class="num">72</td>
-<td class="src"><pre><code class="objc">    public func with&lt;ChildFC: Factory&gt;(_ childFactory: ChildFC) -&gt; CompleteFactoryChainAssembly&lt;FC, ChildFC.ViewController&gt; where ChildFC.Context == FC.Context {</code></pre></td>
+<td class="src"><pre><code class="objc">    public final func with&lt;ChildFC: Factory&gt;(_ childFactory: ChildFC) -&gt; CompleteFactoryChainAssembly&lt;FC, ChildFC.ViewController&gt; where ChildFC.Context == FC.Context {</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
@@ -409,7 +409,7 @@
 </tr>
 <tr class="covered">
 <td class="num">80</td>
-<td class="src"><pre><code class="objc">    public func with&lt;ChildFC: ContainerFactory&gt;(_ childContainer: ChildFC) -&gt; CompleteFactoryChainAssembly&lt;FC, ChildFC.ViewController&gt; where ChildFC.Context == FC.Context {</code></pre></td>
+<td class="src"><pre><code class="objc">    public final func with&lt;ChildFC: ContainerFactory&gt;(_ childContainer: ChildFC) -&gt; CompleteFactoryChainAssembly&lt;FC, ChildFC.ViewController&gt; where ChildFC.Context == FC.Context {</code></pre></td>
 <td class="coverage">2x</td>
 </tr>
 <tr class="covered">
@@ -449,7 +449,7 @@
 </tr>
 <tr class="covered">
 <td class="num">88</td>
-<td class="src"><pre><code class="objc">    public func adding&lt;CT: ContextTask&gt;(_ contextTask: CT) -&gt; CompleteFactoryChainAssembly&lt;FC, ChildVC&gt; where CT.ViewController == ChildVC, CT.Context == FC.Context {</code></pre></td>
+<td class="src"><pre><code class="objc">    public final func adding&lt;CT: ContextTask&gt;(_ contextTask: CT) -&gt; CompleteFactoryChainAssembly&lt;FC, ChildVC&gt; where CT.ViewController == ChildVC, CT.Context == FC.Context {</code></pre></td>
 <td class="coverage">4x</td>
 </tr>
 <tr class="covered">
@@ -514,7 +514,7 @@
 </tr>
 <tr class="covered">
 <td class="num">101</td>
-<td class="src"><pre><code class="objc">    public func assemble() -&gt; CompleteFactory&lt;FC&gt; {</code></pre></td>
+<td class="src"><pre><code class="objc">    public final func assemble() -&gt; CompleteFactory&lt;FC&gt; {</code></pre></td>
 <td class="coverage">6x</td>
 </tr>
 <tr class="covered">

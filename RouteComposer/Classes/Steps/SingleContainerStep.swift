@@ -16,18 +16,18 @@ public class SingleContainerStep<F: Finder, FC: ContainerFactory>: ActionToStepI
             where
             F.ViewController == FC.ViewController, F.Context == FC.Context {
 
-        let step: SingleContainerStep<F, FC>
+        final let step: SingleContainerStep<F, FC>
 
         init(step: SingleContainerStep<F, FC>) {
             self.step = step
             super.init(taskCollector: step.taskCollector)
         }
 
-        override func routingStep<A: Action>(with action: A) -> RoutingStep? {
+        final override func routingStep<A: Action>(with action: A) -> RoutingStep? {
             return step.routingStep(with: action)
         }
 
-        override func embeddableRoutingStep<A: ContainerAction>(with action: A) -> RoutingStep? {
+        final override func embeddableRoutingStep<A: ContainerAction>(with action: A) -> RoutingStep? {
             return step.embeddableRoutingStep(with: action)
         }
 
@@ -35,9 +35,9 @@ public class SingleContainerStep<F: Finder, FC: ContainerFactory>: ActionToStepI
 
     // MARK: Properties
 
-    let finder: F
+    final let finder: F
 
-    let factory: FC
+    final let factory: FC
 
     // MARK: Methods
 
@@ -51,12 +51,12 @@ public class SingleContainerStep<F: Finder, FC: ContainerFactory>: ActionToStepI
         self.factory = factory
     }
 
-    override func routingStep<A: Action>(with action: A) -> RoutingStep {
+    override final func routingStep<A: Action>(with action: A) -> RoutingStep {
         let entitiesCollector = BaseEntitiesCollector<ContainerFactoryBox<FC>, ActionBox>(finder: finder, factory: factory, action: action)
         return BaseStep(entitiesProvider: entitiesCollector, taskProvider: taskCollector)
     }
 
-    override func embeddableRoutingStep<A: ContainerAction>(with action: A) -> RoutingStep {
+    override final func embeddableRoutingStep<A: ContainerAction>(with action: A) -> RoutingStep {
         let entitiesCollector = BaseEntitiesCollector<ContainerFactoryBox<FC>, ContainerActionBox>(finder: finder, factory: factory, action: action)
         return BaseStep(entitiesProvider: entitiesCollector, taskProvider: taskCollector)
     }
@@ -64,14 +64,14 @@ public class SingleContainerStep<F: Finder, FC: ContainerFactory>: ActionToStepI
     /// Adapts context and view controller type dependencies.
     ///
     /// *NB:* Developer guaranties that this types will compliment in runtime.
-    public func unsafelyRewrapped<VC: UIViewController, C>() -> ActionToStepIntegrator<VC, C> {
+    public final func unsafelyRewrapped<VC: UIViewController, C>() -> ActionToStepIntegrator<VC, C> {
         return UnsafeWrapper(step: self)
     }
 
     /// Allows to avoid container view controller check.
     ///
     /// *NB:* Developer guaranties that it will be there in the runtime.
-    public func expectingContainer<VC: ContainerViewController>() -> ActionToStepIntegrator<VC, F.Context> {
+    public final func expectingContainer<VC: ContainerViewController>() -> ActionToStepIntegrator<VC, F.Context> {
         return UnsafeWrapper(step: self)
     }
 
@@ -85,13 +85,13 @@ extension SingleContainerStep where FC.Context == Any? {
     /// able to accept any type of context.
     ///
     /// *NB:* Developer guaranties that it will be there in the runtime.
-    public func expectingContainer<VC: ContainerViewController, C>() -> ActionToStepIntegrator<VC, C> {
+    public final func expectingContainer<VC: ContainerViewController, C>() -> ActionToStepIntegrator<VC, C> {
         return UnsafeWrapper(step: self)
     }
 
     /// Allows to compliment to the type check. A step that has context equal to Optional(Any) can be build
     /// with any type of context passed to the router.
-    public func adaptingContext<C>() -> ActionToStepIntegrator<F.ViewController, C> {
+    public final func adaptingContext<C>() -> ActionToStepIntegrator<F.ViewController, C> {
         return UnsafeWrapper(step: self)
     }
 

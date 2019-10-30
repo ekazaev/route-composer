@@ -126,9 +126,9 @@ extension DefaultRouter {
 
         }
 
-        private var taskSlips: [PostTaskSlip] = []
+        private final var taskSlips: [PostTaskSlip] = []
 
-        func add(postTasks: [AnyPostRoutingTask], to viewController: UIViewController) {
+        final func add(postTasks: [AnyPostRoutingTask], to viewController: UIViewController) {
             guard !postTasks.isEmpty else {
                 let postTaskSlip = PostTaskSlip(viewController: viewController, postTask: EmptyPostTask())
                 taskSlips.append(postTaskSlip)
@@ -141,7 +141,7 @@ extension DefaultRouter {
             })
         }
 
-        func perform<Context>(with context: Context) throws {
+        final func perform<Context>(with context: Context) throws {
             var viewControllers: [UIViewController] = []
             taskSlips.forEach({
                 guard let viewController = $0.viewController, !viewControllers.contains(viewController) else {
@@ -159,13 +159,13 @@ extension DefaultRouter {
         }
     }
 
-    class GlobalTaskRunner {
+    final class GlobalTaskRunner {
 
-        private var interceptorRunner: InterceptorRunner
+        private final var interceptorRunner: InterceptorRunner
 
-        private let contextTaskRunner: ContextTaskRunner
+        private final let contextTaskRunner: ContextTaskRunner
 
-        private let postTaskRunner: PostTaskRunner
+        private final let postTaskRunner: PostTaskRunner
 
         init(interceptorRunner: InterceptorRunner, contextTaskRunner: ContextTaskRunner, postTaskRunner: PostTaskRunner) {
             self.interceptorRunner = interceptorRunner
@@ -173,7 +173,7 @@ extension DefaultRouter {
             self.postTaskRunner = postTaskRunner
         }
 
-        func taskRunner<Context>(for step: PerformableStep?, with context: Context) throws -> StepTaskTaskRunner {
+        final func taskRunner<Context>(for step: PerformableStep?, with context: Context) throws -> StepTaskTaskRunner {
             guard let interceptableStep = step as? InterceptableStep else {
                 return StepTaskTaskRunner(contextTaskRunner: self.contextTaskRunner, postTaskRunner: self.postTaskRunner)
             }
@@ -191,11 +191,11 @@ extension DefaultRouter {
             return StepTaskTaskRunner(contextTaskRunner: contextTaskRunner, postTaskRunner: postTaskRunner)
         }
 
-        func performInterceptors<Context>(with context: Context, completion: @escaping (_: RoutingResult) -> Void) {
+        final func performInterceptors<Context>(with context: Context, completion: @escaping (_: RoutingResult) -> Void) {
             interceptorRunner.perform(with: context, completion: completion)
         }
 
-        func performPostTasks<Context>(with context: Context) throws {
+        final func performPostTasks<Context>(with context: Context) throws {
             try postTaskRunner.commit(with: context)
         }
 
@@ -241,20 +241,20 @@ extension DefaultRouter {
 
     final class DefaultPostponedIntegrationHandler: PostponedActionIntegrationHandler {
 
-        private(set) var containerViewController: ContainerViewController?
+        private(set) final var containerViewController: ContainerViewController?
 
-        private(set) var postponedViewControllers: [UIViewController] = []
+        private(set) final var postponedViewControllers: [UIViewController] = []
 
-        let logger: Logger?
+        final let logger: Logger?
 
-        let containerAdapterLocator: ContainerAdapterLocator
+        final let containerAdapterLocator: ContainerAdapterLocator
 
         init(logger: Logger?, containerAdapterLocator: ContainerAdapterLocator) {
             self.logger = logger
             self.containerAdapterLocator = containerAdapterLocator
         }
 
-        func update(containerViewController: ContainerViewController, animated: Bool, completion: @escaping (_: RoutingResult) -> Void) {
+        final func update(containerViewController: ContainerViewController, animated: Bool, completion: @escaping (_: RoutingResult) -> Void) {
             do {
                 guard self.containerViewController == nil else {
                     purge(animated: animated, completion: { result in
@@ -274,11 +274,11 @@ extension DefaultRouter {
             }
         }
 
-        func update(postponedViewControllers: [UIViewController]) {
+        final func update(postponedViewControllers: [UIViewController]) {
             self.postponedViewControllers = postponedViewControllers
         }
 
-        func purge(animated: Bool, completion: @escaping (_: RoutingResult) -> Void) {
+        final func purge(animated: Bool, completion: @escaping (_: RoutingResult) -> Void) {
             do {
                 guard let containerViewController = containerViewController else {
                     completion(.success)
@@ -310,7 +310,7 @@ extension DefaultRouter {
             }
         }
 
-        private func reset() {
+        private final func reset() {
             containerViewController = nil
             postponedViewControllers = []
         }

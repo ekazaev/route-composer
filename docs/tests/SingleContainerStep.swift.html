@@ -104,7 +104,7 @@
 </tr>
 <tr class="never">
 <td class="num">19</td>
-<td class="src"><pre><code class="objc">        let step: SingleContainerStep&lt;F, FC&gt;</code></pre></td>
+<td class="src"><pre><code class="objc">        final let step: SingleContainerStep&lt;F, FC&gt;</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -139,7 +139,7 @@
 </tr>
 <tr class="covered">
 <td class="num">26</td>
-<td class="src"><pre><code class="objc">        override func routingStep&lt;A: Action&gt;(with action: A) -&gt; RoutingStep? {</code></pre></td>
+<td class="src"><pre><code class="objc">        final override func routingStep&lt;A: Action&gt;(with action: A) -&gt; RoutingStep? {</code></pre></td>
 <td class="coverage">4x</td>
 </tr>
 <tr class="covered">
@@ -159,7 +159,7 @@
 </tr>
 <tr class="covered">
 <td class="num">30</td>
-<td class="src"><pre><code class="objc">        override func embeddableRoutingStep&lt;A: ContainerAction&gt;(with action: A) -&gt; RoutingStep? {</code></pre></td>
+<td class="src"><pre><code class="objc">        final override func embeddableRoutingStep&lt;A: ContainerAction&gt;(with action: A) -&gt; RoutingStep? {</code></pre></td>
 <td class="coverage">4x</td>
 </tr>
 <tr class="covered">
@@ -199,7 +199,7 @@
 </tr>
 <tr class="never">
 <td class="num">38</td>
-<td class="src"><pre><code class="objc">    let finder: F</code></pre></td>
+<td class="src"><pre><code class="objc">    final let finder: F</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -209,7 +209,7 @@
 </tr>
 <tr class="never">
 <td class="num">40</td>
-<td class="src"><pre><code class="objc">    let factory: FC</code></pre></td>
+<td class="src"><pre><code class="objc">    final let factory: FC</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -279,7 +279,7 @@
 </tr>
 <tr class="covered">
 <td class="num">54</td>
-<td class="src"><pre><code class="objc">    override func routingStep&lt;A: Action&gt;(with action: A) -&gt; RoutingStep {</code></pre></td>
+<td class="src"><pre><code class="objc">    override final func routingStep&lt;A: Action&gt;(with action: A) -&gt; RoutingStep {</code></pre></td>
 <td class="coverage">38x</td>
 </tr>
 <tr class="covered">
@@ -304,7 +304,7 @@
 </tr>
 <tr class="covered">
 <td class="num">59</td>
-<td class="src"><pre><code class="objc">    override func embeddableRoutingStep&lt;A: ContainerAction&gt;(with action: A) -&gt; RoutingStep {</code></pre></td>
+<td class="src"><pre><code class="objc">    override final func embeddableRoutingStep&lt;A: ContainerAction&gt;(with action: A) -&gt; RoutingStep {</code></pre></td>
 <td class="coverage">11x</td>
 </tr>
 <tr class="covered">
@@ -344,7 +344,7 @@
 </tr>
 <tr class="covered">
 <td class="num">67</td>
-<td class="src"><pre><code class="objc">    public func unsafelyRewrapped&lt;VC: UIViewController, C&gt;() -&gt; ActionToStepIntegrator&lt;VC, C&gt; {</code></pre></td>
+<td class="src"><pre><code class="objc">    public final func unsafelyRewrapped&lt;VC: UIViewController, C&gt;() -&gt; ActionToStepIntegrator&lt;VC, C&gt; {</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
@@ -379,7 +379,7 @@
 </tr>
 <tr class="covered">
 <td class="num">74</td>
-<td class="src"><pre><code class="objc">    public func expectingContainer&lt;VC: ContainerViewController&gt;() -&gt; ActionToStepIntegrator&lt;VC, F.Context&gt; {</code></pre></td>
+<td class="src"><pre><code class="objc">    public final func expectingContainer&lt;VC: ContainerViewController&gt;() -&gt; ActionToStepIntegrator&lt;VC, F.Context&gt; {</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
@@ -449,7 +449,7 @@
 </tr>
 <tr class="covered">
 <td class="num">88</td>
-<td class="src"><pre><code class="objc">    public func expectingContainer&lt;VC: ContainerViewController, C&gt;() -&gt; ActionToStepIntegrator&lt;VC, C&gt; {</code></pre></td>
+<td class="src"><pre><code class="objc">    public final func expectingContainer&lt;VC: ContainerViewController, C&gt;() -&gt; ActionToStepIntegrator&lt;VC, C&gt; {</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
@@ -479,7 +479,7 @@
 </tr>
 <tr class="covered">
 <td class="num">94</td>
-<td class="src"><pre><code class="objc">    public func adaptingContext&lt;C&gt;() -&gt; ActionToStepIntegrator&lt;F.ViewController, C&gt; {</code></pre></td>
+<td class="src"><pre><code class="objc">    public final func adaptingContext&lt;C&gt;() -&gt; ActionToStepIntegrator&lt;F.ViewController, C&gt; {</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">

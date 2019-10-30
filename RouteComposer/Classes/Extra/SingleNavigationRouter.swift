@@ -8,10 +8,10 @@ import UIKit
 /// Lock object to be shared between `SingleNavigationRouter` instances.
 public final class SingleNavigationLock {
 
-    private var isNavigationInProgressFlag = false
+    private final var isNavigationInProgressFlag = false
 
     /// `SingleNavigationLock` state
-    public var isNavigationInProgress: Bool {
+    public final var isNavigationInProgress: Bool {
         return isNavigationInProgressFlag
     }
 
@@ -19,11 +19,11 @@ public final class SingleNavigationLock {
     public init() {
     }
 
-    func startNavigation() {
+    final func startNavigation() {
         isNavigationInProgressFlag = true
     }
 
-    func stopNavigation() {
+    final func stopNavigation() {
         isNavigationInProgressFlag = false
     }
 

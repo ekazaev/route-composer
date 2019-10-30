@@ -37,7 +37,7 @@ public final class CompleteFactoryChainAssembly<FC: ContainerFactory, ChildVC: U
     /// - Parameters:
     ///   - childFactory: The instance of `Factory`.
     ///   - action: The instance of `Factory` to be used to integrate the view controller produced by the factory.
-    public func with<ChildFC: Factory, A: ContainerAction>(_ childFactory: ChildFC, using action: A) -> CompleteFactoryChainAssembly<FC, ChildFC.ViewController>
+    public final func with<ChildFC: Factory, A: ContainerAction>(_ childFactory: ChildFC, using action: A) -> CompleteFactoryChainAssembly<FC, ChildFC.ViewController>
             where
             ChildFC.Context == FC.Context, A.ViewController == FC.ViewController {
         guard let factoryBox = FactoryBox(childFactory, action: ContainerActionBox(action)) else {
@@ -53,7 +53,7 @@ public final class CompleteFactoryChainAssembly<FC: ContainerFactory, ChildVC: U
     /// - Parameters:
     ///   - childFactory: The instance of `ContainerFactory`.
     ///   - action: The instance of `ContainerFactory` to be used to integrate the view controller produced by the factory.
-    public func with<ChildFC: ContainerFactory, A: ContainerAction>(_ childContainer: ChildFC, using action: A) -> CompleteFactoryChainAssembly<FC, ChildFC.ViewController>
+    public final func with<ChildFC: ContainerFactory, A: ContainerAction>(_ childContainer: ChildFC, using action: A) -> CompleteFactoryChainAssembly<FC, ChildFC.ViewController>
             where
             ChildFC.Context == FC.Context, A.ViewController == FC.ViewController {
         guard let factoryBox = ContainerFactoryBox(childContainer, action: ContainerActionBox(action)) else {
@@ -69,7 +69,7 @@ public final class CompleteFactoryChainAssembly<FC: ContainerFactory, ChildVC: U
     ///
     /// - Parameters:
     ///   - childFactory: The instance of `Factory`.
-    public func with<ChildFC: Factory>(_ childFactory: ChildFC) -> CompleteFactoryChainAssembly<FC, ChildFC.ViewController> where ChildFC.Context == FC.Context {
+    public final func with<ChildFC: Factory>(_ childFactory: ChildFC) -> CompleteFactoryChainAssembly<FC, ChildFC.ViewController> where ChildFC.Context == FC.Context {
         return with(childFactory, using: CompleteFactoryAssembly<FC>.SimpleAddAction<FC>())
     }
 
@@ -77,7 +77,7 @@ public final class CompleteFactoryChainAssembly<FC: ContainerFactory, ChildVC: U
     ///
     /// - Parameters:
     ///   - childFactory: The instance of `ContainerFactory`.
-    public func with<ChildFC: ContainerFactory>(_ childContainer: ChildFC) -> CompleteFactoryChainAssembly<FC, ChildFC.ViewController> where ChildFC.Context == FC.Context {
+    public final func with<ChildFC: ContainerFactory>(_ childContainer: ChildFC) -> CompleteFactoryChainAssembly<FC, ChildFC.ViewController> where ChildFC.Context == FC.Context {
         return with(childContainer, using: CompleteFactoryAssembly<FC>.SimpleAddAction<FC>())
     }
 
@@ -85,7 +85,7 @@ public final class CompleteFactoryChainAssembly<FC: ContainerFactory, ChildVC: U
     ///
     /// - Parameters:
     ///   - contextTask: The instance of `ContextTask`.
-    public func adding<CT: ContextTask>(_ contextTask: CT) -> CompleteFactoryChainAssembly<FC, ChildVC> where CT.ViewController == ChildVC, CT.Context == FC.Context {
+    public final func adding<CT: ContextTask>(_ contextTask: CT) -> CompleteFactoryChainAssembly<FC, ChildVC> where CT.ViewController == ChildVC, CT.Context == FC.Context {
         guard var previousChildFactory = previousChildFactory else {
             return CompleteFactoryChainAssembly<FC, ChildVC>(factory: factory, childFactories: childFactories, previousChildFactory: nil)
         }
@@ -98,7 +98,7 @@ public final class CompleteFactoryChainAssembly<FC: ContainerFactory, ChildVC: U
     /// Assembles all the children factories provided and returns a `ContainerFactory` instance.
     ///
     /// - Returns: The `CompleteFactory` with child factories provided.
-    public func assemble() -> CompleteFactory<FC> {
+    public final func assemble() -> CompleteFactory<FC> {
         return CompleteFactory<FC>(factory: factory, childFactories: integratedChildFactories)
     }
 

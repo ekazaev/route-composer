@@ -11,11 +11,11 @@ protocol StepCaseResolver {
 
 }
 
-class SwitcherStep: RoutingStep, ChainableStep {
+final class SwitcherStep: RoutingStep, ChainableStep {
 
-    var resolvers: [StepCaseResolver]
+    final var resolvers: [StepCaseResolver]
 
-    func getPreviousStep<Context>(with context: Context) -> RoutingStep? {
+    final func getPreviousStep<Context>(with context: Context) -> RoutingStep? {
         return resolvers.reduce(nil as RoutingStep?, { (result, resolver) in
             guard result == nil else {
                 return result

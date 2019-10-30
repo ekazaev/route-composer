@@ -651,7 +651,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 1020;
-				ORGANIZATIONNAME = "HBC Digital";
+				ORGANIZATIONNAME = "Evgeny Kazaev";
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -1120,7 +1120,7 @@
 				INFOPLIST_FILE = RouteComposer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "ie.hbcdigital.RouteComposer-Example";
+				PRODUCT_BUNDLE_IDENTIFIER = "ie.ekazaev.RouteComposer-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1134,7 +1134,7 @@
 				INFOPLIST_FILE = RouteComposer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "ie.hbcdigital.RouteComposer-Example";
+				PRODUCT_BUNDLE_IDENTIFIER = "ie.ekazaev.RouteComposer-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1182,7 +1182,7 @@
 				INFOPLIST_FILE = RouteComposer_ExampleUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'";
-				PRODUCT_BUNDLE_IDENTIFIER = "ie.hbcdigital.RouteComposer-ExampleUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = "ie.ekazaev.RouteComposer-ExampleUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1205,7 +1205,7 @@
 				INFOPLIST_FILE = RouteComposer_ExampleUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'";
-				PRODUCT_BUNDLE_IDENTIFIER = "ie.hbcdigital.RouteComposer-ExampleUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = "ie.ekazaev.RouteComposer-ExampleUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = RouteComposer_Example;
