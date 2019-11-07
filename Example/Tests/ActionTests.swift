@@ -138,6 +138,7 @@ class ActionTests: XCTestCase {
                 transitionStyle: .crossDissolve,
                 transitioningDelegate: transitionDelegate,
                 preferredContentSize: CGSize(width: 100, height: 100),
+                isModalInPresentation: true,
                 popoverConfiguration: { _ in
                     wasInPopoverConfig = true
                 }).perform(with: viewController, on: PresentingModallyController(), animated: true, completion: { result in
@@ -146,6 +147,9 @@ class ActionTests: XCTestCase {
             XCTAssertEqual(viewController.modalTransitionStyle, UIModalTransitionStyle.crossDissolve)
             XCTAssertEqual(viewController.preferredContentSize.width, 100)
             XCTAssertEqual(viewController.preferredContentSize.height, 100)
+            if #available(iOS 13, *) {
+                XCTAssertEqual(viewController.isModalInPresentation, true)
+            }
             XCTAssertTrue(viewController.transitioningDelegate === transitionDelegate)
             if case .failure(_) = result {
                 XCTAssert(false)
