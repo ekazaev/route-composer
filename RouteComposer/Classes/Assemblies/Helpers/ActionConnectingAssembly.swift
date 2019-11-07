@@ -12,11 +12,11 @@ public struct ActionConnectingAssembly<PVC: UIViewController, VC: UIViewControll
 
     let previousSteps: [RoutingStep]
 
-    let stepToFullFill: ActionToStepIntegrator<PVC, C>
+    let stepToFullFill: ActionToStepIntegrating
 
     // MARK: Methods
 
-    init(stepToFullFill: ActionToStepIntegrator<PVC, C>, previousSteps: [RoutingStep] = []) {
+    init(stepToFullFill: ActionToStepIntegrating, previousSteps: [RoutingStep] = []) {
         self.previousSteps = previousSteps
         self.stepToFullFill = stepToFullFill
     }

@@ -5,8 +5,17 @@
 import Foundation
 import UIKit
 
+protocol ActionToStepIntegrating {
+
+    // Hides action integration from library user.
+    func routingStep<A: Action>(with action: A) -> RoutingStep?
+
+    // Hides action integration from library user.
+    func embeddableRoutingStep<A: ContainerAction>(with action: A) -> RoutingStep?
+
+}
 /// A simple class that represents an intermediate `DestinationStep` and allows to add tasks to it.
-public class ActionToStepIntegrator<VC: UIViewController, C>: InterceptableStepAssembling {
+public class ActionToStepIntegrator<VC: UIViewController, C>: InterceptableStepAssembling, ActionToStepIntegrating {
 
     // MARK: Associated types
 
