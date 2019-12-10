@@ -6,17 +6,17 @@ import Foundation
 import UIKit
 
 /// Helper class to build a chain of steps. Can not be used directly.
-public struct ActionConnectingAssembly<PVC: UIViewController, VC: UIViewController, C>: ActionConnecting {
+public struct ActionConnectingAssembly<VC: UIViewController, C>: ActionConnecting {
 
     // MARK: Properties
 
     let previousSteps: [RoutingStep]
 
-    let stepToFullFill: ActionToStepIntegrator<PVC, C>
+    let stepToFullFill: IntermediateDestinationStep
 
     // MARK: Methods
 
-    init(stepToFullFill: ActionToStepIntegrator<PVC, C>, previousSteps: [RoutingStep] = []) {
+    init(stepToFullFill: IntermediateDestinationStep, previousSteps: [RoutingStep] = []) {
         self.previousSteps = previousSteps
         self.stepToFullFill = stepToFullFill
     }

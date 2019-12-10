@@ -11,7 +11,7 @@ import ContainerViewController
 
 struct ImagesConfigurationWithLibrary {
 
-    private static let imagesContainerStep = ContainerStepAssembly(
+    private static let imagesContainerStep = StepAssembly(
             finder: ClassFinder<CustomContainerController, Any?>(),
             factory: CustomContainerFactory(delegate: ImagesWithLibraryHandler.shared))
             .using(UINavigationController.push())

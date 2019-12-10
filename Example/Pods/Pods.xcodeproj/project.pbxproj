@@ -18,7 +18,6 @@
 		0F9ED723CD71FBD830B7C478881222BB /* LastStepInChainAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915A68F38FDDCDBC85BDF3553591DDC /* LastStepInChainAssembly.swift */; };
 		0FC8F4E47693DF251AEF428712C28D4E /* NavigationControllerAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AAB8C89CCEF2A6CAC879358EC86DD7 /* NavigationControllerAdapter.swift */; };
 		10472C08A6723D3DA9DF4A605BA2A8F5 /* ContextTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A9321D92ED97C3783E9DC20D62413D /* ContextTask.swift */; };
-		1087AB70D92AF124DCDCB6EC394EC743 /* ContainerStepAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184AE126130EA163D41A43E6EA01128F /* ContainerStepAssembly.swift */; };
 		141F3E208E06FC2F1BE306DAD45715C6 /* StackIterator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB73FD7382E5CC340C0EC9669D32908 /* StackIterator.swift */; };
 		16DA926C23C27021254AD326C7C9694F /* ClassFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DF098E1F15979D5DCC222E8E2F907D /* ClassFactory.swift */; };
 		1B2B7E6739022E615C4BF068AE201881 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40CB39E715FBCDAA142E6513E126200A /* Foundation.framework */; };
@@ -187,7 +186,6 @@
 		133E0C47AA5B989D3345DCF5F3FF6293 /* LogMessage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LogMessage.swift; sourceTree = "<group>"; };
 		13C77D50F58BBDC511BAF01B37E138C3 /* RoutingStep.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RoutingStep.swift; sourceTree = "<group>"; };
 		147DB27AF01CB2E6C22A84640199DF5C /* CompleteFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CompleteFactory.swift; sourceTree = "<group>"; };
-		184AE126130EA163D41A43E6EA01128F /* ContainerStepAssembly.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ContainerStepAssembly.swift; sourceTree = "<group>"; };
 		1A1B2C02523A69492F478E029A140E7E /* BaseStep.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BaseStep.swift; sourceTree = "<group>"; };
 		1C7BB8FC6B77E699EA8CE5843FC09FE5 /* Pods-RouteComposer_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-RouteComposer_Example-dummy.m"; sourceTree = "<group>"; };
 		1C84A05EC5557C4C9FD2389A42204C4C /* Action.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Action.swift; path = RouteComposer/Classes/Action.swift; sourceTree = "<group>"; };
@@ -670,7 +668,6 @@
 			children = (
 				A25985D9FDF983BE049E739D1D3F4A0C /* ChainAssembly.swift */,
 				34AFB935CE66DAC7A259D55793A62D0A /* CompleteFactoryAssembly.swift */,
-				184AE126130EA163D41A43E6EA01128F /* ContainerStepAssembly.swift */,
 				A31146F5069A74AA317BD821253532FF /* StepAssembly.swift */,
 				026D7173B31494CC1902E5715A2C37C8 /* SwitchAssembly.swift */,
 				09258069F215A69E3D350D7888F4C884 /* Helpers */,
@@ -965,7 +962,6 @@
 				A84802D1137AC58236A4CBE983C302A7 /* ContainerAdapterLocator.swift in Sources */,
 				A50AE7E1AEBBFCEC87684ED8EA47AE15 /* ContainerFactory.swift in Sources */,
 				4981E805D2D22BDBCE8AB1786E162979 /* ContainerFactoryBox.swift in Sources */,
-				1087AB70D92AF124DCDCB6EC394EC743 /* ContainerStepAssembly.swift in Sources */,
 				E162F06C2297F9B5CEB753941363E867 /* ContainerStepChainAssembly.swift in Sources */,
 				BBFE1331363A314EDD596EBE398E1985 /* ContainerViewController.swift in Sources */,
 				37AE55CA40C1B3799B48BADD28A399C3 /* ContextAccepting.swift in Sources */,

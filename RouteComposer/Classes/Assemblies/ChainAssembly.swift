@@ -19,8 +19,8 @@ public struct ChainAssembly {
     ///         .assemble()
     /// ```
     /// - Parameter step: The instance of `ActionConnectingAssembly`
-    public static func from<VC: UIViewController, C>(_ step: ActionToStepIntegrator<VC, C>) -> ActionConnectingAssembly<VC, VC, C> {
-        return ActionConnectingAssembly(stepToFullFill: step, previousSteps: [])
+    public static func from<VC: UIViewController, C>(_ step: ActionToStepIntegrator<VC, C>) -> ActionConnectingAssembly<VC, C> {
+        return ActionConnectingAssembly<VC, C>(stepToFullFill: step, previousSteps: [])
     }
 
 }

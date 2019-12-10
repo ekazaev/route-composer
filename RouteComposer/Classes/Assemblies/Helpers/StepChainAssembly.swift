@@ -21,8 +21,8 @@ public struct StepChainAssembly<ViewController: UIViewController, Context> {
     /// Adds a single step to the chain
     ///
     /// - Parameter previousStep: The instance of `StepWithActionAssemblable`
-    public func from<VC: UIViewController>(_ step: ActionToStepIntegrator<VC, Context>) -> ActionConnectingAssembly<VC, ViewController, Context> {
-        return ActionConnectingAssembly<VC, ViewController, Context>(stepToFullFill: step, previousSteps: previousSteps)
+    public func from<VC: UIViewController>(_ step: ActionToStepIntegrator<VC, Context>) -> ActionConnectingAssembly<ViewController, Context> {
+        return ActionConnectingAssembly<ViewController, Context>(stepToFullFill: step, previousSteps: previousSteps)
     }
 
     /// Adds a `DestinationStep` to the chain. This step will be the last one in the chain.

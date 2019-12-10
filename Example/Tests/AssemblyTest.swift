@@ -74,7 +74,7 @@ class AssemblyTest: XCTestCase {
     }
 
     func testContainerStepAssembly() {
-        let lastStepAssembly = ContainerStepAssembly(finder: ClassFinder(), factory: NavigationControllerFactory<UINavigationController, Any?>())
+        let lastStepAssembly = StepAssembly(finder: ClassFinder(), factory: NavigationControllerFactory<UINavigationController, Any?>())
                 .using(UITabBarController.add())
                 .from(TabBarControllerStep())
                 .using(GeneralAction.presentModally())
@@ -87,7 +87,7 @@ class AssemblyTest: XCTestCase {
     }
 
     func testContainerStepAssemblyNilFactory() {
-        var lastStepAssembly = ContainerStepAssembly(finder: ClassFinder(), factory: NilContainerFactory<UINavigationController, Any?>())
+        var lastStepAssembly = StepAssembly(finder: ClassFinder(), factory: NilContainerFactory<UINavigationController, Any?>())
                 .from(TabBarControllerStep())
                 .using(GeneralAction.presentModally())
                 .from(GeneralStep.root())
@@ -96,7 +96,7 @@ class AssemblyTest: XCTestCase {
         var chainedStepCount = countSteps(currentStep: lastStepAssembly.assemble())
         XCTAssertEqual(chainedStepCount, 5)
 
-        lastStepAssembly = ContainerStepAssembly(finder: ClassFinder(), factory: NilContainerFactory<UINavigationController, Any?>())
+        lastStepAssembly = StepAssembly(finder: ClassFinder(), factory: NilContainerFactory<UINavigationController, Any?>())
                 .from(GeneralStep.root())
         XCTAssertEqual(lastStepAssembly.previousSteps.count, 2)
 
@@ -203,7 +203,7 @@ class AssemblyTest: XCTestCase {
                                 .assemble())
                 .addCase(expecting: ClassFinder<RouterTests.TestViewController, String>())
                 .addCase(when: ClassFinder<UITabBarController, String>(),
-                        from: ContainerStepAssembly(finder: NilFinder(), factory: NavigationControllerFactory())
+                        from: StepAssembly(finder: NilFinder(), factory: NavigationControllerFactory())
                                 .using(GeneralAction.presentModally())
                                 .from(GeneralStep.current())
                                 .assemble())
@@ -213,7 +213,7 @@ class AssemblyTest: XCTestCase {
                             .assemble()
                 })
                 .assemble(default: {
-                    return ContainerStepAssembly(finder: NilFinder(), factory: NavigationControllerFactory())
+                    return StepAssembly(finder: NilFinder(), factory: NavigationControllerFactory())
                             .using(UITabBarController.add())
                             .from(TabBarControllerStep())
                             .using(GeneralAction.presentModally())

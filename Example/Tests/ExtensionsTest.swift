@@ -275,8 +275,17 @@ class ExtensionsTest: XCTestCase {
 
             var performCallsCount = 0
 
+            var throwInPrepare: Bool
+
+            init(throwInPrepare: Bool = false) {
+                self.throwInPrepare = throwInPrepare
+            }
+
             func prepare(with context: Context) throws {
                 prepareCallsCount += 1
+                if throwInPrepare {
+                    throw RoutingError.generic(.init("Test"))
+                }
             }
 
             func perform(with context: Context, completion: @escaping (RoutingResult) -> Void) {
@@ -285,7 +294,7 @@ class ExtensionsTest: XCTestCase {
             }
         }
 
-        let interceptor1 = TestInterceptor<String>()
+        var interceptor1 = TestInterceptor<String>()
         var wasInCompletion = false
         XCTAssertNoThrow(try interceptor1.execute(with: "test", completion: { _ in
             wasInCompletion = true
@@ -294,7 +303,14 @@ class ExtensionsTest: XCTestCase {
         XCTAssertEqual(interceptor1.prepareCallsCount, 1)
         XCTAssertEqual(interceptor1.performCallsCount, 1)
 
-        let interceptor2 = TestInterceptor<Any?>()
+        interceptor1 = TestInterceptor<String>()
+        wasInCompletion = false
+        XCTAssertNoThrow(interceptor1.commit(with: "test", completion: { _ in
+            wasInCompletion = true
+        }))
+        XCTAssertTrue(wasInCompletion)
+
+        var interceptor2 = TestInterceptor<Any?>()
         wasInCompletion = false
         XCTAssertNoThrow(try interceptor2.execute(completion: { _ in
             wasInCompletion = true
@@ -303,7 +319,16 @@ class ExtensionsTest: XCTestCase {
         XCTAssertEqual(interceptor2.prepareCallsCount, 1)
         XCTAssertEqual(interceptor2.performCallsCount, 1)
 
-        let interceptor3 = TestInterceptor<Void>()
+        interceptor2 = TestInterceptor<Any?>()
+        wasInCompletion = false
+        XCTAssertNoThrow(interceptor2.commit(completion: { _ in
+            wasInCompletion = true
+        }))
+        XCTAssertTrue(wasInCompletion)
+        XCTAssertEqual(interceptor2.prepareCallsCount, 1)
+        XCTAssertEqual(interceptor2.performCallsCount, 1)
+
+        var interceptor3 = TestInterceptor<Void>()
         wasInCompletion = false
         XCTAssertNoThrow(try interceptor3.execute(completion: { _ in
             wasInCompletion = true
@@ -311,6 +336,24 @@ class ExtensionsTest: XCTestCase {
         XCTAssertTrue(wasInCompletion)
         XCTAssertEqual(interceptor3.prepareCallsCount, 1)
         XCTAssertEqual(interceptor3.performCallsCount, 1)
+
+        interceptor3 = TestInterceptor<Void>()
+        wasInCompletion = false
+        XCTAssertNoThrow(interceptor3.commit(completion: { _ in
+            wasInCompletion = true
+        }))
+        XCTAssertTrue(wasInCompletion)
+        XCTAssertEqual(interceptor3.prepareCallsCount, 1)
+        XCTAssertEqual(interceptor3.performCallsCount, 1)
+
+        interceptor3 = TestInterceptor<Void>(throwInPrepare: true)
+        wasInCompletion = false
+        XCTAssertNoThrow(interceptor3.commit(completion: { _ in
+            wasInCompletion = true
+        }))
+        XCTAssertTrue(wasInCompletion)
+        XCTAssertEqual(interceptor3.prepareCallsCount, 1)
+        XCTAssertEqual(interceptor3.performCallsCount, 0)
     }
 
     func testContextTaskExecute() {
