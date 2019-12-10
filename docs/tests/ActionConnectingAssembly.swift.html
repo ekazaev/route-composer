@@ -54,7 +54,7 @@
 </tr>
 <tr class="never">
 <td class="num">9</td>
-<td class="src"><pre><code class="objc">public struct ActionConnectingAssembly&lt;PVC: UIViewController, VC: UIViewController, C&gt;: ActionConnecting {</code></pre></td>
+<td class="src"><pre><code class="objc">public struct ActionConnectingAssembly&lt;VC: UIViewController, C&gt;: ActionConnecting {</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -84,7 +84,7 @@
 </tr>
 <tr class="never">
 <td class="num">15</td>
-<td class="src"><pre><code class="objc">    let stepToFullFill: ActionToStepIntegrator&lt;PVC, C&gt;</code></pre></td>
+<td class="src"><pre><code class="objc">    let stepToFullFill: IntermediateDestinationStep</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -104,7 +104,7 @@
 </tr>
 <tr class="covered">
 <td class="num">19</td>
-<td class="src"><pre><code class="objc">    init(stepToFullFill: ActionToStepIntegrator&lt;PVC, C&gt;, previousSteps: [RoutingStep] = []) {</code></pre></td>
+<td class="src"><pre><code class="objc">    init(stepToFullFill: IntermediateDestinationStep, previousSteps: [RoutingStep] = []) {</code></pre></td>
 <td class="coverage">51x</td>
 </tr>
 <tr class="covered">
