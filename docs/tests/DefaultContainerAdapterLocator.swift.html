@@ -145,22 +145,22 @@
 <tr class="covered">
 <td class="num">27</td>
 <td class="src"><pre><code class="objc">    public func getAdapter(for containerViewController: ContainerViewController) throws -&gt; ContainerAdapter {</code></pre></td>
-<td class="coverage">733x</td>
+<td class="coverage">731x</td>
 </tr>
 <tr class="covered">
 <td class="num">28</td>
 <td class="src"><pre><code class="objc">        guard let customContainerController = containerViewController as? CustomContainerViewController else {</code></pre></td>
-<td class="coverage">733x</td>
+<td class="coverage">731x</td>
 </tr>
 <tr class="covered">
 <td class="num">29</td>
 <td class="src"><pre><code class="objc">            return try getDefaultAdapter(for: containerViewController)</code></pre></td>
-<td class="coverage">725x</td>
+<td class="coverage">723x</td>
 </tr>
 <tr class="covered">
 <td class="num">30</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">725x</td>
+<td class="coverage">723x</td>
 </tr>
 <tr class="covered">
 <td class="num">31</td>
@@ -170,7 +170,7 @@
 <tr class="covered">
 <td class="num">32</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">733x</td>
+<td class="coverage">731x</td>
 </tr>
 <tr class="never">
 <td class="num">33</td>
@@ -180,47 +180,47 @@
 <tr class="covered">
 <td class="num">34</td>
 <td class="src"><pre><code class="objc">    func getDefaultAdapter(for containerViewController: ContainerViewController) throws -&gt; ContainerAdapter {</code></pre></td>
-<td class="coverage">725x</td>
+<td class="coverage">723x</td>
 </tr>
 <tr class="covered">
 <td class="num">35</td>
 <td class="src"><pre><code class="objc">        switch containerViewController {</code></pre></td>
-<td class="coverage">725x</td>
+<td class="coverage">723x</td>
 </tr>
 <tr class="covered">
 <td class="num">36</td>
 <td class="src"><pre><code class="objc">        case let navigationController as UINavigationController:</code></pre></td>
-<td class="coverage">725x</td>
+<td class="coverage">723x</td>
 </tr>
 <tr class="covered">
 <td class="num">37</td>
 <td class="src"><pre><code class="objc">            return NavigationControllerAdapter(with: navigationController)</code></pre></td>
-<td class="coverage">385x</td>
+<td class="coverage">384x</td>
 </tr>
 <tr class="covered">
 <td class="num">38</td>
 <td class="src"><pre><code class="objc">        case let tabBarController as UITabBarController:</code></pre></td>
-<td class="coverage">725x</td>
+<td class="coverage">723x</td>
 </tr>
 <tr class="covered">
 <td class="num">39</td>
 <td class="src"><pre><code class="objc">            return TabBarControllerAdapter(with: tabBarController)</code></pre></td>
-<td class="coverage">300x</td>
+<td class="coverage">301x</td>
 </tr>
 <tr class="covered">
 <td class="num">40</td>
 <td class="src"><pre><code class="objc">        case let splitController as UISplitViewController:</code></pre></td>
-<td class="coverage">725x</td>
+<td class="coverage">723x</td>
 </tr>
 <tr class="covered">
 <td class="num">41</td>
 <td class="src"><pre><code class="objc">            return SplitControllerAdapter(with: splitController)</code></pre></td>
-<td class="coverage">40x</td>
+<td class="coverage">38x</td>
 </tr>
 <tr class="covered">
 <td class="num">42</td>
 <td class="src"><pre><code class="objc">        default:</code></pre></td>
-<td class="coverage">725x</td>
+<td class="coverage">723x</td>
 </tr>
 <tr class="missed">
 <td class="num">43</td>
@@ -240,12 +240,12 @@
 <tr class="covered">
 <td class="num">46</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">725x</td>
+<td class="coverage">723x</td>
 </tr>
 <tr class="covered">
 <td class="num">47</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">725x</td>
+<td class="coverage">723x</td>
 </tr>
 <tr class="never">
 <td class="num">48</td>

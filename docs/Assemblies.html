@@ -103,9 +103,6 @@
                 <a class="nav-group-task-link" href="Classes/StepAssembly.html">StepAssembly</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Classes/ContainerStepAssembly.html">ContainerStepAssembly</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Classes/SwitchAssembly.html">SwitchAssembly</a>
               </li>
               <li class="nav-group-task">
@@ -306,6 +303,9 @@
                 <a class="nav-group-task-link" href="Classes/GenericStepAssembly.html">GenericStepAssembly</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Other%20Classes.html#/s:13RouteComposer27IntermediateDestinationStepC">IntermediateDestinationStep</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Classes/SingleNavigationLock.html">SingleNavigationLock</a>
               </li>
             </ul>
@@ -341,9 +341,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Protocols/AbstractFactory.html">AbstractFactory</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Protocols/ActionConnecting.html">ActionConnecting</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Protocols/ConcreteContainerAdapter.html">ConcreteContainerAdapter</a>
@@ -543,50 +540,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">StepAssembly</span><span class="o">&lt;</span><span class="kt">F</span><span class="p">:</span> <span class="kt"><a href="Protocols/Finder.html">Finder</a></span><span class="p">,</span> <span class="kt">FC</span><span class="p">:</span> <span class="kt"><a href="Protocols/Factory.html">Factory</a></span><span class="o">&gt;</span><span class="p">:</span> <span class="kt"><a href="Classes/GenericStepAssembly.html">GenericStepAssembly</a></span><span class="o">&lt;</span><span class="kt">F</span><span class="o">.</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">Context</span><span class="o">&gt;</span><span class="p">,</span> <span class="kt"><a href="Protocols/ActionConnecting.html">ActionConnecting</a></span>
-        <span class="k">where</span>
-        <span class="kt">F</span><span class="o">.</span><span class="kt">ViewController</span> <span class="o">==</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">F</span><span class="o">.</span><span class="kt">Context</span> <span class="o">==</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">Context</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul class="item-container">
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:13RouteComposer21ContainerStepAssemblyC"></a>
-                    <a name="//apple_ref/swift/Class/ContainerStepAssembly" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer21ContainerStepAssemblyC">ContainerStepAssembly</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Builds a <code><a href="Structs/DestinationStep.html">DestinationStep</a></code> instance with the correct settings into a chain of steps.</p>
-<h3 id='nb' class='heading'>NB:</h3>
-
-<p>Both <code><a href="Protocols/Finder.html">Finder</a></code> and <code><a href="Protocols/Factory.html">Factory</a></code> instances should deal with the same type of <code>UIViewController</code> and <code>Context</code> instances.</p>
-<h3 id='usage' class='heading'>Usage</h3>
-<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">containerScreen</span> <span class="o">=</span> <span class="kt">ContainerStepAssembly</span><span class="p">(</span><span class="nv">finder</span><span class="p">:</span> <span class="kt">ClassFinder</span><span class="p">(),</span> <span class="nv">factory</span><span class="p">:</span> <span class="kt">NavigationControllerFactory</span><span class="o">&lt;</span><span class="kt">UINavigationController</span><span class="p">,</span> <span class="kt">Any</span><span class="p">?</span><span class="o">&gt;</span><span class="p">())</span>
-        <span class="o">.</span><span class="nf">using</span><span class="p">(</span><span class="kt">GeneralAction</span><span class="o">.</span><span class="nf">presentModally</span><span class="p">())</span>
-        <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="kt">GeneralAction</span><span class="o">.</span><span class="nf">current</span><span class="p">())</span>
-        <span class="o">.</span><span class="nf">assemble</span><span class="p">()</span>
-</code></pre>
-
-                        <a href="Classes/ContainerStepAssembly.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">ContainerStepAssembly</span><span class="o">&lt;</span><span class="kt">F</span><span class="p">:</span> <span class="kt"><a href="Protocols/Finder.html">Finder</a></span><span class="p">,</span> <span class="kt">FC</span><span class="p">:</span> <span class="kt"><a href="Protocols/ContainerFactory.html">ContainerFactory</a></span><span class="o">&gt;</span><span class="p">:</span> <span class="kt"><a href="Classes/GenericStepAssembly.html">GenericStepAssembly</a></span><span class="o">&lt;</span><span class="kt">F</span><span class="o">.</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">F</span><span class="o">.</span><span class="kt">Context</span><span class="o">&gt;</span><span class="p">,</span> <span class="kt"><a href="Protocols/ActionConnecting.html">ActionConnecting</a></span>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">StepAssembly</span><span class="o">&lt;</span><span class="kt">F</span><span class="p">:</span> <span class="kt"><a href="Protocols/Finder.html">Finder</a></span><span class="p">,</span> <span class="kt">FC</span><span class="p">:</span> <span class="kt"><a href="Protocols/AbstractFactory.html">AbstractFactory</a></span><span class="o">&gt;</span><span class="p">:</span> <span class="kt"><a href="Classes/GenericStepAssembly.html">GenericStepAssembly</a></span><span class="o">&lt;</span><span class="kt">F</span><span class="o">.</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">Context</span><span class="o">&gt;</span>
         <span class="k">where</span>
         <span class="kt">F</span><span class="o">.</span><span class="kt">ViewController</span> <span class="o">==</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">F</span><span class="o">.</span><span class="kt">Context</span> <span class="o">==</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">Context</span></code></pre>
 
@@ -730,7 +684,7 @@
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://github.com/ekazaev" target="_blank" rel="external">Evgeny Kazaev</a>. All rights reserved. (Last updated: 2019-11-07)</p>
+      <p>&copy; 2019 <a class="link" href="https://github.com/ekazaev" target="_blank" rel="external">Evgeny Kazaev</a>. All rights reserved. (Last updated: 2019-12-10)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

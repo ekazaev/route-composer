@@ -53,6 +53,9 @@ public extension StepAssembly where FC: Factory {
         self.init(finder: finder, abstractFactory: factory)
     }
 
+    /// Connects previously provided `DestinationStep` instance with an `Action`
+    ///
+    /// - Parameter action: `Action` instance to be used with a step.
     final func using<A: Action>(_ action: A) -> StepChainAssembly<ViewController, Context> {
         var previousSteps = self.previousSteps
         let entitiesCollector = BaseEntitiesCollector<FactoryBox<FC>, ActionBox>(finder: finder, factory: factory, action: action)
@@ -61,6 +64,9 @@ public extension StepAssembly where FC: Factory {
         return StepChainAssembly(previousSteps: previousSteps)
     }
 
+    /// Connects previously provided `DestinationStep` instance with an `Action`
+    ///
+    /// - Parameter action: `ContainerAction` instance to be used with a step.
     final func using<A: ContainerAction>(_ action: A) -> ContainerStepChainAssembly<A.ViewController, ViewController, Context> {
         var previousSteps = self.previousSteps
         let entitiesCollector = BaseEntitiesCollector<FactoryBox<FC>, ContainerActionBox>(finder: finder, factory: factory, action: action)

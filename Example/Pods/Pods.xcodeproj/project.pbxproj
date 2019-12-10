@@ -75,7 +75,6 @@
 		88C289499AE31884996A029B23E2EE43 /* AnyContextTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06182BDCDBE41E34387A55E30C391440 /* AnyContextTask.swift */; };
 		8A1F7631F6BDEFB77B3723DFBF28352C /* CompleteFactoryAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AFB935CE66DAC7A259D55793A62D0A /* CompleteFactoryAssembly.swift */; };
 		8B6EB20725B109FC9D7AEC7C4B865F79 /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF457C08F92D76961D64B3B3BAAE685 /* Factory.swift */; };
-		8BE21EA9C5664461C62BD2F06EC6D01A /* ActionConnecting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724CC09E1033363F46B56DFFA09DD855 /* ActionConnecting.swift */; };
 		8D9EF575715F446036AFB84D521CFC96 /* SearchOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD20F3F19EDBED3928CAFAE1F379741 /* SearchOptions.swift */; };
 		8EA1B2C6C34B3CA476D9485044A066A6 /* InterceptableStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0DC74F988FCAB3B4C8606FD05C9DC5 /* InterceptableStep.swift */; };
 		9018B367F7C86745C3531289D0554435 /* ContextChecking.swift in Sources */ = {isa = PBXBuildFile; fileRef = C859F0C2144A2EE4B3A1978F243BD097 /* ContextChecking.swift */; };
@@ -243,7 +242,6 @@
 		6EDE7EDDFF5AA377B16635A0FF52A8A0 /* Array+PrivateExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Array+PrivateExtension.swift"; sourceTree = "<group>"; };
 		6F68FD381B466EB41A46885EB5D740D6 /* AnyFinder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AnyFinder.swift; sourceTree = "<group>"; };
 		70A9321D92ED97C3783E9DC20D62413D /* ContextTask.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ContextTask.swift; path = RouteComposer/Classes/ContextTask.swift; sourceTree = "<group>"; };
-		724CC09E1033363F46B56DFFA09DD855 /* ActionConnecting.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ActionConnecting.swift; sourceTree = "<group>"; };
 		72D1D6B4F165BEBE447C0223DB6674C0 /* Pods-RouteComposer_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-RouteComposer_Example.modulemap"; sourceTree = "<group>"; };
 		7326CADEC0BA18B14BADAF9B03CC2EA6 /* ContextSettingTask.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ContextSettingTask.swift; sourceTree = "<group>"; };
 		756A323D5A3C8817EB1869E7FCB7B8AF /* ConcreteContainerAdapter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ConcreteContainerAdapter.swift; sourceTree = "<group>"; };
@@ -380,7 +378,6 @@
 		09258069F215A69E3D350D7888F4C884 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				724CC09E1033363F46B56DFFA09DD855 /* ActionConnecting.swift */,
 				DE2D04438727DD76B462926A01156B6A /* ActionConnectingAssembly.swift */,
 				B5F3C43CC0E0AE0E52795015B603C464 /* ActionToStepIntegrator.swift */,
 				D9E350A319B0FC77D7CD8C50E52DE3A4 /* BaseEntitiesCollector.swift */,
@@ -931,7 +928,6 @@
 				90BEC2079EF123758BA4C00FE4EE32B7 /* AbstractFactory.swift in Sources */,
 				ABD369A5B8BB3428889BDEB5A495BD58 /* Action.swift in Sources */,
 				DCDB4EEE0E302A92DF495425A3C02C21 /* ActionBox.swift in Sources */,
-				8BE21EA9C5664461C62BD2F06EC6D01A /* ActionConnecting.swift in Sources */,
 				A34863BBD287F4381E25928F35F7EF9B /* ActionConnectingAssembly.swift in Sources */,
 				B56E16A3CE2CCBE2409688D9C687821F /* ActionToStepIntegrator.swift in Sources */,
 				BF66B6969EED7B08625237D2ADC19282 /* AnyAction.swift in Sources */,

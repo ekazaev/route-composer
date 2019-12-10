@@ -6,7 +6,7 @@ import Foundation
 import UIKit
 
 /// Helper class to build a chain of steps. Can not be used directly.
-public struct ActionConnectingAssembly<VC: UIViewController, C>: ActionConnecting {
+public struct ActionConnectingAssembly<VC: UIViewController, C> {
 
     // MARK: Properties
 
@@ -21,6 +21,10 @@ public struct ActionConnectingAssembly<VC: UIViewController, C>: ActionConnectin
         self.stepToFullFill = stepToFullFill
     }
 
+    /// Connects previously provided step instance with an `Action`
+    ///
+    /// - Parameter action: `Action` instance to be used with a step.
+    /// - Returns: `ChainAssembly` to continue building the chain.
     public func using<A: Action>(_ action: A) -> StepChainAssembly<VC, C> {
         var previousSteps = self.previousSteps
         if let routingStep = stepToFullFill.routingStep(with: action) {
@@ -29,6 +33,10 @@ public struct ActionConnectingAssembly<VC: UIViewController, C>: ActionConnectin
         return StepChainAssembly(previousSteps: previousSteps)
     }
 
+    /// Connects previously provided step instance with an `Action`
+    ///
+    /// - Parameter action: `Action` instance to be used with a step.
+    /// - Returns: `ChainAssembly` to continue building the chain.
     public func using<A: ContainerAction>(_ action: A) -> ContainerStepChainAssembly<A.ViewController, VC, C> {
         var previousSteps = self.previousSteps
         if let routingStep = stepToFullFill.embeddableRoutingStep(with: action) {
