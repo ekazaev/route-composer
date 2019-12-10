@@ -64,6 +64,15 @@ public extension RoutingInterceptor {
         interceptor.perform(with: context, completion: completion)
     }
 
+    /// Prepares the `RoutingInterceptor` and performs it. Does not throw an exception.
+    func commit(with context: Context, completion: @escaping (_: RoutingResult) -> Void) {
+        do {
+            try execute(with: context, completion: completion)
+        } catch {
+            completion(.failure(error))
+        }
+    }
+
 }
 
 // MARK: Helper methods where the Context is Any?
@@ -95,6 +104,11 @@ public extension RoutingInterceptor where Context == Any? {
     /// Prepares the `RoutingInterceptor` and executes it
     func execute(completion: @escaping (_: RoutingResult) -> Void) throws {
         try execute(with: nil, completion: completion)
+    }
+
+    /// Prepares the `RoutingInterceptor` and performs it. Does not throw an exception.
+    func commit(completion: @escaping (_: RoutingResult) -> Void) {
+        commit(with: nil, completion: completion)
     }
 
 }
@@ -129,4 +143,10 @@ public extension RoutingInterceptor where Context == Void {
     func execute(completion: @escaping (_: RoutingResult) -> Void) throws {
         try execute(with: (), completion: completion)
     }
+
+    /// Prepares the `RoutingInterceptor` and performs it. Does not throw an exception.
+    func commit(completion: @escaping (_: RoutingResult) -> Void) {
+        commit(with: (), completion: completion)
+    }
+
 }

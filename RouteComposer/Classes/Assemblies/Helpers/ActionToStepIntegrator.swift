@@ -5,17 +5,23 @@
 import Foundation
 import UIKit
 
-protocol ActionToStepIntegrating {
+// This class is only needed not to expose `RoutingStep` as public.
+public class IntermediateDestinationStep {
 
     // Hides action integration from library user.
-    func routingStep<A: Action>(with action: A) -> RoutingStep?
+    func routingStep<A: Action>(with action: A) -> RoutingStep? {
+        return nil
+    }
 
     // Hides action integration from library user.
-    func embeddableRoutingStep<A: ContainerAction>(with action: A) -> RoutingStep?
+    func embeddableRoutingStep<A: ContainerAction>(with action: A) -> RoutingStep? {
+        return nil
+    }
 
 }
+
 /// A simple class that represents an intermediate `DestinationStep` and allows to add tasks to it.
-public class ActionToStepIntegrator<VC: UIViewController, C>: InterceptableStepAssembling, ActionToStepIntegrating {
+public class ActionToStepIntegrator<VC: UIViewController, C>: IntermediateDestinationStep, InterceptableStepAssembling {
 
     // MARK: Associated types
 
@@ -63,16 +69,6 @@ public class ActionToStepIntegrator<VC: UIViewController, C>: InterceptableStepA
     public final func adding<PT: PostRoutingTask>(_ postTask: PT) -> Self where PT.Context == Context {
         taskCollector.add(postTask)
         return self
-    }
-
-    // Hides action integration from library user.
-    func routingStep<A: Action>(with action: A) -> RoutingStep? {
-        return nil
-    }
-
-    // Hides action integration from library user.
-    func embeddableRoutingStep<A: ContainerAction>(with action: A) -> RoutingStep? {
-        return nil
     }
 
 }
