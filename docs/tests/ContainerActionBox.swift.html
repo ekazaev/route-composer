@@ -70,17 +70,17 @@
 <tr class="covered">
 <td class="num">12</td>
 <td class="src"><pre><code class="objc">    init(_ action: A) {</code></pre></td>
-<td class="coverage">109x</td>
+<td class="coverage">160x</td>
 </tr>
 <tr class="covered">
 <td class="num">13</td>
 <td class="src"><pre><code class="objc">        self.action = action</code></pre></td>
-<td class="coverage">109x</td>
+<td class="coverage">160x</td>
 </tr>
 <tr class="covered">
 <td class="num">14</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">109x</td>
+<td class="coverage">160x</td>
 </tr>
 <tr class="never">
 <td class="num">15</td>
@@ -115,22 +115,22 @@
 <tr class="covered">
 <td class="num">21</td>
 <td class="src"><pre><code class="objc">                 completion: @escaping (RoutingResult) -&gt; Void) {</code></pre></td>
-<td class="coverage">24x</td>
+<td class="coverage">45x</td>
 </tr>
 <tr class="covered">
 <td class="num">22</td>
 <td class="src"><pre><code class="objc">        assertIfNotMainThread()</code></pre></td>
-<td class="coverage">24x</td>
+<td class="coverage">45x</td>
 </tr>
 <tr class="covered">
 <td class="num">23</td>
 <td class="src"><pre><code class="objc">        if let postponedController = postponedIntegrationHandler.containerViewController {</code></pre></td>
-<td class="coverage">24x</td>
+<td class="coverage">45x</td>
 </tr>
 <tr class="covered">
 <td class="num">24</td>
 <td class="src"><pre><code class="objc">            guard postponedController is A.ViewController else {</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">2x</td>
 </tr>
 <tr class="missed">
 <td class="num">25</td>
@@ -195,22 +195,22 @@
 <tr class="covered">
 <td class="num">37</td>
 <td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">2x</td>
 </tr>
 <tr class="covered">
 <td class="num">38</td>
 <td class="src"><pre><code class="objc">            embed(viewController: viewController, with: postponedIntegrationHandler, completion: completion)</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">2x</td>
 </tr>
 <tr class="covered">
 <td class="num">39</td>
 <td class="src"><pre><code class="objc">        } else {</code></pre></td>
-<td class="coverage">24x</td>
+<td class="coverage">45x</td>
 </tr>
 <tr class="covered">
 <td class="num">40</td>
 <td class="src"><pre><code class="objc">            guard let containerController: A.ViewController = UIViewController.findContainer(of: existingController) else {</code></pre></td>
-<td class="coverage">23x</td>
+<td class="coverage">43x</td>
 </tr>
 <tr class="missed">
 <td class="num">41</td>
@@ -240,27 +240,27 @@
 <tr class="covered">
 <td class="num">46</td>
 <td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">23x</td>
+<td class="coverage">43x</td>
 </tr>
 <tr class="covered">
 <td class="num">47</td>
 <td class="src"><pre><code class="objc">            let shouldDelayPerforming = nextAction?.isEmbeddable(to: A.ViewController.self) ?? false</code></pre></td>
-<td class="coverage">23x</td>
+<td class="coverage">43x</td>
 </tr>
 <tr class="covered">
 <td class="num">48</td>
 <td class="src"><pre><code class="objc">            if shouldDelayPerforming {</code></pre></td>
-<td class="coverage">23x</td>
+<td class="coverage">43x</td>
 </tr>
 <tr class="covered">
 <td class="num">49</td>
 <td class="src"><pre><code class="objc">                postponedIntegrationHandler.update(containerViewController: containerController, animated: animated, completion: { result in</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">3x</td>
 </tr>
 <tr class="covered">
 <td class="num">50</td>
 <td class="src"><pre><code class="objc">                    guard result.isSuccessful else {</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">3x</td>
 </tr>
 <tr class="missed">
 <td class="num">51</td>
@@ -270,32 +270,32 @@
 <tr class="covered">
 <td class="num">52</td>
 <td class="src"><pre><code class="objc">                    }</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">3x</td>
 </tr>
 <tr class="covered">
 <td class="num">53</td>
 <td class="src"><pre><code class="objc">                    self.embed(viewController: viewController, with: postponedIntegrationHandler, completion: completion)</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">3x</td>
 </tr>
 <tr class="covered">
 <td class="num">54</td>
 <td class="src"><pre><code class="objc">                })</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">3x</td>
 </tr>
 <tr class="covered">
 <td class="num">55</td>
 <td class="src"><pre><code class="objc">            } else {</code></pre></td>
-<td class="coverage">23x</td>
+<td class="coverage">43x</td>
 </tr>
 <tr class="covered">
 <td class="num">56</td>
 <td class="src"><pre><code class="objc">                postponedIntegrationHandler.purge(animated: animated, completion: { result in</code></pre></td>
-<td class="coverage">21x</td>
+<td class="coverage">40x</td>
 </tr>
 <tr class="covered">
 <td class="num">57</td>
 <td class="src"><pre><code class="objc">                    guard result.isSuccessful else {</code></pre></td>
-<td class="coverage">21x</td>
+<td class="coverage">40x</td>
 </tr>
 <tr class="missed">
 <td class="num">58</td>
@@ -305,47 +305,47 @@
 <tr class="covered">
 <td class="num">59</td>
 <td class="src"><pre><code class="objc">                    }</code></pre></td>
-<td class="coverage">21x</td>
+<td class="coverage">40x</td>
 </tr>
 <tr class="covered">
 <td class="num">60</td>
 <td class="src"><pre><code class="objc">                    self.action.perform(with: viewController, on: containerController, animated: animated) { result in</code></pre></td>
-<td class="coverage">21x</td>
+<td class="coverage">40x</td>
 </tr>
 <tr class="covered">
 <td class="num">61</td>
 <td class="src"><pre><code class="objc">                        self.assertIfNotMainThread()</code></pre></td>
-<td class="coverage">21x</td>
+<td class="coverage">40x</td>
 </tr>
 <tr class="covered">
 <td class="num">62</td>
 <td class="src"><pre><code class="objc">                        completion(result)</code></pre></td>
-<td class="coverage">21x</td>
+<td class="coverage">40x</td>
 </tr>
 <tr class="covered">
 <td class="num">63</td>
 <td class="src"><pre><code class="objc">                    }</code></pre></td>
-<td class="coverage">21x</td>
+<td class="coverage">40x</td>
 </tr>
 <tr class="covered">
 <td class="num">64</td>
 <td class="src"><pre><code class="objc">                })</code></pre></td>
-<td class="coverage">21x</td>
+<td class="coverage">40x</td>
 </tr>
 <tr class="covered">
 <td class="num">65</td>
 <td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">23x</td>
+<td class="coverage">43x</td>
 </tr>
 <tr class="covered">
 <td class="num">66</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">24x</td>
+<td class="coverage">45x</td>
 </tr>
 <tr class="covered">
 <td class="num">67</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">24x</td>
+<td class="coverage">45x</td>
 </tr>
 <tr class="never">
 <td class="num">68</td>
@@ -355,37 +355,37 @@
 <tr class="covered">
 <td class="num">69</td>
 <td class="src"><pre><code class="objc">    private func embed(viewController: UIViewController, with postponedIntegrationHandler: PostponedActionIntegrationHandler, completion: @escaping (RoutingResult) -&gt; Void) {</code></pre></td>
-<td class="coverage">3x</td>
+<td class="coverage">5x</td>
 </tr>
 <tr class="covered">
 <td class="num">70</td>
 <td class="src"><pre><code class="objc">        do {</code></pre></td>
-<td class="coverage">3x</td>
+<td class="coverage">5x</td>
 </tr>
 <tr class="covered">
 <td class="num">71</td>
 <td class="src"><pre><code class="objc">            var postponedChildControllers = postponedIntegrationHandler.postponedViewControllers</code></pre></td>
-<td class="coverage">3x</td>
+<td class="coverage">5x</td>
 </tr>
 <tr class="covered">
 <td class="num">72</td>
 <td class="src"><pre><code class="objc">            try perform(embedding: viewController, in: &amp;postponedChildControllers)</code></pre></td>
-<td class="coverage">3x</td>
+<td class="coverage">5x</td>
 </tr>
 <tr class="covered">
 <td class="num">73</td>
 <td class="src"><pre><code class="objc">            postponedIntegrationHandler.update(postponedViewControllers: postponedChildControllers)</code></pre></td>
-<td class="coverage">3x</td>
+<td class="coverage">5x</td>
 </tr>
 <tr class="covered">
 <td class="num">74</td>
 <td class="src"><pre><code class="objc">            completion(.success)</code></pre></td>
-<td class="coverage">3x</td>
+<td class="coverage">5x</td>
 </tr>
 <tr class="covered">
 <td class="num">75</td>
 <td class="src"><pre><code class="objc">        } catch {</code></pre></td>
-<td class="coverage">3x</td>
+<td class="coverage">5x</td>
 </tr>
 <tr class="missed">
 <td class="num">76</td>
@@ -395,12 +395,12 @@
 <tr class="covered">
 <td class="num">77</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">3x</td>
+<td class="coverage">5x</td>
 </tr>
 <tr class="covered">
 <td class="num">78</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">3x</td>
+<td class="coverage">5x</td>
 </tr>
 <tr class="never">
 <td class="num">79</td>
@@ -410,17 +410,17 @@
 <tr class="covered">
 <td class="num">80</td>
 <td class="src"><pre><code class="objc">    func perform(embedding viewController: UIViewController, in childViewControllers: inout [UIViewController]) throws {</code></pre></td>
-<td class="coverage">59x</td>
+<td class="coverage">89x</td>
 </tr>
 <tr class="covered">
 <td class="num">81</td>
 <td class="src"><pre><code class="objc">        try action.perform(embedding: viewController, in: &amp;childViewControllers)</code></pre></td>
-<td class="coverage">59x</td>
+<td class="coverage">89x</td>
 </tr>
 <tr class="covered">
 <td class="num">82</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">59x</td>
+<td class="coverage">89x</td>
 </tr>
 <tr class="never">
 <td class="num">83</td>
@@ -430,17 +430,17 @@
 <tr class="covered">
 <td class="num">84</td>
 <td class="src"><pre><code class="objc">    public var description: String {</code></pre></td>
-<td class="coverage">22x</td>
+<td class="coverage">43x</td>
 </tr>
 <tr class="covered">
 <td class="num">85</td>
 <td class="src"><pre><code class="objc">        return String(describing: action)</code></pre></td>
-<td class="coverage">22x</td>
+<td class="coverage">43x</td>
 </tr>
 <tr class="covered">
 <td class="num">86</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">22x</td>
+<td class="coverage">43x</td>
 </tr>
 <tr class="never">
 <td class="num">87</td>
@@ -450,17 +450,17 @@
 <tr class="covered">
 <td class="num">88</td>
 <td class="src"><pre><code class="objc">    func isEmbeddable(to container: ContainerViewController.Type) -&gt; Bool {</code></pre></td>
-<td class="coverage">40x</td>
+<td class="coverage">69x</td>
 </tr>
 <tr class="covered">
 <td class="num">89</td>
 <td class="src"><pre><code class="objc">        return container is A.ViewController.Type</code></pre></td>
-<td class="coverage">40x</td>
+<td class="coverage">69x</td>
 </tr>
 <tr class="covered">
 <td class="num">90</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">40x</td>
+<td class="coverage">69x</td>
 </tr>
 <tr class="never">
 <td class="num">91</td>

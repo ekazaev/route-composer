@@ -34,13 +34,15 @@ public final class StepAssembly<F: Finder, FC: AbstractFactory>: GenericStepAsse
 
     // MARK: Methods
 
-    fileprivate init(finder: F, abstractFactory: FC) {
+    private init(finder: F, abstractFactory: FC) {
         self.factory = abstractFactory
         self.finder = finder
         self.previousSteps = []
     }
 
 }
+
+// MARK: Methods for Factory
 
 public extension StepAssembly where FC: Factory {
 
@@ -77,6 +79,8 @@ public extension StepAssembly where FC: Factory {
 
 }
 
+// MARK: Methods for ContainerFactory
+
 public extension StepAssembly where FC: ContainerFactory {
 
     /// Constructor
@@ -111,7 +115,7 @@ public extension StepAssembly where FC: ContainerFactory {
     }
 }
 
-// MARK: Methods for the NilFactory
+// MARK: Methods for the Nil Factory
 
 public extension StepAssembly where FC: Factory & NilEntity {
 
@@ -144,7 +148,7 @@ public extension StepAssembly where FC: Factory & NilEntity {
 
 }
 
-// MARK: Methods for the NilFactory
+// MARK: Methods for the Nil ConatinerFactory
 
 public extension StepAssembly where FC: ContainerFactory & NilEntity {
 

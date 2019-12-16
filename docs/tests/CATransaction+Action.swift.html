@@ -110,17 +110,17 @@
 <tr class="covered">
 <td class="num">20</td>
 <td class="src"><pre><code class="objc">    static func wrap&lt;A: Action&gt;(_ action: A) -&gt; CATransactionWrappedAction&lt;A&gt; {</code></pre></td>
-<td class="coverage">50x</td>
+<td class="coverage">99x</td>
 </tr>
 <tr class="covered">
 <td class="num">21</td>
 <td class="src"><pre><code class="objc">        return CATransactionWrappedAction(action)</code></pre></td>
-<td class="coverage">50x</td>
+<td class="coverage">99x</td>
 </tr>
 <tr class="covered">
 <td class="num">22</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">50x</td>
+<td class="coverage">99x</td>
 </tr>
 <tr class="never">
 <td class="num">23</td>
@@ -145,17 +145,17 @@
 <tr class="covered">
 <td class="num">27</td>
 <td class="src"><pre><code class="objc">    static func wrap&lt;A: ContainerAction&gt;(_ action: A) -&gt; CATransactionWrappedContainerAction&lt;A&gt; {</code></pre></td>
-<td class="coverage">5x</td>
+<td class="coverage">8x</td>
 </tr>
 <tr class="covered">
 <td class="num">28</td>
 <td class="src"><pre><code class="objc">        return CATransactionWrappedContainerAction(action)</code></pre></td>
-<td class="coverage">5x</td>
+<td class="coverage">8x</td>
 </tr>
 <tr class="covered">
 <td class="num">29</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">5x</td>
+<td class="coverage">8x</td>
 </tr>
 <tr class="never">
 <td class="num">30</td>
@@ -245,17 +245,17 @@
 <tr class="covered">
 <td class="num">47</td>
 <td class="src"><pre><code class="objc">    init(_ action: A) {</code></pre></td>
-<td class="coverage">50x</td>
+<td class="coverage">99x</td>
 </tr>
 <tr class="covered">
 <td class="num">48</td>
 <td class="src"><pre><code class="objc">        self.action = action</code></pre></td>
-<td class="coverage">50x</td>
+<td class="coverage">99x</td>
 </tr>
 <tr class="covered">
 <td class="num">49</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">50x</td>
+<td class="coverage">99x</td>
 </tr>
 <tr class="never">
 <td class="num">50</td>
@@ -265,12 +265,12 @@
 <tr class="covered">
 <td class="num">51</td>
 <td class="src"><pre><code class="objc">    public func perform(with viewController: UIViewController, on existingController: A.ViewController, animated: Bool, completion: @escaping (RoutingResult) -&gt; Void) {</code></pre></td>
-<td class="coverage">14x</td>
+<td class="coverage">27x</td>
 </tr>
 <tr class="covered">
 <td class="num">52</td>
 <td class="src"><pre><code class="objc">        guard animated else {</code></pre></td>
-<td class="coverage">14x</td>
+<td class="coverage">27x</td>
 </tr>
 <tr class="covered">
 <td class="num">53</td>
@@ -285,57 +285,57 @@
 <tr class="covered">
 <td class="num">55</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">13x</td>
+<td class="coverage">26x</td>
 </tr>
 <tr class="covered">
 <td class="num">56</td>
 <td class="src"><pre><code class="objc">        CATransaction.begin()</code></pre></td>
-<td class="coverage">13x</td>
+<td class="coverage">26x</td>
 </tr>
 <tr class="covered">
 <td class="num">57</td>
 <td class="src"><pre><code class="objc">        var actionResult: RoutingResult = .failure(RoutingError.compositionFailed(.init("Wrapped \(action) did not complete correctly.")))</code></pre></td>
-<td class="coverage">13x</td>
+<td class="coverage">26x</td>
 </tr>
 <tr class="covered">
 <td class="num">58</td>
 <td class="src"><pre><code class="objc">        self.action.perform(with: viewController, on: existingController, animated: true, completion: { result in</code></pre></td>
-<td class="coverage">13x</td>
+<td class="coverage">26x</td>
 </tr>
 <tr class="covered">
 <td class="num">59</td>
 <td class="src"><pre><code class="objc">            actionResult = result</code></pre></td>
-<td class="coverage">13x</td>
+<td class="coverage">26x</td>
 </tr>
 <tr class="covered">
 <td class="num">60</td>
 <td class="src"><pre><code class="objc">        })</code></pre></td>
-<td class="coverage">13x</td>
+<td class="coverage">26x</td>
 </tr>
 <tr class="covered">
 <td class="num">61</td>
 <td class="src"><pre><code class="objc">        CATransaction.setCompletionBlock({</code></pre></td>
-<td class="coverage">13x</td>
+<td class="coverage">26x</td>
 </tr>
 <tr class="covered">
 <td class="num">62</td>
 <td class="src"><pre><code class="objc">            completion(actionResult)</code></pre></td>
-<td class="coverage">13x</td>
+<td class="coverage">26x</td>
 </tr>
 <tr class="covered">
 <td class="num">63</td>
 <td class="src"><pre><code class="objc">        })</code></pre></td>
-<td class="coverage">13x</td>
+<td class="coverage">26x</td>
 </tr>
 <tr class="covered">
 <td class="num">64</td>
 <td class="src"><pre><code class="objc">        CATransaction.commit()</code></pre></td>
-<td class="coverage">13x</td>
+<td class="coverage">26x</td>
 </tr>
 <tr class="covered">
 <td class="num">65</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">13x</td>
+<td class="coverage">26x</td>
 </tr>
 <tr class="never">
 <td class="num">66</td>
@@ -425,17 +425,17 @@
 <tr class="covered">
 <td class="num">83</td>
 <td class="src"><pre><code class="objc">    init(_ action: A) {</code></pre></td>
-<td class="coverage">5x</td>
+<td class="coverage">8x</td>
 </tr>
 <tr class="covered">
 <td class="num">84</td>
 <td class="src"><pre><code class="objc">        self.action = action</code></pre></td>
-<td class="coverage">5x</td>
+<td class="coverage">8x</td>
 </tr>
 <tr class="covered">
 <td class="num">85</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">5x</td>
+<td class="coverage">8x</td>
 </tr>
 <tr class="never">
 <td class="num">86</td>
@@ -445,17 +445,17 @@
 <tr class="covered">
 <td class="num">87</td>
 <td class="src"><pre><code class="objc">    public func perform(embedding viewController: UIViewController, in childViewControllers: inout [UIViewController]) throws {</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">3x</td>
 </tr>
 <tr class="covered">
 <td class="num">88</td>
 <td class="src"><pre><code class="objc">        try action.perform(embedding: viewController, in: &amp;childViewControllers)</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">3x</td>
 </tr>
 <tr class="covered">
 <td class="num">89</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">3x</td>
 </tr>
 <tr class="never">
 <td class="num">90</td>
@@ -465,12 +465,12 @@
 <tr class="covered">
 <td class="num">91</td>
 <td class="src"><pre><code class="objc">    public func perform(with viewController: UIViewController, on existingController: A.ViewController, animated: Bool, completion: @escaping (RoutingResult) -&gt; Void) {</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">3x</td>
 </tr>
 <tr class="covered">
 <td class="num">92</td>
 <td class="src"><pre><code class="objc">        guard animated else {</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">3x</td>
 </tr>
 <tr class="covered">
 <td class="num">93</td>
@@ -485,57 +485,57 @@
 <tr class="covered">
 <td class="num">95</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">2x</td>
 </tr>
 <tr class="covered">
 <td class="num">96</td>
 <td class="src"><pre><code class="objc">        CATransaction.begin()</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">2x</td>
 </tr>
 <tr class="covered">
 <td class="num">97</td>
 <td class="src"><pre><code class="objc">        var actionResult: RoutingResult = .failure(RoutingError.compositionFailed(.init("Wrapped \(action) did not complete correctly.")))</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">2x</td>
 </tr>
 <tr class="covered">
 <td class="num">98</td>
 <td class="src"><pre><code class="objc">        self.action.perform(with: viewController, on: existingController, animated: true, completion: { result in</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">2x</td>
 </tr>
 <tr class="covered">
 <td class="num">99</td>
 <td class="src"><pre><code class="objc">            actionResult = result</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">2x</td>
 </tr>
 <tr class="covered">
 <td class="num">100</td>
 <td class="src"><pre><code class="objc">        })</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">2x</td>
 </tr>
 <tr class="covered">
 <td class="num">101</td>
 <td class="src"><pre><code class="objc">        CATransaction.setCompletionBlock({</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">2x</td>
 </tr>
 <tr class="covered">
 <td class="num">102</td>
 <td class="src"><pre><code class="objc">            completion(actionResult)</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">2x</td>
 </tr>
 <tr class="covered">
 <td class="num">103</td>
 <td class="src"><pre><code class="objc">        })</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">2x</td>
 </tr>
 <tr class="covered">
 <td class="num">104</td>
 <td class="src"><pre><code class="objc">        CATransaction.commit()</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">2x</td>
 </tr>
 <tr class="covered">
 <td class="num">105</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">2x</td>
 </tr>
 <tr class="never">
 <td class="num">106</td>

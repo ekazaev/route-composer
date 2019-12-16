@@ -255,22 +255,22 @@
 <tr class="covered">
 <td class="num">49</td>
 <td class="src"><pre><code class="objc">    public init(finder: F, factory: FC) {</code></pre></td>
-<td class="coverage">46x</td>
+<td class="coverage">74x</td>
 </tr>
 <tr class="covered">
 <td class="num">50</td>
 <td class="src"><pre><code class="objc">        self.finder = finder</code></pre></td>
-<td class="coverage">46x</td>
+<td class="coverage">74x</td>
 </tr>
 <tr class="covered">
 <td class="num">51</td>
 <td class="src"><pre><code class="objc">        self.factory = factory</code></pre></td>
-<td class="coverage">46x</td>
+<td class="coverage">74x</td>
 </tr>
 <tr class="covered">
 <td class="num">52</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">46x</td>
+<td class="coverage">74x</td>
 </tr>
 <tr class="never">
 <td class="num">53</td>
@@ -280,22 +280,22 @@
 <tr class="covered">
 <td class="num">54</td>
 <td class="src"><pre><code class="objc">    override final func routingStep&lt;A: Action&gt;(with action: A) -&gt; RoutingStep {</code></pre></td>
-<td class="coverage">38x</td>
+<td class="coverage">59x</td>
 </tr>
 <tr class="covered">
 <td class="num">55</td>
 <td class="src"><pre><code class="objc">        let entitiesCollector = BaseEntitiesCollector&lt;ContainerFactoryBox&lt;FC&gt;, ActionBox&gt;(finder: finder, factory: factory, action: action)</code></pre></td>
-<td class="coverage">38x</td>
+<td class="coverage">59x</td>
 </tr>
 <tr class="covered">
 <td class="num">56</td>
 <td class="src"><pre><code class="objc">        return BaseStep(entitiesProvider: entitiesCollector, taskProvider: taskCollector)</code></pre></td>
-<td class="coverage">38x</td>
+<td class="coverage">59x</td>
 </tr>
 <tr class="covered">
 <td class="num">57</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">38x</td>
+<td class="coverage">59x</td>
 </tr>
 <tr class="never">
 <td class="num">58</td>
@@ -305,22 +305,22 @@
 <tr class="covered">
 <td class="num">59</td>
 <td class="src"><pre><code class="objc">    override final func embeddableRoutingStep&lt;A: ContainerAction&gt;(with action: A) -&gt; RoutingStep {</code></pre></td>
-<td class="coverage">11x</td>
+<td class="coverage">18x</td>
 </tr>
 <tr class="covered">
 <td class="num">60</td>
 <td class="src"><pre><code class="objc">        let entitiesCollector = BaseEntitiesCollector&lt;ContainerFactoryBox&lt;FC&gt;, ContainerActionBox&gt;(finder: finder, factory: factory, action: action)</code></pre></td>
-<td class="coverage">11x</td>
+<td class="coverage">18x</td>
 </tr>
 <tr class="covered">
 <td class="num">61</td>
 <td class="src"><pre><code class="objc">        return BaseStep(entitiesProvider: entitiesCollector, taskProvider: taskCollector)</code></pre></td>
-<td class="coverage">11x</td>
+<td class="coverage">18x</td>
 </tr>
 <tr class="covered">
 <td class="num">62</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">11x</td>
+<td class="coverage">18x</td>
 </tr>
 <tr class="never">
 <td class="num">63</td>

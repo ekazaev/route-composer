@@ -70,17 +70,17 @@
 <tr class="covered">
 <td class="num">12</td>
 <td class="src"><pre><code class="objc">    init(_ postRoutingTask: PT) {</code></pre></td>
-<td class="coverage">14x</td>
+<td class="coverage">18x</td>
 </tr>
 <tr class="covered">
 <td class="num">13</td>
 <td class="src"><pre><code class="objc">        self.postRoutingTask = postRoutingTask</code></pre></td>
-<td class="coverage">14x</td>
+<td class="coverage">18x</td>
 </tr>
 <tr class="covered">
 <td class="num">14</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">14x</td>
+<td class="coverage">18x</td>
 </tr>
 <tr class="never">
 <td class="num">15</td>
@@ -100,12 +100,12 @@
 <tr class="covered">
 <td class="num">18</td>
 <td class="src"><pre><code class="objc">                          routingStack: [UIViewController]) throws {</code></pre></td>
-<td class="coverage">22x</td>
+<td class="coverage">29x</td>
 </tr>
 <tr class="covered">
 <td class="num">19</td>
 <td class="src"><pre><code class="objc">        guard let typedViewController = viewController as? PT.ViewController else {</code></pre></td>
-<td class="coverage">22x</td>
+<td class="coverage">29x</td>
 </tr>
 <tr class="covered">
 <td class="num">20</td>
@@ -125,12 +125,12 @@
 <tr class="covered">
 <td class="num">23</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">21x</td>
+<td class="coverage">28x</td>
 </tr>
 <tr class="covered">
 <td class="num">24</td>
 <td class="src"><pre><code class="objc">        guard let typedDestination = Any?.some(context as Any) as? PT.Context else {</code></pre></td>
-<td class="coverage">21x</td>
+<td class="coverage">28x</td>
 </tr>
 <tr class="covered">
 <td class="num">25</td>
@@ -150,22 +150,22 @@
 <tr class="covered">
 <td class="num">28</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">18x</td>
+<td class="coverage">25x</td>
 </tr>
 <tr class="covered">
 <td class="num">29</td>
 <td class="src"><pre><code class="objc">        assertIfNotMainThread()</code></pre></td>
-<td class="coverage">18x</td>
+<td class="coverage">25x</td>
 </tr>
 <tr class="covered">
 <td class="num">30</td>
 <td class="src"><pre><code class="objc">        postRoutingTask.perform(on: typedViewController, with: typedDestination, routingStack: routingStack)</code></pre></td>
-<td class="coverage">18x</td>
+<td class="coverage">25x</td>
 </tr>
 <tr class="covered">
 <td class="num">31</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">18x</td>
+<td class="coverage">25x</td>
 </tr>
 <tr class="never">
 <td class="num">32</td>

@@ -185,12 +185,12 @@
 <tr class="covered">
 <td class="num">35</td>
 <td class="src"><pre><code class="objc">    func dismissViewController(with context: DismissalTargetContext, animated: Bool, completion: ((_: RoutingResult) -&gt; Void)? = nil) {</code></pre></td>
-<td class="coverage">5x</td>
+<td class="coverage">8x</td>
 </tr>
 <tr class="covered">
 <td class="num">36</td>
 <td class="src"><pre><code class="objc">        guard let dismissalBlock = self.dismissalBlock else {</code></pre></td>
-<td class="coverage">5x</td>
+<td class="coverage">8x</td>
 </tr>
 <tr class="missed">
 <td class="num">37</td>
@@ -215,17 +215,17 @@
 <tr class="covered">
 <td class="num">41</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">5x</td>
+<td class="coverage">8x</td>
 </tr>
 <tr class="covered">
 <td class="num">42</td>
 <td class="src"><pre><code class="objc">        dismissalBlock(context, animated, completion)</code></pre></td>
-<td class="coverage">5x</td>
+<td class="coverage">8x</td>
 </tr>
 <tr class="covered">
 <td class="num">43</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">5x</td>
+<td class="coverage">8x</td>
 </tr>
 <tr class="never">
 <td class="num">44</td>
@@ -365,17 +365,17 @@
 <tr class="covered">
 <td class="num">71</td>
 <td class="src"><pre><code class="objc">    func dismissViewController(animated: Bool, completion: ((_: RoutingResult) -&gt; Void)? = nil) {</code></pre></td>
-<td class="coverage">4x</td>
+<td class="coverage">7x</td>
 </tr>
 <tr class="covered">
 <td class="num">72</td>
 <td class="src"><pre><code class="objc">        dismissViewController(with: (), animated: animated, completion: completion)</code></pre></td>
-<td class="coverage">4x</td>
+<td class="coverage">7x</td>
 </tr>
 <tr class="covered">
 <td class="num">73</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">4x</td>
+<td class="coverage">7x</td>
 </tr>
 <tr class="never">
 <td class="num">74</td>
@@ -435,32 +435,32 @@
 <tr class="covered">
 <td class="num">85</td>
 <td class="src"><pre><code class="objc">        get {</code></pre></td>
-<td class="coverage">5x</td>
+<td class="coverage">8x</td>
 </tr>
 <tr class="covered">
 <td class="num">86</td>
 <td class="src"><pre><code class="objc">            return objc_getAssociatedObject(self, &amp;associatedObjectHandle) as? ((_: DismissalTargetContext, _: Bool, _: ((_: RoutingResult) -&gt; Void)?) -&gt; Void)</code></pre></td>
-<td class="coverage">5x</td>
+<td class="coverage">8x</td>
 </tr>
 <tr class="covered">
 <td class="num">87</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">5x</td>
+<td class="coverage">8x</td>
 </tr>
 <tr class="covered">
 <td class="num">88</td>
 <td class="src"><pre><code class="objc">        set {</code></pre></td>
-<td class="coverage">11x</td>
+<td class="coverage">21x</td>
 </tr>
 <tr class="covered">
 <td class="num">89</td>
 <td class="src"><pre><code class="objc">            objc_setAssociatedObject(self, &amp;associatedObjectHandle, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)</code></pre></td>
-<td class="coverage">11x</td>
+<td class="coverage">21x</td>
 </tr>
 <tr class="covered">
 <td class="num">90</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">11x</td>
+<td class="coverage">21x</td>
 </tr>
 <tr class="never">
 <td class="num">91</td>
