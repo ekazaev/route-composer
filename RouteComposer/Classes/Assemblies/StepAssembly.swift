@@ -87,7 +87,7 @@ public extension StepAssembly where FC: ContainerFactory {
     ///
     /// - Parameters:
     ///   - finder: The `UIViewController` `Finder` instance.
-    ///   - factory: The `UIViewController` `Factory` instance.
+    ///   - factory: The `UIViewController` `ContainerFactory` instance.
     convenience init(finder: F, factory: FC) {
         self.init(finder: finder, abstractFactory: factory)
     }
