@@ -2,9 +2,12 @@
 // Created by Eugene Kazaev on 25/07/2018.
 //
 
+@testable import RouteComposer
+
+#if os(iOS)
+
 import UIKit
 import XCTest
-@testable import RouteComposer
 
 class ActionTests: XCTestCase {
 
@@ -456,3 +459,5 @@ class ActionTests: XCTestCase {
     }
 
 }
+
+#endif

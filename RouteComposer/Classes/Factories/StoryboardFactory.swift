@@ -2,6 +2,8 @@
 // Created by Eugene Kazaev on 15/01/2018.
 //
 
+#if os(iOS)
+
 import UIKit
 
 /// The `Factory` that creates a `UIViewController` from a storyboard.
@@ -83,3 +85,5 @@ public struct StoryboardFactory<VC: UIViewController, C>: Factory {
     }
 
 }
+
+#endif

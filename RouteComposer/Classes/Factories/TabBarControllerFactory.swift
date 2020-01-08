@@ -2,6 +2,8 @@
 // Created by Eugene Kazaev on 07/02/2018.
 //
 
+#if os(iOS)
+
 import Foundation
 import UIKit
 
@@ -56,3 +58,5 @@ public struct TabBarControllerFactory<VC: UITabBarController, C>: ContainerFacto
     }
 
 }
+
+#endif

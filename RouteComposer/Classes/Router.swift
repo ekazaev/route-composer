@@ -1,6 +1,7 @@
 //
 // Created by Eugene Kazaev on 15/01/2018.
 //
+#if os(iOS)
 
 import UIKit
 import Foundation
@@ -104,3 +105,5 @@ public extension Router {
     }
 
 }
+
+#endif

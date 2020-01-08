@@ -2,6 +2,8 @@
 // Created by Eugene Kazaev on 16/07/2018.
 //
 
+#if os(iOS)
+
 import Foundation
 import UIKit
 
@@ -30,3 +32,5 @@ public struct InlinePostTask<VC: UIViewController, C>: PostRoutingTask {
     }
 
 }
+
+#endif

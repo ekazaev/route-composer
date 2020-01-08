@@ -2,6 +2,8 @@
 // Created by Eugene Kazaev on 2019-08-06.
 //
 
+#if os(iOS)
+
 import UIKit
 import Foundation
 
@@ -63,3 +65,5 @@ public extension DetailsNavigationFinder {
     }
 
 }
+
+#endif

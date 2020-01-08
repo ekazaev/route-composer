@@ -2,6 +2,8 @@
 // Created by Eugene Kazaev on 15/01/2019.
 //
 
+#if os(iOS)
+
 import Foundation
 import UIKit
 
@@ -90,3 +92,5 @@ extension SingleNavigationRouter: InterceptableRouter where R: InterceptableRout
     }
 
 }
+
+#endif

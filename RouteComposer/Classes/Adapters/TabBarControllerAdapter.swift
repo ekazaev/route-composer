@@ -2,6 +2,8 @@
 // Created by Eugene Kazaev on 2019-04-22.
 //
 
+#if os(iOS)
+
 import Foundation
 import UIKit
 
@@ -58,3 +60,5 @@ public struct TabBarControllerAdapter<VC: UITabBarController>: ConcreteContainer
     }
 
 }
+
+#endif

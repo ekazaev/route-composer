@@ -5,6 +5,8 @@
 //  Created by Eugene Kazaev on 12/03/2019.
 //
 
+#if os(iOS)
+
 import UIKit
 import Foundation
 import XCTest
@@ -421,3 +423,5 @@ class ExtrasTest: XCTestCase {
     }
 
 }
+
+#endif

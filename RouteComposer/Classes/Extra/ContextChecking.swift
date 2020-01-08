@@ -2,6 +2,8 @@
 // Created by Eugene Kazaev on 2019-03-19.
 //
 
+#if os(iOS)
+
 import Foundation
 import UIKit
 
@@ -22,3 +24,5 @@ public protocol ContextChecking where Self: UIViewController {
     func isTarget(for context: Context) -> Bool
 
 }
+
+#endif

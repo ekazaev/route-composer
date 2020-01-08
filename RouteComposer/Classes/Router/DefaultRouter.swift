@@ -2,6 +2,8 @@
 // Created by Eugene Kazaev on 15/01/2018.
 //
 
+#if os(iOS)
+
 import UIKit
 
 /// Default `Router` implementation
@@ -264,3 +266,5 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
     }
 
 }
+
+#endif

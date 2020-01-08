@@ -2,6 +2,8 @@
 // Created by Eugene Kazaev on 2019-04-23.
 //
 
+#if os(iOS)
+
 import Foundation
 import UIKit
 
@@ -47,3 +49,5 @@ public struct DefaultContainerAdapterLocator: ContainerAdapterLocator {
     }
 
 }
+
+#endif

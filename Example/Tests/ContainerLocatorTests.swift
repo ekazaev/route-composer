@@ -5,6 +5,8 @@
 //  Created by Eugene Kazaev on 12/05/2019.
 //
 
+#if os(iOS)
+
 import XCTest
 import UIKit
 @testable import RouteComposer
@@ -235,3 +237,5 @@ class ContainerLocatorTests: XCTestCase {
     }
 
 }
+
+#endif

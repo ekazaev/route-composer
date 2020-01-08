@@ -2,6 +2,8 @@
 // Created by Eugene Kazaev on 2019-03-15.
 //
 
+#if os(iOS)
+
 import Foundation
 import UIKit
 
@@ -23,3 +25,5 @@ public struct ContextSettingTask<VC: ContextAccepting>: ContextTask {
     }
 
 }
+
+#endif

@@ -1,6 +1,7 @@
 //
 // Created by Eugene Kazaev on 17/01/2018.
 //
+#if os(iOS)
 
 import Foundation
 import UIKit
@@ -60,3 +61,4 @@ public extension PostRoutingTask where Context == Void {
     }
 
 }
+#endif

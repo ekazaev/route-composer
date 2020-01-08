@@ -4,6 +4,7 @@
 //
 //  Created by Eugene Kazaev on 23/01/2018.
 //
+#if os(iOS)
 
 import Foundation
 import UIKit
@@ -14,3 +15,4 @@ import UIKit
 /// provided by `ContainerAdapterLocator`.
 public protocol ContainerViewController: RoutingInterceptable {
 }
+#endif

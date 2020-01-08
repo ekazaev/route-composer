@@ -2,6 +2,8 @@
 // Created by Eugene Kazaev on 2018-11-07.
 //
 
+#if os(iOS)
+
 import Foundation
 import UIKit
 import XCTest
@@ -133,3 +135,5 @@ class FinderTest: XCTestCase {
     }
 
 }
+
+#endif

@@ -2,6 +2,8 @@
 // Created by Eugene Kazaev on 04/09/2018.
 //
 
+#if os(iOS)
+
 import Foundation
 import UIKit
 
@@ -318,3 +320,5 @@ extension DefaultRouter {
     }
 
 }
+
+#endif

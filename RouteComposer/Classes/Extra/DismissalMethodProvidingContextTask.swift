@@ -2,6 +2,8 @@
 // Created by Eugene Kazaev on 2019-03-19.
 //
 
+#if os(iOS)
+
 import Foundation
 import UIKit
 
@@ -30,3 +32,5 @@ public struct DismissalMethodProvidingContextTask<VC: Dismissible, C>: ContextTa
     }
 
 }
+
+#endif

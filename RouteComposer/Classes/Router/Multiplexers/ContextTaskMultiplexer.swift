@@ -5,6 +5,8 @@
 //  Created by Eugene Kazaev on 27/02/2018.
 //
 
+#if os(iOS)
+
 import Foundation
 import UIKit
 
@@ -33,3 +35,5 @@ struct ContextTaskMultiplexer: AnyContextTask, CustomStringConvertible {
     }
 
 }
+
+#endif

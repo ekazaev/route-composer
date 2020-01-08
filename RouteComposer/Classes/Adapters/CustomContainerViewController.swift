@@ -2,6 +2,8 @@
 // Created by Eugene Kazaev on 2019-05-13.
 //
 
+#if os(iOS)
+
 import Foundation
 import UIKit
 
@@ -25,3 +27,5 @@ public protocol CustomContainerViewController: ContainerViewController {
     var adapter: ContainerAdapter { get }
 
 }
+
+#endif

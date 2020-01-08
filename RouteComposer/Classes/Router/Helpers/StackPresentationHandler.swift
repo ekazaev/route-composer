@@ -2,6 +2,8 @@
 // Created by Eugene Kazaev on 2019-08-21.
 //
 
+#if os(iOS)
+
 import UIKit
 
 /// Helper instance used to update the stack of `UIViewController`s
@@ -28,3 +30,5 @@ public protocol StackPresentationHandler {
                                        completion: @escaping (RoutingResult) -> Void)
 
 }
+
+#endif

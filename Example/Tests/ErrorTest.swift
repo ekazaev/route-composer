@@ -2,6 +2,8 @@
 // Created by Eugene Kazaev on 2019-04-07.
 //
 
+#if os(iOS)
+
 import UIKit
 import Foundation
 import XCTest
@@ -97,3 +99,5 @@ class ErrorTests: XCTestCase {
     }
 
 }
+
+#endif

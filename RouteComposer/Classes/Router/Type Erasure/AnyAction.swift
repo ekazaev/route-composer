@@ -2,6 +2,8 @@
 // Created by Eugene Kazaev on 08/09/2018.
 //
 
+#if os(iOS)
+
 import Foundation
 import UIKit
 
@@ -34,3 +36,5 @@ protocol AnyAction {
     func isEmbeddable(to container: ContainerViewController.Type) -> Bool
 
 }
+
+#endif

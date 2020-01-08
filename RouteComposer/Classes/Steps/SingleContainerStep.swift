@@ -2,6 +2,8 @@
 // Created by Eugene Kazaev on 25/07/2018.
 //
 
+#if os(iOS)
+
 import Foundation
 import UIKit
 
@@ -96,3 +98,5 @@ extension SingleContainerStep where FC.Context == Any? {
     }
 
 }
+
+#endif

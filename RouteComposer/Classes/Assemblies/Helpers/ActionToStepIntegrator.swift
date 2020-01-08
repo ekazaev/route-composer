@@ -2,6 +2,8 @@
 // Created by Eugene Kazaev on 23/01/2018.
 //
 
+#if os(iOS)
+
 import Foundation
 import UIKit
 
@@ -73,3 +75,5 @@ public class ActionToStepIntegrator<VC: UIViewController, C>: IntermediateDestin
     }
 
 }
+
+#endif

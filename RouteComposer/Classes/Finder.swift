@@ -1,6 +1,7 @@
 //
 // Created by Eugene Kazaev on 15/01/2018.
 //
+#if os(iOS)
 
 import Foundation
 import UIKit
@@ -87,3 +88,5 @@ public extension Finder where Context == Void {
     }
 
 }
+
+#endif

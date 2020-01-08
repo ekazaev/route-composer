@@ -2,6 +2,8 @@
 // Created by Eugene Kazaev on 16/01/2018.
 //
 
+#if os(iOS)
+
 import Foundation
 import UIKit
 
@@ -74,3 +76,5 @@ public struct SplitControllerFactory<VC: UISplitViewController, C>: ContainerFac
     }
 
 }
+
+#endif

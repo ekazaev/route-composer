@@ -2,6 +2,8 @@
 // Created by Eugene Kazaev on 07/09/2018.
 //
 
+#if os(iOS)
+
 import Foundation
 import UIKit
 
@@ -39,3 +41,5 @@ public extension SimpleContainerFactory {
     }
 
 }
+
+#endif

@@ -2,6 +2,8 @@
 // Created by Eugene Kazaev on 15/01/2018.
 //
 
+#if os(iOS)
+
 import Foundation
 import UIKit
 
@@ -17,3 +19,5 @@ public protocol Logger {
     func log(_ message: LogMessage)
 
 }
+
+#endif

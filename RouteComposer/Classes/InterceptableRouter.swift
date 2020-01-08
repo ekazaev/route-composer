@@ -1,6 +1,7 @@
 //
 // Created by Eugene Kazaev on 18/06/2018.
 //
+#if os(iOS)
 
 import Foundation
 import UIKit
@@ -25,3 +26,5 @@ public protocol InterceptableRouter: Router {
     mutating func add<PT: PostRoutingTask>(_ postTask: PT) where PT.Context == Any?
 
 }
+
+#endif

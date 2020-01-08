@@ -2,6 +2,8 @@
 // Created by Eugene Kazaev on 2019-08-21.
 //
 
+#if os(iOS)
+
 import UIKit
 
 /// Default implementation of `StackPresentationHandler`
@@ -80,3 +82,5 @@ public struct DefaultStackPresentationHandler: StackPresentationHandler {
     }
 
 }
+
+#endif

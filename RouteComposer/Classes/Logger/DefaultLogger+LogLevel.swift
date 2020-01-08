@@ -2,6 +2,8 @@
 // Created by Eugene Kazaev on 05/09/2018.
 //
 
+#if os(iOS)
+
 import Foundation
 
 public extension DefaultLogger {
@@ -25,3 +27,5 @@ public extension DefaultLogger {
     }
 
 }
+
+#endif

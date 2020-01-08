@@ -2,6 +2,8 @@
 // Created by Eugene Kazaev on 16/03/2018.
 //
 
+#if os(iOS)
+
 import Foundation
 import UIKit
 
@@ -102,3 +104,5 @@ public final class CompleteFactoryAssembly<FC: ContainerFactory> {
     }
 
 }
+
+#endif

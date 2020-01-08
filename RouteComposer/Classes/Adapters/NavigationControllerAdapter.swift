@@ -2,6 +2,8 @@
 // Created by Eugene Kazaev on 2019-04-22.
 //
 
+#if os(iOS)
+
 import Foundation
 import UIKit
 
@@ -62,3 +64,5 @@ public struct NavigationControllerAdapter<VC: UINavigationController>: ConcreteC
     }
 
 }
+
+#endif

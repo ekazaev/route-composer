@@ -5,6 +5,8 @@
 //  Created by Eugene Kazaev on 22/01/2018.
 //
 
+#if os(iOS)
+
 import XCTest
 
 class AllRoutesInAppUITests: XCTestCase {
@@ -196,3 +198,5 @@ class AllRoutesInAppUITests: XCTestCase {
     }
 
 }
+
+#endif

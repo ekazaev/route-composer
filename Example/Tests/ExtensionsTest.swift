@@ -2,6 +2,8 @@
 // Created by Eugene Kazaev on 11/09/2018.
 //
 
+#if os(iOS)
+
 import Foundation
 import UIKit
 import XCTest
@@ -392,3 +394,5 @@ class ExtensionsTest: XCTestCase {
     }
 
 }
+
+#endif

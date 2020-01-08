@@ -1,6 +1,7 @@
 //
 // Created by Eugene Kazaev on 2018-09-17.
 //
+#if os(iOS)
 
 import Foundation
 import UIKit
@@ -66,3 +67,4 @@ extension DestinationStep where DestinationStep.Context == Any? {
     }
 
 }
+#endif

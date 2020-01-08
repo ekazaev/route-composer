@@ -2,6 +2,8 @@
 // Created by Kazaev, Eugene on 2019-02-15.
 //
 
+#if os(iOS)
+
 import Foundation
 import UIKit
 
@@ -26,3 +28,5 @@ public struct KeyWindowProvider: WindowProvider {
     }
 
 }
+
+#endif
