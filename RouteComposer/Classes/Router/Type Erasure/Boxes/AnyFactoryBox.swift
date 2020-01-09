@@ -2,6 +2,8 @@
 // Created by Eugene Kazaev on 2019-02-27.
 //
 
+#if os(iOS)
+
 import Foundation
 
 protocol AnyFactoryBox: AnyFactory {
@@ -50,3 +52,5 @@ extension AnyFactory where Self: CustomStringConvertible & AnyFactoryBox {
     }
 
 }
+
+#endif

@@ -2,6 +2,8 @@
 // Created by Eugene Kazaev on 2019-02-27.
 //
 
+#if os(iOS)
+
 import Foundation
 import UIKit
 
@@ -42,3 +44,5 @@ struct ContextTaskBox<CT: ContextTask>: AnyContextTask, PreparableEntity, MainTh
     }
 
 }
+
+#endif

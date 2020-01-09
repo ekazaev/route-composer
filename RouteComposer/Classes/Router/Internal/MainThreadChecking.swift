@@ -2,6 +2,8 @@
 // Created by Eugene Kazaev on 2018-11-12.
 //
 
+#if os(iOS)
+
 import Foundation
 
 protocol MainThreadChecking {
@@ -18,3 +20,5 @@ extension MainThreadChecking {
     }
 
 }
+
+#endif

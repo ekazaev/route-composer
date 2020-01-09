@@ -5,6 +5,8 @@
 //  Created by Eugene Kazaev on 20/08/2018.
 //
 
+#if os(iOS)
+
 import UIKit
 import Foundation
 import XCTest
@@ -278,3 +280,5 @@ class MultiplexerTest: XCTestCase {
         XCTAssertTrue(ri2.isApplied)
     }
 }
+
+#endif

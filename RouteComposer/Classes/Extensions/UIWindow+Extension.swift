@@ -2,6 +2,8 @@
 // Created by Eugene Kazaev on 19/12/2017.
 //
 
+#if os(iOS)
+
 import Foundation
 import UIKit
 
@@ -20,3 +22,5 @@ public extension UIWindow {
     }
 
 }
+
+#endif

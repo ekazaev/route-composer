@@ -5,6 +5,8 @@
 //  Created by Eugene Kazaev on 08/02/2018.
 //
 
+#if os(iOS)
+
 import Foundation
 import os.log
 
@@ -72,3 +74,5 @@ public struct DefaultLogger: Logger {
     }
 
 }
+
+#endif

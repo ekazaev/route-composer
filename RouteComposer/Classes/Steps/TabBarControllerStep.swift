@@ -2,6 +2,8 @@
 // Created by Eugene Kazaev on 15/01/2018.
 //
 
+#if os(iOS)
+
 import UIKit
 
 /// Default tab bar container step
@@ -15,3 +17,5 @@ public final class TabBarControllerStep<VC: UITabBarController, Context>: Single
     }
 
 }
+
+#endif

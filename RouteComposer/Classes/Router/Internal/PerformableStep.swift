@@ -2,6 +2,8 @@
 // Created by Eugene Kazaev on 20/02/2018.
 //
 
+#if os(iOS)
+
 import Foundation
 
 protocol PerformableStep {
@@ -11,3 +13,5 @@ protocol PerformableStep {
     func perform<Context>(with context: Context) throws -> PerformableStepResult
 
 }
+
+#endif

@@ -2,6 +2,8 @@
 // Created by Eugene Kazaev on 2019-09-05.
 //
 
+#if os(iOS)
+
 import Foundation
 import UIKit
 
@@ -109,3 +111,5 @@ public struct DispatchQueueWrappedContainerAction<A: ContainerAction>: Container
     }
 
 }
+
+#endif

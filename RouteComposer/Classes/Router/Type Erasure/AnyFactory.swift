@@ -2,6 +2,8 @@
 // Created by Eugene Kazaev on 14/02/2018.
 //
 
+#if os(iOS)
+
 import Foundation
 import UIKit
 
@@ -16,3 +18,5 @@ protocol AnyFactory {
     mutating func scrapeChildren(from factories: [AnyFactory]) throws -> [AnyFactory]
 
 }
+
+#endif

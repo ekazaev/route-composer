@@ -2,6 +2,8 @@
 // Created by Eugene Kazaev on 2018-10-31.
 //
 
+#if os(iOS)
+
 import Foundation
 import UIKit
 
@@ -26,3 +28,5 @@ struct BaseEntitiesCollector<FactoryBoxer: AnyFactoryBox, ActionBoxer: AnyAction
     }
 
 }
+
+#endif

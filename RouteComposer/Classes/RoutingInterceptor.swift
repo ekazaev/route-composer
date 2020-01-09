@@ -1,6 +1,7 @@
 //
 // Created by Eugene Kazaev on 17/01/2018.
 //
+#if os(iOS)
 
 import Foundation
 
@@ -150,3 +151,4 @@ public extension RoutingInterceptor where Context == Void {
     }
 
 }
+#endif

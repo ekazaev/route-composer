@@ -2,6 +2,8 @@
 // Created by Eugene Kazaev on 2018-10-12.
 //
 
+#if os(iOS)
+
 import UIKit
 import XCTest
 @testable import RouteComposer
@@ -141,3 +143,5 @@ class DestinationStepTests: XCTestCase {
     }
 
 }
+
+#endif

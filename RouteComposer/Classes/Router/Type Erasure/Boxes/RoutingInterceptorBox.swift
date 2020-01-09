@@ -2,6 +2,8 @@
 // Created by Eugene Kazaev on 2019-02-27.
 //
 
+#if os(iOS)
+
 import Foundation
 
 struct RoutingInterceptorBox<RI: RoutingInterceptor>: AnyRoutingInterceptor, PreparableEntity, CustomStringConvertible, MainThreadChecking {
@@ -45,3 +47,5 @@ struct RoutingInterceptorBox<RI: RoutingInterceptor>: AnyRoutingInterceptor, Pre
     }
 
 }
+
+#endif

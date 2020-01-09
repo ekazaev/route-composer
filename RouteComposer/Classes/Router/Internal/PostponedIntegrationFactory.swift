@@ -5,6 +5,8 @@
 //  Created by Eugene Kazaev on 03/03/2018.
 //
 
+#if os(iOS)
+
 import Foundation
 import UIKit
 
@@ -43,3 +45,5 @@ struct PostponedIntegrationFactory<Context>: CustomStringConvertible {
     }
 
 }
+
+#endif

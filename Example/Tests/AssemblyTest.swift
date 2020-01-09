@@ -2,6 +2,8 @@
 // Created by Eugene Kazaev on 12/09/2018.
 //
 
+#if os(iOS)
+
 import UIKit
 import Foundation
 import XCTest
@@ -321,3 +323,5 @@ class AssemblyTest: XCTestCase {
     }
 
 }
+
+#endif

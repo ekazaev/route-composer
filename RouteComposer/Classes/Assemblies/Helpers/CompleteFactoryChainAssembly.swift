@@ -1,6 +1,7 @@
 //
 // Created by Eugene Kazaev on 2019-04-04.
 //
+#if os(iOS)
 
 import Foundation
 import UIKit
@@ -103,3 +104,4 @@ public final class CompleteFactoryChainAssembly<FC: ContainerFactory, ChildVC: U
     }
 
 }
+#endif

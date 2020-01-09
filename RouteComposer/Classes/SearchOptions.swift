@@ -1,6 +1,7 @@
 //
 // Created by Eugene Kazaev on 04/09/2018.
 //
+#if os(iOS)
 
 import Foundation
 
@@ -81,3 +82,5 @@ public struct SearchOptions: OptionSet, CaseIterable, CustomStringConvertible {
     }
 
 }
+
+#endif

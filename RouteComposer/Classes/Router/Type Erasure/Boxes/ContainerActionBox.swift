@@ -2,6 +2,8 @@
 // Created by Eugene Kazaev on 2019-02-27.
 //
 
+#if os(iOS)
+
 import Foundation
 import UIKit
 
@@ -90,3 +92,5 @@ struct ContainerActionBox<A: ContainerAction>: AnyAction, AnyActionBox, CustomSt
     }
 
 }
+
+#endif

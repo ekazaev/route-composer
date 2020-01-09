@@ -2,6 +2,8 @@
 // Created by Eugene Kazaev on 15/01/2018.
 //
 
+#if os(iOS)
+
 import UIKit
 
 /// Represents an action that has to be applied to the `UIViewController` after it has
@@ -33,3 +35,5 @@ public extension ContainerAction {
     }
 
 }
+
+#endif

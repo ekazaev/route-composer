@@ -2,6 +2,8 @@
 // Created by Eugene Kazaev on 2018-11-02.
 //
 
+#if os(iOS)
+
 import Foundation
 
 /// `Logger` message representation
@@ -21,3 +23,5 @@ public enum LogMessage {
     case error(String)
 
 }
+
+#endif

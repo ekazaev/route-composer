@@ -2,6 +2,8 @@
 // Created by Eugene Kazaev on 2018-11-23.
 //
 
+#if os(iOS)
+
 import Foundation
 import UIKit
 
@@ -14,3 +16,5 @@ public protocol WindowProvider {
     var window: UIWindow? { get }
 
 }
+
+#endif

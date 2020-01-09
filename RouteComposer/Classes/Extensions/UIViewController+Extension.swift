@@ -2,6 +2,8 @@
 // Created by Eugene Kazaev on 19/12/2017.
 //
 
+#if os(iOS)
+
 import UIKit
 
 public extension UIViewController {
@@ -78,3 +80,5 @@ public extension UIViewController {
     }
 
 }
+
+#endif

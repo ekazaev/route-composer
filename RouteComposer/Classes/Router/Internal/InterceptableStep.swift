@@ -5,6 +5,8 @@
 //  Created by Eugene Kazaev on 20/02/2018.
 //
 
+#if os(iOS)
+
 import Foundation
 
 protocol InterceptableStep where Self: PerformableStep {
@@ -16,3 +18,5 @@ protocol InterceptableStep where Self: PerformableStep {
     var contextTask: AnyContextTask? { get }
 
 }
+
+#endif

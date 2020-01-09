@@ -1,3 +1,5 @@
+#if os(iOS)
+
 import UIKit
 import XCTest
 @testable import RouteComposer
@@ -223,3 +225,5 @@ class ContainerTests: XCTestCase {
     }
 
 }
+
+#endif

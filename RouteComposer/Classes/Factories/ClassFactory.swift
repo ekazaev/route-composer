@@ -2,6 +2,8 @@
 // Created by Eugene Kazaev on 2019-08-06.
 //
 
+#if os(iOS)
+
 import UIKit
 
 /// The `Factory` that creates a `UIViewController` instance using its type.
@@ -48,3 +50,5 @@ public struct ClassFactory<VC: UIViewController, C>: Factory {
     }
 
 }
+
+#endif

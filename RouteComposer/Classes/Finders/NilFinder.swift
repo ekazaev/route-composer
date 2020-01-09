@@ -2,6 +2,8 @@
 // Created by Eugene Kazaev on 20/01/2018.
 //
 
+#if os(iOS)
+
 import Foundation
 import UIKit
 
@@ -33,3 +35,5 @@ public struct NilFinder<VC: UIViewController, C>: Finder, NilEntity {
     }
 
 }
+
+#endif

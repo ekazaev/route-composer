@@ -2,6 +2,8 @@
 // Created by Eugene Kazaev on 2018-11-07.
 //
 
+#if os(iOS)
+
 import Foundation
 import UIKit
 
@@ -82,3 +84,5 @@ public struct DefaultStackIterator: StackIterator {
     }
 
 }
+
+#endif

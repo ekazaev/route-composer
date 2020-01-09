@@ -2,6 +2,7 @@
 // Created by Eugene Kazaev on 2019-04-22.
 //
 
+#if os(iOS)
 import Foundation
 
 /// Provides `ContainerAdapter` instance.
@@ -17,3 +18,4 @@ public protocol ContainerAdapterLocator {
     func getAdapter(for containerViewController: ContainerViewController) throws -> ContainerAdapter
 
 }
+#endif

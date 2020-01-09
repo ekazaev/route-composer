@@ -2,6 +2,8 @@
 // Created by Eugene Kazaev on 2018-09-18.
 //
 
+#if os(iOS)
+
 import Foundation
 import UIKit
 
@@ -102,3 +104,5 @@ public struct TabBarControllerActions {
     }
 
 }
+
+#endif

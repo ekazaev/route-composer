@@ -2,6 +2,8 @@
 // Created by Eugene Kazaev on 15/01/2018.
 //
 
+#if os(iOS)
+
 import UIKit
 
 /// The `ContainerFactory` that creates a `UINavigationController` instance.
@@ -55,3 +57,5 @@ public struct NavigationControllerFactory<VC: UINavigationController, C>: Contai
     }
 
 }
+
+#endif

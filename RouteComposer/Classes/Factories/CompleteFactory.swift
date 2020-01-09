@@ -5,6 +5,8 @@
 //  Created by Eugene Kazaev on 08/02/2018.
 //
 
+#if os(iOS)
+
 import Foundation
 import UIKit
 
@@ -51,3 +53,5 @@ public struct CompleteFactory<FC: ContainerFactory>: ContainerFactory, CustomStr
     }
 
 }
+
+#endif

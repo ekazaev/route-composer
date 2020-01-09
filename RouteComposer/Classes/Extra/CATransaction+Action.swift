@@ -2,6 +2,8 @@
 // Created by Eugene Kazaev on 23/08/2019.
 //
 
+#if os(iOS)
+
 import Foundation
 import UIKit
 
@@ -105,3 +107,5 @@ public struct CATransactionWrappedContainerAction<A: ContainerAction>: Container
     }
 
 }
+
+#endif

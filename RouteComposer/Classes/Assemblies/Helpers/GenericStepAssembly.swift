@@ -2,6 +2,8 @@
 // Created by Eugene Kazaev on 31/08/2018.
 //
 
+#if os(iOS)
+
 import Foundation
 import UIKit
 
@@ -51,3 +53,5 @@ public class GenericStepAssembly<VC: UIViewController, C>: InterceptableStepAsse
     }
 
 }
+
+#endif
