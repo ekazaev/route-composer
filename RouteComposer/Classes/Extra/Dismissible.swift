@@ -17,7 +17,7 @@ public protocol Dismissible where Self: UIViewController {
     /// Type of instance that `Dismissible` `UIViewController` will provide on dismissal.
     associatedtype DismissalTargetContext
 
-    // MARK: Methods to implement
+    // MARK: Properties to implement
 
     /// Property to store the dismissal block provided by `DismissalMethodProvidingContextTask`
     var dismissalBlock: ((_: DismissalTargetContext, _: Bool, _: ((_: RoutingResult) -> Void)?) -> Void)? { get set }

@@ -19,6 +19,8 @@ public protocol StackIteratingFinder: Finder {
     /// Type of `Context` object that `StackIteratingFinder` can deal with
     associatedtype Context
 
+    // MARK: Properties to implement
+
     /// `StackIterator` to be used by `StackIteratingFinder`
     var iterator: StackIterator { get }
 

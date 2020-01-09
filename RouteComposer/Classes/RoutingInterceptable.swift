@@ -14,6 +14,8 @@ import UIKit
 /// Return false if the view controller can be dismissed.
 public protocol RoutingInterceptable where Self: UIViewController {
 
+    // MARK: Properties to implement
+
     /// true: if a view controller can be dismissed or covered by the `Router`, false otherwise.
     var canBeDismissed: Bool { get }
 

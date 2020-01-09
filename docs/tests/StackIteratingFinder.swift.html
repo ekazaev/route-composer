@@ -119,22 +119,22 @@
 </tr>
 <tr class="never">
 <td class="num">22</td>
-<td class="src"><pre><code class="objc">    /// `StackIterator` to be used by `StackIteratingFinder`</code></pre></td>
+<td class="src"><pre><code class="objc">    // MARK: Properties to implement</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">23</td>
-<td class="src"><pre><code class="objc">    var iterator: StackIterator { get }</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">24</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
+<td class="num">24</td>
+<td class="src"><pre><code class="objc">    /// `StackIterator` to be used by `StackIteratingFinder`</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
 <td class="num">25</td>
-<td class="src"><pre><code class="objc">    // MARK: Methods to implement</code></pre></td>
+<td class="src"><pre><code class="objc">    var iterator: StackIterator { get }</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -144,47 +144,47 @@
 </tr>
 <tr class="never">
 <td class="num">27</td>
-<td class="src"><pre><code class="objc">    /// The method to be implemented by the `StackIteratingFinder` instance</code></pre></td>
+<td class="src"><pre><code class="objc">    // MARK: Methods to implement</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">28</td>
-<td class="src"><pre><code class="objc">    ///</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">29</td>
-<td class="src"><pre><code class="objc">    /// - Parameters:</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">30</td>
-<td class="src"><pre><code class="objc">    ///   - viewController: A view controller in the current view controller stack</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">31</td>
-<td class="src"><pre><code class="objc">    ///   - context: The `Context` instance provided to the `Router`.</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">32</td>
-<td class="src"><pre><code class="objc">    /// - Returns: true if this view controller is the one that `Finder` is looking for, false otherwise.</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">33</td>
-<td class="src"><pre><code class="objc">    func isTarget(_ viewController: ViewController, with context: Context) -&gt; Bool</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">34</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
+<td class="num">29</td>
+<td class="src"><pre><code class="objc">    /// The method to be implemented by the `StackIteratingFinder` instance</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">30</td>
+<td class="src"><pre><code class="objc">    ///</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">31</td>
+<td class="src"><pre><code class="objc">    /// - Parameters:</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">32</td>
+<td class="src"><pre><code class="objc">    ///   - viewController: A view controller in the current view controller stack</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">33</td>
+<td class="src"><pre><code class="objc">    ///   - context: The `Context` instance provided to the `Router`.</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">34</td>
+<td class="src"><pre><code class="objc">    /// - Returns: true if this view controller is the one that `Finder` is looking for, false otherwise.</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
 <td class="num">35</td>
-<td class="src"><pre><code class="objc">}</code></pre></td>
+<td class="src"><pre><code class="objc">    func isTarget(_ viewController: ViewController, with context: Context) -&gt; Bool</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -194,7 +194,7 @@
 </tr>
 <tr class="never">
 <td class="num">37</td>
-<td class="src"><pre><code class="objc">public extension StackIteratingFinder {</code></pre></td>
+<td class="src"><pre><code class="objc">}</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -202,65 +202,65 @@
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="covered">
+<tr class="never">
 <td class="num">39</td>
+<td class="src"><pre><code class="objc">public extension StackIteratingFinder {</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">40</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="covered">
+<td class="num">41</td>
 <td class="src"><pre><code class="objc">    func findViewController(with context: Context) throws -&gt; ViewController? {</code></pre></td>
 <td class="coverage">335x</td>
 </tr>
 <tr class="covered">
-<td class="num">40</td>
+<td class="num">42</td>
 <td class="src"><pre><code class="objc">        let predicate: (UIViewController) -&gt; Bool = {</code></pre></td>
 <td class="coverage">1260x</td>
 </tr>
 <tr class="covered">
-<td class="num">41</td>
+<td class="num">43</td>
 <td class="src"><pre><code class="objc">            guard let viewController = $0 as? ViewController else {</code></pre></td>
 <td class="coverage">1260x</td>
 </tr>
 <tr class="covered">
-<td class="num">42</td>
+<td class="num">44</td>
 <td class="src"><pre><code class="objc">                return false</code></pre></td>
 <td class="coverage">1080x</td>
 </tr>
 <tr class="covered">
-<td class="num">43</td>
+<td class="num">45</td>
 <td class="src"><pre><code class="objc">            }</code></pre></td>
 <td class="coverage">1080x</td>
 </tr>
 <tr class="covered">
-<td class="num">44</td>
+<td class="num">46</td>
 <td class="src"><pre><code class="objc">            return self.isTarget(viewController, with: context)</code></pre></td>
 <td class="coverage">180x</td>
 </tr>
 <tr class="covered">
-<td class="num">45</td>
+<td class="num">47</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
 <td class="coverage">1260x</td>
 </tr>
 <tr class="covered">
-<td class="num">46</td>
+<td class="num">48</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage">335x</td>
 </tr>
 <tr class="covered">
-<td class="num">47</td>
+<td class="num">49</td>
 <td class="src"><pre><code class="objc">        return try iterator.firstViewController(where: predicate) as? ViewController</code></pre></td>
 <td class="coverage">335x</td>
 </tr>
 <tr class="covered">
-<td class="num">48</td>
+<td class="num">50</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
 <td class="coverage">335x</td>
-</tr>
-<tr class="never">
-<td class="num">49</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">50</td>
-<td class="src"><pre><code class="objc">}</code></pre></td>
-<td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">51</td>
@@ -269,6 +269,16 @@
 </tr>
 <tr class="never">
 <td class="num">52</td>
+<td class="src"><pre><code class="objc">}</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">53</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">54</td>
 <td class="src"><pre><code class="objc">#endif</code></pre></td>
 <td class="coverage"></td>
 </tr>

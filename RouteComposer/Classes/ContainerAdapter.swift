@@ -19,7 +19,7 @@ import UIKit
 ///  4. They can replace all of their contained view controllers.
 public protocol ContainerAdapter {
 
-    // MARK: Methods to implement
+    // MARK: Properties to implement
 
     /// All `UIViewController` instances that adapting `ContainerViewController` currently has in the stack
     var containedViewControllers: [UIViewController] { get }
@@ -27,6 +27,8 @@ public protocol ContainerAdapter {
     /// The `UIViewController` instances out of the `containedViewControllers` that are currently visible on the screen
     /// The `visibleViewControllers` are the subset of the `containedViewControllers`.
     var visibleViewControllers: [UIViewController] { get }
+
+    // MARK: Methods to implement
 
     /// Each container view controller adapter should implement this method for the `Router` to know how to make
     /// its particular child view controller visible.

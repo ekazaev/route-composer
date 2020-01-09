@@ -10,7 +10,7 @@ import UIKit
 /// Provides `UIWindow`
 public protocol WindowProvider {
 
-    // MARK: Methods to implement
+    // MARK: Properties to implement
 
     /// `UIWindow` instance
     var window: UIWindow? { get }
