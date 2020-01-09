@@ -34,37 +34,37 @@
 </tr>
 <tr class="never">
 <td class="num">5</td>
-<td class="src"><pre><code class="objc">import Foundation</code></pre></td>
+<td class="src"><pre><code class="objc">#if os(iOS)</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">6</td>
-<td class="src"><pre><code class="objc">import UIKit</code></pre></td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">7</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="src"><pre><code class="objc">import Foundation</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">8</td>
-<td class="src"><pre><code class="objc">/// Abstract builder class that helps to create a `DestinationStep` instance with correct settings.</code></pre></td>
+<td class="src"><pre><code class="objc">import UIKit</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">9</td>
-<td class="src"><pre><code class="objc">public class GenericStepAssembly&lt;VC: UIViewController, C&gt;: InterceptableStepAssembling {</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">10</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
+<td class="num">10</td>
+<td class="src"><pre><code class="objc">/// Abstract builder class that helps to create a `DestinationStep` instance with correct settings.</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
 <td class="num">11</td>
-<td class="src"><pre><code class="objc">    // MARK: Associated types</code></pre></td>
+<td class="src"><pre><code class="objc">public class GenericStepAssembly&lt;VC: UIViewController, C&gt;: InterceptableStepAssembling {</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -74,7 +74,7 @@
 </tr>
 <tr class="never">
 <td class="num">13</td>
-<td class="src"><pre><code class="objc">    public typealias ViewController = VC</code></pre></td>
+<td class="src"><pre><code class="objc">    // MARK: Associated types</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -84,7 +84,7 @@
 </tr>
 <tr class="never">
 <td class="num">15</td>
-<td class="src"><pre><code class="objc">    public typealias Context = C</code></pre></td>
+<td class="src"><pre><code class="objc">    public typealias ViewController = VC</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -94,7 +94,7 @@
 </tr>
 <tr class="never">
 <td class="num">17</td>
-<td class="src"><pre><code class="objc">    // MARK: Properties</code></pre></td>
+<td class="src"><pre><code class="objc">    public typealias Context = C</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -104,7 +104,7 @@
 </tr>
 <tr class="never">
 <td class="num">19</td>
-<td class="src"><pre><code class="objc">    var taskCollector: TaskCollector = TaskCollector()</code></pre></td>
+<td class="src"><pre><code class="objc">    // MARK: Properties</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -114,7 +114,7 @@
 </tr>
 <tr class="never">
 <td class="num">21</td>
-<td class="src"><pre><code class="objc">    // MARK: Add a Task to the Step</code></pre></td>
+<td class="src"><pre><code class="objc">    var taskCollector: TaskCollector = TaskCollector()</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -124,164 +124,184 @@
 </tr>
 <tr class="never">
 <td class="num">23</td>
-<td class="src"><pre><code class="objc">    /// Adds `RoutingInterceptor` instance.</code></pre></td>
+<td class="src"><pre><code class="objc">    // MARK: Add a Task to the Step</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">24</td>
-<td class="src"><pre><code class="objc">    /// This action does not contain type safety checks to avoid complications.</code></pre></td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">25</td>
-<td class="src"><pre><code class="objc">    ///</code></pre></td>
+<td class="src"><pre><code class="objc">    /// Adds `RoutingInterceptor` instance.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">26</td>
-<td class="src"><pre><code class="objc">    /// - Parameter interceptor: The `RoutingInterceptor` instance to be executed by `Router` before the navigation process</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">27</td>
-<td class="src"><pre><code class="objc">    ///   to this step.</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="covered">
-<td class="num">28</td>
-<td class="src"><pre><code class="objc">    public final func adding&lt;RI: RoutingInterceptor&gt;(_ interceptor: RI) -&gt; Self where RI.Context == Context {</code></pre></td>
-<td class="coverage">36x</td>
-</tr>
-<tr class="covered">
-<td class="num">29</td>
-<td class="src"><pre><code class="objc">        taskCollector.add(interceptor)</code></pre></td>
-<td class="coverage">36x</td>
-</tr>
-<tr class="covered">
-<td class="num">30</td>
-<td class="src"><pre><code class="objc">        return self</code></pre></td>
-<td class="coverage">36x</td>
-</tr>
-<tr class="covered">
-<td class="num">31</td>
-<td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">36x</td>
-</tr>
-<tr class="never">
-<td class="num">32</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">33</td>
-<td class="src"><pre><code class="objc">    /// Adds `ContextTask` instance</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">34</td>
-<td class="src"><pre><code class="objc">    ///</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">35</td>
-<td class="src"><pre><code class="objc">    /// - Parameter contextTask: The `ContextTask` instance to be applied by a `Router` immediately after it</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">36</td>
-<td class="src"><pre><code class="objc">    ///   will find or create `UIViewController`.</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">37</td>
-<td class="src"><pre><code class="objc">    public final func adding&lt;CT: ContextTask&gt;(_ contextTask: CT) -&gt; Self</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">38</td>
-<td class="src"><pre><code class="objc">            where</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="covered">
-<td class="num">39</td>
-<td class="src"><pre><code class="objc">            CT.ViewController == ViewController, CT.Context == Context {</code></pre></td>
-<td class="coverage">190x</td>
-</tr>
-<tr class="covered">
-<td class="num">40</td>
-<td class="src"><pre><code class="objc">        taskCollector.add(contextTask)</code></pre></td>
-<td class="coverage">190x</td>
-</tr>
-<tr class="covered">
-<td class="num">41</td>
-<td class="src"><pre><code class="objc">        return self</code></pre></td>
-<td class="coverage">190x</td>
-</tr>
-<tr class="covered">
-<td class="num">42</td>
-<td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">190x</td>
-</tr>
-<tr class="never">
-<td class="num">43</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">44</td>
-<td class="src"><pre><code class="objc">    /// Adds `PostRoutingTask` instance.</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">45</td>
 <td class="src"><pre><code class="objc">    /// This action does not contain type safety checks to avoid complications.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">46</td>
+<td class="num">27</td>
 <td class="src"><pre><code class="objc">    ///</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">47</td>
-<td class="src"><pre><code class="objc">    /// - Parameter postTask: The `PostRoutingTask` instance to be executed by a `Router` after the navigation process.</code></pre></td>
+<td class="num">28</td>
+<td class="src"><pre><code class="objc">    /// - Parameter interceptor: The `RoutingInterceptor` instance to be executed by `Router` before the navigation process</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">29</td>
+<td class="src"><pre><code class="objc">    ///   to this step.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
-<td class="num">48</td>
-<td class="src"><pre><code class="objc">    public final func adding&lt;PT: PostRoutingTask&gt;(_ postTask: PT) -&gt; Self where PT.Context == Context {</code></pre></td>
-<td class="coverage">11x</td>
+<td class="num">30</td>
+<td class="src"><pre><code class="objc">    public final func adding&lt;RI: RoutingInterceptor&gt;(_ interceptor: RI) -&gt; Self where RI.Context == Context {</code></pre></td>
+<td class="coverage">36x</td>
 </tr>
 <tr class="covered">
-<td class="num">49</td>
-<td class="src"><pre><code class="objc">        taskCollector.add(postTask)</code></pre></td>
-<td class="coverage">11x</td>
+<td class="num">31</td>
+<td class="src"><pre><code class="objc">        taskCollector.add(interceptor)</code></pre></td>
+<td class="coverage">36x</td>
 </tr>
 <tr class="covered">
-<td class="num">50</td>
+<td class="num">32</td>
 <td class="src"><pre><code class="objc">        return self</code></pre></td>
-<td class="coverage">11x</td>
+<td class="coverage">36x</td>
 </tr>
 <tr class="covered">
-<td class="num">51</td>
+<td class="num">33</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">11x</td>
+<td class="coverage">36x</td>
 </tr>
 <tr class="never">
-<td class="num">52</td>
+<td class="num">34</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
+<td class="num">35</td>
+<td class="src"><pre><code class="objc">    /// Adds `ContextTask` instance</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">36</td>
+<td class="src"><pre><code class="objc">    ///</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">37</td>
+<td class="src"><pre><code class="objc">    /// - Parameter contextTask: The `ContextTask` instance to be applied by a `Router` immediately after it</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">38</td>
+<td class="src"><pre><code class="objc">    ///   will find or create `UIViewController`.</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">39</td>
+<td class="src"><pre><code class="objc">    public final func adding&lt;CT: ContextTask&gt;(_ contextTask: CT) -&gt; Self</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">40</td>
+<td class="src"><pre><code class="objc">            where</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="covered">
+<td class="num">41</td>
+<td class="src"><pre><code class="objc">            CT.ViewController == ViewController, CT.Context == Context {</code></pre></td>
+<td class="coverage">190x</td>
+</tr>
+<tr class="covered">
+<td class="num">42</td>
+<td class="src"><pre><code class="objc">        taskCollector.add(contextTask)</code></pre></td>
+<td class="coverage">190x</td>
+</tr>
+<tr class="covered">
+<td class="num">43</td>
+<td class="src"><pre><code class="objc">        return self</code></pre></td>
+<td class="coverage">190x</td>
+</tr>
+<tr class="covered">
+<td class="num">44</td>
+<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="coverage">190x</td>
+</tr>
+<tr class="never">
+<td class="num">45</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">46</td>
+<td class="src"><pre><code class="objc">    /// Adds `PostRoutingTask` instance.</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">47</td>
+<td class="src"><pre><code class="objc">    /// This action does not contain type safety checks to avoid complications.</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">48</td>
+<td class="src"><pre><code class="objc">    ///</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">49</td>
+<td class="src"><pre><code class="objc">    /// - Parameter postTask: The `PostRoutingTask` instance to be executed by a `Router` after the navigation process.</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="covered">
+<td class="num">50</td>
+<td class="src"><pre><code class="objc">    public final func adding&lt;PT: PostRoutingTask&gt;(_ postTask: PT) -&gt; Self where PT.Context == Context {</code></pre></td>
+<td class="coverage">11x</td>
+</tr>
+<tr class="covered">
+<td class="num">51</td>
+<td class="src"><pre><code class="objc">        taskCollector.add(postTask)</code></pre></td>
+<td class="coverage">11x</td>
+</tr>
+<tr class="covered">
+<td class="num">52</td>
+<td class="src"><pre><code class="objc">        return self</code></pre></td>
+<td class="coverage">11x</td>
+</tr>
+<tr class="covered">
 <td class="num">53</td>
+<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="coverage">11x</td>
+</tr>
+<tr class="never">
+<td class="num">54</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">55</td>
 <td class="src"><pre><code class="objc">}</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">56</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">57</td>
+<td class="src"><pre><code class="objc">#endif</code></pre></td>
 <td class="coverage"></td>
 </tr>
 </table>
 </div></div>
 <footer><div class="row">
 <p><a href="https://github.com/SlatherOrg/slather">Fork me on Github</a></p>
-<p>&copy; 2019 Slather</p>
+<p>&copy; 2020 Slather</p>
 </div></footer><script src="highlight.pack.js"></script><script>hljs.initHighlightingOnLoad();</script>
 </body>
 </html>

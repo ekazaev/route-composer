@@ -34,22 +34,22 @@
 </tr>
 <tr class="never">
 <td class="num">5</td>
-<td class="src"><pre><code class="objc">import Foundation</code></pre></td>
+<td class="src"><pre><code class="objc">#if os(iOS)</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">6</td>
-<td class="src"><pre><code class="objc">import UIKit</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">7</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
+<td class="num">7</td>
+<td class="src"><pre><code class="objc">import Foundation</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
 <td class="num">8</td>
-<td class="src"><pre><code class="objc">struct FinderBox&lt;F: Finder&gt;: AnyFinder, CustomStringConvertible {</code></pre></td>
+<td class="src"><pre><code class="objc">import UIKit</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -59,7 +59,7 @@
 </tr>
 <tr class="never">
 <td class="num">10</td>
-<td class="src"><pre><code class="objc">    let finder: F</code></pre></td>
+<td class="src"><pre><code class="objc">struct FinderBox&lt;F: Finder&gt;: AnyFinder, CustomStringConvertible {</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -67,116 +67,136 @@
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="covered">
+<tr class="never">
 <td class="num">12</td>
+<td class="src"><pre><code class="objc">    let finder: F</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">13</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="covered">
+<td class="num">14</td>
 <td class="src"><pre><code class="objc">    init?(_ finder: F) {</code></pre></td>
 <td class="coverage">462x</td>
 </tr>
 <tr class="covered">
-<td class="num">13</td>
+<td class="num">15</td>
 <td class="src"><pre><code class="objc">        guard !(finder is NilEntity) else {</code></pre></td>
 <td class="coverage">462x</td>
 </tr>
 <tr class="covered">
-<td class="num">14</td>
+<td class="num">16</td>
 <td class="src"><pre><code class="objc">            return nil</code></pre></td>
 <td class="coverage">110x</td>
 </tr>
 <tr class="covered">
-<td class="num">15</td>
+<td class="num">17</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
 <td class="coverage">352x</td>
 </tr>
 <tr class="covered">
-<td class="num">16</td>
+<td class="num">18</td>
 <td class="src"><pre><code class="objc">        self.finder = finder</code></pre></td>
 <td class="coverage">352x</td>
 </tr>
 <tr class="covered">
-<td class="num">17</td>
+<td class="num">19</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
 <td class="coverage">352x</td>
 </tr>
 <tr class="never">
-<td class="num">18</td>
+<td class="num">20</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
-<td class="num">19</td>
+<td class="num">21</td>
 <td class="src"><pre><code class="objc">    func findViewController&lt;Context&gt;(with context: Context) throws -&gt; UIViewController? {</code></pre></td>
 <td class="coverage">321x</td>
 </tr>
 <tr class="covered">
-<td class="num">20</td>
+<td class="num">22</td>
 <td class="src"><pre><code class="objc">        guard let typedContext = Any?.some(context as Any) as? F.Context else {</code></pre></td>
 <td class="coverage">321x</td>
 </tr>
 <tr class="covered">
-<td class="num">21</td>
+<td class="num">23</td>
 <td class="src"><pre><code class="objc">            throw RoutingError.typeMismatch(type: type(of: context),</code></pre></td>
 <td class="coverage">7x</td>
 </tr>
 <tr class="covered">
-<td class="num">22</td>
+<td class="num">24</td>
 <td class="src"><pre><code class="objc">                    expectedType: F.Context.self,</code></pre></td>
 <td class="coverage">7x</td>
 </tr>
 <tr class="covered">
-<td class="num">23</td>
+<td class="num">25</td>
 <td class="src"><pre><code class="objc">                    .init("\(String(describing: F.self)) does not accept \(String(describing: context.self)) as a context."))</code></pre></td>
 <td class="coverage">7x</td>
 </tr>
 <tr class="covered">
-<td class="num">24</td>
+<td class="num">26</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
 <td class="coverage">314x</td>
 </tr>
 <tr class="covered">
-<td class="num">25</td>
+<td class="num">27</td>
 <td class="src"><pre><code class="objc">        return try finder.findViewController(with: typedContext)</code></pre></td>
 <td class="coverage">314x</td>
 </tr>
 <tr class="covered">
-<td class="num">26</td>
+<td class="num">28</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
 <td class="coverage">321x</td>
 </tr>
 <tr class="never">
-<td class="num">27</td>
+<td class="num">29</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
-<td class="num">28</td>
+<td class="num">30</td>
 <td class="src"><pre><code class="objc">    var description: String {</code></pre></td>
 <td class="coverage">282x</td>
 </tr>
 <tr class="covered">
-<td class="num">29</td>
+<td class="num">31</td>
 <td class="src"><pre><code class="objc">        return String(describing: finder)</code></pre></td>
 <td class="coverage">282x</td>
 </tr>
 <tr class="covered">
-<td class="num">30</td>
+<td class="num">32</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
 <td class="coverage">282x</td>
 </tr>
 <tr class="never">
-<td class="num">31</td>
+<td class="num">33</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">32</td>
+<td class="num">34</td>
 <td class="src"><pre><code class="objc">}</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">35</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">36</td>
+<td class="src"><pre><code class="objc">#endif</code></pre></td>
 <td class="coverage"></td>
 </tr>
 </table>
 </div></div>
 <footer><div class="row">
 <p><a href="https://github.com/SlatherOrg/slather">Fork me on Github</a></p>
-<p>&copy; 2019 Slather</p>
+<p>&copy; 2020 Slather</p>
 </div></footer><script src="highlight.pack.js"></script><script>hljs.initHighlightingOnLoad();</script>
 </body>
 </html>

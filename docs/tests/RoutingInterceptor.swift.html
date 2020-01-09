@@ -29,754 +29,764 @@
 </tr>
 <tr class="never">
 <td class="num">4</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="src"><pre><code class="objc">#if os(iOS)</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">5</td>
-<td class="src"><pre><code class="objc">import Foundation</code></pre></td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">6</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="src"><pre><code class="objc">import Foundation</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">7</td>
-<td class="src"><pre><code class="objc">/// `RoutingInterceptor` is called before the actual navigation process happens.</code></pre></td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">8</td>
-<td class="src"><pre><code class="objc">/// e.g. user should be logged in.</code></pre></td>
+<td class="src"><pre><code class="objc">/// `RoutingInterceptor` is called before the actual navigation process happens.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">9</td>
-<td class="src"><pre><code class="objc">///</code></pre></td>
+<td class="src"><pre><code class="objc">/// e.g. user should be logged in.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">10</td>
-<td class="src"><pre><code class="objc">/// ### NB</code></pre></td>
+<td class="src"><pre><code class="objc">///</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">11</td>
-<td class="src"><pre><code class="objc">/// Interceptor is an asynchronous action. For the `Router` to continue the navigation process, the `completion` block of the interceptor's</code></pre></td>
+<td class="src"><pre><code class="objc">/// ### NB</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">12</td>
-<td class="src"><pre><code class="objc">/// execute method **MUST** be called.</code></pre></td>
+<td class="src"><pre><code class="objc">/// Interceptor is an asynchronous action. For the `Router` to continue the navigation process, the `completion` block of the interceptor's</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">13</td>
-<td class="src"><pre><code class="objc">/// Otherwise, the `Router` will stay in a limbo state waiting for the interceptor to finish its action.</code></pre></td>
+<td class="src"><pre><code class="objc">/// execute method **MUST** be called.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">14</td>
-<td class="src"><pre><code class="objc">public protocol RoutingInterceptor {</code></pre></td>
+<td class="src"><pre><code class="objc">/// Otherwise, the `Router` will stay in a limbo state waiting for the interceptor to finish its action.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">15</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="src"><pre><code class="objc">public protocol RoutingInterceptor {</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">16</td>
-<td class="src"><pre><code class="objc">    // MARK: Associated types</code></pre></td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">17</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="src"><pre><code class="objc">    // MARK: Associated types</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">18</td>
-<td class="src"><pre><code class="objc">    /// `Context` type associated with `RoutingInterceptor`</code></pre></td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">19</td>
-<td class="src"><pre><code class="objc">    associatedtype Context</code></pre></td>
+<td class="src"><pre><code class="objc">    /// `Context` type associated with `RoutingInterceptor`</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">20</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="src"><pre><code class="objc">    associatedtype Context</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">21</td>
-<td class="src"><pre><code class="objc">    // MARK: Methods to implement</code></pre></td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">22</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="src"><pre><code class="objc">    // MARK: Methods to implement</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">23</td>
-<td class="src"><pre><code class="objc">    /// The `Router` will call this method before the navigation process. If `RoutingInterceptor` is not able to allow</code></pre></td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">24</td>
-<td class="src"><pre><code class="objc">    /// the navigation process to start it can stop `Router` by throwing an exception.</code></pre></td>
+<td class="src"><pre><code class="objc">    /// The `Router` will call this method before the navigation process. If `RoutingInterceptor` is not able to allow</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">25</td>
-<td class="src"><pre><code class="objc">    ///</code></pre></td>
+<td class="src"><pre><code class="objc">    /// the navigation process to start it can stop `Router` by throwing an exception.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">26</td>
-<td class="src"><pre><code class="objc">    /// - Parameters:</code></pre></td>
+<td class="src"><pre><code class="objc">    ///</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">27</td>
-<td class="src"><pre><code class="objc">    ///   - context: The `Context` instance that is provided to the `Router`.</code></pre></td>
+<td class="src"><pre><code class="objc">    /// - Parameters:</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">28</td>
-<td class="src"><pre><code class="objc">    /// - Throws: The `RoutingError` if the `RoutingInterceptor` cannot prepare itself or if the navigation process cannot start</code></pre></td>
+<td class="src"><pre><code class="objc">    ///   - context: The `Context` instance that is provided to the `Router`.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">29</td>
-<td class="src"><pre><code class="objc">    ///   with the `Context` instance provided.</code></pre></td>
+<td class="src"><pre><code class="objc">    /// - Throws: The `RoutingError` if the `RoutingInterceptor` cannot prepare itself or if the navigation process cannot start</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">30</td>
-<td class="src"><pre><code class="objc">    mutating func prepare(with context: Context) throws</code></pre></td>
+<td class="src"><pre><code class="objc">    ///   with the `Context` instance provided.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">31</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="src"><pre><code class="objc">    mutating func prepare(with context: Context) throws</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">32</td>
-<td class="src"><pre><code class="objc">    /// Method that will be called by `Router` to start interceptor.</code></pre></td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">33</td>
-<td class="src"><pre><code class="objc">    ///</code></pre></td>
+<td class="src"><pre><code class="objc">    /// Method that will be called by `Router` to start interceptor.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">34</td>
-<td class="src"><pre><code class="objc">    /// - Parameters:</code></pre></td>
+<td class="src"><pre><code class="objc">    ///</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">35</td>
-<td class="src"><pre><code class="objc">    ///   - context: `Context` instance provided to the `Router`</code></pre></td>
+<td class="src"><pre><code class="objc">    /// - Parameters:</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">36</td>
-<td class="src"><pre><code class="objc">    ///   - completion: Completion block with a result.</code></pre></td>
+<td class="src"><pre><code class="objc">    ///   - context: `Context` instance provided to the `Router`</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">37</td>
-<td class="src"><pre><code class="objc">    ///</code></pre></td>
+<td class="src"><pre><code class="objc">    ///   - completion: Completion block with a result.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">38</td>
-<td class="src"><pre><code class="objc">    /// ###NB</code></pre></td>
+<td class="src"><pre><code class="objc">    ///</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">39</td>
-<td class="src"><pre><code class="objc">    /// For the `Router` to continue the navigation process, the `completion` block of interceptor **MUST** be called</code></pre></td>
+<td class="src"><pre><code class="objc">    /// ###NB</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">40</td>
-<td class="src"><pre><code class="objc">    /// by the implementation of this method.</code></pre></td>
+<td class="src"><pre><code class="objc">    /// For the `Router` to continue the navigation process, the `completion` block of interceptor **MUST** be called</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">41</td>
-<td class="src"><pre><code class="objc">    /// Otherwise `Router` will stay in limbo waiting for `RoutingInterceptor` to finish its action.</code></pre></td>
+<td class="src"><pre><code class="objc">    /// by the implementation of this method.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">42</td>
-<td class="src"><pre><code class="objc">    func perform(with context: Context, completion: @escaping (_: RoutingResult) -&gt; Void)</code></pre></td>
+<td class="src"><pre><code class="objc">    /// Otherwise `Router` will stay in limbo waiting for `RoutingInterceptor` to finish its action.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">43</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="src"><pre><code class="objc">    func perform(with context: Context, completion: @escaping (_: RoutingResult) -&gt; Void)</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">44</td>
-<td class="src"><pre><code class="objc">}</code></pre></td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">45</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="src"><pre><code class="objc">}</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">46</td>
-<td class="src"><pre><code class="objc">// MARK: Default implementation</code></pre></td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">47</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="src"><pre><code class="objc">// MARK: Default implementation</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">48</td>
-<td class="src"><pre><code class="objc">public extension RoutingInterceptor {</code></pre></td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">49</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">50</td>
-<td class="src"><pre><code class="objc">    /// Default implementation does nothing.</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="covered">
-<td class="num">51</td>
-<td class="src"><pre><code class="objc">    func prepare(with context: Context) throws {</code></pre></td>
-<td class="coverage">210x</td>
-</tr>
-<tr class="covered">
-<td class="num">52</td>
-<td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">210x</td>
-</tr>
-<tr class="never">
-<td class="num">53</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">54</td>
-<td class="src"><pre><code class="objc">}</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">55</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">56</td>
-<td class="src"><pre><code class="objc">// MARK: Helper methods</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">57</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">58</td>
 <td class="src"><pre><code class="objc">public extension RoutingInterceptor {</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">59</td>
+<td class="num">50</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">51</td>
+<td class="src"><pre><code class="objc">    /// Default implementation does nothing.</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="covered">
+<td class="num">52</td>
+<td class="src"><pre><code class="objc">    func prepare(with context: Context) throws {</code></pre></td>
+<td class="coverage">210x</td>
+</tr>
+<tr class="covered">
+<td class="num">53</td>
+<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="coverage">210x</td>
+</tr>
+<tr class="never">
+<td class="num">54</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">55</td>
+<td class="src"><pre><code class="objc">}</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">56</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">57</td>
+<td class="src"><pre><code class="objc">// MARK: Helper methods</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">58</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">59</td>
+<td class="src"><pre><code class="objc">public extension RoutingInterceptor {</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">60</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">61</td>
 <td class="src"><pre><code class="objc">    /// Prepares the `RoutingInterceptor` and executes it</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
-<td class="num">61</td>
+<td class="num">62</td>
 <td class="src"><pre><code class="objc">    func execute(with context: Context, completion: @escaping (_: RoutingResult) -&gt; Void) throws {</code></pre></td>
 <td class="coverage">7x</td>
 </tr>
 <tr class="covered">
-<td class="num">62</td>
+<td class="num">63</td>
 <td class="src"><pre><code class="objc">        var interceptor = self</code></pre></td>
 <td class="coverage">7x</td>
 </tr>
 <tr class="covered">
-<td class="num">63</td>
+<td class="num">64</td>
 <td class="src"><pre><code class="objc">        try interceptor.prepare(with: context)</code></pre></td>
 <td class="coverage">7x</td>
 </tr>
 <tr class="covered">
-<td class="num">64</td>
+<td class="num">65</td>
 <td class="src"><pre><code class="objc">        interceptor.perform(with: context, completion: completion)</code></pre></td>
 <td class="coverage">7x</td>
 </tr>
 <tr class="covered">
-<td class="num">65</td>
+<td class="num">66</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
 <td class="coverage">7x</td>
 </tr>
 <tr class="never">
-<td class="num">66</td>
+<td class="num">67</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">67</td>
+<td class="num">68</td>
 <td class="src"><pre><code class="objc">    /// Prepares the `RoutingInterceptor` and performs it. Does not throw an exception.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
-<td class="num">68</td>
+<td class="num">69</td>
 <td class="src"><pre><code class="objc">    func commit(with context: Context, completion: @escaping (_: RoutingResult) -&gt; Void) {</code></pre></td>
 <td class="coverage">4x</td>
 </tr>
 <tr class="covered">
-<td class="num">69</td>
+<td class="num">70</td>
 <td class="src"><pre><code class="objc">        do {</code></pre></td>
 <td class="coverage">4x</td>
 </tr>
 <tr class="covered">
-<td class="num">70</td>
+<td class="num">71</td>
 <td class="src"><pre><code class="objc">            try execute(with: context, completion: completion)</code></pre></td>
 <td class="coverage">4x</td>
 </tr>
 <tr class="covered">
-<td class="num">71</td>
+<td class="num">72</td>
 <td class="src"><pre><code class="objc">        } catch {</code></pre></td>
 <td class="coverage">4x</td>
 </tr>
 <tr class="covered">
-<td class="num">72</td>
+<td class="num">73</td>
 <td class="src"><pre><code class="objc">            completion(.failure(error))</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
-<td class="num">73</td>
+<td class="num">74</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
 <td class="coverage">4x</td>
 </tr>
 <tr class="covered">
-<td class="num">74</td>
+<td class="num">75</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
 <td class="coverage">4x</td>
 </tr>
 <tr class="never">
-<td class="num">75</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
 <td class="num">76</td>
-<td class="src"><pre><code class="objc">}</code></pre></td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">77</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="src"><pre><code class="objc">}</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">78</td>
-<td class="src"><pre><code class="objc">// MARK: Helper methods where the Context is Any?</code></pre></td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">79</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="src"><pre><code class="objc">// MARK: Helper methods where the Context is Any?</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">80</td>
-<td class="src"><pre><code class="objc">public extension RoutingInterceptor where Context == Any? {</code></pre></td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">81</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="src"><pre><code class="objc">public extension RoutingInterceptor where Context == Any? {</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">82</td>
-<td class="src"><pre><code class="objc">    /// The `Router` will call this method before the navigation process. If `RoutingInterceptor` is not able to allow</code></pre></td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">83</td>
-<td class="src"><pre><code class="objc">    /// the navigation process to start it can stop `Router` by throwing an exception.</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">84</td>
-<td class="src"><pre><code class="objc">    ///</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">85</td>
-<td class="src"><pre><code class="objc">    /// - Throws: The `RoutingError` if the `RoutingInterceptor` cannot prepare itself or if the navigation process cannot start</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">86</td>
-<td class="src"><pre><code class="objc">    ///   with the `Context` instance provided.</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="covered">
-<td class="num">87</td>
-<td class="src"><pre><code class="objc">    mutating func prepare() throws {</code></pre></td>
-<td class="coverage">1x</td>
-</tr>
-<tr class="covered">
-<td class="num">88</td>
-<td class="src"><pre><code class="objc">        try prepare(with: nil)</code></pre></td>
-<td class="coverage">1x</td>
-</tr>
-<tr class="covered">
-<td class="num">89</td>
-<td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">1x</td>
-</tr>
-<tr class="never">
-<td class="num">90</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">91</td>
-<td class="src"><pre><code class="objc">    /// Method that will be called by `Router` to start interceptor.</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">92</td>
-<td class="src"><pre><code class="objc">    ///</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">93</td>
-<td class="src"><pre><code class="objc">    /// - Parameters:</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">94</td>
-<td class="src"><pre><code class="objc">    ///   - completion: Completion block with a result.</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">95</td>
-<td class="src"><pre><code class="objc">    ///</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">96</td>
-<td class="src"><pre><code class="objc">    /// ###NB</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">97</td>
-<td class="src"><pre><code class="objc">    /// For the `Router` to continue the navigation process, the `completion` block of interceptor **MUST** be called</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">98</td>
-<td class="src"><pre><code class="objc">    /// by the implementation of this method.</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">99</td>
-<td class="src"><pre><code class="objc">    /// Otherwise `Router` will stay in limbo waiting for `RoutingInterceptor` to finish its action.</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="covered">
-<td class="num">100</td>
-<td class="src"><pre><code class="objc">    func perform(completion: @escaping (_: RoutingResult) -&gt; Void) {</code></pre></td>
-<td class="coverage">1x</td>
-</tr>
-<tr class="covered">
-<td class="num">101</td>
-<td class="src"><pre><code class="objc">        perform(with: nil, completion: completion)</code></pre></td>
-<td class="coverage">1x</td>
-</tr>
-<tr class="covered">
-<td class="num">102</td>
-<td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">1x</td>
-</tr>
-<tr class="never">
-<td class="num">103</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">104</td>
-<td class="src"><pre><code class="objc">    /// Prepares the `RoutingInterceptor` and executes it</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="covered">
-<td class="num">105</td>
-<td class="src"><pre><code class="objc">    func execute(completion: @escaping (_: RoutingResult) -&gt; Void) throws {</code></pre></td>
-<td class="coverage">1x</td>
-</tr>
-<tr class="covered">
-<td class="num">106</td>
-<td class="src"><pre><code class="objc">        try execute(with: nil, completion: completion)</code></pre></td>
-<td class="coverage">1x</td>
-</tr>
-<tr class="covered">
-<td class="num">107</td>
-<td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">1x</td>
-</tr>
-<tr class="never">
-<td class="num">108</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">109</td>
-<td class="src"><pre><code class="objc">    /// Prepares the `RoutingInterceptor` and performs it. Does not throw an exception.</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="covered">
-<td class="num">110</td>
-<td class="src"><pre><code class="objc">    func commit(completion: @escaping (_: RoutingResult) -&gt; Void) {</code></pre></td>
-<td class="coverage">1x</td>
-</tr>
-<tr class="covered">
-<td class="num">111</td>
-<td class="src"><pre><code class="objc">        commit(with: nil, completion: completion)</code></pre></td>
-<td class="coverage">1x</td>
-</tr>
-<tr class="covered">
-<td class="num">112</td>
-<td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">1x</td>
-</tr>
-<tr class="never">
-<td class="num">113</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">114</td>
-<td class="src"><pre><code class="objc">}</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">115</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">116</td>
-<td class="src"><pre><code class="objc">// MARK: Helper methods where the Context is Void</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">117</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">118</td>
-<td class="src"><pre><code class="objc">public extension RoutingInterceptor where Context == Void {</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">119</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">120</td>
 <td class="src"><pre><code class="objc">    /// The `Router` will call this method before the navigation process. If `RoutingInterceptor` is not able to allow</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">121</td>
+<td class="num">84</td>
 <td class="src"><pre><code class="objc">    /// the navigation process to start it can stop `Router` by throwing an exception.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">122</td>
+<td class="num">85</td>
 <td class="src"><pre><code class="objc">    ///</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">123</td>
+<td class="num">86</td>
 <td class="src"><pre><code class="objc">    /// - Throws: The `RoutingError` if the `RoutingInterceptor` cannot prepare itself or if the navigation process cannot start</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">124</td>
+<td class="num">87</td>
 <td class="src"><pre><code class="objc">    ///   with the `Context` instance provided.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
-<td class="num">125</td>
+<td class="num">88</td>
 <td class="src"><pre><code class="objc">    mutating func prepare() throws {</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
-<td class="num">126</td>
-<td class="src"><pre><code class="objc">        try prepare(with: ())</code></pre></td>
+<td class="num">89</td>
+<td class="src"><pre><code class="objc">        try prepare(with: nil)</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
-<td class="num">127</td>
+<td class="num">90</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="never">
-<td class="num">128</td>
+<td class="num">91</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">129</td>
+<td class="num">92</td>
 <td class="src"><pre><code class="objc">    /// Method that will be called by `Router` to start interceptor.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">130</td>
+<td class="num">93</td>
 <td class="src"><pre><code class="objc">    ///</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">131</td>
+<td class="num">94</td>
 <td class="src"><pre><code class="objc">    /// - Parameters:</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">132</td>
+<td class="num">95</td>
 <td class="src"><pre><code class="objc">    ///   - completion: Completion block with a result.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">133</td>
+<td class="num">96</td>
 <td class="src"><pre><code class="objc">    ///</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">134</td>
+<td class="num">97</td>
 <td class="src"><pre><code class="objc">    /// ###NB</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">135</td>
+<td class="num">98</td>
 <td class="src"><pre><code class="objc">    /// For the `Router` to continue the navigation process, the `completion` block of interceptor **MUST** be called</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">136</td>
+<td class="num">99</td>
 <td class="src"><pre><code class="objc">    /// by the implementation of this method.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">137</td>
+<td class="num">100</td>
 <td class="src"><pre><code class="objc">    /// Otherwise `Router` will stay in limbo waiting for `RoutingInterceptor` to finish its action.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
-<td class="num">138</td>
+<td class="num">101</td>
 <td class="src"><pre><code class="objc">    func perform(completion: @escaping (_: RoutingResult) -&gt; Void) {</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
-<td class="num">139</td>
-<td class="src"><pre><code class="objc">        perform(with: (), completion: completion)</code></pre></td>
+<td class="num">102</td>
+<td class="src"><pre><code class="objc">        perform(with: nil, completion: completion)</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
-<td class="num">140</td>
+<td class="num">103</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="never">
-<td class="num">141</td>
+<td class="num">104</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">142</td>
+<td class="num">105</td>
 <td class="src"><pre><code class="objc">    /// Prepares the `RoutingInterceptor` and executes it</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
-<td class="num">143</td>
+<td class="num">106</td>
 <td class="src"><pre><code class="objc">    func execute(completion: @escaping (_: RoutingResult) -&gt; Void) throws {</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
-<td class="num">144</td>
-<td class="src"><pre><code class="objc">        try execute(with: (), completion: completion)</code></pre></td>
+<td class="num">107</td>
+<td class="src"><pre><code class="objc">        try execute(with: nil, completion: completion)</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
-<td class="num">145</td>
+<td class="num">108</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="never">
-<td class="num">146</td>
+<td class="num">109</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">147</td>
+<td class="num">110</td>
 <td class="src"><pre><code class="objc">    /// Prepares the `RoutingInterceptor` and performs it. Does not throw an exception.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
-<td class="num">148</td>
+<td class="num">111</td>
 <td class="src"><pre><code class="objc">    func commit(completion: @escaping (_: RoutingResult) -&gt; Void) {</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
-<td class="num">149</td>
-<td class="src"><pre><code class="objc">        commit(with: (), completion: completion)</code></pre></td>
-<td class="coverage">2x</td>
+<td class="num">112</td>
+<td class="src"><pre><code class="objc">        commit(with: nil, completion: completion)</code></pre></td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
-<td class="num">150</td>
+<td class="num">113</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="never">
-<td class="num">151</td>
+<td class="num">114</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">152</td>
+<td class="num">115</td>
 <td class="src"><pre><code class="objc">}</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">116</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">117</td>
+<td class="src"><pre><code class="objc">// MARK: Helper methods where the Context is Void</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">118</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">119</td>
+<td class="src"><pre><code class="objc">public extension RoutingInterceptor where Context == Void {</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">120</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">121</td>
+<td class="src"><pre><code class="objc">    /// The `Router` will call this method before the navigation process. If `RoutingInterceptor` is not able to allow</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">122</td>
+<td class="src"><pre><code class="objc">    /// the navigation process to start it can stop `Router` by throwing an exception.</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">123</td>
+<td class="src"><pre><code class="objc">    ///</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">124</td>
+<td class="src"><pre><code class="objc">    /// - Throws: The `RoutingError` if the `RoutingInterceptor` cannot prepare itself or if the navigation process cannot start</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">125</td>
+<td class="src"><pre><code class="objc">    ///   with the `Context` instance provided.</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="covered">
+<td class="num">126</td>
+<td class="src"><pre><code class="objc">    mutating func prepare() throws {</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">127</td>
+<td class="src"><pre><code class="objc">        try prepare(with: ())</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">128</td>
+<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="never">
+<td class="num">129</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">130</td>
+<td class="src"><pre><code class="objc">    /// Method that will be called by `Router` to start interceptor.</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">131</td>
+<td class="src"><pre><code class="objc">    ///</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">132</td>
+<td class="src"><pre><code class="objc">    /// - Parameters:</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">133</td>
+<td class="src"><pre><code class="objc">    ///   - completion: Completion block with a result.</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">134</td>
+<td class="src"><pre><code class="objc">    ///</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">135</td>
+<td class="src"><pre><code class="objc">    /// ###NB</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">136</td>
+<td class="src"><pre><code class="objc">    /// For the `Router` to continue the navigation process, the `completion` block of interceptor **MUST** be called</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">137</td>
+<td class="src"><pre><code class="objc">    /// by the implementation of this method.</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">138</td>
+<td class="src"><pre><code class="objc">    /// Otherwise `Router` will stay in limbo waiting for `RoutingInterceptor` to finish its action.</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="covered">
+<td class="num">139</td>
+<td class="src"><pre><code class="objc">    func perform(completion: @escaping (_: RoutingResult) -&gt; Void) {</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">140</td>
+<td class="src"><pre><code class="objc">        perform(with: (), completion: completion)</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">141</td>
+<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="never">
+<td class="num">142</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">143</td>
+<td class="src"><pre><code class="objc">    /// Prepares the `RoutingInterceptor` and executes it</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="covered">
+<td class="num">144</td>
+<td class="src"><pre><code class="objc">    func execute(completion: @escaping (_: RoutingResult) -&gt; Void) throws {</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">145</td>
+<td class="src"><pre><code class="objc">        try execute(with: (), completion: completion)</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">146</td>
+<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="never">
+<td class="num">147</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">148</td>
+<td class="src"><pre><code class="objc">    /// Prepares the `RoutingInterceptor` and performs it. Does not throw an exception.</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="covered">
+<td class="num">149</td>
+<td class="src"><pre><code class="objc">    func commit(completion: @escaping (_: RoutingResult) -&gt; Void) {</code></pre></td>
+<td class="coverage">2x</td>
+</tr>
+<tr class="covered">
+<td class="num">150</td>
+<td class="src"><pre><code class="objc">        commit(with: (), completion: completion)</code></pre></td>
+<td class="coverage">2x</td>
+</tr>
+<tr class="covered">
+<td class="num">151</td>
+<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="coverage">2x</td>
+</tr>
+<tr class="never">
+<td class="num">152</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">153</td>
+<td class="src"><pre><code class="objc">}</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">154</td>
+<td class="src"><pre><code class="objc">#endif</code></pre></td>
 <td class="coverage"></td>
 </tr>
 </table>
 </div></div>
 <footer><div class="row">
 <p><a href="https://github.com/SlatherOrg/slather">Fork me on Github</a></p>
-<p>&copy; 2019 Slather</p>
+<p>&copy; 2020 Slather</p>
 </div></footer><script src="highlight.pack.js"></script><script>hljs.initHighlightingOnLoad();</script>
 </body>
 </html>

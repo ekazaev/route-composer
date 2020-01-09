@@ -34,47 +34,47 @@
 </tr>
 <tr class="never">
 <td class="num">5</td>
-<td class="src"><pre><code class="objc">import Foundation</code></pre></td>
+<td class="src"><pre><code class="objc">#if os(iOS)</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">6</td>
-<td class="src"><pre><code class="objc">import UIKit</code></pre></td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">7</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="src"><pre><code class="objc">import Foundation</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">8</td>
-<td class="src"><pre><code class="objc">/// A simple class that produces an intermediate `ActionToStepIntegrator` describing any view controller.</code></pre></td>
+<td class="src"><pre><code class="objc">import UIKit</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">9</td>
-<td class="src"><pre><code class="objc">public final class SingleStep&lt;F: Finder, FC: Factory&gt;: ActionToStepIntegrator&lt;F.ViewController, F.Context&gt;</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">10</td>
-<td class="src"><pre><code class="objc">        where</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">11</td>
-<td class="src"><pre><code class="objc">        F.ViewController == FC.ViewController, F.Context == FC.Context {</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">12</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
+<td class="num">10</td>
+<td class="src"><pre><code class="objc">/// A simple class that produces an intermediate `ActionToStepIntegrator` describing any view controller.</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">11</td>
+<td class="src"><pre><code class="objc">public final class SingleStep&lt;F: Finder, FC: Factory&gt;: ActionToStepIntegrator&lt;F.ViewController, F.Context&gt;</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">12</td>
+<td class="src"><pre><code class="objc">        where</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
 <td class="num">13</td>
-<td class="src"><pre><code class="objc">    // MARK: Internal entities</code></pre></td>
+<td class="src"><pre><code class="objc">        F.ViewController == FC.ViewController, F.Context == FC.Context {</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -84,27 +84,27 @@
 </tr>
 <tr class="never">
 <td class="num">15</td>
-<td class="src"><pre><code class="objc">    final class UnsafeWrapper&lt;VC: UIViewController, C, F: Finder, FC: Factory&gt;: ActionToStepIntegrator&lt;VC, C&gt;</code></pre></td>
+<td class="src"><pre><code class="objc">    // MARK: Internal entities</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">16</td>
-<td class="src"><pre><code class="objc">            where</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">17</td>
-<td class="src"><pre><code class="objc">            F.ViewController == FC.ViewController, F.Context == FC.Context {</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">18</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
+<td class="num">17</td>
+<td class="src"><pre><code class="objc">    final class UnsafeWrapper&lt;VC: UIViewController, C, F: Finder, FC: Factory&gt;: ActionToStepIntegrator&lt;VC, C&gt;</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">18</td>
+<td class="src"><pre><code class="objc">            where</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
 <td class="num">19</td>
-<td class="src"><pre><code class="objc">        final let step: SingleStep&lt;F, FC&gt;</code></pre></td>
+<td class="src"><pre><code class="objc">            F.ViewController == FC.ViewController, F.Context == FC.Context {</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -112,75 +112,75 @@
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="covered">
+<tr class="never">
 <td class="num">21</td>
+<td class="src"><pre><code class="objc">        final let step: SingleStep&lt;F, FC&gt;</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">22</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="covered">
+<td class="num">23</td>
 <td class="src"><pre><code class="objc">        init(step: SingleStep&lt;F, FC&gt;) {</code></pre></td>
 <td class="coverage">12x</td>
 </tr>
 <tr class="covered">
-<td class="num">22</td>
+<td class="num">24</td>
 <td class="src"><pre><code class="objc">            self.step = step</code></pre></td>
 <td class="coverage">12x</td>
 </tr>
 <tr class="covered">
-<td class="num">23</td>
+<td class="num">25</td>
 <td class="src"><pre><code class="objc">            super.init(taskCollector: step.taskCollector)</code></pre></td>
 <td class="coverage">12x</td>
 </tr>
 <tr class="covered">
-<td class="num">24</td>
+<td class="num">26</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
 <td class="coverage">12x</td>
 </tr>
 <tr class="never">
-<td class="num">25</td>
+<td class="num">27</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
-<td class="num">26</td>
+<td class="num">28</td>
 <td class="src"><pre><code class="objc">        final override func routingStep&lt;A: Action&gt;(with action: A) -&gt; RoutingStep? {</code></pre></td>
 <td class="coverage">15x</td>
 </tr>
 <tr class="covered">
-<td class="num">27</td>
+<td class="num">29</td>
 <td class="src"><pre><code class="objc">            return step.routingStep(with: action)</code></pre></td>
 <td class="coverage">15x</td>
 </tr>
 <tr class="covered">
-<td class="num">28</td>
+<td class="num">30</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
 <td class="coverage">15x</td>
 </tr>
 <tr class="never">
-<td class="num">29</td>
+<td class="num">31</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
-<td class="num">30</td>
+<td class="num">32</td>
 <td class="src"><pre><code class="objc">        final override func embeddableRoutingStep&lt;A: ContainerAction&gt;(with action: A) -&gt; RoutingStep? {</code></pre></td>
 <td class="coverage">2x</td>
 </tr>
 <tr class="covered">
-<td class="num">31</td>
+<td class="num">33</td>
 <td class="src"><pre><code class="objc">            return step.embeddableRoutingStep(with: action)</code></pre></td>
 <td class="coverage">2x</td>
 </tr>
 <tr class="covered">
-<td class="num">32</td>
+<td class="num">34</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
 <td class="coverage">2x</td>
-</tr>
-<tr class="never">
-<td class="num">33</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">34</td>
-<td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">35</td>
@@ -189,7 +189,7 @@
 </tr>
 <tr class="never">
 <td class="num">36</td>
-<td class="src"><pre><code class="objc">    // MARK: Properties</code></pre></td>
+<td class="src"><pre><code class="objc">    }</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -199,7 +199,7 @@
 </tr>
 <tr class="never">
 <td class="num">38</td>
-<td class="src"><pre><code class="objc">    final let finder: F</code></pre></td>
+<td class="src"><pre><code class="objc">    // MARK: Properties</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -209,7 +209,7 @@
 </tr>
 <tr class="never">
 <td class="num">40</td>
-<td class="src"><pre><code class="objc">    final let factory: FC</code></pre></td>
+<td class="src"><pre><code class="objc">    final let finder: F</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -219,7 +219,7 @@
 </tr>
 <tr class="never">
 <td class="num">42</td>
-<td class="src"><pre><code class="objc">    // MARK: Methods</code></pre></td>
+<td class="src"><pre><code class="objc">    final let factory: FC</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -229,178 +229,178 @@
 </tr>
 <tr class="never">
 <td class="num">44</td>
-<td class="src"><pre><code class="objc">    /// A simple class that produces an intermediate `ActionToStepIntegrator`.</code></pre></td>
+<td class="src"><pre><code class="objc">    // MARK: Methods</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">45</td>
-<td class="src"><pre><code class="objc">    ///</code></pre></td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">46</td>
-<td class="src"><pre><code class="objc">    /// - Parameters:</code></pre></td>
+<td class="src"><pre><code class="objc">    /// A simple class that produces an intermediate `ActionToStepIntegrator`.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">47</td>
-<td class="src"><pre><code class="objc">    ///   - finder: The `UIViewController` `Finder`.</code></pre></td>
+<td class="src"><pre><code class="objc">    ///</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">48</td>
+<td class="src"><pre><code class="objc">    /// - Parameters:</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">49</td>
+<td class="src"><pre><code class="objc">    ///   - finder: The `UIViewController` `Finder`.</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">50</td>
 <td class="src"><pre><code class="objc">    ///   - factory: The `UIViewController` `Factory`.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
-<td class="num">49</td>
+<td class="num">51</td>
 <td class="src"><pre><code class="objc">    public init(finder: F, factory: FC) {</code></pre></td>
 <td class="coverage">27x</td>
 </tr>
 <tr class="covered">
-<td class="num">50</td>
+<td class="num">52</td>
 <td class="src"><pre><code class="objc">        self.finder = finder</code></pre></td>
 <td class="coverage">27x</td>
 </tr>
 <tr class="covered">
-<td class="num">51</td>
+<td class="num">53</td>
 <td class="src"><pre><code class="objc">        self.factory = factory</code></pre></td>
 <td class="coverage">27x</td>
 </tr>
 <tr class="covered">
-<td class="num">52</td>
+<td class="num">54</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
 <td class="coverage">27x</td>
 </tr>
 <tr class="never">
-<td class="num">53</td>
+<td class="num">55</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
-<td class="num">54</td>
+<td class="num">56</td>
 <td class="src"><pre><code class="objc">    override final func routingStep&lt;A: Action&gt;(with action: A) -&gt; RoutingStep {</code></pre></td>
 <td class="coverage">31x</td>
 </tr>
 <tr class="covered">
-<td class="num">55</td>
+<td class="num">57</td>
 <td class="src"><pre><code class="objc">        let entitiesCollector = BaseEntitiesCollector&lt;FactoryBox&lt;FC&gt;, ActionBox&gt;(finder: finder, factory: factory, action: action)</code></pre></td>
 <td class="coverage">31x</td>
 </tr>
 <tr class="covered">
-<td class="num">56</td>
+<td class="num">58</td>
 <td class="src"><pre><code class="objc">        return BaseStep(entitiesProvider: entitiesCollector, taskProvider: taskCollector)</code></pre></td>
 <td class="coverage">31x</td>
 </tr>
 <tr class="covered">
-<td class="num">57</td>
+<td class="num">59</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
 <td class="coverage">31x</td>
 </tr>
 <tr class="never">
-<td class="num">58</td>
+<td class="num">60</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
-<td class="num">59</td>
+<td class="num">61</td>
 <td class="src"><pre><code class="objc">    override final func embeddableRoutingStep&lt;A: ContainerAction&gt;(with action: A) -&gt; RoutingStep {</code></pre></td>
 <td class="coverage">7x</td>
 </tr>
 <tr class="covered">
-<td class="num">60</td>
+<td class="num">62</td>
 <td class="src"><pre><code class="objc">        let entitiesCollector = BaseEntitiesCollector&lt;FactoryBox&lt;FC&gt;, ContainerActionBox&gt;(finder: finder, factory: factory, action: action)</code></pre></td>
 <td class="coverage">7x</td>
 </tr>
 <tr class="covered">
-<td class="num">61</td>
+<td class="num">63</td>
 <td class="src"><pre><code class="objc">        return BaseStep(entitiesProvider: entitiesCollector, taskProvider: taskCollector)</code></pre></td>
 <td class="coverage">7x</td>
 </tr>
 <tr class="covered">
-<td class="num">62</td>
+<td class="num">64</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
 <td class="coverage">7x</td>
 </tr>
 <tr class="never">
-<td class="num">63</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">64</td>
-<td class="src"><pre><code class="objc">    /// Adapts context and view controller type dependencies.</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
 <td class="num">65</td>
-<td class="src"><pre><code class="objc">    ///</code></pre></td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">66</td>
-<td class="src"><pre><code class="objc">    /// *NB:* Developer guaranties that this types will compliment in runtime.</code></pre></td>
+<td class="src"><pre><code class="objc">    /// Adapts context and view controller type dependencies.</code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="covered">
+<tr class="never">
 <td class="num">67</td>
-<td class="src"><pre><code class="objc">    public final func unsafelyRewrapped&lt;VC: UIViewController, C&gt;() -&gt; ActionToStepIntegrator&lt;VC, C&gt; {</code></pre></td>
-<td class="coverage">2x</td>
-</tr>
-<tr class="covered">
-<td class="num">68</td>
-<td class="src"><pre><code class="objc">        return UnsafeWrapper(step: self)</code></pre></td>
-<td class="coverage">2x</td>
-</tr>
-<tr class="covered">
-<td class="num">69</td>
-<td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">2x</td>
-</tr>
-<tr class="never">
-<td class="num">70</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">71</td>
-<td class="src"><pre><code class="objc">    /// Allows to avoid container view controller check.</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">72</td>
 <td class="src"><pre><code class="objc">    ///</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">73</td>
-<td class="src"><pre><code class="objc">    /// *NB:* Developer guaranties that it will be there in the runtime.</code></pre></td>
+<td class="num">68</td>
+<td class="src"><pre><code class="objc">    /// *NB:* Developer guaranties that this types will compliment in runtime.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
-<td class="num">74</td>
-<td class="src"><pre><code class="objc">    public final func expectingContainer&lt;VC: ContainerViewController&gt;() -&gt; ActionToStepIntegrator&lt;VC, F.Context&gt; {</code></pre></td>
-<td class="coverage">3x</td>
+<td class="num">69</td>
+<td class="src"><pre><code class="objc">    public final func unsafelyRewrapped&lt;VC: UIViewController, C&gt;() -&gt; ActionToStepIntegrator&lt;VC, C&gt; {</code></pre></td>
+<td class="coverage">2x</td>
 </tr>
 <tr class="covered">
-<td class="num">75</td>
+<td class="num">70</td>
 <td class="src"><pre><code class="objc">        return UnsafeWrapper(step: self)</code></pre></td>
-<td class="coverage">3x</td>
+<td class="coverage">2x</td>
 </tr>
 <tr class="covered">
-<td class="num">76</td>
+<td class="num">71</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">3x</td>
+<td class="coverage">2x</td>
 </tr>
 <tr class="never">
-<td class="num">77</td>
+<td class="num">72</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">78</td>
-<td class="src"><pre><code class="objc">}</code></pre></td>
+<td class="num">73</td>
+<td class="src"><pre><code class="objc">    /// Allows to avoid container view controller check.</code></pre></td>
 <td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">74</td>
+<td class="src"><pre><code class="objc">    ///</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">75</td>
+<td class="src"><pre><code class="objc">    /// *NB:* Developer guaranties that it will be there in the runtime.</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="covered">
+<td class="num">76</td>
+<td class="src"><pre><code class="objc">    public final func expectingContainer&lt;VC: ContainerViewController&gt;() -&gt; ActionToStepIntegrator&lt;VC, F.Context&gt; {</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">77</td>
+<td class="src"><pre><code class="objc">        return UnsafeWrapper(step: self)</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">78</td>
+<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="coverage">3x</td>
 </tr>
 <tr class="never">
 <td class="num">79</td>
@@ -409,7 +409,7 @@
 </tr>
 <tr class="never">
 <td class="num">80</td>
-<td class="src"><pre><code class="objc">// MARK: Helper methods where the Context is Any?</code></pre></td>
+<td class="src"><pre><code class="objc">}</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -419,7 +419,7 @@
 </tr>
 <tr class="never">
 <td class="num">82</td>
-<td class="src"><pre><code class="objc">extension SingleStep where FC.Context == Any? {</code></pre></td>
+<td class="src"><pre><code class="objc">// MARK: Helper methods where the Context is Any?</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -429,84 +429,104 @@
 </tr>
 <tr class="never">
 <td class="num">84</td>
-<td class="src"><pre><code class="objc">    /// Allows to avoid container view controller check. This method is available only for the steps that are</code></pre></td>
+<td class="src"><pre><code class="objc">extension SingleStep where FC.Context == Any? {</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">85</td>
-<td class="src"><pre><code class="objc">    /// able to accept any type of context.</code></pre></td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">86</td>
-<td class="src"><pre><code class="objc">    ///</code></pre></td>
+<td class="src"><pre><code class="objc">    /// Allows to avoid container view controller check. This method is available only for the steps that are</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">87</td>
+<td class="src"><pre><code class="objc">    /// able to accept any type of context.</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">88</td>
+<td class="src"><pre><code class="objc">    ///</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">89</td>
 <td class="src"><pre><code class="objc">    /// *NB:* Developer guaranties that it will be there in the runtime.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
-<td class="num">88</td>
+<td class="num">90</td>
 <td class="src"><pre><code class="objc">    public final func expectingContainer&lt;VC: ContainerViewController, C&gt;() -&gt; ActionToStepIntegrator&lt;VC, C&gt; {</code></pre></td>
 <td class="coverage">4x</td>
 </tr>
 <tr class="covered">
-<td class="num">89</td>
+<td class="num">91</td>
 <td class="src"><pre><code class="objc">        return UnsafeWrapper(step: self)</code></pre></td>
 <td class="coverage">4x</td>
 </tr>
 <tr class="covered">
-<td class="num">90</td>
+<td class="num">92</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
 <td class="coverage">4x</td>
 </tr>
 <tr class="never">
-<td class="num">91</td>
+<td class="num">93</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">92</td>
+<td class="num">94</td>
 <td class="src"><pre><code class="objc">    /// Allows to compliment to the type check. A step that has context equal to Optional(Any) can be build</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">93</td>
+<td class="num">95</td>
 <td class="src"><pre><code class="objc">    /// with any type of context passed to the router.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
-<td class="num">94</td>
+<td class="num">96</td>
 <td class="src"><pre><code class="objc">    public final func adaptingContext&lt;C&gt;() -&gt; ActionToStepIntegrator&lt;F.ViewController, C&gt; {</code></pre></td>
 <td class="coverage">3x</td>
 </tr>
 <tr class="covered">
-<td class="num">95</td>
+<td class="num">97</td>
 <td class="src"><pre><code class="objc">        return UnsafeWrapper(step: self)</code></pre></td>
 <td class="coverage">3x</td>
 </tr>
 <tr class="covered">
-<td class="num">96</td>
+<td class="num">98</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
 <td class="coverage">3x</td>
 </tr>
 <tr class="never">
-<td class="num">97</td>
+<td class="num">99</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">98</td>
+<td class="num">100</td>
 <td class="src"><pre><code class="objc">}</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">101</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">102</td>
+<td class="src"><pre><code class="objc">#endif</code></pre></td>
 <td class="coverage"></td>
 </tr>
 </table>
 </div></div>
 <footer><div class="row">
 <p><a href="https://github.com/SlatherOrg/slather">Fork me on Github</a></p>
-<p>&copy; 2019 Slather</p>
+<p>&copy; 2020 Slather</p>
 </div></footer><script src="highlight.pack.js"></script><script>hljs.initHighlightingOnLoad();</script>
 </body>
 </html>
