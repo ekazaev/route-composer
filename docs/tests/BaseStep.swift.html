@@ -149,22 +149,22 @@
 </tr>
 <tr class="never">
 <td class="num">28</td>
-<td class="src"><pre><code class="objc">        ChainableStep,</code></pre></td>
+<td class="src"><pre><code class="objc">    ChainableStep,</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">29</td>
-<td class="src"><pre><code class="objc">        InterceptableStep,</code></pre></td>
+<td class="src"><pre><code class="objc">    InterceptableStep,</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">30</td>
-<td class="src"><pre><code class="objc">        PerformableStep,</code></pre></td>
+<td class="src"><pre><code class="objc">    PerformableStep,</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">31</td>
-<td class="src"><pre><code class="objc">        CustomStringConvertible {</code></pre></td>
+<td class="src"><pre><code class="objc">    CustomStringConvertible {</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -174,7 +174,7 @@
 </tr>
 <tr class="never">
 <td class="num">33</td>
-<td class="src"><pre><code class="objc">    private var previousStep: RoutingStep?</code></pre></td>
+<td class="src"><pre><code class="objc">        private var previousStep: RoutingStep?</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -184,7 +184,7 @@
 </tr>
 <tr class="never">
 <td class="num">35</td>
-<td class="src"><pre><code class="objc">    let factory: AnyFactory?</code></pre></td>
+<td class="src"><pre><code class="objc">        let factory: AnyFactory?</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -194,7 +194,7 @@
 </tr>
 <tr class="never">
 <td class="num">37</td>
-<td class="src"><pre><code class="objc">    let finder: AnyFinder?</code></pre></td>
+<td class="src"><pre><code class="objc">        let finder: AnyFinder?</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -204,7 +204,7 @@
 </tr>
 <tr class="never">
 <td class="num">39</td>
-<td class="src"><pre><code class="objc">    let interceptor: AnyRoutingInterceptor?</code></pre></td>
+<td class="src"><pre><code class="objc">        let interceptor: AnyRoutingInterceptor?</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -214,7 +214,7 @@
 </tr>
 <tr class="never">
 <td class="num">41</td>
-<td class="src"><pre><code class="objc">    let postTask: AnyPostRoutingTask?</code></pre></td>
+<td class="src"><pre><code class="objc">        let postTask: AnyPostRoutingTask?</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -224,7 +224,7 @@
 </tr>
 <tr class="never">
 <td class="num">43</td>
-<td class="src"><pre><code class="objc">    let contextTask: AnyContextTask?</code></pre></td>
+<td class="src"><pre><code class="objc">        let contextTask: AnyContextTask?</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -234,42 +234,42 @@
 </tr>
 <tr class="never">
 <td class="num">45</td>
-<td class="src"><pre><code class="objc">    init(entitiesProvider: EntitiesProvider,</code></pre></td>
+<td class="src"><pre><code class="objc">        init(entitiesProvider: EntitiesProvider,</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
 <td class="num">46</td>
-<td class="src"><pre><code class="objc">         taskProvider: TaskProvider) {</code></pre></td>
+<td class="src"><pre><code class="objc">             taskProvider: TaskProvider) {</code></pre></td>
 <td class="coverage">427x</td>
 </tr>
 <tr class="covered">
 <td class="num">47</td>
-<td class="src"><pre><code class="objc">        self.finder = entitiesProvider.finder</code></pre></td>
+<td class="src"><pre><code class="objc">            self.finder = entitiesProvider.finder</code></pre></td>
 <td class="coverage">427x</td>
 </tr>
 <tr class="covered">
 <td class="num">48</td>
-<td class="src"><pre><code class="objc">        self.factory = entitiesProvider.factory</code></pre></td>
+<td class="src"><pre><code class="objc">            self.factory = entitiesProvider.factory</code></pre></td>
 <td class="coverage">427x</td>
 </tr>
 <tr class="covered">
 <td class="num">49</td>
-<td class="src"><pre><code class="objc">        self.interceptor = taskProvider.interceptor</code></pre></td>
+<td class="src"><pre><code class="objc">            self.interceptor = taskProvider.interceptor</code></pre></td>
 <td class="coverage">427x</td>
 </tr>
 <tr class="covered">
 <td class="num">50</td>
-<td class="src"><pre><code class="objc">        self.contextTask = taskProvider.contextTask</code></pre></td>
+<td class="src"><pre><code class="objc">            self.contextTask = taskProvider.contextTask</code></pre></td>
 <td class="coverage">427x</td>
 </tr>
 <tr class="covered">
 <td class="num">51</td>
-<td class="src"><pre><code class="objc">        self.postTask = taskProvider.postTask</code></pre></td>
+<td class="src"><pre><code class="objc">            self.postTask = taskProvider.postTask</code></pre></td>
 <td class="coverage">427x</td>
 </tr>
 <tr class="covered">
 <td class="num">52</td>
-<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="src"><pre><code class="objc">        }</code></pre></td>
 <td class="coverage">427x</td>
 </tr>
 <tr class="never">
@@ -279,17 +279,17 @@
 </tr>
 <tr class="covered">
 <td class="num">54</td>
-<td class="src"><pre><code class="objc">    func getPreviousStep&lt;Context&gt;(with context: Context) -&gt; RoutingStep? {</code></pre></td>
+<td class="src"><pre><code class="objc">        func getPreviousStep&lt;Context&gt;(with context: Context) -&gt; RoutingStep? {</code></pre></td>
 <td class="coverage">445x</td>
 </tr>
 <tr class="covered">
 <td class="num">55</td>
-<td class="src"><pre><code class="objc">        return previousStep</code></pre></td>
+<td class="src"><pre><code class="objc">            return previousStep</code></pre></td>
 <td class="coverage">445x</td>
 </tr>
 <tr class="covered">
 <td class="num">56</td>
-<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="src"><pre><code class="objc">        }</code></pre></td>
 <td class="coverage">445x</td>
 </tr>
 <tr class="never">
@@ -299,52 +299,52 @@
 </tr>
 <tr class="covered">
 <td class="num">58</td>
-<td class="src"><pre><code class="objc">    func perform&lt;Context&gt;(with context: Context) throws -&gt; PerformableStepResult {</code></pre></td>
+<td class="src"><pre><code class="objc">        func perform&lt;Context&gt;(with context: Context) throws -&gt; PerformableStepResult {</code></pre></td>
 <td class="coverage">363x</td>
 </tr>
 <tr class="covered">
 <td class="num">59</td>
-<td class="src"><pre><code class="objc">        guard let viewController = try finder?.findViewController(with: context) else {</code></pre></td>
+<td class="src"><pre><code class="objc">            guard let viewController = try finder?.findViewController(with: context) else {</code></pre></td>
 <td class="coverage">363x</td>
 </tr>
 <tr class="covered">
 <td class="num">60</td>
-<td class="src"><pre><code class="objc">            if let factory = factory {</code></pre></td>
+<td class="src"><pre><code class="objc">                if let factory = factory {</code></pre></td>
 <td class="coverage">266x</td>
 </tr>
 <tr class="covered">
 <td class="num">61</td>
-<td class="src"><pre><code class="objc">                return .build(factory)</code></pre></td>
+<td class="src"><pre><code class="objc">                    return .build(factory)</code></pre></td>
 <td class="coverage">258x</td>
 </tr>
 <tr class="covered">
 <td class="num">62</td>
-<td class="src"><pre><code class="objc">            } else {</code></pre></td>
+<td class="src"><pre><code class="objc">                } else {</code></pre></td>
 <td class="coverage">258x</td>
 </tr>
 <tr class="covered">
 <td class="num">63</td>
-<td class="src"><pre><code class="objc">                return .none</code></pre></td>
+<td class="src"><pre><code class="objc">                    return .none</code></pre></td>
 <td class="coverage">8x</td>
 </tr>
 <tr class="covered">
 <td class="num">64</td>
-<td class="src"><pre><code class="objc">            }</code></pre></td>
+<td class="src"><pre><code class="objc">                }</code></pre></td>
 <td class="coverage">8x</td>
 </tr>
 <tr class="covered">
 <td class="num">65</td>
-<td class="src"><pre><code class="objc">        }</code></pre></td>
+<td class="src"><pre><code class="objc">            }</code></pre></td>
 <td class="coverage">97x</td>
 </tr>
 <tr class="covered">
 <td class="num">66</td>
-<td class="src"><pre><code class="objc">        return .success(viewController)</code></pre></td>
+<td class="src"><pre><code class="objc">            return .success(viewController)</code></pre></td>
 <td class="coverage">97x</td>
 </tr>
 <tr class="covered">
 <td class="num">67</td>
-<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="src"><pre><code class="objc">        }</code></pre></td>
 <td class="coverage">363x</td>
 </tr>
 <tr class="never">
@@ -354,17 +354,17 @@
 </tr>
 <tr class="covered">
 <td class="num">69</td>
-<td class="src"><pre><code class="objc">    mutating func from(_ step: RoutingStep) {</code></pre></td>
+<td class="src"><pre><code class="objc">        mutating func from(_ step: RoutingStep) {</code></pre></td>
 <td class="coverage">401x</td>
 </tr>
 <tr class="covered">
 <td class="num">70</td>
-<td class="src"><pre><code class="objc">        previousStep = step</code></pre></td>
+<td class="src"><pre><code class="objc">            previousStep = step</code></pre></td>
 <td class="coverage">401x</td>
 </tr>
 <tr class="covered">
 <td class="num">71</td>
-<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="src"><pre><code class="objc">        }</code></pre></td>
 <td class="coverage">401x</td>
 </tr>
 <tr class="never">
@@ -374,57 +374,57 @@
 </tr>
 <tr class="covered">
 <td class="num">73</td>
-<td class="src"><pre><code class="objc">    public var description: String {</code></pre></td>
+<td class="src"><pre><code class="objc">        public var description: String {</code></pre></td>
 <td class="coverage">351x</td>
 </tr>
 <tr class="covered">
 <td class="num">74</td>
-<td class="src"><pre><code class="objc">        var finderDescription = "None"</code></pre></td>
+<td class="src"><pre><code class="objc">            var finderDescription = "None"</code></pre></td>
 <td class="coverage">351x</td>
 </tr>
 <tr class="covered">
 <td class="num">75</td>
-<td class="src"><pre><code class="objc">        var factoryDescription = "None"</code></pre></td>
+<td class="src"><pre><code class="objc">            var factoryDescription = "None"</code></pre></td>
 <td class="coverage">351x</td>
 </tr>
 <tr class="covered">
 <td class="num">76</td>
-<td class="src"><pre><code class="objc">        if let finder = finder {</code></pre></td>
+<td class="src"><pre><code class="objc">            if let finder = finder {</code></pre></td>
 <td class="coverage">351x</td>
 </tr>
 <tr class="covered">
 <td class="num">77</td>
-<td class="src"><pre><code class="objc">            finderDescription = String(describing: finder)</code></pre></td>
+<td class="src"><pre><code class="objc">                finderDescription = String(describing: finder)</code></pre></td>
 <td class="coverage">263x</td>
 </tr>
 <tr class="covered">
 <td class="num">78</td>
-<td class="src"><pre><code class="objc">        }</code></pre></td>
+<td class="src"><pre><code class="objc">            }</code></pre></td>
 <td class="coverage">351x</td>
 </tr>
 <tr class="covered">
 <td class="num">79</td>
-<td class="src"><pre><code class="objc">        if let factory = factory {</code></pre></td>
+<td class="src"><pre><code class="objc">            if let factory = factory {</code></pre></td>
 <td class="coverage">351x</td>
 </tr>
 <tr class="covered">
 <td class="num">80</td>
-<td class="src"><pre><code class="objc">            factoryDescription = String(describing: factory)</code></pre></td>
+<td class="src"><pre><code class="objc">                factoryDescription = String(describing: factory)</code></pre></td>
 <td class="coverage">330x</td>
 </tr>
 <tr class="covered">
 <td class="num">81</td>
-<td class="src"><pre><code class="objc">        }</code></pre></td>
+<td class="src"><pre><code class="objc">            }</code></pre></td>
 <td class="coverage">351x</td>
 </tr>
 <tr class="covered">
 <td class="num">82</td>
-<td class="src"><pre><code class="objc">        return "BaseStep&lt;\(finderDescription) : \(factoryDescription))&gt;"</code></pre></td>
+<td class="src"><pre><code class="objc">            return "BaseStep&lt;\(finderDescription) : \(factoryDescription))&gt;"</code></pre></td>
 <td class="coverage">351x</td>
 </tr>
 <tr class="covered">
 <td class="num">83</td>
-<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="src"><pre><code class="objc">        }</code></pre></td>
 <td class="coverage">351x</td>
 </tr>
 <tr class="never">
@@ -434,7 +434,7 @@
 </tr>
 <tr class="never">
 <td class="num">85</td>
-<td class="src"><pre><code class="objc">}</code></pre></td>
+<td class="src"><pre><code class="objc">    }</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">

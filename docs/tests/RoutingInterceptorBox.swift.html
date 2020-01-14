@@ -9,7 +9,7 @@
 <h2 class="cov_title">
 <span>Coverage for "RoutingInterceptorBox.swift" : </span><span class="cov_high">100.00%</span>
 </h2>
-<h4 class="cov_subtitle">(30 of 30 relevant lines covered)</h4>
+<h4 class="cov_subtitle">(31 of 31 relevant lines covered)</h4>
 <h4 class="cov_filepath">RouteComposer/Classes/Router/Type Erasure/Boxes/RoutingInterceptorBox.swift</h4>
 <table class="source_code">
 <tr class="never">
@@ -119,12 +119,12 @@
 </tr>
 <tr class="covered">
 <td class="num">22</td>
-<td class="src"><pre><code class="objc">                    expectedType: RI.Context.self,</code></pre></td>
+<td class="src"><pre><code class="objc">                                            expectedType: RI.Context.self,</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">23</td>
-<td class="src"><pre><code class="objc">                    .init("\(String(describing: routingInterceptor.self)) does not accept \(String(describing: context.self)) as a context."))</code></pre></td>
+<td class="src"><pre><code class="objc">                                            .init("\(String(describing: routingInterceptor.self)) does not accept \(String(describing: context.self)) as a context."))</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
@@ -139,7 +139,7 @@
 </tr>
 <tr class="covered">
 <td class="num">26</td>
-<td class="src"><pre><code class="objc">        try self.routingInterceptor.prepare(with: typedDestination)</code></pre></td>
+<td class="src"><pre><code class="objc">        try routingInterceptor.prepare(with: typedDestination)</code></pre></td>
 <td class="coverage">233x</td>
 </tr>
 <tr class="covered">
@@ -174,96 +174,101 @@
 </tr>
 <tr class="covered">
 <td class="num">33</td>
-<td class="src"><pre><code class="objc">                    expectedType: RI.Context.self,</code></pre></td>
+<td class="src"><pre><code class="objc">                                                          expectedType: RI.Context.self,</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">34</td>
-<td class="src"><pre><code class="objc">                    .init("\(String(describing: routingInterceptor.self)) does not accept \(String(describing: context.self)) as a context."))))</code></pre></td>
+<td class="src"><pre><code class="objc">                                                          .init("\(String(describing: routingInterceptor.self)) " +</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">35</td>
-<td class="src"><pre><code class="objc">            return</code></pre></td>
+<td class="src"><pre><code class="objc">                                                              "does not accept \(String(describing: context.self)) as a context."))))</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">36</td>
-<td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">222x</td>
+<td class="src"><pre><code class="objc">            return</code></pre></td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">37</td>
-<td class="src"><pre><code class="objc">        assertIfNotPrepared()</code></pre></td>
+<td class="src"><pre><code class="objc">        }</code></pre></td>
 <td class="coverage">222x</td>
 </tr>
 <tr class="covered">
 <td class="num">38</td>
-<td class="src"><pre><code class="objc">        assertIfNotMainThread()</code></pre></td>
+<td class="src"><pre><code class="objc">        assertIfNotPrepared()</code></pre></td>
 <td class="coverage">222x</td>
 </tr>
 <tr class="covered">
 <td class="num">39</td>
-<td class="src"><pre><code class="objc">        routingInterceptor.perform(with: typedDestination) { result in</code></pre></td>
+<td class="src"><pre><code class="objc">        assertIfNotMainThread()</code></pre></td>
 <td class="coverage">222x</td>
 </tr>
 <tr class="covered">
 <td class="num">40</td>
-<td class="src"><pre><code class="objc">            self.assertIfNotMainThread()</code></pre></td>
+<td class="src"><pre><code class="objc">        routingInterceptor.perform(with: typedDestination) { result in</code></pre></td>
 <td class="coverage">222x</td>
 </tr>
 <tr class="covered">
 <td class="num">41</td>
-<td class="src"><pre><code class="objc">            completion(result)</code></pre></td>
+<td class="src"><pre><code class="objc">            self.assertIfNotMainThread()</code></pre></td>
 <td class="coverage">222x</td>
 </tr>
 <tr class="covered">
 <td class="num">42</td>
-<td class="src"><pre><code class="objc">        }</code></pre></td>
+<td class="src"><pre><code class="objc">            completion(result)</code></pre></td>
 <td class="coverage">222x</td>
 </tr>
 <tr class="covered">
 <td class="num">43</td>
+<td class="src"><pre><code class="objc">        }</code></pre></td>
+<td class="coverage">222x</td>
+</tr>
+<tr class="covered">
+<td class="num">44</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
 <td class="coverage">222x</td>
 </tr>
 <tr class="never">
-<td class="num">44</td>
+<td class="num">45</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
-<td class="num">45</td>
+<td class="num">46</td>
 <td class="src"><pre><code class="objc">    var description: String {</code></pre></td>
 <td class="coverage">3x</td>
 </tr>
 <tr class="covered">
-<td class="num">46</td>
+<td class="num">47</td>
 <td class="src"><pre><code class="objc">        return String(describing: routingInterceptor)</code></pre></td>
 <td class="coverage">3x</td>
 </tr>
 <tr class="covered">
-<td class="num">47</td>
+<td class="num">48</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
 <td class="coverage">3x</td>
 </tr>
 <tr class="never">
-<td class="num">48</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
 <td class="num">49</td>
-<td class="src"><pre><code class="objc">}</code></pre></td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">50</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="src"><pre><code class="objc">}</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">51</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">52</td>
 <td class="src"><pre><code class="objc">#endif</code></pre></td>
 <td class="coverage"></td>
 </tr>

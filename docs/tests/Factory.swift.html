@@ -9,7 +9,7 @@
 <h2 class="cov_title">
 <span>Coverage for "Factory.swift" : </span><span class="cov_high">100.00%</span>
 </h2>
-<h4 class="cov_subtitle">(23 of 23 relevant lines covered)</h4>
+<h4 class="cov_subtitle">(22 of 22 relevant lines covered)</h4>
 <h4 class="cov_filepath">RouteComposer/Classes/Factory.swift</h4>
 <table class="source_code">
 <tr class="never">
@@ -184,271 +184,266 @@
 </tr>
 <tr class="covered">
 <td class="num">35</td>
-<td class="src"><pre><code class="objc">    mutating func prepare(with context: Context) throws {</code></pre></td>
-<td class="coverage">212x</td>
-</tr>
-<tr class="covered">
-<td class="num">36</td>
-<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="src"><pre><code class="objc">    mutating func prepare(with context: Context) throws {}</code></pre></td>
 <td class="coverage">212x</td>
 </tr>
 <tr class="never">
-<td class="num">37</td>
+<td class="num">36</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">37</td>
+<td class="src"><pre><code class="objc">}</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">38</td>
-<td class="src"><pre><code class="objc">}</code></pre></td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">39</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">40</td>
 <td class="src"><pre><code class="objc">// MARK: Helper methods</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">41</td>
+<td class="num">40</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">42</td>
+<td class="num">41</td>
 <td class="src"><pre><code class="objc">public extension Factory {</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">43</td>
+<td class="num">42</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">44</td>
+<td class="num">43</td>
 <td class="src"><pre><code class="objc">    /// Prepares the `Factory` and builds its `UIViewController`</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
-<td class="num">45</td>
+<td class="num">44</td>
 <td class="src"><pre><code class="objc">    func execute(with context: Context) throws -&gt; ViewController {</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
-<td class="num">46</td>
+<td class="num">45</td>
 <td class="src"><pre><code class="objc">        var factory = self</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
-<td class="num">47</td>
+<td class="num">46</td>
 <td class="src"><pre><code class="objc">        try factory.prepare(with: context)</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
-<td class="num">48</td>
+<td class="num">47</td>
 <td class="src"><pre><code class="objc">        return try factory.build(with: context)</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
-<td class="num">49</td>
+<td class="num">48</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="never">
-<td class="num">50</td>
+<td class="num">49</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">50</td>
+<td class="src"><pre><code class="objc">}</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">51</td>
-<td class="src"><pre><code class="objc">}</code></pre></td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">52</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">53</td>
 <td class="src"><pre><code class="objc">// MARK: Helper methods where the Context is Any?</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">54</td>
+<td class="num">53</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">55</td>
+<td class="num">54</td>
 <td class="src"><pre><code class="objc">public extension Factory where Context == Any? {</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">56</td>
+<td class="num">55</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">57</td>
+<td class="num">56</td>
 <td class="src"><pre><code class="objc">    /// Builds a `Factory`'s view controller.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
-<td class="num">58</td>
+<td class="num">57</td>
 <td class="src"><pre><code class="objc">    func build() throws -&gt; ViewController {</code></pre></td>
 <td class="coverage">7x</td>
 </tr>
 <tr class="covered">
-<td class="num">59</td>
+<td class="num">58</td>
 <td class="src"><pre><code class="objc">        return try build(with: nil)</code></pre></td>
 <td class="coverage">7x</td>
 </tr>
 <tr class="covered">
-<td class="num">60</td>
+<td class="num">59</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
 <td class="coverage">7x</td>
 </tr>
 <tr class="never">
-<td class="num">61</td>
+<td class="num">60</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">62</td>
+<td class="num">61</td>
 <td class="src"><pre><code class="objc">    /// Prepares the `Factory` and builds its `UIViewController`</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
-<td class="num">63</td>
+<td class="num">62</td>
 <td class="src"><pre><code class="objc">    func execute() throws -&gt; ViewController {</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">63</td>
+<td class="src"><pre><code class="objc">        var factory = self</code></pre></td>
 <td class="coverage">3x</td>
 </tr>
 <tr class="covered">
 <td class="num">64</td>
-<td class="src"><pre><code class="objc">        var factory = self</code></pre></td>
+<td class="src"><pre><code class="objc">        try factory.prepare()</code></pre></td>
 <td class="coverage">3x</td>
 </tr>
 <tr class="covered">
 <td class="num">65</td>
-<td class="src"><pre><code class="objc">        try factory.prepare()</code></pre></td>
+<td class="src"><pre><code class="objc">        return try factory.build()</code></pre></td>
 <td class="coverage">3x</td>
 </tr>
 <tr class="covered">
 <td class="num">66</td>
-<td class="src"><pre><code class="objc">        return try factory.build()</code></pre></td>
-<td class="coverage">3x</td>
-</tr>
-<tr class="covered">
-<td class="num">67</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
 <td class="coverage">3x</td>
 </tr>
 <tr class="never">
-<td class="num">68</td>
+<td class="num">67</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">68</td>
+<td class="src"><pre><code class="objc">}</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">69</td>
-<td class="src"><pre><code class="objc">}</code></pre></td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">70</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">71</td>
 <td class="src"><pre><code class="objc">// MARK: Helper methods where the Context is Void</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">72</td>
+<td class="num">71</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">73</td>
+<td class="num">72</td>
 <td class="src"><pre><code class="objc">public extension Factory where Context == Void {</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">74</td>
+<td class="num">73</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">75</td>
+<td class="num">74</td>
 <td class="src"><pre><code class="objc">    /// Builds a `Factory`'s view controller.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
-<td class="num">76</td>
+<td class="num">75</td>
 <td class="src"><pre><code class="objc">    func build() throws -&gt; ViewController {</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
-<td class="num">77</td>
+<td class="num">76</td>
 <td class="src"><pre><code class="objc">        return try build(with: ())</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
-<td class="num">78</td>
+<td class="num">77</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="never">
-<td class="num">79</td>
+<td class="num">78</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">80</td>
+<td class="num">79</td>
 <td class="src"><pre><code class="objc">    /// Prepares the `Factory` and builds its `UIViewController`</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
-<td class="num">81</td>
+<td class="num">80</td>
 <td class="src"><pre><code class="objc">    func execute() throws -&gt; ViewController {</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
-<td class="num">82</td>
+<td class="num">81</td>
 <td class="src"><pre><code class="objc">        var factory = self</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
-<td class="num">83</td>
+<td class="num">82</td>
 <td class="src"><pre><code class="objc">        try factory.prepare()</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
-<td class="num">84</td>
+<td class="num">83</td>
 <td class="src"><pre><code class="objc">        return try factory.build()</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
-<td class="num">85</td>
+<td class="num">84</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="never">
-<td class="num">86</td>
+<td class="num">85</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">87</td>
+<td class="num">86</td>
 <td class="src"><pre><code class="objc">}</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">88</td>
+<td class="num">87</td>
 <td class="src"><pre><code class="objc">#endif</code></pre></td>
 <td class="coverage"></td>
 </tr>

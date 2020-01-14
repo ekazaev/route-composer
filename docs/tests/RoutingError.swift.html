@@ -284,7 +284,7 @@
 </tr>
 <tr class="covered">
 <td class="num">55</td>
-<td class="src"><pre><code class="objc">            let descriptionParts = [!debugDescription.isEmpty ? debugDescription : nil, errorDescription].compactMap({ $0 })</code></pre></td>
+<td class="src"><pre><code class="objc">            let descriptionParts = [!debugDescription.isEmpty ? debugDescription : nil, errorDescription].compactMap { $0 }</code></pre></td>
 <td class="coverage">92x</td>
 </tr>
 <tr class="covered">
@@ -424,7 +424,7 @@
 </tr>
 <tr class="covered">
 <td class="num">83</td>
-<td class="src"><pre><code class="objc">        case .typeMismatch(let type, let expectedType, let context):</code></pre></td>
+<td class="src"><pre><code class="objc">        case let .typeMismatch(type, expectedType, context):</code></pre></td>
 <td class="coverage">31x</td>
 </tr>
 <tr class="covered">
@@ -434,12 +434,12 @@
 </tr>
 <tr class="covered">
 <td class="num">85</td>
-<td class="src"><pre><code class="objc">                    "\(context.description)"</code></pre></td>
+<td class="src"><pre><code class="objc">                "\(context.description)"</code></pre></td>
 <td class="coverage">3x</td>
 </tr>
 <tr class="covered">
 <td class="num">86</td>
-<td class="src"><pre><code class="objc">        case .compositionFailed(let context):</code></pre></td>
+<td class="src"><pre><code class="objc">        case let .compositionFailed(context):</code></pre></td>
 <td class="coverage">31x</td>
 </tr>
 <tr class="covered">
@@ -449,7 +449,7 @@
 </tr>
 <tr class="covered">
 <td class="num">88</td>
-<td class="src"><pre><code class="objc">        case .initialController(let state, let context):</code></pre></td>
+<td class="src"><pre><code class="objc">        case let .initialController(state, context):</code></pre></td>
 <td class="coverage">31x</td>
 </tr>
 <tr class="covered">
@@ -459,7 +459,7 @@
 </tr>
 <tr class="covered">
 <td class="num">90</td>
-<td class="src"><pre><code class="objc">        case .generic(let context):</code></pre></td>
+<td class="src"><pre><code class="objc">        case let .generic(context):</code></pre></td>
 <td class="coverage">31x</td>
 </tr>
 <tr class="covered">
@@ -499,7 +499,7 @@
 </tr>
 <tr class="covered">
 <td class="num">98</td>
-<td class="src"><pre><code class="objc">        case .typeMismatch(_, _, let context):</code></pre></td>
+<td class="src"><pre><code class="objc">        case let .typeMismatch(_, _, context):</code></pre></td>
 <td class="coverage">5x</td>
 </tr>
 <tr class="covered">
@@ -509,7 +509,7 @@
 </tr>
 <tr class="covered">
 <td class="num">100</td>
-<td class="src"><pre><code class="objc">        case .compositionFailed(let context):</code></pre></td>
+<td class="src"><pre><code class="objc">        case let .compositionFailed(context):</code></pre></td>
 <td class="coverage">5x</td>
 </tr>
 <tr class="covered">
@@ -519,7 +519,7 @@
 </tr>
 <tr class="covered">
 <td class="num">102</td>
-<td class="src"><pre><code class="objc">        case .initialController(_, let context):</code></pre></td>
+<td class="src"><pre><code class="objc">        case let .initialController(_, context):</code></pre></td>
 <td class="coverage">5x</td>
 </tr>
 <tr class="covered">
@@ -529,7 +529,7 @@
 </tr>
 <tr class="covered">
 <td class="num">104</td>
-<td class="src"><pre><code class="objc">        case .generic(let context):</code></pre></td>
+<td class="src"><pre><code class="objc">        case let .generic(context):</code></pre></td>
 <td class="coverage">5x</td>
 </tr>
 <tr class="covered">

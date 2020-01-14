@@ -174,7 +174,7 @@
 </tr>
 <tr class="covered">
 <td class="num">33</td>
-<td class="src"><pre><code class="objc">        self.children = factories.compactMap({ child -&gt; PostponedIntegrationFactory&lt;FactoryType.Context&gt;? in</code></pre></td>
+<td class="src"><pre><code class="objc">        children = factories.compactMap { child -&gt; PostponedIntegrationFactory&lt;FactoryType.Context&gt;? in</code></pre></td>
 <td class="coverage">79x</td>
 </tr>
 <tr class="covered">
@@ -209,7 +209,7 @@
 </tr>
 <tr class="covered">
 <td class="num">40</td>
-<td class="src"><pre><code class="objc">        })</code></pre></td>
+<td class="src"><pre><code class="objc">        }</code></pre></td>
 <td class="coverage">79x</td>
 </tr>
 <tr class="covered">
@@ -244,12 +244,12 @@
 </tr>
 <tr class="covered">
 <td class="num">47</td>
-<td class="src"><pre><code class="objc">                    expectedType: FactoryType.Context.self,</code></pre></td>
+<td class="src"><pre><code class="objc">                                            expectedType: FactoryType.Context.self,</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">48</td>
-<td class="src"><pre><code class="objc">                    .init("\(String(describing: factory.self)) does not accept \(String(describing: context.self)) as a context."))</code></pre></td>
+<td class="src"><pre><code class="objc">                                            .init("\(String(describing: factory.self)) does not accept \(String(describing: context.self)) as a context."))</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
