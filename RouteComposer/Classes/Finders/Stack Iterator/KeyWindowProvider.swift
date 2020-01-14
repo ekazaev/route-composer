@@ -24,8 +24,7 @@ public struct KeyWindowProvider: WindowProvider {
     // MARK: Methods
 
     /// Constructor
-    public init() {
-    }
+    public init() {}
 
 }
 

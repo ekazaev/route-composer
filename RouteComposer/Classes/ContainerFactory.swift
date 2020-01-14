@@ -40,8 +40,7 @@ public protocol ContainerFactory: AbstractFactory where ViewController: Containe
 public extension ContainerFactory {
 
     /// Default implementation does nothing
-    mutating func prepare(with context: Context) throws {
-    }
+    mutating func prepare(with context: Context) throws {}
 
 }
 

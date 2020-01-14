@@ -32,8 +32,7 @@ public protocol Factory: AbstractFactory {
 public extension Factory {
 
     /// Default implementation does nothing
-    mutating func prepare(with context: Context) throws {
-    }
+    mutating func prepare(with context: Context) throws {}
 
 }
 

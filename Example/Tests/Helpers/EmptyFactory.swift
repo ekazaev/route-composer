@@ -5,13 +5,12 @@
 #if os(iOS)
 
 import Foundation
-import UIKit
 @testable import RouteComposer
+import UIKit
 
 struct EmptyFactory: Factory {
 
-    init() {
-    }
+    init() {}
 
     func build(with context: Any?) throws -> UIViewController {
         return UIViewController()

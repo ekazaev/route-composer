@@ -4,10 +4,10 @@
 
 #if os(iOS)
 
-import UIKit
 import Foundation
-import XCTest
 @testable import RouteComposer
+import UIKit
+import XCTest
 
 extension RoutingError.Context: Equatable {
 
@@ -33,10 +33,10 @@ class ErrorTests: XCTestCase {
         XCTAssertEqual(error.description, "Type Mismatch Error: Type Optional<Int> is not equal to the expected type String. Test description")
 
         context = RoutingError.Context("Test description",
-                underlyingError: DecodingError.valueNotFound(String.self, .init(codingPath: [], debugDescription: "Second description")))
+                                       underlyingError: DecodingError.valueNotFound(String.self, .init(codingPath: [], debugDescription: "Second description")))
         error = RoutingError.typeMismatch(type: Int?.self, expectedType: String.self, context)
         XCTAssertEqual(error.description, "Type Mismatch Error: Type Optional<Int> is not equal to the expected type String. " +
-                "Test description -> valueNotFound(Swift.String, Swift.DecodingError.Context(codingPath: [], debugDescription: \"Second description\", underlyingError: nil))")
+            "Test description -> valueNotFound(Swift.String, Swift.DecodingError.Context(codingPath: [], debugDescription: \"Second description\", underlyingError: nil))")
 
         context = RoutingError.Context("Test description")
         error = RoutingError.compositionFailed(context)
@@ -53,7 +53,7 @@ class ErrorTests: XCTestCase {
 
     func testErrorContext() {
         let context = RoutingError.Context("Test description", underlyingError: DecodingError.valueNotFound(String.self,
-                .init(codingPath: [], debugDescription: "Second description")))
+                                                                                                            .init(codingPath: [], debugDescription: "Second description")))
         var error = RoutingError.generic(context)
         XCTAssertEqual(error.context, context)
 

@@ -19,7 +19,7 @@ public final class CustomContainerController: UIViewController {
 
     public override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Custom Container View Controller"
+        title = "Custom Container View Controller"
         presentRootController()
     }
 
@@ -43,7 +43,7 @@ public final class CustomContainerController: UIViewController {
         }
 
         rootViewController.willMove(toParent: self)
-        self.addChild(rootViewController)
+        addChild(rootViewController)
         containerView.addSubview(rootViewController.view)
         rootViewController.view.translatesAutoresizingMaskIntoConstraints = false
         rootViewController.view.topAnchor.constraint(equalTo: containerView.topAnchor).isActive = true

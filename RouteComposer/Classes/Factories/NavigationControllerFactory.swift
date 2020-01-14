@@ -24,7 +24,7 @@ public struct NavigationControllerFactory<VC: UINavigationController, C>: Contai
     public let bundle: Bundle?
 
     /// `UINavigationControllerDelegate` reference
-    private(set) public weak var delegate: UINavigationControllerDelegate?
+    public private(set) weak var delegate: UINavigationControllerDelegate?
 
     /// The additional configuration block
     public let configuration: ((_: VC) -> Void)?

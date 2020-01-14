@@ -18,18 +18,18 @@ extension Array where Element: UIViewController {
     }
 
     func uniqueElements() -> [Element] {
-        return self.reduce(into: [Element](), {
+        return reduce(into: [Element]()) {
             if !$0.contains($1) {
                 $0.append($1)
             }
-        })
+        }
     }
 
     func isEqual(to array: [UIViewController]) -> Bool {
-        guard self.count == array.count else {
+        guard count == array.count else {
             return false
         }
-        return self.enumerated().first(where: { (index, vc) in
+        return enumerated().first(where: { index, vc in
             return array[index] !== vc
         }) == nil
     }

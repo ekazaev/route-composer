@@ -3,8 +3,8 @@
 //
 #if os(iOS)
 
-import UIKit
 import Foundation
+import UIKit
 
 /// Base router protocol.
 public protocol Router {

@@ -13,8 +13,7 @@ public struct ContextSettingTask<VC: ContextAccepting>: ContextTask {
     // MARK: Methods
 
     /// Constructor
-    public init() {
-    }
+    public init() {}
 
     public func prepare(with context: VC.Context) throws {
         try VC.checkCompatibility(with: context)

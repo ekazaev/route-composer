@@ -32,7 +32,8 @@ public protocol StackIteratingFinder: Finder {
     ///   - viewController: A view controller in the current view controller stack
     ///   - context: The `Context` instance provided to the `Router`.
     /// - Returns: true if this view controller is the one that `Finder` is looking for, false otherwise.
-    func isTarget(_ viewController: ViewController, with context: Context) -> Bool
+    func isTarget(_ viewController: ViewController,
+                  with context: Context) -> Bool
 
 }
 

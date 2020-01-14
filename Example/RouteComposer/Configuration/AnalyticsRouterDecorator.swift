@@ -21,19 +21,19 @@ struct AnalyticsRouterDecorator: Router {
         var sourceScreen: ExampleScreenTypes?
 
         if let topmostViewController = UIApplication.shared.keyWindow?.topmostViewController,
-           let viewController = try? UIViewController.findViewController(in: topmostViewController,
-                   options: [.current, .visible],
-                   using: { $0 is ExampleAnalyticsSupport }) as? ExampleAnalyticsSupport {
+            let viewController = try? UIViewController.findViewController(in: topmostViewController,
+                                                                          options: [.current, .visible],
+                                                                          using: { $0 is ExampleAnalyticsSupport }) as? ExampleAnalyticsSupport {
             sourceScreen = viewController.screenType
         }
 
-         try router.navigate(to: step, with: context, animated: animated) { result in
+        try router.navigate(to: step, with: context, animated: animated) { result in
             if let sourceScreen = sourceScreen {
                 print("Source: \(sourceScreen)")
                 if let topmostViewController = UIApplication.shared.keyWindow?.topmostViewController,
-                   let analyticsViewController = try? UIViewController.findViewController(in: topmostViewController,
-                           options: [.current, .visible],
-                           using: { $0 is ExampleAnalyticsSupport }) as? ExampleAnalyticsSupport {
+                    let analyticsViewController = try? UIViewController.findViewController(in: topmostViewController,
+                                                                                           options: [.current, .visible],
+                                                                                           using: { $0 is ExampleAnalyticsSupport }) as? ExampleAnalyticsSupport {
                     print("Target: \(analyticsViewController.screenType)")
                 }
             }

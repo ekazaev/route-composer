@@ -5,6 +5,7 @@ plugin 'slather'
 
 target 'RouteComposer_Example' do
   pod 'RouteComposer', :path => '../'
+  pod 'SwiftFormat/CLI', '0.43.5'
 
   target 'RouteComposer_Tests' do
     pod 'RouteComposer', :path => '../'

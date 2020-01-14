@@ -17,7 +17,7 @@ public struct InlineInterceptor<C>: RoutingInterceptor {
 
     private let prepareBlock: ((_: C) throws -> Void)?
 
-    private let performBlock: ((_: C, _: @escaping (RoutingResult) -> Void) -> Void)
+    private let performBlock: (_: C, _: @escaping (RoutingResult) -> Void) -> Void
 
     // MARK: Methods
 

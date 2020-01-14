@@ -23,8 +23,7 @@ public struct NilFinder<VC: UIViewController, C>: Finder, NilEntity {
     // MARK: Methods
 
     /// Constructor
-    public init() {
-    }
+    public init() {}
 
     /// `Finder` method empty implementation.
     ///

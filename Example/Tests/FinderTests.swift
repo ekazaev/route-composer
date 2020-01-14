@@ -5,9 +5,9 @@
 #if os(iOS)
 
 import Foundation
+@testable import RouteComposer
 import UIKit
 import XCTest
-@testable import RouteComposer
 
 extension DefaultStackIterator.StartingPoint: Equatable {
 
@@ -92,7 +92,7 @@ class FinderTest: XCTestCase {
 
         var currentViewController: UIViewController? = UIViewController()
         let iterator = DefaultStackIterator(options: .current,
-                startingPoint: .custom(TestInstanceFinder<UIViewController, Any?>(instance: currentViewController).getViewController()))
+                                            startingPoint: .custom(TestInstanceFinder<UIViewController, Any?>(instance: currentViewController).getViewController()))
         XCTAssertEqual(iterator.options, .current)
         XCTAssertEqual(iterator.startingPoint, .custom(currentViewController))
         XCTAssertEqual(try? iterator.getStartingViewController(), currentViewController)

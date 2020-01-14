@@ -23,7 +23,7 @@ class ActionTests: XCTestCase {
         var wasInCompletion = false
         ViewControllerActions.NilAction().perform(with: UIViewController(), on: UIViewController(), animated: true, completion: { result in
             wasInCompletion = true
-            if case .failure(_) = result {
+            if case .failure = result {
                 XCTAssert(false)
             }
         })
@@ -64,7 +64,7 @@ class ActionTests: XCTestCase {
 
         wasInCompletion = false
         XCTAssertNoThrow(action.perform(with: newRootViewController, on: rootViewController, animated: false, completion: { result in
-            guard case .failure(_) = result else {
+            guard case .failure = result else {
                 XCTAssertTrue(false)
                 return
             }
@@ -130,21 +130,20 @@ class ActionTests: XCTestCase {
             }
         }
 
-        class TransitionDelegate: NSObject, UIViewControllerTransitioningDelegate {
-        }
+        class TransitionDelegate: NSObject, UIViewControllerTransitioningDelegate {}
 
         var wasInCompletion = false
         var wasInPopoverConfig = false
         let viewController = UIViewController()
         let transitionDelegate = TransitionDelegate()
         GeneralAction.presentModally(presentationStyle: .popover,
-                transitionStyle: .crossDissolve,
-                transitioningDelegate: transitionDelegate,
-                preferredContentSize: CGSize(width: 100, height: 100),
-                isModalInPresentation: true,
-                popoverConfiguration: { _ in
-                    wasInPopoverConfig = true
-                }).perform(with: viewController, on: PresentingModallyController(), animated: true, completion: { result in
+                                     transitionStyle: .crossDissolve,
+                                     transitioningDelegate: transitionDelegate,
+                                     preferredContentSize: CGSize(width: 100, height: 100),
+                                     isModalInPresentation: true,
+                                     popoverConfiguration: { _ in
+                                         wasInPopoverConfig = true
+        }).perform(with: viewController, on: PresentingModallyController(), animated: true, completion: { result in
             wasInCompletion = true
             XCTAssertEqual(viewController.modalPresentationStyle, UIModalPresentationStyle.popover)
             XCTAssertEqual(viewController.modalTransitionStyle, UIModalTransitionStyle.crossDissolve)
@@ -154,7 +153,7 @@ class ActionTests: XCTestCase {
                 XCTAssertEqual(viewController.isModalInPresentation, true)
             }
             XCTAssertTrue(viewController.transitioningDelegate === transitionDelegate)
-            if case .failure(_) = result {
+            if case .failure = result {
                 XCTAssert(false)
             }
         })
@@ -179,7 +178,7 @@ class ActionTests: XCTestCase {
         XCTAssertEqual(viewControllerStack.count, 1)
 
         UINavigationController.pushReplacingLast().perform(embedding: UINavigationController(),
-                in: &viewControllerStack)
+                                                           in: &viewControllerStack)
         XCTAssertEqual(viewControllerStack.count, 1)
         XCTAssert(viewControllerStack.first!.isKind(of: UINavigationController.self))
 
@@ -208,7 +207,7 @@ class ActionTests: XCTestCase {
         let newRootController = UIViewController()
         UINavigationController.pushAsRoot().perform(with: newRootController, on: navigationController, animated: false, completion: { result in
             wasInCompletion = true
-            if case .failure(_) = result {
+            if case .failure = result {
                 XCTAssert(false)
             }
         })
@@ -223,7 +222,7 @@ class ActionTests: XCTestCase {
         XCTAssertEqual(viewControllerStack.count, 1)
 
         UINavigationController.push().perform(embedding: UINavigationController(),
-                in: &viewControllerStack)
+                                              in: &viewControllerStack)
         XCTAssertEqual(viewControllerStack.count, 2)
         XCTAssert(viewControllerStack.last!.isKind(of: UINavigationController.self))
         XCTAssert(viewControllerStack.first!.isKind(of: UIViewController.self))
@@ -233,7 +232,7 @@ class ActionTests: XCTestCase {
         let viewController = UIViewController()
         UINavigationController.push().perform(with: viewController, on: navigationController, animated: false, completion: { result in
             wasInCompletion = true
-            if case .failure(_) = result {
+            if case .failure = result {
                 XCTAssert(false)
             }
         })
@@ -258,7 +257,7 @@ class ActionTests: XCTestCase {
         let viewController = UIViewController()
         UITabBarController.add().perform(with: viewController, on: tabBarController, animated: false, completion: { result in
             wasInCompletion = true
-            if case .failure(_) = result {
+            if case .failure = result {
                 XCTAssert(false)
             }
         })
@@ -283,7 +282,7 @@ class ActionTests: XCTestCase {
         let viewController = UIViewController()
         UITabBarController.add(at: 0).perform(with: viewController, on: tabBarController, animated: false, completion: { result in
             wasInCompletion = true
-            if case .failure(_) = result {
+            if case .failure = result {
                 XCTAssert(false)
             }
         })
@@ -295,11 +294,11 @@ class ActionTests: XCTestCase {
     func testAddTabActionReplacingAtIndex() {
         var viewControllerStack: [UIViewController] = []
         UITabBarController.add(at: 1, replacing: true).perform(embedding: UIViewController(),
-                in: &viewControllerStack)
+                                                               in: &viewControllerStack)
         XCTAssertEqual(viewControllerStack.count, 1)
 
         UITabBarController.add(at: 0, replacing: true).perform(embedding: UINavigationController(),
-                in: &viewControllerStack)
+                                                               in: &viewControllerStack)
         XCTAssertEqual(viewControllerStack.count, 1)
         XCTAssert(viewControllerStack.first!.isKind(of: UINavigationController.self))
 
@@ -309,7 +308,7 @@ class ActionTests: XCTestCase {
         let viewController = UIViewController()
         UITabBarController.add(at: 0, replacing: true).perform(with: viewController, on: tabBarController, animated: false, completion: { result in
             wasInCompletion = true
-            if case .failure(_) = result {
+            if case .failure = result {
                 XCTAssert(false)
             }
         })
@@ -336,7 +335,7 @@ class ActionTests: XCTestCase {
         let viewController = UIViewController()
         UISplitViewController.setAsMaster().perform(with: viewController, on: splitController, animated: false) { result in
             wasInCompletion = true
-            if case .failure(_) = result {
+            if case .failure = result {
                 XCTAssert(false)
             }
         }
@@ -375,7 +374,7 @@ class ActionTests: XCTestCase {
         splitController.viewControllers = [UIViewController()]
         UISplitViewController.pushToDetails().perform(with: viewController, on: splitController, animated: false) { result in
             wasInCompletion = true
-            if case .failure(_) = result {
+            if case .failure = result {
                 XCTAssert(false)
             }
         }
@@ -432,7 +431,7 @@ class ActionTests: XCTestCase {
         splitController.viewControllers = [UIViewController(), navController]
         UISplitViewController.pushOnToDetails().perform(with: viewController, on: splitController, animated: false) { result in
             wasInCompletion = true
-            if case .failure(_) = result {
+            if case .failure = result {
                 XCTAssert(false)
             }
         }
@@ -443,7 +442,7 @@ class ActionTests: XCTestCase {
         viewController = UIViewController()
         UISplitViewController.pushOnToDetails().perform(with: viewController, on: splitController, animated: false) { result in
             wasInCompletion = true
-            if case .failure(_) = result {
+            if case .failure = result {
                 XCTAssert(false)
             }
         }

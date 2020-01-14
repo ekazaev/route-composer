@@ -23,7 +23,7 @@ extension UIViewController {
 
     var allParents: [UIViewController] {
         var allParents: [UIViewController] = []
-        var currentViewController: UIViewController? = self.parent
+        var currentViewController: UIViewController? = parent
         while let currentParent = currentViewController {
             allParents.append(currentParent)
             currentViewController = currentParent.parent

@@ -10,17 +10,20 @@ let package = Package(
     products: [
         .library(
             name: "RouteComposer",
-            targets: ["RouteComposer"])
+            targets: ["RouteComposer"]
+        )
     ],
     targets: [
         .target(
             name: "RouteComposer",
             dependencies: [],
-            path: "RouteComposer/Classes"),
+            path: "RouteComposer/Classes"
+        ),
         .testTarget(
             name: "RouteComposerTests",
             dependencies: ["RouteComposer"],
-            path: "Example/Tests")
+            path: "Example/Tests"
+        )
     ],
     swiftLanguageVersions: [.v5]
 )

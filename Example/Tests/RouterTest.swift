@@ -4,18 +4,14 @@
 
 #if os(iOS)
 
-import UIKit
 import Foundation
-import XCTest
 @testable import RouteComposer
+import UIKit
+import XCTest
 
-private protocol TestProtocol {
+private protocol TestProtocol {}
 
-}
-
-private struct TestImplementation: TestProtocol {
-
-}
+private struct TestImplementation: TestProtocol {}
 
 class RouterTests: XCTestCase {
 
@@ -68,8 +64,7 @@ class RouterTests: XCTestCase {
     }
 
     // View Controller to present
-    class TestViewController: UIViewController {
-    }
+    class TestViewController: UIViewController {}
 
     // Factory that produces TestViewController
     struct TestViewControllerFactory<C>: Factory {
@@ -124,14 +119,14 @@ class RouterTests: XCTestCase {
     func testNavigateTo() {
         let currentViewController = TestModalPresentableController()
         let screenConfig = StepAssembly(finder: ClassFinder(), factory: TestViewControllerFactory())
-                .adding(InlinePostTask({ (_: TestViewController, _: Any?, viewControllers: [UIViewController]) in
-                    XCTAssertEqual(viewControllers.count, 3)
-                }))
-                .using(UINavigationController.push())
-                .from(NavigationControllerStep())
-                .using(FakePresentModallyAction())
-                .from(DestinationStep<TestModalPresentableController, Any?>(TestCurrentViewControllerStep(currentViewController: currentViewController)))
-                .assemble()
+            .adding(InlinePostTask { (_: TestViewController, _: Any?, viewControllers: [UIViewController]) in
+                XCTAssertEqual(viewControllers.count, 3)
+            })
+            .using(UINavigationController.push())
+            .from(NavigationControllerStep())
+            .using(FakePresentModallyAction())
+            .from(DestinationStep<TestModalPresentableController, Any?>(TestCurrentViewControllerStep(currentViewController: currentViewController)))
+            .assemble()
 
         var routingResult: RoutingResult!
         let destination = Destination(to: screenConfig).unwrapped()
@@ -166,11 +161,11 @@ class RouterTests: XCTestCase {
         }
 
         let screenConfig = StepAssembly(finder: ClassFinder(), factory: TestViewControllerFactory())
-                .using(UINavigationController.push())
-                .from(SingleContainerStep(finder: FakeClassFinder(currentViewController: presentNavigationController), factory: NavigationControllerFactory()))
-                .using(FakePresentModallyAction())
-                .from(DestinationStep<TestModalPresentableController, Any?>(TestCurrentViewControllerStep(currentViewController: currentViewController)))
-                .assemble()
+            .using(UINavigationController.push())
+            .from(SingleContainerStep(finder: FakeClassFinder(currentViewController: presentNavigationController), factory: NavigationControllerFactory()))
+            .using(FakePresentModallyAction())
+            .from(DestinationStep<TestModalPresentableController, Any?>(TestCurrentViewControllerStep(currentViewController: currentViewController)))
+            .assemble()
 
         var routingResult: RoutingResult!
         try? router.navigate(to: screenConfig, with: nil, animated: false, completion: { result in
@@ -192,11 +187,11 @@ class RouterTests: XCTestCase {
         currentViewController.fakePresentedViewController = presentNavigationController
 
         let screenConfig = StepAssembly(finder: FakeClassFinder(currentViewController: testViewController), factory: TestViewControllerBrokenFactory())
-                .using(UINavigationController.push())
-                .from(SingleContainerStep(finder: NilFinder(), factory: NavigationControllerFactory<UINavigationController, Any?>()))
-                .using(FakePresentModallyAction())
-                .from(DestinationStep<TestModalPresentableController, Any?>(TestCurrentViewControllerStep(currentViewController: currentViewController)))
-                .assemble()
+            .using(UINavigationController.push())
+            .from(SingleContainerStep(finder: NilFinder(), factory: NavigationControllerFactory<UINavigationController, Any?>()))
+            .using(FakePresentModallyAction())
+            .from(DestinationStep<TestModalPresentableController, Any?>(TestCurrentViewControllerStep(currentViewController: currentViewController)))
+            .assemble()
 
         var routingResult: RoutingResult!
         try? router.navigate(to: screenConfig, with: nil, animated: false, completion: { result in
@@ -225,9 +220,9 @@ class RouterTests: XCTestCase {
 
         let currentViewController = TestModalPresentableController()
         let screenConfig = StepAssembly(finder: ClassFinder(), factory: TestViewControllerFactory())
-                .using(TestPresentModallyBrokenAction())
-                .from(DestinationStep<TestModalPresentableController, Any?>(TestCurrentViewControllerStep(currentViewController: currentViewController)))
-                .assemble()
+            .using(TestPresentModallyBrokenAction())
+            .from(DestinationStep<TestModalPresentableController, Any?>(TestCurrentViewControllerStep(currentViewController: currentViewController)))
+            .assemble()
 
         var routingResult: RoutingResult!
         try? router.navigate(to: screenConfig, with: nil, animated: false, completion: { result in
@@ -240,9 +235,9 @@ class RouterTests: XCTestCase {
     func testNavigateToFactoryWithIssue() {
         let currentViewController = TestModalPresentableController()
         let screenConfig = StepAssembly(finder: ClassFinder(), factory: TestViewControllerBrokenFactory())
-                .using(FakePresentModallyAction())
-                .from(DestinationStep<TestModalPresentableController, Any?>(TestCurrentViewControllerStep(currentViewController: currentViewController)))
-                .assemble()
+            .using(FakePresentModallyAction())
+            .from(DestinationStep<TestModalPresentableController, Any?>(TestCurrentViewControllerStep(currentViewController: currentViewController)))
+            .assemble()
 
         var routingResult: RoutingResult!
         try? router.navigate(to: screenConfig, with: nil, animated: false, completion: { result in
@@ -256,11 +251,11 @@ class RouterTests: XCTestCase {
         let currentViewController = TestModalPresentableController()
         let testViewController = TestRoutingControllingViewController()
         let screenConfig = StepAssembly(finder: FakeClassFinder(currentViewController: testViewController), factory: NilFactory<TestRoutingControllingViewController, Any?>())
-                .using(UINavigationController.push())
-                .from(NavigationControllerStep())
-                .using(FakePresentModallyAction())
-                .from(DestinationStep<TestModalPresentableController, Any?>(TestCurrentViewControllerStep(currentViewController: currentViewController)))
-                .assemble()
+            .using(UINavigationController.push())
+            .from(NavigationControllerStep())
+            .using(FakePresentModallyAction())
+            .from(DestinationStep<TestModalPresentableController, Any?>(TestCurrentViewControllerStep(currentViewController: currentViewController)))
+            .assemble()
 
         XCTAssertThrowsError(try router.navigate(to: screenConfig, with: nil, animated: false, completion: { _ in
             XCTAssert(false, "Should not be called")
@@ -281,10 +276,10 @@ class RouterTests: XCTestCase {
 
         let currentViewController = TestModalPresentableController()
         let screenConfig = StepAssembly(finder: ClassFinder(), factory: TestViewControllerBrokenFactory())
-                .adding(ThrowsContextTask<TestViewController, Any?>())
-                .using(FakePresentModallyAction())
-                .from(DestinationStep<TestModalPresentableController, Any?>(TestCurrentViewControllerStep(currentViewController: currentViewController)))
-                .assemble()
+            .adding(ThrowsContextTask<TestViewController, Any?>())
+            .using(FakePresentModallyAction())
+            .from(DestinationStep<TestModalPresentableController, Any?>(TestCurrentViewControllerStep(currentViewController: currentViewController)))
+            .assemble()
 
         XCTAssertThrowsError(try router.navigate(to: screenConfig, with: nil, animated: false, completion: { _ in
         }))
@@ -301,37 +296,37 @@ class RouterTests: XCTestCase {
         var globalTaskRun = 0
         var globalPostTaskRun = 0
         let screenConfig = StepAssembly(finder: ClassFinder(), factory: TestViewControllerFactory<TestProtocol>())
-                .adding(InlineInterceptor(prepare: { (_: TestProtocol) throws in
-                    contextInterceptorPrepared += 1
+            .adding(InlineInterceptor(prepare: { (_: TestProtocol) throws in
+                contextInterceptorPrepared += 1
                 }, { (_: TestProtocol) in
                     contextInterceptorRun += 1
-                }))
-                .adding(InlineContextTask({ (_: TestViewController, _: TestProtocol) in
-                    contextTaskRun += 1
-                }))
-                .adding(InlinePostTask({ (_: TestViewController, _: TestProtocol, viewControllers: [UIViewController]) in
-                    contextPostTaskRun += 1
-                    XCTAssertEqual(viewControllers.count, 3)
-                }))
-                .using(UINavigationController.push())
-                .from(NavigationControllerStep())
-                .using(FakePresentModallyAction())
-                .from(DestinationStep<TestModalPresentableController, TestProtocol>(TestCurrentViewControllerStep(currentViewController: currentViewController)))
-                .assemble()
+            }))
+            .adding(InlineContextTask { (_: TestViewController, _: TestProtocol) in
+                contextTaskRun += 1
+            })
+            .adding(InlinePostTask { (_: TestViewController, _: TestProtocol, viewControllers: [UIViewController]) in
+                contextPostTaskRun += 1
+                XCTAssertEqual(viewControllers.count, 3)
+            })
+            .using(UINavigationController.push())
+            .from(NavigationControllerStep())
+            .using(FakePresentModallyAction())
+            .from(DestinationStep<TestModalPresentableController, TestProtocol>(TestCurrentViewControllerStep(currentViewController: currentViewController)))
+            .assemble()
         var router = self.router
         router.add(InlineInterceptor(prepare: { (_: Any?) throws in
             globalInterceptorPrepared += 1
-        }, { (_: Any?, completion: @escaping (RoutingResult) -> Void) in
-            globalInterceptorRun += 1
-            completion(.success)
+            }, { (_: Any?, completion: @escaping (RoutingResult) -> Void) in
+                globalInterceptorRun += 1
+                completion(.success)
         }))
-        router.add(InlineContextTask({ (_: UIViewController, _: Any?) in
+        router.add(InlineContextTask { (_: UIViewController, _: Any?) in
             globalTaskRun += 1
-        }))
-        router.add(InlinePostTask({ (_: UIViewController, _: Any?, viewControllers: [UIViewController]) in
+        })
+        router.add(InlinePostTask { (_: UIViewController, _: Any?, viewControllers: [UIViewController]) in
             globalPostTaskRun += 1
             XCTAssertEqual(viewControllers.count, 3)
-        }))
+        })
         var routingResult: RoutingResult!
         try? router.navigate(to: screenConfig, with: TestImplementation(), animated: false, completion: { result in
             routingResult = result
@@ -361,16 +356,16 @@ class RouterTests: XCTestCase {
         let router: Router = DefaultRouter()
         var viewController: UIViewController? = UINavigationController()
         let screenConfigVoid = StepAssembly(finder: NilFinder<UIViewController, Void>(), factory: NilFactory())
-                .adding(InlineInterceptor({ (_: Void, completion: @escaping (RoutingResult) -> Void) in
-                    viewController = nil
-                    let deadline = DispatchTime.now() + .milliseconds(100)
-                    DispatchQueue.main.asyncAfter(deadline: deadline) {
-                        completion(.success)
-                    }
+            .adding(InlineInterceptor { (_: Void, completion: @escaping (RoutingResult) -> Void) in
+                viewController = nil
+                let deadline = DispatchTime.now() + .milliseconds(100)
+                DispatchQueue.main.asyncAfter(deadline: deadline) {
+                    completion(.success)
+                }
 
-                }))
-                .from(GeneralStep.custom(using: InstanceFinder(instance: viewController!)))
-                .assemble()
+            })
+            .from(GeneralStep.custom(using: InstanceFinder(instance: viewController!)))
+            .assemble()
         var wasInCompletion = false
         try? router.navigate(to: screenConfigVoid, animated: false, completion: { result in
             expectation.fulfill()
@@ -391,16 +386,16 @@ class RouterTests: XCTestCase {
 
         let router: Router = DefaultRouter()
         let screenConfigVoid = StepAssembly(finder: NilFinder<UIViewController, Void>(), factory: NilFactory())
-                .from(DestinationStep(NoneStep()))
-                .assemble()
+            .from(DestinationStep(NoneStep()))
+            .assemble()
         XCTAssertThrowsError(try router.navigate(to: screenConfigVoid, animated: false, completion: nil))
     }
 
     func testRouterWithAnyOrVoidContext() {
         let router: Router = DefaultRouter()
         let screenConfigVoid = StepAssembly(finder: NilFinder<UIViewController, Void>(), factory: NilFactory())
-                .from(GeneralStep.custom(using: NilFinder<UIViewController, Void>()))
-                .assemble()
+            .from(GeneralStep.custom(using: NilFinder<UIViewController, Void>()))
+            .assemble()
         XCTAssertThrowsError(try router.navigate(to: screenConfigVoid, animated: false, completion: nil))
         var wasInCompletion = false
         router.commitNavigation(to: screenConfigVoid, animated: false) { result in
@@ -410,8 +405,8 @@ class RouterTests: XCTestCase {
         XCTAssertTrue(wasInCompletion)
 
         let screenConfigAny = StepAssembly(finder: NilFinder<UIViewController, Any?>(), factory: NilFactory())
-                .from(GeneralStep.custom(using: NilFinder<UIViewController, Any?>()))
-                .assemble()
+            .from(GeneralStep.custom(using: NilFinder<UIViewController, Any?>()))
+            .assemble()
         XCTAssertThrowsError(try router.navigate(to: screenConfigAny, animated: false, completion: nil))
         wasInCompletion = false
         router.commitNavigation(to: screenConfigAny, animated: false) { result in
@@ -421,8 +416,8 @@ class RouterTests: XCTestCase {
         XCTAssertTrue(wasInCompletion)
 
         let screenConfigString = StepAssembly(finder: NilFinder<UIViewController, String>(), factory: NilFactory())
-                .from(GeneralStep.custom(using: NilFinder<UIViewController, String>()))
-                .assemble()
+            .from(GeneralStep.custom(using: NilFinder<UIViewController, String>()))
+            .assemble()
         XCTAssertThrowsError(try router.navigate(to: screenConfigAny, animated: false, completion: nil))
         wasInCompletion = false
         router.commitNavigation(to: screenConfigString, with: "test", animated: false) { result in

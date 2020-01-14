@@ -3,8 +3,8 @@
 //
 
 import Foundation
-import UIKit
 import RouteComposer
+import UIKit
 
 class PromptViewController: UIViewController, ExampleAnalyticsSupport {
 

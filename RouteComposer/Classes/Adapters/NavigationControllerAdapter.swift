@@ -45,9 +45,9 @@ public struct NavigationControllerAdapter<VC: UINavigationController>: ConcreteC
         }
         CATransaction.begin()
         navigationController.popToViewController(viewController, animated: animated)
-        CATransaction.setCompletionBlock({
+        CATransaction.setCompletionBlock {
             completion(.success)
-        })
+        }
         CATransaction.commit()
     }
 
@@ -57,9 +57,9 @@ public struct NavigationControllerAdapter<VC: UINavigationController>: ConcreteC
         }
         CATransaction.begin()
         navigationController.setViewControllers(containedViewControllers, animated: animated)
-        CATransaction.setCompletionBlock({
+        CATransaction.setCompletionBlock {
             completion(.success)
-        })
+        }
         CATransaction.commit()
     }
 

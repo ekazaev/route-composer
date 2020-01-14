@@ -15,11 +15,11 @@ struct InterceptorMultiplexer: AnyRoutingInterceptor, MainThreadChecking, Custom
     }
 
     mutating func prepare<Context>(with context: Context) throws {
-        interceptors = try interceptors.map({
+        interceptors = try interceptors.map {
             var interceptor = $0
             try interceptor.prepare(with: context)
             return interceptor
-        })
+        }
     }
 
     func perform<Context>(with context: Context, completion: @escaping (RoutingResult) -> Void) {
@@ -31,10 +31,10 @@ struct InterceptorMultiplexer: AnyRoutingInterceptor, MainThreadChecking, Custom
         var interceptors = self.interceptors
 
         func runInterceptor(interceptor: AnyRoutingInterceptor) {
-            self.assertIfNotMainThread()
+            assertIfNotMainThread()
             interceptor.perform(with: context) { result in
                 self.assertIfNotMainThread()
-                if case .failure(_) = result {
+                if case .failure = result {
                     completion(result)
                 } else if interceptors.isEmpty {
                     completion(result)

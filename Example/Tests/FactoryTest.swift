@@ -5,9 +5,9 @@
 #if os(iOS)
 
 import Foundation
+@testable import RouteComposer
 import UIKit
 import XCTest
-@testable import RouteComposer
 
 class FactoryTest: XCTestCase {
 
@@ -24,12 +24,12 @@ class FactoryTest: XCTestCase {
         var wasInCompletion = false
         var builtViewController: UIViewController?
         let factory = StoryboardFactory<UIViewController, Any?>(name: "TabBar",
-                bundle: Bundle.main,
-                identifier: "FiguresViewController",
-                configuration: { viewController in
-                    wasInCompletion = true
-                    builtViewController = viewController
-                })
+                                                                bundle: Bundle.main,
+                                                                identifier: "FiguresViewController",
+                                                                configuration: { viewController in
+                                                                    wasInCompletion = true
+                                                                    builtViewController = viewController
+        })
         XCTAssertEqual(factory.identifier, "FiguresViewController")
         XCTAssertEqual(factory.name, "TabBar")
         XCTAssertNotNil(factory.configuration)
@@ -51,9 +51,9 @@ class FactoryTest: XCTestCase {
     func testFinderFactory() {
         let navigationController = UINavigationController()
         let factory = FinderFactory<RouterTests.FakeClassFinder<UINavigationController, Any?>>(finder: RouterTests.FakeClassFinder(currentViewController: navigationController),
-                configuration: { viewController in
-                    viewController.viewControllers = [UIViewController()]
-                })
+                                                                                               configuration: { viewController in
+                                                                                                   viewController.viewControllers = [UIViewController()]
+        })
         XCTAssertEqual(try factory?.build(with: nil), navigationController)
         XCTAssertEqual(navigationController.viewControllers.count, 1)
 

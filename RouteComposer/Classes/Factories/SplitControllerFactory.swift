@@ -25,7 +25,7 @@ public struct SplitControllerFactory<VC: UISplitViewController, C>: ContainerFac
     public let bundle: Bundle?
 
     /// `UISplitViewControllerDelegate` reference
-    private(set) public weak var delegate: UISplitViewControllerDelegate?
+    public private(set) weak var delegate: UISplitViewControllerDelegate?
 
     /// If 'true', hidden view can be presented and dismissed via a swipe gesture. Defaults to 'true'.
     public let presentsWithGesture: Bool?

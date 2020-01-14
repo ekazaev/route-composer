@@ -18,8 +18,7 @@ public final class SingleNavigationLock {
     }
 
     /// Constructor
-    public init() {
-    }
+    public init() {}
 
     final func startNavigation() {
         isNavigationInProgressFlag = true

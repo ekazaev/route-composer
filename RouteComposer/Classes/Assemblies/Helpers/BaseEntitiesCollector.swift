@@ -14,8 +14,8 @@ struct BaseEntitiesCollector<FactoryBoxer: AnyFactoryBox, ActionBoxer: AnyAction
     let finder: AnyFinder?
 
     init<F: Finder>(finder: F, factory: FactoryBoxer.FactoryType, action: ActionBoxer.ActionType)
-            where
-            F.ViewController == FactoryBoxer.FactoryType.ViewController, F.Context == FactoryBoxer.FactoryType.Context {
+        where
+        F.ViewController == FactoryBoxer.FactoryType.ViewController, F.Context == FactoryBoxer.FactoryType.Context {
         self.finder = FinderBox(finder)
 
         if let factoryBox = FactoryBoxer(factory, action: ActionBoxer(action)) {

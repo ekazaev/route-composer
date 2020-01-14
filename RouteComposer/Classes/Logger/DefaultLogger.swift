@@ -48,7 +48,7 @@ public struct DefaultLogger: Logger {
 
     public func log(_ message: LogMessage) {
         switch message {
-        case .warning(let message):
+        case let .warning(message):
             if logLevel == .verbose || logLevel == .warnings {
                 if #available(iOS 10, *) {
                     os_log("%@", log: osLog ?? OSLog.default, type: .error, message)
@@ -56,7 +56,7 @@ public struct DefaultLogger: Logger {
                     NSLog("WARNING: \(message)")
                 }
             }
-        case .info(let message):
+        case let .info(message):
             if logLevel == .verbose {
                 if #available(iOS 10, *) {
                     os_log("%@", log: osLog ?? OSLog.default, type: .info, message)
@@ -64,7 +64,7 @@ public struct DefaultLogger: Logger {
                     NSLog("INFO: \(message)")
                 }
             }
-        case .error(let message):
+        case let .error(message):
             if #available(iOS 10, *) {
                 os_log("%@", log: osLog ?? OSLog.default, type: .fault, message)
             } else {

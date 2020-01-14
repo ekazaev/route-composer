@@ -6,8 +6,7 @@
 
 import Foundation
 
-protocol MainThreadChecking {
-}
+protocol MainThreadChecking {}
 
 extension MainThreadChecking {
 

@@ -7,9 +7,9 @@
 
 #if os(iOS)
 
-import XCTest
-import UIKit
 @testable import RouteComposer
+import UIKit
+import XCTest
 
 class ContainerLocatorTests: XCTestCase {
 
@@ -23,8 +23,7 @@ class ContainerLocatorTests: XCTestCase {
 
     struct TestContainerAdapter<VC: ContainerViewController>: ConcreteContainerAdapter {
 
-        init(with viewController: VC) {
-        }
+        init(with viewController: VC) {}
 
         let containedViewControllers: [UIViewController] = []
 
@@ -219,7 +218,7 @@ class ContainerLocatorTests: XCTestCase {
         XCTAssertEqual(try? DefaultContainerAdapterLocator().getAdapter(for: splitController).containedViewControllers.count, 2)
         XCTAssertEqual(try? DefaultContainerAdapterLocator().getAdapter(for: splitController).visibleViewControllers.count, splitController.isCollapsed ? 1 : 2)
         XCTAssertEqual(try? DefaultContainerAdapterLocator().getAdapter(for: splitController).visibleViewControllers[0],
-                splitController.isCollapsed ? viewController2 : viewController1)
+                       splitController.isCollapsed ? viewController2 : viewController1)
 
         var wasInCompletion = false
         try? DefaultContainerAdapterLocator().getAdapter(for: splitController).makeVisible(UIViewController(), animated: false, completion: { result in

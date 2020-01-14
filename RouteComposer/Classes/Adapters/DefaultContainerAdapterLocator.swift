@@ -13,8 +13,7 @@ public struct DefaultContainerAdapterLocator: ContainerAdapterLocator {
     // MARK: Methods
 
     /// Constructor
-    public init() {
-    }
+    public init() {}
 
     /// Returns the `ContainerAdapter` suitable for the `ContainerViewController`.
     ///

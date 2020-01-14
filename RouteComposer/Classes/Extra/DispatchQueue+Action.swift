@@ -58,7 +58,7 @@ public struct DispatchQueueWrappedAction<A: Action>: Action {
             action.perform(with: viewController, on: existingController, animated: false, completion: completion)
             return
         }
-        self.action.perform(with: viewController, on: existingController, animated: true, completion: { result in
+        action.perform(with: viewController, on: existingController, animated: true, completion: { result in
             guard result.isSuccessful else {
                 return completion(result)
             }
@@ -100,7 +100,7 @@ public struct DispatchQueueWrappedContainerAction<A: ContainerAction>: Container
             action.perform(with: viewController, on: existingController, animated: false, completion: completion)
             return
         }
-        self.action.perform(with: viewController, on: existingController, animated: true, completion: { result in
+        action.perform(with: viewController, on: existingController, animated: true, completion: { result in
             guard result.isSuccessful else {
                 return completion(result)
             }

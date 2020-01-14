@@ -80,7 +80,7 @@ public struct TabBarControllerActions {
         public func perform(with viewController: UIViewController,
                             on tabBarController: ViewController,
                             animated: Bool,
-                            completion: @escaping(_: RoutingResult) -> Void) {
+                            completion: @escaping (_: RoutingResult) -> Void) {
             var tabViewControllers = tabBarController.viewControllers ?? []
             setup(viewController: viewController, at: &tabViewControllers, tabIndex: tabIndex)
             tabBarController.setViewControllers(tabViewControllers, animated: animated)

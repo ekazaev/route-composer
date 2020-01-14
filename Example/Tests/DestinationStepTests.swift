@@ -4,9 +4,9 @@
 
 #if os(iOS)
 
+@testable import RouteComposer
 import UIKit
 import XCTest
-@testable import RouteComposer
 
 class DestinationStepTests: XCTestCase {
 
@@ -20,14 +20,14 @@ class DestinationStepTests: XCTestCase {
 
     func testExpectingContainer() {
         let nonContainerStepInsideContainer = StepAssembly(finder: TestFinder<UIViewController, Any?>(), factory: NilFactory())
-                .using(UINavigationController.push())
-                .from(NavigationControllerStep())
-                .using(GeneralAction.presentModally())
-                .assemble(from: GeneralStep.current())
+            .using(UINavigationController.push())
+            .from(NavigationControllerStep())
+            .using(GeneralAction.presentModally())
+            .assemble(from: GeneralStep.current())
 
         let step: DestinationStep<UINavigationController, Any?> = nonContainerStepInsideContainer.expectingContainer()
 
-        //Will work as this step can accept anything(Any?)
+        // Will work as this step can accept anything(Any?)
         let _: DestinationStep<UINavigationController, String> = nonContainerStepInsideContainer.expectingContainer()
         let _: DestinationStep<UINavigationController, Void> = nonContainerStepInsideContainer.expectingContainer()
 
@@ -41,14 +41,14 @@ class DestinationStepTests: XCTestCase {
 
     func testExpectingContainerStronglyTyped() {
         let nonContainerStepInsideContainer = StepAssembly(finder: TestFinder<UIViewController, String>(), factory: NilFactory())
-                .using(UINavigationController.push())
-                .from(NavigationControllerStep())
-                .using(GeneralAction.presentModally())
-                .assemble(from: GeneralStep.current())
+            .using(UINavigationController.push())
+            .from(NavigationControllerStep())
+            .using(GeneralAction.presentModally())
+            .assemble(from: GeneralStep.current())
 
         let step: DestinationStep<UINavigationController, String> = nonContainerStepInsideContainer.expectingContainer()
-        //Will not work as this step can not accept Int
-        //let _: DestinationStep<UINavigationController, Int> = nonContainerStepInsideContainer.asContainerWitness()
+        // Will not work as this step can not accept Int
+        // let _: DestinationStep<UINavigationController, Int> = nonContainerStepInsideContainer.asContainerWitness()
 
         // Will compile but will not work in runtime.
         let _: DestinationStep<UITabBarController, String> = nonContainerStepInsideContainer.expectingContainer()
@@ -60,8 +60,8 @@ class DestinationStepTests: XCTestCase {
 
     func testAdaptingContext() {
         let nonContainerStepInsideContainer = StepAssembly(finder: TestFinder<UINavigationController, Any?>(), factory: ClassFactory())
-                .using(GeneralAction.presentModally())
-                .assemble(from: GeneralStep.current())
+            .using(GeneralAction.presentModally())
+            .assemble(from: GeneralStep.current())
 
         let step1: DestinationStep<UINavigationController, String> = nonContainerStepInsideContainer.adaptingContext()
         let step2: DestinationStep<UINavigationController, Void> = nonContainerStepInsideContainer.adaptingContext()
@@ -78,7 +78,7 @@ class DestinationStepTests: XCTestCase {
 
         let step: ActionToStepIntegrator<UINavigationController, Any?> = nonContainerStepInsideContainer.expectingContainer()
 
-        //Will work as this step can accept anything(Any?)
+        // Will work as this step can accept anything(Any?)
         let _: ActionToStepIntegrator<UINavigationController, String> = nonContainerStepInsideContainer.expectingContainer()
         let _: ActionToStepIntegrator<UINavigationController, Void> = nonContainerStepInsideContainer.expectingContainer()
 

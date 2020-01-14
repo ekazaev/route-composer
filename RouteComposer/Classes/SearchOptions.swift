@@ -63,7 +63,7 @@ public struct SearchOptions: OptionSet, CaseIterable, CustomStringConvertible {
     }
 
     public var description: String {
-        return SearchOptions.allCases.compactMap({ option in
+        return SearchOptions.allCases.compactMap { option in
             guard self.contains(option) else {
                 return nil
             }
@@ -78,7 +78,7 @@ public struct SearchOptions: OptionSet, CaseIterable, CustomStringConvertible {
                 assertionFailure("Unknown SearchOptions")
                 return nil
             }
-        }).joined(separator: ", ")
+        }.joined(separator: ", ")
     }
 
 }

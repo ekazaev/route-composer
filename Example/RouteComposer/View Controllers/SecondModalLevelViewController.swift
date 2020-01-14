@@ -3,8 +3,8 @@
 //
 
 import Foundation
-import UIKit
 import RouteComposer
+import UIKit
 
 class SecondModalLevelViewController: UIViewController, ExampleAnalyticsSupport {
 
@@ -12,8 +12,8 @@ class SecondModalLevelViewController: UIViewController, ExampleAnalyticsSupport 
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Second modal level"
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneTapped))
+        title = "Second modal level"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneTapped))
     }
 
     @IBAction func goToColorTapped() {
@@ -29,7 +29,7 @@ class SecondModalLevelViewController: UIViewController, ExampleAnalyticsSupport 
     }
 
     @objc func doneTapped() {
-        self.dismiss(animated: true)
+        dismiss(animated: true)
     }
 
 }

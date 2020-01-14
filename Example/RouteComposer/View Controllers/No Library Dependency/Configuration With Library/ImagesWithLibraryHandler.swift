@@ -2,13 +2,13 @@
 // Created by Eugene Kazaev on 23/02/2018.
 //
 
-import Foundation
-import UIKit
-import RouteComposer
-import os.log
 import ContainerViewController
+import Foundation
 import ImageDetailsController
 import ImagesController
+import os.log
+import RouteComposer
+import UIKit
 
 class ImagesWithLibraryHandler: CustomViewControllerDelegate, ImagesControllerDelegate, ImageDetailsControllerDelegate {
 

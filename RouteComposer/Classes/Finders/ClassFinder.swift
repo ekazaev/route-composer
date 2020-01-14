@@ -48,7 +48,7 @@ public extension ClassFinder {
     init(options: SearchOptions,
          startingPoint: DefaultStackIterator.StartingPoint = .topmost,
          containerAdapterLocator: ContainerAdapterLocator = DefaultContainerAdapterLocator()) {
-        iterator = DefaultStackIterator(options: options, startingPoint: startingPoint, containerAdapterLocator: containerAdapterLocator)
+        self.iterator = DefaultStackIterator(options: options, startingPoint: startingPoint, containerAdapterLocator: containerAdapterLocator)
     }
 
 }

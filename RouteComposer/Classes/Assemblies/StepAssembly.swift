@@ -23,8 +23,8 @@ import UIKit
 ///         .assemble()
 /// ```
 public final class StepAssembly<F: Finder, FC: AbstractFactory>: GenericStepAssembly<F.ViewController, FC.Context>
-        where
-        F.ViewController == FC.ViewController, F.Context == FC.Context {
+    where
+    F.ViewController == FC.ViewController, F.Context == FC.Context {
 
     // MARK: Properties
 

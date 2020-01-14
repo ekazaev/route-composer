@@ -96,7 +96,7 @@ class AllRoutesInAppUITests: XCTestCase {
         sleep(1)
         XCTAssertTrue(app.otherElements["citiesSplitViewController"].exists)
 
-        self.app.tables.cells.element(boundBy: 5).tap()
+        app.tables.cells.element(boundBy: 5).tap()
         XCTAssertTrue(app.otherElements["cityDetailsViewController+6"].exists)
 
         app.buttons["Go to Cities"].tap()

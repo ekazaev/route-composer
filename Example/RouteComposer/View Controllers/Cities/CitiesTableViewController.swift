@@ -3,8 +3,8 @@
 //
 
 import Foundation
-import UIKit
 import RouteComposer
+import UIKit
 
 class CityTableContextTask: ContextTask {
 
@@ -31,11 +31,11 @@ class CitiesTableViewController: UITableViewController, ExampleAnalyticsSupport 
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Cities"
-        self.splitViewController?.delegate = self
-        self.splitViewController?.preferredDisplayMode = .allVisible
-        self.splitViewController?.view.accessibilityIdentifier = "citiesSplitViewController"
-        self.view.accessibilityIdentifier = "citiesViewController"
+        title = "Cities"
+        splitViewController?.delegate = self
+        splitViewController?.preferredDisplayMode = .allVisible
+        splitViewController?.view.accessibilityIdentifier = "citiesSplitViewController"
+        view.accessibilityIdentifier = "citiesViewController"
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -65,10 +65,10 @@ class CitiesTableViewController: UITableViewController, ExampleAnalyticsSupport 
         let router = self.router
         try? router.navigate(to: ConfigurationHolder.configuration.welcomeScreen, animated: true) { _ in
             UIApplication.shared.beginIgnoringInteractionEvents()
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(1 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(1 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)) {
                 UIApplication.shared.endIgnoringInteractionEvents()
                 try? router.navigate(to: ProductConfiguration.productScreen, with: ProductContext(productId: "123"), animated: true, completion: nil)
-            })
+            }
         }
     }
 
@@ -79,9 +79,10 @@ class CitiesTableViewController: UITableViewController, ExampleAnalyticsSupport 
 extension CitiesTableViewController: UISplitViewControllerDelegate {
 
     func splitViewController(
-            _ splitViewController: UISplitViewController,
-            collapseSecondary secondaryViewController: UIViewController,
-            onto primaryViewController: UIViewController) -> Bool {
+        _ splitViewController: UISplitViewController,
+        collapseSecondary secondaryViewController: UIViewController,
+        onto primaryViewController: UIViewController
+    ) -> Bool {
         // Return true to prevent UIKit from applying its default behavior
         return true
     }

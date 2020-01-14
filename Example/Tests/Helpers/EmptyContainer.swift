@@ -5,8 +5,8 @@
 #if os(iOS)
 
 import Foundation
-import UIKit
 @testable import RouteComposer
+import UIKit
 
 struct EmptyContainer: SimpleContainerFactory {
 
@@ -14,8 +14,7 @@ struct EmptyContainer: SimpleContainerFactory {
 
     typealias Context = Any?
 
-    init() {
-    }
+    init() {}
 
     func build(with context: Any?, integrating viewControllers: [UIViewController]) throws -> UINavigationController {
         let viewController = UINavigationController()

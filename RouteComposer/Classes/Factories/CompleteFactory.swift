@@ -33,13 +33,13 @@ public struct CompleteFactory<FC: ContainerFactory>: ContainerFactory, CustomStr
         self.childFactories = childFactories
     }
 
-    mutating public func prepare(with context: FC.Context) throws {
+    public mutating func prepare(with context: FC.Context) throws {
         try factory.prepare(with: context)
-        childFactories = try childFactories.map({
+        childFactories = try childFactories.map {
             var factory = $0
             try factory.prepare(with: context)
             return factory
-        })
+        }
     }
 
     public func build(with context: FC.Context, integrating coordinator: ChildCoordinator<FC.Context>) throws -> FC.ViewController {

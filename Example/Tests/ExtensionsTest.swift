@@ -5,14 +5,13 @@
 #if os(iOS)
 
 import Foundation
+@testable import RouteComposer
 import UIKit
 import XCTest
-@testable import RouteComposer
 
 class ExtensionsTest: XCTestCase {
 
-    class InvisibleViewController: UIViewController {
-    }
+    class InvisibleViewController: UIViewController {}
 
     class FakePresentingNavigationController: UINavigationController {
 

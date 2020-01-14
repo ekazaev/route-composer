@@ -125,7 +125,7 @@ class ShortUITests: XCTestCase {
         XCTAssertTrue(app.tables["imagesViewController"].exists)
         sleep(1)
 
-        self.app.tables.cells.element(boundBy: 2).tap()
+        app.tables.cells.element(boundBy: 2).tap()
         XCTAssertTrue(app.otherElements["imagestarViewController"].exists)
         sleep(1)
 
@@ -139,7 +139,7 @@ class ShortUITests: XCTestCase {
         XCTAssertTrue(app.tables["imagesViewController"].exists)
         sleep(1)
 
-        self.app.tables.cells.element(boundBy: 1).tap()
+        app.tables.cells.element(boundBy: 1).tap()
         XCTAssertTrue(app.otherElements["imagesecondViewController"].exists)
         sleep(1)
 

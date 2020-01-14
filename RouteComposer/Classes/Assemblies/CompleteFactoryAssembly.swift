@@ -53,14 +53,14 @@ public final class CompleteFactoryAssembly<FC: ContainerFactory> {
     ///   - childFactory: The instance of `Factory`.
     ///   - action: The instance of `Factory` to be used to integrate the view controller produced by the factory.
     public final func with<ChildFC: Factory, A: ContainerAction>(_ childFactory: ChildFC, using action: A) -> CompleteFactoryChainAssembly<FC, ChildFC.ViewController>
-            where
-            ChildFC.Context == FC.Context, A.ViewController == FC.ViewController {
+        where
+        ChildFC.Context == FC.Context, A.ViewController == FC.ViewController {
         guard let factoryBox = FactoryBox(childFactory, action: ContainerActionBox(action)) else {
             return CompleteFactoryChainAssembly<FC, ChildFC.ViewController>(factory: factory, childFactories: [], previousChildFactory: nil)
         }
         return CompleteFactoryChainAssembly<FC, ChildFC.ViewController>(factory: factory,
-                childFactories: [],
-                previousChildFactory: PostponedIntegrationFactory<ChildFC.Context>(for: factoryBox))
+                                                                        childFactories: [],
+                                                                        previousChildFactory: PostponedIntegrationFactory<ChildFC.Context>(for: factoryBox))
     }
 
     /// Adds a `ContainerFactory` that is going to be used as a child
@@ -69,15 +69,15 @@ public final class CompleteFactoryAssembly<FC: ContainerFactory> {
     ///   - childFactory: The instance of `ContainerFactory`.
     ///   - action: The instance of `ContainerFactory` to be used to integrate the view controller produced by the factory.
     public final func with<ChildFC: ContainerFactory, A: ContainerAction>(_ childContainer: ChildFC, using action: A) -> CompleteFactoryChainAssembly<FC, ChildFC.ViewController>
-            where
-            ChildFC.Context == FC.Context, A.ViewController == FC.ViewController {
+        where
+        ChildFC.Context == FC.Context, A.ViewController == FC.ViewController {
         guard let factoryBox = ContainerFactoryBox(childContainer, action: ContainerActionBox(action)) else {
             return CompleteFactoryChainAssembly<FC, ChildFC.ViewController>(factory: factory, childFactories: [], previousChildFactory: nil)
         }
 
         return CompleteFactoryChainAssembly<FC, ChildFC.ViewController>(factory: factory,
-                childFactories: [],
-                previousChildFactory: PostponedIntegrationFactory<ChildFC.Context>(for: factoryBox))
+                                                                        childFactories: [],
+                                                                        previousChildFactory: PostponedIntegrationFactory<ChildFC.Context>(for: factoryBox))
     }
 
     /// Adds a `Factory` as the last view controller in the stack.

@@ -2,8 +2,8 @@
 //  Created by Eugene Kazaev on 18/12/2017.
 //
 
-import UIKit
 import RouteComposer
+import UIKit
 
 class SquareViewController: UIViewController, ExampleAnalyticsSupport {
 
@@ -11,7 +11,7 @@ class SquareViewController: UIViewController, ExampleAnalyticsSupport {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Square"
+        title = "Square"
     }
 
     @IBAction func goToCircleTapped() {

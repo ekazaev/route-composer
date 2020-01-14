@@ -3,8 +3,8 @@
 //
 
 import Foundation
-import UIKit
 import RouteComposer
+import UIKit
 
 class FiguresViewController: UIViewController, ExampleAnalyticsSupport {
 
@@ -12,7 +12,7 @@ class FiguresViewController: UIViewController, ExampleAnalyticsSupport {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Figures"
+        title = "Figures"
     }
 
     @IBAction func goToCircleTapped() {
