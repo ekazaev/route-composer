@@ -17,7 +17,7 @@ extension PreparableEntity {
     func assertIfNotPrepared() {
         if !isPrepared {
             assertionFailure("Internal inconsistency: prepare(with:) method has never been " +
-                    "called for \(String(describing: self)).")
+                "called for \(String(describing: self)).")
         }
     }
 

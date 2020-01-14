@@ -3,8 +3,8 @@
 //
 
 import Foundation
-import UIKit
 import RouteComposer
+import UIKit
 
 class CityDetailContextTask: ContextTask {
 
@@ -35,13 +35,13 @@ class CityDetailViewController: UIViewController, ExampleAnalyticsSupport {
         guard isViewLoaded, let city = CitiesDataModel.cities.first(where: { $0.cityId == cityId }) else {
             return
         }
-        self.title = "\(city.city)"
+        title = "\(city.city)"
 
         detailsTextView.text = city.city + "\n\n" + city.description
         if let cityId = cityId {
-            self.view.accessibilityIdentifier = "cityDetailsViewController+\(cityId)"
+            view.accessibilityIdentifier = "cityDetailsViewController+\(cityId)"
         } else {
-            self.view.accessibilityIdentifier = "cityDetailsViewController"
+            view.accessibilityIdentifier = "cityDetailsViewController"
         }
     }
 

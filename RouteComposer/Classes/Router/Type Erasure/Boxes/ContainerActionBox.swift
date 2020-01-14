@@ -29,11 +29,11 @@ struct ContainerActionBox<A: ContainerAction>: AnyAction, AnyActionBox, CustomSt
                         return completion(result)
                     }
                     self.perform(with: viewController,
-                            on: existingController,
-                            with: postponedIntegrationHandler,
-                            nextAction: nextAction,
-                            animated: animated,
-                            completion: completion)
+                                 on: existingController,
+                                 with: postponedIntegrationHandler,
+                                 nextAction: nextAction,
+                                 animated: animated,
+                                 completion: completion)
                 })
                 return
             }
@@ -41,9 +41,9 @@ struct ContainerActionBox<A: ContainerAction>: AnyAction, AnyActionBox, CustomSt
         } else {
             guard let containerController: A.ViewController = UIViewController.findContainer(of: existingController) else {
                 completion(.failure(RoutingError.typeMismatch(type: type(of: existingController),
-                        expectedType: ActionType.ViewController.self,
-                        .init("Container of \(String(describing: ActionType.ViewController.self)) type cannot be found in the parents of " +
-                                "\(String(describing: existingController)) to perform \(action)"))))
+                                                              expectedType: ActionType.ViewController.self,
+                                                              .init("Container of \(String(describing: ActionType.ViewController.self)) type cannot be found in the parents of " +
+                                                                  "\(String(describing: existingController)) to perform \(action)"))))
                 return
             }
             let shouldDelayPerforming = nextAction?.isEmbeddable(to: A.ViewController.self) ?? false

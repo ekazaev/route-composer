@@ -36,8 +36,8 @@ extension AnyFactoryBox where Self: PreparableAnyFactory, Self: MainThreadChecki
         assertIfNotMainThread()
         guard let typedContext = Any?.some(context as Any) as? FactoryType.Context else {
             throw RoutingError.typeMismatch(type: type(of: context),
-                    expectedType: FactoryType.Context.self,
-                    .init("\(String(describing: factory.self)) does not accept \(String(describing: context.self)) as a context."))
+                                            expectedType: FactoryType.Context.self,
+                                            .init("\(String(describing: factory.self)) does not accept \(String(describing: context.self)) as a context."))
         }
         try factory.prepare(with: typedContext)
         isPrepared = true

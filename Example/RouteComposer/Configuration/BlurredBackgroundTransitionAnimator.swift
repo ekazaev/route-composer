@@ -53,18 +53,18 @@ class BlurredBackgroundTransitionAnimator: NSObject, UIViewControllerAnimatedTra
         blurEffect.alpha = initialAlpha
 
         if transitionType == .dismiss,
-           let viewBelow = transitionContext.view(forKey: .to),
-           viewBelow.superview == nil {
+            let viewBelow = transitionContext.view(forKey: .to),
+            viewBelow.superview == nil {
             transitionContext.containerView.insertSubview(viewBelow, belowSubview: blurEffect)
         }
 
         UIView.animate(withDuration: transitionDuration(using: transitionContext) / 2.0,
-                delay: transitionDuration(using: transitionContext) / 2.0,
-                options: .curveEaseIn,
-                animations: {
-                    blurEffect.effect = effect
-                    blurEffect.alpha = finalAlpha
-                }, completion: nil)
+                       delay: transitionDuration(using: transitionContext) / 2.0,
+                       options: .curveEaseIn,
+                       animations: {
+                           blurEffect.effect = effect
+                           blurEffect.alpha = finalAlpha
+        }, completion: nil)
 
         UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: {
             viewToAnimate.alpha = finalAlpha

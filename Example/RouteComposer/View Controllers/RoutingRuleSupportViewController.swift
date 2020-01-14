@@ -4,8 +4,8 @@
 //
 
 import Foundation
-import UIKit
 import RouteComposer
+import UIKit
 
 class RoutingRuleSupportViewController: UIViewController, RoutingInterceptable, ExampleAnalyticsSupport {
 
@@ -17,12 +17,12 @@ class RoutingRuleSupportViewController: UIViewController, RoutingInterceptable, 
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.switchControl.isOn = self.canBeDismissed
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneTapped))
+        switchControl.isOn = canBeDismissed
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneTapped))
     }
 
     @IBAction func switchValueChanged(sender: UISwitch) {
-        self.canBeDismissed = switchControl.isOn
+        canBeDismissed = switchControl.isOn
     }
 
     @objc func doneTapped() {

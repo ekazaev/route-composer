@@ -3,8 +3,8 @@
 //
 
 import Foundation
-import UIKit
 import RouteComposer
+import UIKit
 
 class WishListViewController: UITableViewController, ExampleAnalyticsSupport {
 
@@ -20,9 +20,9 @@ class WishListViewController: UITableViewController, ExampleAnalyticsSupport {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Wish list"
+        title = "Wish list"
         segmentController.addTarget(self, action: #selector(segmentChanged), for: UIControl.Event.valueChanged)
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneTapped))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneTapped))
         reloadData()
     }
 
@@ -34,7 +34,7 @@ class WishListViewController: UITableViewController, ExampleAnalyticsSupport {
     }
 
     @objc func doneTapped() {
-        self.dismiss(animated: true)
+        dismiss(animated: true)
     }
 
     @IBAction func segmentChanged() {

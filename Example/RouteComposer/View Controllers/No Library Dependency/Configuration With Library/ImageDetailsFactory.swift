@@ -3,9 +3,9 @@
 //
 
 import Foundation
+import ImageDetailsController
 import RouteComposer
 import UIKit
-import ImageDetailsController
 
 class ImageDetailsFactory: Factory {
 
@@ -21,7 +21,7 @@ class ImageDetailsFactory: Factory {
 
     func build(with context: String) throws -> ImageDetailsViewController {
         guard let viewController = UIStoryboard(name: "Images", bundle: Bundle.main)
-                .instantiateViewController(withIdentifier: "ImageDetailsViewController") as? ViewController else {
+            .instantiateViewController(withIdentifier: "ImageDetailsViewController") as? ViewController else {
             throw RoutingError.compositionFailed(.init("Could not load ImagesViewController from the storyboard."))
         }
         viewController.delegate = delegate

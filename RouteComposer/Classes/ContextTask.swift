@@ -48,8 +48,7 @@ public protocol ContextTask {
 public extension ContextTask {
 
     /// Default implementation does nothing
-    mutating func prepare(with context: Context) throws {
-    }
+    mutating func prepare(with context: Context) throws {}
 
 }
 

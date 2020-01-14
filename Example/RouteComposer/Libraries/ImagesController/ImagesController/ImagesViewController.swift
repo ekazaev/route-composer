@@ -19,7 +19,7 @@ public final class ImagesViewController: UITableViewController {
     }
 
     private func reloadData() {
-        self.view.accessibilityIdentifier = "imagesViewController"
+        view.accessibilityIdentifier = "imagesViewController"
 
         imageFetcher?.loadImages { imagesNames in
             self.imagesNames = imagesNames
@@ -40,7 +40,7 @@ public final class ImagesViewController: UITableViewController {
     }
 
     public override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.delegate?.didSelect(imageID: imagesNames[indexPath.row], in: self)
+        delegate?.didSelect(imageID: imagesNames[indexPath.row], in: self)
     }
 
 }

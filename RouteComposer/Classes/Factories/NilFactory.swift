@@ -26,8 +26,7 @@ public struct NilFactory<VC: UIViewController, C>: Factory, NilEntity {
     // MARK: Methods
 
     /// Constructor
-    public init() {
-    }
+    public init() {}
 
     public func prepare(with context: C) throws {
         throw RoutingError.compositionFailed(.init("This factory can not build any UIViewController."))

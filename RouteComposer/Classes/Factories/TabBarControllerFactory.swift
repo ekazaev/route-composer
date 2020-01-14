@@ -25,7 +25,7 @@ public struct TabBarControllerFactory<VC: UITabBarController, C>: ContainerFacto
     public let bundle: Bundle?
 
     /// `UITabBarControllerDelegate` reference
-    private(set) public weak var delegate: UITabBarControllerDelegate?
+    public private(set) weak var delegate: UITabBarControllerDelegate?
 
     /// The additional configuration block
     public let configuration: ((_: VC) -> Void)?

@@ -2,10 +2,10 @@
 // Created by Eugene Kazaev on 25/02/2018.
 //
 
-import Foundation
-import UIKit
-import RouteComposer
 import ContainerViewController
+import Foundation
+import RouteComposer
+import UIKit
 
 class CustomContainerFactory<C>: SimpleContainerFactory {
 
@@ -21,7 +21,7 @@ class CustomContainerFactory<C>: SimpleContainerFactory {
 
     func build(with context: C, integrating viewControllers: [UIViewController]) throws -> CustomContainerController {
         guard let containerController = UIStoryboard(name: "Images", bundle: Bundle.main)
-                .instantiateViewController(withIdentifier: "CustomContainerController") as? ViewController else {
+            .instantiateViewController(withIdentifier: "CustomContainerController") as? ViewController else {
             throw RoutingError.compositionFailed(.init("Could not load CustomContainerController from the storyboard."))
         }
         containerController.delegate = delegate

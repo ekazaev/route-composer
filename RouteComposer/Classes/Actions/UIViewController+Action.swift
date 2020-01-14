@@ -40,11 +40,11 @@ public struct GeneralAction {
                                       isModalInPresentation: Bool? = nil,
                                       popoverConfiguration: ((_: UIPopoverPresentationController) -> Void)? = nil) -> ViewControllerActions.PresentModallyAction {
         return ViewControllerActions.PresentModallyAction(presentationStyle: presentationStyle,
-                transitionStyle: transitionStyle,
-                transitioningDelegate: transitioningDelegate,
-                preferredContentSize: preferredContentSize,
-                isModalInPresentation: isModalInPresentation,
-                popoverConfiguration: popoverConfiguration)
+                                                          transitionStyle: transitionStyle,
+                                                          transitioningDelegate: transitioningDelegate,
+                                                          preferredContentSize: preferredContentSize,
+                                                          isModalInPresentation: isModalInPresentation,
+                                                          popoverConfiguration: popoverConfiguration)
     }
 
     /// `Action` does nothing, but can be helpful for testing or writing the sequences of steps with the `NilFactory`
@@ -80,7 +80,7 @@ public struct ViewControllerActions {
         public let popoverControllerConfigurationBlock: ((_: UIPopoverPresentationController) -> Void)?
 
         /// `UIViewControllerTransitioningDelegate` instance to be used during the transition
-        private(set) public weak var transitioningDelegate: UIViewControllerTransitioningDelegate?
+        public private(set) weak var transitioningDelegate: UIViewControllerTransitioningDelegate?
 
         // MARK: Methods
 
@@ -129,7 +129,7 @@ public struct ViewControllerActions {
                 viewController.preferredContentSize = preferredContentSize
             }
             if let popoverPresentationController = viewController.popoverPresentationController,
-               let popoverControllerConfigurationBlock = popoverControllerConfigurationBlock {
+                let popoverControllerConfigurationBlock = popoverControllerConfigurationBlock {
                 popoverControllerConfigurationBlock(popoverPresentationController)
             }
             if #available(iOS 13, *), let isModalInPresentation = isModalInPresentation {
@@ -209,8 +209,7 @@ public struct ViewControllerActions {
         // MARK: Methods
 
         /// Constructor
-        init() {
-        }
+        init() {}
 
         /// Does nothing and always succeeds
         public func perform(with viewController: UIViewController, on existingController: UIViewController, animated: Bool, completion: @escaping (RoutingResult) -> Void) {

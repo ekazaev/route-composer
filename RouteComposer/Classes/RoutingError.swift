@@ -52,7 +52,7 @@ public enum RoutingError: Error, CustomStringConvertible {
             } else {
                 errorDescription = nil
             }
-            let descriptionParts = [!debugDescription.isEmpty ? debugDescription : nil, errorDescription].compactMap({ $0 })
+            let descriptionParts = [!debugDescription.isEmpty ? debugDescription : nil, errorDescription].compactMap { $0 }
             guard descriptionParts.isEmpty else {
                 return descriptionParts.joined(separator: " -> ")
             }
@@ -80,14 +80,14 @@ public enum RoutingError: Error, CustomStringConvertible {
 
     public var description: String {
         switch self {
-        case .typeMismatch(let type, let expectedType, let context):
+        case let .typeMismatch(type, expectedType, context):
             return "Type Mismatch Error: Type \(String(describing: type)) is not equal to the expected type \(String(describing: expectedType)). " +
-                    "\(context.description)"
-        case .compositionFailed(let context):
+                "\(context.description)"
+        case let .compositionFailed(context):
             return "Composition Failed Error: \(context.description)"
-        case .initialController(let state, let context):
+        case let .initialController(state, context):
             return "Initial Controller Error: \(state). \(context.description)"
-        case .generic(let context):
+        case let .generic(context):
             return "Generic Error: \(context.description)"
         }
     }
@@ -95,13 +95,13 @@ public enum RoutingError: Error, CustomStringConvertible {
     /// Returns `RoutingError.Context` instance
     public var context: RoutingError.Context {
         switch self {
-        case .typeMismatch(_, _, let context):
+        case let .typeMismatch(_, _, context):
             return context
-        case .compositionFailed(let context):
+        case let .compositionFailed(context):
             return context
-        case .initialController(_, let context):
+        case let .initialController(_, context):
             return context
-        case .generic(let context):
+        case let .generic(context):
             return context
         }
     }

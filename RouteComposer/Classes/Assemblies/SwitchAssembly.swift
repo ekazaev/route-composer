@@ -39,7 +39,7 @@ public final class SwitchAssembly<ViewController: UIViewController, Context> {
 
     private struct BlockResolver: StepCaseResolver {
 
-        let resolverBlock: ((_: Context) -> DestinationStep<ViewController, Context>?)
+        let resolverBlock: (_: Context) -> DestinationStep<ViewController, Context>?
 
         init(resolverBlock: @escaping ((_: Context) -> DestinationStep<ViewController, Context>?)) {
             self.resolverBlock = resolverBlock
@@ -79,8 +79,7 @@ public final class SwitchAssembly<ViewController: UIViewController, Context> {
     // MARK: Methods
 
     /// Constructor
-    public init() {
-    }
+    public init() {}
 
     /// Adds a block that allows a written decision case for the `Router` in the block.
     /// Returning nil from the block will mean that it has not succeeded.
@@ -153,7 +152,7 @@ public final class SwitchAssembly<ViewController: UIViewController, Context> {
     ///
     /// - Parameter resolverBlock: default resolver block
     /// - Returns: an instance of `DestinationStep`
-    public final  func assemble(default resolverBlock: @escaping (() -> DestinationStep<ViewController, Context>)) -> DestinationStep<ViewController, Context> {
+    public final func assemble(default resolverBlock: @escaping (() -> DestinationStep<ViewController, Context>)) -> DestinationStep<ViewController, Context> {
         resolvers.append(BlockResolver(resolverBlock: { _ in
             return resolverBlock()
         }))

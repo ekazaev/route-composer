@@ -7,10 +7,10 @@
 
 #if os(iOS)
 
-import UIKit
 import Foundation
-import XCTest
 @testable import RouteComposer
+import UIKit
+import XCTest
 
 class MultiplexerTest: XCTestCase {
 
@@ -19,12 +19,12 @@ class MultiplexerTest: XCTestCase {
         let interceptors = [
             RoutingInterceptorBox(InlineInterceptor(prepare: { (_: Any?) throws in
                 prepareCountRun += 1
-            }, { (_: Any?) in
+                }, { (_: Any?) in
 
             })),
             RoutingInterceptorBox(InlineInterceptor(prepare: { (_: Any?) throws in
                 prepareCountRun += 9
-            }, { (_: Any?) in
+                }, { (_: Any?) in
 
             }))
         ]
@@ -33,15 +33,15 @@ class MultiplexerTest: XCTestCase {
         try? multiplexer.prepare(with: nil as Any?)
         XCTAssertEqual(prepareCountRun, 10)
         XCTAssertEqual(multiplexer.description, "[InlineInterceptor<Optional<Any>>(prepareBlock: Optional((Function)), " +
-                "performBlock: (Function)), InlineInterceptor<Optional<Any>>(prepareBlock: Optional((Function)), " +
-                "performBlock: (Function))]")
+            "performBlock: (Function)), InlineInterceptor<Optional<Any>>(prepareBlock: Optional((Function)), " +
+            "performBlock: (Function))]")
     }
 
     func testRoutingPrepareInterceptorPrepareThrows() {
         let interceptors = [
             RoutingInterceptorBox(InlineInterceptor(prepare: { (_: Any?) throws in
                 throw RoutingError.generic(.init("Should be handled"))
-            }, { (_: Any?) in
+                }, { (_: Any?) in
 
             }))
         ]
@@ -53,8 +53,8 @@ class MultiplexerTest: XCTestCase {
     func testRoutingInterceptorPerformThrows() {
         let interceptors = [
             RoutingInterceptorBox(InlineInterceptor(prepare: { (_: Any?) throws in
-            }, { (_: Any?) in
-                throw RoutingError.generic(.init("Should be handled"))
+                }, { (_: Any?) in
+                    throw RoutingError.generic(.init("Should be handled"))
             }))
         ]
 
@@ -83,7 +83,7 @@ class MultiplexerTest: XCTestCase {
         let interceptors = [
             RoutingInterceptorBox(InlineInterceptor(prepare: { (_: Int) throws in
                 throw RoutingError.generic(.init("Should be handled"))
-            }, { (_: Int) in
+                }, { (_: Int) in
 
             }))
         ]
@@ -146,8 +146,8 @@ class MultiplexerTest: XCTestCase {
 
     func testPostTaskWithWrongContextTypeThrow() {
         let postTasks = [
-            PostRoutingTaskBox(InlinePostTask({ (_: UIViewController, _: Int, _: [UIViewController]) in
-            }))
+            PostRoutingTaskBox(InlinePostTask { (_: UIViewController, _: Int, _: [UIViewController]) in
+            })
         ]
 
         let multiplexer = PostRoutingTaskMultiplexer(postTasks)
@@ -156,8 +156,8 @@ class MultiplexerTest: XCTestCase {
 
     func testPostTaskDescription() {
         let postTasks = [
-            PostRoutingTaskBox(InlinePostTask({ (_: UIViewController, _: Int, _: [UIViewController]) in
-            }))
+            PostRoutingTaskBox(InlinePostTask { (_: UIViewController, _: Int, _: [UIViewController]) in
+            })
         ]
 
         let multiplexer = PostRoutingTaskMultiplexer(postTasks)

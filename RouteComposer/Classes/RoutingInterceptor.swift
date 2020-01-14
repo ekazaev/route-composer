@@ -49,8 +49,7 @@ public protocol RoutingInterceptor {
 public extension RoutingInterceptor {
 
     /// Default implementation does nothing.
-    func prepare(with context: Context) throws {
-    }
+    func prepare(with context: Context) throws {}
 
 }
 

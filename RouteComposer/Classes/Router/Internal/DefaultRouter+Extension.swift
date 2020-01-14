@@ -14,11 +14,11 @@ extension DefaultRouter {
         private var interceptors: [AnyRoutingInterceptor]
 
         init<Context>(interceptors: [AnyRoutingInterceptor], with context: Context) throws {
-            self.interceptors = try interceptors.map({
+            self.interceptors = try interceptors.map {
                 var interceptor = $0
                 try interceptor.prepare(with: context)
                 return interceptor
-            })
+            }
         }
 
         mutating func add<Context>(_ interceptor: AnyRoutingInterceptor, with context: Context) throws {
@@ -43,11 +43,11 @@ extension DefaultRouter {
         var contextTasks: [AnyContextTask]
 
         init<Context>(contextTasks: [AnyContextTask], with context: Context) throws {
-            self.contextTasks = try contextTasks.map({
+            self.contextTasks = try contextTasks.map {
                 var contextTask = $0
                 try contextTask.prepare(with: context)
                 return contextTask
-            })
+            }
         }
 
         mutating func add<Context>(_ contextTask: AnyContextTask, with context: Context) throws {
@@ -57,9 +57,9 @@ extension DefaultRouter {
         }
 
         func perform<Context>(on viewController: UIViewController, with context: Context) throws {
-            try contextTasks.forEach({
+            try contextTasks.forEach {
                 try $0.perform(on: viewController, with: context)
-            })
+            }
         }
 
     }
@@ -123,8 +123,7 @@ extension DefaultRouter {
         // store a reference there.
         private struct EmptyPostTask: AnyPostRoutingTask {
 
-            func perform<Context>(on viewController: UIViewController, with context: Context, routingStack: [UIViewController]) {
-            }
+            func perform<Context>(on viewController: UIViewController, with context: Context, routingStack: [UIViewController]) {}
 
         }
 
@@ -137,27 +136,27 @@ extension DefaultRouter {
                 return
             }
 
-            postTasks.forEach({
+            postTasks.forEach {
                 let postTaskSlip = PostTaskSlip(viewController: viewController, postTask: $0)
                 taskSlips.append(postTaskSlip)
-            })
+            }
         }
 
         final func perform<Context>(with context: Context) throws {
             var viewControllers: [UIViewController] = []
-            taskSlips.forEach({
+            taskSlips.forEach {
                 guard let viewController = $0.viewController, !viewControllers.contains(viewController) else {
                     return
                 }
                 viewControllers.append(viewController)
-            })
+            }
 
-            try taskSlips.forEach({ slip in
+            try taskSlips.forEach { slip in
                 guard let viewController = slip.viewController else {
                     return
                 }
                 try slip.postTask.perform(on: viewController, with: context, routingStack: viewControllers)
-            })
+            }
         }
     }
 
@@ -268,7 +267,7 @@ extension DefaultRouter {
                     return
                 }
                 self.containerViewController = containerViewController
-                self.postponedViewControllers = try containerAdapterLocator.getAdapter(for: containerViewController).containedViewControllers
+                postponedViewControllers = try containerAdapterLocator.getAdapter(for: containerViewController).containedViewControllers
                 logger?.log(.info("Container \(String(describing: containerViewController)) will be used for the postponed integration."))
                 completion(.success)
             } catch {
@@ -290,23 +289,23 @@ extension DefaultRouter {
                 let containerAdapter = try containerAdapterLocator.getAdapter(for: containerViewController)
 
                 guard !postponedViewControllers.isEqual(to: containerAdapter.containedViewControllers) else {
-                    self.reset()
+                    reset()
                     completion(.success)
                     return
                 }
 
                 containerAdapter.setContainedViewControllers(postponedViewControllers,
-                        animated: animated,
-                        completion: { result in
-                            guard result.isSuccessful else {
-                                completion(result)
-                                return
-                            }
-                            self.logger?.log(.info("View controllers \(String(describing: self.postponedViewControllers)) were simultaneously "
-                                    + "integrated into \(String(describing: containerViewController))"))
-                            self.reset()
-                            completion(.success)
-                        })
+                                                             animated: animated,
+                                                             completion: { result in
+                                                                 guard result.isSuccessful else {
+                                                                     completion(result)
+                                                                     return
+                                                                 }
+                                                                 self.logger?.log(.info("View controllers \(String(describing: self.postponedViewControllers)) were simultaneously "
+                                                                         + "integrated into \(String(describing: containerViewController))"))
+                                                                 self.reset()
+                                                                 completion(.success)
+                })
             } catch {
                 completion(.failure(error))
             }

@@ -4,9 +4,9 @@
 
 #if os(iOS)
 
+@testable import RouteComposer
 import UIKit
 import XCTest
-@testable import RouteComposer
 
 class BoxTests: XCTestCase {
 
@@ -88,10 +88,10 @@ class BoxTests: XCTestCase {
 
     func testNilEntitiesInStepAssembly() {
         let routingStep = StepAssembly(finder: NilFinder<UIViewController, Any?>(),
-                factory: NilFactory<UIViewController, Any?>())
-                .using(ViewControllerActions.NilAction())
-                .from(GeneralStep.current())
-                .assemble()
+                                       factory: NilFactory<UIViewController, Any?>())
+            .using(ViewControllerActions.NilAction())
+            .from(GeneralStep.current())
+            .assemble()
         let step = routingStep.getPreviousStep(with: nil as Any?) as? BaseStep
         XCTAssertNotNil(step)
         XCTAssertNil(step?.factory)
@@ -100,9 +100,9 @@ class BoxTests: XCTestCase {
 
     func testNilEntitiesInCompleteFactoryAssembly() {
         let factory = CompleteFactoryAssembly(factory: TabBarControllerFactory<UITabBarController, Any?>())
-                .with(NilFactory<UIViewController, Any?>(), using: UITabBarController.add())
-                .with(NilFactory<UIViewController, Any?>(), using: UITabBarController.add())
-                .assemble()
+            .with(NilFactory<UIViewController, Any?>(), using: UITabBarController.add())
+            .with(NilFactory<UIViewController, Any?>(), using: UITabBarController.add())
+            .assemble()
         XCTAssertEqual(factory.childFactories.count, 0)
     }
 
@@ -181,7 +181,7 @@ class BoxTests: XCTestCase {
             wasInCompletion = true
             XCTAssertFalse(result.isSuccessful)
             guard let routingError = try? result.getError() as? RoutingError,
-                  case let .compositionFailed(context) = routingError else {
+                case let .compositionFailed(context) = routingError else {
                 XCTAssertFalse(true)
                 return
             }
@@ -238,10 +238,10 @@ class BoxTests: XCTestCase {
 
         let anotherEmbeddingController = UIViewController()
         actionBox.perform(with: anotherEmbeddingController,
-                on: navigationController,
-                with: postponedIntegrationHandler,
-                nextAction: ContainerActionBox(action),
-                animated: true) { result in
+                          on: navigationController,
+                          with: postponedIntegrationHandler,
+                          nextAction: ContainerActionBox(action),
+                          animated: true) { result in
             guard case .success = result else {
                 XCTAssert(false)
                 return
@@ -290,7 +290,7 @@ class BoxTests: XCTestCase {
 
     func testBaseEntitiesCollector() {
         let collector = BaseEntitiesCollector<FactoryBox<ClassFactory>, ActionBox>(finder: ClassFinder<UIViewController, Any?>(),
-                factory: ClassFactory<UIViewController, Any?>(), action: GeneralAction.replaceRoot())
+                                                                                   factory: ClassFactory<UIViewController, Any?>(), action: GeneralAction.replaceRoot())
         XCTAssertNotNil(collector.finder)
         XCTAssertNotNil(collector.factory)
         XCTAssertTrue(collector.finder is FinderBox<ClassFinder<UIViewController, Any?>>)
@@ -300,14 +300,14 @@ class BoxTests: XCTestCase {
 
     func testBaseEntitiesCollectorWithNilEntities() {
         let collector = BaseEntitiesCollector<FactoryBox<NilFactory>, ActionBox>(finder: NilFinder<UIViewController, Any?>(),
-                factory: NilFactory(), action: ViewControllerActions.NilAction())
+                                                                                 factory: NilFactory(), action: ViewControllerActions.NilAction())
         XCTAssertNil(collector.finder)
         XCTAssertNil(collector.factory)
     }
 
     func testBaseEntitiesCollectorWithNilFactory() {
         let collector = BaseEntitiesCollector<FactoryBox<NilFactory>, ActionBox>(finder: ClassFinder<UIViewController, Any?>(),
-                factory: NilFactory(), action: ViewControllerActions.NilAction())
+                                                                                 factory: NilFactory(), action: ViewControllerActions.NilAction())
         XCTAssertNotNil(collector.finder)
         XCTAssertNotNil(collector.factory)
         XCTAssertTrue(collector.factory is FactoryBox<FinderFactory<ClassFinder<UIViewController, Any?>>>)

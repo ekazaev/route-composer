@@ -1,8 +1,8 @@
 #if os(iOS)
 
+@testable import RouteComposer
 import UIKit
 import XCTest
-@testable import RouteComposer
 
 class ContainerTests: XCTestCase {
 
@@ -34,9 +34,7 @@ class ContainerTests: XCTestCase {
     func testNavigationControllerContainerBuildDifferentActions() {
         var wasInConfiguration = false
 
-        class Delegate: NSObject, UINavigationControllerDelegate {
-
-        }
+        class Delegate: NSObject, UINavigationControllerDelegate {}
 
         let delegate = Delegate()
         let container = NavigationControllerFactory<UINavigationController, Any?>(delegate: delegate, configuration: { controller in
@@ -58,9 +56,7 @@ class ContainerTests: XCTestCase {
     func testTabBarControllerContainerBuild() {
         var wasInConfiguration = false
 
-        class Delegate: NSObject, UITabBarControllerDelegate {
-
-        }
+        class Delegate: NSObject, UITabBarControllerDelegate {}
 
         let delegate = Delegate()
         let container = TabBarControllerFactory<UITabBarController, Any?>(delegate: delegate, configuration: { controller in
@@ -82,19 +78,17 @@ class ContainerTests: XCTestCase {
     func testSplitControllerContainerBuild() {
         var wasInConfiguration = false
 
-        class Delegate: UISplitViewControllerDelegate {
-
-        }
+        class Delegate: UISplitViewControllerDelegate {}
 
         let delegate = Delegate()
         let container = SplitControllerFactory<UISplitViewController, Any?>(delegate: delegate,
-                presentsWithGesture: true,
-                preferredDisplayMode: .allVisible,
-                configuration: { controller in
-            wasInConfiguration = true
-            XCTAssertEqual(controller.preferredDisplayMode, .allVisible)
-            XCTAssertTrue(controller.delegate === delegate)
-            XCTAssertTrue(controller.presentsWithGesture)
+                                                                            presentsWithGesture: true,
+                                                                            preferredDisplayMode: .allVisible,
+                                                                            configuration: { controller in
+                                                                                wasInConfiguration = true
+                                                                                XCTAssertEqual(controller.preferredDisplayMode, .allVisible)
+                                                                                XCTAssertTrue(controller.delegate === delegate)
+                                                                                XCTAssertTrue(controller.presentsWithGesture)
         })
         var children: [PostponedIntegrationFactory<Any?>] = []
         children.append(PostponedIntegrationFactory<Any?>(for: FactoryBox(EmptyFactory(), action: ContainerActionBox(UISplitViewController.setAsMaster()))!))
@@ -125,8 +119,7 @@ class ContainerTests: XCTestCase {
 
             var prepareCount = 0
 
-            init() {
-            }
+            init() {}
 
             func prepare(with context: Any?) throws {
                 prepareCount += 1
@@ -217,11 +210,11 @@ class ContainerTests: XCTestCase {
     }
 
     private func prepare(children: inout [PostponedIntegrationFactory<Any?>]) throws {
-        children = try children.map({
+        children = try children.map {
             var factory = $0
             try factory.prepare(with: nil)
             return factory
-        })
+        }
     }
 
 }

@@ -3,8 +3,8 @@
 //
 
 import Foundation
-import UIKit
 import RouteComposer
+import UIKit
 
 class StarViewController: UIViewController, ExampleAnalyticsSupport {
 
@@ -12,9 +12,9 @@ class StarViewController: UIViewController, ExampleAnalyticsSupport {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Star"
-        self.tabBarItem.image = UIImage(named: "star")
-        self.view.accessibilityIdentifier = "starViewController"
+        title = "Star"
+        tabBarItem.image = UIImage(named: "star")
+        view.accessibilityIdentifier = "starViewController"
     }
 
     @IBAction func goToProductTapped() {
@@ -26,10 +26,10 @@ class StarViewController: UIViewController, ExampleAnalyticsSupport {
     }
 
     @IBAction func dismissStarTapped() {
-        var viewControllers = self.tabBarController?.viewControllers
+        var viewControllers = tabBarController?.viewControllers
         if let index = viewControllers?.firstIndex(of: self) {
             viewControllers?.remove(at: index)
-            self.tabBarController?.setViewControllers(viewControllers, animated: true)
+            tabBarController?.setViewControllers(viewControllers, animated: true)
         }
         try? router.navigate(to: ConfigurationHolder.configuration.circleScreen, with: nil)
     }

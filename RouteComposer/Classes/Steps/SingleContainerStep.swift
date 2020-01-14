@@ -9,14 +9,14 @@ import UIKit
 
 /// A simple class that produces an intermediate `ActionToStepIntegrator` describing a container view controller.
 public class SingleContainerStep<F: Finder, FC: ContainerFactory>: ActionToStepIntegrator<F.ViewController, F.Context>
-        where
-        F.ViewController == FC.ViewController, F.Context == FC.Context {
+    where
+    F.ViewController == FC.ViewController, F.Context == FC.Context {
 
     // MARK: Internal entities
 
     final class UnsafeWrapper<VC: UIViewController, C, F: Finder, FC: ContainerFactory>: ActionToStepIntegrator<VC, C>
-            where
-            F.ViewController == FC.ViewController, F.Context == FC.Context {
+        where
+        F.ViewController == FC.ViewController, F.Context == FC.Context {
 
         final let step: SingleContainerStep<F, FC>
 
@@ -53,12 +53,12 @@ public class SingleContainerStep<F: Finder, FC: ContainerFactory>: ActionToStepI
         self.factory = factory
     }
 
-    override final func routingStep<A: Action>(with action: A) -> RoutingStep {
+    final override func routingStep<A: Action>(with action: A) -> RoutingStep {
         let entitiesCollector = BaseEntitiesCollector<ContainerFactoryBox<FC>, ActionBox>(finder: finder, factory: factory, action: action)
         return BaseStep(entitiesProvider: entitiesCollector, taskProvider: taskCollector)
     }
 
-    override final func embeddableRoutingStep<A: ContainerAction>(with action: A) -> RoutingStep {
+    final override func embeddableRoutingStep<A: ContainerAction>(with action: A) -> RoutingStep {
         let entitiesCollector = BaseEntitiesCollector<ContainerFactoryBox<FC>, ContainerActionBox>(finder: finder, factory: factory, action: action)
         return BaseStep(entitiesProvider: entitiesCollector, taskProvider: taskCollector)
     }

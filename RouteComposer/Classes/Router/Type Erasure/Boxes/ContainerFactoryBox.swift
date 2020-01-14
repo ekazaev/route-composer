@@ -30,22 +30,22 @@ struct ContainerFactoryBox<F: ContainerFactory>: PreparableAnyFactory, AnyFactor
     mutating func scrapeChildren(from factories: [AnyFactory]) throws -> [AnyFactory] {
         var otherFactories: [AnyFactory] = []
         var isNonEmbeddableFound = false
-        self.children = factories.compactMap({ child -> PostponedIntegrationFactory<FactoryType.Context>? in
+        children = factories.compactMap { child -> PostponedIntegrationFactory<FactoryType.Context>? in
             guard !isNonEmbeddableFound, child.action.isEmbeddable(to: FactoryType.ViewController.self) else {
                 otherFactories.append(child)
                 isNonEmbeddableFound = true
                 return nil
             }
             return PostponedIntegrationFactory(for: child)
-        })
+        }
         return otherFactories
     }
 
     func build<Context>(with context: Context) throws -> UIViewController {
         guard let typedContext = Any?.some(context as Any) as? FactoryType.Context else {
             throw RoutingError.typeMismatch(type: type(of: context),
-                    expectedType: FactoryType.Context.self,
-                    .init("\(String(describing: factory.self)) does not accept \(String(describing: context.self)) as a context."))
+                                            expectedType: FactoryType.Context.self,
+                                            .init("\(String(describing: factory.self)) does not accept \(String(describing: context.self)) as a context."))
         }
         assertIfNotMainThread()
         assertIfNotPrepared()

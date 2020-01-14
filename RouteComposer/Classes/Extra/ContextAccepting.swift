@@ -38,8 +38,7 @@ public protocol ContextAccepting where Self: UIViewController {
 public extension ContextAccepting {
 
     /// Default implementation does nothing.
-    static func checkCompatibility(with context: Context) throws {
-    }
+    static func checkCompatibility(with context: Context) throws {}
 
 }
 

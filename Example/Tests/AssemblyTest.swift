@@ -4,10 +4,10 @@
 
 #if os(iOS)
 
-import UIKit
 import Foundation
-import XCTest
 @testable import RouteComposer
+import UIKit
+import XCTest
 
 class AssemblyTest: XCTestCase {
 
@@ -57,9 +57,9 @@ class AssemblyTest: XCTestCase {
 
     func testStepAssembly() {
         let lastStepAssembly = StepAssembly(finder: ClassFinder<UIViewController, Any?>(), factory: ClassFactory(nibName: "AnyNibName"))
-                .using(UINavigationController.push())
-                .from(NavigationControllerStep())
-                .using(GeneralAction.presentModally())
+            .using(UINavigationController.push())
+            .from(NavigationControllerStep())
+            .using(GeneralAction.presentModally())
         XCTAssertEqual(lastStepAssembly.previousSteps.count, 2)
 
         var currentStep: RoutingStep? = lastStepAssembly.assemble(from: GeneralStep.current())
@@ -77,10 +77,10 @@ class AssemblyTest: XCTestCase {
 
     func testContainerStepAssembly() {
         let lastStepAssembly = StepAssembly(finder: ClassFinder(), factory: NavigationControllerFactory<UINavigationController, Any?>())
-                .using(UITabBarController.add())
-                .from(TabBarControllerStep())
-                .using(GeneralAction.presentModally())
-                .from(GeneralStep.root())
+            .using(UITabBarController.add())
+            .from(TabBarControllerStep())
+            .using(GeneralAction.presentModally())
+            .from(GeneralStep.root())
         XCTAssertEqual(lastStepAssembly.previousSteps.count, 3)
 
         let currentStep: RoutingStep? = lastStepAssembly.assemble()
@@ -90,16 +90,16 @@ class AssemblyTest: XCTestCase {
 
     func testContainerStepAssemblyNilFactory() {
         var lastStepAssembly = StepAssembly(finder: ClassFinder(), factory: NilContainerFactory<UINavigationController, Any?>())
-                .from(TabBarControllerStep())
-                .using(GeneralAction.presentModally())
-                .from(GeneralStep.root())
+            .from(TabBarControllerStep())
+            .using(GeneralAction.presentModally())
+            .from(GeneralStep.root())
         XCTAssertEqual(lastStepAssembly.previousSteps.count, 3)
 
         var chainedStepCount = countSteps(currentStep: lastStepAssembly.assemble())
         XCTAssertEqual(chainedStepCount, 5)
 
         lastStepAssembly = StepAssembly(finder: ClassFinder(), factory: NilContainerFactory<UINavigationController, Any?>())
-                .from(GeneralStep.root())
+            .from(GeneralStep.root())
         XCTAssertEqual(lastStepAssembly.previousSteps.count, 2)
 
         chainedStepCount = countSteps(currentStep: lastStepAssembly.assemble())
@@ -108,9 +108,9 @@ class AssemblyTest: XCTestCase {
 
     func testChainAssembly() {
         let destinationStep = ChainAssembly.from(NavigationControllerStep<UINavigationController, Any?>())
-                .using(GeneralAction.presentModally())
-                .from(GeneralStep.root())
-                .assemble()
+            .using(GeneralAction.presentModally())
+            .from(GeneralStep.root())
+            .assemble()
         var currentStep: RoutingStep? = destinationStep
 
         var chainedStepCount = 0
@@ -127,12 +127,12 @@ class AssemblyTest: XCTestCase {
 
     func testStepChainAssembly() {
         let destinationStep = StepAssembly(finder: NilFinder<UIViewController, Any?>(),
-                factory: NilFactory<UIViewController, Any?>())
-                .using(ViewControllerActions.NilAction())
-                .from(NavigationControllerStep<UINavigationController, Any?>())
-                .using(ViewControllerActions.NilAction())
-                .from(GeneralStep.root())
-                .assemble()
+                                           factory: NilFactory<UIViewController, Any?>())
+            .using(ViewControllerActions.NilAction())
+            .from(NavigationControllerStep<UINavigationController, Any?>())
+            .using(ViewControllerActions.NilAction())
+            .from(GeneralStep.root())
+            .assemble()
         var currentStep: RoutingStep? = destinationStep
         var chainedStepCount = 0
         while currentStep != nil {
@@ -152,21 +152,21 @@ class AssemblyTest: XCTestCase {
         let contextTask3 = CompleteContextTask<UITabBarController, Any?>()
 
         let container = CompleteFactoryAssembly(factory: TabBarControllerFactory<UITabBarController, Any?>())
-                .with(ClassFactory<UIViewController, Any?>())
-                .adding(contextTask1)
-                .adding(contextTask2)
-                .with(ClassFactory<UIViewController, Any?>(), using: UITabBarController.add())
+            .with(ClassFactory<UIViewController, Any?>())
+            .adding(contextTask1)
+            .adding(contextTask2)
+            .with(ClassFactory<UIViewController, Any?>(), using: UITabBarController.add())
+            .with(CompleteFactoryAssembly(factory: TabBarControllerFactory<UITabBarController, Any?>())
+                .with(ClassFactory<UIViewController, Any?>()
+                ).assemble(),
+                  using: UITabBarController.add(at: 1, replacing: true))
+            .adding(contextTask3)
+            .with(CompleteFactoryAssembly(factory: NavigationControllerFactory<UINavigationController, Any?>())
                 .with(CompleteFactoryAssembly(factory: TabBarControllerFactory<UITabBarController, Any?>())
-                        .with(ClassFactory<UIViewController, Any?>()
-                        ).assemble(),
-                        using: UITabBarController.add(at: 1, replacing: true))
-                .adding(contextTask3)
-                .with(CompleteFactoryAssembly(factory: NavigationControllerFactory<UINavigationController, Any?>())
-                        .with(CompleteFactoryAssembly(factory: TabBarControllerFactory<UITabBarController, Any?>())
-                                .with(ClassFactory<UIViewController, Any?>()
-                                ).assemble()
-                        ).assemble())
-                .assemble()
+                    .with(ClassFactory<UIViewController, Any?>()
+                    ).assemble()
+            ).assemble())
+            .assemble()
         XCTAssertEqual(container.childFactories.count, 4)
         let tabBarController = try? container.execute()
         XCTAssertEqual(tabBarController?.viewControllers?.count, 3)
@@ -183,45 +183,45 @@ class AssemblyTest: XCTestCase {
         XCTAssertEqual(container.childFactories.count, 0)
 
         container = CompleteFactoryAssembly(factory: TabBarControllerFactory<UITabBarController, Any?>())
-                .with(NilContainerFactory<UINavigationController, Any?>())
-                .adding(CompleteContextTask<UINavigationController, Any?>())
-                .with(NilContainerFactory<UINavigationController, Any?>())
-                .with(ClassFactory<UIViewController, Any?>())
-                .assemble()
+            .with(NilContainerFactory<UINavigationController, Any?>())
+            .adding(CompleteContextTask<UINavigationController, Any?>())
+            .with(NilContainerFactory<UINavigationController, Any?>())
+            .with(ClassFactory<UIViewController, Any?>())
+            .assemble()
         XCTAssertEqual(container.childFactories.count, 1)
     }
 
     func testSwitchAssembly() {
         var bool = false
         let step = SwitchAssembly<UINavigationController, String>()
-                .addCase(from: ClassFinder<UINavigationController, String>())
-                .addCase(when: bool,
-                        from: StepAssembly(finder: ClassFinder(), factory: NilFactory())
-                                .from(GeneralStep.current())
-                                .assemble())
-                .addCase(when: { $0 == "test"},
-                        from: StepAssembly(finder: ClassFinder(), factory: NilFactory())
-                                .from(GeneralStep.current())
-                                .assemble())
-                .addCase(expecting: ClassFinder<RouterTests.TestViewController, String>())
-                .addCase(when: ClassFinder<UITabBarController, String>(),
-                        from: StepAssembly(finder: NilFinder(), factory: NavigationControllerFactory())
-                                .using(GeneralAction.presentModally())
-                                .from(GeneralStep.current())
-                                .assemble())
-                .addCase({ (_: Any?) in
-                    return StepAssembly(finder: ClassFinder(), factory: NilFactory())
-                            .from(GeneralStep.current())
-                            .assemble()
-                })
-                .assemble(default: {
-                    return StepAssembly(finder: NilFinder(), factory: NavigationControllerFactory())
-                            .using(UITabBarController.add())
-                            .from(TabBarControllerStep())
-                            .using(GeneralAction.presentModally())
-                            .from(GeneralStep.current())
-                            .assemble()
-                }).getPreviousStep(with: "context") as? SwitcherStep
+            .addCase(from: ClassFinder<UINavigationController, String>())
+            .addCase(when: bool,
+                     from: StepAssembly(finder: ClassFinder(), factory: NilFactory())
+                         .from(GeneralStep.current())
+                         .assemble())
+            .addCase(when: { $0 == "test" },
+                     from: StepAssembly(finder: ClassFinder(), factory: NilFactory())
+                         .from(GeneralStep.current())
+                         .assemble())
+            .addCase(expecting: ClassFinder<RouterTests.TestViewController, String>())
+            .addCase(when: ClassFinder<UITabBarController, String>(),
+                     from: StepAssembly(finder: NilFinder(), factory: NavigationControllerFactory())
+                         .using(GeneralAction.presentModally())
+                         .from(GeneralStep.current())
+                         .assemble())
+            .addCase { (_: Any?) in
+                return StepAssembly(finder: ClassFinder(), factory: NilFactory())
+                    .from(GeneralStep.current())
+                    .assemble()
+            }
+            .assemble(default: {
+                return StepAssembly(finder: NilFinder(), factory: NavigationControllerFactory())
+                    .using(UITabBarController.add())
+                    .from(TabBarControllerStep())
+                    .using(GeneralAction.presentModally())
+                    .from(GeneralStep.current())
+                    .assemble()
+            }).getPreviousStep(with: "context") as? SwitcherStep
 
         XCTAssertNotNil(step)
         XCTAssertEqual(step?.resolvers.count, 7)
@@ -244,10 +244,10 @@ class AssemblyTest: XCTestCase {
     func testSwitchAssemblyResolversWithWrongContext() {
         let viewController = UIViewController()
         let step = SwitchAssembly<UIViewController, String>()
-                .addCase(when: InstanceFinder(instance: viewController), from: SwitchAssembly<UIViewController, String>().assemble())
-                .assemble(default: {
-                    return SwitchAssembly<UIViewController, String>().assemble()
-                })
+            .addCase(when: InstanceFinder(instance: viewController), from: SwitchAssembly<UIViewController, String>().assemble())
+            .assemble(default: {
+                return SwitchAssembly<UIViewController, String>().assemble()
+            })
         XCTAssertEqual((step.destinationStep as? SwitcherStep)?.resolvers.count, 2)
         XCTAssertNotNil((step.destinationStep as? SwitcherStep)?.resolvers.first?.resolve(with: "10"))
         XCTAssertNotNil((step.destinationStep as? SwitcherStep)?.resolvers.last?.resolve(with: "10"))
@@ -257,12 +257,12 @@ class AssemblyTest: XCTestCase {
 
     func testActionToStepIntegratorWithTasks() {
         let assembly = ActionToStepIntegrator<RouterTests.TestViewController, Any?>()
-                .adding(InlineInterceptor({ (_: Any?) in
-                }))
-                .adding(InlineContextTask({ (_: RouterTests.TestViewController, _: Any?) in
-                }))
-                .adding(InlinePostTask({ (_: RouterTests.TestViewController, _: Any?, _: [UIViewController]) in
-                }))
+            .adding(InlineInterceptor { (_: Any?) in
+            })
+            .adding(InlineContextTask { (_: RouterTests.TestViewController, _: Any?) in
+            })
+            .adding(InlinePostTask { (_: RouterTests.TestViewController, _: Any?, _: [UIViewController]) in
+            })
         XCTAssertNotNil(assembly.taskCollector.interceptor)
         XCTAssertNotNil(assembly.taskCollector.contextTask)
         XCTAssertNotNil(assembly.taskCollector.postTask)
@@ -276,34 +276,34 @@ class AssemblyTest: XCTestCase {
 
     func testSingleStepUnsafeWrapper() {
         let step: ActionToStepIntegrator<UIViewController, Any?> =
-                SingleStep(finder: NilFinder<UIViewController, String>(), factory: NilFactory()).unsafelyRewrapped()
+            SingleStep(finder: NilFinder<UIViewController, String>(), factory: NilFactory()).unsafelyRewrapped()
         XCTAssertNotNil(step.routingStep(with: ViewControllerActions.NilAction()))
         XCTAssertNotNil(step.embeddableRoutingStep(with: UINavigationController.push()))
 
         let stepAdaptingContext: ActionToStepIntegrator<UIViewController, String> =
-                SingleStep(finder: NilFinder<UIViewController, Any?>(), factory: NilFactory()).adaptingContext()
+            SingleStep(finder: NilFinder<UIViewController, Any?>(), factory: NilFactory()).adaptingContext()
         XCTAssertNotNil(stepAdaptingContext.routingStep(with: ViewControllerActions.NilAction()))
         XCTAssertNotNil(stepAdaptingContext.embeddableRoutingStep(with: UINavigationController.push()))
     }
 
     func testSingleContainerStepUnsafeWrapper() {
         let step: ActionToStepIntegrator<UIViewController, Any?> =
-                SingleContainerStep(finder: NilFinder<UINavigationController, String>(), factory: NilContainerFactory()).unsafelyRewrapped()
+            SingleContainerStep(finder: NilFinder<UINavigationController, String>(), factory: NilContainerFactory()).unsafelyRewrapped()
         XCTAssertNotNil(step.routingStep(with: ViewControllerActions.NilAction()))
         XCTAssertNotNil(step.embeddableRoutingStep(with: UINavigationController.push()))
 
         let stepAdaptingContext: ActionToStepIntegrator<UINavigationController, String> =
-                SingleContainerStep(finder: NilFinder<UINavigationController, Any?>(), factory: NilContainerFactory()).adaptingContext()
+            SingleContainerStep(finder: NilFinder<UINavigationController, Any?>(), factory: NilContainerFactory()).adaptingContext()
         XCTAssertNotNil(stepAdaptingContext.routingStep(with: ViewControllerActions.NilAction()))
         XCTAssertNotNil(stepAdaptingContext.embeddableRoutingStep(with: UINavigationController.push()))
 
         let stepExpectingContainer: ActionToStepIntegrator<UINavigationController, Any?> =
-                SingleContainerStep(finder: NilFinder<UINavigationController, Any?>(), factory: NilContainerFactory()).expectingContainer()
+            SingleContainerStep(finder: NilFinder<UINavigationController, Any?>(), factory: NilContainerFactory()).expectingContainer()
         XCTAssertNotNil(stepExpectingContainer.routingStep(with: ViewControllerActions.NilAction()))
         XCTAssertNotNil(stepExpectingContainer.embeddableRoutingStep(with: UINavigationController.push()))
 
         let stepExpectingContainerTyped: ActionToStepIntegrator<UINavigationController, String> =
-                SingleContainerStep(finder: NilFinder<UINavigationController, String>(), factory: NilContainerFactory()).expectingContainer()
+            SingleContainerStep(finder: NilFinder<UINavigationController, String>(), factory: NilContainerFactory()).expectingContainer()
         XCTAssertNotNil(stepExpectingContainerTyped.routingStep(with: ViewControllerActions.NilAction()))
         XCTAssertNotNil(stepExpectingContainerTyped.embeddableRoutingStep(with: UINavigationController.push()))
     }

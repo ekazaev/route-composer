@@ -3,8 +3,8 @@
 //
 
 import Foundation
-import UIKit
 import RouteComposer
+import UIKit
 
 class ColorViewControllerFinder: StackIteratingFinder {
 
@@ -27,8 +27,7 @@ class ColorViewControllerFactory: Factory {
 
     typealias Context = String
 
-    init() {
-    }
+    init() {}
 
     func build(with colorHex: String) throws -> ColorViewController {
         let colorViewController = ColorViewController(nibName: nil, bundle: nil)
@@ -57,15 +56,15 @@ class ColorViewController: UIViewController, DismissibleWithRuntimeStorage, Exam
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.accessibilityIdentifier = "colorViewController"
-        self.title = "Color"
+        view.accessibilityIdentifier = "colorViewController"
+        title = "Color"
         if let colorHex = colorHex {
-            self.view.backgroundColor = UIColor(hexString: colorHex)
+            view.backgroundColor = UIColor(hexString: colorHex)
         } else {
-            self.view.backgroundColor = UIColor.white
+            view.backgroundColor = UIColor.white
         }
 
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneTapped))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneTapped))
     }
 
     @objc func doneTapped() {

@@ -3,8 +3,8 @@
 //
 
 import Foundation
-import UIKit
 import RouteComposer
+import UIKit
 
 // I do not want to create login service for demo so it is just a variable
 var isLoggedIn: Bool = false
@@ -26,7 +26,7 @@ class LoginInterceptor<C>: RoutingInterceptor {
         do {
             try UIViewController.router.navigate(to: destination) { routingResult in
                 guard routingResult.isSuccessful,
-                      let viewController = ClassFinder<LoginViewController, Any?>().getViewController() else {
+                    let viewController = ClassFinder<LoginViewController, Any?>().getViewController() else {
                     completion(.failure(RoutingError.compositionFailed(.init("LoginViewController was not found."))))
                     return
                 }
@@ -70,7 +70,7 @@ class LoginViewController: UIViewController, ExampleAnalyticsSupport {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Login"
+        title = "Login"
     }
 
     @IBAction func loginTapped() {
@@ -96,17 +96,17 @@ class LoginViewController: UIViewController, ExampleAnalyticsSupport {
         } else {
             let alertController = UIAlertController(title: "Error", message: "Login/password pair is invalid!", preferredStyle: .alert)
             alertController.addAction(
-                    UIAlertAction(title: "Ok", style: .default) { _ in
-                        alertController.dismiss(animated: true)
-                    }
+                UIAlertAction(title: "Ok", style: .default) { _ in
+                    alertController.dismiss(animated: true)
+                }
             )
-            self.present(alertController, animated: true)
+            present(alertController, animated: true)
         }
     }
 
     @IBAction func closeTapped() {
         interceptorCompletionBlock?(.failure(RoutingError.generic(.init("User tapped close button."))))
-        self.dismiss(animated: true)
+        dismiss(animated: true)
     }
 
 }

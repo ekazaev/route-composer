@@ -40,8 +40,7 @@ public struct NavigationControllerActions {
         // MARK: Methods
 
         /// Constructor
-        init() {
-        }
+        init() {}
 
         public func perform(with viewController: UIViewController,
                             on navigationController: ViewController,
@@ -59,8 +58,7 @@ public struct NavigationControllerActions {
         // MARK: Methods
 
         /// Constructor
-        init() {
-        }
+        init() {}
 
         public func perform(embedding viewController: UIViewController,
                             in childViewControllers: inout [UIViewController]) {
@@ -84,8 +82,7 @@ public struct NavigationControllerActions {
         // MARK: Methods
 
         /// Constructor
-        init() {
-        }
+        init() {}
 
         public func perform(embedding viewController: UIViewController,
                             in childViewControllers: inout [UIViewController]) {

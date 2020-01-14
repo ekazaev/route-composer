@@ -3,8 +3,8 @@
 //
 
 import Foundation
-import UIKit
 import RouteComposer
+import UIKit
 
 struct ProductContext {
 
@@ -36,8 +36,8 @@ class ProductViewController: UIViewController, ExampleAnalyticsSupport, ContextA
         super.viewDidLoad()
         reloadData()
 
-        if self.navigationController?.viewControllers.count == 1 {
-            self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneTapped))
+        if navigationController?.viewControllers.count == 1 {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneTapped))
         }
     }
 
@@ -52,7 +52,7 @@ class ProductViewController: UIViewController, ExampleAnalyticsSupport, ContextA
     }
 
     @objc func doneTapped() {
-        self.dismiss(animated: true)
+        dismiss(animated: true)
     }
 
     private func reloadData() {
@@ -62,11 +62,11 @@ class ProductViewController: UIViewController, ExampleAnalyticsSupport, ContextA
 
         productIdLabel.text = productId
         if let productId = productId {
-            self.view.accessibilityIdentifier = "productViewController+\(productId)"
-            self.title = "Product \(productId)"
+            view.accessibilityIdentifier = "productViewController+\(productId)"
+            title = "Product \(productId)"
         } else {
-            self.view.accessibilityIdentifier = "productViewController"
-            self.title = "Product"
+            view.accessibilityIdentifier = "productViewController"
+            title = "Product"
         }
     }
 
@@ -84,7 +84,7 @@ class ProductViewController: UIViewController, ExampleAnalyticsSupport, ContextA
 
     @IBAction func goToProductFromCircleTapped() {
         guard let productId = productId,
-              var productIdAsInt = Int(productId) else {
+            var productIdAsInt = Int(productId) else {
             return
         }
         productIdAsInt = productIdAsInt < 9 ? productIdAsInt + 1 : 0
@@ -96,7 +96,7 @@ class ProductViewController: UIViewController, ExampleAnalyticsSupport, ContextA
 extension ProductViewController: ContextChecking {
 
     func isTarget(for context: ProductContext) -> Bool {
-        return self.productId == context.productId
+        return productId == context.productId
     }
 
 }

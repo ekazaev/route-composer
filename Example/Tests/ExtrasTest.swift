@@ -7,10 +7,10 @@
 
 #if os(iOS)
 
-import UIKit
 import Foundation
-import XCTest
 @testable import RouteComposer
+import UIKit
+import XCTest
 
 class ExtrasTest: XCTestCase {
 
@@ -49,8 +49,7 @@ class ExtrasTest: XCTestCase {
 
     func testContextAccepting() {
         class ContentAcceptingViewController: UIViewController, ContextAccepting {
-            func setup(with context: String) throws {
-            }
+            func setup(with context: String) throws {}
         }
 
         XCTAssertNoThrow(try ContentAcceptingViewController.checkCompatibility(with: ""))
@@ -59,14 +58,14 @@ class ExtrasTest: XCTestCase {
     func testSingleNavigationRouterSimultaneousNavigation() {
         let currentViewController = RouterTests.TestModalPresentableController()
         let screenConfig = StepAssembly(finder: ClassFinder(), factory: RouterTests.TestViewControllerFactory())
-                .adding(InlinePostTask({ (_: RouterTests.TestViewController, _: Any?, viewControllers: [UIViewController]) in
-                    XCTAssertEqual(viewControllers.count, 3)
-                }))
-                .using(UINavigationController.push())
-                .from(NavigationControllerStep())
-                .using(FakeTimedPresentModallyAction())
-                .from(DestinationStep<RouterTests.TestModalPresentableController, Any?>(RouterTests.TestCurrentViewControllerStep(currentViewController: currentViewController)))
-                .assemble()
+            .adding(InlinePostTask { (_: RouterTests.TestViewController, _: Any?, viewControllers: [UIViewController]) in
+                XCTAssertEqual(viewControllers.count, 3)
+            })
+            .using(UINavigationController.push())
+            .from(NavigationControllerStep())
+            .using(FakeTimedPresentModallyAction())
+            .from(DestinationStep<RouterTests.TestModalPresentableController, Any?>(RouterTests.TestCurrentViewControllerStep(currentViewController: currentViewController)))
+            .assemble()
 
         let expectation = XCTestExpectation(description: "Navigation to finish")
         var globalInterceptorPrepared = 0
@@ -76,17 +75,17 @@ class ExtrasTest: XCTestCase {
         var router = self.router
         router.add(InlineInterceptor(prepare: { (_: Any?) throws in
             globalInterceptorPrepared += 1
-        }, { (_: Any?, completion: @escaping (RoutingResult) -> Void) in
-            globalInterceptorRun += 1
-            completion(.success)
+            }, { (_: Any?, completion: @escaping (RoutingResult) -> Void) in
+                globalInterceptorRun += 1
+                completion(.success)
         }))
-        router.add(InlineContextTask({ (_: UIViewController, _: Any?) in
+        router.add(InlineContextTask { (_: UIViewController, _: Any?) in
             globalTaskRun += 1
-        }))
-        router.add(InlinePostTask({ (_: UIViewController, _: Any?, viewControllers: [UIViewController]) in
+        })
+        router.add(InlinePostTask { (_: UIViewController, _: Any?, viewControllers: [UIViewController]) in
             globalPostTaskRun += 1
             XCTAssertEqual(viewControllers.count, 3)
-        }))
+        })
         XCTAssertNoThrow(try router.navigate(to: screenConfig, with: nil, animated: false, completion: { result in
             XCTAssertTrue(result.isSuccessful)
             XCTAssertNotNil(currentViewController.presentedViewController)
@@ -125,11 +124,11 @@ class ExtrasTest: XCTestCase {
         let router = SingleNavigationRouter(router: FaultyTestRouter(), lock: lock)
         var wasInCompletion = false
         XCTAssertThrowsError(try router.navigate(to: GeneralStep.current(windowProvider: windowProvider),
-                with: "test",
-                animated: false,
-                completion: { _ in
-                    wasInCompletion = true
-                }))
+                                                 with: "test",
+                                                 animated: false,
+                                                 completion: { _ in
+                                                     wasInCompletion = true
+        }))
         XCTAssertFalse(wasInCompletion)
         XCTAssertFalse(lock.isNavigationInProgress)
     }
@@ -185,7 +184,7 @@ class ExtrasTest: XCTestCase {
 
         let viewController = DismissingViewController()
         var wasInCompletion = false
-        viewController.dismissalBlock = { context, animated, completion in
+        viewController.dismissalBlock = { _, _, _ in
             wasInCompletion = true
         }
         XCTAssertNotNil(viewController.dismissalBlock)

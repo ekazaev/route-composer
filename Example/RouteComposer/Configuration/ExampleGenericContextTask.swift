@@ -3,8 +3,8 @@
 //
 
 import Foundation
-import UIKit
 import RouteComposer
+import UIKit
 
 struct ExampleGenericContextTask<VC: UIViewController, C>: ContextTask {
 

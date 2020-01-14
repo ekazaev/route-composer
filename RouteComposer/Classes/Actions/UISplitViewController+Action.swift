@@ -42,8 +42,7 @@ public struct SplitViewControllerActions {
         // MARK: Methods
 
         /// Constructor
-        init() {
-        }
+        init() {}
 
         public func perform(embedding viewController: UIViewController, in childViewControllers: inout [UIViewController]) throws {
             integrate(viewController: viewController, in: &childViewControllers)
@@ -73,8 +72,7 @@ public struct SplitViewControllerActions {
         // MARK: Methods
 
         /// Constructor
-        init() {
-        }
+        init() {}
 
         public func perform(embedding viewController: UIViewController, in childViewControllers: inout [UIViewController]) throws {
             guard !childViewControllers.isEmpty else {
@@ -105,8 +103,7 @@ public struct SplitViewControllerActions {
         // MARK: Methods
 
         /// Constructor
-        init() {
-        }
+        init() {}
 
         public func perform(embedding viewController: UIViewController, in childViewControllers: inout [UIViewController]) throws {
             guard !childViewControllers.isEmpty else {
@@ -114,7 +111,7 @@ public struct SplitViewControllerActions {
                         "UISplitViewController to push on a detail view controller \(viewController)."))
             }
             if childViewControllers.count > 1,
-               let navigationController = childViewControllers.last as? UINavigationController {
+                let navigationController = childViewControllers.last as? UINavigationController {
                 guard !(viewController is UINavigationController) else {
                     throw RoutingError.compositionFailed(.init("The navigation controller is already set as a detail view controller root."))
                 }

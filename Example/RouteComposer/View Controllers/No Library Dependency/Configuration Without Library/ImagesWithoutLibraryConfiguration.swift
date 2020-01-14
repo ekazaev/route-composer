@@ -2,10 +2,10 @@
 // Created by Eugene Kazaev on 26/02/2018.
 //
 
-import Foundation
-import UIKit
 import ContainerViewController
+import Foundation
 import ImagesController
+import UIKit
 
 // This is an example how you can implement same navigation configuration without dependency to RouteComposer.
 // It may seem les complicated, but adding login/analytics/universal links support to the other parts of the app
@@ -20,8 +20,8 @@ class ImagesWithoutLibraryConfiguration {
         // Handled by CustomContainerFactory
         let storyboard = UIStoryboard(name: "Images", bundle: Bundle.main)
         guard let containerController = storyboard.instantiateViewController(withIdentifier: "CustomContainerController") as? CustomContainerController,
-        // Handled by ImagesFactory
-              let viewController = storyboard.instantiateViewController(withIdentifier: "ImagesViewController") as? ImagesViewController else {
+            // Handled by ImagesFactory
+            let viewController = storyboard.instantiateViewController(withIdentifier: "ImagesViewController") as? ImagesViewController else {
             return
         }
 

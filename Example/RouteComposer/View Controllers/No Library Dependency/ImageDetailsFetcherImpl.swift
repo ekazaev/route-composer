@@ -3,8 +3,8 @@
 //
 
 import Foundation
-import UIKit
 import ImageDetailsController
+import UIKit
 
 class ImageDetailsFetcherImpl: ImageDetailsFetcher {
 

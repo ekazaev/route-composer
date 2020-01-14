@@ -2,8 +2,8 @@
 //  Created by Eugene Kazaev on 18/12/2017.
 //
 
-import UIKit
 import RouteComposer
+import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

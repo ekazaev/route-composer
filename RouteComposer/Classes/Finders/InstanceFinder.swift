@@ -19,7 +19,7 @@ public struct InstanceFinder<VC: UIViewController, C>: Finder {
     // MARK: Properties
 
     /// The `UIViewController` instance that `Finder` will provide to the `Router`
-    private(set) public weak var instance: VC?
+    public private(set) weak var instance: VC?
 
     // MARK: Methods
 

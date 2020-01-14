@@ -59,8 +59,8 @@ public class ActionToStepIntegrator<VC: UIViewController, C>: IntermediateDestin
     /// - Parameter contextTask: The `ContextTask` instance to be applied by a `Router` immediately after it
     ///   will find or create `UIViewController`.
     public final func adding<CT: ContextTask>(_ contextTask: CT) -> Self
-            where
-            CT.ViewController == ViewController, CT.Context == Context {
+        where
+        CT.ViewController == ViewController, CT.Context == Context {
         taskCollector.add(contextTask)
         return self
     }

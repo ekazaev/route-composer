@@ -3,8 +3,8 @@
 //
 
 import Foundation
-import UIKit
 import RouteComposer
+import UIKit
 
 // Simplest universal link manager. You can use any library or your own implementation using the similar strategy
 // transforming data that is contained in the `URL` into `AnyDestination` instance.

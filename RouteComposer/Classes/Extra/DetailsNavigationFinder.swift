@@ -4,8 +4,8 @@
 
 #if os(iOS)
 
-import UIKit
 import Foundation
+import UIKit
 
 /// `Finder` that helps to find the `UINavigationController` inside of the details of the `UISplitController`
 public struct DetailsNavigationFinder<C>: Finder {
@@ -36,7 +36,7 @@ public struct DetailsNavigationFinder<C>: Finder {
         }
         guard splitViewController.viewControllers.count > 1 else {
             guard let firstNavigationController = splitViewController.viewControllers.first as? UINavigationController,
-                  let secondNavigationController = firstNavigationController.viewControllers.last as? UINavigationController else {
+                let secondNavigationController = firstNavigationController.viewControllers.last as? UINavigationController else {
                 return nil
             }
             return secondNavigationController
@@ -59,8 +59,8 @@ public extension DetailsNavigationFinder {
          startingPoint: DefaultStackIterator.StartingPoint = .topmost,
          containerAdapterLocator: ContainerAdapterLocator = DefaultContainerAdapterLocator()) {
         let iterator = DefaultStackIterator(options: options,
-                startingPoint: startingPoint,
-                containerAdapterLocator: containerAdapterLocator)
+                                            startingPoint: startingPoint,
+                                            containerAdapterLocator: containerAdapterLocator)
         self.init(iterator: iterator)
     }
 

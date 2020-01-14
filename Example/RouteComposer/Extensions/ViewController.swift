@@ -2,9 +2,9 @@
 // Created by Eugene Kazaev on 15/01/2018.
 //
 
-import UIKit
-import RouteComposer
 import os.log
+import RouteComposer
+import UIKit
 
 extension UIViewController {
 
