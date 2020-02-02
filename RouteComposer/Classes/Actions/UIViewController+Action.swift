@@ -27,19 +27,22 @@ public struct GeneralAction {
     /// Presents a view controller modally
     ///
     /// - Parameters:
+    ///   - presentationStartingPoint: A starting point in the modal presentation
     ///   - presentationStyle: `UIModalPresentationStyle` setting, default value: .fullScreen
     ///   - transitionStyle: `UIModalTransitionStyle` setting, default value: .coverVertical
     ///   - transitioningDelegate: `UIViewControllerTransitioningDelegate` instance to be used during the transition
     ///   - isModalInPresentation: A Boolean value indicating whether the view controller enforces a modal behavior.
     ///   - preferredContentSize: The preferredContentSize is used for any container laying out a child view controller.
     ///   - popoverControllerConfigurationBlock: Block to configure `UIPopoverPresentationController`.
-    public static func presentModally(presentationStyle: UIModalPresentationStyle? = .fullScreen,
+    public static func presentModally(startingFrom presentationStartingPoint: ViewControllerActions.PresentModallyAction.ModalPresentationStartingPoint = .current,
+                                      presentationStyle: UIModalPresentationStyle? = .fullScreen,
                                       transitionStyle: UIModalTransitionStyle? = .coverVertical,
                                       transitioningDelegate: UIViewControllerTransitioningDelegate? = nil,
                                       preferredContentSize: CGSize? = nil,
                                       isModalInPresentation: Bool? = nil,
                                       popoverConfiguration: ((_: UIPopoverPresentationController) -> Void)? = nil) -> ViewControllerActions.PresentModallyAction {
-        return ViewControllerActions.PresentModallyAction(presentationStyle: presentationStyle,
+        return ViewControllerActions.PresentModallyAction(startingFrom: presentationStartingPoint,
+                                                          presentationStyle: presentationStyle,
                                                           transitionStyle: transitionStyle,
                                                           transitioningDelegate: transitioningDelegate,
                                                           preferredContentSize: preferredContentSize,
@@ -62,7 +65,24 @@ public struct ViewControllerActions {
     /// Presents a view controller modally
     public struct PresentModallyAction: Action {
 
+        /// A starting point in the modal presentation
+        public enum ModalPresentationStartingPoint {
+
+            /// Present from the `UIViewController` from the previous step (Default behaviour)
+            case current
+
+            /// Present from the topmost parent `UIViewController` of the `UIViewController` from the previous step
+            case topmostParent
+
+            /// Present from the custom `UIViewController`
+            case custom(@autoclosure () throws -> UIViewController?)
+
+        }
+
         // MARK: Properties
+
+        /// A starting point in the modal presentation
+        public let presentationStartingPoint: ModalPresentationStartingPoint
 
         /// `UIModalPresentationStyle` setting
         public let presentationStyle: UIModalPresentationStyle?
@@ -87,18 +107,21 @@ public struct ViewControllerActions {
         /// Constructor
         ///
         /// - Parameters:
+        ///   - presentationStartingPoint: A starting point in the modal presentation
         ///   - presentationStyle: `UIModalPresentationStyle` setting, default value: .fullScreen
         ///   - transitionStyle: `UIModalTransitionStyle` setting, default value: .coverVertical
         ///   - transitioningDelegate: `UIViewControllerTransitioningDelegate` instance to be used during the transition
         ///   - preferredContentSize: The preferredContentSize is used for any container laying out a child view controller.
         ///   - isModalInPresentation: A Boolean value indicating whether the view controller enforces a modal behavior.
         ///   - popoverControllerConfigurationBlock: Block to configure `UIPopoverPresentationController`.
-        init(presentationStyle: UIModalPresentationStyle? = .fullScreen,
+        init(startingFrom presentationStartingPoint: ModalPresentationStartingPoint = .current,
+             presentationStyle: UIModalPresentationStyle? = .fullScreen,
              transitionStyle: UIModalTransitionStyle? = .coverVertical,
              transitioningDelegate: UIViewControllerTransitioningDelegate? = nil,
              preferredContentSize: CGSize? = nil,
              isModalInPresentation: Bool? = nil,
              popoverConfiguration: ((_: UIPopoverPresentationController) -> Void)? = nil) {
+            self.presentationStartingPoint = presentationStartingPoint
             self.presentationStyle = presentationStyle
             self.transitionStyle = transitionStyle
             self.transitioningDelegate = transitioningDelegate
@@ -111,8 +134,23 @@ public struct ViewControllerActions {
                             on existingController: UIViewController,
                             animated: Bool,
                             completion: @escaping (_: RoutingResult) -> Void) {
-            guard existingController.presentedViewController == nil else {
-                completion(.failure(RoutingError.compositionFailed(.init("\(existingController) is " +
+
+            let presentingViewController: UIViewController
+            switch presentationStartingPoint {
+            case .current:
+                presentingViewController = existingController
+            case .topmostParent:
+                presentingViewController = existingController.allParents.last ?? existingController
+            case let .custom(viewController):
+                guard let viewController = try? viewController() else {
+                    return completion(.failure(RoutingError.compositionFailed(
+                        .init("The view controller to start modal presentation from was not found."))))
+                }
+                presentingViewController = viewController
+            }
+
+            guard presentingViewController.presentedViewController == nil else {
+                completion(.failure(RoutingError.compositionFailed(.init("\(presentingViewController) is " +
                         "already presenting a view controller."))))
                 return
             }
@@ -132,10 +170,12 @@ public struct ViewControllerActions {
                 let popoverControllerConfigurationBlock = popoverControllerConfigurationBlock {
                 popoverControllerConfigurationBlock(popoverPresentationController)
             }
-            if #available(iOS 13, *), let isModalInPresentation = isModalInPresentation {
+            if #available(iOS 13, *),
+                let isModalInPresentation = isModalInPresentation {
                 viewController.isModalInPresentation = isModalInPresentation
             }
-            existingController.present(viewController, animated: animated, completion: {
+
+            presentingViewController.present(viewController, animated: animated, completion: {
                 completion(.success)
             })
         }

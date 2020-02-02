@@ -14,7 +14,10 @@ struct LoginConfiguration {
                 finder: NilFinder(),
                 factory: StoryboardFactory<UINavigationController, Void>(name: "Login")
             ))
-            .using(GeneralAction.presentModally(presentationStyle: .formSheet))
+            .using( // `custom` and `overCurrentContext` are set for the test purposes only
+                GeneralAction.presentModally(startingFrom: .custom(KeyWindowProvider().window?.topmostViewController),
+                                             presentationStyle: .overCurrentContext)
+            )
             .from(GeneralStep.current())
             .assemble()
 
