@@ -105,17 +105,17 @@
 <tr class="covered">
 <td class="num">19</td>
 <td class="src"><pre><code class="objc">    init(previousSteps: [RoutingStep]) {</code></pre></td>
-<td class="coverage">112x</td>
+<td class="coverage">61x</td>
 </tr>
 <tr class="covered">
 <td class="num">20</td>
 <td class="src"><pre><code class="objc">        self.previousSteps = previousSteps</code></pre></td>
-<td class="coverage">112x</td>
+<td class="coverage">61x</td>
 </tr>
 <tr class="covered">
 <td class="num">21</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">112x</td>
+<td class="coverage">61x</td>
 </tr>
 <tr class="never">
 <td class="num">22</td>
@@ -140,17 +140,17 @@
 <tr class="covered">
 <td class="num">26</td>
 <td class="src"><pre><code class="objc">    public func from(_ step: ActionToStepIntegrator&lt;AcceptableContainer, Context&gt;) -&gt; ActionConnectingAssembly&lt;ViewController, Context&gt; {</code></pre></td>
-<td class="coverage">58x</td>
+<td class="coverage">34x</td>
 </tr>
 <tr class="covered">
 <td class="num">27</td>
 <td class="src"><pre><code class="objc">        return ActionConnectingAssembly&lt;ViewController, Context&gt;(stepToFullFill: step, previousSteps: previousSteps)</code></pre></td>
-<td class="coverage">58x</td>
+<td class="coverage">34x</td>
 </tr>
 <tr class="covered">
 <td class="num">28</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">58x</td>
+<td class="coverage">34x</td>
 </tr>
 <tr class="never">
 <td class="num">29</td>
@@ -175,27 +175,27 @@
 <tr class="covered">
 <td class="num">33</td>
 <td class="src"><pre><code class="objc">    public func from(_ step: DestinationStep&lt;AcceptableContainer, Context&gt;) -&gt; LastStepInChainAssembly&lt;ViewController, Context&gt; {</code></pre></td>
-<td class="coverage">52x</td>
+<td class="coverage">26x</td>
 </tr>
 <tr class="covered">
 <td class="num">34</td>
 <td class="src"><pre><code class="objc">        var previousSteps = self.previousSteps</code></pre></td>
-<td class="coverage">52x</td>
+<td class="coverage">26x</td>
 </tr>
 <tr class="covered">
 <td class="num">35</td>
 <td class="src"><pre><code class="objc">        previousSteps.append(step)</code></pre></td>
-<td class="coverage">52x</td>
+<td class="coverage">26x</td>
 </tr>
 <tr class="covered">
 <td class="num">36</td>
 <td class="src"><pre><code class="objc">        return LastStepInChainAssembly(previousSteps: previousSteps)</code></pre></td>
-<td class="coverage">52x</td>
+<td class="coverage">26x</td>
 </tr>
 <tr class="covered">
 <td class="num">37</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">52x</td>
+<td class="coverage">26x</td>
 </tr>
 <tr class="never">
 <td class="num">38</td>
@@ -225,27 +225,27 @@
 <tr class="covered">
 <td class="num">43</td>
 <td class="src"><pre><code class="objc">    public func assemble(from step: DestinationStep&lt;AcceptableContainer, Context&gt;) -&gt; DestinationStep&lt;ViewController, Context&gt; {</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">44</td>
 <td class="src"><pre><code class="objc">        var previousSteps = self.previousSteps</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">45</td>
 <td class="src"><pre><code class="objc">        previousSteps.append(step)</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">46</td>
 <td class="src"><pre><code class="objc">        return LastStepInChainAssembly(previousSteps: previousSteps).assemble()</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">47</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="never">
 <td class="num">48</td>

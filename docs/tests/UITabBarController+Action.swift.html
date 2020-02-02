@@ -165,17 +165,17 @@
 <tr class="covered">
 <td class="num">31</td>
 <td class="src"><pre><code class="objc">    static func add(at tabIndex: Int? = nil) -&gt; TabBarControllerActions.AddTabAction&lt;Self&gt; {</code></pre></td>
-<td class="coverage">36x</td>
+<td class="coverage">26x</td>
 </tr>
 <tr class="covered">
 <td class="num">32</td>
 <td class="src"><pre><code class="objc">        return TabBarControllerActions.AddTabAction(at: tabIndex)</code></pre></td>
-<td class="coverage">36x</td>
+<td class="coverage">26x</td>
 </tr>
 <tr class="covered">
 <td class="num">33</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">36x</td>
+<td class="coverage">26x</td>
 </tr>
 <tr class="never">
 <td class="num">34</td>
@@ -360,22 +360,22 @@
 <tr class="covered">
 <td class="num">70</td>
 <td class="src"><pre><code class="objc">        init(at tabIndex: Int? = nil) {</code></pre></td>
-<td class="coverage">36x</td>
+<td class="coverage">26x</td>
 </tr>
 <tr class="covered">
 <td class="num">71</td>
 <td class="src"><pre><code class="objc">            self.tabIndex = tabIndex</code></pre></td>
-<td class="coverage">36x</td>
+<td class="coverage">26x</td>
 </tr>
 <tr class="covered">
 <td class="num">72</td>
 <td class="src"><pre><code class="objc">            self.replacing = false</code></pre></td>
-<td class="coverage">36x</td>
+<td class="coverage">26x</td>
 </tr>
 <tr class="covered">
 <td class="num">73</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">36x</td>
+<td class="coverage">26x</td>
 </tr>
 <tr class="never">
 <td class="num">74</td>
@@ -390,17 +390,17 @@
 <tr class="covered">
 <td class="num">76</td>
 <td class="src"><pre><code class="objc">                            in childViewControllers: inout [UIViewController]) {</code></pre></td>
-<td class="coverage">28x</td>
+<td class="coverage">22x</td>
 </tr>
 <tr class="covered">
 <td class="num">77</td>
 <td class="src"><pre><code class="objc">            setup(viewController: viewController, at: &amp;childViewControllers, tabIndex: tabIndex)</code></pre></td>
-<td class="coverage">28x</td>
+<td class="coverage">22x</td>
 </tr>
 <tr class="covered">
 <td class="num">78</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">28x</td>
+<td class="coverage">22x</td>
 </tr>
 <tr class="never">
 <td class="num">79</td>
@@ -425,37 +425,37 @@
 <tr class="covered">
 <td class="num">83</td>
 <td class="src"><pre><code class="objc">                            completion: @escaping (_: RoutingResult) -&gt; Void) {</code></pre></td>
-<td class="coverage">7x</td>
+<td class="coverage">5x</td>
 </tr>
 <tr class="covered">
 <td class="num">84</td>
 <td class="src"><pre><code class="objc">            var tabViewControllers = tabBarController.viewControllers ?? []</code></pre></td>
-<td class="coverage">7x</td>
+<td class="coverage">5x</td>
 </tr>
 <tr class="covered">
 <td class="num">85</td>
 <td class="src"><pre><code class="objc">            setup(viewController: viewController, at: &amp;tabViewControllers, tabIndex: tabIndex)</code></pre></td>
-<td class="coverage">7x</td>
+<td class="coverage">5x</td>
 </tr>
 <tr class="covered">
 <td class="num">86</td>
 <td class="src"><pre><code class="objc">            tabBarController.setViewControllers(tabViewControllers, animated: animated)</code></pre></td>
-<td class="coverage">7x</td>
+<td class="coverage">5x</td>
 </tr>
 <tr class="covered">
 <td class="num">87</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage">7x</td>
+<td class="coverage">5x</td>
 </tr>
 <tr class="covered">
 <td class="num">88</td>
 <td class="src"><pre><code class="objc">            return completion(.success)</code></pre></td>
-<td class="coverage">7x</td>
+<td class="coverage">5x</td>
 </tr>
 <tr class="covered">
 <td class="num">89</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">7x</td>
+<td class="coverage">5x</td>
 </tr>
 <tr class="never">
 <td class="num">90</td>
@@ -470,12 +470,12 @@
 <tr class="covered">
 <td class="num">92</td>
 <td class="src"><pre><code class="objc">                           at childViewControllers: inout [UIViewController], tabIndex: Int?) {</code></pre></td>
-<td class="coverage">35x</td>
+<td class="coverage">27x</td>
 </tr>
 <tr class="covered">
 <td class="num">93</td>
 <td class="src"><pre><code class="objc">            if let tabIndex = tabIndex, tabIndex &lt; childViewControllers.count {</code></pre></td>
-<td class="coverage">35x</td>
+<td class="coverage">27x</td>
 </tr>
 <tr class="covered">
 <td class="num">94</td>
@@ -505,22 +505,22 @@
 <tr class="covered">
 <td class="num">99</td>
 <td class="src"><pre><code class="objc">            } else {</code></pre></td>
-<td class="coverage">35x</td>
+<td class="coverage">27x</td>
 </tr>
 <tr class="covered">
 <td class="num">100</td>
 <td class="src"><pre><code class="objc">                childViewControllers.append(viewController)</code></pre></td>
-<td class="coverage">29x</td>
+<td class="coverage">21x</td>
 </tr>
 <tr class="covered">
 <td class="num">101</td>
 <td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">35x</td>
+<td class="coverage">27x</td>
 </tr>
 <tr class="covered">
 <td class="num">102</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">35x</td>
+<td class="coverage">27x</td>
 </tr>
 <tr class="never">
 <td class="num">103</td>

@@ -105,22 +105,22 @@
 <tr class="covered">
 <td class="num">19</td>
 <td class="src"><pre><code class="objc">    init(for factory: AnyFactory, with contextTasks: [AnyContextTask] = []) {</code></pre></td>
-<td class="coverage">90x</td>
+<td class="coverage">62x</td>
 </tr>
 <tr class="covered">
 <td class="num">20</td>
 <td class="src"><pre><code class="objc">        self.factory = factory</code></pre></td>
-<td class="coverage">90x</td>
+<td class="coverage">62x</td>
 </tr>
 <tr class="covered">
 <td class="num">21</td>
 <td class="src"><pre><code class="objc">        self.contextTasks = contextTasks</code></pre></td>
-<td class="coverage">90x</td>
+<td class="coverage">62x</td>
 </tr>
 <tr class="covered">
 <td class="num">22</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">90x</td>
+<td class="coverage">62x</td>
 </tr>
 <tr class="never">
 <td class="num">23</td>
@@ -195,27 +195,27 @@
 <tr class="covered">
 <td class="num">37</td>
 <td class="src"><pre><code class="objc">    func build(with context: Context, in childViewControllers: inout [UIViewController]) throws {</code></pre></td>
-<td class="coverage">83x</td>
+<td class="coverage">55x</td>
 </tr>
 <tr class="covered">
 <td class="num">38</td>
 <td class="src"><pre><code class="objc">        let viewController = try factory.build(with: context)</code></pre></td>
-<td class="coverage">83x</td>
+<td class="coverage">55x</td>
 </tr>
 <tr class="covered">
 <td class="num">39</td>
 <td class="src"><pre><code class="objc">        try contextTasks.forEach { try $0.perform(on: viewController, with: context) }</code></pre></td>
-<td class="coverage">83x</td>
+<td class="coverage">55x</td>
 </tr>
 <tr class="covered">
 <td class="num">40</td>
 <td class="src"><pre><code class="objc">        try factory.action.perform(embedding: viewController, in: &amp;childViewControllers)</code></pre></td>
-<td class="coverage">83x</td>
+<td class="coverage">55x</td>
 </tr>
 <tr class="covered">
 <td class="num">41</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">83x</td>
+<td class="coverage">55x</td>
 </tr>
 <tr class="never">
 <td class="num">42</td>
