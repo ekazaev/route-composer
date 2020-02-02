@@ -117,7 +117,11 @@ extension ExampleScreenConfiguration {
         .adding(ExampleGenericContextTask<SecondModalLevelViewController, String>())
         .using(UINavigationController.push())
         .from(NavigationControllerStep())
-        .using(GeneralAction.presentModally(transitioningDelegate: transitionController))
+        .using( // `topmostParent` and `overCurrentContext` are set for the test purposes only
+            GeneralAction.presentModally(startingFrom: .topmostParent,
+                                         presentationStyle: .overCurrentContext,
+                                         transitioningDelegate: transitionController)
+        )
         .from(routingSupportScreen)
         .assemble()
     }

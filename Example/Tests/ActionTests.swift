@@ -170,6 +170,19 @@ class ActionTests: XCTestCase {
             }
         })
         XCTAssertTrue(wasInCompletion)
+
+        func testThrow() throws -> UIViewController? {
+            throw RoutingError.compositionFailed(.init("Test"))
+        }
+
+        wasInCompletion = false
+        GeneralAction.presentModally(startingFrom: .custom(try testThrow())).perform(with: UIViewController(), on: UIViewController(), animated: true, completion: { result in
+            wasInCompletion = true
+            if result.isSuccessful {
+                XCTAssert(false)
+            }
+        })
+        XCTAssertTrue(wasInCompletion)
     }
 
     func testPushReplacingLastAction() {
