@@ -43,24 +43,36 @@ public struct NavigationControllerAdapter<VC: UINavigationController>: ConcreteC
             completion(.failure(RoutingError.compositionFailed(.init("\(String(describing: navigationController)) does not contain \(String(describing: viewController))"))))
             return
         }
-        CATransaction.begin()
+        if animated {
+            CATransaction.begin()
+            CATransaction.setCompletionBlock {
+                completion(.success)
+            }
+        }
         navigationController.popToViewController(viewController, animated: animated)
-        CATransaction.setCompletionBlock {
+        if animated {
+            CATransaction.commit()
+        } else {
             completion(.success)
         }
-        CATransaction.commit()
     }
 
     public func setContainedViewControllers(_ containedViewControllers: [UIViewController], animated: Bool, completion: @escaping (_: RoutingResult) -> Void) {
         guard let navigationController = navigationController else {
             return completion(.failure(RoutingError.compositionFailed(.init("\(String(describing: VC.self)) has been deallocated"))))
         }
-        CATransaction.begin()
+        if animated {
+            CATransaction.begin()
+            CATransaction.setCompletionBlock {
+                completion(.success)
+            }
+        }
         navigationController.setViewControllers(containedViewControllers, animated: animated)
-        CATransaction.setCompletionBlock {
+        if animated {
+            CATransaction.commit()
+        } else {
             completion(.success)
         }
-        CATransaction.commit()
     }
 
 }
