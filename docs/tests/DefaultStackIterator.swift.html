@@ -325,57 +325,57 @@
 <tr class="covered">
 <td class="num">63</td>
 <td class="src"><pre><code class="objc">    public func firstViewController(where predicate: (UIViewController) -&gt; Bool) throws -&gt; UIViewController? {</code></pre></td>
-<td class="coverage">173x</td>
+<td class="coverage">171x</td>
 </tr>
 <tr class="covered">
 <td class="num">64</td>
 <td class="src"><pre><code class="objc">        guard let rootViewController = try getStartingViewController(),</code></pre></td>
-<td class="coverage">173x</td>
+<td class="coverage">171x</td>
 </tr>
 <tr class="covered">
 <td class="num">65</td>
 <td class="src"><pre><code class="objc">            let viewController = try UIViewController.findViewController(in: rootViewController,</code></pre></td>
-<td class="coverage">173x</td>
+<td class="coverage">171x</td>
 </tr>
 <tr class="covered">
 <td class="num">66</td>
 <td class="src"><pre><code class="objc">                                                                         options: options,</code></pre></td>
-<td class="coverage">173x</td>
+<td class="coverage">171x</td>
 </tr>
 <tr class="covered">
 <td class="num">67</td>
 <td class="src"><pre><code class="objc">                                                                         containerAdapterLocator: containerAdapterLocator,</code></pre></td>
-<td class="coverage">173x</td>
+<td class="coverage">171x</td>
 </tr>
 <tr class="covered">
 <td class="num">68</td>
 <td class="src"><pre><code class="objc">                                                                         using: predicate) else {</code></pre></td>
-<td class="coverage">173x</td>
+<td class="coverage">171x</td>
 </tr>
 <tr class="covered">
 <td class="num">69</td>
 <td class="src"><pre><code class="objc">            return nil</code></pre></td>
-<td class="coverage">91x</td>
+<td class="coverage">93x</td>
 </tr>
 <tr class="covered">
 <td class="num">70</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">91x</td>
+<td class="coverage">93x</td>
 </tr>
 <tr class="covered">
 <td class="num">71</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage">82x</td>
+<td class="coverage">78x</td>
 </tr>
 <tr class="covered">
 <td class="num">72</td>
 <td class="src"><pre><code class="objc">        return viewController</code></pre></td>
-<td class="coverage">82x</td>
+<td class="coverage">78x</td>
 </tr>
 <tr class="covered">
 <td class="num">73</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">173x</td>
+<td class="coverage">171x</td>
 </tr>
 <tr class="never">
 <td class="num">74</td>
@@ -385,27 +385,27 @@
 <tr class="covered">
 <td class="num">75</td>
 <td class="src"><pre><code class="objc">    func getStartingViewController() throws -&gt; UIViewController? {</code></pre></td>
-<td class="coverage">177x</td>
+<td class="coverage">175x</td>
 </tr>
 <tr class="covered">
 <td class="num">76</td>
 <td class="src"><pre><code class="objc">        switch startingPoint {</code></pre></td>
-<td class="coverage">177x</td>
+<td class="coverage">175x</td>
 </tr>
 <tr class="covered">
 <td class="num">77</td>
 <td class="src"><pre><code class="objc">        case .topmost:</code></pre></td>
-<td class="coverage">177x</td>
+<td class="coverage">175x</td>
 </tr>
 <tr class="covered">
 <td class="num">78</td>
 <td class="src"><pre><code class="objc">            return windowProvider.window?.topmostViewController</code></pre></td>
-<td class="coverage">153x</td>
+<td class="coverage">151x</td>
 </tr>
 <tr class="covered">
 <td class="num">79</td>
 <td class="src"><pre><code class="objc">        case .root:</code></pre></td>
-<td class="coverage">177x</td>
+<td class="coverage">175x</td>
 </tr>
 <tr class="covered">
 <td class="num">80</td>
@@ -415,7 +415,7 @@
 <tr class="covered">
 <td class="num">81</td>
 <td class="src"><pre><code class="objc">        case let .custom(viewControllerClosure):</code></pre></td>
-<td class="coverage">177x</td>
+<td class="coverage">175x</td>
 </tr>
 <tr class="covered">
 <td class="num">82</td>
@@ -425,12 +425,12 @@
 <tr class="covered">
 <td class="num">83</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">177x</td>
+<td class="coverage">175x</td>
 </tr>
 <tr class="covered">
 <td class="num">84</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">177x</td>
+<td class="coverage">175x</td>
 </tr>
 <tr class="never">
 <td class="num">85</td>

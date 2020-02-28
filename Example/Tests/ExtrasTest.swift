@@ -421,6 +421,15 @@ class ExtrasTest: XCTestCase {
         XCTAssertEqual(viewControllers.count, 1)
     }
 
+    func testPresentingFinder() {
+        let navigationController = ExtensionsTest.FakePresentingNavigationController()
+        let tabBarController = UITabBarController()
+        navigationController.fakePresentingViewController = tabBarController
+
+        let finder = PresentingFinder<Void>(startingPoint: .custom(navigationController))
+        XCTAssertEqual(try? finder.findViewController(), tabBarController)
+    }
+
 }
 
 #endif

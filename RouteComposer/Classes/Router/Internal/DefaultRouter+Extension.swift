@@ -240,7 +240,7 @@ extension DefaultRouter {
 
     }
 
-    final class DefaultPostponedIntegrationHandler: PostponedActionIntegrationHandler {
+    final class DefaultPostponedIntegrationHandler: PostponedActionIntegrationHandler, MainThreadChecking {
 
         private(set) final var containerViewController: ContainerViewController?
 
@@ -259,6 +259,7 @@ extension DefaultRouter {
             do {
                 guard self.containerViewController == nil else {
                     purge(animated: animated, completion: { result in
+                        self.assertIfNotMainThread()
                         guard result.isSuccessful else {
                             return completion(result)
                         }

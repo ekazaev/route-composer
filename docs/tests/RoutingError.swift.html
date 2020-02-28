@@ -225,22 +225,22 @@
 <tr class="covered">
 <td class="num">43</td>
 <td class="src"><pre><code class="objc">        public init(_ debugDescription: String, underlyingError: Error? = nil) {</code></pre></td>
-<td class="coverage">112x</td>
+<td class="coverage">114x</td>
 </tr>
 <tr class="covered">
 <td class="num">44</td>
 <td class="src"><pre><code class="objc">            self.debugDescription = debugDescription</code></pre></td>
-<td class="coverage">112x</td>
+<td class="coverage">114x</td>
 </tr>
 <tr class="covered">
 <td class="num">45</td>
 <td class="src"><pre><code class="objc">            self.underlyingError = underlyingError</code></pre></td>
-<td class="coverage">112x</td>
+<td class="coverage">114x</td>
 </tr>
 <tr class="covered">
 <td class="num">46</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">112x</td>
+<td class="coverage">114x</td>
 </tr>
 <tr class="never">
 <td class="num">47</td>
@@ -250,17 +250,17 @@
 <tr class="covered">
 <td class="num">48</td>
 <td class="src"><pre><code class="objc">        public var description: String {</code></pre></td>
-<td class="coverage">42x</td>
+<td class="coverage">44x</td>
 </tr>
 <tr class="covered">
 <td class="num">49</td>
 <td class="src"><pre><code class="objc">            let errorDescription: String?</code></pre></td>
-<td class="coverage">42x</td>
+<td class="coverage">44x</td>
 </tr>
 <tr class="covered">
 <td class="num">50</td>
 <td class="src"><pre><code class="objc">            if let underlyingError = underlyingError {</code></pre></td>
-<td class="coverage">42x</td>
+<td class="coverage">44x</td>
 </tr>
 <tr class="covered">
 <td class="num">51</td>
@@ -270,37 +270,37 @@
 <tr class="covered">
 <td class="num">52</td>
 <td class="src"><pre><code class="objc">            } else {</code></pre></td>
-<td class="coverage">42x</td>
+<td class="coverage">44x</td>
 </tr>
 <tr class="covered">
 <td class="num">53</td>
 <td class="src"><pre><code class="objc">                errorDescription = nil</code></pre></td>
-<td class="coverage">29x</td>
+<td class="coverage">31x</td>
 </tr>
 <tr class="covered">
 <td class="num">54</td>
 <td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">42x</td>
+<td class="coverage">44x</td>
 </tr>
 <tr class="covered">
 <td class="num">55</td>
 <td class="src"><pre><code class="objc">            let descriptionParts = [!debugDescription.isEmpty ? debugDescription : nil, errorDescription].compactMap { $0 }</code></pre></td>
-<td class="coverage">84x</td>
+<td class="coverage">88x</td>
 </tr>
 <tr class="covered">
 <td class="num">56</td>
 <td class="src"><pre><code class="objc">            guard descriptionParts.isEmpty else {</code></pre></td>
-<td class="coverage">42x</td>
+<td class="coverage">44x</td>
 </tr>
 <tr class="covered">
 <td class="num">57</td>
 <td class="src"><pre><code class="objc">                return descriptionParts.joined(separator: " -&gt; ")</code></pre></td>
-<td class="coverage">41x</td>
+<td class="coverage">43x</td>
 </tr>
 <tr class="covered">
 <td class="num">58</td>
 <td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">41x</td>
+<td class="coverage">43x</td>
 </tr>
 <tr class="covered">
 <td class="num">59</td>
@@ -315,7 +315,7 @@
 <tr class="covered">
 <td class="num">61</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">42x</td>
+<td class="coverage">44x</td>
 </tr>
 <tr class="never">
 <td class="num">62</td>
@@ -415,17 +415,17 @@
 <tr class="covered">
 <td class="num">81</td>
 <td class="src"><pre><code class="objc">    public var description: String {</code></pre></td>
-<td class="coverage">27x</td>
+<td class="coverage">29x</td>
 </tr>
 <tr class="covered">
 <td class="num">82</td>
 <td class="src"><pre><code class="objc">        switch self {</code></pre></td>
-<td class="coverage">27x</td>
+<td class="coverage">29x</td>
 </tr>
 <tr class="covered">
 <td class="num">83</td>
 <td class="src"><pre><code class="objc">        case let .typeMismatch(type, expectedType, context):</code></pre></td>
-<td class="coverage">27x</td>
+<td class="coverage">29x</td>
 </tr>
 <tr class="covered">
 <td class="num">84</td>
@@ -440,17 +440,17 @@
 <tr class="covered">
 <td class="num">86</td>
 <td class="src"><pre><code class="objc">        case let .compositionFailed(context):</code></pre></td>
-<td class="coverage">27x</td>
+<td class="coverage">29x</td>
 </tr>
 <tr class="covered">
 <td class="num">87</td>
 <td class="src"><pre><code class="objc">            return "Composition Failed Error: \(context.description)"</code></pre></td>
-<td class="coverage">11x</td>
+<td class="coverage">13x</td>
 </tr>
 <tr class="covered">
 <td class="num">88</td>
 <td class="src"><pre><code class="objc">        case let .initialController(state, context):</code></pre></td>
-<td class="coverage">27x</td>
+<td class="coverage">29x</td>
 </tr>
 <tr class="covered">
 <td class="num">89</td>
@@ -460,7 +460,7 @@
 <tr class="covered">
 <td class="num">90</td>
 <td class="src"><pre><code class="objc">        case let .generic(context):</code></pre></td>
-<td class="coverage">27x</td>
+<td class="coverage">29x</td>
 </tr>
 <tr class="covered">
 <td class="num">91</td>
@@ -470,12 +470,12 @@
 <tr class="covered">
 <td class="num">92</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">27x</td>
+<td class="coverage">29x</td>
 </tr>
 <tr class="covered">
 <td class="num">93</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">27x</td>
+<td class="coverage">29x</td>
 </tr>
 <tr class="never">
 <td class="num">94</td>

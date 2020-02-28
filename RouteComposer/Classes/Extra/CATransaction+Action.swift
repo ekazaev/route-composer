@@ -7,10 +7,10 @@
 import Foundation
 import UIKit
 
-/// Extension that wraps actions into `CATransaction`.
+/// Extension that wraps an action into `CATransaction`.
 ///
-/// When `DefaultRouter` builds complicated chain of animated modifications in the `UIViewController`s stack
-/// it is necessary to wrap a single `CATransaction`.
+/// When `DefaultRouter` builds a complicated chain of animated modifications in the `UIViewController`s stack
+/// it might be necessary to wrap some actions into single `CATransaction`.
 ///
 /// *Example: When `UINavigationController` does pop, then push of the `UIViewController` and then tries to
 /// do some to it or find it with a `Finder`. Then `DefaultRouter` has to wait till the end of the animation.*

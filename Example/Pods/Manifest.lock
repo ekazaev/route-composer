@@ -1,5 +1,5 @@
 PODS:
-  - RouteComposer (2.5)
+  - RouteComposer (2.5.3)
   - SwiftFormat/CLI (0.43.5)
 
 DEPENDENCIES:
@@ -15,7 +15,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  RouteComposer: 9d0102589be188f2e249251d5a4dd1ac6e2e4846
+  RouteComposer: 3f2f30069a373034ec606b28644eeed49462d42b
   SwiftFormat: 352ea545e3e13cfd7a449e621c1f3c2e244d4906
 
 PODFILE CHECKSUM: 386c2a35dfbc668b13c6a62ccb55bd7763303144

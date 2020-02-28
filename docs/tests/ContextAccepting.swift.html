@@ -59,7 +59,7 @@
 </tr>
 <tr class="never">
 <td class="num">10</td>
-<td class="src"><pre><code class="objc">/// The protocol for `UIViewController`'s to make it compatible with `ContextSettingTask`.</code></pre></td>
+<td class="src"><pre><code class="objc">/// The protocol for a `UIViewController` to make it compatible with `ContextSettingTask`.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -109,12 +109,12 @@
 </tr>
 <tr class="never">
 <td class="num">20</td>
-<td class="src"><pre><code class="objc">    /// `ContextSettingTask` will call this method to provide the `Context` instance to the `UIViewController`</code></pre></td>
+<td class="src"><pre><code class="objc">    /// If `UIViewController` does not support all the permutations that context instance may have -</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">21</td>
-<td class="src"><pre><code class="objc">    /// that has just been build or found.</code></pre></td>
+<td class="src"><pre><code class="objc">    /// setup the check here.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -129,12 +129,12 @@
 </tr>
 <tr class="never">
 <td class="num">24</td>
-<td class="src"><pre><code class="objc">    /// - Throws: throws `Error` if `Context` instance is not supported. `Router` will stop building the rest of the stack in this case.</code></pre></td>
+<td class="src"><pre><code class="objc">    /// - Throws: throws `Error` if `Context` instance is not supported.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">25</td>
-<td class="src"><pre><code class="objc">    func setup(with context: Context) throws</code></pre></td>
+<td class="src"><pre><code class="objc">    static func checkCompatibility(with context: Context) throws</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -144,12 +144,12 @@
 </tr>
 <tr class="never">
 <td class="num">27</td>
-<td class="src"><pre><code class="objc">    /// If `UIViewController` does not support all the permutations that context instance may have -</code></pre></td>
+<td class="src"><pre><code class="objc">    /// `ContextSettingTask` will call this method to provide the `Context` instance to the `UIViewController`</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">28</td>
-<td class="src"><pre><code class="objc">    /// setup the check here.</code></pre></td>
+<td class="src"><pre><code class="objc">    /// that has just been build or found.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -164,12 +164,12 @@
 </tr>
 <tr class="never">
 <td class="num">31</td>
-<td class="src"><pre><code class="objc">    /// - Throws: throws `Error` if `Context` instance is not supported.</code></pre></td>
+<td class="src"><pre><code class="objc">    /// - Throws: throws `Error` if `Context` instance is not supported. `Router` will stop building the rest of the stack in this case.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">32</td>
-<td class="src"><pre><code class="objc">    static func checkCompatibility(with context: Context) throws</code></pre></td>
+<td class="src"><pre><code class="objc">    func setup(with context: Context) throws</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">

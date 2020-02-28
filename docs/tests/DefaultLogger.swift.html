@@ -155,27 +155,27 @@
 <tr class="covered">
 <td class="num">29</td>
 <td class="src"><pre><code class="objc">    public init(_ logLevel: LogLevel = .warnings) {</code></pre></td>
-<td class="coverage">70x</td>
+<td class="coverage">72x</td>
 </tr>
 <tr class="covered">
 <td class="num">30</td>
 <td class="src"><pre><code class="objc">        self.logLevel = logLevel</code></pre></td>
-<td class="coverage">70x</td>
+<td class="coverage">72x</td>
 </tr>
 <tr class="covered">
 <td class="num">31</td>
 <td class="src"><pre><code class="objc">        if #available(iOS 10.0, *) {</code></pre></td>
-<td class="coverage">70x</td>
+<td class="coverage">72x</td>
 </tr>
 <tr class="covered">
 <td class="num">32</td>
 <td class="src"><pre><code class="objc">            self.osLog = OSLog.default</code></pre></td>
-<td class="coverage">70x</td>
+<td class="coverage">72x</td>
 </tr>
 <tr class="covered">
 <td class="num">33</td>
 <td class="src"><pre><code class="objc">        } else {</code></pre></td>
-<td class="coverage">70x</td>
+<td class="coverage">72x</td>
 </tr>
 <tr class="missed">
 <td class="num">34</td>
@@ -185,12 +185,12 @@
 <tr class="covered">
 <td class="num">35</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">70x</td>
+<td class="coverage">72x</td>
 </tr>
 <tr class="covered">
 <td class="num">36</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">70x</td>
+<td class="coverage">72x</td>
 </tr>
 <tr class="never">
 <td class="num">37</td>
@@ -255,17 +255,17 @@
 <tr class="covered">
 <td class="num">49</td>
 <td class="src"><pre><code class="objc">    public func log(_ message: LogMessage) {</code></pre></td>
-<td class="coverage">775x</td>
+<td class="coverage">767x</td>
 </tr>
 <tr class="covered">
 <td class="num">50</td>
 <td class="src"><pre><code class="objc">        switch message {</code></pre></td>
-<td class="coverage">775x</td>
+<td class="coverage">767x</td>
 </tr>
 <tr class="covered">
 <td class="num">51</td>
 <td class="src"><pre><code class="objc">        case let .warning(message):</code></pre></td>
-<td class="coverage">775x</td>
+<td class="coverage">767x</td>
 </tr>
 <tr class="missed">
 <td class="num">52</td>
@@ -300,32 +300,32 @@
 <tr class="covered">
 <td class="num">58</td>
 <td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">775x</td>
+<td class="coverage">767x</td>
 </tr>
 <tr class="covered">
 <td class="num">59</td>
 <td class="src"><pre><code class="objc">        case let .info(message):</code></pre></td>
-<td class="coverage">775x</td>
+<td class="coverage">767x</td>
 </tr>
 <tr class="covered">
 <td class="num">60</td>
 <td class="src"><pre><code class="objc">            if logLevel == .verbose {</code></pre></td>
-<td class="coverage">759x</td>
+<td class="coverage">749x</td>
 </tr>
 <tr class="covered">
 <td class="num">61</td>
 <td class="src"><pre><code class="objc">                if #available(iOS 10, *) {</code></pre></td>
-<td class="coverage">636x</td>
+<td class="coverage">624x</td>
 </tr>
 <tr class="covered">
 <td class="num">62</td>
 <td class="src"><pre><code class="objc">                    os_log("%@", log: osLog ?? OSLog.default, type: .info, message)</code></pre></td>
-<td class="coverage">636x</td>
+<td class="coverage">624x</td>
 </tr>
 <tr class="covered">
 <td class="num">63</td>
 <td class="src"><pre><code class="objc">                } else {</code></pre></td>
-<td class="coverage">636x</td>
+<td class="coverage">624x</td>
 </tr>
 <tr class="missed">
 <td class="num">64</td>
@@ -335,32 +335,32 @@
 <tr class="covered">
 <td class="num">65</td>
 <td class="src"><pre><code class="objc">                }</code></pre></td>
-<td class="coverage">636x</td>
+<td class="coverage">624x</td>
 </tr>
 <tr class="covered">
 <td class="num">66</td>
 <td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">775x</td>
+<td class="coverage">767x</td>
 </tr>
 <tr class="covered">
 <td class="num">67</td>
 <td class="src"><pre><code class="objc">        case let .error(message):</code></pre></td>
-<td class="coverage">775x</td>
+<td class="coverage">767x</td>
 </tr>
 <tr class="covered">
 <td class="num">68</td>
 <td class="src"><pre><code class="objc">            if #available(iOS 10, *) {</code></pre></td>
-<td class="coverage">16x</td>
+<td class="coverage">18x</td>
 </tr>
 <tr class="covered">
 <td class="num">69</td>
 <td class="src"><pre><code class="objc">                os_log("%@", log: osLog ?? OSLog.default, type: .fault, message)</code></pre></td>
-<td class="coverage">16x</td>
+<td class="coverage">18x</td>
 </tr>
 <tr class="covered">
 <td class="num">70</td>
 <td class="src"><pre><code class="objc">            } else {</code></pre></td>
-<td class="coverage">16x</td>
+<td class="coverage">18x</td>
 </tr>
 <tr class="missed">
 <td class="num">71</td>
@@ -370,17 +370,17 @@
 <tr class="covered">
 <td class="num">72</td>
 <td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">775x</td>
+<td class="coverage">767x</td>
 </tr>
 <tr class="covered">
 <td class="num">73</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">775x</td>
+<td class="coverage">767x</td>
 </tr>
 <tr class="covered">
 <td class="num">74</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">775x</td>
+<td class="coverage">767x</td>
 </tr>
 <tr class="never">
 <td class="num">75</td>
