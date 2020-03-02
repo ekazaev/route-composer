@@ -9,7 +9,7 @@
 <h2 class="cov_title">
 <span>Coverage for "DetailsNavigationFinder.swift" : </span><span class="cov_high">100.00%</span>
 </h2>
-<h4 class="cov_subtitle">(22 of 22 relevant lines covered)</h4>
+<h4 class="cov_subtitle">(23 of 23 relevant lines covered)</h4>
 <h4 class="cov_filepath">RouteComposer/Classes/Extra/DetailsNavigationFinder.swift</h4>
 <table class="source_code">
 <tr class="never">
@@ -294,66 +294,81 @@
 </tr>
 <tr class="never">
 <td class="num">57</td>
-<td class="src"><pre><code class="objc">    ///   - containerAdapterLocator: A `ContainerAdapterLocator` instance.</code></pre></td>
+<td class="src"><pre><code class="objc">    ///   - windowProvider: `WindowProvider` instance.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">58</td>
-<td class="src"><pre><code class="objc">    init(options: SearchOptions,</code></pre></td>
+<td class="src"><pre><code class="objc">    ///   - containerAdapterLocator: A `ContainerAdapterLocator` instance.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">59</td>
+<td class="src"><pre><code class="objc">    init(options: SearchOptions,</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">60</td>
 <td class="src"><pre><code class="objc">         startingPoint: DefaultStackIterator.StartingPoint = .topmost,</code></pre></td>
 <td class="coverage"></td>
 </tr>
+<tr class="never">
+<td class="num">61</td>
+<td class="src"><pre><code class="objc">         windowProvider: WindowProvider = KeyWindowProvider(),</code></pre></td>
+<td class="coverage"></td>
+</tr>
 <tr class="covered">
-<td class="num">60</td>
+<td class="num">62</td>
 <td class="src"><pre><code class="objc">         containerAdapterLocator: ContainerAdapterLocator = DefaultContainerAdapterLocator()) {</code></pre></td>
 <td class="coverage">2x</td>
 </tr>
 <tr class="covered">
-<td class="num">61</td>
+<td class="num">63</td>
 <td class="src"><pre><code class="objc">        let iterator = DefaultStackIterator(options: options,</code></pre></td>
 <td class="coverage">2x</td>
 </tr>
 <tr class="covered">
-<td class="num">62</td>
+<td class="num">64</td>
 <td class="src"><pre><code class="objc">                                            startingPoint: startingPoint,</code></pre></td>
 <td class="coverage">2x</td>
 </tr>
 <tr class="covered">
-<td class="num">63</td>
+<td class="num">65</td>
+<td class="src"><pre><code class="objc">                                            windowProvider: windowProvider,</code></pre></td>
+<td class="coverage">2x</td>
+</tr>
+<tr class="covered">
+<td class="num">66</td>
 <td class="src"><pre><code class="objc">                                            containerAdapterLocator: containerAdapterLocator)</code></pre></td>
 <td class="coverage">2x</td>
 </tr>
 <tr class="covered">
-<td class="num">64</td>
+<td class="num">67</td>
 <td class="src"><pre><code class="objc">        self.init(iterator: iterator)</code></pre></td>
 <td class="coverage">2x</td>
 </tr>
 <tr class="covered">
-<td class="num">65</td>
+<td class="num">68</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
 <td class="coverage">2x</td>
 </tr>
 <tr class="never">
-<td class="num">66</td>
+<td class="num">69</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">67</td>
+<td class="num">70</td>
 <td class="src"><pre><code class="objc">}</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">68</td>
+<td class="num">71</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">69</td>
+<td class="num">72</td>
 <td class="src"><pre><code class="objc">#endif</code></pre></td>
 <td class="coverage"></td>
 </tr>

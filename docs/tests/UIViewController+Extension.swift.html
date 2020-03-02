@@ -120,12 +120,12 @@
 <tr class="covered">
 <td class="num">22</td>
 <td class="src"><pre><code class="objc">                                   using predicate: (UIViewController) -&gt; Bool) throws -&gt; UIViewController? {</code></pre></td>
-<td class="coverage">1220x</td>
+<td class="coverage">1210x</td>
 </tr>
 <tr class="covered">
 <td class="num">23</td>
 <td class="src"><pre><code class="objc">        guard !viewController.isBeingDismissed else {</code></pre></td>
-<td class="coverage">1220x</td>
+<td class="coverage">1210x</td>
 </tr>
 <tr class="covered">
 <td class="num">24</td>
@@ -135,17 +135,17 @@
 <tr class="covered">
 <td class="num">25</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">1220x</td>
+<td class="coverage">1210x</td>
 </tr>
 <tr class="covered">
 <td class="num">26</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage">1220x</td>
+<td class="coverage">1210x</td>
 </tr>
 <tr class="covered">
 <td class="num">27</td>
 <td class="src"><pre><code class="objc">        if options.contains(.current), predicate(viewController) {</code></pre></td>
-<td class="coverage">1220x</td>
+<td class="coverage">1210x</td>
 </tr>
 <tr class="covered">
 <td class="num">28</td>
@@ -155,42 +155,42 @@
 <tr class="covered">
 <td class="num">29</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">940x</td>
+<td class="coverage">929x</td>
 </tr>
 <tr class="covered">
 <td class="num">30</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage">940x</td>
+<td class="coverage">929x</td>
 </tr>
 <tr class="covered">
 <td class="num">31</td>
 <td class="src"><pre><code class="objc">        if options.contains(.parent),</code></pre></td>
-<td class="coverage">940x</td>
+<td class="coverage">929x</td>
 </tr>
 <tr class="covered">
 <td class="num">32</td>
 <td class="src"><pre><code class="objc">            let parentViewController = viewController.parent,</code></pre></td>
-<td class="coverage">940x</td>
+<td class="coverage">929x</td>
 </tr>
 <tr class="covered">
 <td class="num">33</td>
 <td class="src"><pre><code class="objc">            let foundViewController = try findViewController(in: parentViewController,</code></pre></td>
-<td class="coverage">940x</td>
+<td class="coverage">929x</td>
 </tr>
 <tr class="covered">
 <td class="num">34</td>
 <td class="src"><pre><code class="objc">                                                             options: [.current, .parent],</code></pre></td>
-<td class="coverage">940x</td>
+<td class="coverage">929x</td>
 </tr>
 <tr class="covered">
 <td class="num">35</td>
 <td class="src"><pre><code class="objc">                                                             containerAdapterLocator: containerAdapterLocator,</code></pre></td>
-<td class="coverage">940x</td>
+<td class="coverage">929x</td>
 </tr>
 <tr class="covered">
 <td class="num">36</td>
 <td class="src"><pre><code class="objc">                                                             using: predicate) {</code></pre></td>
-<td class="coverage">940x</td>
+<td class="coverage">929x</td>
 </tr>
 <tr class="covered">
 <td class="num">37</td>
@@ -200,17 +200,17 @@
 <tr class="covered">
 <td class="num">38</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">934x</td>
+<td class="coverage">923x</td>
 </tr>
 <tr class="covered">
 <td class="num">39</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage">934x</td>
+<td class="coverage">923x</td>
 </tr>
 <tr class="covered">
 <td class="num">40</td>
 <td class="src"><pre><code class="objc">        if let container = viewController as? ContainerViewController, options.contains(.visible) || options.contains(.contained) {</code></pre></td>
-<td class="coverage">934x</td>
+<td class="coverage">923x</td>
 </tr>
 <tr class="covered">
 <td class="num">41</td>
@@ -245,27 +245,27 @@
 <tr class="covered">
 <td class="num">47</td>
 <td class="src"><pre><code class="objc">            for currentViewController in Array(viewControllers.joined()).uniqueElements() {</code></pre></td>
-<td class="coverage">723x</td>
+<td class="coverage">719x</td>
 </tr>
 <tr class="covered">
 <td class="num">48</td>
 <td class="src"><pre><code class="objc">                if let foundViewController = try findViewController(in: currentViewController,</code></pre></td>
-<td class="coverage">723x</td>
+<td class="coverage">719x</td>
 </tr>
 <tr class="covered">
 <td class="num">49</td>
 <td class="src"><pre><code class="objc">                                                                    options: options.contains(.visible) ? .currentVisibleOnly : [.current, .contained],</code></pre></td>
-<td class="coverage">723x</td>
+<td class="coverage">719x</td>
 </tr>
 <tr class="covered">
 <td class="num">50</td>
 <td class="src"><pre><code class="objc">                                                                    containerAdapterLocator: containerAdapterLocator,</code></pre></td>
-<td class="coverage">723x</td>
+<td class="coverage">719x</td>
 </tr>
 <tr class="covered">
 <td class="num">51</td>
 <td class="src"><pre><code class="objc">                                                                    using: predicate) {</code></pre></td>
-<td class="coverage">723x</td>
+<td class="coverage">719x</td>
 </tr>
 <tr class="covered">
 <td class="num">52</td>
@@ -280,27 +280,27 @@
 <tr class="covered">
 <td class="num">54</td>
 <td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">359x</td>
+<td class="coverage">355x</td>
 </tr>
 <tr class="covered">
 <td class="num">55</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">570x</td>
+<td class="coverage">559x</td>
 </tr>
 <tr class="covered">
 <td class="num">56</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage">570x</td>
+<td class="coverage">559x</td>
 </tr>
 <tr class="covered">
 <td class="num">57</td>
 <td class="src"><pre><code class="objc">        if options.contains(.presented),</code></pre></td>
-<td class="coverage">570x</td>
+<td class="coverage">559x</td>
 </tr>
 <tr class="covered">
 <td class="num">58</td>
 <td class="src"><pre><code class="objc">            let presentedViewController = viewController.presentedViewController {</code></pre></td>
-<td class="coverage">570x</td>
+<td class="coverage">559x</td>
 </tr>
 <tr class="covered">
 <td class="num">59</td>
@@ -340,22 +340,22 @@
 <tr class="covered">
 <td class="num">66</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">567x</td>
+<td class="coverage">556x</td>
 </tr>
 <tr class="covered">
 <td class="num">67</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage">567x</td>
+<td class="coverage">556x</td>
 </tr>
 <tr class="covered">
 <td class="num">68</td>
 <td class="src"><pre><code class="objc">        if options.contains(.presenting),</code></pre></td>
-<td class="coverage">567x</td>
+<td class="coverage">556x</td>
 </tr>
 <tr class="covered">
 <td class="num">69</td>
 <td class="src"><pre><code class="objc">            let presentingViewController = viewController.presentingViewController {</code></pre></td>
-<td class="coverage">567x</td>
+<td class="coverage">556x</td>
 </tr>
 <tr class="covered">
 <td class="num">70</td>
@@ -395,22 +395,22 @@
 <tr class="covered">
 <td class="num">77</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">563x</td>
+<td class="coverage">552x</td>
 </tr>
 <tr class="covered">
 <td class="num">78</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage">563x</td>
+<td class="coverage">552x</td>
 </tr>
 <tr class="covered">
 <td class="num">79</td>
 <td class="src"><pre><code class="objc">        return nil</code></pre></td>
-<td class="coverage">563x</td>
+<td class="coverage">552x</td>
 </tr>
 <tr class="covered">
 <td class="num">80</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">567x</td>
+<td class="coverage">556x</td>
 </tr>
 <tr class="never">
 <td class="num">81</td>

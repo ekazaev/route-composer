@@ -275,32 +275,32 @@
 <tr class="covered">
 <td class="num">53</td>
 <td class="src"><pre><code class="objc">                containerAdapterLocator: ContainerAdapterLocator = DefaultContainerAdapterLocator()) {</code></pre></td>
-<td class="coverage">178x</td>
+<td class="coverage">172x</td>
 </tr>
 <tr class="covered">
 <td class="num">54</td>
 <td class="src"><pre><code class="objc">        self.startingPoint = startingPoint</code></pre></td>
-<td class="coverage">178x</td>
+<td class="coverage">172x</td>
 </tr>
 <tr class="covered">
 <td class="num">55</td>
 <td class="src"><pre><code class="objc">        self.options = options</code></pre></td>
-<td class="coverage">178x</td>
+<td class="coverage">172x</td>
 </tr>
 <tr class="covered">
 <td class="num">56</td>
 <td class="src"><pre><code class="objc">        self.windowProvider = windowProvider</code></pre></td>
-<td class="coverage">178x</td>
+<td class="coverage">172x</td>
 </tr>
 <tr class="covered">
 <td class="num">57</td>
 <td class="src"><pre><code class="objc">        self.containerAdapterLocator = containerAdapterLocator</code></pre></td>
-<td class="coverage">178x</td>
+<td class="coverage">172x</td>
 </tr>
 <tr class="covered">
 <td class="num">58</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">178x</td>
+<td class="coverage">172x</td>
 </tr>
 <tr class="never">
 <td class="num">59</td>
@@ -325,42 +325,42 @@
 <tr class="covered">
 <td class="num">63</td>
 <td class="src"><pre><code class="objc">    public func firstViewController(where predicate: (UIViewController) -&gt; Bool) throws -&gt; UIViewController? {</code></pre></td>
-<td class="coverage">171x</td>
+<td class="coverage">165x</td>
 </tr>
 <tr class="covered">
 <td class="num">64</td>
 <td class="src"><pre><code class="objc">        guard let rootViewController = try getStartingViewController(),</code></pre></td>
-<td class="coverage">171x</td>
+<td class="coverage">165x</td>
 </tr>
 <tr class="covered">
 <td class="num">65</td>
 <td class="src"><pre><code class="objc">            let viewController = try UIViewController.findViewController(in: rootViewController,</code></pre></td>
-<td class="coverage">171x</td>
+<td class="coverage">165x</td>
 </tr>
 <tr class="covered">
 <td class="num">66</td>
 <td class="src"><pre><code class="objc">                                                                         options: options,</code></pre></td>
-<td class="coverage">171x</td>
+<td class="coverage">165x</td>
 </tr>
 <tr class="covered">
 <td class="num">67</td>
 <td class="src"><pre><code class="objc">                                                                         containerAdapterLocator: containerAdapterLocator,</code></pre></td>
-<td class="coverage">171x</td>
+<td class="coverage">165x</td>
 </tr>
 <tr class="covered">
 <td class="num">68</td>
 <td class="src"><pre><code class="objc">                                                                         using: predicate) else {</code></pre></td>
-<td class="coverage">171x</td>
+<td class="coverage">165x</td>
 </tr>
 <tr class="covered">
 <td class="num">69</td>
 <td class="src"><pre><code class="objc">            return nil</code></pre></td>
-<td class="coverage">93x</td>
+<td class="coverage">87x</td>
 </tr>
 <tr class="covered">
 <td class="num">70</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">93x</td>
+<td class="coverage">87x</td>
 </tr>
 <tr class="covered">
 <td class="num">71</td>
@@ -375,7 +375,7 @@
 <tr class="covered">
 <td class="num">73</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">171x</td>
+<td class="coverage">165x</td>
 </tr>
 <tr class="never">
 <td class="num">74</td>
@@ -385,27 +385,27 @@
 <tr class="covered">
 <td class="num">75</td>
 <td class="src"><pre><code class="objc">    func getStartingViewController() throws -&gt; UIViewController? {</code></pre></td>
-<td class="coverage">175x</td>
+<td class="coverage">169x</td>
 </tr>
 <tr class="covered">
 <td class="num">76</td>
 <td class="src"><pre><code class="objc">        switch startingPoint {</code></pre></td>
-<td class="coverage">175x</td>
+<td class="coverage">169x</td>
 </tr>
 <tr class="covered">
 <td class="num">77</td>
 <td class="src"><pre><code class="objc">        case .topmost:</code></pre></td>
-<td class="coverage">175x</td>
+<td class="coverage">169x</td>
 </tr>
 <tr class="covered">
 <td class="num">78</td>
 <td class="src"><pre><code class="objc">            return windowProvider.window?.topmostViewController</code></pre></td>
-<td class="coverage">151x</td>
+<td class="coverage">145x</td>
 </tr>
 <tr class="covered">
 <td class="num">79</td>
 <td class="src"><pre><code class="objc">        case .root:</code></pre></td>
-<td class="coverage">175x</td>
+<td class="coverage">169x</td>
 </tr>
 <tr class="covered">
 <td class="num">80</td>
@@ -415,7 +415,7 @@
 <tr class="covered">
 <td class="num">81</td>
 <td class="src"><pre><code class="objc">        case let .custom(viewControllerClosure):</code></pre></td>
-<td class="coverage">175x</td>
+<td class="coverage">169x</td>
 </tr>
 <tr class="covered">
 <td class="num">82</td>
@@ -425,12 +425,12 @@
 <tr class="covered">
 <td class="num">83</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">175x</td>
+<td class="coverage">169x</td>
 </tr>
 <tr class="covered">
 <td class="num">84</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">175x</td>
+<td class="coverage">169x</td>
 </tr>
 <tr class="never">
 <td class="num">85</td>

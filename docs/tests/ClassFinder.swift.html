@@ -155,17 +155,17 @@
 <tr class="covered">
 <td class="num">29</td>
 <td class="src"><pre><code class="objc">    public init(iterator: StackIterator = DefaultStackIterator()) {</code></pre></td>
-<td class="coverage">93x</td>
+<td class="coverage">87x</td>
 </tr>
 <tr class="covered">
 <td class="num">30</td>
 <td class="src"><pre><code class="objc">        self.iterator = iterator</code></pre></td>
-<td class="coverage">93x</td>
+<td class="coverage">87x</td>
 </tr>
 <tr class="covered">
 <td class="num">31</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">93x</td>
+<td class="coverage">87x</td>
 </tr>
 <tr class="never">
 <td class="num">32</td>
@@ -244,43 +244,43 @@
 </tr>
 <tr class="never">
 <td class="num">47</td>
-<td class="src"><pre><code class="objc">    ///   - containerAdapterLocator: A `ContainerAdapterLocator` instance.</code></pre></td>
+<td class="src"><pre><code class="objc">    ///   - windowProvider: `WindowProvider` instance.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">48</td>
-<td class="src"><pre><code class="objc">    init(options: SearchOptions,</code></pre></td>
+<td class="src"><pre><code class="objc">    ///   - containerAdapterLocator: A `ContainerAdapterLocator` instance.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">49</td>
+<td class="src"><pre><code class="objc">    init(options: SearchOptions,</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">50</td>
 <td class="src"><pre><code class="objc">         startingPoint: DefaultStackIterator.StartingPoint = .topmost,</code></pre></td>
 <td class="coverage"></td>
 </tr>
+<tr class="never">
+<td class="num">51</td>
+<td class="src"><pre><code class="objc">         windowProvider: WindowProvider = KeyWindowProvider(),</code></pre></td>
+<td class="coverage"></td>
+</tr>
 <tr class="covered">
-<td class="num">50</td>
+<td class="num">52</td>
 <td class="src"><pre><code class="objc">         containerAdapterLocator: ContainerAdapterLocator = DefaultContainerAdapterLocator()) {</code></pre></td>
 <td class="coverage">65x</td>
 </tr>
 <tr class="covered">
-<td class="num">51</td>
-<td class="src"><pre><code class="objc">        self.iterator = DefaultStackIterator(options: options, startingPoint: startingPoint, containerAdapterLocator: containerAdapterLocator)</code></pre></td>
+<td class="num">53</td>
+<td class="src"><pre><code class="objc">        self.iterator = DefaultStackIterator(options: options, startingPoint: startingPoint, windowProvider: windowProvider, containerAdapterLocator: containerAdapterLocator)</code></pre></td>
 <td class="coverage">65x</td>
 </tr>
 <tr class="covered">
-<td class="num">52</td>
+<td class="num">54</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
 <td class="coverage">65x</td>
-</tr>
-<tr class="never">
-<td class="num">53</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">54</td>
-<td class="src"><pre><code class="objc">}</code></pre></td>
-<td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">55</td>
@@ -289,6 +289,16 @@
 </tr>
 <tr class="never">
 <td class="num">56</td>
+<td class="src"><pre><code class="objc">}</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">57</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">58</td>
 <td class="src"><pre><code class="objc">#endif</code></pre></td>
 <td class="coverage"></td>
 </tr>
