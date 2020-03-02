@@ -57,7 +57,7 @@ class ExtrasTest: XCTestCase {
 
     func testSingleNavigationRouterSimultaneousNavigation() {
         let currentViewController = RouterTests.TestModalPresentableController()
-        let screenConfig = StepAssembly(finder: ClassFinder(), factory: RouterTests.TestViewControllerFactory())
+        let screenConfig = StepAssembly(finder: NilFinder(), factory: RouterTests.TestViewControllerFactory())
             .adding(InlinePostTask { (_: RouterTests.TestViewController, _: Any?, viewControllers: [UIViewController]) in
                 XCTAssertEqual(viewControllers.count, 3)
             })
@@ -212,7 +212,7 @@ class ExtrasTest: XCTestCase {
     }
 
     func testNavigationDetailsFinder() {
-        let emptyFinder = DetailsNavigationFinder<Any?>(options: SearchOptions.current)
+        let emptyFinder = DetailsNavigationFinder<Any?>(options: SearchOptions.current, windowProvider: TestWindowProvider(window: TestWindow()))
         XCTAssertNil(emptyFinder.getViewController())
 
         let splitViewController = UISplitViewController()

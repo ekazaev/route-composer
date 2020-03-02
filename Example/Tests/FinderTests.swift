@@ -62,17 +62,21 @@ class FinderTest: XCTestCase {
     }
 
     func testDefaultStackIteratorDefaultValues() {
-        let iterator = DefaultStackIterator()
+        let window = TestWindow()
+        window.rootViewController = UIViewController()
+        let iterator = DefaultStackIterator(windowProvider: TestWindowProvider(window: window))
         XCTAssertEqual(iterator.options, .fullStack)
         XCTAssertEqual(iterator.startingPoint, .topmost)
-        XCTAssertEqual(try? iterator.getStartingViewController(), UIApplication.shared.keyWindow?.topmostViewController)
+        XCTAssertEqual(try? iterator.getStartingViewController(), window.topmostViewController)
     }
 
     func testDefaultStackIteratorNewValues() {
-        let iterator = DefaultStackIterator(options: .current, startingPoint: .root)
+        let window = TestWindow()
+        window.rootViewController = UIViewController()
+        let iterator = DefaultStackIterator(options: .current, startingPoint: .root, windowProvider: TestWindowProvider(window: window))
         XCTAssertEqual(iterator.options, .current)
         XCTAssertEqual(iterator.startingPoint, .root)
-        XCTAssertEqual(try? iterator.getStartingViewController(), UIApplication.shared.keyWindow?.rootViewController)
+        XCTAssertEqual(try? iterator.getStartingViewController(), window.rootViewController)
     }
 
     func testDefaultStackIteratorCustomStartingPoint() {

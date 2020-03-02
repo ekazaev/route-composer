@@ -47,9 +47,11 @@ public extension ClassWithContextFinder {
     /// Parameters
     ///   - options: A combination of the `SearchOptions`
     ///   - startingPoint: `DefaultStackIterator.StartingPoint` value
+    ///   - windowProvider: `WindowProvider` instance.
     ///   - containerAdapterLocator: A `ContainerAdapterLocator` instance.
     init(options: SearchOptions,
          startingPoint: DefaultStackIterator.StartingPoint = .topmost,
+         windowProvider: WindowProvider = KeyWindowProvider(),
          containerAdapterLocator: ContainerAdapterLocator = DefaultContainerAdapterLocator()) {
         self.iterator = DefaultStackIterator(options: options, startingPoint: startingPoint, containerAdapterLocator: containerAdapterLocator)
     }
