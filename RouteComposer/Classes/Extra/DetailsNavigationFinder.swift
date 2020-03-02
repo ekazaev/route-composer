@@ -54,12 +54,15 @@ public extension DetailsNavigationFinder {
     /// Parameters
     ///   - options: A combination of the `SearchOptions`
     ///   - startingPoint: `DefaultStackIterator.StartingPoint` value
+    ///   - windowProvider: `WindowProvider` instance.
     ///   - containerAdapterLocator: A `ContainerAdapterLocator` instance.
     init(options: SearchOptions,
          startingPoint: DefaultStackIterator.StartingPoint = .topmost,
+         windowProvider: WindowProvider = KeyWindowProvider(),
          containerAdapterLocator: ContainerAdapterLocator = DefaultContainerAdapterLocator()) {
         let iterator = DefaultStackIterator(options: options,
                                             startingPoint: startingPoint,
+                                            windowProvider: windowProvider,
                                             containerAdapterLocator: containerAdapterLocator)
         self.init(iterator: iterator)
     }

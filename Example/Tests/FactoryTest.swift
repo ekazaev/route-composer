@@ -23,15 +23,15 @@ class FactoryTest: XCTestCase {
     func testStoryboardFactory() {
         var wasInCompletion = false
         var builtViewController: UIViewController?
-        let factory = StoryboardFactory<UIViewController, Any?>(name: "TabBar",
-                                                                bundle: Bundle.main,
-                                                                identifier: "FiguresViewController",
+        let factory = StoryboardFactory<UIViewController, Any?>(name: "TestStoryboard",
+                                                                bundle: Bundle(for: FactoryTest.self),
+                                                                identifier: "TestViewController",
                                                                 configuration: { viewController in
                                                                     wasInCompletion = true
                                                                     builtViewController = viewController
         })
-        XCTAssertEqual(factory.identifier, "FiguresViewController")
-        XCTAssertEqual(factory.name, "TabBar")
+        XCTAssertEqual(factory.identifier, "TestViewController")
+        XCTAssertEqual(factory.name, "TestStoryboard")
         XCTAssertNotNil(factory.configuration)
         XCTAssertNotNil(factory.bundle?.bundleIdentifier)
         XCTAssertEqual(try? factory.build(), builtViewController)
@@ -39,12 +39,12 @@ class FactoryTest: XCTestCase {
     }
 
     func testStoryboardFactoryWrongType() {
-        let factory = StoryboardFactory<UINavigationController, Any?>(name: "TabBar")
+        let factory = StoryboardFactory<UINavigationController, Any?>(name: "TestStoryboard", bundle: Bundle(for: FactoryTest.self))
         XCTAssertThrowsError(try factory.build())
     }
 
     func testStoryboardFactoryWrongTypeNewConstructor() {
-        let factory = StoryboardFactory<UINavigationController, Any?>(name: "TabBar")
+        let factory = StoryboardFactory<UINavigationController, Any?>(name: "TestStoryboard", bundle: Bundle(for: FactoryTest.self))
         XCTAssertThrowsError(try factory.build())
     }
 

@@ -12,6 +12,7 @@
 		4552B83D22FDAE2E006E2A5D /* ShortUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4552B83C22FDAE2E006E2A5D /* ShortUITests.swift */; };
 		4552B84B23018943006E2A5D /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* TabBar.storyboard */; };
 		4570AD2A2238769C00809A01 /* ExtrasTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4570AD292238769C00809A01 /* ExtrasTest.swift */; };
+		45762A7E240D26B40018D344 /* TestStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45762A7D240D26B30018D344 /* TestStoryboard.storyboard */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACDB1AFB9204008FA782 /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* TabBar.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
@@ -87,6 +88,7 @@
 		9AFBCE57C0F8CE5FA2C71E57 /* BlurredBackgroundTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC8BFC3348903C80F7D63 /* BlurredBackgroundTransitionAnimator.swift */; };
 		9AFBCF519040E699D130072D /* CityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC949B2D2D4B8D636B565 /* CityDetailViewController.swift */; };
 		D611D285DB9C77E5E7D8FBF7 /* Pods_RouteComposer_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD8FADE9265A4CD86A75FD85 /* Pods_RouteComposer_Example.framework */; };
+		EF158AE158BBFC0D85A45DA6 /* TestWindowProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF15860E0F9DBA20E470E476 /* TestWindowProvider.swift */; };
 		EF158CB848B405D553F272A8 /* ErrorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF158F4B4B31525D5844012E /* ErrorTest.swift */; };
 /* End PBXBuildFile section */
 
@@ -170,6 +172,7 @@
 		453BC2E22288C6F100314B33 /* ContainerLocatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerLocatorTests.swift; sourceTree = "<group>"; };
 		4552B83C22FDAE2E006E2A5D /* ShortUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortUITests.swift; sourceTree = "<group>"; };
 		4570AD292238769C00809A01 /* ExtrasTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtrasTest.swift; sourceTree = "<group>"; };
+		45762A7D240D26B30018D344 /* TestStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TestStoryboard.storyboard; sourceTree = "<group>"; };
 		45AF80BC23C5F25100F0229F /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Package.swift; path = ../Package.swift; sourceTree = "<group>"; };
 		4D016BC78C8FFDC66C0F661D /* RouteComposer.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = RouteComposer.podspec; path = ../RouteComposer.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		4D5D44CE2FD3DEAA3108C874 /* Pods_RouteComposer_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RouteComposer_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -257,6 +260,7 @@
 		E7AC8603E217ACA9BCF1FAC2 /* Pods-RouteComposer_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RouteComposer_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-RouteComposer_Example/Pods-RouteComposer_Example.release.xcconfig"; sourceTree = "<group>"; };
 		EE3371C14DEE61C1E517B2F9 /* Pods-RouteComposer_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RouteComposer_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RouteComposer_Example/Pods-RouteComposer_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		EF1584F5E4B89D2045CDF5FA /* CONTRIBUTING.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = CONTRIBUTING.md; path = ../CONTRIBUTING.md; sourceTree = "<group>"; };
+		EF15860E0F9DBA20E470E476 /* TestWindowProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestWindowProvider.swift; sourceTree = "<group>"; };
 		EF158F4B4B31525D5844012E /* ErrorTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -536,8 +540,10 @@
 		9AFBC72E9C2A1D7060E71B00 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				45762A7D240D26B30018D344 /* TestStoryboard.storyboard */,
 				9AFBCE40E5D93F38F9223D70 /* EmptyFactory.swift */,
 				9AFBC3D8D3AA2C53D5C17952 /* EmptyContainer.swift */,
+				EF15860E0F9DBA20E470E476 /* TestWindowProvider.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -752,6 +758,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4552B84B23018943006E2A5D /* TabBar.storyboard in Resources */,
+				45762A7E240D26B40018D344 /* TestStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -917,6 +924,7 @@
 				9AFBC98004695AD801CF23AD /* DestinationStepTests.swift in Sources */,
 				9AFBC7B044DF4416BD93D7C5 /* FinderTests.swift in Sources */,
 				EF158CB848B405D553F272A8 /* ErrorTest.swift in Sources */,
+				EF158AE158BBFC0D85A45DA6 /* TestWindowProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

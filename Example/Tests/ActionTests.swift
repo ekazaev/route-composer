@@ -31,23 +31,6 @@ class ActionTests: XCTestCase {
     }
 
     func testReplaceRootAction() {
-        class TestWindow: UIWindow {
-            var isKey: Bool = false
-
-            override func makeKeyAndVisible() {
-                isKey = true
-            }
-
-        }
-
-        struct TestWindowProvider: WindowProvider {
-            let window: UIWindow?
-
-            init(window: UIWindow) {
-                self.window = window
-            }
-        }
-
         let window = TestWindow()
         let rootViewController = UIViewController()
         window.rootViewController = rootViewController
@@ -74,23 +57,6 @@ class ActionTests: XCTestCase {
     }
 
     func testReplaceRootActionAnimated() {
-        class TestWindow: UIWindow {
-            var isKey: Bool = false
-
-            override func makeKeyAndVisible() {
-                isKey = true
-            }
-
-        }
-
-        struct TestWindowProvider: WindowProvider {
-            let window: UIWindow?
-
-            init(window: UIWindow) {
-                self.window = window
-            }
-        }
-
         let expectation = XCTestExpectation(description: "Animated root view controller replacement")
         let window = TestWindow()
         let rootViewController = UIViewController()

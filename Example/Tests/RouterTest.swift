@@ -118,7 +118,7 @@ class RouterTests: XCTestCase {
 
     func testNavigateTo() {
         let currentViewController = TestModalPresentableController()
-        let screenConfig = StepAssembly(finder: ClassFinder(), factory: TestViewControllerFactory())
+        let screenConfig = StepAssembly(finder: NilFinder(), factory: TestViewControllerFactory())
             .adding(InlinePostTask { (_: TestViewController, _: Any?, viewControllers: [UIViewController]) in
                 XCTAssertEqual(viewControllers.count, 3)
             })
@@ -160,7 +160,7 @@ class RouterTests: XCTestCase {
             }
         }
 
-        let screenConfig = StepAssembly(finder: ClassFinder(), factory: TestViewControllerFactory())
+        let screenConfig = StepAssembly(finder: NilFinder(), factory: TestViewControllerFactory())
             .using(UINavigationController.push())
             .from(SingleContainerStep(finder: FakeClassFinder(currentViewController: presentNavigationController), factory: NavigationControllerFactory()))
             .using(FakePresentModallyAction())
@@ -219,7 +219,7 @@ class RouterTests: XCTestCase {
         }
 
         let currentViewController = TestModalPresentableController()
-        let screenConfig = StepAssembly(finder: ClassFinder(), factory: TestViewControllerFactory())
+        let screenConfig = StepAssembly(finder: NilFinder(), factory: TestViewControllerFactory())
             .using(TestPresentModallyBrokenAction())
             .from(DestinationStep<TestModalPresentableController, Any?>(TestCurrentViewControllerStep(currentViewController: currentViewController)))
             .assemble()
@@ -234,7 +234,7 @@ class RouterTests: XCTestCase {
 
     func testNavigateToFactoryWithIssue() {
         let currentViewController = TestModalPresentableController()
-        let screenConfig = StepAssembly(finder: ClassFinder(), factory: TestViewControllerBrokenFactory())
+        let screenConfig = StepAssembly(finder: NilFinder(), factory: TestViewControllerBrokenFactory())
             .using(FakePresentModallyAction())
             .from(DestinationStep<TestModalPresentableController, Any?>(TestCurrentViewControllerStep(currentViewController: currentViewController)))
             .assemble()
@@ -295,7 +295,7 @@ class RouterTests: XCTestCase {
         var globalInterceptorRun = 0
         var globalTaskRun = 0
         var globalPostTaskRun = 0
-        let screenConfig = StepAssembly(finder: ClassFinder(), factory: TestViewControllerFactory<TestProtocol>())
+        let screenConfig = StepAssembly(finder: NilFinder(), factory: TestViewControllerFactory<TestProtocol>())
             .adding(InlineInterceptor(prepare: { (_: TestProtocol) throws in
                 contextInterceptorPrepared += 1
                 }, { (_: TestProtocol) in
