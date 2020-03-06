@@ -19,37 +19,37 @@
 </tr>
 <tr class="never">
 <td class="num">2</td>
-<td class="src"><pre><code class="objc">// Created by Kazaev, Eugene on 2019-02-15.</code></pre></td>
+<td class="src"><pre><code class="objc">// RouteComposer</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">3</td>
-<td class="src"><pre><code class="objc">//</code></pre></td>
+<td class="src"><pre><code class="objc">// KeyWindowProvider.swift</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">4</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="src"><pre><code class="objc">// https://github.com/ekazaev/route-composer</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">5</td>
-<td class="src"><pre><code class="objc">#if os(iOS)</code></pre></td>
+<td class="src"><pre><code class="objc">//</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">6</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="src"><pre><code class="objc">// Created by Eugene Kazaev in 2018-2020.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">7</td>
-<td class="src"><pre><code class="objc">import Foundation</code></pre></td>
+<td class="src"><pre><code class="objc">// Distributed under the MIT license.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">8</td>
-<td class="src"><pre><code class="objc">import UIKit</code></pre></td>
+<td class="src"><pre><code class="objc">//</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -59,22 +59,22 @@
 </tr>
 <tr class="never">
 <td class="num">10</td>
-<td class="src"><pre><code class="objc">/// Returns key `UIWindow`</code></pre></td>
+<td class="src"><pre><code class="objc">#if os(iOS)</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">11</td>
-<td class="src"><pre><code class="objc">public struct KeyWindowProvider: WindowProvider {</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">12</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
+<td class="num">12</td>
+<td class="src"><pre><code class="objc">import Foundation</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
 <td class="num">13</td>
-<td class="src"><pre><code class="objc">    // MARK: Properties</code></pre></td>
+<td class="src"><pre><code class="objc">import UIKit</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -84,68 +84,68 @@
 </tr>
 <tr class="never">
 <td class="num">15</td>
+<td class="src"><pre><code class="objc">/// Returns key `UIWindow`</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">16</td>
+<td class="src"><pre><code class="objc">public struct KeyWindowProvider: WindowProvider {</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">17</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">18</td>
+<td class="src"><pre><code class="objc">    // MARK: Properties</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">19</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">20</td>
 <td class="src"><pre><code class="objc">    /// `UIWindow` instance</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
-<td class="num">16</td>
+<td class="num">21</td>
 <td class="src"><pre><code class="objc">    public var window: UIWindow? {</code></pre></td>
 <td class="coverage">318x</td>
 </tr>
 <tr class="covered">
-<td class="num">17</td>
+<td class="num">22</td>
 <td class="src"><pre><code class="objc">        guard let window = UIApplication.shared.keyWindow else {</code></pre></td>
 <td class="coverage">318x</td>
 </tr>
 <tr class="missed">
-<td class="num">18</td>
+<td class="num">23</td>
 <td class="src"><pre><code class="objc">            assertionFailure("Application does not have a key window.")</code></pre></td>
 <td class="coverage">!</td>
 </tr>
 <tr class="missed">
-<td class="num">19</td>
+<td class="num">24</td>
 <td class="src"><pre><code class="objc">            return nil</code></pre></td>
 <td class="coverage">!</td>
 </tr>
 <tr class="covered">
-<td class="num">20</td>
+<td class="num">25</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
 <td class="coverage">318x</td>
 </tr>
 <tr class="covered">
-<td class="num">21</td>
+<td class="num">26</td>
 <td class="src"><pre><code class="objc">        return window</code></pre></td>
 <td class="coverage">318x</td>
 </tr>
 <tr class="covered">
-<td class="num">22</td>
+<td class="num">27</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
 <td class="coverage">318x</td>
-</tr>
-<tr class="never">
-<td class="num">23</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">24</td>
-<td class="src"><pre><code class="objc">    // MARK: Methods</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">25</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">26</td>
-<td class="src"><pre><code class="objc">    /// Constructor</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="covered">
-<td class="num">27</td>
-<td class="src"><pre><code class="objc">    public init() {}</code></pre></td>
-<td class="coverage">339x</td>
 </tr>
 <tr class="never">
 <td class="num">28</td>
@@ -154,7 +154,7 @@
 </tr>
 <tr class="never">
 <td class="num">29</td>
-<td class="src"><pre><code class="objc">}</code></pre></td>
+<td class="src"><pre><code class="objc">    // MARK: Methods</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -164,6 +164,31 @@
 </tr>
 <tr class="never">
 <td class="num">31</td>
+<td class="src"><pre><code class="objc">    /// Constructor</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="covered">
+<td class="num">32</td>
+<td class="src"><pre><code class="objc">    public init() {}</code></pre></td>
+<td class="coverage">339x</td>
+</tr>
+<tr class="never">
+<td class="num">33</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">34</td>
+<td class="src"><pre><code class="objc">}</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">35</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">36</td>
 <td class="src"><pre><code class="objc">#endif</code></pre></td>
 <td class="coverage"></td>
 </tr>

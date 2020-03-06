@@ -1,6 +1,12 @@
 //
-// Created by Eugene Kazaev on 19/12/2017.
+// RouteComposer
+// RoutingResult.swift
+// https://github.com/ekazaev/route-composer
 //
+// Created by Eugene Kazaev in 2018-2020.
+// Distributed under the MIT license.
+//
+
 #if os(iOS)
 
 import Foundation
@@ -51,4 +57,5 @@ public extension RoutingResult {
     }
 
 }
+
 #endif

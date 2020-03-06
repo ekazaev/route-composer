@@ -1,6 +1,12 @@
 //
-// Created by Eugene Kazaev on 26/02/2018.
+// RouteComposer
+// RoutingError.swift
+// https://github.com/ekazaev/route-composer
 //
+// Created by Eugene Kazaev in 2018-2020.
+// Distributed under the MIT license.
+//
+
 #if os(iOS)
 
 import Foundation

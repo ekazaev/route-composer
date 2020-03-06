@@ -19,37 +19,37 @@
 </tr>
 <tr class="never">
 <td class="num">2</td>
-<td class="src"><pre><code class="objc">// Created by Eugene Kazaev on 23/08/2019.</code></pre></td>
+<td class="src"><pre><code class="objc">// RouteComposer</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">3</td>
-<td class="src"><pre><code class="objc">//</code></pre></td>
+<td class="src"><pre><code class="objc">// CATransaction+Action.swift</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">4</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="src"><pre><code class="objc">// https://github.com/ekazaev/route-composer</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">5</td>
-<td class="src"><pre><code class="objc">#if os(iOS)</code></pre></td>
+<td class="src"><pre><code class="objc">//</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">6</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="src"><pre><code class="objc">// Created by Eugene Kazaev in 2018-2020.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">7</td>
-<td class="src"><pre><code class="objc">import Foundation</code></pre></td>
+<td class="src"><pre><code class="objc">// Distributed under the MIT license.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">8</td>
-<td class="src"><pre><code class="objc">import UIKit</code></pre></td>
+<td class="src"><pre><code class="objc">//</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -59,138 +59,138 @@
 </tr>
 <tr class="never">
 <td class="num">10</td>
-<td class="src"><pre><code class="objc">/// Extension that wraps an action into `CATransaction`.</code></pre></td>
+<td class="src"><pre><code class="objc">#if os(iOS)</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">11</td>
-<td class="src"><pre><code class="objc">///</code></pre></td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">12</td>
-<td class="src"><pre><code class="objc">/// When `DefaultRouter` builds a complicated chain of animated modifications in the `UIViewController`s stack</code></pre></td>
+<td class="src"><pre><code class="objc">import Foundation</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">13</td>
-<td class="src"><pre><code class="objc">/// it might be necessary to wrap some actions into single `CATransaction`.</code></pre></td>
+<td class="src"><pre><code class="objc">import UIKit</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">14</td>
-<td class="src"><pre><code class="objc">///</code></pre></td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">15</td>
-<td class="src"><pre><code class="objc">/// *Example: When `UINavigationController` does pop, then push of the `UIViewController` and then tries to</code></pre></td>
+<td class="src"><pre><code class="objc">/// Extension that wraps an action into `CATransaction`.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">16</td>
-<td class="src"><pre><code class="objc">/// do some to it or find it with a `Finder`. Then `DefaultRouter` has to wait till the end of the animation.*</code></pre></td>
+<td class="src"><pre><code class="objc">///</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">17</td>
-<td class="src"><pre><code class="objc">public extension CATransaction {</code></pre></td>
+<td class="src"><pre><code class="objc">/// When `DefaultRouter` builds a complicated chain of animated modifications in the `UIViewController`s stack</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">18</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="src"><pre><code class="objc">/// it might be necessary to wrap some actions into single `CATransaction`.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">19</td>
-<td class="src"><pre><code class="objc">    /// Wraps `Action` in to `CATransaction`</code></pre></td>
+<td class="src"><pre><code class="objc">///</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">20</td>
-<td class="src"><pre><code class="objc">    ///</code></pre></td>
+<td class="src"><pre><code class="objc">/// *Example: When `UINavigationController` does pop, then push of the `UIViewController` and then tries to</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">21</td>
-<td class="src"><pre><code class="objc">    /// - Parameter action: `Action` instance</code></pre></td>
+<td class="src"><pre><code class="objc">/// do some to it or find it with a `Finder`. Then `DefaultRouter` has to wait till the end of the animation.*</code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="covered">
+<tr class="never">
 <td class="num">22</td>
-<td class="src"><pre><code class="objc">    static func wrap&lt;A: Action&gt;(_ action: A) -&gt; CATransactionWrappedAction&lt;A&gt; {</code></pre></td>
-<td class="coverage">50x</td>
-</tr>
-<tr class="covered">
-<td class="num">23</td>
-<td class="src"><pre><code class="objc">        return CATransactionWrappedAction(action)</code></pre></td>
-<td class="coverage">50x</td>
-</tr>
-<tr class="covered">
-<td class="num">24</td>
-<td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">50x</td>
+<td class="src"><pre><code class="objc">public extension CATransaction {</code></pre></td>
+<td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">25</td>
+<td class="num">23</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">26</td>
-<td class="src"><pre><code class="objc">    /// Wraps `ContainerAction` in to `CATransaction`</code></pre></td>
+<td class="num">24</td>
+<td class="src"><pre><code class="objc">    /// Wraps `Action` in to `CATransaction`</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">27</td>
+<td class="num">25</td>
 <td class="src"><pre><code class="objc">    ///</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">28</td>
-<td class="src"><pre><code class="objc">    /// - Parameter action: `ContainerAction` instance</code></pre></td>
+<td class="num">26</td>
+<td class="src"><pre><code class="objc">    /// - Parameter action: `Action` instance</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
+<td class="num">27</td>
+<td class="src"><pre><code class="objc">    static func wrap&lt;A: Action&gt;(_ action: A) -&gt; CATransactionWrappedAction&lt;A&gt; {</code></pre></td>
+<td class="coverage">50x</td>
+</tr>
+<tr class="covered">
+<td class="num">28</td>
+<td class="src"><pre><code class="objc">        return CATransactionWrappedAction(action)</code></pre></td>
+<td class="coverage">50x</td>
+</tr>
+<tr class="covered">
 <td class="num">29</td>
-<td class="src"><pre><code class="objc">    static func wrap&lt;A: ContainerAction&gt;(_ action: A) -&gt; CATransactionWrappedContainerAction&lt;A&gt; {</code></pre></td>
-<td class="coverage">5x</td>
-</tr>
-<tr class="covered">
-<td class="num">30</td>
-<td class="src"><pre><code class="objc">        return CATransactionWrappedContainerAction(action)</code></pre></td>
-<td class="coverage">5x</td>
-</tr>
-<tr class="covered">
-<td class="num">31</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">5x</td>
+<td class="coverage">50x</td>
+</tr>
+<tr class="never">
+<td class="num">30</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">31</td>
+<td class="src"><pre><code class="objc">    /// Wraps `ContainerAction` in to `CATransaction`</code></pre></td>
+<td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">32</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="src"><pre><code class="objc">    ///</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">33</td>
-<td class="src"><pre><code class="objc">}</code></pre></td>
+<td class="src"><pre><code class="objc">    /// - Parameter action: `ContainerAction` instance</code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="never">
+<tr class="covered">
 <td class="num">34</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
+<td class="src"><pre><code class="objc">    static func wrap&lt;A: ContainerAction&gt;(_ action: A) -&gt; CATransactionWrappedContainerAction&lt;A&gt; {</code></pre></td>
+<td class="coverage">5x</td>
 </tr>
-<tr class="never">
+<tr class="covered">
 <td class="num">35</td>
-<td class="src"><pre><code class="objc">/// `CATransaction` wrapper for `Action`</code></pre></td>
-<td class="coverage"></td>
+<td class="src"><pre><code class="objc">        return CATransactionWrappedContainerAction(action)</code></pre></td>
+<td class="coverage">5x</td>
 </tr>
-<tr class="never">
+<tr class="covered">
 <td class="num">36</td>
-<td class="src"><pre><code class="objc">public struct CATransactionWrappedAction&lt;A: Action&gt;: Action {</code></pre></td>
-<td class="coverage"></td>
+<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="coverage">5x</td>
 </tr>
 <tr class="never">
 <td class="num">37</td>
@@ -199,7 +199,7 @@
 </tr>
 <tr class="never">
 <td class="num">38</td>
-<td class="src"><pre><code class="objc">    // MARK: Associated types</code></pre></td>
+<td class="src"><pre><code class="objc">}</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -209,12 +209,12 @@
 </tr>
 <tr class="never">
 <td class="num">40</td>
-<td class="src"><pre><code class="objc">    /// Type of the `UIViewController` that `Action` can start from.</code></pre></td>
+<td class="src"><pre><code class="objc">/// `CATransaction` wrapper for `Action`</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">41</td>
-<td class="src"><pre><code class="objc">    public typealias ViewController = A.ViewController</code></pre></td>
+<td class="src"><pre><code class="objc">public struct CATransactionWrappedAction&lt;A: Action&gt;: Action {</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -224,7 +224,7 @@
 </tr>
 <tr class="never">
 <td class="num">43</td>
-<td class="src"><pre><code class="objc">    // MARK: Properties</code></pre></td>
+<td class="src"><pre><code class="objc">    // MARK: Associated types</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -234,143 +234,143 @@
 </tr>
 <tr class="never">
 <td class="num">45</td>
-<td class="src"><pre><code class="objc">    let action: A</code></pre></td>
+<td class="src"><pre><code class="objc">    /// Type of the `UIViewController` that `Action` can start from.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">46</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="src"><pre><code class="objc">    public typealias ViewController = A.ViewController</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">47</td>
-<td class="src"><pre><code class="objc">    // MARK: Methods</code></pre></td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">48</td>
+<td class="src"><pre><code class="objc">    // MARK: Properties</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">49</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">50</td>
+<td class="src"><pre><code class="objc">    let action: A</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">51</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">52</td>
+<td class="src"><pre><code class="objc">    // MARK: Methods</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">53</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
-<td class="num">49</td>
+<td class="num">54</td>
 <td class="src"><pre><code class="objc">    init(_ action: A) {</code></pre></td>
 <td class="coverage">50x</td>
 </tr>
 <tr class="covered">
-<td class="num">50</td>
+<td class="num">55</td>
 <td class="src"><pre><code class="objc">        self.action = action</code></pre></td>
 <td class="coverage">50x</td>
 </tr>
 <tr class="covered">
-<td class="num">51</td>
+<td class="num">56</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
 <td class="coverage">50x</td>
 </tr>
 <tr class="never">
-<td class="num">52</td>
+<td class="num">57</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
-<td class="num">53</td>
+<td class="num">58</td>
 <td class="src"><pre><code class="objc">    public func perform(with viewController: UIViewController, on existingController: A.ViewController, animated: Bool, completion: @escaping (RoutingResult) -&gt; Void) {</code></pre></td>
 <td class="coverage">14x</td>
 </tr>
 <tr class="covered">
-<td class="num">54</td>
+<td class="num">59</td>
 <td class="src"><pre><code class="objc">        guard animated else {</code></pre></td>
 <td class="coverage">14x</td>
 </tr>
 <tr class="covered">
-<td class="num">55</td>
+<td class="num">60</td>
 <td class="src"><pre><code class="objc">            action.perform(with: viewController, on: existingController, animated: false, completion: completion)</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
-<td class="num">56</td>
+<td class="num">61</td>
 <td class="src"><pre><code class="objc">            return</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
-<td class="num">57</td>
-<td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">13x</td>
-</tr>
-<tr class="covered">
-<td class="num">58</td>
-<td class="src"><pre><code class="objc">        CATransaction.begin()</code></pre></td>
-<td class="coverage">13x</td>
-</tr>
-<tr class="covered">
-<td class="num">59</td>
-<td class="src"><pre><code class="objc">        var actionResult: RoutingResult = .failure(RoutingError.compositionFailed(.init("Wrapped \(action) did not complete correctly.")))</code></pre></td>
-<td class="coverage">13x</td>
-</tr>
-<tr class="covered">
-<td class="num">60</td>
-<td class="src"><pre><code class="objc">        action.perform(with: viewController, on: existingController, animated: true, completion: { result in</code></pre></td>
-<td class="coverage">13x</td>
-</tr>
-<tr class="covered">
-<td class="num">61</td>
-<td class="src"><pre><code class="objc">            actionResult = result</code></pre></td>
-<td class="coverage">13x</td>
-</tr>
-<tr class="covered">
 <td class="num">62</td>
-<td class="src"><pre><code class="objc">        })</code></pre></td>
+<td class="src"><pre><code class="objc">        }</code></pre></td>
 <td class="coverage">13x</td>
 </tr>
 <tr class="covered">
 <td class="num">63</td>
-<td class="src"><pre><code class="objc">        CATransaction.setCompletionBlock {</code></pre></td>
+<td class="src"><pre><code class="objc">        CATransaction.begin()</code></pre></td>
 <td class="coverage">13x</td>
 </tr>
 <tr class="covered">
 <td class="num">64</td>
-<td class="src"><pre><code class="objc">            completion(actionResult)</code></pre></td>
+<td class="src"><pre><code class="objc">        var actionResult: RoutingResult = .failure(RoutingError.compositionFailed(.init("Wrapped \(action) did not complete correctly.")))</code></pre></td>
 <td class="coverage">13x</td>
 </tr>
 <tr class="covered">
 <td class="num">65</td>
-<td class="src"><pre><code class="objc">        }</code></pre></td>
+<td class="src"><pre><code class="objc">        action.perform(with: viewController, on: existingController, animated: true, completion: { result in</code></pre></td>
 <td class="coverage">13x</td>
 </tr>
 <tr class="covered">
 <td class="num">66</td>
-<td class="src"><pre><code class="objc">        CATransaction.commit()</code></pre></td>
+<td class="src"><pre><code class="objc">            actionResult = result</code></pre></td>
 <td class="coverage">13x</td>
 </tr>
 <tr class="covered">
 <td class="num">67</td>
-<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="src"><pre><code class="objc">        })</code></pre></td>
 <td class="coverage">13x</td>
 </tr>
-<tr class="never">
+<tr class="covered">
 <td class="num">68</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
+<td class="src"><pre><code class="objc">        CATransaction.setCompletionBlock {</code></pre></td>
+<td class="coverage">13x</td>
 </tr>
-<tr class="never">
+<tr class="covered">
 <td class="num">69</td>
-<td class="src"><pre><code class="objc">}</code></pre></td>
-<td class="coverage"></td>
+<td class="src"><pre><code class="objc">            completion(actionResult)</code></pre></td>
+<td class="coverage">13x</td>
 </tr>
-<tr class="never">
+<tr class="covered">
 <td class="num">70</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
+<td class="src"><pre><code class="objc">        }</code></pre></td>
+<td class="coverage">13x</td>
 </tr>
-<tr class="never">
+<tr class="covered">
 <td class="num">71</td>
-<td class="src"><pre><code class="objc">/// `CATransaction` wrapper for `ContainerAction`</code></pre></td>
-<td class="coverage"></td>
+<td class="src"><pre><code class="objc">        CATransaction.commit()</code></pre></td>
+<td class="coverage">13x</td>
 </tr>
-<tr class="never">
+<tr class="covered">
 <td class="num">72</td>
-<td class="src"><pre><code class="objc">public struct CATransactionWrappedContainerAction&lt;A: ContainerAction&gt;: ContainerAction {</code></pre></td>
-<td class="coverage"></td>
+<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="coverage">13x</td>
 </tr>
 <tr class="never">
 <td class="num">73</td>
@@ -379,7 +379,7 @@
 </tr>
 <tr class="never">
 <td class="num">74</td>
-<td class="src"><pre><code class="objc">    // MARK: Associated types</code></pre></td>
+<td class="src"><pre><code class="objc">}</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -389,12 +389,12 @@
 </tr>
 <tr class="never">
 <td class="num">76</td>
-<td class="src"><pre><code class="objc">    /// Type of the `UIViewController` that `Action` can start from.</code></pre></td>
+<td class="src"><pre><code class="objc">/// `CATransaction` wrapper for `ContainerAction`</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">77</td>
-<td class="src"><pre><code class="objc">    public typealias ViewController = A.ViewController</code></pre></td>
+<td class="src"><pre><code class="objc">public struct CATransactionWrappedContainerAction&lt;A: ContainerAction&gt;: ContainerAction {</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -404,7 +404,7 @@
 </tr>
 <tr class="never">
 <td class="num">79</td>
-<td class="src"><pre><code class="objc">    // MARK: Properties</code></pre></td>
+<td class="src"><pre><code class="objc">    // MARK: Associated types</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -414,156 +414,181 @@
 </tr>
 <tr class="never">
 <td class="num">81</td>
-<td class="src"><pre><code class="objc">    let action: A</code></pre></td>
+<td class="src"><pre><code class="objc">    /// Type of the `UIViewController` that `Action` can start from.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">82</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="src"><pre><code class="objc">    public typealias ViewController = A.ViewController</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">83</td>
-<td class="src"><pre><code class="objc">    // MARK: Methods</code></pre></td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">84</td>
+<td class="src"><pre><code class="objc">    // MARK: Properties</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">85</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">86</td>
+<td class="src"><pre><code class="objc">    let action: A</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">87</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">88</td>
+<td class="src"><pre><code class="objc">    // MARK: Methods</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">89</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
-<td class="num">85</td>
+<td class="num">90</td>
 <td class="src"><pre><code class="objc">    init(_ action: A) {</code></pre></td>
 <td class="coverage">5x</td>
 </tr>
 <tr class="covered">
-<td class="num">86</td>
+<td class="num">91</td>
 <td class="src"><pre><code class="objc">        self.action = action</code></pre></td>
 <td class="coverage">5x</td>
 </tr>
 <tr class="covered">
-<td class="num">87</td>
+<td class="num">92</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
 <td class="coverage">5x</td>
 </tr>
 <tr class="never">
-<td class="num">88</td>
+<td class="num">93</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
-<td class="num">89</td>
+<td class="num">94</td>
 <td class="src"><pre><code class="objc">    public func perform(embedding viewController: UIViewController, in childViewControllers: inout [UIViewController]) throws {</code></pre></td>
 <td class="coverage">2x</td>
 </tr>
 <tr class="covered">
-<td class="num">90</td>
+<td class="num">95</td>
 <td class="src"><pre><code class="objc">        try action.perform(embedding: viewController, in: &amp;childViewControllers)</code></pre></td>
 <td class="coverage">2x</td>
 </tr>
 <tr class="covered">
-<td class="num">91</td>
+<td class="num">96</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
 <td class="coverage">2x</td>
 </tr>
 <tr class="never">
-<td class="num">92</td>
+<td class="num">97</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
-<td class="num">93</td>
+<td class="num">98</td>
 <td class="src"><pre><code class="objc">    public func perform(with viewController: UIViewController, on existingController: A.ViewController, animated: Bool, completion: @escaping (RoutingResult) -&gt; Void) {</code></pre></td>
 <td class="coverage">2x</td>
 </tr>
 <tr class="covered">
-<td class="num">94</td>
+<td class="num">99</td>
 <td class="src"><pre><code class="objc">        guard animated else {</code></pre></td>
 <td class="coverage">2x</td>
 </tr>
 <tr class="covered">
-<td class="num">95</td>
+<td class="num">100</td>
 <td class="src"><pre><code class="objc">            action.perform(with: viewController, on: existingController, animated: false, completion: completion)</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
-<td class="num">96</td>
+<td class="num">101</td>
 <td class="src"><pre><code class="objc">            return</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
-<td class="num">97</td>
-<td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">1x</td>
-</tr>
-<tr class="covered">
-<td class="num">98</td>
-<td class="src"><pre><code class="objc">        CATransaction.begin()</code></pre></td>
-<td class="coverage">1x</td>
-</tr>
-<tr class="covered">
-<td class="num">99</td>
-<td class="src"><pre><code class="objc">        var actionResult: RoutingResult = .failure(RoutingError.compositionFailed(.init("Wrapped \(action) did not complete correctly.")))</code></pre></td>
-<td class="coverage">1x</td>
-</tr>
-<tr class="covered">
-<td class="num">100</td>
-<td class="src"><pre><code class="objc">        action.perform(with: viewController, on: existingController, animated: true, completion: { result in</code></pre></td>
-<td class="coverage">1x</td>
-</tr>
-<tr class="covered">
-<td class="num">101</td>
-<td class="src"><pre><code class="objc">            actionResult = result</code></pre></td>
-<td class="coverage">1x</td>
-</tr>
-<tr class="covered">
 <td class="num">102</td>
-<td class="src"><pre><code class="objc">        })</code></pre></td>
+<td class="src"><pre><code class="objc">        }</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">103</td>
-<td class="src"><pre><code class="objc">        CATransaction.setCompletionBlock {</code></pre></td>
+<td class="src"><pre><code class="objc">        CATransaction.begin()</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">104</td>
-<td class="src"><pre><code class="objc">            completion(actionResult)</code></pre></td>
+<td class="src"><pre><code class="objc">        var actionResult: RoutingResult = .failure(RoutingError.compositionFailed(.init("Wrapped \(action) did not complete correctly.")))</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">105</td>
-<td class="src"><pre><code class="objc">        }</code></pre></td>
+<td class="src"><pre><code class="objc">        action.perform(with: viewController, on: existingController, animated: true, completion: { result in</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">106</td>
-<td class="src"><pre><code class="objc">        CATransaction.commit()</code></pre></td>
+<td class="src"><pre><code class="objc">            actionResult = result</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">107</td>
+<td class="src"><pre><code class="objc">        })</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">108</td>
+<td class="src"><pre><code class="objc">        CATransaction.setCompletionBlock {</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">109</td>
+<td class="src"><pre><code class="objc">            completion(actionResult)</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">110</td>
+<td class="src"><pre><code class="objc">        }</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">111</td>
+<td class="src"><pre><code class="objc">        CATransaction.commit()</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">112</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="never">
-<td class="num">108</td>
+<td class="num">113</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">109</td>
+<td class="num">114</td>
 <td class="src"><pre><code class="objc">}</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">110</td>
+<td class="num">115</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">111</td>
+<td class="num">116</td>
 <td class="src"><pre><code class="objc">#endif</code></pre></td>
 <td class="coverage"></td>
 </tr>

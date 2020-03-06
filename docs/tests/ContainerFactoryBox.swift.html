@@ -19,37 +19,37 @@
 </tr>
 <tr class="never">
 <td class="num">2</td>
-<td class="src"><pre><code class="objc">// Created by Eugene Kazaev on 2019-02-27.</code></pre></td>
+<td class="src"><pre><code class="objc">// RouteComposer</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">3</td>
-<td class="src"><pre><code class="objc">//</code></pre></td>
+<td class="src"><pre><code class="objc">// ContainerFactoryBox.swift</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">4</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="src"><pre><code class="objc">// https://github.com/ekazaev/route-composer</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">5</td>
-<td class="src"><pre><code class="objc">#if os(iOS)</code></pre></td>
+<td class="src"><pre><code class="objc">//</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">6</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="src"><pre><code class="objc">// Created by Eugene Kazaev in 2018-2020.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">7</td>
-<td class="src"><pre><code class="objc">import Foundation</code></pre></td>
+<td class="src"><pre><code class="objc">// Distributed under the MIT license.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">8</td>
-<td class="src"><pre><code class="objc">import UIKit</code></pre></td>
+<td class="src"><pre><code class="objc">//</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -59,7 +59,7 @@
 </tr>
 <tr class="never">
 <td class="num">10</td>
-<td class="src"><pre><code class="objc">struct ContainerFactoryBox&lt;F: ContainerFactory&gt;: PreparableAnyFactory, AnyFactoryBox, MainThreadChecking, CustomStringConvertible {</code></pre></td>
+<td class="src"><pre><code class="objc">#if os(iOS)</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -69,231 +69,256 @@
 </tr>
 <tr class="never">
 <td class="num">12</td>
-<td class="src"><pre><code class="objc">    typealias FactoryType = F</code></pre></td>
+<td class="src"><pre><code class="objc">import Foundation</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">13</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="src"><pre><code class="objc">import UIKit</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">14</td>
-<td class="src"><pre><code class="objc">    var factory: FactoryType</code></pre></td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">15</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="src"><pre><code class="objc">struct ContainerFactoryBox&lt;F: ContainerFactory&gt;: PreparableAnyFactory, AnyFactoryBox, MainThreadChecking, CustomStringConvertible {</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">16</td>
-<td class="src"><pre><code class="objc">    let action: AnyAction</code></pre></td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">17</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="src"><pre><code class="objc">    typealias FactoryType = F</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">18</td>
-<td class="src"><pre><code class="objc">    var children: [PostponedIntegrationFactory&lt;FactoryType.Context&gt;] = []</code></pre></td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">19</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="src"><pre><code class="objc">    var factory: FactoryType</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">20</td>
-<td class="src"><pre><code class="objc">    var isPrepared = false</code></pre></td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">21</td>
+<td class="src"><pre><code class="objc">    let action: AnyAction</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">22</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">23</td>
+<td class="src"><pre><code class="objc">    var children: [PostponedIntegrationFactory&lt;FactoryType.Context&gt;] = []</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">24</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">25</td>
+<td class="src"><pre><code class="objc">    var isPrepared = false</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">26</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
-<td class="num">22</td>
+<td class="num">27</td>
 <td class="src"><pre><code class="objc">    init?(_ factory: FactoryType, action: AnyAction) {</code></pre></td>
 <td class="coverage">65x</td>
 </tr>
 <tr class="covered">
-<td class="num">23</td>
+<td class="num">28</td>
 <td class="src"><pre><code class="objc">        guard !(factory is NilEntity) else {</code></pre></td>
 <td class="coverage">65x</td>
 </tr>
 <tr class="covered">
-<td class="num">24</td>
+<td class="num">29</td>
 <td class="src"><pre><code class="objc">            return nil</code></pre></td>
 <td class="coverage">13x</td>
 </tr>
 <tr class="covered">
-<td class="num">25</td>
+<td class="num">30</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
 <td class="coverage">52x</td>
 </tr>
 <tr class="covered">
-<td class="num">26</td>
+<td class="num">31</td>
 <td class="src"><pre><code class="objc">        self.factory = factory</code></pre></td>
 <td class="coverage">52x</td>
 </tr>
 <tr class="covered">
-<td class="num">27</td>
+<td class="num">32</td>
 <td class="src"><pre><code class="objc">        self.action = action</code></pre></td>
 <td class="coverage">52x</td>
 </tr>
 <tr class="covered">
-<td class="num">28</td>
+<td class="num">33</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
 <td class="coverage">52x</td>
 </tr>
 <tr class="never">
-<td class="num">29</td>
+<td class="num">34</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
-<td class="num">30</td>
+<td class="num">35</td>
 <td class="src"><pre><code class="objc">    mutating func scrapeChildren(from factories: [AnyFactory]) throws -&gt; [AnyFactory] {</code></pre></td>
 <td class="coverage">27x</td>
 </tr>
 <tr class="covered">
-<td class="num">31</td>
+<td class="num">36</td>
 <td class="src"><pre><code class="objc">        var otherFactories: [AnyFactory] = []</code></pre></td>
 <td class="coverage">27x</td>
 </tr>
 <tr class="covered">
-<td class="num">32</td>
+<td class="num">37</td>
 <td class="src"><pre><code class="objc">        var isNonEmbeddableFound = false</code></pre></td>
 <td class="coverage">27x</td>
 </tr>
 <tr class="covered">
-<td class="num">33</td>
+<td class="num">38</td>
 <td class="src"><pre><code class="objc">        children = factories.compactMap { child -&gt; PostponedIntegrationFactory&lt;FactoryType.Context&gt;? in</code></pre></td>
 <td class="coverage">45x</td>
 </tr>
 <tr class="covered">
-<td class="num">34</td>
+<td class="num">39</td>
 <td class="src"><pre><code class="objc">            guard !isNonEmbeddableFound, child.action.isEmbeddable(to: FactoryType.ViewController.self) else {</code></pre></td>
 <td class="coverage">45x</td>
 </tr>
 <tr class="covered">
-<td class="num">35</td>
+<td class="num">40</td>
 <td class="src"><pre><code class="objc">                otherFactories.append(child)</code></pre></td>
 <td class="coverage">10x</td>
 </tr>
 <tr class="covered">
-<td class="num">36</td>
+<td class="num">41</td>
 <td class="src"><pre><code class="objc">                isNonEmbeddableFound = true</code></pre></td>
 <td class="coverage">10x</td>
 </tr>
 <tr class="covered">
-<td class="num">37</td>
+<td class="num">42</td>
 <td class="src"><pre><code class="objc">                return nil</code></pre></td>
 <td class="coverage">10x</td>
 </tr>
 <tr class="covered">
-<td class="num">38</td>
+<td class="num">43</td>
 <td class="src"><pre><code class="objc">            }</code></pre></td>
 <td class="coverage">35x</td>
 </tr>
 <tr class="covered">
-<td class="num">39</td>
+<td class="num">44</td>
 <td class="src"><pre><code class="objc">            return PostponedIntegrationFactory(for: child)</code></pre></td>
 <td class="coverage">35x</td>
 </tr>
 <tr class="covered">
-<td class="num">40</td>
+<td class="num">45</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
 <td class="coverage">45x</td>
 </tr>
 <tr class="covered">
-<td class="num">41</td>
+<td class="num">46</td>
 <td class="src"><pre><code class="objc">        return otherFactories</code></pre></td>
 <td class="coverage">27x</td>
 </tr>
 <tr class="covered">
-<td class="num">42</td>
+<td class="num">47</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
 <td class="coverage">27x</td>
 </tr>
 <tr class="never">
-<td class="num">43</td>
+<td class="num">48</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
-<td class="num">44</td>
+<td class="num">49</td>
 <td class="src"><pre><code class="objc">    func build&lt;Context&gt;(with context: Context) throws -&gt; UIViewController {</code></pre></td>
 <td class="coverage">27x</td>
 </tr>
 <tr class="covered">
-<td class="num">45</td>
+<td class="num">50</td>
 <td class="src"><pre><code class="objc">        guard let typedContext = Any?.some(context as Any) as? FactoryType.Context else {</code></pre></td>
 <td class="coverage">27x</td>
 </tr>
 <tr class="covered">
-<td class="num">46</td>
+<td class="num">51</td>
 <td class="src"><pre><code class="objc">            throw RoutingError.typeMismatch(type: type(of: context),</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
-<td class="num">47</td>
+<td class="num">52</td>
 <td class="src"><pre><code class="objc">                                            expectedType: FactoryType.Context.self,</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
-<td class="num">48</td>
+<td class="num">53</td>
 <td class="src"><pre><code class="objc">                                            .init("\(String(describing: factory.self)) does not accept \(String(describing: context.self)) as a context."))</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
-<td class="num">49</td>
+<td class="num">54</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
 <td class="coverage">26x</td>
 </tr>
 <tr class="covered">
-<td class="num">50</td>
+<td class="num">55</td>
 <td class="src"><pre><code class="objc">        assertIfNotMainThread()</code></pre></td>
 <td class="coverage">26x</td>
 </tr>
 <tr class="covered">
-<td class="num">51</td>
+<td class="num">56</td>
 <td class="src"><pre><code class="objc">        assertIfNotPrepared()</code></pre></td>
 <td class="coverage">26x</td>
 </tr>
 <tr class="covered">
-<td class="num">52</td>
+<td class="num">57</td>
 <td class="src"><pre><code class="objc">        return try factory.build(with: typedContext, integrating: ChildCoordinator(childFactories: children))</code></pre></td>
 <td class="coverage">26x</td>
 </tr>
 <tr class="covered">
-<td class="num">53</td>
+<td class="num">58</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
 <td class="coverage">27x</td>
 </tr>
 <tr class="never">
-<td class="num">54</td>
+<td class="num">59</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">55</td>
+<td class="num">60</td>
 <td class="src"><pre><code class="objc">}</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">56</td>
+<td class="num">61</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">57</td>
+<td class="num">62</td>
 <td class="src"><pre><code class="objc">#endif</code></pre></td>
 <td class="coverage"></td>
 </tr>

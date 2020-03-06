@@ -1,5 +1,10 @@
 //
-// Created by Eugene Kazaev on 07/02/2018.
+// RouteComposer
+// WishListViewController.swift
+// https://github.com/ekazaev/route-composer
+//
+// Created by Eugene Kazaev in 2018-2020.
+// Distributed under the MIT license.
 //
 
 import Foundation

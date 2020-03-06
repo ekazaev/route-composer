@@ -1,5 +1,10 @@
 //
-// Created by Eugene Kazaev on 19/01/2018.
+// RouteComposer
+// LoginConfiguration.swift
+// https://github.com/ekazaev/route-composer
+//
+// Created by Eugene Kazaev in 2018-2020.
+// Distributed under the MIT license.
 //
 
 import Foundation

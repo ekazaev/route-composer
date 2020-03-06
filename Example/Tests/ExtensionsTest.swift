@@ -1,5 +1,10 @@
 //
-// Created by Eugene Kazaev on 11/09/2018.
+// RouteComposer
+// ExtensionsTest.swift
+// https://github.com/ekazaev/route-composer
+//
+// Created by Eugene Kazaev in 2018-2020.
+// Distributed under the MIT license.
 //
 
 #if os(iOS)
@@ -64,7 +69,7 @@ class ExtensionsTest: XCTestCase {
         viewController1.addChild(viewController2)
         viewController2.addChild(UISplitViewController())
 
-        XCTAssertEqual(try? UIViewController.findViewController(in: viewController2, options: [.parent], using: { _ in return true }), viewController1)
+        XCTAssertEqual(try? UIViewController.findViewController(in: viewController2, options: [.parent], using: { _ in true }), viewController1)
         XCTAssertNil(try? UIViewController.findViewController(in: viewController2, options: [.current, .parent], using: { $0 is UISplitViewController }))
         XCTAssertEqual(try? UIViewController.findViewController(in: viewController2, options: [.current, .parent], using: { $0 is UINavigationController }), navigationController)
         XCTAssertEqual(try? UIViewController.findViewController(in: viewController2, options: [.current, .parent], using: { $0 is UITabBarController }), tabBarController)

@@ -1,6 +1,12 @@
 //
-// Created by Eugene Kazaev on 15/01/2018.
+// RouteComposer
+// Factory.swift
+// https://github.com/ekazaev/route-composer
 //
+// Created by Eugene Kazaev in 2018-2020.
+// Distributed under the MIT license.
+//
+
 #if os(iOS)
 
 import UIKit
@@ -84,4 +90,5 @@ public extension Factory where Context == Void {
     }
 
 }
+
 #endif

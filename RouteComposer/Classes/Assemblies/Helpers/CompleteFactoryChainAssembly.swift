@@ -1,6 +1,12 @@
 //
-// Created by Eugene Kazaev on 2019-04-04.
+// RouteComposer
+// CompleteFactoryChainAssembly.swift
+// https://github.com/ekazaev/route-composer
 //
+// Created by Eugene Kazaev in 2018-2020.
+// Distributed under the MIT license.
+//
+
 #if os(iOS)
 
 import Foundation
@@ -104,4 +110,5 @@ public final class CompleteFactoryChainAssembly<FC: ContainerFactory, ChildVC: U
     }
 
 }
+
 #endif

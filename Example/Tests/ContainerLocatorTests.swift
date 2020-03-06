@@ -1,8 +1,10 @@
 //
-//  ContainerProviderTests.swift
-//  RouteComposer_Tests
+// RouteComposer
+// ContainerLocatorTests.swift
+// https://github.com/ekazaev/route-composer
 //
-//  Created by Eugene Kazaev on 12/05/2019.
+// Created by Eugene Kazaev in 2018-2020.
+// Distributed under the MIT license.
 //
 
 #if os(iOS)

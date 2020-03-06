@@ -1,6 +1,12 @@
 //
-// Created by Eugene Kazaev on 17/01/2018.
+// RouteComposer
+// PostRoutingTask.swift
+// https://github.com/ekazaev/route-composer
 //
+// Created by Eugene Kazaev in 2018-2020.
+// Distributed under the MIT license.
+//
+
 #if os(iOS)
 
 import Foundation
@@ -61,4 +67,5 @@ public extension PostRoutingTask where Context == Void {
     }
 
 }
+
 #endif

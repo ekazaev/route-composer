@@ -1,8 +1,10 @@
 //
-//  PostponedIntegrationFactory.swift
-//  RouteComposer
+// RouteComposer
+// PostponedIntegrationFactory.swift
+// https://github.com/ekazaev/route-composer
 //
-//  Created by Eugene Kazaev on 03/03/2018.
+// Created by Eugene Kazaev in 2018-2020.
+// Distributed under the MIT license.
 //
 
 #if os(iOS)

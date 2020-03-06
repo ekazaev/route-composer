@@ -1,5 +1,10 @@
 //
-// Created by Eugene Kazaev on 2019-08-07.
+// RouteComposer
+// Array+PrivateExtension.swift
+// https://github.com/ekazaev/route-composer
+//
+// Created by Eugene Kazaev in 2018-2020.
+// Distributed under the MIT license.
 //
 
 #if os(iOS)
@@ -30,7 +35,7 @@ extension Array where Element: UIViewController {
             return false
         }
         return enumerated().first(where: { index, vc in
-            return array[index] !== vc
+            array[index] !== vc
         }) == nil
     }
 

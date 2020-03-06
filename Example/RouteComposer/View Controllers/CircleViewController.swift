@@ -1,5 +1,10 @@
 //
-//  Created by Eugene Kazaev on 18/12/2017.
+// RouteComposer
+// CircleViewController.swift
+// https://github.com/ekazaev/route-composer
+//
+// Created by Eugene Kazaev in 2018-2020.
+// Distributed under the MIT license.
 //
 
 import RouteComposer

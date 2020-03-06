@@ -1,5 +1,10 @@
 //
-// Created by Eugene Kazaev on 23/08/2019.
+// RouteComposer
+// CATransaction+Action.swift
+// https://github.com/ekazaev/route-composer
+//
+// Created by Eugene Kazaev in 2018-2020.
+// Distributed under the MIT license.
 //
 
 #if os(iOS)

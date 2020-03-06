@@ -10,7 +10,7 @@
 --exponentgrouping disabled
 --fractiongrouping disabled
 --fragment false
---header ignore
+--header "\nRouteComposer\n{file}\nhttps://github.com/ekazaev/route-composer\n\nCreated by Eugene Kazaev in 2018-{year}.\nDistributed under the MIT license.\n"
 --hexgrouping none
 --hexliteralcase uppercase
 --ifdef no-indent
@@ -33,6 +33,6 @@
 --wraparguments preserve
 --wrapcollections preserve
 --xcodeindentation disabled
---disable blankLinesAtEndOfScope,blankLinesAtStartOfScope,redundantReturn
+--disable blankLinesAtEndOfScope,blankLinesAtStartOfScope
 --enable isEmpty
 --exclude Pods,docs

@@ -1,5 +1,10 @@
 //
-// Created by Eugene Kazaev on 12/09/2018.
+// RouteComposer
+// AssemblyTest.swift
+// https://github.com/ekazaev/route-composer
+//
+// Created by Eugene Kazaev in 2018-2020.
+// Distributed under the MIT license.
 //
 
 #if os(iOS)
@@ -210,12 +215,12 @@ class AssemblyTest: XCTestCase {
                          .from(GeneralStep.current())
                          .assemble())
             .addCase { (_: Any?) in
-                return StepAssembly(finder: ClassFinder(), factory: NilFactory())
+                StepAssembly(finder: ClassFinder(), factory: NilFactory())
                     .from(GeneralStep.current())
                     .assemble()
             }
             .assemble(default: {
-                return StepAssembly(finder: NilFinder(), factory: NavigationControllerFactory())
+                StepAssembly(finder: NilFinder(), factory: NavigationControllerFactory())
                     .using(UITabBarController.add())
                     .from(TabBarControllerStep())
                     .using(GeneralAction.presentModally())
@@ -246,7 +251,7 @@ class AssemblyTest: XCTestCase {
         let step = SwitchAssembly<UIViewController, String>()
             .addCase(when: InstanceFinder(instance: viewController), from: SwitchAssembly<UIViewController, String>().assemble())
             .assemble(default: {
-                return SwitchAssembly<UIViewController, String>().assemble()
+                SwitchAssembly<UIViewController, String>().assemble()
             })
         XCTAssertEqual((step.destinationStep as? SwitcherStep)?.resolvers.count, 2)
         XCTAssertNotNil((step.destinationStep as? SwitcherStep)?.resolvers.first?.resolve(with: "10"))

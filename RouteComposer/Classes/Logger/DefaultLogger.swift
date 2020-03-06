@@ -1,8 +1,10 @@
 //
-//  DefaultLogger.swift
-//  RouteComposer
+// RouteComposer
+// DefaultLogger.swift
+// https://github.com/ekazaev/route-composer
 //
-//  Created by Eugene Kazaev on 08/02/2018.
+// Created by Eugene Kazaev in 2018-2020.
+// Distributed under the MIT license.
 //
 
 #if os(iOS)

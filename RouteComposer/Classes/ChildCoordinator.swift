@@ -1,5 +1,10 @@
 //
-// Created by Eugene Kazaev on 07/09/2018.
+// RouteComposer
+// ChildCoordinator.swift
+// https://github.com/ekazaev/route-composer
+//
+// Created by Eugene Kazaev in 2018-2020.
+// Distributed under the MIT license.
 //
 
 #if os(iOS)
@@ -40,4 +45,5 @@ public struct ChildCoordinator<Context> {
     }
 
 }
+
 #endif

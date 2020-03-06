@@ -1,5 +1,10 @@
 //
-// Created by Eugene Kazaev on 26/02/2018.
+// RouteComposer
+// ImagesWithoutLibraryConfiguration.swift
+// https://github.com/ekazaev/route-composer
+//
+// Created by Eugene Kazaev in 2018-2020.
+// Distributed under the MIT license.
 //
 
 import ContainerViewController

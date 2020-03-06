@@ -1,5 +1,10 @@
 //
-// Created by Eugene Kazaev on 2019-08-12.
+// RouteComposer
+// Router+Destination.swift
+// https://github.com/ekazaev/route-composer
+//
+// Created by Eugene Kazaev in 2018-2020.
+// Distributed under the MIT license.
 //
 
 #if os(iOS)

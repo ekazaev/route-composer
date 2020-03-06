@@ -1,5 +1,10 @@
 //
-// Created by Eugene Kazaev on 2018-09-17.
+// RouteComposer
+// AnalyticsRouterDecorator.swift
+// https://github.com/ekazaev/route-composer
+//
+// Created by Eugene Kazaev in 2018-2020.
+// Distributed under the MIT license.
 //
 
 import Foundation

@@ -1,5 +1,10 @@
 //
-// Created by Eugene Kazaev on 14/02/2018.
+// RouteComposer
+// SwitchAssembly.swift
+// https://github.com/ekazaev/route-composer
+//
+// Created by Eugene Kazaev in 2018-2020.
+// Distributed under the MIT license.
 //
 
 #if os(iOS)
@@ -154,7 +159,7 @@ public final class SwitchAssembly<ViewController: UIViewController, Context> {
     /// - Returns: an instance of `DestinationStep`
     public final func assemble(default resolverBlock: @escaping (() -> DestinationStep<ViewController, Context>)) -> DestinationStep<ViewController, Context> {
         resolvers.append(BlockResolver(resolverBlock: { _ in
-            return resolverBlock()
+            resolverBlock()
         }))
         return DestinationStep(SwitcherStep(resolvers: resolvers))
     }
@@ -165,7 +170,7 @@ public final class SwitchAssembly<ViewController: UIViewController, Context> {
     /// - Returns: a final instance of `DestinationStep`
     public final func assemble(default step: DestinationStep<ViewController, Context>) -> DestinationStep<ViewController, Context> {
         resolvers.append(BlockResolver(resolverBlock: { _ in
-            return step
+            step
         }))
         return DestinationStep(SwitcherStep(resolvers: resolvers))
     }
