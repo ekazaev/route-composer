@@ -45,7 +45,7 @@ struct ContextTaskBox<CT: ContextTask>: AnyContextTask, PreparableEntity, MainTh
     }
 
     var description: String {
-        return String(describing: contextTask)
+        String(describing: contextTask)
     }
 
 }

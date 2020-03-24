@@ -20,18 +20,18 @@ public extension ContainerViewController where Self: UISplitViewController {
 
     /// Presents a view controller as a master in the `UISplitViewController`
     static func setAsMaster() -> SplitViewControllerActions.SetAsMasterAction<Self> {
-        return SplitViewControllerActions.SetAsMasterAction()
+        SplitViewControllerActions.SetAsMasterAction()
     }
 
     /// Presents a view controller as a detail in the `UISplitViewController`, *replacing* the previous detail.
     static func pushToDetails() -> SplitViewControllerActions.PushToDetailsAction<Self> {
-        return SplitViewControllerActions.PushToDetailsAction()
+        SplitViewControllerActions.PushToDetailsAction()
     }
 
     /// Pushes a view controller *onto* the detail stack in the `UISplitViewController`. Requires the root detail view
     /// controller to be the `UINavigationController`
     static func pushOnToDetails() -> RouteComposer.SplitViewControllerActions.PushOnToDetailsAction<Self> {
-        return SplitViewControllerActions.PushOnToDetailsAction()
+        SplitViewControllerActions.PushOnToDetailsAction()
     }
 
 }

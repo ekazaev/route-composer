@@ -26,7 +26,7 @@ public struct GeneralAction {
     public static func replaceRoot(windowProvider: WindowProvider = KeyWindowProvider(),
                                    animationOptions: UIView.AnimationOptions? = nil,
                                    duration: TimeInterval = 0.3) -> ViewControllerActions.ReplaceRootAction {
-        return ViewControllerActions.ReplaceRootAction(windowProvider: windowProvider, animationOptions: animationOptions, duration: duration)
+        ViewControllerActions.ReplaceRootAction(windowProvider: windowProvider, animationOptions: animationOptions, duration: duration)
     }
 
     /// Presents a view controller modally
@@ -46,18 +46,18 @@ public struct GeneralAction {
                                       preferredContentSize: CGSize? = nil,
                                       isModalInPresentation: Bool? = nil,
                                       popoverConfiguration: ((_: UIPopoverPresentationController) -> Void)? = nil) -> ViewControllerActions.PresentModallyAction {
-        return ViewControllerActions.PresentModallyAction(startingFrom: presentationStartingPoint,
-                                                          presentationStyle: presentationStyle,
-                                                          transitionStyle: transitionStyle,
-                                                          transitioningDelegate: transitioningDelegate,
-                                                          preferredContentSize: preferredContentSize,
-                                                          isModalInPresentation: isModalInPresentation,
-                                                          popoverConfiguration: popoverConfiguration)
+        ViewControllerActions.PresentModallyAction(startingFrom: presentationStartingPoint,
+                                                   presentationStyle: presentationStyle,
+                                                   transitionStyle: transitionStyle,
+                                                   transitioningDelegate: transitioningDelegate,
+                                                   preferredContentSize: preferredContentSize,
+                                                   isModalInPresentation: isModalInPresentation,
+                                                   popoverConfiguration: popoverConfiguration)
     }
 
     /// `Action` does nothing, but can be helpful for testing or writing the sequences of steps with the `NilFactory`
     public static func nilAction() -> ViewControllerActions.NilAction {
-        return ViewControllerActions.NilAction()
+        ViewControllerActions.NilAction()
     }
 
 }

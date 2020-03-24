@@ -20,17 +20,17 @@ public extension ContainerViewController where Self: UINavigationController {
 
     /// Replaces all the child view controllers in the `UINavigationController`'s children stack
     static func pushAsRoot() -> NavigationControllerActions.PushAsRootAction<Self> {
-        return NavigationControllerActions.PushAsRootAction()
+        NavigationControllerActions.PushAsRootAction()
     }
 
     /// Pushes a child view controller into the `UINavigationController`'s children stack
     static func push() -> NavigationControllerActions.PushAction<Self> {
-        return NavigationControllerActions.PushAction()
+        NavigationControllerActions.PushAction()
     }
 
     /// Pushes a child view controller, replacing the existing, into the `UINavigationController`'s children stack
     static func pushReplacingLast() -> NavigationControllerActions.PushReplacingLastAction<Self> {
-        return NavigationControllerActions.PushReplacingLastAction()
+        NavigationControllerActions.PushReplacingLastAction()
     }
 
 }

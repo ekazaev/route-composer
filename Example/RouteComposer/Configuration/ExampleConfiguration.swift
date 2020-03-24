@@ -9,6 +9,7 @@
 
 import Foundation
 import RouteComposer
+import SwiftUI
 
 let transitionController = BlurredBackgroundTransitionController()
 
@@ -23,6 +24,8 @@ protocol ExampleScreenConfiguration {
     var colorScreen: DestinationStep<ColorViewController, String> { get }
 
     var starScreen: DestinationStep<StarViewController, Any?> { get }
+
+    var swiftUIScreen: DestinationStep<UIViewController, String> { get }
 
     var routingSupportScreen: DestinationStep<RoutingRuleSupportViewController, String> { get }
 
@@ -39,7 +42,7 @@ protocol ExampleScreenConfiguration {
 extension ExampleScreenConfiguration {
 
     var homeScreen: DestinationStep<UITabBarController, Any?> {
-        return StepAssembly(
+        StepAssembly(
             // As both factory and finder are generic, You have to provide with at least one instance
             // the type of the view controller and the context to be used. You do not need to do so if you are using at
             // least one custom factory of finder that have set typealias for ViewController and Context.
@@ -53,7 +56,7 @@ extension ExampleScreenConfiguration {
     }
 
     var circleScreen: DestinationStep<CircleViewController, Any?> {
-        return StepAssembly(
+        StepAssembly(
             finder: ClassFinder<CircleViewController, Any?>(),
             factory: NilFactory()
         )
@@ -63,7 +66,7 @@ extension ExampleScreenConfiguration {
     }
 
     var squareScreen: DestinationStep<SquareViewController, Any?> {
-        return StepAssembly(
+        StepAssembly(
             finder: ClassFinder<SquareViewController, Any?>(),
             factory: NilFactory()
         )
@@ -73,7 +76,7 @@ extension ExampleScreenConfiguration {
     }
 
     var colorScreen: DestinationStep<ColorViewController, String> {
-        return StepAssembly(
+        StepAssembly(
             finder: ColorViewControllerFinder(),
             factory: ColorViewControllerFactory()
         )
@@ -90,7 +93,7 @@ extension ExampleScreenConfiguration {
     }
 
     var routingSupportScreen: DestinationStep<RoutingRuleSupportViewController, String> {
-        return StepAssembly(
+        StepAssembly(
             finder: ClassFinder<RoutingRuleSupportViewController, String>(options: .currentAllStack),
             factory: StoryboardFactory(name: "TabBar", identifier: "RoutingRuleSupportViewController")
         )
@@ -103,7 +106,7 @@ extension ExampleScreenConfiguration {
     }
 
     var figuresScreen: DestinationStep<FiguresViewController, Any?> {
-        return StepAssembly(
+        StepAssembly(
             finder: ClassFinder<FiguresViewController, Any?>(),
             factory: StoryboardFactory(name: "TabBar", identifier: "FiguresViewController")
         )
@@ -115,7 +118,7 @@ extension ExampleScreenConfiguration {
     }
 
     var secondModalScreen: DestinationStep<SecondModalLevelViewController, String> {
-        return StepAssembly(
+        StepAssembly(
             finder: ClassFinder<SecondModalLevelViewController, String>(),
             factory: StoryboardFactory(name: "TabBar", identifier: "SecondModalLevelViewController")
         )
@@ -132,7 +135,7 @@ extension ExampleScreenConfiguration {
     }
 
     var welcomeScreen: DestinationStep<PromptViewController, Any?> {
-        return StepAssembly(
+        StepAssembly(
             finder: ClassFinder<PromptViewController, Any?>(),
             factory: StoryboardFactory(name: "PromptScreen")
         )
@@ -143,7 +146,7 @@ extension ExampleScreenConfiguration {
     }
 
     var figuresAndProductScreen: DestinationStep<ProductViewController, ProductContext> {
-        return StepAssembly(
+        StepAssembly(
             finder: ClassWithContextFinder<ProductViewController, ProductContext>(),
             factory: StoryboardFactory(name: "TabBar", identifier: "ProductViewController")
         )
@@ -152,12 +155,27 @@ extension ExampleScreenConfiguration {
         .assemble(from: figuresScreen.expectingContainer())
     }
 
+    var swiftUIScreen: DestinationStep<UIViewController, String> {
+        guard #available(iOS 13.0, *) else {
+            return starScreen.unsafelyRewrapped()
+        }
+        return StepAssembly(
+            finder: UIHostingControllerWithContextFinder<SwiftUIContentView>(),
+            factory: UIHostingControllerWithContextFactory()
+        )
+        .adding(ExampleGenericContextTask<UIHostingController<SwiftUIContentView>, String>())
+        .adding(ContextSettingTask())
+        .using(UINavigationController.push())
+        .from(circleScreen.expectingContainer())
+        .assemble().unsafelyRewrapped()
+    }
+
 }
 
 struct ExampleConfiguration: ExampleScreenConfiguration {
 
     var starScreen: DestinationStep<StarViewController, Any?> {
-        return StepAssembly(
+        StepAssembly(
             finder: ClassFinder<StarViewController, Any?>(options: .currentAllStack),
             factory: ClassFactory()
         )
@@ -173,7 +191,7 @@ struct ExampleConfiguration: ExampleScreenConfiguration {
 struct AlternativeExampleConfiguration: ExampleScreenConfiguration {
 
     var starScreen: DestinationStep<StarViewController, Any?> {
-        return StepAssembly(
+        StepAssembly(
             finder: ClassFinder<StarViewController, Any?>(options: .currentAllStack),
             factory: ClassFactory()
         )

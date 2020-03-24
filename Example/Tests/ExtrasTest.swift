@@ -100,7 +100,7 @@ class ExtrasTest: XCTestCase {
         }))
 
         XCTAssertThrowsError(try router.navigate(to: screenConfig, with: nil, animated: false, completion: { _ in
-            XCTAssertFalse(true, "Should not be called")
+            XCTFail()
         }))
 
         wait(for: [expectation], timeout: 0.3)
@@ -197,7 +197,7 @@ class ExtrasTest: XCTestCase {
     func testNavigationDelayingInterceptorPerform() {
         class DismissingViewController: UIViewController {
             override var isBeingDismissed: Bool {
-                return true
+                true
             }
         }
 
@@ -240,7 +240,7 @@ class ExtrasTest: XCTestCase {
 
             override var viewControllers: [UIViewController] {
                 get {
-                    return [nestedNavigationController]
+                    [nestedNavigationController]
                 }
                 set {
                     super.viewControllers = newValue

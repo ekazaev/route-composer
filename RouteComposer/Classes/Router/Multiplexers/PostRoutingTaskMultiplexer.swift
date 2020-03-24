@@ -25,7 +25,7 @@ struct PostRoutingTaskMultiplexer: AnyPostRoutingTask, CustomStringConvertible {
     }
 
     var description: String {
-        return String(describing: tasks)
+        String(describing: tasks)
     }
 
 }

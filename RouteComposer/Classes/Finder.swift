@@ -61,7 +61,7 @@ public extension Finder where Context == Any? {
     ///
     /// - Returns: The `UIViewController` instance that the `Router` is looking for, nil otherwise.
     func findViewController() throws -> ViewController? {
-        return try findViewController(with: nil)
+        try findViewController(with: nil)
     }
 
     /// Returns the view controller instance if it is present in the stack. Doesn't throw any exceptions in case the search
@@ -69,7 +69,7 @@ public extension Finder where Context == Any? {
     ///
     /// - Returns: The `UIViewController` instance that the `Router` is looking for, nil otherwise.
     func getViewController() -> ViewController? {
-        return getViewController(with: nil)
+        getViewController(with: nil)
     }
 
 }
@@ -82,7 +82,7 @@ public extension Finder where Context == Void {
     ///
     /// - Returns: The `UIViewController` instance that the `Router` is looking for, nil otherwise.
     func findViewController() throws -> ViewController? {
-        return try findViewController(with: ())
+        try findViewController(with: ())
     }
 
     /// Returns the view controller instance if it is present in the stack. Doesn't throw any exceptions in case the search
@@ -90,7 +90,7 @@ public extension Finder where Context == Void {
     ///
     /// - Returns: The `UIViewController` instance that the `Router` is looking for, nil otherwise.
     func getViewController() -> ViewController? {
-        return getViewController(with: ())
+        getViewController(with: ())
     }
 
 }

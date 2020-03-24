@@ -46,6 +46,8 @@ custom_categories:
       - TabBarControllerFactory
       - SplitControllerFactory
       - NilFactory
+      - UIHostingControllerFactory
+      - UIHostingControllerWithContextFactory
 
   - name: Finders
     children:
@@ -53,6 +55,7 @@ custom_categories:
       - ClassFinder
       - InstanceFinder
       - NilFinder
+      - UIHostingControllerWithContextFinder
 
   - name: Steps
     children:
@@ -87,6 +90,8 @@ custom_categories:
       - PresentingFinder
       - ContextSettingTask
       - ContextAccepting
+      - ContextAcceptingView
+      - ContextInstantiatable
       - ClassWithContextFinder
       - ContextChecking
       - DismissalMethodProvidingContextTask

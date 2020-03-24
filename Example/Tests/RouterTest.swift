@@ -40,11 +40,11 @@ class RouterTests: XCTestCase {
         var fakePresentingViewController: UIViewController?
 
         override var presentedViewController: UIViewController? {
-            return fakePresentedViewController
+            fakePresentedViewController
         }
 
         override var presentingViewController: UIViewController? {
-            return fakePresentingViewController
+            fakePresentingViewController
         }
     }
 
@@ -58,7 +58,7 @@ class RouterTests: XCTestCase {
         }
 
         func perform<Context>(with context: Context) -> PerformableStepResult {
-            return .success(currentViewController)
+            .success(currentViewController)
         }
 
     }
@@ -79,7 +79,7 @@ class RouterTests: XCTestCase {
         typealias Context = C
 
         func build(with context: C) throws -> TestViewController {
-            return TestViewController()
+            TestViewController()
         }
 
     }
@@ -103,7 +103,7 @@ class RouterTests: XCTestCase {
         }
 
         func findViewController(with context: C) throws -> VC? {
-            return currentViewController
+            currentViewController
         }
     }
 
@@ -161,7 +161,7 @@ class RouterTests: XCTestCase {
             }
 
             func findViewController(with context: C) -> VC? {
-                return currentViewController
+                currentViewController
             }
         }
 
@@ -385,7 +385,7 @@ class RouterTests: XCTestCase {
         struct NoneStep: RoutingStep, PerformableStep {
 
             func perform<Context>(with context: Context) throws -> PerformableStepResult {
-                return .none
+                .none
             }
         }
 

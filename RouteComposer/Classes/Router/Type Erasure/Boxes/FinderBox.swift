@@ -33,7 +33,7 @@ struct FinderBox<F: Finder>: AnyFinder, CustomStringConvertible {
     }
 
     var description: String {
-        return String(describing: finder)
+        String(describing: finder)
     }
 
 }

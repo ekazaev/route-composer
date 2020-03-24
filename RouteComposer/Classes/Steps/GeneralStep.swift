@@ -73,17 +73,17 @@ public struct GeneralStep {
 
     /// Returns the root view controller of the key window.
     public static func root<C>(windowProvider: WindowProvider = KeyWindowProvider()) -> DestinationStep<UIViewController, C> {
-        return DestinationStep(RootViewControllerStep(windowProvider: windowProvider))
+        DestinationStep(RootViewControllerStep(windowProvider: windowProvider))
     }
 
     /// Returns the topmost presented view controller.
     public static func current<C>(windowProvider: WindowProvider = KeyWindowProvider()) -> DestinationStep<UIViewController, C> {
-        return DestinationStep(CurrentViewControllerStep(windowProvider: windowProvider))
+        DestinationStep(CurrentViewControllerStep(windowProvider: windowProvider))
     }
 
     /// Returns the resulting view controller of the finder provided.
     public static func custom<F: Finder>(using finder: F) -> DestinationStep<F.ViewController, F.Context> {
-        return DestinationStep(FinderStep(finder: finder))
+        DestinationStep(FinderStep(finder: finder))
     }
 
 }

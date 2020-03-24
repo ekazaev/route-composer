@@ -13,6 +13,9 @@ import Foundation
 @testable import RouteComposer
 import UIKit
 import XCTest
+#if canImport(SwiftUI)
+import SwiftUI
+#endif
 
 extension DefaultStackIterator.StartingPoint: Equatable {
 
@@ -42,7 +45,7 @@ class FinderTest: XCTestCase {
         var context: String = "123"
 
         func isTarget(for context: String) -> Bool {
-            return self.context == context
+            self.context == context
         }
     }
 
@@ -94,7 +97,7 @@ class FinderTest: XCTestCase {
             }
 
             public func findViewController(with context: C) -> VC? {
-                return instance
+                instance
             }
 
         }
@@ -141,6 +144,14 @@ class FinderTest: XCTestCase {
 
         let someOptions = [SearchOptions.current, .contained, .parent]
         XCTAssertEqual(someOptions.description, "[current, contained, parent]")
+    }
+
+    @available(iOS 13.0.0, *)
+    func testUIHostingControllerWithContextFinder() {
+        let viewController = UIHostingController<TestSwiftUIView>(rootView: TestSwiftUIView(with: "123"))
+        let finder = UIHostingControllerWithContextFinder<TestSwiftUIView>(options: .currentAllStack, startingPoint: .custom(viewController))
+        XCTAssertEqual(try? finder.findViewController(with: "123"), viewController)
+        XCTAssertNil(try? finder.findViewController(with: "321"))
     }
 
 }

@@ -43,7 +43,7 @@ struct PostponedIntegrationFactory<Context>: CustomStringConvertible {
     }
 
     public var description: String {
-        return String(describing: factory)
+        String(describing: factory)
     }
 
 }

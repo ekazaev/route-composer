@@ -64,7 +64,7 @@ class FactoryTest: XCTestCase {
 
         struct NothingFinder<VC: UIViewController, C>: Finder {
             func findViewController(with context: C) -> VC? {
-                return nil
+                nil
             }
         }
 
@@ -87,7 +87,7 @@ class FactoryTest: XCTestCase {
             typealias Context = Void
 
             func build(with context: Void) throws -> UIViewController {
-                return UIViewController()
+                UIViewController()
             }
 
         }
@@ -179,6 +179,15 @@ class FactoryTest: XCTestCase {
     func testSplitControllerStep() {
         let step = SplitControllerStep<UISplitViewController, Any?>()
         XCTAssertNoThrow(try step.factory.build(with: nil, integrating: ChildCoordinator(childFactories: [])))
+    }
+
+    @available(iOS 13.0.0, *)
+    func testUIHostingControllerFactory() {
+        let viewController = try? UIHostingControllerFactory<TestSwiftUIView, String> { context in
+            TestSwiftUIView(with: context)
+        }.execute(with: "test")
+        XCTAssertNotNil(viewController)
+        XCTAssertNotNil(viewController?.rootView.context == "test")
     }
 
 }

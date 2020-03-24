@@ -226,7 +226,7 @@ extension DefaultRouter {
         }
 
         mutating func prepare<Context>(with context: Context) throws {
-            return try factory.prepare(with: context)
+            try factory.prepare(with: context)
         }
 
         func build<Context>(with context: Context) throws -> UIViewController {
@@ -236,11 +236,11 @@ extension DefaultRouter {
         }
 
         mutating func scrapeChildren(from factories: [AnyFactory]) throws -> [AnyFactory] {
-            return try factory.scrapeChildren(from: factories)
+            try factory.scrapeChildren(from: factories)
         }
 
         var description: String {
-            return String(describing: factory)
+            String(describing: factory)
         }
 
     }

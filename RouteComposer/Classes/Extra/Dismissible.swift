@@ -89,7 +89,7 @@ public extension DismissibleWithRuntimeStorage {
 
     var dismissalBlock: ((_: DismissalTargetContext, _: Bool, _: ((_: RoutingResult) -> Void)?) -> Void)? {
         get {
-            return objc_getAssociatedObject(self, &associatedObjectHandle) as? ((_: DismissalTargetContext, _: Bool, _: ((_: RoutingResult) -> Void)?) -> Void)
+            objc_getAssociatedObject(self, &associatedObjectHandle) as? ((_: DismissalTargetContext, _: Bool, _: ((_: RoutingResult) -> Void)?) -> Void)
         }
         set {
             objc_setAssociatedObject(self, &associatedObjectHandle, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)

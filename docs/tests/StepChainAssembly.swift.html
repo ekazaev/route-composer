@@ -130,17 +130,17 @@
 <tr class="covered">
 <td class="num">24</td>
 <td class="src"><pre><code class="objc">    init(previousSteps: [RoutingStep]) {</code></pre></td>
-<td class="coverage">104x</td>
+<td class="coverage">109x</td>
 </tr>
 <tr class="covered">
 <td class="num">25</td>
 <td class="src"><pre><code class="objc">        self.previousSteps = previousSteps</code></pre></td>
-<td class="coverage">104x</td>
+<td class="coverage">109x</td>
 </tr>
 <tr class="covered">
 <td class="num">26</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">104x</td>
+<td class="coverage">109x</td>
 </tr>
 <tr class="never">
 <td class="num">27</td>
@@ -169,7 +169,7 @@
 </tr>
 <tr class="covered">
 <td class="num">32</td>
-<td class="src"><pre><code class="objc">        return ActionConnectingAssembly&lt;ViewController, Context&gt;(stepToFullFill: step, previousSteps: previousSteps)</code></pre></td>
+<td class="src"><pre><code class="objc">        ActionConnectingAssembly&lt;ViewController, Context&gt;(stepToFullFill: step, previousSteps: previousSteps)</code></pre></td>
 <td class="coverage">3x</td>
 </tr>
 <tr class="covered">
@@ -200,27 +200,27 @@
 <tr class="covered">
 <td class="num">38</td>
 <td class="src"><pre><code class="objc">    public func from&lt;VC: UIViewController&gt;(_ step: DestinationStep&lt;VC, Context&gt;) -&gt; LastStepInChainAssembly&lt;ViewController, Context&gt; {</code></pre></td>
-<td class="coverage">97x</td>
+<td class="coverage">102x</td>
 </tr>
 <tr class="covered">
 <td class="num">39</td>
 <td class="src"><pre><code class="objc">        var previousSteps = self.previousSteps</code></pre></td>
-<td class="coverage">97x</td>
+<td class="coverage">102x</td>
 </tr>
 <tr class="covered">
 <td class="num">40</td>
 <td class="src"><pre><code class="objc">        previousSteps.append(step)</code></pre></td>
-<td class="coverage">97x</td>
+<td class="coverage">102x</td>
 </tr>
 <tr class="covered">
 <td class="num">41</td>
 <td class="src"><pre><code class="objc">        return LastStepInChainAssembly&lt;ViewController, Context&gt;(previousSteps: previousSteps)</code></pre></td>
-<td class="coverage">97x</td>
+<td class="coverage">102x</td>
 </tr>
 <tr class="covered">
 <td class="num">42</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">97x</td>
+<td class="coverage">102x</td>
 </tr>
 <tr class="never">
 <td class="num">43</td>

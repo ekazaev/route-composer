@@ -18,7 +18,7 @@ class DestinationStepTests: XCTestCase {
     struct TestFinder<VC: UIViewController, C>: Finder {
 
         func findViewController(with context: C) throws -> VC? {
-            return nil
+            nil
         }
 
     }

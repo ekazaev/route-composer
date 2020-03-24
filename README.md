@@ -4,6 +4,7 @@
 [![Release](https://img.shields.io/github/release/ekazaev/route-composer.svg?style=flat&color=darkcyan)](https://github.com/ekazaev/route-composer/releases)
 [![Cocoapods](https://img.shields.io/cocoapods/v/RouteComposer.svg?style=flat)](http://cocoapods.org/pods/RouteComposer)
 [![Swift Package Manager](https://img.shields.io/badge/SwiftPM-compatible-brightgreen.svg?style=flat)](https://github.com/apple/swift-package-manager)
+[![SwiftUI](https://img.shields.io/badge/SwiftUI-compatible-0AB42A.svg?style=flat)](https://developer.apple.com/xcode/swiftui/)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BA51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Swift 5.2](https://img.shields.io/badge/language-Swift5.2-orange.svg?style=flat)](https://developer.apple.com/swift)
 [![Platform iOS](https://img.shields.io/badge/platform-iOS%209%20—%20iOS%2013-yellow.svg)](https://www.apple.com/ios)
@@ -38,6 +39,7 @@ Can be used as the universal replacement for the [Coordinator](https://www.raywe
     - [Navigation](#navigation)
     - [Deep-linking](#deep-linking)
     - [Troubleshooting](#troubleshooting)
+- [SwiftUI](#swiftui)
 - [Advanced Configuration](#advanced-configuration)
 - [Contributing](#contributing)
 - [License](#license)
@@ -464,6 +466,10 @@ and we will try to fix the issue as soon as possible.
         navigationController.pushViewController(productController, animated: true)
     }
 ```
+
+## SwiftUI:
+
+`RouteComposer` is compatible with [SwiftUI](https://developer.apple.com/xcode/swiftui/). See example app for the details.
 
 ## Advanced Configuration:
 

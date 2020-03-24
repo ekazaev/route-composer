@@ -50,7 +50,7 @@ class WishListViewController: UITableViewController, ExampleAnalyticsSupport {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return WishListDataModel.data[context]?.count ?? 0
+        WishListDataModel.data[context]?.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

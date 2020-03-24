@@ -16,7 +16,7 @@ import UIKit
 /// and its `Context` instance.
 ///
 /// The view controller should conform to the `ContextChecking` to be used with this finder.
-public struct ClassWithContextFinder<VC: ContextChecking, C>: StackIteratingFinder where VC.Context == C {
+public struct ClassWithContextFinder<VC: ContextChecking, C>: StackIteratingFinder where VC.Context == C, VC: UIViewController {
 
     // MARK: Associated types
 
@@ -39,7 +39,7 @@ public struct ClassWithContextFinder<VC: ContextChecking, C>: StackIteratingFind
     }
 
     public func isTarget(_ viewController: VC, with context: C) -> Bool {
-        return viewController.isTarget(for: context)
+        viewController.isTarget(for: context)
     }
 
 }

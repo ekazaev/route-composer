@@ -37,7 +37,7 @@ extension UIViewController {
     }
 
     static func findContainer<Container: ContainerViewController>(of viewController: UIViewController) -> Container? {
-        return [[viewController], viewController.allParents].joined().first(where: { $0 is Container }) as? Container
+        [[viewController], viewController.allParents].joined().first(where: { $0 is Container }) as? Container
     }
 
 }

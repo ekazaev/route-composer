@@ -20,7 +20,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="index.html">
-          RouteComposer Docs
+          RouteComposer 2.6.0 Docs
         </a>
          (100% documented)
       </p>
@@ -147,6 +147,12 @@
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Structs/NilFactory.html">NilFactory</a>
               </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/UIHostingControllerFactory.html">UIHostingControllerFactory</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/UIHostingControllerWithContextFactory.html">UIHostingControllerWithContextFactory</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -163,6 +169,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Structs/NilFinder.html">NilFinder</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/UIHostingControllerWithContextFinder.html">UIHostingControllerWithContextFinder</a>
               </li>
             </ul>
           </li>
@@ -253,6 +262,12 @@
                 <a class="nav-group-task-link" href="Protocols/ContextAccepting.html">ContextAccepting</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/ContextAcceptingView.html">ContextAcceptingView</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/ContextInstantiatable.html">ContextInstantiatable</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Structs/ClassWithContextFinder.html">ClassWithContextFinder</a>
               </li>
               <li class="nav-group-task">
@@ -317,6 +332,9 @@
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Extensions/Array.html">Array</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Extensions/UIHostingController.html">UIHostingController</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Extensions/UINavigationController.html">UINavigationController</a>
@@ -505,6 +523,7 @@
 <a href="https://github.com/ekazaev/route-composer/releases"><img src="https://img.shields.io/github/release/ekazaev/route-composer.svg?style=flat&color=darkcyan" alt="Release"></a>
 <a href="http://cocoapods.org/pods/RouteComposer"><img src="https://img.shields.io/cocoapods/v/RouteComposer.svg?style=flat" alt="Cocoapods"></a>
 <a href="https://github.com/apple/swift-package-manager"><img src="https://img.shields.io/badge/SwiftPM-compatible-brightgreen.svg?style=flat" alt="Swift Package Manager"></a>
+<a href="https://developer.apple.com/xcode/swiftui/"><img src="https://img.shields.io/badge/SwiftUI-compatible-0AB42A.svg?style=flat" alt="SwiftUI"></a>
 <a href="https://github.com/Carthage/Carthage"><img src="https://img.shields.io/badge/Carthage-compatible-4BA51D.svg?style=flat" alt="Carthage compatible"></a>
 <a href="https://developer.apple.com/swift"><img src="https://img.shields.io/badge/language-Swift5.2-orange.svg?style=flat" alt="Swift 5.2"></a>
 <a href="https://www.apple.com/ios"><img src="https://img.shields.io/badge/platform-iOS%209%20%E2%80%94%20iOS%2013-yellow.svg" alt="Platform iOS"></a>
@@ -545,6 +564,7 @@ and deep linking tasks in the iOS application. </p>
 <li><a href="#deep-linking">Deep-linking</a></li>
 <li><a href="#troubleshooting">Troubleshooting</a></li>
 </ul></li>
+<li><a href="#swiftui">SwiftUI</a></li>
 <li><a href="#advanced-configuration">Advanced Configuration</a></li>
 <li><a href="#contributing">Contributing</a></li>
 <li><a href="#license">License</a></li>
@@ -937,6 +957,9 @@ and we will try to fix the issue as soon as possible.</p>
         <span class="n">navigationController</span><span class="o">.</span><span class="nf">pushViewController</span><span class="p">(</span><span class="n">productController</span><span class="p">,</span> <span class="nv">animated</span><span class="p">:</span> <span class="kc">true</span><span class="p">)</span>
     <span class="p">}</span>
 </code></pre>
+<h2 id='swiftui' class='heading'>SwiftUI:</h2>
+
+<p><code>RouteComposer</code> is compatible with <a href="https://developer.apple.com/xcode/swiftui/">SwiftUI</a>. See example app for the details.</p>
 <h2 id='advanced-configuration' class='heading'>Advanced Configuration:</h2>
 
 <p>You can find more configuration examples <a href="https://ekazaev.github.io/route-composer/examples.html">here</a>.</p>
@@ -982,8 +1005,8 @@ apologies. <em>Caveat developer.</em></p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2020 <a class="link" href="https://github.com/ekazaev" target="_blank" rel="external">Evgeny Kazaev</a>. All rights reserved. (Last updated: 2020-04-29)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2020 <a class="link" href="https://github.com/ekazaev" target="_blank" rel="external">Evgeny Kazaev</a>. All rights reserved. (Last updated: 2020-05-22)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

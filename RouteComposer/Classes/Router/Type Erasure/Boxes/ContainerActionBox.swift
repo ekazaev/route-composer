@@ -89,11 +89,11 @@ struct ContainerActionBox<A: ContainerAction>: AnyAction, AnyActionBox, CustomSt
     }
 
     public var description: String {
-        return String(describing: action)
+        String(describing: action)
     }
 
     func isEmbeddable(to container: ContainerViewController.Type) -> Bool {
-        return container is A.ViewController.Type
+        container is A.ViewController.Type
     }
 
 }

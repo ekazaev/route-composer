@@ -44,7 +44,7 @@ class CitiesTableViewController: UITableViewController, ExampleAnalyticsSupport 
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return CitiesDataModel.cities.count
+        CitiesDataModel.cities.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -89,7 +89,7 @@ extension CitiesTableViewController: UISplitViewControllerDelegate {
         onto primaryViewController: UIViewController
     ) -> Bool {
         // Return true to prevent UIKit from applying its default behavior
-        return true
+        true
     }
 
 }

@@ -49,7 +49,7 @@ struct RoutingInterceptorBox<RI: RoutingInterceptor>: AnyRoutingInterceptor, Pre
     }
 
     var description: String {
-        return String(describing: routingInterceptor)
+        String(describing: routingInterceptor)
     }
 
 }

@@ -13,7 +13,7 @@ import Foundation
 import UIKit
 
 /// `UIViewController` instance should conform to this protocol to be used with `ClassWithContextFinder`
-public protocol ContextChecking where Self: UIViewController {
+public protocol ContextChecking {
 
     // MARK: Associated types
 

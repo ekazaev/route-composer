@@ -36,7 +36,7 @@ public struct ClassFinder<VC: UIViewController, C>: StackIteratingFinder {
     }
 
     public func isTarget(_ viewController: VC, with context: C) -> Bool {
-        return true
+        true
     }
 
 }

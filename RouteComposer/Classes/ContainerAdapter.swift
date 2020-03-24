@@ -66,7 +66,7 @@ public extension ContainerAdapter {
     /// - Parameter viewController: `UIViewController` instance
     /// - Returns: `true` if present, `false` otherwise.
     func contains(_ viewController: UIViewController) -> Bool {
-        return containedViewControllers.contains(viewController)
+        containedViewControllers.contains(viewController)
     }
 
     /// Checks if the provided view controller is present amongst the visible view controllers.
@@ -74,7 +74,7 @@ public extension ContainerAdapter {
     /// - Parameter viewController: `UIViewController` instance
     /// - Returns: `true` if present, `false` otherwise.
     func isVisible(_ viewController: UIViewController) -> Bool {
-        return visibleViewControllers.contains(viewController)
+        visibleViewControllers.contains(viewController)
     }
 
 }

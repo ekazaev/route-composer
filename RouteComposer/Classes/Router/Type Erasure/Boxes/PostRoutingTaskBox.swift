@@ -38,7 +38,7 @@ struct PostRoutingTaskBox<PT: PostRoutingTask>: AnyPostRoutingTask, MainThreadCh
     }
 
     var description: String {
-        return String(describing: postRoutingTask)
+        String(describing: postRoutingTask)
     }
 
 }

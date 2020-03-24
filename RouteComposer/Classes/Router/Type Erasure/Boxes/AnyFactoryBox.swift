@@ -30,7 +30,7 @@ protocol PreparableAnyFactory: AnyFactory, PreparableEntity {
 extension AnyFactoryBox where Self: AnyFactory {
 
     mutating func scrapeChildren(from factories: [AnyFactory]) throws -> [AnyFactory] {
-        return factories
+        factories
     }
 
 }
@@ -53,7 +53,7 @@ extension AnyFactoryBox where Self: PreparableAnyFactory, Self: MainThreadChecki
 extension AnyFactory where Self: CustomStringConvertible & AnyFactoryBox {
 
     var description: String {
-        return String(describing: factory)
+        String(describing: factory)
     }
 
 }

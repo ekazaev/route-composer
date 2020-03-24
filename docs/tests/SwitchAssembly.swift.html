@@ -255,17 +255,17 @@
 <tr class="covered">
 <td class="num">49</td>
 <td class="src"><pre><code class="objc">        init(resolverBlock: @escaping ((_: Context) -&gt; DestinationStep&lt;ViewController, Context&gt;?)) {</code></pre></td>
-<td class="coverage">13x</td>
+<td class="coverage">15x</td>
 </tr>
 <tr class="covered">
 <td class="num">50</td>
 <td class="src"><pre><code class="objc">            self.resolverBlock = resolverBlock</code></pre></td>
-<td class="coverage">13x</td>
+<td class="coverage">15x</td>
 </tr>
 <tr class="covered">
 <td class="num">51</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">13x</td>
+<td class="coverage">15x</td>
 </tr>
 <tr class="never">
 <td class="num">52</td>
@@ -275,12 +275,12 @@
 <tr class="covered">
 <td class="num">53</td>
 <td class="src"><pre><code class="objc">        func resolve&lt;C&gt;(with context: C) -&gt; RoutingStep? {</code></pre></td>
-<td class="coverage">15x</td>
+<td class="coverage">16x</td>
 </tr>
 <tr class="covered">
 <td class="num">54</td>
 <td class="src"><pre><code class="objc">            guard let typedContext = context as? Context else {</code></pre></td>
-<td class="coverage">15x</td>
+<td class="coverage">16x</td>
 </tr>
 <tr class="covered">
 <td class="num">55</td>
@@ -290,17 +290,17 @@
 <tr class="covered">
 <td class="num">56</td>
 <td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">14x</td>
+<td class="coverage">15x</td>
 </tr>
 <tr class="covered">
 <td class="num">57</td>
 <td class="src"><pre><code class="objc">            return resolverBlock(typedContext)</code></pre></td>
-<td class="coverage">14x</td>
+<td class="coverage">15x</td>
 </tr>
 <tr class="covered">
 <td class="num">58</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">15x</td>
+<td class="coverage">16x</td>
 </tr>
 <tr class="never">
 <td class="num">59</td>
@@ -345,22 +345,22 @@
 <tr class="covered">
 <td class="num">67</td>
 <td class="src"><pre><code class="objc">        init&lt;F: Finder&gt;(finder: F, step: DestinationStep&lt;ViewController, Context&gt;?) {</code></pre></td>
-<td class="coverage">8x</td>
+<td class="coverage">9x</td>
 </tr>
 <tr class="covered">
 <td class="num">68</td>
 <td class="src"><pre><code class="objc">            self.step = step ?? DestinationStep(GeneralStep.FinderStep(finder: finder))</code></pre></td>
-<td class="coverage">8x</td>
+<td class="coverage">9x</td>
 </tr>
 <tr class="covered">
 <td class="num">69</td>
 <td class="src"><pre><code class="objc">            self.finder = FinderBox(finder)</code></pre></td>
-<td class="coverage">8x</td>
+<td class="coverage">9x</td>
 </tr>
 <tr class="covered">
 <td class="num">70</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">8x</td>
+<td class="coverage">9x</td>
 </tr>
 <tr class="never">
 <td class="num">71</td>
@@ -370,12 +370,12 @@
 <tr class="covered">
 <td class="num">72</td>
 <td class="src"><pre><code class="objc">        func resolve&lt;Context&gt;(with context: Context) -&gt; RoutingStep? {</code></pre></td>
-<td class="coverage">9x</td>
+<td class="coverage">10x</td>
 </tr>
 <tr class="covered">
 <td class="num">73</td>
 <td class="src"><pre><code class="objc">            guard (try? finder?.findViewController(with: context)) != nil else {</code></pre></td>
-<td class="coverage">9x</td>
+<td class="coverage">10x</td>
 </tr>
 <tr class="covered">
 <td class="num">74</td>
@@ -385,17 +385,17 @@
 <tr class="covered">
 <td class="num">75</td>
 <td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">6x</td>
+<td class="coverage">7x</td>
 </tr>
 <tr class="covered">
 <td class="num">76</td>
 <td class="src"><pre><code class="objc">            return step</code></pre></td>
-<td class="coverage">6x</td>
+<td class="coverage">7x</td>
 </tr>
 <tr class="covered">
 <td class="num">77</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">9x</td>
+<td class="coverage">10x</td>
 </tr>
 <tr class="never">
 <td class="num">78</td>
@@ -420,7 +420,7 @@
 <tr class="covered">
 <td class="num">82</td>
 <td class="src"><pre><code class="objc">    private var resolvers: [StepCaseResolver] = []</code></pre></td>
-<td class="coverage">9x</td>
+<td class="coverage">10x</td>
 </tr>
 <tr class="never">
 <td class="num">83</td>
@@ -445,7 +445,7 @@
 <tr class="covered">
 <td class="num">87</td>
 <td class="src"><pre><code class="objc">    public init() {}</code></pre></td>
-<td class="coverage">9x</td>
+<td class="coverage">10x</td>
 </tr>
 <tr class="never">
 <td class="num">88</td>
@@ -655,27 +655,27 @@
 <tr class="covered">
 <td class="num">129</td>
 <td class="src"><pre><code class="objc">    public final func addCase(when conditionBlock: @escaping (Context) -&gt; Bool, from step: DestinationStep&lt;ViewController, Context&gt;) -&gt; Self {</code></pre></td>
-<td class="coverage">5x</td>
+<td class="coverage">6x</td>
 </tr>
 <tr class="covered">
 <td class="num">130</td>
 <td class="src"><pre><code class="objc">        resolvers.append(BlockResolver(resolverBlock: { context in</code></pre></td>
-<td class="coverage">9x</td>
+<td class="coverage">10x</td>
 </tr>
 <tr class="covered">
 <td class="num">131</td>
 <td class="src"><pre><code class="objc">            guard conditionBlock(context) else {</code></pre></td>
-<td class="coverage">9x</td>
+<td class="coverage">10x</td>
 </tr>
 <tr class="covered">
 <td class="num">132</td>
 <td class="src"><pre><code class="objc">                return nil</code></pre></td>
-<td class="coverage">8x</td>
+<td class="coverage">9x</td>
 </tr>
 <tr class="covered">
 <td class="num">133</td>
 <td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">8x</td>
+<td class="coverage">9x</td>
 </tr>
 <tr class="covered">
 <td class="num">134</td>
@@ -685,17 +685,17 @@
 <tr class="covered">
 <td class="num">135</td>
 <td class="src"><pre><code class="objc">        }))</code></pre></td>
-<td class="coverage">9x</td>
+<td class="coverage">10x</td>
 </tr>
 <tr class="covered">
 <td class="num">136</td>
 <td class="src"><pre><code class="objc">        return self</code></pre></td>
-<td class="coverage">5x</td>
+<td class="coverage">6x</td>
 </tr>
 <tr class="covered">
 <td class="num">137</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">5x</td>
+<td class="coverage">6x</td>
 </tr>
 <tr class="never">
 <td class="num">138</td>
@@ -730,22 +730,22 @@
 <tr class="covered">
 <td class="num">144</td>
 <td class="src"><pre><code class="objc">    public final func addCase&lt;F: Finder&gt;(from finder: F) -&gt; Self where F.ViewController == ViewController, F.Context == Context {</code></pre></td>
-<td class="coverage">5x</td>
+<td class="coverage">6x</td>
 </tr>
 <tr class="covered">
 <td class="num">145</td>
 <td class="src"><pre><code class="objc">        resolvers.append(FinderResolver&lt;ViewController, Context&gt;(finder: finder, step: nil))</code></pre></td>
-<td class="coverage">5x</td>
+<td class="coverage">6x</td>
 </tr>
 <tr class="covered">
 <td class="num">146</td>
 <td class="src"><pre><code class="objc">        return self</code></pre></td>
-<td class="coverage">5x</td>
+<td class="coverage">6x</td>
 </tr>
 <tr class="covered">
 <td class="num">147</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">5x</td>
+<td class="coverage">6x</td>
 </tr>
 <tr class="never">
 <td class="num">148</td>
@@ -774,7 +774,7 @@
 </tr>
 <tr class="covered">
 <td class="num">153</td>
-<td class="src"><pre><code class="objc">        return DestinationStep(SwitcherStep(resolvers: resolvers))</code></pre></td>
+<td class="src"><pre><code class="objc">        DestinationStep(SwitcherStep(resolvers: resolvers))</code></pre></td>
 <td class="coverage">3x</td>
 </tr>
 <tr class="covered">
@@ -865,12 +865,12 @@
 <tr class="covered">
 <td class="num">171</td>
 <td class="src"><pre><code class="objc">    public final func assemble(default step: DestinationStep&lt;ViewController, Context&gt;) -&gt; DestinationStep&lt;ViewController, Context&gt; {</code></pre></td>
-<td class="coverage">4x</td>
+<td class="coverage">5x</td>
 </tr>
 <tr class="covered">
 <td class="num">172</td>
 <td class="src"><pre><code class="objc">        resolvers.append(BlockResolver(resolverBlock: { _ in</code></pre></td>
-<td class="coverage">4x</td>
+<td class="coverage">5x</td>
 </tr>
 <tr class="covered">
 <td class="num">173</td>
@@ -885,12 +885,12 @@
 <tr class="covered">
 <td class="num">175</td>
 <td class="src"><pre><code class="objc">        return DestinationStep(SwitcherStep(resolvers: resolvers))</code></pre></td>
-<td class="coverage">4x</td>
+<td class="coverage">5x</td>
 </tr>
 <tr class="covered">
 <td class="num">176</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">4x</td>
+<td class="coverage">5x</td>
 </tr>
 <tr class="never">
 <td class="num">177</td>

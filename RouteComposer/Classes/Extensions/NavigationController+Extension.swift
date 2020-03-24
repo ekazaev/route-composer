@@ -16,7 +16,7 @@ import UIKit
 extension UINavigationController: ContainerViewController {
 
     public var canBeDismissed: Bool {
-        return viewControllers.canBeDismissed
+        viewControllers.canBeDismissed
     }
 
 }

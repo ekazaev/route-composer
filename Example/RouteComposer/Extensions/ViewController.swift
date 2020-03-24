@@ -26,7 +26,7 @@ extension UIViewController {
     }()
 
     var router: Router {
-        return UIViewController.router
+        UIViewController.router
     }
 
 }

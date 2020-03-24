@@ -20,7 +20,7 @@ class BlurredBackgroundTransitionAnimator: NSObject, UIViewControllerAnimatedTra
     }
 
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 0.3
+        0.3
     }
 
     private func blurEffectView(_ style: UIBlurEffect.Style = .light, frame: CGRect? = nil, backgroundColor: UIColor?) -> UIVisualEffectView {

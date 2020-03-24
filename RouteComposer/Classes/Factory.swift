@@ -61,7 +61,7 @@ public extension Factory where Context == Any? {
 
     /// Builds a `Factory`'s view controller.
     func build() throws -> ViewController {
-        return try build(with: nil)
+        try build(with: nil)
     }
 
     /// Prepares the `Factory` and builds its `UIViewController`
@@ -79,7 +79,7 @@ public extension Factory where Context == Void {
 
     /// Builds a `Factory`'s view controller.
     func build() throws -> ViewController {
-        return try build(with: ())
+        try build(with: ())
     }
 
     /// Prepares the `Factory` and builds its `UIViewController`

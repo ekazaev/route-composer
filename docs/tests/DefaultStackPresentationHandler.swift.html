@@ -175,22 +175,22 @@
 <tr class="covered">
 <td class="num">33</td>
 <td class="src"><pre><code class="objc">                containerAdapterLocator: ContainerAdapterLocator = DefaultContainerAdapterLocator()) {</code></pre></td>
-<td class="coverage">41x</td>
+<td class="coverage">42x</td>
 </tr>
 <tr class="covered">
 <td class="num">34</td>
 <td class="src"><pre><code class="objc">        self.logger = logger</code></pre></td>
-<td class="coverage">41x</td>
+<td class="coverage">42x</td>
 </tr>
 <tr class="covered">
 <td class="num">35</td>
 <td class="src"><pre><code class="objc">        self.containerAdapterLocator = containerAdapterLocator</code></pre></td>
-<td class="coverage">41x</td>
+<td class="coverage">42x</td>
 </tr>
 <tr class="covered">
 <td class="num">36</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">41x</td>
+<td class="coverage">42x</td>
 </tr>
 <tr class="never">
 <td class="num">37</td>
@@ -200,17 +200,17 @@
 <tr class="covered">
 <td class="num">38</td>
 <td class="src"><pre><code class="objc">    public func dismissPresented(from viewController: UIViewController, animated: Bool, completion: @escaping ((_: RoutingResult) -&gt; Void)) {</code></pre></td>
-<td class="coverage">93x</td>
+<td class="coverage">97x</td>
 </tr>
 <tr class="covered">
 <td class="num">39</td>
 <td class="src"><pre><code class="objc">        assertIfNotMainThread(logger: logger)</code></pre></td>
-<td class="coverage">93x</td>
+<td class="coverage">97x</td>
 </tr>
 <tr class="covered">
 <td class="num">40</td>
 <td class="src"><pre><code class="objc">        if let presentedController = viewController.presentedViewController {</code></pre></td>
-<td class="coverage">93x</td>
+<td class="coverage">97x</td>
 </tr>
 <tr class="covered">
 <td class="num">41</td>
@@ -255,22 +255,22 @@
 <tr class="covered">
 <td class="num">49</td>
 <td class="src"><pre><code class="objc">        } else {</code></pre></td>
-<td class="coverage">93x</td>
+<td class="coverage">97x</td>
 </tr>
 <tr class="covered">
 <td class="num">50</td>
 <td class="src"><pre><code class="objc">            completion(.success)</code></pre></td>
-<td class="coverage">85x</td>
+<td class="coverage">89x</td>
 </tr>
 <tr class="covered">
 <td class="num">51</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">93x</td>
+<td class="coverage">97x</td>
 </tr>
 <tr class="covered">
 <td class="num">52</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">93x</td>
+<td class="coverage">97x</td>
 </tr>
 <tr class="never">
 <td class="num">53</td>
@@ -290,92 +290,92 @@
 <tr class="covered">
 <td class="num">56</td>
 <td class="src"><pre><code class="objc">                                              completion: @escaping (RoutingResult) -&gt; Void) {</code></pre></td>
-<td class="coverage">171x</td>
+<td class="coverage">178x</td>
 </tr>
 <tr class="covered">
 <td class="num">57</td>
 <td class="src"><pre><code class="objc">        var parentViewControllers = viewController.allParents</code></pre></td>
-<td class="coverage">171x</td>
+<td class="coverage">178x</td>
 </tr>
 <tr class="covered">
 <td class="num">58</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage">171x</td>
+<td class="coverage">178x</td>
 </tr>
 <tr class="covered">
 <td class="num">59</td>
 <td class="src"><pre><code class="objc">        func makeVisible(viewController: UIViewController, completion: @escaping (RoutingResult) -&gt; Void) {</code></pre></td>
-<td class="coverage">290x</td>
+<td class="coverage">303x</td>
 </tr>
 <tr class="covered">
 <td class="num">60</td>
 <td class="src"><pre><code class="objc">            assertIfNotMainThread(logger: logger)</code></pre></td>
-<td class="coverage">290x</td>
+<td class="coverage">303x</td>
 </tr>
 <tr class="covered">
 <td class="num">61</td>
 <td class="src"><pre><code class="objc">            guard !parentViewControllers.isEmpty else {</code></pre></td>
-<td class="coverage">290x</td>
+<td class="coverage">303x</td>
 </tr>
 <tr class="covered">
 <td class="num">62</td>
 <td class="src"><pre><code class="objc">                completion(.success)</code></pre></td>
-<td class="coverage">171x</td>
+<td class="coverage">178x</td>
 </tr>
 <tr class="covered">
 <td class="num">63</td>
 <td class="src"><pre><code class="objc">                return</code></pre></td>
-<td class="coverage">171x</td>
+<td class="coverage">178x</td>
 </tr>
 <tr class="covered">
 <td class="num">64</td>
 <td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">171x</td>
+<td class="coverage">178x</td>
 </tr>
 <tr class="covered">
 <td class="num">65</td>
 <td class="src"><pre><code class="objc">            do {</code></pre></td>
-<td class="coverage">119x</td>
+<td class="coverage">125x</td>
 </tr>
 <tr class="covered">
 <td class="num">66</td>
 <td class="src"><pre><code class="objc">                let parentViewController = parentViewControllers.removeFirst()</code></pre></td>
-<td class="coverage">119x</td>
+<td class="coverage">125x</td>
 </tr>
 <tr class="covered">
 <td class="num">67</td>
 <td class="src"><pre><code class="objc">                if let container = parentViewController as? ContainerViewController {</code></pre></td>
-<td class="coverage">119x</td>
+<td class="coverage">125x</td>
 </tr>
 <tr class="covered">
 <td class="num">68</td>
 <td class="src"><pre><code class="objc">                    let containerAdapter = try containerAdapterLocator.getAdapter(for: container)</code></pre></td>
-<td class="coverage">119x</td>
+<td class="coverage">125x</td>
 </tr>
 <tr class="covered">
 <td class="num">69</td>
 <td class="src"><pre><code class="objc">                    guard !containerAdapter.isVisible(viewController) else {</code></pre></td>
-<td class="coverage">119x</td>
+<td class="coverage">125x</td>
 </tr>
 <tr class="covered">
 <td class="num">70</td>
 <td class="src"><pre><code class="objc">                        return makeVisible(viewController: parentViewController, completion: completion)</code></pre></td>
-<td class="coverage">80x</td>
+<td class="coverage">84x</td>
 </tr>
 <tr class="covered">
 <td class="num">71</td>
 <td class="src"><pre><code class="objc">                    }</code></pre></td>
-<td class="coverage">80x</td>
+<td class="coverage">84x</td>
 </tr>
 <tr class="covered">
 <td class="num">72</td>
 <td class="src"><pre><code class="objc">                    containerAdapter.makeVisible(viewController, animated: animated, completion: { result in</code></pre></td>
-<td class="coverage">39x</td>
+<td class="coverage">41x</td>
 </tr>
 <tr class="covered">
 <td class="num">73</td>
 <td class="src"><pre><code class="objc">                        guard result.isSuccessful else {</code></pre></td>
-<td class="coverage">39x</td>
+<td class="coverage">41x</td>
 </tr>
 <tr class="missed">
 <td class="num">74</td>
@@ -390,27 +390,27 @@
 <tr class="covered">
 <td class="num">76</td>
 <td class="src"><pre><code class="objc">                        }</code></pre></td>
-<td class="coverage">39x</td>
+<td class="coverage">41x</td>
 </tr>
 <tr class="covered">
 <td class="num">77</td>
 <td class="src"><pre><code class="objc">                        self.logger?.log(.info("Made \(String(describing: viewController)) visible in \(String(describing: container))"))</code></pre></td>
-<td class="coverage">39x</td>
+<td class="coverage">41x</td>
 </tr>
 <tr class="covered">
 <td class="num">78</td>
 <td class="src"><pre><code class="objc">                        makeVisible(viewController: parentViewController, completion: completion)</code></pre></td>
-<td class="coverage">39x</td>
+<td class="coverage">41x</td>
 </tr>
 <tr class="covered">
 <td class="num">79</td>
 <td class="src"><pre><code class="objc">                    })</code></pre></td>
-<td class="coverage">39x</td>
+<td class="coverage">41x</td>
 </tr>
 <tr class="covered">
 <td class="num">80</td>
 <td class="src"><pre><code class="objc">                } else {</code></pre></td>
-<td class="coverage">39x</td>
+<td class="coverage">41x</td>
 </tr>
 <tr class="missed">
 <td class="num">81</td>
@@ -420,12 +420,12 @@
 <tr class="covered">
 <td class="num">82</td>
 <td class="src"><pre><code class="objc">                }</code></pre></td>
-<td class="coverage">39x</td>
+<td class="coverage">41x</td>
 </tr>
 <tr class="covered">
 <td class="num">83</td>
 <td class="src"><pre><code class="objc">            } catch {</code></pre></td>
-<td class="coverage">39x</td>
+<td class="coverage">41x</td>
 </tr>
 <tr class="missed">
 <td class="num">84</td>
@@ -435,27 +435,27 @@
 <tr class="covered">
 <td class="num">85</td>
 <td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">39x</td>
+<td class="coverage">41x</td>
 </tr>
 <tr class="covered">
 <td class="num">86</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">39x</td>
+<td class="coverage">41x</td>
 </tr>
 <tr class="covered">
 <td class="num">87</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage">171x</td>
+<td class="coverage">178x</td>
 </tr>
 <tr class="covered">
 <td class="num">88</td>
 <td class="src"><pre><code class="objc">        makeVisible(viewController: viewController, completion: completion)</code></pre></td>
-<td class="coverage">171x</td>
+<td class="coverage">178x</td>
 </tr>
 <tr class="covered">
 <td class="num">89</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">171x</td>
+<td class="coverage">178x</td>
 </tr>
 <tr class="never">
 <td class="num">90</td>

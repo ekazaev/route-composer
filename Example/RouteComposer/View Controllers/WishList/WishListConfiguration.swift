@@ -25,11 +25,11 @@ struct WishListConfiguration {
     .assemble()
 
     static func favorites() -> Destination<WishListViewController, WishListContext> {
-        return Destination(to: wishListScreen, with: WishListContext.favorites)
+        Destination(to: wishListScreen, with: WishListContext.favorites)
     }
 
     static func collections() -> Destination<WishListViewController, WishListContext> {
-        return Destination(to: wishListScreen, with: WishListContext.collections)
+        Destination(to: wishListScreen, with: WishListContext.collections)
     }
 
 }

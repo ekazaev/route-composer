@@ -135,7 +135,7 @@ class ContainerTests: XCTestCase {
             }
 
             func build(with context: Any?) throws -> UIViewController {
-                return UIViewController()
+                UIViewController()
             }
 
         }

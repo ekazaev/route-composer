@@ -26,7 +26,7 @@ public struct NavigationControllerAdapter<VC: UINavigationController>: ConcreteC
     }
 
     public var containedViewControllers: [UIViewController] {
-        return navigationController?.viewControllers ?? []
+        navigationController?.viewControllers ?? []
     }
 
     public var visibleViewControllers: [UIViewController] {

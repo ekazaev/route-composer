@@ -29,7 +29,7 @@ public struct ContainerStepChainAssembly<AcceptableContainer: ContainerViewContr
     ///
     /// - Parameter previousStep: The instance of `StepWithActionAssemblable`
     public func from(_ step: ActionToStepIntegrator<AcceptableContainer, Context>) -> ActionConnectingAssembly<ViewController, Context> {
-        return ActionConnectingAssembly<ViewController, Context>(stepToFullFill: step, previousSteps: previousSteps)
+        ActionConnectingAssembly<ViewController, Context>(stepToFullFill: step, previousSteps: previousSteps)
     }
 
     /// Adds a `DestinationStep` to the chain. This step will be the last one in the chain.

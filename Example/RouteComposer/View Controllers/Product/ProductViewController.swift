@@ -87,6 +87,10 @@ class ProductViewController: UIViewController, ExampleAnalyticsSupport, ContextA
         try? router.navigate(to: ProductConfiguration.productScreen, with: ProductContext(productId: "01"))
     }
 
+    @IBAction func goToSwiftUITapped() {
+        try? router.navigate(to: ConfigurationHolder.configuration.swiftUIScreen, with: "RouteComposer")
+    }
+
     @IBAction func goToProductFromCircleTapped() {
         guard let productId = productId,
             var productIdAsInt = Int(productId) else {
@@ -101,7 +105,7 @@ class ProductViewController: UIViewController, ExampleAnalyticsSupport, ContextA
 extension ProductViewController: ContextChecking {
 
     func isTarget(for context: ProductContext) -> Bool {
-        return productId == context.productId
+        productId == context.productId
     }
 
 }

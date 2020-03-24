@@ -21,7 +21,7 @@ public struct ChildCoordinator<Context> {
 
     /// Returns `true` if the coordinator contains child factories to build
     public var isEmpty: Bool {
-        return childFactories.isEmpty
+        childFactories.isEmpty
     }
 
     // MARK: Methods
