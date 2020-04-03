@@ -5,7 +5,7 @@
 [![Cocoapods](https://img.shields.io/cocoapods/v/RouteComposer.svg?style=flat)](http://cocoapods.org/pods/RouteComposer)
 [![Swift Package Manager](https://img.shields.io/badge/SwiftPM-compatible-brightgreen.svg?style=flat)](https://github.com/apple/swift-package-manager)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BA51D.svg?style=flat)](https://github.com/Carthage/Carthage)
-[![Swift 5.0](https://img.shields.io/badge/language-Swift5.0-orange.svg?style=flat)](https://developer.apple.com/swift)
+[![Swift 5.2](https://img.shields.io/badge/language-Swift5.2-orange.svg?style=flat)](https://developer.apple.com/swift)
 [![Platform iOS](https://img.shields.io/badge/platform-iOS%209%20—%20iOS%2013-yellow.svg)](https://www.apple.com/ios)
 [![Documentation](https://ekazaev.github.io/route-composer/badge.svg)](https://ekazaev.github.io/route-composer)
 [![Code coverage](https://codecov.io/gh/ekazaev/route-composer/branch/master/graphs/badge.svg?style=flat)](https://ekazaev.github.io/route-composer/tests/index.html)
