@@ -203,7 +203,7 @@ class ExtrasTest: XCTestCase {
 
         let window = UIWindow()
         window.rootViewController = DismissingViewController()
-        let interceptor = NavigationDelayingInterceptor(windowProvider: CustomWindowProvider(window: window), strategy: .abort)
+        let interceptor = NavigationDelayingInterceptor<Any?>(windowProvider: CustomWindowProvider(window: window), strategy: .abort)
 
         var wasInCompletion = false
         interceptor.perform(with: nil, completion: { result in
