@@ -94,7 +94,7 @@
 </tr>
 <tr class="never">
 <td class="num">17</td>
-<td class="src"><pre><code class="objc">/// `RouteComposer` or you have a situation when a few routers work simultaneously, add it to your router to avoid</code></pre></td>
+<td class="src"><pre><code class="objc">/// `RouteComposer` or you have a situation when a few routers work simultaneously, add it to your **router** to avoid</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -129,7 +129,7 @@
 </tr>
 <tr class="never">
 <td class="num">24</td>
-<td class="src"><pre><code class="objc">public struct NavigationDelayingInterceptor: RoutingInterceptor {</code></pre></td>
+<td class="src"><pre><code class="objc">public struct NavigationDelayingInterceptor&lt;Context&gt;: RoutingInterceptor {</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -344,7 +344,7 @@
 </tr>
 <tr class="covered">
 <td class="num">67</td>
-<td class="src"><pre><code class="objc">    public func perform(with context: Any?, completion: @escaping (RoutingResult) -&gt; Void) {</code></pre></td>
+<td class="src"><pre><code class="objc">    public func perform(with context: Context, completion: @escaping (RoutingResult) -&gt; Void) {</code></pre></td>
 <td class="coverage">92x</td>
 </tr>
 <tr class="covered">

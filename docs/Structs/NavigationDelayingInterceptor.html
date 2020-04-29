@@ -502,13 +502,13 @@
             <h1>NavigationDelayingInterceptor</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">NavigationDelayingInterceptor</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/RoutingInterceptor.html">RoutingInterceptor</a></span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">NavigationDelayingInterceptor</span><span class="o">&lt;</span><span class="kt">Context</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/RoutingInterceptor.html">RoutingInterceptor</a></span></code></pre>
 
                 </div>
               </div>
             <p><code>NavigationDelayingInterceptor</code> delays the router from starting the navigation, while any view controllers in the
 stack are being presented or dismissed. In case your app has some other navigation instruments rather than
-<code>RouteComposer</code> or you have a situation when a few routers work simultaneously, add it to your router to avoid
+<code>RouteComposer</code> or you have a situation when a few routers work simultaneously, add it to your <strong>router</strong> to avoid
 the router not being able to navigate to the destination because a view controller in the stack is
 being presented or dismissed.</p>
 
@@ -635,9 +635,9 @@ situations. The <code>.wait</code> strategy can be used only as a temporary solu
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer29NavigationDelayingInterceptorV8strategyAC8StrategyOvp"></a>
+                    <a name="/s:13RouteComposer29NavigationDelayingInterceptorV8strategyAC8StrategyOyx_Gvp"></a>
                     <a name="//apple_ref/swift/Property/strategy" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer29NavigationDelayingInterceptorV8strategyAC8StrategyOvp">strategy</a>
+                    <a class="token" href="#/s:13RouteComposer29NavigationDelayingInterceptorV8strategyAC8StrategyOyx_Gvp">strategy</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -675,9 +675,9 @@ situations. The <code>.wait</code> strategy can be used only as a temporary solu
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer29NavigationDelayingInterceptorV14windowProvider8strategy6loggerAcA06WindowG0_p_AC8StrategyOAA6Logger_pSgtcfc"></a>
+                    <a name="/s:13RouteComposer29NavigationDelayingInterceptorV14windowProvider8strategy6loggerACyxGAA06WindowG0_p_AC8StrategyOyx_GAA6Logger_pSgtcfc"></a>
                     <a name="//apple_ref/swift/Method/init(windowProvider:strategy:logger:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer29NavigationDelayingInterceptorV14windowProvider8strategy6loggerAcA06WindowG0_p_AC8StrategyOAA6Logger_pSgtcfc">init(windowProvider:<wbr>strategy:<wbr>logger:<wbr>)</a>
+                    <a class="token" href="#/s:13RouteComposer29NavigationDelayingInterceptorV14windowProvider8strategy6loggerACyxGAA06WindowG0_p_AC8StrategyOyx_GAA6Logger_pSgtcfc">init(windowProvider:<wbr>strategy:<wbr>logger:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -761,7 +761,7 @@ situations. The <code>.wait</code> strategy can be used only as a temporary solu
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">perform</span><span class="p">(</span><span class="n">with</span> <span class="nv">context</span><span class="p">:</span> <span class="kt">Any</span><span class="p">?,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Enums/RoutingResult.html">RoutingResult</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">perform</span><span class="p">(</span><span class="n">with</span> <span class="nv">context</span><span class="p">:</span> <span class="kt">Context</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Enums/RoutingResult.html">RoutingResult</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -776,7 +776,7 @@ situations. The <code>.wait</code> strategy can be used only as a temporary solu
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2020 <a class="link" href="https://github.com/ekazaev" target="_blank" rel="external">Evgeny Kazaev</a>. All rights reserved. (Last updated: 2020-04-03)</p>
+      <p>&copy; 2020 <a class="link" href="https://github.com/ekazaev" target="_blank" rel="external">Evgeny Kazaev</a>. All rights reserved. (Last updated: 2020-04-29)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
