@@ -29,7 +29,7 @@ public struct LastStepInChainAssembly<ViewController: UIViewController, Context>
     ///
     /// - Returns: The instance of `DestinationStep` with all the settings provided inside.
     public func assemble() -> DestinationStep<ViewController, Context> {
-        return DestinationStep(chain(previousSteps))
+        DestinationStep(chain(previousSteps))
     }
 
     private func chain(_ steps: [RoutingStep]) -> RoutingStep {

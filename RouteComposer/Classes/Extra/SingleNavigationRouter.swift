@@ -19,7 +19,7 @@ public final class SingleNavigationLock {
 
     /// `SingleNavigationLock` state
     public final var isNavigationInProgress: Bool {
-        return isNavigationInProgressFlag
+        isNavigationInProgressFlag
     }
 
     /// Constructor

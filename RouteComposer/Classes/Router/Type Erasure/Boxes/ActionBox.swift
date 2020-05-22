@@ -49,11 +49,11 @@ struct ActionBox<A: Action>: AnyAction, AnyActionBox, CustomStringConvertible, M
     }
 
     public var description: String {
-        return String(describing: action)
+        String(describing: action)
     }
 
     func isEmbeddable(to container: ContainerViewController.Type) -> Bool {
-        return false
+        false
     }
 
 }

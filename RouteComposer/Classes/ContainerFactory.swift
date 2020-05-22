@@ -56,7 +56,7 @@ public extension ContainerFactory {
 
     /// Builds a `ContainerFactory` view controller.
     func build(with context: Context) throws -> ViewController {
-        return try build(with: context, integrating: ChildCoordinator(childFactories: []))
+        try build(with: context, integrating: ChildCoordinator(childFactories: []))
     }
 
     /// Prepares the `Factory` and builds its `UIViewController`
@@ -74,7 +74,7 @@ public extension ContainerFactory where Context == Any? {
 
     /// Builds a `ContainerFactory` view controller.
     func build() throws -> ViewController {
-        return try build(with: nil)
+        try build(with: nil)
     }
 
     /// Prepares the `Factory` and builds its `UIViewController`
@@ -92,7 +92,7 @@ public extension ContainerFactory where Context == Void {
 
     /// Builds a `ContainerFactory` view controller.
     func build() throws -> ViewController {
-        return try build(with: ())
+        try build(with: ())
     }
 
     /// Prepares the `Factory` and builds its `UIViewController`

@@ -41,11 +41,11 @@ class CustomContainerFactory<C>: SimpleContainerFactory {
 extension CustomContainerController: CustomContainerViewController {
 
     public var adapter: ContainerAdapter {
-        return CustomContainerControllerAdapter(with: self)
+        CustomContainerControllerAdapter(with: self)
     }
 
     public var canBeDismissed: Bool {
-        return (rootViewController as? RoutingInterceptable)?.canBeDismissed ?? true
+        (rootViewController as? RoutingInterceptable)?.canBeDismissed ?? true
     }
 
 }
@@ -82,7 +82,7 @@ struct CustomContainerControllerAdapter: ConcreteContainerAdapter {
     }
 
     public var visibleViewControllers: [UIViewController] {
-        return containedViewControllers
+        containedViewControllers
     }
 
     public func makeVisible(_ viewController: UIViewController, animated: Bool, completion: @escaping (_: RoutingResult) -> Void) {

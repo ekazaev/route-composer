@@ -18,15 +18,15 @@ enum BlurredBackgroundTransitionType {
 class BlurredBackgroundTransitionController: NSObject, UIViewControllerTransitioningDelegate {
 
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return BlurredBackgroundTransitionAnimator(transitionType: .present)
+        BlurredBackgroundTransitionAnimator(transitionType: .present)
     }
 
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return BlurredBackgroundTransitionAnimator(transitionType: .dismiss)
+        BlurredBackgroundTransitionAnimator(transitionType: .dismiss)
     }
 
     func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
-        return BlurredBackgroundPresentationController(presentedViewController: presented, presenting: presenting)
+        BlurredBackgroundPresentationController(presentedViewController: presented, presenting: presenting)
     }
 
 }

@@ -26,14 +26,14 @@ public struct SplitControllerAdapter<VC: UISplitViewController>: ConcreteContain
     }
 
     public var containedViewControllers: [UIViewController] {
-        return splitViewController?.viewControllers ?? []
+        splitViewController?.viewControllers ?? []
     }
 
     /// ###NB
     /// `UISplitViewController` does not support showing primary view controller overlay programmatically out of the box in `primaryOverlay`
     /// mode. So all the contained view controllers are considered as visible in the default implementation.
     public var visibleViewControllers: [UIViewController] {
-        return containedViewControllers
+        containedViewControllers
     }
 
     /// ###NB

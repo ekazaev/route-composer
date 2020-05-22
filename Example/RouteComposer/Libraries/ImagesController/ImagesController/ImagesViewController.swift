@@ -33,7 +33,7 @@ public final class ImagesViewController: UITableViewController {
     }
 
     public override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return imagesNames.count
+        imagesNames.count
     }
 
     public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

@@ -53,7 +53,7 @@ struct InterceptorMultiplexer: AnyRoutingInterceptor, MainThreadChecking, Custom
     }
 
     var description: String {
-        return String(describing: interceptors)
+        String(describing: interceptors)
     }
 
 }

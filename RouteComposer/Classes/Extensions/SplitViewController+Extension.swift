@@ -16,7 +16,7 @@ import UIKit
 extension UISplitViewController: ContainerViewController {
 
     public var canBeDismissed: Bool {
-        return viewControllers.canBeDismissed
+        viewControllers.canBeDismissed
     }
 
 }

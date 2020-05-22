@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="index.html">
-          RouteComposer Docs
+          RouteComposer 2.6.0 Docs
         </a>
          (100% documented)
       </p>
@@ -148,6 +148,12 @@
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Structs/NilFactory.html">NilFactory</a>
               </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/UIHostingControllerFactory.html">UIHostingControllerFactory</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/UIHostingControllerWithContextFactory.html">UIHostingControllerWithContextFactory</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -164,6 +170,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Structs/NilFinder.html">NilFinder</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/UIHostingControllerWithContextFinder.html">UIHostingControllerWithContextFinder</a>
               </li>
             </ul>
           </li>
@@ -254,6 +263,12 @@
                 <a class="nav-group-task-link" href="Protocols/ContextAccepting.html">ContextAccepting</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/ContextAcceptingView.html">ContextAcceptingView</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/ContextInstantiatable.html">ContextInstantiatable</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Structs/ClassWithContextFinder.html">ClassWithContextFinder</a>
               </li>
               <li class="nav-group-task">
@@ -318,6 +333,9 @@
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Extensions/Array.html">Array</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Extensions/UIHostingController.html">UIHostingController</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Extensions/UINavigationController.html">UINavigationController</a>
@@ -813,6 +831,66 @@ situations. The <code>.wait</code> strategy can be used only as a temporary solu
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:13RouteComposer20ContextAcceptingViewP"></a>
+                    <a name="//apple_ref/swift/Protocol/ContextAcceptingView" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer20ContextAcceptingViewP">ContextAcceptingView</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The protocol for a <code>View</code> to make it compatible with <code><a href="Structs/ContextSettingTask.html">ContextSettingTask</a></code>.</p>
+
+<p><em>Due to some current <code>swift</code> limitations protocol <code><a href="Protocols/ContextAccepting.html">ContextAccepting</a></code> can not be used directly.</em></p>
+
+                        <a href="Protocols/ContextAcceptingView.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@available(iOS 13.0, OSX 10.15, tvOS 13.0, watchOS 6.0, *)</span>
+<span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">ContextAcceptingView</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer21ContextInstantiatableP"></a>
+                    <a name="//apple_ref/swift/Protocol/ContextInstantiatable" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer21ContextInstantiatableP">ContextInstantiatable</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><code>View</code> instance should conform to this protocol to be used with <code><a href="Structs/UIHostingControllerWithContextFactory.html">UIHostingControllerWithContextFactory</a></code></p>
+
+                        <a href="Protocols/ContextInstantiatable.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@available(iOS 13.0, OSX 10.15, tvOS 13.0, watchOS 6.0, *)</span>
+<span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">ContextInstantiatable</span> <span class="p">:</span> <span class="kt">View</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:13RouteComposer22ClassWithContextFinderV"></a>
                     <a name="//apple_ref/swift/Struct/ClassWithContextFinder" class="dashAnchor"></a>
                     <a class="token" href="#/s:13RouteComposer22ClassWithContextFinderV">ClassWithContextFinder</a>
@@ -834,7 +912,7 @@ and its <code>Context</code> instance.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ClassWithContextFinder</span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Protocols/StackIteratingFinder.html">StackIteratingFinder</a></span> <span class="k">where</span> <span class="kt">VC</span> <span class="p">:</span> <span class="kt"><a href="Protocols/ContextChecking.html">ContextChecking</a></span><span class="p">,</span> <span class="kt">C</span> <span class="o">==</span> <span class="kt">VC</span><span class="o">.</span><span class="kt">Context</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ClassWithContextFinder</span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Protocols/StackIteratingFinder.html">StackIteratingFinder</a></span> <span class="k">where</span> <span class="kt">VC</span> <span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="kt">VC</span> <span class="p">:</span> <span class="kt"><a href="Protocols/ContextChecking.html">ContextChecking</a></span><span class="p">,</span> <span class="kt">C</span> <span class="o">==</span> <span class="kt">VC</span><span class="o">.</span><span class="kt">Context</span></code></pre>
 
                         </div>
                       </div>
@@ -862,7 +940,7 @@ and its <code>Context</code> instance.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">ContextChecking</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">ContextChecking</span></code></pre>
 
                         </div>
                       </div>
@@ -1070,8 +1148,8 @@ do some to it or find it with a <code><a href="Protocols/Finder.html">Finder</a>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2020 <a class="link" href="https://github.com/ekazaev" target="_blank" rel="external">Evgeny Kazaev</a>. All rights reserved. (Last updated: 2020-04-29)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2020 <a class="link" href="https://github.com/ekazaev" target="_blank" rel="external">Evgeny Kazaev</a>. All rights reserved. (Last updated: 2020-05-22)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

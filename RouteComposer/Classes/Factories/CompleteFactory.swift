@@ -51,7 +51,7 @@ public struct CompleteFactory<FC: ContainerFactory>: ContainerFactory, CustomStr
     }
 
     public var description: String {
-        return String(describing: factory)
+        String(describing: factory)
     }
 
 }

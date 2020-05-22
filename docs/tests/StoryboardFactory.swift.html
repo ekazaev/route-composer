@@ -255,32 +255,32 @@
 <tr class="covered">
 <td class="num">49</td>
 <td class="src"><pre><code class="objc">    public init(name: String, bundle: Bundle? = nil, identifier: String? = nil, configuration: ((_: VC) -&gt; Void)? = nil) {</code></pre></td>
-<td class="coverage">89x</td>
+<td class="coverage">94x</td>
 </tr>
 <tr class="covered">
 <td class="num">50</td>
 <td class="src"><pre><code class="objc">        self.name = name</code></pre></td>
-<td class="coverage">89x</td>
+<td class="coverage">94x</td>
 </tr>
 <tr class="covered">
 <td class="num">51</td>
 <td class="src"><pre><code class="objc">        self.bundle = bundle</code></pre></td>
-<td class="coverage">89x</td>
+<td class="coverage">94x</td>
 </tr>
 <tr class="covered">
 <td class="num">52</td>
 <td class="src"><pre><code class="objc">        self.identifier = identifier</code></pre></td>
-<td class="coverage">89x</td>
+<td class="coverage">94x</td>
 </tr>
 <tr class="covered">
 <td class="num">53</td>
 <td class="src"><pre><code class="objc">        self.configuration = configuration</code></pre></td>
-<td class="coverage">89x</td>
+<td class="coverage">94x</td>
 </tr>
 <tr class="covered">
 <td class="num">54</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">89x</td>
+<td class="coverage">94x</td>
 </tr>
 <tr class="never">
 <td class="num">55</td>
@@ -290,37 +290,37 @@
 <tr class="covered">
 <td class="num">56</td>
 <td class="src"><pre><code class="objc">    public func build(with context: C) throws -&gt; VC {</code></pre></td>
-<td class="coverage">54x</td>
+<td class="coverage">56x</td>
 </tr>
 <tr class="covered">
 <td class="num">57</td>
 <td class="src"><pre><code class="objc">        guard let viewControllerID = identifier else {</code></pre></td>
-<td class="coverage">54x</td>
+<td class="coverage">56x</td>
 </tr>
 <tr class="covered">
 <td class="num">58</td>
 <td class="src"><pre><code class="objc">            return try buildInitialViewController()</code></pre></td>
-<td class="coverage">28x</td>
+<td class="coverage">29x</td>
 </tr>
 <tr class="covered">
 <td class="num">59</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">28x</td>
+<td class="coverage">29x</td>
 </tr>
 <tr class="covered">
 <td class="num">60</td>
 <td class="src"><pre><code class="objc">        let storyboard = UIStoryboard(name: name, bundle: bundle)</code></pre></td>
-<td class="coverage">26x</td>
+<td class="coverage">27x</td>
 </tr>
 <tr class="covered">
 <td class="num">61</td>
 <td class="src"><pre><code class="objc">        let instantiatedViewController = storyboard.instantiateViewController(withIdentifier: viewControllerID)</code></pre></td>
-<td class="coverage">26x</td>
+<td class="coverage">27x</td>
 </tr>
 <tr class="covered">
 <td class="num">62</td>
 <td class="src"><pre><code class="objc">        guard let viewController = instantiatedViewController as? VC else {</code></pre></td>
-<td class="coverage">26x</td>
+<td class="coverage">27x</td>
 </tr>
 <tr class="missed">
 <td class="num">63</td>
@@ -345,12 +345,12 @@
 <tr class="covered">
 <td class="num">67</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">26x</td>
+<td class="coverage">27x</td>
 </tr>
 <tr class="covered">
 <td class="num">68</td>
 <td class="src"><pre><code class="objc">        if let configuration = configuration {</code></pre></td>
-<td class="coverage">26x</td>
+<td class="coverage">27x</td>
 </tr>
 <tr class="covered">
 <td class="num">69</td>
@@ -360,17 +360,17 @@
 <tr class="covered">
 <td class="num">70</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">26x</td>
+<td class="coverage">27x</td>
 </tr>
 <tr class="covered">
 <td class="num">71</td>
 <td class="src"><pre><code class="objc">        return viewController</code></pre></td>
-<td class="coverage">26x</td>
+<td class="coverage">27x</td>
 </tr>
 <tr class="covered">
 <td class="num">72</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">26x</td>
+<td class="coverage">27x</td>
 </tr>
 <tr class="never">
 <td class="num">73</td>
@@ -380,17 +380,17 @@
 <tr class="covered">
 <td class="num">74</td>
 <td class="src"><pre><code class="objc">    private func buildInitialViewController() throws -&gt; VC {</code></pre></td>
-<td class="coverage">28x</td>
+<td class="coverage">29x</td>
 </tr>
 <tr class="covered">
 <td class="num">75</td>
 <td class="src"><pre><code class="objc">        let storyboard = UIStoryboard(name: name, bundle: bundle)</code></pre></td>
-<td class="coverage">28x</td>
+<td class="coverage">29x</td>
 </tr>
 <tr class="covered">
 <td class="num">76</td>
 <td class="src"><pre><code class="objc">        guard let abstractViewController = storyboard.instantiateInitialViewController() else {</code></pre></td>
-<td class="coverage">28x</td>
+<td class="coverage">29x</td>
 </tr>
 <tr class="missed">
 <td class="num">77</td>
@@ -405,12 +405,12 @@
 <tr class="covered">
 <td class="num">79</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">28x</td>
+<td class="coverage">29x</td>
 </tr>
 <tr class="covered">
 <td class="num">80</td>
 <td class="src"><pre><code class="objc">        guard let viewController = abstractViewController as? VC else {</code></pre></td>
-<td class="coverage">28x</td>
+<td class="coverage">29x</td>
 </tr>
 <tr class="covered">
 <td class="num">81</td>
@@ -435,12 +435,12 @@
 <tr class="covered">
 <td class="num">85</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">26x</td>
+<td class="coverage">27x</td>
 </tr>
 <tr class="covered">
 <td class="num">86</td>
 <td class="src"><pre><code class="objc">        if let configuration = configuration {</code></pre></td>
-<td class="coverage">26x</td>
+<td class="coverage">27x</td>
 </tr>
 <tr class="missed">
 <td class="num">87</td>
@@ -450,17 +450,17 @@
 <tr class="covered">
 <td class="num">88</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">26x</td>
+<td class="coverage">27x</td>
 </tr>
 <tr class="covered">
 <td class="num">89</td>
 <td class="src"><pre><code class="objc">        return viewController</code></pre></td>
-<td class="coverage">26x</td>
+<td class="coverage">27x</td>
 </tr>
 <tr class="covered">
 <td class="num">90</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">26x</td>
+<td class="coverage">27x</td>
 </tr>
 <tr class="never">
 <td class="num">91</td>

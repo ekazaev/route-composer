@@ -65,11 +65,11 @@ public struct SearchOptions: OptionSet, CaseIterable, CustomStringConvertible {
     // MARK: Methods
 
     public static var allCases: [SearchOptions] {
-        return [.current, .visible, .contained, .presented, .presenting, .parent]
+        [.current, .visible, .contained, .presented, .presenting, .parent]
     }
 
     public var description: String {
-        return SearchOptions.allCases.compactMap { option in
+        SearchOptions.allCases.compactMap { option in
             guard self.contains(option) else {
                 return nil
             }

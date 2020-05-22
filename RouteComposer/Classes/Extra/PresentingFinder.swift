@@ -50,7 +50,7 @@ public struct PresentingFinder<C>: Finder {
     }
 
     public func findViewController(with context: C) throws -> UIViewController? {
-        return try getStartingViewController()?.presentingViewController
+        try getStartingViewController()?.presentingViewController
     }
 
     func getStartingViewController() throws -> UIViewController? {

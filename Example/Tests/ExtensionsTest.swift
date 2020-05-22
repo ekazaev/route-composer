@@ -23,7 +23,7 @@ class ExtensionsTest: XCTestCase {
         var fakePresentingViewController: UIViewController?
 
         override var presentingViewController: UIViewController? {
-            return fakePresentingViewController
+            fakePresentingViewController
         }
 
     }

@@ -150,7 +150,7 @@ public final class SwitchAssembly<ViewController: UIViewController, Context> {
     ///
     /// - Returns: instance of a `DestinationStep`
     public final func assemble() -> DestinationStep<ViewController, Context> {
-        return DestinationStep(SwitcherStep(resolvers: resolvers))
+        DestinationStep(SwitcherStep(resolvers: resolvers))
     }
 
     /// Assembles all the cases in a `DestinationStep` instance and adds the default implementation, providing the step it is to perform

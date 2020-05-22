@@ -44,11 +44,11 @@ class CitiesConfiguration {
     .assemble()
 
     static func citiesList(cityId: Int? = nil) -> Destination<CitiesTableViewController, Int?> {
-        return Destination(to: citiesList, with: cityId)
+        Destination(to: citiesList, with: cityId)
     }
 
     static func cityDetail(cityId: Int) -> Destination<CityDetailViewController, Int> {
-        return Destination(to: cityDetails, with: cityId)
+        Destination(to: cityDetails, with: cityId)
     }
 
 }

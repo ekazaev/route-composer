@@ -94,10 +94,9 @@ class MultiplexerTest: XCTestCase {
         XCTAssertThrowsError(try multiplexer.prepare(with: "Wrong Context Type"))
         multiplexer.perform(with: "Wrong Context Type", completion: { result in
             guard case .failure = result else {
-                XCTAssertFalse(true)
+                XCTFail()
                 return
             }
-            XCTAssertFalse(false)
         })
     }
 
@@ -187,10 +186,9 @@ class MultiplexerTest: XCTestCase {
         try? multiplexer.prepare(with: nil as Any?)
         multiplexer.perform(with: nil as Any?) { (result: RoutingResult) in
             guard case .success = result else {
-                XCTAssertFalse(true)
+                XCTFail()
                 return
             }
-            XCTAssertFalse(false)
         }
     }
 
@@ -200,7 +198,7 @@ class MultiplexerTest: XCTestCase {
             typealias Context = C
 
             func findViewController(with context: Context) -> ViewController? {
-                return nil
+                nil
             }
         }
 

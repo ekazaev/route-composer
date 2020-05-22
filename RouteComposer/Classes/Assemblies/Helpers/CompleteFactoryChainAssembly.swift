@@ -106,7 +106,7 @@ public final class CompleteFactoryChainAssembly<FC: ContainerFactory, ChildVC: U
     ///
     /// - Returns: The `CompleteFactory` with child factories provided.
     public final func assemble() -> CompleteFactory<FC> {
-        return CompleteFactory<FC>(factory: factory, childFactories: integratedChildFactories)
+        CompleteFactory<FC>(factory: factory, childFactories: integratedChildFactories)
     }
 
 }

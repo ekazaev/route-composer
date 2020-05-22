@@ -57,7 +57,7 @@ struct BaseStep: RoutingStep,
     }
 
     func getPreviousStep<Context>(with context: Context) -> RoutingStep? {
-        return previousStep
+        previousStep
     }
 
     func perform<Context>(with context: Context) throws -> PerformableStepResult {

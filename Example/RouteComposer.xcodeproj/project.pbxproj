@@ -7,12 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1BE5406B08BD9E414DF3F05B /* SwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE54ADDFA896FC6D4244E2B /* SwiftUITests.swift */; };
+		1BE54D180F13FDB7C7F7B8C2 /* TestSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE5451EE607806BE5D94E97 /* TestSwiftUIView.swift */; };
 		3964C13C9510D7C17530911E /* Pods_RouteComposer_Example_RouteComposer_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0293FF29C4D706E5D7F4B94 /* Pods_RouteComposer_Example_RouteComposer_Tests.framework */; };
 		453BC2E32288C6F100314B33 /* ContainerLocatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453BC2E22288C6F100314B33 /* ContainerLocatorTests.swift */; };
 		4552B83D22FDAE2E006E2A5D /* ShortUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4552B83C22FDAE2E006E2A5D /* ShortUITests.swift */; };
 		4552B84B23018943006E2A5D /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* TabBar.storyboard */; };
 		4570AD2A2238769C00809A01 /* ExtrasTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4570AD292238769C00809A01 /* ExtrasTest.swift */; };
 		45762A7E240D26B40018D344 /* TestStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45762A7D240D26B30018D344 /* TestStoryboard.storyboard */; };
+		45D268C9242A9F1D007EB41E /* SwiftUIContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D268C8242A9F1D007EB41E /* SwiftUIContentView.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACDB1AFB9204008FA782 /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* TabBar.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
@@ -169,11 +172,14 @@
 
 /* Begin PBXFileReference section */
 		0B068CD8E2A01AE34431EC7F /* Pods-RouteComposer_Example-RouteComposer_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RouteComposer_Example-RouteComposer_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RouteComposer_Example-RouteComposer_Tests/Pods-RouteComposer_Example-RouteComposer_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		1BE5451EE607806BE5D94E97 /* TestSwiftUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestSwiftUIView.swift; sourceTree = "<group>"; };
+		1BE54ADDFA896FC6D4244E2B /* SwiftUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftUITests.swift; sourceTree = "<group>"; };
 		453BC2E22288C6F100314B33 /* ContainerLocatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerLocatorTests.swift; sourceTree = "<group>"; };
 		4552B83C22FDAE2E006E2A5D /* ShortUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortUITests.swift; sourceTree = "<group>"; };
 		4570AD292238769C00809A01 /* ExtrasTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtrasTest.swift; sourceTree = "<group>"; };
 		45762A7D240D26B30018D344 /* TestStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TestStoryboard.storyboard; sourceTree = "<group>"; };
 		45AF80BC23C5F25100F0229F /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Package.swift; path = ../Package.swift; sourceTree = "<group>"; };
+		45D268C8242A9F1D007EB41E /* SwiftUIContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIContentView.swift; sourceTree = "<group>"; };
 		4D016BC78C8FFDC66C0F661D /* RouteComposer.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = RouteComposer.podspec; path = ../RouteComposer.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		4D5D44CE2FD3DEAA3108C874 /* Pods_RouteComposer_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RouteComposer_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		523DE209C4401E98B0605566 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
@@ -448,6 +454,7 @@
 				9AFBC7DC358700F46FADF768 /* WishList */,
 				9AFBC408291B6E99D0367D07 /* No Library Dependency */,
 				9AFBCAC0F2D822F36959DB6E /* ExampleNavigationController.swift */,
+				45D268C8242A9F1D007EB41E /* SwiftUIContentView.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -484,6 +491,7 @@
 				4552B83C22FDAE2E006E2A5D /* ShortUITests.swift */,
 				84B6D46720163CC700B70FF7 /* AllRoutesInAppUITests.swift */,
 				84B6D46920163CC700B70FF7 /* Info.plist */,
+				1BE54ADDFA896FC6D4244E2B /* SwiftUITests.swift */,
 			);
 			path = RouteComposer_ExampleUITests;
 			sourceTree = "<group>";
@@ -544,6 +552,7 @@
 				9AFBCE40E5D93F38F9223D70 /* EmptyFactory.swift */,
 				9AFBC3D8D3AA2C53D5C17952 /* EmptyContainer.swift */,
 				EF15860E0F9DBA20E470E476 /* TestWindowProvider.swift */,
+				1BE5451EE607806BE5D94E97 /* TestSwiftUIView.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -875,6 +884,7 @@
 				9AFBC3DB63861EB552A2CD2E /* ExampleUniversalLinksManager.swift in Sources */,
 				9AFBCBB5F4DDE646EAFA437B /* LoginViewController.swift in Sources */,
 				9AFBC11AB0BE495D5E2959C1 /* LoginConfiguration.swift in Sources */,
+				45D268C9242A9F1D007EB41E /* SwiftUIContentView.swift in Sources */,
 				9AFBCB1EA868F677EA54C083 /* ExampleAnalyticsSupport.swift in Sources */,
 				9AFBC466CF915E3C0F137958 /* ProductConfiguration.swift in Sources */,
 				9AFBC0ADE4D123DD36E06972 /* ProductViewController.swift in Sources */,
@@ -925,6 +935,7 @@
 				9AFBC7B044DF4416BD93D7C5 /* FinderTests.swift in Sources */,
 				EF158CB848B405D553F272A8 /* ErrorTest.swift in Sources */,
 				EF158AE158BBFC0D85A45DA6 /* TestWindowProvider.swift in Sources */,
+				1BE54D180F13FDB7C7F7B8C2 /* TestSwiftUIView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -934,6 +945,7 @@
 			files = (
 				4552B83D22FDAE2E006E2A5D /* ShortUITests.swift in Sources */,
 				84B6D46820163CC700B70FF7 /* AllRoutesInAppUITests.swift in Sources */,
+				1BE5406B08BD9E414DF3F05B /* SwiftUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1059,7 +1071,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1109,7 +1121,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -1124,7 +1136,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = RouteComposer/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "ie.ekazaev.RouteComposer-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1138,7 +1149,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = RouteComposer/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "ie.ekazaev.RouteComposer-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1186,7 +1196,7 @@
 				DEVELOPMENT_TEAM = PG4V34R8QT;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = RouteComposer_ExampleUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'";
 				PRODUCT_BUNDLE_IDENTIFIER = "ie.ekazaev.RouteComposer-ExampleUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1209,7 +1219,7 @@
 				DEVELOPMENT_TEAM = PG4V34R8QT;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = RouteComposer_ExampleUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'";
 				PRODUCT_BUNDLE_IDENTIFIER = "ie.ekazaev.RouteComposer-ExampleUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";

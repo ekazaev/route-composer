@@ -187,7 +187,7 @@ class BoxTests: XCTestCase {
             XCTAssertFalse(result.isSuccessful)
             guard let routingError = try? result.getError() as? RoutingError,
                 case let .compositionFailed(context) = routingError else {
-                XCTAssertFalse(true)
+                XCTFail()
                 return
             }
             XCTAssertEqual(context.description, "Test")

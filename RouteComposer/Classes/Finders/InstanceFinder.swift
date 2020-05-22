@@ -37,7 +37,7 @@ public struct InstanceFinder<VC: UIViewController, C>: Finder {
     }
 
     public func findViewController(with context: C) throws -> VC? {
-        return instance
+        instance
     }
 
 }

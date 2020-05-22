@@ -25,7 +25,7 @@ public extension ContainerViewController where Self: UITabBarController {
     ///     If condition has not been passed, a view controller
     ///   will be added after the latest one.
     static func add(at tabIndex: Int, replacing: Bool = false) -> TabBarControllerActions.AddTabAction<Self> {
-        return TabBarControllerActions.AddTabAction(at: tabIndex, replacing: replacing)
+        TabBarControllerActions.AddTabAction(at: tabIndex, replacing: replacing)
     }
 
     /// Adds a `UIViewController` to a `UITabBarController`
@@ -34,7 +34,7 @@ public extension ContainerViewController where Self: UITabBarController {
     ///     If condition has not been passed, a view controller
     ///   will be added after the latest one.
     static func add(at tabIndex: Int? = nil) -> TabBarControllerActions.AddTabAction<Self> {
-        return TabBarControllerActions.AddTabAction(at: tabIndex)
+        TabBarControllerActions.AddTabAction(at: tabIndex)
     }
 
 }

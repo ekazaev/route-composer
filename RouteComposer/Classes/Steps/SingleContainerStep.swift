@@ -31,11 +31,11 @@ public class SingleContainerStep<F: Finder, FC: ContainerFactory>: ActionToStepI
         }
 
         final override func routingStep<A: Action>(with action: A) -> RoutingStep? {
-            return step.routingStep(with: action)
+            step.routingStep(with: action)
         }
 
         final override func embeddableRoutingStep<A: ContainerAction>(with action: A) -> RoutingStep? {
-            return step.embeddableRoutingStep(with: action)
+            step.embeddableRoutingStep(with: action)
         }
 
     }
@@ -72,14 +72,14 @@ public class SingleContainerStep<F: Finder, FC: ContainerFactory>: ActionToStepI
     ///
     /// *NB:* Developer guaranties that this types will compliment in runtime.
     public final func unsafelyRewrapped<VC: UIViewController, C>() -> ActionToStepIntegrator<VC, C> {
-        return UnsafeWrapper(step: self)
+        UnsafeWrapper(step: self)
     }
 
     /// Allows to avoid container view controller check.
     ///
     /// *NB:* Developer guaranties that it will be there in the runtime.
     public final func expectingContainer<VC: ContainerViewController>() -> ActionToStepIntegrator<VC, F.Context> {
-        return UnsafeWrapper(step: self)
+        UnsafeWrapper(step: self)
     }
 
 }
@@ -93,13 +93,13 @@ extension SingleContainerStep where FC.Context == Any? {
     ///
     /// *NB:* Developer guaranties that it will be there in the runtime.
     public final func expectingContainer<VC: ContainerViewController, C>() -> ActionToStepIntegrator<VC, C> {
-        return UnsafeWrapper(step: self)
+        UnsafeWrapper(step: self)
     }
 
     /// Allows to compliment to the type check. A step that has context equal to Optional(Any) can be build
     /// with any type of context passed to the router.
     public final func adaptingContext<C>() -> ActionToStepIntegrator<F.ViewController, C> {
-        return UnsafeWrapper(step: self)
+        UnsafeWrapper(step: self)
     }
 
 }

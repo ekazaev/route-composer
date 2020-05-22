@@ -17,7 +17,7 @@ public extension Array where Element: UIViewController {
 
     /// Returns `true` if all `UIViewController` instances can be dismissed.
     var canBeDismissed: Bool {
-        return nonDismissibleViewController == nil
+        nonDismissibleViewController == nil
     }
 
 }

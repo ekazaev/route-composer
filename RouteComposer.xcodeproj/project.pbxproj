@@ -155,7 +155,13 @@
 		450D0E602412AEF90066E649 /* SingleStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450D0DDD2412AEF80066E649 /* SingleStep.swift */; };
 		450D0E612412AEF90066E649 /* GeneralStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450D0DDE2412AEF80066E649 /* GeneralStep.swift */; };
 		450D0E622412AEF90066E649 /* TabBarControllerStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450D0DDF2412AEF80066E649 /* TabBarControllerStep.swift */; };
+		45737CF62477DEB900FCB6A9 /* ContextAcceptingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45737CF52477DEB900FCB6A9 /* ContextAcceptingView.swift */; };
 		45762913240C76EF0018D344 /* RouteComposer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45762909240C76EF0018D344 /* RouteComposer.framework */; };
+		45BF87E924771CE000354559 /* ContextInstantiatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BF87E824771CE000354559 /* ContextInstantiatable.swift */; };
+		45BF87ED24771CEF00354559 /* UIHostingControllerWithContextFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BF87EB24771CEF00354559 /* UIHostingControllerWithContextFactory.swift */; };
+		45BF87EE24771CEF00354559 /* UIHostingControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BF87EC24771CEF00354559 /* UIHostingControllerFactory.swift */; };
+		45BF87F124771CFC00354559 /* UIHostingControllerWithContextFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BF87F024771CFC00354559 /* UIHostingControllerWithContextFinder.swift */; };
+		45BF87F424771D3100354559 /* TestSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BF87F224771D1700354559 /* TestSwiftUIView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -319,8 +325,14 @@
 		450D0DDE2412AEF80066E649 /* GeneralStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralStep.swift; sourceTree = "<group>"; };
 		450D0DDF2412AEF80066E649 /* TabBarControllerStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarControllerStep.swift; sourceTree = "<group>"; };
 		450D0E632412AF060066E649 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = RouteComposer/Info.plist; sourceTree = "<group>"; };
+		45737CF52477DEB900FCB6A9 /* ContextAcceptingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContextAcceptingView.swift; sourceTree = "<group>"; };
 		45762909240C76EF0018D344 /* RouteComposer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RouteComposer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		45762912240C76EF0018D344 /* RouteComposerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RouteComposerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		45BF87E824771CE000354559 /* ContextInstantiatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContextInstantiatable.swift; sourceTree = "<group>"; };
+		45BF87EB24771CEF00354559 /* UIHostingControllerWithContextFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIHostingControllerWithContextFactory.swift; sourceTree = "<group>"; };
+		45BF87EC24771CEF00354559 /* UIHostingControllerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIHostingControllerFactory.swift; sourceTree = "<group>"; };
+		45BF87F024771CFC00354559 /* UIHostingControllerWithContextFinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIHostingControllerWithContextFinder.swift; sourceTree = "<group>"; };
+		45BF87F224771D1700354559 /* TestSwiftUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestSwiftUIView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -405,6 +417,7 @@
 		450D0D2324129FA30066E649 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				45BF87F224771D1700354559 /* TestSwiftUIView.swift */,
 				450D0D2424129FA30066E649 /* TestWindowProvider.swift */,
 				450D0D2524129FA30066E649 /* TestStoryboard.storyboard */,
 				450D0D2624129FA30066E649 /* EmptyContainer.swift */,
@@ -459,6 +472,7 @@
 		450D0D682412AEF80066E649 /* Factories */ = {
 			isa = PBXGroup;
 			children = (
+				45BF87EA24771CEF00354559 /* SwiftUI */,
 				450D0D692412AEF80066E649 /* CompleteFactory.swift */,
 				450D0D6A2412AEF80066E649 /* SplitControllerFactory.swift */,
 				450D0D6B2412AEF80066E649 /* ClassFactory.swift */,
@@ -574,6 +588,7 @@
 		450D0DA92412AEF80066E649 /* Finders */ = {
 			isa = PBXGroup;
 			children = (
+				45BF87EF24771CFC00354559 /* SwiftUI */,
 				450D0DAA2412AEF80066E649 /* ClassFinder.swift */,
 				450D0DAB2412AEF80066E649 /* StackIteratingFinder.swift */,
 				450D0DAC2412AEF80066E649 /* Stack Iterator */,
@@ -614,6 +629,7 @@
 		450D0DC02412AEF80066E649 /* Extra */ = {
 			isa = PBXGroup;
 			children = (
+				45BF87E724771CE000354559 /* SwiftUI */,
 				450D0DC12412AEF80066E649 /* ContextChecking.swift */,
 				450D0DC22412AEF80066E649 /* DispatchQueue+Action.swift */,
 				450D0DC32412AEF80066E649 /* PresentingFinder.swift */,
@@ -677,6 +693,32 @@
 				45762912240C76EF0018D344 /* RouteComposerTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		45BF87E724771CE000354559 /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				45737CF52477DEB900FCB6A9 /* ContextAcceptingView.swift */,
+				45BF87E824771CE000354559 /* ContextInstantiatable.swift */,
+			);
+			path = SwiftUI;
+			sourceTree = "<group>";
+		};
+		45BF87EA24771CEF00354559 /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				45BF87EB24771CEF00354559 /* UIHostingControllerWithContextFactory.swift */,
+				45BF87EC24771CEF00354559 /* UIHostingControllerFactory.swift */,
+			);
+			path = SwiftUI;
+			sourceTree = "<group>";
+		};
+		45BF87EF24771CFC00354559 /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				45BF87F024771CFC00354559 /* UIHostingControllerWithContextFinder.swift */,
+			);
+			path = SwiftUI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -832,6 +874,7 @@
 				450D0E092412AEF90066E649 /* DefaultRouter+Extension.swift in Sources */,
 				450D0E5D2412AEF90066E649 /* SplitControllerStep.swift in Sources */,
 				450D0E612412AEF90066E649 /* GeneralStep.swift in Sources */,
+				45BF87EE24771CEF00354559 /* UIHostingControllerFactory.swift in Sources */,
 				450D0E062412AEF90066E649 /* BaseStep.swift in Sources */,
 				450D0E372412AEF90066E649 /* DefaultStackIterator.swift in Sources */,
 				450D0E5C2412AEF90066E649 /* RoutingInterceptable.swift in Sources */,
@@ -860,6 +903,7 @@
 				450D0E522412AEF90066E649 /* Destination.swift in Sources */,
 				450D0DF52412AEF90066E649 /* ActionConnectingAssembly.swift in Sources */,
 				450D0DE72412AEF80066E649 /* LogMessage.swift in Sources */,
+				45BF87E924771CE000354559 /* ContextInstantiatable.swift in Sources */,
 				450D0E132412AEF90066E649 /* DefaultRouter.swift in Sources */,
 				450D0E4F2412AEF90066E649 /* SingleNavigationRouter.swift in Sources */,
 				450D0E292412AEF90066E649 /* UIWindow+Extension.swift in Sources */,
@@ -879,6 +923,7 @@
 				450D0DEF2412AEF80066E649 /* ContainerStepChainAssembly.swift in Sources */,
 				450D0E142412AEF90066E649 /* AnyFinder.swift in Sources */,
 				450D0E472412AEF90066E649 /* DispatchQueue+Action.swift in Sources */,
+				45BF87F124771CFC00354559 /* UIHostingControllerWithContextFinder.swift in Sources */,
 				450D0E332412AEF90066E649 /* StackIteratingFinder.swift in Sources */,
 				450D0E562412AEF90066E649 /* PostRoutingTask.swift in Sources */,
 				450D0E362412AEF90066E649 /* WindowProvider.swift in Sources */,
@@ -896,6 +941,7 @@
 				450D0DE12412AEF80066E649 /* AbstractAction.swift in Sources */,
 				450D0E462412AEF90066E649 /* ContextChecking.swift in Sources */,
 				450D0DE62412AEF80066E649 /* Logger.swift in Sources */,
+				45BF87ED24771CEF00354559 /* UIHostingControllerWithContextFactory.swift in Sources */,
 				450D0DFB2412AEF90066E649 /* ClassFactory.swift in Sources */,
 				450D0DFC2412AEF90066E649 /* NavigationControllerFactory.swift in Sources */,
 				450D0E222412AEF90066E649 /* RoutingInterceptorBox.swift in Sources */,
@@ -917,6 +963,7 @@
 				450D0DFF2412AEF90066E649 /* FinderFactory.swift in Sources */,
 				450D0DE52412AEF80066E649 /* DefaultLogger.swift in Sources */,
 				450D0E392412AEF90066E649 /* ClassWithContextFinder.swift in Sources */,
+				45737CF62477DEB900FCB6A9 /* ContextAcceptingView.swift in Sources */,
 				450D0E1C2412AEF90066E649 /* ContainerFactoryBox.swift in Sources */,
 				450D0E452412AEF90066E649 /* NavigationControllerAdapter.swift in Sources */,
 				450D0E322412AEF90066E649 /* ClassFinder.swift in Sources */,
@@ -938,6 +985,7 @@
 				450D0D4424129FA40066E649 /* ContainerTests.swift in Sources */,
 				450D0D3D24129FA40066E649 /* RouterTest.swift in Sources */,
 				450D0D4324129FA40066E649 /* FinderTests.swift in Sources */,
+				45BF87F424771D3100354559 /* TestSwiftUIView.swift in Sources */,
 				450D0D4024129FA40066E649 /* MultiplexerTest.swift in Sources */,
 				450D0D3A24129FA40066E649 /* ErrorTest.swift in Sources */,
 				450D0D3624129FA40066E649 /* TestWindowProvider.swift in Sources */,

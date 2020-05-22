@@ -17,7 +17,7 @@ import XCTest
 extension RoutingError.Context: Equatable {
 
     public static func == (lhs: RoutingError.Context, rhs: RoutingError.Context) -> Bool {
-        return lhs.description == rhs.description && "\(String(describing: lhs.underlyingError))" == "\(String(describing: rhs.underlyingError))"
+        lhs.description == rhs.description && "\(String(describing: lhs.underlyingError))" == "\(String(describing: rhs.underlyingError))"
     }
 
 }

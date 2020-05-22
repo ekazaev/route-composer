@@ -105,7 +105,7 @@ public final class CompleteFactoryAssembly<FC: ContainerFactory> {
     ///
     /// - Returns: The `CompleteFactory` with child factories provided.
     public final func assemble() -> CompleteFactory<FC> {
-        return CompleteFactory<FC>(factory: factory, childFactories: [])
+        CompleteFactory<FC>(factory: factory, childFactories: [])
     }
 
 }

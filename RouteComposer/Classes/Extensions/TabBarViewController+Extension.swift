@@ -16,7 +16,7 @@ import UIKit
 extension UITabBarController: ContainerViewController {
 
     public var canBeDismissed: Bool {
-        return viewControllers?.canBeDismissed ?? true
+        viewControllers?.canBeDismissed ?? true
     }
 
 }
