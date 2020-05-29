@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Core Entities  Reference</title>
+    <title>CODE_OF_CONDUCT  Reference</title>
     <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="css/highlight.css" />
     <meta charset="utf-8">
@@ -14,9 +14,8 @@
   </head>
   <body>
 
-    <a name="//apple_ref/swift/Section/Core Entities" class="dashAnchor"></a>
 
-    <a title="Core Entities  Reference"></a>
+    <a title="CODE_OF_CONDUCT  Reference"></a>
 
     <header class="header">
       <p class="header-col header-col--primary">
@@ -38,7 +37,7 @@
     <p class="breadcrumbs">
       <a class="breadcrumb" href="index.html">RouteComposer Reference</a>
       <img class="carat" src="img/carat.png" />
-      Core Entities  Reference
+      CODE_OF_CONDUCT  Reference
     </p>
 
     <div class="content-wrapper">
@@ -520,282 +519,83 @@
 
         <section class="section">
           <div class="section-content top-matter">
-            <h1>Core Entities</h1>
             
-          </div>
-        </section>
+            <h1 id='contributor-covenant-code-of-conduct' class='heading'>Contributor Covenant Code of Conduct</h1>
+<h2 id='our-pledge' class='heading'>Our Pledge</h2>
 
-        <section class="section">
-          <div class="section-content">
-            <div class="task-group">
-              <ul class="item-container">
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:13RouteComposer6RouterP"></a>
-                    <a name="//apple_ref/swift/Protocol/Router" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer6RouterP">Router</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Base router protocol.</p>
+<p>In the interest of fostering an open and welcoming environment, we as
+contributors and maintainers pledge to making participation in our project and
+our community a harassment-free experience for everyone, regardless of age, body
+size, disability, ethnicity, sex characteristics, gender identity and expression,
+level of experience, education, socio-economic status, nationality, personal
+appearance, race, religion, or sexual identity and orientation.</p>
+<h2 id='our-standards' class='heading'>Our Standards</h2>
 
-                        <a href="Protocols/Router.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">Router</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:13RouteComposer12RoutingErrorO"></a>
-                    <a name="//apple_ref/swift/Enum/RoutingError" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer12RoutingErrorO">RoutingError</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Routing <code>Error</code> representation</p>
-
-                        <a href="Enums/RoutingError.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">RoutingError</span> <span class="p">:</span> <span class="kt">Error</span><span class="p">,</span> <span class="kt">CustomStringConvertible</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:13RouteComposer15DestinationStepV"></a>
-                    <a name="//apple_ref/swift/Struct/DestinationStep" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer15DestinationStepV">DestinationStep</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Represents a single step for the <code><a href="Protocols/Router.html">Router</a></code> to make.</p>
-
-                        <a href="Structs/DestinationStep.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DestinationStep</span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt">RoutingStep</span><span class="p">,</span> <span class="kt">ChainableStep</span> <span class="k">where</span> <span class="kt">VC</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:13RouteComposer6FinderP"></a>
-                    <a name="//apple_ref/swift/Protocol/Finder" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer6FinderP">Finder</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>An instance that conforms to the <code>Finder</code> protocol will be used by the <code><a href="Protocols/Router.html">Router</a></code> to find out if some <code>UIViewController</code>
-instance is integrated into the view controller stack</p>
-
-                        <a href="Protocols/Finder.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">Finder</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:13RouteComposer7FactoryP"></a>
-                    <a name="//apple_ref/swift/Protocol/Factory" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer7FactoryP">Factory</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>The <code>Factory</code> protocol should be implemented by the instance that produces any types of the view controllers</p>
-
-                        <a href="Protocols/Factory.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">Factory</span> <span class="p">:</span> <span class="kt"><a href="Protocols/AbstractFactory.html">AbstractFactory</a></span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:13RouteComposer16ContainerFactoryP"></a>
-                    <a name="//apple_ref/swift/Protocol/ContainerFactory" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer16ContainerFactoryP">ContainerFactory</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>The <code>ContainerFactory</code> protocol should be implemented by the instance that produces any types of the view controllers
-that can be considered as containers (eg: <code>UINavigationController</code>, <code>UITabBarController</code>, etc)</p>
-
-<p>The <code><a href="Protocols/Router.html">Router</a></code> uses <code><a href="Protocols/ContainerAction.html#/s:13RouteComposer15ContainerActionP7perform9embedding2inySo16UIViewControllerC_SayAHGztKF">ContainerAction.perform(...)</a></code> method of a <code><a href="Protocols/ContainerAction.html">ContainerAction</a></code> and then populates a full stack of the view controllers
-that were built by the associated factories in one go.
-Example: <code><a href="Protocols/Router.html">Router</a></code> requires to populate N-view controllers into <code>UINavigationController</code>&lsquo;s stack.</p>
-
-                        <a href="Protocols/ContainerFactory.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">ContainerFactory</span> <span class="p">:</span> <span class="kt"><a href="Protocols/AbstractFactory.html">AbstractFactory</a></span> <span class="k">where</span> <span class="k">Self</span><span class="o">.</span><span class="kt">ViewController</span> <span class="p">:</span> <span class="kt"><a href="Protocols/ContainerViewController.html">ContainerViewController</a></span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:13RouteComposer6ActionP"></a>
-                    <a name="//apple_ref/swift/Protocol/Action" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer6ActionP">Action</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Represents an action that has to be applied to the <code>UIViewController</code> after it has
-been built (eg: push to navigation stack, present modally, push to tab, etc)</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">Action</span> <span class="p">:</span> <span class="kt"><a href="Protocols/AbstractAction.html">AbstractAction</a></span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:13RouteComposer15ContainerActionP"></a>
-                    <a name="//apple_ref/swift/Protocol/ContainerAction" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer15ContainerActionP">ContainerAction</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Represents an action to be used by a <code><a href="Protocols/ContainerFactory.html">ContainerFactory</a></code> to build it&rsquo;s children view controller stack</p>
-
-                        <a href="Protocols/ContainerAction.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">ContainerAction</span> <span class="p">:</span> <span class="kt"><a href="Protocols/AbstractAction.html">AbstractAction</a></span> <span class="k">where</span> <span class="k">Self</span><span class="o">.</span><span class="kt">ViewController</span> <span class="p">:</span> <span class="kt"><a href="Protocols/ContainerViewController.html">ContainerViewController</a></span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:13RouteComposer13RoutingResultO"></a>
-                    <a name="//apple_ref/swift/Enum/RoutingResult" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer13RoutingResultO">RoutingResult</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>The result of the navigation process</p>
+<p>Examples of behavior that contributes to creating a positive environment
+include:</p>
 
 <ul>
-<li>success: The request to process the navigation resulted in a successful navigation to the destination.</li>
-<li>failure: The request to process the navigation was not successful.</li>
+<li>Using welcoming and inclusive language</li>
+<li>Being respectful of differing viewpoints and experiences</li>
+<li>Gracefully accepting constructive criticism</li>
+<li>Focusing on what is best for the community</li>
+<li>Showing empathy towards other community members</li>
 </ul>
 
-                        <a href="Enums/RoutingResult.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">RoutingResult</span></code></pre>
+<p>Examples of unacceptable behavior by participants include:</p>
 
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
+<ul>
+<li>The use of sexualized language or imagery and unwelcome sexual attention or
+advances</li>
+<li>Trolling, insulting/derogatory comments, and personal or political attacks</li>
+<li>Public or private harassment</li>
+<li>Publishing others&rsquo; private information, such as a physical or electronic
+address, without explicit permission</li>
+<li>Other conduct which could reasonably be considered inappropriate in a
+professional setting</li>
+</ul>
+<h2 id='our-responsibilities' class='heading'>Our Responsibilities</h2>
+
+<p>Project maintainers are responsible for clarifying the standards of acceptable
+behavior and are expected to take appropriate and fair corrective action in
+response to any instances of unacceptable behavior.</p>
+
+<p>Project maintainers have the right and responsibility to remove, edit, or
+reject comments, commits, code, wiki edits, issues, and other contributions
+that are not aligned to this Code of Conduct, or to ban temporarily or
+permanently any contributor for other behaviors that they deem inappropriate,
+threatening, offensive, or harmful.</p>
+<h2 id='scope' class='heading'>Scope</h2>
+
+<p>This Code of Conduct applies both within project spaces and in public spaces
+when an individual is representing the project or its community. Examples of
+representing a project or community include using an official project e-mail
+address, posting via an official social media account, or acting as an appointed
+representative at an online or offline event. Representation of a project may be
+further defined and clarified by project maintainers.</p>
+<h2 id='enforcement' class='heading'>Enforcement</h2>
+
+<p>Instances of abusive, harassing, or otherwise unacceptable behavior may be
+reported by contacting the project team at <a href="mailto:eugene.kazaev@gmail.com">eugene.kazaev@gmail.com</a>. All
+complaints will be reviewed and investigated and will result in a response that
+is deemed necessary and appropriate to the circumstances. The project team is
+obligated to maintain confidentiality with regard to the reporter of an incident.
+Further details of specific enforcement policies may be posted separately.</p>
+
+<p>Project maintainers who do not follow or enforce the Code of Conduct in good
+faith may face temporary or permanent repercussions as determined by other
+members of the project&rsquo;s leadership.</p>
+<h2 id='attribution' class='heading'>Attribution</h2>
+
+<p>This Code of Conduct is adapted from the <a href="https://www.contributor-covenant.org">Contributor Covenant</a>, version 1.4,
+available at <a href="https://www.contributor-covenant.org/version/1/4/code-of-conduct.html">https://www.contributor-covenant.org/version/1/4/code-of-conduct.html</a></p>
+
+<p>For answers to common questions about this code of conduct, see
+<a href="https://www.contributor-covenant.org/faq">https://www.contributor-covenant.org/faq</a></p>
+
           </div>
         </section>
+
 
       </article>
     </div>

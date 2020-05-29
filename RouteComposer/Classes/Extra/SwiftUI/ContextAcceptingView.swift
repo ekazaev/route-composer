@@ -21,7 +21,7 @@ public protocol ContextAcceptingView {
 
     // MARK: Associated types
 
-    /// Type of `Context` object that `View` can deal with
+    /// Type of `Context` object that `View` can be accept
     associatedtype Context
 
     // MARK: Methods to implement

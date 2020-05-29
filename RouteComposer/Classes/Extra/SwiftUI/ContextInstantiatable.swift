@@ -17,7 +17,7 @@ import UIKit
 @available(iOS 13.0, OSX 10.15, tvOS 13.0, watchOS 6.0, *)
 public protocol ContextInstantiatable where Self: View {
 
-    /// Type of `Context` object that `UIViewController` can deal with
+    /// Type of `Context` object that `View` can be initialised with
     associatedtype Context
 
     /// Constructor

@@ -129,7 +129,7 @@
 </tr>
 <tr class="never">
 <td class="num">24</td>
-<td class="src"><pre><code class="objc">    /// Type of `Context` object that `View` can deal with</code></pre></td>
+<td class="src"><pre><code class="objc">    /// Type of `Context` object that `View` can be accept</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -237,10 +237,10 @@
 <td class="src"><pre><code class="objc">// MARK: Default implementation</code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="covered">
+<tr class="never">
 <td class="num">46</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">47</td>
@@ -262,40 +262,40 @@
 <td class="src"><pre><code class="objc">    /// Default implementation does nothing.</code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="never">
+<tr class="covered">
 <td class="num">51</td>
 <td class="src"><pre><code class="objc">    static func checkCompatibility(with context: Context) throws {}</code></pre></td>
-<td class="coverage"></td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="never">
 <td class="num">52</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="covered">
+<tr class="never">
 <td class="num">53</td>
 <td class="src"><pre><code class="objc">}</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage"></td>
 </tr>
-<tr class="covered">
+<tr class="never">
 <td class="num">54</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage"></td>
 </tr>
-<tr class="covered">
+<tr class="never">
 <td class="num">55</td>
 <td class="src"><pre><code class="objc">@available(iOS 13.0, OSX 10.15, tvOS 13.0, watchOS 6.0, *)</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">56</td>
 <td class="src"><pre><code class="objc">extension UIHostingController: ContextAccepting where Content: ContextAcceptingView {</code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="covered">
+<tr class="never">
 <td class="num">57</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage"></td>
 </tr>
 <tr class="covered">
 <td class="num">58</td>
@@ -307,30 +307,30 @@
 <td class="src"><pre><code class="objc">        try Content.checkCompatibility(with: context)</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
-<tr class="never">
+<tr class="covered">
 <td class="num">60</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage"></td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="never">
 <td class="num">61</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="never">
+<tr class="covered">
 <td class="num">62</td>
 <td class="src"><pre><code class="objc">    public func setup(with context: Content.Context) throws {</code></pre></td>
-<td class="coverage"></td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="never">
+<tr class="covered">
 <td class="num">63</td>
 <td class="src"><pre><code class="objc">        try rootView.setup(with: context)</code></pre></td>
-<td class="coverage"></td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="never">
+<tr class="covered">
 <td class="num">64</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage"></td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="never">
 <td class="num">65</td>
