@@ -17,14 +17,20 @@ Steps to reproduce the behavior:
 3. Scroll down to '....'
 4. See error
 
+**OR**
+
+1. Create the configuration '...' and apply it to the `Router`
+2. See incorrect '....' behaviour 
+3. Expected '....' behaviour
+
 *NB: A picture is worth a thousand words. So it is always better to provide a sample project that contains and clearly shows the issue*
 
 **Expected behavior**
 A clear and concise description of what you expected to happen.
 
 **Configuration:**
- - Device: [e.g. iPhone6]
- - OS: [e.g. iOS8.1]
+ - Device: [e.g. iPhone11]
+ - OS: [e.g. iOS13.5]
  - RouteComposer version [e.g. 2.6.0]
 
 **Additional context**
