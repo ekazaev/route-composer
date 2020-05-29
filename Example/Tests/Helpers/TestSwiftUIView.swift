@@ -32,4 +32,23 @@ struct TestSwiftUIView: View, ContextInstantiatable, ContextChecking {
 
 }
 
+@available(iOS 13.0.0, *)
+struct TestSwiftUIAnyContextView<Context>: View, ContextInstantiatable, ContextChecking {
+
+    let context: Context
+
+    init(with context: Context) {
+        self.context = context
+    }
+
+    var body: some View {
+        Text("Hello SwiftUI!")
+    }
+
+    func isTarget(for context: Context) -> Bool {
+        true
+    }
+
+}
+
 #endif

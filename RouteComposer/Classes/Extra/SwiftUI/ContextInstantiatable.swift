@@ -26,7 +26,7 @@ public protocol ContextInstantiatable where Self: View {
 }
 
 @available(iOS 13.0, OSX 10.15, tvOS 13.0, watchOS 6.0, *)
-extension ContextInstantiatable where Context == Void {
+public extension ContextInstantiatable where Context == Void {
 
     /// Constructor
     init() {
@@ -36,7 +36,7 @@ extension ContextInstantiatable where Context == Void {
 }
 
 @available(iOS 13.0, OSX 10.15, tvOS 13.0, watchOS 6.0, *)
-extension ContextInstantiatable where Context == Any? {
+public extension ContextInstantiatable where Context == Any? {
 
     /// Constructor
     init() {

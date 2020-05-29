@@ -154,6 +154,14 @@ class FinderTest: XCTestCase {
         XCTAssertNil(try? finder.findViewController(with: "321"))
     }
 
+    @available(iOS 13.0.0, *)
+    func testContextInstantiatableConstructors() {
+        let voidView = TestSwiftUIAnyContextView<Void>()
+        let optionalAnyView = TestSwiftUIAnyContextView<Any?>()
+        XCTAssertTrue(voidView.context == ())
+        XCTAssertNil(optionalAnyView.context)
+    }
+
 }
 
 #endif
