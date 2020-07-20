@@ -7,7 +7,7 @@
 [![SwiftUI](https://img.shields.io/badge/SwiftUI-compatible-0AB42A.svg?style=flat)](https://developer.apple.com/xcode/swiftui/)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BA51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Swift 5.2](https://img.shields.io/badge/language-Swift5.2-orange.svg?style=flat)](https://developer.apple.com/swift)
-[![Platform iOS](https://img.shields.io/badge/platform-iOS%209%20—%20iOS%2013-yellow.svg)](https://www.apple.com/ios)
+[![Platform iOS](https://img.shields.io/badge/platform-iOS%209%20—%20iOS%2014-yellow.svg)](https://www.apple.com/ios)
 [![Documentation](https://ekazaev.github.io/route-composer/badge.svg)](https://ekazaev.github.io/route-composer)
 [![Code coverage](https://codecov.io/gh/ekazaev/route-composer/branch/master/graphs/badge.svg?style=flat)](https://ekazaev.github.io/route-composer/tests/index.html)
 [![Codacy Quality Badge](https://api.codacy.com/project/badge/Grade/a80ff85b146d4cc0ace9620b989ff271)](https://app.codacy.com/app/ekazaev/route-composer?utm_source=github.com&utm_medium=referral&utm_content=ekazaev/route-composer&utm_campaign=Badge_Grade_Settings)
