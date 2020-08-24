@@ -505,7 +505,7 @@ Russian:
 
 ## Author
 
-Evgeny Kazaev, eugene.kazaev@gmail.com
+Evgeny Kazaev, eugene.kazaev@gmail.com. Twitter [ekazaev](https://twitter.com/EKazaev)
 
 *I am happy to answer any questions you may have. Just create a [new issue](https://github.com/ekazaev/route-composer/issues/new).*
 
