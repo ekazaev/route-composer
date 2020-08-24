@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1BE5406B08BD9E414DF3F05B /* SwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE54ADDFA896FC6D4244E2B /* SwiftUITests.swift */; };
+		1BE543AF30CA4A1AA4CBE41A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE54D8FB7AECC02B9177E13 /* SceneDelegate.swift */; };
 		1BE54D180F13FDB7C7F7B8C2 /* TestSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE5451EE607806BE5D94E97 /* TestSwiftUIView.swift */; };
 		3964C13C9510D7C17530911E /* Pods_RouteComposer_Example_RouteComposer_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0293FF29C4D706E5D7F4B94 /* Pods_RouteComposer_Example_RouteComposer_Tests.framework */; };
 		453BC2E32288C6F100314B33 /* ContainerLocatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453BC2E22288C6F100314B33 /* ContainerLocatorTests.swift */; };
@@ -174,6 +175,7 @@
 		0B068CD8E2A01AE34431EC7F /* Pods-RouteComposer_Example-RouteComposer_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RouteComposer_Example-RouteComposer_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RouteComposer_Example-RouteComposer_Tests/Pods-RouteComposer_Example-RouteComposer_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		1BE5451EE607806BE5D94E97 /* TestSwiftUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestSwiftUIView.swift; sourceTree = "<group>"; };
 		1BE54ADDFA896FC6D4244E2B /* SwiftUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftUITests.swift; sourceTree = "<group>"; };
+		1BE54D8FB7AECC02B9177E13 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		453BC2E22288C6F100314B33 /* ContainerLocatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerLocatorTests.swift; sourceTree = "<group>"; };
 		4552B83C22FDAE2E006E2A5D /* ShortUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortUITests.swift; sourceTree = "<group>"; };
 		4570AD292238769C00809A01 /* ExtrasTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtrasTest.swift; sourceTree = "<group>"; };
@@ -352,6 +354,7 @@
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
 				847D286E202B7DCC004C1EAF /* StarViewController.xib */,
+				1BE54D8FB7AECC02B9177E13 /* SceneDelegate.swift */,
 			);
 			name = "Example for RouteComposer";
 			path = RouteComposer;
@@ -912,6 +915,7 @@
 				9AFBCE52F3DE5262483447AD /* AnalyticsRouterDecorator.swift in Sources */,
 				9AFBC4742A536B8AD7957A1A /* Router+Destination.swift in Sources */,
 				9AFBC4085F7930B60F185C0D /* ExampleNavigationController.swift in Sources */,
+				1BE543AF30CA4A1AA4CBE41A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
