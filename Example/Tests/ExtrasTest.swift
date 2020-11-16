@@ -77,9 +77,9 @@ class ExtrasTest: XCTestCase {
         var router = self.router
         router.add(InlineInterceptor(prepare: { (_: Any?) throws in
             globalInterceptorPrepared += 1
-            }, { (_: Any?, completion: @escaping (RoutingResult) -> Void) in
-                globalInterceptorRun += 1
-                completion(.success)
+        }, { (_: Any?, completion: @escaping (RoutingResult) -> Void) in
+            globalInterceptorRun += 1
+            completion(.success)
         }))
         router.add(InlineContextTask { (_: UIViewController, _: Any?) in
             globalTaskRun += 1
@@ -100,7 +100,7 @@ class ExtrasTest: XCTestCase {
         }))
 
         XCTAssertThrowsError(try router.navigate(to: screenConfig, with: nil, animated: false, completion: { _ in
-            XCTFail()
+            XCTFail("Must throw an error")
         }))
 
         wait(for: [expectation], timeout: 0.3)
@@ -130,7 +130,7 @@ class ExtrasTest: XCTestCase {
                                                  animated: false,
                                                  completion: { _ in
                                                      wasInCompletion = true
-        }))
+                                                 }))
         XCTAssertFalse(wasInCompletion)
         XCTAssertFalse(lock.isNavigationInProgress)
     }
@@ -234,6 +234,7 @@ class ExtrasTest: XCTestCase {
                 super.init(nibName: nil, bundle: nil)
             }
 
+            @available(*, unavailable)
             required init?(coder aDecoder: NSCoder) {
                 fatalError("init(coder:) has not been implemented")
             }

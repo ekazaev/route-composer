@@ -19,7 +19,7 @@ class CityURLTranslator: ExampleURLTranslator {
             let cityItem = queryItems.first(where: { $0.name == "city" }),
             let cityValue = cityItem.value,
             let cityId = Int(cityValue) else {
-            return nil
+                return nil
         }
 
         let cityDestination = CitiesConfiguration.cityDetail(cityId: cityId)

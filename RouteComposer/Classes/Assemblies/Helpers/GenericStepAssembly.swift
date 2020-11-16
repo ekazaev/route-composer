@@ -23,7 +23,7 @@ public class GenericStepAssembly<VC: UIViewController, C>: InterceptableStepAsse
 
     // MARK: Properties
 
-    var taskCollector: TaskCollector = TaskCollector()
+    var taskCollector = TaskCollector()
 
     // MARK: Add a Task to the Step
 

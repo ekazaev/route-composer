@@ -114,7 +114,7 @@ class ActionTests: XCTestCase {
                                      isModalInPresentation: true,
                                      popoverConfiguration: { _ in
                                          wasInPopoverConfig = true
-        }).perform(with: viewController, on: PresentingModallyController(), animated: true, completion: { result in
+                                     }).perform(with: viewController, on: PresentingModallyController(), animated: true, completion: { result in
             wasInCompletion = true
             XCTAssertEqual(viewController.modalPresentationStyle, UIModalPresentationStyle.popover)
             XCTAssertEqual(viewController.modalTransitionStyle, UIModalTransitionStyle.crossDissolve)
@@ -411,7 +411,7 @@ class ActionTests: XCTestCase {
         XCTAssertEqual(splitController.viewControllers.count, 1)
 
         wasInCompletion = false
-        let navController: UINavigationController = UINavigationController()
+        let navController = UINavigationController()
         splitController.viewControllers = [UIViewController(), navController]
         UISplitViewController.pushOnToDetails().perform(with: viewController, on: splitController, animated: false) { result in
             wasInCompletion = true

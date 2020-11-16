@@ -41,7 +41,7 @@ public struct DetailsNavigationFinder<C>: Finder {
         }
         guard splitViewController.viewControllers.count > 1 else {
             guard let firstNavigationController = splitViewController.viewControllers.first as? UINavigationController,
-                let secondNavigationController = firstNavigationController.viewControllers.last as? UINavigationController else {
+            let secondNavigationController = firstNavigationController.viewControllers.last as? UINavigationController else {
                 return nil
             }
             return secondNavigationController

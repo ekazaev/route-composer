@@ -18,7 +18,7 @@ class ColorURLTranslator: ExampleURLTranslator {
             let queryItems = urlComponents.queryItems,
             let colorItem = queryItems.first(where: { $0.name == "color" }),
             let colorValue = colorItem.value else {
-            return nil
+                return nil
         }
 
         return Destination(to: ConfigurationHolder.configuration.colorScreen, with: colorValue).unwrapped()

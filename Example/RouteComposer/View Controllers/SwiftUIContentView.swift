@@ -28,9 +28,9 @@ struct SwiftUIContentView: View, ContextInstantiatable, ContextChecking, Context
             Text("Hello SwiftUI. The context is \(context)")
             Button(action: {
                 try? UIViewController.router.navigate(to: ConfigurationHolder.configuration.squareScreen, with: nil)
-            }) {
+            }, label: {
                 Text("Go to Square Tab")
-            }.accessibility(identifier: "SwiftUI+\(context)")
+            }).accessibility(identifier: "SwiftUI+\(context)")
         }.onAppear {
             self.context = self.currentContext
         }

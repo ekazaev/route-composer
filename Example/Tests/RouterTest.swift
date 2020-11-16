@@ -303,8 +303,8 @@ class RouterTests: XCTestCase {
         let screenConfig = StepAssembly(finder: NilFinder(), factory: TestViewControllerFactory<TestProtocol>())
             .adding(InlineInterceptor(prepare: { (_: TestProtocol) throws in
                 contextInterceptorPrepared += 1
-                }, { (_: TestProtocol) in
-                    contextInterceptorRun += 1
+            }, { (_: TestProtocol) in
+                contextInterceptorRun += 1
             }))
             .adding(InlineContextTask { (_: TestViewController, _: TestProtocol) in
                 contextTaskRun += 1
@@ -321,9 +321,9 @@ class RouterTests: XCTestCase {
         var router = self.router
         router.add(InlineInterceptor(prepare: { (_: Any?) throws in
             globalInterceptorPrepared += 1
-            }, { (_: Any?, completion: @escaping (RoutingResult) -> Void) in
-                globalInterceptorRun += 1
-                completion(.success)
+        }, { (_: Any?, completion: @escaping (RoutingResult) -> Void) in
+            globalInterceptorRun += 1
+            completion(.success)
         }))
         router.add(InlineContextTask { (_: UIViewController, _: Any?) in
             globalTaskRun += 1

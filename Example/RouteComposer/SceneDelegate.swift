@@ -1,6 +1,10 @@
 //
-// Created by Eugene Kazaev on 24/08/2020.
-// Copyright (c) 2020 Evgeny Kazaev. All rights reserved.
+// RouteComposer
+// SceneDelegate.swift
+// https://github.com/ekazaev/route-composer
+//
+// Created by Eugene Kazaev in 2018-2020.
+// Distributed under the MIT license.
 //
 
 import Foundation
@@ -12,9 +16,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        guard let _ = (scene as? UIWindowScene) else {
-            return
-        }
         ConfigurationHolder.configuration = ExampleConfiguration()
 
         // Try in mobile Safari to test the deep linking to the app:
@@ -32,8 +33,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
         guard let urlContext = URLContexts.first,
-              let destination = ExampleUniversalLinksManager.destination(for: urlContext.url) else {
-            return
+            let destination = ExampleUniversalLinksManager.destination(for: urlContext.url) else {
+                return
         }
 
         do {

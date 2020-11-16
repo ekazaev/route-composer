@@ -71,7 +71,7 @@ public struct DefaultStackIterator: StackIterator {
                                                                          options: options,
                                                                          containerAdapterLocator: containerAdapterLocator,
                                                                          using: predicate) else {
-            return nil
+                return nil
         }
 
         return viewController

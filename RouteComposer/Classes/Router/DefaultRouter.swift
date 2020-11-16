@@ -89,7 +89,7 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
                                     self.logger?.log(.info("Successfully finished the navigation process."))
                                 }
                                 completion?(result)
-            })
+                            })
         } catch {
             logger?.log(.error("\(error)"))
             logger?.log(.info("Unsuccessfully finished the navigation process."))
@@ -199,15 +199,15 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
                                               with: context,
                                               using: factoriesStack,
                                               animated: animated) { result in
-                    do {
-                        if case let .failure(error) = result {
-                            throw error
+                        do {
+                            if case let .failure(error) = result {
+                                throw error
+                            }
+                            try taskStack.performPostTasks(with: context)
+                            completion(result)
+                        } catch {
+                            completion(.failure(error))
                         }
-                        try taskStack.performPostTasks(with: context)
-                        completion(result)
-                    } catch {
-                        completion(.failure(error))
-                    }
                 }
             }
         }
@@ -249,16 +249,16 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
                                            with: postponedIntegrationHandler,
                                            nextAction: nextAction,
                                            animated: animated) { result in
-                        self.assertIfNotMainThread(logger: self.logger)
-                        guard result.isSuccessful else {
-                            self.logger?.log(.info("\(String(describing: factory.action)) has stopped the navigation process " +
-                                    "as it was not able to build a view controller into a stack."))
-                            completion(result)
-                            return
-                        }
-                        self.logger?.log(.info("\(String(describing: factory.action)) has applied to " +
-                                "\(String(describing: previousViewController)) with \(String(describing: newViewController))."))
-                        buildViewController(from: newViewController)
+                            self.assertIfNotMainThread(logger: self.logger)
+                            guard result.isSuccessful else {
+                                self.logger?.log(.info("\(String(describing: factory.action)) has stopped the navigation process " +
+                                        "as it was not able to build a view controller into a stack."))
+                                completion(result)
+                                return
+                            }
+                            self.logger?.log(.info("\(String(describing: factory.action)) has applied to " +
+                                    "\(String(describing: previousViewController)) with \(String(describing: newViewController))."))
+                            buildViewController(from: newViewController)
                     }
                 } catch {
                     completion(.failure(error))
