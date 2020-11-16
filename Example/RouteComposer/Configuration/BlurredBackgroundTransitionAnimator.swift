@@ -69,7 +69,7 @@ class BlurredBackgroundTransitionAnimator: NSObject, UIViewControllerAnimatedTra
                        animations: {
                            blurEffect.effect = effect
                            blurEffect.alpha = finalAlpha
-        }, completion: nil)
+                       }, completion: nil)
 
         UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: {
             viewToAnimate.alpha = finalAlpha

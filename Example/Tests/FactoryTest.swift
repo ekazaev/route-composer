@@ -34,7 +34,7 @@ class FactoryTest: XCTestCase {
                                                                 configuration: { viewController in
                                                                     wasInCompletion = true
                                                                     builtViewController = viewController
-        })
+                                                                })
         XCTAssertEqual(factory.identifier, "TestViewController")
         XCTAssertEqual(factory.name, "TestStoryboard")
         XCTAssertNotNil(factory.configuration)
@@ -58,7 +58,7 @@ class FactoryTest: XCTestCase {
         let factory = FinderFactory<RouterTests.FakeClassFinder<UINavigationController, Any?>>(finder: RouterTests.FakeClassFinder(currentViewController: navigationController),
                                                                                                configuration: { viewController in
                                                                                                    viewController.viewControllers = [UIViewController()]
-        })
+                                                                                               })
         XCTAssertEqual(try factory?.build(with: nil), navigationController)
         XCTAssertEqual(navigationController.viewControllers.count, 1)
 

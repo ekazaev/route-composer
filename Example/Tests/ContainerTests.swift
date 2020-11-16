@@ -98,7 +98,7 @@ class ContainerTests: XCTestCase {
                                                                                 XCTAssertEqual(controller.preferredDisplayMode, .allVisible)
                                                                                 XCTAssertTrue(controller.delegate === delegate)
                                                                                 XCTAssertTrue(controller.presentsWithGesture)
-        })
+                                                                            })
         var children: [PostponedIntegrationFactory<Any?>] = []
         children.append(PostponedIntegrationFactory<Any?>(for: FactoryBox(EmptyFactory(), action: ContainerActionBox(UISplitViewController.setAsMaster()))!))
         children.append(PostponedIntegrationFactory<Any?>(for: FactoryBox(EmptyFactory(), action: ContainerActionBox(UISplitViewController.pushToDetails()))!))

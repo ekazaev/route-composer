@@ -18,7 +18,7 @@ class ProductURLTranslator: ExampleURLTranslator {
             let queryItems = urlComponents.queryItems,
             let item = queryItems.first(where: { $0.name == "product" }),
             let productIdValue = item.value else {
-            return nil
+                return nil
         }
 
         return Destination(to: ProductConfiguration.productScreen, with: ProductContext(productId: productIdValue, productURL: url)).unwrapped()

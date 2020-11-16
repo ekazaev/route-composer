@@ -94,7 +94,7 @@ class ProductViewController: UIViewController, ExampleAnalyticsSupport, ContextA
     @IBAction func goToProductFromCircleTapped() {
         guard let productId = productId,
             var productIdAsInt = Int(productId) else {
-            return
+                return
         }
         productIdAsInt = productIdAsInt < 9 ? productIdAsInt + 1 : 0
         try? router.navigate(to: ProductConfiguration.productScreenFromCircle, with: ProductContext(productId: "0\(productIdAsInt)"))

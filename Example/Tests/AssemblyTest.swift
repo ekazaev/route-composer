@@ -164,7 +164,7 @@ class AssemblyTest: XCTestCase {
             .with(CompleteFactoryAssembly(factory: TabBarControllerFactory<UITabBarController, Any?>())
                 .with(ClassFactory<UIViewController, Any?>()
                 ).assemble(),
-                  using: UITabBarController.add(at: 1, replacing: true))
+                using: UITabBarController.add(at: 1, replacing: true))
             .adding(contextTask3)
             .with(CompleteFactoryAssembly(factory: NavigationControllerFactory<UINavigationController, Any?>())
                 .with(CompleteFactoryAssembly(factory: TabBarControllerFactory<UITabBarController, Any?>())

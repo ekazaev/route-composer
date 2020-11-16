@@ -21,12 +21,12 @@ class MultiplexerTest: XCTestCase {
         let interceptors = [
             RoutingInterceptorBox(InlineInterceptor(prepare: { (_: Any?) throws in
                 prepareCountRun += 1
-                }, { (_: Any?) in
+            }, { (_: Any?) in
 
             })),
             RoutingInterceptorBox(InlineInterceptor(prepare: { (_: Any?) throws in
                 prepareCountRun += 9
-                }, { (_: Any?) in
+            }, { (_: Any?) in
 
             }))
         ]
@@ -43,7 +43,7 @@ class MultiplexerTest: XCTestCase {
         let interceptors = [
             RoutingInterceptorBox(InlineInterceptor(prepare: { (_: Any?) throws in
                 throw RoutingError.generic(.init("Should be handled"))
-                }, { (_: Any?) in
+            }, { (_: Any?) in
 
             }))
         ]
@@ -55,8 +55,8 @@ class MultiplexerTest: XCTestCase {
     func testRoutingInterceptorPerformThrows() {
         let interceptors = [
             RoutingInterceptorBox(InlineInterceptor(prepare: { (_: Any?) throws in
-                }, { (_: Any?) in
-                    throw RoutingError.generic(.init("Should be handled"))
+            }, { (_: Any?) in
+                throw RoutingError.generic(.init("Should be handled"))
             }))
         ]
 
@@ -85,7 +85,7 @@ class MultiplexerTest: XCTestCase {
         let interceptors = [
             RoutingInterceptorBox(InlineInterceptor(prepare: { (_: Int) throws in
                 throw RoutingError.generic(.init("Should be handled"))
-                }, { (_: Int) in
+            }, { (_: Int) in
 
             }))
         ]
@@ -94,7 +94,7 @@ class MultiplexerTest: XCTestCase {
         XCTAssertThrowsError(try multiplexer.prepare(with: "Wrong Context Type"))
         multiplexer.perform(with: "Wrong Context Type", completion: { result in
             guard case .failure = result else {
-                XCTFail()
+                XCTFail("Must be an error")
                 return
             }
         })

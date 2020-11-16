@@ -33,15 +33,14 @@ class CitiesConfiguration {
     private static var cityDetails = StepAssembly(
         finder: ClassFinder<CityDetailViewController, Int>(),
         factory: StoryboardFactory(name: "Split",
-                                   identifier: "CityDetailViewController")
-    )
-    .adding(CityDetailContextTask())
-    .using(UISplitViewController.pushToDetails())
-    .from(citiesList.unsafelyRewrapped())
-    // We have to rewrap the step unsafely, as we will take responsibility for the runtime type conversion.
-    // In this particular case it will work as Int can always be converted to Int? and `citiesList` will
-    // be able to select right cell while we are navigating to the `cityDetails`.
-    .assemble()
+                                   identifier: "CityDetailViewController"))
+        .adding(CityDetailContextTask())
+        .using(UISplitViewController.pushToDetails())
+        .from(citiesList.unsafelyRewrapped())
+        // We have to rewrap the step unsafely, as we will take responsibility for the runtime type conversion.
+        // In this particular case it will work as Int can always be converted to Int? and `citiesList` will
+        // be able to select right cell while we are navigating to the `cityDetails`.
+        .assemble()
 
     static func citiesList(cityId: Int? = nil) -> Destination<CitiesTableViewController, Int?> {
         Destination(to: citiesList, with: cityId)

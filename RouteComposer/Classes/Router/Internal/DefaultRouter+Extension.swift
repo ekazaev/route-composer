@@ -311,7 +311,7 @@ extension DefaultRouter {
                                                                          + "integrated into \(String(describing: containerViewController))"))
                                                                  self.reset()
                                                                  completion(.success)
-                })
+                                                             })
             } catch {
                 completion(.failure(error))
             }
