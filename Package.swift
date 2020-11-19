@@ -10,11 +10,6 @@ let package = Package(
     products: [
         .library(
             name: "RouteComposer",
-            targets: ["RouteComposer"]),
-        .library(name: "RouteComposerStatic",
-            type: .static,
-            targets: ["RouteComposer"]),
-        .library(name: "RouteComposerDynamic",
             type: .dynamic,
             targets: ["RouteComposer"])
     ],
