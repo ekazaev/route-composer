@@ -44,7 +44,7 @@ class ImagesWithoutLibraryConfiguration {
         let navigationController = UINavigationController(rootViewController: containerController)
 
         // Handled by TopMostViewControllerStep
-        let rootController = UIApplication.shared.keyWindow?.rootViewController
+        let rootController = UIApplication.shared.windows.first?.rootViewController
 
         // Handled by PresentModally action
         rootController?.present(navigationController, animated: true, completion: nil)
