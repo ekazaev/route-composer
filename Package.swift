@@ -5,11 +5,17 @@ import PackageDescription
 let package = Package(
     name: "RouteComposer",
     platforms: [
-        .iOS(.v9)
+        .iOS(.v11)
     ],
     products: [
         .library(
             name: "RouteComposer",
+            targets: ["RouteComposer"]),
+        .library(name: "RouteComposerStatic",
+            type: .static,
+            targets: ["RouteComposer"]),
+        .library(name: "RouteComposerDynamic",
+            type: .dynamic,
             targets: ["RouteComposer"])
     ],
     targets: [
