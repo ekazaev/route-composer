@@ -16,7 +16,7 @@ let package = Package(
             targets: ["RouteComposerDynamic"]),
         .library(name: "RouteComposer",
             type: .dynamic,
-            targets: ["RouteComposer"]),
+            targets: ["RouteComposer"])
     ],
     targets: [
         .target(
