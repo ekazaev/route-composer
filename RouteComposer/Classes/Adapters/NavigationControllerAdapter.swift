@@ -49,8 +49,8 @@ public struct NavigationControllerAdapter<VC: UINavigationController>: ConcreteC
             return
         }
         navigationController.popToViewController(viewController, animated: animated)
-        if animated {
-            navigationController.transitionCoordinator?.animate(alongsideTransition: nil) { _ in
+        if let transitionCoordinator = navigationController.transitionCoordinator, animated {
+            transitionCoordinator.animate(alongsideTransition: nil) { _ in
                 completion(.success)
             }
         } else {
@@ -63,8 +63,8 @@ public struct NavigationControllerAdapter<VC: UINavigationController>: ConcreteC
             return completion(.failure(RoutingError.compositionFailed(.init("\(String(describing: VC.self)) has been deallocated"))))
         }
         navigationController.setViewControllers(containedViewControllers, animated: animated)
-        if animated {
-            navigationController.transitionCoordinator?.animate(alongsideTransition: nil) { _ in
+        if let transitionCoordinator = navigationController.transitionCoordinator, animated {
+            transitionCoordinator.animate(alongsideTransition: nil) { _ in
                 completion(.success)
             }
         } else {
