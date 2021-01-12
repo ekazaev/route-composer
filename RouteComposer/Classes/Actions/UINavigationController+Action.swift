@@ -53,7 +53,13 @@ public struct NavigationControllerActions {
                             animated: Bool,
                             completion: @escaping (_: RoutingResult) -> Void) {
             navigationController.pushViewController(viewController, animated: animated)
-            return completion(.success)
+            if let transitionCoordinator = navigationController.transitionCoordinator, animated {
+                transitionCoordinator.animate(alongsideTransition: nil) { _ in
+                    completion(.success)
+                }
+            } else {
+                completion(.success)
+            }
         }
 
     }
@@ -77,7 +83,13 @@ public struct NavigationControllerActions {
                             animated: Bool,
                             completion: @escaping (_: RoutingResult) -> Void) {
             navigationController.setViewControllers([viewController], animated: animated)
-            return completion(.success)
+            if let transitionCoordinator = navigationController.transitionCoordinator, animated {
+                transitionCoordinator.animate(alongsideTransition: nil) { _ in
+                    completion(.success)
+                }
+            } else {
+                completion(.success)
+            }
         }
 
     }
@@ -105,7 +117,13 @@ public struct NavigationControllerActions {
             var viewControllers = navigationController.viewControllers
             perform(embedding: viewController, in: &viewControllers)
             navigationController.setViewControllers(viewControllers, animated: animated)
-            return completion(.success)
+            if let transitionCoordinator = navigationController.transitionCoordinator, animated {
+                transitionCoordinator.animate(alongsideTransition: nil) { _ in
+                    completion(.success)
+                }
+            } else {
+                completion(.success)
+            }
         }
 
     }
