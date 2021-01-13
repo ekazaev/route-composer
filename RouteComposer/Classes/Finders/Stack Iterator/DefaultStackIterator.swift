@@ -3,7 +3,7 @@
 // DefaultStackIterator.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2020.
+// Created by Eugene Kazaev in 2018-2021.
 // Distributed under the MIT license.
 //
 

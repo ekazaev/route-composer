@@ -3,7 +3,7 @@
 // RoutingInterceptable.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2020.
+// Created by Eugene Kazaev in 2018-2021.
 // Distributed under the MIT license.
 //
 
@@ -21,6 +21,21 @@ public protocol RoutingInterceptable where Self: UIViewController {
 
     /// true: if a view controller can be dismissed or covered by the `Router`, false otherwise.
     var canBeDismissed: Bool { get }
+
+    /// Returns `UIViewController` that `Router` should consider as a parent `UIViewController`.
+    /// It may be useful to override it when you are building complicated custom `ContainerViewController`s.
+    var overriddenParentViewController: UIViewController? { get }
+
+}
+
+// MARK: Helper methods
+
+public extension RoutingInterceptable {
+
+    /// Default implementation returns regular `UIViewController.parent`
+    var overriddenParentViewController: UIViewController? {
+        return parent
+    }
 
 }
 

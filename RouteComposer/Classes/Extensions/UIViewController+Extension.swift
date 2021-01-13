@@ -3,7 +3,7 @@
 // UIViewController+Extension.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2020.
+// Created by Eugene Kazaev in 2018-2021.
 // Distributed under the MIT license.
 //
 
@@ -34,7 +34,7 @@ public extension UIViewController {
         }
 
         if options.contains(.parent),
-            let parentViewController = viewController.parent,
+            let parentViewController = viewController.parentViewController,
             let foundViewController = try findViewController(in: parentViewController,
                                                              options: [.current, .parent],
                                                              containerAdapterLocator: containerAdapterLocator,

@@ -12,11 +12,11 @@ let package = Package(
             name: "RouteComposer",
             targets: ["RouteComposer"]),
         .library(name: "RouteComposerStatic",
-            type: .static,
-            targets: ["RouteComposer"]),
+                 type: .static,
+                 targets: ["RouteComposer"]),
         .library(name: "RouteComposerDynamic",
-            type: .dynamic,
-            targets: ["RouteComposer"])
+                 type: .dynamic,
+                 targets: ["RouteComposer"])
     ],
     targets: [
         .target(
