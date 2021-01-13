@@ -1,16 +1,16 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <html>
 <head>
-<title>NilFactory.swift - Slather</title>
+<title>RoutingInterceptable.swift - Slather</title>
 <link href="slather.css" media="all" rel="stylesheet">
 </head>
 <body>
 <header><div class="row"><a href="index.html"><img src="logo.jpg" alt="Slather logo"></a></div></header><div class="row"><div id="reports">
 <h2 class="cov_title">
-<span>Coverage for "NilFactory.swift" : </span><span class="cov_high">100.00%</span>
+<span>Coverage for "RoutingInterceptable.swift" : </span><span class="cov_high">100.00%</span>
 </h2>
-<h4 class="cov_subtitle">(7 of 7 relevant lines covered)</h4>
-<h4 class="cov_filepath">RouteComposer/Classes/Factories/NilFactory.swift</h4>
+<h4 class="cov_subtitle">(3 of 3 relevant lines covered)</h4>
+<h4 class="cov_filepath">RouteComposer/Classes/RoutingInterceptable.swift</h4>
 <table class="source_code">
 <tr class="never">
 <td class="num">1</td>
@@ -24,7 +24,7 @@
 </tr>
 <tr class="never">
 <td class="num">3</td>
-<td class="src"><pre><code class="objc">// NilFactory.swift</code></pre></td>
+<td class="src"><pre><code class="objc">// RoutingInterceptable.swift</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -84,32 +84,32 @@
 </tr>
 <tr class="never">
 <td class="num">15</td>
-<td class="src"><pre><code class="objc">/// The dummy struct used to represent the `Factory` that does not build anything.</code></pre></td>
+<td class="src"><pre><code class="objc">/// `UIViewController` that conforms to this protocol may overtake the control of the view controllers stack and</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">16</td>
-<td class="src"><pre><code class="objc">/// Its only purpose is to provide the type safety checks for the `StepAssembly`.</code></pre></td>
+<td class="src"><pre><code class="objc">/// forbid the `Router` to dismiss or cover itself with another view controller.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">17</td>
-<td class="src"><pre><code class="objc">///</code></pre></td>
+<td class="src"><pre><code class="objc">/// Return false if the view controller can be dismissed.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">18</td>
-<td class="src"><pre><code class="objc">/// For example, the `UIViewController` of the step was already loaded and integrated into a stack by a</code></pre></td>
+<td class="src"><pre><code class="objc">public protocol RoutingInterceptable where Self: UIViewController {</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">19</td>
-<td class="src"><pre><code class="objc">/// storyboard in a previous step.</code></pre></td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">20</td>
-<td class="src"><pre><code class="objc">public struct NilFactory&lt;VC: UIViewController, C&gt;: Factory, NilEntity {</code></pre></td>
+<td class="src"><pre><code class="objc">    // MARK: Properties to implement</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -119,111 +119,106 @@
 </tr>
 <tr class="never">
 <td class="num">22</td>
-<td class="src"><pre><code class="objc">    // MARK: Associated types</code></pre></td>
+<td class="src"><pre><code class="objc">    /// true: if a view controller can be dismissed or covered by the `Router`, false otherwise.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">23</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="src"><pre><code class="objc">    var canBeDismissed: Bool { get }</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">24</td>
-<td class="src"><pre><code class="objc">    public typealias ViewController = VC</code></pre></td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">25</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="src"><pre><code class="objc">    /// Returns `UIViewController` that `Router` should consider as a parent `UIViewController`.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">26</td>
-<td class="src"><pre><code class="objc">    public typealias Context = C</code></pre></td>
+<td class="src"><pre><code class="objc">    /// It may be useful to override it when you are building complicated custom `ContainerViewController`s.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">27</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="src"><pre><code class="objc">    var overriddenParentViewController: UIViewController? { get }</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">28</td>
-<td class="src"><pre><code class="objc">    // MARK: Methods</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">29</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">30</td>
-<td class="src"><pre><code class="objc">    /// Constructor</code></pre></td>
+<td class="num">29</td>
+<td class="src"><pre><code class="objc">}</code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="covered">
+<tr class="never">
+<td class="num">30</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
 <td class="num">31</td>
-<td class="src"><pre><code class="objc">    public init() {}</code></pre></td>
-<td class="coverage">75x</td>
+<td class="src"><pre><code class="objc">// MARK: Helper methods</code></pre></td>
+<td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">32</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="covered">
+<tr class="never">
 <td class="num">33</td>
-<td class="src"><pre><code class="objc">    public func prepare(with context: C) throws {</code></pre></td>
-<td class="coverage">2x</td>
-</tr>
-<tr class="covered">
-<td class="num">34</td>
-<td class="src"><pre><code class="objc">        throw RoutingError.compositionFailed(.init("This factory can not build any UIViewController."))</code></pre></td>
-<td class="coverage">2x</td>
-</tr>
-<tr class="covered">
-<td class="num">35</td>
-<td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">2x</td>
+<td class="src"><pre><code class="objc">public extension RoutingInterceptable {</code></pre></td>
+<td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">36</td>
+<td class="num">34</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">35</td>
+<td class="src"><pre><code class="objc">    /// Default implementation returns regular `UIViewController.parent`</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="covered">
+<td class="num">36</td>
+<td class="src"><pre><code class="objc">    var overriddenParentViewController: UIViewController? {</code></pre></td>
+<td class="coverage">380x</td>
 </tr>
 <tr class="covered">
 <td class="num">37</td>
-<td class="src"><pre><code class="objc">    public func build(with context: C) throws -&gt; VC {</code></pre></td>
-<td class="coverage">1x</td>
+<td class="src"><pre><code class="objc">        return parent</code></pre></td>
+<td class="coverage">380x</td>
 </tr>
 <tr class="covered">
 <td class="num">38</td>
-<td class="src"><pre><code class="objc">        throw RoutingError.compositionFailed(.init("This factory can not build any UIViewController."))</code></pre></td>
-<td class="coverage">1x</td>
-</tr>
-<tr class="covered">
-<td class="num">39</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">380x</td>
 </tr>
 <tr class="never">
-<td class="num">40</td>
+<td class="num">39</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">41</td>
+<td class="num">40</td>
 <td class="src"><pre><code class="objc">}</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">42</td>
+<td class="num">41</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">43</td>
+<td class="num">42</td>
 <td class="src"><pre><code class="objc">#endif</code></pre></td>
 <td class="coverage"></td>
 </tr>

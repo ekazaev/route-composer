@@ -9,7 +9,7 @@
 <h2 class="cov_title">
 <span>Coverage for "UIViewController+PrivateExtension.swift" : </span><span class="cov_high">100.00%</span>
 </h2>
-<h4 class="cov_subtitle">(23 of 23 relevant lines covered)</h4>
+<h4 class="cov_subtitle">(29 of 29 relevant lines covered)</h4>
 <h4 class="cov_filepath">RouteComposer/Classes/Router/Internal/UIViewController+PrivateExtension.swift</h4>
 <table class="source_code">
 <tr class="never">
@@ -39,7 +39,7 @@
 </tr>
 <tr class="never">
 <td class="num">6</td>
-<td class="src"><pre><code class="objc">// Created by Eugene Kazaev in 2018-2020.</code></pre></td>
+<td class="src"><pre><code class="objc">// Created by Eugene Kazaev in 2018-2021.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -164,7 +164,7 @@
 </tr>
 <tr class="covered">
 <td class="num">31</td>
-<td class="src"><pre><code class="objc">        var currentViewController: UIViewController? = parent</code></pre></td>
+<td class="src"><pre><code class="objc">        var currentViewController: UIViewController? = parentViewController</code></pre></td>
 <td class="coverage">315x</td>
 </tr>
 <tr class="covered">
@@ -179,7 +179,7 @@
 </tr>
 <tr class="covered">
 <td class="num">34</td>
-<td class="src"><pre><code class="objc">            currentViewController = currentParent.parent</code></pre></td>
+<td class="src"><pre><code class="objc">            currentViewController = currentParent.parentViewController</code></pre></td>
 <td class="coverage">240x</td>
 </tr>
 <tr class="covered">
@@ -222,18 +222,53 @@
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="never">
+<tr class="covered">
 <td class="num">43</td>
-<td class="src"><pre><code class="objc">}</code></pre></td>
-<td class="coverage"></td>
+<td class="src"><pre><code class="objc">    var parentViewController: UIViewController? {</code></pre></td>
+<td class="coverage">565x</td>
+</tr>
+<tr class="covered">
+<td class="num">44</td>
+<td class="src"><pre><code class="objc">        guard let interceptableViewController = self as? RoutingInterceptable else {</code></pre></td>
+<td class="coverage">565x</td>
+</tr>
+<tr class="covered">
+<td class="num">45</td>
+<td class="src"><pre><code class="objc">            return parent</code></pre></td>
+<td class="coverage">185x</td>
+</tr>
+<tr class="covered">
+<td class="num">46</td>
+<td class="src"><pre><code class="objc">        }</code></pre></td>
+<td class="coverage">380x</td>
+</tr>
+<tr class="covered">
+<td class="num">47</td>
+<td class="src"><pre><code class="objc">        return interceptableViewController.overriddenParentViewController</code></pre></td>
+<td class="coverage">380x</td>
+</tr>
+<tr class="covered">
+<td class="num">48</td>
+<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="coverage">565x</td>
 </tr>
 <tr class="never">
-<td class="num">44</td>
+<td class="num">49</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">45</td>
+<td class="num">50</td>
+<td class="src"><pre><code class="objc">}</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">51</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">52</td>
 <td class="src"><pre><code class="objc">#endif</code></pre></td>
 <td class="coverage"></td>
 </tr>
