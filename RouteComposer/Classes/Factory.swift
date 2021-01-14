@@ -11,7 +11,15 @@
 
 import UIKit
 
-/// The `Factory` protocol should be implemented by the instance that produces any types of the view controllers
+/// The `Factory` protocol should be implemented by the instance that produces any types of the view controllers.
+///
+/// **NB**
+///
+/// `Context` represents a payload that you need to pass to your `UIViewController` and something that distinguishes it from others.
+/// It is not a View Model or some kind of Presenter. It is the missing piece of information. If your view controller requires a
+/// `productID` to display its content, and the `productID` is a `UUID`, then the type of `Context` is the `UUID`. The internal logic
+/// belongs to the view controller. `Context` answers the questions *What to I need to present a ProductViewController* and *Am I
+/// already presenting a ProductViewController for this product*.
 public protocol Factory: AbstractFactory {
 
     // MARK: Associated types

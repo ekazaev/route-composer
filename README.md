@@ -116,8 +116,13 @@ default actions during the routing process. There are 2 `associatedtype` in the 
 * `Context` - Type of context object that is passed to the router from the hosting application that router will pass to the view controllers it
 is going to build. *String, UUID, Any, etc. Can be optional.*
 
-*Example: if your view controllers require productID to display its content and product id is a UUID in your app - then the type of
-context is UUID*
+**NB**
+
+`Context` represents a payload that you need to pass to your `UIViewController` and something that distinguishes it from others.
+It is not a View Model or some kind of Presenter. It is the missing piece of information. If your view controller requires a 
+`productID` to display its content, and the `productID` is a `UUID`, then the type of `Context` is the `UUID`. The internal logic 
+belongs to the view controller. `Context` answers the questions *What to I need to present a ProductViewController* and *Am I 
+already presenting a ProductViewController for this product*.
 
 ## Implementation
 
@@ -139,7 +144,8 @@ public protocol Factory {
 ```
 
 The most important function here is `build` which should actually create the view controller. For detailed information
-see the documentation. The `prepare` function provides you with a way of doing something before the routing actually takes place.
+see the [documentation](https://ekazaev.github.io/route-composer/Protocols/Factory.html#/s:13RouteComposer7FactoryP5build4with14ViewControllerQz7ContextQz_tKF). 
+The `prepare` function provides you with a way of doing something before the routing actually takes place.
 For example, you could `throw` from inside this function in order to inform the router that you do not have the data required to
 display the view correctly. It may be useful if you are implementing Universal Links in your application and the routing can't be
 handled, in which case the application might open the provided URL in Safari instead.
@@ -198,7 +204,7 @@ class ProductViewControllerFinder: StackIteratingFinder {
 }
 ```
 
-`SearchOptions` is an enum that informs `StackIteratingFinder` how to iterate through the stack when searching. See documentation.
+`SearchOptions` is an enum that informs `StackIteratingFinder` how to iterate through the stack when searching. See [documentation](https://ekazaev.github.io/route-composer/Structs/SearchOptions.html).
 
 #### 3. Action
 
