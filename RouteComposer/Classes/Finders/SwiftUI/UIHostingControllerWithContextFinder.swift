@@ -36,7 +36,7 @@ public struct UIHostingControllerWithContextFinder<ContentView: View & ContextCh
     /// Constructor
     ///
     /// - Parameter iterator: A `StackIterator` is to be used by `ClassWithContextFinder`
-    public init(iterator: StackIterator = DefaultStackIterator()) {
+    public init(iterator: StackIterator = RouteComposerDefaults.shared.stackIterator) {
         self.iterator = iterator
     }
 
@@ -59,9 +59,9 @@ public extension UIHostingControllerWithContextFinder {
     ///   - containerAdapterLocator: A `ContainerAdapterLocator` instance.
     init(options: SearchOptions,
          startingPoint: DefaultStackIterator.StartingPoint = .topmost,
-         windowProvider: WindowProvider = KeyWindowProvider(),
-         containerAdapterLocator: ContainerAdapterLocator = DefaultContainerAdapterLocator()) {
-        self.init(iterator: DefaultStackIterator(options: options, startingPoint: startingPoint, containerAdapterLocator: containerAdapterLocator))
+         windowProvider: WindowProvider = RouteComposerDefaults.shared.windowProvider,
+         containerAdapterLocator: ContainerAdapterLocator = RouteComposerDefaults.shared.containerAdapterLocator) {
+        self.init(iterator: DefaultStackIterator(options: options, startingPoint: startingPoint, windowProvider: windowProvider, containerAdapterLocator: containerAdapterLocator))
     }
 
 }

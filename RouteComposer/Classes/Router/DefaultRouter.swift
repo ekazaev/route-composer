@@ -39,9 +39,9 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
     ///   - logger: A `Logger` instance to be used by the `DefaultRouter`.
     ///   - stackPresentationHandler: A `StackPresentationHandler` instance to be used by the `DefaultRouter`.
     ///   - containerAdapterLocator: A `ContainerAdapterLocator` instance to be used by the `DefaultRouter`.
-    public init(logger: Logger? = DefaultLogger(.warnings),
+    public init(logger: Logger? = RouteComposerDefaults.shared.logger,
                 stackPresentationHandler: StackPresentationHandler = DefaultStackPresentationHandler(),
-                containerAdapterLocator: ContainerAdapterLocator = DefaultContainerAdapterLocator()) {
+                containerAdapterLocator: ContainerAdapterLocator = RouteComposerDefaults.shared.containerAdapterLocator) {
         self.logger = logger
         self.stackPresentationHandler = stackPresentationHandler
         self.containerAdapterLocator = containerAdapterLocator

@@ -54,12 +54,21 @@ public struct DefaultStackIterator: StackIterator {
     /// Constructor
     public init(options: SearchOptions = .fullStack,
                 startingPoint: StartingPoint = .topmost,
-                windowProvider: WindowProvider = KeyWindowProvider(),
-                containerAdapterLocator: ContainerAdapterLocator = DefaultContainerAdapterLocator()) {
+                windowProvider: WindowProvider,
+                containerAdapterLocator: ContainerAdapterLocator) {
         self.startingPoint = startingPoint
         self.options = options
         self.windowProvider = windowProvider
         self.containerAdapterLocator = containerAdapterLocator
+    }
+
+    @available(*, deprecated, message: "May create a conflict with default configuration. Please use init(options:startingPoint:windowProvider:containerAdapterLocator:)")
+    public init(options: SearchOptions = .fullStack,
+                startingPoint: StartingPoint = .topmost) {
+        self.startingPoint = startingPoint
+        self.options = options
+        self.windowProvider = RouteComposerDefaults.shared.windowProvider
+        self.containerAdapterLocator = RouteComposerDefaults.shared.containerAdapterLocator
     }
 
     /// Returns `UIViewController` instance if found

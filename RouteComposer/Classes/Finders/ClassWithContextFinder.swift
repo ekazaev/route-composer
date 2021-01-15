@@ -34,7 +34,7 @@ public struct ClassWithContextFinder<VC: ContextChecking, C>: StackIteratingFind
     /// Constructor
     ///
     /// - Parameter iterator: A `StackIterator` is to be used by `ClassWithContextFinder`
-    public init(iterator: StackIterator = DefaultStackIterator()) {
+    public init(iterator: StackIterator = RouteComposerDefaults.shared.stackIterator) {
         self.iterator = iterator
     }
 
@@ -56,9 +56,9 @@ public extension ClassWithContextFinder {
     ///   - containerAdapterLocator: A `ContainerAdapterLocator` instance.
     init(options: SearchOptions,
          startingPoint: DefaultStackIterator.StartingPoint = .topmost,
-         windowProvider: WindowProvider = KeyWindowProvider(),
-         containerAdapterLocator: ContainerAdapterLocator = DefaultContainerAdapterLocator()) {
-        self.iterator = DefaultStackIterator(options: options, startingPoint: startingPoint, containerAdapterLocator: containerAdapterLocator)
+         windowProvider: WindowProvider = RouteComposerDefaults.shared.windowProvider,
+         containerAdapterLocator: ContainerAdapterLocator = RouteComposerDefaults.shared.containerAdapterLocator) {
+        self.iterator = DefaultStackIterator(options: options, startingPoint: startingPoint, windowProvider: windowProvider, containerAdapterLocator: containerAdapterLocator)
     }
 
 }

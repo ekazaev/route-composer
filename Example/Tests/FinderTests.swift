@@ -72,7 +72,7 @@ class FinderTest: XCTestCase {
     func testDefaultStackIteratorDefaultValues() {
         let window = TestWindow()
         window.rootViewController = UIViewController()
-        let iterator = DefaultStackIterator(windowProvider: TestWindowProvider(window: window))
+        let iterator = DefaultStackIterator(windowProvider: TestWindowProvider(window: window), containerAdapterLocator: DefaultContainerAdapterLocator())
         XCTAssertEqual(iterator.options, .fullStack)
         XCTAssertEqual(iterator.startingPoint, .topmost)
         XCTAssertEqual(try? iterator.getStartingViewController(), window.topmostViewController)
@@ -81,7 +81,10 @@ class FinderTest: XCTestCase {
     func testDefaultStackIteratorNewValues() {
         let window = TestWindow()
         window.rootViewController = UIViewController()
-        let iterator = DefaultStackIterator(options: .current, startingPoint: .root, windowProvider: TestWindowProvider(window: window))
+        let iterator = DefaultStackIterator(options: .current,
+                                            startingPoint: .root,
+                                            windowProvider: TestWindowProvider(window: window),
+                                            containerAdapterLocator: DefaultContainerAdapterLocator())
         XCTAssertEqual(iterator.options, .current)
         XCTAssertEqual(iterator.startingPoint, .root)
         XCTAssertEqual(try? iterator.getStartingViewController(), window.rootViewController)
@@ -104,7 +107,9 @@ class FinderTest: XCTestCase {
 
         var currentViewController: UIViewController? = UIViewController()
         let iterator = DefaultStackIterator(options: .current,
-                                            startingPoint: .custom(TestInstanceFinder<UIViewController, Any?>(instance: currentViewController).getViewController()))
+                                            startingPoint: .custom(TestInstanceFinder<UIViewController, Any?>(instance: currentViewController).getViewController()),
+                                            windowProvider: TestWindowProvider(window: UIWindow()),
+                                            containerAdapterLocator: DefaultContainerAdapterLocator())
         XCTAssertEqual(iterator.options, .current)
         XCTAssertEqual(iterator.startingPoint, .custom(currentViewController))
         XCTAssertEqual(try? iterator.getStartingViewController(), currentViewController)
@@ -146,20 +151,22 @@ class FinderTest: XCTestCase {
         XCTAssertEqual(someOptions.description, "[current, contained, parent]")
     }
 
-    @available(iOS 13.0.0, *)
     func testUIHostingControllerWithContextFinder() {
-        let viewController = UIHostingController<TestSwiftUIView>(rootView: TestSwiftUIView(with: "123"))
-        let finder = UIHostingControllerWithContextFinder<TestSwiftUIView>(options: .currentAllStack, startingPoint: .custom(viewController))
-        XCTAssertEqual(try? finder.findViewController(with: "123"), viewController)
-        XCTAssertNil(try? finder.findViewController(with: "321"))
+        if #available(iOS 13, *) {
+            let viewController = UIHostingController<TestSwiftUIView>(rootView: TestSwiftUIView(with: "123"))
+            let finder = UIHostingControllerWithContextFinder<TestSwiftUIView>(options: .currentAllStack, startingPoint: .custom(viewController))
+            XCTAssertEqual(try? finder.findViewController(with: "123"), viewController)
+            XCTAssertNil(try? finder.findViewController(with: "321"))
+        }
     }
 
-    @available(iOS 13.0.0, *)
     func testContextInstantiatableConstructors() {
-        let voidView = TestSwiftUIAnyContextView<Void>()
-        let optionalAnyView = TestSwiftUIAnyContextView<Any?>()
-        XCTAssertTrue(voidView.context == ())
-        XCTAssertNil(optionalAnyView.context)
+        if #available(iOS 13, *) {
+            let voidView = TestSwiftUIAnyContextView<Void>()
+            let optionalAnyView = TestSwiftUIAnyContextView<Any?>()
+            XCTAssertTrue(voidView.context == ())
+            XCTAssertNil(optionalAnyView.context)
+        }
     }
 
 }

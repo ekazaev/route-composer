@@ -44,7 +44,7 @@ public struct PresentingFinder<C>: Finder {
     /// Constructor
     ///
     /// - Parameter windowProvider: `WindowProvider` instance.
-    public init(windowProvider: WindowProvider = KeyWindowProvider(), startingPoint: StartingPoint = .topmost) {
+    public init(windowProvider: WindowProvider = RouteComposerDefaults.shared.windowProvider, startingPoint: StartingPoint = .topmost) {
         self.windowProvider = windowProvider
         self.startingPoint = startingPoint
     }

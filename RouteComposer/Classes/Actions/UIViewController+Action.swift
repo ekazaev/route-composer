@@ -23,7 +23,7 @@ public struct GeneralAction {
     ///   - windowProvider: `WindowProvider` instance
     ///   - animationOptions: Set of `UIView.AnimationOptions`. Transition will happen without animation if not provided.
     ///   - duration: Transition duration.
-    public static func replaceRoot(windowProvider: WindowProvider = KeyWindowProvider(),
+    public static func replaceRoot(windowProvider: WindowProvider = RouteComposerDefaults.shared.windowProvider,
                                    animationOptions: UIView.AnimationOptions? = nil,
                                    duration: TimeInterval = 0.3) -> ViewControllerActions.ReplaceRootAction {
         ViewControllerActions.ReplaceRootAction(windowProvider: windowProvider, animationOptions: animationOptions, duration: duration)
@@ -209,7 +209,7 @@ public struct ViewControllerActions {
         ///   - windowProvider: `WindowProvider` instance
         ///   - animationOptions: Set of `UIView.AnimationOptions`. Transition will happen without animation if not provided.
         ///   - duration: Transition duration.
-        init(windowProvider: WindowProvider = KeyWindowProvider(), animationOptions: UIView.AnimationOptions? = nil, duration: TimeInterval = 0.3) {
+        init(windowProvider: WindowProvider = RouteComposerDefaults.shared.windowProvider, animationOptions: UIView.AnimationOptions? = nil, duration: TimeInterval = 0.3) {
             self.windowProvider = windowProvider
             self.animationOptions = animationOptions
             self.duration = duration

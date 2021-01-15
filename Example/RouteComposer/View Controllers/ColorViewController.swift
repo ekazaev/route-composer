@@ -17,7 +17,9 @@ class ColorViewControllerFinder: StackIteratingFinder {
 
     typealias Context = String
 
-    public let iterator: StackIterator = DefaultStackIterator(options: .currentAllStack)
+    public let iterator: StackIterator = DefaultStackIterator(options: .currentAllStack,
+                                                              windowProvider: RouteComposerDefaults.shared.windowProvider,
+                                                              containerAdapterLocator: RouteComposerDefaults.shared.containerAdapterLocator)
 
     func isTarget(_ viewController: ColorViewController, with colorHex: String) -> Bool {
         viewController.colorHex = colorHex

@@ -58,7 +58,9 @@ public struct NavigationDelayingInterceptor<Context>: RoutingInterceptor {
     ///   - windowProvider: `WindowProvider` instance.
     ///   - strategy: Type of `Strategy` to be used.
     ///   - logger: `Logger` instance.
-    public init(windowProvider: WindowProvider = KeyWindowProvider(), strategy: Strategy = .abort, logger: Logger? = nil) {
+    public init(windowProvider: WindowProvider = RouteComposerDefaults.shared.windowProvider,
+                strategy: Strategy = .abort,
+                logger: Logger? = RouteComposerDefaults.shared.logger) {
         self.windowProvider = windowProvider
         self.logger = logger
         self.strategy = strategy
