@@ -26,7 +26,7 @@ public struct KeyWindowProvider: WindowProvider {
             keyWindow = UIApplication.shared.keyWindow
         }
         guard let window = keyWindow else {
-            assertionFailure("Application does not have a key window.")
+            //assertionFailure("Application does not have a key window.")
             return nil
         }
         return window
