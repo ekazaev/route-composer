@@ -204,7 +204,7 @@
 </tr>
 <tr class="covered">
 <td class="num">39</td>
-<td class="src"><pre><code class="objc">    public init(iterator: StackIterator = DefaultStackIterator()) {</code></pre></td>
+<td class="src"><pre><code class="objc">    public init(iterator: StackIterator = RouteComposerDefaults.shared.stackIterator) {</code></pre></td>
 <td class="coverage">2x</td>
 </tr>
 <tr class="covered">
@@ -319,17 +319,17 @@
 </tr>
 <tr class="never">
 <td class="num">62</td>
-<td class="src"><pre><code class="objc">         windowProvider: WindowProvider = KeyWindowProvider(),</code></pre></td>
+<td class="src"><pre><code class="objc">         windowProvider: WindowProvider = RouteComposerDefaults.shared.windowProvider,</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
 <td class="num">63</td>
-<td class="src"><pre><code class="objc">         containerAdapterLocator: ContainerAdapterLocator = DefaultContainerAdapterLocator()) {</code></pre></td>
+<td class="src"><pre><code class="objc">         containerAdapterLocator: ContainerAdapterLocator = RouteComposerDefaults.shared.containerAdapterLocator) {</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">64</td>
-<td class="src"><pre><code class="objc">        self.init(iterator: DefaultStackIterator(options: options, startingPoint: startingPoint, containerAdapterLocator: containerAdapterLocator))</code></pre></td>
+<td class="src"><pre><code class="objc">        self.init(iterator: DefaultStackIterator(options: options, startingPoint: startingPoint, windowProvider: windowProvider, containerAdapterLocator: containerAdapterLocator))</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">

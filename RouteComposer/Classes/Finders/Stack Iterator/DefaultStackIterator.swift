@@ -62,6 +62,8 @@ public struct DefaultStackIterator: StackIterator {
         self.containerAdapterLocator = containerAdapterLocator
     }
 
+    /// Deprecated Constructor.
+    /// May create a conflict with default configuration. Please use `DefaultStackIterator.init(options:startingPoint:windowProvider:containerAdapterLocator:)`.
     @available(*, deprecated, message: "May create a conflict with default configuration. Please use init(options:startingPoint:windowProvider:containerAdapterLocator:)")
     public init(options: SearchOptions = .fullStack,
                 startingPoint: StartingPoint = .topmost) {

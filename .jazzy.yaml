@@ -18,6 +18,7 @@ custom_categories:
       - Action
       - ContainerAction
       - RoutingResult
+      - RouteComposerDefaults
 
   - name: Tasks
     children:

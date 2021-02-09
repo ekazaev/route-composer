@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        RouteComposerDefaults.configureWith(logger: DefaultLogger(.verbose))
+        RouteComposerDefaults.configureWith(logger: DefaultLogger(.verbose, osLog: OSLog(subsystem: Bundle.main.bundleIdentifier!, category: "Router")))
         ConfigurationHolder.configuration = ExampleConfiguration()
 
         // Try in mobile Safari to test the deep linking to the app:
