@@ -31,7 +31,7 @@ public struct ClassFinder<VC: UIViewController, C>: StackIteratingFinder {
     /// Constructor
     ///
     /// - Parameter iterator: A `StackIterator` is to be used by `ClassFinder`
-    public init(iterator: StackIterator = DefaultStackIterator()) {
+    public init(iterator: StackIterator = RouteComposerDefaults.shared.stackIterator) {
         self.iterator = iterator
     }
 
@@ -53,8 +53,8 @@ public extension ClassFinder {
     ///   - containerAdapterLocator: A `ContainerAdapterLocator` instance.
     init(options: SearchOptions,
          startingPoint: DefaultStackIterator.StartingPoint = .topmost,
-         windowProvider: WindowProvider = KeyWindowProvider(),
-         containerAdapterLocator: ContainerAdapterLocator = DefaultContainerAdapterLocator()) {
+         windowProvider: WindowProvider = RouteComposerDefaults.shared.windowProvider,
+         containerAdapterLocator: ContainerAdapterLocator = RouteComposerDefaults.shared.containerAdapterLocator) {
         self.iterator = DefaultStackIterator(options: options, startingPoint: startingPoint, windowProvider: windowProvider, containerAdapterLocator: containerAdapterLocator)
     }
 

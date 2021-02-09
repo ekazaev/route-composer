@@ -29,13 +29,13 @@ public struct DefaultStackPresentationHandler: StackPresentationHandler, MainThr
     /// Parameters
     ///   - logger: A `Logger` instance to be used by the `DefaultRouter`.
     ///   - containerAdapterLocator: A `ContainerAdapterLocator` instance to be used by the `DefaultRouter`.
-    public init(logger: Logger? = DefaultLogger(.warnings),
-                containerAdapterLocator: ContainerAdapterLocator = DefaultContainerAdapterLocator()) {
+    public init(logger: Logger? = RouteComposerDefaults.shared.logger,
+                containerAdapterLocator: ContainerAdapterLocator = RouteComposerDefaults.shared.containerAdapterLocator) {
         self.logger = logger
         self.containerAdapterLocator = containerAdapterLocator
     }
 
-    public func dismissPresented(from viewController: UIViewController, animated: Bool, completion: @escaping ((_: RoutingResult) -> Void)) {
+    public func dismissPresented(from viewController: UIViewController, animated: Bool, completion: @escaping (_: RoutingResult) -> Void) {
         assertIfNotMainThread(logger: logger)
         if let presentedController = viewController.presentedViewController {
             if !presentedController.isBeingDismissed {
@@ -67,6 +67,7 @@ public struct DefaultStackPresentationHandler: StackPresentationHandler, MainThr
                 if let container = parentViewController as? ContainerViewController {
                     let containerAdapter = try containerAdapterLocator.getAdapter(for: container)
                     guard !containerAdapter.isVisible(viewController) else {
+                        logger?.log(.info("View controller \(String(describing: viewController)) is visible in \(String(describing: container)). No action needed."))
                         return makeVisible(viewController: parentViewController, completion: completion)
                     }
                     containerAdapter.makeVisible(viewController, animated: animated, completion: { result in

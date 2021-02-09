@@ -31,7 +31,7 @@ public struct DetailsNavigationFinder<C>: Finder {
     /// Constructor
     ///
     /// - Parameter iterator: A `StackIterator` is to be used by `ClassFinder`
-    public init(iterator: StackIterator = DefaultStackIterator()) {
+    public init(iterator: StackIterator = RouteComposerDefaults.shared.stackIterator) {
         self.iterator = iterator
     }
 
@@ -63,8 +63,8 @@ public extension DetailsNavigationFinder {
     ///   - containerAdapterLocator: A `ContainerAdapterLocator` instance.
     init(options: SearchOptions,
          startingPoint: DefaultStackIterator.StartingPoint = .topmost,
-         windowProvider: WindowProvider = KeyWindowProvider(),
-         containerAdapterLocator: ContainerAdapterLocator = DefaultContainerAdapterLocator()) {
+         windowProvider: WindowProvider = RouteComposerDefaults.shared.windowProvider,
+         containerAdapterLocator: ContainerAdapterLocator = RouteComposerDefaults.shared.containerAdapterLocator) {
         let iterator = DefaultStackIterator(options: options,
                                             startingPoint: startingPoint,
                                             windowProvider: windowProvider,

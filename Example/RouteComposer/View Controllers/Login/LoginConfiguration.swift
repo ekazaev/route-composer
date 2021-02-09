@@ -19,7 +19,7 @@ struct LoginConfiguration {
                 finder: NilFinder(),
                 factory: StoryboardFactory<UINavigationController, Void>(name: "Login")))
             .using( // `custom` and `overCurrentContext` are set for the test purposes only
-                GeneralAction.presentModally(startingFrom: .custom(KeyWindowProvider().window?.topmostViewController),
+                GeneralAction.presentModally(startingFrom: .custom(RouteComposerDefaults.shared.windowProvider.window?.topmostViewController),
                                              presentationStyle: .overCurrentContext))
             .from(GeneralStep.current())
             .assemble()
