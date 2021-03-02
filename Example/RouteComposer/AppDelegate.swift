@@ -7,7 +7,7 @@
 // Distributed under the MIT license.
 //
 
-import OSLog
+import os.log
 import RouteComposer
 import UIKit
 

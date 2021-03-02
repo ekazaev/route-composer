@@ -20,16 +20,17 @@ public struct DefaultLogger: Logger {
     /// Log level
     public let logLevel: LogLevel
 
-    private let osLog: OSLog?
+    private let osLog: OSLog
 
     // MARK: Methods
 
-    /// Constructor is available in iOS 10 and later.
+    /// Constructor.
     ///
     /// - Parameters:
     ///   - logLevel: DefaultLoggerLevel. Defaulted to warnings.
     ///   - osLog: OSLog instance of the app.
-    public init(_ logLevel: LogLevel = .warnings, osLog: OSLog = OSLog.default) {
+    public init(_ logLevel: LogLevel = .warnings,
+                osLog: OSLog = OSLog.default) {
         self.logLevel = logLevel
         self.osLog = osLog
     }
@@ -38,14 +39,14 @@ public struct DefaultLogger: Logger {
         switch message {
         case let .warning(message):
             if logLevel == .verbose || logLevel == .warnings {
-                os_log("%@", log: osLog ?? OSLog.default, type: .error, message)
+                os_log("%@", log: osLog, type: .error, message)
             }
         case let .info(message):
             if logLevel == .verbose {
-                os_log("%@", log: osLog ?? OSLog.default, type: .info, message)
+                os_log("%@", log: osLog, type: .info, message)
             }
         case let .error(message):
-            os_log("%@", log: osLog ?? OSLog.default, type: .fault, message)
+            os_log("%@", log: osLog, type: .fault, message)
         }
     }
 

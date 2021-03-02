@@ -124,7 +124,7 @@
 </tr>
 <tr class="never">
 <td class="num">23</td>
-<td class="src"><pre><code class="objc">    private let osLog: OSLog?</code></pre></td>
+<td class="src"><pre><code class="objc">    private let osLog: OSLog</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -144,7 +144,7 @@
 </tr>
 <tr class="never">
 <td class="num">27</td>
-<td class="src"><pre><code class="objc">    /// Constructor is available in iOS 10 and later.</code></pre></td>
+<td class="src"><pre><code class="objc">    /// Constructor.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -167,118 +167,123 @@
 <td class="src"><pre><code class="objc">    ///   - osLog: OSLog instance of the app.</code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="covered">
+<tr class="never">
 <td class="num">32</td>
-<td class="src"><pre><code class="objc">    public init(_ logLevel: LogLevel = .warnings, osLog: OSLog = OSLog.default) {</code></pre></td>
-<td class="coverage">12x</td>
+<td class="src"><pre><code class="objc">    public init(_ logLevel: LogLevel = .warnings,</code></pre></td>
+<td class="coverage"></td>
 </tr>
 <tr class="covered">
 <td class="num">33</td>
-<td class="src"><pre><code class="objc">        self.logLevel = logLevel</code></pre></td>
+<td class="src"><pre><code class="objc">                osLog: OSLog = OSLog.default) {</code></pre></td>
 <td class="coverage">12x</td>
 </tr>
 <tr class="covered">
 <td class="num">34</td>
-<td class="src"><pre><code class="objc">        self.osLog = osLog</code></pre></td>
+<td class="src"><pre><code class="objc">        self.logLevel = logLevel</code></pre></td>
 <td class="coverage">12x</td>
 </tr>
 <tr class="covered">
 <td class="num">35</td>
+<td class="src"><pre><code class="objc">        self.osLog = osLog</code></pre></td>
+<td class="coverage">12x</td>
+</tr>
+<tr class="covered">
+<td class="num">36</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
 <td class="coverage">12x</td>
 </tr>
 <tr class="never">
-<td class="num">36</td>
+<td class="num">37</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
-<td class="num">37</td>
+<td class="num">38</td>
 <td class="src"><pre><code class="objc">    public func log(_ message: LogMessage) {</code></pre></td>
 <td class="coverage">888x</td>
 </tr>
 <tr class="covered">
-<td class="num">38</td>
+<td class="num">39</td>
 <td class="src"><pre><code class="objc">        switch message {</code></pre></td>
 <td class="coverage">888x</td>
 </tr>
 <tr class="covered">
-<td class="num">39</td>
+<td class="num">40</td>
 <td class="src"><pre><code class="objc">        case let .warning(message):</code></pre></td>
 <td class="coverage">888x</td>
 </tr>
 <tr class="missed">
-<td class="num">40</td>
+<td class="num">41</td>
 <td class="src"><pre><code class="objc">            if logLevel == .verbose || logLevel == .warnings {</code></pre></td>
 <td class="coverage">!</td>
 </tr>
 <tr class="missed">
-<td class="num">41</td>
-<td class="src"><pre><code class="objc">                os_log("%@", log: osLog ?? OSLog.default, type: .error, message)</code></pre></td>
+<td class="num">42</td>
+<td class="src"><pre><code class="objc">                os_log("%@", log: osLog, type: .error, message)</code></pre></td>
 <td class="coverage">!</td>
 </tr>
 <tr class="covered">
-<td class="num">42</td>
-<td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">888x</td>
-</tr>
-<tr class="covered">
 <td class="num">43</td>
-<td class="src"><pre><code class="objc">        case let .info(message):</code></pre></td>
+<td class="src"><pre><code class="objc">            }</code></pre></td>
 <td class="coverage">888x</td>
 </tr>
 <tr class="covered">
 <td class="num">44</td>
+<td class="src"><pre><code class="objc">        case let .info(message):</code></pre></td>
+<td class="coverage">888x</td>
+</tr>
+<tr class="covered">
+<td class="num">45</td>
 <td class="src"><pre><code class="objc">            if logLevel == .verbose {</code></pre></td>
 <td class="coverage">870x</td>
 </tr>
 <tr class="covered">
-<td class="num">45</td>
-<td class="src"><pre><code class="objc">                os_log("%@", log: osLog ?? OSLog.default, type: .info, message)</code></pre></td>
+<td class="num">46</td>
+<td class="src"><pre><code class="objc">                os_log("%@", log: osLog, type: .info, message)</code></pre></td>
 <td class="coverage">870x</td>
 </tr>
 <tr class="covered">
-<td class="num">46</td>
+<td class="num">47</td>
 <td class="src"><pre><code class="objc">            }</code></pre></td>
 <td class="coverage">888x</td>
 </tr>
 <tr class="covered">
-<td class="num">47</td>
+<td class="num">48</td>
 <td class="src"><pre><code class="objc">        case let .error(message):</code></pre></td>
 <td class="coverage">888x</td>
 </tr>
 <tr class="covered">
-<td class="num">48</td>
-<td class="src"><pre><code class="objc">            os_log("%@", log: osLog ?? OSLog.default, type: .fault, message)</code></pre></td>
+<td class="num">49</td>
+<td class="src"><pre><code class="objc">            os_log("%@", log: osLog, type: .fault, message)</code></pre></td>
 <td class="coverage">18x</td>
 </tr>
 <tr class="covered">
-<td class="num">49</td>
+<td class="num">50</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
 <td class="coverage">888x</td>
 </tr>
 <tr class="covered">
-<td class="num">50</td>
+<td class="num">51</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
 <td class="coverage">888x</td>
 </tr>
 <tr class="never">
-<td class="num">51</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
 <td class="num">52</td>
-<td class="src"><pre><code class="objc">}</code></pre></td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">53</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="src"><pre><code class="objc">}</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">54</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">55</td>
 <td class="src"><pre><code class="objc">#endif</code></pre></td>
 <td class="coverage"></td>
 </tr>
