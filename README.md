@@ -27,6 +27,7 @@ Can be used as the universal replacement for the [Coordinator](https://www.raywe
 - [Installation](#installation)
 - [Example](#example)
 - [Requirements](#requirements)
+- [Testimonials](#testimonials)
 - [Usage](#usage)
     - [Implementation](#implementation)
         - [Factory](#1-factory)
@@ -106,6 +107,25 @@ and actions you should be familiar with the library concepts and UIKit's view co
 
 Detailed API documentation can be found [here](https://ekazaev.github.io/route-composer/). 
 Test coverage - [here](https://codecov.io/gh/ekazaev/route-composer) 
+
+## Testimonials
+
+#### Viz.ai
+
+> At Viz.ai, the leading synchronised stroke care service, we went into replacing our entire navigation system, and we knew we needed to 
+address complex and dynamic navigation scenarios. Coordinators and other flow-control libraries just didn't answer our needs, and 
+lead to mixing application logic and navigation, or creating massive coordinator classes.
+> RouteComposer was an amazing fit for us, and actually, as the creator of this library states, it *is* the drop in replacement for any 
+coordinator code you currently use.
+>
+> The separation of concerns on this library is absolutely beautiful, and as with anything genius, it all works like magic.
+It does have a small learning curve, but one that pays off far more than coordinators and flow controllers, and will save 
+you a ton of coding once you implement it.
+>
+>It makes navigation in the app as simple as saying "go to x with y" and not worrying about the current state or stack.
+I wholeheartedly recommend it.
+
+**Elazar Yifrach, Sr iOS Developer @ Viz.ai**
 
 ## Usage
 
