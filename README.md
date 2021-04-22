@@ -124,8 +124,24 @@ you a ton of coding once you implement it.
 >
 >It makes navigation in the app as simple as saying "go to x with y" and not worrying about the current state or stack.
 I wholeheartedly recommend it.
+>
+>**Elazar Yifrach, Sr iOS Developer @ Viz.ai**
 
-**Elazar Yifrach, Sr iOS Developer @ Viz.ai**
+#### Hudson's Bay Company
+
+> In our iOS app we wanted to provide a seamless experience for our users to guarantee that whenever they click on a 
+push notification or a link in an email, they will land on the required view in the app seamlessly no matter of the state 
+of the app.
+>
+> We tried a programmatic navigational approach in the code and also tried to rely on a few other libraries. However, 
+none of them seemed to do the trick. RouteComposer was not our first choice as originally it looked too complex. Thankfully,
+it turned out to be a fantastic and elegant solution. We started to use it not only to handle external deeplinking but 
+also to handle our internal navigation within the app.It also turned out to be a great tool for UI A/B tests when you 
+have different navigation patterns for different users. It saved us a load of time, and we really like the logic behind it.
+>
+> The creator of the library is super responsive and helped with all questions that we had. I would thoroughly recommend it!
+>
+> **Alexandra Mikhailouskaya, Senior lead engineer @ Hudson's Bay Company**
 
 ## Usage
 
