@@ -33,8 +33,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
         guard let urlContext = URLContexts.first,
-            let destination = ExampleUniversalLinksManager.destination(for: urlContext.url) else {
-                return
+              let destination = ExampleUniversalLinksManager.destination(for: urlContext.url) else {
+            return
         }
 
         do {

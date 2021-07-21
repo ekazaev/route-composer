@@ -27,7 +27,7 @@ protocol PreparableAnyFactory: AnyFactory, PreparableEntity {
 
 }
 
-extension AnyFactoryBox where Self: AnyFactory {
+extension AnyFactoryBox {
 
     mutating func scrapeChildren(from factories: [AnyFactory]) throws -> [AnyFactory] {
         factories

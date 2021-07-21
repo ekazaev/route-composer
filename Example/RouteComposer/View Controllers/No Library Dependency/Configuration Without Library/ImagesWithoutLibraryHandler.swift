@@ -26,8 +26,8 @@ class ImagesWithoutLibraryHandler: CustomViewControllerDelegate, ImagesControlle
         // Handled by ClassFinder
         let storyboard = UIStoryboard(name: "Images", bundle: Bundle.main)
         guard let containerController = controller.parent as? CustomContainerController,
-            // Handled by ImageDetailsFactory
-            let viewController = storyboard.instantiateViewController(withIdentifier: "ImageDetailsViewController") as? ImageDetailsViewController else {
+              // Handled by ImageDetailsFactory
+              let viewController = storyboard.instantiateViewController(withIdentifier: "ImageDetailsViewController") as? ImageDetailsViewController else {
             return
         }
 
@@ -44,8 +44,8 @@ class ImagesWithoutLibraryHandler: CustomViewControllerDelegate, ImagesControlle
         // Handled by ClassFinder
         let storyboard = UIStoryboard(name: "Images", bundle: Bundle.main)
         guard let containerController = imageDetails.parent as? CustomContainerController,
-            // Handled by ImagesFactory
-            let viewController = storyboard.instantiateViewController(withIdentifier: "ImagesViewController") as? ImagesViewController else {
+              // Handled by ImagesFactory
+              let viewController = storyboard.instantiateViewController(withIdentifier: "ImagesViewController") as? ImagesViewController else {
             return
         }
 

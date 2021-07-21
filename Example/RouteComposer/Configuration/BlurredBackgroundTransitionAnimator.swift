@@ -58,8 +58,8 @@ class BlurredBackgroundTransitionAnimator: NSObject, UIViewControllerAnimatedTra
         blurEffect.alpha = initialAlpha
 
         if transitionType == .dismiss,
-            let viewBelow = transitionContext.view(forKey: .to),
-            viewBelow.superview == nil {
+           let viewBelow = transitionContext.view(forKey: .to),
+           viewBelow.superview == nil {
             transitionContext.containerView.insertSubview(viewBelow, belowSubview: blurEffect)
         }
 

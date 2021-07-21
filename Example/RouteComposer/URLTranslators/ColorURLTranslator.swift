@@ -15,10 +15,10 @@ class ColorURLTranslator: ExampleURLTranslator {
 
     func destination(from url: URL) -> AnyDestination? {
         guard let urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false),
-            let queryItems = urlComponents.queryItems,
-            let colorItem = queryItems.first(where: { $0.name == "color" }),
-            let colorValue = colorItem.value else {
-                return nil
+              let queryItems = urlComponents.queryItems,
+              let colorItem = queryItems.first(where: { $0.name == "color" }),
+              let colorValue = colorItem.value else {
+            return nil
         }
 
         return Destination(to: ConfigurationHolder.configuration.colorScreen, with: colorValue).unwrapped()

@@ -83,9 +83,8 @@ class ShortUITests: XCTestCase {
         app.textFields["passwordTextField"].typeText("abc")
 
         app.buttons["Login"].tap()
-        sleep(5)
 
-        XCTAssertTrue(app.tables["collectionsViewController"].exists)
+        XCTAssertTrue(app.tables["collectionsViewController"].waitForExistence(timeout: 5))
 
         app.buttons["Done"].tap()
         XCTAssertTrue(app.otherElements["homeViewController"].exists)
@@ -100,8 +99,7 @@ class ShortUITests: XCTestCase {
         XCTAssertTrue(app.otherElements["homeViewController"].exists)
 
         app.buttons["Go to Second modal"].tap()
-        sleep(3)
-        XCTAssertTrue(app.otherElements["secondLevelViewController"].exists)
+        XCTAssertTrue(app.otherElements["secondLevelViewController"].waitForExistence(timeout: 3))
 
         app.buttons["Go to Minsk*"].tap()
         XCTAssertTrue(app.otherElements["loginViewController"].exists)
@@ -125,28 +123,24 @@ class ShortUITests: XCTestCase {
 
         app.buttons["Go to Images"].tap()
         XCTAssertTrue(app.tables["imagesViewController"].exists)
-        sleep(1)
 
         app.tables.cells.element(boundBy: 2).tap()
-        XCTAssertTrue(app.otherElements["imagestarViewController"].exists)
-        sleep(1)
+        XCTAssertTrue(app.otherElements["imagestarViewController"].waitForExistence(timeout: 1))
 
         app.buttons["Dismiss"].tap()
-        XCTAssertTrue(app.tables["imagesViewController"].exists)
+        XCTAssertTrue(app.tables["imagesViewController"].waitForExistence(timeout: 1))
 
         app.buttons["Done"].tap()
         XCTAssertTrue(app.otherElements["homeViewController"].exists)
 
         app.buttons["Go to Images (No Library)"].tap()
         XCTAssertTrue(app.tables["imagesViewController"].exists)
-        sleep(1)
 
         app.tables.cells.element(boundBy: 1).tap()
-        XCTAssertTrue(app.otherElements["imagesecondViewController"].exists)
-        sleep(1)
+        XCTAssertTrue(app.otherElements["imagesecondViewController"].waitForExistence(timeout: 1))
 
         app.buttons["Dismiss"].tap()
-        XCTAssertTrue(app.tables["imagesViewController"].exists)
+        XCTAssertTrue(app.tables["imagesViewController"].waitForExistence(timeout: 1))
 
         app.buttons["Done"].tap()
         XCTAssertTrue(app.otherElements["homeViewController"].exists)
@@ -179,8 +173,7 @@ class ShortUITests: XCTestCase {
         app.textFields["passwordTextField"].typeText("abc")
 
         app.buttons["Login"].tap()
-        sleep(4)
-        XCTAssertTrue(app.otherElements["starViewController"].exists)
+        XCTAssertTrue(app.otherElements["starViewController"].waitForExistence(timeout: 4))
 
         app.buttons["Go to Product 02"].tap()
         XCTAssertTrue(app.otherElements["productViewController+02"].exists)
@@ -234,13 +227,10 @@ class ShortUITests: XCTestCase {
 
         app.buttons["Login"].tap()
 
-        sleep(3)
-
-        XCTAssertTrue(app.otherElements["citiesSplitViewController"].exists)
+        XCTAssertTrue(app.otherElements["citiesSplitViewController"].waitForExistence(timeout: 3))
 
         app.buttons["Product"].tap()
-        sleep(3)
-        XCTAssertTrue(app.otherElements["productViewController+123"].exists)
+        XCTAssertTrue(app.otherElements["productViewController+123"].waitForExistence(timeout: 3))
     }
 
     func testUnexpectedAnimation() {
@@ -253,8 +243,7 @@ class ShortUITests: XCTestCase {
         XCTAssertTrue(app.otherElements["routingRuleViewController"].exists)
 
         app.buttons["Go to New York*"].tap()
-        sleep(3)
-        XCTAssertTrue(app.otherElements["loginViewController"].exists)
+        XCTAssertTrue(app.otherElements["loginViewController"].waitForExistence(timeout: 3))
 
         app.textFields["loginTextField"].tap()
         app.textFields["loginTextField"].typeText("abc")
@@ -263,10 +252,9 @@ class ShortUITests: XCTestCase {
         app.textFields["passwordTextField"].typeText("abc")
 
         app.buttons["Login"].tap()
-        sleep(7)
         // We have to wait for login service to succeed
         // Apple uses same technique http://cleanswifter.com/asynchronous-xcode-ui-testing/
-        XCTAssertTrue(app.otherElements["cityDetailsViewController+3"].exists)
+        XCTAssertTrue(app.otherElements["cityDetailsViewController+3"].waitForExistence(timeout: 7))
     }
 
     func testGoProductFromCircle() {
@@ -279,23 +267,19 @@ class ShortUITests: XCTestCase {
         XCTAssertTrue(app.otherElements["productViewController+00"].exists)
 
         app.buttons["Go to next Product from Circle"].tap()
-        sleep(2)
-        XCTAssertTrue(app.otherElements["productViewController+01"].exists)
+        XCTAssertTrue(app.otherElements["productViewController+01"].waitForExistence(timeout: 3))
 
         app.buttons["Go to next Product from Circle"].tap()
-        sleep(2)
-        XCTAssertTrue(app.otherElements["productViewController+02"].exists)
+        XCTAssertTrue(app.otherElements["productViewController+02"].waitForExistence(timeout: 3))
 
         app.buttons["Go to Product 01"].tap()
         XCTAssertTrue(app.otherElements["productViewController+01"].exists)
 
         app.buttons["Go to next Product from Circle"].tap()
-        sleep(2)
-        XCTAssertTrue(app.otherElements["productViewController+02"].exists)
+        XCTAssertTrue(app.otherElements["productViewController+02"].waitForExistence(timeout: 3))
 
         app.buttons["Go to Circle Tab"].tap()
-        sleep(2)
-        XCTAssertTrue(app.otherElements["circleViewController"].exists)
+        XCTAssertTrue(app.otherElements["circleViewController"].waitForExistence(timeout: 1))
     }
 
 }

@@ -179,7 +179,7 @@ public final class SwitchAssembly<ViewController: UIViewController, Context> {
 
 // MARK: Methods for ContainerViewController
 
-extension SwitchAssembly where ViewController: ContainerViewController {
+public extension SwitchAssembly where ViewController: ContainerViewController {
 
     /// Adds a case when a view controller exists - navigation will start from the resulting view controller.
     /// This method allows to avoid view controller type check.
@@ -187,7 +187,7 @@ extension SwitchAssembly where ViewController: ContainerViewController {
     /// - Parameters:
     ///   - finder: The `Finder` instance is to find a `UIViewController` in the stack
     ///   a `UIViewController` found by the `Finder` will be considered as a view controller to start the navigation process from
-    public final func addCase<F: Finder>(expecting finder: F) -> Self where F.Context == Context {
+    final func addCase<F: Finder>(expecting finder: F) -> Self where F.Context == Context {
         resolvers.append(FinderResolver<ViewController, Context>(finder: finder, step: nil))
         return self
     }

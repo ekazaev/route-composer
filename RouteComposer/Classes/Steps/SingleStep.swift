@@ -86,19 +86,19 @@ public final class SingleStep<F: Finder, FC: Factory>: ActionToStepIntegrator<F.
 
 // MARK: Helper methods where the Context is Any?
 
-extension SingleStep where FC.Context == Any? {
+public extension SingleStep where FC.Context == Any? {
 
     /// Allows to avoid container view controller check. This method is available only for the steps that are
     /// able to accept any type of context.
     ///
     /// *NB:* Developer guaranties that it will be there in the runtime.
-    public final func expectingContainer<VC: ContainerViewController, C>() -> ActionToStepIntegrator<VC, C> {
+    final func expectingContainer<VC: ContainerViewController, C>() -> ActionToStepIntegrator<VC, C> {
         UnsafeWrapper(step: self)
     }
 
     /// Allows to compliment to the type check. A step that has context equal to Optional(Any) can be build
     /// with any type of context passed to the router.
-    public final func adaptingContext<C>() -> ActionToStepIntegrator<F.ViewController, C> {
+    final func adaptingContext<C>() -> ActionToStepIntegrator<F.ViewController, C> {
         UnsafeWrapper(step: self)
     }
 

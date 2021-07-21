@@ -37,7 +37,7 @@ public extension ContainerViewController where Self: UISplitViewController {
 }
 
 /// Actions for `UISplitViewController`
-public struct SplitViewControllerActions {
+public enum SplitViewControllerActions {
 
     // MARK: Internal entities
 
@@ -116,7 +116,7 @@ public struct SplitViewControllerActions {
                         "UISplitViewController to push on a detail view controller \(viewController)."))
             }
             if childViewControllers.count > 1,
-                let navigationController = childViewControllers.last as? UINavigationController {
+               let navigationController = childViewControllers.last as? UINavigationController {
                 guard !(viewController is UINavigationController) else {
                     throw RoutingError.compositionFailed(.init("The navigation controller is already set as a detail view controller root."))
                 }

@@ -122,8 +122,8 @@ extension ExampleScreenConfiguration {
                 GeneralAction.presentModally(startingFrom: .topmostParent,
                                              presentationStyle: .overCurrentContext,
                                              transitioningDelegate: transitionController))
-            .from(routingSupportScreen)
-            .assemble()
+                .from(routingSupportScreen)
+                .assemble()
     }
 
     var welcomeScreen: DestinationStep<PromptViewController, Any?> {
@@ -191,7 +191,7 @@ struct AlternativeExampleConfiguration: ExampleScreenConfiguration {
 
 }
 
-class ConfigurationHolder {
+enum ConfigurationHolder {
 
     // Declared as static to avoid dependency injection in the Example app. So this variable is available everywhere.
     static var configuration: ExampleScreenConfiguration = ExampleConfiguration()

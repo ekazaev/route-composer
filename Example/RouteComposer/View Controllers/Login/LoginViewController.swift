@@ -31,7 +31,7 @@ class LoginInterceptor<C>: RoutingInterceptor {
         do {
             try UIViewController.router.navigate(to: destination) { routingResult in
                 guard routingResult.isSuccessful,
-                    let viewController = ClassFinder<LoginViewController, Any?>().getViewController() else {
+                      let viewController = ClassFinder<LoginViewController, Any?>().getViewController() else {
                     completion(.failure(RoutingError.compositionFailed(.init("LoginViewController was not found."))))
                     return
                 }

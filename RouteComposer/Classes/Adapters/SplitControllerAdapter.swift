@@ -62,9 +62,9 @@ public struct SplitControllerAdapter<VC: UISplitViewController>: ConcreteContain
             return completion(.failure(RoutingError.compositionFailed(.init("\(String(describing: VC.self)) has been deallocated"))))
         }
         if containedViewControllers.count > 1,
-            let primaryViewController = self.containedViewControllers.first,
-            primaryViewController === containedViewControllers.first,
-            let detailsViewController = containedViewControllers.last {
+           let primaryViewController = self.containedViewControllers.first,
+           primaryViewController === containedViewControllers.first,
+           let detailsViewController = containedViewControllers.last {
             splitViewController.showDetailViewController(detailsViewController, sender: self)
         } else {
             splitViewController.viewControllers = containedViewControllers

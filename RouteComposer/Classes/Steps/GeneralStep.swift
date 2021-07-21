@@ -13,7 +13,7 @@ import Foundation
 import UIKit
 
 /// A wrapper for the general steps that can be applied to any `UIViewController`
-public struct GeneralStep {
+public enum GeneralStep {
 
     // MARK: Internal entities
 

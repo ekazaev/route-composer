@@ -36,7 +36,7 @@ public extension ContainerViewController where Self: UINavigationController {
 }
 
 /// Actions for `UINavigationController`
-public struct NavigationControllerActions {
+public enum NavigationControllerActions {
 
     // MARK: Internal entities
 

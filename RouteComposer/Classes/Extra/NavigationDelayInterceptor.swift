@@ -68,9 +68,9 @@ public struct NavigationDelayingInterceptor<Context>: RoutingInterceptor {
 
     public func perform(with context: Context, completion: @escaping (RoutingResult) -> Void) {
         guard let topmostViewController = getTopmostViewController(),
-            topmostViewController.isBeingDismissed || topmostViewController.isBeingPresented else {
-                completion(.success)
-                return
+              topmostViewController.isBeingDismissed || topmostViewController.isBeingPresented else {
+            completion(.success)
+            return
         }
         guard strategy == .wait else {
             return completion(.failure(RoutingError.compositionFailed(.init("\(topmostViewController) is changing its state. Navigation has been aborted."))))

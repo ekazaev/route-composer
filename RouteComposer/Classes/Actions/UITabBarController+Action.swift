@@ -40,7 +40,7 @@ public extension ContainerViewController where Self: UITabBarController {
 }
 
 /// Actions for `UITabBarController`
-public struct TabBarControllerActions {
+public enum TabBarControllerActions {
 
     // MARK: Internal entities
 

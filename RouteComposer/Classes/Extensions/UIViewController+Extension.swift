@@ -34,11 +34,11 @@ public extension UIViewController {
         }
 
         if options.contains(.parent),
-            let parentViewController = viewController.parentViewController,
-            let foundViewController = try findViewController(in: parentViewController,
-                                                             options: [.current, .parent],
-                                                             containerAdapterLocator: containerAdapterLocator,
-                                                             using: predicate) {
+           let parentViewController = viewController.parentViewController,
+           let foundViewController = try findViewController(in: parentViewController,
+                                                            options: [.current, .parent],
+                                                            containerAdapterLocator: containerAdapterLocator,
+                                                            using: predicate) {
             return foundViewController
         }
 
@@ -60,7 +60,7 @@ public extension UIViewController {
         }
 
         if options.contains(.presented),
-            let presentedViewController = viewController.presentedViewController {
+           let presentedViewController = viewController.presentedViewController {
             let presentedOptions = options.subtracting(.presenting)
             if let foundViewController = try findViewController(in: presentedViewController,
                                                                 options: presentedOptions,
@@ -71,7 +71,7 @@ public extension UIViewController {
         }
 
         if options.contains(.presenting),
-            let presentingViewController = viewController.presentingViewController {
+           let presentingViewController = viewController.presentingViewController {
             let presentingOptions = options.subtracting(.presented)
             if let foundViewController = try findViewController(in: presentingViewController,
                                                                 options: presentingOptions,

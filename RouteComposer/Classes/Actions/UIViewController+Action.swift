@@ -13,7 +13,7 @@ import Foundation
 import UIKit
 
 /// A wrapper for general actions that can be applied to any `UIViewController`
-public struct GeneralAction {
+public enum GeneralAction {
 
     // MARK: Actions
 
@@ -63,7 +63,7 @@ public struct GeneralAction {
 }
 
 /// A wrapper for general actions that can be applied to any `UIViewController`
-public struct ViewControllerActions {
+public enum ViewControllerActions {
 
     // MARK: Internal entities
 
@@ -172,11 +172,11 @@ public struct ViewControllerActions {
                 viewController.preferredContentSize = preferredContentSize
             }
             if let popoverPresentationController = viewController.popoverPresentationController,
-                let popoverControllerConfigurationBlock = popoverControllerConfigurationBlock {
+               let popoverControllerConfigurationBlock = popoverControllerConfigurationBlock {
                 popoverControllerConfigurationBlock(popoverPresentationController)
             }
             if #available(iOS 13, *),
-                let isModalInPresentation = isModalInPresentation {
+               let isModalInPresentation = isModalInPresentation {
                 viewController.isModalInPresentation = isModalInPresentation
             }
 

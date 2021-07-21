@@ -26,9 +26,9 @@ struct AnalyticsRouterDecorator: Router {
         var sourceScreen: ExampleScreenTypes?
 
         if let topmostViewController = UIApplication.shared.windows.first?.topmostViewController,
-            let viewController = try? UIViewController.findViewController(in: topmostViewController,
-                                                                          options: [.current, .visible],
-                                                                          using: { $0 is ExampleAnalyticsSupport }) as? ExampleAnalyticsSupport {
+           let viewController = try? UIViewController.findViewController(in: topmostViewController,
+                                                                         options: [.current, .visible],
+                                                                         using: { $0 is ExampleAnalyticsSupport }) as? ExampleAnalyticsSupport {
             sourceScreen = viewController.screenType
         }
 
@@ -36,9 +36,9 @@ struct AnalyticsRouterDecorator: Router {
             if let sourceScreen = sourceScreen {
                 print("Source: \(sourceScreen)")
                 if let topmostViewController = UIApplication.shared.windows.first?.topmostViewController,
-                    let analyticsViewController = try? UIViewController.findViewController(in: topmostViewController,
-                                                                                           options: [.current, .visible],
-                                                                                           using: { $0 is ExampleAnalyticsSupport }) as? ExampleAnalyticsSupport {
+                   let analyticsViewController = try? UIViewController.findViewController(in: topmostViewController,
+                                                                                          options: [.current, .visible],
+                                                                                          using: { $0 is ExampleAnalyticsSupport }) as? ExampleAnalyticsSupport {
                     print("Target: \(analyticsViewController.screenType)")
                 }
             }

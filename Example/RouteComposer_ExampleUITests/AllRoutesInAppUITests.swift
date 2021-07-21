@@ -78,9 +78,8 @@ class AllRoutesInAppUITests: XCTestCase {
         app.buttons["Go to Routing control"].tap()
         XCTAssertTrue(app.otherElements["routingRuleViewController"].exists)
 
-        sleep(1) // Just for better demo
         app.buttons["Go to Moscow*"].tap()
-        XCTAssertTrue(app.otherElements["loginViewController"].exists)
+        XCTAssertTrue(app.otherElements["loginViewController"].waitForExistence(timeout: 1))
 
         app.textFields["loginTextField"].tap()
         app.textFields["loginTextField"].typeText("abc")
@@ -89,21 +88,16 @@ class AllRoutesInAppUITests: XCTestCase {
         app.textFields["passwordTextField"].typeText("abc")
 
         app.buttons["Login"].tap()
-        sleep(7)
-        // We have to wait for login service to succeed
-        // Apple uses same technique http://cleanswifter.com/asynchronous-xcode-ui-testing/
-        XCTAssertTrue(app.otherElements["cityDetailsViewController+2"].exists)
+        XCTAssertTrue(app.otherElements["cityDetailsViewController+2"].waitForExistence(timeout: 7))
 
         app.buttons["Go to Cities"].tap()
-        sleep(1)
-        XCTAssertTrue(app.otherElements["citiesSplitViewController"].exists)
+        XCTAssertTrue(app.otherElements["citiesSplitViewController"].waitForExistence(timeout: 1))
 
         app.tables.cells.element(boundBy: 5).tap()
         XCTAssertTrue(app.otherElements["cityDetailsViewController+6"].exists)
 
         app.buttons["Go to Cities"].tap()
-        sleep(1)
-        XCTAssertTrue(app.otherElements["citiesSplitViewController"].exists)
+        XCTAssertTrue(app.otherElements["citiesSplitViewController"].waitForExistence(timeout: 1))
 
         app.buttons["Square"].tap()
         XCTAssertTrue(app.otherElements["squareViewController"].exists)
@@ -136,8 +130,7 @@ class AllRoutesInAppUITests: XCTestCase {
         XCTAssertTrue(app.otherElements["circleViewController"].exists)
 
         app.buttons["Go to Second modal"].tap()
-        sleep(3)
-        XCTAssertTrue(app.otherElements["secondLevelViewController"].exists)
+        XCTAssertTrue(app.otherElements["secondLevelViewController"].waitForExistence(timeout: 3))
 
         app.buttons["Go to Red Color"].tap()
         XCTAssertTrue(app.otherElements["colorViewController"].exists)
@@ -146,8 +139,7 @@ class AllRoutesInAppUITests: XCTestCase {
         XCTAssertTrue(app.otherElements["secondLevelViewController"].exists)
 
         app.buttons["Go to Home"].tap()
-        sleep(3)
-        XCTAssertTrue(app.otherElements["circleViewController"].exists)
+        XCTAssertTrue(app.otherElements["circleViewController"].waitForExistence(timeout: 3))
 
         app.buttons["Go to Product 00"].tap()
         XCTAssertTrue(app.otherElements["productViewController+00"].exists)
@@ -162,15 +154,13 @@ class AllRoutesInAppUITests: XCTestCase {
         XCTAssertTrue(app.otherElements["squareViewController"].exists)
 
         app.buttons["Go to Star Screen*"].tap()
-        sleep(7)
-        XCTAssertTrue(app.otherElements["starViewController"].exists)
+        XCTAssertTrue(app.otherElements["starViewController"].waitForExistence(timeout: 7))
 
         app.buttons["Go to Product 02"].tap()
         XCTAssertTrue(app.otherElements["productViewController+02"].exists)
 
-        sleep(1)
         app.buttons["Go to Circle Tab"].tap()
-        XCTAssertTrue(app.otherElements["circleViewController"].exists)
+        XCTAssertTrue(app.otherElements["circleViewController"].waitForExistence(timeout: 3))
 
         app.buttons["Go to Square Tab"].tap()
         XCTAssertTrue(app.otherElements["squareViewController"].exists)

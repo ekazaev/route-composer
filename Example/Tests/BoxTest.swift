@@ -186,7 +186,7 @@ class BoxTests: XCTestCase {
             wasInCompletion = true
             XCTAssertFalse(result.isSuccessful)
             guard let routingError = try? result.getError() as? RoutingError,
-                case let .compositionFailed(context) = routingError else {
+                  case let .compositionFailed(context) = routingError else {
                 XCTFail("Incorrect error type")
                 return
             }
@@ -247,10 +247,10 @@ class BoxTests: XCTestCase {
                           with: postponedIntegrationHandler,
                           nextAction: ContainerActionBox(action),
                           animated: true) { result in
-                guard case .success = result else {
-                    XCTAssert(false)
-                    return
-                }
+            guard case .success = result else {
+                XCTAssert(false)
+                return
+            }
         }
         XCTAssertEqual(navigationController.children.count, 1)
         XCTAssertEqual(postponedIntegrationHandler.containerViewController as? UINavigationController, navigationController)

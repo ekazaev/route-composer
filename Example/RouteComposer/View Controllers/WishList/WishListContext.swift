@@ -14,7 +14,7 @@ enum WishListContext: Int {
     case collections
 }
 
-struct WishListDataModel {
+enum WishListDataModel {
 
     static let data = [
         WishListContext.favorites: ["Gucci", "Dolce & Gabbana", "Anna Valentine", "Lacoste"],
