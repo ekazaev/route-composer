@@ -13,6 +13,7 @@ import Foundation
 import UIKit
 
 /// Returns key `UIWindow`
+@available(iOSApplicationExtension, unavailable)
 public struct KeyWindowProvider: WindowProvider {
 
     // MARK: Properties
