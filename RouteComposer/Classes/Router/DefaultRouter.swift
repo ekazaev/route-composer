@@ -72,7 +72,7 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
 
             // Checks if the view controllers that are currently presented from the origin view controller, can be dismissed.
             if let viewController = Array([[viewController.allParents.last ?? viewController], viewController.allPresentedViewControllers].joined()).nonDismissibleViewController {
-                throw RoutingError.compositionFailed(.init("\(String(describing: viewController)) view controller cannot " +
+                throw RoutingError.cantBeDismissed(.init("\(String(describing: viewController)) view controller cannot " +
                         "be dismissed."))
             }
 
@@ -83,10 +83,10 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
                             animated: animated,
                             completion: { (result: RoutingResult) in
                                 if case let .failure(error) = result {
-                                    self.logger?.log(.error("\(error)"))
-                                    self.logger?.log(.info("Unsuccessfully finished the navigation process."))
+                                    logger?.log(.error("\(error)"))
+                                    logger?.log(.info("Unsuccessfully finished the navigation process."))
                                 } else {
-                                    self.logger?.log(.info("Successfully finished the navigation process."))
+                                    logger?.log(.info("Successfully finished the navigation process."))
                                 }
                                 completion?(result)
                             })
@@ -171,7 +171,7 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
         // continue navigation process. This operation is async.
         let initialControllerDescription = String(describing: viewController)
         taskStack.performInterceptors(with: context) { [weak viewController] result in
-            self.assertIfNotMainThread(logger: self.logger)
+            self.assertIfNotMainThread(logger: logger)
 
             if case let .failure(error) = result {
                 completion(.failure(error))
@@ -188,9 +188,10 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
             // to build a new stack if needed.
             // This operation is async.
             // It was already confirmed that they can be dismissed.
-            self.stackPresentationHandler.dismissPresented(from: viewController, animated: animated) { result in
+            stackPresentationHandler.dismissPresented(from: viewController, animated: animated) { result in
                 guard result.isSuccessful else {
-                    return completion(result)
+                    completion(result)
+                    return
                 }
 
                 // Builds view controller's stack using factories.
@@ -220,15 +221,15 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
                                                    with context: Context,
                                                    using factories: [AnyFactory],
                                                    animated: Bool,
-                                                   completion: @escaping ((RoutingResult) -> Void)) {
+                                                   completion: @escaping (RoutingResult) -> Void) {
         var factories = factories
         let postponedIntegrationHandler = DefaultPostponedIntegrationHandler(logger: logger,
                                                                              containerAdapterLocator: containerAdapterLocator)
 
         func buildViewController(from previousViewController: UIViewController) {
-            stackPresentationHandler.makeVisibleInParentContainers(previousViewController, animated: factories.isEmpty ? animated : false) { result in
+            stackPresentationHandler.makeVisibleInParentContainers(previousViewController, animated: animated) { result in
                 guard result.isSuccessful else {
-                    self.logger?.log(.info("\(String(describing: previousViewController)) has stopped the navigation process " +
+                    logger?.log(.info("\(String(describing: previousViewController)) has stopped the navigation process " +
                             "as it was not able to become active."))
                     completion(result)
                     return
@@ -240,7 +241,7 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
                 do {
                     let factory = factories.removeFirst()
                     let newViewController = try factory.build(with: context)
-                    self.logger?.log(.info("\(String(describing: factory)) built a \(String(describing: newViewController))."))
+                    logger?.log(.info("\(String(describing: factory)) built a \(String(describing: newViewController))."))
 
                     let nextAction = factories.first?.action
 
@@ -249,14 +250,14 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
                                            with: postponedIntegrationHandler,
                                            nextAction: nextAction,
                                            animated: animated) { result in
-                        self.assertIfNotMainThread(logger: self.logger)
+                        self.assertIfNotMainThread(logger: logger)
                         guard result.isSuccessful else {
-                            self.logger?.log(.info("\(String(describing: factory.action)) has stopped the navigation process " +
+                            logger?.log(.info("\(String(describing: factory.action)) has stopped the navigation process " +
                                     "as it was not able to build a view controller into a stack."))
                             completion(result)
                             return
                         }
-                        self.logger?.log(.info("\(String(describing: factory.action)) has applied to " +
+                        logger?.log(.info("\(String(describing: factory.action)) has applied to " +
                                 "\(String(describing: previousViewController)) with \(String(describing: newViewController))."))
                         buildViewController(from: newViewController)
                     }

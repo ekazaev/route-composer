@@ -163,6 +163,7 @@
 		45BF87EE24771CEF00354559 /* UIHostingControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BF87EC24771CEF00354559 /* UIHostingControllerFactory.swift */; };
 		45BF87F124771CFC00354559 /* UIHostingControllerWithContextFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BF87F024771CFC00354559 /* UIHostingControllerWithContextFinder.swift */; };
 		45BF87F424771D3100354559 /* TestSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BF87F224771D1700354559 /* TestSwiftUIView.swift */; };
+		A36C574826CE7A2300C4FFDD /* GlobalInterceptorRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36C574726CE7A2300C4FFDD /* GlobalInterceptorRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -335,6 +336,7 @@
 		45BF87EC24771CEF00354559 /* UIHostingControllerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIHostingControllerFactory.swift; sourceTree = "<group>"; };
 		45BF87F024771CFC00354559 /* UIHostingControllerWithContextFinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIHostingControllerWithContextFinder.swift; sourceTree = "<group>"; };
 		45BF87F224771D1700354559 /* TestSwiftUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestSwiftUIView.swift; sourceTree = "<group>"; };
+		A36C574726CE7A2300C4FFDD /* GlobalInterceptorRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalInterceptorRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -643,6 +645,7 @@
 				450D0DC82412AEF80066E649 /* Router+Destination.swift */,
 				450D0DC92412AEF80066E649 /* NavigationDelayInterceptor.swift */,
 				450D0DCA2412AEF80066E649 /* SingleNavigationRouter.swift */,
+				A36C574726CE7A2300C4FFDD /* GlobalInterceptorRouter.swift */,
 				450D0DCB2412AEF80066E649 /* CATransaction+Action.swift */,
 				450D0DCC2412AEF80066E649 /* InlineContextTask.swift */,
 				450D0DCD2412AEF80066E649 /* Destination.swift */,
@@ -938,6 +941,7 @@
 				450D0E202412AEF90066E649 /* ContextTaskBox.swift in Sources */,
 				450D0E262412AEF90066E649 /* RoutingResult.swift in Sources */,
 				450D0E1A2412AEF90066E649 /* FactoryBox.swift in Sources */,
+				A36C574826CE7A2300C4FFDD /* GlobalInterceptorRouter.swift in Sources */,
 				450D0E162412AEF90066E649 /* AnyAction.swift in Sources */,
 				45A1C1EF25D1F6F80000AB8B /* RouteComposerDefaults.swift in Sources */,
 				450D0E182412AEF90066E649 /* AnyRoutingInterceptor.swift in Sources */,

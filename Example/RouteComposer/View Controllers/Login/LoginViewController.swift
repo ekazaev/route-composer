@@ -110,7 +110,7 @@ class LoginViewController: UIViewController, ExampleAnalyticsSupport {
     }
 
     @IBAction func closeTapped() {
-        interceptorCompletionBlock?(.failure(RoutingError.generic(.init("User tapped close button."))))
+        interceptorCompletionBlock?(.failure(FailingRouterIgnoreError(underlyingError: RoutingError.generic(.init("User tapped close button.")))))
         dismiss(animated: true)
     }
 

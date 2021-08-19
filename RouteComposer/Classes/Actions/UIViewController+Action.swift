@@ -148,8 +148,9 @@ public enum ViewControllerActions {
                 presentingViewController = existingController.allParents.last ?? existingController
             case let .custom(viewController):
                 guard let viewController = try? viewController() else {
-                    return completion(.failure(RoutingError.compositionFailed(
+                    completion(.failure(RoutingError.compositionFailed(
                         .init("The view controller to start modal presentation from was not found."))))
+                    return
                 }
                 presentingViewController = viewController
             }
@@ -232,7 +233,8 @@ public enum ViewControllerActions {
             guard animated, let animationOptions = animationOptions, duration > 0 else {
                 window.rootViewController = viewController
                 window.makeKeyAndVisible()
-                return completion(.success)
+                completion(.success)
+                return
             }
 
             UIView.transition(with: window, duration: duration, options: animationOptions, animations: {

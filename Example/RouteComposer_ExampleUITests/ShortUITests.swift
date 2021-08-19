@@ -252,9 +252,7 @@ class ShortUITests: XCTestCase {
         app.textFields["passwordTextField"].typeText("abc")
 
         app.buttons["Login"].tap()
-        // We have to wait for login service to succeed
-        // Apple uses same technique http://cleanswifter.com/asynchronous-xcode-ui-testing/
-        XCTAssertTrue(app.otherElements["cityDetailsViewController+3"].waitForExistence(timeout: 7))
+        XCTAssertTrue(app.otherElements["cityDetailsViewController+3"].waitForExistence(timeout: 10))
     }
 
     func testGoProductFromCircle() {
@@ -272,8 +270,8 @@ class ShortUITests: XCTestCase {
         app.buttons["Go to next Product from Circle"].tap()
         XCTAssertTrue(app.otherElements["productViewController+02"].waitForExistence(timeout: 3))
 
-        app.buttons["Go to Product 01"].tap()
-        XCTAssertTrue(app.otherElements["productViewController+01"].exists)
+        app.buttons.matching(identifier: "Go to Product 01").element(boundBy: 0).tap()
+        XCTAssertTrue(app.otherElements["productViewController+01"].waitForExistence(timeout: 3))
 
         app.buttons["Go to next Product from Circle"].tap()
         XCTAssertTrue(app.otherElements["productViewController+02"].waitForExistence(timeout: 3))

@@ -266,7 +266,8 @@ extension DefaultRouter {
                     purge(animated: animated, completion: { result in
                         self.assertIfNotMainThread()
                         guard result.isSuccessful else {
-                            return completion(result)
+                            completion(result)
+                            return
                         }
                         self.update(containerViewController: containerViewController, animated: animated, completion: completion)
                     })

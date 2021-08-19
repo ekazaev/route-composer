@@ -41,7 +41,8 @@ public struct SplitControllerAdapter<VC: UISplitViewController>: ConcreteContain
     /// mode, so default implementation of `makeVisible` method wont be able to serve it.
     public func makeVisible(_ viewController: UIViewController, animated: Bool, completion: @escaping (_: RoutingResult) -> Void) {
         guard splitViewController != nil else {
-            return completion(.failure(RoutingError.compositionFailed(.init("\(String(describing: VC.self)) has been deallocated"))))
+            completion(.failure(RoutingError.compositionFailed(.init("\(String(describing: VC.self)) has been deallocated"))))
+            return
         }
         guard contains(viewController) else {
             completion(.failure(RoutingError.compositionFailed(.init("\(String(describing: splitViewController)) does not contain \(String(describing: viewController))"))))
@@ -59,7 +60,8 @@ public struct SplitControllerAdapter<VC: UISplitViewController>: ConcreteContain
     /// A common technique is to install navigation controllers in both positions and then push and pop new content as needed.
     public func setContainedViewControllers(_ containedViewControllers: [UIViewController], animated: Bool, completion: @escaping (_: RoutingResult) -> Void) {
         guard let splitViewController = splitViewController else {
-            return completion(.failure(RoutingError.compositionFailed(.init("\(String(describing: VC.self)) has been deallocated"))))
+            completion(.failure(RoutingError.compositionFailed(.init("\(String(describing: VC.self)) has been deallocated"))))
+            return
         }
         if containedViewControllers.count > 1,
            let primaryViewController = self.containedViewControllers.first,

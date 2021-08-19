@@ -9,7 +9,9 @@
 
 import Foundation
 import RouteComposer
+#if canImport(SwiftUI)
 import SwiftUI
+#endif
 
 let transitionController = BlurredBackgroundTransitionController()
 

@@ -55,10 +55,15 @@ public struct DefaultStackPresentationHandler: StackPresentationHandler, MainThr
                                               animated: Bool,
                                               completion: @escaping (RoutingResult) -> Void) {
         var parentViewControllers = viewController.allParents
-
+        let topParentViewController = parentViewControllers.last
         func makeVisible(viewController: UIViewController, completion: @escaping (RoutingResult) -> Void) {
             assertIfNotMainThread(logger: logger)
             guard !parentViewControllers.isEmpty else {
+                if !animated,
+                   let topParentViewController = topParentViewController,
+                   topParentViewController.isViewLoaded {
+                    topParentViewController.view.layoutIfNeeded()
+                }
                 completion(.success)
                 return
             }

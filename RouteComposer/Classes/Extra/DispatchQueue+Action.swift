@@ -65,7 +65,8 @@ public struct DispatchQueueWrappedAction<A: Action>: Action {
         }
         action.perform(with: viewController, on: existingController, animated: true, completion: { result in
             guard result.isSuccessful else {
-                return completion(result)
+                completion(result)
+                return
             }
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + self.timeInterval) {
                 completion(result)
@@ -107,7 +108,8 @@ public struct DispatchQueueWrappedContainerAction<A: ContainerAction>: Container
         }
         action.perform(with: viewController, on: existingController, animated: true, completion: { result in
             guard result.isSuccessful else {
-                return completion(result)
+                completion(result)
+                return
             }
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + self.timeInterval) {
                 completion(result)

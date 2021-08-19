@@ -62,6 +62,7 @@ class ProductConfiguration {
             finder: NilFinder(),
             factory: StoryboardFactory<ProductViewController, ProductContext>(name: "TabBar", identifier: "ProductViewController"))
             .adding(ContextSettingTask()))
+//            .using(DispatchQueue.delay(UINavigationController.push()))
         .using(UINavigationController.push())
         .from(ConfigurationHolder.configuration.circleScreen.expectingContainer())
         .assemble()

@@ -103,7 +103,7 @@ class ExtrasTest: XCTestCase {
             XCTFail("Must throw an error")
         }))
 
-        wait(for: [expectation], timeout: 0.3)
+        wait(for: [expectation], timeout: 1)
         XCTAssertEqual(globalInterceptorPrepared, 1)
         XCTAssertEqual(globalInterceptorRun, 1)
         XCTAssertEqual(globalTaskRun, 3)
@@ -359,7 +359,7 @@ class ExtrasTest: XCTestCase {
             expectation.fulfill()
             XCTAssertTrue(result.isSuccessful)
         })
-        wait(for: [expectation], timeout: 0.4)
+        wait(for: [expectation], timeout: 1)
         XCTAssertEqual(window?.rootViewController, newViewController)
         window = nil
 
@@ -368,7 +368,7 @@ class ExtrasTest: XCTestCase {
             expectation.fulfill()
             XCTAssertFalse(result.isSuccessful)
         })
-        wait(for: [expectation], timeout: 0.4)
+        wait(for: [expectation], timeout: 1)
 
         var wasInCompletion = false
         action.perform(with: newViewController, on: UIViewController(), animated: false, completion: { result in
@@ -384,7 +384,8 @@ class ExtrasTest: XCTestCase {
 
             func perform(with viewController: UIViewController, on existingController: UITabBarController, animated: Bool, completion: @escaping (RoutingResult) -> Void) {
                 guard result.isSuccessful else {
-                    return completion(result)
+                    completion(result)
+                    return
                 }
                 existingController.setViewControllers([viewController], animated: false)
                 completion(result)
@@ -398,7 +399,7 @@ class ExtrasTest: XCTestCase {
             expectation.fulfill()
             XCTAssertTrue(result.isSuccessful)
         })
-        wait(for: [expectation], timeout: 0.4)
+        wait(for: [expectation], timeout: 1)
         XCTAssertEqual(tabBarController.viewControllers?.count, 1)
         tabBarController.setViewControllers([], animated: false)
 
@@ -408,7 +409,7 @@ class ExtrasTest: XCTestCase {
             expectation.fulfill()
             XCTAssertFalse(result.isSuccessful)
         })
-        wait(for: [expectation], timeout: 0.4)
+        wait(for: [expectation], timeout: 1)
         XCTAssertEqual(tabBarController.viewControllers?.count, 0)
 
         var wasInCompletion = false

@@ -9,7 +9,7 @@
 <h2 class="cov_title">
 <span>Coverage for "NavigationDelayInterceptor.swift" : </span><span class="cov_high">100.00%</span>
 </h2>
-<h4 class="cov_subtitle">(30 of 30 relevant lines covered)</h4>
+<h4 class="cov_subtitle">(31 of 31 relevant lines covered)</h4>
 <h4 class="cov_filepath">RouteComposer/Classes/Extra/NavigationDelayInterceptor.swift</h4>
 <table class="source_code">
 <tr class="never">
@@ -355,32 +355,32 @@
 <tr class="covered">
 <td class="num">69</td>
 <td class="src"><pre><code class="objc">    public func perform(with context: Context, completion: @escaping (RoutingResult) -&gt; Void) {</code></pre></td>
-<td class="coverage">96x</td>
+<td class="coverage">99x</td>
 </tr>
 <tr class="covered">
 <td class="num">70</td>
 <td class="src"><pre><code class="objc">        guard let topmostViewController = getTopmostViewController(),</code></pre></td>
-<td class="coverage">96x</td>
+<td class="coverage">99x</td>
 </tr>
 <tr class="covered">
 <td class="num">71</td>
-<td class="src"><pre><code class="objc">            topmostViewController.isBeingDismissed || topmostViewController.isBeingPresented else {</code></pre></td>
-<td class="coverage">96x</td>
+<td class="src"><pre><code class="objc">              topmostViewController.isBeingDismissed || topmostViewController.isBeingPresented else {</code></pre></td>
+<td class="coverage">99x</td>
 </tr>
 <tr class="covered">
 <td class="num">72</td>
-<td class="src"><pre><code class="objc">                completion(.success)</code></pre></td>
-<td class="coverage">91x</td>
+<td class="src"><pre><code class="objc">            completion(.success)</code></pre></td>
+<td class="coverage">94x</td>
 </tr>
 <tr class="covered">
 <td class="num">73</td>
-<td class="src"><pre><code class="objc">                return</code></pre></td>
-<td class="coverage">91x</td>
+<td class="src"><pre><code class="objc">            return</code></pre></td>
+<td class="coverage">94x</td>
 </tr>
 <tr class="covered">
 <td class="num">74</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">91x</td>
+<td class="coverage">94x</td>
 </tr>
 <tr class="covered">
 <td class="num">75</td>
@@ -389,116 +389,121 @@
 </tr>
 <tr class="covered">
 <td class="num">76</td>
-<td class="src"><pre><code class="objc">            return completion(.failure(RoutingError.compositionFailed(.init("\(topmostViewController) is changing its state. Navigation has been aborted."))))</code></pre></td>
+<td class="src"><pre><code class="objc">            completion(.failure(RoutingError.compositionFailed(.init("\(topmostViewController) is changing its state. Navigation has been aborted."))))</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">77</td>
-<td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">4x</td>
+<td class="src"><pre><code class="objc">            return</code></pre></td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">78</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="src"><pre><code class="objc">        }</code></pre></td>
 <td class="coverage">4x</td>
 </tr>
 <tr class="covered">
 <td class="num">79</td>
-<td class="src"><pre><code class="objc">        logger?.log(.info("\(topmostViewController) is changing its state. Navigation has been postponed."))</code></pre></td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage">4x</td>
 </tr>
 <tr class="covered">
 <td class="num">80</td>
-<td class="src"><pre><code class="objc">        let deadline = DispatchTime.now() + .milliseconds(100)</code></pre></td>
+<td class="src"><pre><code class="objc">        logger?.log(.info("\(topmostViewController) is changing its state. Navigation has been postponed."))</code></pre></td>
 <td class="coverage">4x</td>
 </tr>
 <tr class="covered">
 <td class="num">81</td>
-<td class="src"><pre><code class="objc">        DispatchQueue.main.asyncAfter(deadline: deadline) {</code></pre></td>
+<td class="src"><pre><code class="objc">        let deadline = DispatchTime.now() + .milliseconds(100)</code></pre></td>
 <td class="coverage">4x</td>
 </tr>
 <tr class="covered">
 <td class="num">82</td>
-<td class="src"><pre><code class="objc">            self.perform(with: context, completion: completion)</code></pre></td>
+<td class="src"><pre><code class="objc">        DispatchQueue.main.asyncAfter(deadline: deadline) {</code></pre></td>
 <td class="coverage">4x</td>
 </tr>
 <tr class="covered">
 <td class="num">83</td>
-<td class="src"><pre><code class="objc">        }</code></pre></td>
+<td class="src"><pre><code class="objc">            self.perform(with: context, completion: completion)</code></pre></td>
 <td class="coverage">4x</td>
 </tr>
 <tr class="covered">
 <td class="num">84</td>
+<td class="src"><pre><code class="objc">        }</code></pre></td>
+<td class="coverage">4x</td>
+</tr>
+<tr class="covered">
+<td class="num">85</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
 <td class="coverage">4x</td>
 </tr>
 <tr class="never">
-<td class="num">85</td>
+<td class="num">86</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
-</tr>
-<tr class="covered">
-<td class="num">86</td>
-<td class="src"><pre><code class="objc">    private func getTopmostViewController() -&gt; UIViewController? {</code></pre></td>
-<td class="coverage">96x</td>
 </tr>
 <tr class="covered">
 <td class="num">87</td>
-<td class="src"><pre><code class="objc">        var topmostViewController = windowProvider.window?.rootViewController</code></pre></td>
-<td class="coverage">96x</td>
+<td class="src"><pre><code class="objc">    private func getTopmostViewController() -&gt; UIViewController? {</code></pre></td>
+<td class="coverage">99x</td>
 </tr>
 <tr class="covered">
 <td class="num">88</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage">96x</td>
+<td class="src"><pre><code class="objc">        var topmostViewController = windowProvider.window?.rootViewController</code></pre></td>
+<td class="coverage">99x</td>
 </tr>
 <tr class="covered">
 <td class="num">89</td>
-<td class="src"><pre><code class="objc">        while let presentedViewController = topmostViewController?.presentedViewController {</code></pre></td>
-<td class="coverage">96x</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage">99x</td>
 </tr>
 <tr class="covered">
 <td class="num">90</td>
-<td class="src"><pre><code class="objc">            topmostViewController = presentedViewController</code></pre></td>
-<td class="coverage">34x</td>
+<td class="src"><pre><code class="objc">        while let presentedViewController = topmostViewController?.presentedViewController {</code></pre></td>
+<td class="coverage">99x</td>
 </tr>
 <tr class="covered">
 <td class="num">91</td>
-<td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">96x</td>
+<td class="src"><pre><code class="objc">            topmostViewController = presentedViewController</code></pre></td>
+<td class="coverage">41x</td>
 </tr>
 <tr class="covered">
 <td class="num">92</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage">96x</td>
+<td class="src"><pre><code class="objc">        }</code></pre></td>
+<td class="coverage">99x</td>
 </tr>
 <tr class="covered">
 <td class="num">93</td>
-<td class="src"><pre><code class="objc">        return topmostViewController</code></pre></td>
-<td class="coverage">96x</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage">99x</td>
 </tr>
 <tr class="covered">
 <td class="num">94</td>
-<td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">96x</td>
+<td class="src"><pre><code class="objc">        return topmostViewController</code></pre></td>
+<td class="coverage">99x</td>
 </tr>
-<tr class="never">
+<tr class="covered">
 <td class="num">95</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
+<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="coverage">99x</td>
 </tr>
 <tr class="never">
 <td class="num">96</td>
-<td class="src"><pre><code class="objc">}</code></pre></td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">97</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="src"><pre><code class="objc">}</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">98</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">99</td>
 <td class="src"><pre><code class="objc">#endif</code></pre></td>
 <td class="coverage"></td>
 </tr>

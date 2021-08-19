@@ -38,7 +38,8 @@ public struct NavigationControllerAdapter<VC: UINavigationController>: ConcreteC
 
     public func makeVisible(_ viewController: UIViewController, animated: Bool, completion: @escaping (_: RoutingResult) -> Void) {
         guard let navigationController = navigationController else {
-            return completion(.failure(RoutingError.compositionFailed(.init("\(String(describing: VC.self)) has been deallocated"))))
+            completion(.failure(RoutingError.compositionFailed(.init("\(String(describing: VC.self)) has been deallocated"))))
+            return
         }
         guard navigationController.topViewController != viewController else {
             completion(.success)
@@ -51,16 +52,23 @@ public struct NavigationControllerAdapter<VC: UINavigationController>: ConcreteC
         navigationController.popToViewController(viewController, animated: animated)
         if let transitionCoordinator = navigationController.transitionCoordinator, animated {
             transitionCoordinator.animate(alongsideTransition: nil) { _ in
+                if navigationController.isViewLoaded {
+                    navigationController.view.layoutIfNeeded()
+                }
                 completion(.success)
             }
         } else {
+            if navigationController.isViewLoaded {
+                navigationController.view.layoutIfNeeded()
+            }
             completion(.success)
         }
     }
 
     public func setContainedViewControllers(_ containedViewControllers: [UIViewController], animated: Bool, completion: @escaping (_: RoutingResult) -> Void) {
         guard let navigationController = navigationController else {
-            return completion(.failure(RoutingError.compositionFailed(.init("\(String(describing: VC.self)) has been deallocated"))))
+            completion(.failure(RoutingError.compositionFailed(.init("\(String(describing: VC.self)) has been deallocated"))))
+            return
         }
         navigationController.setViewControllers(containedViewControllers, animated: animated)
         if let transitionCoordinator = navigationController.transitionCoordinator, animated {

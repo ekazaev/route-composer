@@ -76,6 +76,9 @@ public enum RoutingError: Error, CustomStringConvertible {
     /// The view controllers stack integration failed
     case compositionFailed(RoutingError.Context)
 
+    /// The view controller can not be dismissed. See `RoutingInterceptable.canBeDismissed`.
+    case cantBeDismissed(RoutingError.Context)
+
     /// Initial view controller error
     case initialController(InitialControllerErrorState, RoutingError.Context)
 
@@ -93,6 +96,8 @@ public enum RoutingError: Error, CustomStringConvertible {
             return "Composition Failed Error: \(context.description)"
         case let .initialController(state, context):
             return "Initial Controller Error: \(state). \(context.description)"
+        case let .cantBeDismissed(context):
+            return "View Controller Can Not Be Dismissed Error: \(context.description)"
         case let .generic(context):
             return "Generic Error: \(context.description)"
         }
@@ -106,6 +111,8 @@ public enum RoutingError: Error, CustomStringConvertible {
         case let .compositionFailed(context):
             return context
         case let .initialController(_, context):
+            return context
+        case let .cantBeDismissed(context):
             return context
         case let .generic(context):
             return context

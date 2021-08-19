@@ -9,7 +9,9 @@
 
 import Foundation
 import RouteComposer
+#if canImport(SwiftUI)
 import SwiftUI
+#endif
 
 // NB: This view exists for the demo purposes only.
 @available(iOS 13.0.0, *)

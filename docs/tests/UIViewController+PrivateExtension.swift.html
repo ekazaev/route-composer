@@ -120,12 +120,12 @@
 <tr class="covered">
 <td class="num">22</td>
 <td class="src"><pre><code class="objc">            allPresentedViewControllers.append(presentedViewController)</code></pre></td>
-<td class="coverage">18x</td>
+<td class="coverage">20x</td>
 </tr>
 <tr class="covered">
 <td class="num">23</td>
 <td class="src"><pre><code class="objc">            presentingViewController = presentedViewController</code></pre></td>
-<td class="coverage">18x</td>
+<td class="coverage">20x</td>
 </tr>
 <tr class="covered">
 <td class="num">24</td>
@@ -155,47 +155,47 @@
 <tr class="covered">
 <td class="num">29</td>
 <td class="src"><pre><code class="objc">    var allParents: [UIViewController] {</code></pre></td>
-<td class="coverage">315x</td>
+<td class="coverage">321x</td>
 </tr>
 <tr class="covered">
 <td class="num">30</td>
 <td class="src"><pre><code class="objc">        var allParents: [UIViewController] = []</code></pre></td>
-<td class="coverage">315x</td>
+<td class="coverage">321x</td>
 </tr>
 <tr class="covered">
 <td class="num">31</td>
 <td class="src"><pre><code class="objc">        var currentViewController: UIViewController? = parentViewController</code></pre></td>
-<td class="coverage">315x</td>
+<td class="coverage">321x</td>
 </tr>
 <tr class="covered">
 <td class="num">32</td>
 <td class="src"><pre><code class="objc">        while let currentParent = currentViewController {</code></pre></td>
-<td class="coverage">315x</td>
+<td class="coverage">321x</td>
 </tr>
 <tr class="covered">
 <td class="num">33</td>
 <td class="src"><pre><code class="objc">            allParents.append(currentParent)</code></pre></td>
-<td class="coverage">240x</td>
+<td class="coverage">246x</td>
 </tr>
 <tr class="covered">
 <td class="num">34</td>
 <td class="src"><pre><code class="objc">            currentViewController = currentParent.parentViewController</code></pre></td>
-<td class="coverage">240x</td>
+<td class="coverage">246x</td>
 </tr>
 <tr class="covered">
 <td class="num">35</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">315x</td>
+<td class="coverage">321x</td>
 </tr>
 <tr class="covered">
 <td class="num">36</td>
 <td class="src"><pre><code class="objc">        return allParents</code></pre></td>
-<td class="coverage">315x</td>
+<td class="coverage">321x</td>
 </tr>
 <tr class="covered">
 <td class="num">37</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">315x</td>
+<td class="coverage">321x</td>
 </tr>
 <tr class="never">
 <td class="num">38</td>
@@ -225,32 +225,32 @@
 <tr class="covered">
 <td class="num">43</td>
 <td class="src"><pre><code class="objc">    var parentViewController: UIViewController? {</code></pre></td>
-<td class="coverage">565x</td>
+<td class="coverage">577x</td>
 </tr>
 <tr class="covered">
 <td class="num">44</td>
 <td class="src"><pre><code class="objc">        guard let interceptableViewController = self as? RoutingInterceptable else {</code></pre></td>
-<td class="coverage">565x</td>
+<td class="coverage">577x</td>
 </tr>
 <tr class="covered">
 <td class="num">45</td>
 <td class="src"><pre><code class="objc">            return parent</code></pre></td>
-<td class="coverage">185x</td>
+<td class="coverage">189x</td>
 </tr>
 <tr class="covered">
 <td class="num">46</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">380x</td>
+<td class="coverage">388x</td>
 </tr>
 <tr class="covered">
 <td class="num">47</td>
 <td class="src"><pre><code class="objc">        return interceptableViewController.overriddenParentViewController</code></pre></td>
-<td class="coverage">380x</td>
+<td class="coverage">388x</td>
 </tr>
 <tr class="covered">
 <td class="num">48</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">565x</td>
+<td class="coverage">577x</td>
 </tr>
 <tr class="never">
 <td class="num">49</td>

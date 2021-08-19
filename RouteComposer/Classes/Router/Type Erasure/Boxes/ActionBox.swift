@@ -35,7 +35,8 @@ struct ActionBox<A: Action>: AnyAction, AnyActionBox, CustomStringConvertible, M
         assertIfNotMainThread()
         postponedIntegrationHandler.purge(animated: animated, completion: { result in
             guard result.isSuccessful else {
-                return completion(result)
+                completion(result)
+                return
             }
             self.action.perform(with: viewController, on: typedExistingViewController, animated: animated) { result in
                 self.assertIfNotMainThread()

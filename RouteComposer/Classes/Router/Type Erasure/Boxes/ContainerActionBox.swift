@@ -31,7 +31,8 @@ struct ContainerActionBox<A: ContainerAction>: AnyAction, AnyActionBox, CustomSt
             guard postponedController is A.ViewController else {
                 postponedIntegrationHandler.purge(animated: animated, completion: { result in
                     guard result.isSuccessful else {
-                        return completion(result)
+                        completion(result)
+                        return
                     }
                     self.perform(with: viewController,
                                  on: existingController,
@@ -55,14 +56,16 @@ struct ContainerActionBox<A: ContainerAction>: AnyAction, AnyActionBox, CustomSt
             if shouldDelayPerforming {
                 postponedIntegrationHandler.update(containerViewController: containerController, animated: animated, completion: { result in
                     guard result.isSuccessful else {
-                        return completion(result)
+                        completion(result)
+                        return
                     }
                     self.embed(viewController: viewController, with: postponedIntegrationHandler, completion: completion)
                 })
             } else {
                 postponedIntegrationHandler.purge(animated: animated, completion: { result in
                     guard result.isSuccessful else {
-                        return completion(result)
+                        completion(result)
+                        return
                     }
                     self.action.perform(with: viewController, on: containerController, animated: animated) { result in
                         self.assertIfNotMainThread()

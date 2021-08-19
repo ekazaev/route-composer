@@ -90,7 +90,7 @@ public enum TabBarControllerActions {
             setup(viewController: viewController, at: &tabViewControllers, tabIndex: tabIndex)
             tabBarController.setViewControllers(tabViewControllers, animated: animated)
 
-            return completion(.success)
+            completion(.success)
         }
 
         private func setup(viewController: UIViewController,

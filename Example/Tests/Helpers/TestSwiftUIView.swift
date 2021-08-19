@@ -11,7 +11,9 @@
 
 import Foundation
 import RouteComposer
+#if canImport(SwiftUI)
 import SwiftUI
+#endif
 
 @available(iOS 13.0.0, *)
 struct TestSwiftUIView: View, ContextInstantiatable, ContextChecking {

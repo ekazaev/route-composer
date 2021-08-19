@@ -73,7 +73,8 @@ public struct NavigationDelayingInterceptor<Context>: RoutingInterceptor {
             return
         }
         guard strategy == .wait else {
-            return completion(.failure(RoutingError.compositionFailed(.init("\(topmostViewController) is changing its state. Navigation has been aborted."))))
+            completion(.failure(RoutingError.compositionFailed(.init("\(topmostViewController) is changing its state. Navigation has been aborted."))))
+            return
         }
 
         logger?.log(.info("\(topmostViewController) is changing its state. Navigation has been postponed."))

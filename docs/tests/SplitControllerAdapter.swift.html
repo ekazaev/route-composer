@@ -7,9 +7,9 @@
 <body>
 <header><div class="row"><a href="index.html"><img src="logo.jpg" alt="Slather logo"></a></div></header><div class="row"><div id="reports">
 <h2 class="cov_title">
-<span>Coverage for "SplitControllerAdapter.swift" : </span><span class="cov_low">69.70%</span>
+<span>Coverage for "SplitControllerAdapter.swift" : </span><span class="cov_medium">71.43%</span>
 </h2>
-<h4 class="cov_subtitle">(23 of 33 relevant lines covered)</h4>
+<h4 class="cov_subtitle">(25 of 35 relevant lines covered)</h4>
 <h4 class="cov_filepath">RouteComposer/Classes/Adapters/SplitControllerAdapter.swift</h4>
 <table class="source_code">
 <tr class="never">
@@ -229,163 +229,163 @@
 </tr>
 <tr class="covered">
 <td class="num">44</td>
-<td class="src"><pre><code class="objc">            return completion(.failure(RoutingError.compositionFailed(.init("\(String(describing: VC.self)) has been deallocated"))))</code></pre></td>
+<td class="src"><pre><code class="objc">            completion(.failure(RoutingError.compositionFailed(.init("\(String(describing: VC.self)) has been deallocated"))))</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">45</td>
-<td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">2x</td>
-</tr>
-<tr class="covered">
-<td class="num">46</td>
-<td class="src"><pre><code class="objc">        guard contains(viewController) else {</code></pre></td>
-<td class="coverage">2x</td>
-</tr>
-<tr class="covered">
-<td class="num">47</td>
-<td class="src"><pre><code class="objc">            completion(.failure(RoutingError.compositionFailed(.init("\(String(describing: splitViewController)) does not contain \(String(describing: viewController))"))))</code></pre></td>
-<td class="coverage">1x</td>
-</tr>
-<tr class="covered">
-<td class="num">48</td>
 <td class="src"><pre><code class="objc">            return</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
-<td class="num">49</td>
+<td class="num">46</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
+<td class="coverage">2x</td>
+</tr>
+<tr class="covered">
+<td class="num">47</td>
+<td class="src"><pre><code class="objc">        guard contains(viewController) else {</code></pre></td>
+<td class="coverage">2x</td>
+</tr>
+<tr class="covered">
+<td class="num">48</td>
+<td class="src"><pre><code class="objc">            completion(.failure(RoutingError.compositionFailed(.init("\(String(describing: splitViewController)) does not contain \(String(describing: viewController))"))))</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">49</td>
+<td class="src"><pre><code class="objc">            return</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">50</td>
-<td class="src"><pre><code class="objc">        completion(.success)</code></pre></td>
+<td class="src"><pre><code class="objc">        }</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">51</td>
+<td class="src"><pre><code class="objc">        completion(.success)</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">52</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="never">
-<td class="num">52</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
 <td class="num">53</td>
-<td class="src"><pre><code class="objc">    /// Replacing of the child view controllers is not fully supported by the implementation of `UISplitViewController`.</code></pre></td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">54</td>
-<td class="src"><pre><code class="objc">    /// Only some common cases are covered by this method.</code></pre></td>
+<td class="src"><pre><code class="objc">    /// Replacing of the child view controllers is not fully supported by the implementation of `UISplitViewController`.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">55</td>
-<td class="src"><pre><code class="objc">    ///</code></pre></td>
+<td class="src"><pre><code class="objc">    /// Only some common cases are covered by this method.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">56</td>
-<td class="src"><pre><code class="objc">    /// ###NB</code></pre></td>
+<td class="src"><pre><code class="objc">    ///</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">57</td>
-<td class="src"><pre><code class="objc">    /// [https://developer.apple.com/documentation/uikit/uisplitviewcontroller](https://developer.apple.com/documentation/uikit/uisplitviewcontroller):</code></pre></td>
+<td class="src"><pre><code class="objc">    /// ###NB</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">58</td>
-<td class="src"><pre><code class="objc">    /// **Quote:** When designing your split view interface, it is best to install primary and secondary view controllers that do not change.</code></pre></td>
+<td class="src"><pre><code class="objc">    /// [https://developer.apple.com/documentation/uikit/uisplitviewcontroller](https://developer.apple.com/documentation/uikit/uisplitviewcontroller):</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">59</td>
+<td class="src"><pre><code class="objc">    /// **Quote:** When designing your split view interface, it is best to install primary and secondary view controllers that do not change.</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">60</td>
 <td class="src"><pre><code class="objc">    /// A common technique is to install navigation controllers in both positions and then push and pop new content as needed.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
-<td class="num">60</td>
+<td class="num">61</td>
 <td class="src"><pre><code class="objc">    public func setContainedViewControllers(_ containedViewControllers: [UIViewController], animated: Bool, completion: @escaping (_: RoutingResult) -&gt; Void) {</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
-<td class="num">61</td>
+<td class="num">62</td>
 <td class="src"><pre><code class="objc">        guard let splitViewController = splitViewController else {</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
-<td class="num">62</td>
-<td class="src"><pre><code class="objc">            return completion(.failure(RoutingError.compositionFailed(.init("\(String(describing: VC.self)) has been deallocated"))))</code></pre></td>
+<td class="num">63</td>
+<td class="src"><pre><code class="objc">            completion(.failure(RoutingError.compositionFailed(.init("\(String(describing: VC.self)) has been deallocated"))))</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
-<td class="num">63</td>
+<td class="num">64</td>
+<td class="src"><pre><code class="objc">            return</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">65</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="missed">
-<td class="num">64</td>
+<td class="num">66</td>
 <td class="src"><pre><code class="objc">        if containedViewControllers.count &gt; 1,</code></pre></td>
 <td class="coverage">!</td>
 </tr>
 <tr class="missed">
-<td class="num">65</td>
-<td class="src"><pre><code class="objc">            let primaryViewController = self.containedViewControllers.first,</code></pre></td>
-<td class="coverage">!</td>
-</tr>
-<tr class="missed">
-<td class="num">66</td>
-<td class="src"><pre><code class="objc">            primaryViewController === containedViewControllers.first,</code></pre></td>
-<td class="coverage">!</td>
-</tr>
-<tr class="missed">
 <td class="num">67</td>
-<td class="src"><pre><code class="objc">            let detailsViewController = containedViewControllers.last {</code></pre></td>
+<td class="src"><pre><code class="objc">           let primaryViewController = self.containedViewControllers.first,</code></pre></td>
 <td class="coverage">!</td>
 </tr>
 <tr class="missed">
 <td class="num">68</td>
-<td class="src"><pre><code class="objc">            splitViewController.showDetailViewController(detailsViewController, sender: self)</code></pre></td>
+<td class="src"><pre><code class="objc">           primaryViewController === containedViewControllers.first,</code></pre></td>
 <td class="coverage">!</td>
 </tr>
 <tr class="missed">
 <td class="num">69</td>
-<td class="src"><pre><code class="objc">        } else {</code></pre></td>
+<td class="src"><pre><code class="objc">           let detailsViewController = containedViewControllers.last {</code></pre></td>
 <td class="coverage">!</td>
 </tr>
 <tr class="missed">
 <td class="num">70</td>
-<td class="src"><pre><code class="objc">            splitViewController.viewControllers = containedViewControllers</code></pre></td>
+<td class="src"><pre><code class="objc">            splitViewController.showDetailViewController(detailsViewController, sender: self)</code></pre></td>
 <td class="coverage">!</td>
 </tr>
 <tr class="missed">
 <td class="num">71</td>
-<td class="src"><pre><code class="objc">        }</code></pre></td>
+<td class="src"><pre><code class="objc">        } else {</code></pre></td>
 <td class="coverage">!</td>
 </tr>
 <tr class="missed">
 <td class="num">72</td>
-<td class="src"><pre><code class="objc">        completion(.success)</code></pre></td>
+<td class="src"><pre><code class="objc">            splitViewController.viewControllers = containedViewControllers</code></pre></td>
 <td class="coverage">!</td>
 </tr>
 <tr class="missed">
 <td class="num">73</td>
-<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="src"><pre><code class="objc">        }</code></pre></td>
 <td class="coverage">!</td>
 </tr>
-<tr class="never">
+<tr class="missed">
 <td class="num">74</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
+<td class="src"><pre><code class="objc">        completion(.success)</code></pre></td>
+<td class="coverage">!</td>
 </tr>
-<tr class="never">
+<tr class="missed">
 <td class="num">75</td>
-<td class="src"><pre><code class="objc">}</code></pre></td>
-<td class="coverage"></td>
+<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="coverage">!</td>
 </tr>
 <tr class="never">
 <td class="num">76</td>
@@ -394,6 +394,16 @@
 </tr>
 <tr class="never">
 <td class="num">77</td>
+<td class="src"><pre><code class="objc">}</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">78</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">79</td>
 <td class="src"><pre><code class="objc">#endif</code></pre></td>
 <td class="coverage"></td>
 </tr>
