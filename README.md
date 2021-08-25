@@ -1,5 +1,6 @@
 # RouteComposer
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/d54c6461dab64cc5a3be79734588de52)](https://app.codacy.com/gh/ekazaev/route-composer?utm_source=github.com&utm_medium=referral&utm_content=ekazaev/route-composer&utm_campaign=Badge_Grade_Settings)
 [![CI Status](https://travis-ci.org/ekazaev/route-composer.svg?branch=master&style=flat)](https://travis-ci.org/ekazaev/route-composer)
 [![Release](https://img.shields.io/github/release/ekazaev/route-composer.svg?style=flat&color=darkcyan)](https://github.com/ekazaev/route-composer/releases)
 [![Cocoapods](https://img.shields.io/cocoapods/v/RouteComposer.svg?style=flat)](http://cocoapods.org/pods/RouteComposer)
