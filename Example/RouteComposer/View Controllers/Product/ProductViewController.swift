@@ -100,6 +100,14 @@ class ProductViewController: UIViewController, ExampleAnalyticsSupport, ContextA
         try? router.navigate(to: ProductConfiguration.productScreenFromCircle, with: ProductContext(productId: "0\(productIdAsInt)"))
     }
 
+    @IBAction func goHome() {
+        try? router.navigate(to: InternalSearchConfiguration.home)
+    }
+
+    @IBAction func goSettings() {
+        try? router.navigate(to: InternalSearchConfiguration.settings)
+    }
+
 }
 
 extension ProductViewController: ContextChecking {

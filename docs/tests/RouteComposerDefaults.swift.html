@@ -125,52 +125,52 @@
 <tr class="covered">
 <td class="num">23</td>
 <td class="src"><pre><code class="objc">    public static var shared: RouteComposerDefaults = {</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">14x</td>
 </tr>
 <tr class="covered">
 <td class="num">24</td>
 <td class="src"><pre><code class="objc">        objc_sync_enter(lock)</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">14x</td>
 </tr>
 <tr class="covered">
 <td class="num">25</td>
 <td class="src"><pre><code class="objc">        defer {</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">14x</td>
 </tr>
 <tr class="covered">
 <td class="num">26</td>
 <td class="src"><pre><code class="objc">            objc_sync_exit(lock)</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">14x</td>
 </tr>
 <tr class="covered">
 <td class="num">27</td>
 <td class="src"><pre><code class="objc">            configurationStorage?.logInstantiation()</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">14x</td>
 </tr>
 <tr class="covered">
 <td class="num">28</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">14x</td>
 </tr>
 <tr class="covered">
 <td class="num">29</td>
 <td class="src"><pre><code class="objc">        switch configurationStorage {</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">14x</td>
 </tr>
 <tr class="covered">
 <td class="num">30</td>
 <td class="src"><pre><code class="objc">        case let .some(configurationStorage):</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">14x</td>
 </tr>
 <tr class="covered">
 <td class="num">31</td>
 <td class="src"><pre><code class="objc">            return configurationStorage</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">14x</td>
 </tr>
 <tr class="covered">
 <td class="num">32</td>
 <td class="src"><pre><code class="objc">        case .none:</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">14x</td>
 </tr>
 <tr class="missed">
 <td class="num">33</td>
@@ -190,12 +190,12 @@
 <tr class="covered">
 <td class="num">36</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">14x</td>
 </tr>
 <tr class="covered">
 <td class="num">37</td>
 <td class="src"><pre><code class="objc">    }()</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">14x</td>
 </tr>
 <tr class="never">
 <td class="num">38</td>
@@ -345,32 +345,32 @@
 <tr class="covered">
 <td class="num">67</td>
 <td class="src"><pre><code class="objc">                                    stackIterator: StackIterator? = nil) {</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">14x</td>
 </tr>
 <tr class="covered">
 <td class="num">68</td>
 <td class="src"><pre><code class="objc">        objc_sync_enter(lock)</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">14x</td>
 </tr>
 <tr class="covered">
 <td class="num">69</td>
 <td class="src"><pre><code class="objc">        defer {</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">14x</td>
 </tr>
 <tr class="covered">
 <td class="num">70</td>
 <td class="src"><pre><code class="objc">            objc_sync_exit(lock)</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">14x</td>
 </tr>
 <tr class="covered">
 <td class="num">71</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">14x</td>
 </tr>
 <tr class="covered">
 <td class="num">72</td>
 <td class="src"><pre><code class="objc">        guard configurationStorage == nil else {</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">14x</td>
 </tr>
 <tr class="missed">
 <td class="num">73</td>
@@ -385,32 +385,32 @@
 <tr class="covered">
 <td class="num">75</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">14x</td>
 </tr>
 <tr class="covered">
 <td class="num">76</td>
 <td class="src"><pre><code class="objc">        configurationStorage = RouteComposerDefaults(logger: logger,</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">14x</td>
 </tr>
 <tr class="covered">
 <td class="num">77</td>
 <td class="src"><pre><code class="objc">                                                     windowProvider: windowProvider,</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">14x</td>
 </tr>
 <tr class="covered">
 <td class="num">78</td>
 <td class="src"><pre><code class="objc">                                                     containerAdapterLocator: containerAdapterLocator,</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">14x</td>
 </tr>
 <tr class="covered">
 <td class="num">79</td>
 <td class="src"><pre><code class="objc">                                                     stackIterator: stackIterator)</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">14x</td>
 </tr>
 <tr class="covered">
 <td class="num">80</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">14x</td>
 </tr>
 <tr class="never">
 <td class="num">81</td>
@@ -435,32 +435,32 @@
 <tr class="covered">
 <td class="num">85</td>
 <td class="src"><pre><code class="objc">                 stackIterator: StackIterator? = nil) {</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">14x</td>
 </tr>
 <tr class="covered">
 <td class="num">86</td>
 <td class="src"><pre><code class="objc">        self.logger = logger</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">14x</td>
 </tr>
 <tr class="covered">
 <td class="num">87</td>
 <td class="src"><pre><code class="objc">        self.windowProvider = windowProvider</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">14x</td>
 </tr>
 <tr class="covered">
 <td class="num">88</td>
 <td class="src"><pre><code class="objc">        self.containerAdapterLocator = containerAdapterLocator</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">14x</td>
 </tr>
 <tr class="covered">
 <td class="num">89</td>
 <td class="src"><pre><code class="objc">        self.stackIterator = stackIterator ?? DefaultStackIterator(windowProvider: windowProvider, containerAdapterLocator: containerAdapterLocator)</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">14x</td>
 </tr>
 <tr class="covered">
 <td class="num">90</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">14x</td>
 </tr>
 <tr class="never">
 <td class="num">91</td>
@@ -470,12 +470,12 @@
 <tr class="covered">
 <td class="num">92</td>
 <td class="src"><pre><code class="objc">    private func logInstantiation() {</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">14x</td>
 </tr>
 <tr class="covered">
 <td class="num">93</td>
 <td class="src"><pre><code class="objc">        guard let logger = logger else {</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">14x</td>
 </tr>
 <tr class="missed">
 <td class="num">94</td>
@@ -485,47 +485,47 @@
 <tr class="covered">
 <td class="num">95</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">14x</td>
 </tr>
 <tr class="covered">
 <td class="num">96</td>
 <td class="src"><pre><code class="objc">        logger.log(.info("""</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">14x</td>
 </tr>
 <tr class="covered">
 <td class="num">97</td>
 <td class="src"><pre><code class="objc">        Initialised defaults values with:</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">14x</td>
 </tr>
 <tr class="covered">
 <td class="num">98</td>
 <td class="src"><pre><code class="objc">            Logger: \(logger)</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">14x</td>
 </tr>
 <tr class="covered">
 <td class="num">99</td>
 <td class="src"><pre><code class="objc">            WindowProvider: \(windowProvider)</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">14x</td>
 </tr>
 <tr class="covered">
 <td class="num">100</td>
 <td class="src"><pre><code class="objc">            ContainerAdapterLocator: \(containerAdapterLocator)</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">14x</td>
 </tr>
 <tr class="covered">
 <td class="num">101</td>
 <td class="src"><pre><code class="objc">            StackIterator:\(stackIterator)</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">14x</td>
 </tr>
 <tr class="covered">
 <td class="num">102</td>
 <td class="src"><pre><code class="objc">        """))</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">14x</td>
 </tr>
 <tr class="covered">
 <td class="num">103</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">14x</td>
 </tr>
 <tr class="never">
 <td class="num">104</td>

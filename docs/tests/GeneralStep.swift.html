@@ -135,17 +135,17 @@
 <tr class="covered">
 <td class="num">25</td>
 <td class="src"><pre><code class="objc">        init(windowProvider: WindowProvider = RouteComposerDefaults.shared.windowProvider) {</code></pre></td>
-<td class="coverage">65x</td>
+<td class="coverage">71x</td>
 </tr>
 <tr class="covered">
 <td class="num">26</td>
 <td class="src"><pre><code class="objc">            self.windowProvider = windowProvider</code></pre></td>
-<td class="coverage">65x</td>
+<td class="coverage">71x</td>
 </tr>
 <tr class="covered">
 <td class="num">27</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">65x</td>
+<td class="coverage">71x</td>
 </tr>
 <tr class="never">
 <td class="num">28</td>
@@ -155,12 +155,12 @@
 <tr class="covered">
 <td class="num">29</td>
 <td class="src"><pre><code class="objc">        func perform&lt;Context&gt;(with context: Context) throws -&gt; PerformableStepResult {</code></pre></td>
-<td class="coverage">23x</td>
+<td class="coverage">25x</td>
 </tr>
 <tr class="covered">
 <td class="num">30</td>
 <td class="src"><pre><code class="objc">            guard let viewController = windowProvider.window?.rootViewController else {</code></pre></td>
-<td class="coverage">23x</td>
+<td class="coverage">25x</td>
 </tr>
 <tr class="covered">
 <td class="num">31</td>
@@ -170,17 +170,17 @@
 <tr class="covered">
 <td class="num">32</td>
 <td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">22x</td>
+<td class="coverage">24x</td>
 </tr>
 <tr class="covered">
 <td class="num">33</td>
 <td class="src"><pre><code class="objc">            return .success(viewController)</code></pre></td>
-<td class="coverage">22x</td>
+<td class="coverage">24x</td>
 </tr>
 <tr class="covered">
 <td class="num">34</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">23x</td>
+<td class="coverage">25x</td>
 </tr>
 <tr class="never">
 <td class="num">35</td>
@@ -225,17 +225,17 @@
 <tr class="covered">
 <td class="num">43</td>
 <td class="src"><pre><code class="objc">        init(windowProvider: WindowProvider = RouteComposerDefaults.shared.windowProvider) {</code></pre></td>
-<td class="coverage">36x</td>
+<td class="coverage">38x</td>
 </tr>
 <tr class="covered">
 <td class="num">44</td>
 <td class="src"><pre><code class="objc">            self.windowProvider = windowProvider</code></pre></td>
-<td class="coverage">36x</td>
+<td class="coverage">38x</td>
 </tr>
 <tr class="covered">
 <td class="num">45</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">36x</td>
+<td class="coverage">38x</td>
 </tr>
 <tr class="never">
 <td class="num">46</td>
@@ -310,17 +310,17 @@
 <tr class="covered">
 <td class="num">60</td>
 <td class="src"><pre><code class="objc">        init&lt;F: Finder&gt;(finder: F) {</code></pre></td>
-<td class="coverage">14x</td>
+<td class="coverage">16x</td>
 </tr>
 <tr class="covered">
 <td class="num">61</td>
 <td class="src"><pre><code class="objc">            self.finder = FinderBox(finder)</code></pre></td>
-<td class="coverage">14x</td>
+<td class="coverage">16x</td>
 </tr>
 <tr class="covered">
 <td class="num">62</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">14x</td>
+<td class="coverage">16x</td>
 </tr>
 <tr class="never">
 <td class="num">63</td>
@@ -330,12 +330,12 @@
 <tr class="covered">
 <td class="num">64</td>
 <td class="src"><pre><code class="objc">        func perform&lt;Context&gt;(with context: Context) throws -&gt; PerformableStepResult {</code></pre></td>
-<td class="coverage">16x</td>
+<td class="coverage">18x</td>
 </tr>
 <tr class="covered">
 <td class="num">65</td>
 <td class="src"><pre><code class="objc">            guard let viewController = try finder?.findViewController(with: context) else {</code></pre></td>
-<td class="coverage">16x</td>
+<td class="coverage">18x</td>
 </tr>
 <tr class="covered">
 <td class="num">66</td>
@@ -345,17 +345,17 @@
 <tr class="covered">
 <td class="num">67</td>
 <td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">10x</td>
+<td class="coverage">12x</td>
 </tr>
 <tr class="covered">
 <td class="num">68</td>
 <td class="src"><pre><code class="objc">            return .success(viewController)</code></pre></td>
-<td class="coverage">10x</td>
+<td class="coverage">12x</td>
 </tr>
 <tr class="covered">
 <td class="num">69</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">16x</td>
+<td class="coverage">18x</td>
 </tr>
 <tr class="never">
 <td class="num">70</td>
@@ -385,17 +385,17 @@
 <tr class="covered">
 <td class="num">75</td>
 <td class="src"><pre><code class="objc">    public static func root&lt;C&gt;(windowProvider: WindowProvider = RouteComposerDefaults.shared.windowProvider) -&gt; DestinationStep&lt;UIViewController, C&gt; {</code></pre></td>
-<td class="coverage">64x</td>
+<td class="coverage">70x</td>
 </tr>
 <tr class="covered">
 <td class="num">76</td>
 <td class="src"><pre><code class="objc">        DestinationStep(RootViewControllerStep(windowProvider: windowProvider))</code></pre></td>
-<td class="coverage">64x</td>
+<td class="coverage">70x</td>
 </tr>
 <tr class="covered">
 <td class="num">77</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">64x</td>
+<td class="coverage">70x</td>
 </tr>
 <tr class="never">
 <td class="num">78</td>
@@ -410,17 +410,17 @@
 <tr class="covered">
 <td class="num">80</td>
 <td class="src"><pre><code class="objc">    public static func current&lt;C&gt;(windowProvider: WindowProvider = RouteComposerDefaults.shared.windowProvider) -&gt; DestinationStep&lt;UIViewController, C&gt; {</code></pre></td>
-<td class="coverage">35x</td>
+<td class="coverage">37x</td>
 </tr>
 <tr class="covered">
 <td class="num">81</td>
 <td class="src"><pre><code class="objc">        DestinationStep(CurrentViewControllerStep(windowProvider: windowProvider))</code></pre></td>
-<td class="coverage">35x</td>
+<td class="coverage">37x</td>
 </tr>
 <tr class="covered">
 <td class="num">82</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">35x</td>
+<td class="coverage">37x</td>
 </tr>
 <tr class="never">
 <td class="num">83</td>

@@ -185,17 +185,17 @@
 <tr class="covered">
 <td class="num">35</td>
 <td class="src"><pre><code class="objc">        func perform(embedding viewController: UIViewController, in childViewControllers: inout [UIViewController]) {</code></pre></td>
-<td class="coverage">5x</td>
+<td class="coverage">13x</td>
 </tr>
 <tr class="covered">
 <td class="num">36</td>
 <td class="src"><pre><code class="objc">            childViewControllers.append(viewController)</code></pre></td>
-<td class="coverage">5x</td>
+<td class="coverage">13x</td>
 </tr>
 <tr class="covered">
 <td class="num">37</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">5x</td>
+<td class="coverage">13x</td>
 </tr>
 <tr class="never">
 <td class="num">38</td>
@@ -265,17 +265,17 @@
 <tr class="covered">
 <td class="num">51</td>
 <td class="src"><pre><code class="objc">    public init(factory: FC) {</code></pre></td>
-<td class="coverage">7x</td>
+<td class="coverage">13x</td>
 </tr>
 <tr class="covered">
 <td class="num">52</td>
 <td class="src"><pre><code class="objc">        self.factory = factory</code></pre></td>
-<td class="coverage">7x</td>
+<td class="coverage">13x</td>
 </tr>
 <tr class="covered">
 <td class="num">53</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">7x</td>
+<td class="coverage">13x</td>
 </tr>
 <tr class="never">
 <td class="num">54</td>
@@ -320,12 +320,12 @@
 <tr class="covered">
 <td class="num">62</td>
 <td class="src"><pre><code class="objc">        ChildFC.Context == FC.Context, A.ViewController == FC.ViewController {</code></pre></td>
-<td class="coverage">4x</td>
+<td class="coverage">8x</td>
 </tr>
 <tr class="covered">
 <td class="num">63</td>
 <td class="src"><pre><code class="objc">        guard let factoryBox = FactoryBox(childFactory, action: ContainerActionBox(action)) else {</code></pre></td>
-<td class="coverage">4x</td>
+<td class="coverage">8x</td>
 </tr>
 <tr class="covered">
 <td class="num">64</td>
@@ -335,27 +335,27 @@
 <tr class="covered">
 <td class="num">65</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">3x</td>
+<td class="coverage">7x</td>
 </tr>
 <tr class="covered">
 <td class="num">66</td>
 <td class="src"><pre><code class="objc">        return CompleteFactoryChainAssembly&lt;FC, ChildFC.ViewController&gt;(factory: factory,</code></pre></td>
-<td class="coverage">3x</td>
+<td class="coverage">7x</td>
 </tr>
 <tr class="covered">
 <td class="num">67</td>
 <td class="src"><pre><code class="objc">                                                                        childFactories: [],</code></pre></td>
-<td class="coverage">3x</td>
+<td class="coverage">7x</td>
 </tr>
 <tr class="covered">
 <td class="num">68</td>
 <td class="src"><pre><code class="objc">                                                                        previousChildFactory: PostponedIntegrationFactory&lt;ChildFC.Context&gt;(for: factoryBox))</code></pre></td>
-<td class="coverage">3x</td>
+<td class="coverage">7x</td>
 </tr>
 <tr class="covered">
 <td class="num">69</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">4x</td>
+<td class="coverage">8x</td>
 </tr>
 <tr class="never">
 <td class="num">70</td>
@@ -400,12 +400,12 @@
 <tr class="covered">
 <td class="num">78</td>
 <td class="src"><pre><code class="objc">        ChildFC.Context == FC.Context, A.ViewController == FC.ViewController {</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">4x</td>
 </tr>
 <tr class="covered">
 <td class="num">79</td>
 <td class="src"><pre><code class="objc">        guard let factoryBox = ContainerFactoryBox(childContainer, action: ContainerActionBox(action)) else {</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">4x</td>
 </tr>
 <tr class="covered">
 <td class="num">80</td>
@@ -415,32 +415,32 @@
 <tr class="covered">
 <td class="num">81</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">3x</td>
 </tr>
 <tr class="covered">
 <td class="num">82</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">3x</td>
 </tr>
 <tr class="covered">
 <td class="num">83</td>
 <td class="src"><pre><code class="objc">        return CompleteFactoryChainAssembly&lt;FC, ChildFC.ViewController&gt;(factory: factory,</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">3x</td>
 </tr>
 <tr class="covered">
 <td class="num">84</td>
 <td class="src"><pre><code class="objc">                                                                        childFactories: [],</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">3x</td>
 </tr>
 <tr class="covered">
 <td class="num">85</td>
 <td class="src"><pre><code class="objc">                                                                        previousChildFactory: PostponedIntegrationFactory&lt;ChildFC.Context&gt;(for: factoryBox))</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">3x</td>
 </tr>
 <tr class="covered">
 <td class="num">86</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">4x</td>
 </tr>
 <tr class="never">
 <td class="num">87</td>
@@ -470,17 +470,17 @@
 <tr class="covered">
 <td class="num">92</td>
 <td class="src"><pre><code class="objc">    public final func with&lt;ChildFC: Factory&gt;(_ childFactory: ChildFC) -&gt; CompleteFactoryChainAssembly&lt;FC, ChildFC.ViewController&gt; where ChildFC.Context == FC.Context {</code></pre></td>
-<td class="coverage">3x</td>
+<td class="coverage">7x</td>
 </tr>
 <tr class="covered">
 <td class="num">93</td>
 <td class="src"><pre><code class="objc">        return with(childFactory, using: SimpleAddAction&lt;FC&gt;())</code></pre></td>
-<td class="coverage">3x</td>
+<td class="coverage">7x</td>
 </tr>
 <tr class="covered">
 <td class="num">94</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">3x</td>
+<td class="coverage">7x</td>
 </tr>
 <tr class="never">
 <td class="num">95</td>
@@ -510,17 +510,17 @@
 <tr class="covered">
 <td class="num">100</td>
 <td class="src"><pre><code class="objc">    public final func with&lt;ChildFC: ContainerFactory&gt;(_ childContainer: ChildFC) -&gt; CompleteFactoryChainAssembly&lt;FC, ChildFC.ViewController&gt; where ChildFC.Context == FC.Context {</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">4x</td>
 </tr>
 <tr class="covered">
 <td class="num">101</td>
 <td class="src"><pre><code class="objc">        return with(childContainer, using: SimpleAddAction&lt;FC&gt;())</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">4x</td>
 </tr>
 <tr class="covered">
 <td class="num">102</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">4x</td>
 </tr>
 <tr class="never">
 <td class="num">103</td>

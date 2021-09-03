@@ -235,37 +235,37 @@
 <tr class="covered">
 <td class="num">45</td>
 <td class="src"><pre><code class="objc">    public init(prepare prepareBlock: ((_: C) throws -&gt; Void)? = nil, _ inlineBlock: @escaping (_: C) throws -&gt; Void) {</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">14x</td>
 </tr>
 <tr class="covered">
 <td class="num">46</td>
 <td class="src"><pre><code class="objc">        self.prepareBlock = prepareBlock</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">14x</td>
 </tr>
 <tr class="covered">
 <td class="num">47</td>
 <td class="src"><pre><code class="objc">        self.performBlock = { context, completion in</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">14x</td>
 </tr>
 <tr class="covered">
 <td class="num">48</td>
 <td class="src"><pre><code class="objc">            do {</code></pre></td>
-<td class="coverage">10x</td>
+<td class="coverage">12x</td>
 </tr>
 <tr class="covered">
 <td class="num">49</td>
 <td class="src"><pre><code class="objc">                try inlineBlock(context)</code></pre></td>
-<td class="coverage">10x</td>
+<td class="coverage">12x</td>
 </tr>
 <tr class="covered">
 <td class="num">50</td>
 <td class="src"><pre><code class="objc">                completion(.success)</code></pre></td>
-<td class="coverage">10x</td>
+<td class="coverage">12x</td>
 </tr>
 <tr class="covered">
 <td class="num">51</td>
 <td class="src"><pre><code class="objc">            } catch {</code></pre></td>
-<td class="coverage">10x</td>
+<td class="coverage">12x</td>
 </tr>
 <tr class="covered">
 <td class="num">52</td>
@@ -275,17 +275,17 @@
 <tr class="covered">
 <td class="num">53</td>
 <td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">10x</td>
+<td class="coverage">12x</td>
 </tr>
 <tr class="covered">
 <td class="num">54</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">10x</td>
+<td class="coverage">12x</td>
 </tr>
 <tr class="covered">
 <td class="num">55</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">14x</td>
 </tr>
 <tr class="never">
 <td class="num">56</td>
@@ -295,17 +295,17 @@
 <tr class="covered">
 <td class="num">57</td>
 <td class="src"><pre><code class="objc">    public func prepare(with context: C) throws {</code></pre></td>
-<td class="coverage">16x</td>
+<td class="coverage">18x</td>
 </tr>
 <tr class="covered">
 <td class="num">58</td>
 <td class="src"><pre><code class="objc">        try prepareBlock?(context)</code></pre></td>
-<td class="coverage">16x</td>
+<td class="coverage">18x</td>
 </tr>
 <tr class="covered">
 <td class="num">59</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">16x</td>
+<td class="coverage">18x</td>
 </tr>
 <tr class="never">
 <td class="num">60</td>
@@ -315,17 +315,17 @@
 <tr class="covered">
 <td class="num">61</td>
 <td class="src"><pre><code class="objc">    public func perform(with context: C, completion: @escaping (RoutingResult) -&gt; Void) {</code></pre></td>
-<td class="coverage">13x</td>
+<td class="coverage">15x</td>
 </tr>
 <tr class="covered">
 <td class="num">62</td>
 <td class="src"><pre><code class="objc">        performBlock(context, completion)</code></pre></td>
-<td class="coverage">13x</td>
+<td class="coverage">15x</td>
 </tr>
 <tr class="covered">
 <td class="num">63</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">13x</td>
+<td class="coverage">15x</td>
 </tr>
 <tr class="never">
 <td class="num">64</td>

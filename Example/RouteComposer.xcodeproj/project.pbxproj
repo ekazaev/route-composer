@@ -91,7 +91,13 @@
 		9AFBCE52F3DE5262483447AD /* AnalyticsRouterDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC55773371781E5054506 /* AnalyticsRouterDecorator.swift */; };
 		9AFBCE57C0F8CE5FA2C71E57 /* BlurredBackgroundTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC8BFC3348903C80F7D63 /* BlurredBackgroundTransitionAnimator.swift */; };
 		9AFBCF519040E699D130072D /* CityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBC949B2D2D4B8D636B565 /* CityDetailViewController.swift */; };
+		A382B21B26E292FF00A885FB /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A382B21A26E292FF00A885FB /* SwiftUI.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		D5A310CD7E9542D1EF59939B /* FailingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A31AA69386509522F6DFA9 /* FailingRouter.swift */; };
+		D5A313472BCBDB5E4EB4189B /* AnyContextCheckingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A31333E2B260C574B94AB6 /* AnyContextCheckingViewController.swift */; };
+		D5A313A06ECE5A367A62E955 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A3170757ADFE0802842913 /* SettingsViewController.swift */; };
+		D5A31706A0F9584974C87674 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A31046CBE2AE74BEFF75FD /* HomeViewController.swift */; };
+		D5A3194B225BFB7A23A5D8BD /* MainScreenContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A3164746D3FFE1537A5DE6 /* MainScreenContext.swift */; };
+		D5A31CA7E4C8CAF3B46E7237 /* InternalSearchConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A31AAF2DBC1D9E1D4483CD /* InternalSearchConfiguration.swift */; };
 		D611D285DB9C77E5E7D8FBF7 /* Pods_RouteComposer_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD8FADE9265A4CD86A75FD85 /* Pods_RouteComposer_Example.framework */; };
 		EF158AE158BBFC0D85A45DA6 /* TestWindowProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF15860E0F9DBA20E470E476 /* TestWindowProvider.swift */; };
 		EF158CB848B405D553F272A8 /* ErrorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF158F4B4B31525D5844012E /* ErrorTest.swift */; };
@@ -265,8 +271,14 @@
 		9AFBCFA7F490C53D17BA5B40 /* WishListContextTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WishListContextTask.swift; sourceTree = "<group>"; };
 		9E4BEAE755C13F946AD18B6A /* Pods-RouteComposer_Example-RouteComposer_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RouteComposer_Example-RouteComposer_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RouteComposer_Example-RouteComposer_Tests/Pods-RouteComposer_Example-RouteComposer_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		A0293FF29C4D706E5D7F4B94 /* Pods_RouteComposer_Example_RouteComposer_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RouteComposer_Example_RouteComposer_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A382B21A26E292FF00A885FB /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		AD8FADE9265A4CD86A75FD85 /* Pods_RouteComposer_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RouteComposer_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5A31046CBE2AE74BEFF75FD /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		D5A31333E2B260C574B94AB6 /* AnyContextCheckingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyContextCheckingViewController.swift; sourceTree = "<group>"; };
+		D5A3164746D3FFE1537A5DE6 /* MainScreenContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainScreenContext.swift; sourceTree = "<group>"; };
+		D5A3170757ADFE0802842913 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		D5A31AA69386509522F6DFA9 /* FailingRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FailingRouter.swift; sourceTree = "<group>"; };
+		D5A31AAF2DBC1D9E1D4483CD /* InternalSearchConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InternalSearchConfiguration.swift; sourceTree = "<group>"; };
 		E7AC8603E217ACA9BCF1FAC2 /* Pods-RouteComposer_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RouteComposer_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-RouteComposer_Example/Pods-RouteComposer_Example.release.xcconfig"; sourceTree = "<group>"; };
 		EE3371C14DEE61C1E517B2F9 /* Pods-RouteComposer_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RouteComposer_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RouteComposer_Example/Pods-RouteComposer_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		EF1584F5E4B89D2045CDF5FA /* CONTRIBUTING.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = CONTRIBUTING.md; path = ../CONTRIBUTING.md; sourceTree = "<group>"; };
@@ -279,6 +291,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A382B21B26E292FF00A885FB /* SwiftUI.framework in Frameworks */,
 				D611D285DB9C77E5E7D8FBF7 /* Pods_RouteComposer_Example.framework in Frameworks */,
 				849D12F6213729F10052FD44 /* ContainerViewController.framework in Frameworks */,
 				849D12FE213729F10052FD44 /* ImageDetailsController.framework in Frameworks */,
@@ -461,6 +474,7 @@
 				9AFBC408291B6E99D0367D07 /* No Library Dependency */,
 				9AFBCAC0F2D822F36959DB6E /* ExampleNavigationController.swift */,
 				45D268C8242A9F1D007EB41E /* SwiftUIContentView.swift */,
+				D5A311FB06AFB6F99A23970E /* Internal Search Demo */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -505,6 +519,7 @@
 		89304414051547194EE39AAB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A382B21A26E292FF00A885FB /* SwiftUI.framework */,
 				AD8FADE9265A4CD86A75FD85 /* Pods_RouteComposer_Example.framework */,
 				4D5D44CE2FD3DEAA3108C874 /* Pods_RouteComposer_Tests.framework */,
 				A0293FF29C4D706E5D7F4B94 /* Pods_RouteComposer_Example_RouteComposer_Tests.framework */,
@@ -600,6 +615,18 @@
 				9AFBC94AAA83C5D160B00A8D /* ProductURLTranslator.swift */,
 			);
 			path = Product;
+			sourceTree = "<group>";
+		};
+		D5A311FB06AFB6F99A23970E /* Internal Search Demo */ = {
+			isa = PBXGroup;
+			children = (
+				D5A31AAF2DBC1D9E1D4483CD /* InternalSearchConfiguration.swift */,
+				D5A3164746D3FFE1537A5DE6 /* MainScreenContext.swift */,
+				D5A31046CBE2AE74BEFF75FD /* HomeViewController.swift */,
+				D5A3170757ADFE0802842913 /* SettingsViewController.swift */,
+				D5A31333E2B260C574B94AB6 /* AnyContextCheckingViewController.swift */,
+			);
+			path = "Internal Search Demo";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -920,6 +947,11 @@
 				9AFBC4085F7930B60F185C0D /* ExampleNavigationController.swift in Sources */,
 				1BE543AF30CA4A1AA4CBE41A /* SceneDelegate.swift in Sources */,
 				D5A310CD7E9542D1EF59939B /* FailingRouter.swift in Sources */,
+				D5A31CA7E4C8CAF3B46E7237 /* InternalSearchConfiguration.swift in Sources */,
+				D5A3194B225BFB7A23A5D8BD /* MainScreenContext.swift in Sources */,
+				D5A31706A0F9584974C87674 /* HomeViewController.swift in Sources */,
+				D5A313A06ECE5A367A62E955 /* SettingsViewController.swift in Sources */,
+				D5A313472BCBDB5E4EB4189B /* AnyContextCheckingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

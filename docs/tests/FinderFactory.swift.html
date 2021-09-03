@@ -200,12 +200,12 @@
 <tr class="covered">
 <td class="num">38</td>
 <td class="src"><pre><code class="objc">    public init?(finder: F, configuration: ((_: F.ViewController) -&gt; Void)? = nil) {</code></pre></td>
-<td class="coverage">94x</td>
+<td class="coverage">100x</td>
 </tr>
 <tr class="covered">
 <td class="num">39</td>
 <td class="src"><pre><code class="objc">        guard !(finder is NilEntity) else {</code></pre></td>
-<td class="coverage">94x</td>
+<td class="coverage">100x</td>
 </tr>
 <tr class="covered">
 <td class="num">40</td>
@@ -215,22 +215,22 @@
 <tr class="covered">
 <td class="num">41</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">74x</td>
+<td class="coverage">80x</td>
 </tr>
 <tr class="covered">
 <td class="num">42</td>
 <td class="src"><pre><code class="objc">        self.finder = finder</code></pre></td>
-<td class="coverage">74x</td>
+<td class="coverage">80x</td>
 </tr>
 <tr class="covered">
 <td class="num">43</td>
 <td class="src"><pre><code class="objc">        self.configuration = configuration</code></pre></td>
-<td class="coverage">74x</td>
+<td class="coverage">80x</td>
 </tr>
 <tr class="covered">
 <td class="num">44</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">74x</td>
+<td class="coverage">80x</td>
 </tr>
 <tr class="never">
 <td class="num">45</td>
@@ -240,12 +240,12 @@
 <tr class="covered">
 <td class="num">46</td>
 <td class="src"><pre><code class="objc">    public func build(with context: F.Context) throws -&gt; F.ViewController {</code></pre></td>
-<td class="coverage">20x</td>
+<td class="coverage">22x</td>
 </tr>
 <tr class="covered">
 <td class="num">47</td>
 <td class="src"><pre><code class="objc">        guard let viewController = try finder.findViewController(with: context) else {</code></pre></td>
-<td class="coverage">20x</td>
+<td class="coverage">22x</td>
 </tr>
 <tr class="covered">
 <td class="num">48</td>
@@ -255,12 +255,12 @@
 <tr class="covered">
 <td class="num">49</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">19x</td>
+<td class="coverage">21x</td>
 </tr>
 <tr class="covered">
 <td class="num">50</td>
 <td class="src"><pre><code class="objc">        if let configuration = configuration {</code></pre></td>
-<td class="coverage">19x</td>
+<td class="coverage">21x</td>
 </tr>
 <tr class="covered">
 <td class="num">51</td>
@@ -270,17 +270,17 @@
 <tr class="covered">
 <td class="num">52</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">19x</td>
+<td class="coverage">21x</td>
 </tr>
 <tr class="covered">
 <td class="num">53</td>
 <td class="src"><pre><code class="objc">        return viewController</code></pre></td>
-<td class="coverage">19x</td>
+<td class="coverage">21x</td>
 </tr>
 <tr class="covered">
 <td class="num">54</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">19x</td>
+<td class="coverage">21x</td>
 </tr>
 <tr class="never">
 <td class="num">55</td>

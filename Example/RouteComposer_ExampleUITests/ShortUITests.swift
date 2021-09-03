@@ -280,6 +280,32 @@ class ShortUITests: XCTestCase {
         XCTAssertTrue(app.otherElements["circleViewController"].waitForExistence(timeout: 1))
     }
 
+    func testGoToHome() {
+        app.launch()
+        XCTAssertTrue(app.otherElements["promptViewController"].exists)
+        app.buttons["Continue"].tap()
+        XCTAssertTrue(app.otherElements["homeViewController"].exists)
+
+        app.buttons["Go to Product 00"].tap()
+        XCTAssertTrue(app.otherElements["productViewController+00"].exists)
+
+        app.buttons["Go to Home"].tap()
+        XCTAssertTrue(app.otherElements["myHomeViewController"].waitForExistence(timeout: 3))
+    }
+
+    func testGoToSettings() {
+        app.launch()
+        XCTAssertTrue(app.otherElements["promptViewController"].exists)
+        app.buttons["Continue"].tap()
+        XCTAssertTrue(app.otherElements["homeViewController"].exists)
+
+        app.buttons["Go to Product 00"].tap()
+        XCTAssertTrue(app.otherElements["productViewController+00"].exists)
+
+        app.buttons["Go to Settings"].tap()
+        XCTAssertTrue(app.otherElements["settingsViewController"].waitForExistence(timeout: 3))
+    }
+
 }
 
 #endif

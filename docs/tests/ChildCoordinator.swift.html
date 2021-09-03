@@ -125,17 +125,17 @@
 <tr class="covered">
 <td class="num">23</td>
 <td class="src"><pre><code class="objc">    public var isEmpty: Bool {</code></pre></td>
-<td class="coverage">36x</td>
+<td class="coverage">42x</td>
 </tr>
 <tr class="covered">
 <td class="num">24</td>
 <td class="src"><pre><code class="objc">        childFactories.isEmpty</code></pre></td>
-<td class="coverage">36x</td>
+<td class="coverage">42x</td>
 </tr>
 <tr class="covered">
 <td class="num">25</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">36x</td>
+<td class="coverage">42x</td>
 </tr>
 <tr class="never">
 <td class="num">26</td>
@@ -155,17 +155,17 @@
 <tr class="covered">
 <td class="num">29</td>
 <td class="src"><pre><code class="objc">    init(childFactories: [PostponedIntegrationFactory&lt;Context&gt;]) {</code></pre></td>
-<td class="coverage">48x</td>
+<td class="coverage">60x</td>
 </tr>
 <tr class="covered">
 <td class="num">30</td>
 <td class="src"><pre><code class="objc">        self.childFactories = childFactories</code></pre></td>
-<td class="coverage">48x</td>
+<td class="coverage">60x</td>
 </tr>
 <tr class="covered">
 <td class="num">31</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">48x</td>
+<td class="coverage">60x</td>
 </tr>
 <tr class="never">
 <td class="num">32</td>
@@ -205,37 +205,37 @@
 <tr class="covered">
 <td class="num">39</td>
 <td class="src"><pre><code class="objc">    public func build(with context: Context, integrating existingViewControllers: [UIViewController] = []) throws -&gt; [UIViewController] {</code></pre></td>
-<td class="coverage">37x</td>
+<td class="coverage">43x</td>
 </tr>
 <tr class="covered">
 <td class="num">40</td>
 <td class="src"><pre><code class="objc">        var childrenViewControllers = existingViewControllers</code></pre></td>
-<td class="coverage">37x</td>
+<td class="coverage">43x</td>
 </tr>
 <tr class="covered">
 <td class="num">41</td>
 <td class="src"><pre><code class="objc">        for factory in childFactories {</code></pre></td>
-<td class="coverage">54x</td>
+<td class="coverage">62x</td>
 </tr>
 <tr class="covered">
 <td class="num">42</td>
 <td class="src"><pre><code class="objc">            try factory.build(with: context, in: &amp;childrenViewControllers)</code></pre></td>
-<td class="coverage">54x</td>
+<td class="coverage">62x</td>
 </tr>
 <tr class="covered">
 <td class="num">43</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">54x</td>
+<td class="coverage">62x</td>
 </tr>
 <tr class="covered">
 <td class="num">44</td>
 <td class="src"><pre><code class="objc">        return childrenViewControllers</code></pre></td>
-<td class="coverage">37x</td>
+<td class="coverage">43x</td>
 </tr>
 <tr class="covered">
 <td class="num">45</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">37x</td>
+<td class="coverage">43x</td>
 </tr>
 <tr class="never">
 <td class="num">46</td>

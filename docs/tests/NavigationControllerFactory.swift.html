@@ -225,32 +225,32 @@
 <tr class="covered">
 <td class="num">43</td>
 <td class="src"><pre><code class="objc">                configuration: ((_: VC) -&gt; Void)? = nil) {</code></pre></td>
-<td class="coverage">40x</td>
+<td class="coverage">46x</td>
 </tr>
 <tr class="covered">
 <td class="num">44</td>
 <td class="src"><pre><code class="objc">        self.nibName = nibNameOrNil</code></pre></td>
-<td class="coverage">40x</td>
+<td class="coverage">46x</td>
 </tr>
 <tr class="covered">
 <td class="num">45</td>
 <td class="src"><pre><code class="objc">        self.bundle = nibBundleOrNil</code></pre></td>
-<td class="coverage">40x</td>
+<td class="coverage">46x</td>
 </tr>
 <tr class="covered">
 <td class="num">46</td>
 <td class="src"><pre><code class="objc">        self.delegate = delegate</code></pre></td>
-<td class="coverage">40x</td>
+<td class="coverage">46x</td>
 </tr>
 <tr class="covered">
 <td class="num">47</td>
 <td class="src"><pre><code class="objc">        self.configuration = configuration</code></pre></td>
-<td class="coverage">40x</td>
+<td class="coverage">46x</td>
 </tr>
 <tr class="covered">
 <td class="num">48</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">40x</td>
+<td class="coverage">46x</td>
 </tr>
 <tr class="never">
 <td class="num">49</td>
@@ -260,17 +260,17 @@
 <tr class="covered">
 <td class="num">50</td>
 <td class="src"><pre><code class="objc">    public func build(with context: C, integrating coordinator: ChildCoordinator&lt;C&gt;) throws -&gt; VC {</code></pre></td>
-<td class="coverage">21x</td>
+<td class="coverage">25x</td>
 </tr>
 <tr class="covered">
 <td class="num">51</td>
 <td class="src"><pre><code class="objc">        let navigationController = VC(nibName: nibName, bundle: bundle)</code></pre></td>
-<td class="coverage">21x</td>
+<td class="coverage">25x</td>
 </tr>
 <tr class="covered">
 <td class="num">52</td>
 <td class="src"><pre><code class="objc">        if let delegate = delegate {</code></pre></td>
-<td class="coverage">21x</td>
+<td class="coverage">25x</td>
 </tr>
 <tr class="covered">
 <td class="num">53</td>
@@ -280,27 +280,27 @@
 <tr class="covered">
 <td class="num">54</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">21x</td>
+<td class="coverage">25x</td>
 </tr>
 <tr class="covered">
 <td class="num">55</td>
 <td class="src"><pre><code class="objc">        if !coordinator.isEmpty {</code></pre></td>
-<td class="coverage">21x</td>
+<td class="coverage">25x</td>
 </tr>
 <tr class="covered">
 <td class="num">56</td>
 <td class="src"><pre><code class="objc">            navigationController.viewControllers = try coordinator.build(with: context, integrating: navigationController.viewControllers)</code></pre></td>
-<td class="coverage">21x</td>
+<td class="coverage">25x</td>
 </tr>
 <tr class="covered">
 <td class="num">57</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">21x</td>
+<td class="coverage">25x</td>
 </tr>
 <tr class="covered">
 <td class="num">58</td>
 <td class="src"><pre><code class="objc">        if let configuration = configuration {</code></pre></td>
-<td class="coverage">21x</td>
+<td class="coverage">25x</td>
 </tr>
 <tr class="covered">
 <td class="num">59</td>
@@ -310,17 +310,17 @@
 <tr class="covered">
 <td class="num">60</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">21x</td>
+<td class="coverage">25x</td>
 </tr>
 <tr class="covered">
 <td class="num">61</td>
 <td class="src"><pre><code class="objc">        return navigationController</code></pre></td>
-<td class="coverage">21x</td>
+<td class="coverage">25x</td>
 </tr>
 <tr class="covered">
 <td class="num">62</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">21x</td>
+<td class="coverage">25x</td>
 </tr>
 <tr class="never">
 <td class="num">63</td>
