@@ -15,7 +15,7 @@ import UIKit
 /// `InlineContextTask`
 ///
 /// **NB:** It may be used for the purpose of configuration testing, but then replaced with a strongly typed
-/// `RoutingInterceptor` instance.
+/// `ContextTask` instance.
 public struct InlineContextTask<VC: UIViewController, C>: ContextTask {
 
     // MARK: Properties
