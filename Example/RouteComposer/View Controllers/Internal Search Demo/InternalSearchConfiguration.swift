@@ -13,17 +13,14 @@ import UIKit
 
 struct InternalSearchConfiguration {
     private static let completeFactory = CompleteFactoryAssembly(factory: TabBarControllerFactory())
-        .with(CompleteFactoryAssembly(factory: NavigationControllerFactory<UINavigationController, MainScreenContext>())
+        .with(CompleteFactoryAssembly(factory: NavigationControllerFactory<UINavigationController, MainScreenContext>(configuration: { $0.tabBarItem.title = "Home" /* One way */}))
             .with(ClassFactory<HomeViewController, MainScreenContext>())
             .assemble())
-        .adding(InlineContextTask { (viewController: UINavigationController, _: MainScreenContext) in
-            viewController.tabBarItem.title = "Home"
-        })
         .with(CompleteFactoryAssembly(factory: NavigationControllerFactory<UINavigationController, MainScreenContext>())
             .with(ClassFactory<SettingsViewController, MainScreenContext>())
             .assemble())
         .adding(InlineContextTask { (viewController: UINavigationController, _: MainScreenContext) in
-            viewController.tabBarItem.title = "Settings"
+            viewController.tabBarItem.title = "Settings" /* Another way way */
         })
         .assemble()
 
