@@ -7,9 +7,9 @@
 <body>
 <header><div class="row"><a href="index.html"><img src="logo.jpg" alt="Slather logo"></a></div></header><div class="row"><div id="reports">
 <h2 class="cov_title">
-<span>Coverage for "LastStepInChainAssembly.swift" : </span><span class="cov_high">86.36%</span>
+<span>Coverage for "LastStepInChainAssembly.swift" : </span><span class="cov_medium">77.27%</span>
 </h2>
-<h4 class="cov_subtitle">(19 of 22 relevant lines covered)</h4>
+<h4 class="cov_subtitle">(17 of 22 relevant lines covered)</h4>
 <h4 class="cov_filepath">RouteComposer/Classes/Assemblies/Helpers/LastStepInChainAssembly.swift</h4>
 <table class="source_code">
 <tr class="never">
@@ -187,10 +187,10 @@
 <td class="src"><pre><code class="objc">    private func chain(_ steps: [RoutingStep]) -&gt; RoutingStep {</code></pre></td>
 <td class="coverage">202x</td>
 </tr>
-<tr class="covered">
+<tr class="missed">
 <td class="num">36</td>
 <td class="src"><pre><code class="objc">        guard let lastStep = steps.last else {</code></pre></td>
-<td class="coverage">202x</td>
+<td class="coverage">!</td>
 </tr>
 <tr class="missed">
 <td class="num">37</td>
@@ -212,10 +212,10 @@
 <td class="src"><pre><code class="objc">        let firstStep = steps.dropLast().reversed().reduce(lastStep) { result, currentStep in</code></pre></td>
 <td class="coverage">248x</td>
 </tr>
-<tr class="covered">
+<tr class="missed">
 <td class="num">41</td>
 <td class="src"><pre><code class="objc">            guard var step = currentStep as? BaseStep else {</code></pre></td>
-<td class="coverage">248x</td>
+<td class="coverage">!</td>
 </tr>
 <tr class="missed">
 <td class="num">42</td>

@@ -83,6 +83,7 @@ custom_categories:
     children:
       - Destination
       - AnyDestination
+      - InlineFactory
       - InlineInterceptor
       - InlineContextTask
       - InlinePostTask

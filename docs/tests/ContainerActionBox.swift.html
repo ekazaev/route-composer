@@ -7,9 +7,9 @@
 <body>
 <header><div class="row"><a href="index.html"><img src="logo.jpg" alt="Slather logo"></a></div></header><div class="row"><div id="reports">
 <h2 class="cov_title">
-<span>Coverage for "ContainerActionBox.swift" : </span><span class="cov_low">68.06%</span>
+<span>Coverage for "ContainerActionBox.swift" : </span><span class="cov_low">61.11%</span>
 </h2>
-<h4 class="cov_subtitle">(49 of 72 relevant lines covered)</h4>
+<h4 class="cov_subtitle">(44 of 72 relevant lines covered)</h4>
 <h4 class="cov_filepath">RouteComposer/Classes/Router/Type Erasure/Boxes/ContainerActionBox.swift</h4>
 <table class="source_code">
 <tr class="never">
@@ -160,12 +160,12 @@
 <tr class="covered">
 <td class="num">30</td>
 <td class="src"><pre><code class="objc">        if let postponedController = postponedIntegrationHandler.containerViewController {</code></pre></td>
-<td class="coverage">30x</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="covered">
+<tr class="missed">
 <td class="num">31</td>
 <td class="src"><pre><code class="objc">            guard postponedController is A.ViewController else {</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">!</td>
 </tr>
 <tr class="missed">
 <td class="num">32</td>
@@ -247,10 +247,10 @@
 <td class="src"><pre><code class="objc">        } else {</code></pre></td>
 <td class="coverage">30x</td>
 </tr>
-<tr class="covered">
+<tr class="missed">
 <td class="num">48</td>
 <td class="src"><pre><code class="objc">            guard let containerController: A.ViewController = UIViewController.findContainer(of: existingController) else {</code></pre></td>
-<td class="coverage">29x</td>
+<td class="coverage">!</td>
 </tr>
 <tr class="missed">
 <td class="num">49</td>
@@ -285,22 +285,22 @@
 <tr class="covered">
 <td class="num">55</td>
 <td class="src"><pre><code class="objc">            let shouldDelayPerforming = nextAction?.isEmbeddable(to: A.ViewController.self) ?? false</code></pre></td>
-<td class="coverage">29x</td>
+<td class="coverage">23x</td>
 </tr>
 <tr class="covered">
 <td class="num">56</td>
 <td class="src"><pre><code class="objc">            if shouldDelayPerforming {</code></pre></td>
-<td class="coverage">29x</td>
+<td class="coverage">2x</td>
 </tr>
 <tr class="covered">
 <td class="num">57</td>
 <td class="src"><pre><code class="objc">                postponedIntegrationHandler.update(containerViewController: containerController, animated: animated, completion: { result in</code></pre></td>
 <td class="coverage">2x</td>
 </tr>
-<tr class="covered">
+<tr class="missed">
 <td class="num">58</td>
 <td class="src"><pre><code class="objc">                    guard result.isSuccessful else {</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">!</td>
 </tr>
 <tr class="missed">
 <td class="num">59</td>
@@ -337,10 +337,10 @@
 <td class="src"><pre><code class="objc">                postponedIntegrationHandler.purge(animated: animated, completion: { result in</code></pre></td>
 <td class="coverage">27x</td>
 </tr>
-<tr class="covered">
+<tr class="missed">
 <td class="num">66</td>
 <td class="src"><pre><code class="objc">                    guard result.isSuccessful else {</code></pre></td>
-<td class="coverage">27x</td>
+<td class="coverage">!</td>
 </tr>
 <tr class="missed">
 <td class="num">67</td>
@@ -432,10 +432,10 @@
 <td class="src"><pre><code class="objc">            completion(.success)</code></pre></td>
 <td class="coverage">3x</td>
 </tr>
-<tr class="covered">
+<tr class="missed">
 <td class="num">85</td>
 <td class="src"><pre><code class="objc">        } catch {</code></pre></td>
-<td class="coverage">3x</td>
+<td class="coverage">!</td>
 </tr>
 <tr class="missed">
 <td class="num">86</td>

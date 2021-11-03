@@ -7,9 +7,9 @@
 <body>
 <header><div class="row"><a href="index.html"><img src="logo.jpg" alt="Slather logo"></a></div></header><div class="row"><div id="reports">
 <h2 class="cov_title">
-<span>Coverage for "MainThreadChecking.swift" : </span><span class="cov_low">57.14%</span>
+<span>Coverage for "MainThreadChecking.swift" : </span><span class="cov_low">42.86%</span>
 </h2>
-<h4 class="cov_subtitle">(4 of 7 relevant lines covered)</h4>
+<h4 class="cov_subtitle">(3 of 7 relevant lines covered)</h4>
 <h4 class="cov_filepath">RouteComposer/Classes/Router/Internal/MainThreadChecking.swift</h4>
 <table class="source_code">
 <tr class="never">
@@ -102,10 +102,10 @@
 <td class="src"><pre><code class="objc">    func assertIfNotMainThread(functionName: String = #function, logger: Logger? = nil) {</code></pre></td>
 <td class="coverage">2610x</td>
 </tr>
-<tr class="covered">
+<tr class="missed">
 <td class="num">19</td>
 <td class="src"><pre><code class="objc">        if !Thread.isMainThread {</code></pre></td>
-<td class="coverage">2610x</td>
+<td class="coverage">!</td>
 </tr>
 <tr class="missed">
 <td class="num">20</td>

@@ -163,6 +163,7 @@
 		45BF87EE24771CEF00354559 /* UIHostingControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BF87EC24771CEF00354559 /* UIHostingControllerFactory.swift */; };
 		45BF87F124771CFC00354559 /* UIHostingControllerWithContextFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BF87F024771CFC00354559 /* UIHostingControllerWithContextFinder.swift */; };
 		45BF87F424771D3100354559 /* TestSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BF87F224771D1700354559 /* TestSwiftUIView.swift */; };
+		A334C6FF27330FE000DD3DF3 /* InlineFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A334C6FE27330FE000DD3DF3 /* InlineFactory.swift */; };
 		A36C574826CE7A2300C4FFDD /* GlobalInterceptorRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36C574726CE7A2300C4FFDD /* GlobalInterceptorRouter.swift */; };
 /* End PBXBuildFile section */
 
@@ -336,6 +337,7 @@
 		45BF87EC24771CEF00354559 /* UIHostingControllerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIHostingControllerFactory.swift; sourceTree = "<group>"; };
 		45BF87F024771CFC00354559 /* UIHostingControllerWithContextFinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIHostingControllerWithContextFinder.swift; sourceTree = "<group>"; };
 		45BF87F224771D1700354559 /* TestSwiftUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestSwiftUIView.swift; sourceTree = "<group>"; };
+		A334C6FE27330FE000DD3DF3 /* InlineFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InlineFactory.swift; sourceTree = "<group>"; };
 		A36C574726CE7A2300C4FFDD /* GlobalInterceptorRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalInterceptorRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -648,6 +650,7 @@
 				A36C574726CE7A2300C4FFDD /* GlobalInterceptorRouter.swift */,
 				450D0DCB2412AEF80066E649 /* CATransaction+Action.swift */,
 				450D0DCC2412AEF80066E649 /* InlineContextTask.swift */,
+				A334C6FE27330FE000DD3DF3 /* InlineFactory.swift */,
 				450D0DCD2412AEF80066E649 /* Destination.swift */,
 				450D0DCE2412AEF80066E649 /* ContextAccepting.swift */,
 				450D0DCF2412AEF80066E649 /* InlineInterceptor.swift */,
@@ -877,6 +880,7 @@
 				450D0E432412AEF90066E649 /* TabBarControllerAdapter.swift in Sources */,
 				450D0DE82412AEF80066E649 /* DefaultLogger+LogLevel.swift in Sources */,
 				450D0E622412AEF90066E649 /* TabBarControllerStep.swift in Sources */,
+				A334C6FF27330FE000DD3DF3 /* InlineFactory.swift in Sources */,
 				450D0E092412AEF90066E649 /* DefaultRouter+Extension.swift in Sources */,
 				450D0E5D2412AEF90066E649 /* SplitControllerStep.swift in Sources */,
 				450D0E612412AEF90066E649 /* GeneralStep.swift in Sources */,

@@ -7,9 +7,9 @@
 <body>
 <header><div class="row"><a href="index.html"><img src="logo.jpg" alt="Slather logo"></a></div></header><div class="row"><div id="reports">
 <h2 class="cov_title">
-<span>Coverage for "RoutingError.swift" : </span><span class="cov_high">98.18%</span>
+<span>Coverage for "RoutingError.swift" : </span><span class="cov_high">96.36%</span>
 </h2>
-<h4 class="cov_subtitle">(54 of 55 relevant lines covered)</h4>
+<h4 class="cov_subtitle">(53 of 55 relevant lines covered)</h4>
 <h4 class="cov_filepath">RouteComposer/Classes/RoutingError.swift</h4>
 <table class="source_code">
 <tr class="never">
@@ -160,7 +160,7 @@
 <tr class="covered">
 <td class="num">30</td>
 <td class="src"><pre><code class="objc">            case .deallocated:</code></pre></td>
-<td class="coverage">4x</td>
+<td class="coverage">2x</td>
 </tr>
 <tr class="covered">
 <td class="num">31</td>
@@ -170,7 +170,7 @@
 <tr class="covered">
 <td class="num">32</td>
 <td class="src"><pre><code class="objc">            case .notFound:</code></pre></td>
-<td class="coverage">4x</td>
+<td class="coverage">2x</td>
 </tr>
 <tr class="covered">
 <td class="num">33</td>
@@ -290,7 +290,7 @@
 <tr class="covered">
 <td class="num">56</td>
 <td class="src"><pre><code class="objc">            if let underlyingError = underlyingError {</code></pre></td>
-<td class="coverage">45x</td>
+<td class="coverage">13x</td>
 </tr>
 <tr class="covered">
 <td class="num">57</td>
@@ -320,7 +320,7 @@
 <tr class="covered">
 <td class="num">62</td>
 <td class="src"><pre><code class="objc">            guard descriptionParts.isEmpty else {</code></pre></td>
-<td class="coverage">45x</td>
+<td class="coverage">44x</td>
 </tr>
 <tr class="covered">
 <td class="num">63</td>
@@ -330,7 +330,7 @@
 <tr class="covered">
 <td class="num">64</td>
 <td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">44x</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">65</td>
@@ -470,7 +470,7 @@
 <tr class="covered">
 <td class="num">92</td>
 <td class="src"><pre><code class="objc">        case let .typeMismatch(type, expectedType, context):</code></pre></td>
-<td class="coverage">30x</td>
+<td class="coverage">3x</td>
 </tr>
 <tr class="covered">
 <td class="num">93</td>
@@ -485,7 +485,7 @@
 <tr class="covered">
 <td class="num">95</td>
 <td class="src"><pre><code class="objc">        case let .compositionFailed(context):</code></pre></td>
-<td class="coverage">30x</td>
+<td class="coverage">7x</td>
 </tr>
 <tr class="covered">
 <td class="num">96</td>
@@ -495,7 +495,7 @@
 <tr class="covered">
 <td class="num">97</td>
 <td class="src"><pre><code class="objc">        case let .initialController(state, context):</code></pre></td>
-<td class="coverage">30x</td>
+<td class="coverage">4x</td>
 </tr>
 <tr class="covered">
 <td class="num">98</td>
@@ -505,7 +505,7 @@
 <tr class="covered">
 <td class="num">99</td>
 <td class="src"><pre><code class="objc">        case let .cantBeDismissed(context):</code></pre></td>
-<td class="coverage">30x</td>
+<td class="coverage">7x</td>
 </tr>
 <tr class="covered">
 <td class="num">100</td>
@@ -515,7 +515,7 @@
 <tr class="covered">
 <td class="num">101</td>
 <td class="src"><pre><code class="objc">        case let .generic(context):</code></pre></td>
-<td class="coverage">30x</td>
+<td class="coverage">9x</td>
 </tr>
 <tr class="covered">
 <td class="num">102</td>
@@ -555,7 +555,7 @@
 <tr class="covered">
 <td class="num">109</td>
 <td class="src"><pre><code class="objc">        case let .typeMismatch(_, _, context):</code></pre></td>
-<td class="coverage">5x</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">110</td>
@@ -565,7 +565,7 @@
 <tr class="covered">
 <td class="num">111</td>
 <td class="src"><pre><code class="objc">        case let .compositionFailed(context):</code></pre></td>
-<td class="coverage">5x</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">112</td>
@@ -575,17 +575,17 @@
 <tr class="covered">
 <td class="num">113</td>
 <td class="src"><pre><code class="objc">        case let .initialController(_, context):</code></pre></td>
-<td class="coverage">5x</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">114</td>
 <td class="src"><pre><code class="objc">            return context</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
-<tr class="covered">
+<tr class="missed">
 <td class="num">115</td>
 <td class="src"><pre><code class="objc">        case let .cantBeDismissed(context):</code></pre></td>
-<td class="coverage">5x</td>
+<td class="coverage">!</td>
 </tr>
 <tr class="missed">
 <td class="num">116</td>
@@ -595,7 +595,7 @@
 <tr class="covered">
 <td class="num">117</td>
 <td class="src"><pre><code class="objc">        case let .generic(context):</code></pre></td>
-<td class="coverage">5x</td>
+<td class="coverage">2x</td>
 </tr>
 <tr class="covered">
 <td class="num">118</td>

@@ -7,9 +7,9 @@
 <body>
 <header><div class="row"><a href="index.html"><img src="logo.jpg" alt="Slather logo"></a></div></header><div class="row"><div id="reports">
 <h2 class="cov_title">
-<span>Coverage for "DefaultStackPresentationHandler.swift" : </span><span class="cov_high">91.53%</span>
+<span>Coverage for "DefaultStackPresentationHandler.swift" : </span><span class="cov_high">88.14%</span>
 </h2>
-<h4 class="cov_subtitle">(54 of 59 relevant lines covered)</h4>
+<h4 class="cov_subtitle">(52 of 59 relevant lines covered)</h4>
 <h4 class="cov_filepath">RouteComposer/Classes/Router/Helpers/DefaultStackPresentationHandler.swift</h4>
 <table class="source_code">
 <tr class="never">
@@ -175,22 +175,22 @@
 <tr class="covered">
 <td class="num">33</td>
 <td class="src"><pre><code class="objc">                containerAdapterLocator: ContainerAdapterLocator = RouteComposerDefaults.shared.containerAdapterLocator) {</code></pre></td>
-<td class="coverage">44x</td>
+<td class="coverage">45x</td>
 </tr>
 <tr class="covered">
 <td class="num">34</td>
 <td class="src"><pre><code class="objc">        self.logger = logger</code></pre></td>
-<td class="coverage">44x</td>
+<td class="coverage">45x</td>
 </tr>
 <tr class="covered">
 <td class="num">35</td>
 <td class="src"><pre><code class="objc">        self.containerAdapterLocator = containerAdapterLocator</code></pre></td>
-<td class="coverage">44x</td>
+<td class="coverage">45x</td>
 </tr>
 <tr class="covered">
 <td class="num">36</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">44x</td>
+<td class="coverage">45x</td>
 </tr>
 <tr class="never">
 <td class="num">37</td>
@@ -210,7 +210,7 @@
 <tr class="covered">
 <td class="num">40</td>
 <td class="src"><pre><code class="objc">        if let presentedController = viewController.presentedViewController {</code></pre></td>
-<td class="coverage">103x</td>
+<td class="coverage">10x</td>
 </tr>
 <tr class="covered">
 <td class="num">41</td>
@@ -315,7 +315,7 @@
 <tr class="covered">
 <td class="num">61</td>
 <td class="src"><pre><code class="objc">            guard !parentViewControllers.isEmpty else {</code></pre></td>
-<td class="coverage">354x</td>
+<td class="coverage">198x</td>
 </tr>
 <tr class="covered">
 <td class="num">62</td>
@@ -330,7 +330,7 @@
 <tr class="covered">
 <td class="num">64</td>
 <td class="src"><pre><code class="objc">                   topParentViewController.isViewLoaded {</code></pre></td>
-<td class="coverage">198x</td>
+<td class="coverage">2x</td>
 </tr>
 <tr class="covered">
 <td class="num">65</td>
@@ -355,7 +355,7 @@
 <tr class="covered">
 <td class="num">69</td>
 <td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">198x</td>
+<td class="coverage">156x</td>
 </tr>
 <tr class="covered">
 <td class="num">70</td>
@@ -380,7 +380,7 @@
 <tr class="covered">
 <td class="num">74</td>
 <td class="src"><pre><code class="objc">                    guard !containerAdapter.isVisible(viewController) else {</code></pre></td>
-<td class="coverage">156x</td>
+<td class="coverage">113x</td>
 </tr>
 <tr class="covered">
 <td class="num">75</td>
@@ -395,17 +395,17 @@
 <tr class="covered">
 <td class="num">77</td>
 <td class="src"><pre><code class="objc">                    }</code></pre></td>
-<td class="coverage">113x</td>
+<td class="coverage">43x</td>
 </tr>
 <tr class="covered">
 <td class="num">78</td>
 <td class="src"><pre><code class="objc">                    containerAdapter.makeVisible(viewController, animated: animated, completion: { result in</code></pre></td>
 <td class="coverage">43x</td>
 </tr>
-<tr class="covered">
+<tr class="missed">
 <td class="num">79</td>
 <td class="src"><pre><code class="objc">                        guard result.isSuccessful else {</code></pre></td>
-<td class="coverage">43x</td>
+<td class="coverage">!</td>
 </tr>
 <tr class="missed">
 <td class="num">80</td>
@@ -452,10 +452,10 @@
 <td class="src"><pre><code class="objc">                }</code></pre></td>
 <td class="coverage">43x</td>
 </tr>
-<tr class="covered">
+<tr class="missed">
 <td class="num">89</td>
 <td class="src"><pre><code class="objc">            } catch {</code></pre></td>
-<td class="coverage">43x</td>
+<td class="coverage">!</td>
 </tr>
 <tr class="missed">
 <td class="num">90</td>

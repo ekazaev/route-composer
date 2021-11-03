@@ -7,9 +7,9 @@
 <body>
 <header><div class="row"><a href="index.html"><img src="logo.jpg" alt="Slather logo"></a></div></header><div class="row"><div id="reports">
 <h2 class="cov_title">
-<span>Coverage for "StoryboardFactory.swift" : </span><span class="cov_medium">82.50%</span>
+<span>Coverage for "StoryboardFactory.swift" : </span><span class="cov_medium">75.00%</span>
 </h2>
-<h4 class="cov_subtitle">(33 of 40 relevant lines covered)</h4>
+<h4 class="cov_subtitle">(30 of 40 relevant lines covered)</h4>
 <h4 class="cov_filepath">RouteComposer/Classes/Factories/StoryboardFactory.swift</h4>
 <table class="source_code">
 <tr class="never">
@@ -295,7 +295,7 @@
 <tr class="covered">
 <td class="num">57</td>
 <td class="src"><pre><code class="objc">        guard let viewControllerID = identifier else {</code></pre></td>
-<td class="coverage">62x</td>
+<td class="coverage">31x</td>
 </tr>
 <tr class="covered">
 <td class="num">58</td>
@@ -317,10 +317,10 @@
 <td class="src"><pre><code class="objc">        let instantiatedViewController = storyboard.instantiateViewController(withIdentifier: viewControllerID)</code></pre></td>
 <td class="coverage">31x</td>
 </tr>
-<tr class="covered">
+<tr class="missed">
 <td class="num">62</td>
 <td class="src"><pre><code class="objc">        guard let viewController = instantiatedViewController as? VC else {</code></pre></td>
-<td class="coverage">31x</td>
+<td class="coverage">!</td>
 </tr>
 <tr class="missed">
 <td class="num">63</td>
@@ -350,7 +350,7 @@
 <tr class="covered">
 <td class="num">68</td>
 <td class="src"><pre><code class="objc">        if let configuration = configuration {</code></pre></td>
-<td class="coverage">31x</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">69</td>
@@ -387,10 +387,10 @@
 <td class="src"><pre><code class="objc">        let storyboard = UIStoryboard(name: name, bundle: bundle)</code></pre></td>
 <td class="coverage">31x</td>
 </tr>
-<tr class="covered">
+<tr class="missed">
 <td class="num">76</td>
 <td class="src"><pre><code class="objc">        guard let abstractViewController = storyboard.instantiateInitialViewController() else {</code></pre></td>
-<td class="coverage">31x</td>
+<td class="coverage">!</td>
 </tr>
 <tr class="missed">
 <td class="num">77</td>
@@ -410,7 +410,7 @@
 <tr class="covered">
 <td class="num">80</td>
 <td class="src"><pre><code class="objc">        guard let viewController = abstractViewController as? VC else {</code></pre></td>
-<td class="coverage">31x</td>
+<td class="coverage">2x</td>
 </tr>
 <tr class="covered">
 <td class="num">81</td>
@@ -437,10 +437,10 @@
 <td class="src"><pre><code class="objc">        }</code></pre></td>
 <td class="coverage">29x</td>
 </tr>
-<tr class="covered">
+<tr class="missed">
 <td class="num">86</td>
 <td class="src"><pre><code class="objc">        if let configuration = configuration {</code></pre></td>
-<td class="coverage">29x</td>
+<td class="coverage">!</td>
 </tr>
 <tr class="missed">
 <td class="num">87</td>

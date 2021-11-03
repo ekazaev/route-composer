@@ -150,7 +150,7 @@
 <tr class="covered">
 <td class="num">28</td>
 <td class="src"><pre><code class="objc">        if let previousChildFactory = previousChildFactory {</code></pre></td>
-<td class="coverage">20x</td>
+<td class="coverage">16x</td>
 </tr>
 <tr class="covered">
 <td class="num">29</td>
@@ -190,27 +190,27 @@
 <tr class="covered">
 <td class="num">36</td>
 <td class="src"><pre><code class="objc">    init(factory: FC, childFactories: [PostponedIntegrationFactory&lt;FC.Context&gt;], previousChildFactory: PostponedIntegrationFactory&lt;FC.Context&gt;?) {</code></pre></td>
-<td class="coverage">28x</td>
+<td class="coverage">26x</td>
 </tr>
 <tr class="covered">
 <td class="num">37</td>
 <td class="src"><pre><code class="objc">        self.factory = factory</code></pre></td>
-<td class="coverage">28x</td>
+<td class="coverage">26x</td>
 </tr>
 <tr class="covered">
 <td class="num">38</td>
 <td class="src"><pre><code class="objc">        self.childFactories = childFactories</code></pre></td>
-<td class="coverage">28x</td>
+<td class="coverage">26x</td>
 </tr>
 <tr class="covered">
 <td class="num">39</td>
 <td class="src"><pre><code class="objc">        self.previousChildFactory = previousChildFactory</code></pre></td>
-<td class="coverage">28x</td>
+<td class="coverage">26x</td>
 </tr>
 <tr class="covered">
 <td class="num">40</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">28x</td>
+<td class="coverage">26x</td>
 </tr>
 <tr class="never">
 <td class="num">41</td>
@@ -260,7 +260,7 @@
 <tr class="covered">
 <td class="num">50</td>
 <td class="src"><pre><code class="objc">        guard let factoryBox = FactoryBox(childFactory, action: ContainerActionBox(action)) else {</code></pre></td>
-<td class="coverage">3x</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">51</td>
@@ -340,7 +340,7 @@
 <tr class="covered">
 <td class="num">66</td>
 <td class="src"><pre><code class="objc">        guard let factoryBox = ContainerFactoryBox(childContainer, action: ContainerActionBox(action)) else {</code></pre></td>
-<td class="coverage">5x</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">67</td>
@@ -485,12 +485,12 @@
 <tr class="covered">
 <td class="num">95</td>
 <td class="src"><pre><code class="objc">    public final func adding&lt;CT: ContextTask&gt;(_ contextTask: CT) -&gt; CompleteFactoryChainAssembly&lt;FC, ChildVC&gt; where CT.ViewController == ChildVC, CT.Context == FC.Context {</code></pre></td>
-<td class="coverage">8x</td>
+<td class="coverage">6x</td>
 </tr>
 <tr class="covered">
 <td class="num">96</td>
 <td class="src"><pre><code class="objc">        guard var previousChildFactory = previousChildFactory else {</code></pre></td>
-<td class="coverage">8x</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">97</td>
@@ -500,32 +500,32 @@
 <tr class="covered">
 <td class="num">98</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">7x</td>
+<td class="coverage">5x</td>
 </tr>
 <tr class="covered">
 <td class="num">99</td>
 <td class="src"><pre><code class="objc">        previousChildFactory.add(ContextTaskBox(contextTask))</code></pre></td>
-<td class="coverage">7x</td>
+<td class="coverage">5x</td>
 </tr>
 <tr class="covered">
 <td class="num">100</td>
 <td class="src"><pre><code class="objc">        return CompleteFactoryChainAssembly&lt;FC, ChildVC&gt;(factory: factory,</code></pre></td>
-<td class="coverage">7x</td>
+<td class="coverage">5x</td>
 </tr>
 <tr class="covered">
 <td class="num">101</td>
 <td class="src"><pre><code class="objc">                                                         childFactories: childFactories,</code></pre></td>
-<td class="coverage">7x</td>
+<td class="coverage">5x</td>
 </tr>
 <tr class="covered">
 <td class="num">102</td>
 <td class="src"><pre><code class="objc">                                                         previousChildFactory: previousChildFactory)</code></pre></td>
-<td class="coverage">7x</td>
+<td class="coverage">5x</td>
 </tr>
 <tr class="covered">
 <td class="num">103</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">8x</td>
+<td class="coverage">6x</td>
 </tr>
 <tr class="never">
 <td class="num">104</td>

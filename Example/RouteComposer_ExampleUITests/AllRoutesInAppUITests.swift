@@ -88,7 +88,7 @@ class AllRoutesInAppUITests: XCTestCase {
         app.textFields["passwordTextField"].typeText("abc")
 
         app.buttons["Login"].tap()
-        XCTAssertTrue(app.otherElements["cityDetailsViewController+2"].waitForExistence(timeout: 7))
+        XCTAssertTrue(app.otherElements["cityDetailsViewController+2"].waitForExistence(timeout: 20))
 
         app.buttons["Go to Cities"].tap()
         XCTAssertTrue(app.otherElements["citiesSplitViewController"].waitForExistence(timeout: 1))

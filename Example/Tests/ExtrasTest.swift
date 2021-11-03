@@ -434,6 +434,18 @@ class ExtrasTest: XCTestCase {
         XCTAssertEqual(try? finder.findViewController(), tabBarController)
     }
 
+    func testInlineFactory() {
+        let navigationController = UINavigationController()
+        let inlineFactory1 = InlineFactory<UINavigationController, String>(viewController: navigationController)
+        XCTAssertEqual(try? inlineFactory1.execute(with: ""), navigationController)
+
+        let inlineFactory2 = InlineFactory { (context: Int) in
+            XCTAssertEqual(context, 999)
+            return navigationController
+        }
+        XCTAssertEqual(try? inlineFactory2.execute(with: 999), navigationController)
+    }
+
 }
 
 #endif
