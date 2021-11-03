@@ -10,16 +10,21 @@
 import UIKit
 
 public struct GeneratorFactory<VC: UIViewController, C>: Factory {
+  
   // MARK: Associated types
+  
   public typealias ViewController = VC
   
   public typealias Context = C
   
   // MARK: Properties
+  
   let generator: (() throws -> VC)?
+  
   let generatorConfiguration: ((C) throws -> VC)?
   
   // MARK: Functions
+  
   public init(generator: @autoclosure @escaping () throws -> VC) {
     self.generator = generator
     self.generatorConfiguration = nil
