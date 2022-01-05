@@ -143,6 +143,15 @@ have different navigation patterns for different users. It saved us a load of ti
 >
 > **Alexandra Mikhailouskaya, Senior lead engineer @ Hudson's Bay Company**
 
+#### B.W.A., 130 year old retail bank.
+
+> We recently performed our fifth and largest app update which involved restructuring the user navigation from scratch. We started with a simple migration of our existing (six-file long) coordinator before one of our senior devs suggested we trial RouteComposer. The proof of concept was challenging, but Eugene Kazaev put himself at my disposal to work through retrofitting the RouteComposer into our existing enterprise-grade codebase and when the pieces all fell into place, the result was simplicity itself.
+> 
+> Our other devs have embraced the RouteComposer in lieu of segues, unwind segues, manual pushes, pops, and modal drops and the resulting navigtion around our app is delightful.
+> 
+> Great thanks to Eugene for all his help.
+> **skooter Martin, Senior Specialist Mobile Engineer @ B.W.A.**
+
 ## Usage
 
 RouteComposer uses 3 main entities (`Factory`, `Finder`, `Action`) that should be defined by a host application to support it.
