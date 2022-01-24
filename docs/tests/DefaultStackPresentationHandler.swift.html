@@ -39,7 +39,7 @@
 </tr>
 <tr class="never">
 <td class="num">6</td>
-<td class="src"><pre><code class="objc">// Created by Eugene Kazaev in 2018-2021.</code></pre></td>
+<td class="src"><pre><code class="objc">// Created by Eugene Kazaev in 2018-2022.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -305,12 +305,12 @@
 <tr class="covered">
 <td class="num">59</td>
 <td class="src"><pre><code class="objc">        func makeVisible(viewController: UIViewController, completion: @escaping (RoutingResult) -&gt; Void) {</code></pre></td>
-<td class="coverage">354x</td>
+<td class="coverage">352x</td>
 </tr>
 <tr class="covered">
 <td class="num">60</td>
 <td class="src"><pre><code class="objc">            assertIfNotMainThread(logger: logger)</code></pre></td>
-<td class="coverage">354x</td>
+<td class="coverage">352x</td>
 </tr>
 <tr class="covered">
 <td class="num">61</td>
@@ -355,42 +355,42 @@
 <tr class="covered">
 <td class="num">69</td>
 <td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">156x</td>
+<td class="coverage">154x</td>
 </tr>
 <tr class="covered">
 <td class="num">70</td>
 <td class="src"><pre><code class="objc">            do {</code></pre></td>
-<td class="coverage">156x</td>
+<td class="coverage">154x</td>
 </tr>
 <tr class="covered">
 <td class="num">71</td>
 <td class="src"><pre><code class="objc">                let parentViewController = parentViewControllers.removeFirst()</code></pre></td>
-<td class="coverage">156x</td>
+<td class="coverage">154x</td>
 </tr>
 <tr class="covered">
 <td class="num">72</td>
 <td class="src"><pre><code class="objc">                if let container = parentViewController as? ContainerViewController {</code></pre></td>
-<td class="coverage">156x</td>
+<td class="coverage">154x</td>
 </tr>
 <tr class="covered">
 <td class="num">73</td>
 <td class="src"><pre><code class="objc">                    let containerAdapter = try containerAdapterLocator.getAdapter(for: container)</code></pre></td>
-<td class="coverage">156x</td>
+<td class="coverage">154x</td>
 </tr>
 <tr class="covered">
 <td class="num">74</td>
 <td class="src"><pre><code class="objc">                    guard !containerAdapter.isVisible(viewController) else {</code></pre></td>
-<td class="coverage">113x</td>
+<td class="coverage">111x</td>
 </tr>
 <tr class="covered">
 <td class="num">75</td>
 <td class="src"><pre><code class="objc">                        logger?.log(.info("View controller \(String(describing: viewController)) is visible in \(String(describing: container)). No action needed."))</code></pre></td>
-<td class="coverage">113x</td>
+<td class="coverage">111x</td>
 </tr>
 <tr class="covered">
 <td class="num">76</td>
 <td class="src"><pre><code class="objc">                        return makeVisible(viewController: parentViewController, completion: completion)</code></pre></td>
-<td class="coverage">113x</td>
+<td class="coverage">111x</td>
 </tr>
 <tr class="covered">
 <td class="num">77</td>
@@ -511,7 +511,7 @@
 </div></div>
 <footer><div class="row">
 <p><a href="https://github.com/SlatherOrg/slather">Fork me on Github</a></p>
-<p>&copy; 2021 Slather</p>
+<p>&copy; 2022 Slather</p>
 </div></footer><script src="highlight.pack.js"></script><script>hljs.initHighlightingOnLoad();</script>
 </body>
 </html>

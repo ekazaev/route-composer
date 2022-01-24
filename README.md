@@ -214,7 +214,7 @@ Swift compiler [bug](https://bugs.swift.org/browse/SR-10186) reported.*
 
 #### 2. Finder
 
-Finder helps router to **find out if a particular view controller is already present** in view controller stack. All the finder instances
+Finder helps router to **find out if a particular view controller is already present** in view controller graph. All the finder instances
 should conform to `Finder` protocol.
 
 ```swift
@@ -230,8 +230,8 @@ public protocol Finder {
 ```
 
 In some cases, you may use default finders provided by the library. In other cases, when you can have more than one view controller of
-the same type in the stack, you may implement your own finder. There is an implementation of this protocol included called `StackIteratingFinder`
-that helps to solve iterations in view controller stack and handles it. You just have to implement the function `isTarget` to determine if it's the
+the same type in the graph, you may implement your own finder. There is an implementation of this protocol included called `StackIteratingFinder`
+that helps to solve iterations in view controller graph and handles it. You just have to implement the function `isTarget` to determine if it's the
 view controller that you are looking for or not.
 
 *Example of `ProductViewControllerFinder` that can help the router find a `ProductViewController` that presents a particular
@@ -249,7 +249,7 @@ class ProductViewControllerFinder: StackIteratingFinder {
 }
 ```
 
-`SearchOptions` is an enum that informs `StackIteratingFinder` how to iterate through the stack when searching. See [documentation](https://ekazaev.github.io/route-composer/Structs/SearchOptions.html).
+`SearchOptions` is an enum that informs `StackIteratingFinder` how to iterate through the graph when searching. See [documentation](https://ekazaev.github.io/route-composer/Structs/SearchOptions.html).
 
 #### 3. Action
 

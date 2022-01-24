@@ -25,18 +25,18 @@
          (100% documented)
       </p>
     
-      <p class="header-col--secondary">
+      <div class="header-col--secondary">
         <form role="search" action="search.json">
           <input type="text" placeholder="Search documentation" data-typeahead>
         </form>
-      </p>
+      </div>
     
     
     </header>
 
     <p class="breadcrumbs">
       <a class="breadcrumb" href="index.html">RouteComposer Reference</a>
-      <img class="carat" src="img/carat.png" />
+      <img class="carat" src="img/carat.png" alt=""/>
       README  Reference
     </p>
 
@@ -233,6 +233,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Extras.html#/s:13RouteComposer14AnyDestinationa">AnyDestination</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/InlineFactory.html">InlineFactory</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Structs/InlineInterceptor.html">InlineInterceptor</a>
@@ -502,9 +505,6 @@
                 <a class="nav-group-task-link" href="Structs/DispatchQueueWrappedContainerAction.html">DispatchQueueWrappedContainerAction</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Structs/InlineFactory.html">InlineFactory</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Structs/KeyWindowProvider.html">KeyWindowProvider</a>
               </li>
               <li class="nav-group-task">
@@ -682,6 +682,16 @@ have different navigation patterns for different users. It saved us a load of ti
 
 <p><strong>Alexandra Mikhailouskaya, Senior lead engineer @ Hudson&rsquo;s Bay Company</strong></p>
 </blockquote>
+<h4 id='b-w-a-130-year-old-retail-bank' class='heading'>B.W.A., 130 year old retail bank.</h4>
+
+<blockquote>
+<p>We recently performed our fifth and largest app update which involved restructuring the user navigation from scratch. We started with a simple migration of our existing (six-file long) coordinator before one of our senior devs suggested we trial RouteComposer. The proof of concept was challenging, but Eugene Kazaev put himself at my disposal to work through retrofitting the RouteComposer into our existing enterprise-grade codebase and when the pieces all fell into place, the result was simplicity itself.</p>
+
+<p>Our other devs have embraced the RouteComposer in lieu of segues, unwind segues, manual pushes, pops, and modal drops and the resulting navigtion around our app is delightful.</p>
+
+<p>Great thanks to Eugene for all his help.
+<strong>skooter Martin, Senior Specialist Mobile Engineer @ B.W.A.</strong></p>
+</blockquote>
 <h2 id='usage' class='heading'>Usage</h2>
 
 <p>RouteComposer uses 3 main entities (<code><a href="Protocols/Factory.html">Factory</a></code>, <code><a href="Protocols/Finder.html">Finder</a></code>, <code><a href="Core%20Entities.html#/s:13RouteComposer6ActionP">Action</a></code>) that should be defined by a host application to support it.
@@ -741,7 +751,7 @@ handled, in which case the application might open the provided URL in Safari ins
 Swift compiler <a href="https://bugs.swift.org/browse/SR-10186">bug</a> reported.</em></p>
 <h4 id='2-finder' class='heading'>2. Finder</h4>
 
-<p>Finder helps router to <strong>find out if a particular view controller is already present</strong> in view controller stack. All the finder instances
+<p>Finder helps router to <strong>find out if a particular view controller is already present</strong> in view controller graph. All the finder instances
 should conform to <code><a href="Protocols/Finder.html">Finder</a></code> protocol.</p>
 <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">Finder</span> <span class="p">{</span>
 
@@ -755,8 +765,8 @@ should conform to <code><a href="Protocols/Finder.html">Finder</a></code> protoc
 </code></pre>
 
 <p>In some cases, you may use default finders provided by the library. In other cases, when you can have more than one view controller of
-the same type in the stack, you may implement your own finder. There is an implementation of this protocol included called <code><a href="Protocols/StackIteratingFinder.html">StackIteratingFinder</a></code>
-that helps to solve iterations in view controller stack and handles it. You just have to implement the function <code>isTarget</code> to determine if it&rsquo;s the
+the same type in the graph, you may implement your own finder. There is an implementation of this protocol included called <code><a href="Protocols/StackIteratingFinder.html">StackIteratingFinder</a></code>
+that helps to solve iterations in view controller graph and handles it. You just have to implement the function <code>isTarget</code> to determine if it&rsquo;s the
 view controller that you are looking for or not.</p>
 
 <p><em>Example of <code>ProductViewControllerFinder</code> that can help the router find a <code>ProductViewController</code> that presents a particular
@@ -772,7 +782,7 @@ product in your view controller stack:</em></p>
 <span class="p">}</span>
 </code></pre>
 
-<p><code><a href="Structs/SearchOptions.html">SearchOptions</a></code> is an enum that informs <code><a href="Protocols/StackIteratingFinder.html">StackIteratingFinder</a></code> how to iterate through the stack when searching. See <a href="https://ekazaev.github.io/route-composer/Structs/SearchOptions.html">documentation</a>.</p>
+<p><code><a href="Structs/SearchOptions.html">SearchOptions</a></code> is an enum that informs <code><a href="Protocols/StackIteratingFinder.html">StackIteratingFinder</a></code> how to iterate through the graph when searching. See <a href="https://ekazaev.github.io/route-composer/Structs/SearchOptions.html">documentation</a>.</p>
 <h4 id='3-action' class='heading'>3. Action</h4>
 
 <p>The <code><a href="Core%20Entities.html#/s:13RouteComposer6ActionP">Action</a></code> instance explains to the router <strong>how the view controller is created by a <code><a href="Protocols/Factory.html">Factory</a></code> should be integrated into a view controller stack</strong>.
@@ -1065,9 +1075,8 @@ apologies. <em>Caveat developer.</em></p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2021 <a class="link" href="https://github.com/ekazaev" target="_blank" rel="external">Evgeny Kazaev</a>. All rights reserved. (Last updated: 2021-11-03)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2022 <a class="link" href="https://github.com/ekazaev" target="_blank" rel="external noopener">Evgeny Kazaev</a>. All rights reserved. (Last updated: 2022-01-24)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>
-</div>
 </html>
