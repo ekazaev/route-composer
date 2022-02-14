@@ -17,7 +17,7 @@ public struct KeyWindowProvider: WindowProvider {
 
     // MARK: Properties
     
-    static let appWindowTag = 9999
+    public static let appWindowTag = 9999
 
     /// `UIWindow` instance  /// returns the window with the appWindowTag
     public var window: UIWindow? {
