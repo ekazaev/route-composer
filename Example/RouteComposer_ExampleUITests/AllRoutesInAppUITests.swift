@@ -63,7 +63,7 @@ class AllRoutesInAppUITests: XCTestCase {
         app.buttons["Go to Square Tab"].tap()
         XCTAssertTrue(app.otherElements["routingRuleViewController"].exists)
 
-        app.buttons["Go to Moscow*"].tap()
+        app.buttons["Go to London*"].tap()
         XCTAssertTrue(app.otherElements["routingRuleViewController"].exists)
 
         switcher.tap()
@@ -78,7 +78,7 @@ class AllRoutesInAppUITests: XCTestCase {
         app.buttons["Go to Routing control"].tap()
         XCTAssertTrue(app.otherElements["routingRuleViewController"].exists)
 
-        app.buttons["Go to Moscow*"].tap()
+        app.buttons["Go to London*"].tap()
         XCTAssertTrue(app.otherElements["loginViewController"].waitForExistence(timeout: 1))
 
         app.textFields["loginTextField"].tap()
@@ -88,7 +88,7 @@ class AllRoutesInAppUITests: XCTestCase {
         app.textFields["passwordTextField"].typeText("abc")
 
         app.buttons["Login"].tap()
-        XCTAssertTrue(app.otherElements["cityDetailsViewController+2"].waitForExistence(timeout: 20))
+        XCTAssertTrue(app.otherElements["cityDetailsViewController+13"].waitForExistence(timeout: 20))
 
         app.buttons["Go to Cities"].tap()
         XCTAssertTrue(app.otherElements["citiesSplitViewController"].waitForExistence(timeout: 1))

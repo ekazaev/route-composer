@@ -200,9 +200,9 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ecO-Gb-PsB">
                                         <rect key="frame" x="0.0" y="124" width="256.5" height="30"/>
-                                        <state key="normal" title="Go to Moscow*"/>
+                                        <state key="normal" title="Go to London*"/>
                                         <connections>
-                                            <action selector="goToMoscowTapped" destination="1IK-g0-E80" eventType="touchUpInside" id="rIm-aL-VNK"/>
+                                            <action selector="goToLondonTapped" destination="1IK-g0-E80" eventType="touchUpInside" id="rIm-aL-VNK"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XF5-FD-Qpt">

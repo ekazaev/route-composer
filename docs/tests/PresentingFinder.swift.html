@@ -239,111 +239,126 @@
 </tr>
 <tr class="never">
 <td class="num">46</td>
-<td class="src"><pre><code class="objc">    /// - Parameter windowProvider: `WindowProvider` instance.</code></pre></td>
+<td class="src"><pre><code class="objc">    /// - Parameters:</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">47</td>
+<td class="src"><pre><code class="objc">    ///   - windowProvider: `WindowProvider` instance.</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">48</td>
+<td class="src"><pre><code class="objc">    ///   - startingPoint: `DefaultStackIterator.StartingPoint` value</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">49</td>
+<td class="src"><pre><code class="objc">    public init(windowProvider: WindowProvider = RouteComposerDefaults.shared.windowProvider,</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
-<td class="num">47</td>
-<td class="src"><pre><code class="objc">    public init(windowProvider: WindowProvider = RouteComposerDefaults.shared.windowProvider, startingPoint: StartingPoint = .topmost) {</code></pre></td>
+<td class="num">50</td>
+<td class="src"><pre><code class="objc">                startingPoint: StartingPoint = .topmost) {</code></pre></td>
 <td class="coverage">4x</td>
 </tr>
 <tr class="covered">
-<td class="num">48</td>
+<td class="num">51</td>
 <td class="src"><pre><code class="objc">        self.windowProvider = windowProvider</code></pre></td>
 <td class="coverage">4x</td>
 </tr>
 <tr class="covered">
-<td class="num">49</td>
+<td class="num">52</td>
 <td class="src"><pre><code class="objc">        self.startingPoint = startingPoint</code></pre></td>
 <td class="coverage">4x</td>
 </tr>
 <tr class="covered">
-<td class="num">50</td>
+<td class="num">53</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
 <td class="coverage">4x</td>
 </tr>
 <tr class="never">
-<td class="num">51</td>
+<td class="num">54</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
-<td class="num">52</td>
+<td class="num">55</td>
 <td class="src"><pre><code class="objc">    public func findViewController(with context: C) throws -&gt; UIViewController? {</code></pre></td>
 <td class="coverage">4x</td>
 </tr>
 <tr class="covered">
-<td class="num">53</td>
+<td class="num">56</td>
 <td class="src"><pre><code class="objc">        try getStartingViewController()?.presentingViewController</code></pre></td>
 <td class="coverage">4x</td>
 </tr>
 <tr class="covered">
-<td class="num">54</td>
+<td class="num">57</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
 <td class="coverage">4x</td>
 </tr>
 <tr class="never">
-<td class="num">55</td>
+<td class="num">58</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
-<td class="num">56</td>
+<td class="num">59</td>
 <td class="src"><pre><code class="objc">    func getStartingViewController() throws -&gt; UIViewController? {</code></pre></td>
 <td class="coverage">4x</td>
 </tr>
 <tr class="covered">
-<td class="num">57</td>
+<td class="num">60</td>
 <td class="src"><pre><code class="objc">        switch startingPoint {</code></pre></td>
 <td class="coverage">4x</td>
 </tr>
 <tr class="covered">
-<td class="num">58</td>
+<td class="num">61</td>
 <td class="src"><pre><code class="objc">        case .topmost:</code></pre></td>
 <td class="coverage">3x</td>
 </tr>
 <tr class="covered">
-<td class="num">59</td>
+<td class="num">62</td>
 <td class="src"><pre><code class="objc">            return windowProvider.window?.topmostViewController</code></pre></td>
 <td class="coverage">3x</td>
 </tr>
 <tr class="covered">
-<td class="num">60</td>
+<td class="num">63</td>
 <td class="src"><pre><code class="objc">        case let .custom(viewControllerClosure):</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
-<td class="num">61</td>
+<td class="num">64</td>
 <td class="src"><pre><code class="objc">            return try viewControllerClosure()</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
-<td class="num">62</td>
+<td class="num">65</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
 <td class="coverage">4x</td>
 </tr>
 <tr class="covered">
-<td class="num">63</td>
+<td class="num">66</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
 <td class="coverage">4x</td>
 </tr>
 <tr class="never">
-<td class="num">64</td>
+<td class="num">67</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">65</td>
+<td class="num">68</td>
 <td class="src"><pre><code class="objc">}</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">66</td>
+<td class="num">69</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">67</td>
+<td class="num">70</td>
 <td class="src"><pre><code class="objc">#endif</code></pre></td>
 <td class="coverage"></td>
 </tr>

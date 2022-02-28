@@ -252,7 +252,7 @@ class ShortUITests: XCTestCase {
         app.textFields["passwordTextField"].typeText("abc")
 
         app.buttons["Login"].tap()
-        XCTAssertTrue(app.otherElements["cityDetailsViewController+3"].waitForExistence(timeout: 10))
+        XCTAssertTrue(app.otherElements["cityDetailsViewController+2"].waitForExistence(timeout: 10))
     }
 
     func testGoProductFromCircle() {

@@ -84,6 +84,7 @@ custom_categories:
       - Destination
       - AnyDestination
       - InlineFactory
+      - InlineStackIteratingFinder
       - InlineInterceptor
       - InlineContextTask
       - InlinePostTask
