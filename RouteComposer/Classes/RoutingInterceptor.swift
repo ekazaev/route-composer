@@ -7,8 +7,6 @@
 // Distributed under the MIT license.
 //
 
-#if os(iOS)
-
 import Foundation
 
 /// `RoutingInterceptor` is called before the actual navigation process happens.
@@ -156,5 +154,3 @@ public extension RoutingInterceptor where Context == Void {
     }
 
 }
-
-#endif

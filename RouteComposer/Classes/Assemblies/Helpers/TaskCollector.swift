@@ -7,8 +7,6 @@
 // Distributed under the MIT license.
 //
 
-#if os(iOS)
-
 import Foundation
 
 struct TaskCollector: TaskProvider {
@@ -44,5 +42,3 @@ struct TaskCollector: TaskProvider {
     }
 
 }
-
-#endif

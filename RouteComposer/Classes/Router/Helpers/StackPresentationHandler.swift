@@ -7,8 +7,6 @@
 // Distributed under the MIT license.
 //
 
-#if os(iOS)
-
 import UIKit
 
 /// Helper instance used to update the stack of `UIViewController`s
@@ -35,5 +33,3 @@ public protocol StackPresentationHandler {
                                        completion: @escaping (RoutingResult) -> Void)
 
 }
-
-#endif

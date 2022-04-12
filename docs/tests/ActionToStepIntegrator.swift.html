@@ -7,9 +7,9 @@
 <body>
 <header><div class="row"><a href="index.html"><img src="logo.jpg" alt="Slather logo"></a></div></header><div class="row"><div id="reports">
 <h2 class="cov_title">
-<span>Coverage for "ActionToStepIntegrator.swift" : </span><span class="cov_high">100.00%</span>
+<span>Coverage for "ActionToStepIntegrator.swift" : </span><span class="cov_low">14.29%</span>
 </h2>
-<h4 class="cov_subtitle">(21 of 21 relevant lines covered)</h4>
+<h4 class="cov_subtitle">(3 of 21 relevant lines covered)</h4>
 <h4 class="cov_filepath">RouteComposer/Classes/Assemblies/Helpers/ActionToStepIntegrator.swift</h4>
 <table class="source_code">
 <tr class="never">
@@ -59,93 +59,93 @@
 </tr>
 <tr class="never">
 <td class="num">10</td>
-<td class="src"><pre><code class="objc">#if os(iOS)</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">11</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">12</td>
 <td class="src"><pre><code class="objc">import Foundation</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">13</td>
+<td class="num">11</td>
 <td class="src"><pre><code class="objc">import UIKit</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">14</td>
+<td class="num">12</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">15</td>
+<td class="num">13</td>
 <td class="src"><pre><code class="objc">// This class is only needed not to expose `RoutingStep` as public.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">16</td>
+<td class="num">14</td>
 <td class="src"><pre><code class="objc">/// A simple class that represents an intermediate `DestinationStep` and allows to add tasks to it.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">17</td>
+<td class="num">15</td>
 <td class="src"><pre><code class="objc">public class IntermediateDestinationStep {</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
+<td class="num">16</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">17</td>
+<td class="src"><pre><code class="objc">    // Hides action integration from library user.</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="missed">
 <td class="num">18</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">19</td>
-<td class="src"><pre><code class="objc">    // Hides action integration from library user.</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="covered">
-<td class="num">20</td>
 <td class="src"><pre><code class="objc">    func routingStep&lt;A: Action&gt;(with action: A) -&gt; RoutingStep? {</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">!</td>
 </tr>
-<tr class="covered">
-<td class="num">21</td>
+<tr class="missed">
+<td class="num">19</td>
 <td class="src"><pre><code class="objc">        nil</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">!</td>
 </tr>
-<tr class="covered">
-<td class="num">22</td>
+<tr class="missed">
+<td class="num">20</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">!</td>
 </tr>
 <tr class="never">
-<td class="num">23</td>
+<td class="num">21</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">24</td>
+<td class="num">22</td>
 <td class="src"><pre><code class="objc">    // Hides action integration from library user.</code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="covered">
-<td class="num">25</td>
+<tr class="missed">
+<td class="num">23</td>
 <td class="src"><pre><code class="objc">    func embeddableRoutingStep&lt;A: ContainerAction&gt;(with action: A) -&gt; RoutingStep? {</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">!</td>
 </tr>
-<tr class="covered">
-<td class="num">26</td>
+<tr class="missed">
+<td class="num">24</td>
 <td class="src"><pre><code class="objc">        nil</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">!</td>
 </tr>
-<tr class="covered">
-<td class="num">27</td>
+<tr class="missed">
+<td class="num">25</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">!</td>
+</tr>
+<tr class="never">
+<td class="num">26</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">27</td>
+<td class="src"><pre><code class="objc">}</code></pre></td>
+<td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">28</td>
@@ -154,22 +154,22 @@
 </tr>
 <tr class="never">
 <td class="num">29</td>
-<td class="src"><pre><code class="objc">}</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">30</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">31</td>
 <td class="src"><pre><code class="objc">/// Allows to add tasks to the step that is hidden in `IntermediateDestinationStep`.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">32</td>
+<td class="num">30</td>
 <td class="src"><pre><code class="objc">public class ActionToStepIntegrator&lt;VC: UIViewController, C&gt;: IntermediateDestinationStep, InterceptableStepAssembling {</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">31</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">32</td>
+<td class="src"><pre><code class="objc">    // MARK: Associated types</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -179,7 +179,7 @@
 </tr>
 <tr class="never">
 <td class="num">34</td>
-<td class="src"><pre><code class="objc">    // MARK: Associated types</code></pre></td>
+<td class="src"><pre><code class="objc">    public typealias ViewController = VC</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -189,7 +189,7 @@
 </tr>
 <tr class="never">
 <td class="num">36</td>
-<td class="src"><pre><code class="objc">    public typealias ViewController = VC</code></pre></td>
+<td class="src"><pre><code class="objc">    public typealias Context = C</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -199,7 +199,7 @@
 </tr>
 <tr class="never">
 <td class="num">38</td>
-<td class="src"><pre><code class="objc">    public typealias Context = C</code></pre></td>
+<td class="src"><pre><code class="objc">    // MARK: Properties</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -209,7 +209,7 @@
 </tr>
 <tr class="never">
 <td class="num">40</td>
-<td class="src"><pre><code class="objc">    // MARK: Properties</code></pre></td>
+<td class="src"><pre><code class="objc">    var taskCollector: TaskCollector</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -219,7 +219,7 @@
 </tr>
 <tr class="never">
 <td class="num">42</td>
-<td class="src"><pre><code class="objc">    var taskCollector: TaskCollector</code></pre></td>
+<td class="src"><pre><code class="objc">    // MARK: Methods</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -227,30 +227,30 @@
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="never">
+<tr class="covered">
 <td class="num">44</td>
-<td class="src"><pre><code class="objc">    // MARK: Methods</code></pre></td>
-<td class="coverage"></td>
+<td class="src"><pre><code class="objc">    init(taskCollector: TaskCollector = TaskCollector()) {</code></pre></td>
+<td class="coverage">2x</td>
 </tr>
-<tr class="never">
+<tr class="covered">
 <td class="num">45</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
+<td class="src"><pre><code class="objc">        self.taskCollector = taskCollector</code></pre></td>
+<td class="coverage">2x</td>
 </tr>
 <tr class="covered">
 <td class="num">46</td>
-<td class="src"><pre><code class="objc">    init(taskCollector: TaskCollector = TaskCollector()) {</code></pre></td>
-<td class="coverage">84x</td>
-</tr>
-<tr class="covered">
-<td class="num">47</td>
-<td class="src"><pre><code class="objc">        self.taskCollector = taskCollector</code></pre></td>
-<td class="coverage">84x</td>
-</tr>
-<tr class="covered">
-<td class="num">48</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">84x</td>
+<td class="coverage">2x</td>
+</tr>
+<tr class="never">
+<td class="num">47</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">48</td>
+<td class="src"><pre><code class="objc">    // MARK: Add a Task to the Step</code></pre></td>
+<td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">49</td>
@@ -259,177 +259,157 @@
 </tr>
 <tr class="never">
 <td class="num">50</td>
-<td class="src"><pre><code class="objc">    // MARK: Add a Task to the Step</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">51</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">52</td>
 <td class="src"><pre><code class="objc">    /// Adds `RoutingInterceptor` instance.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">53</td>
+<td class="num">51</td>
 <td class="src"><pre><code class="objc">    /// This action does not contain type safety checks to avoid complications.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">54</td>
+<td class="num">52</td>
 <td class="src"><pre><code class="objc">    ///</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">55</td>
+<td class="num">53</td>
 <td class="src"><pre><code class="objc">    /// - Parameter interceptor: The `RoutingInterceptor` instance to be executed by `Router` before the navigation process</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">56</td>
+<td class="num">54</td>
 <td class="src"><pre><code class="objc">    ///   to this step.</code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="covered">
-<td class="num">57</td>
+<tr class="missed">
+<td class="num">55</td>
 <td class="src"><pre><code class="objc">    public final func adding&lt;RI: RoutingInterceptor&gt;(_ interceptor: RI) -&gt; Self where RI.Context == Context {</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">!</td>
 </tr>
-<tr class="covered">
-<td class="num">58</td>
+<tr class="missed">
+<td class="num">56</td>
 <td class="src"><pre><code class="objc">        taskCollector.add(interceptor)</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">!</td>
 </tr>
-<tr class="covered">
-<td class="num">59</td>
+<tr class="missed">
+<td class="num">57</td>
 <td class="src"><pre><code class="objc">        return self</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">!</td>
 </tr>
-<tr class="covered">
-<td class="num">60</td>
+<tr class="missed">
+<td class="num">58</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">!</td>
 </tr>
 <tr class="never">
-<td class="num">61</td>
+<td class="num">59</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">62</td>
+<td class="num">60</td>
 <td class="src"><pre><code class="objc">    /// Adds `ContextTask` instance</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">63</td>
+<td class="num">61</td>
 <td class="src"><pre><code class="objc">    ///</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">64</td>
+<td class="num">62</td>
 <td class="src"><pre><code class="objc">    /// - Parameter contextTask: The `ContextTask` instance to be applied by a `Router` immediately after it</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">65</td>
+<td class="num">63</td>
 <td class="src"><pre><code class="objc">    ///   will find or create `UIViewController`.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">66</td>
+<td class="num">64</td>
 <td class="src"><pre><code class="objc">    public final func adding&lt;CT: ContextTask&gt;(_ contextTask: CT) -&gt; Self</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">67</td>
+<td class="num">65</td>
 <td class="src"><pre><code class="objc">        where</code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="covered">
-<td class="num">68</td>
+<tr class="missed">
+<td class="num">66</td>
 <td class="src"><pre><code class="objc">        CT.ViewController == ViewController, CT.Context == Context {</code></pre></td>
-<td class="coverage">4x</td>
+<td class="coverage">!</td>
 </tr>
-<tr class="covered">
-<td class="num">69</td>
+<tr class="missed">
+<td class="num">67</td>
 <td class="src"><pre><code class="objc">        taskCollector.add(contextTask)</code></pre></td>
-<td class="coverage">4x</td>
+<td class="coverage">!</td>
 </tr>
-<tr class="covered">
-<td class="num">70</td>
+<tr class="missed">
+<td class="num">68</td>
 <td class="src"><pre><code class="objc">        return self</code></pre></td>
-<td class="coverage">4x</td>
+<td class="coverage">!</td>
 </tr>
-<tr class="covered">
-<td class="num">71</td>
+<tr class="missed">
+<td class="num">69</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">4x</td>
+<td class="coverage">!</td>
 </tr>
 <tr class="never">
-<td class="num">72</td>
+<td class="num">70</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">73</td>
+<td class="num">71</td>
 <td class="src"><pre><code class="objc">    /// Adds `PostRoutingTask` instance.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">74</td>
+<td class="num">72</td>
 <td class="src"><pre><code class="objc">    /// This action does not contain type safety checks to avoid complications.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">75</td>
+<td class="num">73</td>
 <td class="src"><pre><code class="objc">    ///</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">76</td>
+<td class="num">74</td>
 <td class="src"><pre><code class="objc">    /// - Parameter postTask: The `PostRoutingTask` instance to be executed by a `Router` after the navigation process.</code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="covered">
-<td class="num">77</td>
+<tr class="missed">
+<td class="num">75</td>
 <td class="src"><pre><code class="objc">    public final func adding&lt;PT: PostRoutingTask&gt;(_ postTask: PT) -&gt; Self where PT.Context == Context {</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">!</td>
 </tr>
-<tr class="covered">
-<td class="num">78</td>
+<tr class="missed">
+<td class="num">76</td>
 <td class="src"><pre><code class="objc">        taskCollector.add(postTask)</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">!</td>
 </tr>
-<tr class="covered">
-<td class="num">79</td>
+<tr class="missed">
+<td class="num">77</td>
 <td class="src"><pre><code class="objc">        return self</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">!</td>
 </tr>
-<tr class="covered">
-<td class="num">80</td>
+<tr class="missed">
+<td class="num">78</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">!</td>
 </tr>
 <tr class="never">
-<td class="num">81</td>
+<td class="num">79</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">82</td>
+<td class="num">80</td>
 <td class="src"><pre><code class="objc">}</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">83</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">84</td>
-<td class="src"><pre><code class="objc">#endif</code></pre></td>
 <td class="coverage"></td>
 </tr>
 </table>

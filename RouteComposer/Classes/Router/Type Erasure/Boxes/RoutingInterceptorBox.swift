@@ -7,8 +7,6 @@
 // Distributed under the MIT license.
 //
 
-#if os(iOS)
-
 import Foundation
 
 struct RoutingInterceptorBox<RI: RoutingInterceptor>: AnyRoutingInterceptor, PreparableEntity, CustomStringConvertible, MainThreadChecking {
@@ -53,5 +51,3 @@ struct RoutingInterceptorBox<RI: RoutingInterceptor>: AnyRoutingInterceptor, Pre
     }
 
 }
-
-#endif

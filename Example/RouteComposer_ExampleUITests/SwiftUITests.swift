@@ -9,8 +9,6 @@
 
 import Foundation
 
-#if os(iOS)
-
 import XCTest
 
 class SwiftUITests: XCTestCase {
@@ -58,5 +56,3 @@ class SwiftUITests: XCTestCase {
     }
 
 }
-
-#endif

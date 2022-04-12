@@ -7,8 +7,6 @@
 // Distributed under the MIT license.
 //
 
-#if os(iOS)
-
 import Foundation
 @testable import RouteComposer
 import UIKit
@@ -165,13 +163,13 @@ class AssemblyTest: XCTestCase {
                 .with(ClassFactory<UIViewController, Any?>()
                 ).assemble(),
                 using: UITabBarController.add(at: 1, replacing: true))
-                .adding(contextTask3)
-                .with(CompleteFactoryAssembly(factory: NavigationControllerFactory<UINavigationController, Any?>())
-                    .with(CompleteFactoryAssembly(factory: TabBarControllerFactory<UITabBarController, Any?>())
-                        .with(ClassFactory<UIViewController, Any?>()
-                        ).assemble()
-                    ).assemble())
-                .assemble()
+            .adding(contextTask3)
+            .with(CompleteFactoryAssembly(factory: NavigationControllerFactory<UINavigationController, Any?>())
+                .with(CompleteFactoryAssembly(factory: TabBarControllerFactory<UITabBarController, Any?>())
+                    .with(ClassFactory<UIViewController, Any?>()
+                    ).assemble()
+                ).assemble())
+            .assemble()
         XCTAssertEqual(container.childFactories.count, 4)
         let tabBarController = try? container.execute()
         XCTAssertEqual(tabBarController?.viewControllers?.count, 3)
@@ -328,5 +326,3 @@ class AssemblyTest: XCTestCase {
     }
 
 }
-
-#endif

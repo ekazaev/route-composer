@@ -7,8 +7,6 @@
 // Distributed under the MIT license.
 //
 
-#if os(iOS)
-
 import Foundation
 
 /// The result of the navigation process
@@ -57,5 +55,3 @@ public extension RoutingResult {
     }
 
 }
-
-#endif

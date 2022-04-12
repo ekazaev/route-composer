@@ -9,8 +9,6 @@
 
 @testable import RouteComposer
 
-#if os(iOS)
-
 import UIKit
 import XCTest
 
@@ -442,5 +440,3 @@ class ActionTests: XCTestCase {
     }
 
 }
-
-#endif

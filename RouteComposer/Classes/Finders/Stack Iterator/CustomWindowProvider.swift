@@ -7,8 +7,6 @@
 // Distributed under the MIT license.
 //
 
-#if os(iOS)
-
 import Foundation
 import UIKit
 
@@ -28,5 +26,3 @@ public struct CustomWindowProvider: WindowProvider {
     }
 
 }
-
-#endif

@@ -7,8 +7,6 @@
 // Distributed under the MIT license.
 //
 
-#if os(iOS)
-
 import Foundation
 @testable import RouteComposer
 import UIKit
@@ -447,5 +445,3 @@ class ExtrasTest: XCTestCase {
     }
 
 }
-
-#endif

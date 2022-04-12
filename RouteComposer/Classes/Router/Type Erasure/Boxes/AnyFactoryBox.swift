@@ -7,8 +7,6 @@
 // Distributed under the MIT license.
 //
 
-#if os(iOS)
-
 import Foundation
 
 protocol AnyFactoryBox: AnyFactory {
@@ -57,5 +55,3 @@ extension AnyFactory where Self: CustomStringConvertible & AnyFactoryBox {
     }
 
 }
-
-#endif

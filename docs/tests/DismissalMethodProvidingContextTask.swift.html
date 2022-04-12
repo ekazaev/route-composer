@@ -7,9 +7,9 @@
 <body>
 <header><div class="row"><a href="index.html"><img src="logo.jpg" alt="Slather logo"></a></div></header><div class="row"><div id="reports">
 <h2 class="cov_title">
-<span>Coverage for "DismissalMethodProvidingContextTask.swift" : </span><span class="cov_high">100.00%</span>
+<span>Coverage for "DismissalMethodProvidingContextTask.swift" : </span><span class="cov_low">0.00%</span>
 </h2>
-<h4 class="cov_subtitle">(6 of 6 relevant lines covered)</h4>
+<h4 class="cov_subtitle">(0 of 6 relevant lines covered)</h4>
 <h4 class="cov_filepath">RouteComposer/Classes/Extra/DismissalMethodProvidingContextTask.swift</h4>
 <table class="source_code">
 <tr class="never">
@@ -59,52 +59,52 @@
 </tr>
 <tr class="never">
 <td class="num">10</td>
-<td class="src"><pre><code class="objc">#if os(iOS)</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">11</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">12</td>
 <td class="src"><pre><code class="objc">import Foundation</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">13</td>
+<td class="num">11</td>
 <td class="src"><pre><code class="objc">import UIKit</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">14</td>
+<td class="num">12</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">15</td>
+<td class="num">13</td>
 <td class="src"><pre><code class="objc">/// `DismissalMethodProvidingContextTask` allows to provide the way to dismiss the `UIViewController` using a preset configuration.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">16</td>
+<td class="num">14</td>
 <td class="src"><pre><code class="objc">/// The `UIViewController` should conform to `Dismissible` protocol and call `Dismissible.dismissViewController(...)` method</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">17</td>
+<td class="num">15</td>
 <td class="src"><pre><code class="objc">/// when it needs to be dismissed to trigger the dismissal process implemented in `DismissalMethodProvidingContextTask.init(...)`</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">18</td>
+<td class="num">16</td>
 <td class="src"><pre><code class="objc">/// constructor.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">19</td>
+<td class="num">17</td>
 <td class="src"><pre><code class="objc">public struct DismissalMethodProvidingContextTask&lt;VC: Dismissible, C&gt;: ContextTask {</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">18</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">19</td>
+<td class="src"><pre><code class="objc">    // MARK: Properties</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -114,7 +114,7 @@
 </tr>
 <tr class="never">
 <td class="num">21</td>
-<td class="src"><pre><code class="objc">    // MARK: Properties</code></pre></td>
+<td class="src"><pre><code class="objc">    let dismissalBlock: (_: VC.DismissalTargetContext, _: Bool, _: ((_: RoutingResult) -&gt; Void)?) -&gt; Void</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -124,7 +124,7 @@
 </tr>
 <tr class="never">
 <td class="num">23</td>
-<td class="src"><pre><code class="objc">    let dismissalBlock: (_: VC.DismissalTargetContext, _: Bool, _: ((_: RoutingResult) -&gt; Void)?) -&gt; Void</code></pre></td>
+<td class="src"><pre><code class="objc">    // MARK: Methods</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -134,87 +134,67 @@
 </tr>
 <tr class="never">
 <td class="num">25</td>
-<td class="src"><pre><code class="objc">    // MARK: Methods</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">26</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">27</td>
 <td class="src"><pre><code class="objc">    /// Constructor</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">28</td>
+<td class="num">26</td>
 <td class="src"><pre><code class="objc">    ///</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">29</td>
+<td class="num">27</td>
 <td class="src"><pre><code class="objc">    /// - Parameter dismissalBlock: Block that will trigger the dismissal process when `Dismissible` `UIViewController` calls</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">30</td>
+<td class="num">28</td>
 <td class="src"><pre><code class="objc">    ///    `Dismissible.dismissViewController(...)` method.</code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="covered">
-<td class="num">31</td>
+<tr class="missed">
+<td class="num">29</td>
 <td class="src"><pre><code class="objc">    public init(dismissalBlock: @escaping (_: VC.DismissalTargetContext, _: Bool, _: ((_: RoutingResult) -&gt; Void)?) -&gt; Void) {</code></pre></td>
-<td class="coverage">13x</td>
+<td class="coverage">!</td>
 </tr>
-<tr class="covered">
-<td class="num">32</td>
+<tr class="missed">
+<td class="num">30</td>
 <td class="src"><pre><code class="objc">        self.dismissalBlock = dismissalBlock</code></pre></td>
-<td class="coverage">13x</td>
+<td class="coverage">!</td>
 </tr>
-<tr class="covered">
+<tr class="missed">
+<td class="num">31</td>
+<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="never">
+<td class="num">32</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="missed">
 <td class="num">33</td>
-<td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">13x</td>
-</tr>
-<tr class="never">
-<td class="num">34</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="covered">
-<td class="num">35</td>
 <td class="src"><pre><code class="objc">    public func perform(on viewController: VC, with context: C) throws {</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">!</td>
 </tr>
-<tr class="covered">
-<td class="num">36</td>
+<tr class="missed">
+<td class="num">34</td>
 <td class="src"><pre><code class="objc">        viewController.dismissalBlock = dismissalBlock</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">!</td>
 </tr>
-<tr class="covered">
-<td class="num">37</td>
+<tr class="missed">
+<td class="num">35</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">!</td>
 </tr>
 <tr class="never">
-<td class="num">38</td>
+<td class="num">36</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">39</td>
+<td class="num">37</td>
 <td class="src"><pre><code class="objc">}</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">40</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">41</td>
-<td class="src"><pre><code class="objc">#endif</code></pre></td>
 <td class="coverage"></td>
 </tr>
 </table>

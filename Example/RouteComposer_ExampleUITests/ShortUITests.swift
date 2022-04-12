@@ -7,8 +7,6 @@
 // Distributed under the MIT license.
 //
 
-#if os(iOS)
-
 import XCTest
 
 class ShortUITests: XCTestCase {
@@ -307,5 +305,3 @@ class ShortUITests: XCTestCase {
     }
 
 }
-
-#endif

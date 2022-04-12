@@ -7,8 +7,6 @@
 // Distributed under the MIT license.
 //
 
-#if os(iOS)
-
 import Foundation
 import UIKit
 
@@ -58,5 +56,3 @@ public class GenericStepAssembly<VC: UIViewController, C>: InterceptableStepAsse
     }
 
 }
-
-#endif

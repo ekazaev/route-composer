@@ -7,8 +7,6 @@
 // Distributed under the MIT license.
 //
 
-#if os(iOS)
-
 import Foundation
 import RouteComposer
 #if canImport(SwiftUI)
@@ -52,5 +50,3 @@ struct TestSwiftUIAnyContextView<Context>: View, ContextInstantiatable, ContextC
     }
 
 }
-
-#endif

@@ -7,8 +7,6 @@
 // Distributed under the MIT license.
 //
 
-#if os(iOS)
-
 import Foundation
 import UIKit
 
@@ -17,5 +15,3 @@ import UIKit
 /// All the methods `ContainerViewController` supports are implemented in corresponding `ContainerAdapter`
 /// provided by `ContainerAdapterLocator`.
 public protocol ContainerViewController: RoutingInterceptable {}
-
-#endif

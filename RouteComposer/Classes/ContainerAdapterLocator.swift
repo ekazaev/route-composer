@@ -7,7 +7,6 @@
 // Distributed under the MIT license.
 //
 
-#if os(iOS)
 import Foundation
 
 /// Provides `ContainerAdapter` instance.
@@ -23,4 +22,3 @@ public protocol ContainerAdapterLocator {
     func getAdapter(for containerViewController: ContainerViewController) throws -> ContainerAdapter
 
 }
-#endif

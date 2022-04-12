@@ -7,8 +7,6 @@
 // Distributed under the MIT license.
 //
 
-#if os(iOS)
-
 import Foundation
 import UIKit
 
@@ -81,5 +79,3 @@ public struct NavigationControllerAdapter<VC: UINavigationController>: ConcreteC
     }
 
 }
-
-#endif

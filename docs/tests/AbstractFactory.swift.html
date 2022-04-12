@@ -7,9 +7,9 @@
 <body>
 <header><div class="row"><a href="index.html"><img src="logo.jpg" alt="Slather logo"></a></div></header><div class="row"><div id="reports">
 <h2 class="cov_title">
-<span>Coverage for "AbstractFactory.swift" : </span><span class="cov_high">100.00%</span>
+<span>Coverage for "AbstractFactory.swift" : </span><span class="cov_low">0.00%</span>
 </h2>
-<h4 class="cov_subtitle">(6 of 6 relevant lines covered)</h4>
+<h4 class="cov_subtitle">(0 of 6 relevant lines covered)</h4>
 <h4 class="cov_filepath">RouteComposer/Classes/AbstractFactory.swift</h4>
 <table class="source_code">
 <tr class="never">
@@ -59,47 +59,47 @@
 </tr>
 <tr class="never">
 <td class="num">10</td>
-<td class="src"><pre><code class="objc">#if os(iOS)</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">11</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">12</td>
 <td class="src"><pre><code class="objc">import Foundation</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">13</td>
+<td class="num">11</td>
 <td class="src"><pre><code class="objc">import UIKit</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">14</td>
+<td class="num">12</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">15</td>
+<td class="num">13</td>
 <td class="src"><pre><code class="objc">/// Base protocol for all types of factories.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">16</td>
+<td class="num">14</td>
 <td class="src"><pre><code class="objc">/// An instance that extends `AbstractFactory` builds a `UIViewController` that will later be</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">17</td>
+<td class="num">15</td>
 <td class="src"><pre><code class="objc">/// integrated into the stack by the `Router`</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">18</td>
+<td class="num">16</td>
 <td class="src"><pre><code class="objc">public protocol AbstractFactory {</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">17</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">18</td>
+<td class="src"><pre><code class="objc">    // MARK: Associated types</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -109,37 +109,37 @@
 </tr>
 <tr class="never">
 <td class="num">20</td>
-<td class="src"><pre><code class="objc">    // MARK: Associated types</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">21</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">22</td>
 <td class="src"><pre><code class="objc">    /// Type of `UIViewController` that `AbstractFactory` can build</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">23</td>
+<td class="num">21</td>
 <td class="src"><pre><code class="objc">    associatedtype ViewController: UIViewController</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">24</td>
+<td class="num">22</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">25</td>
+<td class="num">23</td>
 <td class="src"><pre><code class="objc">    /// `Context` to be passed into `UIViewController`</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">26</td>
+<td class="num">24</td>
 <td class="src"><pre><code class="objc">    associatedtype Context</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">25</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">26</td>
+<td class="src"><pre><code class="objc">    // MARK: Methods to implement</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -149,52 +149,52 @@
 </tr>
 <tr class="never">
 <td class="num">28</td>
-<td class="src"><pre><code class="objc">    // MARK: Methods to implement</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">29</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">30</td>
 <td class="src"><pre><code class="objc">    /// The `Router` will call it before the navigation process and if the `AbstractFactory` is not able to</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">31</td>
+<td class="num">29</td>
 <td class="src"><pre><code class="objc">    /// build a view controller it should throw an exception. (example: it has to build a product view</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">32</td>
+<td class="num">30</td>
 <td class="src"><pre><code class="objc">    //  controller but there is no product code in context)</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">33</td>
+<td class="num">31</td>
 <td class="src"><pre><code class="objc">    ///</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">34</td>
+<td class="num">32</td>
 <td class="src"><pre><code class="objc">    /// - Parameter context: A `Context` instance that is provided to the `Router`.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">35</td>
+<td class="num">33</td>
 <td class="src"><pre><code class="objc">    /// - Throws: The `RoutingError` if the `Factory` cannot prepare to build a `UIViewController` instance</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">36</td>
+<td class="num">34</td>
 <td class="src"><pre><code class="objc">    ///   with the `Context` instance provided.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">37</td>
+<td class="num">35</td>
 <td class="src"><pre><code class="objc">    mutating func prepare(with context: Context) throws</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">36</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">37</td>
+<td class="src"><pre><code class="objc">}</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -204,7 +204,7 @@
 </tr>
 <tr class="never">
 <td class="num">39</td>
-<td class="src"><pre><code class="objc">}</code></pre></td>
+<td class="src"><pre><code class="objc">// MARK: Helper methods where the Context is Any?</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -214,7 +214,7 @@
 </tr>
 <tr class="never">
 <td class="num">41</td>
-<td class="src"><pre><code class="objc">// MARK: Helper methods where the Context is Any?</code></pre></td>
+<td class="src"><pre><code class="objc">public extension AbstractFactory where Context == Any? {</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -224,33 +224,33 @@
 </tr>
 <tr class="never">
 <td class="num">43</td>
-<td class="src"><pre><code class="objc">public extension AbstractFactory where Context == Any? {</code></pre></td>
+<td class="src"><pre><code class="objc">    /// Prepares the `AbstractFactory`</code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="never">
+<tr class="missed">
 <td class="num">44</td>
+<td class="src"><pre><code class="objc">    mutating func prepare() throws {</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">45</td>
+<td class="src"><pre><code class="objc">        try prepare(with: nil)</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">46</td>
+<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="never">
+<td class="num">47</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">45</td>
-<td class="src"><pre><code class="objc">    /// Prepares the `AbstractFactory`</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="covered">
-<td class="num">46</td>
-<td class="src"><pre><code class="objc">    mutating func prepare() throws {</code></pre></td>
-<td class="coverage">6x</td>
-</tr>
-<tr class="covered">
-<td class="num">47</td>
-<td class="src"><pre><code class="objc">        try prepare(with: nil)</code></pre></td>
-<td class="coverage">6x</td>
-</tr>
-<tr class="covered">
 <td class="num">48</td>
-<td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">6x</td>
+<td class="src"><pre><code class="objc">}</code></pre></td>
+<td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">49</td>
@@ -259,7 +259,7 @@
 </tr>
 <tr class="never">
 <td class="num">50</td>
-<td class="src"><pre><code class="objc">}</code></pre></td>
+<td class="src"><pre><code class="objc">// MARK: Helper methods where the Context is Void</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -269,7 +269,7 @@
 </tr>
 <tr class="never">
 <td class="num">52</td>
-<td class="src"><pre><code class="objc">// MARK: Helper methods where the Context is Void</code></pre></td>
+<td class="src"><pre><code class="objc">public extension AbstractFactory where Context == Void {</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -279,52 +279,32 @@
 </tr>
 <tr class="never">
 <td class="num">54</td>
-<td class="src"><pre><code class="objc">public extension AbstractFactory where Context == Void {</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">55</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">56</td>
 <td class="src"><pre><code class="objc">    /// Prepares the `AbstractFactory`</code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="covered">
-<td class="num">57</td>
+<tr class="missed">
+<td class="num">55</td>
 <td class="src"><pre><code class="objc">    mutating func prepare() throws {</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">!</td>
 </tr>
-<tr class="covered">
-<td class="num">58</td>
+<tr class="missed">
+<td class="num">56</td>
 <td class="src"><pre><code class="objc">        try prepare(with: ())</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">!</td>
 </tr>
-<tr class="covered">
-<td class="num">59</td>
+<tr class="missed">
+<td class="num">57</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">!</td>
 </tr>
 <tr class="never">
-<td class="num">60</td>
+<td class="num">58</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">61</td>
+<td class="num">59</td>
 <td class="src"><pre><code class="objc">}</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">62</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">63</td>
-<td class="src"><pre><code class="objc">#endif</code></pre></td>
 <td class="coverage"></td>
 </tr>
 </table>

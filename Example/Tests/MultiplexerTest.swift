@@ -7,8 +7,6 @@
 // Distributed under the MIT license.
 //
 
-#if os(iOS)
-
 import Foundation
 @testable import RouteComposer
 import UIKit
@@ -17,7 +15,7 @@ import XCTest
 class MultiplexerTest: XCTestCase {
 
     func testRoutingInterceptorPrepare() {
-        var prepareCountRun: Int = 0
+        var prepareCountRun = 0
         let interceptors = [
             RoutingInterceptorBox(InlineInterceptor(prepare: { (_: Any?) throws in
                 prepareCountRun += 1
@@ -280,5 +278,3 @@ class MultiplexerTest: XCTestCase {
         XCTAssertTrue(ri2.isApplied)
     }
 }
-
-#endif

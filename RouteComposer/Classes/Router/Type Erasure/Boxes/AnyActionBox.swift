@@ -7,8 +7,6 @@
 // Distributed under the MIT license.
 //
 
-#if os(iOS)
-
 import Foundation
 
 protocol AnyActionBox: AnyAction {
@@ -18,5 +16,3 @@ protocol AnyActionBox: AnyAction {
     init(_ action: ActionType)
 
 }
-
-#endif

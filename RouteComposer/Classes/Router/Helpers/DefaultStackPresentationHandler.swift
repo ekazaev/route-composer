@@ -7,8 +7,6 @@
 // Distributed under the MIT license.
 //
 
-#if os(iOS)
-
 import UIKit
 
 /// Default implementation of `StackPresentationHandler`
@@ -95,5 +93,3 @@ public struct DefaultStackPresentationHandler: StackPresentationHandler, MainThr
     }
 
 }
-
-#endif

@@ -7,8 +7,6 @@
 // Distributed under the MIT license.
 //
 
-#if os(iOS)
-
 import UIKit
 
 /// The `Factory` protocol should be implemented by the instance that produces any types of the view controllers.
@@ -98,5 +96,3 @@ public extension Factory where Context == Void {
     }
 
 }
-
-#endif

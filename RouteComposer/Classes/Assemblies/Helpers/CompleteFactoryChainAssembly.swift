@@ -7,8 +7,6 @@
 // Distributed under the MIT license.
 //
 
-#if os(iOS)
-
 import Foundation
 import UIKit
 
@@ -110,5 +108,3 @@ public final class CompleteFactoryChainAssembly<FC: ContainerFactory, ChildVC: U
     }
 
 }
-
-#endif

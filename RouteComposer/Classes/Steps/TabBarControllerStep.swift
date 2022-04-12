@@ -7,8 +7,6 @@
 // Distributed under the MIT license.
 //
 
-#if os(iOS)
-
 import UIKit
 
 /// Default tab bar container step
@@ -22,5 +20,3 @@ public final class TabBarControllerStep<VC: UITabBarController, Context>: Single
     }
 
 }
-
-#endif

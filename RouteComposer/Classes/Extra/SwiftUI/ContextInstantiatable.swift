@@ -7,7 +7,7 @@
 // Distributed under the MIT license.
 //
 
-#if os(iOS) && canImport(SwiftUI)
+#if canImport(SwiftUI)
 
 import Foundation
 import SwiftUI

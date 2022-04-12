@@ -7,8 +7,6 @@
 // Distributed under the MIT license.
 //
 
-#if os(iOS)
-
 import Foundation
 
 /// `Logger` message representation
@@ -28,5 +26,3 @@ public enum LogMessage {
     case error(String)
 
 }
-
-#endif

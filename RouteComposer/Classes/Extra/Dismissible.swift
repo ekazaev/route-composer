@@ -7,8 +7,6 @@
 // Distributed under the MIT license.
 //
 
-#if os(iOS)
-
 import Foundation
 import UIKit
 
@@ -40,7 +38,7 @@ public extension Dismissible {
     ///   - animated: Dismissal process should be animated if set to `true`
     ///   - completion: The completion block.
     func dismissViewController(with context: DismissalTargetContext, animated: Bool, completion: ((_: RoutingResult) -> Void)? = nil) {
-        guard let dismissalBlock = self.dismissalBlock else {
+        guard let dismissalBlock = dismissalBlock else {
             let message = "Dismissal block has not been set."
             assertionFailure(message)
             completion?(.failure(RoutingError.compositionFailed(.init(message))))
@@ -97,5 +95,3 @@ public extension DismissibleWithRuntimeStorage {
     }
 
 }
-
-#endif

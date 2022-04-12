@@ -7,8 +7,6 @@
 // Distributed under the MIT license.
 //
 
-#if os(iOS)
-
 import Foundation
 import UIKit
 
@@ -19,5 +17,3 @@ protocol AnyPostRoutingTask {
                           routingStack: [UIViewController]) throws
 
 }
-
-#endif

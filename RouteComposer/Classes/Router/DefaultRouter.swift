@@ -7,8 +7,6 @@
 // Distributed under the MIT license.
 //
 
-#if os(iOS)
-
 import UIKit
 
 /// Default `Router` implementation
@@ -272,5 +270,3 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
     }
 
 }
-
-#endif

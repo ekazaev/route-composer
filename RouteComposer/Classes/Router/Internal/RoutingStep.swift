@@ -7,11 +7,7 @@
 // Distributed under the MIT license.
 //
 
-#if os(iOS)
-
 import UIKit
 
 /// Represents a single step for the `Router` to make.
 protocol RoutingStep {}
-
-#endif

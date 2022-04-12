@@ -124,8 +124,8 @@ extension ExampleScreenConfiguration {
                 GeneralAction.presentModally(startingFrom: .topmostParent,
                                              presentationStyle: .overCurrentContext,
                                              transitioningDelegate: transitionController))
-                .from(routingSupportScreen)
-                .assemble()
+            .from(routingSupportScreen)
+            .assemble()
     }
 
     var welcomeScreen: DestinationStep<PromptViewController, Any?> {

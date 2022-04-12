@@ -7,8 +7,6 @@
 // Distributed under the MIT license.
 //
 
-#if os(iOS)
-
 @testable import RouteComposer
 import UIKit
 import XCTest
@@ -320,5 +318,3 @@ class BoxTests: XCTestCase {
     }
 
 }
-
-#endif

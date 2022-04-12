@@ -7,9 +7,9 @@
 <body>
 <header><div class="row"><a href="index.html"><img src="logo.jpg" alt="Slather logo"></a></div></header><div class="row"><div id="reports">
 <h2 class="cov_title">
-<span>Coverage for "DefaultContainerAdapterLocator.swift" : </span><span class="cov_medium">80.95%</span>
+<span>Coverage for "DefaultContainerAdapterLocator.swift" : </span><span class="cov_low">61.90%</span>
 </h2>
-<h4 class="cov_subtitle">(17 of 21 relevant lines covered)</h4>
+<h4 class="cov_subtitle">(13 of 21 relevant lines covered)</h4>
 <h4 class="cov_filepath">RouteComposer/Classes/Adapters/DefaultContainerAdapterLocator.swift</h4>
 <table class="source_code">
 <tr class="never">
@@ -59,37 +59,37 @@
 </tr>
 <tr class="never">
 <td class="num">10</td>
-<td class="src"><pre><code class="objc">#if os(iOS)</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">11</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">12</td>
 <td class="src"><pre><code class="objc">import Foundation</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">13</td>
+<td class="num">11</td>
 <td class="src"><pre><code class="objc">import UIKit</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">14</td>
+<td class="num">12</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">15</td>
+<td class="num">13</td>
 <td class="src"><pre><code class="objc">/// Default implementation of `ContainerAdapterLocator`</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">16</td>
+<td class="num">14</td>
 <td class="src"><pre><code class="objc">public struct DefaultContainerAdapterLocator: ContainerAdapterLocator {</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">15</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">16</td>
+<td class="src"><pre><code class="objc">    // MARK: Methods</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -99,202 +99,182 @@
 </tr>
 <tr class="never">
 <td class="num">18</td>
-<td class="src"><pre><code class="objc">    // MARK: Methods</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">19</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">20</td>
 <td class="src"><pre><code class="objc">    /// Constructor</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
-<td class="num">21</td>
+<td class="num">19</td>
 <td class="src"><pre><code class="objc">    public init() {}</code></pre></td>
-<td class="coverage">39x</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="never">
-<td class="num">22</td>
+<td class="num">20</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">23</td>
+<td class="num">21</td>
 <td class="src"><pre><code class="objc">    /// Returns the `ContainerAdapter` suitable for the `ContainerViewController`.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">24</td>
+<td class="num">22</td>
 <td class="src"><pre><code class="objc">    ///</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">25</td>
+<td class="num">23</td>
 <td class="src"><pre><code class="objc">    /// For the container view controllers that extend `CustomContainerViewController` it returns the an instance provided</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">26</td>
+<td class="num">24</td>
 <td class="src"><pre><code class="objc">    /// in `CustomContainerViewController.adapter` property.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">27</td>
+<td class="num">25</td>
 <td class="src"><pre><code class="objc">    /// For the default `ContainerViewController`s like `UINavigationController`, `TabBarControllerAdapter`, `UISplitViewController`</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">28</td>
+<td class="num">26</td>
 <td class="src"><pre><code class="objc">    /// and their subclasses it returns suitable default implementation of the `ContainerAdapter`.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">29</td>
+<td class="num">27</td>
 <td class="src"><pre><code class="objc">    ///</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">30</td>
+<td class="num">28</td>
 <td class="src"><pre><code class="objc">    /// - Parameter containerViewController: The `ContainerViewController` instance</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">31</td>
+<td class="num">29</td>
 <td class="src"><pre><code class="objc">    /// - Returns: Suitable `ContainerAdapter` instance</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">32</td>
+<td class="num">30</td>
 <td class="src"><pre><code class="objc">    /// - Throws: `RoutingError` if the suitable `ContainerAdapter` can not be provided</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
-<td class="num">33</td>
+<td class="num">31</td>
 <td class="src"><pre><code class="objc">    public func getAdapter(for containerViewController: ContainerViewController) throws -&gt; ContainerAdapter {</code></pre></td>
-<td class="coverage">842x</td>
+<td class="coverage">89x</td>
 </tr>
 <tr class="covered">
-<td class="num">34</td>
+<td class="num">32</td>
 <td class="src"><pre><code class="objc">        guard let customContainerController = containerViewController as? CustomContainerViewController else {</code></pre></td>
-<td class="coverage">834x</td>
+<td class="coverage">89x</td>
 </tr>
 <tr class="covered">
-<td class="num">35</td>
+<td class="num">33</td>
 <td class="src"><pre><code class="objc">            return try getDefaultAdapter(for: containerViewController)</code></pre></td>
-<td class="coverage">834x</td>
+<td class="coverage">89x</td>
+</tr>
+<tr class="missed">
+<td class="num">34</td>
+<td class="src"><pre><code class="objc">        }</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">35</td>
+<td class="src"><pre><code class="objc">        return customContainerController.adapter</code></pre></td>
+<td class="coverage">!</td>
 </tr>
 <tr class="covered">
 <td class="num">36</td>
-<td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">8x</td>
-</tr>
-<tr class="covered">
-<td class="num">37</td>
-<td class="src"><pre><code class="objc">        return customContainerController.adapter</code></pre></td>
-<td class="coverage">8x</td>
-</tr>
-<tr class="covered">
-<td class="num">38</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">842x</td>
+<td class="coverage">89x</td>
 </tr>
 <tr class="never">
-<td class="num">39</td>
+<td class="num">37</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
-<td class="num">40</td>
+<td class="num">38</td>
 <td class="src"><pre><code class="objc">    func getDefaultAdapter(for containerViewController: ContainerViewController) throws -&gt; ContainerAdapter {</code></pre></td>
-<td class="coverage">834x</td>
+<td class="coverage">89x</td>
+</tr>
+<tr class="covered">
+<td class="num">39</td>
+<td class="src"><pre><code class="objc">        switch containerViewController {</code></pre></td>
+<td class="coverage">89x</td>
+</tr>
+<tr class="covered">
+<td class="num">40</td>
+<td class="src"><pre><code class="objc">        case let navigationController as UINavigationController:</code></pre></td>
+<td class="coverage">39x</td>
 </tr>
 <tr class="covered">
 <td class="num">41</td>
-<td class="src"><pre><code class="objc">        switch containerViewController {</code></pre></td>
-<td class="coverage">834x</td>
+<td class="src"><pre><code class="objc">            return NavigationControllerAdapter(with: navigationController)</code></pre></td>
+<td class="coverage">39x</td>
 </tr>
 <tr class="covered">
 <td class="num">42</td>
-<td class="src"><pre><code class="objc">        case let navigationController as UINavigationController:</code></pre></td>
-<td class="coverage">436x</td>
+<td class="src"><pre><code class="objc">        case let tabBarController as UITabBarController:</code></pre></td>
+<td class="coverage">50x</td>
 </tr>
 <tr class="covered">
 <td class="num">43</td>
-<td class="src"><pre><code class="objc">            return NavigationControllerAdapter(with: navigationController)</code></pre></td>
-<td class="coverage">436x</td>
-</tr>
-<tr class="covered">
-<td class="num">44</td>
-<td class="src"><pre><code class="objc">        case let tabBarController as UITabBarController:</code></pre></td>
-<td class="coverage">358x</td>
-</tr>
-<tr class="covered">
-<td class="num">45</td>
 <td class="src"><pre><code class="objc">            return TabBarControllerAdapter(with: tabBarController)</code></pre></td>
-<td class="coverage">358x</td>
-</tr>
-<tr class="covered">
-<td class="num">46</td>
-<td class="src"><pre><code class="objc">        case let splitController as UISplitViewController:</code></pre></td>
-<td class="coverage">40x</td>
-</tr>
-<tr class="covered">
-<td class="num">47</td>
-<td class="src"><pre><code class="objc">            return SplitControllerAdapter(with: splitController)</code></pre></td>
-<td class="coverage">40x</td>
+<td class="coverage">50x</td>
 </tr>
 <tr class="missed">
-<td class="num">48</td>
+<td class="num">44</td>
+<td class="src"><pre><code class="objc">        case let splitController as UISplitViewController:</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">45</td>
+<td class="src"><pre><code class="objc">            return SplitControllerAdapter(with: splitController)</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">46</td>
 <td class="src"><pre><code class="objc">        default:</code></pre></td>
 <td class="coverage">!</td>
 </tr>
 <tr class="missed">
-<td class="num">49</td>
+<td class="num">47</td>
 <td class="src"><pre><code class="objc">            let message = "Container adapter for \(String(describing: type(of: containerViewController))) not found"</code></pre></td>
 <td class="coverage">!</td>
 </tr>
 <tr class="missed">
-<td class="num">50</td>
+<td class="num">48</td>
 <td class="src"><pre><code class="objc">            assertionFailure(message)</code></pre></td>
 <td class="coverage">!</td>
 </tr>
 <tr class="missed">
-<td class="num">51</td>
+<td class="num">49</td>
 <td class="src"><pre><code class="objc">            throw RoutingError.compositionFailed(.init(message))</code></pre></td>
 <td class="coverage">!</td>
 </tr>
 <tr class="covered">
-<td class="num">52</td>
+<td class="num">50</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">834x</td>
+<td class="coverage">89x</td>
 </tr>
 <tr class="covered">
-<td class="num">53</td>
+<td class="num">51</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">834x</td>
+<td class="coverage">89x</td>
 </tr>
 <tr class="never">
-<td class="num">54</td>
+<td class="num">52</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">55</td>
+<td class="num">53</td>
 <td class="src"><pre><code class="objc">}</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">56</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">57</td>
-<td class="src"><pre><code class="objc">#endif</code></pre></td>
 <td class="coverage"></td>
 </tr>
 </table>

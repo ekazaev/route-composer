@@ -7,11 +7,7 @@
 // Distributed under the MIT license.
 //
 
-#if os(iOS)
-
 import Foundation
 
 /// The Protocol that explains to the library that entity should be ignored.
 public protocol NilEntity {}
-
-#endif

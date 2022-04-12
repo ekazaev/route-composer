@@ -7,8 +7,6 @@
 // Distributed under the MIT license.
 //
 
-#if os(iOS)
-
 import UIKit
 
 /// The `Factory` that creates a `UIViewController` instance using its type.
@@ -55,5 +53,3 @@ public struct ClassFactory<VC: UIViewController, C>: Factory {
     }
 
 }
-
-#endif

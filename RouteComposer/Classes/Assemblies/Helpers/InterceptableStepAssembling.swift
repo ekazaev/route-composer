@@ -7,8 +7,6 @@
 // Distributed under the MIT license.
 //
 
-#if os(iOS)
-
 import Foundation
 import UIKit
 
@@ -45,5 +43,3 @@ protocol InterceptableStepAssembling {
     func adding<PT: PostRoutingTask>(_ postTask: PT) -> Self where PT.Context == Context
 
 }
-
-#endif

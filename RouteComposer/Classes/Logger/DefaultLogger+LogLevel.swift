@@ -7,8 +7,6 @@
 // Distributed under the MIT license.
 //
 
-#if os(iOS)
-
 import Foundation
 
 public extension DefaultLogger {
@@ -32,5 +30,3 @@ public extension DefaultLogger {
     }
 
 }
-
-#endif

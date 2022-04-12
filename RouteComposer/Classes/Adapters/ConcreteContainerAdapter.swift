@@ -7,8 +7,6 @@
 // Distributed under the MIT license.
 //
 
-#if os(iOS)
-
 import Foundation
 
 /// Provides universal properties and methods of the `ContainerViewController` instance.
@@ -25,5 +23,3 @@ public protocol ConcreteContainerAdapter: ContainerAdapter {
     init(with viewController: Container)
 
 }
-
-#endif

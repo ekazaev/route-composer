@@ -7,8 +7,6 @@
 // Distributed under the MIT license.
 //
 
-#if os(iOS)
-
 import Foundation
 @testable import RouteComposer
 import UIKit
@@ -29,5 +27,3 @@ struct TestWindowProvider: WindowProvider {
         self.window = window
     }
 }
-
-#endif

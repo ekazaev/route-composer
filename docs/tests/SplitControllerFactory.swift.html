@@ -7,9 +7,9 @@
 <body>
 <header><div class="row"><a href="index.html"><img src="logo.jpg" alt="Slather logo"></a></div></header><div class="row"><div id="reports">
 <h2 class="cov_title">
-<span>Coverage for "SplitControllerFactory.swift" : </span><span class="cov_high">100.00%</span>
+<span>Coverage for "SplitControllerFactory.swift" : </span><span class="cov_low">0.00%</span>
 </h2>
-<h4 class="cov_subtitle">(27 of 27 relevant lines covered)</h4>
+<h4 class="cov_subtitle">(0 of 27 relevant lines covered)</h4>
 <h4 class="cov_filepath">RouteComposer/Classes/Factories/SplitControllerFactory.swift</h4>
 <table class="source_code">
 <tr class="never">
@@ -59,37 +59,37 @@
 </tr>
 <tr class="never">
 <td class="num">10</td>
-<td class="src"><pre><code class="objc">#if os(iOS)</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">11</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">12</td>
 <td class="src"><pre><code class="objc">import Foundation</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">13</td>
+<td class="num">11</td>
 <td class="src"><pre><code class="objc">import UIKit</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">14</td>
+<td class="num">12</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">15</td>
+<td class="num">13</td>
 <td class="src"><pre><code class="objc">///  The `ContainerFactory` that creates a `UISplitController` instance.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">16</td>
+<td class="num">14</td>
 <td class="src"><pre><code class="objc">public struct SplitControllerFactory&lt;VC: UISplitViewController, C&gt;: ContainerFactory {</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">15</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">16</td>
+<td class="src"><pre><code class="objc">    // MARK: Associated types</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -99,7 +99,7 @@
 </tr>
 <tr class="never">
 <td class="num">18</td>
-<td class="src"><pre><code class="objc">    // MARK: Associated types</code></pre></td>
+<td class="src"><pre><code class="objc">    public typealias ViewController = VC</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -109,7 +109,7 @@
 </tr>
 <tr class="never">
 <td class="num">20</td>
-<td class="src"><pre><code class="objc">    public typealias ViewController = VC</code></pre></td>
+<td class="src"><pre><code class="objc">    public typealias Context = C</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -119,7 +119,7 @@
 </tr>
 <tr class="never">
 <td class="num">22</td>
-<td class="src"><pre><code class="objc">    public typealias Context = C</code></pre></td>
+<td class="src"><pre><code class="objc">    // MARK: Properties</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -129,107 +129,107 @@
 </tr>
 <tr class="never">
 <td class="num">24</td>
-<td class="src"><pre><code class="objc">    // MARK: Properties</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">25</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">26</td>
 <td class="src"><pre><code class="objc">    /// A Xib file name</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">27</td>
+<td class="num">25</td>
 <td class="src"><pre><code class="objc">    public let nibName: String?</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">28</td>
+<td class="num">26</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">29</td>
+<td class="num">27</td>
 <td class="src"><pre><code class="objc">    /// A `Bundle` instance</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">30</td>
+<td class="num">28</td>
 <td class="src"><pre><code class="objc">    public let bundle: Bundle?</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">31</td>
+<td class="num">29</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">32</td>
+<td class="num">30</td>
 <td class="src"><pre><code class="objc">    /// `UISplitViewControllerDelegate` reference</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">33</td>
+<td class="num">31</td>
 <td class="src"><pre><code class="objc">    public private(set) weak var delegate: UISplitViewControllerDelegate?</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">34</td>
+<td class="num">32</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">35</td>
+<td class="num">33</td>
 <td class="src"><pre><code class="objc">    /// If 'true', hidden view can be presented and dismissed via a swipe gesture. Defaults to 'true'.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">36</td>
+<td class="num">34</td>
 <td class="src"><pre><code class="objc">    public let presentsWithGesture: Bool?</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">37</td>
+<td class="num">35</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">38</td>
+<td class="num">36</td>
 <td class="src"><pre><code class="objc">    /// A property that controls how the primary view controller is hidden and displayed.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">39</td>
+<td class="num">37</td>
 <td class="src"><pre><code class="objc">    /// A value of `.automatic` specifies the default behavior split view controller, which on an iPad,</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">40</td>
+<td class="num">38</td>
 <td class="src"><pre><code class="objc">    /// corresponds to an overlay mode in portrait and a side-by-side mode in landscape.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">41</td>
+<td class="num">39</td>
 <td class="src"><pre><code class="objc">    public let preferredDisplayMode: UISplitViewController.DisplayMode?</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">42</td>
+<td class="num">40</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">43</td>
+<td class="num">41</td>
 <td class="src"><pre><code class="objc">    /// The additional configuration block</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">44</td>
+<td class="num">42</td>
 <td class="src"><pre><code class="objc">    public let configuration: ((_: VC) -&gt; Void)?</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">43</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">44</td>
+<td class="src"><pre><code class="objc">    // MARK: Methods</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -239,202 +239,182 @@
 </tr>
 <tr class="never">
 <td class="num">46</td>
-<td class="src"><pre><code class="objc">    // MARK: Methods</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">47</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">48</td>
 <td class="src"><pre><code class="objc">    /// Constructor</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">49</td>
+<td class="num">47</td>
 <td class="src"><pre><code class="objc">    public init(nibName nibNameOrNil: String? = nil,</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">50</td>
+<td class="num">48</td>
 <td class="src"><pre><code class="objc">                bundle nibBundleOrNil: Bundle? = nil,</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">51</td>
+<td class="num">49</td>
 <td class="src"><pre><code class="objc">                delegate: UISplitViewControllerDelegate? = nil,</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">52</td>
+<td class="num">50</td>
 <td class="src"><pre><code class="objc">                presentsWithGesture: Bool? = nil,</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">53</td>
+<td class="num">51</td>
 <td class="src"><pre><code class="objc">                preferredDisplayMode: UISplitViewController.DisplayMode? = nil,</code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="covered">
-<td class="num">54</td>
+<tr class="missed">
+<td class="num">52</td>
 <td class="src"><pre><code class="objc">                configuration: ((_: VC) -&gt; Void)? = nil) {</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">!</td>
 </tr>
-<tr class="covered">
-<td class="num">55</td>
+<tr class="missed">
+<td class="num">53</td>
 <td class="src"><pre><code class="objc">        self.nibName = nibNameOrNil</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">!</td>
 </tr>
-<tr class="covered">
-<td class="num">56</td>
+<tr class="missed">
+<td class="num">54</td>
 <td class="src"><pre><code class="objc">        self.bundle = nibBundleOrNil</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">!</td>
 </tr>
-<tr class="covered">
-<td class="num">57</td>
+<tr class="missed">
+<td class="num">55</td>
 <td class="src"><pre><code class="objc">        self.delegate = delegate</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">!</td>
 </tr>
-<tr class="covered">
-<td class="num">58</td>
+<tr class="missed">
+<td class="num">56</td>
 <td class="src"><pre><code class="objc">        self.preferredDisplayMode = preferredDisplayMode</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">!</td>
 </tr>
-<tr class="covered">
-<td class="num">59</td>
+<tr class="missed">
+<td class="num">57</td>
 <td class="src"><pre><code class="objc">        self.presentsWithGesture = presentsWithGesture</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">!</td>
 </tr>
-<tr class="covered">
-<td class="num">60</td>
+<tr class="missed">
+<td class="num">58</td>
 <td class="src"><pre><code class="objc">        self.configuration = configuration</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">!</td>
 </tr>
-<tr class="covered">
+<tr class="missed">
+<td class="num">59</td>
+<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="never">
+<td class="num">60</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="missed">
 <td class="num">61</td>
-<td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">2x</td>
-</tr>
-<tr class="never">
-<td class="num">62</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="covered">
-<td class="num">63</td>
 <td class="src"><pre><code class="objc">    public func build(with context: C, integrating coordinator: ChildCoordinator&lt;C&gt;) throws -&gt; VC {</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">!</td>
 </tr>
-<tr class="covered">
-<td class="num">64</td>
+<tr class="missed">
+<td class="num">62</td>
 <td class="src"><pre><code class="objc">        let splitViewController = VC(nibName: nibName, bundle: bundle)</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">!</td>
 </tr>
-<tr class="covered">
-<td class="num">65</td>
+<tr class="missed">
+<td class="num">63</td>
 <td class="src"><pre><code class="objc">        if let presentsWithGesture = presentsWithGesture {</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">!</td>
 </tr>
-<tr class="covered">
-<td class="num">66</td>
+<tr class="missed">
+<td class="num">64</td>
 <td class="src"><pre><code class="objc">            splitViewController.presentsWithGesture = presentsWithGesture</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">!</td>
 </tr>
-<tr class="covered">
-<td class="num">67</td>
+<tr class="missed">
+<td class="num">65</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">!</td>
 </tr>
-<tr class="covered">
-<td class="num">68</td>
+<tr class="missed">
+<td class="num">66</td>
 <td class="src"><pre><code class="objc">        if let delegate = delegate {</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">!</td>
 </tr>
-<tr class="covered">
-<td class="num">69</td>
+<tr class="missed">
+<td class="num">67</td>
 <td class="src"><pre><code class="objc">            splitViewController.delegate = delegate</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">!</td>
 </tr>
-<tr class="covered">
-<td class="num">70</td>
+<tr class="missed">
+<td class="num">68</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">!</td>
 </tr>
-<tr class="covered">
-<td class="num">71</td>
+<tr class="missed">
+<td class="num">69</td>
 <td class="src"><pre><code class="objc">        if !coordinator.isEmpty {</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">!</td>
 </tr>
-<tr class="covered">
-<td class="num">72</td>
+<tr class="missed">
+<td class="num">70</td>
 <td class="src"><pre><code class="objc">            splitViewController.viewControllers = try coordinator.build(with: context, integrating: splitViewController.viewControllers)</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">!</td>
 </tr>
-<tr class="covered">
-<td class="num">73</td>
+<tr class="missed">
+<td class="num">71</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">!</td>
 </tr>
-<tr class="covered">
-<td class="num">74</td>
+<tr class="missed">
+<td class="num">72</td>
 <td class="src"><pre><code class="objc">        if let preferredDisplayMode = preferredDisplayMode {</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">!</td>
 </tr>
-<tr class="covered">
-<td class="num">75</td>
+<tr class="missed">
+<td class="num">73</td>
 <td class="src"><pre><code class="objc">            splitViewController.preferredDisplayMode = preferredDisplayMode</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">!</td>
 </tr>
-<tr class="covered">
-<td class="num">76</td>
+<tr class="missed">
+<td class="num">74</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">!</td>
 </tr>
-<tr class="covered">
-<td class="num">77</td>
+<tr class="missed">
+<td class="num">75</td>
 <td class="src"><pre><code class="objc">        if let configuration = configuration {</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">!</td>
 </tr>
-<tr class="covered">
-<td class="num">78</td>
+<tr class="missed">
+<td class="num">76</td>
 <td class="src"><pre><code class="objc">            configuration(splitViewController)</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">!</td>
 </tr>
-<tr class="covered">
-<td class="num">79</td>
+<tr class="missed">
+<td class="num">77</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">!</td>
 </tr>
-<tr class="covered">
-<td class="num">80</td>
+<tr class="missed">
+<td class="num">78</td>
 <td class="src"><pre><code class="objc">        return splitViewController</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">!</td>
 </tr>
-<tr class="covered">
-<td class="num">81</td>
+<tr class="missed">
+<td class="num">79</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">!</td>
 </tr>
 <tr class="never">
-<td class="num">82</td>
+<td class="num">80</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">83</td>
+<td class="num">81</td>
 <td class="src"><pre><code class="objc">}</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">84</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">85</td>
-<td class="src"><pre><code class="objc">#endif</code></pre></td>
 <td class="coverage"></td>
 </tr>
 </table>

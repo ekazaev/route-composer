@@ -7,8 +7,6 @@
 // Distributed under the MIT license.
 //
 
-#if os(iOS)
-
 import Foundation
 import UIKit
 
@@ -32,5 +30,3 @@ public protocol InterceptableRouter: Router {
     mutating func add<PT: PostRoutingTask>(_ postTask: PT) where PT.Context == Any?
 
 }
-
-#endif

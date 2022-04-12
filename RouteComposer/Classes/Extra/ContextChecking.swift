@@ -7,8 +7,6 @@
 // Distributed under the MIT license.
 //
 
-#if os(iOS)
-
 import Foundation
 import UIKit
 
@@ -29,5 +27,3 @@ public protocol ContextChecking {
     func isTarget(for context: Context) -> Bool
 
 }
-
-#endif

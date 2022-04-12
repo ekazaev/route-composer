@@ -7,8 +7,6 @@
 // Distributed under the MIT license.
 //
 
-#if os(iOS)
-
 import Foundation
 
 /// Routing `Error` representation
@@ -120,5 +118,3 @@ public enum RoutingError: Error, CustomStringConvertible {
     }
 
 }
-
-#endif

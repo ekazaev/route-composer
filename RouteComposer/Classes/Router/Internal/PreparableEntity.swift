@@ -7,8 +7,6 @@
 // Distributed under the MIT license.
 //
 
-#if os(iOS)
-
 import Foundation
 
 protocol PreparableEntity {
@@ -27,5 +25,3 @@ extension PreparableEntity {
     }
 
 }
-
-#endif

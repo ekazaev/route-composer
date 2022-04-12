@@ -7,8 +7,6 @@
 // Distributed under the MIT license.
 //
 
-#if os(iOS)
-
 import Foundation
 import UIKit
 
@@ -103,5 +101,3 @@ public extension SingleStep where FC.Context == Any? {
     }
 
 }
-
-#endif

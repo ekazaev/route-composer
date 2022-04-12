@@ -7,8 +7,6 @@
 // Distributed under the MIT license.
 //
 
-#if os(iOS)
-
 import UIKit
 
 /// Represents any action that has to be applied to the `UIViewController` after it has
@@ -39,5 +37,3 @@ public protocol AbstractAction {
                  completion: @escaping (_: RoutingResult) -> Void)
 
 }
-
-#endif

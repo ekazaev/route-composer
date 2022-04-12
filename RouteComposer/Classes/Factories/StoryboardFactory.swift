@@ -7,8 +7,6 @@
 // Distributed under the MIT license.
 //
 
-#if os(iOS)
-
 import UIKit
 
 /// The `Factory` that creates a `UIViewController` from a storyboard.
@@ -90,5 +88,3 @@ public struct StoryboardFactory<VC: UIViewController, C>: Factory {
     }
 
 }
-
-#endif

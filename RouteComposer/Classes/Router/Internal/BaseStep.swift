@@ -7,8 +7,6 @@
 // Distributed under the MIT license.
 //
 
-#if os(iOS)
-
 import Foundation
 import UIKit
 
@@ -88,5 +86,3 @@ struct BaseStep: RoutingStep,
     }
 
 }
-
-#endif

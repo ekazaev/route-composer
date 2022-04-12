@@ -7,8 +7,6 @@
 // Distributed under the MIT license.
 //
 
-#if os(iOS)
-
 import Foundation
 import UIKit
 
@@ -34,5 +32,3 @@ public protocol CustomContainerViewController: ContainerViewController {
     var adapter: ContainerAdapter { get }
 
 }
-
-#endif
