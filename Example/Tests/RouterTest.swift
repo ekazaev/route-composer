@@ -316,7 +316,7 @@ class RouterTests: XCTestCase {
             .using(FakePresentModallyAction())
             .from(DestinationStep<TestModalPresentableController, TestProtocol>(TestCurrentViewControllerStep(currentViewController: currentViewController)))
             .assemble()
-        var router = self.router
+        var router = router
         router.add(InlineInterceptor(prepare: { (_: Any?) throws in
             globalInterceptorPrepared += 1
         }, { (_: Any?, completion: @escaping (RoutingResult) -> Void) in

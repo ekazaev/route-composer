@@ -7,9 +7,9 @@
 <body>
 <header><div class="row"><a href="index.html"><img src="logo.jpg" alt="Slather logo"></a></div></header><div class="row"><div id="reports">
 <h2 class="cov_title">
-<span>Coverage for "Array+PrivateExtension.swift" : </span><span class="cov_low">63.64%</span>
+<span>Coverage for "Array+PrivateExtension.swift" : </span><span class="cov_high">100.00%</span>
 </h2>
-<h4 class="cov_subtitle">(14 of 22 relevant lines covered)</h4>
+<h4 class="cov_subtitle">(22 of 22 relevant lines covered)</h4>
 <h4 class="cov_filepath">RouteComposer/Classes/Router/Internal/Array+PrivateExtension.swift</h4>
 <table class="source_code">
 <tr class="never">
@@ -85,37 +85,37 @@
 <tr class="covered">
 <td class="num">15</td>
 <td class="src"><pre><code class="objc">    var nonDismissibleViewController: UIViewController? {</code></pre></td>
-<td class="coverage">34x</td>
+<td class="coverage">309x</td>
 </tr>
 <tr class="covered">
 <td class="num">16</td>
 <td class="src"><pre><code class="objc">        compactMap {</code></pre></td>
-<td class="coverage">49x</td>
+<td class="coverage">435x</td>
 </tr>
 <tr class="covered">
 <td class="num">17</td>
 <td class="src"><pre><code class="objc">            $0 as? RoutingInterceptable &amp; UIViewController</code></pre></td>
-<td class="coverage">49x</td>
+<td class="coverage">435x</td>
 </tr>
 <tr class="covered">
 <td class="num">18</td>
 <td class="src"><pre><code class="objc">        }.first {</code></pre></td>
-<td class="coverage">22x</td>
+<td class="coverage">435x</td>
 </tr>
 <tr class="covered">
 <td class="num">19</td>
 <td class="src"><pre><code class="objc">            !$0.canBeDismissed</code></pre></td>
-<td class="coverage">22x</td>
+<td class="coverage">213x</td>
 </tr>
 <tr class="covered">
 <td class="num">20</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">22x</td>
+<td class="coverage">213x</td>
 </tr>
 <tr class="covered">
 <td class="num">21</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">34x</td>
+<td class="coverage">309x</td>
 </tr>
 <tr class="never">
 <td class="num">22</td>
@@ -125,82 +125,82 @@
 <tr class="covered">
 <td class="num">23</td>
 <td class="src"><pre><code class="objc">    func uniqueElements() -&gt; [Element] {</code></pre></td>
-<td class="coverage">67x</td>
+<td class="coverage">663x</td>
 </tr>
 <tr class="covered">
 <td class="num">24</td>
 <td class="src"><pre><code class="objc">        reduce(into: [Element]()) {</code></pre></td>
-<td class="coverage">112x</td>
+<td class="coverage">1180x</td>
 </tr>
 <tr class="covered">
 <td class="num">25</td>
 <td class="src"><pre><code class="objc">            if !$0.contains($1) {</code></pre></td>
-<td class="coverage">112x</td>
+<td class="coverage">1180x</td>
 </tr>
 <tr class="covered">
 <td class="num">26</td>
 <td class="src"><pre><code class="objc">                $0.append($1)</code></pre></td>
-<td class="coverage">84x</td>
+<td class="coverage">850x</td>
 </tr>
 <tr class="covered">
 <td class="num">27</td>
 <td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">112x</td>
+<td class="coverage">1180x</td>
 </tr>
 <tr class="covered">
 <td class="num">28</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">112x</td>
+<td class="coverage">1180x</td>
 </tr>
 <tr class="covered">
 <td class="num">29</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">67x</td>
+<td class="coverage">663x</td>
 </tr>
 <tr class="never">
 <td class="num">30</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">31</td>
 <td class="src"><pre><code class="objc">    func isEqual(to array: [UIViewController]) -&gt; Bool {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">7x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">32</td>
 <td class="src"><pre><code class="objc">        guard count == array.count else {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">7x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">33</td>
 <td class="src"><pre><code class="objc">            return false</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">5x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">34</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">5x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">35</td>
 <td class="src"><pre><code class="objc">        return enumerated().first(where: { index, vc in</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">5x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">36</td>
 <td class="src"><pre><code class="objc">            array[index] !== vc</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">5x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">37</td>
 <td class="src"><pre><code class="objc">        }) == nil</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">5x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">38</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">7x</td>
 </tr>
 <tr class="never">
 <td class="num">39</td>

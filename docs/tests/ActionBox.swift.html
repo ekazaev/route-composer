@@ -7,9 +7,9 @@
 <body>
 <header><div class="row"><a href="index.html"><img src="logo.jpg" alt="Slather logo"></a></div></header><div class="row"><div id="reports">
 <h2 class="cov_title">
-<span>Coverage for "ActionBox.swift" : </span><span class="cov_low">54.84%</span>
+<span>Coverage for "ActionBox.swift" : </span><span class="cov_high">100.00%</span>
 </h2>
-<h4 class="cov_subtitle">(17 of 31 relevant lines covered)</h4>
+<h4 class="cov_subtitle">(31 of 31 relevant lines covered)</h4>
 <h4 class="cov_filepath">RouteComposer/Classes/Router/Type Erasure/Boxes/ActionBox.swift</h4>
 <table class="source_code">
 <tr class="never">
@@ -95,17 +95,17 @@
 <tr class="covered">
 <td class="num">17</td>
 <td class="src"><pre><code class="objc">    init(_ action: A) {</code></pre></td>
-<td class="coverage">33x</td>
+<td class="coverage">294x</td>
 </tr>
 <tr class="covered">
 <td class="num">18</td>
 <td class="src"><pre><code class="objc">        self.action = action</code></pre></td>
-<td class="coverage">33x</td>
+<td class="coverage">294x</td>
 </tr>
 <tr class="covered">
 <td class="num">19</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">33x</td>
+<td class="coverage">294x</td>
 </tr>
 <tr class="never">
 <td class="num">20</td>
@@ -140,117 +140,117 @@
 <tr class="covered">
 <td class="num">26</td>
 <td class="src"><pre><code class="objc">                 completion: @escaping (RoutingResult) -&gt; Void) {</code></pre></td>
-<td class="coverage">3x</td>
+<td class="coverage">71x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">27</td>
 <td class="src"><pre><code class="objc">        guard let typedExistingViewController = existingController as? A.ViewController else {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">71x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">28</td>
 <td class="src"><pre><code class="objc">            completion(.failure(RoutingError.typeMismatch(type: type(of: existingController),</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">29</td>
 <td class="src"><pre><code class="objc">                                                          expectedType: ActionType.ViewController.self,</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">30</td>
 <td class="src"><pre><code class="objc">                                                          .init("Action \(action.self) cannot be performed on \(existingController)."))))</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">31</td>
 <td class="src"><pre><code class="objc">            return</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">32</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">3x</td>
+<td class="coverage">70x</td>
 </tr>
 <tr class="covered">
 <td class="num">33</td>
 <td class="src"><pre><code class="objc">        assertIfNotMainThread()</code></pre></td>
-<td class="coverage">3x</td>
+<td class="coverage">70x</td>
 </tr>
 <tr class="covered">
 <td class="num">34</td>
 <td class="src"><pre><code class="objc">        postponedIntegrationHandler.purge(animated: animated, completion: { result in</code></pre></td>
-<td class="coverage">3x</td>
+<td class="coverage">70x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">35</td>
 <td class="src"><pre><code class="objc">            guard result.isSuccessful else {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">70x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">36</td>
 <td class="src"><pre><code class="objc">                completion(result)</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">37</td>
 <td class="src"><pre><code class="objc">                return</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">38</td>
 <td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">3x</td>
+<td class="coverage">69x</td>
 </tr>
 <tr class="covered">
 <td class="num">39</td>
 <td class="src"><pre><code class="objc">            self.action.perform(with: viewController, on: typedExistingViewController, animated: animated) { result in</code></pre></td>
-<td class="coverage">3x</td>
+<td class="coverage">69x</td>
 </tr>
 <tr class="covered">
 <td class="num">40</td>
 <td class="src"><pre><code class="objc">                self.assertIfNotMainThread()</code></pre></td>
-<td class="coverage">3x</td>
+<td class="coverage">69x</td>
 </tr>
 <tr class="covered">
 <td class="num">41</td>
 <td class="src"><pre><code class="objc">                completion(result)</code></pre></td>
-<td class="coverage">3x</td>
+<td class="coverage">69x</td>
 </tr>
 <tr class="covered">
 <td class="num">42</td>
 <td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">3x</td>
+<td class="coverage">69x</td>
 </tr>
 <tr class="covered">
 <td class="num">43</td>
 <td class="src"><pre><code class="objc">        })</code></pre></td>
-<td class="coverage">3x</td>
+<td class="coverage">69x</td>
 </tr>
 <tr class="covered">
 <td class="num">44</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">3x</td>
+<td class="coverage">70x</td>
 </tr>
 <tr class="never">
 <td class="num">45</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">46</td>
 <td class="src"><pre><code class="objc">    func perform(embedding viewController: UIViewController, in childViewControllers: inout [UIViewController]) {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">47</td>
 <td class="src"><pre><code class="objc">        childViewControllers.append(viewController)</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">48</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="never">
 <td class="num">49</td>
@@ -260,37 +260,37 @@
 <tr class="covered">
 <td class="num">50</td>
 <td class="src"><pre><code class="objc">    public var description: String {</code></pre></td>
-<td class="coverage">3x</td>
+<td class="coverage">68x</td>
 </tr>
 <tr class="covered">
 <td class="num">51</td>
 <td class="src"><pre><code class="objc">        String(describing: action)</code></pre></td>
-<td class="coverage">3x</td>
+<td class="coverage">68x</td>
 </tr>
 <tr class="covered">
 <td class="num">52</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">3x</td>
+<td class="coverage">68x</td>
 </tr>
 <tr class="never">
 <td class="num">53</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">54</td>
 <td class="src"><pre><code class="objc">    func isEmbeddable(to container: ContainerViewController.Type) -&gt; Bool {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">17x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">55</td>
 <td class="src"><pre><code class="objc">        false</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">17x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">56</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">17x</td>
 </tr>
 <tr class="never">
 <td class="num">57</td>

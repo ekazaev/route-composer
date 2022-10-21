@@ -125,42 +125,42 @@
 <tr class="covered">
 <td class="num">23</td>
 <td class="src"><pre><code class="objc">    final func getPreviousStep&lt;Context&gt;(with context: Context) -&gt; RoutingStep? {</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">10x</td>
 </tr>
 <tr class="covered">
 <td class="num">24</td>
 <td class="src"><pre><code class="objc">        resolvers.reduce(nil as RoutingStep?) { result, resolver in</code></pre></td>
-<td class="coverage">3x</td>
+<td class="coverage">30x</td>
 </tr>
 <tr class="covered">
 <td class="num">25</td>
 <td class="src"><pre><code class="objc">            guard result == nil else {</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">30x</td>
 </tr>
 <tr class="covered">
 <td class="num">26</td>
 <td class="src"><pre><code class="objc">                return result</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">8x</td>
 </tr>
 <tr class="covered">
 <td class="num">27</td>
 <td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">22x</td>
 </tr>
 <tr class="covered">
 <td class="num">28</td>
 <td class="src"><pre><code class="objc">            return resolver.resolve(with: context)</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">22x</td>
 </tr>
 <tr class="covered">
 <td class="num">29</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">3x</td>
+<td class="coverage">30x</td>
 </tr>
 <tr class="covered">
 <td class="num">30</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">10x</td>
 </tr>
 <tr class="never">
 <td class="num">31</td>
@@ -170,17 +170,17 @@
 <tr class="covered">
 <td class="num">32</td>
 <td class="src"><pre><code class="objc">    init(resolvers: [StepCaseResolver]) {</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">12x</td>
 </tr>
 <tr class="covered">
 <td class="num">33</td>
 <td class="src"><pre><code class="objc">        self.resolvers = resolvers</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">12x</td>
 </tr>
 <tr class="covered">
 <td class="num">34</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">12x</td>
 </tr>
 <tr class="never">
 <td class="num">35</td>

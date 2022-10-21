@@ -7,9 +7,9 @@
 <body>
 <header><div class="row"><a href="index.html"><img src="logo.jpg" alt="Slather logo"></a></div></header><div class="row"><div id="reports">
 <h2 class="cov_title">
-<span>Coverage for "UIViewController+Action.swift" : </span><span class="cov_low">67.59%</span>
+<span>Coverage for "UIViewController+Action.swift" : </span><span class="cov_high">100.00%</span>
 </h2>
-<h4 class="cov_subtitle">(73 of 108 relevant lines covered)</h4>
+<h4 class="cov_subtitle">(108 of 108 relevant lines covered)</h4>
 <h4 class="cov_filepath">RouteComposer/Classes/Actions/UIViewController+Action.swift</h4>
 <table class="source_code">
 <tr class="never">
@@ -140,17 +140,17 @@
 <tr class="covered">
 <td class="num">26</td>
 <td class="src"><pre><code class="objc">                                   duration: TimeInterval = 0.3) -&gt; ViewControllerActions.ReplaceRootAction {</code></pre></td>
-<td class="coverage">11x</td>
+<td class="coverage">68x</td>
 </tr>
 <tr class="covered">
 <td class="num">27</td>
 <td class="src"><pre><code class="objc">        ViewControllerActions.ReplaceRootAction(windowProvider: windowProvider, animationOptions: animationOptions, duration: duration)</code></pre></td>
-<td class="coverage">11x</td>
+<td class="coverage">68x</td>
 </tr>
 <tr class="covered">
 <td class="num">28</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">11x</td>
+<td class="coverage">68x</td>
 </tr>
 <tr class="never">
 <td class="num">29</td>
@@ -240,47 +240,47 @@
 <tr class="covered">
 <td class="num">46</td>
 <td class="src"><pre><code class="objc">                                      popoverConfiguration: ((_: UIPopoverPresentationController) -&gt; Void)? = nil) -&gt; ViewControllerActions.PresentModallyAction {</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">43x</td>
 </tr>
 <tr class="covered">
 <td class="num">47</td>
 <td class="src"><pre><code class="objc">        ViewControllerActions.PresentModallyAction(startingFrom: presentationStartingPoint,</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">43x</td>
 </tr>
 <tr class="covered">
 <td class="num">48</td>
 <td class="src"><pre><code class="objc">                                                   presentationStyle: presentationStyle,</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">43x</td>
 </tr>
 <tr class="covered">
 <td class="num">49</td>
 <td class="src"><pre><code class="objc">                                                   transitionStyle: transitionStyle,</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">43x</td>
 </tr>
 <tr class="covered">
 <td class="num">50</td>
 <td class="src"><pre><code class="objc">                                                   transitioningDelegate: transitioningDelegate,</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">43x</td>
 </tr>
 <tr class="covered">
 <td class="num">51</td>
 <td class="src"><pre><code class="objc">                                                   preferredContentSize: preferredContentSize,</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">43x</td>
 </tr>
 <tr class="covered">
 <td class="num">52</td>
 <td class="src"><pre><code class="objc">                                                   isModalInPresentation: isModalInPresentation,</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">43x</td>
 </tr>
 <tr class="covered">
 <td class="num">53</td>
 <td class="src"><pre><code class="objc">                                                   popoverConfiguration: popoverConfiguration)</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">43x</td>
 </tr>
 <tr class="covered">
 <td class="num">54</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">43x</td>
 </tr>
 <tr class="never">
 <td class="num">55</td>
@@ -292,20 +292,20 @@
 <td class="src"><pre><code class="objc">    /// `Action` does nothing, but can be helpful for testing or writing the sequences of steps with the `NilFactory`</code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">57</td>
 <td class="src"><pre><code class="objc">    public static func nilAction() -&gt; ViewControllerActions.NilAction {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">58</td>
 <td class="src"><pre><code class="objc">        ViewControllerActions.NilAction()</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">59</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="never">
 <td class="num">60</td>
@@ -640,47 +640,47 @@
 <tr class="covered">
 <td class="num">126</td>
 <td class="src"><pre><code class="objc">             popoverConfiguration: ((_: UIPopoverPresentationController) -&gt; Void)? = nil) {</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">44x</td>
 </tr>
 <tr class="covered">
 <td class="num">127</td>
 <td class="src"><pre><code class="objc">            self.presentationStartingPoint = presentationStartingPoint</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">44x</td>
 </tr>
 <tr class="covered">
 <td class="num">128</td>
 <td class="src"><pre><code class="objc">            self.presentationStyle = presentationStyle</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">44x</td>
 </tr>
 <tr class="covered">
 <td class="num">129</td>
 <td class="src"><pre><code class="objc">            self.transitionStyle = transitionStyle</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">44x</td>
 </tr>
 <tr class="covered">
 <td class="num">130</td>
 <td class="src"><pre><code class="objc">            self.transitioningDelegate = transitioningDelegate</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">44x</td>
 </tr>
 <tr class="covered">
 <td class="num">131</td>
 <td class="src"><pre><code class="objc">            self.preferredContentSize = preferredContentSize</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">44x</td>
 </tr>
 <tr class="covered">
 <td class="num">132</td>
 <td class="src"><pre><code class="objc">            self.popoverControllerConfigurationBlock = popoverConfiguration</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">44x</td>
 </tr>
 <tr class="covered">
 <td class="num">133</td>
 <td class="src"><pre><code class="objc">            self.isModalInPresentation = isModalInPresentation</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">44x</td>
 </tr>
 <tr class="covered">
 <td class="num">134</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">44x</td>
 </tr>
 <tr class="never">
 <td class="num">135</td>
@@ -705,237 +705,237 @@
 <tr class="covered">
 <td class="num">139</td>
 <td class="src"><pre><code class="objc">                            completion: @escaping (_: RoutingResult) -&gt; Void) {</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">25x</td>
 </tr>
 <tr class="covered">
 <td class="num">140</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">25x</td>
 </tr>
 <tr class="covered">
 <td class="num">141</td>
 <td class="src"><pre><code class="objc">            let presentingViewController: UIViewController</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">25x</td>
 </tr>
 <tr class="covered">
 <td class="num">142</td>
 <td class="src"><pre><code class="objc">            switch presentationStartingPoint {</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">25x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">143</td>
 <td class="src"><pre><code class="objc">            case .current:</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">25x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">144</td>
 <td class="src"><pre><code class="objc">                presentingViewController = existingController</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">14x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">145</td>
 <td class="src"><pre><code class="objc">            case .topmostParent:</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">25x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">146</td>
 <td class="src"><pre><code class="objc">                presentingViewController = existingController.allParents.last ?? existingController</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">3x</td>
 </tr>
 <tr class="covered">
 <td class="num">147</td>
 <td class="src"><pre><code class="objc">            case let .custom(viewController):</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">25x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">148</td>
 <td class="src"><pre><code class="objc">                guard let viewController = try? viewController() else {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">8x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">149</td>
 <td class="src"><pre><code class="objc">                    completion(.failure(RoutingError.compositionFailed(</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">150</td>
 <td class="src"><pre><code class="objc">                        .init("The view controller to start modal presentation from was not found."))))</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">151</td>
 <td class="src"><pre><code class="objc">                    return</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">152</td>
 <td class="src"><pre><code class="objc">                }</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">7x</td>
 </tr>
 <tr class="covered">
 <td class="num">153</td>
 <td class="src"><pre><code class="objc">                presentingViewController = viewController</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">7x</td>
 </tr>
 <tr class="covered">
 <td class="num">154</td>
 <td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">25x</td>
 </tr>
 <tr class="covered">
 <td class="num">155</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">25x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">156</td>
 <td class="src"><pre><code class="objc">            guard presentingViewController.presentedViewController == nil else {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">25x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">157</td>
 <td class="src"><pre><code class="objc">                completion(.failure(RoutingError.compositionFailed(.init("\(presentingViewController) is " +</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">158</td>
 <td class="src"><pre><code class="objc">                        "already presenting a view controller."))))</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">159</td>
 <td class="src"><pre><code class="objc">                return</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">160</td>
 <td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">24x</td>
 </tr>
 <tr class="covered">
 <td class="num">161</td>
 <td class="src"><pre><code class="objc">            if let presentationStyle = presentationStyle {</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">24x</td>
 </tr>
 <tr class="covered">
 <td class="num">162</td>
 <td class="src"><pre><code class="objc">                viewController.modalPresentationStyle = presentationStyle</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">23x</td>
 </tr>
 <tr class="covered">
 <td class="num">163</td>
 <td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">24x</td>
 </tr>
 <tr class="covered">
 <td class="num">164</td>
 <td class="src"><pre><code class="objc">            if let transitionStyle = transitionStyle {</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">24x</td>
 </tr>
 <tr class="covered">
 <td class="num">165</td>
 <td class="src"><pre><code class="objc">                viewController.modalTransitionStyle = transitionStyle</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">23x</td>
 </tr>
 <tr class="covered">
 <td class="num">166</td>
 <td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">24x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">167</td>
 <td class="src"><pre><code class="objc">            if let transitioningDelegate = transitioningDelegate {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">24x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">168</td>
 <td class="src"><pre><code class="objc">                viewController.transitioningDelegate = transitioningDelegate</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">4x</td>
 </tr>
 <tr class="covered">
 <td class="num">169</td>
 <td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">24x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">170</td>
 <td class="src"><pre><code class="objc">            if let preferredContentSize = preferredContentSize {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">24x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">171</td>
 <td class="src"><pre><code class="objc">                viewController.preferredContentSize = preferredContentSize</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">172</td>
 <td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">24x</td>
 </tr>
 <tr class="covered">
 <td class="num">173</td>
 <td class="src"><pre><code class="objc">            if let popoverPresentationController = viewController.popoverPresentationController,</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">24x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">174</td>
 <td class="src"><pre><code class="objc">               let popoverControllerConfigurationBlock = popoverControllerConfigurationBlock {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">24x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">175</td>
 <td class="src"><pre><code class="objc">                popoverControllerConfigurationBlock(popoverPresentationController)</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">176</td>
 <td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">24x</td>
 </tr>
 <tr class="covered">
 <td class="num">177</td>
 <td class="src"><pre><code class="objc">            if #available(iOS 13, *),</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">24x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">178</td>
 <td class="src"><pre><code class="objc">               let isModalInPresentation = isModalInPresentation {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">24x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">179</td>
 <td class="src"><pre><code class="objc">                viewController.isModalInPresentation = isModalInPresentation</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">180</td>
 <td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">24x</td>
 </tr>
 <tr class="covered">
 <td class="num">181</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">24x</td>
 </tr>
 <tr class="covered">
 <td class="num">182</td>
 <td class="src"><pre><code class="objc">            presentingViewController.present(viewController, animated: animated, completion: {</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">24x</td>
 </tr>
 <tr class="covered">
 <td class="num">183</td>
 <td class="src"><pre><code class="objc">                completion(.success)</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">23x</td>
 </tr>
 <tr class="covered">
 <td class="num">184</td>
 <td class="src"><pre><code class="objc">            })</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">23x</td>
 </tr>
 <tr class="covered">
 <td class="num">185</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">24x</td>
 </tr>
 <tr class="never">
 <td class="num">186</td>
@@ -1065,27 +1065,27 @@
 <tr class="covered">
 <td class="num">211</td>
 <td class="src"><pre><code class="objc">        init(windowProvider: WindowProvider = RouteComposerDefaults.shared.windowProvider, animationOptions: UIView.AnimationOptions? = nil, duration: TimeInterval = 0.3) {</code></pre></td>
-<td class="coverage">11x</td>
+<td class="coverage">71x</td>
 </tr>
 <tr class="covered">
 <td class="num">212</td>
 <td class="src"><pre><code class="objc">            self.windowProvider = windowProvider</code></pre></td>
-<td class="coverage">11x</td>
+<td class="coverage">71x</td>
 </tr>
 <tr class="covered">
 <td class="num">213</td>
 <td class="src"><pre><code class="objc">            self.animationOptions = animationOptions</code></pre></td>
-<td class="coverage">11x</td>
+<td class="coverage">71x</td>
 </tr>
 <tr class="covered">
 <td class="num">214</td>
 <td class="src"><pre><code class="objc">            self.duration = duration</code></pre></td>
-<td class="coverage">11x</td>
+<td class="coverage">71x</td>
 </tr>
 <tr class="covered">
 <td class="num">215</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">11x</td>
+<td class="coverage">71x</td>
 </tr>
 <tr class="never">
 <td class="num">216</td>
@@ -1110,142 +1110,142 @@
 <tr class="covered">
 <td class="num">220</td>
 <td class="src"><pre><code class="objc">                            completion: @escaping (_: RoutingResult) -&gt; Void) {</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">30x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">221</td>
 <td class="src"><pre><code class="objc">            guard let window = windowProvider.window else {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">30x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">222</td>
 <td class="src"><pre><code class="objc">                completion(.failure(RoutingError.compositionFailed(.init("Window was not found."))))</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">223</td>
 <td class="src"><pre><code class="objc">                return</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">224</td>
 <td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">29x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">225</td>
 <td class="src"><pre><code class="objc">            guard window.rootViewController == existingController else {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">29x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">226</td>
 <td class="src"><pre><code class="objc">                completion(.failure(RoutingError.compositionFailed(.init("Action should be applied to the root view " +</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">3x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">227</td>
 <td class="src"><pre><code class="objc">                        "controller, got \(String(describing: existingController)) instead."))))</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">3x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">228</td>
 <td class="src"><pre><code class="objc">                return</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">3x</td>
 </tr>
 <tr class="covered">
 <td class="num">229</td>
 <td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">26x</td>
 </tr>
 <tr class="covered">
 <td class="num">230</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">26x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">231</td>
 <td class="src"><pre><code class="objc">            guard animated, let animationOptions = animationOptions, duration &gt; 0 else {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">26x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">232</td>
 <td class="src"><pre><code class="objc">                window.rootViewController = viewController</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">10x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">233</td>
 <td class="src"><pre><code class="objc">                window.makeKeyAndVisible()</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">10x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">234</td>
 <td class="src"><pre><code class="objc">                completion(.success)</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">10x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">235</td>
 <td class="src"><pre><code class="objc">                return</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">10x</td>
 </tr>
 <tr class="covered">
 <td class="num">236</td>
 <td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">16x</td>
 </tr>
 <tr class="covered">
 <td class="num">237</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">16x</td>
 </tr>
 <tr class="covered">
 <td class="num">238</td>
 <td class="src"><pre><code class="objc">            UIView.transition(with: window, duration: duration, options: animationOptions, animations: {</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">16x</td>
 </tr>
 <tr class="covered">
 <td class="num">239</td>
 <td class="src"><pre><code class="objc">                let oldAnimationState = UIView.areAnimationsEnabled</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">16x</td>
 </tr>
 <tr class="covered">
 <td class="num">240</td>
 <td class="src"><pre><code class="objc">                UIView.setAnimationsEnabled(false)</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">16x</td>
 </tr>
 <tr class="covered">
 <td class="num">241</td>
 <td class="src"><pre><code class="objc">                window.rootViewController = viewController</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">16x</td>
 </tr>
 <tr class="covered">
 <td class="num">242</td>
 <td class="src"><pre><code class="objc">                window.rootViewController?.view.setNeedsLayout()</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">16x</td>
 </tr>
 <tr class="covered">
 <td class="num">243</td>
 <td class="src"><pre><code class="objc">                window.makeKeyAndVisible()</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">16x</td>
 </tr>
 <tr class="covered">
 <td class="num">244</td>
 <td class="src"><pre><code class="objc">                UIView.setAnimationsEnabled(oldAnimationState)</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">16x</td>
 </tr>
 <tr class="covered">
 <td class="num">245</td>
 <td class="src"><pre><code class="objc">            })</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">16x</td>
 </tr>
 <tr class="covered">
 <td class="num">246</td>
 <td class="src"><pre><code class="objc">            completion(.success)</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">16x</td>
 </tr>
 <tr class="covered">
 <td class="num">247</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">16x</td>
 </tr>
 <tr class="never">
 <td class="num">248</td>
@@ -1295,7 +1295,7 @@
 <tr class="covered">
 <td class="num">257</td>
 <td class="src"><pre><code class="objc">        init() {}</code></pre></td>
-<td class="coverage">20x</td>
+<td class="coverage">177x</td>
 </tr>
 <tr class="never">
 <td class="num">258</td>
@@ -1310,17 +1310,17 @@
 <tr class="covered">
 <td class="num">260</td>
 <td class="src"><pre><code class="objc">        public func perform(with viewController: UIViewController, on existingController: UIViewController, animated: Bool, completion: @escaping (RoutingResult) -&gt; Void) {</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">21x</td>
 </tr>
 <tr class="covered">
 <td class="num">261</td>
 <td class="src"><pre><code class="objc">            completion(.success)</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">21x</td>
 </tr>
 <tr class="covered">
 <td class="num">262</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">21x</td>
 </tr>
 <tr class="never">
 <td class="num">263</td>

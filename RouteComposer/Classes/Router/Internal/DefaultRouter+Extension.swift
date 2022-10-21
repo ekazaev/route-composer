@@ -181,8 +181,8 @@ extension DefaultRouter {
             guard let interceptableStep = step as? InterceptableStep else {
                 return StepTaskTaskRunner(contextTaskRunner: self.contextTaskRunner, postTaskRunner: self.postTaskRunner)
             }
-            var contextTaskRunner = self.contextTaskRunner
-            var postTaskRunner = self.postTaskRunner
+            var contextTaskRunner = contextTaskRunner
+            var postTaskRunner = postTaskRunner
             if let interceptor = interceptableStep.interceptor {
                 try interceptorRunner.add(interceptor, with: context)
             }

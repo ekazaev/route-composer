@@ -7,9 +7,9 @@
 <body>
 <header><div class="row"><a href="index.html"><img src="logo.jpg" alt="Slather logo"></a></div></header><div class="row"><div id="reports">
 <h2 class="cov_title">
-<span>Coverage for "DefaultLogger.swift" : </span><span class="cov_medium">72.22%</span>
+<span>Coverage for "DefaultLogger.swift" : </span><span class="cov_high">88.89%</span>
 </h2>
-<h4 class="cov_subtitle">(13 of 18 relevant lines covered)</h4>
+<h4 class="cov_subtitle">(16 of 18 relevant lines covered)</h4>
 <h4 class="cov_filepath">RouteComposer/Classes/Logger/DefaultLogger.swift</h4>
 <table class="source_code">
 <tr class="never">
@@ -165,22 +165,22 @@
 <tr class="covered">
 <td class="num">31</td>
 <td class="src"><pre><code class="objc">                osLog: OSLog = OSLog.default) {</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">14x</td>
 </tr>
 <tr class="covered">
 <td class="num">32</td>
 <td class="src"><pre><code class="objc">        self.logLevel = logLevel</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">14x</td>
 </tr>
 <tr class="covered">
 <td class="num">33</td>
 <td class="src"><pre><code class="objc">        self.osLog = osLog</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">14x</td>
 </tr>
 <tr class="covered">
 <td class="num">34</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">14x</td>
 </tr>
 <tr class="never">
 <td class="num">35</td>
@@ -190,17 +190,17 @@
 <tr class="covered">
 <td class="num">36</td>
 <td class="src"><pre><code class="objc">    public func log(_ message: LogMessage) {</code></pre></td>
-<td class="coverage">116x</td>
+<td class="coverage">1180x</td>
 </tr>
 <tr class="covered">
 <td class="num">37</td>
 <td class="src"><pre><code class="objc">        switch message {</code></pre></td>
-<td class="coverage">116x</td>
+<td class="coverage">1180x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">38</td>
 <td class="src"><pre><code class="objc">        case let .warning(message):</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1180x</td>
 </tr>
 <tr class="missed">
 <td class="num">39</td>
@@ -215,47 +215,47 @@
 <tr class="covered">
 <td class="num">41</td>
 <td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">116x</td>
+<td class="coverage">1180x</td>
 </tr>
 <tr class="covered">
 <td class="num">42</td>
 <td class="src"><pre><code class="objc">        case let .info(message):</code></pre></td>
-<td class="coverage">116x</td>
+<td class="coverage">1180x</td>
 </tr>
 <tr class="covered">
 <td class="num">43</td>
 <td class="src"><pre><code class="objc">            if logLevel == .verbose {</code></pre></td>
-<td class="coverage">116x</td>
+<td class="coverage">1160x</td>
 </tr>
 <tr class="covered">
 <td class="num">44</td>
 <td class="src"><pre><code class="objc">                os_log("%@", log: osLog, type: .info, message)</code></pre></td>
-<td class="coverage">116x</td>
+<td class="coverage">1160x</td>
 </tr>
 <tr class="covered">
 <td class="num">45</td>
 <td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">116x</td>
+<td class="coverage">1180x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">46</td>
 <td class="src"><pre><code class="objc">        case let .error(message):</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1180x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">47</td>
 <td class="src"><pre><code class="objc">            os_log("%@", log: osLog, type: .fault, message)</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">16x</td>
 </tr>
 <tr class="covered">
 <td class="num">48</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">116x</td>
+<td class="coverage">1180x</td>
 </tr>
 <tr class="covered">
 <td class="num">49</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">116x</td>
+<td class="coverage">1180x</td>
 </tr>
 <tr class="never">
 <td class="num">50</td>

@@ -7,9 +7,9 @@
 <body>
 <header><div class="row"><a href="index.html"><img src="logo.jpg" alt="Slather logo"></a></div></header><div class="row"><div id="reports">
 <h2 class="cov_title">
-<span>Coverage for "GlobalInterceptorRouter.swift" : </span><span class="cov_low">67.57%</span>
+<span>Coverage for "GlobalInterceptorRouter.swift" : </span><span class="cov_medium">78.38%</span>
 </h2>
-<h4 class="cov_subtitle">(25 of 37 relevant lines covered)</h4>
+<h4 class="cov_subtitle">(29 of 37 relevant lines covered)</h4>
 <h4 class="cov_filepath">RouteComposer/Classes/Extra/GlobalInterceptorRouter.swift</h4>
 <table class="source_code">
 <tr class="never">
@@ -125,7 +125,7 @@
 <tr class="covered">
 <td class="num">23</td>
 <td class="src"><pre><code class="objc">    private var interceptors: [AnyRoutingInterceptor] = []</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">13x</td>
 </tr>
 <tr class="never">
 <td class="num">24</td>
@@ -165,17 +165,17 @@
 <tr class="covered">
 <td class="num">31</td>
 <td class="src"><pre><code class="objc">    public init(router: R) {</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">13x</td>
 </tr>
 <tr class="covered">
 <td class="num">32</td>
 <td class="src"><pre><code class="objc">        self.router = router</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">13x</td>
 </tr>
 <tr class="covered">
 <td class="num">33</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">13x</td>
 </tr>
 <tr class="never">
 <td class="num">34</td>
@@ -200,57 +200,57 @@
 <tr class="covered">
 <td class="num">38</td>
 <td class="src"><pre><code class="objc">                                                                    completion: ((RoutingResult) -&gt; Void)?) throws {</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">100x</td>
 </tr>
 <tr class="covered">
 <td class="num">39</td>
 <td class="src"><pre><code class="objc">        do {</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">100x</td>
 </tr>
 <tr class="covered">
 <td class="num">40</td>
 <td class="src"><pre><code class="objc">            let interceptorRunner = try DefaultRouter.InterceptorRunner(interceptors: interceptors, with: context)</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">100x</td>
 </tr>
 <tr class="covered">
 <td class="num">41</td>
 <td class="src"><pre><code class="objc">            interceptorRunner.perform(with: context, completion: { result in</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">100x</td>
 </tr>
 <tr class="covered">
 <td class="num">42</td>
 <td class="src"><pre><code class="objc">                do {</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">100x</td>
 </tr>
 <tr class="covered">
 <td class="num">43</td>
 <td class="src"><pre><code class="objc">                    switch result {</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">100x</td>
 </tr>
 <tr class="covered">
 <td class="num">44</td>
 <td class="src"><pre><code class="objc">                    case .success:</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">100x</td>
 </tr>
 <tr class="covered">
 <td class="num">45</td>
 <td class="src"><pre><code class="objc">                        try router.navigate(to: step, with: context, animated: animated, completion: { success in</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">100x</td>
 </tr>
 <tr class="covered">
 <td class="num">46</td>
 <td class="src"><pre><code class="objc">                            completion?(success)</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">97x</td>
 </tr>
 <tr class="covered">
 <td class="num">47</td>
 <td class="src"><pre><code class="objc">                        })</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">97x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">48</td>
 <td class="src"><pre><code class="objc">                    case let .failure(error):</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">100x</td>
 </tr>
 <tr class="missed">
 <td class="num">49</td>
@@ -260,32 +260,32 @@
 <tr class="covered">
 <td class="num">50</td>
 <td class="src"><pre><code class="objc">                    }</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">100x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">51</td>
 <td class="src"><pre><code class="objc">                } catch {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">100x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">52</td>
 <td class="src"><pre><code class="objc">                    completion?(.failure(error))</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">3x</td>
 </tr>
 <tr class="covered">
 <td class="num">53</td>
 <td class="src"><pre><code class="objc">                }</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">100x</td>
 </tr>
 <tr class="covered">
 <td class="num">54</td>
 <td class="src"><pre><code class="objc">            })</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">100x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">55</td>
 <td class="src"><pre><code class="objc">        } catch {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">100x</td>
 </tr>
 <tr class="missed">
 <td class="num">56</td>
@@ -295,12 +295,12 @@
 <tr class="covered">
 <td class="num">57</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">100x</td>
 </tr>
 <tr class="covered">
 <td class="num">58</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">100x</td>
 </tr>
 <tr class="never">
 <td class="num">59</td>
@@ -325,17 +325,17 @@
 <tr class="covered">
 <td class="num">63</td>
 <td class="src"><pre><code class="objc">    public mutating func addGlobal&lt;RI: RoutingInterceptor&gt;(_ interceptor: RI) where RI.Context == Any? {</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">26x</td>
 </tr>
 <tr class="covered">
 <td class="num">64</td>
 <td class="src"><pre><code class="objc">        interceptors.append(RoutingInterceptorBox(interceptor))</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">26x</td>
 </tr>
 <tr class="covered">
 <td class="num">65</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">26x</td>
 </tr>
 <tr class="never">
 <td class="num">66</td>
@@ -365,17 +365,17 @@
 <tr class="covered">
 <td class="num">71</td>
 <td class="src"><pre><code class="objc">    public mutating func add&lt;RI: RoutingInterceptor&gt;(_ interceptor: RI) where RI.Context == Any? {</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">13x</td>
 </tr>
 <tr class="covered">
 <td class="num">72</td>
 <td class="src"><pre><code class="objc">        router.add(interceptor)</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">13x</td>
 </tr>
 <tr class="covered">
 <td class="num">73</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">13x</td>
 </tr>
 <tr class="never">
 <td class="num">74</td>

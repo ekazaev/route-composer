@@ -7,9 +7,9 @@
 <body>
 <header><div class="row"><a href="index.html"><img src="logo.jpg" alt="Slather logo"></a></div></header><div class="row"><div id="reports">
 <h2 class="cov_title">
-<span>Coverage for "UINavigationController+Action.swift" : </span><span class="cov_low">25.93%</span>
+<span>Coverage for "UINavigationController+Action.swift" : </span><span class="cov_high">88.89%</span>
 </h2>
-<h4 class="cov_subtitle">(14 of 54 relevant lines covered)</h4>
+<h4 class="cov_subtitle">(48 of 54 relevant lines covered)</h4>
 <h4 class="cov_filepath">RouteComposer/Classes/Actions/UINavigationController+Action.swift</h4>
 <table class="source_code">
 <tr class="never">
@@ -107,20 +107,20 @@
 <td class="src"><pre><code class="objc">    /// Replaces all the child view controllers in the `UINavigationController`'s children stack</code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">20</td>
 <td class="src"><pre><code class="objc">    static func pushAsRoot() -&gt; NavigationControllerActions.PushAsRootAction&lt;Self&gt; {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">3x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">21</td>
 <td class="src"><pre><code class="objc">        NavigationControllerActions.PushAsRootAction()</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">3x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">22</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">3x</td>
 </tr>
 <tr class="never">
 <td class="num">23</td>
@@ -135,17 +135,17 @@
 <tr class="covered">
 <td class="num">25</td>
 <td class="src"><pre><code class="objc">    static func push() -&gt; NavigationControllerActions.PushAction&lt;Self&gt; {</code></pre></td>
-<td class="coverage">3x</td>
+<td class="coverage">76x</td>
 </tr>
 <tr class="covered">
 <td class="num">26</td>
 <td class="src"><pre><code class="objc">        NavigationControllerActions.PushAction()</code></pre></td>
-<td class="coverage">3x</td>
+<td class="coverage">76x</td>
 </tr>
 <tr class="covered">
 <td class="num">27</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">3x</td>
+<td class="coverage">76x</td>
 </tr>
 <tr class="never">
 <td class="num">28</td>
@@ -157,20 +157,20 @@
 <td class="src"><pre><code class="objc">    /// Pushes a child view controller, replacing the existing, into the `UINavigationController`'s children stack</code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">30</td>
 <td class="src"><pre><code class="objc">    static func pushReplacingLast() -&gt; NavigationControllerActions.PushReplacingLastAction&lt;Self&gt; {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">5x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">31</td>
 <td class="src"><pre><code class="objc">        NavigationControllerActions.PushReplacingLastAction()</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">5x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">32</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">5x</td>
 </tr>
 <tr class="never">
 <td class="num">33</td>
@@ -245,7 +245,7 @@
 <tr class="covered">
 <td class="num">47</td>
 <td class="src"><pre><code class="objc">        init() {}</code></pre></td>
-<td class="coverage">3x</td>
+<td class="coverage">76x</td>
 </tr>
 <tr class="never">
 <td class="num">48</td>
@@ -270,52 +270,52 @@
 <tr class="covered">
 <td class="num">52</td>
 <td class="src"><pre><code class="objc">                            completion: @escaping (_: RoutingResult) -&gt; Void) {</code></pre></td>
-<td class="coverage">3x</td>
+<td class="coverage">21x</td>
 </tr>
 <tr class="covered">
 <td class="num">53</td>
 <td class="src"><pre><code class="objc">            navigationController.pushViewController(viewController, animated: animated)</code></pre></td>
-<td class="coverage">3x</td>
+<td class="coverage">21x</td>
 </tr>
 <tr class="covered">
 <td class="num">54</td>
 <td class="src"><pre><code class="objc">            if let transitionCoordinator = navigationController.transitionCoordinator, animated {</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">21x</td>
 </tr>
 <tr class="covered">
 <td class="num">55</td>
 <td class="src"><pre><code class="objc">                transitionCoordinator.animate(alongsideTransition: nil) { _ in</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">13x</td>
 </tr>
 <tr class="covered">
 <td class="num">56</td>
 <td class="src"><pre><code class="objc">                    completion(.success)</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">13x</td>
 </tr>
 <tr class="covered">
 <td class="num">57</td>
 <td class="src"><pre><code class="objc">                }</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">13x</td>
 </tr>
 <tr class="covered">
 <td class="num">58</td>
 <td class="src"><pre><code class="objc">            } else {</code></pre></td>
-<td class="coverage">3x</td>
+<td class="coverage">21x</td>
 </tr>
 <tr class="covered">
 <td class="num">59</td>
 <td class="src"><pre><code class="objc">                completion(.success)</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">8x</td>
 </tr>
 <tr class="covered">
 <td class="num">60</td>
 <td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">3x</td>
+<td class="coverage">21x</td>
 </tr>
 <tr class="covered">
 <td class="num">61</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">3x</td>
+<td class="coverage">21x</td>
 </tr>
 <tr class="never">
 <td class="num">62</td>
@@ -362,10 +362,10 @@
 <td class="src"><pre><code class="objc">        /// Constructor</code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">71</td>
 <td class="src"><pre><code class="objc">        init() {}</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">3x</td>
 </tr>
 <tr class="never">
 <td class="num">72</td>
@@ -377,25 +377,25 @@
 <td class="src"><pre><code class="objc">        public func perform(embedding viewController: UIViewController,</code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">74</td>
 <td class="src"><pre><code class="objc">                            in childViewControllers: inout [UIViewController]) {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">2x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">75</td>
 <td class="src"><pre><code class="objc">            childViewControllers.removeAll()</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">2x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">76</td>
 <td class="src"><pre><code class="objc">            childViewControllers.append(viewController)</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">2x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">77</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">2x</td>
 </tr>
 <tr class="never">
 <td class="num">78</td>
@@ -417,20 +417,20 @@
 <td class="src"><pre><code class="objc">                            animated: Bool,</code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">82</td>
 <td class="src"><pre><code class="objc">                            completion: @escaping (_: RoutingResult) -&gt; Void) {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">83</td>
 <td class="src"><pre><code class="objc">            navigationController.setViewControllers([viewController], animated: animated)</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">84</td>
 <td class="src"><pre><code class="objc">            if let transitionCoordinator = navigationController.transitionCoordinator, animated {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="missed">
 <td class="num">85</td>
@@ -447,25 +447,25 @@
 <td class="src"><pre><code class="objc">                }</code></pre></td>
 <td class="coverage">!</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">88</td>
 <td class="src"><pre><code class="objc">            } else {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">89</td>
 <td class="src"><pre><code class="objc">                completion(.success)</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">90</td>
 <td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">91</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="never">
 <td class="num">92</td>
@@ -512,10 +512,10 @@
 <td class="src"><pre><code class="objc">        /// Constructor</code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">101</td>
 <td class="src"><pre><code class="objc">        init() {}</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">5x</td>
 </tr>
 <tr class="never">
 <td class="num">102</td>
@@ -527,35 +527,35 @@
 <td class="src"><pre><code class="objc">        public func perform(embedding viewController: UIViewController,</code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">104</td>
 <td class="src"><pre><code class="objc">                            in childViewControllers: inout [UIViewController]) {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">5x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">105</td>
 <td class="src"><pre><code class="objc">            if !childViewControllers.isEmpty {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">5x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">106</td>
 <td class="src"><pre><code class="objc">                childViewControllers.removeLast()</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">4x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">107</td>
 <td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">5x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">108</td>
 <td class="src"><pre><code class="objc">            childViewControllers.append(viewController)</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">5x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">109</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">5x</td>
 </tr>
 <tr class="never">
 <td class="num">110</td>
@@ -577,30 +577,30 @@
 <td class="src"><pre><code class="objc">                            animated: Bool,</code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">114</td>
 <td class="src"><pre><code class="objc">                            completion: @escaping (_: RoutingResult) -&gt; Void) {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">115</td>
 <td class="src"><pre><code class="objc">            var viewControllers = navigationController.viewControllers</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">116</td>
 <td class="src"><pre><code class="objc">            perform(embedding: viewController, in: &amp;viewControllers)</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">117</td>
 <td class="src"><pre><code class="objc">            navigationController.setViewControllers(viewControllers, animated: animated)</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">118</td>
 <td class="src"><pre><code class="objc">            if let transitionCoordinator = navigationController.transitionCoordinator, animated {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="missed">
 <td class="num">119</td>
@@ -617,25 +617,25 @@
 <td class="src"><pre><code class="objc">                }</code></pre></td>
 <td class="coverage">!</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">122</td>
 <td class="src"><pre><code class="objc">            } else {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">123</td>
 <td class="src"><pre><code class="objc">                completion(.success)</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">124</td>
 <td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">125</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="never">
 <td class="num">126</td>

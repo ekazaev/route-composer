@@ -31,7 +31,7 @@ public struct ActionConnectingAssembly<VC: UIViewController, C> {
     /// - Parameter action: `Action` instance to be used with a step.
     /// - Returns: `ChainAssembly` to continue building the chain.
     public func using<A: Action>(_ action: A) -> StepChainAssembly<VC, C> {
-        var previousSteps = self.previousSteps
+        var previousSteps = previousSteps
         if let routingStep = stepToFullFill.routingStep(with: action) {
             previousSteps.append(routingStep)
         }
@@ -43,7 +43,7 @@ public struct ActionConnectingAssembly<VC: UIViewController, C> {
     /// - Parameter action: `Action` instance to be used with a step.
     /// - Returns: `ChainAssembly` to continue building the chain.
     public func using<A: ContainerAction>(_ action: A) -> ContainerStepChainAssembly<A.ViewController, VC, C> {
-        var previousSteps = self.previousSteps
+        var previousSteps = previousSteps
         if let routingStep = stepToFullFill.embeddableRoutingStep(with: action) {
             previousSteps.append(routingStep)
         }

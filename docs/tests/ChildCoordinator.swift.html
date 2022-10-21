@@ -7,9 +7,9 @@
 <body>
 <header><div class="row"><a href="index.html"><img src="logo.jpg" alt="Slather logo"></a></div></header><div class="row"><div id="reports">
 <h2 class="cov_title">
-<span>Coverage for "ChildCoordinator.swift" : </span><span class="cov_low">0.00%</span>
+<span>Coverage for "ChildCoordinator.swift" : </span><span class="cov_high">100.00%</span>
 </h2>
-<h4 class="cov_subtitle">(0 of 13 relevant lines covered)</h4>
+<h4 class="cov_subtitle">(13 of 13 relevant lines covered)</h4>
 <h4 class="cov_filepath">RouteComposer/Classes/ChildCoordinator.swift</h4>
 <table class="source_code">
 <tr class="never">
@@ -112,20 +112,20 @@
 <td class="src"><pre><code class="objc">    /// Returns `true` if the coordinator contains child factories to build</code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">21</td>
 <td class="src"><pre><code class="objc">    public var isEmpty: Bool {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">42x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">22</td>
 <td class="src"><pre><code class="objc">        childFactories.isEmpty</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">42x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">23</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">42x</td>
 </tr>
 <tr class="never">
 <td class="num">24</td>
@@ -142,20 +142,20 @@
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">27</td>
 <td class="src"><pre><code class="objc">    init(childFactories: [PostponedIntegrationFactory&lt;Context&gt;]) {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">60x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">28</td>
 <td class="src"><pre><code class="objc">        self.childFactories = childFactories</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">60x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">29</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">60x</td>
 </tr>
 <tr class="never">
 <td class="num">30</td>
@@ -192,40 +192,40 @@
 <td class="src"><pre><code class="objc">    /// - Returns: Built child view controller stack</code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">37</td>
 <td class="src"><pre><code class="objc">    public func build(with context: Context, integrating existingViewControllers: [UIViewController] = []) throws -&gt; [UIViewController] {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">43x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">38</td>
 <td class="src"><pre><code class="objc">        var childrenViewControllers = existingViewControllers</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">43x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">39</td>
 <td class="src"><pre><code class="objc">        for factory in childFactories {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">62x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">40</td>
 <td class="src"><pre><code class="objc">            try factory.build(with: context, in: &amp;childrenViewControllers)</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">62x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">41</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">62x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">42</td>
 <td class="src"><pre><code class="objc">        return childrenViewControllers</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">43x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">43</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">43x</td>
 </tr>
 <tr class="never">
 <td class="num">44</td>

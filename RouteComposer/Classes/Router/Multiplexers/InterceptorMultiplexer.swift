@@ -31,7 +31,7 @@ struct InterceptorMultiplexer: AnyRoutingInterceptor, MainThreadChecking, Custom
             return
         }
 
-        var interceptors = self.interceptors
+        var interceptors = interceptors
 
         func runInterceptor(interceptor: AnyRoutingInterceptor) {
             assertIfNotMainThread()

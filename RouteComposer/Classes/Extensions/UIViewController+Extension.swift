@@ -16,6 +16,7 @@ public extension UIViewController {
     /// - Parameters:
     ///   - viewController: A `UIViewController` instance to start from.
     ///   - options: A combination of `SearchOptions`.
+    ///   - containerAdapterLocator: A `ContainerAdapterLocator` instance.
     ///   - predicate: A block that should return `true` if the `UIViewController` instance provided is the
     ///     one that is being searched for.
     /// - Returns: A `UIViewController` instance if found, `nil` otherwise.
@@ -48,8 +49,12 @@ public extension UIViewController {
                 viewControllers.append(containerAdapter.containedViewControllers)
             }
             for currentViewController in Array(viewControllers.joined()).uniqueElements() {
+                var internalOptions: SearchOptions = options.contains(.visible) ? .currentVisibleOnly : [.current, .contained]
+                if options.contains(.presented) {
+                    internalOptions.insert(.presented)
+                }
                 if let foundViewController = try findViewController(in: currentViewController,
-                                                                    options: options.contains(.visible) ? .currentVisibleOnly : [.current, .contained],
+                                                                    options: internalOptions,
                                                                     containerAdapterLocator: containerAdapterLocator,
                                                                     using: predicate) {
                     return foundViewController

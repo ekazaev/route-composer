@@ -72,7 +72,7 @@ class ExtrasTest: XCTestCase {
         var globalInterceptorRun = 0
         var globalTaskRun = 0
         var globalPostTaskRun = 0
-        var router = self.router
+        var router = router
         router.add(InlineInterceptor(prepare: { (_: Any?) throws in
             globalInterceptorPrepared += 1
         }, { (_: Any?, completion: @escaping (RoutingResult) -> Void) in

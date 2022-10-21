@@ -64,7 +64,7 @@ public extension StepAssembly where FC: Factory {
     ///
     /// - Parameter action: `Action` instance to be used with a step.
     final func using<A: Action>(_ action: A) -> StepChainAssembly<ViewController, Context> {
-        var previousSteps = self.previousSteps
+        var previousSteps = previousSteps
         let entitiesCollector = BaseEntitiesCollector<FactoryBox<FC>, ActionBox>(finder: finder, factory: factory, action: action)
         let step = BaseStep(entitiesProvider: entitiesCollector, taskProvider: taskCollector)
         previousSteps.append(step)
@@ -75,7 +75,7 @@ public extension StepAssembly where FC: Factory {
     ///
     /// - Parameter action: `ContainerAction` instance to be used with a step.
     final func using<A: ContainerAction>(_ action: A) -> ContainerStepChainAssembly<A.ViewController, ViewController, Context> {
-        var previousSteps = self.previousSteps
+        var previousSteps = previousSteps
         let entitiesCollector = BaseEntitiesCollector<FactoryBox<FC>, ContainerActionBox>(finder: finder, factory: factory, action: action)
         let step = BaseStep(entitiesProvider: entitiesCollector, taskProvider: taskCollector)
         previousSteps.append(step)
@@ -101,7 +101,7 @@ public extension StepAssembly where FC: ContainerFactory {
     ///
     /// - Parameter action: `Action` instance to be used with a step.
     final func using<A: Action>(_ action: A) -> StepChainAssembly<ViewController, Context> {
-        var previousSteps = self.previousSteps
+        var previousSteps = previousSteps
         let entitiesCollector = BaseEntitiesCollector<ContainerFactoryBox<FC>, ActionBox>(finder: finder, factory: factory, action: action)
         let step = BaseStep(entitiesProvider: entitiesCollector, taskProvider: taskCollector)
         previousSteps.append(step)
@@ -112,7 +112,7 @@ public extension StepAssembly where FC: ContainerFactory {
     ///
     /// - Parameter action: `ContainerAction` instance to be used with a step.
     final func using<A: ContainerAction>(_ action: A) -> ContainerStepChainAssembly<A.ViewController, ViewController, Context> {
-        var previousSteps = self.previousSteps
+        var previousSteps = previousSteps
         let entitiesCollector = BaseEntitiesCollector<ContainerFactoryBox<FC>, ContainerActionBox>(finder: finder, factory: factory, action: action)
         let step = BaseStep(entitiesProvider: entitiesCollector, taskProvider: taskCollector)
         previousSteps.append(step)
@@ -130,7 +130,7 @@ public extension StepAssembly where FC: Factory & NilEntity {
     ///
     /// - Parameter step: `ActionToStepIntegrator` instance to be used.
     final func from<VC: UIViewController>(_ step: ActionToStepIntegrator<VC, Context>) -> ActionConnectingAssembly<ViewController, Context> {
-        var previousSteps = self.previousSteps
+        var previousSteps = previousSteps
         let entitiesCollector = BaseEntitiesCollector<FactoryBox<FC>, ActionBox>(finder: finder, factory: factory, action: ViewControllerActions.NilAction())
         let currentStep = BaseStep(entitiesProvider: entitiesCollector, taskProvider: taskCollector)
         previousSteps.append(currentStep)
@@ -143,7 +143,7 @@ public extension StepAssembly where FC: Factory & NilEntity {
     ///
     /// - Parameter step: `DestinationStep` instance to be used.
     final func from<VC: UIViewController>(_ step: DestinationStep<VC, Context>) -> LastStepInChainAssembly<ViewController, Context> {
-        var previousSteps = self.previousSteps
+        var previousSteps = previousSteps
         let entitiesCollector = BaseEntitiesCollector<FactoryBox<FC>, ActionBox>(finder: finder, factory: factory, action: ViewControllerActions.NilAction())
         let currentStep = BaseStep(entitiesProvider: entitiesCollector, taskProvider: taskCollector)
         previousSteps.append(currentStep)
@@ -162,7 +162,7 @@ public extension StepAssembly where FC: ContainerFactory & NilEntity {
     ///
     /// - Parameter step: `ActionToStepIntegrator` instance to be used.
     final func from<VC: UIViewController>(_ step: ActionToStepIntegrator<VC, Context>) -> ActionConnectingAssembly<ViewController, Context> {
-        var previousSteps = self.previousSteps
+        var previousSteps = previousSteps
         let entitiesCollector = BaseEntitiesCollector<ContainerFactoryBox<FC>, ActionBox>(finder: finder, factory: factory, action: ViewControllerActions.NilAction())
         let currentStep = BaseStep(entitiesProvider: entitiesCollector, taskProvider: taskCollector)
         previousSteps.append(currentStep)
@@ -174,7 +174,7 @@ public extension StepAssembly where FC: ContainerFactory & NilEntity {
     ///
     /// - Parameter step: `DestinationStep` instance to be used.
     final func from<VC: UIViewController>(_ step: DestinationStep<VC, Context>) -> LastStepInChainAssembly<ViewController, Context> {
-        var previousSteps = self.previousSteps
+        var previousSteps = previousSteps
         let entitiesCollector = BaseEntitiesCollector<ContainerFactoryBox<FC>, ActionBox>(finder: finder, factory: factory, action: ViewControllerActions.NilAction())
         let currentStep = BaseStep(entitiesProvider: entitiesCollector, taskProvider: taskCollector)
         previousSteps.append(currentStep)

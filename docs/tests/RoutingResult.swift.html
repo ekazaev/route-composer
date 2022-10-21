@@ -7,9 +7,9 @@
 <body>
 <header><div class="row"><a href="index.html"><img src="logo.jpg" alt="Slather logo"></a></div></header><div class="row"><div id="reports">
 <h2 class="cov_title">
-<span>Coverage for "RoutingResult.swift" : </span><span class="cov_low">40.00%</span>
+<span>Coverage for "RoutingResult.swift" : </span><span class="cov_high">100.00%</span>
 </h2>
-<h4 class="cov_subtitle">(8 of 20 relevant lines covered)</h4>
+<h4 class="cov_subtitle">(20 of 20 relevant lines covered)</h4>
 <h4 class="cov_filepath">RouteComposer/Classes/RoutingResult.swift</h4>
 <table class="source_code">
 <tr class="never">
@@ -165,32 +165,32 @@
 <tr class="covered">
 <td class="num">31</td>
 <td class="src"><pre><code class="objc">    var isSuccessful: Bool {</code></pre></td>
-<td class="coverage">54x</td>
+<td class="coverage">601x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">32</td>
 <td class="src"><pre><code class="objc">        guard case .success = self else {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">601x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">33</td>
 <td class="src"><pre><code class="objc">            return false</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">34x</td>
 </tr>
 <tr class="covered">
 <td class="num">34</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">54x</td>
+<td class="coverage">567x</td>
 </tr>
 <tr class="covered">
 <td class="num">35</td>
 <td class="src"><pre><code class="objc">        return true</code></pre></td>
-<td class="coverage">54x</td>
+<td class="coverage">567x</td>
 </tr>
 <tr class="covered">
 <td class="num">36</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">54x</td>
+<td class="coverage">601x</td>
 </tr>
 <tr class="never">
 <td class="num">37</td>
@@ -202,45 +202,45 @@
 <td class="src"><pre><code class="objc">    /// Returns SDK's `Result` value.</code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">39</td>
 <td class="src"><pre><code class="objc">    var swiftResult: Result&lt;Void, Error&gt; {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">2x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">40</td>
 <td class="src"><pre><code class="objc">        switch self {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">2x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">41</td>
 <td class="src"><pre><code class="objc">        case .success:</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">2x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">42</td>
 <td class="src"><pre><code class="objc">            return .success(())</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">43</td>
 <td class="src"><pre><code class="objc">        case let .failure(error):</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">2x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">44</td>
 <td class="src"><pre><code class="objc">            return .failure(error)</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">45</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">2x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">46</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">2x</td>
 </tr>
 <tr class="never">
 <td class="num">47</td>
@@ -260,32 +260,32 @@
 <tr class="covered">
 <td class="num">50</td>
 <td class="src"><pre><code class="objc">    func getError() throws -&gt; Error {</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">100x</td>
 </tr>
 <tr class="covered">
 <td class="num">51</td>
 <td class="src"><pre><code class="objc">        guard case let .failure(error) = self else {</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">100x</td>
 </tr>
 <tr class="covered">
 <td class="num">52</td>
 <td class="src"><pre><code class="objc">            throw RoutingError.generic(.init("Navigation is successful"))</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">97x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">53</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">97x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">54</td>
 <td class="src"><pre><code class="objc">        return error</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">3x</td>
 </tr>
 <tr class="covered">
 <td class="num">55</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">100x</td>
 </tr>
 <tr class="never">
 <td class="num">56</td>

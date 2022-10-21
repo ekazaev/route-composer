@@ -22,7 +22,7 @@ public final class CompleteFactoryChainAssembly<FC: ContainerFactory, ChildVC: U
     private let previousChildFactory: PostponedIntegrationFactory<FC.Context>?
 
     private var integratedChildFactories: [PostponedIntegrationFactory<FC.Context>] {
-        var childFactories = self.childFactories
+        var childFactories = childFactories
         if let previousChildFactory = previousChildFactory {
             childFactories.append(previousChildFactory)
         }

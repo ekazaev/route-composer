@@ -269,7 +269,7 @@ class ShortUITests: XCTestCase {
         XCTAssertTrue(app.otherElements["productViewController+02"].waitForExistence(timeout: 3))
 
         app.buttons.matching(identifier: "Go to Product 01").element(boundBy: 0).tap()
-        XCTAssertTrue(app.otherElements["productViewController+01"].waitForExistence(timeout: 3))
+        XCTAssertTrue(app.otherElements["productViewController+01"].waitForExistence(timeout: 5))
 
         app.buttons["Go to next Product from Circle"].tap()
         XCTAssertTrue(app.otherElements["productViewController+02"].waitForExistence(timeout: 3))

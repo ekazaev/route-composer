@@ -7,9 +7,9 @@
 <body>
 <header><div class="row"><a href="index.html"><img src="logo.jpg" alt="Slather logo"></a></div></header><div class="row"><div id="reports">
 <h2 class="cov_title">
-<span>Coverage for "DestinationStep.swift" : </span><span class="cov_low">50.00%</span>
+<span>Coverage for "DestinationStep.swift" : </span><span class="cov_high">100.00%</span>
 </h2>
-<h4 class="cov_subtitle">(9 of 18 relevant lines covered)</h4>
+<h4 class="cov_subtitle">(18 of 18 relevant lines covered)</h4>
 <h4 class="cov_filepath">RouteComposer/Classes/DestinationStep.swift</h4>
 <table class="source_code">
 <tr class="never">
@@ -160,17 +160,17 @@
 <tr class="covered">
 <td class="num">30</td>
 <td class="src"><pre><code class="objc">    init(_ destinationStep: RoutingStep) {</code></pre></td>
-<td class="coverage">44x</td>
+<td class="coverage">389x</td>
 </tr>
 <tr class="covered">
 <td class="num">31</td>
 <td class="src"><pre><code class="objc">        self.destinationStep = destinationStep</code></pre></td>
-<td class="coverage">44x</td>
+<td class="coverage">389x</td>
 </tr>
 <tr class="covered">
 <td class="num">32</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">44x</td>
+<td class="coverage">389x</td>
 </tr>
 <tr class="never">
 <td class="num">33</td>
@@ -180,17 +180,17 @@
 <tr class="covered">
 <td class="num">34</td>
 <td class="src"><pre><code class="objc">    func getPreviousStep&lt;Context&gt;(with context: Context) -&gt; RoutingStep? {</code></pre></td>
-<td class="coverage">36x</td>
+<td class="coverage">351x</td>
 </tr>
 <tr class="covered">
 <td class="num">35</td>
 <td class="src"><pre><code class="objc">        destinationStep</code></pre></td>
-<td class="coverage">36x</td>
+<td class="coverage">351x</td>
 </tr>
 <tr class="covered">
 <td class="num">36</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">36x</td>
+<td class="coverage">351x</td>
 </tr>
 <tr class="never">
 <td class="num">37</td>
@@ -212,20 +212,20 @@
 <td class="src"><pre><code class="objc">    /// *NB:* Developer guaranties that this types will compliment in runtime.</code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">41</td>
 <td class="src"><pre><code class="objc">    public func unsafelyRewrapped&lt;VC: UIViewController, C&gt;() -&gt; DestinationStep&lt;VC, C&gt; {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">5x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">42</td>
 <td class="src"><pre><code class="objc">        DestinationStep&lt;VC, C&gt;(destinationStep)</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">5x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">43</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">5x</td>
 </tr>
 <tr class="never">
 <td class="num">44</td>
@@ -247,20 +247,20 @@
 <td class="src"><pre><code class="objc">    /// *NB:* Developer guaranties that it will be there in the runtime.</code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">48</td>
 <td class="src"><pre><code class="objc">    public func expectingContainer&lt;VC: ContainerViewController&gt;() -&gt; DestinationStep&lt;VC, Context&gt; {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">9x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">49</td>
 <td class="src"><pre><code class="objc">        DestinationStep&lt;VC, Context&gt;(destinationStep)</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">9x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">50</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">9x</td>
 </tr>
 <tr class="never">
 <td class="num">51</td>
@@ -325,17 +325,17 @@
 <tr class="covered">
 <td class="num">63</td>
 <td class="src"><pre><code class="objc">    func expectingContainer&lt;VC: ContainerViewController, C&gt;() -&gt; DestinationStep&lt;VC, C&gt; {</code></pre></td>
-<td class="coverage">3x</td>
+<td class="coverage">21x</td>
 </tr>
 <tr class="covered">
 <td class="num">64</td>
 <td class="src"><pre><code class="objc">        DestinationStep&lt;VC, C&gt;(destinationStep)</code></pre></td>
-<td class="coverage">3x</td>
+<td class="coverage">21x</td>
 </tr>
 <tr class="covered">
 <td class="num">65</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">3x</td>
+<td class="coverage">21x</td>
 </tr>
 <tr class="never">
 <td class="num">66</td>
@@ -352,20 +352,20 @@
 <td class="src"><pre><code class="objc">    /// with any type of context passed to the router.</code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">69</td>
 <td class="src"><pre><code class="objc">    func adaptingContext&lt;C&gt;() -&gt; DestinationStep&lt;ViewController, C&gt; {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">7x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">70</td>
 <td class="src"><pre><code class="objc">        DestinationStep&lt;ViewController, C&gt;(destinationStep)</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">7x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">71</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">7x</td>
 </tr>
 <tr class="never">
 <td class="num">72</td>

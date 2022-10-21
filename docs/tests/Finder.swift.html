@@ -7,9 +7,9 @@
 <body>
 <header><div class="row"><a href="index.html"><img src="logo.jpg" alt="Slather logo"></a></div></header><div class="row"><div id="reports">
 <h2 class="cov_title">
-<span>Coverage for "Finder.swift" : </span><span class="cov_low">42.11%</span>
+<span>Coverage for "Finder.swift" : </span><span class="cov_high">100.00%</span>
 </h2>
-<h4 class="cov_subtitle">(8 of 19 relevant lines covered)</h4>
+<h4 class="cov_subtitle">(19 of 19 relevant lines covered)</h4>
 <h4 class="cov_filepath">RouteComposer/Classes/Finder.swift</h4>
 <table class="source_code">
 <tr class="never">
@@ -230,37 +230,37 @@
 <tr class="covered">
 <td class="num">44</td>
 <td class="src"><pre><code class="objc">    func getViewController(with context: Context) -&gt; ViewController? {</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">21x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">45</td>
 <td class="src"><pre><code class="objc">        guard let viewController = try? findViewController(with: context) else {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">21x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">46</td>
 <td class="src"><pre><code class="objc">            return nil</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">8x</td>
 </tr>
 <tr class="covered">
 <td class="num">47</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">13x</td>
 </tr>
 <tr class="covered">
 <td class="num">48</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">13x</td>
 </tr>
 <tr class="covered">
 <td class="num">49</td>
 <td class="src"><pre><code class="objc">        return viewController</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">13x</td>
 </tr>
 <tr class="covered">
 <td class="num">50</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">21x</td>
 </tr>
 <tr class="never">
 <td class="num">51</td>
@@ -312,20 +312,20 @@
 <td class="src"><pre><code class="objc">    /// - Returns: The `UIViewController` instance that the `Router` is looking for, nil otherwise.</code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">61</td>
 <td class="src"><pre><code class="objc">    func findViewController() throws -&gt; ViewController? {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">62</td>
 <td class="src"><pre><code class="objc">        try findViewController(with: nil)</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">63</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="never">
 <td class="num">64</td>
@@ -355,17 +355,17 @@
 <tr class="covered">
 <td class="num">69</td>
 <td class="src"><pre><code class="objc">    func getViewController() -&gt; ViewController? {</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">15x</td>
 </tr>
 <tr class="covered">
 <td class="num">70</td>
 <td class="src"><pre><code class="objc">        getViewController(with: nil)</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">15x</td>
 </tr>
 <tr class="covered">
 <td class="num">71</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">15x</td>
 </tr>
 <tr class="never">
 <td class="num">72</td>
@@ -417,20 +417,20 @@
 <td class="src"><pre><code class="objc">    /// - Returns: The `UIViewController` instance that the `Router` is looking for, nil otherwise.</code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">82</td>
 <td class="src"><pre><code class="objc">    func findViewController() throws -&gt; ViewController? {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">2x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">83</td>
 <td class="src"><pre><code class="objc">        try findViewController(with: ())</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">2x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">84</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">2x</td>
 </tr>
 <tr class="never">
 <td class="num">85</td>
@@ -457,20 +457,20 @@
 <td class="src"><pre><code class="objc">    /// - Returns: The `UIViewController` instance that the `Router` is looking for, nil otherwise.</code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">90</td>
 <td class="src"><pre><code class="objc">    func getViewController() -&gt; ViewController? {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">91</td>
 <td class="src"><pre><code class="objc">        getViewController(with: ())</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">92</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="never">
 <td class="num">93</td>

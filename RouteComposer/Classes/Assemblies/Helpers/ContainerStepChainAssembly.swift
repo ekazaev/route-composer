@@ -34,7 +34,7 @@ public struct ContainerStepChainAssembly<AcceptableContainer: ContainerViewContr
     ///
     /// - Parameter previousStep: The instance of `DestinationStep`
     public func from(_ step: DestinationStep<AcceptableContainer, Context>) -> LastStepInChainAssembly<ViewController, Context> {
-        var previousSteps = self.previousSteps
+        var previousSteps = previousSteps
         previousSteps.append(step)
         return LastStepInChainAssembly(previousSteps: previousSteps)
     }
@@ -44,7 +44,7 @@ public struct ContainerStepChainAssembly<AcceptableContainer: ContainerViewContr
     /// - Parameter step: An instance of `DestinationStep` to build a current stack from.
     /// - Returns: An instance of `DestinationStep` with all the provided settings inside.
     public func assemble(from step: DestinationStep<AcceptableContainer, Context>) -> DestinationStep<ViewController, Context> {
-        var previousSteps = self.previousSteps
+        var previousSteps = previousSteps
         previousSteps.append(step)
         return LastStepInChainAssembly(previousSteps: previousSteps).assemble()
     }

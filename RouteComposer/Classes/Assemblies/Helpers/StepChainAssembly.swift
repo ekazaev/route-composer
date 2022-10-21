@@ -34,7 +34,7 @@ public struct StepChainAssembly<ViewController: UIViewController, Context> {
     ///
     /// - Parameter previousStep: The instance of `DestinationStep`
     public func from<VC: UIViewController>(_ step: DestinationStep<VC, Context>) -> LastStepInChainAssembly<ViewController, Context> {
-        var previousSteps = self.previousSteps
+        var previousSteps = previousSteps
         previousSteps.append(step)
         return LastStepInChainAssembly<ViewController, Context>(previousSteps: previousSteps)
     }
@@ -44,7 +44,7 @@ public struct StepChainAssembly<ViewController: UIViewController, Context> {
     /// - Parameter step: An instance of `DestinationStep` to start to build a current step from.
     /// - Returns: An instance of `DestinationStep` with all the provided settings inside.
     public func assemble<VC: UIViewController>(from step: DestinationStep<VC, Context>) -> DestinationStep<ViewController, Context> {
-        var previousSteps = self.previousSteps
+        var previousSteps = previousSteps
         previousSteps.append(step)
         return LastStepInChainAssembly<ViewController, Context>(previousSteps: previousSteps).assemble()
     }

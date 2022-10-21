@@ -7,9 +7,9 @@
 <body>
 <header><div class="row"><a href="index.html"><img src="logo.jpg" alt="Slather logo"></a></div></header><div class="row"><div id="reports">
 <h2 class="cov_title">
-<span>Coverage for "SimpleContainerFactory.swift" : </span><span class="cov_low">0.00%</span>
+<span>Coverage for "SimpleContainerFactory.swift" : </span><span class="cov_high">100.00%</span>
 </h2>
-<h4 class="cov_subtitle">(0 of 4 relevant lines covered)</h4>
+<h4 class="cov_subtitle">(4 of 4 relevant lines covered)</h4>
 <h4 class="cov_filepath">RouteComposer/Classes/Factories/SimpleContainerFactory.swift</h4>
 <table class="source_code">
 <tr class="never">
@@ -212,25 +212,25 @@
 <td class="src"><pre><code class="objc">    /// Default implementation of the `ContainerFactory`'s `build` method</code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">41</td>
 <td class="src"><pre><code class="objc">    func build(with context: Context, integrating coordinator: ChildCoordinator&lt;Context&gt;) throws -&gt; ViewController {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">42</td>
 <td class="src"><pre><code class="objc">        let viewControllers = try coordinator.build(with: context)</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">43</td>
 <td class="src"><pre><code class="objc">        return try build(with: context, integrating: viewControllers)</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">44</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="never">
 <td class="num">45</td>

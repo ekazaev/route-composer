@@ -7,9 +7,9 @@
 <body>
 <header><div class="row"><a href="index.html"><img src="logo.jpg" alt="Slather logo"></a></div></header><div class="row"><div id="reports">
 <h2 class="cov_title">
-<span>Coverage for "Router+Destination.swift" : </span><span class="cov_low">30.00%</span>
+<span>Coverage for "Router+Destination.swift" : </span><span class="cov_high">100.00%</span>
 </h2>
-<h4 class="cov_subtitle">(3 of 10 relevant lines covered)</h4>
+<h4 class="cov_subtitle">(10 of 10 relevant lines covered)</h4>
 <h4 class="cov_filepath">RouteComposer/Classes/Extra/Router+Destination.swift</h4>
 <table class="source_code">
 <tr class="never">
@@ -125,17 +125,17 @@
 <tr class="covered">
 <td class="num">23</td>
 <td class="src"><pre><code class="objc">    func navigate&lt;VC: UIViewController, C&gt;(to destination: Destination&lt;VC, C&gt;, animated: Bool = true, completion: ((_: RoutingResult) -&gt; Void)? = nil) throws {</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">26x</td>
 </tr>
 <tr class="covered">
 <td class="num">24</td>
 <td class="src"><pre><code class="objc">        try navigate(to: destination.step, with: destination.context, animated: animated, completion: completion)</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">26x</td>
 </tr>
 <tr class="covered">
 <td class="num">25</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">26x</td>
 </tr>
 <tr class="never">
 <td class="num">26</td>
@@ -177,40 +177,40 @@
 <td class="src"><pre><code class="objc">    ///   - completion: completion block.</code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">34</td>
 <td class="src"><pre><code class="objc">    func commitNavigation&lt;VC: UIViewController, C&gt;(to destination: Destination&lt;VC, C&gt;, animated: Bool = true, completion: ((_: RoutingResult) -&gt; Void)? = nil) {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">2x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">35</td>
 <td class="src"><pre><code class="objc">        do {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">2x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">36</td>
 <td class="src"><pre><code class="objc">            try navigate(to: destination, animated: animated, completion: completion)</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">2x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">37</td>
 <td class="src"><pre><code class="objc">        } catch {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">2x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">38</td>
 <td class="src"><pre><code class="objc">            completion?(.failure(error))</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">39</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">2x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">40</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">2x</td>
 </tr>
 <tr class="never">
 <td class="num">41</td>

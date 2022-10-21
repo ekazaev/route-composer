@@ -7,9 +7,9 @@
 <body>
 <header><div class="row"><a href="index.html"><img src="logo.jpg" alt="Slather logo"></a></div></header><div class="row"><div id="reports">
 <h2 class="cov_title">
-<span>Coverage for "TabBarControllerFactory.swift" : </span><span class="cov_low">0.00%</span>
+<span>Coverage for "TabBarControllerFactory.swift" : </span><span class="cov_high">100.00%</span>
 </h2>
-<h4 class="cov_subtitle">(0 of 19 relevant lines covered)</h4>
+<h4 class="cov_subtitle">(19 of 19 relevant lines covered)</h4>
 <h4 class="cov_filepath">RouteComposer/Classes/Factories/TabBarControllerFactory.swift</h4>
 <table class="source_code">
 <tr class="never">
@@ -217,105 +217,105 @@
 <td class="src"><pre><code class="objc">                delegate: UITabBarControllerDelegate? = nil,</code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">42</td>
 <td class="src"><pre><code class="objc">                configuration: ((_: VC) -&gt; Void)? = nil) {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">22x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">43</td>
 <td class="src"><pre><code class="objc">        self.nibName = nibNameOrNil</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">22x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">44</td>
 <td class="src"><pre><code class="objc">        self.bundle = nibBundleOrNil</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">22x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">45</td>
 <td class="src"><pre><code class="objc">        self.delegate = delegate</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">22x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">46</td>
 <td class="src"><pre><code class="objc">        self.configuration = configuration</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">22x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">47</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">22x</td>
 </tr>
 <tr class="never">
 <td class="num">48</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">49</td>
 <td class="src"><pre><code class="objc">    public func build(with context: C, integrating coordinator: ChildCoordinator&lt;C&gt;) throws -&gt; VC {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">15x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">50</td>
 <td class="src"><pre><code class="objc">        let tabBarController = VC(nibName: nibName, bundle: bundle)</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">15x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">51</td>
 <td class="src"><pre><code class="objc">        if let delegate = delegate {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">15x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">52</td>
 <td class="src"><pre><code class="objc">            tabBarController.delegate = delegate</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">53</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">15x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">54</td>
 <td class="src"><pre><code class="objc">        if !coordinator.isEmpty {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">15x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">55</td>
 <td class="src"><pre><code class="objc">            tabBarController.viewControllers = try coordinator.build(with: context, integrating: tabBarController.viewControllers ?? [])</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">15x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">56</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">15x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">57</td>
 <td class="src"><pre><code class="objc">        if let configuration = configuration {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">15x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">58</td>
 <td class="src"><pre><code class="objc">            configuration(tabBarController)</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">59</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">15x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">60</td>
 <td class="src"><pre><code class="objc">        return tabBarController</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">15x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">61</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">15x</td>
 </tr>
 <tr class="never">
 <td class="num">62</td>

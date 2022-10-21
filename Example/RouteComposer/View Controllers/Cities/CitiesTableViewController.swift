@@ -67,7 +67,7 @@ class CitiesTableViewController: UITableViewController, ExampleAnalyticsSupport 
 
     @IBAction func goToProductTapped() {
         // This is just for demo purposes and to test the last configuration in `ProductConfiguration`
-        let router = self.router
+        let router = router
         try? router.navigate(to: ConfigurationHolder.configuration.welcomeScreen, animated: true) { _ in
             UIApplication.shared.beginIgnoringInteractionEvents()
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(1 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)) {
