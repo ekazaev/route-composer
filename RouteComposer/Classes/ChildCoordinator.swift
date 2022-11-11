@@ -15,7 +15,7 @@ public struct ChildCoordinator {
 
     // MARK: Properties
 
-    var childFactories: [(factory: PostponedIntegrationFactory, context: Any?)]
+    var childFactories: [(factory: PostponedIntegrationFactory, context: AnyContext)]
 
     /// Returns `true` if the coordinator contains child factories to build
     public var isEmpty: Bool {
@@ -24,7 +24,7 @@ public struct ChildCoordinator {
 
     // MARK: Methods
 
-    init(childFactories: [(factory: PostponedIntegrationFactory, context: Any?)]) {
+    init(childFactories: [(factory: PostponedIntegrationFactory, context: AnyContext)]) {
         self.childFactories = childFactories
     }
 

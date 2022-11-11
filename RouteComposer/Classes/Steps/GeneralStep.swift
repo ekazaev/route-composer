@@ -59,7 +59,7 @@ public enum GeneralStep {
             self.finder = FinderBox(finder)
         }
 
-        func perform<Context>(with context: Context) throws -> PerformableStepResult {
+        func perform(with context: AnyContext) throws -> PerformableStepResult {
             guard let viewController = try finder?.findViewController(with: context) else {
                 throw RoutingError.compositionFailed(.init("A view controller of \(String(describing: finder)) was not found."))
             }

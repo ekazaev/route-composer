@@ -18,7 +18,7 @@ struct ContainerFactoryBox<F: ContainerFactory>: PreparableAnyFactory, AnyFactor
 
     let action: AnyAction
 
-    var children: [(factory: PostponedIntegrationFactory, context: Any?)] = []
+    var children: [(factory: PostponedIntegrationFactory, context: AnyContext)] = []
 
     var isPrepared = false
 
@@ -30,10 +30,10 @@ struct ContainerFactoryBox<F: ContainerFactory>: PreparableAnyFactory, AnyFactor
         self.action = action
     }
 
-    mutating func scrapeChildren(from factories: [(factory: AnyFactory, context: Any?)]) throws -> [(factory: AnyFactory, context: Any?)] {
-        var otherFactories: [(factory: AnyFactory, context: Any?)] = []
+    mutating func scrapeChildren(from factories: [(factory: AnyFactory, context: AnyContext)]) throws -> [(factory: AnyFactory, context: AnyContext)] {
+        var otherFactories: [(factory: AnyFactory, context: AnyContext)] = []
         var isNonEmbeddableFound = false
-        children = factories.compactMap { child -> (factory: PostponedIntegrationFactory, context: Any?)? in
+        children = factories.compactMap { child -> (factory: PostponedIntegrationFactory, context: AnyContext)? in
             guard !isNonEmbeddableFound, child.factory.action.isEmbeddable(to: FactoryType.ViewController.self) else {
                 otherFactories.append(child)
                 isNonEmbeddableFound = true
@@ -44,12 +44,8 @@ struct ContainerFactoryBox<F: ContainerFactory>: PreparableAnyFactory, AnyFactor
         return otherFactories
     }
 
-    func build(with context: Any?) throws -> UIViewController {
-        guard let typedContext = Any?.some(context as Any) as? FactoryType.Context else {
-            throw RoutingError.typeMismatch(type: type(of: context),
-                                            expectedType: FactoryType.Context.self,
-                                            .init("\(String(describing: factory.self)) does not accept \(String(describing: context.self)) as a context."))
-        }
+    func build(with context: AnyContext) throws -> UIViewController {
+        let typedContext: FactoryType.Context = try context.value()
         assertIfNotMainThread()
         assertIfNotPrepared()
         return try factory.build(with: typedContext, integrating: ChildCoordinator(childFactories: children))

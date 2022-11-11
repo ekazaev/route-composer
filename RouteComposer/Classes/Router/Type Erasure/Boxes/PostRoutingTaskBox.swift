@@ -19,18 +19,14 @@ struct PostRoutingTaskBox<PT: PostRoutingTask>: AnyPostRoutingTask, MainThreadCh
     }
 
     func perform(on viewController: UIViewController,
-                          with context: Any?,
+                          with context: AnyContext,
                           routingStack: [UIViewController]) throws {
         guard let typedViewController = viewController as? PT.ViewController else {
             throw RoutingError.typeMismatch(type: type(of: viewController),
                                             expectedType: PT.ViewController.self,
                                             .init("\(String(describing: postRoutingTask.self)) does not support \(String(describing: viewController.self))."))
         }
-        guard let typedDestination = Any?.some(context as Any) as? PT.Context else {
-            throw RoutingError.typeMismatch(type: type(of: context),
-                                            expectedType: PT.Context.self,
-                                            .init("\(String(describing: postRoutingTask.self)) does not accept \(String(describing: context.self)) as a context."))
-        }
+        let typedDestination: PT.Context = try context.value()
         assertIfNotMainThread()
         postRoutingTask.perform(on: typedViewController, with: typedDestination, routingStack: routingStack)
     }

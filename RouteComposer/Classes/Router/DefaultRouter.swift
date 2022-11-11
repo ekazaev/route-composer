@@ -9,14 +9,14 @@
 
 import UIKit
 
-public protocol AnyContext {
+protocol AnyContext {
     func value<Context>() throws -> Context
 }
 
 struct AnyContextBox<C>: AnyContext {
     let context: C
 
-    init(context: C) {
+    init(_ context: C) {
         self.context = context
     }
 
@@ -118,6 +118,7 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
     // MARK: Private Methods
 
     private func prepareTaskStack<Context>(with context: Context) throws -> GlobalTaskRunner {
+        let context = AnyContextBox(context)
         let interceptorRunner = try InterceptorRunner(interceptors: interceptors, with: context)
         let contextTaskRunner = try ContextTaskRunner(contextTasks: contextTasks, with: context)
         let postponedTaskRunner = PostponedTaskRunner()
@@ -126,12 +127,12 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
     }
 
     private func prepareFactoriesStack<Context>(to finalStep: RoutingStep, with context: Context, taskStack: GlobalTaskRunner) throws -> (rootViewController: UIViewController,
-                                                                                                                                          factories: [(factory: AnyFactory, context: Any?)]) {
+                                                                                                                                          factories: [(factory: AnyFactory, context: AnyContext)]) {
         logger?.log(.info("Started to search for the view controller to start the navigation process from."))
-        var context: Any? = context
+        var context: AnyContext = AnyContextBox(context)
         let stepSequence = sequence(first: finalStep, next: { ($0 as? ChainableStep)?.getPreviousStep(with: context) }).compactMap ({ $0 as? PerformableStep })
 
-        let result = try stepSequence.reduce((rootViewController: UIViewController?, factories: [(factory: AnyFactory, context: Any?)])(rootViewController: nil, factories: [])) { result, step in
+        let result = try stepSequence.reduce((rootViewController: UIViewController?, factories: [(factory: AnyFactory, context: AnyContext)])(rootViewController: nil, factories: [])) { result, step in
                         guard result.rootViewController == nil else {
                             return result
                         }
@@ -170,7 +171,7 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
                             factories.insert((factory: factory, context: context), at: 0)
                             return (rootViewController: result.rootViewController, factories: factories)
                         case let .updateContext(newContext):
-                            context = newContext
+                            context = AnyContextBox(newContext)
                             return result
                         case .none:
                             logger?.log(.info("\(String(describing: step)) hasn't found a corresponding view " +
@@ -188,7 +189,7 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
     }
 
     private func startNavigation(from viewController: UIViewController,
-                                          building factoriesStack: [(factory: AnyFactory, context: Any?)],
+                                          building factoriesStack: [(factory: AnyFactory, context: AnyContext)],
                                           performing taskStack: GlobalTaskRunner,
                                           animated: Bool,
                                           completion: @escaping (RoutingResult) -> Void) {
@@ -242,7 +243,7 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
     // Some actions can be asynchronous, like push, modal or presentations,
     // so it performs them asynchronously
     private func buildViewControllerStack(starting rootViewController: UIViewController,
-                                                   using factories: [(factory: AnyFactory, context: Any?)],
+                                                   using factories: [(factory: AnyFactory, context: AnyContext)],
                                                    animated: Bool,
                                                    completion: @escaping (RoutingResult) -> Void) {
         var factories = factories

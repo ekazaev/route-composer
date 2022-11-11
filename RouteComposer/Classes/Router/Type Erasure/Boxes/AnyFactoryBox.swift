@@ -27,7 +27,7 @@ protocol PreparableAnyFactory: AnyFactory, PreparableEntity {
 
 extension AnyFactoryBox {
 
-    mutating func scrapeChildren(from factories: [(factory: AnyFactory, context: Any?)]) throws -> [(factory: AnyFactory, context: Any?)] {
+    mutating func scrapeChildren(from factories: [(factory: AnyFactory, context: AnyContext)]) throws -> [(factory: AnyFactory, context: AnyContext)] {
         factories
     }
 
@@ -35,13 +35,9 @@ extension AnyFactoryBox {
 
 extension AnyFactoryBox where Self: PreparableAnyFactory, Self: MainThreadChecking {
 
-    mutating func prepare<Context>(with context: Context) throws {
+    mutating func prepare(with context: AnyContext) throws {
         assertIfNotMainThread()
-        guard let typedContext = Any?.some(context as Any) as? FactoryType.Context else {
-            throw RoutingError.typeMismatch(type: type(of: context),
-                                            expectedType: FactoryType.Context.self,
-                                            .init("\(String(describing: factory.self)) does not accept \(String(describing: context.self)) as a context."))
-        }
+        let typedContext: FactoryType.Context = try context.value()
         try factory.prepare(with: typedContext)
         isPrepared = true
     }

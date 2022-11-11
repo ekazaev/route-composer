@@ -25,7 +25,7 @@ struct PostponedIntegrationFactory: CustomStringConvertible {
         contextTasks.append(contextTask)
     }
 
-    mutating func prepare(with context: Any?) throws {
+    mutating func prepare(with context: AnyContext) throws {
         try factory.prepare(with: context)
         contextTasks = try contextTasks.map {
             var contextTask = $0
@@ -34,7 +34,7 @@ struct PostponedIntegrationFactory: CustomStringConvertible {
         }
     }
 
-    func build(with context: Any?, in childViewControllers: inout [UIViewController]) throws {
+    func build(with context: AnyContext, in childViewControllers: inout [UIViewController]) throws {
         let viewController = try factory.build(with: context)
         try contextTasks.forEach { try $0.perform(on: viewController, with: context) }
         try factory.action.perform(embedding: viewController, in: &childViewControllers)

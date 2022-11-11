@@ -14,10 +14,10 @@ protocol AnyFactory {
 
     var action: AnyAction { get }
 
-    mutating func prepare(with context: Any?) throws
+    mutating func prepare(with context: AnyContext) throws
 
-    func build(with context: Any?) throws -> UIViewController
+    func build(with context: AnyContext) throws -> UIViewController
 
-    mutating func scrapeChildren(from factories: [(factory: AnyFactory, context: Any?)]) throws -> [(factory: AnyFactory, context: Any?)]
+    mutating func scrapeChildren(from factories: [(factory: AnyFactory, context: AnyContext)]) throws -> [(factory: AnyFactory, context: AnyContext)]
 
 }

@@ -14,9 +14,9 @@ extension DefaultRouter {
 
     struct InterceptorRunner {
 
-        private var interceptors: [(interceptor: AnyRoutingInterceptor, context: Any?)]
+        private var interceptors: [(interceptor: AnyRoutingInterceptor, context: AnyContext)]
 
-        init(interceptors: [AnyRoutingInterceptor], with context: Any?) throws {
+        init(interceptors: [AnyRoutingInterceptor], with context: AnyContext) throws {
             self.interceptors = try interceptors.map {
                 var interceptor = $0
                 try interceptor.prepare(with: context)
@@ -24,7 +24,7 @@ extension DefaultRouter {
             }
         }
 
-        mutating func add(_ interceptor: AnyRoutingInterceptor, with context: Any?) throws {
+        mutating func add(_ interceptor: AnyRoutingInterceptor, with context: AnyContext) throws {
             var interceptor = interceptor
             try interceptor.prepare(with: context)
             interceptors.append((interceptor: interceptor, context: context))
@@ -38,7 +38,7 @@ extension DefaultRouter {
 
             var interceptors = interceptors
 
-            func runInterceptor(interceptor: (interceptor: AnyRoutingInterceptor, context: Any?)) {
+            func runInterceptor(interceptor: (interceptor: AnyRoutingInterceptor, context: AnyContext)) {
                 interceptor.interceptor.perform(with: interceptor.context) { result in
                     if case .failure = result {
                         completion(result)
@@ -59,7 +59,7 @@ extension DefaultRouter {
 
         var contextTasks: [AnyContextTask]
 
-        init(contextTasks: [AnyContextTask], with context: Any?) throws {
+        init(contextTasks: [AnyContextTask], with context: AnyContext) throws {
             self.contextTasks = try contextTasks.map {
                 var contextTask = $0
                 try contextTask.prepare(with: context)
@@ -67,13 +67,13 @@ extension DefaultRouter {
             }
         }
 
-        mutating func add(_ contextTask: AnyContextTask, with context: Any?) throws {
+        mutating func add(_ contextTask: AnyContextTask, with context: AnyContext) throws {
             var contextTask = contextTask
             try contextTask.prepare(with: context)
             contextTasks.append(contextTask)
         }
 
-        func perform(on viewController: UIViewController, with context: Any?) throws {
+        func perform(on viewController: UIViewController, with context: AnyContext) throws {
             try contextTasks.forEach {
                 try $0.perform(on: viewController, with: context)
             }
@@ -96,7 +96,7 @@ extension DefaultRouter {
             postTasks.append(postTask)
         }
 
-        func perform(on viewController: UIViewController, with context: Any?) throws {
+        func perform(on viewController: UIViewController, with context: AnyContext) throws {
             postponedRunner.add(postTasks: postTasks, to: viewController, context: context)
         }
 
@@ -112,9 +112,9 @@ extension DefaultRouter {
 
         private let postTaskRunner: PostTaskRunner
 
-        private let context: Any?
+        private let context: AnyContext
 
-        init(contextTaskRunner: ContextTaskRunner, postTaskRunner: PostTaskRunner, context: Any?) {
+        init(contextTaskRunner: ContextTaskRunner, postTaskRunner: PostTaskRunner, context: AnyContext) {
             self.contextTaskRunner = contextTaskRunner
             self.postTaskRunner = postTaskRunner
             self.context = context
@@ -143,13 +143,13 @@ extension DefaultRouter {
         // store a reference there.
         private struct EmptyPostTask: AnyPostRoutingTask {
 
-            func perform(on viewController: UIViewController, with context: Any?, routingStack: [UIViewController]) {}
+            func perform(on viewController: UIViewController, with context: AnyContext, routingStack: [UIViewController]) {}
 
         }
 
-        private final var taskSlips: [(postTaksSlip: PostTaskSlip, context: Any?)] = []
+        private final var taskSlips: [(postTaksSlip: PostTaskSlip, context: AnyContext)] = []
 
-        final func add(postTasks: [AnyPostRoutingTask], to viewController: UIViewController, context: Any?) {
+        final func add(postTasks: [AnyPostRoutingTask], to viewController: UIViewController, context: AnyContext) {
             guard !postTasks.isEmpty else {
                 let postTaskSlip = PostTaskSlip(viewController: viewController, postTask: EmptyPostTask())
                 taskSlips.append((postTaksSlip: postTaskSlip, context: context))
@@ -194,7 +194,7 @@ extension DefaultRouter {
             self.postTaskRunner = postTaskRunner
         }
 
-        final func taskRunner(for step: PerformableStep?, with context: Any?) throws -> StepTaskTaskRunner {
+        final func taskRunner(for step: PerformableStep?, with context: AnyContext) throws -> StepTaskTaskRunner {
             guard let interceptableStep = step as? InterceptableStep else {
                 return StepTaskTaskRunner(contextTaskRunner: self.contextTaskRunner, postTaskRunner: self.postTaskRunner, context: context)
             }
@@ -240,17 +240,17 @@ extension DefaultRouter {
             self.stepTaskRunner = stepTaskRunner
         }
 
-        mutating func prepare(with context: Any?) throws {
+        mutating func prepare(with context: AnyContext) throws {
             try factory.prepare(with: context)
         }
 
-        func build(with context: Any?) throws -> UIViewController {
+        func build(with context: AnyContext) throws -> UIViewController {
             let viewController = try factory.build(with: context)
             try stepTaskRunner.perform(on: viewController)
             return viewController
         }
 
-        mutating func scrapeChildren(from factories: [(factory: AnyFactory, context: Any?)]) throws -> [(factory: AnyFactory, context: Any?)] {
+        mutating func scrapeChildren(from factories: [(factory: AnyFactory, context: AnyContext)]) throws -> [(factory: AnyFactory, context: AnyContext)] {
             try factory.scrapeChildren(from: factories)
         }
 

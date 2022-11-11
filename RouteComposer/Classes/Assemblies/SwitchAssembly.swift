@@ -48,8 +48,8 @@ public final class SwitchAssembly<ViewController: UIViewController, Context> {
             self.resolverBlock = resolverBlock
         }
 
-        func resolve(with context: Any?) -> RoutingStep? {
-            guard let typedContext = context as? Context else {
+        func resolve(with context: AnyContext) -> RoutingStep? {
+            guard let typedContext = try? context.value() as Context else {
                 return nil
             }
             return resolverBlock(typedContext)
@@ -67,7 +67,7 @@ public final class SwitchAssembly<ViewController: UIViewController, Context> {
             self.finder = FinderBox(finder)
         }
 
-        func resolve(with context: Any?) -> RoutingStep? {
+        func resolve(with context: AnyContext) -> RoutingStep? {
             guard (try? finder?.findViewController(with: context)) != nil else {
                 return nil
             }

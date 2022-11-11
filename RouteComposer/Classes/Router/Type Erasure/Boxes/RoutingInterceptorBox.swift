@@ -19,31 +19,25 @@ struct RoutingInterceptorBox<RI: RoutingInterceptor>: AnyRoutingInterceptor, Pre
         self.routingInterceptor = routingInterceptor
     }
 
-    mutating func prepare(with context: Any?) throws {
-        guard let typedDestination = Any?.some(context as Any) as? RI.Context else {
-            throw RoutingError.typeMismatch(type: type(of: context),
-                                            expectedType: RI.Context.self,
-                                            .init("\(String(describing: routingInterceptor.self)) does not accept \(String(describing: context.self)) as a context."))
-        }
-
+    mutating func prepare(with context: AnyContext) throws {
+        let typedDestination: RI.Context = try context.value()
         try routingInterceptor.prepare(with: typedDestination)
         isPrepared = true
     }
 
-    func perform(with context: Any?, completion: @escaping (RoutingResult) -> Void) {
-        guard let typedDestination = Any?.some(context as Any) as? RI.Context else {
-            completion(.failure(RoutingError.typeMismatch(type: type(of: context),
-                                                          expectedType: RI.Context.self,
-                                                          .init("\(String(describing: routingInterceptor.self)) " +
-                                                              "does not accept \(String(describing: context.self)) as a context."))))
-            return
+    func perform(with context: AnyContext, completion: @escaping (RoutingResult) -> Void) {
+        do {
+            let typedContext: RI.Context = try context.value()
+            assertIfNotPrepared()
+            assertIfNotMainThread()
+            routingInterceptor.perform(with: typedContext) { result in
+                self.assertIfNotMainThread()
+                completion(result)
+            }
+        } catch {
+            completion(.failure(error))
         }
-        assertIfNotPrepared()
-        assertIfNotMainThread()
-        routingInterceptor.perform(with: typedDestination) { result in
-            self.assertIfNotMainThread()
-            completion(result)
-        }
+
     }
 
     var description: String {

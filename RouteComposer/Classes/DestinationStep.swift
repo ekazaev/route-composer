@@ -54,16 +54,12 @@ public struct DestinationStep<VC: UIViewController, C>: RoutingStep, ChainableSt
             self.previousStep = previousStep
         }
 
-        func getPreviousStep(with context: Any?) -> RoutingStep? {
+        func getPreviousStep(with context: AnyContext) -> RoutingStep? {
             return previousStep
         }
 
-        func perform(with context: Any?) throws -> PerformableStepResult {
-            guard let typedContext = Any?.some(context as Any) as? SourceContext else {
-                throw RoutingError.typeMismatch(type: type(of: context),
-                        expectedType: SourceContext.self,
-                        .init("\(String(describing: C.self)) can not be converted to \(String(describing: SourceContext.self))."))
-            }
+        func perform(with context: AnyContext) throws -> PerformableStepResult {
+            let typedContext: SourceContext = try context.value()
             let newContext = block(typedContext)
             return .updateContext(newContext)
         }
