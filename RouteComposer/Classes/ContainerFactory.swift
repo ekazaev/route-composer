@@ -35,7 +35,7 @@ public protocol ContainerFactory: AbstractFactory where ViewController: Containe
     ///   - coordinator: A `ChildCoordinator` instance.
     /// - Returns: The built `UIViewController` instance with the children view controller inside.
     /// - Throws: The `RoutingError` if build did not succeed.
-    func build(with context: Context, integrating coordinator: ChildCoordinator<Context>) throws -> ViewController
+    func build(with context: Context, integrating coordinator: ChildCoordinator) throws -> ViewController
 
 }
 

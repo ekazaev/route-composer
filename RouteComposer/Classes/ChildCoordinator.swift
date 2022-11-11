@@ -11,11 +11,11 @@ import Foundation
 import UIKit
 
 /// Helps to build a child view controller stack
-public struct ChildCoordinator<Context> {
+public struct ChildCoordinator {
 
     // MARK: Properties
 
-    var childFactories: [PostponedIntegrationFactory<Context>]
+    var childFactories: [(factory: PostponedIntegrationFactory, context: Any?)]
 
     /// Returns `true` if the coordinator contains child factories to build
     public var isEmpty: Bool {
@@ -24,20 +24,19 @@ public struct ChildCoordinator<Context> {
 
     // MARK: Methods
 
-    init(childFactories: [PostponedIntegrationFactory<Context>]) {
+    init(childFactories: [(factory: PostponedIntegrationFactory, context: Any?)]) {
         self.childFactories = childFactories
     }
 
     /// Builds child view controller stack with the context instance provided.
     ///
     /// - Parameters:
-    ///   - context: A `Context` instance that is provided to the `Router`.
     ///   - existingViewControllers: Current view controller stack of the container.
     /// - Returns: Built child view controller stack
-    public func build(with context: Context, integrating existingViewControllers: [UIViewController] = []) throws -> [UIViewController] {
+    public func build(integrating existingViewControllers: [UIViewController] = []) throws -> [UIViewController] {
         var childrenViewControllers = existingViewControllers
         for factory in childFactories {
-            try factory.build(with: context, in: &childrenViewControllers)
+            try factory.factory.build(with: factory.context, in: &childrenViewControllers)
         }
         return childrenViewControllers
     }

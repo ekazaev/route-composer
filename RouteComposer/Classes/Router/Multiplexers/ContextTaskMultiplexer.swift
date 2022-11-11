@@ -18,7 +18,7 @@ struct ContextTaskMultiplexer: AnyContextTask, CustomStringConvertible {
         self.tasks = tasks
     }
 
-    mutating func prepare<Context>(with context: Context) throws {
+    mutating func prepare(with context: Any?) throws {
         tasks = try tasks.map {
             var contextTask = $0
             try contextTask.prepare(with: context)
@@ -26,7 +26,7 @@ struct ContextTaskMultiplexer: AnyContextTask, CustomStringConvertible {
         }
     }
 
-    func perform<Context>(on viewController: UIViewController, with context: Context) throws {
+    func perform(on viewController: UIViewController, with context: Any?) throws {
         try tasks.forEach { try $0.perform(on: viewController, with: context) }
     }
 

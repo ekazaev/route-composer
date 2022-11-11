@@ -19,7 +19,7 @@ struct RoutingInterceptorBox<RI: RoutingInterceptor>: AnyRoutingInterceptor, Pre
         self.routingInterceptor = routingInterceptor
     }
 
-    mutating func prepare<Context>(with context: Context) throws {
+    mutating func prepare(with context: Any?) throws {
         guard let typedDestination = Any?.some(context as Any) as? RI.Context else {
             throw RoutingError.typeMismatch(type: type(of: context),
                                             expectedType: RI.Context.self,
@@ -30,7 +30,7 @@ struct RoutingInterceptorBox<RI: RoutingInterceptor>: AnyRoutingInterceptor, Pre
         isPrepared = true
     }
 
-    func perform<Context>(with context: Context, completion: @escaping (RoutingResult) -> Void) {
+    func perform(with context: Any?, completion: @escaping (RoutingResult) -> Void) {
         guard let typedDestination = Any?.some(context as Any) as? RI.Context else {
             completion(.failure(RoutingError.typeMismatch(type: type(of: context),
                                                           expectedType: RI.Context.self,

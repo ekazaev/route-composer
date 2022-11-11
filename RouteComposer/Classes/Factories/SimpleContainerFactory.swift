@@ -38,8 +38,8 @@ public protocol SimpleContainerFactory: ContainerFactory {
 public extension SimpleContainerFactory {
 
     /// Default implementation of the `ContainerFactory`'s `build` method
-    func build(with context: Context, integrating coordinator: ChildCoordinator<Context>) throws -> ViewController {
-        let viewControllers = try coordinator.build(with: context)
+    func build(with context: Context, integrating coordinator: ChildCoordinator) throws -> ViewController {
+        let viewControllers = try coordinator.build()
         return try build(with: context, integrating: viewControllers)
     }
 

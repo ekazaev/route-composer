@@ -21,7 +21,7 @@ struct FinderBox<F: Finder>: AnyFinder, CustomStringConvertible {
         self.finder = finder
     }
 
-    func findViewController<Context>(with context: Context) throws -> UIViewController? {
+    func findViewController(with context: Any?) throws -> UIViewController? {
         guard let typedContext = Any?.some(context as Any) as? F.Context else {
             throw RoutingError.typeMismatch(type: type(of: context),
                                             expectedType: F.Context.self,

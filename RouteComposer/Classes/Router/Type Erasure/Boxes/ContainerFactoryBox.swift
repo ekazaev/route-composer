@@ -18,7 +18,7 @@ struct ContainerFactoryBox<F: ContainerFactory>: PreparableAnyFactory, AnyFactor
 
     let action: AnyAction
 
-    var children: [PostponedIntegrationFactory<FactoryType.Context>] = []
+    var children: [(factory: PostponedIntegrationFactory, context: Any?)] = []
 
     var isPrepared = false
 
@@ -30,21 +30,21 @@ struct ContainerFactoryBox<F: ContainerFactory>: PreparableAnyFactory, AnyFactor
         self.action = action
     }
 
-    mutating func scrapeChildren(from factories: [AnyFactory]) throws -> [AnyFactory] {
-        var otherFactories: [AnyFactory] = []
+    mutating func scrapeChildren(from factories: [(factory: AnyFactory, context: Any?)]) throws -> [(factory: AnyFactory, context: Any?)] {
+        var otherFactories: [(factory: AnyFactory, context: Any?)] = []
         var isNonEmbeddableFound = false
-        children = factories.compactMap { child -> PostponedIntegrationFactory<FactoryType.Context>? in
-            guard !isNonEmbeddableFound, child.action.isEmbeddable(to: FactoryType.ViewController.self) else {
+        children = factories.compactMap { child -> (factory: PostponedIntegrationFactory, context: Any?)? in
+            guard !isNonEmbeddableFound, child.factory.action.isEmbeddable(to: FactoryType.ViewController.self) else {
                 otherFactories.append(child)
                 isNonEmbeddableFound = true
                 return nil
             }
-            return PostponedIntegrationFactory(for: child)
+            return (factory: PostponedIntegrationFactory(for: child.factory), context: child.context)
         }
         return otherFactories
     }
 
-    func build<Context>(with context: Context) throws -> UIViewController {
+    func build(with context: Any?) throws -> UIViewController {
         guard let typedContext = Any?.some(context as Any) as? FactoryType.Context else {
             throw RoutingError.typeMismatch(type: type(of: context),
                                             expectedType: FactoryType.Context.self,

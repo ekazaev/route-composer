@@ -12,6 +12,8 @@ import UIKit
 
 enum PerformableStepResult {
 
+    case updateContext(Any?)
+
     case success(UIViewController)
 
     case build(AnyFactory)

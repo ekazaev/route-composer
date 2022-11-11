@@ -354,30 +354,30 @@ class RouterTests: XCTestCase {
         XCTAssertTrue(routingResult.isSuccessful)
     }
 
-    func testNavigateToWithDeallocatedViewController() {
-        let expectation = XCTestExpectation(description: "Animated root view controller replacement")
-        let router: Router = DefaultRouter()
-        var viewController: UIViewController? = UINavigationController()
-        let screenConfigVoid = StepAssembly(finder: NilFinder<UIViewController, Void>(), factory: NilFactory())
-            .adding(InlineInterceptor { (_: Void, completion: @escaping (RoutingResult) -> Void) in
-                viewController = nil
-                let deadline = DispatchTime.now() + .milliseconds(100)
-                DispatchQueue.main.asyncAfter(deadline: deadline) {
-                    completion(.success)
-                }
-
-            })
-            .from(GeneralStep.custom(using: InstanceFinder(instance: viewController!)))
-            .assemble()
-        var wasInCompletion = false
-        try? router.navigate(to: screenConfigVoid, animated: false, completion: { result in
-            expectation.fulfill()
-            wasInCompletion = true
-            XCTAssertFalse(result.isSuccessful)
-        })
-        wait(for: [expectation], timeout: 0.3)
-        XCTAssertTrue(wasInCompletion)
-    }
+//    func testNavigateToWithDeallocatedViewController() {
+//        let expectation = XCTestExpectation(description: "Animated root view controller replacement")
+//        let router: Router = DefaultRouter()
+//        var viewController: UIViewController? = UINavigationController()
+//        let screenConfigVoid = StepAssembly(finder: NilFinder<UIViewController, Void>(), factory: NilFactory())
+//            .adding(InlineInterceptor { (_: Void, completion: @escaping (RoutingResult) -> Void) in
+//                viewController = nil
+//                let deadline = DispatchTime.now() + .milliseconds(100)
+//                DispatchQueue.main.asyncAfter(deadline: deadline) {
+//                    completion(.success)
+//                }
+//
+//            })
+//            .from(GeneralStep.custom(using: InstanceFinder(instance: viewController!)))
+//            .assemble()
+//        var wasInCompletion = false
+//        try? router.navigate(to: screenConfigVoid, animated: false, completion: { result in
+//            expectation.fulfill()
+//            wasInCompletion = true
+//            XCTAssertFalse(result.isSuccessful)
+//        })
+//        wait(for: [expectation], timeout: 0.3)
+//        XCTAssertTrue(wasInCompletion)
+//    }
 
     func testNavigateToWithViewControllerNotFound() {
         struct NoneStep: RoutingStep, PerformableStep {

@@ -24,7 +24,7 @@ class AssemblyTest: XCTestCase {
             fatalError("Should never be called")
         }
 
-        func build(with context: Context, integrating coordinator: ChildCoordinator<Context>) throws -> ViewController {
+        func build(with context: Context, integrating coordinator: ChildCoordinator) throws -> ViewController {
             fatalError("Should never be called")
         }
     }

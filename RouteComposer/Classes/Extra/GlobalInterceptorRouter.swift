@@ -38,7 +38,7 @@ public struct GlobalInterceptorRouter<R>: Router where R: Router {
                                                                     completion: ((RoutingResult) -> Void)?) throws {
         do {
             let interceptorRunner = try DefaultRouter.InterceptorRunner(interceptors: interceptors, with: context)
-            interceptorRunner.perform(with: context, completion: { result in
+            interceptorRunner.perform(completion: { result in
                 do {
                     switch result {
                     case .success:

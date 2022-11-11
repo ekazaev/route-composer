@@ -42,6 +42,40 @@ public struct DestinationStep<VC: UIViewController, C>: RoutingStep, ChainableSt
         DestinationStep<VC, C>(destinationStep)
     }
 
+    struct ConvertingStep<SourceContext, TargetContext>: RoutingStep,
+            ChainableStep,
+            PerformableStep {
+
+        private let block: (SourceContext) -> TargetContext
+        private var previousStep: RoutingStep?
+
+        init(block: @escaping (SourceContext) -> TargetContext, previousStep: RoutingStep?) {
+            self.block = block
+            self.previousStep = previousStep
+        }
+
+        func getPreviousStep<C>(with context: C) -> RoutingStep? {
+            return previousStep
+        }
+
+        func perform<C>(with context: C) throws -> PerformableStepResult {
+            guard let typedContext = Any?.some(context as Any) as? SourceContext else {
+                throw RoutingError.typeMismatch(type: type(of: context),
+                        expectedType: SourceContext.self,
+                        .init("\(String(describing: C.self)) can not be converted to \(String(describing: SourceContext.self))."))
+            }
+            let newContext = block(typedContext)
+            return .updateContext(newContext)
+        }
+    }
+
+    /// Adapts context and view controller type dependencies.
+    ///
+    /// *NB:* Developer guaranties that this types will compliment in runtime.
+    public func adaptingContext<VC: UIViewController, C>(block: @escaping (Context) -> C) -> DestinationStep<VC, C> {
+        DestinationStep<VC, C>(ConvertingStep(block: block, previousStep: destinationStep))
+    }
+
     /// Allows to avoid container view controller check.
     ///
     /// *NB:* Developer guaranties that it will be there in the runtime.

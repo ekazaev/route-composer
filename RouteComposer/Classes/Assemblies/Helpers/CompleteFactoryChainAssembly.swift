@@ -17,11 +17,11 @@ public final class CompleteFactoryChainAssembly<FC: ContainerFactory, ChildVC: U
 
     private var factory: FC
 
-    private let childFactories: [PostponedIntegrationFactory<FC.Context>]
+    private let childFactories: [PostponedIntegrationFactory]
 
-    private let previousChildFactory: PostponedIntegrationFactory<FC.Context>?
+    private let previousChildFactory: PostponedIntegrationFactory?
 
-    private var integratedChildFactories: [PostponedIntegrationFactory<FC.Context>] {
+    private var integratedChildFactories: [PostponedIntegrationFactory] {
         var childFactories = childFactories
         if let previousChildFactory = previousChildFactory {
             childFactories.append(previousChildFactory)
@@ -31,7 +31,7 @@ public final class CompleteFactoryChainAssembly<FC: ContainerFactory, ChildVC: U
 
     // MARK: Methods
 
-    init(factory: FC, childFactories: [PostponedIntegrationFactory<FC.Context>], previousChildFactory: PostponedIntegrationFactory<FC.Context>?) {
+    init(factory: FC, childFactories: [PostponedIntegrationFactory], previousChildFactory: PostponedIntegrationFactory?) {
         self.factory = factory
         self.childFactories = childFactories
         self.previousChildFactory = previousChildFactory
@@ -50,7 +50,7 @@ public final class CompleteFactoryChainAssembly<FC: ContainerFactory, ChildVC: U
         }
         return CompleteFactoryChainAssembly<FC, ChildFC.ViewController>(factory: factory,
                                                                         childFactories: integratedChildFactories,
-                                                                        previousChildFactory: PostponedIntegrationFactory<ChildFC.Context>(for: factoryBox))
+                                                                        previousChildFactory: PostponedIntegrationFactory(for: factoryBox))
     }
 
     /// Adds a `ContainerFactory` that is going to be used as a child
@@ -67,7 +67,7 @@ public final class CompleteFactoryChainAssembly<FC: ContainerFactory, ChildVC: U
 
         return CompleteFactoryChainAssembly<FC, ChildFC.ViewController>(factory: factory,
                                                                         childFactories: integratedChildFactories,
-                                                                        previousChildFactory: PostponedIntegrationFactory<ChildFC.Context>(for: factoryBox))
+                                                                        previousChildFactory: PostponedIntegrationFactory(for: factoryBox))
     }
 
     /// Adds a `Factory` as the last view controller in the stack.

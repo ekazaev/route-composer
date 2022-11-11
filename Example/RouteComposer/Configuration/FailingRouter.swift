@@ -30,7 +30,7 @@ struct FailingRouter<R>: Router where R: Router {
 
     init(router: R, failOnError: Bool = true) {
         self.router = router
-        self.failOnError = failOnError
+        self.failOnError = false
     }
 
     func navigate<ViewController: UIViewController, Context>(to step: DestinationStep<ViewController, Context>,

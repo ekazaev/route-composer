@@ -138,7 +138,7 @@ class FactoryTest: XCTestCase {
     func testPostponedIntegrationFactory() {
         var viewControllerStack: [UIViewController] = []
         let factory = ClassFactory<UIViewController, Any?>()
-        var postponedFactory = PostponedIntegrationFactory<Any?>(for: FactoryBox(factory, action: ContainerActionBox(UINavigationController.push()))!)
+        var postponedFactory = PostponedIntegrationFactory(for: FactoryBox(factory, action: ContainerActionBox(UINavigationController.push()))!)
         XCTAssertNoThrow(try postponedFactory.prepare(with: nil))
         XCTAssertNoThrow(try postponedFactory.build(with: nil, in: &viewControllerStack))
         XCTAssertEqual(viewControllerStack.count, 1)

@@ -20,7 +20,7 @@ struct ContextTaskBox<CT: ContextTask>: AnyContextTask, PreparableEntity, MainTh
         self.contextTask = contextTask
     }
 
-    mutating func prepare<Context>(with context: Context) throws {
+    mutating func prepare(with context: Any?) throws {
         guard let typedContext = Any?.some(context as Any) as? CT.Context else {
             throw RoutingError.typeMismatch(type: type(of: context),
                                             expectedType: CT.Context.self,
@@ -30,7 +30,7 @@ struct ContextTaskBox<CT: ContextTask>: AnyContextTask, PreparableEntity, MainTh
         isPrepared = true
     }
 
-    func perform<Context>(on viewController: UIViewController, with context: Context) throws {
+    func perform(on viewController: UIViewController, with context: Any?) throws {
         guard let typedViewController = viewController as? CT.ViewController,
               let typedContext = Any?.some(context as Any) as? CT.Context else {
             throw RoutingError.typeMismatch(type: type(of: context),

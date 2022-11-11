@@ -63,7 +63,7 @@ public final class CompleteFactoryAssembly<FC: ContainerFactory> {
         }
         return CompleteFactoryChainAssembly<FC, ChildFC.ViewController>(factory: factory,
                                                                         childFactories: [],
-                                                                        previousChildFactory: PostponedIntegrationFactory<ChildFC.Context>(for: factoryBox))
+                                                                        previousChildFactory: PostponedIntegrationFactory(for: factoryBox))
     }
 
     /// Adds a `ContainerFactory` that is going to be used as a child
@@ -80,7 +80,7 @@ public final class CompleteFactoryAssembly<FC: ContainerFactory> {
 
         return CompleteFactoryChainAssembly<FC, ChildFC.ViewController>(factory: factory,
                                                                         childFactories: [],
-                                                                        previousChildFactory: PostponedIntegrationFactory<ChildFC.Context>(for: factoryBox))
+                                                                        previousChildFactory: PostponedIntegrationFactory(for: factoryBox))
     }
 
     /// Adds a `Factory` as the last view controller in the stack.

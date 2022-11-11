@@ -28,7 +28,7 @@ struct FactoryBox<F: Factory>: PreparableAnyFactory, AnyFactoryBox, MainThreadCh
         self.action = action
     }
 
-    func build<Context>(with context: Context) throws -> UIViewController {
+    func build(with context: Any?) throws -> UIViewController {
         guard let typedContext = Any?.some(context as Any) as? FactoryType.Context else {
             throw RoutingError.typeMismatch(type: type(of: context),
                                             expectedType: FactoryType.Context.self,

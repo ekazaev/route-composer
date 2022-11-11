@@ -24,11 +24,11 @@ public struct CompleteFactory<FC: ContainerFactory>: ContainerFactory, CustomStr
 
     private var factory: FC
 
-    var childFactories: [PostponedIntegrationFactory<FC.Context>]
+    var childFactories: [PostponedIntegrationFactory]
 
     // MARK: Methods
 
-    init(factory: FC, childFactories: [PostponedIntegrationFactory<FC.Context>]) {
+    init(factory: FC, childFactories: [PostponedIntegrationFactory]) {
         self.factory = factory
         self.childFactories = childFactories
     }
@@ -42,8 +42,8 @@ public struct CompleteFactory<FC: ContainerFactory>: ContainerFactory, CustomStr
         }
     }
 
-    public func build(with context: FC.Context, integrating coordinator: ChildCoordinator<FC.Context>) throws -> FC.ViewController {
-        var finalChildFactories = childFactories
+    public func build(with context: FC.Context, integrating coordinator: ChildCoordinator) throws -> FC.ViewController {
+        var finalChildFactories: [(factory: PostponedIntegrationFactory, context: Any?)] = childFactories.map({ (factory: $0, context: context) })
         finalChildFactories.append(contentsOf: coordinator.childFactories)
         return try factory.build(with: context, integrating: ChildCoordinator(childFactories: finalChildFactories))
     }

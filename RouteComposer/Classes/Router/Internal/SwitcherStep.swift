@@ -12,7 +12,7 @@ import UIKit
 
 protocol StepCaseResolver {
 
-    func resolve<Context>(with context: Context) -> RoutingStep?
+    func resolve(with context: Any?) -> RoutingStep?
 
 }
 
@@ -20,7 +20,7 @@ final class SwitcherStep: RoutingStep, ChainableStep {
 
     final var resolvers: [StepCaseResolver]
 
-    final func getPreviousStep<Context>(with context: Context) -> RoutingStep? {
+    final func getPreviousStep(with context: Any?) -> RoutingStep? {
         resolvers.reduce(nil as RoutingStep?) { result, resolver in
             guard result == nil else {
                 return result

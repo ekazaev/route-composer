@@ -27,7 +27,7 @@ protocol PreparableAnyFactory: AnyFactory, PreparableEntity {
 
 extension AnyFactoryBox {
 
-    mutating func scrapeChildren(from factories: [AnyFactory]) throws -> [AnyFactory] {
+    mutating func scrapeChildren(from factories: [(factory: AnyFactory, context: Any?)]) throws -> [(factory: AnyFactory, context: Any?)] {
         factories
     }
 

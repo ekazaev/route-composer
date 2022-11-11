@@ -46,13 +46,13 @@ public struct TabBarControllerFactory<VC: UITabBarController, C>: ContainerFacto
         self.configuration = configuration
     }
 
-    public func build(with context: C, integrating coordinator: ChildCoordinator<C>) throws -> VC {
+    public func build(with context: C, integrating coordinator: ChildCoordinator) throws -> VC {
         let tabBarController = VC(nibName: nibName, bundle: bundle)
         if let delegate = delegate {
             tabBarController.delegate = delegate
         }
         if !coordinator.isEmpty {
-            tabBarController.viewControllers = try coordinator.build(with: context, integrating: tabBarController.viewControllers ?? [])
+            tabBarController.viewControllers = try coordinator.build(integrating: tabBarController.viewControllers ?? [])
         }
         if let configuration = configuration {
             configuration(tabBarController)
