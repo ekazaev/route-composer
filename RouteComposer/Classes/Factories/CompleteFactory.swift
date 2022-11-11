@@ -6,6 +6,9 @@
 // Created by Eugene Kazaev in 2018-2022.
 // Distributed under the MIT license.
 //
+// Become a sponsor:
+// https://github.com/sponsors/ekazaev
+//
 
 import Foundation
 import UIKit
@@ -24,11 +27,11 @@ public struct CompleteFactory<FC: ContainerFactory>: ContainerFactory, CustomStr
 
     private var factory: FC
 
-    var childFactories: [PostponedIntegrationFactory<FC.Context>]
+    var childFactories: [PostponedIntegrationFactory]
 
     // MARK: Methods
 
-    init(factory: FC, childFactories: [PostponedIntegrationFactory<FC.Context>]) {
+    init(factory: FC, childFactories: [PostponedIntegrationFactory]) {
         self.factory = factory
         self.childFactories = childFactories
     }
@@ -37,13 +40,13 @@ public struct CompleteFactory<FC: ContainerFactory>: ContainerFactory, CustomStr
         try factory.prepare(with: context)
         childFactories = try childFactories.map {
             var factory = $0
-            try factory.prepare(with: context)
+            try factory.prepare(with: AnyContextBox(context))
             return factory
         }
     }
 
-    public func build(with context: FC.Context, integrating coordinator: ChildCoordinator<FC.Context>) throws -> FC.ViewController {
-        var finalChildFactories = childFactories
+    public func build(with context: FC.Context, integrating coordinator: ChildCoordinator) throws -> FC.ViewController {
+        var finalChildFactories: [(factory: PostponedIntegrationFactory, context: AnyContext)] = childFactories.map { (factory: $0, context: AnyContextBox(context)) }
         finalChildFactories.append(contentsOf: coordinator.childFactories)
         return try factory.build(with: context, integrating: ChildCoordinator(childFactories: finalChildFactories))
     }

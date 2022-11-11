@@ -6,6 +6,9 @@
 // Created by Eugene Kazaev in 2018-2022.
 // Distributed under the MIT license.
 //
+// Become a sponsor:
+// https://github.com/sponsors/ekazaev
+//
 
 import Foundation
 import UIKit
@@ -14,10 +17,10 @@ protocol AnyFactory {
 
     var action: AnyAction { get }
 
-    mutating func prepare<Context>(with context: Context) throws
+    mutating func prepare(with context: AnyContext) throws
 
-    func build<Context>(with context: Context) throws -> UIViewController
+    func build(with context: AnyContext) throws -> UIViewController
 
-    mutating func scrapeChildren(from factories: [AnyFactory]) throws -> [AnyFactory]
+    mutating func scrapeChildren(from factories: [(factory: AnyFactory, context: AnyContext)]) throws -> [(factory: AnyFactory, context: AnyContext)]
 
 }

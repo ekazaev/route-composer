@@ -6,6 +6,9 @@
 // Created by Eugene Kazaev in 2018-2022.
 // Distributed under the MIT license.
 //
+// Become a sponsor:
+// https://github.com/sponsors/ekazaev
+//
 
 import Foundation
 import UIKit
@@ -44,12 +47,12 @@ public final class SwitchAssembly<ViewController: UIViewController, Context> {
 
         let resolverBlock: (_: Context) -> DestinationStep<ViewController, Context>?
 
-        init(resolverBlock: @escaping ((_: Context) -> DestinationStep<ViewController, Context>?)) {
+        init(resolverBlock: @escaping (_: Context) -> DestinationStep<ViewController, Context>?) {
             self.resolverBlock = resolverBlock
         }
 
-        func resolve<C>(with context: C) -> RoutingStep? {
-            guard let typedContext = context as? Context else {
+        func resolve(with context: AnyContext) -> RoutingStep? {
+            guard let typedContext = try? context.value() as Context else {
                 return nil
             }
             return resolverBlock(typedContext)
@@ -67,7 +70,7 @@ public final class SwitchAssembly<ViewController: UIViewController, Context> {
             self.finder = FinderBox(finder)
         }
 
-        func resolve<Context>(with context: Context) -> RoutingStep? {
+        func resolve(with context: AnyContext) -> RoutingStep? {
             guard (try? finder?.findViewController(with: context)) != nil else {
                 return nil
             }
@@ -88,7 +91,7 @@ public final class SwitchAssembly<ViewController: UIViewController, Context> {
     /// Returning nil from the block will mean that it has not succeeded.
     ///
     /// - Parameter resolverBlock: case resolver block
-    public final func addCase(_ resolverBlock: @escaping ((_: Context) -> DestinationStep<ViewController, Context>?)) -> Self {
+    public final func addCase(_ resolverBlock: @escaping (_: Context) -> DestinationStep<ViewController, Context>?) -> Self {
         resolvers.append(BlockResolver(resolverBlock: resolverBlock))
         return self
     }
@@ -155,7 +158,7 @@ public final class SwitchAssembly<ViewController: UIViewController, Context> {
     ///
     /// - Parameter resolverBlock: default resolver block
     /// - Returns: an instance of `DestinationStep`
-    public final func assemble(default resolverBlock: @escaping (() -> DestinationStep<ViewController, Context>)) -> DestinationStep<ViewController, Context> {
+    public final func assemble(default resolverBlock: @escaping () -> DestinationStep<ViewController, Context>) -> DestinationStep<ViewController, Context> {
         resolvers.append(BlockResolver(resolverBlock: { _ in
             resolverBlock()
         }))

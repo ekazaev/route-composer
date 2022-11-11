@@ -6,6 +6,9 @@
 // Created by Eugene Kazaev in 2018-2022.
 // Distributed under the MIT license.
 //
+// Become a sponsor:
+// https://github.com/sponsors/ekazaev
+//
 
 import Foundation
 import UIKit
@@ -16,6 +19,6 @@ import UIKit
 protocol ChainableStep {
 
     // `RoutingStep` to be made by a `Router` before getting to this step.
-    func getPreviousStep<Context>(with context: Context) -> RoutingStep?
+    func getPreviousStep(with context: AnyContext) -> RoutingStep?
 
 }

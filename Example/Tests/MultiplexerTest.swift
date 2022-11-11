@@ -6,6 +6,9 @@
 // Created by Eugene Kazaev in 2018-2022.
 // Distributed under the MIT license.
 //
+// Become a sponsor:
+// https://github.com/sponsors/ekazaev
+//
 
 import Foundation
 @testable import RouteComposer
@@ -30,7 +33,7 @@ class MultiplexerTest: XCTestCase {
         ]
 
         var multiplexer = InterceptorMultiplexer(interceptors)
-        try? multiplexer.prepare(with: nil as Any?)
+        try? multiplexer.prepare(with: AnyContextBox(nil as Any?))
         XCTAssertEqual(prepareCountRun, 10)
         XCTAssertEqual(multiplexer.description, "[InlineInterceptor<Optional<Any>>(prepareBlock: Optional((Function)), " +
             "performBlock: (Function)), InlineInterceptor<Optional<Any>>(prepareBlock: Optional((Function)), " +
@@ -47,7 +50,7 @@ class MultiplexerTest: XCTestCase {
         ]
 
         var multiplexer = InterceptorMultiplexer(interceptors)
-        XCTAssertThrowsError(try multiplexer.prepare(with: nil as Any?))
+        XCTAssertThrowsError(try multiplexer.prepare(with: AnyContextBox(nil as Any?)))
     }
 
     func testRoutingInterceptorPerformThrows() {
@@ -59,9 +62,9 @@ class MultiplexerTest: XCTestCase {
         ]
 
         var multiplexer = InterceptorMultiplexer(interceptors)
-        XCTAssertNoThrow(try multiplexer.prepare(with: nil as Any?))
+        XCTAssertNoThrow(try multiplexer.prepare(with: AnyContextBox(nil as Any?)))
         var wasInCompletion = false
-        multiplexer.perform(with: nil as Any?, completion: { result in
+        multiplexer.perform(with: AnyContextBox(nil as Any?), completion: { result in
             wasInCompletion = true
             XCTAssertFalse(result.isSuccessful)
         })
@@ -70,9 +73,9 @@ class MultiplexerTest: XCTestCase {
 
     func testRoutingInterceptorPerformNoInterceptors() {
         var multiplexer = InterceptorMultiplexer([])
-        XCTAssertNoThrow(try multiplexer.prepare(with: nil as Any?))
+        XCTAssertNoThrow(try multiplexer.prepare(with: AnyContextBox(nil as Any?)))
         var wasInCompletion = false
-        multiplexer.perform(with: nil as Any?, completion: { result in
+        multiplexer.perform(with: AnyContextBox(nil as Any?), completion: { result in
             wasInCompletion = true
             XCTAssertTrue(result.isSuccessful)
         })
@@ -89,8 +92,8 @@ class MultiplexerTest: XCTestCase {
         ]
 
         var multiplexer = InterceptorMultiplexer(interceptors)
-        XCTAssertThrowsError(try multiplexer.prepare(with: "Wrong Context Type"))
-        multiplexer.perform(with: "Wrong Context Type", completion: { result in
+        XCTAssertThrowsError(try multiplexer.prepare(with: AnyContextBox("Wrong Context Type")))
+        multiplexer.perform(with: AnyContextBox("Wrong Context Type"), completion: { result in
             guard case .failure = result else {
                 XCTFail("Must be an error")
                 return
@@ -118,8 +121,8 @@ class MultiplexerTest: XCTestCase {
         ]
 
         var multiplexer = ContextTaskMultiplexer(contextTask)
-        try? multiplexer.prepare(with: nil as Any?)
-        try? multiplexer.perform(on: UIViewController(), with: nil as Any?)
+        try? multiplexer.prepare(with: AnyContextBox(nil as Any?))
+        try? multiplexer.perform(on: UIViewController(), with: AnyContextBox(nil as Any?))
     }
 
     func testContextTaskWithWrongContextTypeThrows() {
@@ -130,8 +133,8 @@ class MultiplexerTest: XCTestCase {
         ]
 
         var multiplexer = ContextTaskMultiplexer(contextTask)
-        XCTAssertThrowsError(try multiplexer.prepare(with: nil as Any?))
-        XCTAssertThrowsError(try multiplexer.perform(on: UIViewController(), with: nil as Any?))
+        XCTAssertThrowsError(try multiplexer.prepare(with: AnyContextBox(nil as Any?)))
+        XCTAssertThrowsError(try multiplexer.perform(on: UIViewController(), with: AnyContextBox(nil as Any?)))
     }
 
     func testContextTaskDescription() {
@@ -150,7 +153,7 @@ class MultiplexerTest: XCTestCase {
         ]
 
         let multiplexer = PostRoutingTaskMultiplexer(postTasks)
-        XCTAssertThrowsError(try multiplexer.perform(on: UIViewController(), with: "Wrong Context Type", routingStack: [UIViewController()]))
+        XCTAssertThrowsError(try multiplexer.perform(on: UIViewController(), with: AnyContextBox("Wrong Context Type"), routingStack: [UIViewController()]))
     }
 
     func testPostTaskDescription() {
@@ -181,8 +184,8 @@ class MultiplexerTest: XCTestCase {
         }
 
         var multiplexer = InterceptorMultiplexer([RoutingInterceptorBox(Interceptor())])
-        try? multiplexer.prepare(with: nil as Any?)
-        multiplexer.perform(with: nil as Any?) { (result: RoutingResult) in
+        try? multiplexer.prepare(with: AnyContextBox(nil as Any?))
+        multiplexer.perform(with: AnyContextBox(nil as Any?)) { (result: RoutingResult) in
             guard case .success = result else {
                 XCTFail()
                 return

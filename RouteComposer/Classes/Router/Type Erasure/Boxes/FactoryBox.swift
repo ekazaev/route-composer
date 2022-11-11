@@ -6,6 +6,9 @@
 // Created by Eugene Kazaev in 2018-2022.
 // Distributed under the MIT license.
 //
+// Become a sponsor:
+// https://github.com/sponsors/ekazaev
+//
 
 import Foundation
 import UIKit
@@ -28,12 +31,8 @@ struct FactoryBox<F: Factory>: PreparableAnyFactory, AnyFactoryBox, MainThreadCh
         self.action = action
     }
 
-    func build<Context>(with context: Context) throws -> UIViewController {
-        guard let typedContext = Any?.some(context as Any) as? FactoryType.Context else {
-            throw RoutingError.typeMismatch(type: type(of: context),
-                                            expectedType: FactoryType.Context.self,
-                                            .init("\(String(describing: factory.self)) does not accept \(String(describing: context.self)) as a context."))
-        }
+    func build(with context: AnyContext) throws -> UIViewController {
+        let typedContext: FactoryType.Context = try context.value()
         assertIfNotMainThread()
         assertIfNotPrepared()
         return try factory.build(with: typedContext)

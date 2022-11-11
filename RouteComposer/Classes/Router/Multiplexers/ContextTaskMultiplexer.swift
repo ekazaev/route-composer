@@ -6,6 +6,9 @@
 // Created by Eugene Kazaev in 2018-2022.
 // Distributed under the MIT license.
 //
+// Become a sponsor:
+// https://github.com/sponsors/ekazaev
+//
 
 import Foundation
 import UIKit
@@ -18,7 +21,7 @@ struct ContextTaskMultiplexer: AnyContextTask, CustomStringConvertible {
         self.tasks = tasks
     }
 
-    mutating func prepare<Context>(with context: Context) throws {
+    mutating func prepare(with context: AnyContext) throws {
         tasks = try tasks.map {
             var contextTask = $0
             try contextTask.prepare(with: context)
@@ -26,7 +29,7 @@ struct ContextTaskMultiplexer: AnyContextTask, CustomStringConvertible {
         }
     }
 
-    func perform<Context>(on viewController: UIViewController, with context: Context) throws {
+    func perform(on viewController: UIViewController, with context: AnyContext) throws {
         try tasks.forEach { try $0.perform(on: viewController, with: context) }
     }
 

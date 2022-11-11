@@ -54,67 +54,67 @@
 </tr>
 <tr class="never">
 <td class="num">9</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="src"><pre><code class="objc">// Become a sponsor:</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">10</td>
-<td class="src"><pre><code class="objc">#if canImport(SwiftUI)</code></pre></td>
+<td class="src"><pre><code class="objc">// https://github.com/sponsors/ekazaev</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">11</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="src"><pre><code class="objc">//</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">12</td>
-<td class="src"><pre><code class="objc">import Foundation</code></pre></td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">13</td>
-<td class="src"><pre><code class="objc">import SwiftUI</code></pre></td>
+<td class="src"><pre><code class="objc">#if canImport(SwiftUI)</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">14</td>
-<td class="src"><pre><code class="objc">import UIKit</code></pre></td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">15</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="src"><pre><code class="objc">import Foundation</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">16</td>
-<td class="src"><pre><code class="objc">/// `View` instance should conform to this protocol to be used with `UIHostingControllerWithContextFactory`</code></pre></td>
+<td class="src"><pre><code class="objc">import SwiftUI</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">17</td>
-<td class="src"><pre><code class="objc">@available(iOS 13.0, OSX 10.15, tvOS 13.0, watchOS 6.0, *)</code></pre></td>
+<td class="src"><pre><code class="objc">import UIKit</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">18</td>
-<td class="src"><pre><code class="objc">public protocol ContextInstantiatable where Self: View {</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">19</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
+<td class="num">19</td>
+<td class="src"><pre><code class="objc">/// `View` instance should conform to this protocol to be used with `UIHostingControllerWithContextFactory`</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
 <td class="num">20</td>
-<td class="src"><pre><code class="objc">    /// Type of `Context` object that `View` can be initialised with</code></pre></td>
+<td class="src"><pre><code class="objc">@available(iOS 13.0, OSX 10.15, tvOS 13.0, watchOS 6.0, *)</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">21</td>
-<td class="src"><pre><code class="objc">    associatedtype Context</code></pre></td>
+<td class="src"><pre><code class="objc">public protocol ContextInstantiatable where Self: View {</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -124,12 +124,12 @@
 </tr>
 <tr class="never">
 <td class="num">23</td>
-<td class="src"><pre><code class="objc">    /// Constructor</code></pre></td>
+<td class="src"><pre><code class="objc">    /// Type of `Context` object that `View` can be initialised with</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">24</td>
-<td class="src"><pre><code class="objc">    init(with context: Context)</code></pre></td>
+<td class="src"><pre><code class="objc">    associatedtype Context</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -139,22 +139,22 @@
 </tr>
 <tr class="never">
 <td class="num">26</td>
-<td class="src"><pre><code class="objc">}</code></pre></td>
+<td class="src"><pre><code class="objc">    /// Constructor</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">27</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="src"><pre><code class="objc">    init(with context: Context)</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">28</td>
-<td class="src"><pre><code class="objc">@available(iOS 13.0, OSX 10.15, tvOS 13.0, watchOS 6.0, *)</code></pre></td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">29</td>
-<td class="src"><pre><code class="objc">public extension ContextInstantiatable where Context == Void {</code></pre></td>
+<td class="src"><pre><code class="objc">}</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -164,47 +164,47 @@
 </tr>
 <tr class="never">
 <td class="num">31</td>
-<td class="src"><pre><code class="objc">    /// Constructor</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="covered">
-<td class="num">32</td>
-<td class="src"><pre><code class="objc">    init() {</code></pre></td>
-<td class="coverage">1x</td>
-</tr>
-<tr class="covered">
-<td class="num">33</td>
-<td class="src"><pre><code class="objc">        self.init(with: ())</code></pre></td>
-<td class="coverage">1x</td>
-</tr>
-<tr class="covered">
-<td class="num">34</td>
-<td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">1x</td>
-</tr>
-<tr class="never">
-<td class="num">35</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">36</td>
-<td class="src"><pre><code class="objc">}</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">37</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">38</td>
 <td class="src"><pre><code class="objc">@available(iOS 13.0, OSX 10.15, tvOS 13.0, watchOS 6.0, *)</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
+<td class="num">32</td>
+<td class="src"><pre><code class="objc">public extension ContextInstantiatable where Context == Void {</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">33</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">34</td>
+<td class="src"><pre><code class="objc">    /// Constructor</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="covered">
+<td class="num">35</td>
+<td class="src"><pre><code class="objc">    init() {</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">36</td>
+<td class="src"><pre><code class="objc">        self.init(with: ())</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">37</td>
+<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="never">
+<td class="num">38</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
 <td class="num">39</td>
-<td class="src"><pre><code class="objc">public extension ContextInstantiatable where Context == Any? {</code></pre></td>
+<td class="src"><pre><code class="objc">}</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -214,41 +214,56 @@
 </tr>
 <tr class="never">
 <td class="num">41</td>
+<td class="src"><pre><code class="objc">@available(iOS 13.0, OSX 10.15, tvOS 13.0, watchOS 6.0, *)</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">42</td>
+<td class="src"><pre><code class="objc">public extension ContextInstantiatable where Context == Any? {</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">43</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">44</td>
 <td class="src"><pre><code class="objc">    /// Constructor</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
-<td class="num">42</td>
+<td class="num">45</td>
 <td class="src"><pre><code class="objc">    init() {</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
-<td class="num">43</td>
+<td class="num">46</td>
 <td class="src"><pre><code class="objc">        self.init(with: nil)</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
-<td class="num">44</td>
+<td class="num">47</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="never">
-<td class="num">45</td>
+<td class="num">48</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">46</td>
+<td class="num">49</td>
 <td class="src"><pre><code class="objc">}</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">47</td>
+<td class="num">50</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">48</td>
+<td class="num">51</td>
 <td class="src"><pre><code class="objc">#endif</code></pre></td>
 <td class="coverage"></td>
 </tr>

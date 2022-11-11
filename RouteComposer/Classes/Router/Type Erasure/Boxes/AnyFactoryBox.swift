@@ -6,6 +6,9 @@
 // Created by Eugene Kazaev in 2018-2022.
 // Distributed under the MIT license.
 //
+// Become a sponsor:
+// https://github.com/sponsors/ekazaev
+//
 
 import Foundation
 
@@ -27,7 +30,7 @@ protocol PreparableAnyFactory: AnyFactory, PreparableEntity {
 
 extension AnyFactoryBox {
 
-    mutating func scrapeChildren(from factories: [AnyFactory]) throws -> [AnyFactory] {
+    mutating func scrapeChildren(from factories: [(factory: AnyFactory, context: AnyContext)]) throws -> [(factory: AnyFactory, context: AnyContext)] {
         factories
     }
 
@@ -35,13 +38,9 @@ extension AnyFactoryBox {
 
 extension AnyFactoryBox where Self: PreparableAnyFactory, Self: MainThreadChecking {
 
-    mutating func prepare<Context>(with context: Context) throws {
+    mutating func prepare(with context: AnyContext) throws {
         assertIfNotMainThread()
-        guard let typedContext = Any?.some(context as Any) as? FactoryType.Context else {
-            throw RoutingError.typeMismatch(type: type(of: context),
-                                            expectedType: FactoryType.Context.self,
-                                            .init("\(String(describing: factory.self)) does not accept \(String(describing: context.self)) as a context."))
-        }
+        let typedContext: FactoryType.Context = try context.value()
         try factory.prepare(with: typedContext)
         isPrepared = true
     }

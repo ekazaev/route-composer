@@ -54,17 +54,17 @@
 </tr>
 <tr class="never">
 <td class="num">9</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="src"><pre><code class="objc">// Become a sponsor:</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">10</td>
-<td class="src"><pre><code class="objc">import Foundation</code></pre></td>
+<td class="src"><pre><code class="objc">// https://github.com/sponsors/ekazaev</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">11</td>
-<td class="src"><pre><code class="objc">import UIKit</code></pre></td>
+<td class="src"><pre><code class="objc">//</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -74,86 +74,101 @@
 </tr>
 <tr class="never">
 <td class="num">13</td>
-<td class="src"><pre><code class="objc">struct PostRoutingTaskMultiplexer: AnyPostRoutingTask, CustomStringConvertible {</code></pre></td>
+<td class="src"><pre><code class="objc">import Foundation</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">14</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="src"><pre><code class="objc">import UIKit</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">15</td>
-<td class="src"><pre><code class="objc">    private let tasks: [AnyPostRoutingTask]</code></pre></td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">16</td>
+<td class="src"><pre><code class="objc">struct PostRoutingTaskMultiplexer: AnyPostRoutingTask, CustomStringConvertible {</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">17</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">18</td>
+<td class="src"><pre><code class="objc">    private let tasks: [AnyPostRoutingTask]</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">19</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
-<td class="num">17</td>
+<td class="num">20</td>
 <td class="src"><pre><code class="objc">    init(_ tasks: [AnyPostRoutingTask]) {</code></pre></td>
 <td class="coverage">2x</td>
 </tr>
 <tr class="covered">
-<td class="num">18</td>
+<td class="num">21</td>
 <td class="src"><pre><code class="objc">        self.tasks = tasks</code></pre></td>
 <td class="coverage">2x</td>
 </tr>
 <tr class="covered">
-<td class="num">19</td>
+<td class="num">22</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
 <td class="coverage">2x</td>
 </tr>
 <tr class="never">
-<td class="num">20</td>
+<td class="num">23</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
-<td class="num">21</td>
-<td class="src"><pre><code class="objc">    func perform&lt;Context&gt;(on viewController: UIViewController, with context: Context, routingStack: [UIViewController]) throws {</code></pre></td>
+<td class="num">24</td>
+<td class="src"><pre><code class="objc">    func perform(on viewController: UIViewController, with context: AnyContext, routingStack: [UIViewController]) throws {</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
-<td class="num">22</td>
+<td class="num">25</td>
 <td class="src"><pre><code class="objc">        try tasks.forEach { try $0.perform(on: viewController, with: context, routingStack: routingStack) }</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
-<td class="num">23</td>
+<td class="num">26</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="never">
-<td class="num">24</td>
+<td class="num">27</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
-<td class="num">25</td>
+<td class="num">28</td>
 <td class="src"><pre><code class="objc">    var description: String {</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
-<td class="num">26</td>
+<td class="num">29</td>
 <td class="src"><pre><code class="objc">        String(describing: tasks)</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
-<td class="num">27</td>
+<td class="num">30</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="never">
-<td class="num">28</td>
+<td class="num">31</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">29</td>
+<td class="num">32</td>
 <td class="src"><pre><code class="objc">}</code></pre></td>
 <td class="coverage"></td>
 </tr>

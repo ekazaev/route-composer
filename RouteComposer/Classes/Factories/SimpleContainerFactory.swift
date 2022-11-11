@@ -6,6 +6,9 @@
 // Created by Eugene Kazaev in 2018-2022.
 // Distributed under the MIT license.
 //
+// Become a sponsor:
+// https://github.com/sponsors/ekazaev
+//
 
 import Foundation
 import UIKit
@@ -38,8 +41,8 @@ public protocol SimpleContainerFactory: ContainerFactory {
 public extension SimpleContainerFactory {
 
     /// Default implementation of the `ContainerFactory`'s `build` method
-    func build(with context: Context, integrating coordinator: ChildCoordinator<Context>) throws -> ViewController {
-        let viewControllers = try coordinator.build(with: context)
+    func build(with context: Context, integrating coordinator: ChildCoordinator) throws -> ViewController {
+        let viewControllers = try coordinator.build()
         return try build(with: context, integrating: viewControllers)
     }
 

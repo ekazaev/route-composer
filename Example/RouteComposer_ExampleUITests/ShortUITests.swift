@@ -6,6 +6,9 @@
 // Created by Eugene Kazaev in 2018-2022.
 // Distributed under the MIT license.
 //
+// Become a sponsor:
+// https://github.com/sponsors/ekazaev
+//
 
 import XCTest
 
@@ -99,7 +102,7 @@ class ShortUITests: XCTestCase {
         app.buttons["Go to Second modal"].tap()
         XCTAssertTrue(app.otherElements["secondLevelViewController"].waitForExistence(timeout: 3))
 
-        app.buttons["Go to Minsk*"].tap()
+        app.buttons["Go to Berlin*"].tap()
         XCTAssertTrue(app.otherElements["loginViewController"].exists)
 
         app.buttons["Close"].tap()
@@ -263,19 +266,19 @@ class ShortUITests: XCTestCase {
         XCTAssertTrue(app.otherElements["productViewController+00"].exists)
 
         app.buttons["Go to next Product from Circle"].tap()
-        XCTAssertTrue(app.otherElements["productViewController+01"].waitForExistence(timeout: 3))
+        XCTAssertTrue(app.otherElements["productViewController+01"].waitForExistence(timeout: 10))
 
         app.buttons["Go to next Product from Circle"].tap()
-        XCTAssertTrue(app.otherElements["productViewController+02"].waitForExistence(timeout: 3))
+        XCTAssertTrue(app.otherElements["productViewController+02"].waitForExistence(timeout: 10))
 
         app.buttons.matching(identifier: "Go to Product 01").element(boundBy: 0).tap()
-        XCTAssertTrue(app.otherElements["productViewController+01"].waitForExistence(timeout: 5))
+        XCTAssertTrue(app.otherElements["productViewController+01"].waitForExistence(timeout: 10))
 
         app.buttons["Go to next Product from Circle"].tap()
-        XCTAssertTrue(app.otherElements["productViewController+02"].waitForExistence(timeout: 3))
+        XCTAssertTrue(app.otherElements["productViewController+02"].waitForExistence(timeout: 10))
 
         app.buttons["Go to Circle Tab"].tap()
-        XCTAssertTrue(app.otherElements["circleViewController"].waitForExistence(timeout: 1))
+        XCTAssertTrue(app.otherElements["circleViewController"].waitForExistence(timeout: 10))
     }
 
     func testGoToHome() {

@@ -6,26 +6,33 @@
 // Created by Eugene Kazaev in 2018-2022.
 // Distributed under the MIT license.
 //
+// Become a sponsor:
+// https://github.com/sponsors/ekazaev
+//
 
 import Foundation
 import UIKit
 
-struct PostponedIntegrationFactory<Context>: CustomStringConvertible {
+struct PostponedIntegrationFactory: CustomStringConvertible {
 
     var factory: AnyFactory
 
     var contextTasks: [AnyContextTask]
 
-    init(for factory: AnyFactory, with contextTasks: [AnyContextTask] = []) {
+    var transformer: AnyContextTransformer?
+
+    init(for factory: AnyFactory, with contextTasks: [AnyContextTask] = [], transformer: AnyContextTransformer? = nil) {
         self.factory = factory
         self.contextTasks = contextTasks
+        self.transformer = transformer
     }
 
     mutating func add(_ contextTask: AnyContextTask) {
         contextTasks.append(contextTask)
     }
 
-    mutating func prepare(with context: Context) throws {
+    mutating func prepare(with context: AnyContext) throws {
+        let context = transformer.flatMap { InPlaceTransformingAnyContext(context: context, transformer: $0) } ?? context
         try factory.prepare(with: context)
         contextTasks = try contextTasks.map {
             var contextTask = $0
@@ -34,7 +41,8 @@ struct PostponedIntegrationFactory<Context>: CustomStringConvertible {
         }
     }
 
-    func build(with context: Context, in childViewControllers: inout [UIViewController]) throws {
+    func build(with context: AnyContext, in childViewControllers: inout [UIViewController]) throws {
+        let context = transformer.flatMap { InPlaceTransformingAnyContext(context: context, transformer: $0) } ?? context
         let viewController = try factory.build(with: context)
         try contextTasks.forEach { try $0.perform(on: viewController, with: context) }
         try factory.action.perform(embedding: viewController, in: &childViewControllers)

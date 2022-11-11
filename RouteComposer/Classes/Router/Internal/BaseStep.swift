@@ -6,6 +6,9 @@
 // Created by Eugene Kazaev in 2018-2022.
 // Distributed under the MIT license.
 //
+// Become a sponsor:
+// https://github.com/sponsors/ekazaev
+//
 
 import Foundation
 import UIKit
@@ -54,11 +57,11 @@ struct BaseStep: RoutingStep,
         self.postTask = taskProvider.postTask
     }
 
-    func getPreviousStep<Context>(with context: Context) -> RoutingStep? {
+    func getPreviousStep(with context: AnyContext) -> RoutingStep? {
         previousStep
     }
 
-    func perform<Context>(with context: Context) throws -> PerformableStepResult {
+    func perform(with context: AnyContext) throws -> PerformableStepResult {
         guard let viewController = try finder?.findViewController(with: context) else {
             if let factory = factory {
                 return .build(factory)

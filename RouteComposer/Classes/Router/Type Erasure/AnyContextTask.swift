@@ -6,14 +6,17 @@
 // Created by Eugene Kazaev in 2018-2022.
 // Distributed under the MIT license.
 //
+// Become a sponsor:
+// https://github.com/sponsors/ekazaev
+//
 
 import Foundation
 import UIKit
 
 protocol AnyContextTask {
 
-    mutating func prepare<Context>(with context: Context) throws
+    mutating func prepare(with context: AnyContext) throws
 
-    func perform<Context>(on viewController: UIViewController, with context: Context) throws
+    func perform(on viewController: UIViewController, with context: AnyContext) throws
 
 }

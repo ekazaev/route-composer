@@ -6,12 +6,15 @@
 // Created by Eugene Kazaev in 2018-2022.
 // Distributed under the MIT license.
 //
+// Become a sponsor:
+// https://github.com/sponsors/ekazaev
+//
 
 import Foundation
 import UIKit
 
 protocol AnyFinder {
 
-    func findViewController<Context>(with context: Context) throws -> UIViewController?
+    func findViewController(with context: AnyContext) throws -> UIViewController?
 
 }

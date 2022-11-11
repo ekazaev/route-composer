@@ -504,9 +504,9 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SSQ-ca-n7i">
                                         <rect key="frame" x="0.0" y="82" width="109" height="30"/>
-                                        <state key="normal" title="Go to Minsk*"/>
+                                        <state key="normal" title="Go to Berlin*"/>
                                         <connections>
-                                            <action selector="goToMinskTapped" destination="d3F-lt-WVe" eventType="touchUpInside" id="GXr-Hb-iBh"/>
+                                            <action selector="goToBerlinTapped" destination="d3F-lt-WVe" eventType="touchUpInside" id="GXr-Hb-iBh"/>
                                         </connections>
                                     </button>
                                 </subviews>

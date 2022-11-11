@@ -6,6 +6,9 @@
 // Created by Eugene Kazaev in 2018-2022.
 // Distributed under the MIT license.
 //
+// Become a sponsor:
+// https://github.com/sponsors/ekazaev
+//
 
 import Foundation
 @testable import RouteComposer
@@ -55,7 +58,7 @@ class RouterTests: XCTestCase {
             self.currentViewController = currentViewController
         }
 
-        func perform<Context>(with context: Context) -> PerformableStepResult {
+        func perform(with context: AnyContext) -> PerformableStepResult {
             .success(currentViewController)
         }
 
@@ -382,7 +385,7 @@ class RouterTests: XCTestCase {
     func testNavigateToWithViewControllerNotFound() {
         struct NoneStep: RoutingStep, PerformableStep {
 
-            func perform<Context>(with context: Context) throws -> PerformableStepResult {
+            func perform(with context: AnyContext) throws -> PerformableStepResult {
                 .none
             }
         }
@@ -432,13 +435,16 @@ class RouterTests: XCTestCase {
 
     func testPostponedTaskRunner() {
         let postTask = TestPostRoutingTask<UIViewController, TestProtocol>()
-        let runner = DefaultRouter.PostponedTaskRunner()
         let viewController = UIViewController()
-        runner.add(postTasks: [PostRoutingTaskBox(postTask)], to: viewController)
-        XCTAssertThrowsError(try runner.perform(with: nil as Any?))
-        XCTAssertFalse(postTask.wasInPerform)
-        XCTAssertNoThrow(try runner.perform(with: TestImplementation()))
+        let runner = DefaultRouter.PostponedTaskRunner()
+        runner.add(postTasks: [PostRoutingTaskBox(postTask)], to: viewController, context: AnyContextBox(TestImplementation()))
+        XCTAssertNoThrow(try runner.perform())
         XCTAssertTrue(postTask.wasInPerform)
+
+        let postTask1 = TestPostRoutingTask<UIViewController, TestProtocol>()
+        runner.add(postTasks: [PostRoutingTaskBox(postTask1)], to: viewController, context: AnyContextBox(nil as TestProtocol?))
+        XCTAssertThrowsError(try runner.perform())
+        XCTAssertFalse(postTask1.wasInPerform)
     }
 
 }

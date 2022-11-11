@@ -1,0 +1,187 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+<title>ContextTransformerBox.swift - Slather</title>
+<link href="slather.css" media="all" rel="stylesheet">
+</head>
+<body>
+<header><div class="row"><a href="index.html"><img src="logo.jpg" alt="Slather logo"></a></div></header><div class="row"><div id="reports">
+<h2 class="cov_title">
+<span>Coverage for "ContextTransformerBox.swift" : </span><span class="cov_medium">75.00%</span>
+</h2>
+<h4 class="cov_subtitle">(9 of 12 relevant lines covered)</h4>
+<h4 class="cov_filepath">RouteComposer/Classes/Router/Type Erasure/Boxes/ContextTransformerBox.swift</h4>
+<table class="source_code">
+<tr class="never">
+<td class="num">1</td>
+<td class="src"><pre><code class="objc">//</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">2</td>
+<td class="src"><pre><code class="objc">// RouteComposer</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">3</td>
+<td class="src"><pre><code class="objc">// ContextTransformerBox.swift</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">4</td>
+<td class="src"><pre><code class="objc">// https://github.com/ekazaev/route-composer</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">5</td>
+<td class="src"><pre><code class="objc">//</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">6</td>
+<td class="src"><pre><code class="objc">// Created by Eugene Kazaev in 2018-2022.</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">7</td>
+<td class="src"><pre><code class="objc">// Distributed under the MIT license.</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">8</td>
+<td class="src"><pre><code class="objc">//</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">9</td>
+<td class="src"><pre><code class="objc">// Become a sponsor:</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">10</td>
+<td class="src"><pre><code class="objc">// https://github.com/sponsors/ekazaev</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">11</td>
+<td class="src"><pre><code class="objc">//</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">12</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">13</td>
+<td class="src"><pre><code class="objc">import Foundation</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">14</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">15</td>
+<td class="src"><pre><code class="objc">final class ContextTransformerBox&lt;T: ContextTransformer&gt;: AnyContextTransformer {</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">16</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">17</td>
+<td class="src"><pre><code class="objc">    let transformer: T</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">18</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="covered">
+<td class="num">19</td>
+<td class="src"><pre><code class="objc">    init(_ transformer: T) {</code></pre></td>
+<td class="coverage">17x</td>
+</tr>
+<tr class="covered">
+<td class="num">20</td>
+<td class="src"><pre><code class="objc">        self.transformer = transformer</code></pre></td>
+<td class="coverage">17x</td>
+</tr>
+<tr class="covered">
+<td class="num">21</td>
+<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="coverage">17x</td>
+</tr>
+<tr class="never">
+<td class="num">22</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="covered">
+<td class="num">23</td>
+<td class="src"><pre><code class="objc">    func transform&lt;Context&gt;(_ context: AnyContext) throws -&gt; Context {</code></pre></td>
+<td class="coverage">42x</td>
+</tr>
+<tr class="covered">
+<td class="num">24</td>
+<td class="src"><pre><code class="objc">        let typedContext: T.SourceContext = try context.value()</code></pre></td>
+<td class="coverage">42x</td>
+</tr>
+<tr class="covered">
+<td class="num">25</td>
+<td class="src"><pre><code class="objc">        guard let transformedContext = try transformer.transform(typedContext) as? Context else {</code></pre></td>
+<td class="coverage">42x</td>
+</tr>
+<tr class="missed">
+<td class="num">26</td>
+<td class="src"><pre><code class="objc">            throw RoutingError.typeMismatch(type: type(of: T.TargetContext.self),</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">27</td>
+<td class="src"><pre><code class="objc">                                            expectedType: Context.self,</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">28</td>
+<td class="src"><pre><code class="objc">                                            .init("Failed to transform \(String(describing: T.TargetContext.self)) to \(String(describing: Context.self))."))</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="covered">
+<td class="num">29</td>
+<td class="src"><pre><code class="objc">        }</code></pre></td>
+<td class="coverage">42x</td>
+</tr>
+<tr class="covered">
+<td class="num">30</td>
+<td class="src"><pre><code class="objc">        return transformedContext</code></pre></td>
+<td class="coverage">42x</td>
+</tr>
+<tr class="covered">
+<td class="num">31</td>
+<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="coverage">42x</td>
+</tr>
+<tr class="never">
+<td class="num">32</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">33</td>
+<td class="src"><pre><code class="objc">}</code></pre></td>
+<td class="coverage"></td>
+</tr>
+</table>
+</div></div>
+<footer><div class="row">
+<p><a href="https://github.com/SlatherOrg/slather">Fork me on Github</a></p>
+<p>&copy; 2022 Slather</p>
+</div></footer><script src="highlight.pack.js"></script><script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>

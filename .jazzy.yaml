@@ -32,6 +32,7 @@ custom_categories:
       - SwitchAssembly
       - ChainAssembly
       - CompleteFactoryAssembly
+      - ContextTransformer
 
   - name: Additional Assemblies
     children:

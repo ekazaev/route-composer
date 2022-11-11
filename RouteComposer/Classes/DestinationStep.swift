@@ -6,6 +6,9 @@
 // Created by Eugene Kazaev in 2018-2022.
 // Distributed under the MIT license.
 //
+// Become a sponsor:
+// https://github.com/sponsors/ekazaev
+//
 
 import Foundation
 import UIKit
@@ -31,7 +34,7 @@ public struct DestinationStep<VC: UIViewController, C>: RoutingStep, ChainableSt
         self.destinationStep = destinationStep
     }
 
-    func getPreviousStep<Context>(with context: Context) -> RoutingStep? {
+    func getPreviousStep(with context: AnyContext) -> RoutingStep? {
         destinationStep
     }
 
@@ -40,6 +43,11 @@ public struct DestinationStep<VC: UIViewController, C>: RoutingStep, ChainableSt
     /// *NB:* Developer guaranties that this types will compliment in runtime.
     public func unsafelyRewrapped<VC: UIViewController, C>() -> DestinationStep<VC, C> {
         DestinationStep<VC, C>(destinationStep)
+    }
+
+    /// Transforms context using `ContextTransformer` provided.
+    public func adaptingContext<T: ContextTransformer>(using contextTransformer: T) -> DestinationStep<VC, T.SourceContext> where T.TargetContext == C {
+        DestinationStep<VC, T.SourceContext>(ConvertingStep(contextTransformer: contextTransformer, previousStep: destinationStep))
     }
 
     /// Allows to avoid container view controller check.

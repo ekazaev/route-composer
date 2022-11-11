@@ -6,6 +6,9 @@
 // Created by Eugene Kazaev in 2018-2022.
 // Distributed under the MIT license.
 //
+// Become a sponsor:
+// https://github.com/sponsors/ekazaev
+//
 
 import Foundation
 import RouteComposer
@@ -29,8 +32,8 @@ class SecondModalLevelViewController: UIViewController, ExampleAnalyticsSupport 
         try? router.navigate(to: ConfigurationHolder.configuration.homeScreen, with: nil)
     }
 
-    @IBAction func goToMinskTapped() {
-        try? router.navigate(to: CitiesConfiguration.cityDetail(cityId: 18), animated: false)
+    @IBAction func goToBerlinTapped() {
+        try? router.navigate(to: CitiesConfiguration.cityDetail(cityId: 15), animated: false)
     }
 
     @objc func doneTapped() {

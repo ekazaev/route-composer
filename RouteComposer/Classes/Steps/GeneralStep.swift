@@ -6,6 +6,9 @@
 // Created by Eugene Kazaev in 2018-2022.
 // Distributed under the MIT license.
 //
+// Become a sponsor:
+// https://github.com/sponsors/ekazaev
+//
 
 import Foundation
 import UIKit
@@ -24,7 +27,7 @@ public enum GeneralStep {
             self.windowProvider = windowProvider
         }
 
-        func perform<Context>(with context: Context) throws -> PerformableStepResult {
+        func perform(with context: AnyContext) throws -> PerformableStepResult {
             guard let viewController = windowProvider.window?.rootViewController else {
                 throw RoutingError.compositionFailed(.init("Root view controller was not found."))
             }
@@ -42,7 +45,7 @@ public enum GeneralStep {
             self.windowProvider = windowProvider
         }
 
-        func perform<Context>(with context: Context) throws -> PerformableStepResult {
+        func perform(with context: AnyContext) throws -> PerformableStepResult {
             guard let viewController = windowProvider.window?.topmostViewController else {
                 throw RoutingError.compositionFailed(.init("Topmost view controller was not found."))
             }
@@ -59,7 +62,7 @@ public enum GeneralStep {
             self.finder = FinderBox(finder)
         }
 
-        func perform<Context>(with context: Context) throws -> PerformableStepResult {
+        func perform(with context: AnyContext) throws -> PerformableStepResult {
             guard let viewController = try finder?.findViewController(with: context) else {
                 throw RoutingError.compositionFailed(.init("A view controller of \(String(describing: finder)) was not found."))
             }

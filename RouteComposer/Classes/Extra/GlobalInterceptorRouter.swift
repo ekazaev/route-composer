@@ -6,6 +6,9 @@
 // Created by Eugene Kazaev in 2018-2022.
 // Distributed under the MIT license.
 //
+// Become a sponsor:
+// https://github.com/sponsors/ekazaev
+//
 
 import Foundation
 import UIKit
@@ -37,8 +40,8 @@ public struct GlobalInterceptorRouter<R>: Router where R: Router {
                                                                     animated: Bool,
                                                                     completion: ((RoutingResult) -> Void)?) throws {
         do {
-            let interceptorRunner = try DefaultRouter.InterceptorRunner(interceptors: interceptors, with: context)
-            interceptorRunner.perform(with: context, completion: { result in
+            let interceptorRunner = try DefaultRouter.InterceptorRunner(interceptors: interceptors, with: AnyContextBox(context))
+            interceptorRunner.perform(completion: { result in
                 do {
                     switch result {
                     case .success:

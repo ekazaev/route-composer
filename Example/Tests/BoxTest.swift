@@ -6,6 +6,9 @@
 // Created by Eugene Kazaev in 2018-2022.
 // Distributed under the MIT license.
 //
+// Become a sponsor:
+// https://github.com/sponsors/ekazaev
+//
 
 @testable import RouteComposer
 import UIKit
@@ -33,7 +36,7 @@ class BoxTests: XCTestCase {
             typealias ViewController = VC
             typealias Context = C
 
-            func build(with context: Context, integrating coordinator: ChildCoordinator<Context>) throws -> ViewController {
+            func build(with context: Context, integrating coordinator: ChildCoordinator) throws -> ViewController {
                 fatalError()
             }
         }
@@ -45,15 +48,15 @@ class BoxTests: XCTestCase {
     func testFactoryBoxWithWrongContext() {
         let factory = ClassFactory<UIViewController, Int>()
         var box = FactoryBox(factory, action: ActionBox(ViewControllerActions.NilAction()))
-        XCTAssertThrowsError(try box?.prepare(with: "Wrong Context Type"))
-        XCTAssertThrowsError(try box?.build(with: "Wrong Context Type"))
+        XCTAssertThrowsError(try box?.prepare(with: AnyContextBox("Wrong Context Type")))
+        XCTAssertThrowsError(try box?.build(with: AnyContextBox("Wrong Context Type")))
     }
 
     func testContainerFactoryBoxWithWrongContext() {
         let factory = NavigationControllerFactory<UINavigationController, Int>()
         var box = ContainerFactoryBox(factory, action: ContainerActionBox(UINavigationController.push()))
-        XCTAssertThrowsError(try box?.prepare(with: "Wrong Context Type"))
-        XCTAssertThrowsError(try box?.build(with: "Wrong Context Type"))
+        XCTAssertThrowsError(try box?.prepare(with: AnyContextBox("Wrong Context Type")))
+        XCTAssertThrowsError(try box?.build(with: AnyContextBox("Wrong Context Type")))
     }
 
     func testContainerBoxChildrenScrape() {
@@ -65,7 +68,7 @@ class BoxTests: XCTestCase {
         children.append(FactoryBox(EmptyFactory(), action: ContainerActionBox(UINavigationController.push()))!)
         children.append(FactoryBox(EmptyFactory(), action: ActionBox(ViewControllerActions.NilAction()))!)
 
-        let resultChildren = try? box?.scrapeChildren(from: children)
+        let resultChildren = try? box?.scrapeChildren(from: children.map { (factory: $0, context: AnyContextBox(nil as Any?)) })
         XCTAssertEqual(resultChildren?.count, 1)
         XCTAssertEqual(box?.children.count, 2)
     }
@@ -81,12 +84,12 @@ class BoxTests: XCTestCase {
         children.append(FactoryBox(EmptyFactory(), action: ContainerActionBox(UINavigationController.push()))!)
         children.append(FactoryBox(ClassFactory<UIViewController, Any?>(), action: ContainerActionBox(UINavigationController.push()))!)
 
-        let resultChildren = try? box?.scrapeChildren(from: children)
+        let resultChildren = try? box?.scrapeChildren(from: children.map { (factory: $0, context: AnyContextBox(nil as Any?)) })
         XCTAssertEqual(resultChildren?.count, 3)
         XCTAssertEqual(box?.children.count, 2)
-        XCTAssertTrue(resultChildren?.first! is ContainerFactoryBox<NavigationControllerFactory<UINavigationController, Any?>>)
-        XCTAssertTrue(box?.children.first!.factory is FactoryBox<ClassFactory<UIViewController, Any?>>)
-        XCTAssertTrue(resultChildren?.last! is FactoryBox<ClassFactory<UIViewController, Any?>>)
+        XCTAssertTrue(resultChildren?.first!.factory is ContainerFactoryBox<NavigationControllerFactory<UINavigationController, Any?>>)
+        XCTAssertTrue(box?.children.first!.factory.factory is FactoryBox<ClassFactory<UIViewController, Any?>>)
+        XCTAssertTrue(resultChildren?.last!.factory is FactoryBox<ClassFactory<UIViewController, Any?>>)
     }
 
     func testNilEntitiesInStepAssembly() {
@@ -95,7 +98,7 @@ class BoxTests: XCTestCase {
             .using(ViewControllerActions.NilAction())
             .from(GeneralStep.current())
             .assemble()
-        let step = routingStep.getPreviousStep(with: nil as Any?) as? BaseStep
+        let step = routingStep.getPreviousStep(with: AnyContextBox(nil as Any?)) as? BaseStep
         XCTAssertNotNil(step)
         XCTAssertNil(step?.factory)
         XCTAssertNil(step?.finder)
@@ -284,10 +287,10 @@ class BoxTests: XCTestCase {
     func testPostRoutingTaskBoxInvalidController() {
         let postTask = RouterTests.TestPostRoutingTask<UINavigationController, String?>()
         let task = PostRoutingTaskBox(postTask)
-        XCTAssertThrowsError(try task.perform(on: UIViewController(), with: nil as String?, routingStack: [UIViewController]()))
-        XCTAssertThrowsError(try task.perform(on: UINavigationController(), with: 12, routingStack: [UIViewController]()))
+        XCTAssertThrowsError(try task.perform(on: UIViewController(), with: AnyContextBox(nil as String?), routingStack: [UIViewController]()))
+        XCTAssertThrowsError(try task.perform(on: UINavigationController(), with: AnyContextBox(12), routingStack: [UIViewController]()))
         XCTAssertFalse(postTask.wasInPerform)
-        XCTAssertNoThrow(try task.perform(on: UINavigationController(), with: nil as String?, routingStack: [UIViewController]()))
+        XCTAssertNoThrow(try task.perform(on: UINavigationController(), with: AnyContextBox(nil as String?), routingStack: [UIViewController]()))
         XCTAssertTrue(postTask.wasInPerform)
     }
 

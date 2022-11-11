@@ -6,6 +6,9 @@
 // Created by Eugene Kazaev in 2018-2022.
 // Distributed under the MIT license.
 //
+// Become a sponsor:
+// https://github.com/sponsors/ekazaev
+//
 
 import Foundation
 @testable import RouteComposer
@@ -138,9 +141,9 @@ class FactoryTest: XCTestCase {
     func testPostponedIntegrationFactory() {
         var viewControllerStack: [UIViewController] = []
         let factory = ClassFactory<UIViewController, Any?>()
-        var postponedFactory = PostponedIntegrationFactory<Any?>(for: FactoryBox(factory, action: ContainerActionBox(UINavigationController.push()))!)
-        XCTAssertNoThrow(try postponedFactory.prepare(with: nil))
-        XCTAssertNoThrow(try postponedFactory.build(with: nil, in: &viewControllerStack))
+        var postponedFactory = PostponedIntegrationFactory(for: FactoryBox(factory, action: ContainerActionBox(UINavigationController.push()))!)
+        XCTAssertNoThrow(try postponedFactory.prepare(with: AnyContextBox(nil as Any?)))
+        XCTAssertNoThrow(try postponedFactory.build(with: AnyContextBox(nil as Any?), in: &viewControllerStack))
         XCTAssertEqual(viewControllerStack.count, 1)
         XCTAssertEqual(postponedFactory.description, "ClassFactory<UIViewController, Optional<Any>>(nibName: nil, bundle: nil, configuration: nil)")
     }
@@ -171,7 +174,7 @@ class FactoryTest: XCTestCase {
 
     func testRootStep() {
         let step = GeneralStep.RootViewControllerStep(windowProvider: CustomWindowProvider(window: UIWindow()))
-        XCTAssertThrowsError(try step.perform(with: nil as Any?))
+        XCTAssertThrowsError(try step.perform(with: AnyContextBox(nil as Any?)))
     }
 
     func testSplitControllerStep() {

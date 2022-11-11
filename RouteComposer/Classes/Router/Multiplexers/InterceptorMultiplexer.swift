@@ -6,6 +6,9 @@
 // Created by Eugene Kazaev in 2018-2022.
 // Distributed under the MIT license.
 //
+// Become a sponsor:
+// https://github.com/sponsors/ekazaev
+//
 
 import Foundation
 
@@ -17,7 +20,7 @@ struct InterceptorMultiplexer: AnyRoutingInterceptor, MainThreadChecking, Custom
         self.interceptors = interceptors
     }
 
-    mutating func prepare<Context>(with context: Context) throws {
+    mutating func prepare(with context: AnyContext) throws {
         interceptors = try interceptors.map {
             var interceptor = $0
             try interceptor.prepare(with: context)
@@ -25,7 +28,7 @@ struct InterceptorMultiplexer: AnyRoutingInterceptor, MainThreadChecking, Custom
         }
     }
 
-    func perform<Context>(with context: Context, completion: @escaping (RoutingResult) -> Void) {
+    func perform(with context: AnyContext, completion: @escaping (RoutingResult) -> Void) {
         guard !self.interceptors.isEmpty else {
             completion(.success)
             return

@@ -6,13 +6,16 @@
 // Created by Eugene Kazaev in 2018-2022.
 // Distributed under the MIT license.
 //
+// Become a sponsor:
+// https://github.com/sponsors/ekazaev
+//
 
 import Foundation
 import UIKit
 
 protocol StepCaseResolver {
 
-    func resolve<Context>(with context: Context) -> RoutingStep?
+    func resolve(with context: AnyContext) -> RoutingStep?
 
 }
 
@@ -20,7 +23,7 @@ final class SwitcherStep: RoutingStep, ChainableStep {
 
     final var resolvers: [StepCaseResolver]
 
-    final func getPreviousStep<Context>(with context: Context) -> RoutingStep? {
+    final func getPreviousStep(with context: AnyContext) -> RoutingStep? {
         resolvers.reduce(nil as RoutingStep?) { result, resolver in
             guard result == nil else {
                 return result

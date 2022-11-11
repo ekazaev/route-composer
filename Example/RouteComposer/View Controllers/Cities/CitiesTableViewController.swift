@@ -6,6 +6,9 @@
 // Created by Eugene Kazaev in 2018-2022.
 // Distributed under the MIT license.
 //
+// Become a sponsor:
+// https://github.com/sponsors/ekazaev
+//
 
 import Foundation
 import RouteComposer
@@ -13,8 +16,19 @@ import UIKit
 
 class CityTableContextTask: ContextTask {
 
-    func perform(on viewController: CitiesTableViewController, with context: Int?) throws {
-        viewController.cityId = context
+    // `CitiesTableViewController` can perfectly work with the `Context` object of type `Int?`, but to demonstrate the possibility of context conversion,
+    // we say that the actual context is `String?`. But it is done for demonstration and testing purposes only.
+    func perform(on viewController: CitiesTableViewController, with cityIdAsString: String?) throws {
+        guard let cityIdAsString = cityIdAsString else {
+            viewController.cityId = nil
+            return
+        }
+
+        guard let cityId = Int(cityIdAsString),
+              CitiesDataModel.cities.map(\.cityId).contains(cityId) else {
+            throw RoutingError.generic(.init("City id \(cityIdAsString) is invalid."))
+        }
+        viewController.cityId = cityId
     }
 
 }
