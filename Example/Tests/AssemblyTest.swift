@@ -152,23 +152,25 @@ class AssemblyTest: XCTestCase {
     func testCompleteFactoryAssembly() {
         let contextTask1 = CompleteContextTask<UIViewController, Any?>()
         let contextTask2 = CompleteContextTask<UIViewController, Any?>()
-        let contextTask3 = CompleteContextTask<UITabBarController, Any?>()
+        let contextTask3 = CompleteContextTask<UIViewController, Void>()
+        let contextTask4 = CompleteContextTask<UITabBarController, Any?>()
 
         let container = CompleteFactoryAssembly(factory: TabBarControllerFactory<UITabBarController, Any?>())
             .with(ClassFactory<UIViewController, Any?>())
             .adding(contextTask1)
             .adding(contextTask2)
-            .with(ClassFactory<UIViewController, Any?>(), using: UITabBarController.add())
-            .with(CompleteFactoryAssembly(factory: TabBarControllerFactory<UITabBarController, Any?>())
-                .with(ClassFactory<UIViewController, Any?>()
-                ).assemble(),
-                using: UITabBarController.add(at: 1, replacing: true))
+            .with(ClassFactory<UIViewController, Void>(), using: UITabBarController.add(), adapting: InlineContextTransformer { _ in () })
             .adding(contextTask3)
+            .with(CompleteFactoryAssembly(factory: TabBarControllerFactory<UITabBarController, Any?>())
+                .with(ClassFactory<UIViewController, Any?>(), adapting: NilContextTransformer())
+                .assemble(),
+                using: UITabBarController.add(at: 1, replacing: true), adapting: NilContextTransformer())
+            .adding(contextTask4)
             .with(CompleteFactoryAssembly(factory: NavigationControllerFactory<UINavigationController, Any?>())
                 .with(CompleteFactoryAssembly(factory: TabBarControllerFactory<UITabBarController, Any?>())
-                    .with(ClassFactory<UIViewController, Any?>()
-                    ).assemble()
-                ).assemble())
+                    .with(ClassFactory<UIViewController, Any?>(), adapting: NilContextTransformer())
+                    .assemble(), adapting: NilContextTransformer())
+                .assemble())
             .assemble()
         XCTAssertEqual(container.childFactories.count, 4)
         let tabBarController = try? container.execute()
@@ -179,6 +181,8 @@ class AssemblyTest: XCTestCase {
         XCTAssertTrue(contextTask2.isApplied)
         XCTAssertTrue(contextTask3.isPrepared)
         XCTAssertTrue(contextTask3.isApplied)
+        XCTAssertTrue(contextTask4.isPrepared)
+        XCTAssertTrue(contextTask4.isApplied)
     }
 
     func testCompleteFactoryAssemblyWithNilFactory() {
@@ -186,12 +190,15 @@ class AssemblyTest: XCTestCase {
         XCTAssertEqual(container.childFactories.count, 0)
 
         container = CompleteFactoryAssembly(factory: TabBarControllerFactory<UITabBarController, Any?>())
-            .with(NilContainerFactory<UINavigationController, Any?>())
+            .with(NilContainerFactory<UINavigationController, Any?>(), adapting: NilContextTransformer())
             .adding(CompleteContextTask<UINavigationController, Any?>())
             .with(NilContainerFactory<UINavigationController, Any?>())
             .with(ClassFactory<UIViewController, Any?>())
+            .with(ClassFactory<UIViewController, String>(), adapting: InlineContextTransformer { _ in "nil" })
+            .with(NilContainerFactory<UINavigationController, Any?>())
+            .with(NilContainerFactory<UINavigationController, Any?>())
             .assemble()
-        XCTAssertEqual(container.childFactories.count, 1)
+        XCTAssertEqual(container.childFactories.count, 2)
     }
 
     func testSwitchAssembly() {
