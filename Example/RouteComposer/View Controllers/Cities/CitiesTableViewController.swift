@@ -13,8 +13,19 @@ import UIKit
 
 class CityTableContextTask: ContextTask {
 
-    func perform(on viewController: CitiesTableViewController, with context: String?) throws {
-        viewController.cityId = context
+    // `CitiesTableViewController` can perfectly work with the `Context` object of type `Int?`, but to demonstrate the possibility of context conversion,
+    // we say that the actual context is `String?`. But it is done for demonstration and testing purposes only.
+    func perform(on viewController: CitiesTableViewController, with cityIdAsString: String?) throws {
+        guard let cityIdAsString = cityIdAsString else {
+            viewController.cityId = nil
+            return
+        }
+
+        guard let cityId = Int(cityIdAsString),
+              CitiesDataModel.cities.map(\.cityId).contains(cityId) else {
+            throw RoutingError.generic(.init("City id \(cityIdAsString) is invalid."))
+        }
+        viewController.cityId = cityId
     }
 
 }
@@ -23,12 +34,12 @@ class CitiesTableViewController: UITableViewController, ExampleAnalyticsSupport 
 
     let screenType = ExampleScreenTypes.citiesList
 
-    var cityId: String? {
+    var cityId: Int? {
         didSet {
             guard let cityId = cityId else {
                 return
             }
-            let indexPath = IndexPath(row: Int(cityId)! - 1, section: 0)
+            let indexPath = IndexPath(row: cityId - 1, section: 0)
 
             tableView.selectRow(at: indexPath, animated: true, scrollPosition: .none)
         }

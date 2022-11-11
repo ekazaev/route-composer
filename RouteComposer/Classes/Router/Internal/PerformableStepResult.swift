@@ -12,7 +12,7 @@ import UIKit
 
 enum PerformableStepResult {
 
-    case updateContext(Any?)
+    case updateContext(AnyContext)
 
     case success(UIViewController)
 

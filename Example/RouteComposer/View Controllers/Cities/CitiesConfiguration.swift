@@ -15,9 +15,9 @@ import UIKit
 class CitiesConfiguration {
 
     // Split View Controller
-    private static var city = StepAssembly(finder: ClassFinder<UISplitViewController, Any?>(),
+    private static var city = StepAssembly(finder: ClassFinder<UISplitViewController, Void>(), // Context type `Void` here is only used to demonstrate the possibility of context transformation.
                                            factory: StoryboardFactory(name: "Split"))
-        .adding(LoginInterceptor<Any?>())
+        .adding(LoginInterceptor<Void>())
         .using(GeneralAction.replaceRoot())
         .from(GeneralStep.root())
         .assemble()
@@ -26,7 +26,7 @@ class CitiesConfiguration {
     private static var citiesList = StepAssembly(finder: ClassFinder<CitiesTableViewController, String?>(),
                                                  factory: NilFactory())
         .adding(CityTableContextTask())
-        .from(city.adaptingContext())
+        .from(city.adaptingContext(using: InlineContextTransformer { _ in () })) // We have to transform `String?` to `Void` to satisfy the requirements
         .assemble()
 
     // City Details
@@ -36,14 +36,11 @@ class CitiesConfiguration {
                                    identifier: "CityDetailViewController"))
         .adding(CityDetailContextTask())
         .using(UISplitViewController.pushToDetails())
-        .from(citiesList.adaptingContext(block: { "\($0)" }))
-        // We have to rewrap the step unsafely, as we will take responsibility for the runtime type conversion.
-        // In this particular case it will work as Int can always be converted to Int? and `citiesList` will
-        // be able to select right cell while we are navigating to the `cityDetails`.
+        .from(citiesList.adaptingContext(using: InlineContextTransformer { $0.flatMap { "\($0)" } }).expectingContainer()) // We have to transform `Int` to `String?` to satisfy the requirements
         .assemble()
 
     static func citiesList(cityId: Int? = nil) -> Destination<CitiesTableViewController, String?> {
-        Destination(to: citiesList, with: cityId.flatMap({ "\($0)" }) ?? nil)
+        Destination(to: citiesList, with: cityId.flatMap { "\($0)" } ?? nil)
     }
 
     static func cityDetail(cityId: Int) -> Destination<CityDetailViewController, Int> {

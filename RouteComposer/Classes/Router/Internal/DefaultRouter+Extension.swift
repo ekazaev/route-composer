@@ -147,35 +147,35 @@ extension DefaultRouter {
 
         }
 
-        private final var taskSlips: [(postTaksSlip: PostTaskSlip, context: AnyContext)] = []
+        private final var taskSlips: [(postTaskSlip: PostTaskSlip, context: AnyContext)] = []
 
         final func add(postTasks: [AnyPostRoutingTask], to viewController: UIViewController, context: AnyContext) {
             guard !postTasks.isEmpty else {
                 let postTaskSlip = PostTaskSlip(viewController: viewController, postTask: EmptyPostTask())
-                taskSlips.append((postTaksSlip: postTaskSlip, context: context))
+                taskSlips.append((postTaskSlip: postTaskSlip, context: context))
                 return
             }
 
             postTasks.forEach {
                 let postTaskSlip = PostTaskSlip(viewController: viewController, postTask: $0)
-                taskSlips.append((postTaksSlip: postTaskSlip, context: context))
+                taskSlips.append((postTaskSlip: postTaskSlip, context: context))
             }
         }
 
         final func perform() throws {
             var viewControllers: [UIViewController] = []
             taskSlips.forEach {
-                guard let viewController = $0.postTaksSlip.viewController, !viewControllers.contains(viewController) else {
+                guard let viewController = $0.postTaskSlip.viewController, !viewControllers.contains(viewController) else {
                     return
                 }
                 viewControllers.append(viewController)
             }
 
             try taskSlips.forEach { slip in
-                guard let viewController = slip.postTaksSlip.viewController else {
+                guard let viewController = slip.postTaskSlip.viewController else {
                     return
                 }
-                try slip.postTaksSlip.postTask.perform(on: viewController, with: slip.context, routingStack: viewControllers)
+                try slip.postTaskSlip.postTask.perform(on: viewController, with: slip.context, routingStack: viewControllers)
             }
         }
     }
@@ -209,7 +209,7 @@ extension DefaultRouter {
             if let postTask = interceptableStep.postTask {
                 try postTaskRunner.add(postTask)
             }
-            return StepTaskTaskRunner(contextTaskRunner: contextTaskRunner, postTaskRunner: postTaskRunner,context: context)
+            return StepTaskTaskRunner(contextTaskRunner: contextTaskRunner, postTaskRunner: postTaskRunner, context: context)
         }
 
         final func performInterceptors(completion: @escaping (_: RoutingResult) -> Void) {

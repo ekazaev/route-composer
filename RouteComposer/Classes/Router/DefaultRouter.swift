@@ -9,27 +9,6 @@
 
 import UIKit
 
-protocol AnyContext {
-    func value<Context>() throws -> Context
-}
-
-struct AnyContextBox<C>: AnyContext {
-    let context: C
-
-    init(_ context: C) {
-        self.context = context
-    }
-
-    func value<Context>() throws -> Context {
-        guard let typedContext = Any?.some(context as Any) as? Context else {
-            throw RoutingError.typeMismatch(type: type(of: context),
-                    expectedType: Context.self,
-                    .init("\(String(describing: context.self)) can not be converted to \(String(describing: Context.self))."))
-        }
-        return typedContext
-    }
-}
-
 /// Default `Router` implementation
 public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
 
@@ -84,10 +63,14 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
                                                                     completion: ((_: RoutingResult) -> Void)? = nil) throws {
         assertIfNotMainThread(logger: logger)
         do {
+            // Wrapping real context into a box.
+            let context: AnyContext = AnyContextBox(context)
+
             let taskStack = try prepareTaskStack(with: context)
             let navigationStack = try prepareFactoriesStack(to: step, with: context, taskStack: taskStack)
 
-            let viewController = navigationStack.rootViewController, factoriesStack = navigationStack.factories
+            let viewController = navigationStack.rootViewController
+            let buildingInputStack = navigationStack.buildingInputStack
 
             // Checks if the view controllers that are currently presented from the origin view controller, can be dismissed.
             if let viewController = Array([[viewController.allParents.last ?? viewController], viewController.allPresentedViewControllers].joined()).nonDismissibleViewController {
@@ -96,7 +79,7 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
             }
 
             startNavigation(from: viewController,
-                            building: factoriesStack,
+                            building: buildingInputStack,
                             performing: taskStack,
                             animated: animated,
                             completion: { (result: RoutingResult) in
@@ -117,8 +100,7 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
 
     // MARK: Private Methods
 
-    private func prepareTaskStack<Context>(with context: Context) throws -> GlobalTaskRunner {
-        let context = AnyContextBox(context)
+    private func prepareTaskStack(with context: AnyContext) throws -> GlobalTaskRunner {
         let interceptorRunner = try InterceptorRunner(interceptors: interceptors, with: context)
         let contextTaskRunner = try ContextTaskRunner(contextTasks: contextTasks, with: context)
         let postponedTaskRunner = PostponedTaskRunner()
@@ -126,73 +108,73 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
         return GlobalTaskRunner(interceptorRunner: interceptorRunner, contextTaskRunner: contextTaskRunner, postTaskRunner: postTaskRunner)
     }
 
-    private func prepareFactoriesStack<Context>(to finalStep: RoutingStep, with context: Context, taskStack: GlobalTaskRunner) throws -> (rootViewController: UIViewController,
-                                                                                                                                          factories: [(factory: AnyFactory, context: AnyContext)]) {
+    private func prepareFactoriesStack(to finalStep: RoutingStep, with context: AnyContext, taskStack: GlobalTaskRunner) throws -> (rootViewController: UIViewController,
+                                                                                                                                    buildingInputStack: [(factory: AnyFactory, context: AnyContext)]) {
         logger?.log(.info("Started to search for the view controller to start the navigation process from."))
-        var context: AnyContext = AnyContextBox(context)
-        let stepSequence = sequence(first: finalStep, next: { ($0 as? ChainableStep)?.getPreviousStep(with: context) }).compactMap ({ $0 as? PerformableStep })
 
-        let result = try stepSequence.reduce((rootViewController: UIViewController?, factories: [(factory: AnyFactory, context: AnyContext)])(rootViewController: nil, factories: [])) { result, step in
-                        guard result.rootViewController == nil else {
-                            return result
-                        }
+        var context = context
 
-                        switch try step.perform(with: context) {
-                        case let .success(viewController):
-                            logger?.log(.info("\(String(describing: step)) found " +
-                                    "\(String(describing: viewController)) to start the navigation process from."))
+        let stepSequence = sequence(first: finalStep, next: { ($0 as? ChainableStep)?.getPreviousStep(with: context) }).compactMap { $0 as? PerformableStep }
 
-                            // Creates a class responsible to run the tasks for this particular step
-                            let stepTaskRunner = try taskStack.taskRunner(for: step, with: context)
+        let result = try stepSequence.reduce((rootViewController: UIViewController?, buildingInputStack: [(factory: AnyFactory, context: AnyContext)])(rootViewController: nil, buildingInputStack: [])) { result, step in
+            guard result.rootViewController == nil else {
+                return result
+            }
 
-                            try stepTaskRunner.perform(on: viewController)
+            // Creates a class responsible to run the tasks for this particular step
+            let stepTaskRunner = try taskStack.taskRunner(for: step, with: context)
 
-                            return (rootViewController: viewController, result.factories)
-                        case let .build(originalFactory):
-                            logger?.log(.info("\(String(describing: step)) hasn't found a corresponding view " +
-                                    "controller in the stack, so it will be built using \(String(describing: originalFactory))."))
+            switch try step.perform(with: context) {
+            case let .success(viewController):
+                logger?.log(.info("\(String(describing: step)) found " +
+                        "\(String(describing: viewController)) to start the navigation process from."))
 
-                            // Creates a class responsible to run the tasks for this particular step
-                            let stepTaskRunner = try taskStack.taskRunner(for: step, with: context)
+                try stepTaskRunner.perform(on: viewController)
 
-                            // Wrap the `Factory` with the decorator that will
-                            // handle the view controller and post task chain after the view controller creation.
-                            var factory = FactoryDecorator(factory: originalFactory, stepTaskRunner: stepTaskRunner)
+                return (rootViewController: viewController, result.buildingInputStack)
+            case let .build(originalFactory):
+                logger?.log(.info("\(String(describing: step)) hasn't found a corresponding view " +
+                        "controller in the stack, so it will be built using \(String(describing: originalFactory))."))
 
-                            // Prepares the `Factory` for integration
-                            // If a `Factory` cannot prepare itself (e.g. does not have enough data in context)
-                            // then the view controllers stack can not be built
-                            try factory.prepare(with: context)
+                // Wrap the `Factory` with the decorator that will
+                // handle the view controller and post task chain after the view controller creation.
+                var factory = FactoryDecorator(factory: originalFactory, stepTaskRunner: stepTaskRunner)
 
-                            // Allows to the `Factory` to change the current factory stack if needed.
-                            var factories = try factory.scrapeChildren(from: result.factories)
+                // Prepares the `Factory` for integration
+                // If a `Factory` cannot prepare itself (e.g. does not have enough data in context)
+                // then the view controllers stack can not be built
+                try factory.prepare(with: context)
 
-                            // Adds the `Factory` to the beginning of the stack as the router is reading the configuration backwards.
-                            factories.insert((factory: factory, context: context), at: 0)
-                            return (rootViewController: result.rootViewController, factories: factories)
-                        case let .updateContext(newContext):
-                            context = AnyContextBox(newContext)
-                            return result
-                        case .none:
-                            logger?.log(.info("\(String(describing: step)) hasn't found a corresponding view " +
-                                    "controller in the stack, so router will continue to search."))
-                            return result
-                        }
-                    }
+                // Allows to the `Factory` to change the current factory stack if needed.
+                var buildingInputStack = try factory.scrapeChildren(from: result.buildingInputStack)
+
+                // Adds the `Factory` to the beginning of the stack as the router is reading the configuration backwards.
+                buildingInputStack.insert((factory: factory, context: context), at: 0)
+                return (rootViewController: result.rootViewController, buildingInputStack: buildingInputStack)
+            case let .updateContext(newContext):
+                // Substitute current context with an updated one
+                context = newContext
+                return result
+            case .none:
+                logger?.log(.info("\(String(describing: step)) hasn't found a corresponding view " +
+                        "controller in the stack, so router will continue to search."))
+                return result
+            }
+        }
 
         // Throw an exception if the router hasn't found a view controller to start the stack from.
         guard let rootViewController = result.rootViewController else {
             throw RoutingError.initialController(.notFound, .init("Unable to start the navigation process as the view controller to start from was not found."))
         }
 
-        return (rootViewController: rootViewController, factories: result.factories)
+        return (rootViewController: rootViewController, buildingInputStack: result.buildingInputStack)
     }
 
     private func startNavigation(from viewController: UIViewController,
-                                          building factoriesStack: [(factory: AnyFactory, context: AnyContext)],
-                                          performing taskStack: GlobalTaskRunner,
-                                          animated: Bool,
-                                          completion: @escaping (RoutingResult) -> Void) {
+                                 building buildingInputStack: [(factory: AnyFactory, context: AnyContext)],
+                                 performing taskStack: GlobalTaskRunner,
+                                 animated: Bool,
+                                 completion: @escaping (RoutingResult) -> Void) {
         // Executes interceptors associated to each view in the chain. All the interceptors must succeed to
         // continue navigation process. This operation is async.
         let initialControllerDescription = String(describing: viewController)
@@ -222,9 +204,9 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
 
                 // Builds view controller's stack using factories.
                 // This operation is async.
-                self.buildViewControllerStack(starting: viewController,
-                                              using: factoriesStack,
-                                              animated: animated) { result in
+                buildViewControllerStack(starting: viewController,
+                                         using: buildingInputStack,
+                                         animated: animated) { result in
                     do {
                         if case let .failure(error) = result {
                             throw error
@@ -243,9 +225,9 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
     // Some actions can be asynchronous, like push, modal or presentations,
     // so it performs them asynchronously
     private func buildViewControllerStack(starting rootViewController: UIViewController,
-                                                   using factories: [(factory: AnyFactory, context: AnyContext)],
-                                                   animated: Bool,
-                                                   completion: @escaping (RoutingResult) -> Void) {
+                                          using factories: [(factory: AnyFactory, context: AnyContext)],
+                                          animated: Bool,
+                                          completion: @escaping (RoutingResult) -> Void) {
         var factories = factories
         let postponedIntegrationHandler = DefaultPostponedIntegrationHandler(logger: logger,
                                                                              containerAdapterLocator: containerAdapterLocator)
@@ -270,10 +252,10 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
                     let nextAction = factories.first?.factory.action
 
                     factory.factory.action.perform(with: newViewController,
-                                           on: previousViewController,
-                                           with: postponedIntegrationHandler,
-                                           nextAction: nextAction,
-                                           animated: animated) { result in
+                                                   on: previousViewController,
+                                                   with: postponedIntegrationHandler,
+                                                   nextAction: nextAction,
+                                                   animated: animated) { result in
                         self.assertIfNotMainThread(logger: logger)
                         guard result.isSuccessful else {
                             logger?.log(.info("\(String(describing: factory.factory.action)) has stopped the navigation process " +

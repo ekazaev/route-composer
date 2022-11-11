@@ -19,8 +19,8 @@ struct PostRoutingTaskBox<PT: PostRoutingTask>: AnyPostRoutingTask, MainThreadCh
     }
 
     func perform(on viewController: UIViewController,
-                          with context: AnyContext,
-                          routingStack: [UIViewController]) throws {
+                 with context: AnyContext,
+                 routingStack: [UIViewController]) throws {
         guard let typedViewController = viewController as? PT.ViewController else {
             throw RoutingError.typeMismatch(type: type(of: viewController),
                                             expectedType: PT.ViewController.self,

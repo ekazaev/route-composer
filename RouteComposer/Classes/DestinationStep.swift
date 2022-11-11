@@ -31,7 +31,7 @@ public struct DestinationStep<VC: UIViewController, C>: RoutingStep, ChainableSt
         self.destinationStep = destinationStep
     }
 
-    func getPreviousStep<Context>(with context: Context) -> RoutingStep? {
+    func getPreviousStep(with context: AnyContext) -> RoutingStep? {
         destinationStep
     }
 
@@ -42,34 +42,9 @@ public struct DestinationStep<VC: UIViewController, C>: RoutingStep, ChainableSt
         DestinationStep<VC, C>(destinationStep)
     }
 
-    struct ConvertingStep<SourceContext, TargetContext>: RoutingStep,
-            ChainableStep,
-            PerformableStep {
-
-        private let block: (SourceContext) -> TargetContext
-        private var previousStep: RoutingStep?
-
-        init(block: @escaping (SourceContext) -> TargetContext, previousStep: RoutingStep?) {
-            self.block = block
-            self.previousStep = previousStep
-        }
-
-        func getPreviousStep(with context: AnyContext) -> RoutingStep? {
-            return previousStep
-        }
-
-        func perform(with context: AnyContext) throws -> PerformableStepResult {
-            let typedContext: SourceContext = try context.value()
-            let newContext = block(typedContext)
-            return .updateContext(newContext)
-        }
-    }
-
-    /// Adapts context and view controller type dependencies.
-    ///
-    /// *NB:* Developer guaranties that this types will compliment in runtime.
-    public func adaptingContext<VC: UIViewController, C>(block: @escaping (C) -> Context) -> DestinationStep<VC, C> {
-        DestinationStep<VC, C>(ConvertingStep(block: block, previousStep: destinationStep))
+    /// Transforms context using `ContextTransformer` provided.
+    public func adaptingContext<T: ContextTransformer>(using contextTransformer: T) -> DestinationStep<VC, T.SourceContext> where T.TargetContext == C {
+        DestinationStep<VC, T.SourceContext>(ConvertingStep(contextTransformer: contextTransformer, previousStep: destinationStep))
     }
 
     /// Allows to avoid container view controller check.

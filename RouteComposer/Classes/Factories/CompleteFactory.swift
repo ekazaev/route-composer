@@ -43,7 +43,7 @@ public struct CompleteFactory<FC: ContainerFactory>: ContainerFactory, CustomStr
     }
 
     public func build(with context: FC.Context, integrating coordinator: ChildCoordinator) throws -> FC.ViewController {
-        var finalChildFactories: [(factory: PostponedIntegrationFactory, context: AnyContext)] = childFactories.map({ (factory: $0, context: AnyContextBox(context)) })
+        var finalChildFactories: [(factory: PostponedIntegrationFactory, context: AnyContext)] = childFactories.map { (factory: $0, context: AnyContextBox(context)) }
         finalChildFactories.append(contentsOf: coordinator.childFactories)
         return try factory.build(with: context, integrating: ChildCoordinator(childFactories: finalChildFactories))
     }
