@@ -7,9 +7,9 @@
 <body>
 <header><div class="row"><a href="index.html"><img src="logo.jpg" alt="Slather logo"></a></div></header><div class="row"><div id="reports">
 <h2 class="cov_title">
-<span>Coverage for "PostRoutingTaskMultiplexer.swift" : </span><span class="cov_low">66.67%</span>
+<span>Coverage for "PostRoutingTaskMultiplexer.swift" : </span><span class="cov_high">100.00%</span>
 </h2>
-<h4 class="cov_subtitle">(6 of 9 relevant lines covered)</h4>
+<h4 class="cov_subtitle">(9 of 9 relevant lines covered)</h4>
 <h4 class="cov_filepath">RouteComposer/Classes/Router/Multiplexers/PostRoutingTaskMultiplexer.swift</h4>
 <table class="source_code">
 <tr class="never">
@@ -110,37 +110,37 @@
 <tr class="covered">
 <td class="num">20</td>
 <td class="src"><pre><code class="objc">    init(_ tasks: [AnyPostRoutingTask]) {</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">2x</td>
 </tr>
 <tr class="covered">
 <td class="num">21</td>
 <td class="src"><pre><code class="objc">        self.tasks = tasks</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">2x</td>
 </tr>
 <tr class="covered">
 <td class="num">22</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">2x</td>
 </tr>
 <tr class="never">
 <td class="num">23</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">24</td>
 <td class="src"><pre><code class="objc">    func perform(on viewController: UIViewController, with context: AnyContext, routingStack: [UIViewController]) throws {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">25</td>
 <td class="src"><pre><code class="objc">        try tasks.forEach { try $0.perform(on: viewController, with: context, routingStack: routingStack) }</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">26</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="never">
 <td class="num">27</td>

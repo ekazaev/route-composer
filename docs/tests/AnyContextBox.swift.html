@@ -100,17 +100,17 @@
 <tr class="covered">
 <td class="num">18</td>
 <td class="src"><pre><code class="objc">    init(_ context: C) {</code></pre></td>
-<td class="coverage">384x</td>
+<td class="coverage">399x</td>
 </tr>
 <tr class="covered">
 <td class="num">19</td>
 <td class="src"><pre><code class="objc">        self.context = context</code></pre></td>
-<td class="coverage">384x</td>
+<td class="coverage">399x</td>
 </tr>
 <tr class="covered">
 <td class="num">20</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">384x</td>
+<td class="coverage">399x</td>
 </tr>
 <tr class="never">
 <td class="num">21</td>
@@ -120,42 +120,42 @@
 <tr class="covered">
 <td class="num">22</td>
 <td class="src"><pre><code class="objc">    func value&lt;Context&gt;() throws -&gt; Context {</code></pre></td>
-<td class="coverage">1500x</td>
+<td class="coverage">1510x</td>
 </tr>
 <tr class="covered">
 <td class="num">23</td>
 <td class="src"><pre><code class="objc">        guard let typedContext = context as? Context else {</code></pre></td>
-<td class="coverage">1500x</td>
+<td class="coverage">1510x</td>
 </tr>
 <tr class="covered">
 <td class="num">24</td>
 <td class="src"><pre><code class="objc">            throw RoutingError.typeMismatch(type: type(of: context),</code></pre></td>
-<td class="coverage">14x</td>
+<td class="coverage">19x</td>
 </tr>
 <tr class="covered">
 <td class="num">25</td>
 <td class="src"><pre><code class="objc">                                            expectedType: Context.self,</code></pre></td>
-<td class="coverage">14x</td>
+<td class="coverage">19x</td>
 </tr>
 <tr class="covered">
 <td class="num">26</td>
 <td class="src"><pre><code class="objc">                                            .init("\(String(describing: context.self)) can not be converted to \(String(describing: Context.self))."))</code></pre></td>
-<td class="coverage">14x</td>
+<td class="coverage">19x</td>
 </tr>
 <tr class="covered">
 <td class="num">27</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">1480x</td>
+<td class="coverage">1490x</td>
 </tr>
 <tr class="covered">
 <td class="num">28</td>
 <td class="src"><pre><code class="objc">        return typedContext</code></pre></td>
-<td class="coverage">1480x</td>
+<td class="coverage">1490x</td>
 </tr>
 <tr class="covered">
 <td class="num">29</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">1500x</td>
+<td class="coverage">1510x</td>
 </tr>
 <tr class="never">
 <td class="num">30</td>

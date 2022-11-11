@@ -110,17 +110,17 @@
 <tr class="covered">
 <td class="num">20</td>
 <td class="src"><pre><code class="objc">    init(_ tasks: [AnyContextTask]) {</code></pre></td>
-<td class="coverage">20x</td>
+<td class="coverage">22x</td>
 </tr>
 <tr class="covered">
 <td class="num">21</td>
 <td class="src"><pre><code class="objc">        self.tasks = tasks</code></pre></td>
-<td class="coverage">20x</td>
+<td class="coverage">22x</td>
 </tr>
 <tr class="covered">
 <td class="num">22</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">20x</td>
+<td class="coverage">22x</td>
 </tr>
 <tr class="never">
 <td class="num">23</td>
@@ -130,37 +130,37 @@
 <tr class="covered">
 <td class="num">24</td>
 <td class="src"><pre><code class="objc">    mutating func prepare(with context: AnyContext) throws {</code></pre></td>
-<td class="coverage">21x</td>
+<td class="coverage">23x</td>
 </tr>
 <tr class="covered">
 <td class="num">25</td>
 <td class="src"><pre><code class="objc">        tasks = try tasks.map {</code></pre></td>
-<td class="coverage">42x</td>
+<td class="coverage">44x</td>
 </tr>
 <tr class="covered">
 <td class="num">26</td>
 <td class="src"><pre><code class="objc">            var contextTask = $0</code></pre></td>
-<td class="coverage">42x</td>
+<td class="coverage">44x</td>
 </tr>
 <tr class="covered">
 <td class="num">27</td>
 <td class="src"><pre><code class="objc">            try contextTask.prepare(with: context)</code></pre></td>
-<td class="coverage">42x</td>
+<td class="coverage">44x</td>
 </tr>
 <tr class="covered">
 <td class="num">28</td>
 <td class="src"><pre><code class="objc">            return contextTask</code></pre></td>
-<td class="coverage">42x</td>
+<td class="coverage">44x</td>
 </tr>
 <tr class="covered">
 <td class="num">29</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">42x</td>
+<td class="coverage">44x</td>
 </tr>
 <tr class="covered">
 <td class="num">30</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">21x</td>
+<td class="coverage">23x</td>
 </tr>
 <tr class="never">
 <td class="num">31</td>
@@ -170,17 +170,17 @@
 <tr class="covered">
 <td class="num">32</td>
 <td class="src"><pre><code class="objc">    func perform(on viewController: UIViewController, with context: AnyContext) throws {</code></pre></td>
-<td class="coverage">21x</td>
+<td class="coverage">23x</td>
 </tr>
 <tr class="covered">
 <td class="num">33</td>
 <td class="src"><pre><code class="objc">        try tasks.forEach { try $0.perform(on: viewController, with: context) }</code></pre></td>
-<td class="coverage">42x</td>
+<td class="coverage">44x</td>
 </tr>
 <tr class="covered">
 <td class="num">34</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">21x</td>
+<td class="coverage">23x</td>
 </tr>
 <tr class="never">
 <td class="num">35</td>
