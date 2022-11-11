@@ -13,7 +13,7 @@ import UIKit
 
 class CityTableContextTask: ContextTask {
 
-    func perform(on viewController: CitiesTableViewController, with context: Int?) throws {
+    func perform(on viewController: CitiesTableViewController, with context: String?) throws {
         viewController.cityId = context
     }
 
@@ -23,12 +23,12 @@ class CitiesTableViewController: UITableViewController, ExampleAnalyticsSupport 
 
     let screenType = ExampleScreenTypes.citiesList
 
-    var cityId: Int? {
+    var cityId: String? {
         didSet {
             guard let cityId = cityId else {
                 return
             }
-            let indexPath = IndexPath(row: cityId - 1, section: 0)
+            let indexPath = IndexPath(row: Int(cityId)! - 1, section: 0)
 
             tableView.selectRow(at: indexPath, animated: true, scrollPosition: .none)
         }

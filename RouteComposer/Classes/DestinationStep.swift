@@ -54,11 +54,11 @@ public struct DestinationStep<VC: UIViewController, C>: RoutingStep, ChainableSt
             self.previousStep = previousStep
         }
 
-        func getPreviousStep<C>(with context: C) -> RoutingStep? {
+        func getPreviousStep(with context: Any?) -> RoutingStep? {
             return previousStep
         }
 
-        func perform<C>(with context: C) throws -> PerformableStepResult {
+        func perform(with context: Any?) throws -> PerformableStepResult {
             guard let typedContext = Any?.some(context as Any) as? SourceContext else {
                 throw RoutingError.typeMismatch(type: type(of: context),
                         expectedType: SourceContext.self,
@@ -72,7 +72,7 @@ public struct DestinationStep<VC: UIViewController, C>: RoutingStep, ChainableSt
     /// Adapts context and view controller type dependencies.
     ///
     /// *NB:* Developer guaranties that this types will compliment in runtime.
-    public func adaptingContext<VC: UIViewController, C>(block: @escaping (Context) -> C) -> DestinationStep<VC, C> {
+    public func adaptingContext<VC: UIViewController, C>(block: @escaping (C) -> Context) -> DestinationStep<VC, C> {
         DestinationStep<VC, C>(ConvertingStep(block: block, previousStep: destinationStep))
     }
 

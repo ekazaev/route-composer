@@ -23,7 +23,7 @@ class CitiesConfiguration {
         .assemble()
 
     // Cities List
-    private static var citiesList = StepAssembly(finder: ClassFinder<CitiesTableViewController, Int?>(),
+    private static var citiesList = StepAssembly(finder: ClassFinder<CitiesTableViewController, String?>(),
                                                  factory: NilFactory())
         .adding(CityTableContextTask())
         .from(city.adaptingContext())
@@ -36,14 +36,14 @@ class CitiesConfiguration {
                                    identifier: "CityDetailViewController"))
         .adding(CityDetailContextTask())
         .using(UISplitViewController.pushToDetails())
-        .from(citiesList.unsafelyRewrapped())
+        .from(citiesList.adaptingContext(block: { "\($0)" }))
         // We have to rewrap the step unsafely, as we will take responsibility for the runtime type conversion.
         // In this particular case it will work as Int can always be converted to Int? and `citiesList` will
         // be able to select right cell while we are navigating to the `cityDetails`.
         .assemble()
 
-    static func citiesList(cityId: Int? = nil) -> Destination<CitiesTableViewController, Int?> {
-        Destination(to: citiesList, with: cityId)
+    static func citiesList(cityId: Int? = nil) -> Destination<CitiesTableViewController, String?> {
+        Destination(to: citiesList, with: cityId.flatMap({ "\($0)" }) ?? nil)
     }
 
     static func cityDetail(cityId: Int) -> Destination<CityDetailViewController, Int> {

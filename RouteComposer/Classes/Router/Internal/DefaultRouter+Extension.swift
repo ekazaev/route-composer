@@ -57,25 +57,25 @@ extension DefaultRouter {
 
     struct ContextTaskRunner {
 
-        var contextTasks: [(contextTask: AnyContextTask, context: Any?)]
+        var contextTasks: [AnyContextTask]
 
         init(contextTasks: [AnyContextTask], with context: Any?) throws {
             self.contextTasks = try contextTasks.map {
                 var contextTask = $0
                 try contextTask.prepare(with: context)
-                return (contextTask: contextTask, context: context)
+                return contextTask
             }
         }
 
         mutating func add(_ contextTask: AnyContextTask, with context: Any?) throws {
             var contextTask = contextTask
             try contextTask.prepare(with: context)
-            contextTasks.append((contextTask: contextTask, context: context))
+            contextTasks.append(contextTask)
         }
 
         func perform(on viewController: UIViewController, with context: Any?) throws {
             try contextTasks.forEach {
-                try $0.contextTask.perform(on: viewController, with: $0.context)
+                try $0.perform(on: viewController, with: context)
             }
         }
 
@@ -96,12 +96,12 @@ extension DefaultRouter {
             postTasks.append(postTask)
         }
 
-        func perform(on viewController: UIViewController) throws {
-            postponedRunner.add(postTasks: postTasks, to: viewController)
+        func perform(on viewController: UIViewController, with context: Any?) throws {
+            postponedRunner.add(postTasks: postTasks, to: viewController, context: context)
         }
 
-        func commit(with context: Any?) throws {
-            try postponedRunner.perform(with: context)
+        func commit() throws {
+            try postponedRunner.perform()
         }
 
     }
@@ -122,7 +122,7 @@ extension DefaultRouter {
 
         func perform(on viewController: UIViewController) throws {
             try contextTaskRunner.perform(on: viewController, with: context)
-            try postTaskRunner.perform(on: viewController)
+            try postTaskRunner.perform(on: viewController, with: context)
         }
 
     }
@@ -147,35 +147,35 @@ extension DefaultRouter {
 
         }
 
-        private final var taskSlips: [PostTaskSlip] = []
+        private final var taskSlips: [(postTaksSlip: PostTaskSlip, context: Any?)] = []
 
-        final func add(postTasks: [AnyPostRoutingTask], to viewController: UIViewController) {
+        final func add(postTasks: [AnyPostRoutingTask], to viewController: UIViewController, context: Any?) {
             guard !postTasks.isEmpty else {
                 let postTaskSlip = PostTaskSlip(viewController: viewController, postTask: EmptyPostTask())
-                taskSlips.append(postTaskSlip)
+                taskSlips.append((postTaksSlip: postTaskSlip, context: context))
                 return
             }
 
             postTasks.forEach {
                 let postTaskSlip = PostTaskSlip(viewController: viewController, postTask: $0)
-                taskSlips.append(postTaskSlip)
+                taskSlips.append((postTaksSlip: postTaskSlip, context: context))
             }
         }
 
-        final func perform(with context: Any?) throws {
+        final func perform() throws {
             var viewControllers: [UIViewController] = []
             taskSlips.forEach {
-                guard let viewController = $0.viewController, !viewControllers.contains(viewController) else {
+                guard let viewController = $0.postTaksSlip.viewController, !viewControllers.contains(viewController) else {
                     return
                 }
                 viewControllers.append(viewController)
             }
 
             try taskSlips.forEach { slip in
-                guard let viewController = slip.viewController else {
+                guard let viewController = slip.postTaksSlip.viewController else {
                     return
                 }
-                try slip.postTask.perform(on: viewController, with: context, routingStack: viewControllers)
+                try slip.postTaksSlip.postTask.perform(on: viewController, with: slip.context, routingStack: viewControllers)
             }
         }
     }
@@ -216,8 +216,8 @@ extension DefaultRouter {
             interceptorRunner.perform(completion: completion)
         }
 
-        final func performPostTasks(with context: Any?) throws {
-            try postTaskRunner.commit(with: context)
+        final func performPostTasks() throws {
+            try postTaskRunner.commit()
         }
 
     }

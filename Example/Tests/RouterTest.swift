@@ -430,15 +430,15 @@ class RouterTests: XCTestCase {
         XCTAssertTrue(wasInCompletion)
     }
 
-    func testPostponedTaskRunner() {
-        let postTask = TestPostRoutingTask<UIViewController, TestProtocol>()
-        let runner = DefaultRouter.PostponedTaskRunner()
-        let viewController = UIViewController()
-        runner.add(postTasks: [PostRoutingTaskBox(postTask)], to: viewController)
-        XCTAssertThrowsError(try runner.perform(with: nil as Any?))
-        XCTAssertFalse(postTask.wasInPerform)
-        XCTAssertNoThrow(try runner.perform(with: TestImplementation()))
-        XCTAssertTrue(postTask.wasInPerform)
-    }
+//    func testPostponedTaskRunner() {
+//        let postTask = TestPostRoutingTask<UIViewController, TestProtocol>()
+//        let runner = DefaultRouter.PostponedTaskRunner()
+//        let viewController = UIViewController()
+//        runner.add(postTasks: [PostRoutingTaskBox(postTask)], to: viewController)
+//        XCTAssertThrowsError(try runner.perform(with: nil as Any?))
+//        XCTAssertFalse(postTask.wasInPerform)
+//        XCTAssertNoThrow(try runner.perform(with: TestImplementation()))
+//        XCTAssertTrue(postTask.wasInPerform)
+//    }
 
 }

@@ -9,8 +9,25 @@
 
 import UIKit
 
-struct FactoryContextTuple {
+public protocol AnyContext {
+    func value<Context>() throws -> Context
+}
 
+struct AnyContextBox<C>: AnyContext {
+    let context: C
+
+    init(context: C) {
+        self.context = context
+    }
+
+    func value<Context>() throws -> Context {
+        guard let typedContext = Any?.some(context as Any) as? Context else {
+            throw RoutingError.typeMismatch(type: type(of: context),
+                    expectedType: Context.self,
+                    .init("\(String(describing: context.self)) can not be converted to \(String(describing: Context.self))."))
+        }
+        return typedContext
+    }
 }
 
 /// Default `Router` implementation
@@ -81,7 +98,6 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
             startNavigation(from: viewController,
                             building: factoriesStack,
                             performing: taskStack,
-                            with: context,
                             animated: animated,
                             completion: { (result: RoutingResult) in
                                 if case let .failure(error) = result {
@@ -109,10 +125,10 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
         return GlobalTaskRunner(interceptorRunner: interceptorRunner, contextTaskRunner: contextTaskRunner, postTaskRunner: postTaskRunner)
     }
 
-    private func prepareFactoriesStack(to finalStep: RoutingStep, with context: Any?, taskStack: GlobalTaskRunner) throws -> (rootViewController: UIViewController,
+    private func prepareFactoriesStack<Context>(to finalStep: RoutingStep, with context: Context, taskStack: GlobalTaskRunner) throws -> (rootViewController: UIViewController,
                                                                                                                                           factories: [(factory: AnyFactory, context: Any?)]) {
         logger?.log(.info("Started to search for the view controller to start the navigation process from."))
-        var context = context
+        var context: Any? = context
         let stepSequence = sequence(first: finalStep, next: { ($0 as? ChainableStep)?.getPreviousStep(with: context) }).compactMap ({ $0 as? PerformableStep })
 
         let result = try stepSequence.reduce((rootViewController: UIViewController?, factories: [(factory: AnyFactory, context: Any?)])(rootViewController: nil, factories: [])) { result, step in
@@ -171,10 +187,9 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
         return (rootViewController: rootViewController, factories: result.factories)
     }
 
-    private func startNavigation<Context>(from viewController: UIViewController,
+    private func startNavigation(from viewController: UIViewController,
                                           building factoriesStack: [(factory: AnyFactory, context: Any?)],
                                           performing taskStack: GlobalTaskRunner,
-                                          with context: Context,
                                           animated: Bool,
                                           completion: @escaping (RoutingResult) -> Void) {
         // Executes interceptors associated to each view in the chain. All the interceptors must succeed to
@@ -213,7 +228,7 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
                         if case let .failure(error) = result {
                             throw error
                         }
-                        try taskStack.performPostTasks(with: context)
+                        try taskStack.performPostTasks()
                         completion(result)
                     } catch {
                         completion(.failure(error))

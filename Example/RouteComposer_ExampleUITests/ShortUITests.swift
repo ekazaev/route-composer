@@ -99,7 +99,7 @@ class ShortUITests: XCTestCase {
         app.buttons["Go to Second modal"].tap()
         XCTAssertTrue(app.otherElements["secondLevelViewController"].waitForExistence(timeout: 3))
 
-        app.buttons["Go to Minsk*"].tap()
+        app.buttons["Go to Berlin*"].tap()
         XCTAssertTrue(app.otherElements["loginViewController"].exists)
 
         app.buttons["Close"].tap()

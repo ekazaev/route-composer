@@ -29,7 +29,7 @@ class SecondModalLevelViewController: UIViewController, ExampleAnalyticsSupport 
         try? router.navigate(to: ConfigurationHolder.configuration.homeScreen, with: nil)
     }
 
-    @IBAction func goToMinskTapped() {
+    @IBAction func goToBerlinTapped() {
         try? router.navigate(to: CitiesConfiguration.cityDetail(cityId: 18), animated: false)
     }
 
