@@ -11,7 +11,7 @@
 --exponentgrouping disabled
 --fractiongrouping disabled
 --fragment false
---header "\nRouteComposer\n{file}\nhttps://github.com/ekazaev/route-composer\n\nCreated by Eugene Kazaev in 2018-{year}.\nDistributed under the MIT license.\n"
+--header "\nRouteComposer\n{file}\nhttps://github.com/ekazaev/route-composer\n\nCreated by Eugene Kazaev in 2018-{year}.\nDistributed under the MIT license.\n\nBecome a sponsor:\nhttps://github.com/sponsors/ekazaev\n"
 --hexgrouping none
 --hexliteralcase uppercase
 --ifdef no-indent

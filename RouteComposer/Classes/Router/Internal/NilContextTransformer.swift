@@ -1,6 +1,6 @@
 //
 // RouteComposer
-// ImagesFetcher.swift
+// NilContextTransformer.swift
 // https://github.com/ekazaev/route-composer
 //
 // Created by Eugene Kazaev in 2018-2022.
@@ -12,8 +12,8 @@
 
 import Foundation
 
-public protocol ImagesFetcher {
-
-    func loadImages(completion: @escaping (_: [String]) -> Void)
-
+public struct NilContextTransformer<Context>: ContextTransformer {
+    public func transform(_ context: Context) throws -> Context {
+        return context
+    }
 }
