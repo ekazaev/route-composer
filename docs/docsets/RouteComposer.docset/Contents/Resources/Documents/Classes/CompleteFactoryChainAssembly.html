@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          RouteComposer 2.9.0 Docs
+          RouteComposer 2.10.0 Docs
         </a>
          (100% documented)
       </p>
@@ -113,6 +113,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/CompleteFactoryAssembly.html">CompleteFactoryAssembly</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/ContextTransformer.html">ContextTransformer</a>
               </li>
             </ul>
           </li>
@@ -336,6 +339,9 @@
                 <a class="nav-group-task-link" href="../Classes/GenericStepAssembly.html">GenericStepAssembly</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/InlineContextTransformer.html">InlineContextTransformer</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Other%20Classes.html#/s:13RouteComposer27IntermediateDestinationStepC">IntermediateDestinationStep</a>
               </li>
               <li class="nav-group-task">
@@ -541,7 +547,7 @@
               <div class="declaration">
                 <div class="language">
                   
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">CompleteFactoryChainAssembly</span><span class="o">&lt;</span><span class="kt">FC</span><span class="p">,</span> <span class="kt">ChildVC</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">FC</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ContainerFactory.html">ContainerFactory</a></span><span class="p">,</span> <span class="kt">ChildVC</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">CompleteFactoryChainAssembly</span><span class="o">&lt;</span><span class="kt">FC</span><span class="p">,</span> <span class="kt">ChildVC</span><span class="p">,</span> <span class="kt">ChildContext</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">FC</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ContainerFactory.html">ContainerFactory</a></span><span class="p">,</span> <span class="kt">ChildVC</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
 
                 </div>
               </div>
@@ -566,9 +572,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer28CompleteFactoryChainAssemblyC4with_5usingACyx14ViewControllerQyd__Gqd___qd_0_tAA0D0Rd__AA15ContainerActionRd_0_7ContextQyd__AKRtzAFQyd_0_AFRtzr0_lF"></a>
-                    <a name="//apple_ref/swift/Method/with(_:using:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer28CompleteFactoryChainAssemblyC4with_5usingACyx14ViewControllerQyd__Gqd___qd_0_tAA0D0Rd__AA15ContainerActionRd_0_7ContextQyd__AKRtzAFQyd_0_AFRtzr0_lF">with(_:<wbr>using:<wbr>)</a>
+                    <a name="/s:13RouteComposer28CompleteFactoryChainAssemblyC4with_5using8adaptingACyx14ViewControllerQyd__7ContextQyd__Gqd___qd_0_qd_1_tAA0D0Rd__AA15ContainerActionRd_0_AA0L11TransformerRd_1_06SourceL0Qyd_1_AIRtzAGQyd_0_AGRtz06TargetL0Qyd_1_AJRSr1_lF"></a>
+                    <a name="//apple_ref/swift/Method/with(_:using:adapting:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer28CompleteFactoryChainAssemblyC4with_5using8adaptingACyx14ViewControllerQyd__7ContextQyd__Gqd___qd_0_qd_1_tAA0D0Rd__AA15ContainerActionRd_0_AA0L11TransformerRd_1_06SourceL0Qyd_1_AIRtzAGQyd_0_AGRtz06TargetL0Qyd_1_AJRSr1_lF">with(_:<wbr>using:<wbr>adapting:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -583,7 +589,243 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">func</span> <span class="n">with</span><span class="o">&lt;</span><span class="kt">ChildFC</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Factory.html">Factory</a></span><span class="p">,</span> <span class="kt">A</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ContainerAction.html">ContainerAction</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">childFactory</span><span class="p">:</span> <span class="kt">ChildFC</span><span class="p">,</span> <span class="n">using</span> <span class="nv">action</span><span class="p">:</span> <span class="kt">A</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">CompleteFactoryChainAssembly</span><span class="o">&lt;</span><span class="kt">FC</span><span class="p">,</span> <span class="kt">ChildFC</span><span class="o">.</span><span class="kt">ViewController</span><span class="o">&gt;</span>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">func</span> <span class="n">with</span><span class="o">&lt;</span><span class="kt">ChildFC</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Factory.html">Factory</a></span><span class="p">,</span> <span class="kt">A</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ContainerAction.html">ContainerAction</a></span><span class="p">,</span> <span class="kt">T</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ContextTransformer.html">ContextTransformer</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">childFactory</span><span class="p">:</span> <span class="kt">ChildFC</span><span class="p">,</span> <span class="n">using</span> <span class="nv">action</span><span class="p">:</span> <span class="kt">A</span><span class="p">,</span> <span class="n">adapting</span> <span class="nv">transformer</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">CompleteFactoryChainAssembly</span><span class="o">&lt;</span><span class="kt">FC</span><span class="p">,</span> <span class="kt">ChildFC</span><span class="o">.</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">ChildFC</span><span class="o">.</span><span class="kt">Context</span><span class="o">&gt;</span>
+    <span class="k">where</span>
+    <span class="kt">T</span><span class="o">.</span><span class="kt">TargetContext</span> <span class="o">==</span> <span class="kt">ChildFC</span><span class="o">.</span><span class="kt">Context</span><span class="p">,</span> <span class="kt">T</span><span class="o">.</span><span class="kt">SourceContext</span> <span class="o">==</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">Context</span><span class="p">,</span> <span class="kt">A</span><span class="o">.</span><span class="kt">ViewController</span> <span class="o">==</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">ViewController</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>childFactory</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The instance of <code><a href="../Protocols/Factory.html">Factory</a></code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>action</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The instance of <code><a href="../Protocols/Factory.html">Factory</a></code> to be used to integrate the view controller produced by the factory.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer28CompleteFactoryChainAssemblyC4with_5using8adaptingACyx14ViewControllerQyd__7ContextQyd__Gqd___qd_0_qd_1_tAA09ContainerD0Rd__AA0M6ActionRd_0_AA0L11TransformerRd_1_06SourceL0Qyd_1_AIRtzAGQyd_0_AGRtz06TargetL0Qyd_1_AJRSr1_lF"></a>
+                    <a name="//apple_ref/swift/Method/with(_:using:adapting:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer28CompleteFactoryChainAssemblyC4with_5using8adaptingACyx14ViewControllerQyd__7ContextQyd__Gqd___qd_0_qd_1_tAA09ContainerD0Rd__AA0M6ActionRd_0_AA0L11TransformerRd_1_06SourceL0Qyd_1_AIRtzAGQyd_0_AGRtz06TargetL0Qyd_1_AJRSr1_lF">with(_:<wbr>using:<wbr>adapting:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Adds a <code><a href="../Protocols/ContainerFactory.html">ContainerFactory</a></code> that is going to be used as a child</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">func</span> <span class="n">with</span><span class="o">&lt;</span><span class="kt">ChildFC</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ContainerFactory.html">ContainerFactory</a></span><span class="p">,</span> <span class="kt">A</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ContainerAction.html">ContainerAction</a></span><span class="p">,</span> <span class="kt">T</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ContextTransformer.html">ContextTransformer</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">childContainer</span><span class="p">:</span> <span class="kt">ChildFC</span><span class="p">,</span> <span class="n">using</span> <span class="nv">action</span><span class="p">:</span> <span class="kt">A</span><span class="p">,</span> <span class="n">adapting</span> <span class="nv">transformer</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">CompleteFactoryChainAssembly</span><span class="o">&lt;</span><span class="kt">FC</span><span class="p">,</span> <span class="kt">ChildFC</span><span class="o">.</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">ChildFC</span><span class="o">.</span><span class="kt">Context</span><span class="o">&gt;</span>
+    <span class="k">where</span>
+    <span class="kt">T</span><span class="o">.</span><span class="kt">TargetContext</span> <span class="o">==</span> <span class="kt">ChildFC</span><span class="o">.</span><span class="kt">Context</span><span class="p">,</span> <span class="kt">T</span><span class="o">.</span><span class="kt">SourceContext</span> <span class="o">==</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">Context</span><span class="p">,</span> <span class="kt">A</span><span class="o">.</span><span class="kt">ViewController</span> <span class="o">==</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">ViewController</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>childContainer</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The instance of <code><a href="../Protocols/ContainerFactory.html">ContainerFactory</a></code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>action</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The instance of <code><a href="../Protocols/ContainerFactory.html">ContainerFactory</a></code> to be used to integrate the view controller produced by the factory.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer28CompleteFactoryChainAssemblyC4with_8adaptingACyx14ViewControllerQyd__7ContextQyd__Gqd___qd_0_tAA0D0Rd__AA0K11TransformerRd_0_06SourceK0Qyd_0_AHRtz06TargetK0Qyd_0_AIRSr0_lF"></a>
+                    <a name="//apple_ref/swift/Method/with(_:adapting:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer28CompleteFactoryChainAssemblyC4with_8adaptingACyx14ViewControllerQyd__7ContextQyd__Gqd___qd_0_tAA0D0Rd__AA0K11TransformerRd_0_06SourceK0Qyd_0_AHRtz06TargetK0Qyd_0_AIRSr0_lF">with(_:<wbr>adapting:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Adds a <code><a href="../Protocols/Factory.html">Factory</a></code> as the last view controller in the stack.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">func</span> <span class="n">with</span><span class="o">&lt;</span><span class="kt">ChildFC</span><span class="p">,</span> <span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">childFactory</span><span class="p">:</span> <span class="kt">ChildFC</span><span class="p">,</span> <span class="n">adapting</span> <span class="nv">transformer</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">CompleteFactoryChainAssembly</span><span class="o">&lt;</span><span class="kt">FC</span><span class="p">,</span> <span class="kt">ChildFC</span><span class="o">.</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">ChildFC</span><span class="o">.</span><span class="kt">Context</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">ChildFC</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/Factory.html">Factory</a></span><span class="p">,</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ContextTransformer.html">ContextTransformer</a></span><span class="p">,</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">Context</span> <span class="o">==</span> <span class="kt">T</span><span class="o">.</span><span class="kt">SourceContext</span><span class="p">,</span> <span class="kt">ChildFC</span><span class="o">.</span><span class="kt">Context</span> <span class="o">==</span> <span class="kt">T</span><span class="o">.</span><span class="kt">TargetContext</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>childFactory</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The instance of <code><a href="../Protocols/Factory.html">Factory</a></code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>transformer</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The instance of <code><a href="../Protocols/ContextTransformer.html">ContextTransformer</a></code> to use to adapt parent <code><a href="../Protocols/ContainerFactory.html">ContainerFactory</a></code> <code>Context</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer28CompleteFactoryChainAssemblyC4with_8adaptingACyx14ViewControllerQyd__7ContextQyd__Gqd___qd_0_tAA09ContainerD0Rd__AA0K11TransformerRd_0_06SourceK0Qyd_0_AHRtz06TargetK0Qyd_0_AIRSr0_lF"></a>
+                    <a name="//apple_ref/swift/Method/with(_:adapting:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer28CompleteFactoryChainAssemblyC4with_8adaptingACyx14ViewControllerQyd__7ContextQyd__Gqd___qd_0_tAA09ContainerD0Rd__AA0K11TransformerRd_0_06SourceK0Qyd_0_AHRtz06TargetK0Qyd_0_AIRSr0_lF">with(_:<wbr>adapting:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Adds a <code><a href="../Protocols/ContainerFactory.html">ContainerFactory</a></code> as the last view controller in the stack.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">func</span> <span class="n">with</span><span class="o">&lt;</span><span class="kt">ChildFC</span><span class="p">,</span> <span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">childContainer</span><span class="p">:</span> <span class="kt">ChildFC</span><span class="p">,</span> <span class="n">adapting</span> <span class="nv">transformer</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">CompleteFactoryChainAssembly</span><span class="o">&lt;</span><span class="kt">FC</span><span class="p">,</span> <span class="kt">ChildFC</span><span class="o">.</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">ChildFC</span><span class="o">.</span><span class="kt">Context</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">ChildFC</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ContainerFactory.html">ContainerFactory</a></span><span class="p">,</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ContextTransformer.html">ContextTransformer</a></span><span class="p">,</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">Context</span> <span class="o">==</span> <span class="kt">T</span><span class="o">.</span><span class="kt">SourceContext</span><span class="p">,</span> <span class="kt">ChildFC</span><span class="o">.</span><span class="kt">Context</span> <span class="o">==</span> <span class="kt">T</span><span class="o">.</span><span class="kt">TargetContext</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>childContainer</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The instance of <code><a href="../Protocols/ContainerFactory.html">ContainerFactory</a></code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>transformer</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The instance of <code><a href="../Protocols/ContextTransformer.html">ContextTransformer</a></code> to use to adapt parent <code><a href="../Protocols/ContainerFactory.html">ContainerFactory</a></code> <code>Context</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer28CompleteFactoryChainAssemblyC4with_5usingACyx14ViewControllerQyd__7ContextQzGqd___qd_0_tAA0D0Rd__AA15ContainerActionRd_0_AHQyd__AIRSAFQyd_0_AFRtzr0_lF"></a>
+                    <a name="//apple_ref/swift/Method/with(_:using:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer28CompleteFactoryChainAssemblyC4with_5usingACyx14ViewControllerQyd__7ContextQzGqd___qd_0_tAA0D0Rd__AA15ContainerActionRd_0_AHQyd__AIRSAFQyd_0_AFRtzr0_lF">with(_:<wbr>using:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Adds a <code><a href="../Protocols/Factory.html">Factory</a></code> that is going to be used as a child</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">func</span> <span class="n">with</span><span class="o">&lt;</span><span class="kt">ChildFC</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Factory.html">Factory</a></span><span class="p">,</span> <span class="kt">A</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ContainerAction.html">ContainerAction</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">childFactory</span><span class="p">:</span> <span class="kt">ChildFC</span><span class="p">,</span> <span class="n">using</span> <span class="nv">action</span><span class="p">:</span> <span class="kt">A</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">CompleteFactoryChainAssembly</span><span class="o">&lt;</span><span class="kt">FC</span><span class="p">,</span> <span class="kt">ChildFC</span><span class="o">.</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">ChildFC</span><span class="o">.</span><span class="kt">Context</span><span class="o">&gt;</span>
     <span class="k">where</span>
     <span class="kt">ChildFC</span><span class="o">.</span><span class="kt">Context</span> <span class="o">==</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">Context</span><span class="p">,</span> <span class="kt">A</span><span class="o">.</span><span class="kt">ViewController</span> <span class="o">==</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">ViewController</span></code></pre>
 
@@ -626,9 +868,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer28CompleteFactoryChainAssemblyC4with_5usingACyx14ViewControllerQyd__Gqd___qd_0_tAA09ContainerD0Rd__AA0K6ActionRd_0_7ContextQyd__AKRtzAFQyd_0_AFRtzr0_lF"></a>
+                    <a name="/s:13RouteComposer28CompleteFactoryChainAssemblyC4with_5usingACyx14ViewControllerQyd__7ContextQzGqd___qd_0_tAA09ContainerD0Rd__AA0L6ActionRd_0_AHQyd__AIRSAFQyd_0_AFRtzr0_lF"></a>
                     <a name="//apple_ref/swift/Method/with(_:using:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer28CompleteFactoryChainAssemblyC4with_5usingACyx14ViewControllerQyd__Gqd___qd_0_tAA09ContainerD0Rd__AA0K6ActionRd_0_7ContextQyd__AKRtzAFQyd_0_AFRtzr0_lF">with(_:<wbr>using:<wbr>)</a>
+                    <a class="token" href="#/s:13RouteComposer28CompleteFactoryChainAssemblyC4with_5usingACyx14ViewControllerQyd__7ContextQzGqd___qd_0_tAA09ContainerD0Rd__AA0L6ActionRd_0_AHQyd__AIRSAFQyd_0_AFRtzr0_lF">with(_:<wbr>using:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -643,7 +885,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">func</span> <span class="n">with</span><span class="o">&lt;</span><span class="kt">ChildFC</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ContainerFactory.html">ContainerFactory</a></span><span class="p">,</span> <span class="kt">A</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ContainerAction.html">ContainerAction</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">childContainer</span><span class="p">:</span> <span class="kt">ChildFC</span><span class="p">,</span> <span class="n">using</span> <span class="nv">action</span><span class="p">:</span> <span class="kt">A</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">CompleteFactoryChainAssembly</span><span class="o">&lt;</span><span class="kt">FC</span><span class="p">,</span> <span class="kt">ChildFC</span><span class="o">.</span><span class="kt">ViewController</span><span class="o">&gt;</span>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">func</span> <span class="n">with</span><span class="o">&lt;</span><span class="kt">ChildFC</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ContainerFactory.html">ContainerFactory</a></span><span class="p">,</span> <span class="kt">A</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ContainerAction.html">ContainerAction</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">childContainer</span><span class="p">:</span> <span class="kt">ChildFC</span><span class="p">,</span> <span class="n">using</span> <span class="nv">action</span><span class="p">:</span> <span class="kt">A</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">CompleteFactoryChainAssembly</span><span class="o">&lt;</span><span class="kt">FC</span><span class="p">,</span> <span class="kt">ChildFC</span><span class="o">.</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">ChildFC</span><span class="o">.</span><span class="kt">Context</span><span class="o">&gt;</span>
     <span class="k">where</span>
     <span class="kt">ChildFC</span><span class="o">.</span><span class="kt">Context</span> <span class="o">==</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">Context</span><span class="p">,</span> <span class="kt">A</span><span class="o">.</span><span class="kt">ViewController</span> <span class="o">==</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">ViewController</span></code></pre>
 
@@ -656,7 +898,7 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>childFactory</em>
+                                <em>childContainer</em>
                                 </code>
                               </td>
                               <td>
@@ -686,9 +928,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer28CompleteFactoryChainAssemblyC4withyACyx14ViewControllerQyd__Gqd__AA0D0Rd__7ContextQyd__AIRtzlF"></a>
+                    <a name="/s:13RouteComposer28CompleteFactoryChainAssemblyC4withyACyx14ViewControllerQyd__7ContextQzGqd__AA0D0Rd__AGQyd__AHRSlF"></a>
                     <a name="//apple_ref/swift/Method/with(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer28CompleteFactoryChainAssemblyC4withyACyx14ViewControllerQyd__Gqd__AA0D0Rd__7ContextQyd__AIRtzlF">with(_:<wbr>)</a>
+                    <a class="token" href="#/s:13RouteComposer28CompleteFactoryChainAssemblyC4withyACyx14ViewControllerQyd__7ContextQzGqd__AA0D0Rd__AGQyd__AHRSlF">with(_:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -703,7 +945,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">func</span> <span class="n">with</span><span class="o">&lt;</span><span class="kt">ChildFC</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">childFactory</span><span class="p">:</span> <span class="kt">ChildFC</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">CompleteFactoryChainAssembly</span><span class="o">&lt;</span><span class="kt">FC</span><span class="p">,</span> <span class="kt">ChildFC</span><span class="o">.</span><span class="kt">ViewController</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">ChildFC</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/Factory.html">Factory</a></span><span class="p">,</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">Context</span> <span class="o">==</span> <span class="kt">ChildFC</span><span class="o">.</span><span class="kt">Context</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">func</span> <span class="n">with</span><span class="o">&lt;</span><span class="kt">ChildFC</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">childFactory</span><span class="p">:</span> <span class="kt">ChildFC</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">CompleteFactoryChainAssembly</span><span class="o">&lt;</span><span class="kt">FC</span><span class="p">,</span> <span class="kt">ChildFC</span><span class="o">.</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">ChildFC</span><span class="o">.</span><span class="kt">Context</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">ChildFC</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/Factory.html">Factory</a></span><span class="p">,</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">Context</span> <span class="o">==</span> <span class="kt">ChildFC</span><span class="o">.</span><span class="kt">Context</span></code></pre>
 
                         </div>
                       </div>
@@ -732,9 +974,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer28CompleteFactoryChainAssemblyC4withyACyx14ViewControllerQyd__Gqd__AA09ContainerD0Rd__7ContextQyd__AIRtzlF"></a>
+                    <a name="/s:13RouteComposer28CompleteFactoryChainAssemblyC4withyACyx14ViewControllerQyd__7ContextQzGqd__AA09ContainerD0Rd__AGQyd__AHRSlF"></a>
                     <a name="//apple_ref/swift/Method/with(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer28CompleteFactoryChainAssemblyC4withyACyx14ViewControllerQyd__Gqd__AA09ContainerD0Rd__7ContextQyd__AIRtzlF">with(_:<wbr>)</a>
+                    <a class="token" href="#/s:13RouteComposer28CompleteFactoryChainAssemblyC4withyACyx14ViewControllerQyd__7ContextQzGqd__AA09ContainerD0Rd__AGQyd__AHRSlF">with(_:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -749,7 +991,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">func</span> <span class="n">with</span><span class="o">&lt;</span><span class="kt">ChildFC</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">childContainer</span><span class="p">:</span> <span class="kt">ChildFC</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">CompleteFactoryChainAssembly</span><span class="o">&lt;</span><span class="kt">FC</span><span class="p">,</span> <span class="kt">ChildFC</span><span class="o">.</span><span class="kt">ViewController</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">ChildFC</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ContainerFactory.html">ContainerFactory</a></span><span class="p">,</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">Context</span> <span class="o">==</span> <span class="kt">ChildFC</span><span class="o">.</span><span class="kt">Context</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">func</span> <span class="n">with</span><span class="o">&lt;</span><span class="kt">ChildFC</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">childContainer</span><span class="p">:</span> <span class="kt">ChildFC</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">CompleteFactoryChainAssembly</span><span class="o">&lt;</span><span class="kt">FC</span><span class="p">,</span> <span class="kt">ChildFC</span><span class="o">.</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">ChildFC</span><span class="o">.</span><span class="kt">Context</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">ChildFC</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ContainerFactory.html">ContainerFactory</a></span><span class="p">,</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">Context</span> <span class="o">==</span> <span class="kt">ChildFC</span><span class="o">.</span><span class="kt">Context</span></code></pre>
 
                         </div>
                       </div>
@@ -760,7 +1002,7 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>childFactory</em>
+                                <em>childContainer</em>
                                 </code>
                               </td>
                               <td>
@@ -778,9 +1020,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer28CompleteFactoryChainAssemblyC6addingyACyxq_Gqd__14ViewControllerQyd__Rs_AA11ContextTaskRd__0J0Qyd__AIRtzlF"></a>
+                    <a name="/s:13RouteComposer28CompleteFactoryChainAssemblyC6addingyACyxq_q0_Gqd__14ViewControllerQyd__Rs_7ContextQyd__Rs0_AA0J4TaskRd__lF"></a>
                     <a name="//apple_ref/swift/Method/adding(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer28CompleteFactoryChainAssemblyC6addingyACyxq_Gqd__14ViewControllerQyd__Rs_AA11ContextTaskRd__0J0Qyd__AIRtzlF">adding(_:<wbr>)</a>
+                    <a class="token" href="#/s:13RouteComposer28CompleteFactoryChainAssemblyC6addingyACyxq_q0_Gqd__14ViewControllerQyd__Rs_7ContextQyd__Rs0_AA0J4TaskRd__lF">adding(_:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -795,7 +1037,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">func</span> <span class="n">adding</span><span class="o">&lt;</span><span class="kt">CT</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">contextTask</span><span class="p">:</span> <span class="kt">CT</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">CompleteFactoryChainAssembly</span><span class="o">&lt;</span><span class="kt">FC</span><span class="p">,</span> <span class="kt">ChildVC</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">ChildVC</span> <span class="o">==</span> <span class="kt">CT</span><span class="o">.</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">CT</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ContextTask.html">ContextTask</a></span><span class="p">,</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">Context</span> <span class="o">==</span> <span class="kt">CT</span><span class="o">.</span><span class="kt">Context</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">func</span> <span class="n">adding</span><span class="o">&lt;</span><span class="kt">CT</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">contextTask</span><span class="p">:</span> <span class="kt">CT</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">CompleteFactoryChainAssembly</span><span class="o">&lt;</span><span class="kt">FC</span><span class="p">,</span> <span class="kt">ChildVC</span><span class="p">,</span> <span class="kt">ChildContext</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">ChildVC</span> <span class="o">==</span> <span class="kt">CT</span><span class="o">.</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">ChildContext</span> <span class="o">==</span> <span class="kt">CT</span><span class="o">.</span><span class="kt">Context</span><span class="p">,</span> <span class="kt">CT</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ContextTask.html">ContextTask</a></span></code></pre>
 
                         </div>
                       </div>
@@ -860,7 +1102,7 @@
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2022 <a class="link" href="https://github.com/ekazaev" target="_blank" rel="external noopener">Evgeny Kazaev</a>. All rights reserved. (Last updated: 2022-10-21)</p>
+      <p>&copy; 2022 <a class="link" href="https://github.com/ekazaev" target="_blank" rel="external noopener">Evgeny Kazaev</a>. All rights reserved. (Last updated: 2022-11-11)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>

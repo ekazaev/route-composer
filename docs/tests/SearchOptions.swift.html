@@ -54,27 +54,27 @@
 </tr>
 <tr class="never">
 <td class="num">9</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="src"><pre><code class="objc">// Become a sponsor:</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">10</td>
-<td class="src"><pre><code class="objc">import Foundation</code></pre></td>
+<td class="src"><pre><code class="objc">// https://github.com/sponsors/ekazaev</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">11</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="src"><pre><code class="objc">//</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">12</td>
-<td class="src"><pre><code class="objc">/// A set of options for the `findViewController` method</code></pre></td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">13</td>
-<td class="src"><pre><code class="objc">public struct SearchOptions: OptionSet, CaseIterable, CustomStringConvertible {</code></pre></td>
+<td class="src"><pre><code class="objc">import Foundation</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -84,52 +84,52 @@
 </tr>
 <tr class="never">
 <td class="num">15</td>
-<td class="src"><pre><code class="objc">    public let rawValue: Int</code></pre></td>
+<td class="src"><pre><code class="objc">/// A set of options for the `findViewController` method</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">16</td>
+<td class="src"><pre><code class="objc">public struct SearchOptions: OptionSet, CaseIterable, CustomStringConvertible {</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">17</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">18</td>
+<td class="src"><pre><code class="objc">    public let rawValue: Int</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">19</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
-<td class="num">17</td>
+<td class="num">20</td>
 <td class="src"><pre><code class="objc">    public init(rawValue: Int) {</code></pre></td>
 <td class="coverage">23500x</td>
 </tr>
 <tr class="covered">
-<td class="num">18</td>
+<td class="num">21</td>
 <td class="src"><pre><code class="objc">        self.rawValue = rawValue</code></pre></td>
 <td class="coverage">23500x</td>
 </tr>
 <tr class="covered">
-<td class="num">19</td>
+<td class="num">22</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
 <td class="coverage">23500x</td>
 </tr>
 <tr class="never">
-<td class="num">20</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">21</td>
-<td class="src"><pre><code class="objc">    // MARK: Options</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">22</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
 <td class="num">23</td>
-<td class="src"><pre><code class="objc">    /// Compare to a view controller provided</code></pre></td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">24</td>
-<td class="src"><pre><code class="objc">    public static let current = SearchOptions(rawValue: 1 &lt;&lt; 0)</code></pre></td>
+<td class="src"><pre><code class="objc">    // MARK: Options</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -139,12 +139,12 @@
 </tr>
 <tr class="never">
 <td class="num">26</td>
-<td class="src"><pre><code class="objc">    /// If a view controller is a container, search in its visible view controllers</code></pre></td>
+<td class="src"><pre><code class="objc">    /// Compare to a view controller provided</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">27</td>
-<td class="src"><pre><code class="objc">    public static let visible = SearchOptions(rawValue: 1 &lt;&lt; 1)</code></pre></td>
+<td class="src"><pre><code class="objc">    public static let current = SearchOptions(rawValue: 1 &lt;&lt; 0)</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -154,12 +154,12 @@
 </tr>
 <tr class="never">
 <td class="num">29</td>
-<td class="src"><pre><code class="objc">    /// If a view controller is a container, search in all the view controllers it contains</code></pre></td>
+<td class="src"><pre><code class="objc">    /// If a view controller is a container, search in its visible view controllers</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">30</td>
-<td class="src"><pre><code class="objc">    public static let contained = SearchOptions(rawValue: 1 &lt;&lt; 2)</code></pre></td>
+<td class="src"><pre><code class="objc">    public static let visible = SearchOptions(rawValue: 1 &lt;&lt; 1)</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -169,12 +169,12 @@
 </tr>
 <tr class="never">
 <td class="num">32</td>
-<td class="src"><pre><code class="objc">    /// Start search from the view controller provided and search in all view controllers it presented</code></pre></td>
+<td class="src"><pre><code class="objc">    /// If a view controller is a container, search in all the view controllers it contains</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">33</td>
-<td class="src"><pre><code class="objc">    public static let presented = SearchOptions(rawValue: 1 &lt;&lt; 3)</code></pre></td>
+<td class="src"><pre><code class="objc">    public static let contained = SearchOptions(rawValue: 1 &lt;&lt; 2)</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -184,12 +184,12 @@
 </tr>
 <tr class="never">
 <td class="num">35</td>
-<td class="src"><pre><code class="objc">    /// Start search from the view controller provided and search in all view controllers that are presenting it</code></pre></td>
+<td class="src"><pre><code class="objc">    /// Start search from the view controller provided and search in all view controllers it presented</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">36</td>
-<td class="src"><pre><code class="objc">    public static let presenting = SearchOptions(rawValue: 1 &lt;&lt; 4)</code></pre></td>
+<td class="src"><pre><code class="objc">    public static let presented = SearchOptions(rawValue: 1 &lt;&lt; 3)</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -199,12 +199,12 @@
 </tr>
 <tr class="never">
 <td class="num">38</td>
-<td class="src"><pre><code class="objc">    /// Start search from the view controller provided and search in all its parent view controllers</code></pre></td>
+<td class="src"><pre><code class="objc">    /// Start search from the view controller provided and search in all view controllers that are presenting it</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">39</td>
-<td class="src"><pre><code class="objc">    public static let parent = SearchOptions(rawValue: 1 &lt;&lt; 5)</code></pre></td>
+<td class="src"><pre><code class="objc">    public static let presenting = SearchOptions(rawValue: 1 &lt;&lt; 4)</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -214,22 +214,22 @@
 </tr>
 <tr class="never">
 <td class="num">41</td>
-<td class="src"><pre><code class="objc">    // MARK: Combinations</code></pre></td>
+<td class="src"><pre><code class="objc">    /// Start search from the view controller provided and search in all its parent view controllers</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">42</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="src"><pre><code class="objc">    public static let parent = SearchOptions(rawValue: 1 &lt;&lt; 5)</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">43</td>
-<td class="src"><pre><code class="objc">    /// If a view controller is a container, search in all the view controllers it contains</code></pre></td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">44</td>
-<td class="src"><pre><code class="objc">    public static let currentAllStack: SearchOptions = [.current, .contained]</code></pre></td>
+<td class="src"><pre><code class="objc">    // MARK: Combinations</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -239,12 +239,12 @@
 </tr>
 <tr class="never">
 <td class="num">46</td>
-<td class="src"><pre><code class="objc">    /// If a view controller is a container, search in all visible view controllers it contains</code></pre></td>
+<td class="src"><pre><code class="objc">    /// If a view controller is a container, search in all the view controllers it contains</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">47</td>
-<td class="src"><pre><code class="objc">    public static let currentVisibleOnly: SearchOptions = [.current, .visible]</code></pre></td>
+<td class="src"><pre><code class="objc">    public static let currentAllStack: SearchOptions = [.current, .contained]</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -254,12 +254,12 @@
 </tr>
 <tr class="never">
 <td class="num">49</td>
-<td class="src"><pre><code class="objc">    /// Iterate through the all visible view controllers in the stack.</code></pre></td>
+<td class="src"><pre><code class="objc">    /// If a view controller is a container, search in all visible view controllers it contains</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">50</td>
-<td class="src"><pre><code class="objc">    public static let allVisible: SearchOptions = [.currentVisibleOnly, .presented, .presenting]</code></pre></td>
+<td class="src"><pre><code class="objc">    public static let currentVisibleOnly: SearchOptions = [.current, .visible]</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -269,12 +269,12 @@
 </tr>
 <tr class="never">
 <td class="num">52</td>
-<td class="src"><pre><code class="objc">    /// Iterate through the all view controllers in the stack.</code></pre></td>
+<td class="src"><pre><code class="objc">    /// Iterate through the all visible view controllers in the stack.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">53</td>
-<td class="src"><pre><code class="objc">    public static let fullStack: SearchOptions = [.current, .contained, .presented, .presenting]</code></pre></td>
+<td class="src"><pre><code class="objc">    public static let allVisible: SearchOptions = [.currentVisibleOnly, .presented, .presenting]</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -284,171 +284,186 @@
 </tr>
 <tr class="never">
 <td class="num">55</td>
-<td class="src"><pre><code class="objc">    /// Iterate through the all view controllers on the current level and all the view controllers</code></pre></td>
+<td class="src"><pre><code class="objc">    /// Iterate through the all view controllers in the stack.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">56</td>
-<td class="src"><pre><code class="objc">    /// presented from the current level.</code></pre></td>
+<td class="src"><pre><code class="objc">    public static let fullStack: SearchOptions = [.current, .contained, .presented, .presenting]</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">57</td>
-<td class="src"><pre><code class="objc">    public static let currentAndUp: SearchOptions = [.currentAllStack, .presented]</code></pre></td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">58</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">59</td>
 <td class="src"><pre><code class="objc">    /// Iterate through the all view controllers on the current level and all the view controllers</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
+<td class="num">59</td>
+<td class="src"><pre><code class="objc">    /// presented from the current level.</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
 <td class="num">60</td>
-<td class="src"><pre><code class="objc">    /// that are presenting the current level.</code></pre></td>
+<td class="src"><pre><code class="objc">    public static let currentAndUp: SearchOptions = [.currentAllStack, .presented]</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">61</td>
-<td class="src"><pre><code class="objc">    public static let currentAndDown: SearchOptions = [.currentAllStack, .presenting]</code></pre></td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">62</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="src"><pre><code class="objc">    /// Iterate through the all view controllers on the current level and all the view controllers</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">63</td>
-<td class="src"><pre><code class="objc">    // MARK: Methods</code></pre></td>
+<td class="src"><pre><code class="objc">    /// that are presenting the current level.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">64</td>
+<td class="src"><pre><code class="objc">    public static let currentAndDown: SearchOptions = [.currentAllStack, .presenting]</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">65</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">66</td>
+<td class="src"><pre><code class="objc">    // MARK: Methods</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">67</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
-<td class="num">65</td>
+<td class="num">68</td>
 <td class="src"><pre><code class="objc">    public static var allCases: [SearchOptions] {</code></pre></td>
 <td class="coverage">264x</td>
 </tr>
 <tr class="covered">
-<td class="num">66</td>
+<td class="num">69</td>
 <td class="src"><pre><code class="objc">        [.current, .visible, .contained, .presented, .presenting, .parent]</code></pre></td>
 <td class="coverage">264x</td>
 </tr>
 <tr class="covered">
-<td class="num">67</td>
+<td class="num">70</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
 <td class="coverage">264x</td>
 </tr>
 <tr class="never">
-<td class="num">68</td>
+<td class="num">71</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
-<td class="num">69</td>
+<td class="num">72</td>
 <td class="src"><pre><code class="objc">    public var description: String {</code></pre></td>
 <td class="coverage">264x</td>
 </tr>
 <tr class="covered">
-<td class="num">70</td>
+<td class="num">73</td>
 <td class="src"><pre><code class="objc">        SearchOptions.allCases.compactMap { option in</code></pre></td>
 <td class="coverage">1580x</td>
 </tr>
 <tr class="covered">
-<td class="num">71</td>
+<td class="num">74</td>
 <td class="src"><pre><code class="objc">            guard self.contains(option) else {</code></pre></td>
 <td class="coverage">1580x</td>
 </tr>
 <tr class="covered">
-<td class="num">72</td>
+<td class="num">75</td>
 <td class="src"><pre><code class="objc">                return nil</code></pre></td>
 <td class="coverage">639x</td>
 </tr>
 <tr class="covered">
-<td class="num">73</td>
-<td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">945x</td>
-</tr>
-<tr class="covered">
-<td class="num">74</td>
-<td class="src"><pre><code class="objc">            switch option {</code></pre></td>
-<td class="coverage">945x</td>
-</tr>
-<tr class="covered">
-<td class="num">75</td>
-<td class="src"><pre><code class="objc">            case .current: return "current"</code></pre></td>
-<td class="coverage">945x</td>
-</tr>
-<tr class="covered">
 <td class="num">76</td>
-<td class="src"><pre><code class="objc">            case .visible: return "visible"</code></pre></td>
+<td class="src"><pre><code class="objc">            }</code></pre></td>
 <td class="coverage">945x</td>
 </tr>
 <tr class="covered">
 <td class="num">77</td>
-<td class="src"><pre><code class="objc">            case .contained: return "contained"</code></pre></td>
+<td class="src"><pre><code class="objc">            switch option {</code></pre></td>
 <td class="coverage">945x</td>
 </tr>
 <tr class="covered">
 <td class="num">78</td>
-<td class="src"><pre><code class="objc">            case .presented: return "presented"</code></pre></td>
+<td class="src"><pre><code class="objc">            case .current: return "current"</code></pre></td>
 <td class="coverage">945x</td>
 </tr>
 <tr class="covered">
 <td class="num">79</td>
-<td class="src"><pre><code class="objc">            case .presenting: return "presenting"</code></pre></td>
+<td class="src"><pre><code class="objc">            case .visible: return "visible"</code></pre></td>
 <td class="coverage">945x</td>
 </tr>
 <tr class="covered">
 <td class="num">80</td>
-<td class="src"><pre><code class="objc">            case .parent: return "parent"</code></pre></td>
+<td class="src"><pre><code class="objc">            case .contained: return "contained"</code></pre></td>
 <td class="coverage">945x</td>
 </tr>
 <tr class="covered">
 <td class="num">81</td>
+<td class="src"><pre><code class="objc">            case .presented: return "presented"</code></pre></td>
+<td class="coverage">945x</td>
+</tr>
+<tr class="covered">
+<td class="num">82</td>
+<td class="src"><pre><code class="objc">            case .presenting: return "presenting"</code></pre></td>
+<td class="coverage">945x</td>
+</tr>
+<tr class="covered">
+<td class="num">83</td>
+<td class="src"><pre><code class="objc">            case .parent: return "parent"</code></pre></td>
+<td class="coverage">945x</td>
+</tr>
+<tr class="covered">
+<td class="num">84</td>
 <td class="src"><pre><code class="objc">            default:</code></pre></td>
 <td class="coverage">945x</td>
 </tr>
 <tr class="missed">
-<td class="num">82</td>
+<td class="num">85</td>
 <td class="src"><pre><code class="objc">                assertionFailure("Unknown SearchOptions")</code></pre></td>
 <td class="coverage">!</td>
 </tr>
 <tr class="missed">
-<td class="num">83</td>
+<td class="num">86</td>
 <td class="src"><pre><code class="objc">                return nil</code></pre></td>
 <td class="coverage">!</td>
 </tr>
 <tr class="covered">
-<td class="num">84</td>
+<td class="num">87</td>
 <td class="src"><pre><code class="objc">            }</code></pre></td>
 <td class="coverage">945x</td>
 </tr>
 <tr class="covered">
-<td class="num">85</td>
+<td class="num">88</td>
 <td class="src"><pre><code class="objc">        }.joined(separator: ", ")</code></pre></td>
 <td class="coverage">945x</td>
 </tr>
 <tr class="covered">
-<td class="num">86</td>
+<td class="num">89</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
 <td class="coverage">264x</td>
 </tr>
 <tr class="never">
-<td class="num">87</td>
+<td class="num">90</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">88</td>
+<td class="num">91</td>
 <td class="src"><pre><code class="objc">}</code></pre></td>
 <td class="coverage"></td>
 </tr>

@@ -90,6 +90,7 @@ public final class CompleteFactoryAssembly<FC: ContainerFactory> {
     ///
     /// - Parameters:
     ///   - childFactory: The instance of `Factory`.
+    ///   - transformer: The instance of `ContextTransformer` to use to adapt parent `ContainerFactory` `Context`.
     public final func with<ChildFC: Factory, T: ContextTransformer>(_ childFactory: ChildFC, adapting transformer: T) -> CompleteFactoryChainAssembly<FC, ChildFC.ViewController, ChildFC.Context> where T.TargetContext == ChildFC.Context, T.SourceContext == FC.Context {
         return with(childFactory, using: SimpleAddAction<FC>(), adapting: transformer)
     }
@@ -98,6 +99,7 @@ public final class CompleteFactoryAssembly<FC: ContainerFactory> {
     ///
     /// - Parameters:
     ///   - childContainer: The instance of `ContainerFactory`.
+    ///   - transformer: The instance of `ContextTransformer` to use to adapt parent `ContainerFactory` `Context`.
     public final func with<ChildFC: ContainerFactory, T: ContextTransformer>(_ childContainer: ChildFC, adapting transformer: T) -> CompleteFactoryChainAssembly<FC, ChildFC.ViewController, ChildFC.Context> where T.TargetContext == ChildFC.Context, T.SourceContext == FC.Context {
         return with(childContainer, using: SimpleAddAction<FC>(), adapting: transformer)
     }

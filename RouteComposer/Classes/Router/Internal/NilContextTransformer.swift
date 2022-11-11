@@ -12,8 +12,8 @@
 
 import Foundation
 
-public struct NilContextTransformer<Context>: ContextTransformer {
-    public func transform(_ context: Context) throws -> Context {
+struct NilContextTransformer<Context>: ContextTransformer {
+    func transform(_ context: Context) throws -> Context {
         return context
     }
 }

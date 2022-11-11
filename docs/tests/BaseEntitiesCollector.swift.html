@@ -54,17 +54,17 @@
 </tr>
 <tr class="never">
 <td class="num">9</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="src"><pre><code class="objc">// Become a sponsor:</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">10</td>
-<td class="src"><pre><code class="objc">import Foundation</code></pre></td>
+<td class="src"><pre><code class="objc">// https://github.com/sponsors/ekazaev</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">11</td>
-<td class="src"><pre><code class="objc">import UIKit</code></pre></td>
+<td class="src"><pre><code class="objc">//</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -74,106 +74,121 @@
 </tr>
 <tr class="never">
 <td class="num">13</td>
-<td class="src"><pre><code class="objc">struct BaseEntitiesCollector&lt;FactoryBoxer: AnyFactoryBox, ActionBoxer: AnyActionBox&gt;: EntitiesProvider {</code></pre></td>
+<td class="src"><pre><code class="objc">import Foundation</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">14</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="src"><pre><code class="objc">import UIKit</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">15</td>
-<td class="src"><pre><code class="objc">    let factory: AnyFactory?</code></pre></td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">16</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="src"><pre><code class="objc">struct BaseEntitiesCollector&lt;FactoryBoxer: AnyFactoryBox, ActionBoxer: AnyActionBox&gt;: EntitiesProvider {</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">17</td>
-<td class="src"><pre><code class="objc">    let finder: AnyFinder?</code></pre></td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">18</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="src"><pre><code class="objc">    let factory: AnyFactory?</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">19</td>
-<td class="src"><pre><code class="objc">    init&lt;F: Finder&gt;(finder: F, factory: FactoryBoxer.FactoryType, action: ActionBoxer.ActionType)</code></pre></td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">20</td>
+<td class="src"><pre><code class="objc">    let finder: AnyFinder?</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">21</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">22</td>
+<td class="src"><pre><code class="objc">    init&lt;F: Finder&gt;(finder: F, factory: FactoryBoxer.FactoryType, action: ActionBoxer.ActionType)</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">23</td>
 <td class="src"><pre><code class="objc">        where</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
-<td class="num">21</td>
+<td class="num">24</td>
 <td class="src"><pre><code class="objc">        F.ViewController == FactoryBoxer.FactoryType.ViewController, F.Context == FactoryBoxer.FactoryType.Context {</code></pre></td>
 <td class="coverage">277x</td>
 </tr>
 <tr class="covered">
-<td class="num">22</td>
+<td class="num">25</td>
 <td class="src"><pre><code class="objc">        self.finder = FinderBox(finder)</code></pre></td>
 <td class="coverage">277x</td>
 </tr>
 <tr class="covered">
-<td class="num">23</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage">277x</td>
-</tr>
-<tr class="covered">
-<td class="num">24</td>
-<td class="src"><pre><code class="objc">        if let factoryBox = FactoryBoxer(factory, action: ActionBoxer(action)) {</code></pre></td>
-<td class="coverage">277x</td>
-</tr>
-<tr class="covered">
-<td class="num">25</td>
-<td class="src"><pre><code class="objc">            self.factory = factoryBox</code></pre></td>
-<td class="coverage">179x</td>
-</tr>
-<tr class="covered">
 <td class="num">26</td>
-<td class="src"><pre><code class="objc">        } else if let finderFactory = FinderFactory(finder: finder) {</code></pre></td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage">277x</td>
 </tr>
 <tr class="covered">
 <td class="num">27</td>
+<td class="src"><pre><code class="objc">        if let factoryBox = FactoryBoxer(factory, action: ActionBoxer(action)) {</code></pre></td>
+<td class="coverage">277x</td>
+</tr>
+<tr class="covered">
+<td class="num">28</td>
+<td class="src"><pre><code class="objc">            self.factory = factoryBox</code></pre></td>
+<td class="coverage">179x</td>
+</tr>
+<tr class="covered">
+<td class="num">29</td>
+<td class="src"><pre><code class="objc">        } else if let finderFactory = FinderFactory(finder: finder) {</code></pre></td>
+<td class="coverage">277x</td>
+</tr>
+<tr class="covered">
+<td class="num">30</td>
 <td class="src"><pre><code class="objc">            self.factory = FactoryBox(finderFactory, action: ActionBox(ViewControllerActions.NilAction()))</code></pre></td>
 <td class="coverage">78x</td>
 </tr>
 <tr class="covered">
-<td class="num">28</td>
+<td class="num">31</td>
 <td class="src"><pre><code class="objc">        } else {</code></pre></td>
 <td class="coverage">277x</td>
 </tr>
 <tr class="covered">
-<td class="num">29</td>
+<td class="num">32</td>
 <td class="src"><pre><code class="objc">            self.factory = nil</code></pre></td>
 <td class="coverage">199x</td>
 </tr>
 <tr class="covered">
-<td class="num">30</td>
+<td class="num">33</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
 <td class="coverage">277x</td>
 </tr>
 <tr class="covered">
-<td class="num">31</td>
+<td class="num">34</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
 <td class="coverage">277x</td>
 </tr>
 <tr class="never">
-<td class="num">32</td>
+<td class="num">35</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">33</td>
+<td class="num">36</td>
 <td class="src"><pre><code class="objc">}</code></pre></td>
 <td class="coverage"></td>
 </tr>
