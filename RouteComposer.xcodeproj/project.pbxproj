@@ -58,42 +58,6 @@
 		450D0DFF2412AEF90066E649 /* FinderFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450D0D6F2412AEF80066E649 /* FinderFactory.swift */; };
 		450D0E002412AEF90066E649 /* SimpleContainerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450D0D702412AEF80066E649 /* SimpleContainerFactory.swift */; };
 		450D0E012412AEF90066E649 /* TabBarControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450D0D712412AEF80066E649 /* TabBarControllerFactory.swift */; };
-		450D0E022412AEF90066E649 /* PerformableStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450D0D742412AEF80066E649 /* PerformableStep.swift */; };
-		450D0E032412AEF90066E649 /* PostponedIntegrationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450D0D752412AEF80066E649 /* PostponedIntegrationFactory.swift */; };
-		450D0E042412AEF90066E649 /* PerformableStepResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450D0D762412AEF80066E649 /* PerformableStepResult.swift */; };
-		450D0E052412AEF90066E649 /* SwitcherStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450D0D772412AEF80066E649 /* SwitcherStep.swift */; };
-		450D0E062412AEF90066E649 /* BaseStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450D0D782412AEF80066E649 /* BaseStep.swift */; };
-		450D0E072412AEF90066E649 /* NilEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450D0D792412AEF80066E649 /* NilEntity.swift */; };
-		450D0E082412AEF90066E649 /* ChainableStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450D0D7A2412AEF80066E649 /* ChainableStep.swift */; };
-		450D0E092412AEF90066E649 /* DefaultRouter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450D0D7B2412AEF80066E649 /* DefaultRouter+Extension.swift */; };
-		450D0E0A2412AEF90066E649 /* InterceptableStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450D0D7C2412AEF80066E649 /* InterceptableStep.swift */; };
-		450D0E0B2412AEF90066E649 /* RoutingStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450D0D7D2412AEF80066E649 /* RoutingStep.swift */; };
-		450D0E0C2412AEF90066E649 /* UIViewController+PrivateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450D0D7E2412AEF80066E649 /* UIViewController+PrivateExtension.swift */; };
-		450D0E0D2412AEF90066E649 /* Array+PrivateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450D0D7F2412AEF80066E649 /* Array+PrivateExtension.swift */; };
-		450D0E0E2412AEF90066E649 /* MainThreadChecking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450D0D802412AEF80066E649 /* MainThreadChecking.swift */; };
-		450D0E0F2412AEF90066E649 /* PreparableEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450D0D812412AEF80066E649 /* PreparableEntity.swift */; };
-		450D0E102412AEF90066E649 /* PostRoutingTaskMultiplexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450D0D832412AEF80066E649 /* PostRoutingTaskMultiplexer.swift */; };
-		450D0E112412AEF90066E649 /* InterceptorMultiplexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450D0D842412AEF80066E649 /* InterceptorMultiplexer.swift */; };
-		450D0E122412AEF90066E649 /* ContextTaskMultiplexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450D0D852412AEF80066E649 /* ContextTaskMultiplexer.swift */; };
-		450D0E132412AEF90066E649 /* DefaultRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450D0D862412AEF80066E649 /* DefaultRouter.swift */; };
-		450D0E142412AEF90066E649 /* AnyFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450D0D882412AEF80066E649 /* AnyFinder.swift */; };
-		450D0E152412AEF90066E649 /* AnyContextTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450D0D892412AEF80066E649 /* AnyContextTask.swift */; };
-		450D0E162412AEF90066E649 /* AnyAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450D0D8A2412AEF80066E649 /* AnyAction.swift */; };
-		450D0E172412AEF90066E649 /* AnyFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450D0D8B2412AEF80066E649 /* AnyFactory.swift */; };
-		450D0E182412AEF90066E649 /* AnyRoutingInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450D0D8C2412AEF80066E649 /* AnyRoutingInterceptor.swift */; };
-		450D0E192412AEF90066E649 /* AnyPostRoutingTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450D0D8D2412AEF80066E649 /* AnyPostRoutingTask.swift */; };
-		450D0E1A2412AEF90066E649 /* FactoryBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450D0D8F2412AEF80066E649 /* FactoryBox.swift */; };
-		450D0E1B2412AEF90066E649 /* PostRoutingTaskBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450D0D902412AEF80066E649 /* PostRoutingTaskBox.swift */; };
-		450D0E1C2412AEF90066E649 /* ContainerFactoryBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450D0D912412AEF80066E649 /* ContainerFactoryBox.swift */; };
-		450D0E1D2412AEF90066E649 /* FinderBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450D0D922412AEF80066E649 /* FinderBox.swift */; };
-		450D0E1E2412AEF90066E649 /* AnyActionBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450D0D932412AEF80066E649 /* AnyActionBox.swift */; };
-		450D0E1F2412AEF90066E649 /* AnyFactoryBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450D0D942412AEF80066E649 /* AnyFactoryBox.swift */; };
-		450D0E202412AEF90066E649 /* ContextTaskBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450D0D952412AEF80066E649 /* ContextTaskBox.swift */; };
-		450D0E212412AEF90066E649 /* ContainerActionBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450D0D962412AEF80066E649 /* ContainerActionBox.swift */; };
-		450D0E222412AEF90066E649 /* RoutingInterceptorBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450D0D972412AEF80066E649 /* RoutingInterceptorBox.swift */; };
-		450D0E232412AEF90066E649 /* ActionBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450D0D982412AEF80066E649 /* ActionBox.swift */; };
-		450D0E242412AEF90066E649 /* StackPresentationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450D0D9A2412AEF80066E649 /* StackPresentationHandler.swift */; };
-		450D0E252412AEF90066E649 /* DefaultStackPresentationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450D0D9B2412AEF80066E649 /* DefaultStackPresentationHandler.swift */; };
 		450D0E262412AEF90066E649 /* RoutingResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450D0D9C2412AEF80066E649 /* RoutingResult.swift */; };
 		450D0E272412AEF90066E649 /* SplitViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450D0D9E2412AEF80066E649 /* SplitViewController+Extension.swift */; };
 		450D0E282412AEF90066E649 /* TabBarViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450D0D9F2412AEF80066E649 /* TabBarViewController+Extension.swift */; };
@@ -126,22 +90,6 @@
 		450D0E432412AEF90066E649 /* TabBarControllerAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450D0DBD2412AEF80066E649 /* TabBarControllerAdapter.swift */; };
 		450D0E442412AEF90066E649 /* ConcreteContainerAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450D0DBE2412AEF80066E649 /* ConcreteContainerAdapter.swift */; };
 		450D0E452412AEF90066E649 /* NavigationControllerAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450D0DBF2412AEF80066E649 /* NavigationControllerAdapter.swift */; };
-		450D0E462412AEF90066E649 /* ContextChecking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450D0DC12412AEF80066E649 /* ContextChecking.swift */; };
-		450D0E472412AEF90066E649 /* DispatchQueue+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450D0DC22412AEF80066E649 /* DispatchQueue+Action.swift */; };
-		450D0E482412AEF90066E649 /* PresentingFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450D0DC32412AEF80066E649 /* PresentingFinder.swift */; };
-		450D0E492412AEF90066E649 /* DismissalMethodProvidingContextTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450D0DC42412AEF80066E649 /* DismissalMethodProvidingContextTask.swift */; };
-		450D0E4A2412AEF90066E649 /* ContextSettingTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450D0DC52412AEF80066E649 /* ContextSettingTask.swift */; };
-		450D0E4B2412AEF90066E649 /* InlinePostTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450D0DC62412AEF80066E649 /* InlinePostTask.swift */; };
-		450D0E4C2412AEF90066E649 /* DetailsNavigationFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450D0DC72412AEF80066E649 /* DetailsNavigationFinder.swift */; };
-		450D0E4D2412AEF90066E649 /* Router+Destination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450D0DC82412AEF80066E649 /* Router+Destination.swift */; };
-		450D0E4E2412AEF90066E649 /* NavigationDelayInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450D0DC92412AEF80066E649 /* NavigationDelayInterceptor.swift */; };
-		450D0E4F2412AEF90066E649 /* SingleNavigationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450D0DCA2412AEF80066E649 /* SingleNavigationRouter.swift */; };
-		450D0E502412AEF90066E649 /* CATransaction+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450D0DCB2412AEF80066E649 /* CATransaction+Action.swift */; };
-		450D0E512412AEF90066E649 /* InlineContextTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450D0DCC2412AEF80066E649 /* InlineContextTask.swift */; };
-		450D0E522412AEF90066E649 /* Destination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450D0DCD2412AEF80066E649 /* Destination.swift */; };
-		450D0E532412AEF90066E649 /* ContextAccepting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450D0DCE2412AEF80066E649 /* ContextAccepting.swift */; };
-		450D0E542412AEF90066E649 /* InlineInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450D0DCF2412AEF80066E649 /* InlineInterceptor.swift */; };
-		450D0E552412AEF90066E649 /* Dismissible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450D0DD02412AEF80066E649 /* Dismissible.swift */; };
 		450D0E562412AEF90066E649 /* PostRoutingTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450D0DD12412AEF80066E649 /* PostRoutingTask.swift */; };
 		450D0E572412AEF90066E649 /* ContextTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450D0DD22412AEF80066E649 /* ContextTask.swift */; };
 		450D0E582412AEF90066E649 /* UIViewController+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450D0DD42412AEF80066E649 /* UIViewController+Action.swift */; };
@@ -155,16 +103,78 @@
 		450D0E602412AEF90066E649 /* SingleStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450D0DDD2412AEF80066E649 /* SingleStep.swift */; };
 		450D0E612412AEF90066E649 /* GeneralStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450D0DDE2412AEF80066E649 /* GeneralStep.swift */; };
 		450D0E622412AEF90066E649 /* TabBarControllerStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450D0DDF2412AEF80066E649 /* TabBarControllerStep.swift */; };
-		45737CF62477DEB900FCB6A9 /* ContextAcceptingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45737CF52477DEB900FCB6A9 /* ContextAcceptingView.swift */; };
 		45762913240C76EF0018D344 /* RouteComposer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45762909240C76EF0018D344 /* RouteComposer.framework */; };
 		45A1C1EF25D1F6F80000AB8B /* RouteComposerDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A1C1EE25D1F6F80000AB8B /* RouteComposerDefaults.swift */; };
-		45BF87E924771CE000354559 /* ContextInstantiatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BF87E824771CE000354559 /* ContextInstantiatable.swift */; };
 		45BF87ED24771CEF00354559 /* UIHostingControllerWithContextFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BF87EB24771CEF00354559 /* UIHostingControllerWithContextFactory.swift */; };
 		45BF87EE24771CEF00354559 /* UIHostingControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BF87EC24771CEF00354559 /* UIHostingControllerFactory.swift */; };
 		45BF87F124771CFC00354559 /* UIHostingControllerWithContextFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BF87F024771CFC00354559 /* UIHostingControllerWithContextFinder.swift */; };
 		45BF87F424771D3100354559 /* TestSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BF87F224771D1700354559 /* TestSwiftUIView.swift */; };
-		A334C6FF27330FE000DD3DF3 /* InlineFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A334C6FE27330FE000DD3DF3 /* InlineFactory.swift */; };
-		A36C574826CE7A2300C4FFDD /* GlobalInterceptorRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36C574726CE7A2300C4FFDD /* GlobalInterceptorRouter.swift */; };
+		A3A6F8BD292290D900AF2C10 /* InlineStackIteratingFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A6F875292290D800AF2C10 /* InlineStackIteratingFinder.swift */; };
+		A3A6F8BE292290D900AF2C10 /* ContextChecking.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A6F876292290D800AF2C10 /* ContextChecking.swift */; };
+		A3A6F8BF292290D900AF2C10 /* DispatchQueue+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A6F877292290D800AF2C10 /* DispatchQueue+Action.swift */; };
+		A3A6F8C0292290D900AF2C10 /* InlineFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A6F878292290D800AF2C10 /* InlineFactory.swift */; };
+		A3A6F8C1292290D900AF2C10 /* InlineContextTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A6F879292290D800AF2C10 /* InlineContextTransformer.swift */; };
+		A3A6F8C2292290D900AF2C10 /* PresentingFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A6F87A292290D800AF2C10 /* PresentingFinder.swift */; };
+		A3A6F8C3292290D900AF2C10 /* DismissalMethodProvidingContextTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A6F87B292290D800AF2C10 /* DismissalMethodProvidingContextTask.swift */; };
+		A3A6F8C4292290D900AF2C10 /* ContextSettingTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A6F87C292290D800AF2C10 /* ContextSettingTask.swift */; };
+		A3A6F8C5292290D900AF2C10 /* InlinePostTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A6F87D292290D800AF2C10 /* InlinePostTask.swift */; };
+		A3A6F8C6292290D900AF2C10 /* DetailsNavigationFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A6F87E292290D800AF2C10 /* DetailsNavigationFinder.swift */; };
+		A3A6F8C7292290D900AF2C10 /* Router+Destination.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A6F87F292290D800AF2C10 /* Router+Destination.swift */; };
+		A3A6F8C8292290D900AF2C10 /* NavigationDelayInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A6F880292290D800AF2C10 /* NavigationDelayInterceptor.swift */; };
+		A3A6F8C9292290D900AF2C10 /* SingleNavigationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A6F881292290D800AF2C10 /* SingleNavigationRouter.swift */; };
+		A3A6F8CA292290D900AF2C10 /* CATransaction+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A6F882292290D800AF2C10 /* CATransaction+Action.swift */; };
+		A3A6F8CB292290D900AF2C10 /* InlineContextTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A6F883292290D800AF2C10 /* InlineContextTask.swift */; };
+		A3A6F8CC292290D900AF2C10 /* GlobalInterceptorRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A6F884292290D800AF2C10 /* GlobalInterceptorRouter.swift */; };
+		A3A6F8CD292290D900AF2C10 /* Destination.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A6F885292290D800AF2C10 /* Destination.swift */; };
+		A3A6F8CE292290D900AF2C10 /* ContextAccepting.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A6F886292290D800AF2C10 /* ContextAccepting.swift */; };
+		A3A6F8CF292290D900AF2C10 /* InlineInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A6F887292290D800AF2C10 /* InlineInterceptor.swift */; };
+		A3A6F8D0292290D900AF2C10 /* Dismissible.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A6F888292290D800AF2C10 /* Dismissible.swift */; };
+		A3A6F8D1292290D900AF2C10 /* ContextAcceptingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A6F88A292290D900AF2C10 /* ContextAcceptingView.swift */; };
+		A3A6F8D2292290D900AF2C10 /* ContextInstantiatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A6F88B292290D900AF2C10 /* ContextInstantiatable.swift */; };
+		A3A6F8D3292290D900AF2C10 /* PerformableStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A6F88E292290D900AF2C10 /* PerformableStep.swift */; };
+		A3A6F8D4292290D900AF2C10 /* InPlaceTransformingAnyContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A6F88F292290D900AF2C10 /* InPlaceTransformingAnyContext.swift */; };
+		A3A6F8D5292290D900AF2C10 /* ConvertingStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A6F890292290D900AF2C10 /* ConvertingStep.swift */; };
+		A3A6F8D6292290D900AF2C10 /* PostponedIntegrationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A6F891292290D900AF2C10 /* PostponedIntegrationFactory.swift */; };
+		A3A6F8D7292290D900AF2C10 /* PerformableStepResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A6F892292290D900AF2C10 /* PerformableStepResult.swift */; };
+		A3A6F8D8292290D900AF2C10 /* SwitcherStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A6F893292290D900AF2C10 /* SwitcherStep.swift */; };
+		A3A6F8D9292290D900AF2C10 /* NilContextTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A6F894292290D900AF2C10 /* NilContextTransformer.swift */; };
+		A3A6F8DA292290D900AF2C10 /* BaseStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A6F895292290D900AF2C10 /* BaseStep.swift */; };
+		A3A6F8DB292290D900AF2C10 /* NilEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A6F896292290D900AF2C10 /* NilEntity.swift */; };
+		A3A6F8DC292290D900AF2C10 /* ChainableStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A6F897292290D900AF2C10 /* ChainableStep.swift */; };
+		A3A6F8DD292290D900AF2C10 /* DefaultRouter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A6F898292290D900AF2C10 /* DefaultRouter+Extension.swift */; };
+		A3A6F8DE292290D900AF2C10 /* InterceptableStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A6F899292290D900AF2C10 /* InterceptableStep.swift */; };
+		A3A6F8DF292290D900AF2C10 /* RoutingStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A6F89A292290D900AF2C10 /* RoutingStep.swift */; };
+		A3A6F8E0292290D900AF2C10 /* UIViewController+PrivateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A6F89B292290D900AF2C10 /* UIViewController+PrivateExtension.swift */; };
+		A3A6F8E1292290D900AF2C10 /* Array+PrivateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A6F89C292290D900AF2C10 /* Array+PrivateExtension.swift */; };
+		A3A6F8E2292290D900AF2C10 /* MainThreadChecking.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A6F89D292290D900AF2C10 /* MainThreadChecking.swift */; };
+		A3A6F8E3292290D900AF2C10 /* PreparableEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A6F89E292290D900AF2C10 /* PreparableEntity.swift */; };
+		A3A6F8E4292290D900AF2C10 /* PostRoutingTaskMultiplexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A6F8A0292290D900AF2C10 /* PostRoutingTaskMultiplexer.swift */; };
+		A3A6F8E5292290D900AF2C10 /* InterceptorMultiplexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A6F8A1292290D900AF2C10 /* InterceptorMultiplexer.swift */; };
+		A3A6F8E6292290D900AF2C10 /* ContextTaskMultiplexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A6F8A2292290D900AF2C10 /* ContextTaskMultiplexer.swift */; };
+		A3A6F8E7292290D900AF2C10 /* DefaultRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A6F8A3292290D900AF2C10 /* DefaultRouter.swift */; };
+		A3A6F8E8292290D900AF2C10 /* AnyFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A6F8A5292290D900AF2C10 /* AnyFinder.swift */; };
+		A3A6F8E9292290D900AF2C10 /* AnyContextTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A6F8A6292290D900AF2C10 /* AnyContextTask.swift */; };
+		A3A6F8EA292290D900AF2C10 /* AnyAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A6F8A7292290D900AF2C10 /* AnyAction.swift */; };
+		A3A6F8EB292290D900AF2C10 /* AnyFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A6F8A8292290D900AF2C10 /* AnyFactory.swift */; };
+		A3A6F8EC292290D900AF2C10 /* AnyRoutingInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A6F8A9292290D900AF2C10 /* AnyRoutingInterceptor.swift */; };
+		A3A6F8ED292290D900AF2C10 /* AnyPostRoutingTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A6F8AA292290D900AF2C10 /* AnyPostRoutingTask.swift */; };
+		A3A6F8EE292290D900AF2C10 /* AnyContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A6F8AB292290D900AF2C10 /* AnyContext.swift */; };
+		A3A6F8EF292290D900AF2C10 /* AnyContextTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A6F8AC292290D900AF2C10 /* AnyContextTransformer.swift */; };
+		A3A6F8F0292290D900AF2C10 /* FactoryBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A6F8AE292290D900AF2C10 /* FactoryBox.swift */; };
+		A3A6F8F1292290D900AF2C10 /* PostRoutingTaskBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A6F8AF292290D900AF2C10 /* PostRoutingTaskBox.swift */; };
+		A3A6F8F2292290D900AF2C10 /* ContainerFactoryBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A6F8B0292290D900AF2C10 /* ContainerFactoryBox.swift */; };
+		A3A6F8F3292290D900AF2C10 /* FinderBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A6F8B1292290D900AF2C10 /* FinderBox.swift */; };
+		A3A6F8F4292290D900AF2C10 /* AnyActionBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A6F8B2292290D900AF2C10 /* AnyActionBox.swift */; };
+		A3A6F8F5292290D900AF2C10 /* AnyContextBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A6F8B3292290D900AF2C10 /* AnyContextBox.swift */; };
+		A3A6F8F6292290D900AF2C10 /* AnyFactoryBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A6F8B4292290D900AF2C10 /* AnyFactoryBox.swift */; };
+		A3A6F8F7292290D900AF2C10 /* ContextTransformerBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A6F8B5292290D900AF2C10 /* ContextTransformerBox.swift */; };
+		A3A6F8F8292290D900AF2C10 /* ContextTaskBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A6F8B6292290D900AF2C10 /* ContextTaskBox.swift */; };
+		A3A6F8F9292290D900AF2C10 /* ContainerActionBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A6F8B7292290D900AF2C10 /* ContainerActionBox.swift */; };
+		A3A6F8FA292290D900AF2C10 /* RoutingInterceptorBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A6F8B8292290D900AF2C10 /* RoutingInterceptorBox.swift */; };
+		A3A6F8FB292290D900AF2C10 /* ActionBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A6F8B9292290D900AF2C10 /* ActionBox.swift */; };
+		A3A6F8FC292290D900AF2C10 /* StackPresentationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A6F8BB292290D900AF2C10 /* StackPresentationHandler.swift */; };
+		A3A6F8FD292290D900AF2C10 /* DefaultStackPresentationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A6F8BC292290D900AF2C10 /* DefaultStackPresentationHandler.swift */; };
+		A3A6F8FF2922911500AF2C10 /* ContextTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A6F8FE2922911500AF2C10 /* ContextTransformer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -230,42 +240,6 @@
 		450D0D6F2412AEF80066E649 /* FinderFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinderFactory.swift; sourceTree = "<group>"; };
 		450D0D702412AEF80066E649 /* SimpleContainerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleContainerFactory.swift; sourceTree = "<group>"; };
 		450D0D712412AEF80066E649 /* TabBarControllerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarControllerFactory.swift; sourceTree = "<group>"; };
-		450D0D742412AEF80066E649 /* PerformableStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerformableStep.swift; sourceTree = "<group>"; };
-		450D0D752412AEF80066E649 /* PostponedIntegrationFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostponedIntegrationFactory.swift; sourceTree = "<group>"; };
-		450D0D762412AEF80066E649 /* PerformableStepResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerformableStepResult.swift; sourceTree = "<group>"; };
-		450D0D772412AEF80066E649 /* SwitcherStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitcherStep.swift; sourceTree = "<group>"; };
-		450D0D782412AEF80066E649 /* BaseStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseStep.swift; sourceTree = "<group>"; };
-		450D0D792412AEF80066E649 /* NilEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NilEntity.swift; sourceTree = "<group>"; };
-		450D0D7A2412AEF80066E649 /* ChainableStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChainableStep.swift; sourceTree = "<group>"; };
-		450D0D7B2412AEF80066E649 /* DefaultRouter+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DefaultRouter+Extension.swift"; sourceTree = "<group>"; };
-		450D0D7C2412AEF80066E649 /* InterceptableStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterceptableStep.swift; sourceTree = "<group>"; };
-		450D0D7D2412AEF80066E649 /* RoutingStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutingStep.swift; sourceTree = "<group>"; };
-		450D0D7E2412AEF80066E649 /* UIViewController+PrivateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+PrivateExtension.swift"; sourceTree = "<group>"; };
-		450D0D7F2412AEF80066E649 /* Array+PrivateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+PrivateExtension.swift"; sourceTree = "<group>"; };
-		450D0D802412AEF80066E649 /* MainThreadChecking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainThreadChecking.swift; sourceTree = "<group>"; };
-		450D0D812412AEF80066E649 /* PreparableEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreparableEntity.swift; sourceTree = "<group>"; };
-		450D0D832412AEF80066E649 /* PostRoutingTaskMultiplexer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostRoutingTaskMultiplexer.swift; sourceTree = "<group>"; };
-		450D0D842412AEF80066E649 /* InterceptorMultiplexer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterceptorMultiplexer.swift; sourceTree = "<group>"; };
-		450D0D852412AEF80066E649 /* ContextTaskMultiplexer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContextTaskMultiplexer.swift; sourceTree = "<group>"; };
-		450D0D862412AEF80066E649 /* DefaultRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultRouter.swift; sourceTree = "<group>"; };
-		450D0D882412AEF80066E649 /* AnyFinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyFinder.swift; sourceTree = "<group>"; };
-		450D0D892412AEF80066E649 /* AnyContextTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyContextTask.swift; sourceTree = "<group>"; };
-		450D0D8A2412AEF80066E649 /* AnyAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyAction.swift; sourceTree = "<group>"; };
-		450D0D8B2412AEF80066E649 /* AnyFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyFactory.swift; sourceTree = "<group>"; };
-		450D0D8C2412AEF80066E649 /* AnyRoutingInterceptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyRoutingInterceptor.swift; sourceTree = "<group>"; };
-		450D0D8D2412AEF80066E649 /* AnyPostRoutingTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyPostRoutingTask.swift; sourceTree = "<group>"; };
-		450D0D8F2412AEF80066E649 /* FactoryBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FactoryBox.swift; sourceTree = "<group>"; };
-		450D0D902412AEF80066E649 /* PostRoutingTaskBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostRoutingTaskBox.swift; sourceTree = "<group>"; };
-		450D0D912412AEF80066E649 /* ContainerFactoryBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerFactoryBox.swift; sourceTree = "<group>"; };
-		450D0D922412AEF80066E649 /* FinderBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinderBox.swift; sourceTree = "<group>"; };
-		450D0D932412AEF80066E649 /* AnyActionBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyActionBox.swift; sourceTree = "<group>"; };
-		450D0D942412AEF80066E649 /* AnyFactoryBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyFactoryBox.swift; sourceTree = "<group>"; };
-		450D0D952412AEF80066E649 /* ContextTaskBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContextTaskBox.swift; sourceTree = "<group>"; };
-		450D0D962412AEF80066E649 /* ContainerActionBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerActionBox.swift; sourceTree = "<group>"; };
-		450D0D972412AEF80066E649 /* RoutingInterceptorBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutingInterceptorBox.swift; sourceTree = "<group>"; };
-		450D0D982412AEF80066E649 /* ActionBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionBox.swift; sourceTree = "<group>"; };
-		450D0D9A2412AEF80066E649 /* StackPresentationHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackPresentationHandler.swift; sourceTree = "<group>"; };
-		450D0D9B2412AEF80066E649 /* DefaultStackPresentationHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultStackPresentationHandler.swift; sourceTree = "<group>"; };
 		450D0D9C2412AEF80066E649 /* RoutingResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RoutingResult.swift; path = RouteComposer/Classes/RoutingResult.swift; sourceTree = "<group>"; };
 		450D0D9E2412AEF80066E649 /* SplitViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SplitViewController+Extension.swift"; sourceTree = "<group>"; };
 		450D0D9F2412AEF80066E649 /* TabBarViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TabBarViewController+Extension.swift"; sourceTree = "<group>"; };
@@ -298,22 +272,6 @@
 		450D0DBD2412AEF80066E649 /* TabBarControllerAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarControllerAdapter.swift; sourceTree = "<group>"; };
 		450D0DBE2412AEF80066E649 /* ConcreteContainerAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConcreteContainerAdapter.swift; sourceTree = "<group>"; };
 		450D0DBF2412AEF80066E649 /* NavigationControllerAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationControllerAdapter.swift; sourceTree = "<group>"; };
-		450D0DC12412AEF80066E649 /* ContextChecking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContextChecking.swift; sourceTree = "<group>"; };
-		450D0DC22412AEF80066E649 /* DispatchQueue+Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Action.swift"; sourceTree = "<group>"; };
-		450D0DC32412AEF80066E649 /* PresentingFinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentingFinder.swift; sourceTree = "<group>"; };
-		450D0DC42412AEF80066E649 /* DismissalMethodProvidingContextTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissalMethodProvidingContextTask.swift; sourceTree = "<group>"; };
-		450D0DC52412AEF80066E649 /* ContextSettingTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContextSettingTask.swift; sourceTree = "<group>"; };
-		450D0DC62412AEF80066E649 /* InlinePostTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InlinePostTask.swift; sourceTree = "<group>"; };
-		450D0DC72412AEF80066E649 /* DetailsNavigationFinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsNavigationFinder.swift; sourceTree = "<group>"; };
-		450D0DC82412AEF80066E649 /* Router+Destination.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Router+Destination.swift"; sourceTree = "<group>"; };
-		450D0DC92412AEF80066E649 /* NavigationDelayInterceptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationDelayInterceptor.swift; sourceTree = "<group>"; };
-		450D0DCA2412AEF80066E649 /* SingleNavigationRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleNavigationRouter.swift; sourceTree = "<group>"; };
-		450D0DCB2412AEF80066E649 /* CATransaction+Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CATransaction+Action.swift"; sourceTree = "<group>"; };
-		450D0DCC2412AEF80066E649 /* InlineContextTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InlineContextTask.swift; sourceTree = "<group>"; };
-		450D0DCD2412AEF80066E649 /* Destination.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Destination.swift; sourceTree = "<group>"; };
-		450D0DCE2412AEF80066E649 /* ContextAccepting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContextAccepting.swift; sourceTree = "<group>"; };
-		450D0DCF2412AEF80066E649 /* InlineInterceptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InlineInterceptor.swift; sourceTree = "<group>"; };
-		450D0DD02412AEF80066E649 /* Dismissible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dismissible.swift; sourceTree = "<group>"; };
 		450D0DD12412AEF80066E649 /* PostRoutingTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostRoutingTask.swift; path = RouteComposer/Classes/PostRoutingTask.swift; sourceTree = "<group>"; };
 		450D0DD22412AEF80066E649 /* ContextTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContextTask.swift; path = RouteComposer/Classes/ContextTask.swift; sourceTree = "<group>"; };
 		450D0DD42412AEF80066E649 /* UIViewController+Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Action.swift"; sourceTree = "<group>"; };
@@ -328,17 +286,79 @@
 		450D0DDE2412AEF80066E649 /* GeneralStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralStep.swift; sourceTree = "<group>"; };
 		450D0DDF2412AEF80066E649 /* TabBarControllerStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarControllerStep.swift; sourceTree = "<group>"; };
 		450D0E632412AF060066E649 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = RouteComposer/Info.plist; sourceTree = "<group>"; };
-		45737CF52477DEB900FCB6A9 /* ContextAcceptingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContextAcceptingView.swift; sourceTree = "<group>"; };
 		45762909240C76EF0018D344 /* RouteComposer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RouteComposer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		45762912240C76EF0018D344 /* RouteComposerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RouteComposerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		45A1C1EE25D1F6F80000AB8B /* RouteComposerDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RouteComposerDefaults.swift; path = RouteComposer/Classes/RouteComposerDefaults.swift; sourceTree = "<group>"; };
-		45BF87E824771CE000354559 /* ContextInstantiatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContextInstantiatable.swift; sourceTree = "<group>"; };
 		45BF87EB24771CEF00354559 /* UIHostingControllerWithContextFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIHostingControllerWithContextFactory.swift; sourceTree = "<group>"; };
 		45BF87EC24771CEF00354559 /* UIHostingControllerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIHostingControllerFactory.swift; sourceTree = "<group>"; };
 		45BF87F024771CFC00354559 /* UIHostingControllerWithContextFinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIHostingControllerWithContextFinder.swift; sourceTree = "<group>"; };
 		45BF87F224771D1700354559 /* TestSwiftUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestSwiftUIView.swift; sourceTree = "<group>"; };
-		A334C6FE27330FE000DD3DF3 /* InlineFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InlineFactory.swift; sourceTree = "<group>"; };
-		A36C574726CE7A2300C4FFDD /* GlobalInterceptorRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalInterceptorRouter.swift; sourceTree = "<group>"; };
+		A3A6F875292290D800AF2C10 /* InlineStackIteratingFinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InlineStackIteratingFinder.swift; sourceTree = "<group>"; };
+		A3A6F876292290D800AF2C10 /* ContextChecking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContextChecking.swift; sourceTree = "<group>"; };
+		A3A6F877292290D800AF2C10 /* DispatchQueue+Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Action.swift"; sourceTree = "<group>"; };
+		A3A6F878292290D800AF2C10 /* InlineFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InlineFactory.swift; sourceTree = "<group>"; };
+		A3A6F879292290D800AF2C10 /* InlineContextTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InlineContextTransformer.swift; sourceTree = "<group>"; };
+		A3A6F87A292290D800AF2C10 /* PresentingFinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentingFinder.swift; sourceTree = "<group>"; };
+		A3A6F87B292290D800AF2C10 /* DismissalMethodProvidingContextTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissalMethodProvidingContextTask.swift; sourceTree = "<group>"; };
+		A3A6F87C292290D800AF2C10 /* ContextSettingTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContextSettingTask.swift; sourceTree = "<group>"; };
+		A3A6F87D292290D800AF2C10 /* InlinePostTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InlinePostTask.swift; sourceTree = "<group>"; };
+		A3A6F87E292290D800AF2C10 /* DetailsNavigationFinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsNavigationFinder.swift; sourceTree = "<group>"; };
+		A3A6F87F292290D800AF2C10 /* Router+Destination.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Router+Destination.swift"; sourceTree = "<group>"; };
+		A3A6F880292290D800AF2C10 /* NavigationDelayInterceptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationDelayInterceptor.swift; sourceTree = "<group>"; };
+		A3A6F881292290D800AF2C10 /* SingleNavigationRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleNavigationRouter.swift; sourceTree = "<group>"; };
+		A3A6F882292290D800AF2C10 /* CATransaction+Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CATransaction+Action.swift"; sourceTree = "<group>"; };
+		A3A6F883292290D800AF2C10 /* InlineContextTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InlineContextTask.swift; sourceTree = "<group>"; };
+		A3A6F884292290D800AF2C10 /* GlobalInterceptorRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalInterceptorRouter.swift; sourceTree = "<group>"; };
+		A3A6F885292290D800AF2C10 /* Destination.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Destination.swift; sourceTree = "<group>"; };
+		A3A6F886292290D800AF2C10 /* ContextAccepting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContextAccepting.swift; sourceTree = "<group>"; };
+		A3A6F887292290D800AF2C10 /* InlineInterceptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InlineInterceptor.swift; sourceTree = "<group>"; };
+		A3A6F888292290D800AF2C10 /* Dismissible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dismissible.swift; sourceTree = "<group>"; };
+		A3A6F88A292290D900AF2C10 /* ContextAcceptingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContextAcceptingView.swift; sourceTree = "<group>"; };
+		A3A6F88B292290D900AF2C10 /* ContextInstantiatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContextInstantiatable.swift; sourceTree = "<group>"; };
+		A3A6F88E292290D900AF2C10 /* PerformableStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerformableStep.swift; sourceTree = "<group>"; };
+		A3A6F88F292290D900AF2C10 /* InPlaceTransformingAnyContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InPlaceTransformingAnyContext.swift; sourceTree = "<group>"; };
+		A3A6F890292290D900AF2C10 /* ConvertingStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConvertingStep.swift; sourceTree = "<group>"; };
+		A3A6F891292290D900AF2C10 /* PostponedIntegrationFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostponedIntegrationFactory.swift; sourceTree = "<group>"; };
+		A3A6F892292290D900AF2C10 /* PerformableStepResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerformableStepResult.swift; sourceTree = "<group>"; };
+		A3A6F893292290D900AF2C10 /* SwitcherStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitcherStep.swift; sourceTree = "<group>"; };
+		A3A6F894292290D900AF2C10 /* NilContextTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NilContextTransformer.swift; sourceTree = "<group>"; };
+		A3A6F895292290D900AF2C10 /* BaseStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseStep.swift; sourceTree = "<group>"; };
+		A3A6F896292290D900AF2C10 /* NilEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NilEntity.swift; sourceTree = "<group>"; };
+		A3A6F897292290D900AF2C10 /* ChainableStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChainableStep.swift; sourceTree = "<group>"; };
+		A3A6F898292290D900AF2C10 /* DefaultRouter+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DefaultRouter+Extension.swift"; sourceTree = "<group>"; };
+		A3A6F899292290D900AF2C10 /* InterceptableStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterceptableStep.swift; sourceTree = "<group>"; };
+		A3A6F89A292290D900AF2C10 /* RoutingStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutingStep.swift; sourceTree = "<group>"; };
+		A3A6F89B292290D900AF2C10 /* UIViewController+PrivateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+PrivateExtension.swift"; sourceTree = "<group>"; };
+		A3A6F89C292290D900AF2C10 /* Array+PrivateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+PrivateExtension.swift"; sourceTree = "<group>"; };
+		A3A6F89D292290D900AF2C10 /* MainThreadChecking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainThreadChecking.swift; sourceTree = "<group>"; };
+		A3A6F89E292290D900AF2C10 /* PreparableEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreparableEntity.swift; sourceTree = "<group>"; };
+		A3A6F8A0292290D900AF2C10 /* PostRoutingTaskMultiplexer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostRoutingTaskMultiplexer.swift; sourceTree = "<group>"; };
+		A3A6F8A1292290D900AF2C10 /* InterceptorMultiplexer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterceptorMultiplexer.swift; sourceTree = "<group>"; };
+		A3A6F8A2292290D900AF2C10 /* ContextTaskMultiplexer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContextTaskMultiplexer.swift; sourceTree = "<group>"; };
+		A3A6F8A3292290D900AF2C10 /* DefaultRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultRouter.swift; sourceTree = "<group>"; };
+		A3A6F8A5292290D900AF2C10 /* AnyFinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyFinder.swift; sourceTree = "<group>"; };
+		A3A6F8A6292290D900AF2C10 /* AnyContextTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyContextTask.swift; sourceTree = "<group>"; };
+		A3A6F8A7292290D900AF2C10 /* AnyAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyAction.swift; sourceTree = "<group>"; };
+		A3A6F8A8292290D900AF2C10 /* AnyFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyFactory.swift; sourceTree = "<group>"; };
+		A3A6F8A9292290D900AF2C10 /* AnyRoutingInterceptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyRoutingInterceptor.swift; sourceTree = "<group>"; };
+		A3A6F8AA292290D900AF2C10 /* AnyPostRoutingTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyPostRoutingTask.swift; sourceTree = "<group>"; };
+		A3A6F8AB292290D900AF2C10 /* AnyContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyContext.swift; sourceTree = "<group>"; };
+		A3A6F8AC292290D900AF2C10 /* AnyContextTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyContextTransformer.swift; sourceTree = "<group>"; };
+		A3A6F8AE292290D900AF2C10 /* FactoryBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FactoryBox.swift; sourceTree = "<group>"; };
+		A3A6F8AF292290D900AF2C10 /* PostRoutingTaskBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostRoutingTaskBox.swift; sourceTree = "<group>"; };
+		A3A6F8B0292290D900AF2C10 /* ContainerFactoryBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerFactoryBox.swift; sourceTree = "<group>"; };
+		A3A6F8B1292290D900AF2C10 /* FinderBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinderBox.swift; sourceTree = "<group>"; };
+		A3A6F8B2292290D900AF2C10 /* AnyActionBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyActionBox.swift; sourceTree = "<group>"; };
+		A3A6F8B3292290D900AF2C10 /* AnyContextBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyContextBox.swift; sourceTree = "<group>"; };
+		A3A6F8B4292290D900AF2C10 /* AnyFactoryBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyFactoryBox.swift; sourceTree = "<group>"; };
+		A3A6F8B5292290D900AF2C10 /* ContextTransformerBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContextTransformerBox.swift; sourceTree = "<group>"; };
+		A3A6F8B6292290D900AF2C10 /* ContextTaskBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContextTaskBox.swift; sourceTree = "<group>"; };
+		A3A6F8B7292290D900AF2C10 /* ContainerActionBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerActionBox.swift; sourceTree = "<group>"; };
+		A3A6F8B8292290D900AF2C10 /* RoutingInterceptorBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutingInterceptorBox.swift; sourceTree = "<group>"; };
+		A3A6F8B9292290D900AF2C10 /* ActionBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionBox.swift; sourceTree = "<group>"; };
+		A3A6F8BB292290D900AF2C10 /* StackPresentationHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackPresentationHandler.swift; sourceTree = "<group>"; };
+		A3A6F8BC292290D900AF2C10 /* DefaultStackPresentationHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultStackPresentationHandler.swift; sourceTree = "<group>"; };
+		A3A6F8FE2922911500AF2C10 /* ContextTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContextTransformer.swift; path = RouteComposer/Classes/ContextTransformer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -367,11 +387,12 @@
 				450D0DB92412AEF80066E649 /* Adapters */,
 				450D0D582412AEF80066E649 /* Assemblies */,
 				450D0D9D2412AEF80066E649 /* Extensions */,
-				450D0DC02412AEF80066E649 /* Extra */,
+				A3A6F874292290D800AF2C10 /* Extra */,
 				450D0D682412AEF80066E649 /* Factories */,
 				450D0DA92412AEF80066E649 /* Finders */,
+				A3A6F88C292290D900AF2C10 /* Router */,
 				450D0D512412AEF80066E649 /* Logger */,
-				450D0D722412AEF80066E649 /* Router */,
+				450D0DD92412AEF80066E649 /* Steps */,
 				450D0E632412AF060066E649 /* Info.plist */,
 				450D0D4D2412AEF80066E649 /* AbstractAction.swift */,
 				450D0DA82412AEF80066E649 /* AbstractFactory.swift */,
@@ -382,6 +403,7 @@
 				450D0DB52412AEF80066E649 /* ContainerFactory.swift */,
 				450D0DB62412AEF80066E649 /* ContainerViewController.swift */,
 				450D0DD22412AEF80066E649 /* ContextTask.swift */,
+				A3A6F8FE2922911500AF2C10 /* ContextTransformer.swift */,
 				450D0D502412AEF80066E649 /* DestinationStep.swift */,
 				450D0D4F2412AEF80066E649 /* Factory.swift */,
 				450D0DA72412AEF80066E649 /* Finder.swift */,
@@ -394,7 +416,6 @@
 				450D0D562412AEF80066E649 /* RoutingInterceptor.swift */,
 				450D0D9C2412AEF80066E649 /* RoutingResult.swift */,
 				450D0DA52412AEF80066E649 /* SearchOptions.swift */,
-				450D0DD92412AEF80066E649 /* Steps */,
 			);
 			name = RouteComposer;
 			sourceTree = "<group>";
@@ -494,90 +515,6 @@
 			path = RouteComposer/Classes/Factories;
 			sourceTree = "<group>";
 		};
-		450D0D722412AEF80066E649 /* Router */ = {
-			isa = PBXGroup;
-			children = (
-				450D0D732412AEF80066E649 /* Internal */,
-				450D0D822412AEF80066E649 /* Multiplexers */,
-				450D0D862412AEF80066E649 /* DefaultRouter.swift */,
-				450D0D872412AEF80066E649 /* Type Erasure */,
-				450D0D992412AEF80066E649 /* Helpers */,
-			);
-			name = Router;
-			path = RouteComposer/Classes/Router;
-			sourceTree = "<group>";
-		};
-		450D0D732412AEF80066E649 /* Internal */ = {
-			isa = PBXGroup;
-			children = (
-				450D0D742412AEF80066E649 /* PerformableStep.swift */,
-				450D0D752412AEF80066E649 /* PostponedIntegrationFactory.swift */,
-				450D0D762412AEF80066E649 /* PerformableStepResult.swift */,
-				450D0D772412AEF80066E649 /* SwitcherStep.swift */,
-				450D0D782412AEF80066E649 /* BaseStep.swift */,
-				450D0D792412AEF80066E649 /* NilEntity.swift */,
-				450D0D7A2412AEF80066E649 /* ChainableStep.swift */,
-				450D0D7B2412AEF80066E649 /* DefaultRouter+Extension.swift */,
-				450D0D7C2412AEF80066E649 /* InterceptableStep.swift */,
-				450D0D7D2412AEF80066E649 /* RoutingStep.swift */,
-				450D0D7E2412AEF80066E649 /* UIViewController+PrivateExtension.swift */,
-				450D0D7F2412AEF80066E649 /* Array+PrivateExtension.swift */,
-				450D0D802412AEF80066E649 /* MainThreadChecking.swift */,
-				450D0D812412AEF80066E649 /* PreparableEntity.swift */,
-			);
-			path = Internal;
-			sourceTree = "<group>";
-		};
-		450D0D822412AEF80066E649 /* Multiplexers */ = {
-			isa = PBXGroup;
-			children = (
-				450D0D832412AEF80066E649 /* PostRoutingTaskMultiplexer.swift */,
-				450D0D842412AEF80066E649 /* InterceptorMultiplexer.swift */,
-				450D0D852412AEF80066E649 /* ContextTaskMultiplexer.swift */,
-			);
-			path = Multiplexers;
-			sourceTree = "<group>";
-		};
-		450D0D872412AEF80066E649 /* Type Erasure */ = {
-			isa = PBXGroup;
-			children = (
-				450D0D882412AEF80066E649 /* AnyFinder.swift */,
-				450D0D892412AEF80066E649 /* AnyContextTask.swift */,
-				450D0D8A2412AEF80066E649 /* AnyAction.swift */,
-				450D0D8B2412AEF80066E649 /* AnyFactory.swift */,
-				450D0D8C2412AEF80066E649 /* AnyRoutingInterceptor.swift */,
-				450D0D8D2412AEF80066E649 /* AnyPostRoutingTask.swift */,
-				450D0D8E2412AEF80066E649 /* Boxes */,
-			);
-			path = "Type Erasure";
-			sourceTree = "<group>";
-		};
-		450D0D8E2412AEF80066E649 /* Boxes */ = {
-			isa = PBXGroup;
-			children = (
-				450D0D8F2412AEF80066E649 /* FactoryBox.swift */,
-				450D0D902412AEF80066E649 /* PostRoutingTaskBox.swift */,
-				450D0D912412AEF80066E649 /* ContainerFactoryBox.swift */,
-				450D0D922412AEF80066E649 /* FinderBox.swift */,
-				450D0D932412AEF80066E649 /* AnyActionBox.swift */,
-				450D0D942412AEF80066E649 /* AnyFactoryBox.swift */,
-				450D0D952412AEF80066E649 /* ContextTaskBox.swift */,
-				450D0D962412AEF80066E649 /* ContainerActionBox.swift */,
-				450D0D972412AEF80066E649 /* RoutingInterceptorBox.swift */,
-				450D0D982412AEF80066E649 /* ActionBox.swift */,
-			);
-			path = Boxes;
-			sourceTree = "<group>";
-		};
-		450D0D992412AEF80066E649 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				450D0D9A2412AEF80066E649 /* StackPresentationHandler.swift */,
-				450D0D9B2412AEF80066E649 /* DefaultStackPresentationHandler.swift */,
-			);
-			path = Helpers;
-			sourceTree = "<group>";
-		};
 		450D0D9D2412AEF80066E649 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -633,33 +570,6 @@
 			path = RouteComposer/Classes/Adapters;
 			sourceTree = "<group>";
 		};
-		450D0DC02412AEF80066E649 /* Extra */ = {
-			isa = PBXGroup;
-			children = (
-				45BF87E724771CE000354559 /* SwiftUI */,
-				450D0DC12412AEF80066E649 /* ContextChecking.swift */,
-				450D0DC22412AEF80066E649 /* DispatchQueue+Action.swift */,
-				450D0DC32412AEF80066E649 /* PresentingFinder.swift */,
-				450D0DC42412AEF80066E649 /* DismissalMethodProvidingContextTask.swift */,
-				450D0DC52412AEF80066E649 /* ContextSettingTask.swift */,
-				450D0DC62412AEF80066E649 /* InlinePostTask.swift */,
-				450D0DC72412AEF80066E649 /* DetailsNavigationFinder.swift */,
-				450D0DC82412AEF80066E649 /* Router+Destination.swift */,
-				450D0DC92412AEF80066E649 /* NavigationDelayInterceptor.swift */,
-				450D0DCA2412AEF80066E649 /* SingleNavigationRouter.swift */,
-				A36C574726CE7A2300C4FFDD /* GlobalInterceptorRouter.swift */,
-				450D0DCB2412AEF80066E649 /* CATransaction+Action.swift */,
-				450D0DCC2412AEF80066E649 /* InlineContextTask.swift */,
-				A334C6FE27330FE000DD3DF3 /* InlineFactory.swift */,
-				450D0DCD2412AEF80066E649 /* Destination.swift */,
-				450D0DCE2412AEF80066E649 /* ContextAccepting.swift */,
-				450D0DCF2412AEF80066E649 /* InlineInterceptor.swift */,
-				450D0DD02412AEF80066E649 /* Dismissible.swift */,
-			);
-			name = Extra;
-			path = RouteComposer/Classes/Extra;
-			sourceTree = "<group>";
-		};
 		450D0DD32412AEF80066E649 /* Actions */ = {
 			isa = PBXGroup;
 			children = (
@@ -704,15 +614,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		45BF87E724771CE000354559 /* SwiftUI */ = {
-			isa = PBXGroup;
-			children = (
-				45737CF52477DEB900FCB6A9 /* ContextAcceptingView.swift */,
-				45BF87E824771CE000354559 /* ContextInstantiatable.swift */,
-			);
-			path = SwiftUI;
-			sourceTree = "<group>";
-		};
 		45BF87EA24771CEF00354559 /* SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
@@ -728,6 +629,135 @@
 				45BF87F024771CFC00354559 /* UIHostingControllerWithContextFinder.swift */,
 			);
 			path = SwiftUI;
+			sourceTree = "<group>";
+		};
+		A3A6F874292290D800AF2C10 /* Extra */ = {
+			isa = PBXGroup;
+			children = (
+				A3A6F875292290D800AF2C10 /* InlineStackIteratingFinder.swift */,
+				A3A6F876292290D800AF2C10 /* ContextChecking.swift */,
+				A3A6F877292290D800AF2C10 /* DispatchQueue+Action.swift */,
+				A3A6F878292290D800AF2C10 /* InlineFactory.swift */,
+				A3A6F879292290D800AF2C10 /* InlineContextTransformer.swift */,
+				A3A6F87A292290D800AF2C10 /* PresentingFinder.swift */,
+				A3A6F87B292290D800AF2C10 /* DismissalMethodProvidingContextTask.swift */,
+				A3A6F87C292290D800AF2C10 /* ContextSettingTask.swift */,
+				A3A6F87D292290D800AF2C10 /* InlinePostTask.swift */,
+				A3A6F87E292290D800AF2C10 /* DetailsNavigationFinder.swift */,
+				A3A6F87F292290D800AF2C10 /* Router+Destination.swift */,
+				A3A6F880292290D800AF2C10 /* NavigationDelayInterceptor.swift */,
+				A3A6F881292290D800AF2C10 /* SingleNavigationRouter.swift */,
+				A3A6F882292290D800AF2C10 /* CATransaction+Action.swift */,
+				A3A6F883292290D800AF2C10 /* InlineContextTask.swift */,
+				A3A6F884292290D800AF2C10 /* GlobalInterceptorRouter.swift */,
+				A3A6F885292290D800AF2C10 /* Destination.swift */,
+				A3A6F886292290D800AF2C10 /* ContextAccepting.swift */,
+				A3A6F887292290D800AF2C10 /* InlineInterceptor.swift */,
+				A3A6F888292290D800AF2C10 /* Dismissible.swift */,
+				A3A6F889292290D800AF2C10 /* SwiftUI */,
+			);
+			name = Extra;
+			path = RouteComposer/Classes/Extra;
+			sourceTree = "<group>";
+		};
+		A3A6F889292290D800AF2C10 /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				A3A6F88A292290D900AF2C10 /* ContextAcceptingView.swift */,
+				A3A6F88B292290D900AF2C10 /* ContextInstantiatable.swift */,
+			);
+			path = SwiftUI;
+			sourceTree = "<group>";
+		};
+		A3A6F88C292290D900AF2C10 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				A3A6F88D292290D900AF2C10 /* Internal */,
+				A3A6F89F292290D900AF2C10 /* Multiplexers */,
+				A3A6F8A3292290D900AF2C10 /* DefaultRouter.swift */,
+				A3A6F8A4292290D900AF2C10 /* Type Erasure */,
+				A3A6F8BA292290D900AF2C10 /* Helpers */,
+			);
+			name = Router;
+			path = RouteComposer/Classes/Router;
+			sourceTree = "<group>";
+		};
+		A3A6F88D292290D900AF2C10 /* Internal */ = {
+			isa = PBXGroup;
+			children = (
+				A3A6F88E292290D900AF2C10 /* PerformableStep.swift */,
+				A3A6F88F292290D900AF2C10 /* InPlaceTransformingAnyContext.swift */,
+				A3A6F890292290D900AF2C10 /* ConvertingStep.swift */,
+				A3A6F891292290D900AF2C10 /* PostponedIntegrationFactory.swift */,
+				A3A6F892292290D900AF2C10 /* PerformableStepResult.swift */,
+				A3A6F893292290D900AF2C10 /* SwitcherStep.swift */,
+				A3A6F894292290D900AF2C10 /* NilContextTransformer.swift */,
+				A3A6F895292290D900AF2C10 /* BaseStep.swift */,
+				A3A6F896292290D900AF2C10 /* NilEntity.swift */,
+				A3A6F897292290D900AF2C10 /* ChainableStep.swift */,
+				A3A6F898292290D900AF2C10 /* DefaultRouter+Extension.swift */,
+				A3A6F899292290D900AF2C10 /* InterceptableStep.swift */,
+				A3A6F89A292290D900AF2C10 /* RoutingStep.swift */,
+				A3A6F89B292290D900AF2C10 /* UIViewController+PrivateExtension.swift */,
+				A3A6F89C292290D900AF2C10 /* Array+PrivateExtension.swift */,
+				A3A6F89D292290D900AF2C10 /* MainThreadChecking.swift */,
+				A3A6F89E292290D900AF2C10 /* PreparableEntity.swift */,
+			);
+			path = Internal;
+			sourceTree = "<group>";
+		};
+		A3A6F89F292290D900AF2C10 /* Multiplexers */ = {
+			isa = PBXGroup;
+			children = (
+				A3A6F8A0292290D900AF2C10 /* PostRoutingTaskMultiplexer.swift */,
+				A3A6F8A1292290D900AF2C10 /* InterceptorMultiplexer.swift */,
+				A3A6F8A2292290D900AF2C10 /* ContextTaskMultiplexer.swift */,
+			);
+			path = Multiplexers;
+			sourceTree = "<group>";
+		};
+		A3A6F8A4292290D900AF2C10 /* Type Erasure */ = {
+			isa = PBXGroup;
+			children = (
+				A3A6F8A5292290D900AF2C10 /* AnyFinder.swift */,
+				A3A6F8A6292290D900AF2C10 /* AnyContextTask.swift */,
+				A3A6F8A7292290D900AF2C10 /* AnyAction.swift */,
+				A3A6F8A8292290D900AF2C10 /* AnyFactory.swift */,
+				A3A6F8A9292290D900AF2C10 /* AnyRoutingInterceptor.swift */,
+				A3A6F8AA292290D900AF2C10 /* AnyPostRoutingTask.swift */,
+				A3A6F8AB292290D900AF2C10 /* AnyContext.swift */,
+				A3A6F8AC292290D900AF2C10 /* AnyContextTransformer.swift */,
+				A3A6F8AD292290D900AF2C10 /* Boxes */,
+			);
+			path = "Type Erasure";
+			sourceTree = "<group>";
+		};
+		A3A6F8AD292290D900AF2C10 /* Boxes */ = {
+			isa = PBXGroup;
+			children = (
+				A3A6F8AE292290D900AF2C10 /* FactoryBox.swift */,
+				A3A6F8AF292290D900AF2C10 /* PostRoutingTaskBox.swift */,
+				A3A6F8B0292290D900AF2C10 /* ContainerFactoryBox.swift */,
+				A3A6F8B1292290D900AF2C10 /* FinderBox.swift */,
+				A3A6F8B2292290D900AF2C10 /* AnyActionBox.swift */,
+				A3A6F8B3292290D900AF2C10 /* AnyContextBox.swift */,
+				A3A6F8B4292290D900AF2C10 /* AnyFactoryBox.swift */,
+				A3A6F8B5292290D900AF2C10 /* ContextTransformerBox.swift */,
+				A3A6F8B6292290D900AF2C10 /* ContextTaskBox.swift */,
+				A3A6F8B7292290D900AF2C10 /* ContainerActionBox.swift */,
+				A3A6F8B8292290D900AF2C10 /* RoutingInterceptorBox.swift */,
+				A3A6F8B9292290D900AF2C10 /* ActionBox.swift */,
+			);
+			path = Boxes;
+			sourceTree = "<group>";
+		};
+		A3A6F8BA292290D900AF2C10 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				A3A6F8BB292290D900AF2C10 /* StackPresentationHandler.swift */,
+				A3A6F8BC292290D900AF2C10 /* DefaultStackPresentationHandler.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -841,145 +871,155 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3A6F8C3292290D900AF2C10 /* DismissalMethodProvidingContextTask.swift in Sources */,
 				450D0DEA2412AEF80066E649 /* InterceptableRouter.swift in Sources */,
 				450D0E352412AEF90066E649 /* CustomWindowProvider.swift in Sources */,
+				A3A6F8E2292290D900AF2C10 /* MainThreadChecking.swift in Sources */,
+				A3A6F8C5292290D900AF2C10 /* InlinePostTask.swift in Sources */,
 				450D0E272412AEF90066E649 /* SplitViewController+Extension.swift in Sources */,
 				450D0E422412AEF90066E649 /* CustomContainerViewController.swift in Sources */,
-				450D0E212412AEF90066E649 /* ContainerActionBox.swift in Sources */,
-				450D0E1B2412AEF90066E649 /* PostRoutingTaskBox.swift in Sources */,
+				A3A6F8EA292290D900AF2C10 /* AnyAction.swift in Sources */,
+				A3A6F8D8292290D900AF2C10 /* SwitcherStep.swift in Sources */,
 				450D0DF32412AEF90066E649 /* BaseEntitiesCollector.swift in Sources */,
-				450D0E102412AEF90066E649 /* PostRoutingTaskMultiplexer.swift in Sources */,
-				450D0E082412AEF90066E649 /* ChainableStep.swift in Sources */,
 				450D0E382412AEF90066E649 /* KeyWindowProvider.swift in Sources */,
+				A3A6F8BD292290D900AF2C10 /* InlineStackIteratingFinder.swift in Sources */,
 				450D0E302412AEF90066E649 /* Finder.swift in Sources */,
 				450D0E3C2412AEF90066E649 /* ContainerFactory.swift in Sources */,
-				450D0E042412AEF90066E649 /* PerformableStepResult.swift in Sources */,
 				450D0DEB2412AEF80066E649 /* ChainAssembly.swift in Sources */,
-				450D0E552412AEF90066E649 /* Dismissible.swift in Sources */,
+				A3A6F8EB292290D900AF2C10 /* AnyFactory.swift in Sources */,
 				450D0E5A2412AEF90066E649 /* UISplitViewController+Action.swift in Sources */,
+				A3A6F8E9292290D900AF2C10 /* AnyContextTask.swift in Sources */,
+				A3A6F8CC292290D900AF2C10 /* GlobalInterceptorRouter.swift in Sources */,
 				450D0DF92412AEF90066E649 /* CompleteFactory.swift in Sources */,
-				450D0E112412AEF90066E649 /* InterceptorMultiplexer.swift in Sources */,
+				A3A6F8E5292290D900AF2C10 /* InterceptorMultiplexer.swift in Sources */,
+				A3A6F8F1292290D900AF2C10 /* PostRoutingTaskBox.swift in Sources */,
+				A3A6F8BE292290D900AF2C10 /* ContextChecking.swift in Sources */,
+				A3A6F8C2292290D900AF2C10 /* PresentingFinder.swift in Sources */,
+				A3A6F8DF292290D900AF2C10 /* RoutingStep.swift in Sources */,
+				A3A6F8DD292290D900AF2C10 /* DefaultRouter+Extension.swift in Sources */,
 				450D0E3A2412AEF90066E649 /* NilFinder.swift in Sources */,
 				450D0E3D2412AEF90066E649 /* ContainerViewController.swift in Sources */,
+				A3A6F8F4292290D900AF2C10 /* AnyActionBox.swift in Sources */,
 				450D0DFA2412AEF90066E649 /* SplitControllerFactory.swift in Sources */,
+				A3A6F8CE292290D900AF2C10 /* ContextAccepting.swift in Sources */,
+				A3A6F8C8292290D900AF2C10 /* NavigationDelayInterceptor.swift in Sources */,
+				A3A6F8E1292290D900AF2C10 /* Array+PrivateExtension.swift in Sources */,
+				A3A6F8E0292290D900AF2C10 /* UIViewController+PrivateExtension.swift in Sources */,
 				450D0DEE2412AEF80066E649 /* GenericStepAssembly.swift in Sources */,
 				450D0DF42412AEF90066E649 /* StepChainAssembly.swift in Sources */,
 				450D0E2D2412AEF90066E649 /* ContainerAdapterLocator.swift in Sources */,
-				450D0E052412AEF90066E649 /* SwitcherStep.swift in Sources */,
+				A3A6F8C0292290D900AF2C10 /* InlineFactory.swift in Sources */,
 				450D0E2B2412AEF90066E649 /* NavigationController+Extension.swift in Sources */,
-				450D0E1D2412AEF90066E649 /* FinderBox.swift in Sources */,
-				450D0E0E2412AEF90066E649 /* MainThreadChecking.swift in Sources */,
+				A3A6F8CA292290D900AF2C10 /* CATransaction+Action.swift in Sources */,
 				450D0E3F2412AEF90066E649 /* ChildCoordinator.swift in Sources */,
+				A3A6F8FC292290D900AF2C10 /* StackPresentationHandler.swift in Sources */,
+				A3A6F8CB292290D900AF2C10 /* InlineContextTask.swift in Sources */,
 				450D0E572412AEF90066E649 /* ContextTask.swift in Sources */,
 				450D0E442412AEF90066E649 /* ConcreteContainerAdapter.swift in Sources */,
 				450D0DF22412AEF80066E649 /* InterceptableStepAssembling.swift in Sources */,
-				450D0E232412AEF90066E649 /* ActionBox.swift in Sources */,
 				450D0E602412AEF90066E649 /* SingleStep.swift in Sources */,
-				450D0E492412AEF90066E649 /* DismissalMethodProvidingContextTask.swift in Sources */,
-				450D0E482412AEF90066E649 /* PresentingFinder.swift in Sources */,
 				450D0E432412AEF90066E649 /* TabBarControllerAdapter.swift in Sources */,
 				450D0DE82412AEF80066E649 /* DefaultLogger+LogLevel.swift in Sources */,
+				A3A6F8FF2922911500AF2C10 /* ContextTransformer.swift in Sources */,
 				450D0E622412AEF90066E649 /* TabBarControllerStep.swift in Sources */,
-				A334C6FF27330FE000DD3DF3 /* InlineFactory.swift in Sources */,
-				450D0E092412AEF90066E649 /* DefaultRouter+Extension.swift in Sources */,
+				A3A6F8EE292290D900AF2C10 /* AnyContext.swift in Sources */,
 				450D0E5D2412AEF90066E649 /* SplitControllerStep.swift in Sources */,
+				A3A6F8FA292290D900AF2C10 /* RoutingInterceptorBox.swift in Sources */,
 				450D0E612412AEF90066E649 /* GeneralStep.swift in Sources */,
 				45BF87EE24771CEF00354559 /* UIHostingControllerFactory.swift in Sources */,
-				450D0E062412AEF90066E649 /* BaseStep.swift in Sources */,
+				A3A6F8DE292290D900AF2C10 /* InterceptableStep.swift in Sources */,
 				450D0E372412AEF90066E649 /* DefaultStackIterator.swift in Sources */,
 				450D0E5C2412AEF90066E649 /* RoutingInterceptable.swift in Sources */,
-				450D0E152412AEF90066E649 /* AnyContextTask.swift in Sources */,
 				450D0DFE2412AEF90066E649 /* StoryboardFactory.swift in Sources */,
+				A3A6F8CD292290D900AF2C10 /* Destination.swift in Sources */,
+				A3A6F8F3292290D900AF2C10 /* FinderBox.swift in Sources */,
+				A3A6F8D4292290D900AF2C10 /* InPlaceTransformingAnyContext.swift in Sources */,
 				450D0E2C2412AEF90066E649 /* Array+Extension.swift in Sources */,
+				A3A6F8F9292290D900AF2C10 /* ContainerActionBox.swift in Sources */,
+				A3A6F8F6292290D900AF2C10 /* AnyFactoryBox.swift in Sources */,
+				A3A6F8C7292290D900AF2C10 /* Router+Destination.swift in Sources */,
 				450D0E3B2412AEF90066E649 /* InstanceFinder.swift in Sources */,
+				A3A6F8E8292290D900AF2C10 /* AnyFinder.swift in Sources */,
 				450D0E342412AEF90066E649 /* StackIterator.swift in Sources */,
 				450D0DE32412AEF80066E649 /* Factory.swift in Sources */,
+				A3A6F8E7292290D900AF2C10 /* DefaultRouter.swift in Sources */,
+				A3A6F8D7292290D900AF2C10 /* PerformableStepResult.swift in Sources */,
+				A3A6F8F5292290D900AF2C10 /* AnyContextBox.swift in Sources */,
 				450D0E282412AEF90066E649 /* TabBarViewController+Extension.swift in Sources */,
+				A3A6F8C1292290D900AF2C10 /* InlineContextTransformer.swift in Sources */,
 				450D0E2E2412AEF90066E649 /* SearchOptions.swift in Sources */,
-				450D0E0B2412AEF90066E649 /* RoutingStep.swift in Sources */,
-				450D0E1F2412AEF90066E649 /* AnyFactoryBox.swift in Sources */,
-				450D0E512412AEF90066E649 /* InlineContextTask.swift in Sources */,
-				450D0E4A2412AEF90066E649 /* ContextSettingTask.swift in Sources */,
+				A3A6F8FB292290D900AF2C10 /* ActionBox.swift in Sources */,
+				A3A6F8CF292290D900AF2C10 /* InlineInterceptor.swift in Sources */,
 				450D0E582412AEF90066E649 /* UIViewController+Action.swift in Sources */,
 				450D0E5B2412AEF90066E649 /* UINavigationController+Action.swift in Sources */,
+				A3A6F8D2292290D900AF2C10 /* ContextInstantiatable.swift in Sources */,
 				450D0DE92412AEF80066E649 /* RoutingInterceptor.swift in Sources */,
-				450D0E4D2412AEF90066E649 /* Router+Destination.swift in Sources */,
-				450D0E122412AEF90066E649 /* ContextTaskMultiplexer.swift in Sources */,
 				450D0DF12412AEF80066E649 /* LastStepInChainAssembly.swift in Sources */,
 				450D0DE42412AEF80066E649 /* DestinationStep.swift in Sources */,
-				450D0E502412AEF90066E649 /* CATransaction+Action.swift in Sources */,
-				450D0E022412AEF90066E649 /* PerformableStep.swift in Sources */,
-				450D0E072412AEF90066E649 /* NilEntity.swift in Sources */,
-				450D0E522412AEF90066E649 /* Destination.swift in Sources */,
 				450D0DF52412AEF90066E649 /* ActionConnectingAssembly.swift in Sources */,
 				450D0DE72412AEF80066E649 /* LogMessage.swift in Sources */,
-				45BF87E924771CE000354559 /* ContextInstantiatable.swift in Sources */,
-				450D0E132412AEF90066E649 /* DefaultRouter.swift in Sources */,
-				450D0E4F2412AEF90066E649 /* SingleNavigationRouter.swift in Sources */,
 				450D0E292412AEF90066E649 /* UIWindow+Extension.swift in Sources */,
+				A3A6F8DA292290D900AF2C10 /* BaseStep.swift in Sources */,
 				450D0DF62412AEF90066E649 /* TaskCollector.swift in Sources */,
-				450D0E4B2412AEF90066E649 /* InlinePostTask.swift in Sources */,
+				A3A6F8E4292290D900AF2C10 /* PostRoutingTaskMultiplexer.swift in Sources */,
 				450D0DFD2412AEF90066E649 /* NilFactory.swift in Sources */,
 				450D0E5F2412AEF90066E649 /* NavigationControllerStep.swift in Sources */,
 				450D0DED2412AEF80066E649 /* SwitchAssembly.swift in Sources */,
-				450D0E032412AEF90066E649 /* PostponedIntegrationFactory.swift in Sources */,
 				450D0DEC2412AEF80066E649 /* StepAssembly.swift in Sources */,
-				450D0E172412AEF90066E649 /* AnyFactory.swift in Sources */,
-				450D0E242412AEF90066E649 /* StackPresentationHandler.swift in Sources */,
 				450D0E402412AEF90066E649 /* DefaultContainerAdapterLocator.swift in Sources */,
 				450D0E592412AEF90066E649 /* UITabBarController+Action.swift in Sources */,
-				450D0E0D2412AEF90066E649 /* Array+PrivateExtension.swift in Sources */,
-				450D0E0C2412AEF90066E649 /* UIViewController+PrivateExtension.swift in Sources */,
+				A3A6F8C4292290D900AF2C10 /* ContextSettingTask.swift in Sources */,
 				450D0DEF2412AEF80066E649 /* ContainerStepChainAssembly.swift in Sources */,
-				450D0E142412AEF90066E649 /* AnyFinder.swift in Sources */,
-				450D0E472412AEF90066E649 /* DispatchQueue+Action.swift in Sources */,
 				45BF87F124771CFC00354559 /* UIHostingControllerWithContextFinder.swift in Sources */,
+				A3A6F8F7292290D900AF2C10 /* ContextTransformerBox.swift in Sources */,
 				450D0E332412AEF90066E649 /* StackIteratingFinder.swift in Sources */,
 				450D0E562412AEF90066E649 /* PostRoutingTask.swift in Sources */,
+				A3A6F8F8292290D900AF2C10 /* ContextTaskBox.swift in Sources */,
+				A3A6F8E3292290D900AF2C10 /* PreparableEntity.swift in Sources */,
+				A3A6F8DB292290D900AF2C10 /* NilEntity.swift in Sources */,
+				A3A6F8FD292290D900AF2C10 /* DefaultStackPresentationHandler.swift in Sources */,
+				A3A6F8F0292290D900AF2C10 /* FactoryBox.swift in Sources */,
 				450D0E362412AEF90066E649 /* WindowProvider.swift in Sources */,
 				450D0E2F2412AEF90066E649 /* Action.swift in Sources */,
 				450D0DF02412AEF80066E649 /* ActionToStepIntegrator.swift in Sources */,
-				450D0E0A2412AEF90066E649 /* InterceptableStep.swift in Sources */,
 				450D0E012412AEF90066E649 /* TabBarControllerFactory.swift in Sources */,
-				450D0E4C2412AEF90066E649 /* DetailsNavigationFinder.swift in Sources */,
-				450D0E202412AEF90066E649 /* ContextTaskBox.swift in Sources */,
 				450D0E262412AEF90066E649 /* RoutingResult.swift in Sources */,
-				450D0E1A2412AEF90066E649 /* FactoryBox.swift in Sources */,
-				A36C574826CE7A2300C4FFDD /* GlobalInterceptorRouter.swift in Sources */,
-				450D0E162412AEF90066E649 /* AnyAction.swift in Sources */,
 				45A1C1EF25D1F6F80000AB8B /* RouteComposerDefaults.swift in Sources */,
-				450D0E182412AEF90066E649 /* AnyRoutingInterceptor.swift in Sources */,
+				A3A6F8EC292290D900AF2C10 /* AnyRoutingInterceptor.swift in Sources */,
 				450D0DE02412AEF80066E649 /* RoutingError.swift in Sources */,
+				A3A6F8D6292290D900AF2C10 /* PostponedIntegrationFactory.swift in Sources */,
+				A3A6F8C9292290D900AF2C10 /* SingleNavigationRouter.swift in Sources */,
+				A3A6F8F2292290D900AF2C10 /* ContainerFactoryBox.swift in Sources */,
 				450D0DE12412AEF80066E649 /* AbstractAction.swift in Sources */,
-				450D0E462412AEF90066E649 /* ContextChecking.swift in Sources */,
 				450D0DE62412AEF80066E649 /* Logger.swift in Sources */,
+				A3A6F8D0292290D900AF2C10 /* Dismissible.swift in Sources */,
 				45BF87ED24771CEF00354559 /* UIHostingControllerWithContextFactory.swift in Sources */,
 				450D0DFB2412AEF90066E649 /* ClassFactory.swift in Sources */,
 				450D0DFC2412AEF90066E649 /* NavigationControllerFactory.swift in Sources */,
-				450D0E222412AEF90066E649 /* RoutingInterceptorBox.swift in Sources */,
 				450D0E2A2412AEF90066E649 /* UIViewController+Extension.swift in Sources */,
+				A3A6F8D5292290D900AF2C10 /* ConvertingStep.swift in Sources */,
 				450D0E312412AEF90066E649 /* AbstractFactory.swift in Sources */,
-				450D0E252412AEF90066E649 /* DefaultStackPresentationHandler.swift in Sources */,
+				A3A6F8BF292290D900AF2C10 /* DispatchQueue+Action.swift in Sources */,
 				450D0E3E2412AEF90066E649 /* Router.swift in Sources */,
-				450D0E532412AEF90066E649 /* ContextAccepting.swift in Sources */,
-				450D0E4E2412AEF90066E649 /* NavigationDelayInterceptor.swift in Sources */,
+				A3A6F8D9292290D900AF2C10 /* NilContextTransformer.swift in Sources */,
 				450D0DF82412AEF90066E649 /* CompleteFactoryAssembly.swift in Sources */,
-				450D0E542412AEF90066E649 /* InlineInterceptor.swift in Sources */,
 				450D0DF72412AEF90066E649 /* CompleteFactoryChainAssembly.swift in Sources */,
+				A3A6F8C6292290D900AF2C10 /* DetailsNavigationFinder.swift in Sources */,
+				A3A6F8D3292290D900AF2C10 /* PerformableStep.swift in Sources */,
 				450D0DE22412AEF80066E649 /* ContainerAdapter.swift in Sources */,
 				450D0E412412AEF90066E649 /* SplitControllerAdapter.swift in Sources */,
 				450D0E5E2412AEF90066E649 /* SingleContainerStep.swift in Sources */,
-				450D0E0F2412AEF90066E649 /* PreparableEntity.swift in Sources */,
-				450D0E192412AEF90066E649 /* AnyPostRoutingTask.swift in Sources */,
 				450D0E002412AEF90066E649 /* SimpleContainerFactory.swift in Sources */,
+				A3A6F8EF292290D900AF2C10 /* AnyContextTransformer.swift in Sources */,
 				450D0DFF2412AEF90066E649 /* FinderFactory.swift in Sources */,
+				A3A6F8ED292290D900AF2C10 /* AnyPostRoutingTask.swift in Sources */,
+				A3A6F8D1292290D900AF2C10 /* ContextAcceptingView.swift in Sources */,
 				450D0DE52412AEF80066E649 /* DefaultLogger.swift in Sources */,
 				450D0E392412AEF90066E649 /* ClassWithContextFinder.swift in Sources */,
-				45737CF62477DEB900FCB6A9 /* ContextAcceptingView.swift in Sources */,
-				450D0E1C2412AEF90066E649 /* ContainerFactoryBox.swift in Sources */,
+				A3A6F8DC292290D900AF2C10 /* ChainableStep.swift in Sources */,
 				450D0E452412AEF90066E649 /* NavigationControllerAdapter.swift in Sources */,
+				A3A6F8E6292290D900AF2C10 /* ContextTaskMultiplexer.swift in Sources */,
 				450D0E322412AEF90066E649 /* ClassFinder.swift in Sources */,
-				450D0E1E2412AEF90066E649 /* AnyActionBox.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
