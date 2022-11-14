@@ -38,6 +38,7 @@ Can be used as the universal replacement for the [Coordinator](https://www.raywe
         - [Post Routing Task](#6-post-routing-task)
     - [Configuring Step](#configuring-step)
     - [Navigation](#navigation)
+    - [Container View Controllers](#container-view-controllers)
     - [Deep-linking](#deep-linking)
     - [Troubleshooting](#troubleshooting)
 - [SwiftUI](#swiftui)
@@ -449,7 +450,7 @@ class ProductArrayViewController: UITableViewController {
         let navigationController = UINavigationController(rootViewController: productViewController)
 
         // handled by DefaultActions.PresentModally
-        present(navigationController, animated: true) { [weak self]
+        present(navigationController, animated: true) { [weak self] in
             // Handled by ProductViewControllerPostTask
             self?.analyticsManager.trackProductView(productID: productID)
         }
@@ -469,6 +470,17 @@ navigation process into small reusable pieces. The router will call them in a pr
 The library does not break the rules of VIPER or MVVM architectural patterns and can be used in parallel with them.
 
 See example app for other examples of defining routing configurations and instantiating router.
+
+## Container View Controllers
+
+There are view controllers like `UINavigationController`, `UITabBarController`, `UISplitController` and so on, that can contain 
+other view controllers inside them. `RouteComposer` calls one such view controller, `ContainerViewController`s. As each container 
+view controller has its own unique methods of interacting with the contained view controllers, `RouteComposer` uses special 
+entities called [ContainerAdapter](https://ekazaev.github.io/route-composer/Protocols/ContainerAdapter.html)s. The `RouteComposer`
+contains built-in adapters for the main container view controllers that come with `UIKit`. You can create your own `ContainerAdapter`s 
+if you are using your own custom container view controllers or ones that come from another library. If you want `RouteComposer` to work 
+correctly with such containers, switch their tabs or make another view controller visible within them e.t.c. 
+Please check the Example app for the reference.
 
 ## Deep-linking
 
