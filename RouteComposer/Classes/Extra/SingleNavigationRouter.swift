@@ -39,7 +39,7 @@ public final class SingleNavigationLock {
 /// The `Router` proxy guarantees that not more than one navigation will happen simultaneously.
 ///
 /// It is useful to avoid situations when the application can not control the amount of navigations
-/// (for example, navigations triggered by push notifications)
+/// (for example, a navigation triggered by the push notifications)
 public struct SingleNavigationRouter<R>: Router where R: Router {
 
     // MARK: Properties

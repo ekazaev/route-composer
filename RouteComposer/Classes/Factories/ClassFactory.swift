@@ -37,8 +37,8 @@ public struct ClassFactory<VC: UIViewController, C>: Factory {
     /// Constructor
     ///
     /// - Parameters:
-    ///   - nibName: A Xib file name
-    ///   - bundle: A `Bundle` instance if needed
+    ///   - nibNameOrNil: A Xib file name
+    ///   - nibBundleOrNil: A `Bundle` instance if needed
     ///   - configuration: A block of code that will be used for the extended configuration of the created `UIViewController`. Can be used for
     ///                    a quick configuration instead of `ContextTask`.
     public init(nibName nibNameOrNil: String? = nil, bundle nibBundleOrNil: Bundle? = nil, configuration: ((_: VC) -> Void)? = nil) {

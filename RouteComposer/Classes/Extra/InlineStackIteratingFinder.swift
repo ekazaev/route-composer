@@ -57,7 +57,7 @@ public extension InlineStackIteratingFinder {
     ///   - startingPoint: `DefaultStackIterator.StartingPoint` value
     ///   - windowProvider: `WindowProvider` instance.
     ///   - containerAdapterLocator: A `ContainerAdapterLocator` instance.
-    ///   - predicate: A block to be called when `StackIteratingFinder.isTarget(...)` is requested.
+    ///   - inlineBock: A block to be called when `StackIteratingFinder.isTarget(...)` is requested.
     init(options: SearchOptions,
          startingPoint: DefaultStackIterator.StartingPoint = .topmost,
          windowProvider: WindowProvider = RouteComposerDefaults.shared.windowProvider,

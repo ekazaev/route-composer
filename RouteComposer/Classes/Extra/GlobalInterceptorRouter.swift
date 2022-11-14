@@ -45,8 +45,8 @@ public struct GlobalInterceptorRouter<R>: Router where R: Router {
                 do {
                     switch result {
                     case .success:
-                        try router.navigate(to: step, with: context, animated: animated, completion: { success in
-                            completion?(success)
+                        try router.navigate(to: step, with: context, animated: animated, completion: { result in
+                            completion?(result)
                         })
                     case let .failure(error):
                         throw error
