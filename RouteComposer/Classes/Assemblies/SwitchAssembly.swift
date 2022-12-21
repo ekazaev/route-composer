@@ -65,7 +65,7 @@ public final class SwitchAssembly<ViewController: UIViewController, Context> {
 
         private let step: DestinationStep<ViewController, Context>
 
-        init<F: Finder>(finder: F, step: DestinationStep<ViewController, Context>?) {
+        init(finder: some Finder, step: DestinationStep<ViewController, Context>?) {
             self.step = step ?? DestinationStep(GeneralStep.FinderStep(finder: finder))
             self.finder = FinderBox(finder)
         }

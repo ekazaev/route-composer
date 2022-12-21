@@ -89,7 +89,7 @@ struct CustomContainerControllerAdapter: ConcreteContainerAdapter {
     }
 
     public func makeVisible(_ viewController: UIViewController, animated: Bool, completion: @escaping (_: RoutingResult) -> Void) {
-        guard let customContainerController = customContainerController else {
+        guard let customContainerController else {
             completion(.failure(RoutingError.compositionFailed(.init("CustomContainerController has been deallocated"))))
             return
         }
@@ -101,7 +101,7 @@ struct CustomContainerControllerAdapter: ConcreteContainerAdapter {
     }
 
     public func setContainedViewControllers(_ containedViewControllers: [UIViewController], animated: Bool, completion: @escaping (_: RoutingResult) -> Void) {
-        guard let customContainerController = customContainerController else {
+        guard let customContainerController else {
             completion(.failure(RoutingError.compositionFailed(.init("CustomContainerController has been deallocated"))))
             return
         }

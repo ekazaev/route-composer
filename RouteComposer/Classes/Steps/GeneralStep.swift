@@ -58,7 +58,7 @@ public enum GeneralStep {
 
         let finder: AnyFinder?
 
-        init<F: Finder>(finder: F) {
+        init(finder: some Finder) {
             self.finder = FinderBox(finder)
         }
 

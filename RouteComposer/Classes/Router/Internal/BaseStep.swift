@@ -63,7 +63,7 @@ struct BaseStep: RoutingStep,
 
     func perform(with context: AnyContext) throws -> PerformableStepResult {
         guard let viewController = try finder?.findViewController(with: context) else {
-            if let factory = factory {
+            if let factory {
                 return .build(factory)
             } else {
                 return .none
@@ -79,10 +79,10 @@ struct BaseStep: RoutingStep,
     public var description: String {
         var finderDescription = "None"
         var factoryDescription = "None"
-        if let finder = finder {
+        if let finder {
             finderDescription = String(describing: finder)
         }
-        if let factory = factory {
+        if let factory {
             factoryDescription = String(describing: factory)
         }
         return "BaseStep<\(finderDescription) : \(factoryDescription))>"

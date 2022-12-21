@@ -61,7 +61,7 @@ public struct DefaultStackPresentationHandler: StackPresentationHandler, MainThr
             assertIfNotMainThread(logger: logger)
             guard !parentViewControllers.isEmpty else {
                 if !animated,
-                   let topParentViewController = topParentViewController,
+                   let topParentViewController,
                    topParentViewController.isViewLoaded {
                     topParentViewController.view.layoutIfNeeded()
                 }

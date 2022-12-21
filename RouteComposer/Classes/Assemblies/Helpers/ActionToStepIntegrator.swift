@@ -18,12 +18,12 @@ import UIKit
 public class IntermediateDestinationStep {
 
     // Hides action integration from library user.
-    func routingStep<A: Action>(with action: A) -> RoutingStep? {
+    func routingStep(with action: some Action) -> RoutingStep? {
         nil
     }
 
     // Hides action integration from library user.
-    func embeddableRoutingStep<A: ContainerAction>(with action: A) -> RoutingStep? {
+    func embeddableRoutingStep(with action: some ContainerAction) -> RoutingStep? {
         nil
     }
 

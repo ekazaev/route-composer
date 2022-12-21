@@ -93,7 +93,7 @@ public final class RouteComposerDefaults {
     }
 
     private func logInstantiation() {
-        guard let logger = logger else {
+        guard let logger else {
             return
         }
         logger.log(.info("""

@@ -124,7 +124,7 @@
 </tr>
 <tr class="covered">
 <td class="num">23</td>
-<td class="src"><pre><code class="objc">    mutating func add&lt;RI: RoutingInterceptor&gt;(_ interceptor: RI) {</code></pre></td>
+<td class="src"><pre><code class="objc">    mutating func add(_ interceptor: some RoutingInterceptor) {</code></pre></td>
 <td class="coverage">23x</td>
 </tr>
 <tr class="covered">
@@ -144,7 +144,7 @@
 </tr>
 <tr class="covered">
 <td class="num">27</td>
-<td class="src"><pre><code class="objc">    mutating func add&lt;CT: ContextTask&gt;(_ contextTask: CT) {</code></pre></td>
+<td class="src"><pre><code class="objc">    mutating func add(_ contextTask: some ContextTask) {</code></pre></td>
 <td class="coverage">117x</td>
 </tr>
 <tr class="covered">
@@ -164,7 +164,7 @@
 </tr>
 <tr class="covered">
 <td class="num">31</td>
-<td class="src"><pre><code class="objc">    mutating func add&lt;PT: PostRoutingTask&gt;(_ postTask: PT) {</code></pre></td>
+<td class="src"><pre><code class="objc">    mutating func add(_ postTask: some PostRoutingTask) {</code></pre></td>
 <td class="coverage">11x</td>
 </tr>
 <tr class="covered">

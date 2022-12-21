@@ -42,9 +42,9 @@ public extension Router {
     ///   - step: `DestinationStep` instance.
     ///   - animated: if true - the navigation should be animated where it is possible.
     ///   - completion: completion block.
-    func navigate<ViewController: UIViewController>(to step: DestinationStep<ViewController, Any?>,
-                                                    animated: Bool,
-                                                    completion: ((_: RoutingResult) -> Void)?) throws {
+    func navigate(to step: DestinationStep<some UIViewController, Any?>,
+                  animated: Bool,
+                  completion: ((_: RoutingResult) -> Void)?) throws {
         try navigate(to: step, with: nil, animated: animated, completion: completion)
     }
 
@@ -54,9 +54,9 @@ public extension Router {
     ///   - step: `DestinationStep` instance.
     ///   - animated: if true - the navigation should be animated where it is possible.
     ///   - completion: completion block.
-    func navigate<ViewController: UIViewController>(to step: DestinationStep<ViewController, Void>,
-                                                    animated: Bool,
-                                                    completion: ((_: RoutingResult) -> Void)?) throws {
+    func navigate(to step: DestinationStep<some UIViewController, Void>,
+                  animated: Bool,
+                  completion: ((_: RoutingResult) -> Void)?) throws {
         try navigate(to: step, with: (), animated: animated, completion: completion)
     }
 
@@ -74,10 +74,10 @@ public extension Router {
     ///   - context: `Context` instance.
     ///   - animated: if true - the navigation should be animated where it is possible.
     ///   - completion: completion block.
-    func commitNavigation<ViewController, Context>(to step: DestinationStep<ViewController, Context>,
-                                                   with context: Context,
-                                                   animated: Bool,
-                                                   completion: ((RoutingResult) -> Void)?) where ViewController: UIViewController {
+    func commitNavigation<Context>(to step: DestinationStep<some UIViewController, Context>,
+                                   with context: Context,
+                                   animated: Bool,
+                                   completion: ((RoutingResult) -> Void)?) {
         do {
             try navigate(to: step, with: context, animated: animated, completion: completion)
         } catch {
@@ -92,9 +92,9 @@ public extension Router {
     ///   - step: `DestinationStep` instance.
     ///   - animated: if true - the navigation should be animated where it is possible.
     ///   - completion: completion block.
-    func commitNavigation<ViewController>(to step: DestinationStep<ViewController, Any?>,
-                                          animated: Bool,
-                                          completion: ((RoutingResult) -> Void)?) where ViewController: UIViewController {
+    func commitNavigation(to step: DestinationStep<some UIViewController, Any?>,
+                          animated: Bool,
+                          completion: ((RoutingResult) -> Void)?) {
         commitNavigation(to: step, with: nil, animated: animated, completion: completion)
     }
 
@@ -105,9 +105,9 @@ public extension Router {
     ///   - step: `DestinationStep` instance.
     ///   - animated: if true - the navigation should be animated where it is possible.
     ///   - completion: completion block.
-    func commitNavigation<ViewController>(to step: DestinationStep<ViewController, Void>,
-                                          animated: Bool,
-                                          completion: ((RoutingResult) -> Void)?) where ViewController: UIViewController {
+    func commitNavigation(to step: DestinationStep<some UIViewController, Void>,
+                          animated: Bool,
+                          completion: ((RoutingResult) -> Void)?) {
         commitNavigation(to: step, with: (), animated: animated, completion: completion)
     }
 

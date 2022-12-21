@@ -17,7 +17,7 @@ import UIKit
 /// Simple extension to support `Destination` instance directly by the `Router`.
 extension Router {
 
-    func navigate<ViewController: UIViewController, Context>(to step: DestinationStep<ViewController, Context>, with context: Context) throws {
+    func navigate<Context>(to step: DestinationStep<some UIViewController, Context>, with context: Context) throws {
         try navigate(to: step, with: context, animated: true, completion: nil)
     }
 

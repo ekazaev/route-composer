@@ -46,7 +46,7 @@ public final class CustomContainerController: UIViewController {
         currentViewController?.view.removeFromSuperview()
         currentViewController?.didMove(toParent: nil)
 
-        guard let rootViewController = rootViewController else {
+        guard let rootViewController else {
             return
         }
 

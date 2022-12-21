@@ -35,10 +35,10 @@ public struct GlobalInterceptorRouter<R>: Router where R: Router {
         self.router = router
     }
 
-    public func navigate<ViewController: UIViewController, Context>(to step: DestinationStep<ViewController, Context>,
-                                                                    with context: Context,
-                                                                    animated: Bool,
-                                                                    completion: ((RoutingResult) -> Void)?) throws {
+    public func navigate<Context>(to step: DestinationStep<some UIViewController, Context>,
+                                  with context: Context,
+                                  animated: Bool,
+                                  completion: ((RoutingResult) -> Void)?) throws {
         do {
             let interceptorRunner = try DefaultRouter.InterceptorRunner(interceptors: interceptors, with: AnyContextBox(context))
             interceptorRunner.perform(completion: { result in

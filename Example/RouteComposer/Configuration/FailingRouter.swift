@@ -36,10 +36,10 @@ struct FailingRouter<R>: Router where R: Router {
         self.failOnError = failOnError
     }
 
-    func navigate<ViewController: UIViewController, Context>(to step: DestinationStep<ViewController, Context>,
-                                                             with context: Context,
-                                                             animated: Bool,
-                                                             completion: ((RoutingResult) -> Void)?) throws {
+    func navigate<Context>(to step: DestinationStep<some UIViewController, Context>,
+                           with context: Context,
+                           animated: Bool,
+                           completion: ((RoutingResult) -> Void)?) throws {
         do {
             try router.navigate(to: step, with: context, animated: animated, completion: { result in
                 if let error = try? result.getError() {

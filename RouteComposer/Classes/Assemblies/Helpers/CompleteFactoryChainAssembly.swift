@@ -26,7 +26,7 @@ public final class CompleteFactoryChainAssembly<FC: ContainerFactory, ChildVC: U
 
     private var integratedChildFactories: [PostponedIntegrationFactory] {
         var childFactories = childFactories
-        if let previousChildFactory = previousChildFactory {
+        if let previousChildFactory {
             childFactories.append(previousChildFactory)
         }
         return childFactories
@@ -134,7 +134,7 @@ public final class CompleteFactoryChainAssembly<FC: ContainerFactory, ChildVC: U
     /// - Parameters:
     ///   - contextTask: The instance of `ContextTask`.
     public final func adding<CT: ContextTask>(_ contextTask: CT) -> CompleteFactoryChainAssembly<FC, ChildVC, ChildContext> where CT.ViewController == ChildVC, CT.Context == ChildContext {
-        guard var previousChildFactory = previousChildFactory else {
+        guard var previousChildFactory else {
             return CompleteFactoryChainAssembly<FC, ChildVC, ChildContext>(factory: factory, childFactories: childFactories, previousChildFactory: nil)
         }
         previousChildFactory.add(ContextTaskBox(contextTask))

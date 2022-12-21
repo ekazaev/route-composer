@@ -66,7 +66,7 @@ public struct StoryboardFactory<VC: UIViewController, C>: Factory {
                                             .init("Unable to instantiate UIViewController with \(viewControllerID) identifier in \(name) storyboard " +
                                                 "as \(String(describing: type(of: VC.self))), got \(String(describing: instantiatedViewController)) instead."))
         }
-        if let configuration = configuration {
+        if let configuration {
             configuration(viewController)
         }
         return viewController
@@ -84,7 +84,7 @@ public struct StoryboardFactory<VC: UIViewController, C>: Factory {
                                             .init("Unable to instantiate the initial UIViewController in \(name) storyboard " +
                                                 "as \(String(describing: type(of: VC.self))), got \(String(describing: abstractViewController)) instead."))
         }
-        if let configuration = configuration {
+        if let configuration {
             configuration(viewController)
         }
         return viewController

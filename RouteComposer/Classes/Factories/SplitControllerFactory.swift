@@ -63,19 +63,19 @@ public struct SplitControllerFactory<VC: UISplitViewController, C>: ContainerFac
 
     public func build(with context: C, integrating coordinator: ChildCoordinator) throws -> VC {
         let splitViewController = VC(nibName: nibName, bundle: bundle)
-        if let presentsWithGesture = presentsWithGesture {
+        if let presentsWithGesture {
             splitViewController.presentsWithGesture = presentsWithGesture
         }
-        if let delegate = delegate {
+        if let delegate {
             splitViewController.delegate = delegate
         }
         if !coordinator.isEmpty {
             splitViewController.viewControllers = try coordinator.build(integrating: splitViewController.viewControllers)
         }
-        if let preferredDisplayMode = preferredDisplayMode {
+        if let preferredDisplayMode {
             splitViewController.preferredDisplayMode = preferredDisplayMode
         }
-        if let configuration = configuration {
+        if let configuration {
             configuration(splitViewController)
         }
         return splitViewController

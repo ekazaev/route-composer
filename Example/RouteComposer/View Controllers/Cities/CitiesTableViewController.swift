@@ -19,7 +19,7 @@ class CityTableContextTask: ContextTask {
     // `CitiesTableViewController` can perfectly work with the `Context` object of type `Int?`, but to demonstrate the possibility of context conversion,
     // we say that the actual context is `String?`. But it is done for demonstration and testing purposes only.
     func perform(on viewController: CitiesTableViewController, with cityIdAsString: String?) throws {
-        guard let cityIdAsString = cityIdAsString else {
+        guard let cityIdAsString else {
             viewController.cityId = nil
             return
         }
@@ -39,7 +39,7 @@ class CitiesTableViewController: UITableViewController, ExampleAnalyticsSupport 
 
     var cityId: Int? {
         didSet {
-            guard let cityId = cityId else {
+            guard let cityId else {
                 return
             }
             let indexPath = IndexPath(row: cityId - 1, section: 0)

@@ -69,7 +69,7 @@ class ProductViewController: UIViewController, ExampleAnalyticsSupport, ContextA
         }
 
         productIdLabel.text = productId
-        if let productId = productId {
+        if let productId {
             view.accessibilityIdentifier = "productViewController+\(productId)"
             title = "Product \(productId)"
         } else {
@@ -95,7 +95,7 @@ class ProductViewController: UIViewController, ExampleAnalyticsSupport, ContextA
     }
 
     @IBAction func goToProductFromCircleTapped() {
-        guard let productId = productId,
+        guard let productId,
               var productIdAsInt = Int(productId) else {
             return
         }

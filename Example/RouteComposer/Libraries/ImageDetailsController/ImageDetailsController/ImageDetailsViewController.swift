@@ -33,7 +33,7 @@ public final class ImageDetailsViewController: UIViewController {
     }
 
     private func reloadData() {
-        guard isViewLoaded, let imageID = imageID else {
+        guard isViewLoaded, let imageID else {
             return
         }
         view.accessibilityIdentifier = "image\(imageID)ViewController"

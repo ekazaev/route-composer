@@ -46,7 +46,7 @@ class CityDetailViewController: UIViewController, ExampleAnalyticsSupport {
         title = "\(city.city)"
 
         detailsTextView.text = city.city + "\n\n" + city.description
-        if let cityId = cityId {
+        if let cityId {
             view.accessibilityIdentifier = "cityDetailsViewController+\(cityId)"
         } else {
             view.accessibilityIdentifier = "cityDetailsViewController"

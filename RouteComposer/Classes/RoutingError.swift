@@ -54,7 +54,7 @@ public enum RoutingError: Error, CustomStringConvertible {
 
         public var description: String {
             let errorDescription: String?
-            if let underlyingError = underlyingError {
+            if let underlyingError {
                 errorDescription = "\(underlyingError)"
             } else {
                 errorDescription = nil

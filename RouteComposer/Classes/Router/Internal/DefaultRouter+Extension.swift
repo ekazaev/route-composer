@@ -306,7 +306,7 @@ extension DefaultRouter {
 
         final func purge(animated: Bool, completion: @escaping (_: RoutingResult) -> Void) {
             do {
-                guard let containerViewController = containerViewController else {
+                guard let containerViewController else {
                     completion(.success)
                     return
                 }

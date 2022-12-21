@@ -23,7 +23,7 @@ public extension Router {
     ///   - destination: `Destination` instance.
     ///   - animated: if true - the navigation should be animated where it is possible.
     ///   - completion: completion block.
-    func navigate<VC: UIViewController, C>(to destination: Destination<VC, C>, animated: Bool = true, completion: ((_: RoutingResult) -> Void)? = nil) throws {
+    func navigate(to destination: Destination<some UIViewController, some Any>, animated: Bool = true, completion: ((_: RoutingResult) -> Void)? = nil) throws {
         try navigate(to: destination.step, with: destination.context, animated: animated, completion: completion)
     }
 
@@ -34,7 +34,7 @@ public extension Router {
     ///   - destination: `Destination` instance.
     ///   - animated: if true - the navigation should be animated where it is possible.
     ///   - completion: completion block.
-    func commitNavigation<VC: UIViewController, C>(to destination: Destination<VC, C>, animated: Bool = true, completion: ((_: RoutingResult) -> Void)? = nil) {
+    func commitNavigation(to destination: Destination<some UIViewController, some Any>, animated: Bool = true, completion: ((_: RoutingResult) -> Void)? = nil) {
         do {
             try navigate(to: destination, animated: animated, completion: completion)
         } catch {

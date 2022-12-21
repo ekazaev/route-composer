@@ -96,7 +96,7 @@ public enum TabBarControllerActions {
 
         private func setup(viewController: UIViewController,
                            at childViewControllers: inout [UIViewController], tabIndex: Int?) {
-            if let tabIndex = tabIndex, tabIndex < childViewControllers.count {
+            if let tabIndex, tabIndex < childViewControllers.count {
                 if replacing {
                     childViewControllers[tabIndex] = viewController
                 } else {

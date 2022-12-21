@@ -50,13 +50,13 @@ public struct NavigationControllerFactory<VC: UINavigationController, C>: Contai
 
     public func build(with context: C, integrating coordinator: ChildCoordinator) throws -> VC {
         let navigationController = VC(nibName: nibName, bundle: bundle)
-        if let delegate = delegate {
+        if let delegate {
             navigationController.delegate = delegate
         }
         if !coordinator.isEmpty {
             navigationController.viewControllers = try coordinator.build(integrating: navigationController.viewControllers)
         }
-        if let configuration = configuration {
+        if let configuration {
             configuration(navigationController)
         }
         return navigationController

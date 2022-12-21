@@ -60,10 +60,10 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
         postTasks.append(PostRoutingTaskBox(postTask))
     }
 
-    public func navigate<ViewController: UIViewController, Context>(to step: DestinationStep<ViewController, Context>,
-                                                                    with context: Context,
-                                                                    animated: Bool = true,
-                                                                    completion: ((_: RoutingResult) -> Void)? = nil) throws {
+    public func navigate<Context>(to step: DestinationStep<some UIViewController, Context>,
+                                  with context: Context,
+                                  animated: Bool = true,
+                                  completion: ((_: RoutingResult) -> Void)? = nil) throws {
         assertIfNotMainThread(logger: logger)
         do {
             // Wrapping real context into a box.
@@ -189,7 +189,7 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
                 return
             }
 
-            guard let viewController = viewController else {
+            guard let viewController else {
                 completion(.failure(RoutingError.initialController(.deallocated, .init("A view controller \(initialControllerDescription) that has been chosen as a " +
                         "starting point of the navigation process was destroyed while the router was waiting for the interceptors to finish."))))
                 return

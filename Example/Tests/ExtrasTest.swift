@@ -113,10 +113,10 @@ class ExtrasTest: XCTestCase {
 
     func testSingleNavigationRouterThrowingException() {
         class FaultyTestRouter: Router {
-            func navigate<ViewController: UIViewController, Context>(to step: DestinationStep<ViewController, Context>,
-                                                                     with context: Context,
-                                                                     animated: Bool,
-                                                                     completion: ((RoutingResult) -> Void)?) throws {
+            func navigate<Context>(to step: DestinationStep<some UIViewController, Context>,
+                                   with context: Context,
+                                   animated: Bool,
+                                   completion: ((RoutingResult) -> Void)?) throws {
                 throw RoutingError.generic(.init("Test"))
             }
         }
@@ -257,10 +257,10 @@ class ExtrasTest: XCTestCase {
 
     func testRouterNavigationToDestination() {
         class TestRouter: Router {
-            func navigate<ViewController: UIViewController, Context>(to step: DestinationStep<ViewController, Context>,
-                                                                     with context: Context,
-                                                                     animated: Bool,
-                                                                     completion: ((RoutingResult) -> Void)?) throws {
+            func navigate<Context>(to step: DestinationStep<some UIViewController, Context>,
+                                   with context: Context,
+                                   animated: Bool,
+                                   completion: ((RoutingResult) -> Void)?) throws {
                 XCTAssertTrue(animated)
                 XCTAssertNotNil(completion)
                 completion?(.success)
@@ -268,10 +268,10 @@ class ExtrasTest: XCTestCase {
         }
 
         class FaultyTestRouter: Router {
-            func navigate<ViewController: UIViewController, Context>(to step: DestinationStep<ViewController, Context>,
-                                                                     with context: Context,
-                                                                     animated: Bool,
-                                                                     completion: ((RoutingResult) -> Void)?) throws {
+            func navigate<Context>(to step: DestinationStep<some UIViewController, Context>,
+                                   with context: Context,
+                                   animated: Bool,
+                                   completion: ((RoutingResult) -> Void)?) throws {
                 XCTAssertFalse(animated)
                 XCTAssertNotNil(completion)
                 throw RoutingError.generic(.init("Test"))

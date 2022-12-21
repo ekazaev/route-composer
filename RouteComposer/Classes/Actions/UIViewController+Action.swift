@@ -161,24 +161,24 @@ public enum ViewControllerActions {
                         "already presenting a view controller."))))
                 return
             }
-            if let presentationStyle = presentationStyle {
+            if let presentationStyle {
                 viewController.modalPresentationStyle = presentationStyle
             }
-            if let transitionStyle = transitionStyle {
+            if let transitionStyle {
                 viewController.modalTransitionStyle = transitionStyle
             }
-            if let transitioningDelegate = transitioningDelegate {
+            if let transitioningDelegate {
                 viewController.transitioningDelegate = transitioningDelegate
             }
-            if let preferredContentSize = preferredContentSize {
+            if let preferredContentSize {
                 viewController.preferredContentSize = preferredContentSize
             }
             if let popoverPresentationController = viewController.popoverPresentationController,
-               let popoverControllerConfigurationBlock = popoverControllerConfigurationBlock {
+               let popoverControllerConfigurationBlock {
                 popoverControllerConfigurationBlock(popoverPresentationController)
             }
             if #available(iOS 13, *),
-               let isModalInPresentation = isModalInPresentation {
+               let isModalInPresentation {
                 viewController.isModalInPresentation = isModalInPresentation
             }
 
@@ -231,7 +231,7 @@ public enum ViewControllerActions {
                 return
             }
 
-            guard animated, let animationOptions = animationOptions, duration > 0 else {
+            guard animated, let animationOptions, duration > 0 else {
                 window.rootViewController = viewController
                 window.makeKeyAndVisible()
                 completion(.success)

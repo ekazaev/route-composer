@@ -49,7 +49,7 @@ public struct ClassFactory<VC: UIViewController, C>: Factory {
 
     public func build(with context: C) throws -> VC {
         let viewController = VC(nibName: nibName, bundle: bundle)
-        if let configuration = configuration {
+        if let configuration {
             configuration(viewController)
         }
         return viewController

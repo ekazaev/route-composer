@@ -60,7 +60,7 @@ public struct SplitControllerAdapter<VC: UISplitViewController>: ConcreteContain
     /// **Quote:** When designing your split view interface, it is best to install primary and secondary view controllers that do not change.
     /// A common technique is to install navigation controllers in both positions and then push and pop new content as needed.
     public func setContainedViewControllers(_ containedViewControllers: [UIViewController], animated: Bool, completion: @escaping (_: RoutingResult) -> Void) {
-        guard let splitViewController = splitViewController else {
+        guard let splitViewController else {
             completion(.failure(RoutingError.compositionFailed(.init("\(String(describing: VC.self)) has been deallocated"))))
             return
         }

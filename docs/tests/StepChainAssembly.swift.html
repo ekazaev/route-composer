@@ -169,7 +169,7 @@
 </tr>
 <tr class="covered">
 <td class="num">32</td>
-<td class="src"><pre><code class="objc">    public func from&lt;VC: UIViewController&gt;(_ step: ActionToStepIntegrator&lt;VC, Context&gt;) -&gt; ActionConnectingAssembly&lt;ViewController, Context&gt; {</code></pre></td>
+<td class="src"><pre><code class="objc">    public func from(_ step: ActionToStepIntegrator&lt;some UIViewController, Context&gt;) -&gt; ActionConnectingAssembly&lt;ViewController, Context&gt; {</code></pre></td>
 <td class="coverage">3x</td>
 </tr>
 <tr class="covered">
@@ -204,7 +204,7 @@
 </tr>
 <tr class="covered">
 <td class="num">39</td>
-<td class="src"><pre><code class="objc">    public func from&lt;VC: UIViewController&gt;(_ step: DestinationStep&lt;VC, Context&gt;) -&gt; LastStepInChainAssembly&lt;ViewController, Context&gt; {</code></pre></td>
+<td class="src"><pre><code class="objc">    public func from(_ step: DestinationStep&lt;some UIViewController, Context&gt;) -&gt; LastStepInChainAssembly&lt;ViewController, Context&gt; {</code></pre></td>
 <td class="coverage">110x</td>
 </tr>
 <tr class="covered">
@@ -254,7 +254,7 @@
 </tr>
 <tr class="covered">
 <td class="num">49</td>
-<td class="src"><pre><code class="objc">    public func assemble&lt;VC: UIViewController&gt;(from step: DestinationStep&lt;VC, Context&gt;) -&gt; DestinationStep&lt;ViewController, Context&gt; {</code></pre></td>
+<td class="src"><pre><code class="objc">    public func assemble(from step: DestinationStep&lt;some UIViewController, Context&gt;) -&gt; DestinationStep&lt;ViewController, Context&gt; {</code></pre></td>
 <td class="coverage">4x</td>
 </tr>
 <tr class="covered">

@@ -234,17 +234,17 @@
 </tr>
 <tr class="never">
 <td class="num">45</td>
-<td class="src"><pre><code class="objc">    func navigate&lt;ViewController: UIViewController&gt;(to step: DestinationStep&lt;ViewController, Any?&gt;,</code></pre></td>
+<td class="src"><pre><code class="objc">    func navigate(to step: DestinationStep&lt;some UIViewController, Any?&gt;,</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">46</td>
-<td class="src"><pre><code class="objc">                                                    animated: Bool,</code></pre></td>
+<td class="src"><pre><code class="objc">                  animated: Bool,</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
 <td class="num">47</td>
-<td class="src"><pre><code class="objc">                                                    completion: ((_: RoutingResult) -&gt; Void)?) throws {</code></pre></td>
+<td class="src"><pre><code class="objc">                  completion: ((_: RoutingResult) -&gt; Void)?) throws {</code></pre></td>
 <td class="coverage">3x</td>
 </tr>
 <tr class="covered">
@@ -294,17 +294,17 @@
 </tr>
 <tr class="never">
 <td class="num">57</td>
-<td class="src"><pre><code class="objc">    func navigate&lt;ViewController: UIViewController&gt;(to step: DestinationStep&lt;ViewController, Void&gt;,</code></pre></td>
+<td class="src"><pre><code class="objc">    func navigate(to step: DestinationStep&lt;some UIViewController, Void&gt;,</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">58</td>
-<td class="src"><pre><code class="objc">                                                    animated: Bool,</code></pre></td>
+<td class="src"><pre><code class="objc">                  animated: Bool,</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
 <td class="num">59</td>
-<td class="src"><pre><code class="objc">                                                    completion: ((_: RoutingResult) -&gt; Void)?) throws {</code></pre></td>
+<td class="src"><pre><code class="objc">                  completion: ((_: RoutingResult) -&gt; Void)?) throws {</code></pre></td>
 <td class="coverage">3x</td>
 </tr>
 <tr class="covered">
@@ -394,22 +394,22 @@
 </tr>
 <tr class="never">
 <td class="num">77</td>
-<td class="src"><pre><code class="objc">    func commitNavigation&lt;ViewController, Context&gt;(to step: DestinationStep&lt;ViewController, Context&gt;,</code></pre></td>
+<td class="src"><pre><code class="objc">    func commitNavigation&lt;Context&gt;(to step: DestinationStep&lt;some UIViewController, Context&gt;,</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">78</td>
-<td class="src"><pre><code class="objc">                                                   with context: Context,</code></pre></td>
+<td class="src"><pre><code class="objc">                                   with context: Context,</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">79</td>
-<td class="src"><pre><code class="objc">                                                   animated: Bool,</code></pre></td>
+<td class="src"><pre><code class="objc">                                   animated: Bool,</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
 <td class="num">80</td>
-<td class="src"><pre><code class="objc">                                                   completion: ((RoutingResult) -&gt; Void)?) where ViewController: UIViewController {</code></pre></td>
+<td class="src"><pre><code class="objc">                                   completion: ((RoutingResult) -&gt; Void)?) {</code></pre></td>
 <td class="coverage">6x</td>
 </tr>
 <tr class="covered">
@@ -484,17 +484,17 @@
 </tr>
 <tr class="never">
 <td class="num">95</td>
-<td class="src"><pre><code class="objc">    func commitNavigation&lt;ViewController&gt;(to step: DestinationStep&lt;ViewController, Any?&gt;,</code></pre></td>
+<td class="src"><pre><code class="objc">    func commitNavigation(to step: DestinationStep&lt;some UIViewController, Any?&gt;,</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">96</td>
-<td class="src"><pre><code class="objc">                                          animated: Bool,</code></pre></td>
+<td class="src"><pre><code class="objc">                          animated: Bool,</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
 <td class="num">97</td>
-<td class="src"><pre><code class="objc">                                          completion: ((RoutingResult) -&gt; Void)?) where ViewController: UIViewController {</code></pre></td>
+<td class="src"><pre><code class="objc">                          completion: ((RoutingResult) -&gt; Void)?) {</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">
@@ -549,17 +549,17 @@
 </tr>
 <tr class="never">
 <td class="num">108</td>
-<td class="src"><pre><code class="objc">    func commitNavigation&lt;ViewController&gt;(to step: DestinationStep&lt;ViewController, Void&gt;,</code></pre></td>
+<td class="src"><pre><code class="objc">    func commitNavigation(to step: DestinationStep&lt;some UIViewController, Void&gt;,</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">109</td>
-<td class="src"><pre><code class="objc">                                          animated: Bool,</code></pre></td>
+<td class="src"><pre><code class="objc">                          animated: Bool,</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
 <td class="num">110</td>
-<td class="src"><pre><code class="objc">                                          completion: ((RoutingResult) -&gt; Void)?) where ViewController: UIViewController {</code></pre></td>
+<td class="src"><pre><code class="objc">                          completion: ((RoutingResult) -&gt; Void)?) {</code></pre></td>
 <td class="coverage">1x</td>
 </tr>
 <tr class="covered">

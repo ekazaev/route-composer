@@ -219,7 +219,7 @@
 </tr>
 <tr class="never">
 <td class="num">42</td>
-<td class="src"><pre><code class="objc">/// (for example, navigations triggered by push notifications)</code></pre></td>
+<td class="src"><pre><code class="objc">/// (for example, a navigation triggered by the push notifications)</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -329,22 +329,22 @@
 </tr>
 <tr class="never">
 <td class="num">64</td>
-<td class="src"><pre><code class="objc">    public func navigate&lt;ViewController: UIViewController, Context&gt;(to step: DestinationStep&lt;ViewController, Context&gt;,</code></pre></td>
+<td class="src"><pre><code class="objc">    public func navigate&lt;Context&gt;(to step: DestinationStep&lt;some UIViewController, Context&gt;,</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">65</td>
-<td class="src"><pre><code class="objc">                                                                    with context: Context,</code></pre></td>
+<td class="src"><pre><code class="objc">                                  with context: Context,</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">66</td>
-<td class="src"><pre><code class="objc">                                                                    animated: Bool,</code></pre></td>
+<td class="src"><pre><code class="objc">                                  animated: Bool,</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="covered">
 <td class="num">67</td>
-<td class="src"><pre><code class="objc">                                                                    completion: ((RoutingResult) -&gt; Void)?) throws {</code></pre></td>
+<td class="src"><pre><code class="objc">                                  completion: ((RoutingResult) -&gt; Void)?) throws {</code></pre></td>
 <td class="coverage">3x</td>
 </tr>
 <tr class="covered">

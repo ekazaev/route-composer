@@ -66,7 +66,7 @@ public extension StepAssembly where FC: Factory {
     /// Connects previously provided `DestinationStep` instance with an `Action`
     ///
     /// - Parameter action: `Action` instance to be used with a step.
-    final func using<A: Action>(_ action: A) -> StepChainAssembly<ViewController, Context> {
+    final func using(_ action: some Action) -> StepChainAssembly<ViewController, Context> {
         var previousSteps = previousSteps
         let entitiesCollector = BaseEntitiesCollector<FactoryBox<FC>, ActionBox>(finder: finder, factory: factory, action: action)
         let step = BaseStep(entitiesProvider: entitiesCollector, taskProvider: taskCollector)
@@ -103,7 +103,7 @@ public extension StepAssembly where FC: ContainerFactory {
     /// Connects previously provided `DestinationStep` instance with an `Action`
     ///
     /// - Parameter action: `Action` instance to be used with a step.
-    final func using<A: Action>(_ action: A) -> StepChainAssembly<ViewController, Context> {
+    final func using(_ action: some Action) -> StepChainAssembly<ViewController, Context> {
         var previousSteps = previousSteps
         let entitiesCollector = BaseEntitiesCollector<ContainerFactoryBox<FC>, ActionBox>(finder: finder, factory: factory, action: action)
         let step = BaseStep(entitiesProvider: entitiesCollector, taskProvider: taskCollector)
@@ -132,7 +132,7 @@ public extension StepAssembly where FC: Factory & NilEntity {
     /// Example: `UIViewController` instance was loaded as a part of the stack inside of the storyboard.
     ///
     /// - Parameter step: `ActionToStepIntegrator` instance to be used.
-    final func from<VC: UIViewController>(_ step: ActionToStepIntegrator<VC, Context>) -> ActionConnectingAssembly<ViewController, Context> {
+    final func from(_ step: ActionToStepIntegrator<some UIViewController, Context>) -> ActionConnectingAssembly<ViewController, Context> {
         var previousSteps = previousSteps
         let entitiesCollector = BaseEntitiesCollector<FactoryBox<FC>, ActionBox>(finder: finder, factory: factory, action: ViewControllerActions.NilAction())
         let currentStep = BaseStep(entitiesProvider: entitiesCollector, taskProvider: taskCollector)
@@ -145,7 +145,7 @@ public extension StepAssembly where FC: Factory & NilEntity {
     /// Example: `UIViewController` instance was loaded as a part of the stack inside of the storyboard.
     ///
     /// - Parameter step: `DestinationStep` instance to be used.
-    final func from<VC: UIViewController>(_ step: DestinationStep<VC, Context>) -> LastStepInChainAssembly<ViewController, Context> {
+    final func from(_ step: DestinationStep<some UIViewController, Context>) -> LastStepInChainAssembly<ViewController, Context> {
         var previousSteps = previousSteps
         let entitiesCollector = BaseEntitiesCollector<FactoryBox<FC>, ActionBox>(finder: finder, factory: factory, action: ViewControllerActions.NilAction())
         let currentStep = BaseStep(entitiesProvider: entitiesCollector, taskProvider: taskCollector)
@@ -164,7 +164,7 @@ public extension StepAssembly where FC: ContainerFactory & NilEntity {
     /// should avoid type checks.
     ///
     /// - Parameter step: `ActionToStepIntegrator` instance to be used.
-    final func from<VC: UIViewController>(_ step: ActionToStepIntegrator<VC, Context>) -> ActionConnectingAssembly<ViewController, Context> {
+    final func from(_ step: ActionToStepIntegrator<some UIViewController, Context>) -> ActionConnectingAssembly<ViewController, Context> {
         var previousSteps = previousSteps
         let entitiesCollector = BaseEntitiesCollector<ContainerFactoryBox<FC>, ActionBox>(finder: finder, factory: factory, action: ViewControllerActions.NilAction())
         let currentStep = BaseStep(entitiesProvider: entitiesCollector, taskProvider: taskCollector)
@@ -176,7 +176,7 @@ public extension StepAssembly where FC: ContainerFactory & NilEntity {
     /// should avoid type checks
     ///
     /// - Parameter step: `DestinationStep` instance to be used.
-    final func from<VC: UIViewController>(_ step: DestinationStep<VC, Context>) -> LastStepInChainAssembly<ViewController, Context> {
+    final func from(_ step: DestinationStep<some UIViewController, Context>) -> LastStepInChainAssembly<ViewController, Context> {
         var previousSteps = previousSteps
         let entitiesCollector = BaseEntitiesCollector<ContainerFactoryBox<FC>, ActionBox>(finder: finder, factory: factory, action: ViewControllerActions.NilAction())
         let currentStep = BaseStep(entitiesProvider: entitiesCollector, taskProvider: taskCollector)

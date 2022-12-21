@@ -22,10 +22,10 @@ struct AnalyticsRouterDecorator: Router {
         self.router = router
     }
 
-    func navigate<ViewController: UIViewController, Context>(to step: DestinationStep<ViewController, Context>,
-                                                             with context: Context,
-                                                             animated: Bool = true,
-                                                             completion: ((RoutingResult) -> Void)? = nil) throws {
+    func navigate<Context>(to step: DestinationStep<some UIViewController, Context>,
+                           with context: Context,
+                           animated: Bool = true,
+                           completion: ((RoutingResult) -> Void)? = nil) throws {
         var sourceScreen: ExampleScreenTypes?
 
         if let topmostViewController = UIApplication.shared.windows.first?.topmostViewController,
@@ -36,7 +36,7 @@ struct AnalyticsRouterDecorator: Router {
         }
 
         try router.navigate(to: step, with: context, animated: animated) { result in
-            if let sourceScreen = sourceScreen {
+            if let sourceScreen {
                 print("Source: \(sourceScreen)")
                 if let topmostViewController = UIApplication.shared.windows.first?.topmostViewController,
                    let analyticsViewController = try? UIViewController.findViewController(in: topmostViewController,

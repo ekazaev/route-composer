@@ -310,17 +310,17 @@
 <tr class="covered">
 <td class="num">60</td>
 <td class="src"><pre><code class="objc">        func makeVisible(viewController: UIViewController, completion: @escaping (RoutingResult) -&gt; Void) {</code></pre></td>
-<td class="coverage">352x</td>
+<td class="coverage">354x</td>
 </tr>
 <tr class="covered">
 <td class="num">61</td>
 <td class="src"><pre><code class="objc">            assertIfNotMainThread(logger: logger)</code></pre></td>
-<td class="coverage">352x</td>
+<td class="coverage">354x</td>
 </tr>
 <tr class="covered">
 <td class="num">62</td>
 <td class="src"><pre><code class="objc">            guard !parentViewControllers.isEmpty else {</code></pre></td>
-<td class="coverage">352x</td>
+<td class="coverage">354x</td>
 </tr>
 <tr class="covered">
 <td class="num">63</td>
@@ -329,7 +329,7 @@
 </tr>
 <tr class="covered">
 <td class="num">64</td>
-<td class="src"><pre><code class="objc">                   let topParentViewController = topParentViewController,</code></pre></td>
+<td class="src"><pre><code class="objc">                   let topParentViewController,</code></pre></td>
 <td class="coverage">198x</td>
 </tr>
 <tr class="covered">
@@ -365,42 +365,42 @@
 <tr class="covered">
 <td class="num">71</td>
 <td class="src"><pre><code class="objc">            do {</code></pre></td>
-<td class="coverage">154x</td>
+<td class="coverage">156x</td>
 </tr>
 <tr class="covered">
 <td class="num">72</td>
 <td class="src"><pre><code class="objc">                let parentViewController = parentViewControllers.removeFirst()</code></pre></td>
-<td class="coverage">154x</td>
+<td class="coverage">156x</td>
 </tr>
 <tr class="covered">
 <td class="num">73</td>
 <td class="src"><pre><code class="objc">                if let container = parentViewController as? ContainerViewController {</code></pre></td>
-<td class="coverage">154x</td>
+<td class="coverage">156x</td>
 </tr>
 <tr class="covered">
 <td class="num">74</td>
 <td class="src"><pre><code class="objc">                    let containerAdapter = try containerAdapterLocator.getAdapter(for: container)</code></pre></td>
-<td class="coverage">154x</td>
+<td class="coverage">156x</td>
 </tr>
 <tr class="covered">
 <td class="num">75</td>
 <td class="src"><pre><code class="objc">                    guard !containerAdapter.isVisible(viewController) else {</code></pre></td>
-<td class="coverage">154x</td>
+<td class="coverage">156x</td>
 </tr>
 <tr class="covered">
 <td class="num">76</td>
 <td class="src"><pre><code class="objc">                        logger?.log(.info("View controller \(String(describing: viewController)) is visible in \(String(describing: container)). No action needed."))</code></pre></td>
-<td class="coverage">111x</td>
+<td class="coverage">113x</td>
 </tr>
 <tr class="covered">
 <td class="num">77</td>
 <td class="src"><pre><code class="objc">                        return makeVisible(viewController: parentViewController, completion: completion)</code></pre></td>
-<td class="coverage">111x</td>
+<td class="coverage">113x</td>
 </tr>
 <tr class="covered">
 <td class="num">78</td>
 <td class="src"><pre><code class="objc">                    }</code></pre></td>
-<td class="coverage">111x</td>
+<td class="coverage">113x</td>
 </tr>
 <tr class="covered">
 <td class="num">79</td>

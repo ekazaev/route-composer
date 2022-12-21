@@ -58,7 +58,7 @@ class ColorViewController: UIViewController, DismissibleWithRuntimeStorage, Exam
 
     var colorHex: ColorDisplayModel? {
         didSet {
-            if let colorHex = colorHex, isViewLoaded {
+            if let colorHex, isViewLoaded {
                 self.view.backgroundColor = UIColor(hexString: colorHex)
             }
         }
@@ -68,7 +68,7 @@ class ColorViewController: UIViewController, DismissibleWithRuntimeStorage, Exam
         super.viewDidLoad()
         view.accessibilityIdentifier = "colorViewController"
         title = "Color"
-        if let colorHex = colorHex {
+        if let colorHex {
             view.backgroundColor = UIColor(hexString: colorHex)
         } else {
             view.backgroundColor = UIColor.white
