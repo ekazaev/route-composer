@@ -28,6 +28,7 @@ Can be used as the universal replacement for the [Coordinator](https://www.raywe
 - [Example](#example)
 - [Requirements](#requirements)
 - [Testimonials](#testimonials)
+- [Sponsor this project](#sponsor-this-project)
 - [Usage](#usage)
     - [Implementation](#implementation)
         - [Factory](#1-factory)
@@ -152,6 +153,12 @@ have different navigation patterns for different users. It saved us a load of ti
 > 
 > Great thanks to Eugene for all his help.
 > **skooter Martin, Senior Specialist Mobile Engineer @ B.W.A.**
+
+## Sponsor this project
+
+If you like this library and especially if you are using it in production please consider sponsoring this
+project [here](https://github.com/sponsors/ekazaev). I work on `RouteComposer` in my spare time. Sponsorship
+will help me to work on this project and continue to contribute to the Open Source community.
 
 ## Usage
 
