@@ -3,7 +3,7 @@
 // DismissalMethodProvidingContextTask.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2022.
+// Created by Eugene Kazaev in 2018-2023.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -21,7 +21,7 @@ public struct DismissalMethodProvidingContextTask<VC: Dismissible, C>: ContextTa
 
     // MARK: Properties
 
-    let dismissalBlock: (_: VC.DismissalTargetContext, _: Bool, _: ((_: RoutingResult) -> Void)?) -> Void
+    let dismissalBlock: (_: VC, _: VC.DismissalTargetContext, _: Bool, _: ((_: RoutingResult) -> Void)?) -> Void
 
     // MARK: Methods
 
@@ -29,7 +29,7 @@ public struct DismissalMethodProvidingContextTask<VC: Dismissible, C>: ContextTa
     ///
     /// - Parameter dismissalBlock: Block that will trigger the dismissal process when `Dismissible` `UIViewController` calls
     ///    `Dismissible.dismissViewController(...)` method.
-    public init(dismissalBlock: @escaping (_: VC.DismissalTargetContext, _: Bool, _: ((_: RoutingResult) -> Void)?) -> Void) {
+    public init(dismissalBlock: @escaping (_: VC, _: VC.DismissalTargetContext, _: Bool, _: ((_: RoutingResult) -> Void)?) -> Void) {
         self.dismissalBlock = dismissalBlock
     }
 

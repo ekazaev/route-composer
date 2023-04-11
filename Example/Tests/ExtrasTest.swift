@@ -3,7 +3,7 @@
 // ExtrasTest.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2022.
+// Created by Eugene Kazaev in 2018-2023.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -157,12 +157,12 @@ class ExtrasTest: XCTestCase {
 
     func testDismissalMethodProvidingContextTask() {
         class DismissingViewController<C>: UIViewController, Dismissible {
-            var dismissalBlock: ((C, Bool, ((RoutingResult) -> Void)?) -> Void)?
+            var dismissalBlock: ((DismissingViewController<C>, C, Bool, ((RoutingResult) -> Void)?) -> Void)?
         }
 
         let viewControllerVoid = DismissingViewController<Void>()
         var wasInCompletion = false
-        try? DismissalMethodProvidingContextTask<DismissingViewController, Any?>(dismissalBlock: { (_: Void, animated, _) in
+        try? DismissalMethodProvidingContextTask<DismissingViewController, Any?>(dismissalBlock: { (_: DismissingViewController, _: Void, animated, _) in
             XCTAssertEqual(animated, true)
             wasInCompletion = true
         }).perform(on: viewControllerVoid, with: nil)
@@ -171,7 +171,7 @@ class ExtrasTest: XCTestCase {
 
         let viewControllerAny = DismissingViewController<Any?>()
         wasInCompletion = false
-        try? DismissalMethodProvidingContextTask<DismissingViewController, Any?>(dismissalBlock: { (_: Any?, animated, _) in
+        try? DismissalMethodProvidingContextTask<DismissingViewController, Any?>(dismissalBlock: { (_: DismissingViewController, _: Any?, animated, _) in
             XCTAssertEqual(animated, true)
             wasInCompletion = true
         }).perform(on: viewControllerAny, with: nil)
@@ -187,11 +187,11 @@ class ExtrasTest: XCTestCase {
 
         let viewController = DismissingViewController()
         var wasInCompletion = false
-        viewController.dismissalBlock = { _, _, _ in
+        viewController.dismissalBlock = { _, _, _, _ in
             wasInCompletion = true
         }
         XCTAssertNotNil(viewController.dismissalBlock)
-        viewController.dismissalBlock?((), true, nil)
+        viewController.dismissalBlock?(viewController, (), true, nil)
         XCTAssertEqual(wasInCompletion, true)
     }
 

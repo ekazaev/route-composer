@@ -3,7 +3,7 @@
 // ExampleConfiguration.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2022.
+// Created by Eugene Kazaev in 2018-2023.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -81,7 +81,7 @@ extension ExampleScreenConfiguration {
         StepAssembly(
             finder: ColorViewControllerFinder(),
             factory: ColorViewControllerFactory())
-            .adding(DismissalMethodProvidingContextTask(dismissalBlock: { context, animated, completion in
+            .adding(DismissalMethodProvidingContextTask(dismissalBlock: { viewController, context, animated, completion in
                 // Demonstrates ability to provide a dismissal method in the configuration using `DismissalMethodProvidingContextTask`
                 UIViewController.router.commitNavigation(to: GeneralStep.custom(using: PresentingFinder()), with: context, animated: animated, completion: completion)
             }))

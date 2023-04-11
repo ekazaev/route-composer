@@ -3,7 +3,7 @@
 // Dismissible.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2022.
+// Created by Eugene Kazaev in 2018-2023.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -26,7 +26,7 @@ public protocol Dismissible where Self: UIViewController {
     // MARK: Properties to implement
 
     /// Property to store the dismissal block provided by `DismissalMethodProvidingContextTask`
-    var dismissalBlock: ((_: DismissalTargetContext, _: Bool, _: ((_: RoutingResult) -> Void)?) -> Void)? { get set }
+    var dismissalBlock: ((_: Self, _: DismissalTargetContext, _: Bool, _: ((_: RoutingResult) -> Void)?) -> Void)? { get set }
 
 }
 
@@ -47,7 +47,7 @@ public extension Dismissible {
             completion?(.failure(RoutingError.compositionFailed(.init(message))))
             return
         }
-        dismissalBlock(context, animated, completion)
+        dismissalBlock(self, context, animated, completion)
     }
 
 }
@@ -88,9 +88,9 @@ public protocol DismissibleWithRuntimeStorage: Dismissible {}
 
 public extension DismissibleWithRuntimeStorage {
 
-    var dismissalBlock: ((_: DismissalTargetContext, _: Bool, _: ((_: RoutingResult) -> Void)?) -> Void)? {
+    var dismissalBlock: ((_: Self, _: DismissalTargetContext, _: Bool, _: ((_: RoutingResult) -> Void)?) -> Void)? {
         get {
-            objc_getAssociatedObject(self, &associatedObjectHandle) as? ((_: DismissalTargetContext, _: Bool, _: ((_: RoutingResult) -> Void)?) -> Void)
+            objc_getAssociatedObject(self, &associatedObjectHandle) as? (_: Self, _: DismissalTargetContext, _: Bool, _: ((_: RoutingResult) -> Void)?) -> Void
         }
         set {
             objc_setAssociatedObject(self, &associatedObjectHandle, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
