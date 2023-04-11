@@ -35,12 +35,12 @@ struct ContainerActionBox<A: ContainerAction>: AnyAction, AnyActionBox, CustomSt
                         completion(result)
                         return
                     }
-                    self.perform(with: viewController,
-                                 on: existingController,
-                                 with: postponedIntegrationHandler,
-                                 nextAction: nextAction,
-                                 animated: animated,
-                                 completion: completion)
+                    perform(with: viewController,
+                            on: existingController,
+                            with: postponedIntegrationHandler,
+                            nextAction: nextAction,
+                            animated: animated,
+                            completion: completion)
                 })
                 return
             }
@@ -60,7 +60,7 @@ struct ContainerActionBox<A: ContainerAction>: AnyAction, AnyActionBox, CustomSt
                         completion(result)
                         return
                     }
-                    self.embed(viewController: viewController, with: postponedIntegrationHandler, completion: completion)
+                    embed(viewController: viewController, with: postponedIntegrationHandler, completion: completion)
                 })
             } else {
                 postponedIntegrationHandler.purge(animated: animated, completion: { result in
@@ -68,8 +68,8 @@ struct ContainerActionBox<A: ContainerAction>: AnyAction, AnyActionBox, CustomSt
                         completion(result)
                         return
                     }
-                    self.action.perform(with: viewController, on: containerController, animated: animated) { result in
-                        self.assertIfNotMainThread()
+                    action.perform(with: viewController, on: containerController, animated: animated) { result in
+                        assertIfNotMainThread()
                         completion(result)
                     }
                 })

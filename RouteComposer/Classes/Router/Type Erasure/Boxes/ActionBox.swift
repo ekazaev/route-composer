@@ -39,8 +39,8 @@ struct ActionBox<A: Action>: AnyAction, AnyActionBox, CustomStringConvertible, M
                 completion(result)
                 return
             }
-            self.action.perform(with: viewController, on: typedExistingViewController, animated: animated) { result in
-                self.assertIfNotMainThread()
+            action.perform(with: viewController, on: typedExistingViewController, animated: animated) { result in
+                assertIfNotMainThread()
                 completion(result)
             }
         })

@@ -148,7 +148,7 @@ class ActionTests: XCTestCase {
         }
 
         wasInCompletion = false
-        GeneralAction.presentModally(startingFrom: .custom(try testThrow())).perform(with: UIViewController(), on: UIViewController(), animated: true, completion: { result in
+        try GeneralAction.presentModally(startingFrom: .custom(testThrow())).perform(with: UIViewController(), on: UIViewController(), animated: true, completion: { result in
             wasInCompletion = true
             if result.isSuccessful {
                 XCTAssert(false)

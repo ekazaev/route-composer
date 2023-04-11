@@ -69,7 +69,7 @@ public struct DispatchQueueWrappedAction<A: Action>: Action {
                 completion(result)
                 return
             }
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + self.timeInterval) {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + timeInterval) {
                 completion(result)
             }
         })
@@ -112,7 +112,7 @@ public struct DispatchQueueWrappedContainerAction<A: ContainerAction>: Container
                 completion(result)
                 return
             }
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + self.timeInterval) {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + timeInterval) {
                 completion(result)
             }
         })

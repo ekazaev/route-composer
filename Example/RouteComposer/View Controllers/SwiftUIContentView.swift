@@ -37,7 +37,7 @@ struct SwiftUIContentView: View, ContextInstantiatable, ContextChecking, Context
                 Text("Go to Square Tab")
             }).accessibility(identifier: "SwiftUI+\(context)")
         }.onAppear {
-            self.context = self.currentContext
+            context = currentContext
         }
     }
 

@@ -41,7 +41,7 @@ public struct DefaultStackPresentationHandler: StackPresentationHandler, MainThr
         if let presentedController = viewController.presentedViewController {
             if !presentedController.isBeingDismissed {
                 viewController.dismiss(animated: animated) {
-                    self.logger?.log(.info("Dismissed all the view controllers presented from \(String(describing: viewController))"))
+                    logger?.log(.info("Dismissed all the view controllers presented from \(String(describing: viewController))"))
                     completion(.success)
                 }
             } else {
@@ -81,7 +81,7 @@ public struct DefaultStackPresentationHandler: StackPresentationHandler, MainThr
                             completion(result)
                             return
                         }
-                        self.logger?.log(.info("Made \(String(describing: viewController)) visible in \(String(describing: container))"))
+                        logger?.log(.info("Made \(String(describing: viewController)) visible in \(String(describing: container))"))
                         makeVisible(viewController: parentViewController, completion: completion)
                     })
                 } else {

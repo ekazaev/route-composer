@@ -71,7 +71,7 @@ public struct SingleNavigationRouter<R>: Router where R: Router {
         lock.startNavigation()
         do {
             try router.navigate(to: step, with: context, animated: animated, completion: { success in
-                self.lock.stopNavigation()
+                lock.stopNavigation()
                 completion?(success)
             })
         } catch {

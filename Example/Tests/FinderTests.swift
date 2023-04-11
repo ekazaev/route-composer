@@ -136,7 +136,7 @@ class FinderTest: XCTestCase {
             throw RoutingError.generic(.init("Test Error"))
         }
 
-        XCTAssertNotEqual(DefaultStackIterator.StartingPoint.custom(try throwsException()), DefaultStackIterator.StartingPoint.custom(currentViewController1))
+        XCTAssertNotEqual(try DefaultStackIterator.StartingPoint.custom(throwsException()), DefaultStackIterator.StartingPoint.custom(currentViewController1))
         XCTAssertNotEqual(DefaultStackIterator.StartingPoint.topmost, DefaultStackIterator.StartingPoint.root)
         XCTAssertNotEqual(DefaultStackIterator.StartingPoint.topmost, DefaultStackIterator.StartingPoint.custom(currentViewController))
     }

@@ -34,7 +34,7 @@ struct RoutingInterceptorBox<RI: RoutingInterceptor>: AnyRoutingInterceptor, Pre
             assertIfNotPrepared()
             assertIfNotMainThread()
             routingInterceptor.perform(with: typedContext) { result in
-                self.assertIfNotMainThread()
+                assertIfNotMainThread()
                 completion(result)
             }
         } catch {

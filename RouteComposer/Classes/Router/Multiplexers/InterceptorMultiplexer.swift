@@ -39,7 +39,7 @@ struct InterceptorMultiplexer: AnyRoutingInterceptor, MainThreadChecking, Custom
         func runInterceptor(interceptor: AnyRoutingInterceptor) {
             assertIfNotMainThread()
             interceptor.perform(with: context) { result in
-                self.assertIfNotMainThread()
+                assertIfNotMainThread()
                 if case .failure = result {
                     completion(result)
                 } else if interceptors.isEmpty {

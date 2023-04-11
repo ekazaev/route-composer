@@ -71,7 +71,7 @@ public struct SearchOptions: OptionSet, CaseIterable, CustomStringConvertible {
 
     public var description: String {
         SearchOptions.allCases.compactMap { option in
-            guard self.contains(option) else {
+            guard contains(option) else {
                 return nil
             }
             switch option {

@@ -182,7 +182,7 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
         // continue navigation process. This operation is async.
         let initialControllerDescription = String(describing: viewController)
         taskStack.performInterceptors { [weak viewController] result in
-            self.assertIfNotMainThread(logger: logger)
+            assertIfNotMainThread(logger: logger)
 
             if case let .failure(error) = result {
                 completion(.failure(error))
@@ -259,7 +259,7 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
                                                    with: postponedIntegrationHandler,
                                                    nextAction: nextAction,
                                                    animated: animated) { result in
-                        self.assertIfNotMainThread(logger: logger)
+                        assertIfNotMainThread(logger: logger)
                         guard result.isSuccessful else {
                             logger?.log(.info("\(String(describing: factory.factory.action)) has stopped the navigation process " +
                                     "as it was not able to build a view controller into a stack."))
