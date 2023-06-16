@@ -80,7 +80,7 @@ it, simply add the following line to your Podfile:
 pod 'RouteComposer'
 ```
 
-**For XCode 10.1 / Swift 4.2 Support**
+**For Xcode 10.1 / Swift 4.2 Support**
 
 ```ruby
 pod 'RouteComposer', '~> 1.4'
@@ -217,7 +217,7 @@ class ProductViewControllerFactory: Factory {
 
 }
 ```
-*Important note: Automatic `associatedtype` resolution is broken in XCode 10.2, you must set associated types manually using `typealias` keyword. 
+*Important note: Automatic `associatedtype` resolution is broken in Xcode 10.2, you must set associated types manually using `typealias` keyword. 
 Swift compiler [bug](https://bugs.swift.org/browse/SR-10186) reported.*
 
 #### 2. Finder
