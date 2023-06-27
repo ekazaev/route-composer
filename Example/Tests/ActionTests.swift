@@ -105,6 +105,67 @@ class ActionTests: XCTestCase {
         class TransitionDelegate: NSObject, UIViewControllerTransitioningDelegate {}
 
         var wasInCompletion = false
+        var wasInPresentationConfig = false
+        let viewController = UIViewController()
+        let transitionDelegate = TransitionDelegate()
+        GeneralAction.presentModally(transitionStyle: .crossDissolve,
+                                     transitioningDelegate: transitionDelegate,
+                                     preferredContentSize: CGSize(width: 100, height: 100),
+                                     isModalInPresentation: true,
+                                     presentationConfiguration: { _ in
+            wasInPresentationConfig = true
+        }).perform(with: viewController, on: PresentingModallyController(), animated: true, completion: { result in
+            wasInCompletion = true
+            XCTAssertEqual(viewController.modalPresentationStyle, UIModalPresentationStyle.fullScreen)
+            XCTAssertEqual(viewController.modalTransitionStyle, UIModalTransitionStyle.crossDissolve)
+            XCTAssertEqual(viewController.preferredContentSize.width, 100)
+            XCTAssertEqual(viewController.preferredContentSize.height, 100)
+            if #available(iOS 13, *) {
+                XCTAssertEqual(viewController.isModalInPresentation, true)
+            }
+            XCTAssertTrue(viewController.transitioningDelegate === transitionDelegate)
+            if case .failure = result {
+                XCTAssert(false)
+            }
+        })
+        XCTAssertTrue(wasInCompletion)
+        XCTAssertTrue(wasInPresentationConfig)
+
+        let presentedViewController = RouterTests.TestModalPresentableController()
+        presentedViewController.fakePresentedViewController = UIViewController()
+        wasInCompletion = false
+        GeneralAction.presentModally().perform(with: UIViewController(), on: presentedViewController, animated: true, completion: { result in
+            wasInCompletion = true
+            if case .success = result {
+                XCTAssert(false)
+            }
+        })
+        XCTAssertTrue(wasInCompletion)
+
+        func testThrow() throws -> UIViewController? {
+            throw RoutingError.compositionFailed(.init("Test"))
+        }
+
+        wasInCompletion = false
+        try GeneralAction.presentModally(startingFrom: .custom(testThrow())).perform(with: UIViewController(), on: UIViewController(), animated: true, completion: { result in
+            wasInCompletion = true
+            if result.isSuccessful {
+                XCTAssert(false)
+            }
+        })
+        XCTAssertTrue(wasInCompletion)
+    }
+
+    func testPresentModallyAction_withPopoverController() {
+        class PresentingModallyController: UIViewController {
+            override func present(_ viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)?) {
+                completion?()
+            }
+        }
+
+        class TransitionDelegate: NSObject, UIViewControllerTransitioningDelegate {}
+
+        var wasInCompletion = false
         var wasInPopoverConfig = false
         let viewController = UIViewController()
         let transitionDelegate = TransitionDelegate()
@@ -131,6 +192,69 @@ class ActionTests: XCTestCase {
         })
         XCTAssertTrue(wasInCompletion)
         XCTAssertTrue(wasInPopoverConfig)
+
+        let presentedViewController = RouterTests.TestModalPresentableController()
+        presentedViewController.fakePresentedViewController = UIViewController()
+        wasInCompletion = false
+        GeneralAction.presentModally().perform(with: UIViewController(), on: presentedViewController, animated: true, completion: { result in
+            wasInCompletion = true
+            if case .success = result {
+                XCTAssert(false)
+            }
+        })
+        XCTAssertTrue(wasInCompletion)
+
+        func testThrow() throws -> UIViewController? {
+            throw RoutingError.compositionFailed(.init("Test"))
+        }
+
+        wasInCompletion = false
+        try GeneralAction.presentModally(startingFrom: .custom(testThrow())).perform(with: UIViewController(), on: UIViewController(), animated: true, completion: { result in
+            wasInCompletion = true
+            if result.isSuccessful {
+                XCTAssert(false)
+            }
+        })
+        XCTAssertTrue(wasInCompletion)
+    }
+
+    @available(iOS 15, *)
+    func testPresentModallyAction_sheetPresentationController() {
+        class PresentingModallyController: UIViewController {
+            override func present(_ viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)?) {
+                completion?()
+            }
+        }
+
+        class TransitionDelegate: NSObject, UIViewControllerTransitioningDelegate {}
+
+        var wasInCompletion = false
+        var wasInSheetPresentationConfig = false
+        let viewController = UIViewController()
+        let transitionDelegate = TransitionDelegate()
+        GeneralAction.presentModally(presentationStyle: .pageSheet,
+                                     transitionStyle: .crossDissolve,
+                                     transitioningDelegate: transitionDelegate,
+                                     preferredContentSize: CGSize(width: 100, height: 100),
+                                     isModalInPresentation: true,
+                                     presentationConfiguration: {
+            if let sheetPresentationController = $0 as? UISheetPresentationController {
+                wasInSheetPresentationConfig = true
+            }
+        }).perform(with: viewController, on: PresentingModallyController(), animated: true, completion: { result in
+            wasInCompletion = true
+            XCTAssertEqual(viewController.modalPresentationStyle, UIModalPresentationStyle.pageSheet)
+            XCTAssertEqual(viewController.modalTransitionStyle, UIModalTransitionStyle.crossDissolve)
+            XCTAssertEqual(viewController.preferredContentSize.width, 100)
+            XCTAssertEqual(viewController.preferredContentSize.height, 100)
+            XCTAssertEqual(viewController.isModalInPresentation, true)
+            XCTAssertTrue(viewController.transitioningDelegate === transitionDelegate)
+            if case .failure = result {
+                XCTAssert(false)
+            }
+        })
+        XCTAssertTrue(wasInCompletion)
+        XCTAssertTrue(wasInSheetPresentationConfig)
 
         let presentedViewController = RouterTests.TestModalPresentableController()
         presentedViewController.fakePresentedViewController = UIViewController()
