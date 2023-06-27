@@ -75,12 +75,12 @@ public extension GeneralAction {
     ///   - preferredContentSize: The preferredContentSize is used for any container laying out a child view controller.
     ///   - popoverControllerConfigurationBlock: Block to configure `UIPopoverPresentationController`.
     static func presentModally(startingFrom presentationStartingPoint: ViewControllerActions.PresentModallyAction.ModalPresentationStartingPoint = .current,
-                                      presentationStyle: UIModalPresentationStyle? = .fullScreen,
-                                      transitionStyle: UIModalTransitionStyle? = .coverVertical,
-                                      transitioningDelegate: UIViewControllerTransitioningDelegate? = nil,
-                                      preferredContentSize: CGSize? = nil,
-                                      isModalInPresentation: Bool? = nil,
-                                      popoverConfiguration: ((_: UIPopoverPresentationController) -> Void)? = nil) -> ViewControllerActions.PresentModallyAction {
+                               presentationStyle: UIModalPresentationStyle? = .fullScreen,
+                               transitionStyle: UIModalTransitionStyle? = .coverVertical,
+                               transitioningDelegate: UIViewControllerTransitioningDelegate? = nil,
+                               preferredContentSize: CGSize? = nil,
+                               isModalInPresentation: Bool? = nil,
+                               popoverConfiguration: ((_: UIPopoverPresentationController) -> Void)? = nil) -> ViewControllerActions.PresentModallyAction {
         ViewControllerActions.PresentModallyAction(startingFrom: presentationStartingPoint,
                                                    presentationStyle: presentationStyle,
                                                    transitionStyle: transitionStyle,
@@ -206,8 +206,8 @@ public enum ViewControllerActions {
             if let preferredContentSize {
                 viewController.preferredContentSize = preferredContentSize
             }
-            if  let presentationController = viewController.presentationController,
-                let presentationControllerConfigurationBlock {
+            if let presentationController = viewController.presentationController,
+               let presentationControllerConfigurationBlock {
                 presentationControllerConfigurationBlock(presentationController)
             }
             if #available(iOS 13, *),

@@ -113,8 +113,8 @@ class ActionTests: XCTestCase {
                                      preferredContentSize: CGSize(width: 100, height: 100),
                                      isModalInPresentation: true,
                                      presentationConfiguration: { _ in
-            wasInPresentationConfig = true
-        }).perform(with: viewController, on: PresentingModallyController(), animated: true, completion: { result in
+                                         wasInPresentationConfig = true
+                                     }).perform(with: viewController, on: PresentingModallyController(), animated: true, completion: { result in
             wasInCompletion = true
             XCTAssertEqual(viewController.modalPresentationStyle, UIModalPresentationStyle.fullScreen)
             XCTAssertEqual(viewController.modalTransitionStyle, UIModalTransitionStyle.crossDissolve)
@@ -238,10 +238,10 @@ class ActionTests: XCTestCase {
                                      preferredContentSize: CGSize(width: 100, height: 100),
                                      isModalInPresentation: true,
                                      presentationConfiguration: {
-            if let sheetPresentationController = $0 as? UISheetPresentationController {
-                wasInSheetPresentationConfig = true
-            }
-        }).perform(with: viewController, on: PresentingModallyController(), animated: true, completion: { result in
+                                         if let _ = $0 as? UISheetPresentationController {
+                                             wasInSheetPresentationConfig = true
+                                         }
+                                     }).perform(with: viewController, on: PresentingModallyController(), animated: true, completion: { result in
             wasInCompletion = true
             XCTAssertEqual(viewController.modalPresentationStyle, UIModalPresentationStyle.pageSheet)
             XCTAssertEqual(viewController.modalTransitionStyle, UIModalTransitionStyle.crossDissolve)
