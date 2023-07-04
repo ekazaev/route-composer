@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          RouteComposer 2.10.3 Docs
+          RouteComposer 2.10.4 Docs
         </a>
          (100% documented)
       </p>
@@ -644,9 +644,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer13GeneralActionO14presentModally12startingFrom17presentationStyle010transitionJ021transitioningDelegate20preferredContentSize21isModalInPresentation20popoverConfigurationAA21ViewControllerActionsO07PresentfD0VAO0rT13StartingPointO_So07UIModaltJ0VSgSo017UIModalTransitionJ0VSgSo06UIViewx13TransitioningM0_pSgSo6CGSizeVSgSbSgySo09UIPopovertX0CcSgtFZ"></a>
-                    <a name="//apple_ref/swift/Method/presentModally(startingFrom:presentationStyle:transitionStyle:transitioningDelegate:preferredContentSize:isModalInPresentation:popoverConfiguration:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer13GeneralActionO14presentModally12startingFrom17presentationStyle010transitionJ021transitioningDelegate20preferredContentSize21isModalInPresentation20popoverConfigurationAA21ViewControllerActionsO07PresentfD0VAO0rT13StartingPointO_So07UIModaltJ0VSgSo017UIModalTransitionJ0VSgSo06UIViewx13TransitioningM0_pSgSo6CGSizeVSgSbSgySo09UIPopovertX0CcSgtFZ">presentModally(startingFrom:<wbr>presentationStyle:<wbr>transitionStyle:<wbr>transitioningDelegate:<wbr>preferredContentSize:<wbr>isModalInPresentation:<wbr>popoverConfiguration:<wbr>)</a>
+                    <a name="/s:13RouteComposer13GeneralActionO14presentModally12startingFrom17presentationStyle010transitionJ021transitioningDelegate20preferredContentSize21isModalInPresentation0I13ConfigurationAA21ViewControllerActionsO07PresentfD0VAO0rT13StartingPointO_So07UIModaltJ0VSgSo017UIModalTransitionJ0VSgSo06UIVieww13TransitioningM0_pSgSo6CGSizeVSgSbSgySo014UIPresentationW0CcSgtFZ"></a>
+                    <a name="//apple_ref/swift/Method/presentModally(startingFrom:presentationStyle:transitionStyle:transitioningDelegate:preferredContentSize:isModalInPresentation:presentationConfiguration:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer13GeneralActionO14presentModally12startingFrom17presentationStyle010transitionJ021transitioningDelegate20preferredContentSize21isModalInPresentation0I13ConfigurationAA21ViewControllerActionsO07PresentfD0VAO0rT13StartingPointO_So07UIModaltJ0VSgSo017UIModalTransitionJ0VSgSo06UIVieww13TransitioningM0_pSgSo6CGSizeVSgSbSgySo014UIPresentationW0CcSgtFZ">presentModally(startingFrom:<wbr>presentationStyle:<wbr>transitionStyle:<wbr>transitioningDelegate:<wbr>preferredContentSize:<wbr>isModalInPresentation:<wbr>presentationConfiguration:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -667,7 +667,158 @@
                                   <span class="nv">transitioningDelegate</span><span class="p">:</span> <span class="kt">UIViewControllerTransitioningDelegate</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
                                   <span class="nv">preferredContentSize</span><span class="p">:</span> <span class="kt">CGSize</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
                                   <span class="nv">isModalInPresentation</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
-                                  <span class="nv">popoverConfiguration</span><span class="p">:</span> <span class="p">((</span><span class="nv">_</span><span class="p">:</span> <span class="kt">UIPopoverPresentationController</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Enums/ViewControllerActions.html">ViewControllerActions</a></span><span class="o">.</span><span class="kt">PresentModallyAction</span></code></pre>
+                                  <span class="nv">presentationConfiguration</span><span class="p">:</span> <span class="p">((</span><span class="nv">_</span><span class="p">:</span> <span class="kt">UIPresentationController</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Enums/ViewControllerActions.html">ViewControllerActions</a></span><span class="o">.</span><span class="kt">PresentModallyAction</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>presentationStartingPoint</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A starting point in the modal presentation</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>presentationStyle</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>UIModalPresentationStyle</code> setting, default value: .fullScreen</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>transitionStyle</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>UIModalTransitionStyle</code> setting, default value: .coverVertical</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>transitioningDelegate</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>UIViewControllerTransitioningDelegate</code> instance to be used during the transition</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>isModalInPresentation</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A Boolean value indicating whether the view controller enforces a modal behavior.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>preferredContentSize</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The preferredContentSize is used for any container laying out a child view controller.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>presentationConfiguration</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Block to configure <code>UIPresentationController</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer13GeneralActionO03nilD0AA21ViewControllerActionsO03NilD0VyFZ"></a>
+                    <a name="//apple_ref/swift/Method/nilAction()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer13GeneralActionO03nilD0AA21ViewControllerActionsO03NilD0VyFZ">nilAction()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><code><a href="../Core%20Entities.html#/s:13RouteComposer6ActionP">Action</a></code> does nothing, but can be helpful for testing or writing the sequences of steps with the <code><a href="../Structs/NilFactory.html">NilFactory</a></code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">nilAction</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Enums/ViewControllerActions.html">ViewControllerActions</a></span><span class="o">.</span><span class="kt">NilAction</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer13GeneralActionO14presentModally12startingFrom17presentationStyle010transitionJ021transitioningDelegate20preferredContentSize21isModalInPresentation20popoverConfigurationAA21ViewControllerActionsO07PresentfD0VAO0rT13StartingPointO_So07UIModaltJ0VSgSo017UIModalTransitionJ0VSgSo06UIViewx13TransitioningM0_pSgSo6CGSizeVSgSbSgySo09UIPopovertX0CcSgtFZ"></a>
+                    <a name="//apple_ref/swift/Method/presentModally(startingFrom:presentationStyle:transitionStyle:transitioningDelegate:preferredContentSize:isModalInPresentation:popoverConfiguration:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer13GeneralActionO14presentModally12startingFrom17presentationStyle010transitionJ021transitioningDelegate20preferredContentSize21isModalInPresentation20popoverConfigurationAA21ViewControllerActionsO07PresentfD0VAO0rT13StartingPointO_So07UIModaltJ0VSgSo017UIModalTransitionJ0VSgSo06UIViewx13TransitioningM0_pSgSo6CGSizeVSgSbSgySo09UIPopovertX0CcSgtFZ">presentModally(startingFrom:<wbr>presentationStyle:<wbr>transitionStyle:<wbr>transitioningDelegate:<wbr>preferredContentSize:<wbr>isModalInPresentation:<wbr>popoverConfiguration:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Presents a view controller modally</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">presentModally</span><span class="p">(</span><span class="n">startingFrom</span> <span class="nv">presentationStartingPoint</span><span class="p">:</span> <span class="kt"><a href="../Enums/ViewControllerActions.html">ViewControllerActions</a></span><span class="o">.</span><span class="kt">PresentModallyAction</span><span class="o">.</span><span class="kt">ModalPresentationStartingPoint</span> <span class="o">=</span> <span class="o">.</span><span class="n">current</span><span class="p">,</span>
+                           <span class="nv">presentationStyle</span><span class="p">:</span> <span class="kt">UIModalPresentationStyle</span><span class="p">?</span> <span class="o">=</span> <span class="o">.</span><span class="n">fullScreen</span><span class="p">,</span>
+                           <span class="nv">transitionStyle</span><span class="p">:</span> <span class="kt">UIModalTransitionStyle</span><span class="p">?</span> <span class="o">=</span> <span class="o">.</span><span class="n">coverVertical</span><span class="p">,</span>
+                           <span class="nv">transitioningDelegate</span><span class="p">:</span> <span class="kt">UIViewControllerTransitioningDelegate</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+                           <span class="nv">preferredContentSize</span><span class="p">:</span> <span class="kt">CGSize</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+                           <span class="nv">isModalInPresentation</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+                           <span class="nv">popoverConfiguration</span><span class="p">:</span> <span class="p">((</span><span class="nv">_</span><span class="p">:</span> <span class="kt">UIPopoverPresentationController</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Enums/ViewControllerActions.html">ViewControllerActions</a></span><span class="o">.</span><span class="kt">PresentModallyAction</span></code></pre>
 
                         </div>
                       </div>
@@ -765,33 +916,6 @@
                     </section>
                   </div>
                 </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:13RouteComposer13GeneralActionO03nilD0AA21ViewControllerActionsO03NilD0VyFZ"></a>
-                    <a name="//apple_ref/swift/Method/nilAction()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer13GeneralActionO03nilD0AA21ViewControllerActionsO03NilD0VyFZ">nilAction()</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p><code><a href="../Core%20Entities.html#/s:13RouteComposer6ActionP">Action</a></code> does nothing, but can be helpful for testing or writing the sequences of steps with the <code><a href="../Structs/NilFactory.html">NilFactory</a></code></p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">nilAction</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Enums/ViewControllerActions.html">ViewControllerActions</a></span><span class="o">.</span><span class="kt">NilAction</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
               </ul>
             </div>
           </div>
@@ -800,7 +924,7 @@
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2023 <a class="link" href="https://github.com/ekazaev" target="_blank" rel="external noopener">Evgeny Kazaev</a>. All rights reserved. (Last updated: 2023-04-11)</p>
+      <p>&copy; 2023 <a class="link" href="https://github.com/ekazaev" target="_blank" rel="external noopener">Evgeny Kazaev</a>. All rights reserved. (Last updated: 2023-07-04)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>
