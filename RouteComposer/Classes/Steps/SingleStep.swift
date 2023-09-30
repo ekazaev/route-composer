@@ -20,7 +20,7 @@ public final class SingleStep<F: Finder, FC: Factory>: ActionToStepIntegrator<F.
 
     // MARK: Internal entities
 
-    final class UnsafeWrapper<VC: UIViewController, C, F: Finder, FC: Factory>: ActionToStepIntegrator<VC, C>
+    final class UnsafeWrapper<VC: UIViewController, C>: ActionToStepIntegrator<VC, C>
         where
         F.ViewController == FC.ViewController, F.Context == FC.Context {
 

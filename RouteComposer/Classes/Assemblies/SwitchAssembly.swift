@@ -59,13 +59,13 @@ public final class SwitchAssembly<ViewController: UIViewController, Context> {
         }
     }
 
-    private struct FinderResolver<ViewController: UIViewController, Context>: StepCaseResolver {
+    private struct FinderResolver<VC: UIViewController, C>: StepCaseResolver {
 
         private let finder: AnyFinder?
 
-        private let step: DestinationStep<ViewController, Context>
+        private let step: DestinationStep<VC, C>
 
-        init(finder: some Finder, step: DestinationStep<ViewController, Context>?) {
+        init(finder: some Finder, step: DestinationStep<VC, C>?) {
             self.step = step ?? DestinationStep(GeneralStep.FinderStep(finder: finder))
             self.finder = FinderBox(finder)
         }
