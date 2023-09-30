@@ -53,11 +53,10 @@ public enum RoutingError: Error, CustomStringConvertible {
         }
 
         public var description: String {
-            let errorDescription: String?
-            if let underlyingError {
-                errorDescription = "\(underlyingError)"
+            let errorDescription: String? = if let underlyingError {
+                "\(underlyingError)"
             } else {
-                errorDescription = nil
+                nil
             }
             let descriptionParts = [!debugDescription.isEmpty ? debugDescription : nil, errorDescription].compactMap { $0 }
             guard descriptionParts.isEmpty else {

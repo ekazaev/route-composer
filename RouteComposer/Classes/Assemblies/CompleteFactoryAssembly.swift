@@ -26,7 +26,7 @@ public final class CompleteFactoryAssembly<FC: ContainerFactory> {
 
     // MARK: Internal entities
 
-    struct SimpleAddAction<FC: ContainerFactory>: ContainerAction {
+    struct SimpleAddAction: ContainerAction {
 
         func perform(with viewController: UIViewController, on existingController: FC.ViewController, animated: Bool, completion: @escaping (RoutingResult) -> Void) {
             assertionFailure("Should never be called")
@@ -92,7 +92,7 @@ public final class CompleteFactoryAssembly<FC: ContainerFactory> {
     ///   - childFactory: The instance of `Factory`.
     ///   - transformer: The instance of `ContextTransformer` to use to adapt parent `ContainerFactory` `Context`.
     public final func with<ChildFC: Factory, T: ContextTransformer>(_ childFactory: ChildFC, adapting transformer: T) -> CompleteFactoryChainAssembly<FC, ChildFC.ViewController, ChildFC.Context> where T.TargetContext == ChildFC.Context, T.SourceContext == FC.Context {
-        return with(childFactory, using: SimpleAddAction<FC>(), adapting: transformer)
+        return with(childFactory, using: SimpleAddAction(), adapting: transformer)
     }
 
     /// Adds a `ContainerFactory` as the last view controller in the stack.
@@ -101,7 +101,7 @@ public final class CompleteFactoryAssembly<FC: ContainerFactory> {
     ///   - childContainer: The instance of `ContainerFactory`.
     ///   - transformer: The instance of `ContextTransformer` to use to adapt parent `ContainerFactory` `Context`.
     public final func with<ChildFC: ContainerFactory, T: ContextTransformer>(_ childContainer: ChildFC, adapting transformer: T) -> CompleteFactoryChainAssembly<FC, ChildFC.ViewController, ChildFC.Context> where T.TargetContext == ChildFC.Context, T.SourceContext == FC.Context {
-        return with(childContainer, using: SimpleAddAction<FC>(), adapting: transformer)
+        return with(childContainer, using: SimpleAddAction(), adapting: transformer)
     }
 
     /// Adds a `Factory` that is going to be used as a child
@@ -112,7 +112,7 @@ public final class CompleteFactoryAssembly<FC: ContainerFactory> {
     public final func with<ChildFC: Factory, A: ContainerAction>(_ childFactory: ChildFC, using action: A) -> CompleteFactoryChainAssembly<FC, ChildFC.ViewController, ChildFC.Context>
         where
         ChildFC.Context == FC.Context, A.ViewController == FC.ViewController {
-        return with(childFactory, using: SimpleAddAction<FC>(), adapting: NilContextTransformer())
+        return with(childFactory, using: SimpleAddAction(), adapting: NilContextTransformer())
     }
 
     /// Adds a `ContainerFactory` that is going to be used as a child
@@ -123,7 +123,7 @@ public final class CompleteFactoryAssembly<FC: ContainerFactory> {
     public final func with<ChildFC: ContainerFactory, A: ContainerAction>(_ childContainer: ChildFC, using action: A) -> CompleteFactoryChainAssembly<FC, ChildFC.ViewController, ChildFC.Context>
         where
         ChildFC.Context == FC.Context, A.ViewController == FC.ViewController {
-        return with(childContainer, using: SimpleAddAction<FC>(), adapting: NilContextTransformer())
+        return with(childContainer, using: SimpleAddAction(), adapting: NilContextTransformer())
     }
 
     /// Adds a `Factory` as the last view controller in the stack.
@@ -131,7 +131,7 @@ public final class CompleteFactoryAssembly<FC: ContainerFactory> {
     /// - Parameters:
     ///   - childFactory: The instance of `Factory`.
     public final func with<ChildFC: Factory>(_ childFactory: ChildFC) -> CompleteFactoryChainAssembly<FC, ChildFC.ViewController, ChildFC.Context> where ChildFC.Context == FC.Context {
-        return with(childFactory, using: CompleteFactoryAssembly<FC>.SimpleAddAction<FC>())
+        return with(childFactory, using: CompleteFactoryAssembly<FC>.SimpleAddAction())
     }
 
     /// Adds a `ContainerFactory` as the last view controller in the stack.
@@ -139,7 +139,7 @@ public final class CompleteFactoryAssembly<FC: ContainerFactory> {
     /// - Parameters:
     ///   - childContainer: The instance of `ContainerFactory`.
     public final func with<ChildFC: ContainerFactory>(_ childContainer: ChildFC) -> CompleteFactoryChainAssembly<FC, ChildFC.ViewController, ChildFC.Context> where ChildFC.Context == FC.Context {
-        return with(childContainer, using: CompleteFactoryAssembly<FC>.SimpleAddAction<FC>())
+        return with(childContainer, using: CompleteFactoryAssembly<FC>.SimpleAddAction())
     }
 
     /// Assembles all the children factories provided and returns a `ContainerFactory` instance.

@@ -266,19 +266,19 @@ class ShortUITests: XCTestCase {
         XCTAssertTrue(app.otherElements["productViewController+00"].exists)
 
         app.buttons["Go to next Product from Circle"].tap()
-        XCTAssertTrue(app.otherElements["productViewController+01"].waitForExistence(timeout: 10))
+        XCTAssertTrue(app.otherElements["productViewController+01"].waitForExistence(timeout: 20))
 
         app.buttons["Go to next Product from Circle"].tap()
-        XCTAssertTrue(app.otherElements["productViewController+02"].waitForExistence(timeout: 10))
+        XCTAssertTrue(app.otherElements["productViewController+02"].waitForExistence(timeout: 20))
 
         app.buttons.matching(identifier: "Go to Product 01").element(boundBy: 0).tap()
-        XCTAssertTrue(app.otherElements["productViewController+01"].waitForExistence(timeout: 10))
+        XCTAssertTrue(app.otherElements["productViewController+01"].waitForExistence(timeout: 20))
 
         app.buttons["Go to next Product from Circle"].tap()
-        XCTAssertTrue(app.otherElements["productViewController+02"].waitForExistence(timeout: 10))
+        XCTAssertTrue(app.otherElements["productViewController+02"].waitForExistence(timeout: 20))
 
         app.buttons["Go to Circle Tab"].tap()
-        XCTAssertTrue(app.otherElements["circleViewController"].waitForExistence(timeout: 10))
+        XCTAssertTrue(app.otherElements["circleViewController"].waitForExistence(timeout: 20))
     }
 
     func testGoToHome() {

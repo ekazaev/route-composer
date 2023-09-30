@@ -41,8 +41,8 @@ public struct DestinationStep<VC: UIViewController, C>: RoutingStep, ChainableSt
     /// Adapts context and view controller type dependencies.
     ///
     /// *NB:* Developer guaranties that this types will compliment in runtime.
-    public func unsafelyRewrapped<VC: UIViewController, C>() -> DestinationStep<VC, C> {
-        DestinationStep<VC, C>(destinationStep)
+    public func unsafelyRewrapped<NewVC: UIViewController, NewC>() -> DestinationStep<NewVC, NewC> {
+        DestinationStep<NewVC, NewC>(destinationStep)
     }
 
     /// Transforms context using `ContextTransformer` provided.
@@ -53,8 +53,8 @@ public struct DestinationStep<VC: UIViewController, C>: RoutingStep, ChainableSt
     /// Allows to avoid container view controller check.
     ///
     /// *NB:* Developer guaranties that it will be there in the runtime.
-    public func expectingContainer<VC: ContainerViewController>() -> DestinationStep<VC, Context> {
-        DestinationStep<VC, Context>(destinationStep)
+    public func expectingContainer<NewVC: ContainerViewController>() -> DestinationStep<NewVC, Context> {
+        DestinationStep<NewVC, Context>(destinationStep)
     }
 
 }
@@ -68,14 +68,14 @@ public extension DestinationStep where DestinationStep.Context == Any? {
     /// able to accept any type of context.
     ///
     /// *NB:* Developer guaranties that it will be there in the runtime.
-    func expectingContainer<VC: ContainerViewController, C>() -> DestinationStep<VC, C> {
-        DestinationStep<VC, C>(destinationStep)
+    func expectingContainer<NewVC: ContainerViewController, NewC>() -> DestinationStep<NewVC, NewC> {
+        DestinationStep<NewVC, NewC>(destinationStep)
     }
 
     /// Allows to compliment to the type check. A step that has context equal to Optional(Any) can be build
     /// with any type of context passed to the router.
-    func adaptingContext<C>() -> DestinationStep<ViewController, C> {
-        DestinationStep<ViewController, C>(destinationStep)
+    func adaptingContext<NewC>() -> DestinationStep<ViewController, NewC> {
+        DestinationStep<ViewController, NewC>(destinationStep)
     }
 
 }
