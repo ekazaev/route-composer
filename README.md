@@ -48,7 +48,6 @@ Can be used as the universal replacement for the [Coordinator](https://www.raywe
 - [Advanced Configuration](#advanced-configuration)
 - [Contributing](#contributing)
 - [License](#license)
-- [Sponsor this project](#sponsor-this-project)
 - [Articles](#articles)
 - [Author](#author)
 
@@ -575,15 +574,6 @@ RouteComposer is distributed under [the MIT license](https://github.com/ekazaev/
 
 RouteComposer is provided for your use, free-of-charge, on an as-is basis. We make no guarantees, promises or
 apologies. *Caveat developer.*
-
-## Sponsor this project
-
-If you find this library useful, and especially if you are using it in production, please consider sponsoring this
-project [here](https://github.com/sponsors/ekazaev). I work on `RouteComposer` in my spare time, and your sponsorship would
-help me to continue developing and contributing to the Open Source community. Your support will enable me to dedicate
-more time and resources to this project, ensuring that it remains up-to-date and relevant for years to come.
-
-Thank you for your consideration!
 
 ## Articles
 
