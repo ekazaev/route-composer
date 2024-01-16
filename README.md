@@ -588,6 +588,7 @@ Russian:
   - [Композиция UIViewController-ов и навигация между ними](https://habr.com/post/421097/)
   - [Примеры конфигурации UIViewController-ов используя RouteComposer](https://habr.com/post/428990/)
   - [Проблемы паттерна Координатор и при чем тут RouteComposer](https://habr.com/ru/post/446550/)
+  - [Декларативная навигация в iOS-приложении — Андрей Зонов, Тинькофф](https://www.youtube.com/watch?v=0fT_xyBDl0w)
 
 ## Author
 ********
