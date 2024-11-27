@@ -13,7 +13,6 @@
 import Foundation
 import UIKit
 
-@MainActor
 protocol AnyRoutingInterceptor {
 
     mutating func prepare(with context: AnyContext) throws

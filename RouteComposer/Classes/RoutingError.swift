@@ -18,7 +18,7 @@ public enum RoutingError: Error, CustomStringConvertible {
     // MARK: Internal entities
 
     /// Describes an error happened to the initial view controller
-    public enum InitialControllerErrorState: CustomStringConvertible, Sendable {
+    public enum InitialControllerErrorState: CustomStringConvertible {
 
         /// View controller not found
         case notFound
@@ -38,7 +38,7 @@ public enum RoutingError: Error, CustomStringConvertible {
     }
 
     /// Error context holder
-    public struct Context: CustomStringConvertible, Sendable {
+    public struct Context: CustomStringConvertible {
 
         /// Message describing error that happened
         public let debugDescription: String
@@ -58,7 +58,7 @@ public enum RoutingError: Error, CustomStringConvertible {
             } else {
                 nil
             }
-            let descriptionParts = [!debugDescription.isEmpty ? debugDescription : nil, errorDescription].compactMap(\.self)
+            let descriptionParts = [!debugDescription.isEmpty ? debugDescription : nil, errorDescription].compactMap { $0 }
             guard descriptionParts.isEmpty else {
                 return descriptionParts.joined(separator: " -> ")
             }

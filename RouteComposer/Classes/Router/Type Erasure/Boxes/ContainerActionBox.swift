@@ -13,7 +13,7 @@
 import Foundation
 import UIKit
 
-struct ContainerActionBox<A: ContainerAction>: AnyAction, AnyActionBox, @preconcurrency CustomStringConvertible {
+struct ContainerActionBox<A: ContainerAction>: AnyAction, AnyActionBox, CustomStringConvertible, MainThreadChecking {
 
     let action: A
 
@@ -27,6 +27,7 @@ struct ContainerActionBox<A: ContainerAction>: AnyAction, AnyActionBox, @preconc
                  nextAction: AnyAction?,
                  animated: Bool,
                  completion: @escaping (RoutingResult) -> Void) {
+        assertIfNotMainThread()
         if let postponedController = postponedIntegrationHandler.containerViewController {
             guard postponedController is A.ViewController else {
                 postponedIntegrationHandler.purge(animated: animated, completion: { result in
@@ -68,6 +69,7 @@ struct ContainerActionBox<A: ContainerAction>: AnyAction, AnyActionBox, @preconc
                         return
                     }
                     action.perform(with: viewController, on: containerController, animated: animated) { result in
+                        assertIfNotMainThread()
                         completion(result)
                     }
                 })

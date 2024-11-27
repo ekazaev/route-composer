@@ -12,18 +12,23 @@
 
 import Foundation
 
+private let lock = NSObject()
+
 /// Default configuration for all the instances in `RouteComposer`.
 ///
 /// **NB:** If you are going to provide your own defaults, make sure that `RouteComposerDefaults.configureWith(...)` is called
 /// before the instantiation of any other `RouteComposer`'s instances. `AppDelegate` is probably the best place for it.
-@MainActor
 public final class RouteComposerDefaults {
 
     // MARK: Properties
 
     /// Singleton access.
-    @MainActor
     public static var shared: RouteComposerDefaults = {
+        objc_sync_enter(lock)
+        defer {
+            objc_sync_exit(lock)
+            configurationStorage?.logInstantiation()
+        }
         switch configurationStorage {
         case let .some(configurationStorage):
             return configurationStorage
@@ -35,22 +40,17 @@ public final class RouteComposerDefaults {
     }()
 
     /// Default `Logger` instance.
-    @MainActor
     public private(set) var logger: Logger?
 
     /// Default `ContainerAdapterLocator` instance.
-    @MainActor
     public private(set) var containerAdapterLocator: ContainerAdapterLocator
 
     /// Default `StackIterator` instance.
-    @MainActor
     public private(set) var stackIterator: StackIterator
 
     /// Default `WindowProvider` instance.
-    @MainActor
     public private(set) var windowProvider: WindowProvider
 
-    @MainActor
     private static var configurationStorage: RouteComposerDefaults?
 
     // MARK: Methods
@@ -64,11 +64,14 @@ public final class RouteComposerDefaults {
     ///   - windowProvider: Default `WindowProvider` instance.
     ///   - containerAdapterLocator: Default `ContainerAdapterLocator` instance.
     ///   - stackIterator: Default `StackIterator` instance.
-    @MainActor
-    public static func configureWith(logger: Logger? = DefaultLogger(.warnings),
-                                     windowProvider: WindowProvider = KeyWindowProvider(),
-                                     containerAdapterLocator: ContainerAdapterLocator = DefaultContainerAdapterLocator(),
-                                     stackIterator: StackIterator? = nil) {
+    public class func configureWith(logger: Logger? = DefaultLogger(.warnings),
+                                    windowProvider: WindowProvider = KeyWindowProvider(),
+                                    containerAdapterLocator: ContainerAdapterLocator = DefaultContainerAdapterLocator(),
+                                    stackIterator: StackIterator? = nil) {
+        objc_sync_enter(lock)
+        defer {
+            objc_sync_exit(lock)
+        }
         guard configurationStorage == nil else {
             assertionFailure("Default values were initialised once. \(#function) must be called before any RouteComposer instantiation!")
             return

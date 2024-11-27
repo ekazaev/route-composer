@@ -13,7 +13,7 @@
 import Foundation
 import UIKit
 
-struct PostRoutingTaskBox<PT: PostRoutingTask>: AnyPostRoutingTask, @preconcurrency CustomStringConvertible {
+struct PostRoutingTaskBox<PT: PostRoutingTask>: AnyPostRoutingTask, MainThreadChecking, CustomStringConvertible {
 
     let postRoutingTask: PT
 
@@ -30,6 +30,7 @@ struct PostRoutingTaskBox<PT: PostRoutingTask>: AnyPostRoutingTask, @preconcurre
                                             .init("\(String(describing: postRoutingTask.self)) does not support \(String(describing: viewController.self))."))
         }
         let typedDestination: PT.Context = try context.value()
+        assertIfNotMainThread()
         postRoutingTask.perform(on: typedViewController, with: typedDestination, routingStack: routingStack)
     }
 

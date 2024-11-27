@@ -13,11 +13,9 @@
 import Foundation
 import UIKit
 
-@MainActor
-let associatedObjectHandle = UnsafeRawPointer(UnsafeMutablePointer.allocate(capacity: 0))
+var associatedObjectHandle: UInt8 = 0
 
 /// `UIViewController` should conform to `Dismissible` protocol to be used with `DismissalMethodProvidingContextTask`.
-@MainActor
 public protocol Dismissible where Self: UIViewController {
 
     // MARK: Associated types
@@ -34,7 +32,6 @@ public protocol Dismissible where Self: UIViewController {
 
 // MARK: Helper methods
 
-@MainActor
 public extension Dismissible {
 
     /// Dismisses current `UIViewController` using dismissal block provided by `DismissalMethodProvidingContextTask`
@@ -57,7 +54,6 @@ public extension Dismissible {
 
 // MARK: Helper methods where the DismissalTargetContext is Any?
 
-@MainActor
 public extension Dismissible where DismissalTargetContext == Any? {
 
     /// Dismisses current `UIViewController` using dismissal block provided by `DismissalMethodProvidingContextTask`
@@ -73,7 +69,6 @@ public extension Dismissible where DismissalTargetContext == Any? {
 
 // MARK: Helper methods where the DismissalTargetContext is Void
 
-@MainActor
 public extension Dismissible where DismissalTargetContext == Void {
 
     /// Dismisses current `UIViewController` using dismissal block provided by `DismissalMethodProvidingContextTask`
@@ -89,19 +84,16 @@ public extension Dismissible where DismissalTargetContext == Void {
 
 /// `DismissibleWithRuntimeStorage` simplifies `Dismissible` protocol conformance implementing required
 /// `dismissalBlock` using Objective C runtime.
-
-@MainActor
 public protocol DismissibleWithRuntimeStorage: Dismissible {}
 
-@MainActor
 public extension DismissibleWithRuntimeStorage {
 
     var dismissalBlock: ((_: Self, _: DismissalTargetContext, _: Bool, _: ((_: RoutingResult) -> Void)?) -> Void)? {
         get {
-            objc_getAssociatedObject(self, associatedObjectHandle) as? (_: Self, _: DismissalTargetContext, _: Bool, _: ((_: RoutingResult) -> Void)?) -> Void
+            objc_getAssociatedObject(self, &associatedObjectHandle) as? (_: Self, _: DismissalTargetContext, _: Bool, _: ((_: RoutingResult) -> Void)?) -> Void
         }
         set {
-            objc_setAssociatedObject(self, associatedObjectHandle, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            objc_setAssociatedObject(self, &associatedObjectHandle, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
 

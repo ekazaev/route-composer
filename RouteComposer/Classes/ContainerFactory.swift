@@ -19,7 +19,6 @@ import UIKit
 /// The `Router` uses `ContainerAction.perform(...)` method of a `ContainerAction` and then populates a full stack of the view controllers
 /// that were built by the associated factories in one go.
 /// Example: `Router` requires to populate N-view controllers into `UINavigationController`'s stack.
-@MainActor
 public protocol ContainerFactory: AbstractFactory where ViewController: ContainerViewController {
 
     // MARK: Associated types
@@ -45,7 +44,6 @@ public protocol ContainerFactory: AbstractFactory where ViewController: Containe
 
 // MARK: Default implementation
 
-@MainActor
 public extension ContainerFactory {
 
     /// Default implementation does nothing
@@ -55,7 +53,6 @@ public extension ContainerFactory {
 
 // MARK: Helper methods
 
-@MainActor
 public extension ContainerFactory {
 
     /// Builds a `ContainerFactory` view controller.
@@ -74,7 +71,6 @@ public extension ContainerFactory {
 
 // MARK: Helper methods where the Context is Any?
 
-@MainActor
 public extension ContainerFactory where Context == Any? {
 
     /// Builds a `ContainerFactory` view controller.
@@ -93,7 +89,6 @@ public extension ContainerFactory where Context == Any? {
 
 // MARK: Helper methods where the Context is Void
 
-@MainActor
 public extension ContainerFactory where Context == Void {
 
     /// Builds a `ContainerFactory` view controller.

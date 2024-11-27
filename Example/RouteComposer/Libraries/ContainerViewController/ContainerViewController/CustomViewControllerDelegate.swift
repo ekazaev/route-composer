@@ -12,7 +12,6 @@
 
 import Foundation
 
-@MainActor
 public protocol CustomViewControllerDelegate: AnyObject {
 
     func dismissCustomContainer(controller: CustomContainerController)

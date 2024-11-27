@@ -13,7 +13,6 @@
 import Foundation
 import UIKit
 
-@MainActor
 protocol AnyFinder {
 
     func findViewController(with context: AnyContext) throws -> UIViewController?

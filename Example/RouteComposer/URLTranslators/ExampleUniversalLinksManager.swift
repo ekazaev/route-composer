@@ -18,15 +18,12 @@ import UIKit
 // transforming data that is contained in the `URL` into `AnyDestination` instance.
 enum ExampleUniversalLinksManager {
 
-    @MainActor
     private static var translators: [ExampleURLTranslator] = []
 
-    @MainActor
     static func register(translator: ExampleURLTranslator) {
         translators.append(translator)
     }
 
-    @MainActor
     static func destination(for url: URL) -> AnyDestination? {
         guard let translator = translators.first(where: { $0.destination(from: url) != nil }) else {
             return nil
@@ -39,7 +36,6 @@ enum ExampleUniversalLinksManager {
 
 extension ExampleUniversalLinksManager {
 
-    @MainActor
     static func configure() {
         ExampleUniversalLinksManager.register(translator: ColorURLTranslator())
         ExampleUniversalLinksManager.register(translator: ProductURLTranslator())

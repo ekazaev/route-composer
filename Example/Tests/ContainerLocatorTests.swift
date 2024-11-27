@@ -14,7 +14,6 @@
 import UIKit
 import XCTest
 
-@MainActor
 class ContainerLocatorTests: XCTestCase {
 
     class TestContainerController: UIViewController, CustomContainerViewController {

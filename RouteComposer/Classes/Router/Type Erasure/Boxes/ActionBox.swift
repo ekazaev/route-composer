@@ -13,7 +13,7 @@
 import Foundation
 import UIKit
 
-struct ActionBox<A: Action>: AnyAction, AnyActionBox, @preconcurrency CustomStringConvertible {
+struct ActionBox<A: Action>: AnyAction, AnyActionBox, CustomStringConvertible, MainThreadChecking {
 
     let action: A
 
@@ -33,12 +33,14 @@ struct ActionBox<A: Action>: AnyAction, AnyActionBox, @preconcurrency CustomStri
                                                           .init("Action \(action.self) cannot be performed on \(existingController)."))))
             return
         }
+        assertIfNotMainThread()
         postponedIntegrationHandler.purge(animated: animated, completion: { result in
             guard result.isSuccessful else {
                 completion(result)
                 return
             }
             action.perform(with: viewController, on: typedExistingViewController, animated: animated) { result in
+                assertIfNotMainThread()
                 completion(result)
             }
         })

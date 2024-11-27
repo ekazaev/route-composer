@@ -12,7 +12,6 @@
 
 import Foundation
 
-@MainActor
 protocol AnyFactoryBox: AnyFactory {
 
     associatedtype FactoryType: AbstractFactory
@@ -23,14 +22,12 @@ protocol AnyFactoryBox: AnyFactory {
 
 }
 
-@MainActor
 protocol PreparableAnyFactory: AnyFactory, PreparableEntity {
 
     var isPrepared: Bool { get set }
 
 }
 
-@MainActor
 extension AnyFactoryBox {
 
     mutating func scrapeChildren(from factories: [(factory: AnyFactory, context: AnyContext)]) throws -> [(factory: AnyFactory, context: AnyContext)] {
@@ -39,10 +36,10 @@ extension AnyFactoryBox {
 
 }
 
-@MainActor
-extension AnyFactoryBox where Self: PreparableAnyFactory {
+extension AnyFactoryBox where Self: PreparableAnyFactory, Self: MainThreadChecking {
 
     mutating func prepare(with context: AnyContext) throws {
+        assertIfNotMainThread()
         let typedContext: FactoryType.Context = try context.value()
         try factory.prepare(with: typedContext)
         isPrepared = true
@@ -50,7 +47,6 @@ extension AnyFactoryBox where Self: PreparableAnyFactory {
 
 }
 
-@MainActor
 extension AnyFactory where Self: CustomStringConvertible & AnyFactoryBox {
 
     var description: String {

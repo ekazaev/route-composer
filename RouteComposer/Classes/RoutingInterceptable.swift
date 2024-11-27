@@ -16,7 +16,6 @@ import UIKit
 /// `UIViewController` that conforms to this protocol may overtake the control of the view controllers stack and
 /// forbid the `Router` to dismiss or cover itself with another view controller.
 /// Return false if the view controller can be dismissed.
-@MainActor
 public protocol RoutingInterceptable where Self: UIViewController {
 
     // MARK: Properties to implement
@@ -32,7 +31,6 @@ public protocol RoutingInterceptable where Self: UIViewController {
 
 // MARK: Helper methods
 
-@MainActor
 public extension RoutingInterceptable {
 
     /// Default implementation returns regular `UIViewController.parent`

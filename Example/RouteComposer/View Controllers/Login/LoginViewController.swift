@@ -15,7 +15,6 @@ import RouteComposer
 import UIKit
 
 // I do not want to create login service for demo so it is just a variable
-@MainActor
 var isLoggedIn: Bool = false
 
 class LoginInterceptor<C>: RoutingInterceptor {
@@ -94,8 +93,7 @@ class LoginViewController: UIViewController, ExampleAnalyticsSupport {
             let mainQueue = DispatchQueue.main
             let deadline = DispatchTime.now() + .seconds(2)
             activityIndicator.startAnimating()
-            Task { @MainActor in
-                 try await Task.sleep(nanoseconds: deadline.uptimeNanoseconds)
+            mainQueue.asyncAfter(deadline: deadline) {
                 self.loginButton.isEnabled = true
                 self.activityIndicator.stopAnimating()
                 isLoggedIn = true

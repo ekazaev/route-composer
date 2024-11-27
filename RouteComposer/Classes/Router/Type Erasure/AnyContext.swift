@@ -12,7 +12,6 @@
 
 import Foundation
 
-@MainActor
 protocol AnyContext {
     func value<Context>() throws -> Context
 }

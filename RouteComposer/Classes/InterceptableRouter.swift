@@ -14,7 +14,6 @@ import Foundation
 import UIKit
 
 /// The router implementing this protocol should support global tasks.
-@MainActor
 public protocol InterceptableRouter: Router {
 
     /// Adds `RoutingInterceptor` instance

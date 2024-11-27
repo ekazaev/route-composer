@@ -15,7 +15,6 @@ import Foundation
 import UIKit
 import XCTest
 
-@MainActor
 class AssemblyTest: XCTestCase {
 
     struct NilContainerFactory<VC: ContainerViewController, C>: ContainerFactory, NilEntity {

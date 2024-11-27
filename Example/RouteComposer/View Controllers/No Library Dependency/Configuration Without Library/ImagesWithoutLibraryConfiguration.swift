@@ -20,13 +20,10 @@ import UIKit
 // will make this implementation much more complicated.
 class ImagesWithoutLibraryConfiguration {
 
-    @MainActor
     static let shared = ImagesWithoutLibraryConfiguration()
 
-    @MainActor
     private static let handler = ImagesWithoutLibraryHandler()
 
-    @MainActor
     func showCustomController() {
         // Handled by CustomContainerFactory
         let storyboard = UIStoryboard(name: "Images", bundle: Bundle.main)

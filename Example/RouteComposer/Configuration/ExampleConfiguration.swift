@@ -16,10 +16,8 @@ import RouteComposer
 import SwiftUI
 #endif
 
-@MainActor
 let transitionController = BlurredBackgroundTransitionController()
 
-@MainActor
 protocol ExampleScreenConfiguration {
 
     var homeScreen: DestinationStep<UITabBarController, Any?> { get }
@@ -205,7 +203,6 @@ struct AlternativeExampleConfiguration: ExampleScreenConfiguration {
 enum ConfigurationHolder {
 
     // Declared as static to avoid dependency injection in the Example app. So this variable is available everywhere.
-    @MainActor
     static var configuration: ExampleScreenConfiguration = ExampleConfiguration()
 
 }

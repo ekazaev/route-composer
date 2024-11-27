@@ -14,7 +14,6 @@ import Foundation
 import UIKit
 
 /// Provides `UIWindow`
-@MainActor
 public protocol WindowProvider {
 
     // MARK: Properties to implement

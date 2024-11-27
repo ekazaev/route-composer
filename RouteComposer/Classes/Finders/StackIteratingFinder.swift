@@ -15,7 +15,6 @@ import UIKit
 
 /// `StackIteratingFinder` iterates through the view controllers stack
 /// following the search options provided. It simplifies the creation of the finders for a hosting app.
-@MainActor
 public protocol StackIteratingFinder: Finder {
 
     // MARK: Associated types
@@ -44,7 +43,6 @@ public protocol StackIteratingFinder: Finder {
 
 }
 
-@MainActor
 public extension StackIteratingFinder {
 
     func findViewController(with context: Context) throws -> ViewController? {

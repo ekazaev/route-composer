@@ -45,7 +45,7 @@ struct SwiftUIContentView: View, ContextInstantiatable, ContextChecking, Context
         currentContext == context
     }
 
-    nonisolated mutating func setup(with context: String) throws {
+    mutating func setup(with context: String) throws {
         currentContext = context
     }
 

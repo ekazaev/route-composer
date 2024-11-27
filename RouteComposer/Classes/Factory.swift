@@ -21,7 +21,6 @@ import UIKit
 /// `productID` to display its content, and the `productID` is a `UUID`, then the type of `Context` is the `UUID`. The internal logic
 /// belongs to the view controller. `Context` answers the questions *What to I need to present a ProductViewController* and *Am I
 /// already presenting a ProductViewController for this product*.
-@MainActor
 public protocol Factory: AbstractFactory {
 
     // MARK: Associated types
@@ -45,7 +44,6 @@ public protocol Factory: AbstractFactory {
 
 // MARK: Default implementation
 
-@MainActor
 public extension Factory {
 
     /// Default implementation does nothing
@@ -55,7 +53,6 @@ public extension Factory {
 
 // MARK: Helper methods
 
-@MainActor
 public extension Factory {
 
     /// Prepares the `Factory` and builds its `UIViewController`
@@ -69,7 +66,6 @@ public extension Factory {
 
 // MARK: Helper methods where the Context is Any?
 
-@MainActor
 public extension Factory where Context == Any? {
 
     /// Builds a `Factory`'s view controller.
@@ -88,7 +84,6 @@ public extension Factory where Context == Any? {
 
 // MARK: Helper methods where the Context is Void
 
-@MainActor
 public extension Factory where Context == Void {
 
     /// Builds a `Factory`'s view controller.

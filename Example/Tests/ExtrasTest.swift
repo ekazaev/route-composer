@@ -15,7 +15,6 @@ import Foundation
 import UIKit
 import XCTest
 
-@MainActor
 class ExtrasTest: XCTestCase {
 
     let router = SingleNavigationRouter(router: DefaultRouter(), lock: SingleNavigationLock())

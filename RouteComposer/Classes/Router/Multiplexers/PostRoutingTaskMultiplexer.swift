@@ -13,7 +13,7 @@
 import Foundation
 import UIKit
 
-struct PostRoutingTaskMultiplexer: AnyPostRoutingTask, @preconcurrency CustomStringConvertible {
+struct PostRoutingTaskMultiplexer: AnyPostRoutingTask, CustomStringConvertible {
 
     private let tasks: [AnyPostRoutingTask]
 

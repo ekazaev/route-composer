@@ -13,7 +13,6 @@
 import Foundation
 
 /// Provides `ContainerAdapter` instance.
-@MainActor
 public protocol ContainerAdapterLocator {
 
     // MARK: Methods to implement

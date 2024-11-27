@@ -18,7 +18,6 @@ public enum GeneralStep {
 
     // MARK: Internal entities
 
-    @MainActor
     struct RootViewControllerStep: RoutingStep, PerformableStep {
 
         let windowProvider: WindowProvider
@@ -37,7 +36,6 @@ public enum GeneralStep {
 
     }
 
-    @MainActor
     struct CurrentViewControllerStep: RoutingStep, PerformableStep {
 
         let windowProvider: WindowProvider
@@ -56,7 +54,6 @@ public enum GeneralStep {
 
     }
 
-    @MainActor
     struct FinderStep: RoutingStep, PerformableStep {
 
         let finder: AnyFinder?
@@ -76,19 +73,16 @@ public enum GeneralStep {
     // MARK: Steps
 
     /// Returns the root view controller of the key window.
-    @MainActor
     public static func root<C>(windowProvider: WindowProvider = RouteComposerDefaults.shared.windowProvider) -> DestinationStep<UIViewController, C> {
         DestinationStep(RootViewControllerStep(windowProvider: windowProvider))
     }
 
     /// Returns the topmost presented view controller.
-    @MainActor
     public static func current<C>(windowProvider: WindowProvider = RouteComposerDefaults.shared.windowProvider) -> DestinationStep<UIViewController, C> {
         DestinationStep(CurrentViewControllerStep(windowProvider: windowProvider))
     }
 
     /// Returns the resulting view controller of the finder provided.
-    @MainActor
     public static func custom<F: Finder>(using finder: F) -> DestinationStep<F.ViewController, F.Context> {
         DestinationStep(FinderStep(finder: finder))
     }

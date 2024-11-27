@@ -13,7 +13,6 @@
 import Foundation
 import UIKit
 
-@MainActor
 protocol AnyFactory {
 
     var action: AnyAction { get }

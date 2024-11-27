@@ -19,7 +19,6 @@ private protocol TestProtocol {}
 
 private struct TestImplementation: TestProtocol {}
 
-@MainActor
 class RouterTests: XCTestCase {
 
     let router = DefaultRouter()

@@ -13,7 +13,6 @@
 import UIKit
 
 /// Helper instance used to update the stack of `UIViewController`s
-@MainActor
 public protocol StackPresentationHandler {
 
     // MARK: Methods to implement

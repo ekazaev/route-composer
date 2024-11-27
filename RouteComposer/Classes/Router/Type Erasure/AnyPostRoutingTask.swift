@@ -13,7 +13,6 @@
 import Foundation
 import UIKit
 
-@MainActor
 protocol AnyPostRoutingTask {
 
     func perform(on viewController: UIViewController,

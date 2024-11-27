@@ -15,7 +15,6 @@ import Foundation
 import UIKit
 import XCTest
 
-@MainActor
 class MultiplexerTest: XCTestCase {
 
     func testRoutingInterceptorPrepare() {

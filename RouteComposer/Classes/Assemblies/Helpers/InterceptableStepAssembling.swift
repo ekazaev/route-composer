@@ -14,7 +14,6 @@ import Foundation
 import UIKit
 
 /// Assembly protocol allowing to build an interceptable step.
-@MainActor
 protocol InterceptableStepAssembling {
 
     // MARK: Associated types

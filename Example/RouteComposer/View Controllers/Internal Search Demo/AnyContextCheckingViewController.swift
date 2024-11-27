@@ -16,7 +16,6 @@ import UIKit
 
 // This view controller allows us to have the same ContextChecking UIViewController for testing
 // as its currently is swift it is impossible to write `some UIViewController: ContextChecking where Context == SOMETHING`
-@MainActor
 class AnyContextCheckingViewController<Context: Equatable>: UIViewController, ContextChecking {
 
     func isTarget(for context: Context) -> Bool {

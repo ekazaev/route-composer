@@ -15,7 +15,6 @@ import RouteComposer
 import UIKit
 
 enum WishListConfiguration {
-    @MainActor
     static let wishListScreen = StepAssembly(
         finder: ClassFinder<WishListViewController, WishListContext>(),
         factory: StoryboardFactory(name: "TabBar", identifier: "WishListViewController"))
@@ -27,12 +26,10 @@ enum WishListConfiguration {
         .from(GeneralStep.current())
         .assemble()
 
-    @MainActor
     static func favorites() -> Destination<WishListViewController, WishListContext> {
         Destination(to: wishListScreen, with: WishListContext.favorites)
     }
 
-    @MainActor
     static func collections() -> Destination<WishListViewController, WishListContext> {
         Destination(to: wishListScreen, with: WishListContext.collections)
     }

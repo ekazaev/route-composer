@@ -41,7 +41,6 @@ class CustomContainerFactory<C>: SimpleContainerFactory {
 
 }
 
-@MainActor
 extension CustomContainerController: CustomContainerViewController {
 
     public var adapter: ContainerAdapter {

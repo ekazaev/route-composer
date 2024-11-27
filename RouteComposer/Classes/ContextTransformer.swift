@@ -13,7 +13,6 @@
 import Foundation
 
 /// Transformer to be applied to transform one type of context to another.
-@MainActor
 public protocol ContextTransformer {
 
     // MARK: Associated types

@@ -14,7 +14,6 @@ import Foundation
 import UIKit
 
 /// Helper class to build a chain of steps. Can not be used directly.
-@MainActor
 public struct ActionConnectingAssembly<VC: UIViewController, C> {
 
     // MARK: Properties

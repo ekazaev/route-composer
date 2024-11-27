@@ -14,7 +14,6 @@
 import UIKit
 import XCTest
 
-@MainActor
 class ContainerTests: XCTestCase {
 
     func testChildCoordinatorBuild() {
