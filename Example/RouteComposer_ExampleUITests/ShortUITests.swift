@@ -3,7 +3,7 @@
 // ShortUITests.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2023.
+// Created by Eugene Kazaev in 2018-2024.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -263,13 +263,15 @@ class ShortUITests: XCTestCase {
         XCTAssertTrue(app.otherElements["homeViewController"].exists)
 
         app.buttons["Go to Product 00"].tap()
-        XCTAssertTrue(app.otherElements["productViewController+00"].exists)
+        XCTAssertTrue(app.otherElements["productViewController+00"].waitForExistence(timeout: 20))
 
         app.buttons["Go to next Product from Circle"].tap()
         XCTAssertTrue(app.otherElements["productViewController+01"].waitForExistence(timeout: 20))
 
         app.buttons["Go to next Product from Circle"].tap()
         XCTAssertTrue(app.otherElements["productViewController+02"].waitForExistence(timeout: 20))
+
+        wait(2)
 
         app.buttons.matching(identifier: "Go to Product 01").element(boundBy: 0).tap()
         XCTAssertTrue(app.otherElements["productViewController+01"].waitForExistence(timeout: 20))
@@ -307,4 +309,12 @@ class ShortUITests: XCTestCase {
         XCTAssertTrue(app.otherElements["settingsViewController"].waitForExistence(timeout: 3))
     }
 
+}
+
+extension XCTestCase {
+    func wait(_ timeout: TimeInterval) {
+        let delayExpectation = XCTestExpectation()
+        delayExpectation.isInverted = true
+        wait(for: [delayExpectation], timeout: 5)
+    }
 }

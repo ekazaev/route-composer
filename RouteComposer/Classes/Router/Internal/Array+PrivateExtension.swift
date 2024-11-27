@@ -3,7 +3,7 @@
 // Array+PrivateExtension.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2023.
+// Created by Eugene Kazaev in 2018-2024.
 // Distributed under the MIT license.
 //
 // Become a sponsor:

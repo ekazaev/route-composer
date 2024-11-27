@@ -3,7 +3,7 @@
 // InternalSearchConfiguration.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2023.
+// Created by Eugene Kazaev in 2018-2024.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -14,7 +14,7 @@ import Foundation
 import RouteComposer
 import UIKit
 
-struct InternalSearchConfiguration {
+enum InternalSearchConfiguration {
     private static let completeFactory = CompleteFactoryAssembly(factory: TabBarControllerFactory())
         .with(CompleteFactoryAssembly(factory: NavigationControllerFactory<UINavigationController, MainScreenContext>(configuration: { $0.tabBarItem.title = "Home" /* One way */ }))
             .with(ClassFactory<HomeViewController, MainScreenContext>())

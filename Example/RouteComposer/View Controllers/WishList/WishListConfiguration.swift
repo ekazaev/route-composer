@@ -3,7 +3,7 @@
 // WishListConfiguration.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2023.
+// Created by Eugene Kazaev in 2018-2024.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -14,7 +14,7 @@ import Foundation
 import RouteComposer
 import UIKit
 
-struct WishListConfiguration {
+enum WishListConfiguration {
     static let wishListScreen = StepAssembly(
         finder: ClassFinder<WishListViewController, WishListContext>(),
         factory: StoryboardFactory(name: "TabBar", identifier: "WishListViewController"))

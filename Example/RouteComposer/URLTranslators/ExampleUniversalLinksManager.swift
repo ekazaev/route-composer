@@ -3,7 +3,7 @@
 // ExampleUniversalLinksManager.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2023.
+// Created by Eugene Kazaev in 2018-2024.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -16,7 +16,7 @@ import UIKit
 
 // Simplest universal link manager. You can use any library or your own implementation using the similar strategy
 // transforming data that is contained in the `URL` into `AnyDestination` instance.
-struct ExampleUniversalLinksManager {
+enum ExampleUniversalLinksManager {
 
     private static var translators: [ExampleURLTranslator] = []
 

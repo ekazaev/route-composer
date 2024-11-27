@@ -3,7 +3,7 @@
 // DefaultRouter+Extension.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2023.
+// Created by Eugene Kazaev in 2018-2024.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -159,17 +159,17 @@ extension DefaultRouter {
                 return
             }
 
-            postTasks.forEach {
-                let postTaskSlip = PostTaskSlip(viewController: viewController, postTask: $0)
+            for item in postTasks {
+                let postTaskSlip = PostTaskSlip(viewController: viewController, postTask: item)
                 taskSlips.append((postTaskSlip: postTaskSlip, context: context))
             }
         }
 
         final func perform() throws {
             var viewControllers: [UIViewController] = []
-            taskSlips.forEach {
-                guard let viewController = $0.postTaskSlip.viewController, !viewControllers.contains(viewController) else {
-                    return
+            for taskSlip in taskSlips {
+                guard let viewController = taskSlip.postTaskSlip.viewController, !viewControllers.contains(viewController) else {
+                    continue
                 }
                 viewControllers.append(viewController)
             }

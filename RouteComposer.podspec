@@ -1,8 +1,8 @@
 Pod::Spec.new do |s|
   s.name             = 'RouteComposer'
-  s.version          = '2.10.5'
+  s.version          = '2.10.6'
   s.summary          = 'Protocol oriented library that helps to handle view controllers composition, navigation and deep linking tasks.'
-  s.swift_version    = '5.9'
+  s.swift_version    = '5.10'
 
   s.description      = <<-DESC
     RouteComposer is the protocol oriented, Cocoa UI abstractions based library that helps to handle view controllers composition, navigation

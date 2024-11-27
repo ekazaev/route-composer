@@ -3,7 +3,7 @@
 // ContainerAdapter.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2023.
+// Created by Eugene Kazaev in 2018-2024.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -27,6 +27,8 @@ import UIKit
 public protocol ContainerAdapter {
 
     // MARK: Properties to implement
+
+    var overriddenParentViewController: UIViewController? { get }
 
     /// All `UIViewController` instances that adapting `ContainerViewController` currently has in the stack
     var containedViewControllers: [UIViewController] { get }
@@ -62,6 +64,10 @@ public protocol ContainerAdapter {
 // MARK: Helper methods
 
 public extension ContainerAdapter {
+
+    var overriddenParentViewController: UIViewController? {
+        return nil
+    }
 
     /// Checks if the provided view controller is present amongst the contained view controllers.
     ///

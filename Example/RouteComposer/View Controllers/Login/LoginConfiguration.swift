@@ -3,7 +3,7 @@
 // LoginConfiguration.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2023.
+// Created by Eugene Kazaev in 2018-2024.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -13,7 +13,7 @@
 import Foundation
 import RouteComposer
 
-struct LoginConfiguration {
+enum LoginConfiguration {
 
     static func login() -> Destination<LoginViewController, Void> {
         let loginScreen = StepAssembly(finder: ClassFinder<LoginViewController, Void>(),
