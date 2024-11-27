@@ -18,6 +18,7 @@ public enum GeneralStep {
 
     // MARK: Internal entities
 
+    @MainActor
     struct RootViewControllerStep: RoutingStep, PerformableStep {
 
         let windowProvider: WindowProvider
@@ -36,6 +37,7 @@ public enum GeneralStep {
 
     }
 
+    @MainActor
     struct CurrentViewControllerStep: RoutingStep, PerformableStep {
 
         let windowProvider: WindowProvider
@@ -54,6 +56,7 @@ public enum GeneralStep {
 
     }
 
+    @MainActor
     struct FinderStep: RoutingStep, PerformableStep {
 
         let finder: AnyFinder?

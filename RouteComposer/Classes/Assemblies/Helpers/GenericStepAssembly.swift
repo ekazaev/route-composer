@@ -14,6 +14,7 @@ import Foundation
 import UIKit
 
 /// Abstract builder class that helps to create a `DestinationStep` instance with correct settings.
+@MainActor
 public class GenericStepAssembly<VC: UIViewController, C>: InterceptableStepAssembling {
 
     // MARK: Associated types

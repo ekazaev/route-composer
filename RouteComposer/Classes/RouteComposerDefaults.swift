@@ -35,15 +35,19 @@ public final class RouteComposerDefaults {
     }()
 
     /// Default `Logger` instance.
+    @MainActor
     public private(set) var logger: Logger?
 
     /// Default `ContainerAdapterLocator` instance.
+    @MainActor
     public private(set) var containerAdapterLocator: ContainerAdapterLocator
 
     /// Default `StackIterator` instance.
+    @MainActor
     public private(set) var stackIterator: StackIterator
 
     /// Default `WindowProvider` instance.
+    @MainActor
     public private(set) var windowProvider: WindowProvider
 
     @MainActor

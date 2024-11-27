@@ -16,6 +16,7 @@ import RouteComposer
 import SwiftUI
 #endif
 
+@MainActor
 let transitionController = BlurredBackgroundTransitionController()
 
 @MainActor
