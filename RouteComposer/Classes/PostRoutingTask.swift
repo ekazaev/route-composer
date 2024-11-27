@@ -14,6 +14,7 @@ import Foundation
 import UIKit
 
 /// The task to be executed after navigation process happened.
+@MainActor
 public protocol PostRoutingTask {
 
     // MARK: Associated types
@@ -39,6 +40,7 @@ public protocol PostRoutingTask {
 
 // MARK: Helper methods where the Context is Any?
 
+@MainActor
 public extension PostRoutingTask where Context == Any? {
 
     /// Method to be executed by the `Router` after all the view controllers have been built into the stack.
@@ -55,6 +57,7 @@ public extension PostRoutingTask where Context == Any? {
 
 // MARK: Helper methods where the Context is Void
 
+@MainActor
 public extension PostRoutingTask where Context == Void {
 
     /// Method to be executed by the `Router` after all the view controllers have been built into the stack.

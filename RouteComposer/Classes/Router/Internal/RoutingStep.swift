@@ -13,4 +13,5 @@
 import UIKit
 
 /// Represents a single step for the `Router` to make.
+@MainActor
 protocol RoutingStep {}

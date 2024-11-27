@@ -14,9 +14,11 @@ import UIKit
 
 /// Represents an action that has to be applied to the `UIViewController` after it has
 /// been built (eg: push to navigation stack, present modally, push to tab, etc)
+@MainActor
 public protocol Action: AbstractAction {}
 
 /// Represents an action to be used by a `ContainerFactory` to build it's children view controller stack
+@MainActor
 public protocol ContainerAction: AbstractAction where ViewController: ContainerViewController {
 
     // MARK: Methods to implement
@@ -33,6 +35,7 @@ public protocol ContainerAction: AbstractAction where ViewController: ContainerV
 
 // MARK: Default implementation
 
+@MainActor
 public extension ContainerAction {
 
     func perform(embedding viewController: UIViewController, in childViewControllers: inout [UIViewController]) {

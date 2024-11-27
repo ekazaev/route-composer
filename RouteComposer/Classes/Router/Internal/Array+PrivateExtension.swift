@@ -13,6 +13,7 @@
 import Foundation
 import UIKit
 
+@MainActor
 extension Array where Element: UIViewController {
 
     var nonDismissibleViewController: UIViewController? {

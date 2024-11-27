@@ -15,6 +15,7 @@ import Foundation
 import UIKit
 import XCTest
 
+@MainActor
 class FactoryTest: XCTestCase {
 
     func testClassFactoryByType() {

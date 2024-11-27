@@ -12,6 +12,7 @@
 
 import Foundation
 
+@MainActor
 protocol AnyContextTransformer {
 
     func transform<Context>(_ context: AnyContext) throws -> Context

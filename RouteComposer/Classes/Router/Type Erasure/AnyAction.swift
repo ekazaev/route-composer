@@ -13,6 +13,7 @@
 import Foundation
 import UIKit
 
+@MainActor
 protocol PostponedActionIntegrationHandler: AnyObject {
 
     var containerViewController: ContainerViewController? { get }
@@ -27,6 +28,7 @@ protocol PostponedActionIntegrationHandler: AnyObject {
 
 }
 
+@MainActor
 protocol AnyAction {
 
     func perform(with viewController: UIViewController,

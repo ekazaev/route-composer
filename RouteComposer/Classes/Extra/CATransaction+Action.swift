@@ -25,6 +25,7 @@ public extension CATransaction {
     /// Wraps `Action` in to `CATransaction`
     ///
     /// - Parameter action: `Action` instance
+    @MainActor
     static func wrap<A: Action>(_ action: A) -> CATransactionWrappedAction<A> {
         CATransactionWrappedAction(action)
     }
@@ -32,6 +33,7 @@ public extension CATransaction {
     /// Wraps `ContainerAction` in to `CATransaction`
     ///
     /// - Parameter action: `ContainerAction` instance
+    @MainActor
     static func wrap<A: ContainerAction>(_ action: A) -> CATransactionWrappedContainerAction<A> {
         CATransactionWrappedContainerAction(action)
     }

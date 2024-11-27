@@ -34,6 +34,7 @@ public protocol ContextAcceptingView {
     ///
     /// - Parameter context: `Context` instance.
     /// - Throws: throws `Error` if `Context` instance is not supported.
+    @MainActor
     static func checkCompatibility(with context: Context) throws
 
     /// `ContextSettingTask` will call this method to provide the `Context` instance to the `View`
@@ -51,6 +52,7 @@ public protocol ContextAcceptingView {
 public extension ContextAcceptingView {
 
     /// Default implementation does nothing.
+    @MainActor
     static func checkCompatibility(with context: Context) throws {}
 
 }

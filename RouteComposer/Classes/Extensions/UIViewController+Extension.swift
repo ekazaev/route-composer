@@ -23,6 +23,7 @@ public extension UIViewController {
     ///   - predicate: A block that should return `true` if the `UIViewController` instance provided is the
     ///     one that is being searched for.
     /// - Returns: A `UIViewController` instance if found, `nil` otherwise.
+    @MainActor
     static func findViewController(in viewController: UIViewController,
                                    options: SearchOptions = .currentAndUp,
                                    containerAdapterLocator: ContainerAdapterLocator = RouteComposerDefaults.shared.containerAdapterLocator,

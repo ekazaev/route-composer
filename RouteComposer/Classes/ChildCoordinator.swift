@@ -14,6 +14,7 @@ import Foundation
 import UIKit
 
 /// Helps to build a child view controller stack
+@MainActor
 public struct ChildCoordinator {
 
     // MARK: Properties

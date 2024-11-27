@@ -15,6 +15,7 @@ import UIKit
 
 /// An instance that conforms to the `Finder` protocol will be used by the `Router` to find out if some `UIViewController`
 /// instance is integrated into the view controller stack
+@MainActor
 public protocol Finder {
 
     // MARK: Associated types
@@ -37,6 +38,7 @@ public protocol Finder {
 
 // MARK: Helper methods
 
+@MainActor
 public extension Finder {
 
     /// Returns the view controller instance if it is present in the stack. Doesn't throw any exceptions in case the search
@@ -56,6 +58,7 @@ public extension Finder {
 
 // MARK: Helper methods where the Context is Any?
 
+@MainActor
 public extension Finder where Context == Any? {
 
     /// Returns the view controller instance if it is present in the stack.
@@ -77,6 +80,7 @@ public extension Finder where Context == Any? {
 
 // MARK: Helper methods where the Context is Void
 
+@MainActor
 public extension Finder where Context == Void {
 
     /// Returns the view controller instance if it is present in the stack.

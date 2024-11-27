@@ -13,6 +13,7 @@
 import Foundation
 import UIKit
 
+@MainActor
 protocol AnyContextTask {
 
     mutating func prepare(with context: AnyContext) throws

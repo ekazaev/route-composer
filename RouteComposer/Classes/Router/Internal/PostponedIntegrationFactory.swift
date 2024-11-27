@@ -13,7 +13,8 @@
 import Foundation
 import UIKit
 
-struct PostponedIntegrationFactory: CustomStringConvertible {
+@MainActor
+struct PostponedIntegrationFactory: @preconcurrency CustomStringConvertible {
 
     var factory: AnyFactory
 

@@ -12,6 +12,7 @@
 
 import Foundation
 
+@MainActor
 public protocol ImagesControllerDelegate: AnyObject {
 
     func didSelect(imageID: String, in controller: ImagesViewController)

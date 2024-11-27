@@ -39,6 +39,7 @@ extension DefaultStackIterator.StartingPoint: Equatable {
 
 }
 
+@MainActor
 class FinderTest: XCTestCase {
 
     class TestContextCheckingViewController: UIViewController, ContextChecking {

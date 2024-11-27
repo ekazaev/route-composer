@@ -14,6 +14,7 @@ import UIKit
 
 /// Represents any action that has to be applied to the `UIViewController` after it has
 /// been built (eg: push to navigation stack, present modally, push to tab, etc)
+@MainActor
 public protocol AbstractAction {
 
     // MARK: Associated types

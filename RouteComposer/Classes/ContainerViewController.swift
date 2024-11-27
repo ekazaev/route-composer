@@ -17,4 +17,5 @@ import UIKit
 ///
 /// All the methods `ContainerViewController` supports are implemented in corresponding `ContainerAdapter`
 /// provided by `ContainerAdapterLocator`.
+@MainActor
 public protocol ContainerViewController: RoutingInterceptable {}

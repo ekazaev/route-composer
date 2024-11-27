@@ -17,6 +17,7 @@ import UIKit
 ///
 /// ### NB
 /// The `ContextTask` will be applied to the new `UIViewController` before it's integration into the stack.
+@MainActor
 public protocol ContextTask {
 
     // MARK: Associated types

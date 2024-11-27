@@ -13,6 +13,7 @@
 import Foundation
 import UIKit
 
+@MainActor
 protocol EntitiesProvider {
 
     var finder: AnyFinder? { get }
@@ -21,6 +22,7 @@ protocol EntitiesProvider {
 
 }
 
+@MainActor
 protocol TaskProvider {
 
     var interceptor: AnyRoutingInterceptor? { get }
@@ -34,7 +36,7 @@ struct BaseStep: RoutingStep,
     ChainableStep,
     InterceptableStep,
     PerformableStep,
-    CustomStringConvertible {
+    @preconcurrency CustomStringConvertible {
 
     private var previousStep: RoutingStep?
 

@@ -14,6 +14,7 @@
 import UIKit
 import XCTest
 
+@MainActor
 class DestinationStepTests: XCTestCase {
 
     struct TestFinder<VC: UIViewController, C>: Finder {

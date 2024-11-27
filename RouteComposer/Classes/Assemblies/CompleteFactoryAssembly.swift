@@ -22,6 +22,7 @@ import UIKit
 ///         .assemble()
 /// ```
 /// *NB: Order matters here*
+@MainActor
 public final class CompleteFactoryAssembly<FC: ContainerFactory> {
 
     // MARK: Internal entities

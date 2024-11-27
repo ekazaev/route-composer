@@ -13,12 +13,14 @@
 import Foundation
 import UIKit
 
+@MainActor
 protocol StepCaseResolver {
 
     func resolve(with context: AnyContext) -> RoutingStep?
 
 }
 
+@MainActor
 final class SwitcherStep: RoutingStep, ChainableStep {
 
     final var resolvers: [StepCaseResolver]

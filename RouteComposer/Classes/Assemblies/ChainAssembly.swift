@@ -14,6 +14,7 @@ import Foundation
 import UIKit
 
 /// Builds a chain of steps.
+@MainActor
 public enum ChainAssembly {
 
     // MARK: Methods
@@ -27,6 +28,7 @@ public enum ChainAssembly {
     ///         .assemble()
     /// ```
     /// - Parameter step: The instance of `ActionConnectingAssembly`
+    @MainActor
     public static func from<VC: UIViewController, C>(_ step: ActionToStepIntegrator<VC, C>) -> ActionConnectingAssembly<VC, C> {
         ActionConnectingAssembly<VC, C>(stepToFullFill: step, previousSteps: [])
     }

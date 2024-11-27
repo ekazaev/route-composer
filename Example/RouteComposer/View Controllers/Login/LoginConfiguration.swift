@@ -15,6 +15,7 @@ import RouteComposer
 
 enum LoginConfiguration {
 
+    @MainActor
     static func login() -> Destination<LoginViewController, Void> {
         let loginScreen = StepAssembly(finder: ClassFinder<LoginViewController, Void>(),
                                        factory: NilFactory()) // Login view controller will be created when UINavigationController will be loaded from storyboard.

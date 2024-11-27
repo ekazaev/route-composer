@@ -12,6 +12,7 @@
 
 import Foundation
 
+@MainActor
 public protocol ImageDetailsControllerDelegate: AnyObject {
 
     func dismiss(imageDetails: ImageDetailsViewController)

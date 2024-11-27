@@ -13,7 +13,7 @@
 import Foundation
 
 /// A set of options for the `findViewController` method
-public struct SearchOptions: OptionSet, CaseIterable, CustomStringConvertible {
+public struct SearchOptions: OptionSet, CaseIterable, CustomStringConvertible, Sendable {
 
     public let rawValue: Int
 

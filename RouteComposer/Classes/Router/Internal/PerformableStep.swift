@@ -12,6 +12,7 @@
 
 import Foundation
 
+@MainActor
 protocol PerformableStep {
 
     /// - Parameter context: The `Context` instance that `Router` has started with.

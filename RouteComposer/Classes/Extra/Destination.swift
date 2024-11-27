@@ -19,6 +19,7 @@ public typealias AnyDestination = Destination<UIViewController, Any?>
 
 /// `Destination` instance represents both final screen configuration and the data to provide. It is useful when
 /// there is a need to wrap both values into a single DTO value.
+@MainActor
 public struct Destination<VC: UIViewController, C> {
 
     // MARK: Properties

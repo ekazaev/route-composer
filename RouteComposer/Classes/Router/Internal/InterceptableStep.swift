@@ -12,6 +12,7 @@
 
 import Foundation
 
+@MainActor
 protocol InterceptableStep where Self: PerformableStep {
 
     var interceptor: AnyRoutingInterceptor? { get }

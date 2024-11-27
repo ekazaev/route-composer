@@ -14,6 +14,7 @@
 import UIKit
 import XCTest
 
+@MainActor
 class BoxTests: XCTestCase {
 
     func testFactoryBox() {

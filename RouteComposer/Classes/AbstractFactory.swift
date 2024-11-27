@@ -16,6 +16,7 @@ import UIKit
 /// Base protocol for all types of factories.
 /// An instance that extends `AbstractFactory` builds a `UIViewController` that will later be
 /// integrated into the stack by the `Router`
+@MainActor
 public protocol AbstractFactory {
 
     // MARK: Associated types
@@ -41,6 +42,7 @@ public protocol AbstractFactory {
 
 // MARK: Helper methods where the Context is Any?
 
+@MainActor
 public extension AbstractFactory where Context == Any? {
 
     /// Prepares the `AbstractFactory`
@@ -52,6 +54,7 @@ public extension AbstractFactory where Context == Any? {
 
 // MARK: Helper methods where the Context is Void
 
+@MainActor
 public extension AbstractFactory where Context == Void {
 
     /// Prepares the `AbstractFactory`

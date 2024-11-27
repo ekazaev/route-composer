@@ -13,7 +13,7 @@
 import Foundation
 import UIKit
 
-struct ContextTaskMultiplexer: AnyContextTask, CustomStringConvertible {
+struct ContextTaskMultiplexer: AnyContextTask, @preconcurrency CustomStringConvertible {
 
     private var tasks: [AnyContextTask]
 

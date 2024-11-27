@@ -13,7 +13,8 @@
 import Foundation
 import UIKit
 
-struct FactoryBox<F: Factory>: PreparableAnyFactory, AnyFactoryBox, MainThreadChecking, CustomStringConvertible {
+@MainActor
+struct FactoryBox<F: Factory>: PreparableAnyFactory, AnyFactoryBox, @preconcurrency CustomStringConvertible {
 
     typealias FactoryType = F
 
@@ -33,7 +34,6 @@ struct FactoryBox<F: Factory>: PreparableAnyFactory, AnyFactoryBox, MainThreadCh
 
     func build(with context: AnyContext) throws -> UIViewController {
         let typedContext: FactoryType.Context = try context.value()
-        assertIfNotMainThread()
         assertIfNotPrepared()
         return try factory.build(with: typedContext)
     }

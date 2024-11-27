@@ -14,6 +14,7 @@ import Foundation
 import UIKit
 
 /// `StackIterator` protocol
+@MainActor
 public protocol StackIterator {
 
     // MARK: Methods to implement

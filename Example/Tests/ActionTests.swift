@@ -15,6 +15,7 @@
 import UIKit
 import XCTest
 
+@MainActor
 class ActionTests: XCTestCase {
 
     override func setUp() {

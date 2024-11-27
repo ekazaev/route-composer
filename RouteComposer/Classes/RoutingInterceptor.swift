@@ -19,6 +19,7 @@ import Foundation
 /// Interceptor is an asynchronous action. For the `Router` to continue the navigation process, the `completion` block of the interceptor's
 /// execute method **MUST** be called.
 /// Otherwise, the `Router` will stay in a limbo state waiting for the interceptor to finish its action.
+@MainActor
 public protocol RoutingInterceptor {
 
     // MARK: Associated types
@@ -53,6 +54,7 @@ public protocol RoutingInterceptor {
 
 // MARK: Default implementation
 
+@MainActor
 public extension RoutingInterceptor {
 
     /// Default implementation does nothing.
@@ -62,6 +64,7 @@ public extension RoutingInterceptor {
 
 // MARK: Helper methods
 
+@MainActor
 public extension RoutingInterceptor {
 
     /// Prepares the `RoutingInterceptor` and executes it
@@ -84,6 +87,7 @@ public extension RoutingInterceptor {
 
 // MARK: Helper methods where the Context is Any?
 
+@MainActor
 public extension RoutingInterceptor where Context == Any? {
 
     /// The `Router` will call this method before the navigation process. If `RoutingInterceptor` is not able to allow
@@ -122,6 +126,7 @@ public extension RoutingInterceptor where Context == Any? {
 
 // MARK: Helper methods where the Context is Void
 
+@MainActor
 public extension RoutingInterceptor where Context == Void {
 
     /// The `Router` will call this method before the navigation process. If `RoutingInterceptor` is not able to allow

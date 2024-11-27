@@ -13,7 +13,7 @@
 import Foundation
 import UIKit
 
-struct FinderBox<F: Finder>: AnyFinder, CustomStringConvertible {
+struct FinderBox<F: Finder>: AnyFinder, @preconcurrency CustomStringConvertible {
 
     let finder: F
 

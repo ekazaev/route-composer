@@ -14,6 +14,7 @@ import Foundation
 import UIKit
 
 /// Builds the chain of assemblies to fulfill the `ContainerFactory`.
+@MainActor
 public final class CompleteFactoryChainAssembly<FC: ContainerFactory, ChildVC: UIViewController, ChildContext> {
 
     // MARK: Properties

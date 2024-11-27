@@ -13,7 +13,7 @@
 import UIKit
 
 /// Default `Router` implementation
-public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
+public struct DefaultRouter: InterceptableRouter {
 
     // MARK: Properties
 
@@ -64,7 +64,6 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
                                   with context: Context,
                                   animated: Bool = true,
                                   completion: ((_: RoutingResult) -> Void)? = nil) throws {
-        assertIfNotMainThread(logger: logger)
         do {
             // Wrapping real context into a box.
             let context: AnyContext = AnyContextBox(context)
@@ -182,8 +181,6 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
         // continue navigation process. This operation is async.
         let initialControllerDescription = String(describing: viewController)
         taskStack.performInterceptors { [weak viewController] result in
-            assertIfNotMainThread(logger: logger)
-
             if case let .failure(error) = result {
                 completion(.failure(error))
                 return
@@ -259,7 +256,6 @@ public struct DefaultRouter: InterceptableRouter, MainThreadChecking {
                                                    with: postponedIntegrationHandler,
                                                    nextAction: nextAction,
                                                    animated: animated) { result in
-                        assertIfNotMainThread(logger: logger)
                         guard result.isSuccessful else {
                             logger?.log(.info("\(String(describing: factory.factory.action)) has stopped the navigation process " +
                                     "as it was not able to build a view controller into a stack."))

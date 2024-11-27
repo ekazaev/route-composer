@@ -15,6 +15,7 @@ import Foundation
 import UIKit
 import XCTest
 
+@MainActor
 class ExtensionsTest: XCTestCase {
 
     class InvisibleViewController: UIViewController {}

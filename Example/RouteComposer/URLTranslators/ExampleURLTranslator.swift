@@ -14,6 +14,7 @@ import Foundation
 import RouteComposer
 import UIKit
 
+@MainActor
 protocol ExampleURLTranslator {
 
     func destination(from url: URL) -> AnyDestination?

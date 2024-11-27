@@ -14,6 +14,7 @@ import Foundation
 import UIKit
 
 /// Helper class to build a chain of steps. Can not be used directly.
+@MainActor
 public struct StepChainAssembly<ViewController: UIViewController, Context> {
 
     // MARK: Properties
