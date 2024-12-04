@@ -13,6 +13,7 @@
 import Foundation
 import UIKit
 
+@MainActor
 protocol ExampleAnalyticsSupport {
 
     var screenType: ExampleScreenTypes { get }

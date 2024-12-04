@@ -14,11 +14,13 @@ import Foundation
 import UIKit
 
 /// Default implementation of `ContainerAdapterLocator`
+@MainActor
 public struct DefaultContainerAdapterLocator: ContainerAdapterLocator {
 
     // MARK: Methods
 
     /// Constructor
+    @MainActor
     public init() {}
 
     /// Returns the `ContainerAdapter` suitable for the `ContainerViewController`.

@@ -75,6 +75,7 @@ public final class RouteComposerDefaults {
                                                      stackIterator: stackIterator)
     }
 
+    @MainActor
     private init(logger: Logger? = DefaultLogger(.warnings),
                  windowProvider: WindowProvider = KeyWindowProvider(),
                  containerAdapterLocator: ContainerAdapterLocator = DefaultContainerAdapterLocator(),

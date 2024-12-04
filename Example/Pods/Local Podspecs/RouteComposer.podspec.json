@@ -17,7 +17,7 @@
     "tag": "2.11.0"
   },
   "platforms": {
-    "ios": "13.0"
+    "ios": "15.0"
   },
   "source_files": "RouteComposer/Classes/**/*.*",
   "frameworks": "UIKit",

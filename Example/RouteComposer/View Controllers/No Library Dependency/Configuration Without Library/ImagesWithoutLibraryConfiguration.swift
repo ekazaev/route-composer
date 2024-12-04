@@ -20,6 +20,7 @@ import UIKit
 // will make this implementation much more complicated.
 class ImagesWithoutLibraryConfiguration {
 
+    @MainActor
     static let shared = ImagesWithoutLibraryConfiguration()
 
     @MainActor

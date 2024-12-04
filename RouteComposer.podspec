@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.author           = { 'Evgeny Kazaev' => 'eugene.kazaev@gmail.com' }
   s.source           = { :git => 'https://github.com/ekazaev/route-composer.git', :tag => s.version }
 
-  s.ios.deployment_target = '13.0'
+  s.ios.deployment_target = '15.0'
   s.source_files = 'RouteComposer/Classes/**/*.*'
   s.frameworks = 'UIKit'
 end

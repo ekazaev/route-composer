@@ -13,6 +13,7 @@
 import UIKit
 
 /// Default `Router` implementation
+@MainActor
 public struct DefaultRouter: InterceptableRouter {
 
     // MARK: Properties

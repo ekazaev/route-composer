@@ -17,6 +17,7 @@ import UIKit
 /// Sometimes if interceptor can change the entire stack of view controllers it is handy to run a global interceptor
 /// any starting point is found. `GlobalInterceptorRouter` proxy allows to add such a global interceptor that will be
 /// executed before any work that `DefaultRouter` will do.
+@MainActor
 public struct GlobalInterceptorRouter<R>: Router where R: Router {
 
     // MARK: Properties

@@ -17,6 +17,7 @@ import UIKit
 extension UIViewController {
 
     // This class is needed just for the test purposes
+    @MainActor
     private final class TestInterceptor: RoutingInterceptor {
         let logger: RouteComposer.Logger?
         let message: String
@@ -32,8 +33,11 @@ extension UIViewController {
         }
     }
 
+    @MainActor
     static let router: Router = {
-        var defaultRouter = GlobalInterceptorRouter(router: FailingRouter(router: DefaultRouter()))
+        let libRouter = DefaultRouter()
+        let failingRouter = FailingRouter(router: libRouter)
+        var defaultRouter = GlobalInterceptorRouter(router: failingRouter)
         defaultRouter.addGlobal(TestInterceptor("Global interceptors start"))
         defaultRouter.addGlobal(NavigationDelayingInterceptor(strategy: .wait))
         defaultRouter.add(TestInterceptor("Router interceptors start"))

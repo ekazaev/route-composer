@@ -25,6 +25,7 @@ struct FailingRouterIgnoreError: Error {
 }
 
 // Simple wrapper to warn if something goes wrong
+@MainActor
 struct FailingRouter<R>: Router where R: Router {
 
     var router: R

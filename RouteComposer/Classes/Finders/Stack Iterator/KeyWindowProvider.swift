@@ -14,6 +14,7 @@ import Foundation
 import UIKit
 
 /// Returns key `UIWindow`
+@MainActor
 public struct KeyWindowProvider: WindowProvider {
 
     // MARK: Properties
@@ -35,6 +36,7 @@ public struct KeyWindowProvider: WindowProvider {
     // MARK: Methods
 
     /// Constructor
+    @MainActor
     public init() {}
 
 }

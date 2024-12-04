@@ -20,6 +20,7 @@ import UIKit
 ///
 /// *Due to some current `swift` limitations protocol `ContextAccepting` can not be used directly.*
 @available(iOS 13.0, OSX 10.15, tvOS 13.0, watchOS 6.0, *)
+@MainActor
 public protocol ContextAcceptingView {
 
     // MARK: Associated types
