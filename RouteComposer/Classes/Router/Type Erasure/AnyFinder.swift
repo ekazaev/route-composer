@@ -3,7 +3,7 @@
 // AnyFinder.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2024.
+// Created by Eugene Kazaev in 2018-2023.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -13,9 +13,8 @@
 import Foundation
 import UIKit
 
-@MainActor
 protocol AnyFinder {
 
-    func findViewController(with context: AnyContext) throws -> UIViewController?
+    @MainActor func findViewController(with context: AnyContext) throws -> UIViewController?
 
 }

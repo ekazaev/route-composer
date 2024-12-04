@@ -3,7 +3,7 @@
 // RouteComposerDefaults.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2024.
+// Created by Eugene Kazaev in 2018-2023.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -16,21 +16,21 @@ import Foundation
 ///
 /// **NB:** If you are going to provide your own defaults, make sure that `RouteComposerDefaults.configureWith(...)` is called
 /// before the instantiation of any other `RouteComposer`'s instances. `AppDelegate` is probably the best place for it.
-@MainActor
 public final class RouteComposerDefaults {
 
     // MARK: Properties
 
     /// Singleton access.
-    @MainActor
     public static var shared: RouteComposerDefaults = {
         switch configurationStorage {
         case let .some(configurationStorage):
-            return configurationStorage
-        case .none:
-            let buildInDefaults = RouteComposerDefaults()
-            configurationStorage = buildInDefaults
-            return buildInDefaults
+                configurationStorage.logInstantiation()
+                return configurationStorage
+            case .none:
+                let buildInDefaults = RouteComposerDefaults()
+                configurationStorage = buildInDefaults
+                buildInDefaults.logInstantiation()
+                return buildInDefaults
         }
     }()
 
@@ -46,7 +46,6 @@ public final class RouteComposerDefaults {
     /// Default `WindowProvider` instance.
     public private(set) var windowProvider: WindowProvider
 
-    @MainActor
     private static var configurationStorage: RouteComposerDefaults?
 
     // MARK: Methods
@@ -60,11 +59,10 @@ public final class RouteComposerDefaults {
     ///   - windowProvider: Default `WindowProvider` instance.
     ///   - containerAdapterLocator: Default `ContainerAdapterLocator` instance.
     ///   - stackIterator: Default `StackIterator` instance.
-    @MainActor
     public static func configureWith(logger: Logger? = DefaultLogger(.warnings),
-                                     windowProvider: WindowProvider = KeyWindowProvider(),
-                                     containerAdapterLocator: ContainerAdapterLocator = DefaultContainerAdapterLocator(),
-                                     stackIterator: StackIterator? = nil) {
+                                    windowProvider: WindowProvider = KeyWindowProvider(),
+                                    containerAdapterLocator: ContainerAdapterLocator = DefaultContainerAdapterLocator(),
+                                    stackIterator: StackIterator? = nil) {
         guard configurationStorage == nil else {
             assertionFailure("Default values were initialised once. \(#function) must be called before any RouteComposer instantiation!")
             return
@@ -75,7 +73,6 @@ public final class RouteComposerDefaults {
                                                      stackIterator: stackIterator)
     }
 
-    @MainActor
     private init(logger: Logger? = DefaultLogger(.warnings),
                  windowProvider: WindowProvider = KeyWindowProvider(),
                  containerAdapterLocator: ContainerAdapterLocator = DefaultContainerAdapterLocator(),

@@ -3,7 +3,7 @@
 // SwitchAssembly.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2024.
+// Created by Eugene Kazaev in 2018-2023.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -39,12 +39,10 @@ import UIKit
 ///                    .from(GeneralStep.current())
 ///                    .assemble())
 /// ```
-@MainActor
 public final class SwitchAssembly<ViewController: UIViewController, Context> {
 
     // MARK: Internal entities
 
-    @MainActor
     private struct BlockResolver: StepCaseResolver {
 
         let resolverBlock: (_: Context) -> DestinationStep<ViewController, Context>?
@@ -61,7 +59,6 @@ public final class SwitchAssembly<ViewController: UIViewController, Context> {
         }
     }
 
-    @MainActor
     private struct FinderResolver<VC: UIViewController, C>: StepCaseResolver {
 
         private let finder: AnyFinder?
@@ -183,7 +180,6 @@ public final class SwitchAssembly<ViewController: UIViewController, Context> {
 
 // MARK: Methods for ContainerViewController
 
-@MainActor
 public extension SwitchAssembly where ViewController: ContainerViewController {
 
     /// Adds a case when a view controller exists - navigation will start from the resulting view controller.

@@ -3,7 +3,7 @@
 // ImagesWithoutLibraryConfiguration.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2024.
+// Created by Eugene Kazaev in 2018-2023.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -18,15 +18,12 @@ import UIKit
 // This is an example how you can implement same navigation configuration without dependency to RouteComposer.
 // It may seem les complicated, but adding login/analytics/universal links support to the other parts of the app
 // will make this implementation much more complicated.
-class ImagesWithoutLibraryConfiguration {
+@MainActor class ImagesWithoutLibraryConfiguration {
 
-    @MainActor
     static let shared = ImagesWithoutLibraryConfiguration()
 
-    @MainActor
     private static let handler = ImagesWithoutLibraryHandler()
 
-    @MainActor
     func showCustomController() {
         // Handled by CustomContainerFactory
         let storyboard = UIStoryboard(name: "Images", bundle: Bundle.main)

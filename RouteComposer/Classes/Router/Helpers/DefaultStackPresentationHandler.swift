@@ -3,7 +3,7 @@
 // DefaultStackPresentationHandler.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2024.
+// Created by Eugene Kazaev in 2018-2023.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -30,8 +30,8 @@ public struct DefaultStackPresentationHandler: StackPresentationHandler {
     /// Parameters
     ///   - logger: A `Logger` instance to be used by the `DefaultRouter`.
     ///   - containerAdapterLocator: A `ContainerAdapterLocator` instance to be used by the `DefaultRouter`.
-    public init(logger: Logger? = RouteComposerDefaults.shared.logger,
-                containerAdapterLocator: ContainerAdapterLocator = RouteComposerDefaults.shared.containerAdapterLocator) {
+    public nonisolated init(logger: Logger? = RouteComposerDefaults.shared.logger,
+                           containerAdapterLocator: ContainerAdapterLocator = RouteComposerDefaults.shared.containerAdapterLocator) {
         self.logger = logger
         self.containerAdapterLocator = containerAdapterLocator
     }
@@ -52,8 +52,8 @@ public struct DefaultStackPresentationHandler: StackPresentationHandler {
     }
 
     public func makeVisibleInParentContainers(_ viewController: UIViewController,
-                                              animated: Bool,
-                                              completion: @escaping (RoutingResult) -> Void) {
+                                                         animated: Bool,
+                                                         completion: @escaping (RoutingResult) -> Void) {
         var parentViewControllers = viewController.allParents
         let topParentViewController = parentViewControllers.last
         func makeVisible(viewController: UIViewController, completion: @escaping (RoutingResult) -> Void) {

@@ -3,7 +3,7 @@
 // PostponedIntegrationFactory.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2024.
+// Created by Eugene Kazaev in 2018-2023.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -13,8 +13,7 @@
 import Foundation
 import UIKit
 
-@MainActor
-struct PostponedIntegrationFactory: @preconcurrency CustomStringConvertible {
+struct PostponedIntegrationFactory: CustomStringConvertible {
 
     var factory: AnyFactory
 
@@ -32,7 +31,7 @@ struct PostponedIntegrationFactory: @preconcurrency CustomStringConvertible {
         contextTasks.append(contextTask)
     }
 
-    mutating func prepare(with context: AnyContext) throws {
+    @MainActor mutating func prepare(with context: AnyContext) throws {
         let context = transformer.flatMap { InPlaceTransformingAnyContext(context: context, transformer: $0) } ?? context
         try factory.prepare(with: context)
         contextTasks = try contextTasks.map {
@@ -42,7 +41,7 @@ struct PostponedIntegrationFactory: @preconcurrency CustomStringConvertible {
         }
     }
 
-    func build(with context: AnyContext, in childViewControllers: inout [UIViewController]) throws {
+    @MainActor func build(with context: AnyContext, in childViewControllers: inout [UIViewController]) throws {
         let context = transformer.flatMap { InPlaceTransformingAnyContext(context: context, transformer: $0) } ?? context
         let viewController = try factory.build(with: context)
         try contextTasks.forEach { try $0.perform(on: viewController, with: context) }

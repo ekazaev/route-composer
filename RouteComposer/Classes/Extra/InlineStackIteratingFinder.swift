@@ -3,7 +3,7 @@
 // InlineStackIteratingFinder.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2024.
+// Created by Eugene Kazaev in 2018-2023.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -35,8 +35,8 @@ public struct InlineStackIteratingFinder<VC: UIViewController, C>: StackIteratin
     /// - Parameters:
     ///   - iterator: A `StackIterator` is to be used by `InlineStackIteratingFinder`
     ///   - inlineBock: A block to be called when `StackIteratingFinder.isTarget(...)` is requested.
-    public init(iterator: StackIterator = RouteComposerDefaults.shared.stackIterator,
-                _ inlineBock: @escaping (VC, C) -> Bool) {
+    @MainActor  public init(iterator: StackIterator = RouteComposerDefaults.shared.stackIterator,
+                            _ inlineBock: @escaping (VC, C) -> Bool) {
         self.iterator = iterator
         self.inlineBock = inlineBock
     }
@@ -58,11 +58,11 @@ public extension InlineStackIteratingFinder {
     ///   - windowProvider: `WindowProvider` instance.
     ///   - containerAdapterLocator: A `ContainerAdapterLocator` instance.
     ///   - inlineBock: A block to be called when `StackIteratingFinder.isTarget(...)` is requested.
-    init(options: SearchOptions,
-         startingPoint: DefaultStackIterator.StartingPoint = .topmost,
-         windowProvider: WindowProvider = RouteComposerDefaults.shared.windowProvider,
-         containerAdapterLocator: ContainerAdapterLocator = RouteComposerDefaults.shared.containerAdapterLocator,
-         predicate inlineBock: @escaping (VC, C) -> Bool) {
+    @MainActor init(options: SearchOptions,
+                    startingPoint: DefaultStackIterator.StartingPoint = .topmost,
+                    windowProvider: WindowProvider = RouteComposerDefaults.shared.windowProvider,
+                    containerAdapterLocator: ContainerAdapterLocator = RouteComposerDefaults.shared.containerAdapterLocator,
+                    predicate inlineBock: @escaping (VC, C) -> Bool) {
         self.init(iterator: DefaultStackIterator(options: options, startingPoint: startingPoint, windowProvider: windowProvider, containerAdapterLocator: containerAdapterLocator), inlineBock)
     }
 

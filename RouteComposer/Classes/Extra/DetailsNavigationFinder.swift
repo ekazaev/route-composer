@@ -3,7 +3,7 @@
 // DetailsNavigationFinder.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2024.
+// Created by Eugene Kazaev in 2018-2023.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -32,7 +32,7 @@ public struct DetailsNavigationFinder<C>: Finder {
     /// Constructor
     ///
     /// - Parameter iterator: A `StackIterator` is to be used by `ClassFinder`
-    public init(iterator: StackIterator = RouteComposerDefaults.shared.stackIterator) {
+    @MainActor public init(iterator: StackIterator = RouteComposerDefaults.shared.stackIterator) {
         self.iterator = iterator
     }
 
@@ -62,10 +62,10 @@ public extension DetailsNavigationFinder {
     ///   - startingPoint: `DefaultStackIterator.StartingPoint` value
     ///   - windowProvider: `WindowProvider` instance.
     ///   - containerAdapterLocator: A `ContainerAdapterLocator` instance.
-    init(options: SearchOptions,
-         startingPoint: DefaultStackIterator.StartingPoint = .topmost,
-         windowProvider: WindowProvider = RouteComposerDefaults.shared.windowProvider,
-         containerAdapterLocator: ContainerAdapterLocator = RouteComposerDefaults.shared.containerAdapterLocator) {
+    @MainActor init(options: SearchOptions,
+                    startingPoint: DefaultStackIterator.StartingPoint = .topmost,
+                    windowProvider: WindowProvider = RouteComposerDefaults.shared.windowProvider,
+                    containerAdapterLocator: ContainerAdapterLocator = RouteComposerDefaults.shared.containerAdapterLocator) {
         let iterator = DefaultStackIterator(options: options,
                                             startingPoint: startingPoint,
                                             windowProvider: windowProvider,

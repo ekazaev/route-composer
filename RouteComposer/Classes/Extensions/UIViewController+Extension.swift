@@ -3,7 +3,7 @@
 // UIViewController+Extension.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2024.
+// Created by Eugene Kazaev in 2018-2023.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -23,11 +23,10 @@ public extension UIViewController {
     ///   - predicate: A block that should return `true` if the `UIViewController` instance provided is the
     ///     one that is being searched for.
     /// - Returns: A `UIViewController` instance if found, `nil` otherwise.
-    @MainActor
     static func findViewController(in viewController: UIViewController,
-                                   options: SearchOptions = .currentAndUp,
-                                   containerAdapterLocator: ContainerAdapterLocator = RouteComposerDefaults.shared.containerAdapterLocator,
-                                   using predicate: (UIViewController) -> Bool) throws -> UIViewController? {
+                                              options: SearchOptions = .currentAndUp,
+                                              containerAdapterLocator: ContainerAdapterLocator = RouteComposerDefaults.shared.containerAdapterLocator,
+                                              using predicate: (UIViewController) -> Bool) throws -> UIViewController? {
         guard !viewController.isBeingDismissed else {
             return nil
         }

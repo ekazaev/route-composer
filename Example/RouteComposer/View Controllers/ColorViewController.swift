@@ -3,7 +3,7 @@
 // ColorViewController.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2024.
+// Created by Eugene Kazaev in 2018-2023.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -14,7 +14,7 @@ import Foundation
 import RouteComposer
 import UIKit
 
-class ColorViewControllerFinder: StackIteratingFinder {
+@MainActor class ColorViewControllerFinder: StackIteratingFinder {
 
     typealias ViewController = ColorViewController
 
@@ -59,7 +59,7 @@ class ColorViewController: UIViewController, DismissibleWithRuntimeStorage, Exam
     var colorHex: ColorDisplayModel? {
         didSet {
             if let colorHex, isViewLoaded {
-                view.backgroundColor = UIColor(hexString: colorHex)
+                self.view.backgroundColor = UIColor(hexString: colorHex)
             }
         }
     }

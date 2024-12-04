@@ -3,7 +3,7 @@
 // CustomContainerFactory.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2024.
+// Created by Eugene Kazaev in 2018-2023.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -15,7 +15,7 @@ import Foundation
 import RouteComposer
 import UIKit
 
-class CustomContainerFactory<C>: SimpleContainerFactory {
+@MainActor class CustomContainerFactory<C>: SimpleContainerFactory {
 
     typealias ViewController = CustomContainerController
 
@@ -41,7 +41,9 @@ class CustomContainerFactory<C>: SimpleContainerFactory {
 
 }
 
-extension CustomContainerController: CustomContainerViewController {
+extension CustomContainerController: @retroactive ContainerViewController {}
+extension CustomContainerController: @retroactive RoutingInterceptable {}
+extension CustomContainerController: @retroactive CustomContainerViewController {
 
     public var adapter: ContainerAdapter {
         CustomContainerControllerAdapter(with: self)

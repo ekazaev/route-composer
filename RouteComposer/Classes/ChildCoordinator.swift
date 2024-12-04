@@ -3,7 +3,7 @@
 // ChildCoordinator.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2024.
+// Created by Eugene Kazaev in 2018-2023.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -14,7 +14,6 @@ import Foundation
 import UIKit
 
 /// Helps to build a child view controller stack
-@MainActor
 public struct ChildCoordinator {
 
     // MARK: Properties
@@ -37,7 +36,7 @@ public struct ChildCoordinator {
     /// - Parameters:
     ///   - existingViewControllers: Current view controller stack of the container.
     /// - Returns: Built child view controller stack
-    public func build(integrating existingViewControllers: [UIViewController] = []) throws -> [UIViewController] {
+    @MainActor public func build(integrating existingViewControllers: [UIViewController] = []) throws -> [UIViewController] {
         var childrenViewControllers = existingViewControllers
         for factory in childFactories {
             try factory.factory.build(with: factory.context, in: &childrenViewControllers)

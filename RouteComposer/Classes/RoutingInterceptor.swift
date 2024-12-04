@@ -3,7 +3,7 @@
 // RoutingInterceptor.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2024.
+// Created by Eugene Kazaev in 2018-2023.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -19,7 +19,6 @@ import Foundation
 /// Interceptor is an asynchronous action. For the `Router` to continue the navigation process, the `completion` block of the interceptor's
 /// execute method **MUST** be called.
 /// Otherwise, the `Router` will stay in a limbo state waiting for the interceptor to finish its action.
-@MainActor
 public protocol RoutingInterceptor {
 
     // MARK: Associated types
@@ -36,7 +35,7 @@ public protocol RoutingInterceptor {
     ///   - context: The `Context` instance that is provided to the `Router`.
     /// - Throws: The `RoutingError` if the `RoutingInterceptor` cannot prepare itself or if the navigation process cannot start
     ///   with the `Context` instance provided.
-    mutating func prepare(with context: Context) throws
+    @MainActor mutating func prepare(with context: Context) throws
 
     /// Method that will be called by `Router` to start interceptor.
     ///
@@ -48,13 +47,12 @@ public protocol RoutingInterceptor {
     /// For the `Router` to continue the navigation process, the `completion` block of interceptor **MUST** be called
     /// by the implementation of this method.
     /// Otherwise `Router` will stay in limbo waiting for `RoutingInterceptor` to finish its action.
-    func perform(with context: Context, completion: @escaping (_: RoutingResult) -> Void)
+    @MainActor func perform(with context: Context, completion: @escaping (_: RoutingResult) -> Void)
 
 }
 
 // MARK: Default implementation
 
-@MainActor
 public extension RoutingInterceptor {
 
     /// Default implementation does nothing.
@@ -64,18 +62,17 @@ public extension RoutingInterceptor {
 
 // MARK: Helper methods
 
-@MainActor
 public extension RoutingInterceptor {
 
     /// Prepares the `RoutingInterceptor` and executes it
-    func execute(with context: Context, completion: @escaping (_: RoutingResult) -> Void) throws {
+    @MainActor func execute(with context: Context, completion: @escaping (_: RoutingResult) -> Void) throws {
         var interceptor = self
         try interceptor.prepare(with: context)
         interceptor.perform(with: context, completion: completion)
     }
 
     /// Prepares the `RoutingInterceptor` and performs it. Does not throw an exception.
-    func commit(with context: Context, completion: @escaping (_: RoutingResult) -> Void) {
+    @MainActor func commit(with context: Context, completion: @escaping (_: RoutingResult) -> Void) {
         do {
             try execute(with: context, completion: completion)
         } catch {
@@ -87,7 +84,6 @@ public extension RoutingInterceptor {
 
 // MARK: Helper methods where the Context is Any?
 
-@MainActor
 public extension RoutingInterceptor where Context == Any? {
 
     /// The `Router` will call this method before the navigation process. If `RoutingInterceptor` is not able to allow
@@ -95,7 +91,7 @@ public extension RoutingInterceptor where Context == Any? {
     ///
     /// - Throws: The `RoutingError` if the `RoutingInterceptor` cannot prepare itself or if the navigation process cannot start
     ///   with the `Context` instance provided.
-    mutating func prepare() throws {
+    @MainActor mutating func prepare() throws {
         try prepare(with: nil)
     }
 
@@ -108,17 +104,17 @@ public extension RoutingInterceptor where Context == Any? {
     /// For the `Router` to continue the navigation process, the `completion` block of interceptor **MUST** be called
     /// by the implementation of this method.
     /// Otherwise `Router` will stay in limbo waiting for `RoutingInterceptor` to finish its action.
-    func perform(completion: @escaping (_: RoutingResult) -> Void) {
+    @MainActor func perform(completion: @escaping (_: RoutingResult) -> Void) {
         perform(with: nil, completion: completion)
     }
 
     /// Prepares the `RoutingInterceptor` and executes it
-    func execute(completion: @escaping (_: RoutingResult) -> Void) throws {
+    @MainActor func execute(completion: @escaping (_: RoutingResult) -> Void) throws {
         try execute(with: nil, completion: completion)
     }
 
     /// Prepares the `RoutingInterceptor` and performs it. Does not throw an exception.
-    func commit(completion: @escaping (_: RoutingResult) -> Void) {
+    @MainActor func commit(completion: @escaping (_: RoutingResult) -> Void) {
         commit(with: nil, completion: completion)
     }
 
@@ -126,7 +122,6 @@ public extension RoutingInterceptor where Context == Any? {
 
 // MARK: Helper methods where the Context is Void
 
-@MainActor
 public extension RoutingInterceptor where Context == Void {
 
     /// The `Router` will call this method before the navigation process. If `RoutingInterceptor` is not able to allow
@@ -134,7 +129,7 @@ public extension RoutingInterceptor where Context == Void {
     ///
     /// - Throws: The `RoutingError` if the `RoutingInterceptor` cannot prepare itself or if the navigation process cannot start
     ///   with the `Context` instance provided.
-    mutating func prepare() throws {
+    @MainActor mutating func prepare() throws {
         try prepare(with: ())
     }
 
@@ -147,17 +142,17 @@ public extension RoutingInterceptor where Context == Void {
     /// For the `Router` to continue the navigation process, the `completion` block of interceptor **MUST** be called
     /// by the implementation of this method.
     /// Otherwise `Router` will stay in limbo waiting for `RoutingInterceptor` to finish its action.
-    func perform(completion: @escaping (_: RoutingResult) -> Void) {
+    @MainActor func perform(completion: @escaping (_: RoutingResult) -> Void) {
         perform(with: (), completion: completion)
     }
 
     /// Prepares the `RoutingInterceptor` and executes it
-    func execute(completion: @escaping (_: RoutingResult) -> Void) throws {
+    @MainActor func execute(completion: @escaping (_: RoutingResult) -> Void) throws {
         try execute(with: (), completion: completion)
     }
 
     /// Prepares the `RoutingInterceptor` and performs it. Does not throw an exception.
-    func commit(completion: @escaping (_: RoutingResult) -> Void) {
+    @MainActor func commit(completion: @escaping (_: RoutingResult) -> Void) {
         commit(with: (), completion: completion)
     }
 

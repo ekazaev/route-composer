@@ -3,7 +3,7 @@
 // AnyPostRoutingTask.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2024.
+// Created by Eugene Kazaev in 2018-2023.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -13,9 +13,9 @@
 import Foundation
 import UIKit
 
-@MainActor
 protocol AnyPostRoutingTask {
 
+    @MainActor
     func perform(on viewController: UIViewController,
                  with context: AnyContext,
                  routingStack: [UIViewController]) throws

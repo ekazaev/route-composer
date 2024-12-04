@@ -3,7 +3,7 @@
 // UIViewController+PrivateExtension.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2024.
+// Created by Eugene Kazaev in 2018-2023.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -19,8 +19,7 @@ extension UIViewController {
         var allPresentedViewControllers: [UIViewController] = []
         var presentingViewController = self
 
-        while let presentedViewController = presentingViewController.presentedViewController,
-              !presentedViewController.isBeingDismissed {
+        while let presentedViewController = presentingViewController.presentedViewController, !presentedViewController.isBeingDismissed {
             allPresentedViewControllers.append(presentedViewController)
             presentingViewController = presentedViewController
         }
@@ -43,16 +42,10 @@ extension UIViewController {
     }
 
     var parentViewController: UIViewController? {
-        if let containerViewController = self as? ContainerViewController,
-           let adapter = try? RouteComposerDefaults.shared.containerAdapterLocator.getAdapter(for: containerViewController),
-           let overriddenParentViewController = adapter.overriddenParentViewController {
-            return overriddenParentViewController
-        } else if let interceptableViewController = self as? RoutingInterceptable,
-                  let overriddenParentViewController = interceptableViewController.overriddenParentViewController {
-            return overriddenParentViewController
-        } else {
+        guard let interceptableViewController = self as? RoutingInterceptable else {
             return parent
         }
+        return interceptableViewController.overriddenParentViewController
     }
 
 }

@@ -3,7 +3,7 @@
 // ContextAcceptingView.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2024.
+// Created by Eugene Kazaev in 2018-2023.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -20,7 +20,6 @@ import UIKit
 ///
 /// *Due to some current `swift` limitations protocol `ContextAccepting` can not be used directly.*
 @available(iOS 13.0, OSX 10.15, tvOS 13.0, watchOS 6.0, *)
-@MainActor
 public protocol ContextAcceptingView {
 
     // MARK: Associated types
@@ -35,15 +34,14 @@ public protocol ContextAcceptingView {
     ///
     /// - Parameter context: `Context` instance.
     /// - Throws: throws `Error` if `Context` instance is not supported.
-    @MainActor
-    static func checkCompatibility(with context: Context) throws
+    @MainActor static func checkCompatibility(with context: Context) throws
 
     /// `ContextSettingTask` will call this method to provide the `Context` instance to the `View`
     /// that has just been build or found.
     ///
     /// - Parameter context: `Context` instance.
     /// - Throws: throws `Error` if `Context` instance is not supported. `Router` will stop building the rest of the stack in this case.
-    mutating func setup(with context: Context) throws
+    @MainActor mutating func setup(with context: Context) throws
 
 }
 
@@ -53,7 +51,6 @@ public protocol ContextAcceptingView {
 public extension ContextAcceptingView {
 
     /// Default implementation does nothing.
-    @MainActor
     static func checkCompatibility(with context: Context) throws {}
 
 }

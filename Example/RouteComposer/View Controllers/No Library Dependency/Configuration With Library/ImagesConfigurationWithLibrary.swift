@@ -3,7 +3,7 @@
 // ImagesConfigurationWithLibrary.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2024.
+// Created by Eugene Kazaev in 2018-2023.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -17,10 +17,9 @@ import ImagesController
 import RouteComposer
 import UIKit
 
-enum ImagesConfigurationWithLibrary {
+struct ImagesConfigurationWithLibrary {
 
-    @MainActor
-    private static let imagesContainerStep = StepAssembly(
+    @MainActor private static let imagesContainerStep = StepAssembly(
         finder: ClassFinder<CustomContainerController, Any?>(),
         factory: CustomContainerFactory(delegate: ImagesWithLibraryHandler.shared))
         .using(UINavigationController.push())
@@ -29,8 +28,7 @@ enum ImagesConfigurationWithLibrary {
         .from(GeneralStep.current())
         .assemble()
 
-    @MainActor
-    static func images() -> Destination<ImagesViewController, Any?> {
+    @MainActor static func images() -> Destination<ImagesViewController, Any?> {
         let imagesStep = StepAssembly(
             finder: ClassFinder(),
             factory: ImagesFactory(delegate: ImagesWithLibraryHandler.shared))
@@ -40,8 +38,7 @@ enum ImagesConfigurationWithLibrary {
         return Destination(to: imagesStep)
     }
 
-    @MainActor
-    static func imageDetails(for imageID: String) -> Destination<ImageDetailsViewController, String> {
+    @MainActor static func imageDetails(for imageID: String) -> Destination<ImageDetailsViewController, String> {
         let imageDetailsStep = StepAssembly(
             finder: ClassFinder(),
             factory: ImageDetailsFactory(delegate: ImagesWithLibraryHandler.shared))

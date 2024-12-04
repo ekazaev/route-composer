@@ -3,7 +3,7 @@
 // DestinationStep.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2024.
+// Created by Eugene Kazaev in 2018-2023.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -41,19 +41,19 @@ public struct DestinationStep<VC: UIViewController, C>: RoutingStep, ChainableSt
     /// Adapts context and view controller type dependencies.
     ///
     /// *NB:* Developer guaranties that this types will compliment in runtime.
-    public func unsafelyRewrapped<NewVC: UIViewController, NewC>() -> DestinationStep<NewVC, NewC> {
+    @MainActor public func unsafelyRewrapped<NewVC: UIViewController, NewC>() -> DestinationStep<NewVC, NewC> {
         DestinationStep<NewVC, NewC>(destinationStep)
     }
 
     /// Transforms context using `ContextTransformer` provided.
-    public func adaptingContext<T: ContextTransformer>(using contextTransformer: T) -> DestinationStep<VC, T.SourceContext> where T.TargetContext == C {
+    @MainActor public func adaptingContext<T: ContextTransformer>(using contextTransformer: T) -> DestinationStep<VC, T.SourceContext> where T.TargetContext == C {
         DestinationStep<VC, T.SourceContext>(ConvertingStep(contextTransformer: contextTransformer, previousStep: destinationStep))
     }
 
     /// Allows to avoid container view controller check.
     ///
     /// *NB:* Developer guaranties that it will be there in the runtime.
-    public func expectingContainer<NewVC: ContainerViewController>() -> DestinationStep<NewVC, Context> {
+    @MainActor public func expectingContainer<NewVC: ContainerViewController>() -> DestinationStep<NewVC, Context> {
         DestinationStep<NewVC, Context>(destinationStep)
     }
 
@@ -68,13 +68,13 @@ public extension DestinationStep where DestinationStep.Context == Any? {
     /// able to accept any type of context.
     ///
     /// *NB:* Developer guaranties that it will be there in the runtime.
-    func expectingContainer<NewVC: ContainerViewController, NewC>() -> DestinationStep<NewVC, NewC> {
+    @MainActor func expectingContainer<NewVC: ContainerViewController, NewC>() -> DestinationStep<NewVC, NewC> {
         DestinationStep<NewVC, NewC>(destinationStep)
     }
 
     /// Allows to compliment to the type check. A step that has context equal to Optional(Any) can be build
     /// with any type of context passed to the router.
-    func adaptingContext<NewC>() -> DestinationStep<ViewController, NewC> {
+    @MainActor func adaptingContext<NewC>() -> DestinationStep<ViewController, NewC> {
         DestinationStep<ViewController, NewC>(destinationStep)
     }
 

@@ -3,7 +3,7 @@
 // ActionConnectingAssembly.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2024.
+// Created by Eugene Kazaev in 2018-2023.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -14,7 +14,6 @@ import Foundation
 import UIKit
 
 /// Helper class to build a chain of steps. Can not be used directly.
-@MainActor
 public struct ActionConnectingAssembly<VC: UIViewController, C> {
 
     // MARK: Properties

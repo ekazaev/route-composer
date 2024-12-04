@@ -3,7 +3,7 @@
 // ImageDetailsControllerDelegate.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2024.
+// Created by Eugene Kazaev in 2018-2023.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -12,9 +12,8 @@
 
 import Foundation
 
-@MainActor
 public protocol ImageDetailsControllerDelegate: AnyObject {
 
-    func dismiss(imageDetails: ImageDetailsViewController)
+    @MainActor func dismiss(imageDetails: ImageDetailsViewController)
 
 }

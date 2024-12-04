@@ -3,7 +3,7 @@
 // GeneralStep.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2024.
+// Created by Eugene Kazaev in 2018-2023.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -23,7 +23,7 @@ public enum GeneralStep {
         let windowProvider: WindowProvider
 
         /// Constructor
-        init(windowProvider: WindowProvider = RouteComposerDefaults.shared.windowProvider) {
+        @MainActor init(windowProvider: WindowProvider = RouteComposerDefaults.shared.windowProvider) {
             self.windowProvider = windowProvider
         }
 
@@ -41,7 +41,7 @@ public enum GeneralStep {
         let windowProvider: WindowProvider
 
         /// Constructor
-        init(windowProvider: WindowProvider = RouteComposerDefaults.shared.windowProvider) {
+        @MainActor init(windowProvider: WindowProvider = RouteComposerDefaults.shared.windowProvider) {
             self.windowProvider = windowProvider
         }
 
@@ -73,20 +73,17 @@ public enum GeneralStep {
     // MARK: Steps
 
     /// Returns the root view controller of the key window.
-    @MainActor
-    public static func root<C>(windowProvider: WindowProvider = RouteComposerDefaults.shared.windowProvider) -> DestinationStep<UIViewController, C> {
+    @MainActor public static func root<C>(windowProvider: WindowProvider = RouteComposerDefaults.shared.windowProvider) -> DestinationStep<UIViewController, C> {
         DestinationStep(RootViewControllerStep(windowProvider: windowProvider))
     }
 
     /// Returns the topmost presented view controller.
-    @MainActor
-    public static func current<C>(windowProvider: WindowProvider = RouteComposerDefaults.shared.windowProvider) -> DestinationStep<UIViewController, C> {
+    @MainActor public static func current<C>(windowProvider: WindowProvider = RouteComposerDefaults.shared.windowProvider) -> DestinationStep<UIViewController, C> {
         DestinationStep(CurrentViewControllerStep(windowProvider: windowProvider))
     }
 
     /// Returns the resulting view controller of the finder provided.
-    @MainActor
-    public static func custom<F: Finder>(using finder: F) -> DestinationStep<F.ViewController, F.Context> {
+    @MainActor public static func custom<F: Finder>(using finder: F) -> DestinationStep<F.ViewController, F.Context> {
         DestinationStep(FinderStep(finder: finder))
     }
 

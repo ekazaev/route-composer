@@ -3,7 +3,7 @@
 // AnalyticsRouterDecorator.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2024.
+// Created by Eugene Kazaev in 2018-2023.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -14,7 +14,6 @@ import Foundation
 import RouteComposer
 
 // Example that `Router` can be wrapped and you can add your functionality into navigation process
-@MainActor
 struct AnalyticsRouterDecorator: Router {
 
     let router: Router

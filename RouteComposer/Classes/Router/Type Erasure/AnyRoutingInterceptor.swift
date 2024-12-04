@@ -3,7 +3,7 @@
 // AnyRoutingInterceptor.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2024.
+// Created by Eugene Kazaev in 2018-2023.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -13,11 +13,10 @@
 import Foundation
 import UIKit
 
-@MainActor
 protocol AnyRoutingInterceptor {
 
-    mutating func prepare(with context: AnyContext) throws
+    @MainActor mutating func prepare(with context: AnyContext) throws
 
-    func perform(with context: AnyContext, completion: @escaping (_: RoutingResult) -> Void)
+    @MainActor func perform(with context: AnyContext, completion: @escaping (_: RoutingResult) -> Void)
 
 }

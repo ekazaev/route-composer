@@ -3,7 +3,7 @@
 // NavigationDelayInterceptor.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2024.
+// Created by Eugene Kazaev in 2018-2023.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -59,9 +59,9 @@ public struct NavigationDelayingInterceptor<Context>: RoutingInterceptor {
     ///   - windowProvider: `WindowProvider` instance.
     ///   - strategy: Type of `Strategy` to be used.
     ///   - logger: `Logger` instance.
-    public init(windowProvider: WindowProvider = RouteComposerDefaults.shared.windowProvider,
-                strategy: Strategy = .abort,
-                logger: Logger? = RouteComposerDefaults.shared.logger) {
+    @MainActor public init(windowProvider: WindowProvider = RouteComposerDefaults.shared.windowProvider,
+                           strategy: Strategy = .abort,
+                           logger: Logger? = RouteComposerDefaults.shared.logger) {
         self.windowProvider = windowProvider
         self.logger = logger
         self.strategy = strategy
@@ -85,7 +85,7 @@ public struct NavigationDelayingInterceptor<Context>: RoutingInterceptor {
         }
     }
 
-    private func getTopmostViewController() -> UIViewController? {
+    @MainActor private func getTopmostViewController() -> UIViewController? {
         var topmostViewController = windowProvider.window?.rootViewController
 
         while let presentedViewController = topmostViewController?.presentedViewController {

@@ -3,7 +3,7 @@
 // ContainerAdapterLocator.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2024.
+// Created by Eugene Kazaev in 2018-2023.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -13,7 +13,6 @@
 import Foundation
 
 /// Provides `ContainerAdapter` instance.
-@MainActor
 public protocol ContainerAdapterLocator {
 
     // MARK: Methods to implement
@@ -23,6 +22,6 @@ public protocol ContainerAdapterLocator {
     /// - Parameter containerViewController: The `ContainerViewController` instance
     /// - Returns: Suitable `ContainerAdapter` instance
     /// - Throws: `RoutingError` if the suitable `ContainerAdapter` can not be provided
-    func getAdapter(for containerViewController: ContainerViewController) throws -> ContainerAdapter
+    @MainActor func getAdapter(for containerViewController: ContainerViewController) throws -> ContainerAdapter
 
 }

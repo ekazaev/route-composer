@@ -3,7 +3,7 @@
 // ContainerFactoryBox.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2024.
+// Created by Eugene Kazaev in 2018-2023.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -13,8 +13,7 @@
 import Foundation
 import UIKit
 
-@MainActor
-struct ContainerFactoryBox<F: ContainerFactory>: PreparableAnyFactory, AnyFactoryBox, @preconcurrency CustomStringConvertible {
+struct ContainerFactoryBox<F: ContainerFactory>: PreparableAnyFactory, AnyFactoryBox, CustomStringConvertible {
 
     typealias FactoryType = F
 

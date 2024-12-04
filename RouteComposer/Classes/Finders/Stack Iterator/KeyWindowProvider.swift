@@ -3,7 +3,7 @@
 // KeyWindowProvider.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2024.
+// Created by Eugene Kazaev in 2018-2023.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -14,17 +14,17 @@ import Foundation
 import UIKit
 
 /// Returns key `UIWindow`
-@MainActor
 public struct KeyWindowProvider: WindowProvider {
 
     // MARK: Properties
 
     /// `UIWindow` instance
     public var window: UIWindow? {
-        let keyWindow: UIWindow? = if #available(iOS 13, *) {
-            UIApplication.shared.windows.first { $0.isKeyWindow }
+        let keyWindow: UIWindow?
+        if #available(iOS 13, *) {
+            keyWindow = UIApplication.shared.windows.first { $0.isKeyWindow }
         } else {
-            UIApplication.shared.keyWindow
+            keyWindow = UIApplication.shared.keyWindow
         }
         guard let window = keyWindow else {
             assertionFailure("Application does not have a key window.")
@@ -36,7 +36,6 @@ public struct KeyWindowProvider: WindowProvider {
     // MARK: Methods
 
     /// Constructor
-    @MainActor
     public init() {}
 
 }

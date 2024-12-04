@@ -1,11 +1,11 @@
-// swift-tools-version:5.1
+// swift-tools-version:5.10
 
 import PackageDescription
 
 let package = Package(
     name: "RouteComposer",
     platforms: [
-        .iOS(.v11)
+        .iOS(.v13)
     ],
     products: [
         .library(
@@ -22,7 +22,11 @@ let package = Package(
         .target(
             name: "RouteComposer",
             dependencies: [],
-            path: "RouteComposer/Classes"),
+            path: "RouteComposer/Classes",
+            swiftSettings: [
+                .enableExperimentalFeature("StrictConcurrency")
+              ]
+        ),
         .testTarget(
             name: "RouteComposerTests",
             dependencies: ["RouteComposer"],

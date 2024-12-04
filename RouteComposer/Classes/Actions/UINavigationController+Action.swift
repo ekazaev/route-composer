@@ -3,7 +3,7 @@
 // UINavigationController+Action.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2024.
+// Created by Eugene Kazaev in 2018-2023.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -20,19 +20,16 @@ public extension ContainerViewController where Self: UINavigationController {
     // MARK: Steps
 
     /// Replaces all the child view controllers in the `UINavigationController`'s children stack
-    @MainActor
     static func pushAsRoot() -> NavigationControllerActions.PushAsRootAction<Self> {
         NavigationControllerActions.PushAsRootAction()
     }
 
     /// Pushes a child view controller into the `UINavigationController`'s children stack
-    @MainActor
     static func push() -> NavigationControllerActions.PushAction<Self> {
         NavigationControllerActions.PushAction()
     }
 
     /// Pushes a child view controller, replacing the existing, into the `UINavigationController`'s children stack
-    @MainActor
     static func pushReplacingLast() -> NavigationControllerActions.PushReplacingLastAction<Self> {
         NavigationControllerActions.PushReplacingLastAction()
     }

@@ -3,7 +3,7 @@
 // BaseStep.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2024.
+// Created by Eugene Kazaev in 2018-2023.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -13,7 +13,6 @@
 import Foundation
 import UIKit
 
-@MainActor
 protocol EntitiesProvider {
 
     var finder: AnyFinder? { get }
@@ -22,7 +21,6 @@ protocol EntitiesProvider {
 
 }
 
-@MainActor
 protocol TaskProvider {
 
     var interceptor: AnyRoutingInterceptor? { get }
@@ -36,7 +34,7 @@ struct BaseStep: RoutingStep,
     ChainableStep,
     InterceptableStep,
     PerformableStep,
-    @preconcurrency CustomStringConvertible {
+    CustomStringConvertible {
 
     private var previousStep: RoutingStep?
 

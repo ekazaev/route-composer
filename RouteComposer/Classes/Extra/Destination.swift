@@ -3,7 +3,7 @@
 // Destination.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2024.
+// Created by Eugene Kazaev in 2018-2023.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -19,7 +19,6 @@ public typealias AnyDestination = Destination<UIViewController, Any?>
 
 /// `Destination` instance represents both final screen configuration and the data to provide. It is useful when
 /// there is a need to wrap both values into a single DTO value.
-@MainActor
 public struct Destination<VC: UIViewController, C> {
 
     // MARK: Properties
@@ -43,7 +42,7 @@ public struct Destination<VC: UIViewController, C> {
     }
 
     /// Transforms into generic representation without information about types.
-    public func unwrapped() -> AnyDestination {
+    @MainActor public func unwrapped() -> AnyDestination {
         AnyDestination(to: step.unsafelyRewrapped(), with: context)
     }
 

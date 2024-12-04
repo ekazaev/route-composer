@@ -3,7 +3,7 @@
 // Factory.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2024.
+// Created by Eugene Kazaev in 2018-2023.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -21,7 +21,6 @@ import UIKit
 /// `productID` to display its content, and the `productID` is a `UUID`, then the type of `Context` is the `UUID`. The internal logic
 /// belongs to the view controller. `Context` answers the questions *What to I need to present a ProductViewController* and *Am I
 /// already presenting a ProductViewController for this product*.
-@MainActor
 public protocol Factory: AbstractFactory {
 
     // MARK: Associated types
@@ -39,13 +38,12 @@ public protocol Factory: AbstractFactory {
     /// - Parameter context: A `Context` instance that is provided to the `Router`.
     /// - Returns: The built `UIViewController` instance.
     /// - Throws: The `RoutingError` if build did not succeed.
-    func build(with context: Context) throws -> ViewController
+    @MainActor func build(with context: Context) throws -> ViewController
 
 }
 
 // MARK: Default implementation
 
-@MainActor
 public extension Factory {
 
     /// Default implementation does nothing
@@ -55,11 +53,10 @@ public extension Factory {
 
 // MARK: Helper methods
 
-@MainActor
 public extension Factory {
 
     /// Prepares the `Factory` and builds its `UIViewController`
-    func execute(with context: Context) throws -> ViewController {
+    @MainActor func execute(with context: Context) throws -> ViewController {
         var factory = self
         try factory.prepare(with: context)
         return try factory.build(with: context)
@@ -69,16 +66,15 @@ public extension Factory {
 
 // MARK: Helper methods where the Context is Any?
 
-@MainActor
 public extension Factory where Context == Any? {
 
     /// Builds a `Factory`'s view controller.
-    func build() throws -> ViewController {
+    @MainActor func build() throws -> ViewController {
         try build(with: nil)
     }
 
     /// Prepares the `Factory` and builds its `UIViewController`
-    func execute() throws -> ViewController {
+    @MainActor func execute() throws -> ViewController {
         var factory = self
         try factory.prepare()
         return try factory.build()
@@ -88,16 +84,15 @@ public extension Factory where Context == Any? {
 
 // MARK: Helper methods where the Context is Void
 
-@MainActor
 public extension Factory where Context == Void {
 
     /// Builds a `Factory`'s view controller.
-    func build() throws -> ViewController {
+    @MainActor func build() throws -> ViewController {
         try build(with: ())
     }
 
     /// Prepares the `Factory` and builds its `UIViewController`
-    func execute() throws -> ViewController {
+    @MainActor func execute() throws -> ViewController {
         var factory = self
         try factory.prepare()
         return try factory.build()

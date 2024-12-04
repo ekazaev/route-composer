@@ -3,7 +3,7 @@
 // StepAssembly.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2024.
+// Created by Eugene Kazaev in 2018-2023.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -28,7 +28,6 @@ import UIKit
 ///         .from(GeneralStep.current())
 ///         .assemble()
 /// ```
-@MainActor
 public final class StepAssembly<F: Finder, FC: AbstractFactory>: GenericStepAssembly<F.ViewController, FC.Context>
     where
     F.ViewController == FC.ViewController, F.Context == FC.Context {
@@ -53,7 +52,6 @@ public final class StepAssembly<F: Finder, FC: AbstractFactory>: GenericStepAsse
 
 // MARK: Methods for Factory
 
-@MainActor
 public extension StepAssembly where FC: Factory {
 
     /// Constructor
@@ -91,7 +89,6 @@ public extension StepAssembly where FC: Factory {
 
 // MARK: Methods for ContainerFactory
 
-@MainActor
 public extension StepAssembly where FC: ContainerFactory {
 
     /// Constructor
@@ -128,7 +125,6 @@ public extension StepAssembly where FC: ContainerFactory {
 
 // MARK: Methods for the Nil Factory
 
-@MainActor
 public extension StepAssembly where FC: Factory & NilEntity {
 
     /// Connects previously provided `ActionToStepIntegrator` with `NilEntity` factory with a step where the `UIViewController`
@@ -162,7 +158,6 @@ public extension StepAssembly where FC: Factory & NilEntity {
 
 // MARK: Methods for the Nil ConatinerFactory
 
-@MainActor
 public extension StepAssembly where FC: ContainerFactory & NilEntity {
 
     /// Connects previously provided `ActionToStepIntegrator` with `NilEntity` factory with a step where the `UIViewController`

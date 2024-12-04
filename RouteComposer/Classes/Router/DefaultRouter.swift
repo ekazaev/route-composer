@@ -3,7 +3,7 @@
 // DefaultRouter.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2024.
+// Created by Eugene Kazaev in 2018-2023.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -13,7 +13,6 @@
 import UIKit
 
 /// Default `Router` implementation
-@MainActor
 public struct DefaultRouter: InterceptableRouter {
 
     // MARK: Properties
@@ -41,9 +40,9 @@ public struct DefaultRouter: InterceptableRouter {
     ///   - logger: A `Logger` instance to be used by the `DefaultRouter`.
     ///   - stackPresentationHandler: A `StackPresentationHandler` instance to be used by the `DefaultRouter`.
     ///   - containerAdapterLocator: A `ContainerAdapterLocator` instance to be used by the `DefaultRouter`.
-    public init(logger: Logger? = RouteComposerDefaults.shared.logger,
-                stackPresentationHandler: StackPresentationHandler = DefaultStackPresentationHandler(),
-                containerAdapterLocator: ContainerAdapterLocator = RouteComposerDefaults.shared.containerAdapterLocator) {
+    @MainActor public init(logger: Logger? = RouteComposerDefaults.shared.logger,
+                           stackPresentationHandler: StackPresentationHandler = DefaultStackPresentationHandler(),
+                           containerAdapterLocator: ContainerAdapterLocator = RouteComposerDefaults.shared.containerAdapterLocator) {
         self.logger = logger
         self.stackPresentationHandler = stackPresentationHandler
         self.containerAdapterLocator = containerAdapterLocator
@@ -62,9 +61,9 @@ public struct DefaultRouter: InterceptableRouter {
     }
 
     public func navigate<Context>(to step: DestinationStep<some UIViewController, Context>,
-                                  with context: Context,
-                                  animated: Bool = true,
-                                  completion: ((_: RoutingResult) -> Void)? = nil) throws {
+                                             with context: Context,
+                                             animated: Bool = true,
+                                             completion: ((_: RoutingResult) -> Void)? = nil) throws {
         do {
             // Wrapping real context into a box.
             let context: AnyContext = AnyContextBox(context)
@@ -103,7 +102,7 @@ public struct DefaultRouter: InterceptableRouter {
 
     // MARK: Private Methods
 
-    private func prepareTaskStack(with context: AnyContext) throws -> GlobalTaskRunner {
+    @MainActor  private func prepareTaskStack(with context: AnyContext) throws -> GlobalTaskRunner {
         let interceptorRunner = try InterceptorRunner(interceptors: interceptors, with: context)
         let contextTaskRunner = try ContextTaskRunner(contextTasks: contextTasks, with: context)
         let postponedTaskRunner = PostponedTaskRunner()
@@ -111,7 +110,7 @@ public struct DefaultRouter: InterceptableRouter {
         return GlobalTaskRunner(interceptorRunner: interceptorRunner, contextTaskRunner: contextTaskRunner, postTaskRunner: postTaskRunner)
     }
 
-    private func prepareFactoriesStack(to finalStep: RoutingStep, with context: AnyContext, taskStack: GlobalTaskRunner) throws -> (rootViewController: UIViewController,
+    @MainActor private func prepareFactoriesStack(to finalStep: RoutingStep, with context: AnyContext, taskStack: GlobalTaskRunner) throws -> (rootViewController: UIViewController,
                                                                                                                                     buildingInputStack: [(factory: AnyFactory, context: AnyContext)]) {
         logger?.log(.info("Started to search for the view controller to start the navigation process from."))
 
@@ -173,11 +172,11 @@ public struct DefaultRouter: InterceptableRouter {
         return (rootViewController: rootViewController, buildingInputStack: result.buildingInputStack)
     }
 
-    private func startNavigation(from viewController: UIViewController,
-                                 building buildingInputStack: [(factory: AnyFactory, context: AnyContext)],
-                                 performing taskStack: GlobalTaskRunner,
-                                 animated: Bool,
-                                 completion: @escaping (RoutingResult) -> Void) {
+    @MainActor private func startNavigation(from viewController: UIViewController,
+                                            building buildingInputStack: [(factory: AnyFactory, context: AnyContext)],
+                                            performing taskStack: GlobalTaskRunner,
+                                            animated: Bool,
+                                            completion: @escaping (RoutingResult) -> Void) {
         // Executes interceptors associated to each view in the chain. All the interceptors must succeed to
         // continue navigation process. This operation is async.
         let initialControllerDescription = String(describing: viewController)
@@ -225,10 +224,10 @@ public struct DefaultRouter: InterceptableRouter {
     // Loops through the list of factories and builds their view controllers in sequence.
     // Some actions can be asynchronous, like push, modal or presentations,
     // so it performs them asynchronously
-    private func buildViewControllerStack(starting rootViewController: UIViewController,
-                                          using factories: [(factory: AnyFactory, context: AnyContext)],
-                                          animated: Bool,
-                                          completion: @escaping (RoutingResult) -> Void) {
+    @MainActor private func buildViewControllerStack(starting rootViewController: UIViewController,
+                                                     using factories: [(factory: AnyFactory, context: AnyContext)],
+                                                     animated: Bool,
+                                                     completion: @escaping (RoutingResult) -> Void) {
         var factories = factories
         let postponedIntegrationHandler = DefaultPostponedIntegrationHandler(logger: logger,
                                                                              containerAdapterLocator: containerAdapterLocator)

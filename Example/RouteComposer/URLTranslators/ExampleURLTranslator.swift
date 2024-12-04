@@ -3,7 +3,7 @@
 // ExampleURLTranslator.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2024.
+// Created by Eugene Kazaev in 2018-2023.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -14,9 +14,8 @@ import Foundation
 import RouteComposer
 import UIKit
 
-@MainActor
 protocol ExampleURLTranslator {
 
-    func destination(from url: URL) -> AnyDestination?
+    @MainActor func destination(from url: URL) -> AnyDestination?
 
 }

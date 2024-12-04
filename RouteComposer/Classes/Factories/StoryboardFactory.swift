@@ -3,7 +3,7 @@
 // StoryboardFactory.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2024.
+// Created by Eugene Kazaev in 2018-2023.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -72,7 +72,7 @@ public struct StoryboardFactory<VC: UIViewController, C>: Factory {
         return viewController
     }
 
-    private func buildInitialViewController() throws -> VC {
+    @MainActor private func buildInitialViewController() throws -> VC {
         let storyboard = UIStoryboard(name: name, bundle: bundle)
         guard let abstractViewController = storyboard.instantiateInitialViewController() else {
             throw RoutingError.compositionFailed(.init("Unable to instantiate initial UIViewController " +

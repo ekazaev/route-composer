@@ -3,7 +3,7 @@
 // ContextInstantiatable.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2024.
+// Created by Eugene Kazaev in 2018-2023.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -18,14 +18,13 @@ import UIKit
 
 /// `View` instance should conform to this protocol to be used with `UIHostingControllerWithContextFactory`
 @available(iOS 13.0, OSX 10.15, tvOS 13.0, watchOS 6.0, *)
-@MainActor
 public protocol ContextInstantiatable where Self: View {
 
     /// Type of `Context` object that `View` can be initialised with
     associatedtype Context
 
     /// Constructor
-    init(with context: Context)
+    @MainActor init(with context: Context)
 
 }
 
@@ -33,7 +32,7 @@ public protocol ContextInstantiatable where Self: View {
 public extension ContextInstantiatable where Context == Void {
 
     /// Constructor
-    init() {
+    @MainActor init() {
         self.init(with: ())
     }
 
@@ -43,7 +42,7 @@ public extension ContextInstantiatable where Context == Void {
 public extension ContextInstantiatable where Context == Any? {
 
     /// Constructor
-    init() {
+    @MainActor init() {
         self.init(with: nil)
     }
 

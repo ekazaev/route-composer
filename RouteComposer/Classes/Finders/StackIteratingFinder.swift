@@ -3,7 +3,7 @@
 // StackIteratingFinder.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2024.
+// Created by Eugene Kazaev in 2018-2023.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -28,7 +28,7 @@ public protocol StackIteratingFinder: Finder {
     // MARK: Properties to implement
 
     /// `StackIterator` to be used by `StackIteratingFinder`
-    var iterator: StackIterator { get }
+    @MainActor var iterator: StackIterator { get }
 
     // MARK: Methods to implement
 
@@ -38,14 +38,14 @@ public protocol StackIteratingFinder: Finder {
     ///   - viewController: A view controller in the current view controller stack
     ///   - context: The `Context` instance provided to the `Router`.
     /// - Returns: true if this view controller is the one that `Finder` is looking for, false otherwise.
-    func isTarget(_ viewController: ViewController,
-                  with context: Context) -> Bool
+    @MainActor func isTarget(_ viewController: ViewController,
+                             with context: Context) -> Bool
 
 }
 
 public extension StackIteratingFinder {
 
-    func findViewController(with context: Context) throws -> ViewController? {
+    @MainActor func findViewController(with context: Context) throws -> ViewController? {
         let predicate: (UIViewController) -> Bool = {
             guard let viewController = $0 as? ViewController else {
                 return false

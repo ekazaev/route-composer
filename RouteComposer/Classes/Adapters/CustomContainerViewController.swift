@@ -3,7 +3,7 @@
 // CustomContainerViewController.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2024.
+// Created by Eugene Kazaev in 2018-2023.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -32,6 +32,6 @@ public protocol CustomContainerViewController: ContainerViewController {
     // MARK: Properties to implement
 
     /// `ContainerAdapter` to be provided by `DefaultContainerAdapterLocator`
-    var adapter: ContainerAdapter { get }
+    @MainActor var adapter: ContainerAdapter { get }
 
 }

@@ -3,7 +3,7 @@
 // DefaultContainerAdapterLocator.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2024.
+// Created by Eugene Kazaev in 2018-2023.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -14,13 +14,11 @@ import Foundation
 import UIKit
 
 /// Default implementation of `ContainerAdapterLocator`
-@MainActor
 public struct DefaultContainerAdapterLocator: ContainerAdapterLocator {
 
     // MARK: Methods
 
     /// Constructor
-    @MainActor
     public init() {}
 
     /// Returns the `ContainerAdapter` suitable for the `ContainerViewController`.

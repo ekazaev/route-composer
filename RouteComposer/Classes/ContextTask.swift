@@ -3,7 +3,7 @@
 // ContextTask.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2024.
+// Created by Eugene Kazaev in 2018-2023.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -17,7 +17,6 @@ import UIKit
 ///
 /// ### NB
 /// The `ContextTask` will be applied to the new `UIViewController` before it's integration into the stack.
-@MainActor
 public protocol ContextTask {
 
     // MARK: Associated types
@@ -36,7 +35,7 @@ public protocol ContextTask {
     /// - Parameters:
     ///   - context: The `Context` instance provided to the `Router`
     /// - Throws: The `RoutingError` if `ContextTask` can't be applied.
-    mutating func prepare(with context: Context) throws
+    @MainActor mutating func prepare(with context: Context) throws
 
     /// The `Router` will call this method to run the `ContextTask` immediately after `UIViewController` been created
     /// or found
@@ -44,7 +43,7 @@ public protocol ContextTask {
     /// - Parameters:
     ///   - viewController: The `UIViewController` instance described in the step that `ContextTask` attached to
     ///   - context: The `Context` instance that was passed to the `Router`
-    func perform(on viewController: ViewController, with context: Context) throws
+    @MainActor func perform(on viewController: ViewController, with context: Context) throws
 
 }
 
@@ -62,7 +61,7 @@ public extension ContextTask {
 public extension ContextTask {
 
     /// Prepares the `ContextTask` and executes it
-    func execute(on viewController: ViewController, with context: Context) throws {
+    @MainActor func execute(on viewController: ViewController, with context: Context) throws {
         var contextTask = self
         try contextTask.prepare(with: context)
         try contextTask.perform(on: viewController, with: context)
@@ -78,7 +77,7 @@ public extension ContextTask where Context == Any? {
     /// be applied to a view controller it should throw an exception.
     ///
     /// - Throws: The `RoutingError` if `ContextTask` can't be applied.
-    mutating func prepare() throws {
+    @MainActor mutating func prepare() throws {
         try prepare(with: nil)
     }
 
@@ -87,12 +86,12 @@ public extension ContextTask where Context == Any? {
     ///
     /// - Parameters:
     ///   - viewController: The `UIViewController` instance described in the step that `ContextTask` attached to
-    func perform(on viewController: ViewController) throws {
+    @MainActor func perform(on viewController: ViewController) throws {
         try perform(on: viewController, with: nil)
     }
 
     /// Prepares the `ContextTask` and executes it
-    func execute(on viewController: ViewController) throws {
+    @MainActor func execute(on viewController: ViewController) throws {
         try execute(on: viewController, with: nil)
     }
 
@@ -106,7 +105,7 @@ public extension ContextTask where Context == Void {
     /// be applied to a view controller it should throw an exception.
     ///
     /// - Throws: The `RoutingError` if `ContextTask` can't be applied.
-    mutating func prepare() throws {
+    @MainActor mutating func prepare() throws {
         try prepare(with: ())
     }
 
@@ -115,12 +114,12 @@ public extension ContextTask where Context == Void {
     ///
     /// - Parameters:
     ///   - viewController: The `UIViewController` instance described in the step that `ContextTask` attached to
-    func perform(on viewController: ViewController) throws {
+    @MainActor func perform(on viewController: ViewController) throws {
         try perform(on: viewController, with: ())
     }
 
     /// Prepares the `ContextTask` and executes it
-    func execute(on viewController: ViewController) throws {
+    @MainActor func execute(on viewController: ViewController) throws {
         try execute(on: viewController, with: ())
     }
 

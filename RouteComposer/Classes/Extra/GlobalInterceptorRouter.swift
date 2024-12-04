@@ -3,7 +3,7 @@
 // GlobalInterceptorRouter.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2024.
+// Created by Eugene Kazaev in 2018-2023.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -17,7 +17,6 @@ import UIKit
 /// Sometimes if interceptor can change the entire stack of view controllers it is handy to run a global interceptor
 /// any starting point is found. `GlobalInterceptorRouter` proxy allows to add such a global interceptor that will be
 /// executed before any work that `DefaultRouter` will do.
-@MainActor
 public struct GlobalInterceptorRouter<R>: Router where R: Router {
 
     // MARK: Properties

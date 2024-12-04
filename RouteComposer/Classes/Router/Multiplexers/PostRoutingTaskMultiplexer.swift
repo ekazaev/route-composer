@@ -3,7 +3,7 @@
 // PostRoutingTaskMultiplexer.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2024.
+// Created by Eugene Kazaev in 2018-2023.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -13,7 +13,7 @@
 import Foundation
 import UIKit
 
-struct PostRoutingTaskMultiplexer: AnyPostRoutingTask, @preconcurrency CustomStringConvertible {
+struct PostRoutingTaskMultiplexer: AnyPostRoutingTask, CustomStringConvertible {
 
     private let tasks: [AnyPostRoutingTask]
 
