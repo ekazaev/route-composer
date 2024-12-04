@@ -22,8 +22,7 @@ public final class RouteComposerDefaults {
     // MARK: Properties
 
     /// Singleton access.
-    @MainActor
-    public static var shared: RouteComposerDefaults = {
+    public static let shared: RouteComposerDefaults = {
         switch configurationStorage {
         case let .some(configurationStorage):
             return configurationStorage
@@ -35,16 +34,16 @@ public final class RouteComposerDefaults {
     }()
 
     /// Default `Logger` instance.
-    public private(set) var logger: Logger?
+    public let logger: Logger?
 
     /// Default `ContainerAdapterLocator` instance.
-    public private(set) var containerAdapterLocator: ContainerAdapterLocator
+    public let containerAdapterLocator: ContainerAdapterLocator
 
     /// Default `StackIterator` instance.
-    public private(set) var stackIterator: StackIterator
+    public let stackIterator: StackIterator
 
     /// Default `WindowProvider` instance.
-    public private(set) var windowProvider: WindowProvider
+    public let windowProvider: WindowProvider
 
     @MainActor
     private static var configurationStorage: RouteComposerDefaults?

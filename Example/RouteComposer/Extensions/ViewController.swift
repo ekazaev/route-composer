@@ -35,13 +35,14 @@ extension UIViewController {
 
     @MainActor
     static let router: Router = {
-        let libRouter = DefaultRouter()
-        let failingRouter = FailingRouter(router: libRouter)
-        var defaultRouter = GlobalInterceptorRouter(router: failingRouter)
-        defaultRouter.addGlobal(TestInterceptor("Global interceptors start"))
-        defaultRouter.addGlobal(NavigationDelayingInterceptor(strategy: .wait))
-        defaultRouter.add(TestInterceptor("Router interceptors start"))
-        return AnalyticsRouterDecorator(router: defaultRouter)
+        fatalError()
+//        let libRouter = DefaultRouter()
+//        let failingRouter = FailingRouter(router: libRouter)
+//        var defaultRouter = GlobalInterceptorRouter(router: failingRouter)
+//        defaultRouter.addGlobal(TestInterceptor("Global interceptors start"))
+//        defaultRouter.addGlobal(NavigationDelayingInterceptor(strategy: .wait))
+//        defaultRouter.add(TestInterceptor("Router interceptors start"))
+//        return AnalyticsRouterDecorator(router: defaultRouter)
     }()
 
     var router: Router {

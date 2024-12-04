@@ -18,6 +18,7 @@ import UIKit
 @MainActor
 var isLoggedIn: Bool = false
 
+@MainActor
 class LoginInterceptor<C>: RoutingInterceptor {
 
     typealias Context = C

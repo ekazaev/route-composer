@@ -20,8 +20,7 @@ public struct DefaultContainerAdapterLocator: ContainerAdapterLocator {
     // MARK: Methods
 
     /// Constructor
-    @MainActor
-    public init() {}
+    public nonisolated init() {}
 
     /// Returns the `ContainerAdapter` suitable for the `ContainerViewController`.
     ///

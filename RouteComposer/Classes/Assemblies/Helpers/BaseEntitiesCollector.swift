@@ -13,6 +13,7 @@
 import Foundation
 import UIKit
 
+@MainActor
 struct BaseEntitiesCollector<FactoryBoxer: AnyFactoryBox, ActionBoxer: AnyActionBox>: EntitiesProvider {
 
     let factory: AnyFactory?

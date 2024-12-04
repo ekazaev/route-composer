@@ -38,6 +38,7 @@ public protocol SimpleContainerFactory: ContainerFactory {
 
 }
 
+@MainActor
 public extension SimpleContainerFactory {
 
     /// Default implementation of the `ContainerFactory`'s `build` method

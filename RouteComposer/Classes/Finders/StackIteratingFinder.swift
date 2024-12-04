@@ -43,6 +43,7 @@ public protocol StackIteratingFinder: Finder {
 
 }
 
+@MainActor
 public extension StackIteratingFinder {
 
     func findViewController(with context: Context) throws -> ViewController? {

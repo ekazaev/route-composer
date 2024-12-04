@@ -36,7 +36,6 @@ public struct KeyWindowProvider: WindowProvider {
     // MARK: Methods
 
     /// Constructor
-    @MainActor
-    public init() {}
+    public nonisolated init() {}
 
 }

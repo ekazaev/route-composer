@@ -14,6 +14,7 @@ import Foundation
 import UIKit
 
 /// A default implementation of the view controllers finder that searches for a view controller by its name.
+@MainActor
 public struct ClassFinder<VC: UIViewController, C>: StackIteratingFinder {
 
     // MARK: Associated types
@@ -43,6 +44,7 @@ public struct ClassFinder<VC: UIViewController, C>: StackIteratingFinder {
 }
 
 /// Extension to use `DefaultStackIterator` as default iterator.
+@MainActor
 public extension ClassFinder {
 
     /// Constructor

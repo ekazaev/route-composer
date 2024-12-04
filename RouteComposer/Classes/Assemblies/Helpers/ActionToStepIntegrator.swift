@@ -31,6 +31,7 @@ public class IntermediateDestinationStep {
 }
 
 /// Allows to add tasks to the step that is hidden in `IntermediateDestinationStep`.
+@MainActor
 public class ActionToStepIntegrator<VC: UIViewController, C>: IntermediateDestinationStep, InterceptableStepAssembling {
 
     // MARK: Associated types

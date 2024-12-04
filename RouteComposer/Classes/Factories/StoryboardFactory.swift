@@ -13,6 +13,7 @@
 import UIKit
 
 /// The `Factory` that creates a `UIViewController` from a storyboard.
+@MainActor
 public struct StoryboardFactory<VC: UIViewController, C>: Factory {
 
     // MARK: Associated types

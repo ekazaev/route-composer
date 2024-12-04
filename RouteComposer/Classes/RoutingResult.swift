@@ -16,7 +16,7 @@ import Foundation
 ///
 /// - success: The request to process the navigation resulted in a successful navigation to the destination.
 /// - failure: The request to process the navigation was not successful.
-public enum RoutingResult {
+public enum RoutingResult: Sendable {
 
     /// The request to process the navigation resulted in a successful navigation to the destination.
     case success

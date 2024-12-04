@@ -12,6 +12,7 @@
 
 import Foundation
 
+@MainActor
 struct TaskCollector: TaskProvider {
 
     private var interceptors: [AnyRoutingInterceptor] = []
@@ -44,4 +45,9 @@ struct TaskCollector: TaskProvider {
         !postTasks.isEmpty ? postTasks.count == 1 ? postTasks.first : PostRoutingTaskMultiplexer(postTasks) : nil
     }
 
+    init(interceptors: [AnyRoutingInterceptor] = [], contextTasks: [AnyContextTask] = [], postTasks: [AnyPostRoutingTask] = []) {
+        self.interceptors = interceptors
+        self.contextTasks = contextTasks
+        self.postTasks = postTasks
+    }
 }

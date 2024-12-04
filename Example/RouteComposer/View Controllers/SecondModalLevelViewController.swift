@@ -33,7 +33,7 @@ class SecondModalLevelViewController: UIViewController, ExampleAnalyticsSupport 
     }
 
     @IBAction func goToBerlinTapped() {
-        try? router.navigate(to: CitiesConfiguration.cityDetail(cityId: 15), animated: false)
+//        try? router.navigate(to: CitiesConfiguration.cityDetail(cityId: 15), animated: false)
     }
 
     @objc func doneTapped() {
