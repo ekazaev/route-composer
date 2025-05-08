@@ -92,11 +92,9 @@ class LoginViewController: UIViewController, ExampleAnalyticsSupport {
             loginTextField.resignFirstResponder()
             passwordTextField.resignFirstResponder()
             loginButton.isEnabled = false
-            let mainQueue = DispatchQueue.main
-            let deadline = DispatchTime.now() + .seconds(2)
             activityIndicator.startAnimating()
             Task { @MainActor in
-                try await Task.sleep(nanoseconds: deadline.uptimeNanoseconds)
+                try await Task.sleep(nanoseconds: 500_000_000)
                 self.loginButton.isEnabled = true
                 self.activityIndicator.stopAnimating()
                 isLoggedIn = true
