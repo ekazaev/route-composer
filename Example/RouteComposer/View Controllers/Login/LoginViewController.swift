@@ -94,7 +94,7 @@ class LoginViewController: UIViewController, ExampleAnalyticsSupport {
             loginButton.isEnabled = false
             activityIndicator.startAnimating()
             Task { @MainActor in
-                try await Task.sleep(nanoseconds: 500_000_000)
+                try await Task.sleep(nanoseconds: 500000000)
                 self.loginButton.isEnabled = true
                 self.activityIndicator.stopAnimating()
                 isLoggedIn = true
