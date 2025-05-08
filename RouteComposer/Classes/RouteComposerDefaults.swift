@@ -22,6 +22,7 @@ public final class RouteComposerDefaults {
     // MARK: Properties
 
     /// Singleton access.
+    @MainActor
     public static let shared: RouteComposerDefaults = {
         switch configurationStorage {
         case let .some(configurationStorage):

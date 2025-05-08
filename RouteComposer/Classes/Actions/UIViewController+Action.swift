@@ -25,8 +25,8 @@ public enum GeneralAction {
     ///   - animationOptions: Set of `UIView.AnimationOptions`. Transition will happen without animation if not provided.
     ///   - duration: Transition duration.
     @MainActor
-    public static func replaceRoot(windowProvider: WindowProvider = RouteComposerDefaults.shared.windowProvider,
-                                   animationOptions: UIView.AnimationOptions? = nil,
+    public static func replaceRoot(animationOptions: UIView.AnimationOptions? = nil,
+                                   windowProvider: WindowProvider = RouteComposerDefaults.shared.windowProvider,
                                    duration: TimeInterval = 0.3) -> ViewControllerActions.ReplaceRootAction {
         ViewControllerActions.ReplaceRootAction(windowProvider: windowProvider, animationOptions: animationOptions, duration: duration)
     }

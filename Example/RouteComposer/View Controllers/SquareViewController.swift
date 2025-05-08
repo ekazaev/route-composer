@@ -31,7 +31,7 @@ class SquareViewController: UIViewController, ExampleAnalyticsSupport {
     }
 
     @IBAction func goToSplitTapped() {
-//        try? router.navigate(to: CitiesConfiguration.citiesList())
+        try? router.navigate(to: CitiesConfiguration.citiesList())
     }
 
     @IBAction func goToLoginTapped() {

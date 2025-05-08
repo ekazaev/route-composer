@@ -73,7 +73,7 @@ class CitiesTableViewController: UITableViewController, ExampleAnalyticsSupport 
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let city = CitiesDataModel.cities[indexPath.row]
-//        try? router.navigate(to: CitiesConfiguration.cityDetail(cityId: city.cityId))
+        try? router.navigate(to: CitiesConfiguration.cityDetail(cityId: city.cityId))
     }
 
     @IBAction func goToSquareTapped() {

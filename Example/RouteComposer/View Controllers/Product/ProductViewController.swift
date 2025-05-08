@@ -83,7 +83,7 @@ class ProductViewController: UIViewController, ExampleAnalyticsSupport, ContextA
     }
 
     @IBAction func goToSplitTapped() {
-//        try? router.navigate(to: CitiesConfiguration.citiesList())
+        try? router.navigate(to: CitiesConfiguration.citiesList())
     }
 
     @IBAction func goToProductTapped() {
