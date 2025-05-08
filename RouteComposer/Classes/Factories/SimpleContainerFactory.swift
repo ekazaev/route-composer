@@ -3,7 +3,7 @@
 // SimpleContainerFactory.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2024.
+// Created by Eugene Kazaev in 2018-2025.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -38,6 +38,7 @@ public protocol SimpleContainerFactory: ContainerFactory {
 
 }
 
+@MainActor
 public extension SimpleContainerFactory {
 
     /// Default implementation of the `ContainerFactory`'s `build` method

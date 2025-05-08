@@ -3,7 +3,7 @@
 // KeyWindowProvider.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2024.
+// Created by Eugene Kazaev in 2018-2025.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -14,6 +14,7 @@ import Foundation
 import UIKit
 
 /// Returns key `UIWindow`
+@MainActor
 public struct KeyWindowProvider: WindowProvider {
 
     // MARK: Properties
@@ -35,6 +36,6 @@ public struct KeyWindowProvider: WindowProvider {
     // MARK: Methods
 
     /// Constructor
-    public init() {}
+    public nonisolated init() {}
 
 }

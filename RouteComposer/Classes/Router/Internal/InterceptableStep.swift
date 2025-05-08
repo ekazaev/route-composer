@@ -3,7 +3,7 @@
 // InterceptableStep.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2024.
+// Created by Eugene Kazaev in 2018-2025.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -12,6 +12,7 @@
 
 import Foundation
 
+@MainActor
 protocol InterceptableStep where Self: PerformableStep {
 
     var interceptor: AnyRoutingInterceptor? { get }

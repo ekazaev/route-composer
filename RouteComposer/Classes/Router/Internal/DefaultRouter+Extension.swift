@@ -3,7 +3,7 @@
 // DefaultRouter+Extension.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2024.
+// Created by Eugene Kazaev in 2018-2025.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -15,6 +15,7 @@ import UIKit
 
 extension DefaultRouter {
 
+    @MainActor
     struct InterceptorRunner {
 
         private var interceptors: [(interceptor: AnyRoutingInterceptor, context: AnyContext)]
@@ -58,6 +59,7 @@ extension DefaultRouter {
 
     }
 
+    @MainActor
     struct ContextTaskRunner {
 
         var contextTasks: [AnyContextTask]
@@ -84,6 +86,7 @@ extension DefaultRouter {
 
     }
 
+    @MainActor
     struct PostTaskRunner {
 
         var postTasks: [AnyPostRoutingTask]
@@ -109,6 +112,7 @@ extension DefaultRouter {
 
     }
 
+    @MainActor
     struct StepTaskTaskRunner {
 
         private let contextTaskRunner: ContextTaskRunner
@@ -130,6 +134,7 @@ extension DefaultRouter {
 
     }
 
+    @MainActor
     final class PostponedTaskRunner {
 
         private struct PostTaskSlip {
@@ -183,6 +188,7 @@ extension DefaultRouter {
         }
     }
 
+    @MainActor
     final class GlobalTaskRunner {
 
         private final var interceptorRunner: InterceptorRunner
@@ -229,7 +235,7 @@ extension DefaultRouter {
     /// This decorator adds functionality of storing `UIViewController`s created by the `Factory` and frees
     /// custom factories implementations from dealing with it. Mostly it is important for ContainerFactories
     /// which create merged view controllers without `Router`'s help.
-    struct FactoryDecorator: AnyFactory, CustomStringConvertible {
+    struct FactoryDecorator: AnyFactory, @preconcurrency CustomStringConvertible {
 
         private var factory: AnyFactory
 
@@ -263,7 +269,7 @@ extension DefaultRouter {
 
     }
 
-    final class DefaultPostponedIntegrationHandler: PostponedActionIntegrationHandler, MainThreadChecking {
+    final class DefaultPostponedIntegrationHandler: PostponedActionIntegrationHandler {
 
         private(set) final var containerViewController: ContainerViewController?
 
@@ -282,7 +288,6 @@ extension DefaultRouter {
             do {
                 guard self.containerViewController == nil else {
                     purge(animated: animated, completion: { result in
-                        self.assertIfNotMainThread()
                         guard result.isSuccessful else {
                             completion(result)
                             return

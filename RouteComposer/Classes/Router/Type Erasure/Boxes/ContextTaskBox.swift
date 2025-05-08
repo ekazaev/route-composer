@@ -3,7 +3,7 @@
 // ContextTaskBox.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2024.
+// Created by Eugene Kazaev in 2018-2025.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -13,7 +13,7 @@
 import Foundation
 import UIKit
 
-struct ContextTaskBox<CT: ContextTask>: AnyContextTask, PreparableEntity, MainThreadChecking, CustomStringConvertible {
+struct ContextTaskBox<CT: ContextTask>: AnyContextTask, PreparableEntity, @preconcurrency CustomStringConvertible {
 
     var contextTask: CT
 
@@ -37,7 +37,6 @@ struct ContextTaskBox<CT: ContextTask>: AnyContextTask, PreparableEntity, MainTh
         }
         let typedContext: CT.Context = try context.value()
 
-        assertIfNotMainThread()
         assertIfNotPrepared()
         try contextTask.perform(on: typedViewController, with: typedContext)
     }

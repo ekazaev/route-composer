@@ -3,7 +3,7 @@
 // InternalSearchConfiguration.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2024.
+// Created by Eugene Kazaev in 2018-2025.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -15,6 +15,7 @@ import RouteComposer
 import UIKit
 
 enum InternalSearchConfiguration {
+    @MainActor
     private static let completeFactory = CompleteFactoryAssembly(factory: TabBarControllerFactory())
         .with(CompleteFactoryAssembly(factory: NavigationControllerFactory<UINavigationController, MainScreenContext>(configuration: { $0.tabBarItem.title = "Home" /* One way */ }))
             .with(ClassFactory<HomeViewController, MainScreenContext>())
@@ -27,6 +28,7 @@ enum InternalSearchConfiguration {
         })
         .assemble()
 
+    @MainActor
     private static let mainScreenFromCircle = StepAssembly(
         finder: NilFinder<UITabBarController, MainScreenContext>(),
         factory: completeFactory)
@@ -43,12 +45,14 @@ enum InternalSearchConfiguration {
             .from(ConfigurationHolder.configuration.circleScreen.expectingContainer())
             .assemble()
 
+    @MainActor
     static let home = Destination(to: StepAssembly(
         finder: ClassWithContextFinder<HomeViewController, MainScreenContext>(),
         factory: NilFactory())
         .from(mainScreenFromCircle)
         .assemble(), with: .home)
 
+    @MainActor
     static let settings = Destination(to: StepAssembly(
         finder: ClassWithContextFinder<SettingsViewController, MainScreenContext>(),
         factory: NilFactory())

@@ -3,7 +3,7 @@
 // ExtrasTest.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2024.
+// Created by Eugene Kazaev in 2018-2025.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -15,6 +15,7 @@ import Foundation
 import UIKit
 import XCTest
 
+@MainActor
 class ExtrasTest: XCTestCase {
 
     let router = SingleNavigationRouter(router: DefaultRouter(), lock: SingleNavigationLock())
@@ -204,7 +205,7 @@ class ExtrasTest: XCTestCase {
 
         let window = UIWindow()
         window.rootViewController = DismissingViewController()
-        let interceptor = NavigationDelayingInterceptor<Any?>(windowProvider: CustomWindowProvider(window: window), strategy: .abort)
+        let interceptor = NavigationDelayingInterceptor<Any?>(strategy: .abort, windowProvider: CustomWindowProvider(window: window))
 
         var wasInCompletion = false
         interceptor.perform(with: nil, completion: { result in

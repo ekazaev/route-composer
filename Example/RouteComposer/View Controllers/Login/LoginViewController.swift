@@ -3,7 +3,7 @@
 // LoginViewController.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2024.
+// Created by Eugene Kazaev in 2018-2025.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -15,8 +15,10 @@ import RouteComposer
 import UIKit
 
 // I do not want to create login service for demo so it is just a variable
+@MainActor
 var isLoggedIn: Bool = false
 
+@MainActor
 class LoginInterceptor<C>: RoutingInterceptor {
 
     typealias Context = C
@@ -90,10 +92,9 @@ class LoginViewController: UIViewController, ExampleAnalyticsSupport {
             loginTextField.resignFirstResponder()
             passwordTextField.resignFirstResponder()
             loginButton.isEnabled = false
-            let mainQueue = DispatchQueue.main
-            let deadline = DispatchTime.now() + .seconds(2)
             activityIndicator.startAnimating()
-            mainQueue.asyncAfter(deadline: deadline) {
+            Task { @MainActor in
+                try await Task.sleep(nanoseconds: 500000000)
                 self.loginButton.isEnabled = true
                 self.activityIndicator.stopAnimating()
                 isLoggedIn = true

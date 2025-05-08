@@ -3,7 +3,7 @@
 // FinderBox.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2024.
+// Created by Eugene Kazaev in 2018-2025.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -13,7 +13,7 @@
 import Foundation
 import UIKit
 
-struct FinderBox<F: Finder>: AnyFinder, CustomStringConvertible {
+struct FinderBox<F: Finder>: AnyFinder, @preconcurrency CustomStringConvertible {
 
     let finder: F
 

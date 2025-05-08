@@ -1,11 +1,11 @@
-// swift-tools-version:5.1
+// swift-tools-version: 5.10
 
 import PackageDescription
 
 let package = Package(
     name: "RouteComposer",
     platforms: [
-        .iOS(.v11)
+        .iOS("16.0")
     ],
     products: [
         .library(
@@ -28,4 +28,4 @@ let package = Package(
             dependencies: ["RouteComposer"],
             path: "Example/Tests")
     ],
-    swiftLanguageVersions: [.v5])
+    swiftLanguageVersions: [.version("6.0")])

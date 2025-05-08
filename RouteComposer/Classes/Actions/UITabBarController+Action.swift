@@ -3,7 +3,7 @@
 // UITabBarController+Action.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2024.
+// Created by Eugene Kazaev in 2018-2025.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -25,6 +25,7 @@ public extension ContainerViewController where Self: UITabBarController {
     ///   - replacing: should be set to `true` if an existing view controller should be replaced.
     ///     If condition has not been passed, a view controller
     ///   will be added after the latest one.
+    @MainActor
     static func add(at tabIndex: Int, replacing: Bool = false) -> TabBarControllerActions.AddTabAction<Self> {
         TabBarControllerActions.AddTabAction(at: tabIndex, replacing: replacing)
     }
@@ -34,6 +35,7 @@ public extension ContainerViewController where Self: UITabBarController {
     ///   - tabIndex: index of a tab.
     ///     If condition has not been passed, a view controller
     ///   will be added after the latest one.
+    @MainActor
     static func add(at tabIndex: Int? = nil) -> TabBarControllerActions.AddTabAction<Self> {
         TabBarControllerActions.AddTabAction(at: tabIndex)
     }

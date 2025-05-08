@@ -3,7 +3,7 @@
 // ImagesWithoutLibraryConfiguration.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2024.
+// Created by Eugene Kazaev in 2018-2025.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -20,10 +20,13 @@ import UIKit
 // will make this implementation much more complicated.
 class ImagesWithoutLibraryConfiguration {
 
+    @MainActor
     static let shared = ImagesWithoutLibraryConfiguration()
 
+    @MainActor
     private static let handler = ImagesWithoutLibraryHandler()
 
+    @MainActor
     func showCustomController() {
         // Handled by CustomContainerFactory
         let storyboard = UIStoryboard(name: "Images", bundle: Bundle.main)

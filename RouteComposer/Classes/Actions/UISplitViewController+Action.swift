@@ -3,7 +3,7 @@
 // UISplitViewController+Action.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2024.
+// Created by Eugene Kazaev in 2018-2025.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -20,17 +20,20 @@ public extension ContainerViewController where Self: UISplitViewController {
     // MARK: Steps
 
     /// Presents a view controller as a master in the `UISplitViewController`
+    @MainActor
     static func setAsMaster() -> SplitViewControllerActions.SetAsMasterAction<Self> {
         SplitViewControllerActions.SetAsMasterAction()
     }
 
     /// Presents a view controller as a detail in the `UISplitViewController`, *replacing* the previous detail.
+    @MainActor
     static func pushToDetails() -> SplitViewControllerActions.PushToDetailsAction<Self> {
         SplitViewControllerActions.PushToDetailsAction()
     }
 
     /// Pushes a view controller *onto* the detail stack in the `UISplitViewController`. Requires the root detail view
     /// controller to be the `UINavigationController`
+    @MainActor
     static func pushOnToDetails() -> RouteComposer.SplitViewControllerActions.PushOnToDetailsAction<Self> {
         SplitViewControllerActions.PushOnToDetailsAction()
     }

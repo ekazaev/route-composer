@@ -3,7 +3,7 @@
 // InterceptorMultiplexer.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2024.
+// Created by Eugene Kazaev in 2018-2025.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -12,7 +12,7 @@
 
 import Foundation
 
-struct InterceptorMultiplexer: AnyRoutingInterceptor, MainThreadChecking, CustomStringConvertible {
+struct InterceptorMultiplexer: AnyRoutingInterceptor, @preconcurrency CustomStringConvertible {
 
     private var interceptors: [AnyRoutingInterceptor]
 
@@ -37,9 +37,7 @@ struct InterceptorMultiplexer: AnyRoutingInterceptor, MainThreadChecking, Custom
         var interceptors = interceptors
 
         func runInterceptor(interceptor: AnyRoutingInterceptor) {
-            assertIfNotMainThread()
             interceptor.perform(with: context) { result in
-                assertIfNotMainThread()
                 if case .failure = result {
                     completion(result)
                 } else if interceptors.isEmpty {

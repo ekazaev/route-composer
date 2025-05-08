@@ -3,7 +3,7 @@
 // SearchOptions.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2024.
+// Created by Eugene Kazaev in 2018-2025.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -13,7 +13,7 @@
 import Foundation
 
 /// A set of options for the `findViewController` method
-public struct SearchOptions: OptionSet, CaseIterable, CustomStringConvertible {
+public struct SearchOptions: OptionSet, CaseIterable, CustomStringConvertible, Sendable {
 
     public let rawValue: Int
 

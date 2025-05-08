@@ -3,7 +3,7 @@
 // LoginConfiguration.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2024.
+// Created by Eugene Kazaev in 2018-2025.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -15,6 +15,7 @@ import RouteComposer
 
 enum LoginConfiguration {
 
+    @MainActor
     static func login() -> Destination<LoginViewController, Void> {
         let loginScreen = StepAssembly(finder: ClassFinder<LoginViewController, Void>(),
                                        factory: NilFactory()) // Login view controller will be created when UINavigationController will be loaded from storyboard.

@@ -3,7 +3,7 @@
 // PostRoutingTaskBox.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2024.
+// Created by Eugene Kazaev in 2018-2025.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -13,7 +13,7 @@
 import Foundation
 import UIKit
 
-struct PostRoutingTaskBox<PT: PostRoutingTask>: AnyPostRoutingTask, MainThreadChecking, CustomStringConvertible {
+struct PostRoutingTaskBox<PT: PostRoutingTask>: AnyPostRoutingTask, @preconcurrency CustomStringConvertible {
 
     let postRoutingTask: PT
 
@@ -30,7 +30,6 @@ struct PostRoutingTaskBox<PT: PostRoutingTask>: AnyPostRoutingTask, MainThreadCh
                                             .init("\(String(describing: postRoutingTask.self)) does not support \(String(describing: viewController.self))."))
         }
         let typedDestination: PT.Context = try context.value()
-        assertIfNotMainThread()
         postRoutingTask.perform(on: typedViewController, with: typedDestination, routingStack: routingStack)
     }
 

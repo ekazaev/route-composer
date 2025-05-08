@@ -3,7 +3,7 @@
 // StoryboardFactory.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2024.
+// Created by Eugene Kazaev in 2018-2025.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -13,6 +13,7 @@
 import UIKit
 
 /// The `Factory` that creates a `UIViewController` from a storyboard.
+@MainActor
 public struct StoryboardFactory<VC: UIViewController, C>: Factory {
 
     // MARK: Associated types

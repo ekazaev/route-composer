@@ -3,7 +3,7 @@
 // ProductConfiguration.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2024.
+// Created by Eugene Kazaev in 2018-2025.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -16,6 +16,7 @@ import UIKit
 
 class ProductConfiguration {
 
+    @MainActor
     static let productScreen = StepAssembly(
         finder: ClassWithContextFinder<ProductViewController, ProductContext>(),
         factory: StoryboardFactory(name: "TabBar", identifier: "ProductViewController"))
@@ -45,6 +46,7 @@ class ProductConfiguration {
         .assemble()
 
     // This path is used to test the transactions in presentations. Does not have any other purposes
+    @MainActor
     static let productScreenFromCircle = StepAssembly(
         finder: ClassWithContextFinder<ProductViewController, ProductContext>(),
         factory: NilFactory())

@@ -3,7 +3,7 @@
 // ActionBox.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2024.
+// Created by Eugene Kazaev in 2018-2025.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -13,7 +13,7 @@
 import Foundation
 import UIKit
 
-struct ActionBox<A: Action>: AnyAction, AnyActionBox, CustomStringConvertible, MainThreadChecking {
+struct ActionBox<A: Action>: AnyAction, AnyActionBox, @preconcurrency CustomStringConvertible {
 
     let action: A
 
@@ -33,14 +33,12 @@ struct ActionBox<A: Action>: AnyAction, AnyActionBox, CustomStringConvertible, M
                                                           .init("Action \(action.self) cannot be performed on \(existingController)."))))
             return
         }
-        assertIfNotMainThread()
         postponedIntegrationHandler.purge(animated: animated, completion: { result in
             guard result.isSuccessful else {
                 completion(result)
                 return
             }
             action.perform(with: viewController, on: typedExistingViewController, animated: animated) { result in
-                assertIfNotMainThread()
                 completion(result)
             }
         })

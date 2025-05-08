@@ -3,7 +3,7 @@
 // ContainerLocatorTests.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2024.
+// Created by Eugene Kazaev in 2018-2025.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -14,6 +14,7 @@
 import UIKit
 import XCTest
 
+@MainActor
 class ContainerLocatorTests: XCTestCase {
 
     class TestContainerController: UIViewController, CustomContainerViewController {

@@ -3,7 +3,7 @@
 // AllRoutesInAppUITests.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2024.
+// Created by Eugene Kazaev in 2018-2025.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -12,27 +12,12 @@
 
 import XCTest
 
+@MainActor
 class AllRoutesInAppUITests: XCTestCase {
-
-    var app: XCUIApplication!
 
     override func setUp() {
         super.setUp()
-
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-
-        // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
-
-        app = XCUIApplication()
-        // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests
-        // before they run. The setUp method is a good place to do this.
-
-        // We send a command line argument to our app,
-        // to enable it to reset its state
-        app.launchArguments.append("--uitesting")
     }
 
     override func tearDown() {
@@ -41,6 +26,8 @@ class AllRoutesInAppUITests: XCTestCase {
     }
 
     func testAllRoutesInHome() {
+        let app = XCUIApplication()
+        app.launchArguments.append("--uitesting")
         app.launch()
         XCTAssertTrue(app.otherElements["promptViewController"].exists)
         app.buttons["Continue"].tap()

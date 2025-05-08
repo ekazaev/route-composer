@@ -3,7 +3,7 @@
 // SwiftUIContentView.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2024.
+// Created by Eugene Kazaev in 2018-2025.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -18,6 +18,7 @@ import SwiftUI
 
 // NB: This view exists for the demo purposes only.
 @available(iOS 13.0.0, *)
+@MainActor
 struct SwiftUIContentView: View, ContextInstantiatable, ContextChecking, ContextAcceptingView {
 
     @State private var context: String = ""

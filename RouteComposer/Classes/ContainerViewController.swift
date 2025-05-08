@@ -3,7 +3,7 @@
 // ContainerViewController.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2024.
+// Created by Eugene Kazaev in 2018-2025.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -17,4 +17,5 @@ import UIKit
 ///
 /// All the methods `ContainerViewController` supports are implemented in corresponding `ContainerAdapter`
 /// provided by `ContainerAdapterLocator`.
+@MainActor
 public protocol ContainerViewController: RoutingInterceptable {}

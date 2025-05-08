@@ -3,7 +3,7 @@
 // AnyAction.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2024.
+// Created by Eugene Kazaev in 2018-2025.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -13,6 +13,7 @@
 import Foundation
 import UIKit
 
+@MainActor
 protocol PostponedActionIntegrationHandler: AnyObject {
 
     var containerViewController: ContainerViewController? { get }
@@ -27,6 +28,7 @@ protocol PostponedActionIntegrationHandler: AnyObject {
 
 }
 
+@MainActor
 protocol AnyAction {
 
     func perform(with viewController: UIViewController,

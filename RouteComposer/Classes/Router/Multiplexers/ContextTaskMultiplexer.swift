@@ -3,7 +3,7 @@
 // ContextTaskMultiplexer.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2024.
+// Created by Eugene Kazaev in 2018-2025.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -13,7 +13,7 @@
 import Foundation
 import UIKit
 
-struct ContextTaskMultiplexer: AnyContextTask, CustomStringConvertible {
+struct ContextTaskMultiplexer: AnyContextTask, @preconcurrency CustomStringConvertible {
 
     private var tasks: [AnyContextTask]
 

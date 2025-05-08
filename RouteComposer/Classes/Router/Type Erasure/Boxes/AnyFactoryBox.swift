@@ -3,7 +3,7 @@
 // AnyFactoryBox.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2024.
+// Created by Eugene Kazaev in 2018-2025.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -12,6 +12,7 @@
 
 import Foundation
 
+@MainActor
 protocol AnyFactoryBox: AnyFactory {
 
     associatedtype FactoryType: AbstractFactory
@@ -22,12 +23,14 @@ protocol AnyFactoryBox: AnyFactory {
 
 }
 
+@MainActor
 protocol PreparableAnyFactory: AnyFactory, PreparableEntity {
 
     var isPrepared: Bool { get set }
 
 }
 
+@MainActor
 extension AnyFactoryBox {
 
     mutating func scrapeChildren(from factories: [(factory: AnyFactory, context: AnyContext)]) throws -> [(factory: AnyFactory, context: AnyContext)] {
@@ -36,10 +39,10 @@ extension AnyFactoryBox {
 
 }
 
-extension AnyFactoryBox where Self: PreparableAnyFactory, Self: MainThreadChecking {
+@MainActor
+extension AnyFactoryBox where Self: PreparableAnyFactory {
 
     mutating func prepare(with context: AnyContext) throws {
-        assertIfNotMainThread()
         let typedContext: FactoryType.Context = try context.value()
         try factory.prepare(with: typedContext)
         isPrepared = true
@@ -47,6 +50,7 @@ extension AnyFactoryBox where Self: PreparableAnyFactory, Self: MainThreadChecki
 
 }
 
+@MainActor
 extension AnyFactory where Self: CustomStringConvertible & AnyFactoryBox {
 
     var description: String {

@@ -3,7 +3,7 @@
 // PerformableStep.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2024.
+// Created by Eugene Kazaev in 2018-2025.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -12,6 +12,7 @@
 
 import Foundation
 
+@MainActor
 protocol PerformableStep {
 
     /// - Parameter context: The `Context` instance that `Router` has started with.

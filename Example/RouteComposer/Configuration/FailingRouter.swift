@@ -3,7 +3,7 @@
 // FailingRouter.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2024.
+// Created by Eugene Kazaev in 2018-2025.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -25,6 +25,7 @@ struct FailingRouterIgnoreError: Error {
 }
 
 // Simple wrapper to warn if something goes wrong
+@MainActor
 struct FailingRouter<R>: Router where R: Router {
 
     var router: R
