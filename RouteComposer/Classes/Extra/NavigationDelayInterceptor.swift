@@ -3,7 +3,7 @@
 // NavigationDelayInterceptor.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2024.
+// Created by Eugene Kazaev in 2018-2025.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -12,6 +12,20 @@
 
 import Foundation
 import UIKit
+
+/// The strategy to be used by `NavigationDelayingInterceptor`
+///
+/// - wait: Wait while some `UIViewController` is being presented or dismissed.
+/// - abort:  Abort tha navigation if some `UIViewController` is being presented or dismissed.
+public enum NavigationDelayingInterceptorStrategy {
+
+    /// Abort tha navigation if some `UIViewController` is being presented or dismissed.
+    case abort
+
+    /// Wait while some `UIViewController` is being presented or dismissed.
+    case wait
+
+}
 
 /// `NavigationDelayingInterceptor` delays the router from starting the navigation, while any view controllers in the
 /// stack are being presented or dismissed. In case your app has some other navigation instruments rather than
@@ -24,22 +38,6 @@ import UIKit
 /// situations. The `.wait` strategy can be used only as a temporary solution.*
 public struct NavigationDelayingInterceptor<Context>: RoutingInterceptor {
 
-    // MARK: Internal entities
-
-    /// The strategy to be used by `NavigationDelayingInterceptor`
-    ///
-    /// - wait: Wait while some `UIViewController` is being presented or dismissed.
-    /// - abort:  Abort tha navigation if some `UIViewController` is being presented or dismissed.
-    public enum Strategy {
-
-        /// Abort tha navigation if some `UIViewController` is being presented or dismissed.
-        case abort
-
-        /// Wait while some `UIViewController` is being presented or dismissed.
-        case wait
-
-    }
-
     // MARK: Properties
 
     /// `WindowProvider` instance.
@@ -48,8 +46,8 @@ public struct NavigationDelayingInterceptor<Context>: RoutingInterceptor {
     /// `Logger` instance.
     public let logger: Logger?
 
-    /// Type of `Strategy`.
-    public let strategy: Strategy
+    /// Type of `NavigationDelayingInterceptorStrategy`.
+    public let strategy: NavigationDelayingInterceptorStrategy
 
     // MARK: Methods
 
@@ -59,8 +57,8 @@ public struct NavigationDelayingInterceptor<Context>: RoutingInterceptor {
     ///   - windowProvider: `WindowProvider` instance.
     ///   - strategy: Type of `Strategy` to be used.
     ///   - logger: `Logger` instance.
-    public init(windowProvider: WindowProvider = RouteComposerDefaults.shared.windowProvider,
-                strategy: Strategy = .abort,
+    public init(strategy: NavigationDelayingInterceptorStrategy = .abort,
+                windowProvider: WindowProvider = RouteComposerDefaults.shared.windowProvider,
                 logger: Logger? = RouteComposerDefaults.shared.logger) {
         self.windowProvider = windowProvider
         self.logger = logger

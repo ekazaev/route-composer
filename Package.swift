@@ -5,7 +5,7 @@ import PackageDescription
 let package = Package(
     name: "RouteComposer",
     platforms: [
-        .iOS("15.0"),
+        .iOS("15.0")
     ],
     products: [
         .library(
@@ -28,5 +28,4 @@ let package = Package(
             dependencies: ["RouteComposer"],
             path: "Example/Tests")
     ],
-    swiftLanguageVersions: [.version("6.0")]
-)
+    swiftLanguageVersions: [.version("6.0")])

@@ -3,7 +3,7 @@
 // DestinationStep.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2024.
+// Created by Eugene Kazaev in 2018-2025.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -14,6 +14,7 @@ import Foundation
 import UIKit
 
 /// Represents a single step for the `Router` to make.
+@MainActor
 public struct DestinationStep<VC: UIViewController, C>: RoutingStep, ChainableStep {
 
     // MARK: Associated types

@@ -3,14 +3,13 @@
 // ViewController.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2024.
+// Created by Eugene Kazaev in 2018-2025.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
 // https://github.com/sponsors/ekazaev
 //
 
-import os.log
 import RouteComposer
 import UIKit
 
@@ -35,14 +34,13 @@ extension UIViewController {
 
     @MainActor
     static let router: Router = {
-        fatalError()
-//        let libRouter = DefaultRouter()
-//        let failingRouter = FailingRouter(router: libRouter)
-//        var defaultRouter = GlobalInterceptorRouter(router: failingRouter)
-//        defaultRouter.addGlobal(TestInterceptor("Global interceptors start"))
-//        defaultRouter.addGlobal(NavigationDelayingInterceptor(strategy: .wait))
-//        defaultRouter.add(TestInterceptor("Router interceptors start"))
-//        return AnalyticsRouterDecorator(router: defaultRouter)
+        let libRouter = DefaultRouter()
+        let failingRouter = FailingRouter(router: libRouter)
+        var defaultRouter = GlobalInterceptorRouter(router: failingRouter)
+        defaultRouter.addGlobal(TestInterceptor("Global interceptors start"))
+        defaultRouter.addGlobal(NavigationDelayingInterceptor(strategy: .wait))
+        defaultRouter.add(TestInterceptor("Router interceptors start"))
+        return AnalyticsRouterDecorator(router: defaultRouter)
     }()
 
     var router: Router {
