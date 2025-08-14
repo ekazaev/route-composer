@@ -23,7 +23,7 @@ enum WishListConfiguration {
         .adding(WishListContextTask())
         .using(UINavigationController.push())
         .from(NavigationControllerStep())
-        .using(GeneralAction.presentModally(presentationStyle: .formSheet))
+        .using(.present(presentationStyle: .formSheet))
         .from(GeneralStep.current())
         .assemble()
 

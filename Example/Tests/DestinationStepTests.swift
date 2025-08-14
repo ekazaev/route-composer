@@ -29,7 +29,7 @@ class DestinationStepTests: XCTestCase {
         let nonContainerStepInsideContainer = StepAssembly(finder: TestFinder<UIViewController, Any?>(), factory: NilFactory())
             .using(UINavigationController.push())
             .from(NavigationControllerStep())
-            .using(GeneralAction.presentModally())
+            .using(.present)
             .assemble(from: GeneralStep.current())
 
         let step: DestinationStep<UINavigationController, Any?> = nonContainerStepInsideContainer.expectingContainer()
@@ -50,7 +50,7 @@ class DestinationStepTests: XCTestCase {
         let nonContainerStepInsideContainer = StepAssembly(finder: TestFinder<UIViewController, String>(), factory: NilFactory())
             .using(UINavigationController.push())
             .from(NavigationControllerStep())
-            .using(GeneralAction.presentModally())
+            .using(.present)
             .assemble(from: GeneralStep.current())
 
         let step: DestinationStep<UINavigationController, String> = nonContainerStepInsideContainer.expectingContainer()
@@ -67,7 +67,7 @@ class DestinationStepTests: XCTestCase {
 
     func testAdaptingContext() {
         let nonContainerStepInsideContainer = StepAssembly(finder: TestFinder<UINavigationController, Any?>(), factory: ClassFactory())
-            .using(GeneralAction.presentModally())
+            .using(.present)
             .assemble(from: GeneralStep.current())
 
         let step1: DestinationStep<UINavigationController, String> = nonContainerStepInsideContainer.adaptingContext()

@@ -22,7 +22,7 @@ class CitiesConfiguration {
     private static var city = StepAssembly(finder: ClassFinder<UISplitViewController, Void>(), // Context type `Void` here is only used to demonstrate the possibility of context transformation.
                                            factory: StoryboardFactory(name: "Split"))
         .adding(LoginInterceptor<Void>())
-        .using(GeneralAction.replaceRoot())
+        .using(.replaceRoot)
         .from(GeneralStep.root())
         .assemble()
 

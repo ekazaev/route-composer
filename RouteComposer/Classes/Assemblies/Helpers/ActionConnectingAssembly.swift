@@ -34,7 +34,13 @@ public struct ActionConnectingAssembly<VC: UIViewController, C> {
     ///
     /// - Parameter action: `Action` instance to be used with a step.
     /// - Returns: `ChainAssembly` to continue building the chain.
+    @_disfavoredOverload
     public func using(_ action: some Action) -> StepChainAssembly<VC, C> {
+        usingAction(action)
+    }
+
+    @_spi(Internals)
+    public func usingAction(_ action: some Action) -> StepChainAssembly<VC, C> {
         var previousSteps = previousSteps
         if let routingStep = stepToFullFill.routingStep(with: action) {
             previousSteps.append(routingStep)
@@ -54,4 +60,23 @@ public struct ActionConnectingAssembly<VC: UIViewController, C> {
         return ContainerStepChainAssembly(previousSteps: previousSteps)
     }
 
+}
+
+// MARK: - Shorthand overloads to enable `.using(.present(...))` and others
+
+extension ActionConnectingAssembly {
+    /// Enables shorthand `.using(.present(...))` by providing a concrete expected type.
+    public func using(_ action: ViewControllerActions.PresentModallyAction) -> StepChainAssembly<VC, C> {
+        usingAction(action)
+    }
+
+    /// Enables shorthand `.using(.replaceRoot(...))`
+    public func using(_ action: ViewControllerActions.ReplaceRootAction) -> StepChainAssembly<VC, C> {
+        usingAction(action)
+    }
+
+    /// Enables shorthand `.using(.nilAction)`
+    public func using(_ action: ViewControllerActions.NilAction) -> StepChainAssembly<VC, C> {
+        usingAction(action)
+    }
 }

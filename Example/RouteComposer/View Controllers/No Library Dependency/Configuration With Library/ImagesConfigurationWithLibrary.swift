@@ -25,7 +25,7 @@ enum ImagesConfigurationWithLibrary {
         factory: CustomContainerFactory(delegate: ImagesWithLibraryHandler.shared))
         .using(UINavigationController.push())
         .from(NavigationControllerStep())
-        .using(GeneralAction.presentModally())
+        .using(.present)
         .from(GeneralStep.current())
         .assemble()
 

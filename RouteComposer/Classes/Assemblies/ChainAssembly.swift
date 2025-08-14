@@ -23,7 +23,7 @@ public enum ChainAssembly {
     /// ### Usage
     /// ```swift
     /// let intermediateStep = ChainAssembly.from(NavigationControllerStep<UINavigationController, Any?>())
-    ///         .using(GeneralAction.presentModally())
+    ///         .using(.present)
     ///         .from(GeneralStep.current())
     ///         .assemble()
     /// ```

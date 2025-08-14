@@ -94,7 +94,7 @@ extension ExampleScreenConfiguration {
             .adding(ExampleGenericContextTask<ColorViewController, String>())
             .using(ExampleNavigationController.push())
             .from(SingleContainerStep(finder: NilFinder(), factory: NavigationControllerFactory<ExampleNavigationController, String>()))
-            .using(GeneralAction.presentModally())
+            .using(.present)
             .from(GeneralStep.current())
             .assemble()
     }
@@ -130,7 +130,7 @@ extension ExampleScreenConfiguration {
             .using(UINavigationController.push())
             .from(NavigationControllerStep())
             .using( // `topmostParent` and `overCurrentContext` are set for the test purposes only
-                GeneralAction.presentModally(startingFrom: .topmostParent,
+                .present(startingFrom: .topmostParent,
                                              presentationStyle: .overCurrentContext,
                                              transitioningDelegate: transitionController))
             .from(routingSupportScreen)
@@ -142,7 +142,7 @@ extension ExampleScreenConfiguration {
             finder: ClassFinder<PromptViewController, Any?>(),
             factory: StoryboardFactory(name: "PromptScreen"))
             .adding(ExampleGenericContextTask<PromptViewController, Any?>())
-            .using(GeneralAction.replaceRoot())
+            .using(.replaceRoot)
             .from(GeneralStep.root())
             .assemble()
     }

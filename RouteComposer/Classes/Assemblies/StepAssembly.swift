@@ -24,7 +24,7 @@ import UIKit
 ///         .adding(ProductViewControllerPostTask(analyticsManager: AnalyticsManager.sharedInstance))
 ///         .using(UINavigationController.push())
 ///         .from(NavigationControllerStep())
-///         .using(GeneralAction.presentModally())
+///         .using(.present)
 ///         .from(GeneralStep.current())
 ///         .assemble()
 /// ```
@@ -68,13 +68,19 @@ public extension StepAssembly where FC: Factory {
     /// Connects previously provided `DestinationStep` instance with an `Action`
     ///
     /// - Parameter action: `Action` instance to be used with a step.
+    @_disfavoredOverload
     final func using(_ action: some Action) -> StepChainAssembly<ViewController, Context> {
+      usingAction(action)
+    }
+
+    @_spi(Internals)
+    final func usingAction(_ action: some Action) -> StepChainAssembly<ViewController, Context> {
         var previousSteps = previousSteps
         let entitiesCollector = BaseEntitiesCollector<FactoryBox<FC>, ActionBox>(finder: finder, factory: factory, action: action)
         let step = BaseStep(entitiesProvider: entitiesCollector, taskProvider: taskCollector)
         previousSteps.append(step)
         return StepChainAssembly(previousSteps: previousSteps)
-    }
+  }
 
     /// Connects previously provided `DestinationStep` instance with an `Action`
     ///
@@ -106,7 +112,13 @@ public extension StepAssembly where FC: ContainerFactory {
     /// Connects previously provided `DestinationStep` instance with an `Action`
     ///
     /// - Parameter action: `Action` instance to be used with a step.
+    @_disfavoredOverload
     final func using(_ action: some Action) -> StepChainAssembly<ViewController, Context> {
+        usingAction(action)
+    }
+
+    @_spi(Internals)
+    final func usingAction(_ action: some Action) -> StepChainAssembly<ViewController, Context> {
         var previousSteps = previousSteps
         let entitiesCollector = BaseEntitiesCollector<ContainerFactoryBox<FC>, ActionBox>(finder: finder, factory: factory, action: action)
         let step = BaseStep(entitiesProvider: entitiesCollector, taskProvider: taskCollector)
@@ -190,4 +202,41 @@ public extension StepAssembly where FC: ContainerFactory & NilEntity {
         return LastStepInChainAssembly(previousSteps: previousSteps)
     }
 
+}
+
+// MARK: - Shorthand overloads to enable `.using(.presentModally(...))` and `.using(.replaceRoot(...))`
+@MainActor
+public extension StepAssembly where FC: Factory {
+    /// Enables shorthand `.using(.present(...))` by providing a concrete expected type.
+    final func using(_ action: ViewControllerActions.PresentModallyAction) -> StepChainAssembly<ViewController, Context> {
+        usingAction(action)
+    }
+
+    /// Enables shorthand `.using(.replaceRoot(...))`
+    final func using(_ action: ViewControllerActions.ReplaceRootAction) -> StepChainAssembly<ViewController, Context> {
+        usingAction(action)
+    }
+
+    /// Enables shorthand `.using(.nilAction)`
+    final func using(_ action: ViewControllerActions.NilAction) -> StepChainAssembly<ViewController, Context> {
+        usingAction(action)
+    }
+}
+
+@MainActor
+public extension StepAssembly where FC: ContainerFactory {
+    /// Enables shorthand `.using(.presentModally(...))` by providing a concrete expected type.
+    final func using(_ action: ViewControllerActions.PresentModallyAction) -> StepChainAssembly<ViewController, Context> {
+        usingAction(action)
+    }
+
+    /// Enables shorthand `.using(.replaceRoot(...))`
+    final func using(_ action: ViewControllerActions.ReplaceRootAction) -> StepChainAssembly<ViewController, Context> {
+        usingAction(action)
+    }
+
+    /// Enables shorthand `.using(.nilAction)`
+    final func using(_ action: ViewControllerActions.NilAction) -> StepChainAssembly<ViewController, Context> {
+        usingAction(action)
+    }
 }

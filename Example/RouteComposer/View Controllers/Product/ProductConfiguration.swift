@@ -36,7 +36,7 @@ class ProductConfiguration {
             // Try in Mobile Safari dll://productView?product=123
             .addCase(when: { $0.productURL != nil },
                      from: ChainAssembly.from(NavigationControllerStep<UINavigationController, ProductContext>())
-                         .using(GeneralAction.presentModally())
+                         .using(.present)
                          .from(GeneralStep.current())
                          .assemble())
             // If UINavigationController is visible on the screen - just push
@@ -57,12 +57,12 @@ class ProductConfiguration {
             .adding(ContextSettingTask()))
         .using(UINavigationController.push())
         .from(NavigationControllerStep())
-        .using(GeneralAction.presentModally())
+        .using(.present)
         .from(SingleStep(
             finder: ClassWithContextFinder<ProductViewController, ProductContext>(),
             factory: NilFactory())
             .adding(ContextSettingTask()))
-        .using(GeneralAction.nilAction())
+        .using(.nilAction)
         .from(SingleStep(
             finder: NilFinder(),
             factory: StoryboardFactory<ProductViewController, ProductContext>(name: "TabBar", identifier: "ProductViewController"))

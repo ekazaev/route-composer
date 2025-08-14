@@ -304,3 +304,46 @@ public enum ViewControllerActions {
     }
 
 }
+
+// MARK: Shorthands for GeneralAction-style usage
+
+public extension ViewControllerActions.ReplaceRootAction {
+    /// Shorthand to be used as `.using(.replaceRoot(...))`
+    @MainActor
+    static func replaceRoot(animationOptions: UIView.AnimationOptions? = nil,
+                              windowProvider: WindowProvider = RouteComposerDefaults.shared.windowProvider,
+                              duration: TimeInterval = 0.3) -> Self {
+        Self(windowProvider: windowProvider, animationOptions: animationOptions, duration: duration)
+    }
+
+    /// Shorthand to be used as `.using(.replaceRoot)`
+    static var replaceRoot: Self { .replaceRoot() }
+}
+
+public extension ViewControllerActions.PresentModallyAction {
+    /// Shorthand to be used as `.using(.present(...))`
+    @MainActor
+    static func present(startingFrom presentationStartingPoint: ViewControllerActions.PresentModallyAction.ModalPresentationStartingPoint = .current,
+                                 presentationStyle: UIModalPresentationStyle? = .fullScreen,
+                                 transitionStyle: UIModalTransitionStyle? = .coverVertical,
+                                 transitioningDelegate: UIViewControllerTransitioningDelegate? = nil,
+                                 preferredContentSize: CGSize? = nil,
+                                 isModalInPresentation: Bool? = nil,
+                                 presentationConfiguration: ((_: UIPresentationController) -> Void)? = nil) -> Self {
+        Self(startingFrom: presentationStartingPoint,
+             presentationStyle: presentationStyle,
+             transitionStyle: transitionStyle,
+             transitioningDelegate: transitioningDelegate,
+             preferredContentSize: preferredContentSize,
+             isModalInPresentation: isModalInPresentation,
+             presentationConfiguration: presentationConfiguration)
+    }
+
+    /// Shorthand to be used as `.using(.present)`
+    static var present: Self { .present() }
+}
+
+public extension ViewControllerActions.NilAction {
+    /// Shorthand to be used as `.using(.nilAction)`
+    static var nilAction: Self { .init() }
+}
