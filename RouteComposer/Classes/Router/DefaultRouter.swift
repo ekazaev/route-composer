@@ -41,12 +41,12 @@ public struct DefaultRouter: InterceptableRouter {
     ///   - logger: A `Logger` instance to be used by the `DefaultRouter`.
     ///   - stackPresentationHandler: A `StackPresentationHandler` instance to be used by the `DefaultRouter`.
     ///   - containerAdapterLocator: A `ContainerAdapterLocator` instance to be used by the `DefaultRouter`.
-    public init(logger: Logger? = RouteComposerDefaults.shared.logger,
-                stackPresentationHandler: StackPresentationHandler = DefaultStackPresentationHandler(),
-                containerAdapterLocator: ContainerAdapterLocator = RouteComposerDefaults.shared.containerAdapterLocator) {
-        self.logger = logger
-        self.stackPresentationHandler = stackPresentationHandler
-        self.containerAdapterLocator = containerAdapterLocator
+    public init(logger: Logger? = nil,
+                stackPresentationHandler: StackPresentationHandler? = nil,
+                containerAdapterLocator: ContainerAdapterLocator? = nil) {
+        self.logger = RouteComposerDefaults.shared.logger
+        self.stackPresentationHandler = stackPresentationHandler ?? DefaultStackPresentationHandler()
+        self.containerAdapterLocator = containerAdapterLocator ?? RouteComposerDefaults.shared.containerAdapterLocator
     }
 
     public mutating func add<RI: RoutingInterceptor>(_ interceptor: RI) where RI.Context == Any? {
