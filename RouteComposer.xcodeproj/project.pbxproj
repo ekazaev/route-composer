@@ -146,7 +146,6 @@
 		A3A6F8DF292290D900AF2C10 /* RoutingStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A6F89A292290D900AF2C10 /* RoutingStep.swift */; };
 		A3A6F8E0292290D900AF2C10 /* UIViewController+PrivateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A6F89B292290D900AF2C10 /* UIViewController+PrivateExtension.swift */; };
 		A3A6F8E1292290D900AF2C10 /* Array+PrivateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A6F89C292290D900AF2C10 /* Array+PrivateExtension.swift */; };
-		A3A6F8E2292290D900AF2C10 /* MainThreadChecking.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A6F89D292290D900AF2C10 /* MainThreadChecking.swift */; };
 		A3A6F8E3292290D900AF2C10 /* PreparableEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A6F89E292290D900AF2C10 /* PreparableEntity.swift */; };
 		A3A6F8E4292290D900AF2C10 /* PostRoutingTaskMultiplexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A6F8A0292290D900AF2C10 /* PostRoutingTaskMultiplexer.swift */; };
 		A3A6F8E5292290D900AF2C10 /* InterceptorMultiplexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A6F8A1292290D900AF2C10 /* InterceptorMultiplexer.swift */; };
@@ -330,7 +329,6 @@
 		A3A6F89A292290D900AF2C10 /* RoutingStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutingStep.swift; sourceTree = "<group>"; };
 		A3A6F89B292290D900AF2C10 /* UIViewController+PrivateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+PrivateExtension.swift"; sourceTree = "<group>"; };
 		A3A6F89C292290D900AF2C10 /* Array+PrivateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+PrivateExtension.swift"; sourceTree = "<group>"; };
-		A3A6F89D292290D900AF2C10 /* MainThreadChecking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainThreadChecking.swift; sourceTree = "<group>"; };
 		A3A6F89E292290D900AF2C10 /* PreparableEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreparableEntity.swift; sourceTree = "<group>"; };
 		A3A6F8A0292290D900AF2C10 /* PostRoutingTaskMultiplexer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostRoutingTaskMultiplexer.swift; sourceTree = "<group>"; };
 		A3A6F8A1292290D900AF2C10 /* InterceptorMultiplexer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterceptorMultiplexer.swift; sourceTree = "<group>"; };
@@ -700,7 +698,6 @@
 				A3A6F89A292290D900AF2C10 /* RoutingStep.swift */,
 				A3A6F89B292290D900AF2C10 /* UIViewController+PrivateExtension.swift */,
 				A3A6F89C292290D900AF2C10 /* Array+PrivateExtension.swift */,
-				A3A6F89D292290D900AF2C10 /* MainThreadChecking.swift */,
 				A3A6F89E292290D900AF2C10 /* PreparableEntity.swift */,
 			);
 			path = Internal;
@@ -874,7 +871,6 @@
 				A3A6F8C3292290D900AF2C10 /* DismissalMethodProvidingContextTask.swift in Sources */,
 				450D0DEA2412AEF80066E649 /* InterceptableRouter.swift in Sources */,
 				450D0E352412AEF90066E649 /* CustomWindowProvider.swift in Sources */,
-				A3A6F8E2292290D900AF2C10 /* MainThreadChecking.swift in Sources */,
 				A3A6F8C5292290D900AF2C10 /* InlinePostTask.swift in Sources */,
 				450D0E272412AEF90066E649 /* SplitViewController+Extension.swift in Sources */,
 				450D0E422412AEF90066E649 /* CustomContainerViewController.swift in Sources */,
