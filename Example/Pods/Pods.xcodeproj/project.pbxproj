@@ -72,7 +72,8 @@
 		4B89717076BD01FFAABCC5B231218BA5 /* ContextInstantiatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D78F4804907575B11B33334D4660800 /* ContextInstantiatable.swift */; };
 		4BF00B1CA548065F950D40DB8C0AFB9E /* RouteComposerDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F452135266B79E1353CB59A614968B6 /* RouteComposerDefaults.swift */; };
 		4D690C8C3B9950FE5C406A907387A4BF /* SearchOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6E1412527779DD0543504F9CF49A3E /* SearchOptions.swift */; };
-		4DA9F2D72E4EA4AE008F4611 /* StepAssembly+Shorthands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA9F2D62E4EA4AE008F4611 /* StepAssembly+Shorthands.swift */; };
+		4DA9F2D72E4EA4AE008F4611 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		4DA9F2DC2E4EAC4E008F4611 /* StepAssembly+Shorthands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA9F2DB2E4EAC4E008F4611 /* StepAssembly+Shorthands.swift */; };
 		4F366F1BFCB94B79BBE695A5B92875F0 /* DefaultLogger+LogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C6E4B0B629D9870A9AD356210B1428 /* DefaultLogger+LogLevel.swift */; };
 		4FD5B7BDB839BE981D2FBC94555CDE62 /* SwitcherStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AE081F6F9CA63E712F5113C929673C /* SwitcherStep.swift */; };
 		50FA51B388D7879322E4081F5C8C6E19 /* SingleContainerStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386D704BF6646484D97CC9DEF2C1F01E /* SingleContainerStep.swift */; };
@@ -1004,8 +1005,8 @@
 		5A1F5017B38AF5AAC63BF9E602E9779A /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				4DA9F2DB2E4EAC4E008F4611 /* StepAssembly+Shorthands.swift */,
 				46D782A1181D9FB5CF38B0359B6FB268 /* ActionConnectingAssembly.swift */,
-				4DA9F2D62E4EA4AE008F4611 /* StepAssembly+Shorthands.swift */,
 				D7EFAB68783DEC4BA50F40492D257185 /* ActionToStepIntegrator.swift */,
 				0AD8E2F718A44C7EB37BEC0433C2CFEB /* BaseEntitiesCollector.swift */,
 				87FABC2B2073509F83B626B772E5681E /* CompleteFactoryChainAssembly.swift */,
@@ -2066,7 +2067,7 @@
 				F4C99ACAE2C38EAB17A2B7EF1DFD3C4C /* PostRoutingTaskBox.swift in Sources */,
 				0FD839D94EF6BB79545B90DB547C8A5A /* PostRoutingTaskMultiplexer.swift in Sources */,
 				9C4D9EC285EBED8424FDF29874CA543E /* PreparableEntity.swift in Sources */,
-				4DA9F2D72E4EA4AE008F4611 /* StepAssembly+Shorthands.swift in Sources */,
+				4DA9F2D72E4EA4AE008F4611 /* (null) in Sources */,
 				F624965F4BDF21F401AB588D16C008B2 /* PresentingFinder.swift in Sources */,
 				C0A5CC73A727CC6D021DA91C8ADB0250 /* RouteComposer-dummy.m in Sources */,
 				4BF00B1CA548065F950D40DB8C0AFB9E /* RouteComposerDefaults.swift in Sources */,
@@ -2098,6 +2099,7 @@
 				249F0C006946BBD717616678C027342B /* TabBarControllerAdapter.swift in Sources */,
 				811146949F05E67863BEF50D53E5E0CA /* TabBarControllerFactory.swift in Sources */,
 				79F492F0593EFD0A9A259B3778FA0087 /* TabBarControllerStep.swift in Sources */,
+				4DA9F2DC2E4EAC4E008F4611 /* StepAssembly+Shorthands.swift in Sources */,
 				261148B0C87BDDCAC30712F9D4AEB800 /* TabBarViewController+Extension.swift in Sources */,
 				7E2EC86F779DF782D5C16A5CD88C8A25 /* TaskCollector.swift in Sources */,
 				FB93292C2F29876F02E8311EB55295A9 /* UIHostingControllerFactory.swift in Sources */,
