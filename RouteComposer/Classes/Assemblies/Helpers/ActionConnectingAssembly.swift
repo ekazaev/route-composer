@@ -100,6 +100,11 @@ extension ActionConnectingAssembly {
     public func using(_ action: NavigationControllerActions.PushReplacingLastAction<UINavigationController>) -> ContainerStepChainAssembly<UINavigationController, VC, C> {
         usingAction(action)
     }
+
+    /// Enables shorthand `.using(.addTab)`
+    public func using(_ action: TabBarControllerActions.AddTabAction<UITabBarController>) -> ContainerStepChainAssembly<UITabBarController, VC, C> {
+        usingAction(action)
+    }
 }
 
 

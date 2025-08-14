@@ -84,7 +84,7 @@ class AssemblyTest: XCTestCase {
 
     func testContainerStepAssembly() {
         let lastStepAssembly = StepAssembly(finder: ClassFinder(), factory: NavigationControllerFactory<UINavigationController, Any?>())
-            .using(UITabBarController.add())
+            .using(.addTab)
             .from(TabBarControllerStep())
             .using(.present)
             .from(GeneralStep.root())
@@ -230,7 +230,7 @@ class AssemblyTest: XCTestCase {
             }
             .assemble(default: {
                 StepAssembly(finder: NilFinder(), factory: NavigationControllerFactory())
-                    .using(UITabBarController.add())
+                    .using(.addTab)
                     .from(TabBarControllerStep())
                     .using(.present)
                     .from(GeneralStep.current())

@@ -212,7 +212,7 @@ public extension StepAssembly where FC: ContainerFactory & NilEntity {
 
 }
 
-// MARK: - Shorthand overloads to enable `.using(.presentModally(...))` and `.using(.replaceRoot(...))`
+// MARK: - Shorthand overloads to enable `.using(.)`
 
 public extension StepAssembly where FC: Factory {
     /// Enables shorthand `.using(.present(...))` by providing a concrete expected type.
@@ -280,4 +280,18 @@ public extension StepAssembly where FC: ContainerFactory {
     final func using(_ action: NavigationControllerActions.PushReplacingLastAction<UINavigationController>) -> ContainerStepChainAssembly<UINavigationController, ViewController, Context> {
         usingAction(action)
     }
+}
+
+public extension StepAssembly where FC: Factory {
+    /// Enables shorthand `.using(.addTab)` by providing a concrete expected type.
+    final func using(_ action: TabBarControllerActions.AddTabAction<UITabBarController>) -> ContainerStepChainAssembly<UITabBarController, ViewController, Context> {
+        usingAction(action)
+    }
+}
+
+public extension StepAssembly where FC: ContainerFactory {
+    /// Enables shorthand `.using(.addTab)` by providing a concrete expected type.
+    final func using(_ action: TabBarControllerActions.AddTabAction<UITabBarController>) -> ContainerStepChainAssembly<UITabBarController, ViewController, Context> {
+        usingAction(action)
+  }
 }

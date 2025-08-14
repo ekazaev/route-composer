@@ -104,7 +104,7 @@ extension ExampleScreenConfiguration {
             finder: ClassFinder<RoutingRuleSupportViewController, String>(options: .currentAllStack),
             factory: StoryboardFactory(name: "TabBar", identifier: "RoutingRuleSupportViewController"))
             .adding(ExampleGenericContextTask<RoutingRuleSupportViewController, String>())
-            .using(UITabBarController.add())
+            .using(.addTab)
             .from(TabBarControllerStep())
             .using(.push)
             .from(colorScreen.expectingContainer())
@@ -180,7 +180,7 @@ struct ExampleConfiguration: ExampleScreenConfiguration {
             factory: ClassFactory())
             .adding(ExampleGenericContextTask<StarViewController, Any?>())
             .adding(LoginInterceptor<Any?>())
-            .using(UITabBarController.add())
+            .using(.addTab)
             .from(homeScreen)
             .assemble()
     }

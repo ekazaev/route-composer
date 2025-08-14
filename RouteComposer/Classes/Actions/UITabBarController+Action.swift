@@ -112,3 +112,20 @@ public enum TabBarControllerActions {
     }
 
 }
+
+// MARK: Shorthands
+
+public extension TabBarControllerActions.AddTabAction where ViewController == UITabBarController {
+    /// Shorthand to be used as `.using(.addTab(...))`
+    static func addTab(at tabIndex: Int, replacing: Bool = false) -> Self {
+        Self(at: tabIndex, replacing: replacing)
+    }
+
+    /// Shorthand to be used as `.using(.addTab(...))`
+    static func addTab(at tabIndex: Int?) -> Self {
+        Self(at: tabIndex)
+    }
+
+    /// Shorthand to be used as `.using(.addTab)`
+    static var addTab: Self { Self.init() }
+}
