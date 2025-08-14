@@ -159,3 +159,20 @@ public enum SplitViewControllerActions {
     }
 
 }
+
+// MARK: Shorthands
+
+public extension SplitViewControllerActions.SetAsMasterAction where ViewController == UISplitViewController {
+    /// Shorthand to be used as `.using(.setAsMaster)`
+    static var setAsMaster: Self { Self.init() }
+}
+
+public extension SplitViewControllerActions.PushToDetailsAction where ViewController == UISplitViewController {
+    /// Shorthand to be used as `.using(.pushToDetails)`
+    static var pushToDetails: Self { Self.init() }
+}
+
+public extension SplitViewControllerActions.PushOnToDetailsAction where ViewController == UISplitViewController {
+    /// Shorthand to be used as `.using(.pushOnToDetails)`
+    static var pushOnToDetails: Self { Self.init() }
+}

@@ -105,6 +105,19 @@ extension ActionConnectingAssembly {
     public func using(_ action: TabBarControllerActions.AddTabAction<UITabBarController>) -> ContainerStepChainAssembly<UITabBarController, VC, C> {
         usingAction(action)
     }
+
+    /// Enables shorthand `.using(.setAsMaster)`
+    public func using(_ action: SplitViewControllerActions.SetAsMasterAction<UISplitViewController>) -> ContainerStepChainAssembly<UISplitViewController, VC, C> {
+        usingAction(action)
+    }
+
+    /// Enables shorthand `.using(.pushToDetails)`
+    public func using(_ action: SplitViewControllerActions.PushToDetailsAction<UISplitViewController>) -> ContainerStepChainAssembly<UISplitViewController, VC, C> {
+        usingAction(action)
+    }
+
+    /// Enables shorthand `.using(.pushOnToDetails)`
+    public func using(_ action: SplitViewControllerActions.PushOnToDetailsAction<UISplitViewController>) -> ContainerStepChainAssembly<UISplitViewController, VC, C> {
+        usingAction(action)
+    }
 }
-
-

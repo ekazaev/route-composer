@@ -41,7 +41,7 @@ class CitiesConfiguration {
         factory: StoryboardFactory(name: "Split",
                                    identifier: "CityDetailViewController"))
         .adding(CityDetailContextTask())
-        .using(UISplitViewController.pushToDetails())
+        .using(.pushToDetails)
         .from(citiesList.adaptingContext(using: InlineContextTransformer { $0.flatMap { "\($0)" } }).expectingContainer()) // We have to transform `Int` to `String?` to satisfy the requirements
         .assemble()
 
