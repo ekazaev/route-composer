@@ -22,7 +22,7 @@ import UIKit
 ///         .adding(LoginInterceptor())
 ///         .adding(ProductViewControllerContextTask())
 ///         .adding(ProductViewControllerPostTask(analyticsManager: AnalyticsManager.sharedInstance))
-///         .using(UINavigationController.push())
+///         .using(.push)
 ///         .from(NavigationControllerStep())
 ///         .using(.present)
 ///         .from(GeneralStep.current())
@@ -53,7 +53,6 @@ public final class StepAssembly<F: Finder, FC: AbstractFactory>: GenericStepAsse
 
 // MARK: Methods for Factory
 
-@MainActor
 public extension StepAssembly where FC: Factory {
 
     /// Constructor
@@ -80,12 +79,18 @@ public extension StepAssembly where FC: Factory {
         let step = BaseStep(entitiesProvider: entitiesCollector, taskProvider: taskCollector)
         previousSteps.append(step)
         return StepChainAssembly(previousSteps: previousSteps)
-  }
+    }
 
     /// Connects previously provided `DestinationStep` instance with an `Action`
     ///
     /// - Parameter action: `ContainerAction` instance to be used with a step.
+    @_disfavoredOverload
     final func using<A: ContainerAction>(_ action: A) -> ContainerStepChainAssembly<A.ViewController, ViewController, Context> {
+        usingAction(action)
+    }
+
+    @_spi(Internals)
+    final func usingAction<A: ContainerAction>(_ action: A) -> ContainerStepChainAssembly<A.ViewController, ViewController, Context> {
         var previousSteps = previousSteps
         let entitiesCollector = BaseEntitiesCollector<FactoryBox<FC>, ContainerActionBox>(finder: finder, factory: factory, action: action)
         let step = BaseStep(entitiesProvider: entitiesCollector, taskProvider: taskCollector)
@@ -97,7 +102,6 @@ public extension StepAssembly where FC: Factory {
 
 // MARK: Methods for ContainerFactory
 
-@MainActor
 public extension StepAssembly where FC: ContainerFactory {
 
     /// Constructor
@@ -129,7 +133,13 @@ public extension StepAssembly where FC: ContainerFactory {
     /// Connects previously provided `DestinationStep` instance with an `Action`
     ///
     /// - Parameter action: `ContainerAction` instance to be used with a step.
+    @_disfavoredOverload
     final func using<A: ContainerAction>(_ action: A) -> ContainerStepChainAssembly<A.ViewController, ViewController, Context> {
+        usingAction(action)
+    }
+
+    @_spi(Internals)
+    final func usingAction<A: ContainerAction>(_ action: A) -> ContainerStepChainAssembly<A.ViewController, ViewController, Context> {
         var previousSteps = previousSteps
         let entitiesCollector = BaseEntitiesCollector<ContainerFactoryBox<FC>, ContainerActionBox>(finder: finder, factory: factory, action: action)
         let step = BaseStep(entitiesProvider: entitiesCollector, taskProvider: taskCollector)
@@ -140,7 +150,6 @@ public extension StepAssembly where FC: ContainerFactory {
 
 // MARK: Methods for the Nil Factory
 
-@MainActor
 public extension StepAssembly where FC: Factory & NilEntity {
 
     /// Connects previously provided `ActionToStepIntegrator` with `NilEntity` factory with a step where the `UIViewController`
@@ -174,7 +183,6 @@ public extension StepAssembly where FC: Factory & NilEntity {
 
 // MARK: Methods for the Nil ConatinerFactory
 
-@MainActor
 public extension StepAssembly where FC: ContainerFactory & NilEntity {
 
     /// Connects previously provided `ActionToStepIntegrator` with `NilEntity` factory with a step where the `UIViewController`
@@ -205,7 +213,7 @@ public extension StepAssembly where FC: ContainerFactory & NilEntity {
 }
 
 // MARK: - Shorthand overloads to enable `.using(.presentModally(...))` and `.using(.replaceRoot(...))`
-@MainActor
+
 public extension StepAssembly where FC: Factory {
     /// Enables shorthand `.using(.present(...))` by providing a concrete expected type.
     final func using(_ action: ViewControllerActions.PresentModallyAction) -> StepChainAssembly<ViewController, Context> {
@@ -223,7 +231,6 @@ public extension StepAssembly where FC: Factory {
     }
 }
 
-@MainActor
 public extension StepAssembly where FC: ContainerFactory {
     /// Enables shorthand `.using(.presentModally(...))` by providing a concrete expected type.
     final func using(_ action: ViewControllerActions.PresentModallyAction) -> StepChainAssembly<ViewController, Context> {
@@ -237,6 +244,40 @@ public extension StepAssembly where FC: ContainerFactory {
 
     /// Enables shorthand `.using(.nilAction)`
     final func using(_ action: ViewControllerActions.NilAction) -> StepChainAssembly<ViewController, Context> {
+        usingAction(action)
+    }
+}
+
+public extension StepAssembly where FC: Factory {
+    /// Enables shorthand `.using(.push)` by providing a concrete expected type.
+    final func using(_ action: NavigationControllerActions.PushAction<UINavigationController>) -> ContainerStepChainAssembly<UINavigationController, ViewController, Context> {
+        usingAction(action)
+    }
+
+    /// Enables shorthand `.using(.pushAsRoot)`
+    final func using(_ action: NavigationControllerActions.PushAsRootAction<UINavigationController>) -> ContainerStepChainAssembly<UINavigationController, ViewController, Context> {
+        usingAction(action)
+    }
+
+    /// Enables shorthand `.using(.pushReplacingLast)`
+    final func using(_ action: NavigationControllerActions.PushReplacingLastAction<UINavigationController>) -> ContainerStepChainAssembly<UINavigationController, ViewController, Context> {
+        usingAction(action)
+    }
+}
+
+public extension StepAssembly where FC: ContainerFactory {
+    /// Enables shorthand `.using(.push)` by providing a concrete expected type.
+    final func using(_ action: NavigationControllerActions.PushAction<UINavigationController>) -> ContainerStepChainAssembly<UINavigationController, ViewController, Context> {
+        usingAction(action)
+    }
+
+    /// Enables shorthand `.using(.pushAsRoot)`
+    final func using(_ action: NavigationControllerActions.PushAsRootAction<UINavigationController>) -> ContainerStepChainAssembly<UINavigationController, ViewController, Context> {
+        usingAction(action)
+    }
+
+    /// Enables shorthand `.using(.pushReplacingLast)`
+    final func using(_ action: NavigationControllerActions.PushReplacingLastAction<UINavigationController>) -> ContainerStepChainAssembly<UINavigationController, ViewController, Context> {
         usingAction(action)
     }
 }

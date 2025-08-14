@@ -21,7 +21,7 @@ enum WishListConfiguration {
         factory: StoryboardFactory(name: "TabBar", identifier: "WishListViewController"))
         .adding(LoginInterceptor())
         .adding(WishListContextTask())
-        .using(UINavigationController.push())
+        .using(.push)
         .from(NavigationControllerStep())
         .using(.present(presentationStyle: .formSheet))
         .from(GeneralStep.current())

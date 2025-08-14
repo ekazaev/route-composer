@@ -106,7 +106,7 @@ extension ExampleScreenConfiguration {
             .adding(ExampleGenericContextTask<RoutingRuleSupportViewController, String>())
             .using(UITabBarController.add())
             .from(TabBarControllerStep())
-            .using(UINavigationController.push())
+            .using(.push)
             .from(colorScreen.expectingContainer())
             .assemble()
     }
@@ -127,7 +127,7 @@ extension ExampleScreenConfiguration {
             finder: ClassFinder<SecondModalLevelViewController, String>(),
             factory: StoryboardFactory(name: "TabBar", identifier: "SecondModalLevelViewController"))
             .adding(ExampleGenericContextTask<SecondModalLevelViewController, String>())
-            .using(UINavigationController.push())
+            .using(.push)
             .from(NavigationControllerStep())
             .using( // `topmostParent` and `overCurrentContext` are set for the test purposes only
                 .present(startingFrom: .topmostParent,
@@ -152,7 +152,7 @@ extension ExampleScreenConfiguration {
             finder: ClassWithContextFinder<ProductViewController, ProductContext>(),
             factory: StoryboardFactory(name: "TabBar", identifier: "ProductViewController"))
             .adding(ContextSettingTask())
-            .using(UINavigationController.push())
+            .using(.push)
             .assemble(from: figuresScreen.expectingContainer())
     }
 
@@ -165,7 +165,7 @@ extension ExampleScreenConfiguration {
             factory: UIHostingControllerWithContextFactory())
             .adding(ExampleGenericContextTask<UIHostingController<SwiftUIContentView>, String>())
             .adding(ContextSettingTask())
-            .using(UINavigationController.push())
+            .using(.push)
             .from(circleScreen.expectingContainer())
             .assemble().unsafelyRewrapped()
     }
@@ -195,7 +195,7 @@ struct AlternativeExampleConfiguration: ExampleScreenConfiguration {
             factory: ClassFactory())
             .adding(ExampleGenericContextTask<StarViewController, Any?>())
             .adding(LoginInterceptor())
-            .using(UINavigationController.push())
+            .using(.push)
             .from(circleScreen.expectingContainer())
             .assemble()
     }

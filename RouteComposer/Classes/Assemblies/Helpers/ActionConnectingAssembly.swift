@@ -52,7 +52,13 @@ public struct ActionConnectingAssembly<VC: UIViewController, C> {
     ///
     /// - Parameter action: `Action` instance to be used with a step.
     /// - Returns: `ChainAssembly` to continue building the chain.
+    @_disfavoredOverload
     public func using<A: ContainerAction>(_ action: A) -> ContainerStepChainAssembly<A.ViewController, VC, C> {
+        usingAction(action)
+    }
+
+    @_spi(Internals)
+    public func usingAction<A: ContainerAction>(_ action: A) -> ContainerStepChainAssembly<A.ViewController, VC, C> {
         var previousSteps = previousSteps
         if let routingStep = stepToFullFill.embeddableRoutingStep(with: action) {
             previousSteps.append(routingStep)
@@ -79,4 +85,21 @@ extension ActionConnectingAssembly {
     public func using(_ action: ViewControllerActions.NilAction) -> StepChainAssembly<VC, C> {
         usingAction(action)
     }
+
+    /// Enables shorthand `.using(.push)`
+    public func using(_ action: NavigationControllerActions.PushAction<UINavigationController>) -> ContainerStepChainAssembly<UINavigationController, VC, C> {
+        usingAction(action)
+    }
+
+    /// Enables shorthand `.using(.pushAsRoot)`
+    public func using(_ action: NavigationControllerActions.PushAsRootAction<UINavigationController>) -> ContainerStepChainAssembly<UINavigationController, VC, C> {
+        usingAction(action)
+    }
+
+    /// Enables shorthand `.using(.pushReplacingLast)`
+    public func using(_ action: NavigationControllerActions.PushReplacingLastAction<UINavigationController>) -> ContainerStepChainAssembly<UINavigationController, VC, C> {
+        usingAction(action)
+    }
 }
+
+

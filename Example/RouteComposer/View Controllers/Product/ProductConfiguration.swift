@@ -30,7 +30,7 @@ class ProductConfiguration {
             print("After navigation to Produce view controller")
         })
         .adding(ContextSettingTask())
-        .using(UINavigationController.push())
+        .using(.push)
         .from(SwitchAssembly<UINavigationController, ProductContext>()
             // If this configuration is requested by a Universal Link (productURL != nil), then present modally.
             // Try in Mobile Safari dll://productView?product=123
@@ -55,7 +55,7 @@ class ProductConfiguration {
             finder: NilFinder(),
             factory: StoryboardFactory<ProductViewController, ProductContext>(name: "TabBar", identifier: "ProductViewController"))
             .adding(ContextSettingTask()))
-        .using(UINavigationController.push())
+        .using(.push)
         .from(NavigationControllerStep())
         .using(.present)
         .from(SingleStep(
@@ -68,7 +68,7 @@ class ProductConfiguration {
             factory: StoryboardFactory<ProductViewController, ProductContext>(name: "TabBar", identifier: "ProductViewController"))
             .adding(ContextSettingTask()))
 //            .using(DispatchQueue.delay(UINavigationController.push()))
-        .using(UINavigationController.push())
+        .using(.push)
         .from(ConfigurationHolder.configuration.circleScreen.expectingContainer())
         .assemble()
 

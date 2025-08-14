@@ -27,7 +27,7 @@ class DestinationStepTests: XCTestCase {
 
     func testExpectingContainer() {
         let nonContainerStepInsideContainer = StepAssembly(finder: TestFinder<UIViewController, Any?>(), factory: NilFactory())
-            .using(UINavigationController.push())
+            .using(.push)
             .from(NavigationControllerStep())
             .using(.present)
             .assemble(from: GeneralStep.current())
@@ -48,7 +48,7 @@ class DestinationStepTests: XCTestCase {
 
     func testExpectingContainerStronglyTyped() {
         let nonContainerStepInsideContainer = StepAssembly(finder: TestFinder<UIViewController, String>(), factory: NilFactory())
-            .using(UINavigationController.push())
+            .using(.push)
             .from(NavigationControllerStep())
             .using(.present)
             .assemble(from: GeneralStep.current())

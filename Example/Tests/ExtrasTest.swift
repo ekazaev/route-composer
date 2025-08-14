@@ -65,7 +65,7 @@ class ExtrasTest: XCTestCase {
             .adding(InlinePostTask { (_: RouterTests.TestViewController, _: Any?, viewControllers: [UIViewController]) in
                 XCTAssertEqual(viewControllers.count, 3)
             })
-            .using(UINavigationController.push())
+            .using(.push)
             .from(NavigationControllerStep())
             .using(FakeTimedPresentModallyAction())
             .from(DestinationStep<RouterTests.TestModalPresentableController, Any?>(RouterTests.TestCurrentViewControllerStep(currentViewController: currentViewController)))

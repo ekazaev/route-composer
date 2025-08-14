@@ -23,7 +23,7 @@ enum ImagesConfigurationWithLibrary {
     private static let imagesContainerStep = StepAssembly(
         finder: ClassFinder<CustomContainerController, Any?>(),
         factory: CustomContainerFactory(delegate: ImagesWithLibraryHandler.shared))
-        .using(UINavigationController.push())
+        .using(.push)
         .from(NavigationControllerStep())
         .using(.present)
         .from(GeneralStep.current())

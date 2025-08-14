@@ -64,7 +64,7 @@ class AssemblyTest: XCTestCase {
 
     func testStepAssembly() {
         let lastStepAssembly = StepAssembly(finder: ClassFinder<UIViewController, Any?>(), factory: ClassFactory(nibName: "AnyNibName"))
-            .using(UINavigationController.push())
+            .using(.push)
             .from(NavigationControllerStep())
             .using(.present)
         XCTAssertEqual(lastStepAssembly.previousSteps.count, 2)

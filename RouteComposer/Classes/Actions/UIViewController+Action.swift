@@ -305,7 +305,7 @@ public enum ViewControllerActions {
 
 }
 
-// MARK: Shorthands for GeneralAction-style usage
+// MARK: Shorthands
 
 public extension ViewControllerActions.ReplaceRootAction {
     /// Shorthand to be used as `.using(.replaceRoot(...))`

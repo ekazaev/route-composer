@@ -133,3 +133,20 @@ public enum NavigationControllerActions {
     }
 
 }
+
+// MARK: Shorthands
+
+public extension NavigationControllerActions.PushAction where ViewController == UINavigationController {
+    /// Shorthand to be used as `.using(.push)`
+    static var push: Self { Self.init() }
+}
+
+public extension NavigationControllerActions.PushAsRootAction where ViewController == UINavigationController {
+    /// Shorthand to be used as `.using(.pushAsRoot)`
+    static var pushAsRoot: Self { Self.init() }
+}
+
+public extension NavigationControllerActions.PushReplacingLastAction where ViewController == UINavigationController {
+    /// Shorthand to be used as `.using(.pushReplacingLast)`
+    static var pushReplacingLast: Self { Self.init() }
+}

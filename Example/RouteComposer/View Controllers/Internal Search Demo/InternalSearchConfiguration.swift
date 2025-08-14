@@ -41,7 +41,7 @@ enum InternalSearchConfiguration {
                     ClassWithContextFinder<AnyContextCheckingViewController<MainScreenContext>, MainScreenContext>(options: .currentAllStack, startingPoint: .custom(viewController)).getViewController(with: context) != nil
                 }) ?? 0
             })
-            .using(UINavigationController.push())
+            .using(.push)
             .from(ConfigurationHolder.configuration.circleScreen.expectingContainer())
             .assemble()
 
