@@ -46,8 +46,8 @@ public class ActionToStepIntegrator<VC: UIViewController, C>: IntermediateDestin
 
     // MARK: Methods
 
-    init(taskCollector: TaskCollector? = nil) {
-        self.taskCollector = taskCollector ?? TaskCollector()
+    init(taskCollector: TaskCollector = TaskCollector()) {
+        self.taskCollector = taskCollector
     }
 
     // MARK: Add a Task to the Step
