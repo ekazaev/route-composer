@@ -384,9 +384,9 @@ let productScreen = StepAssembly(finder: ProductViewControllerFinder(), factory:
         .add(ProductViewControllerContextTask())
         .add(ProductViewControllerPostTask(analyticsManager: AnalyticsManager.sharedInstance))
         .using(.push)
-        .from(NavigationControllerStep())
+        .from(.navigationController)
         .using(.present)
-        .from(GeneralStep.current())
+        .from(.current)
         .assemble()
 ```
 
@@ -421,9 +421,9 @@ struct Configuration {
                 .add(ProductViewControllerContextTask())
                 .add(ProductViewControllerPostTask(analyticsManager: AnalyticsManager.sharedInstance))
                 .using(.push)
-                .from(NavigationControllerStep())
+                .from(.navigationController)
                 .using(.present)
-                .from(GeneralStep.current())
+                .from(.current)
                 .assemble()
 
 }
