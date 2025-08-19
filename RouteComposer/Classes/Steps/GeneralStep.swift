@@ -91,3 +91,51 @@ public enum GeneralStep {
     }
 
 }
+
+// MARK: Shorthands
+
+public extension DestinationStep where VC == UIViewController {
+    /// Shorthand to be used as `.from(.root(...))`
+    static func root<NewContext>(windowProvider: WindowProvider = RouteComposerDefaults.shared.windowProvider) -> DestinationStep<UIViewController, NewContext> {
+        GeneralStep.root(windowProvider: windowProvider)
+    }
+
+    /// Shorthand to be used as `.from(.root)`
+    static var root: DestinationStep<UIViewController, C> { root() }
+
+    /// Shorthand to be used as `.from(.current(...))`
+    static func current<NewContext>(windowProvider: WindowProvider = RouteComposerDefaults.shared.windowProvider) -> DestinationStep<UIViewController, NewContext> {
+        GeneralStep.current(windowProvider: windowProvider)
+    }
+
+    /// Shorthand to be used as `.from(.current)`
+    static var current: DestinationStep<UIViewController, C> { current() }
+
+    /// Shorthand to be used as `.from(.custom(...))`
+    static func custom<F: Finder>(using finder: F) -> DestinationStep<F.ViewController, F.Context> {
+        GeneralStep.custom(using: finder)
+    }
+}
+
+public extension ActionToStepIntegrator where VC == UIViewController {
+    /// Shorthand to be used as `.from(.root(...))`
+    static func root<NewContext>(windowProvider: WindowProvider = RouteComposerDefaults.shared.windowProvider) -> DestinationStep<UIViewController, NewContext> {
+        GeneralStep.root(windowProvider: windowProvider)
+    }
+
+    /// Shorthand to be used as `.from(.root)`
+    static var root: DestinationStep<UIViewController, C> { root() }
+
+    /// Shorthand to be used as `.from(.current(...))`
+    static func current<NewContext>(windowProvider: WindowProvider = RouteComposerDefaults.shared.windowProvider) -> DestinationStep<UIViewController, NewContext> {
+        GeneralStep.current(windowProvider: windowProvider)
+    }
+
+    /// Shorthand to be used as `.from(.current)`
+    static var current: DestinationStep<UIViewController, C> { current() }
+
+    /// Shorthand to be used as `.from(.custom(...))`
+    static func custom<F: Finder>(using finder: F) -> DestinationStep<F.ViewController, F.Context> {
+        GeneralStep.custom(using: finder)
+    }
+}

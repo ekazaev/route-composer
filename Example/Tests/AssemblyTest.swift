@@ -65,7 +65,7 @@ class AssemblyTest: XCTestCase {
     func testStepAssembly() {
         let lastStepAssembly = StepAssembly(finder: ClassFinder<UIViewController, Any?>(), factory: ClassFactory(nibName: "AnyNibName"))
             .using(.push)
-            .from(NavigationControllerStep())
+            .from(.navigationController)
             .using(.present)
         XCTAssertEqual(lastStepAssembly.previousSteps.count, 2)
 
@@ -85,9 +85,9 @@ class AssemblyTest: XCTestCase {
     func testContainerStepAssembly() {
         let lastStepAssembly = StepAssembly(finder: ClassFinder(), factory: NavigationControllerFactory<UINavigationController, Any?>())
             .using(.addTab)
-            .from(TabBarControllerStep())
+            .from(.tabBarController)
             .using(.present)
-            .from(GeneralStep.root())
+            .from(.root)
         XCTAssertEqual(lastStepAssembly.previousSteps.count, 3)
 
         let currentStep: RoutingStep? = lastStepAssembly.assemble()
@@ -97,16 +97,16 @@ class AssemblyTest: XCTestCase {
 
     func testContainerStepAssemblyNilFactory() {
         var lastStepAssembly = StepAssembly(finder: ClassFinder(), factory: NilContainerFactory<UINavigationController, Any?>())
-            .from(TabBarControllerStep())
+            .from(.tabBarController)
             .using(.present)
-            .from(GeneralStep.root())
+            .from(.root)
         XCTAssertEqual(lastStepAssembly.previousSteps.count, 3)
 
         var chainedStepCount = countSteps(currentStep: lastStepAssembly.assemble())
         XCTAssertEqual(chainedStepCount, 5)
 
         lastStepAssembly = StepAssembly(finder: ClassFinder(), factory: NilContainerFactory<UINavigationController, Any?>())
-            .from(GeneralStep.root())
+            .from(.root)
         XCTAssertEqual(lastStepAssembly.previousSteps.count, 2)
 
         chainedStepCount = countSteps(currentStep: lastStepAssembly.assemble())
@@ -116,7 +116,7 @@ class AssemblyTest: XCTestCase {
     func testChainAssembly() {
         let destinationStep = ChainAssembly.from(NavigationControllerStep<UINavigationController, Any?>())
             .using(.present)
-            .from(GeneralStep.root())
+            .from(.root)
             .assemble()
         var currentStep: RoutingStep? = destinationStep
 
@@ -138,7 +138,7 @@ class AssemblyTest: XCTestCase {
             .using(.nilAction)
             .from(NavigationControllerStep<UINavigationController, Any?>())
             .using(.nilAction)
-            .from(GeneralStep.root())
+            .from(.root)
             .assemble()
         var currentStep: RoutingStep? = destinationStep
         var chainedStepCount = 0
@@ -211,29 +211,29 @@ class AssemblyTest: XCTestCase {
             .addCase(from: ClassFinder<UINavigationController, String>())
             .addCase(when: bool,
                      from: StepAssembly(finder: ClassFinder(), factory: NilFactory())
-                         .from(GeneralStep.current())
+                         .from(.current)
                          .assemble())
             .addCase(when: { $0 == "test" },
                      from: StepAssembly(finder: ClassFinder(), factory: NilFactory())
-                         .from(GeneralStep.current())
+                         .from(.current)
                          .assemble())
             .addCase(expecting: ClassFinder<RouterTests.TestViewController, String>())
             .addCase(when: ClassFinder<UITabBarController, String>(),
                      from: StepAssembly(finder: NilFinder(), factory: NavigationControllerFactory())
                          .using(.present)
-                         .from(GeneralStep.current())
+                         .from(.current)
                          .assemble())
             .addCase { (_: Any?) in
                 StepAssembly(finder: ClassFinder(), factory: NilFactory())
-                    .from(GeneralStep.current())
+                    .from(.current)
                     .assemble()
             }
             .assemble(default: {
                 StepAssembly(finder: NilFinder(), factory: NavigationControllerFactory())
                     .using(.addTab)
-                    .from(TabBarControllerStep())
+                    .from(.tabBarController)
                     .using(.present)
-                    .from(GeneralStep.current())
+                    .from(.current)
                     .assemble()
             }).getPreviousStep(with: AnyContextBox("context")) as? SwitcherStep
 

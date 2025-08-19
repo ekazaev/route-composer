@@ -22,9 +22,9 @@ enum WishListConfiguration {
         .adding(LoginInterceptor())
         .adding(WishListContextTask())
         .using(.push)
-        .from(NavigationControllerStep())
+        .from(.navigationController)
         .using(.present(presentationStyle: .formSheet))
-        .from(GeneralStep.current())
+        .from(.current)
         .assemble()
 
     @MainActor

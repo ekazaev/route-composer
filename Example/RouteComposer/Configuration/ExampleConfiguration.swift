@@ -57,7 +57,7 @@ extension ExampleScreenConfiguration {
             factory: StoryboardFactory(name: "TabBar"))
             .using(CATransaction.wrap(GeneralAction.replaceRoot(animationOptions: .transitionFlipFromLeft)))
             // `CATransaction.wrap(...)` is here just for the testing purposes and not needed in the real app
-            .from(GeneralStep.root())
+            .from(.root)
             .assemble()
     }
 
@@ -95,7 +95,7 @@ extension ExampleScreenConfiguration {
             .using(ExampleNavigationController.push())
             .from(SingleContainerStep(finder: NilFinder(), factory: NavigationControllerFactory<ExampleNavigationController, String>()))
             .using(.present)
-            .from(GeneralStep.current())
+            .from(.current)
             .assemble()
     }
 
@@ -105,7 +105,7 @@ extension ExampleScreenConfiguration {
             factory: StoryboardFactory(name: "TabBar", identifier: "RoutingRuleSupportViewController"))
             .adding(ExampleGenericContextTask<RoutingRuleSupportViewController, String>())
             .using(.addTab)
-            .from(TabBarControllerStep())
+            .from(.tabBarController)
             .using(.push)
             .from(colorScreen.expectingContainer())
             .assemble()
@@ -128,7 +128,7 @@ extension ExampleScreenConfiguration {
             factory: StoryboardFactory(name: "TabBar", identifier: "SecondModalLevelViewController"))
             .adding(ExampleGenericContextTask<SecondModalLevelViewController, String>())
             .using(.push)
-            .from(NavigationControllerStep())
+            .from(.navigationController)
             .using( // `topmostParent` and `overCurrentContext` are set for the test purposes only
                 .present(startingFrom: .topmostParent,
                                              presentationStyle: .overCurrentContext,
@@ -143,7 +143,7 @@ extension ExampleScreenConfiguration {
             factory: StoryboardFactory(name: "PromptScreen"))
             .adding(ExampleGenericContextTask<PromptViewController, Any?>())
             .using(.replaceRoot)
-            .from(GeneralStep.root())
+            .from(.root)
             .assemble()
     }
 

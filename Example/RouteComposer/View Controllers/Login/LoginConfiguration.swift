@@ -25,7 +25,7 @@ enum LoginConfiguration {
             .using( // `custom` and `overCurrentContext` are set for the test purposes only
                 .present(startingFrom: .custom(RouteComposerDefaults.shared.windowProvider.window?.topmostViewController),
                                              presentationStyle: .overCurrentContext))
-            .from(GeneralStep.current())
+            .from(.current)
             .assemble()
 
         return Destination(to: loginScreen)

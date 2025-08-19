@@ -37,7 +37,7 @@ class ProductConfiguration {
             .addCase(when: { $0.productURL != nil },
                      from: ChainAssembly.from(NavigationControllerStep<UINavigationController, ProductContext>())
                          .using(.present)
-                         .from(GeneralStep.current())
+                         .from(.current)
                          .assemble())
             // If UINavigationController is visible on the screen - just push
             .addCase(from: ClassFinder<UINavigationController, ProductContext>(options: .currentVisibleOnly))
@@ -56,7 +56,7 @@ class ProductConfiguration {
             factory: StoryboardFactory<ProductViewController, ProductContext>(name: "TabBar", identifier: "ProductViewController"))
             .adding(ContextSettingTask()))
         .using(.push)
-        .from(NavigationControllerStep())
+        .from(.navigationController)
         .using(.present)
         .from(SingleStep(
             finder: ClassWithContextFinder<ProductViewController, ProductContext>(),

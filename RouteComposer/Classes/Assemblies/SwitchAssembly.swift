@@ -25,7 +25,7 @@ import UIKit
 ///
 ///                    return ChainAssembly.from(NavigationControllerStep<UINavigationController, ProductContext>())
 ///                            .using(.present)
-///                            .from(GeneralStep.current())
+///                            .from(.current)
 ///                            .assemble()
 ///
 ///                }
@@ -36,7 +36,7 @@ import UIKit
 ///                // Otherwise - create a UINavigationController and present modally
 ///                .assemble(default: ChainAssembly.from(NavigationControllerStep<UINavigationController, ProductContext>())
 ///                    .using(.present)
-///                    .from(GeneralStep.current())
+///                    .from(.current)
 ///                    .assemble())
 /// ```
 @MainActor

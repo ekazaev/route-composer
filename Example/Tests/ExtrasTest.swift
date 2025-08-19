@@ -66,7 +66,7 @@ class ExtrasTest: XCTestCase {
                 XCTAssertEqual(viewControllers.count, 3)
             })
             .using(.push)
-            .from(NavigationControllerStep())
+            .from(.navigationController)
             .using(FakeTimedPresentModallyAction())
             .from(DestinationStep<RouterTests.TestModalPresentableController, Any?>(RouterTests.TestCurrentViewControllerStep(currentViewController: currentViewController)))
             .assemble()

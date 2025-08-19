@@ -24,7 +24,7 @@ public enum ChainAssembly {
     /// ```swift
     /// let intermediateStep = ChainAssembly.from(NavigationControllerStep<UINavigationController, Any?>())
     ///         .using(.present)
-    ///         .from(GeneralStep.current())
+    ///         .from(.current)
     ///         .assemble()
     /// ```
     /// - Parameter step: The instance of `ActionConnectingAssembly`

@@ -24,9 +24,9 @@ enum ImagesConfigurationWithLibrary {
         finder: ClassFinder<CustomContainerController, Any?>(),
         factory: CustomContainerFactory(delegate: ImagesWithLibraryHandler.shared))
         .using(.push)
-        .from(NavigationControllerStep())
+        .from(.navigationController)
         .using(.present)
-        .from(GeneralStep.current())
+        .from(.current)
         .assemble()
 
     @MainActor

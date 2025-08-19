@@ -23,3 +23,19 @@ public final class NavigationControllerStep<VC: UINavigationController, Context>
     }
 
 }
+
+// MARK: Shorthands
+
+public extension DestinationStep where VC == UINavigationController {
+    /// Shorthand to be used as `.from(.navigationController)`
+    static var navigationController: NavigationControllerStep<UINavigationController, Context> {
+        NavigationControllerStep()
+    }
+}
+
+public extension ActionToStepIntegrator where VC == UINavigationController {
+    /// Shorthand to be used as `.from(.navigationController)`
+    static var navigationController: NavigationControllerStep<UINavigationController, Context> {
+        NavigationControllerStep()
+    }
+}

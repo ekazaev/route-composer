@@ -23,7 +23,7 @@ class CitiesConfiguration {
                                            factory: StoryboardFactory(name: "Split"))
         .adding(LoginInterceptor<Void>())
         .using(.replaceRoot)
-        .from(GeneralStep.root())
+        .from(.root)
         .assemble()
 
     // Cities List

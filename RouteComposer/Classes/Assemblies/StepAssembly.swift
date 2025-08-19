@@ -23,9 +23,9 @@ import UIKit
 ///         .adding(ProductViewControllerContextTask())
 ///         .adding(ProductViewControllerPostTask(analyticsManager: AnalyticsManager.sharedInstance))
 ///         .using(.push)
-///         .from(NavigationControllerStep())
+///         .from(.navigationController)
 ///         .using(.present)
-///         .from(GeneralStep.current())
+///         .from(.current)
 ///         .assemble()
 /// ```
 @MainActor
