@@ -40,3 +40,9 @@ public struct NilFinder<VC: UIViewController, C>: Finder, NilEntity {
     }
 
 }
+
+// MARK: Shorthands
+
+public extension NilFinder {
+    static var nilFinder: Self { Self() }
+}

@@ -63,3 +63,21 @@ public extension ClassWithContextFinder {
     }
 
 }
+
+// MARK: Shorthands
+
+public extension ClassWithContextFinder {
+
+    static func classWithContextFinder(iterator: StackIterator = RouteComposerDefaults.shared.stackIterator) -> Self {
+        Self(iterator: iterator)
+    }
+
+    static var classWithContextFinder: Self { .classWithContextFinder() }
+
+    static func classWithContextFinder(options: SearchOptions,
+                                       startingPoint: DefaultStackIterator.StartingPoint = .topmost,
+                                       windowProvider: WindowProvider = RouteComposerDefaults.shared.windowProvider,
+                                       containerAdapterLocator: ContainerAdapterLocator = RouteComposerDefaults.shared.containerAdapterLocator) -> Self {
+        Self(options: options, startingPoint: startingPoint, windowProvider: windowProvider, containerAdapterLocator: containerAdapterLocator)
+    }
+}

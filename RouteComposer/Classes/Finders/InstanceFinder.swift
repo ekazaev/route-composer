@@ -42,3 +42,9 @@ public struct InstanceFinder<VC: UIViewController, C>: Finder {
     }
 
 }
+
+// MARK: Shorthands
+
+public extension InstanceFinder {
+    static func instanceFinder(instance: VC) -> Self { Self(instance: instance) }
+}

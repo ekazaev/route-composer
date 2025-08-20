@@ -76,6 +76,8 @@
 		4DA9F2D72E4EA4AE008F4611 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		4DA9F2DC2E4EAC4E008F4611 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		4DA9F2E12E4EADFF008F4611 /* StepAssembly+Shorthands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA9F2E02E4EADFF008F4611 /* StepAssembly+Shorthands.swift */; };
+		4DC3FB542E563C8B003A9F45 /* StepAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC3FB532E563C8B003A9F45 /* StepAssembler.swift */; };
+		4DC3FB592E565607003A9F45 /* StepAssemblerWithFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC3FB582E565607003A9F45 /* StepAssemblerWithFinder.swift */; };
 		4F366F1BFCB94B79BBE695A5B92875F0 /* DefaultLogger+LogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C6E4B0B629D9870A9AD356210B1428 /* DefaultLogger+LogLevel.swift */; };
 		4FD5B7BDB839BE981D2FBC94555CDE62 /* SwitcherStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AE081F6F9CA63E712F5113C929673C /* SwitcherStep.swift */; };
 		50FA51B388D7879322E4081F5C8C6E19 /* SingleContainerStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386D704BF6646484D97CC9DEF2C1F01E /* SingleContainerStep.swift */; };
@@ -405,6 +407,8 @@
 		4C6B3AF1E33E30ADBBF2AC71D668E28B /* SingleStep.swift.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = SingleStep.swift.html; path = docs/tests/SingleStep.swift.html; sourceTree = "<group>"; };
 		4C946EB4A1A5EAE134192412E9076D51 /* DismissalMethodProvidingContextTask.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = DismissalMethodProvidingContextTask.html; path = docs/docsets/RouteComposer.docset/Contents/Resources/Documents/Structs/DismissalMethodProvidingContextTask.html; sourceTree = "<group>"; };
 		4DA9F2E02E4EADFF008F4611 /* StepAssembly+Shorthands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StepAssembly+Shorthands.swift"; sourceTree = "<group>"; };
+		4DC3FB532E563C8B003A9F45 /* StepAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepAssembler.swift; sourceTree = "<group>"; };
+		4DC3FB582E565607003A9F45 /* StepAssemblerWithFinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepAssemblerWithFinder.swift; sourceTree = "<group>"; };
 		4DE9C722CBB7B06324548F4B0C2B563F /* Pods-RouteComposer_Example-RouteComposer_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-RouteComposer_Example-RouteComposer_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		4E155740C6D1D49A237BE46EB4813760 /* DismissibleWithRuntimeStorage.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = DismissibleWithRuntimeStorage.html; path = docs/docsets/RouteComposer.docset/Contents/Resources/Documents/Protocols/DismissibleWithRuntimeStorage.html; sourceTree = "<group>"; };
 		4E4734FEE1A72E42D0D7674194BD54B4 /* ActionToStepIntegrator.swift.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = ActionToStepIntegrator.swift.html; path = docs/tests/ActionToStepIntegrator.swift.html; sourceTree = "<group>"; };
@@ -1800,6 +1804,8 @@
 				EA648B3FD173F797EF2E96B4675919B9 /* ChainAssembly.swift */,
 				4A2A6B75089F4433E487D79F027F926A /* CompleteFactoryAssembly.swift */,
 				393D8593D8CB9BD5043F522AFF756155 /* StepAssembly.swift */,
+				4DC3FB532E563C8B003A9F45 /* StepAssembler.swift */,
+				4DC3FB582E565607003A9F45 /* StepAssemblerWithFinder.swift */,
 				082E6A97ED14D6FD10F071B15437950B /* SwitchAssembly.swift */,
 				5A1F5017B38AF5AAC63BF9E602E9779A /* Helpers */,
 			);
@@ -1981,6 +1987,7 @@
 				88728E397BC151089E7A75F8C896A25A /* ChildCoordinator.swift in Sources */,
 				3D29BEBFAE4B4E5A1134D5DEA364B32B /* ClassFactory.swift in Sources */,
 				A721EE593716E6C3A6DF25465FFBE2B1 /* ClassFinder.swift in Sources */,
+				4DC3FB542E563C8B003A9F45 /* StepAssembler.swift in Sources */,
 				2F31587BA1173C1A08AA5927F73C1EFD /* ClassWithContextFinder.swift in Sources */,
 				8AA83251A10C8444DCA1A1F6CE6AF7C4 /* CompleteFactory.swift in Sources */,
 				5BD0CDAB878B3B51087A6FA19E2FCE86 /* CompleteFactoryAssembly.swift in Sources */,
@@ -2025,6 +2032,7 @@
 				E73C70D4A2DD499E2E0C7A0B63EA07ED /* FinderBox.swift in Sources */,
 				9A37FA8D70F0C8D4A170C229EB806A61 /* FinderFactory.swift in Sources */,
 				AFDA8D24EFF34686ABF7AA383FC9F698 /* GeneralStep.swift in Sources */,
+				4DC3FB592E565607003A9F45 /* StepAssemblerWithFinder.swift in Sources */,
 				32D4E16EA38CF435B5F68647EBAC8456 /* GenericStepAssembly.swift in Sources */,
 				3D866A201E12C4870334091F95294C7F /* GlobalInterceptorRouter.swift in Sources */,
 				BC8967F828196882DC28A4F0FC9EA7E3 /* InlineContextTask.swift in Sources */,

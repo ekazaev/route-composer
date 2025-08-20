@@ -62,3 +62,21 @@ public extension ClassFinder {
     }
 
 }
+
+// MARK: Shorthands
+
+public extension ClassFinder {
+
+    static func classFinder(iterator: StackIterator = RouteComposerDefaults.shared.stackIterator) -> Self {
+        Self(iterator: iterator)
+    }
+
+    static var classFinder: Self { .classFinder() }
+
+    static func classFinder(options: SearchOptions,
+                            startingPoint: DefaultStackIterator.StartingPoint = .topmost,
+                            windowProvider: WindowProvider = RouteComposerDefaults.shared.windowProvider,
+                            containerAdapterLocator: ContainerAdapterLocator = RouteComposerDefaults.shared.containerAdapterLocator) -> Self {
+        Self(options: options, startingPoint: startingPoint, windowProvider: windowProvider, containerAdapterLocator: containerAdapterLocator)
+    }
+}
