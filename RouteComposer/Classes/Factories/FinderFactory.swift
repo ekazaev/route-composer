@@ -55,3 +55,13 @@ public struct FinderFactory<F: Finder>: Factory {
     }
 
 }
+
+// MARK: Shorthands
+
+public extension FinderFactory {
+
+    static func finderFactory(finder: F, configuration: ((_: F.ViewController) -> Void)? = nil) -> Self? {
+        Self(finder: finder, configuration: configuration)
+    }
+
+}

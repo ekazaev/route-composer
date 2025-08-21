@@ -56,3 +56,15 @@ public struct ClassFactory<VC: UIViewController, C>: Factory {
     }
 
 }
+
+// MARK: Shorthands
+
+public extension ClassFactory {
+
+    static func classFactory(nibName nibNameOrNil: String? = nil, bundle nibBundleOrNil: Bundle? = nil, configuration: ((_: VC) -> Void)? = nil) -> Self {
+        Self(nibName: nibNameOrNil, bundle: nibBundleOrNil, configuration: configuration)
+    }
+
+    static var classFactory: Self { .classFactory() }
+  
+}

@@ -25,4 +25,16 @@ public struct StepAssemblerWithFinder<F: Finder> {
         self.finder = finder
     }
 
+    @_disfavoredOverload
+    public func factory<FC: Factory>(_ factory: FC) -> StepAssembly<F, FC> {
+        getFactory(factory)
+    }
+
+    @_spi(Internals)
+    public func getFactory<FC: Factory>(_ factory: FC) -> StepAssembly<F, FC> {
+        StepAssembly(finder: finder, factory: factory)
+    }
+
 }
+
+

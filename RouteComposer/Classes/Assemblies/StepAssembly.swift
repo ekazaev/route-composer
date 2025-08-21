@@ -43,7 +43,7 @@ public final class StepAssembly<F: Finder, FC: AbstractFactory>: GenericStepAsse
 
     // MARK: Methods
 
-    internal init(finder: F, abstractFactory: FC) {
+    private init(finder: F, abstractFactory: FC) {
         self.factory = abstractFactory
         self.finder = finder
         self.previousSteps = []
