@@ -30,11 +30,58 @@ public struct StepAssemblerWithFinder<F: Finder> {
         getFactory(factory)
     }
 
+    @_disfavoredOverload
+    public func factory<FC: ContainerFactory>(_ factory: FC) -> StepAssembly<F, FC> {
+        getFactory(factory)
+    }
+
     @_spi(Internals)
     public func getFactory<FC: Factory>(_ factory: FC) -> StepAssembly<F, FC> {
         StepAssembly(finder: finder, factory: factory)
     }
 
+    @_spi(Internals)
+    public func getFactory<FC: ContainerFactory>(_ factory: FC) -> StepAssembly<F, FC> {
+        StepAssembly(finder: finder, factory: factory)
+    }
+
 }
 
+// MARK: Shorthands
 
+extension StepAssemblerWithFinder {
+    public func factory(_ factory: ClassFactory<F.ViewController, F.Context>) -> StepAssembly<F, ClassFactory<F.ViewController, F.Context>> {
+        getFactory(factory)
+    }
+
+    public func factory<FC: Factory>(_ factory: FinderFactory<FC>) -> StepAssembly<F, FinderFactory<FC>> {
+        getFactory(factory)
+    }
+
+    public func factory(_ factory: NilFactory<F.ViewController, F.Context>) -> StepAssembly<F, NilFactory<F.ViewController, F.Context>> {
+        getFactory(factory)
+    }
+
+    public func factory(_ factory: StoryboardFactory<F.ViewController, F.Context>) -> StepAssembly<F, StoryboardFactory<F.ViewController, F.Context>> {
+        getFactory(factory)
+    }
+  
+}
+
+extension StepAssemblerWithFinder where F.ViewController == UINavigationController {
+    public func factory(_ factory: NavigationControllerFactory<F.ViewController, F.Context>) -> StepAssembly<F, NavigationControllerFactory<F.ViewController, F.Context>> {
+        getFactory(factory)
+    }
+}
+
+extension StepAssemblerWithFinder where F.ViewController == UISplitViewController {
+    public func factory(_ factory: SplitControllerFactory<F.ViewController, F.Context>) -> StepAssembly<F, SplitControllerFactory<F.ViewController, F.Context>> {
+        getFactory(factory)
+    }
+}
+
+extension StepAssemblerWithFinder where F.ViewController == UITabBarController {
+    public func factory(_ factory: TabBarControllerFactory<F.ViewController, F.Context>) -> StepAssembly<F, TabBarControllerFactory<F.ViewController, F.Context>> {
+        getFactory(factory)
+    }
+}

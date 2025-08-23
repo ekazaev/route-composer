@@ -63,3 +63,16 @@ public struct NavigationControllerFactory<VC: UINavigationController, C>: Contai
     }
 
 }
+
+// MARK: Shorthands
+
+public extension NavigationControllerFactory {
+
+    static func navigationControllerFactory(nibName nibNameOrNil: String? = nil,
+                                            bundle nibBundleOrNil: Bundle? = nil,
+                                            delegate: UINavigationControllerDelegate? = nil,
+                                            configuration: ((_: VC) -> Void)? = nil) -> Self {
+        Self(nibName: nibNameOrNil, bundle: nibBundleOrNil, delegate: delegate, configuration: configuration)
+    }
+
+}

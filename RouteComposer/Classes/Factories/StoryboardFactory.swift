@@ -92,3 +92,13 @@ public struct StoryboardFactory<VC: UIViewController, C>: Factory {
     }
 
 }
+
+// MARK: Shorthands
+
+public extension StoryboardFactory {
+
+    static func storyboardFactory(name: String, bundle: Bundle? = nil, identifier: String? = nil, configuration: ((_: VC) -> Void)? = nil) -> Self {
+        Self(name: name, bundle: bundle, identifier: identifier, configuration: configuration)
+    }
+
+}

@@ -40,3 +40,13 @@ public struct NilFactory<VC: UIViewController, C>: Factory, NilEntity {
     }
 
 }
+
+// MARK: Shorthands
+
+public extension NilFactory {
+
+    static func nilFactory() -> Self {
+        Self()
+    }
+
+}
