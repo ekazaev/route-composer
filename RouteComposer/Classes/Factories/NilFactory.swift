@@ -45,7 +45,7 @@ public struct NilFactory<VC: UIViewController, C>: Factory, NilEntity {
 
 public extension NilFactory {
 
-    static func nilFactory() -> Self {
+    static var nilFactory: Self {
         Self()
     }
 
