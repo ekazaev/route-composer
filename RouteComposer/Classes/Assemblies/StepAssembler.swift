@@ -17,11 +17,32 @@ import Foundation
 import UIKit
 import SwiftUI
 
+/// Builds a `DestinationStep` instance with the correct settings into a chain of steps.
+/// ### NB
+/// Both `Finder` and `Factory` instances should deal with the same type of `UIViewController` and `Context` instances.
+/// ### Usage
+/// ```swift
+/// let productScreen = StepAssembler<ProductViewController, ProductContext>()
+///         .finder(.classWithContextFinder)
+///         .factory(.storyboardFactory(name: "TabBar", identifier: "ProductViewController"))
+///         .adding(ContextSettingTask())
+///         .using(.push)
+///         .from(.navigationController)
+///         .using(.present)
+///         .from(.current)
+///         .assemble()
+/// ```
 @MainActor
 public struct StepAssembler<VC: UIViewController, C> {
 
+    // MARK: Methods
+
     public init() {}
 
+    /// Sets a specific Finder instance
+    ///
+    /// - Parameters:
+    ///   - finder: The `UIViewController` `Finder` instance.
     @_disfavoredOverload
     public func finder<F: Finder>(_ finder: F) -> StepAssemblerWithFinder<F> where F.ViewController == VC, F.Context == C {
         getFinder(finder)
@@ -33,6 +54,8 @@ public struct StepAssembler<VC: UIViewController, C> {
     }
 
 }
+
+// MARK: Shorthands
 
 extension StepAssembler {
 
