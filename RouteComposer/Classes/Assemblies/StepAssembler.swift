@@ -48,6 +48,37 @@ public struct StepAssembler<VC: UIViewController, C> {
         getFinder(finder)
     }
 
+    /// Returns a StepAssemblerWithFinder configured with the provided Finder.
+    ///
+    /// A @_spi method to integrate custom shorthands for custom finders.
+    ///
+    /// - Parameters:
+    ///   - finder: The custom (recommended) `UIViewController` `Finder` instance.
+    ///
+    /// Usage:
+    /// ```swift
+    ///@_spi(Advanced) import RouteComposer
+    ///
+    ///class ColorViewControllerFinder: StackIteratingFinder {...}
+    ///
+    ///extension ColorViewControllerFinder {
+    ///    /// Shorthand to be used as `.using(.colorViewControllerFinder)`
+    ///    static var colorViewControllerFinder: ColorViewControllerFinder { ColorViewControllerFinder() }
+    ///}
+    ///
+    ///extension StepAssembler where VC == ColorViewController, C == String { // Add new finder method for shorthand .colorViewControllerFinder
+    ///    func finder(_ finder: ColorViewControllerFinder) -> StepAssemblerWithFinder<ColorViewControllerFinder> {
+    ///        return getFinder(finder) // Advanced method
+    ///    }
+    ///}
+    ///
+    ///var colorScreen: DestinationStep<ColorViewController, String> {
+    ///    StepAssembler<ColorViewController, String>()
+    ///        .finder(.colorViewControllerFinder) // Or you can call `.finder(ColorViewControllerFinder())`
+    ///        ...
+    ///        .assemble()
+    ///}
+    /// ```
     @_spi(Advanced)
     public func getFinder<F: Finder>(_ finder: F) -> StepAssemblerWithFinder<F> where F.ViewController == VC, F.Context == C {
         StepAssemblerWithFinder(finder: finder)

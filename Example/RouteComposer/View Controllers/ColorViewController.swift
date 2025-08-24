@@ -12,6 +12,7 @@
 
 import Foundation
 import RouteComposer
+@_spi(Advanced) import RouteComposer
 import UIKit
 
 class ColorViewControllerFinder: StackIteratingFinder {
@@ -29,6 +30,17 @@ class ColorViewControllerFinder: StackIteratingFinder {
         return true
     }
 
+}
+
+extension ColorViewControllerFinder {
+  /// Shorthand to be used as `.using(.colorViewControllerFinder)`
+  static var colorViewControllerFinder: ColorViewControllerFinder { ColorViewControllerFinder() }
+}
+
+extension StepAssembler where VC == ColorViewController, C == String { // Add new finder method for shorthand .colorViewControllerFinder
+    func finder(_ finder: ColorViewControllerFinder) -> StepAssemblerWithFinder<ColorViewControllerFinder> {
+        return getFinder(finder) // Advanced method
+    }
 }
 
 class ColorViewControllerFactory: Factory {
