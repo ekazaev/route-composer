@@ -15,6 +15,7 @@
 
 import Foundation
 import UIKit
+import SwiftUI
 
 @MainActor
 public struct StepAssembler<VC: UIViewController, C> {
@@ -44,6 +45,10 @@ extension StepAssembler {
     }
 
     public func finder(_ finder: NilFinder<VC, C>) -> StepAssemblerWithFinder<NilFinder<VC, C>> {
+        getFinder(finder)
+    }
+
+    public func finder<ContentView: View & ContextChecking>(_ finder: UIHostingControllerWithContextFinder<ContentView>) -> StepAssemblerWithFinder<UIHostingControllerWithContextFinder<ContentView>> where UIHostingController<ContentView> == VC, ContentView.Context == C {
         getFinder(finder)
     }
 }

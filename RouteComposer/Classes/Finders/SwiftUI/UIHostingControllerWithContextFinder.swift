@@ -70,3 +70,22 @@ public extension UIHostingControllerWithContextFinder {
 }
 
 #endif
+
+@available(iOS 13.0, OSX 10.15, tvOS 13.0, watchOS 6.0, *)
+public extension UIHostingControllerWithContextFinder {
+
+    static func hostingControllerWithContextFinder(iterator: StackIterator = RouteComposerDefaults.shared.stackIterator) -> Self {
+        Self(iterator: iterator)
+    }
+
+    static var hostingControllerWithContextFinder: UIHostingControllerWithContextFinder { Self() }
+
+    static func hostingControllerWithContextFinder(options: SearchOptions,
+                                                   startingPoint: DefaultStackIterator.StartingPoint = .topmost,
+                                                   windowProvider: WindowProvider = RouteComposerDefaults.shared.windowProvider,
+                                                   containerAdapterLocator: ContainerAdapterLocator = RouteComposerDefaults.shared.containerAdapterLocator) -> Self {
+        Self(options: options, startingPoint: startingPoint, windowProvider: windowProvider, containerAdapterLocator: containerAdapterLocator)
+    }
+
+}
+

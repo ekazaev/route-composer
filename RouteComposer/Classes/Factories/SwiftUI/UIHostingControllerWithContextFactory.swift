@@ -40,3 +40,9 @@ public struct UIHostingControllerWithContextFactory<ContentView: View & ContextI
 }
 
 #endif
+
+// MARK: Shorthands
+
+public extension UIHostingControllerWithContextFactory {
+    static var hostingControllerWithContextFactory: Self { Self() }
+}

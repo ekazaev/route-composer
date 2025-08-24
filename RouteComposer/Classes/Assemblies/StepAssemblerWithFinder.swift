@@ -15,6 +15,7 @@
 
 import Foundation
 import UIKit
+import SwiftUI
 
 @MainActor
 public struct StepAssemblerWithFinder<F: Finder> {
@@ -65,7 +66,15 @@ extension StepAssemblerWithFinder {
     public func factory(_ factory: StoryboardFactory<F.ViewController, F.Context>) -> StepAssembly<F, StoryboardFactory<F.ViewController, F.Context>> {
         getFactory(factory)
     }
-  
+
+    public func factory<ContentView: View & ContextChecking>(_ factory: UIHostingControllerFactory<ContentView, F.Context>) -> StepAssembly<F, UIHostingControllerFactory<ContentView, F.Context>> {
+        getFactory(factory)
+    }
+
+    public func factory<ContentView: View & ContextChecking>(_ factory: UIHostingControllerWithContextFactory<ContentView>) -> StepAssembly<F, UIHostingControllerWithContextFactory<ContentView>> {
+        getFactory(factory)
+    }
+
 }
 
 extension StepAssemblerWithFinder where F.ViewController == UINavigationController {

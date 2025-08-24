@@ -46,3 +46,11 @@ public struct UIHostingControllerFactory<ContentView: View, Context>: Factory {
 }
 
 #endif
+
+// MARK: Shorthands
+
+public extension UIHostingControllerFactory {
+    static func hostingControllerFactory(_ buildBlock: @escaping (Context) -> ContentView) -> Self {
+        Self(buildBlock)
+    }
+}

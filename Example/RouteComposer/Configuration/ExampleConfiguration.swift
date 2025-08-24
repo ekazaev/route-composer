@@ -157,9 +157,10 @@ extension ExampleScreenConfiguration {
         guard #available(iOS 13.0, *) else {
             return starScreen.unsafelyRewrapped()
         }
-        return StepAssembly(
-            finder: UIHostingControllerWithContextFinder<SwiftUIContentView>(),
-            factory: UIHostingControllerWithContextFactory())
+
+        return StepAssembler<UIHostingController<SwiftUIContentView>, String>()
+            .finder(.hostingControllerWithContextFinder)
+            .factory(.hostingControllerWithContextFactory)
             .adding(ExampleGenericContextTask<UIHostingController<SwiftUIContentView>, String>())
             .adding(ContextSettingTask())
             .using(.push)
