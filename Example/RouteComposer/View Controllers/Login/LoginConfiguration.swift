@@ -17,8 +17,9 @@ enum LoginConfiguration {
 
     @MainActor
     static func login() -> Destination<LoginViewController, Void> {
-        let loginScreen = StepAssembly(finder: ClassFinder<LoginViewController, Void>(),
-                                       factory: NilFactory()) // Login view controller will be created when UINavigationController will be loaded from storyboard.
+        let loginScreen = StepAssembler<LoginViewController, Void>()
+            .finder(.classFinder)
+            .factory(.nilFactory) // Login view controller will be created when UINavigationController will be loaded from storyboard.
             .from(SingleStep(
                 finder: NilFinder(),
                 factory: StoryboardFactory<UINavigationController, Void>(name: "Login")))

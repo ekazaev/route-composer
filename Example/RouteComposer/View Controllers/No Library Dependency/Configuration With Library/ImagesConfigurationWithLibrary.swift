@@ -20,9 +20,9 @@ import UIKit
 enum ImagesConfigurationWithLibrary {
 
     @MainActor
-    private static let imagesContainerStep = StepAssembly(
-        finder: ClassFinder<CustomContainerController, Any?>(),
-        factory: CustomContainerFactory(delegate: ImagesWithLibraryHandler.shared))
+    private static let imagesContainerStep = StepAssembler<CustomContainerController, Any?>()
+        .finder(.classFinder)
+        .factory(CustomContainerFactory(delegate: ImagesWithLibraryHandler.shared))
         .using(.push)
         .from(.navigationController)
         .using(.present)
@@ -31,9 +31,9 @@ enum ImagesConfigurationWithLibrary {
 
     @MainActor
     static func images() -> Destination<ImagesViewController, Any?> {
-        let imagesStep = StepAssembly(
-            finder: ClassFinder(),
-            factory: ImagesFactory(delegate: ImagesWithLibraryHandler.shared))
+        let imagesStep = StepAssembler()
+            .finder(.classFinder)
+            .factory(ImagesFactory(delegate: ImagesWithLibraryHandler.shared))
             .using(CustomContainerFactory<Any?>.ReplaceRoot())
             .from(imagesContainerStep)
             .assemble()
@@ -42,9 +42,9 @@ enum ImagesConfigurationWithLibrary {
 
     @MainActor
     static func imageDetails(for imageID: String) -> Destination<ImageDetailsViewController, String> {
-        let imageDetailsStep = StepAssembly(
-            finder: ClassFinder(),
-            factory: ImageDetailsFactory(delegate: ImagesWithLibraryHandler.shared))
+        let imageDetailsStep = StepAssembler()
+            .finder(.classFinder)
+            .factory(ImageDetailsFactory(delegate: ImagesWithLibraryHandler.shared))
             .using(CustomContainerFactory<String>.ReplaceRoot())
             .from(imagesContainerStep.adaptingContext())
             .assemble()

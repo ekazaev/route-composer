@@ -16,9 +16,9 @@ import UIKit
 
 enum WishListConfiguration {
     @MainActor
-    static let wishListScreen = StepAssembly(
-        finder: ClassFinder<WishListViewController, WishListContext>(),
-        factory: StoryboardFactory(name: "TabBar", identifier: "WishListViewController"))
+    static let wishListScreen = StepAssembler<WishListViewController, WishListContext>()
+        .finder(.classFinder)
+        .factory(.storyboardFactory(name: "TabBar", identifier: "WishListViewController"))
         .adding(LoginInterceptor())
         .adding(WishListContextTask())
         .using(.push)

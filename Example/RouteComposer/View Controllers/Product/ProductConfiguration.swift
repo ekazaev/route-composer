@@ -17,9 +17,9 @@ import UIKit
 class ProductConfiguration {
 
     @MainActor
-    static let productScreen = StepAssembly(
-        finder: ClassWithContextFinder<ProductViewController, ProductContext>(),
-        factory: StoryboardFactory(name: "TabBar", identifier: "ProductViewController"))
+    static let productScreen = StepAssembler<ProductViewController, ProductContext>()
+        .finder(.classWithContextFinder)
+        .factory(.storyboardFactory(name: "TabBar", identifier: "ProductViewController"))
         .adding(InlineInterceptor { (_: ProductContext) in
             print("On before navigation to Product view controller")
         })
@@ -47,9 +47,9 @@ class ProductConfiguration {
 
     // This path is used to test the transactions in presentations. Does not have any other purposes
     @MainActor
-    static let productScreenFromCircle = StepAssembly(
-        finder: ClassWithContextFinder<ProductViewController, ProductContext>(),
-        factory: NilFactory())
+    static let productScreenFromCircle = StepAssembler<ProductViewController, ProductContext>()
+        .finder(.classWithContextFinder)
+        .factory(.nilFactory)
         .adding(ContextSettingTask())
         .from(SingleStep(
             finder: NilFinder(),
