@@ -72,7 +72,7 @@ public extension StepAssembly where FC: Factory {
       usingAction(action)
     }
 
-    @_spi(Internals)
+    @_spi(Advanced)
     final func usingAction(_ action: some Action) -> StepChainAssembly<ViewController, Context> {
         var previousSteps = previousSteps
         let entitiesCollector = BaseEntitiesCollector<FactoryBox<FC>, ActionBox>(finder: finder, factory: factory, action: action)
@@ -89,7 +89,7 @@ public extension StepAssembly where FC: Factory {
         usingAction(action)
     }
 
-    @_spi(Internals)
+    @_spi(Advanced)
     final func usingAction<A: ContainerAction>(_ action: A) -> ContainerStepChainAssembly<A.ViewController, ViewController, Context> {
         var previousSteps = previousSteps
         let entitiesCollector = BaseEntitiesCollector<FactoryBox<FC>, ContainerActionBox>(finder: finder, factory: factory, action: action)
@@ -121,7 +121,7 @@ public extension StepAssembly where FC: ContainerFactory {
         usingAction(action)
     }
 
-    @_spi(Internals)
+    @_spi(Advanced)
     final func usingAction(_ action: some Action) -> StepChainAssembly<ViewController, Context> {
         var previousSteps = previousSteps
         let entitiesCollector = BaseEntitiesCollector<ContainerFactoryBox<FC>, ActionBox>(finder: finder, factory: factory, action: action)
@@ -138,7 +138,7 @@ public extension StepAssembly where FC: ContainerFactory {
         usingAction(action)
     }
 
-    @_spi(Internals)
+    @_spi(Advanced)
     final func usingAction<A: ContainerAction>(_ action: A) -> ContainerStepChainAssembly<A.ViewController, ViewController, Context> {
         var previousSteps = previousSteps
         let entitiesCollector = BaseEntitiesCollector<ContainerFactoryBox<FC>, ContainerActionBox>(finder: finder, factory: factory, action: action)

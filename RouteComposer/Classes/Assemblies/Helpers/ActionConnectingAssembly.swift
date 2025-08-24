@@ -39,7 +39,7 @@ public struct ActionConnectingAssembly<VC: UIViewController, C> {
         usingAction(action)
     }
 
-    @_spi(Internals)
+    @_spi(Advanced)
     public func usingAction(_ action: some Action) -> StepChainAssembly<VC, C> {
         var previousSteps = previousSteps
         if let routingStep = stepToFullFill.routingStep(with: action) {
@@ -57,7 +57,7 @@ public struct ActionConnectingAssembly<VC: UIViewController, C> {
         usingAction(action)
     }
 
-    @_spi(Internals)
+    @_spi(Advanced)
     public func usingAction<A: ContainerAction>(_ action: A) -> ContainerStepChainAssembly<A.ViewController, VC, C> {
         var previousSteps = previousSteps
         if let routingStep = stepToFullFill.embeddableRoutingStep(with: action) {

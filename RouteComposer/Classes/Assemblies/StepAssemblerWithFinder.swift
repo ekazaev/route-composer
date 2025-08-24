@@ -36,12 +36,12 @@ public struct StepAssemblerWithFinder<F: Finder> {
         getFactory(factory)
     }
 
-    @_spi(Internals)
+    @_spi(Advanced)
     public func getFactory<FC: Factory>(_ factory: FC) -> StepAssembly<F, FC> {
         StepAssembly(finder: finder, factory: factory)
     }
 
-    @_spi(Internals)
+    @_spi(Advanced)
     public func getFactory<FC: ContainerFactory>(_ factory: FC) -> StepAssembly<F, FC> {
         StepAssembly(finder: finder, factory: factory)
     }

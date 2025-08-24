@@ -27,7 +27,7 @@ public struct StepAssembler<VC: UIViewController, C> {
         getFinder(finder)
     }
 
-    @_spi(Internals)
+    @_spi(Advanced)
     public func getFinder<F: Finder>(_ finder: F) -> StepAssemblerWithFinder<F> where F.ViewController == VC, F.Context == C {
         StepAssemblerWithFinder(finder: finder)
     }
