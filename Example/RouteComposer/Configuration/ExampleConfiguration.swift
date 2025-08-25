@@ -79,7 +79,7 @@ extension ExampleScreenConfiguration {
     var colorScreen: DestinationStep<ColorViewController, String> {
         StepAssembler<ColorViewController, String>()
             .finder(.colorViewControllerFinder) // Or you can call `.finder(ColorViewControllerFinder())`
-            .factory(ColorViewControllerFactory())
+            .factory(.colorViewControllerFactory) // Or you can call `.factory(ColorViewControllerFactory())`
             .adding(DismissalMethodProvidingContextTask<ColorViewController, String>(dismissalBlock: { viewController, context, animated, completion in
                 // Demonstrates ability to provide a dismissal method in the configuration using `DismissalMethodProvidingContextTask`
                 UIViewController.router.commitNavigation(to: GeneralStep.custom(using: PresentingFinder(startingPoint: .custom(viewController))),

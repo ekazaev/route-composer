@@ -60,6 +60,17 @@ class ColorViewControllerFactory: Factory {
 
 }
 
+extension ColorViewControllerFactory {
+    /// Shorthand to be used as `.using(.colorViewControllerFactory)`
+    static var colorViewControllerFactory: ColorViewControllerFactory { ColorViewControllerFactory() }
+}
+
+extension StepAssemblerWithFinder where F.ViewController == ColorViewController, F.Context == String { // Add new factory method for shorthand .colorViewControllerFactory
+    func factory(_ factory: ColorViewControllerFactory) -> StepAssembly<F, ColorViewControllerFactory> {
+        return getFactory(factory)
+    }
+}
+
 class ColorViewController: UIViewController, DismissibleWithRuntimeStorage, ExampleAnalyticsSupport {
 
     typealias DismissalTargetContext = Void
