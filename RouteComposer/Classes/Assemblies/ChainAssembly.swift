@@ -23,8 +23,8 @@ public enum ChainAssembly {
     /// ### Usage
     /// ```swift
     /// let intermediateStep = ChainAssembly.from(NavigationControllerStep<UINavigationController, Any?>())
-    ///         .using(GeneralAction.presentModally())
-    ///         .from(GeneralStep.current())
+    ///         .using(.present)
+    ///         .from(.current)
     ///         .assemble()
     /// ```
     /// - Parameter step: The instance of `ActionConnectingAssembly`

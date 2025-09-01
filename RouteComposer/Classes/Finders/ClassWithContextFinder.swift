@@ -63,3 +63,40 @@ public extension ClassWithContextFinder {
     }
 
 }
+
+// MARK: Shorthands
+
+public extension ClassWithContextFinder {
+    /// A default implementation of the view controllers finder, that searches for a view controller by its name
+    /// and its `Context` instance.
+    ///
+    /// The view controller should conform to the `ContextChecking` to be used with this finder.
+    ///
+    /// - Parameter iterator: A `StackIterator` is to be used by `ClassWithContextFinder`
+    static func classWithContextFinder(iterator: StackIterator = RouteComposerDefaults.shared.stackIterator) -> Self {
+        Self(iterator: iterator)
+    }
+
+    /// A default implementation of the view controllers finder, that searches for a view controller by its name
+    /// and its `Context` instance.
+    ///
+    /// The view controller should conform to the `ContextChecking` to be used with this finder.
+    static var classWithContextFinder: Self { .classWithContextFinder() }
+
+    /// A default implementation of the view controllers finder, that searches for a view controller by its name
+    /// and its `Context` instance.
+    ///
+    /// The view controller should conform to the `ContextChecking` to be used with this finder.
+    ///
+    /// Parameters
+    ///   - options: A combination of the `SearchOptions`
+    ///   - startingPoint: `DefaultStackIterator.StartingPoint` value
+    ///   - windowProvider: `WindowProvider` instance.
+    ///   - containerAdapterLocator: A `ContainerAdapterLocator` instance.
+    static func classWithContextFinder(options: SearchOptions,
+                                       startingPoint: DefaultStackIterator.StartingPoint = .topmost,
+                                       windowProvider: WindowProvider = RouteComposerDefaults.shared.windowProvider,
+                                       containerAdapterLocator: ContainerAdapterLocator = RouteComposerDefaults.shared.containerAdapterLocator) -> Self {
+        Self(options: options, startingPoint: startingPoint, windowProvider: windowProvider, containerAdapterLocator: containerAdapterLocator)
+    }
+}

@@ -92,3 +92,22 @@ public struct StoryboardFactory<VC: UIViewController, C>: Factory {
     }
 
 }
+
+// MARK: Shorthands
+
+public extension StoryboardFactory {
+
+    /// The `Factory` that creates a `UIViewController` from a storyboard.
+    ///
+    /// - Parameters:
+    ///   - storyboardName: The name of a storyboard file
+    ///   - bundle: The `Bundle` instance if needed
+    ///   - identifier: The `UIViewController` identifier in the storyboard. If it is not set, the `Factory` will try
+    ///     to create the storyboards initial `UIViewController`
+    ///   - configuration: A block of code that will be used for the extended configuration of the created `UIViewController`. Can be used for
+    ///                    a quick configuration instead of `ContextTask`.
+    static func storyboardFactory(name: String, bundle: Bundle? = nil, identifier: String? = nil, configuration: ((_: VC) -> Void)? = nil) -> Self {
+        Self(name: name, bundle: bundle, identifier: identifier, configuration: configuration)
+    }
+
+}

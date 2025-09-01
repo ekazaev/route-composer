@@ -17,15 +17,16 @@ enum LoginConfiguration {
 
     @MainActor
     static func login() -> Destination<LoginViewController, Void> {
-        let loginScreen = StepAssembly(finder: ClassFinder<LoginViewController, Void>(),
-                                       factory: NilFactory()) // Login view controller will be created when UINavigationController will be loaded from storyboard.
+        let loginScreen = StepAssembler<LoginViewController, Void>()
+            .finder(.classFinder)
+            .factory(.nilFactory) // Login view controller will be created when UINavigationController will be loaded from storyboard.
             .from(SingleStep(
                 finder: NilFinder(),
                 factory: StoryboardFactory<UINavigationController, Void>(name: "Login")))
             .using( // `custom` and `overCurrentContext` are set for the test purposes only
-                GeneralAction.presentModally(startingFrom: .custom(RouteComposerDefaults.shared.windowProvider.window?.topmostViewController),
+                .present(startingFrom: .custom(RouteComposerDefaults.shared.windowProvider.window?.topmostViewController),
                                              presentationStyle: .overCurrentContext))
-            .from(GeneralStep.current())
+            .from(.current)
             .assemble()
 
         return Destination(to: loginScreen)

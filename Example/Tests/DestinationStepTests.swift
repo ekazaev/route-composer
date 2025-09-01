@@ -27,10 +27,10 @@ class DestinationStepTests: XCTestCase {
 
     func testExpectingContainer() {
         let nonContainerStepInsideContainer = StepAssembly(finder: TestFinder<UIViewController, Any?>(), factory: NilFactory())
-            .using(UINavigationController.push())
-            .from(NavigationControllerStep())
-            .using(GeneralAction.presentModally())
-            .assemble(from: GeneralStep.current())
+            .using(.push)
+            .from(.navigationController)
+            .using(.present)
+            .assemble(from: .current)
 
         let step: DestinationStep<UINavigationController, Any?> = nonContainerStepInsideContainer.expectingContainer()
 
@@ -48,10 +48,10 @@ class DestinationStepTests: XCTestCase {
 
     func testExpectingContainerStronglyTyped() {
         let nonContainerStepInsideContainer = StepAssembly(finder: TestFinder<UIViewController, String>(), factory: NilFactory())
-            .using(UINavigationController.push())
-            .from(NavigationControllerStep())
-            .using(GeneralAction.presentModally())
-            .assemble(from: GeneralStep.current())
+            .using(.push)
+            .from(.navigationController)
+            .using(.present)
+            .assemble(from: .current)
 
         let step: DestinationStep<UINavigationController, String> = nonContainerStepInsideContainer.expectingContainer()
         // Will not work as this step can not accept Int
@@ -67,8 +67,8 @@ class DestinationStepTests: XCTestCase {
 
     func testAdaptingContext() {
         let nonContainerStepInsideContainer = StepAssembly(finder: TestFinder<UINavigationController, Any?>(), factory: ClassFactory())
-            .using(GeneralAction.presentModally())
-            .assemble(from: GeneralStep.current())
+            .using(.present)
+            .assemble(from: .current)
 
         let step1: DestinationStep<UINavigationController, String> = nonContainerStepInsideContainer.adaptingContext()
         let step2: DestinationStep<UINavigationController, Void> = nonContainerStepInsideContainer.adaptingContext()

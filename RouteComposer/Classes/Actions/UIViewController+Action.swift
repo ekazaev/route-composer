@@ -304,3 +304,92 @@ public enum ViewControllerActions {
     }
 
 }
+
+// MARK: Shorthands
+
+public extension ViewControllerActions.ReplaceRootAction {
+    /// Replaces the root view controller in the key `UIWindow`
+    ///
+    /// - Parameters:
+    ///   - windowProvider: `WindowProvider` instance
+    ///   - animationOptions: Set of `UIView.AnimationOptions`. Transition will happen without animation if not provided.
+    ///   - duration: Transition duration.
+    @MainActor
+    static func replaceRoot(animationOptions: UIView.AnimationOptions? = nil,
+                              windowProvider: WindowProvider = RouteComposerDefaults.shared.windowProvider,
+                              duration: TimeInterval = 0.3) -> Self {
+        Self(windowProvider: windowProvider, animationOptions: animationOptions, duration: duration)
+    }
+
+    /// Replaces the root view controller in the key `UIWindow`
+    static var replaceRoot: Self { .replaceRoot() }
+}
+
+public extension ViewControllerActions.PresentModallyAction {
+    /// Presents a view controller modally
+    ///
+    /// - Parameters:
+    ///   - presentationStartingPoint: A starting point in the modal presentation
+    ///   - presentationStyle: `UIModalPresentationStyle` setting, default value: .fullScreen
+    ///   - transitionStyle: `UIModalTransitionStyle` setting, default value: .coverVertical
+    ///   - transitioningDelegate: `UIViewControllerTransitioningDelegate` instance to be used during the transition
+    ///   - isModalInPresentation: A Boolean value indicating whether the view controller enforces a modal behavior.
+    ///   - preferredContentSize: The preferredContentSize is used for any container laying out a child view controller.
+    ///   - presentationConfiguration: Block to configure `UIPresentationController`.
+    @MainActor
+    static func present(startingFrom presentationStartingPoint: ViewControllerActions.PresentModallyAction.ModalPresentationStartingPoint = .current,
+                                 presentationStyle: UIModalPresentationStyle? = .fullScreen,
+                                 transitionStyle: UIModalTransitionStyle? = .coverVertical,
+                                 transitioningDelegate: UIViewControllerTransitioningDelegate? = nil,
+                                 preferredContentSize: CGSize? = nil,
+                                 isModalInPresentation: Bool? = nil,
+                                 presentationConfiguration: ((_: UIPresentationController) -> Void)? = nil) -> Self {
+        Self(startingFrom: presentationStartingPoint,
+             presentationStyle: presentationStyle,
+             transitionStyle: transitionStyle,
+             transitioningDelegate: transitioningDelegate,
+             preferredContentSize: preferredContentSize,
+             isModalInPresentation: isModalInPresentation,
+             presentationConfiguration: presentationConfiguration)
+    }
+
+    /// Presents a view controller modally
+    ///
+    /// - Parameters:
+    ///   - presentationStartingPoint: A starting point in the modal presentation
+    ///   - presentationStyle: `UIModalPresentationStyle` setting, default value: .fullScreen
+    ///   - transitionStyle: `UIModalTransitionStyle` setting, default value: .coverVertical
+    ///   - transitioningDelegate: `UIViewControllerTransitioningDelegate` instance to be used during the transition
+    ///   - isModalInPresentation: A Boolean value indicating whether the view controller enforces a modal behavior.
+    ///   - preferredContentSize: The preferredContentSize is used for any container laying out a child view controller.
+    ///   - popoverControllerConfigurationBlock: Block to configure `UIPopoverPresentationController`.
+    @MainActor
+    static func present(startingFrom presentationStartingPoint: ViewControllerActions.PresentModallyAction.ModalPresentationStartingPoint = .current,
+                        presentationStyle: UIModalPresentationStyle? = .fullScreen,
+                        transitionStyle: UIModalTransitionStyle? = .coverVertical,
+                        transitioningDelegate: UIViewControllerTransitioningDelegate? = nil,
+                        preferredContentSize: CGSize? = nil,
+                        isModalInPresentation: Bool? = nil,
+                        popoverConfiguration: ((_: UIPopoverPresentationController) -> Void)? = nil) -> Self {
+        ViewControllerActions.PresentModallyAction(startingFrom: presentationStartingPoint,
+                                                 presentationStyle: presentationStyle,
+                                                 transitionStyle: transitionStyle,
+                                                 transitioningDelegate: transitioningDelegate,
+                                                 preferredContentSize: preferredContentSize,
+                                                 isModalInPresentation: isModalInPresentation,
+                                                 presentationConfiguration: {
+        if let popoverController = $0 as? UIPopoverPresentationController,
+            let popoverConfiguration {
+                popoverConfiguration(popoverController)
+            }
+        })
+    }
+
+    /// Presents a view controller modally
+    static var present: Self { .present() }
+}
+
+public extension ViewControllerActions.NilAction {
+    /// `Action` does nothing, but can be helpful for testing or writing the sequences of steps with the `NilFactory`
+    static var nilAction: Self { .init() }
+}

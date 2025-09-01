@@ -22,10 +22,10 @@ import UIKit
 ///         .adding(LoginInterceptor())
 ///         .adding(ProductViewControllerContextTask())
 ///         .adding(ProductViewControllerPostTask(analyticsManager: AnalyticsManager.sharedInstance))
-///         .using(UINavigationController.push())
-///         .from(NavigationControllerStep())
-///         .using(GeneralAction.presentModally())
-///         .from(GeneralStep.current())
+///         .using(.push)
+///         .from(.navigationController)
+///         .using(.present)
+///         .from(.current)
 ///         .assemble()
 /// ```
 @MainActor
@@ -53,7 +53,6 @@ public final class StepAssembly<F: Finder, FC: AbstractFactory>: GenericStepAsse
 
 // MARK: Methods for Factory
 
-@MainActor
 public extension StepAssembly where FC: Factory {
 
     /// Constructor
@@ -68,7 +67,13 @@ public extension StepAssembly where FC: Factory {
     /// Connects previously provided `DestinationStep` instance with an `Action`
     ///
     /// - Parameter action: `Action` instance to be used with a step.
+    @_disfavoredOverload
     final func using(_ action: some Action) -> StepChainAssembly<ViewController, Context> {
+      usingAction(action)
+    }
+
+    @_spi(Advanced)
+    final func usingAction(_ action: some Action) -> StepChainAssembly<ViewController, Context> {
         var previousSteps = previousSteps
         let entitiesCollector = BaseEntitiesCollector<FactoryBox<FC>, ActionBox>(finder: finder, factory: factory, action: action)
         let step = BaseStep(entitiesProvider: entitiesCollector, taskProvider: taskCollector)
@@ -79,7 +84,13 @@ public extension StepAssembly where FC: Factory {
     /// Connects previously provided `DestinationStep` instance with an `Action`
     ///
     /// - Parameter action: `ContainerAction` instance to be used with a step.
+    @_disfavoredOverload
     final func using<A: ContainerAction>(_ action: A) -> ContainerStepChainAssembly<A.ViewController, ViewController, Context> {
+        usingAction(action)
+    }
+
+    @_spi(Advanced)
+    final func usingAction<A: ContainerAction>(_ action: A) -> ContainerStepChainAssembly<A.ViewController, ViewController, Context> {
         var previousSteps = previousSteps
         let entitiesCollector = BaseEntitiesCollector<FactoryBox<FC>, ContainerActionBox>(finder: finder, factory: factory, action: action)
         let step = BaseStep(entitiesProvider: entitiesCollector, taskProvider: taskCollector)
@@ -91,7 +102,6 @@ public extension StepAssembly where FC: Factory {
 
 // MARK: Methods for ContainerFactory
 
-@MainActor
 public extension StepAssembly where FC: ContainerFactory {
 
     /// Constructor
@@ -106,7 +116,13 @@ public extension StepAssembly where FC: ContainerFactory {
     /// Connects previously provided `DestinationStep` instance with an `Action`
     ///
     /// - Parameter action: `Action` instance to be used with a step.
+    @_disfavoredOverload
     final func using(_ action: some Action) -> StepChainAssembly<ViewController, Context> {
+        usingAction(action)
+    }
+
+    @_spi(Advanced)
+    final func usingAction(_ action: some Action) -> StepChainAssembly<ViewController, Context> {
         var previousSteps = previousSteps
         let entitiesCollector = BaseEntitiesCollector<ContainerFactoryBox<FC>, ActionBox>(finder: finder, factory: factory, action: action)
         let step = BaseStep(entitiesProvider: entitiesCollector, taskProvider: taskCollector)
@@ -117,7 +133,13 @@ public extension StepAssembly where FC: ContainerFactory {
     /// Connects previously provided `DestinationStep` instance with an `Action`
     ///
     /// - Parameter action: `ContainerAction` instance to be used with a step.
+    @_disfavoredOverload
     final func using<A: ContainerAction>(_ action: A) -> ContainerStepChainAssembly<A.ViewController, ViewController, Context> {
+        usingAction(action)
+    }
+
+    @_spi(Advanced)
+    final func usingAction<A: ContainerAction>(_ action: A) -> ContainerStepChainAssembly<A.ViewController, ViewController, Context> {
         var previousSteps = previousSteps
         let entitiesCollector = BaseEntitiesCollector<ContainerFactoryBox<FC>, ContainerActionBox>(finder: finder, factory: factory, action: action)
         let step = BaseStep(entitiesProvider: entitiesCollector, taskProvider: taskCollector)
@@ -128,7 +150,6 @@ public extension StepAssembly where FC: ContainerFactory {
 
 // MARK: Methods for the Nil Factory
 
-@MainActor
 public extension StepAssembly where FC: Factory & NilEntity {
 
     /// Connects previously provided `ActionToStepIntegrator` with `NilEntity` factory with a step where the `UIViewController`
@@ -162,7 +183,6 @@ public extension StepAssembly where FC: Factory & NilEntity {
 
 // MARK: Methods for the Nil ConatinerFactory
 
-@MainActor
 public extension StepAssembly where FC: ContainerFactory & NilEntity {
 
     /// Connects previously provided `ActionToStepIntegrator` with `NilEntity` factory with a step where the `UIViewController`

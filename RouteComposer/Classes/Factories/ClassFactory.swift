@@ -56,3 +56,23 @@ public struct ClassFactory<VC: UIViewController, C>: Factory {
     }
 
 }
+
+// MARK: Shorthands
+
+public extension ClassFactory {
+
+    /// The `Factory` that creates a `UIViewController` instance using its type.
+    ///
+    /// - Parameters:
+    ///   - nibNameOrNil: A Xib file name
+    ///   - nibBundleOrNil: A `Bundle` instance if needed
+    ///   - configuration: A block of code that will be used for the extended configuration of the created `UIViewController`. Can be used for
+    ///                    a quick configuration instead of `ContextTask`.
+    static func classFactory(nibName nibNameOrNil: String? = nil, bundle nibBundleOrNil: Bundle? = nil, configuration: ((_: VC) -> Void)? = nil) -> Self {
+        Self(nibName: nibNameOrNil, bundle: nibBundleOrNil, configuration: configuration)
+    }
+
+    /// The `Factory` that creates a `UIViewController` instance using its type.
+    static var classFactory: Self { .classFactory() }
+  
+}

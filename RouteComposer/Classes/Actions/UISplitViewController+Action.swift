@@ -159,3 +159,21 @@ public enum SplitViewControllerActions {
     }
 
 }
+
+// MARK: Shorthands
+
+public extension SplitViewControllerActions.SetAsMasterAction where ViewController == UISplitViewController {
+    /// Presents a view controller as a master in the `UISplitViewController`
+    static var setAsMaster: Self { Self.init() }
+}
+
+public extension SplitViewControllerActions.PushToDetailsAction where ViewController == UISplitViewController {
+    /// Presents a view controller as a detail in the `UISplitViewController`, *replacing* the previous detail.
+    static var pushToDetails: Self { Self.init() }
+}
+
+public extension SplitViewControllerActions.PushOnToDetailsAction where ViewController == UISplitViewController {
+    /// Pushes a view controller *onto* the detail stack in the `UISplitViewController`. Requires the root detail view
+    /// controller to be the `UINavigationController`
+    static var pushOnToDetails: Self { Self.init() }
+}

@@ -23,3 +23,19 @@ public final class NavigationControllerStep<VC: UINavigationController, Context>
     }
 
 }
+
+// MARK: Shorthands
+
+public extension DestinationStep where VC == UINavigationController {
+  §/// Default navigation container step
+    static var navigationController: NavigationControllerStep<UINavigationController, Context> {
+        NavigationControllerStep()
+    }
+}
+
+public extension ActionToStepIntegrator where VC == UINavigationController {
+    /// Default navigation container step
+    static var navigationController: NavigationControllerStep<UINavigationController, Context> {
+        NavigationControllerStep()
+    }
+}

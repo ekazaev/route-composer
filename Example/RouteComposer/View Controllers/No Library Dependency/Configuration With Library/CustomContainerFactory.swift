@@ -13,6 +13,7 @@
 import ContainerViewController
 import Foundation
 import RouteComposer
+@_spi(Advanced) import RouteComposer
 import UIKit
 
 class CustomContainerFactory<C>: SimpleContainerFactory {
@@ -41,7 +42,7 @@ class CustomContainerFactory<C>: SimpleContainerFactory {
 
 }
 
-extension CustomContainerController: CustomContainerViewController {
+extension CustomContainerController: @retroactive CustomContainerViewController {
 
     public var adapter: ContainerAdapter {
         CustomContainerControllerAdapter(with: self)
@@ -67,6 +68,10 @@ extension CustomContainerFactory {
 
     }
 
+}
+
+extension CustomContainerFactory.ReplaceRoot {
+    static var customContainerReplaceRoot: Self { CustomContainerFactory.ReplaceRoot() }
 }
 
 struct CustomContainerControllerAdapter: ConcreteContainerAdapter {
@@ -109,4 +114,22 @@ struct CustomContainerControllerAdapter: ConcreteContainerAdapter {
         completion(.success)
     }
 
+}
+
+extension CustomContainerFactory {
+    static func customContainerFactory(delegate: CustomViewControllerDelegate) -> CustomContainerFactory {
+        CustomContainerFactory(delegate: delegate)
+    }
+}
+
+extension StepAssemblerWithFinder where F.ViewController == CustomContainerController {
+    func factory(_ factory: CustomContainerFactory<F.Context>) -> StepAssembly<F, CustomContainerFactory<F.Context>> {
+        getFactory(factory)
+    }
+}
+
+extension StepAssembly where FC: Factory {
+    final func using(_ action: CustomContainerFactory<Context>.ReplaceRoot) -> ContainerStepChainAssembly<CustomContainerController, ViewController, Context> {
+        usingAction(action)
+    }
 }

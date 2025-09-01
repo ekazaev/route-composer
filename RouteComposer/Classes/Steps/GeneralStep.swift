@@ -91,3 +91,51 @@ public enum GeneralStep {
     }
 
 }
+
+// MARK: Shorthands
+
+public extension DestinationStep where VC == UIViewController {
+    /// Returns the root view controller of the key window.
+    static func root<NewContext>(windowProvider: WindowProvider = RouteComposerDefaults.shared.windowProvider) -> DestinationStep<UIViewController, NewContext> {
+        GeneralStep.root(windowProvider: windowProvider)
+    }
+
+    /// Returns the root view controller of the key window.
+    static var root: DestinationStep<UIViewController, C> { root() }
+
+    /// Returns the topmost presented view controller.
+    static func current<NewContext>(windowProvider: WindowProvider = RouteComposerDefaults.shared.windowProvider) -> DestinationStep<UIViewController, NewContext> {
+        GeneralStep.current(windowProvider: windowProvider)
+    }
+
+    /// Returns the topmost presented view controller.
+    static var current: DestinationStep<UIViewController, C> { current() }
+
+    /// Returns the resulting view controller of the finder provided.
+    static func custom<F: Finder>(using finder: F) -> DestinationStep<F.ViewController, F.Context> {
+        GeneralStep.custom(using: finder)
+    }
+}
+
+public extension ActionToStepIntegrator where VC == UIViewController {
+    /// Returns the root view controller of the key window.
+    static func root<NewContext>(windowProvider: WindowProvider = RouteComposerDefaults.shared.windowProvider) -> DestinationStep<UIViewController, NewContext> {
+        GeneralStep.root(windowProvider: windowProvider)
+    }
+
+    /// Returns the root view controller of the key window.
+    static var root: DestinationStep<UIViewController, C> { root() }
+
+    /// Returns the topmost presented view controller.
+    static func current<NewContext>(windowProvider: WindowProvider = RouteComposerDefaults.shared.windowProvider) -> DestinationStep<UIViewController, NewContext> {
+        GeneralStep.current(windowProvider: windowProvider)
+    }
+
+    /// Returns the topmost presented view controller.
+    static var current: DestinationStep<UIViewController, C> { current() }
+
+    /// Returns the resulting view controller of the finder provided.
+    static func custom<F: Finder>(using finder: F) -> DestinationStep<F.ViewController, F.Context> {
+        GeneralStep.custom(using: finder)
+    }
+}
