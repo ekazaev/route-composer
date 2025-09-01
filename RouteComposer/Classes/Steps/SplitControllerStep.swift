@@ -27,14 +27,14 @@ public final class SplitControllerStep<VC: UISplitViewController, Context>: Sing
 // MARK: Shorthands
 
 public extension DestinationStep where VC == UISplitViewController {
-    /// Shorthand to be used as `.from(.splitViewController)`
+    /// Default split container step
     static var splitViewController: SplitControllerStep<UISplitViewController, Context> {
         SplitControllerStep()
     }
 }
 
 public extension ActionToStepIntegrator where VC == UITabBarController {
-    /// Shorthand to be used as `.from(.splitViewController)`
+    /// Default split container step
     static var splitViewController: SplitControllerStep<UISplitViewController, Context> {
         SplitControllerStep()
     }
