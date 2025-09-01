@@ -42,7 +42,7 @@ class CustomContainerFactory<C>: SimpleContainerFactory {
 
 }
 
-extension CustomContainerController: CustomContainerViewController {
+extension CustomContainerController: @retroactive CustomContainerViewController {
 
     public var adapter: ContainerAdapter {
         CustomContainerControllerAdapter(with: self)
