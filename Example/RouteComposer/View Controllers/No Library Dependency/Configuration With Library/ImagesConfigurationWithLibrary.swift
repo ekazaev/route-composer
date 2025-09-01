@@ -22,7 +22,7 @@ enum ImagesConfigurationWithLibrary {
     @MainActor
     private static let imagesContainerStep = StepAssembler<CustomContainerController, Any?>()
         .finder(.classFinder)
-        .factory(CustomContainerFactory(delegate: ImagesWithLibraryHandler.shared))
+        .factory(.customContainerFactory(delegate: ImagesWithLibraryHandler.shared)) // Or you can use `CustomContainerFactory(delegate: ImagesWithLibraryHandler.shared)`
         .using(.push)
         .from(.navigationController)
         .using(.present)
@@ -33,7 +33,7 @@ enum ImagesConfigurationWithLibrary {
     static func images() -> Destination<ImagesViewController, Any?> {
         let imagesStep = StepAssembler()
             .finder(.classFinder)
-            .factory(ImagesFactory(delegate: ImagesWithLibraryHandler.shared))
+            .factory(.imagesFactory(delegate: ImagesWithLibraryHandler.shared))
             .using(CustomContainerFactory<Any?>.ReplaceRoot())
             .from(imagesContainerStep)
             .assemble()
@@ -44,7 +44,7 @@ enum ImagesConfigurationWithLibrary {
     static func imageDetails(for imageID: String) -> Destination<ImageDetailsViewController, String> {
         let imageDetailsStep = StepAssembler()
             .finder(.classFinder)
-            .factory(ImageDetailsFactory(delegate: ImagesWithLibraryHandler.shared))
+            .factory(.imageDetailsFactory(delegate: ImagesWithLibraryHandler.shared))
             .using(CustomContainerFactory<String>.ReplaceRoot())
             .from(imagesContainerStep.adaptingContext())
             .assemble()

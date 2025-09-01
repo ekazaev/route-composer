@@ -33,8 +33,8 @@ class ColorViewControllerFinder: StackIteratingFinder {
 }
 
 extension ColorViewControllerFinder {
-  /// Shorthand to be used as `.using(.colorViewControllerFinder)`
-  static var colorViewControllerFinder: ColorViewControllerFinder { ColorViewControllerFinder() }
+    /// Shorthand to be used as `.using(.colorViewControllerFinder)`
+    static var colorViewControllerFinder: ColorViewControllerFinder { ColorViewControllerFinder() }
 }
 
 extension StepAssembler where VC == ColorViewController, C == String { // Add new finder method for shorthand .colorViewControllerFinder

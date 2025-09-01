@@ -13,6 +13,7 @@
 import ContainerViewController
 import Foundation
 import RouteComposer
+@_spi(Advanced) import RouteComposer
 import UIKit
 
 class CustomContainerFactory<C>: SimpleContainerFactory {
@@ -109,4 +110,16 @@ struct CustomContainerControllerAdapter: ConcreteContainerAdapter {
         completion(.success)
     }
 
+}
+
+extension CustomContainerFactory {
+    static func customContainerFactory(delegate: CustomViewControllerDelegate) -> CustomContainerFactory {
+        CustomContainerFactory(delegate: delegate)
+    }
+}
+
+extension StepAssemblerWithFinder where F.ViewController == CustomContainerController {
+    func factory(_ factory: CustomContainerFactory<F.Context>) -> StepAssembly<F, CustomContainerFactory<F.Context>> {
+        getFactory(factory)
+    }
 }
