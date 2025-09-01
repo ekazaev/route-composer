@@ -87,6 +87,7 @@ public struct SplitControllerFactory<VC: UISplitViewController, C>: ContainerFac
 
 public extension SplitControllerFactory {
 
+    ///  The `ContainerFactory` that creates a `UISplitController` instance.
     static func splitControllerFactory(nibName nibNameOrNil: String? = nil,
                                        bundle nibBundleOrNil: Bundle? = nil,
                                        delegate: UISplitViewControllerDelegate? = nil,

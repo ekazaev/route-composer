@@ -69,6 +69,7 @@ public struct TabBarControllerFactory<VC: UITabBarController, C>: ContainerFacto
 
 public extension TabBarControllerFactory {
 
+    ///  The `ContainerFactory` that creates a `UITabBarController` instance.
     static func tabBarControllerFactory(nibName nibNameOrNil: String? = nil,
                                         bundle nibBundleOrNil: Bundle? = nil,
                                         delegate: UITabBarControllerDelegate? = nil,

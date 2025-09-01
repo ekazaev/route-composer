@@ -50,6 +50,9 @@ public struct UIHostingControllerFactory<ContentView: View, Context>: Factory {
 // MARK: Shorthands
 
 public extension UIHostingControllerFactory {
+    /// Builds `UIHostingController` with `ContentView` as a `UIHostingController.rootView` using the provided block.
+    ///
+    /// - Parameter buildBlock: Block that builds the `View` with the using the `Context` instance provided.
     static func hostingControllerFactory(_ buildBlock: @escaping (Context) -> ContentView) -> Self {
         Self(buildBlock)
     }

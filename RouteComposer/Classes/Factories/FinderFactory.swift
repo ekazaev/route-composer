@@ -60,6 +60,11 @@ public struct FinderFactory<F: Finder>: Factory {
 
 public extension FinderFactory {
 
+    /// The `StepAssembly` transforms a `Finder` result as a `Factory` result. It is useful
+    /// when a `UIViewController` instance was built inside of the parent `ContainerFactory`.
+    ///
+    /// - Parameters:
+    ///   - finder: The `Finder` instance to be used by the `Factory`
     static func finderFactory(finder: F, configuration: ((_: F.ViewController) -> Void)? = nil) -> Self? {
         Self(finder: finder, configuration: configuration)
     }

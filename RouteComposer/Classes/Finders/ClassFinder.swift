@@ -67,12 +67,23 @@ public extension ClassFinder {
 
 public extension ClassFinder {
 
+    /// A default implementation of the view controllers finder that searches for a view controller by its name.
+    ///
+    /// - Parameter iterator: A `StackIterator` is to be used by `ClassFinder`
     static func classFinder(iterator: StackIterator = RouteComposerDefaults.shared.stackIterator) -> Self {
         Self(iterator: iterator)
     }
 
+    /// A default implementation of the view controllers finder that searches for a view controller by its name.
     static var classFinder: Self { .classFinder() }
 
+    /// A default implementation of the view controllers finder that searches for a view controller by its name.
+    ///
+    /// Parameters
+    ///   - options: A combination of the `SearchOptions`
+    ///   - startingPoint: `DefaultStackIterator.StartingPoint` value
+    ///   - windowProvider: `WindowProvider` instance.
+    ///   - containerAdapterLocator: A `ContainerAdapterLocator` instance.
     static func classFinder(options: SearchOptions,
                             startingPoint: DefaultStackIterator.StartingPoint = .topmost,
                             windowProvider: WindowProvider = RouteComposerDefaults.shared.windowProvider,
