@@ -53,7 +53,7 @@ class CitiesTableViewController: UITableViewController, ExampleAnalyticsSupport 
         super.viewDidLoad()
         title = "Cities"
         splitViewController?.delegate = self
-        splitViewController?.preferredDisplayMode = .allVisible
+        splitViewController?.preferredDisplayMode = .oneBesideSecondary
         splitViewController?.view.accessibilityIdentifier = "citiesSplitViewController"
         view.accessibilityIdentifier = "citiesViewController"
     }
