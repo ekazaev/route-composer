@@ -174,7 +174,7 @@ struct ExampleConfiguration: ExampleScreenConfiguration {
 
     var starScreen: DestinationStep<StarViewController, Any?> {
         StepAssembler<StarViewController, Any?>()
-            .finder(.classFinder(options: .current))
+            .finder(.classFinder(options: .currentAllStack))
             .factory(.classFactory)
             .adding(ExampleGenericContextTask<StarViewController, Any?>())
             .adding(LoginInterceptor<Any?>())
