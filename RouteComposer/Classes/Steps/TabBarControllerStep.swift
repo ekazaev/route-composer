@@ -27,14 +27,14 @@ public final class TabBarControllerStep<VC: UITabBarController, Context>: Single
 // MARK: Shorthands
 
 public extension DestinationStep where VC == UITabBarController {
-    /// Shorthand to be used as `.from(.tabBarController)`
+    /// Default tab bar container step
     static var tabBarController: TabBarControllerStep<UITabBarController, Context> {
         TabBarControllerStep()
     }
 }
 
 public extension ActionToStepIntegrator where VC == UITabBarController {
-    /// Shorthand to be used as `.from(.tabBarController)`
+    /// Default tab bar container step
     static var tabBarController: TabBarControllerStep<UITabBarController, Context> {
         TabBarControllerStep()
     }
