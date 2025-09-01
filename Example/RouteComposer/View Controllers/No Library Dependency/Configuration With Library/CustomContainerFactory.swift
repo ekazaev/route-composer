@@ -70,6 +70,10 @@ extension CustomContainerFactory {
 
 }
 
+extension CustomContainerFactory.ReplaceRoot {
+    static var customContainerReplaceRoot: Self { CustomContainerFactory.ReplaceRoot() }
+}
+
 struct CustomContainerControllerAdapter: ConcreteContainerAdapter {
 
     private weak var customContainerController: CustomContainerController?
@@ -121,5 +125,11 @@ extension CustomContainerFactory {
 extension StepAssemblerWithFinder where F.ViewController == CustomContainerController {
     func factory(_ factory: CustomContainerFactory<F.Context>) -> StepAssembly<F, CustomContainerFactory<F.Context>> {
         getFactory(factory)
+    }
+}
+
+extension StepAssembly where FC: Factory {
+    final func using(_ action: CustomContainerFactory<Context>.ReplaceRoot) -> ContainerStepChainAssembly<CustomContainerController, ViewController, Context> {
+        usingAction(action)
     }
 }

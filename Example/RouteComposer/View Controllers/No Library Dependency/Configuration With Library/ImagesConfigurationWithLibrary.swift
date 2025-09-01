@@ -34,7 +34,7 @@ enum ImagesConfigurationWithLibrary {
         let imagesStep = StepAssembler()
             .finder(.classFinder)
             .factory(.imagesFactory(delegate: ImagesWithLibraryHandler.shared))
-            .using(CustomContainerFactory<Any?>.ReplaceRoot())
+            .using(.customContainerReplaceRoot) // Or you can use `CustomContainerFactory<Any?>.ReplaceRoot()`
             .from(imagesContainerStep)
             .assemble()
         return Destination(to: imagesStep)
@@ -45,7 +45,7 @@ enum ImagesConfigurationWithLibrary {
         let imageDetailsStep = StepAssembler()
             .finder(.classFinder)
             .factory(.imageDetailsFactory(delegate: ImagesWithLibraryHandler.shared))
-            .using(CustomContainerFactory<String>.ReplaceRoot())
+            .using(.customContainerReplaceRoot)
             .from(imagesContainerStep.adaptingContext())
             .assemble()
 
