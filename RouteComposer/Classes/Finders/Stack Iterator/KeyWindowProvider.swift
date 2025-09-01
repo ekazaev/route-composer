@@ -21,11 +21,11 @@ public struct KeyWindowProvider: WindowProvider {
 
     /// `UIWindow` instance
     public var window: UIWindow? {
-        let keyWindow: UIWindow? = if #available(iOS 13, *) {
-            UIApplication.shared.windows.first { $0.isKeyWindow }
-        } else {
-            UIApplication.shared.keyWindow
-        }
+        let keyWindow: UIWindow? = UIApplication.shared.connectedScenes
+            .compactMap { $0 as? UIWindowScene }
+            .flatMap { $0.windows }
+            .first(where: { $0.isKeyWindow })
+
         guard let window = keyWindow else {
             assertionFailure("Application does not have a key window.")
             return nil
