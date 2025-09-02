@@ -338,12 +338,12 @@ public extension ViewControllerActions.PresentModallyAction {
     ///   - presentationConfiguration: Block to configure `UIPresentationController`.
     @MainActor
     static func present(startingFrom presentationStartingPoint: ViewControllerActions.PresentModallyAction.ModalPresentationStartingPoint = .current,
-                                 presentationStyle: UIModalPresentationStyle? = .fullScreen,
-                                 transitionStyle: UIModalTransitionStyle? = .coverVertical,
-                                 transitioningDelegate: UIViewControllerTransitioningDelegate? = nil,
-                                 preferredContentSize: CGSize? = nil,
-                                 isModalInPresentation: Bool? = nil,
-                                 presentationConfiguration: ((_: UIPresentationController) -> Void)? = nil) -> Self {
+                        presentationStyle: UIModalPresentationStyle? = .fullScreen,
+                        transitionStyle: UIModalTransitionStyle? = .coverVertical,
+                        transitioningDelegate: UIViewControllerTransitioningDelegate? = nil,
+                        preferredContentSize: CGSize? = nil,
+                        isModalInPresentation: Bool? = nil,
+                        presentationConfiguration: ((_: UIPresentationController) -> Void)? = nil) -> Self {
         Self(startingFrom: presentationStartingPoint,
              presentationStyle: presentationStyle,
              transitionStyle: transitionStyle,
