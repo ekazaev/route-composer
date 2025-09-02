@@ -112,11 +112,13 @@ extension StepAssemblerWithFinder {
         getFactory(factory)
     }
 
-    public func factory<ContentView: View & ContextChecking>(_ factory: UIHostingControllerFactory<ContentView, F.Context>) -> StepAssembly<F, UIHostingControllerFactory<ContentView, F.Context>> {
+    public func factory<ContentView: View & ContextChecking>(_ factory: UIHostingControllerFactory<ContentView, F.Context>)
+        -> StepAssembly<F, UIHostingControllerFactory<ContentView, F.Context>> {
         getFactory(factory)
     }
 
-    public func factory<ContentView: View & ContextChecking>(_ factory: UIHostingControllerWithContextFactory<ContentView>) -> StepAssembly<F, UIHostingControllerWithContextFactory<ContentView>> {
+    public func factory<ContentView: View & ContextChecking>(_ factory: UIHostingControllerWithContextFactory<ContentView>)
+        -> StepAssembly<F, UIHostingControllerWithContextFactory<ContentView>> {
         getFactory(factory)
     }
 
