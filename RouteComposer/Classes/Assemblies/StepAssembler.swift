@@ -102,7 +102,10 @@ extension StepAssembler {
         getFinder(finder)
     }
 
-    public func finder<ContentView: View & ContextChecking>(_ finder: UIHostingControllerWithContextFinder<ContentView>) -> StepAssemblerWithFinder<UIHostingControllerWithContextFinder<ContentView>> where UIHostingController<ContentView> == VC, ContentView.Context == C {
+    public func finder<ContentView: View & ContextChecking>(_ finder: UIHostingControllerWithContextFinder<ContentView>)
+        -> StepAssemblerWithFinder<UIHostingControllerWithContextFinder<ContentView>>
+        where
+        UIHostingController<ContentView> == VC, ContentView.Context == C {
         getFinder(finder)
     }
 }
