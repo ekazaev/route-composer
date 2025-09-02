@@ -94,7 +94,12 @@ public extension SplitControllerFactory {
                                        presentsWithGesture: Bool? = nil,
                                        preferredDisplayMode: UISplitViewController.DisplayMode? = nil,
                                        configuration: ((_: VC) -> Void)? = nil) -> Self {
-        Self(nibName: nibNameOrNil, bundle: nibBundleOrNil, delegate: delegate, presentsWithGesture: presentsWithGesture, preferredDisplayMode: preferredDisplayMode, configuration: configuration)
+        Self(nibName: nibNameOrNil,
+             bundle: nibBundleOrNil,
+             delegate: delegate,
+             presentsWithGesture: presentsWithGesture,
+             preferredDisplayMode: preferredDisplayMode,
+             configuration: configuration)
     }
 
 }
