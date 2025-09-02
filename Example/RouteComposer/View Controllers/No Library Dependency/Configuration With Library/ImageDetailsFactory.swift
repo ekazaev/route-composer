@@ -12,7 +12,6 @@
 
 import Foundation
 import ImageDetailsController
-import RouteComposer
 @_spi(Advanced) import RouteComposer
 import UIKit
 
