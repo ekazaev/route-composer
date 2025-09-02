@@ -106,6 +106,4 @@ public extension UIHostingControllerWithContextFinder {
                                                    containerAdapterLocator: ContainerAdapterLocator = RouteComposerDefaults.shared.containerAdapterLocator) -> Self {
         Self(options: options, startingPoint: startingPoint, windowProvider: windowProvider, containerAdapterLocator: containerAdapterLocator)
     }
-
 }
-
