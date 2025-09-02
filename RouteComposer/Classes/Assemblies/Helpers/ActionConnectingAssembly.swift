@@ -106,7 +106,7 @@ extension ActionConnectingAssembly {
         usingAction(action)
     }
 
-    /// Enables shorthand `.using(.setAsMaster)`
+    /// Enables shorthand `.using(.setAsPrimary)`
     public func using(_ action: SplitViewControllerActions.SetAsMasterAction<UISplitViewController>) -> ContainerStepChainAssembly<UISplitViewController, VC, C> {
         usingAction(action)
     }

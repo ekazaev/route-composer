@@ -164,7 +164,7 @@ public enum SplitViewControllerActions {
 
 public extension SplitViewControllerActions.SetAsMasterAction where ViewController == UISplitViewController {
     /// Presents a view controller as a master in the `UISplitViewController`
-    static var setAsMaster: Self { Self.init() }
+    static var setAsPrimary: Self { Self.init() }
 }
 
 public extension SplitViewControllerActions.PushToDetailsAction where ViewController == UISplitViewController {

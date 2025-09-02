@@ -111,7 +111,7 @@ public extension StepAssembly where FC: ContainerFactory {
 // MARK: SplitViewControllerActions shorthands
 
 public extension StepAssembly where FC: Factory {
-    /// Enables shorthand `.using(.setAsMaster)` by providing a concrete expected type.
+    /// Enables shorthand `.using(.setAsPrimary)` by providing a concrete expected type.
     final func using(_ action: SplitViewControllerActions.SetAsMasterAction<UISplitViewController>) -> ContainerStepChainAssembly<UISplitViewController, ViewController, Context> {
         usingAction(action)
     }
