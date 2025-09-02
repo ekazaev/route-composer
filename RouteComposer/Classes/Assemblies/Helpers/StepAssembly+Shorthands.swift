@@ -80,12 +80,14 @@ public extension StepAssembly where FC: ContainerFactory {
     }
 
     /// Enables shorthand `.using(.pushAsRoot)`
-    final func using(_ action: NavigationControllerActions.PushAsRootAction<UINavigationController>) -> ContainerStepChainAssembly<UINavigationController, ViewController, Context> {
+    final func using(_ action: NavigationControllerActions.PushAsRootAction<UINavigationController>)
+        -> ContainerStepChainAssembly<UINavigationController, ViewController, Context> {
         usingAction(action)
     }
 
     /// Enables shorthand `.using(.pushReplacingLast)`
-    final func using(_ action: NavigationControllerActions.PushReplacingLastAction<UINavigationController>) -> ContainerStepChainAssembly<UINavigationController, ViewController, Context> {
+    final func using(_ action: NavigationControllerActions.PushReplacingLastAction<UINavigationController>)
+        -> ContainerStepChainAssembly<UINavigationController, ViewController, Context> {
         usingAction(action)
     }
 }
@@ -134,7 +136,8 @@ public extension StepAssembly where FC: ContainerFactory {
     }
 
     /// Enables shorthand `.using(.pushToDetails)`
-    final func using(_ action: SplitViewControllerActions.PushToDetailsAction<UISplitViewController>) -> ContainerStepChainAssembly<UISplitViewController, ViewController, Context> {
+    final func using(_ action: SplitViewControllerActions.PushToDetailsAction<UISplitViewController>)
+        -> ContainerStepChainAssembly<UISplitViewController, ViewController, Context> {
         usingAction(action)
     }
 
