@@ -316,8 +316,8 @@ public extension ViewControllerActions.ReplaceRootAction {
     ///   - duration: Transition duration.
     @MainActor
     static func replaceRoot(animationOptions: UIView.AnimationOptions? = nil,
-                              windowProvider: WindowProvider = RouteComposerDefaults.shared.windowProvider,
-                              duration: TimeInterval = 0.3) -> Self {
+                            windowProvider: WindowProvider = RouteComposerDefaults.shared.windowProvider,
+                            duration: TimeInterval = 0.3) -> Self {
         Self(windowProvider: windowProvider, animationOptions: animationOptions, duration: duration)
     }
 
