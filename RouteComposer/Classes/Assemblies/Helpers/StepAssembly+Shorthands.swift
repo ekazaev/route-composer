@@ -118,7 +118,8 @@ public extension StepAssembly where FC: Factory {
     }
 
     /// Enables shorthand `.using(.pushOnToDetails)`
-    final func using(_ action: SplitViewControllerActions.PushOnToDetailsAction<UISplitViewController>) -> ContainerStepChainAssembly<UISplitViewController, ViewController, Context> {
+    final func using(_ action: SplitViewControllerActions.PushOnToDetailsAction<UISplitViewController>)
+        -> ContainerStepChainAssembly<UISplitViewController, ViewController, Context> {
         usingAction(action)
     }
 }
