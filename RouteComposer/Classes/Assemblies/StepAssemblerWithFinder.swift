@@ -58,28 +58,28 @@ public struct StepAssemblerWithFinder<F: Finder> {
     ///
     /// Usage:
     /// ```swift
-    ///@_spi(Advanced) import RouteComposer
+    /// @_spi(Advanced) import RouteComposer
     ///
-    ///  class ColorViewControllerFactory: Factory {...}
+    /// class ColorViewControllerFactory: Factory {...}
     ///
-    ///  extension ColorViewControllerFactory {
-    ///      /// Shorthand to be used as `.using(.colorViewControllerFactory)`
-    ///      static var colorViewControllerFactory: ColorViewControllerFactory { ColorViewControllerFactory() }
-    ///  }
+    /// extension ColorViewControllerFactory {
+    ///     /// Shorthand to be used as `.using(.colorViewControllerFactory)`
+    ///     static var colorViewControllerFactory: ColorViewControllerFactory { ColorViewControllerFactory() }
+    /// }
     ///
-    ///  extension StepAssemblerWithFinder where F.ViewController == ColorViewController, F.Context == String { // Add new factory method for shorthand .colorViewControllerFactory
-    ///      func factory(_ factory: ColorViewControllerFactory) -> StepAssembly<F, ColorViewControllerFactory> {
-    ///          return getFactory(factory)
-    ///      }
-    ///  }
+    /// extension StepAssemblerWithFinder where F.ViewController == ColorViewController, F.Context == String { // Add new factory method for shorthand .colorViewControllerFactory
+    ///     func factory(_ factory: ColorViewControllerFactory) -> StepAssembly<F, ColorViewControllerFactory> {
+    ///         return getFactory(factory)
+    ///     }
+    /// }
     ///
-    ///var colorScreen: DestinationStep<ColorViewController, String> {
-    ///    StepAssembler<ColorViewController, String>()
-    ///        .finder(ColorViewControllerFinder())
-    ///        .factory(.colorViewControllerFactory) // Or you can call `.factory(ColorViewControllerFactory())`
-    ///        ...
-    ///        .assemble()
-    ///}
+    /// var colorScreen: DestinationStep<ColorViewController, String> {
+    ///     StepAssembler<ColorViewController, String>()
+    ///         .finder(ColorViewControllerFinder())
+    ///         .factory(.colorViewControllerFactory) // Or you can call `.factory(ColorViewControllerFactory())`
+    ///         ...
+    ///         .assemble()
+    /// }
     /// ```
     @_spi(Advanced)
     public func getFactory<FC: Factory>(_ factory: FC) -> StepAssembly<F, FC> {
