@@ -57,27 +57,27 @@ public struct StepAssembler<VC: UIViewController, C> {
     ///
     /// Usage:
     /// ```swift
-    ///@_spi(Advanced) import RouteComposer
+    /// @_spi(Advanced) import RouteComposer
     ///
-    ///class ColorViewControllerFinder: StackIteratingFinder {...}
+    /// class ColorViewControllerFinder: StackIteratingFinder {...}
     ///
-    ///extension ColorViewControllerFinder {
-    ///    /// Shorthand to be used as `.using(.colorViewControllerFinder)`
-    ///    static var colorViewControllerFinder: ColorViewControllerFinder { ColorViewControllerFinder() }
-    ///}
+    /// extension ColorViewControllerFinder {
+    ///     /// Shorthand to be used as `.using(.colorViewControllerFinder)`
+    ///     static var colorViewControllerFinder: ColorViewControllerFinder { ColorViewControllerFinder() }
+    /// }
     ///
-    ///extension StepAssembler where VC == ColorViewController, C == String { // Add new finder method for shorthand .colorViewControllerFinder
-    ///    func finder(_ finder: ColorViewControllerFinder) -> StepAssemblerWithFinder<ColorViewControllerFinder> {
-    ///        return getFinder(finder) // Advanced method
-    ///    }
-    ///}
+    /// extension StepAssembler where VC == ColorViewController, C == String { // Add new finder method for shorthand .colorViewControllerFinder
+    ///     func finder(_ finder: ColorViewControllerFinder) -> StepAssemblerWithFinder<ColorViewControllerFinder> {
+    ///         return getFinder(finder) // Advanced method
+    ///     }
+    /// }
     ///
-    ///var colorScreen: DestinationStep<ColorViewController, String> {
-    ///    StepAssembler<ColorViewController, String>()
-    ///        .finder(.colorViewControllerFinder) // Or you can call `.finder(ColorViewControllerFinder())`
-    ///        ...
-    ///        .assemble()
-    ///}
+    /// var colorScreen: DestinationStep<ColorViewController, String> {
+    ///     StepAssembler<ColorViewController, String>()
+    ///         .finder(.colorViewControllerFinder) // Or you can call `.finder(ColorViewControllerFinder())`
+    ///         ...
+    ///         .assemble()
+    /// }
     /// ```
     @_spi(Advanced)
     public func getFinder<F: Finder>(_ finder: F) -> StepAssemblerWithFinder<F> where F.ViewController == VC, F.Context == C {
