@@ -74,5 +74,4 @@ public extension ClassFactory {
 
     /// The `Factory` that creates a `UIViewController` instance using its type.
     static var classFactory: Self { .classFactory() }
-  
 }
