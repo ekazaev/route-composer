@@ -263,8 +263,8 @@ public enum ViewControllerActions {
                 return
             }
             guard window.rootViewController == existingController else {
-                window.rootViewController = viewController
-                completion(.success)
+                completion(.failure(RoutingError.compositionFailed(.init("Action should be applied to the root view " +
+                        "controller, got \(String(describing: existingController)) instead."))))
                 return
             }
 
