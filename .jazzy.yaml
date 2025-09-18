@@ -29,6 +29,7 @@ custom_categories:
   - name: Assemblies
     children:
       - StepAssembly
+      - StepAssembler
       - SwitchAssembly
       - ChainAssembly
       - CompleteFactoryAssembly
