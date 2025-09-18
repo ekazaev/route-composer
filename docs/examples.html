@@ -20,7 +20,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="index.html">
-          RouteComposer 2.10.5 Docs
+          RouteComposer 2.21.0 Docs
         </a>
          (100% documented)
       </p>
@@ -35,7 +35,9 @@
     </header>
 
     <p class="breadcrumbs">
-      <a class="breadcrumb" href="index.html">RouteComposer Reference</a>
+      <a class="breadcrumb" href="index.html">RouteComposer</a>
+      <img class="carat" src="img/carat.png" alt=""/>
+      <a class="breadcrumb" href="Other%20Guides.html">Other Guides</a>
       <img class="carat" src="img/carat.png" alt=""/>
       EXAMPLES  Reference
     </p>
@@ -256,9 +258,6 @@
                 <a class="nav-group-task-link" href="Structs/NavigationDelayingInterceptor.html">NavigationDelayingInterceptor</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Structs/NavigationDelayingInterceptor/Strategy.html">– Strategy</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Structs/SingleNavigationRouter.html">SingleNavigationRouter</a>
               </li>
               <li class="nav-group-task">
@@ -362,6 +361,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Enums/NavigationControllerActions/PushReplacingLastAction.html">– PushReplacingLastAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/NavigationDelayingInterceptorStrategy.html">NavigationDelayingInterceptorStrategy</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Enums/SplitViewControllerActions.html">SplitViewControllerActions</a>
@@ -529,6 +531,12 @@
                 <a class="nav-group-task-link" href="Structs/SplitControllerAdapter.html">SplitControllerAdapter</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/StepAssembler.html">StepAssembler</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/StepAssemblerWithFinder.html">StepAssemblerWithFinder</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Structs/StepChainAssembly.html">StepChainAssembly</a>
               </li>
               <li class="nav-group-task">
@@ -584,7 +592,7 @@
 <p><em>Do not forget that if you use a combination of abstract <code><a href="Protocols/Finder.html">Finder</a></code> and <code><a href="Protocols/Factory.html">Factory</a></code> - you must specify the types of <code>UIViewController</code> and <code>Context</code> for one of them <code>ClassFinder&lt;HomeViewController, Any?&gt;</code></em></p>
 <h4 id='what-will-happen-if-in-the-configuration-above-i-will-replace-code-generalstep-root-code-with-code-generalstep-current-code' class='heading'>What will happen if, in the configuration above, I will replace <code><a href="Enums/GeneralStep.html#/s:13RouteComposer11GeneralStepO4root14windowProviderAA011DestinationD0VySo16UIViewControllerCxGAA06WindowG0_p_tlFZ">GeneralStep.root(...)</a></code> with <code><a href="Enums/GeneralStep.html#/s:13RouteComposer11GeneralStepO7current14windowProviderAA011DestinationD0VySo16UIViewControllerCxGAA06WindowG0_p_tlFZ">GeneralStep.current(...)</a></code>?</h4>
 
-<p>It will work if the user is not in some <code>UIViewController</code> that is presented modally. If they are, <code><a href="Enums/GeneralAction.html#/s:13RouteComposer13GeneralActionO11replaceRoot14windowProvider16animationOptions8durationAA21ViewControllerActionsO07ReplacefD0VAA06WindowH0_p_So015UIViewAnimationJ0VSgSdtFZ">GeneralAction.replaceRoot(...)</a></code> can not replace the modally presented <code>UIViewController</code> and the navigation will fail. If you want this configuration to work in all cases - you should explain to the router that it should start building the stack from the root view controller. Then the router will dismiss all the modal view controllers above the root view controller if there are any.</p>
+<p>It will work if the user is not in some <code>UIViewController</code> that is presented modally. If they are, <code><a href="Enums/GeneralAction.html#/s:13RouteComposer13GeneralActionO11replaceRoot16animationOptions14windowProvider8durationAA21ViewControllerActionsO07ReplacefD0VSo015UIViewAnimationH0VSg_AA06WindowJ0_pSdtFZ">GeneralAction.replaceRoot(...)</a></code> can not replace the modally presented <code>UIViewController</code> and the navigation will fail. If you want this configuration to work in all cases - you should explain to the router that it should start building the stack from the root view controller. Then the router will dismiss all the modal view controllers above the root view controller if there are any.</p>
 <h4 id='i-want-to-push-the-code-productviewcontroller-code-into-any-code-uinavigationcontroller-code-that-is-present-anywhere-on-the-screen-even-if-the-code-uinavigationcontroller-code-is-under-some-modal-code-uiviewcontroller-code' class='heading'>I want to push the <code>ProductViewController</code> into any <code>UINavigationController</code> that is present anywhere on the screen (even if the <code>UINavigationController</code> is under some modal <code>UIViewController</code>):</h4>
 <pre class="highlight swift"><code>    <span class="k">let</span> <span class="nv">screen</span> <span class="o">=</span> <span class="kt">StepAssembly</span><span class="p">(</span>
             <span class="nv">finder</span><span class="p">:</span> <span class="kt">ClassFinder</span><span class="o">&lt;</span><span class="kt">ProductViewController</span><span class="p">,</span> <span class="kt">Any</span><span class="p">?</span><span class="o">&gt;</span><span class="p">(),</span>
@@ -708,8 +716,8 @@
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2023 <a class="link" href="https://github.com/ekazaev" target="_blank" rel="external noopener">Evgeny Kazaev</a>. All rights reserved. (Last updated: 2023-09-30)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+      <p>&copy; 2025 <a class="link" href="https://github.com/ekazaev" target="_blank" rel="external noopener">Evgeny Kazaev</a>. All rights reserved. (Last updated: 2025-09-18)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.15.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>
 </html>

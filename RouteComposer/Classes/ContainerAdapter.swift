@@ -28,7 +28,8 @@ import UIKit
 public protocol ContainerAdapter {
 
     // MARK: Properties to implement
-
+    
+    /// Provides an ability to override default parent. `nil` means use default parent of the `UIViewController`.
     var overriddenParentViewController: UIViewController? { get }
 
     /// All `UIViewController` instances that adapting `ContainerViewController` currently has in the stack
@@ -66,7 +67,8 @@ public protocol ContainerAdapter {
 
 @MainActor
 public extension ContainerAdapter {
-
+    
+    /// Defaults to `nil`.
     var overriddenParentViewController: UIViewController? {
         return nil
     }

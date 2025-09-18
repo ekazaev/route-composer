@@ -572,6 +572,8 @@ RouteComposer is in active development, and we welcome your contributions.
 If you’d like to contribute to this repo, please
 read [the contribution guidelines](https://github.com/ekazaev/route-composer/blob/master/CONTRIBUTING.md).
 
+Big thank you to [Savva Shuliatev](https://github.com/Savva-Shuliatev) for introducing a new and refreshing way to configure steps in version **2.21.0**.
+
 ## License
 
 RouteComposer is distributed under [the MIT license](https://github.com/ekazaev/RouteComposer/blob/master/LICENSE).

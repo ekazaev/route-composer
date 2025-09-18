@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          RouteComposer 2.10.5 Docs
+          RouteComposer 2.21.0 Docs
         </a>
          (100% documented)
       </p>
@@ -36,7 +36,9 @@
     </header>
 
     <p class="breadcrumbs">
-      <a class="breadcrumb" href="../index.html">RouteComposer Reference</a>
+      <a class="breadcrumb" href="../index.html">RouteComposer</a>
+      <img class="carat" src="../img/carat.png" alt=""/>
+      <a class="breadcrumb" href="../Assemblies.html">Assemblies</a>
       <img class="carat" src="../img/carat.png" alt=""/>
       StepAssembly Class Reference
     </p>
@@ -257,9 +259,6 @@
                 <a class="nav-group-task-link" href="../Structs/NavigationDelayingInterceptor.html">NavigationDelayingInterceptor</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Structs/NavigationDelayingInterceptor/Strategy.html">– Strategy</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/SingleNavigationRouter.html">SingleNavigationRouter</a>
               </li>
               <li class="nav-group-task">
@@ -363,6 +362,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/NavigationControllerActions/PushReplacingLastAction.html">– PushReplacingLastAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/NavigationDelayingInterceptorStrategy.html">NavigationDelayingInterceptorStrategy</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/SplitViewControllerActions.html">SplitViewControllerActions</a>
@@ -530,6 +532,12 @@
                 <a class="nav-group-task-link" href="../Structs/SplitControllerAdapter.html">SplitControllerAdapter</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/StepAssembler.html">StepAssembler</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/StepAssemblerWithFinder.html">StepAssemblerWithFinder</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/StepChainAssembly.html">StepChainAssembly</a>
               </li>
               <li class="nav-group-task">
@@ -547,7 +555,8 @@
               <div class="declaration">
                 <div class="language">
                   
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">StepAssembly</span><span class="o">&lt;</span><span class="kt">F</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Finder.html">Finder</a></span><span class="p">,</span> <span class="kt">FC</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AbstractFactory.html">AbstractFactory</a></span><span class="o">&gt;</span><span class="p">:</span> <span class="kt"><a href="../Classes/GenericStepAssembly.html">GenericStepAssembly</a></span><span class="o">&lt;</span><span class="kt">F</span><span class="o">.</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">Context</span><span class="o">&gt;</span>
+                  <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">StepAssembly</span><span class="o">&lt;</span><span class="kt">F</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Finder.html">Finder</a></span><span class="p">,</span> <span class="kt">FC</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AbstractFactory.html">AbstractFactory</a></span><span class="o">&gt;</span><span class="p">:</span> <span class="kt"><a href="../Classes/GenericStepAssembly.html">GenericStepAssembly</a></span><span class="o">&lt;</span><span class="kt">F</span><span class="o">.</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">Context</span><span class="o">&gt;</span>
     <span class="k">where</span>
     <span class="kt">F</span><span class="o">.</span><span class="kt">ViewController</span> <span class="o">==</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">F</span><span class="o">.</span><span class="kt">Context</span> <span class="o">==</span> <span class="kt">FC</span><span class="o">.</span><span class="kt">Context</span></code></pre>
 
@@ -562,10 +571,10 @@
         <span class="o">.</span><span class="nf">adding</span><span class="p">(</span><span class="kt">LoginInterceptor</span><span class="p">())</span>
         <span class="o">.</span><span class="nf">adding</span><span class="p">(</span><span class="kt">ProductViewControllerContextTask</span><span class="p">())</span>
         <span class="o">.</span><span class="nf">adding</span><span class="p">(</span><span class="kt">ProductViewControllerPostTask</span><span class="p">(</span><span class="nv">analyticsManager</span><span class="p">:</span> <span class="kt">AnalyticsManager</span><span class="o">.</span><span class="n">sharedInstance</span><span class="p">))</span>
-        <span class="o">.</span><span class="nf">using</span><span class="p">(</span><span class="kt">UINavigationController</span><span class="o">.</span><span class="nf">push</span><span class="p">())</span>
-        <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="kt">NavigationControllerStep</span><span class="p">())</span>
-        <span class="o">.</span><span class="nf">using</span><span class="p">(</span><span class="kt">GeneralAction</span><span class="o">.</span><span class="nf">presentModally</span><span class="p">())</span>
-        <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="kt">GeneralStep</span><span class="o">.</span><span class="nf">current</span><span class="p">())</span>
+        <span class="o">.</span><span class="nf">using</span><span class="p">(</span><span class="o">.</span><span class="n">push</span><span class="p">)</span>
+        <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="o">.</span><span class="n">navigationController</span><span class="p">)</span>
+        <span class="o">.</span><span class="nf">using</span><span class="p">(</span><span class="o">.</span><span class="n">present</span><span class="p">)</span>
+        <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="o">.</span><span class="n">current</span><span class="p">)</span>
         <span class="o">.</span><span class="nf">assemble</span><span class="p">()</span>
 </code></pre>
 
@@ -580,6 +589,678 @@
                 <a name="//apple_ref/swift/Section/Available where `FC`: `Factory`" class="dashAnchor"></a>
                 <div class="section-name-container">
                   <a class="section-name-link" href="#/Available%20where%20%60FC%60%3A%20%60Factory%60"></a>
+                  <h3 class="section-name"><span>Available where <code>FC</code>: <code><a href="../Protocols/Factory.html">Factory</a></code></span>
+</h3>
+                </div>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer12StepAssemblyCA2A7FactoryR_rlE5usingyAA0c5ChainD0Vy14ViewControllerQz7ContextQzGAA0hI7ActionsO20PresentModallyActionVF"></a>
+                    <a name="//apple_ref/swift/Method/using(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer12StepAssemblyCA2A7FactoryR_rlE5usingyAA0c5ChainD0Vy14ViewControllerQz7ContextQzGAA0hI7ActionsO20PresentModallyActionVF">using(_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Enables shorthand <code>.using(.present(...))</code> by providing a concrete expected type.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">final</span> <span class="kd">func</span> <span class="nf">using</span><span class="p">(</span><span class="n">_</span> <span class="nv">action</span><span class="p">:</span> <span class="kt"><a href="../Enums/ViewControllerActions.html">ViewControllerActions</a></span><span class="o">.</span><span class="kt">PresentModallyAction</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/StepChainAssembly.html">StepChainAssembly</a></span><span class="o">&lt;</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer12StepAssemblyCA2A7FactoryR_rlE5usingyAA0c5ChainD0Vy14ViewControllerQz7ContextQzGAA0hI7ActionsO17ReplaceRootActionVF"></a>
+                    <a name="//apple_ref/swift/Method/using(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer12StepAssemblyCA2A7FactoryR_rlE5usingyAA0c5ChainD0Vy14ViewControllerQz7ContextQzGAA0hI7ActionsO17ReplaceRootActionVF">using(_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Enables shorthand <code>.using(.replaceRoot(...))</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">final</span> <span class="kd">func</span> <span class="nf">using</span><span class="p">(</span><span class="n">_</span> <span class="nv">action</span><span class="p">:</span> <span class="kt"><a href="../Enums/ViewControllerActions.html">ViewControllerActions</a></span><span class="o">.</span><span class="kt">ReplaceRootAction</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/StepChainAssembly.html">StepChainAssembly</a></span><span class="o">&lt;</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer12StepAssemblyCA2A7FactoryR_rlE5usingyAA0c5ChainD0Vy14ViewControllerQz7ContextQzGAA0hI7ActionsO9NilActionVF"></a>
+                    <a name="//apple_ref/swift/Method/using(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer12StepAssemblyCA2A7FactoryR_rlE5usingyAA0c5ChainD0Vy14ViewControllerQz7ContextQzGAA0hI7ActionsO9NilActionVF">using(_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Enables shorthand <code>.using(.nilAction)</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">final</span> <span class="kd">func</span> <span class="nf">using</span><span class="p">(</span><span class="n">_</span> <span class="nv">action</span><span class="p">:</span> <span class="kt"><a href="../Enums/ViewControllerActions.html">ViewControllerActions</a></span><span class="o">.</span><span class="kt">NilAction</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/StepChainAssembly.html">StepChainAssembly</a></span><span class="o">&lt;</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Available%20where%20%60FC%60%3A%20%60ContainerFactory%60"></a>
+                <a name="//apple_ref/swift/Section/Available where `FC`: `ContainerFactory`" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Available%20where%20%60FC%60%3A%20%60ContainerFactory%60"></a>
+                  <h3 class="section-name"><span>Available where <code>FC</code>: <code><a href="../Protocols/ContainerFactory.html">ContainerFactory</a></code></span>
+</h3>
+                </div>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer12StepAssemblyCA2A16ContainerFactoryR_rlE5usingyAA0c5ChainD0Vy14ViewControllerQz7ContextQzGAA0iJ7ActionsO20PresentModallyActionVF"></a>
+                    <a name="//apple_ref/swift/Method/using(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer12StepAssemblyCA2A16ContainerFactoryR_rlE5usingyAA0c5ChainD0Vy14ViewControllerQz7ContextQzGAA0iJ7ActionsO20PresentModallyActionVF">using(_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Enables shorthand <code>.using(.presentModally(...))</code> by providing a concrete expected type.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">final</span> <span class="kd">func</span> <span class="nf">using</span><span class="p">(</span><span class="n">_</span> <span class="nv">action</span><span class="p">:</span> <span class="kt"><a href="../Enums/ViewControllerActions.html">ViewControllerActions</a></span><span class="o">.</span><span class="kt">PresentModallyAction</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/StepChainAssembly.html">StepChainAssembly</a></span><span class="o">&lt;</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer12StepAssemblyCA2A16ContainerFactoryR_rlE5usingyAA0c5ChainD0Vy14ViewControllerQz7ContextQzGAA0iJ7ActionsO17ReplaceRootActionVF"></a>
+                    <a name="//apple_ref/swift/Method/using(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer12StepAssemblyCA2A16ContainerFactoryR_rlE5usingyAA0c5ChainD0Vy14ViewControllerQz7ContextQzGAA0iJ7ActionsO17ReplaceRootActionVF">using(_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Enables shorthand <code>.using(.replaceRoot(...))</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">final</span> <span class="kd">func</span> <span class="nf">using</span><span class="p">(</span><span class="n">_</span> <span class="nv">action</span><span class="p">:</span> <span class="kt"><a href="../Enums/ViewControllerActions.html">ViewControllerActions</a></span><span class="o">.</span><span class="kt">ReplaceRootAction</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/StepChainAssembly.html">StepChainAssembly</a></span><span class="o">&lt;</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer12StepAssemblyCA2A16ContainerFactoryR_rlE5usingyAA0c5ChainD0Vy14ViewControllerQz7ContextQzGAA0iJ7ActionsO9NilActionVF"></a>
+                    <a name="//apple_ref/swift/Method/using(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer12StepAssemblyCA2A16ContainerFactoryR_rlE5usingyAA0c5ChainD0Vy14ViewControllerQz7ContextQzGAA0iJ7ActionsO9NilActionVF">using(_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Enables shorthand <code>.using(.nilAction)</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">final</span> <span class="kd">func</span> <span class="nf">using</span><span class="p">(</span><span class="n">_</span> <span class="nv">action</span><span class="p">:</span> <span class="kt"><a href="../Enums/ViewControllerActions.html">ViewControllerActions</a></span><span class="o">.</span><span class="kt">NilAction</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/StepChainAssembly.html">StepChainAssembly</a></span><span class="o">&lt;</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Available%20where%20%60FC%60%3A%20%60Factory%602"></a>
+                <a name="//apple_ref/swift/Section/Available where `FC`: `Factory`" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Available%20where%20%60FC%60%3A%20%60Factory%602"></a>
+                  <h3 class="section-name"><span>Available where <code>FC</code>: <code><a href="../Protocols/Factory.html">Factory</a></code></span>
+</h3>
+                </div>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer12StepAssemblyCA2A7FactoryR_rlE5usingyAA09Containerc5ChainD0VySo22UINavigationControllerC04ViewJ0Qz7ContextQzGAA010NavigationJ7ActionsO10PushActionVy_AIGF"></a>
+                    <a name="//apple_ref/swift/Method/using(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer12StepAssemblyCA2A7FactoryR_rlE5usingyAA09Containerc5ChainD0VySo22UINavigationControllerC04ViewJ0Qz7ContextQzGAA010NavigationJ7ActionsO10PushActionVy_AIGF">using(_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Enables shorthand <code>.using(.push)</code> by providing a concrete expected type.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">final</span> <span class="kd">func</span> <span class="nf">using</span><span class="p">(</span><span class="n">_</span> <span class="nv">action</span><span class="p">:</span> <span class="kt"><a href="../Enums/NavigationControllerActions.html">NavigationControllerActions</a></span><span class="o">.</span><span class="kt">PushAction</span><span class="o">&lt;</span><span class="kt">UINavigationController</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/ContainerStepChainAssembly.html">ContainerStepChainAssembly</a></span><span class="o">&lt;</span><span class="kt">UINavigationController</span><span class="p">,</span> <span class="kt">ViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer12StepAssemblyCA2A7FactoryR_rlE5usingyAA09Containerc5ChainD0VySo22UINavigationControllerC04ViewJ0Qz7ContextQzGAA010NavigationJ7ActionsO16PushAsRootActionVy_AIGF"></a>
+                    <a name="//apple_ref/swift/Method/using(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer12StepAssemblyCA2A7FactoryR_rlE5usingyAA09Containerc5ChainD0VySo22UINavigationControllerC04ViewJ0Qz7ContextQzGAA010NavigationJ7ActionsO16PushAsRootActionVy_AIGF">using(_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Enables shorthand <code>.using(.pushAsRoot)</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">final</span> <span class="kd">func</span> <span class="nf">using</span><span class="p">(</span><span class="n">_</span> <span class="nv">action</span><span class="p">:</span> <span class="kt"><a href="../Enums/NavigationControllerActions.html">NavigationControllerActions</a></span><span class="o">.</span><span class="kt">PushAsRootAction</span><span class="o">&lt;</span><span class="kt">UINavigationController</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="o">-&gt;</span> <span class="kt"><a href="../Structs/ContainerStepChainAssembly.html">ContainerStepChainAssembly</a></span><span class="o">&lt;</span><span class="kt">UINavigationController</span><span class="p">,</span> <span class="kt">ViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer12StepAssemblyCA2A7FactoryR_rlE5usingyAA09Containerc5ChainD0VySo22UINavigationControllerC04ViewJ0Qz7ContextQzGAA010NavigationJ7ActionsO23PushReplacingLastActionVy_AIGF"></a>
+                    <a name="//apple_ref/swift/Method/using(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer12StepAssemblyCA2A7FactoryR_rlE5usingyAA09Containerc5ChainD0VySo22UINavigationControllerC04ViewJ0Qz7ContextQzGAA010NavigationJ7ActionsO23PushReplacingLastActionVy_AIGF">using(_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Enables shorthand <code>.using(.pushReplacingLast)</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">final</span> <span class="kd">func</span> <span class="nf">using</span><span class="p">(</span><span class="n">_</span> <span class="nv">action</span><span class="p">:</span> <span class="kt"><a href="../Enums/NavigationControllerActions.html">NavigationControllerActions</a></span><span class="o">.</span><span class="kt">PushReplacingLastAction</span><span class="o">&lt;</span><span class="kt">UINavigationController</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="o">-&gt;</span> <span class="kt"><a href="../Structs/ContainerStepChainAssembly.html">ContainerStepChainAssembly</a></span><span class="o">&lt;</span><span class="kt">UINavigationController</span><span class="p">,</span> <span class="kt">ViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Available%20where%20%60FC%60%3A%20%60ContainerFactory%602"></a>
+                <a name="//apple_ref/swift/Section/Available where `FC`: `ContainerFactory`" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Available%20where%20%60FC%60%3A%20%60ContainerFactory%602"></a>
+                  <h3 class="section-name"><span>Available where <code>FC</code>: <code><a href="../Protocols/ContainerFactory.html">ContainerFactory</a></code></span>
+</h3>
+                </div>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer12StepAssemblyCA2A16ContainerFactoryR_rlE5usingyAA0ec5ChainD0VySo22UINavigationControllerC04ViewJ0Qz7ContextQzGAA010NavigationJ7ActionsO10PushActionVy_AIGF"></a>
+                    <a name="//apple_ref/swift/Method/using(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer12StepAssemblyCA2A16ContainerFactoryR_rlE5usingyAA0ec5ChainD0VySo22UINavigationControllerC04ViewJ0Qz7ContextQzGAA010NavigationJ7ActionsO10PushActionVy_AIGF">using(_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Enables shorthand <code>.using(.push)</code> by providing a concrete expected type.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">final</span> <span class="kd">func</span> <span class="nf">using</span><span class="p">(</span><span class="n">_</span> <span class="nv">action</span><span class="p">:</span> <span class="kt"><a href="../Enums/NavigationControllerActions.html">NavigationControllerActions</a></span><span class="o">.</span><span class="kt">PushAction</span><span class="o">&lt;</span><span class="kt">UINavigationController</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/ContainerStepChainAssembly.html">ContainerStepChainAssembly</a></span><span class="o">&lt;</span><span class="kt">UINavigationController</span><span class="p">,</span> <span class="kt">ViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer12StepAssemblyCA2A16ContainerFactoryR_rlE5usingyAA0ec5ChainD0VySo22UINavigationControllerC04ViewJ0Qz7ContextQzGAA010NavigationJ7ActionsO16PushAsRootActionVy_AIGF"></a>
+                    <a name="//apple_ref/swift/Method/using(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer12StepAssemblyCA2A16ContainerFactoryR_rlE5usingyAA0ec5ChainD0VySo22UINavigationControllerC04ViewJ0Qz7ContextQzGAA010NavigationJ7ActionsO16PushAsRootActionVy_AIGF">using(_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Enables shorthand <code>.using(.pushAsRoot)</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">final</span> <span class="kd">func</span> <span class="nf">using</span><span class="p">(</span><span class="n">_</span> <span class="nv">action</span><span class="p">:</span> <span class="kt"><a href="../Enums/NavigationControllerActions.html">NavigationControllerActions</a></span><span class="o">.</span><span class="kt">PushAsRootAction</span><span class="o">&lt;</span><span class="kt">UINavigationController</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="o">-&gt;</span> <span class="kt"><a href="../Structs/ContainerStepChainAssembly.html">ContainerStepChainAssembly</a></span><span class="o">&lt;</span><span class="kt">UINavigationController</span><span class="p">,</span> <span class="kt">ViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer12StepAssemblyCA2A16ContainerFactoryR_rlE5usingyAA0ec5ChainD0VySo22UINavigationControllerC04ViewJ0Qz7ContextQzGAA010NavigationJ7ActionsO23PushReplacingLastActionVy_AIGF"></a>
+                    <a name="//apple_ref/swift/Method/using(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer12StepAssemblyCA2A16ContainerFactoryR_rlE5usingyAA0ec5ChainD0VySo22UINavigationControllerC04ViewJ0Qz7ContextQzGAA010NavigationJ7ActionsO23PushReplacingLastActionVy_AIGF">using(_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Enables shorthand <code>.using(.pushReplacingLast)</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">final</span> <span class="kd">func</span> <span class="nf">using</span><span class="p">(</span><span class="n">_</span> <span class="nv">action</span><span class="p">:</span> <span class="kt"><a href="../Enums/NavigationControllerActions.html">NavigationControllerActions</a></span><span class="o">.</span><span class="kt">PushReplacingLastAction</span><span class="o">&lt;</span><span class="kt">UINavigationController</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="o">-&gt;</span> <span class="kt"><a href="../Structs/ContainerStepChainAssembly.html">ContainerStepChainAssembly</a></span><span class="o">&lt;</span><span class="kt">UINavigationController</span><span class="p">,</span> <span class="kt">ViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Available%20where%20%60FC%60%3A%20%60Factory%603"></a>
+                <a name="//apple_ref/swift/Section/Available where `FC`: `Factory`" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Available%20where%20%60FC%60%3A%20%60Factory%603"></a>
+                  <h3 class="section-name"><span>Available where <code>FC</code>: <code><a href="../Protocols/Factory.html">Factory</a></code></span>
+</h3>
+                </div>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer12StepAssemblyCA2A7FactoryR_rlE5usingyAA09Containerc5ChainD0VySo18UITabBarControllerC04ViewK0Qz7ContextQzGAA03TabjK7ActionsO03AddN6ActionVy_AIGF"></a>
+                    <a name="//apple_ref/swift/Method/using(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer12StepAssemblyCA2A7FactoryR_rlE5usingyAA09Containerc5ChainD0VySo18UITabBarControllerC04ViewK0Qz7ContextQzGAA03TabjK7ActionsO03AddN6ActionVy_AIGF">using(_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Enables shorthand <code>.using(.addTab)</code> by providing a concrete expected type.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">final</span> <span class="kd">func</span> <span class="nf">using</span><span class="p">(</span><span class="n">_</span> <span class="nv">action</span><span class="p">:</span> <span class="kt"><a href="../Enums/TabBarControllerActions.html">TabBarControllerActions</a></span><span class="o">.</span><span class="kt">AddTabAction</span><span class="o">&lt;</span><span class="kt">UITabBarController</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/ContainerStepChainAssembly.html">ContainerStepChainAssembly</a></span><span class="o">&lt;</span><span class="kt">UITabBarController</span><span class="p">,</span> <span class="kt">ViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Available%20where%20%60FC%60%3A%20%60ContainerFactory%603"></a>
+                <a name="//apple_ref/swift/Section/Available where `FC`: `ContainerFactory`" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Available%20where%20%60FC%60%3A%20%60ContainerFactory%603"></a>
+                  <h3 class="section-name"><span>Available where <code>FC</code>: <code><a href="../Protocols/ContainerFactory.html">ContainerFactory</a></code></span>
+</h3>
+                </div>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer12StepAssemblyCA2A16ContainerFactoryR_rlE5usingyAA0ec5ChainD0VySo18UITabBarControllerC04ViewK0Qz7ContextQzGAA03TabjK7ActionsO03AddN6ActionVy_AIGF"></a>
+                    <a name="//apple_ref/swift/Method/using(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer12StepAssemblyCA2A16ContainerFactoryR_rlE5usingyAA0ec5ChainD0VySo18UITabBarControllerC04ViewK0Qz7ContextQzGAA03TabjK7ActionsO03AddN6ActionVy_AIGF">using(_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Enables shorthand <code>.using(.addTab)</code> by providing a concrete expected type.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">final</span> <span class="kd">func</span> <span class="nf">using</span><span class="p">(</span><span class="n">_</span> <span class="nv">action</span><span class="p">:</span> <span class="kt"><a href="../Enums/TabBarControllerActions.html">TabBarControllerActions</a></span><span class="o">.</span><span class="kt">AddTabAction</span><span class="o">&lt;</span><span class="kt">UITabBarController</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/ContainerStepChainAssembly.html">ContainerStepChainAssembly</a></span><span class="o">&lt;</span><span class="kt">UITabBarController</span><span class="p">,</span> <span class="kt">ViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Available%20where%20%60FC%60%3A%20%60Factory%604"></a>
+                <a name="//apple_ref/swift/Section/Available where `FC`: `Factory`" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Available%20where%20%60FC%60%3A%20%60Factory%604"></a>
+                  <h3 class="section-name"><span>Available where <code>FC</code>: <code><a href="../Protocols/Factory.html">Factory</a></code></span>
+</h3>
+                </div>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer12StepAssemblyCA2A7FactoryR_rlE5usingyAA09Containerc5ChainD0VySo21UISplitViewControllerC0jK0Qz7ContextQzGAA05SplitjK7ActionsO17SetAsMasterActionVy_AIGF"></a>
+                    <a name="//apple_ref/swift/Method/using(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer12StepAssemblyCA2A7FactoryR_rlE5usingyAA09Containerc5ChainD0VySo21UISplitViewControllerC0jK0Qz7ContextQzGAA05SplitjK7ActionsO17SetAsMasterActionVy_AIGF">using(_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Enables shorthand <code>.using(.setAsPrimary)</code> by providing a concrete expected type.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">final</span> <span class="kd">func</span> <span class="nf">using</span><span class="p">(</span><span class="n">_</span> <span class="nv">action</span><span class="p">:</span> <span class="kt"><a href="../Enums/SplitViewControllerActions.html">SplitViewControllerActions</a></span><span class="o">.</span><span class="kt">SetAsMasterAction</span><span class="o">&lt;</span><span class="kt">UISplitViewController</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/ContainerStepChainAssembly.html">ContainerStepChainAssembly</a></span><span class="o">&lt;</span><span class="kt">UISplitViewController</span><span class="p">,</span> <span class="kt">ViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer12StepAssemblyCA2A7FactoryR_rlE5usingyAA09Containerc5ChainD0VySo21UISplitViewControllerC0jK0Qz7ContextQzGAA05SplitjK7ActionsO19PushToDetailsActionVy_AIGF"></a>
+                    <a name="//apple_ref/swift/Method/using(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer12StepAssemblyCA2A7FactoryR_rlE5usingyAA09Containerc5ChainD0VySo21UISplitViewControllerC0jK0Qz7ContextQzGAA05SplitjK7ActionsO19PushToDetailsActionVy_AIGF">using(_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Enables shorthand <code>.using(.pushToDetails)</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">final</span> <span class="kd">func</span> <span class="nf">using</span><span class="p">(</span><span class="n">_</span> <span class="nv">action</span><span class="p">:</span> <span class="kt"><a href="../Enums/SplitViewControllerActions.html">SplitViewControllerActions</a></span><span class="o">.</span><span class="kt">PushToDetailsAction</span><span class="o">&lt;</span><span class="kt">UISplitViewController</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="o">-&gt;</span> <span class="kt"><a href="../Structs/ContainerStepChainAssembly.html">ContainerStepChainAssembly</a></span><span class="o">&lt;</span><span class="kt">UISplitViewController</span><span class="p">,</span> <span class="kt">ViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer12StepAssemblyCA2A7FactoryR_rlE5usingyAA09Containerc5ChainD0VySo21UISplitViewControllerC0jK0Qz7ContextQzGAA05SplitjK7ActionsO21PushOnToDetailsActionVy_AIGF"></a>
+                    <a name="//apple_ref/swift/Method/using(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer12StepAssemblyCA2A7FactoryR_rlE5usingyAA09Containerc5ChainD0VySo21UISplitViewControllerC0jK0Qz7ContextQzGAA05SplitjK7ActionsO21PushOnToDetailsActionVy_AIGF">using(_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Enables shorthand <code>.using(.pushOnToDetails)</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">final</span> <span class="kd">func</span> <span class="nf">using</span><span class="p">(</span><span class="n">_</span> <span class="nv">action</span><span class="p">:</span> <span class="kt"><a href="../Enums/SplitViewControllerActions.html">SplitViewControllerActions</a></span><span class="o">.</span><span class="kt">PushOnToDetailsAction</span><span class="o">&lt;</span><span class="kt">UISplitViewController</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="o">-&gt;</span> <span class="kt"><a href="../Structs/ContainerStepChainAssembly.html">ContainerStepChainAssembly</a></span><span class="o">&lt;</span><span class="kt">UISplitViewController</span><span class="p">,</span> <span class="kt">ViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Available%20where%20%60FC%60%3A%20%60ContainerFactory%604"></a>
+                <a name="//apple_ref/swift/Section/Available where `FC`: `ContainerFactory`" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Available%20where%20%60FC%60%3A%20%60ContainerFactory%604"></a>
+                  <h3 class="section-name"><span>Available where <code>FC</code>: <code><a href="../Protocols/ContainerFactory.html">ContainerFactory</a></code></span>
+</h3>
+                </div>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer12StepAssemblyCA2A16ContainerFactoryR_rlE5usingyAA0ec5ChainD0VySo21UISplitViewControllerC0jK0Qz7ContextQzGAA05SplitjK7ActionsO17SetAsMasterActionVy_AIGF"></a>
+                    <a name="//apple_ref/swift/Method/using(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer12StepAssemblyCA2A16ContainerFactoryR_rlE5usingyAA0ec5ChainD0VySo21UISplitViewControllerC0jK0Qz7ContextQzGAA05SplitjK7ActionsO17SetAsMasterActionVy_AIGF">using(_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Enables shorthand <code>.using(.push)</code> by providing a concrete expected type.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">final</span> <span class="kd">func</span> <span class="nf">using</span><span class="p">(</span><span class="n">_</span> <span class="nv">action</span><span class="p">:</span> <span class="kt"><a href="../Enums/SplitViewControllerActions.html">SplitViewControllerActions</a></span><span class="o">.</span><span class="kt">SetAsMasterAction</span><span class="o">&lt;</span><span class="kt">UISplitViewController</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/ContainerStepChainAssembly.html">ContainerStepChainAssembly</a></span><span class="o">&lt;</span><span class="kt">UISplitViewController</span><span class="p">,</span> <span class="kt">ViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer12StepAssemblyCA2A16ContainerFactoryR_rlE5usingyAA0ec5ChainD0VySo21UISplitViewControllerC0jK0Qz7ContextQzGAA05SplitjK7ActionsO19PushToDetailsActionVy_AIGF"></a>
+                    <a name="//apple_ref/swift/Method/using(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer12StepAssemblyCA2A16ContainerFactoryR_rlE5usingyAA0ec5ChainD0VySo21UISplitViewControllerC0jK0Qz7ContextQzGAA05SplitjK7ActionsO19PushToDetailsActionVy_AIGF">using(_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Enables shorthand <code>.using(.pushToDetails)</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">final</span> <span class="kd">func</span> <span class="nf">using</span><span class="p">(</span><span class="n">_</span> <span class="nv">action</span><span class="p">:</span> <span class="kt"><a href="../Enums/SplitViewControllerActions.html">SplitViewControllerActions</a></span><span class="o">.</span><span class="kt">PushToDetailsAction</span><span class="o">&lt;</span><span class="kt">UISplitViewController</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="o">-&gt;</span> <span class="kt"><a href="../Structs/ContainerStepChainAssembly.html">ContainerStepChainAssembly</a></span><span class="o">&lt;</span><span class="kt">UISplitViewController</span><span class="p">,</span> <span class="kt">ViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer12StepAssemblyCA2A16ContainerFactoryR_rlE5usingyAA0ec5ChainD0VySo21UISplitViewControllerC0jK0Qz7ContextQzGAA05SplitjK7ActionsO21PushOnToDetailsActionVy_AIGF"></a>
+                    <a name="//apple_ref/swift/Method/using(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer12StepAssemblyCA2A16ContainerFactoryR_rlE5usingyAA0ec5ChainD0VySo21UISplitViewControllerC0jK0Qz7ContextQzGAA05SplitjK7ActionsO21PushOnToDetailsActionVy_AIGF">using(_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Enables shorthand <code>.using(.pushOnToDetails)</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">final</span> <span class="kd">func</span> <span class="nf">using</span><span class="p">(</span><span class="n">_</span> <span class="nv">action</span><span class="p">:</span> <span class="kt"><a href="../Enums/SplitViewControllerActions.html">SplitViewControllerActions</a></span><span class="o">.</span><span class="kt">PushOnToDetailsAction</span><span class="o">&lt;</span><span class="kt">UISplitViewController</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="o">-&gt;</span> <span class="kt"><a href="../Structs/ContainerStepChainAssembly.html">ContainerStepChainAssembly</a></span><span class="o">&lt;</span><span class="kt">UISplitViewController</span><span class="p">,</span> <span class="kt">ViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Available%20where%20%60FC%60%3A%20%60Factory%605"></a>
+                <a name="//apple_ref/swift/Section/Available where `FC`: `Factory`" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Available%20where%20%60FC%60%3A%20%60Factory%605"></a>
                   <h3 class="section-name"><span>Available where <code>FC</code>: <code><a href="../Protocols/Factory.html">Factory</a></code></span>
 </h3>
                 </div>
@@ -605,7 +1286,8 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">finder</span><span class="p">:</span> <span class="kt">F</span><span class="p">,</span> <span class="nv">factory</span><span class="p">:</span> <span class="kt">FC</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">finder</span><span class="p">:</span> <span class="kt">F</span><span class="p">,</span> <span class="nv">factory</span><span class="p">:</span> <span class="kt">FC</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -663,7 +1345,9 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">final</span> <span class="kd">func</span> <span class="nf">using</span><span class="p">(</span><span class="n">_</span> <span class="nv">action</span><span class="p">:</span> <span class="kd">some</span> <span class="kt"><a href="../Core%20Entities.html#/s:13RouteComposer6ActionP">Action</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/StepChainAssembly.html">StepChainAssembly</a></span><span class="o">&lt;</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@_disfavoredOverload</span>
+<span class="kd">@MainActor</span>
+<span class="kd">final</span> <span class="kd">func</span> <span class="nf">using</span><span class="p">(</span><span class="n">_</span> <span class="nv">action</span><span class="p">:</span> <span class="kd">some</span> <span class="kt"><a href="../Core%20Entities.html#/s:13RouteComposer6ActionP">Action</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/StepChainAssembly.html">StepChainAssembly</a></span><span class="o">&lt;</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -709,7 +1393,9 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">final</span> <span class="kd">func</span> <span class="n">using</span><span class="o">&lt;</span><span class="kt">A</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">action</span><span class="p">:</span> <span class="kt">A</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/ContainerStepChainAssembly.html">ContainerStepChainAssembly</a></span><span class="o">&lt;</span><span class="kt">A</span><span class="o">.</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">ViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">A</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ContainerAction.html">ContainerAction</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@_disfavoredOverload</span>
+<span class="kd">@MainActor</span>
+<span class="kd">final</span> <span class="kd">func</span> <span class="n">using</span><span class="o">&lt;</span><span class="kt">A</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">action</span><span class="p">:</span> <span class="kt">A</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/ContainerStepChainAssembly.html">ContainerStepChainAssembly</a></span><span class="o">&lt;</span><span class="kt">A</span><span class="o">.</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">ViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">A</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ContainerAction.html">ContainerAction</a></span></code></pre>
 
                         </div>
                       </div>
@@ -739,10 +1425,10 @@
             </div>
             <div class="task-group">
               <div class="task-name-container">
-                <a name="/Available%20where%20%60FC%60%3A%20%60ContainerFactory%60"></a>
+                <a name="/Available%20where%20%60FC%60%3A%20%60ContainerFactory%605"></a>
                 <a name="//apple_ref/swift/Section/Available where `FC`: `ContainerFactory`" class="dashAnchor"></a>
                 <div class="section-name-container">
-                  <a class="section-name-link" href="#/Available%20where%20%60FC%60%3A%20%60ContainerFactory%60"></a>
+                  <a class="section-name-link" href="#/Available%20where%20%60FC%60%3A%20%60ContainerFactory%605"></a>
                   <h3 class="section-name"><span>Available where <code>FC</code>: <code><a href="../Protocols/ContainerFactory.html">ContainerFactory</a></code></span>
 </h3>
                 </div>
@@ -768,7 +1454,8 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">finder</span><span class="p">:</span> <span class="kt">F</span><span class="p">,</span> <span class="nv">factory</span><span class="p">:</span> <span class="kt">FC</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">finder</span><span class="p">:</span> <span class="kt">F</span><span class="p">,</span> <span class="nv">factory</span><span class="p">:</span> <span class="kt">FC</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -826,7 +1513,9 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">final</span> <span class="kd">func</span> <span class="nf">using</span><span class="p">(</span><span class="n">_</span> <span class="nv">action</span><span class="p">:</span> <span class="kd">some</span> <span class="kt"><a href="../Core%20Entities.html#/s:13RouteComposer6ActionP">Action</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/StepChainAssembly.html">StepChainAssembly</a></span><span class="o">&lt;</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@_disfavoredOverload</span>
+<span class="kd">@MainActor</span>
+<span class="kd">final</span> <span class="kd">func</span> <span class="nf">using</span><span class="p">(</span><span class="n">_</span> <span class="nv">action</span><span class="p">:</span> <span class="kd">some</span> <span class="kt"><a href="../Core%20Entities.html#/s:13RouteComposer6ActionP">Action</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/StepChainAssembly.html">StepChainAssembly</a></span><span class="o">&lt;</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -872,7 +1561,9 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">final</span> <span class="kd">func</span> <span class="n">using</span><span class="o">&lt;</span><span class="kt">A</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">action</span><span class="p">:</span> <span class="kt">A</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/ContainerStepChainAssembly.html">ContainerStepChainAssembly</a></span><span class="o">&lt;</span><span class="kt">A</span><span class="o">.</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">ViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">A</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ContainerAction.html">ContainerAction</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@_disfavoredOverload</span>
+<span class="kd">@MainActor</span>
+<span class="kd">final</span> <span class="kd">func</span> <span class="n">using</span><span class="o">&lt;</span><span class="kt">A</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">action</span><span class="p">:</span> <span class="kt">A</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/ContainerStepChainAssembly.html">ContainerStepChainAssembly</a></span><span class="o">&lt;</span><span class="kt">A</span><span class="o">.</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">ViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">A</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ContainerAction.html">ContainerAction</a></span></code></pre>
 
                         </div>
                       </div>
@@ -933,7 +1624,8 @@ Example: <code>UIViewController</code> instance was loaded as a part of the stac
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">final</span> <span class="kd">func</span> <span class="nf">from</span><span class="p">(</span><span class="n">_</span> <span class="nv">step</span><span class="p">:</span> <span class="kt"><a href="../Classes/ActionToStepIntegrator.html">ActionToStepIntegrator</a></span><span class="o">&lt;</span><span class="kd">some</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/ActionConnectingAssembly.html">ActionConnectingAssembly</a></span><span class="o">&lt;</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">final</span> <span class="kd">func</span> <span class="nf">from</span><span class="p">(</span><span class="n">_</span> <span class="nv">step</span><span class="p">:</span> <span class="kt"><a href="../Classes/ActionToStepIntegrator.html">ActionToStepIntegrator</a></span><span class="o">&lt;</span><span class="kd">some</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/ActionConnectingAssembly.html">ActionConnectingAssembly</a></span><span class="o">&lt;</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -981,7 +1673,8 @@ Example: <code>UIViewController</code> instance was loaded as a part of the stac
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">final</span> <span class="kd">func</span> <span class="nf">from</span><span class="p">(</span><span class="n">_</span> <span class="nv">step</span><span class="p">:</span> <span class="kt"><a href="../Structs/DestinationStep.html">DestinationStep</a></span><span class="o">&lt;</span><span class="kd">some</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/LastStepInChainAssembly.html">LastStepInChainAssembly</a></span><span class="o">&lt;</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">final</span> <span class="kd">func</span> <span class="nf">from</span><span class="p">(</span><span class="n">_</span> <span class="nv">step</span><span class="p">:</span> <span class="kt"><a href="../Structs/DestinationStep.html">DestinationStep</a></span><span class="o">&lt;</span><span class="kd">some</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/LastStepInChainAssembly.html">LastStepInChainAssembly</a></span><span class="o">&lt;</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -1041,7 +1734,8 @@ should avoid type checks.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">final</span> <span class="kd">func</span> <span class="nf">from</span><span class="p">(</span><span class="n">_</span> <span class="nv">step</span><span class="p">:</span> <span class="kt"><a href="../Classes/ActionToStepIntegrator.html">ActionToStepIntegrator</a></span><span class="o">&lt;</span><span class="kd">some</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/ActionConnectingAssembly.html">ActionConnectingAssembly</a></span><span class="o">&lt;</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">final</span> <span class="kd">func</span> <span class="nf">from</span><span class="p">(</span><span class="n">_</span> <span class="nv">step</span><span class="p">:</span> <span class="kt"><a href="../Classes/ActionToStepIntegrator.html">ActionToStepIntegrator</a></span><span class="o">&lt;</span><span class="kd">some</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/ActionConnectingAssembly.html">ActionConnectingAssembly</a></span><span class="o">&lt;</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -1088,7 +1782,8 @@ should avoid type checks</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">final</span> <span class="kd">func</span> <span class="nf">from</span><span class="p">(</span><span class="n">_</span> <span class="nv">step</span><span class="p">:</span> <span class="kt"><a href="../Structs/DestinationStep.html">DestinationStep</a></span><span class="o">&lt;</span><span class="kd">some</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/LastStepInChainAssembly.html">LastStepInChainAssembly</a></span><span class="o">&lt;</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">final</span> <span class="kd">func</span> <span class="nf">from</span><span class="p">(</span><span class="n">_</span> <span class="nv">step</span><span class="p">:</span> <span class="kt"><a href="../Structs/DestinationStep.html">DestinationStep</a></span><span class="o">&lt;</span><span class="kd">some</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/LastStepInChainAssembly.html">LastStepInChainAssembly</a></span><span class="o">&lt;</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -1122,8 +1817,8 @@ should avoid type checks</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2023 <a class="link" href="https://github.com/ekazaev" target="_blank" rel="external noopener">Evgeny Kazaev</a>. All rights reserved. (Last updated: 2023-09-30)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+      <p>&copy; 2025 <a class="link" href="https://github.com/ekazaev" target="_blank" rel="external noopener">Evgeny Kazaev</a>. All rights reserved. (Last updated: 2025-09-18)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.15.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>
 </html>

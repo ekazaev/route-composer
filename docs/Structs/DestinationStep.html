@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          RouteComposer 2.10.5 Docs
+          RouteComposer 2.21.0 Docs
         </a>
          (100% documented)
       </p>
@@ -36,7 +36,9 @@
     </header>
 
     <p class="breadcrumbs">
-      <a class="breadcrumb" href="../index.html">RouteComposer Reference</a>
+      <a class="breadcrumb" href="../index.html">RouteComposer</a>
+      <img class="carat" src="../img/carat.png" alt=""/>
+      <a class="breadcrumb" href="../Core%20Entities.html">Core Entities</a>
       <img class="carat" src="../img/carat.png" alt=""/>
       DestinationStep Structure Reference
     </p>
@@ -257,9 +259,6 @@
                 <a class="nav-group-task-link" href="../Structs/NavigationDelayingInterceptor.html">NavigationDelayingInterceptor</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Structs/NavigationDelayingInterceptor/Strategy.html">– Strategy</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/SingleNavigationRouter.html">SingleNavigationRouter</a>
               </li>
               <li class="nav-group-task">
@@ -363,6 +362,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/NavigationControllerActions/PushReplacingLastAction.html">– PushReplacingLastAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/NavigationDelayingInterceptorStrategy.html">NavigationDelayingInterceptorStrategy</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/SplitViewControllerActions.html">SplitViewControllerActions</a>
@@ -530,6 +532,12 @@
                 <a class="nav-group-task-link" href="../Structs/SplitControllerAdapter.html">SplitControllerAdapter</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/StepAssembler.html">StepAssembler</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/StepAssemblerWithFinder.html">StepAssemblerWithFinder</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/StepChainAssembly.html">StepChainAssembly</a>
               </li>
               <li class="nav-group-task">
@@ -547,7 +555,8 @@
               <div class="declaration">
                 <div class="language">
                   
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DestinationStep</span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt">RoutingStep</span><span class="p">,</span> <span class="kt">ChainableStep</span> <span class="k">where</span> <span class="kt">VC</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DestinationStep</span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt">RoutingStep</span><span class="p">,</span> <span class="kt">ChainableStep</span> <span class="k">where</span> <span class="kt">VC</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
 
                 </div>
               </div>
@@ -658,7 +667,8 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">unsafelyRewrapped</span><span class="o">&lt;</span><span class="kt">NewVC</span><span class="p">,</span> <span class="kt">NewC</span><span class="o">&gt;</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">DestinationStep</span><span class="o">&lt;</span><span class="kt">NewVC</span><span class="p">,</span> <span class="kt">NewC</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">NewVC</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="n">unsafelyRewrapped</span><span class="o">&lt;</span><span class="kt">NewVC</span><span class="p">,</span> <span class="kt">NewC</span><span class="o">&gt;</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">DestinationStep</span><span class="o">&lt;</span><span class="kt">NewVC</span><span class="p">,</span> <span class="kt">NewC</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">NewVC</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
 
                         </div>
                       </div>
@@ -685,7 +695,8 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">adaptingContext</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">using</span> <span class="nv">contextTransformer</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">DestinationStep</span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">,</span> <span class="kt">T</span><span class="o">.</span><span class="kt">SourceContext</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">C</span> <span class="o">==</span> <span class="kt">T</span><span class="o">.</span><span class="kt">TargetContext</span><span class="p">,</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ContextTransformer.html">ContextTransformer</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="n">adaptingContext</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">using</span> <span class="nv">contextTransformer</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">DestinationStep</span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">,</span> <span class="kt">T</span><span class="o">.</span><span class="kt">SourceContext</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">C</span> <span class="o">==</span> <span class="kt">T</span><span class="o">.</span><span class="kt">TargetContext</span><span class="p">,</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ContextTransformer.html">ContextTransformer</a></span></code></pre>
 
                         </div>
                       </div>
@@ -714,7 +725,8 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">expectingContainer</span><span class="o">&lt;</span><span class="kt">NewVC</span><span class="o">&gt;</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">DestinationStep</span><span class="o">&lt;</span><span class="kt">NewVC</span><span class="p">,</span> <span class="kt"><a href="../Structs/DestinationStep.html#/s:13RouteComposer15DestinationStepV7Contexta">Context</a></span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">NewVC</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ContainerViewController.html">ContainerViewController</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="n">expectingContainer</span><span class="o">&lt;</span><span class="kt">NewVC</span><span class="o">&gt;</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">DestinationStep</span><span class="o">&lt;</span><span class="kt">NewVC</span><span class="p">,</span> <span class="kt"><a href="../Structs/DestinationStep.html#/s:13RouteComposer15DestinationStepV7Contexta">Context</a></span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">NewVC</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ContainerViewController.html">ContainerViewController</a></span></code></pre>
 
                         </div>
                       </div>
@@ -757,7 +769,8 @@ able to accept any type of context.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="n">expectingContainer</span><span class="o">&lt;</span><span class="kt">NewVC</span><span class="p">,</span> <span class="kt">NewC</span><span class="o">&gt;</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">DestinationStep</span><span class="o">&lt;</span><span class="kt">NewVC</span><span class="p">,</span> <span class="kt">NewC</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">NewVC</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ContainerViewController.html">ContainerViewController</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">func</span> <span class="n">expectingContainer</span><span class="o">&lt;</span><span class="kt">NewVC</span><span class="p">,</span> <span class="kt">NewC</span><span class="o">&gt;</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">DestinationStep</span><span class="o">&lt;</span><span class="kt">NewVC</span><span class="p">,</span> <span class="kt">NewC</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">NewVC</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ContainerViewController.html">ContainerViewController</a></span></code></pre>
 
                         </div>
                       </div>
@@ -785,7 +798,284 @@ with any type of context passed to the router.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="n">adaptingContext</span><span class="o">&lt;</span><span class="kt">NewC</span><span class="o">&gt;</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">DestinationStep</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/DestinationStep.html#/s:13RouteComposer15DestinationStepV14ViewControllera">ViewController</a></span><span class="p">,</span> <span class="kt">NewC</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">func</span> <span class="n">adaptingContext</span><span class="o">&lt;</span><span class="kt">NewC</span><span class="o">&gt;</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">DestinationStep</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/DestinationStep.html#/s:13RouteComposer15DestinationStepV14ViewControllera">ViewController</a></span><span class="p">,</span> <span class="kt">NewC</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Available%20where%20%60VC%60%20%3D%3D%20%60UIViewController%60"></a>
+                <a name="//apple_ref/swift/Section/Available where `VC` == `UIViewController`" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Available%20where%20%60VC%60%20%3D%3D%20%60UIViewController%60"></a>
+                  <h3 class="section-name"><span>Available where <code>VC</code> == <code>UIViewController</code></span>
+</h3>
+                </div>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer15DestinationStepVAASo16UIViewControllerCRszrlE4root14windowProviderACyAEqd__GAA06WindowI0_p_tlFZ"></a>
+                    <a name="//apple_ref/swift/Method/root(windowProvider:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer15DestinationStepVAASo16UIViewControllerCRszrlE4root14windowProviderACyAEqd__GAA06WindowI0_p_tlFZ">root(windowProvider:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns the root view controller of the key window.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">static</span> <span class="kd">func</span> <span class="n"><a href="../Structs/DestinationStep.html#/s:13RouteComposer15DestinationStepVAASo16UIViewControllerCRszrlE4rootACyAEq_GvpZ">root</a></span><span class="o">&lt;</span><span class="kt">NewContext</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">windowProvider</span><span class="p">:</span> <span class="kt"><a href="../Protocols/WindowProvider.html">WindowProvider</a></span> <span class="o">=</span> <span class="kt"><a href="../Classes/RouteComposerDefaults.html">RouteComposerDefaults</a></span><span class="o">.</span><span class="n">shared</span><span class="o">.</span><span class="n">windowProvider</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">DestinationStep</span><span class="o">&lt;</span><span class="kt">UIViewController</span><span class="p">,</span> <span class="kt">NewContext</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer15DestinationStepVAASo16UIViewControllerCRszrlE4rootACyAEq_GvpZ"></a>
+                    <a name="//apple_ref/swift/Variable/root" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer15DestinationStepVAASo16UIViewControllerCRszrlE4rootACyAEq_GvpZ">root</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns the root view controller of the key window.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">static</span> <span class="k">var</span> <span class="nv">root</span><span class="p">:</span> <span class="kt">DestinationStep</span><span class="o">&lt;</span><span class="kt">UIViewController</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer15DestinationStepVAASo16UIViewControllerCRszrlE7current14windowProviderACyAEqd__GAA06WindowI0_p_tlFZ"></a>
+                    <a name="//apple_ref/swift/Method/current(windowProvider:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer15DestinationStepVAASo16UIViewControllerCRszrlE7current14windowProviderACyAEqd__GAA06WindowI0_p_tlFZ">current(windowProvider:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns the topmost presented view controller.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">static</span> <span class="kd">func</span> <span class="n"><a href="../Structs/DestinationStep.html#/s:13RouteComposer15DestinationStepVAASo16UIViewControllerCRszrlE7currentACyAEq_GvpZ">current</a></span><span class="o">&lt;</span><span class="kt">NewContext</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">windowProvider</span><span class="p">:</span> <span class="kt"><a href="../Protocols/WindowProvider.html">WindowProvider</a></span> <span class="o">=</span> <span class="kt"><a href="../Classes/RouteComposerDefaults.html">RouteComposerDefaults</a></span><span class="o">.</span><span class="n">shared</span><span class="o">.</span><span class="n">windowProvider</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">DestinationStep</span><span class="o">&lt;</span><span class="kt">UIViewController</span><span class="p">,</span> <span class="kt">NewContext</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer15DestinationStepVAASo16UIViewControllerCRszrlE7currentACyAEq_GvpZ"></a>
+                    <a name="//apple_ref/swift/Variable/current" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer15DestinationStepVAASo16UIViewControllerCRszrlE7currentACyAEq_GvpZ">current</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns the topmost presented view controller.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">static</span> <span class="k">var</span> <span class="nv">current</span><span class="p">:</span> <span class="kt">DestinationStep</span><span class="o">&lt;</span><span class="kt">UIViewController</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer15DestinationStepVAASo16UIViewControllerCRszrlE6custom5usingACy04ViewF0Qyd__7ContextQyd__Gqd___tAA6FinderRd__lFZ"></a>
+                    <a name="//apple_ref/swift/Method/custom(using:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer15DestinationStepVAASo16UIViewControllerCRszrlE6custom5usingACy04ViewF0Qyd__7ContextQyd__Gqd___tAA6FinderRd__lFZ">custom(using:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns the resulting view controller of the finder provided.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">static</span> <span class="kd">func</span> <span class="n">custom</span><span class="o">&lt;</span><span class="kt">F</span><span class="o">&gt;</span><span class="p">(</span><span class="n">using</span> <span class="nv">finder</span><span class="p">:</span> <span class="kt">F</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">DestinationStep</span><span class="o">&lt;</span><span class="kt">F</span><span class="o">.</span><span class="kt"><a href="../Structs/DestinationStep.html#/s:13RouteComposer15DestinationStepV14ViewControllera">ViewController</a></span><span class="p">,</span> <span class="kt">F</span><span class="o">.</span><span class="kt"><a href="../Structs/DestinationStep.html#/s:13RouteComposer15DestinationStepV7Contexta">Context</a></span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">F</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/Finder.html">Finder</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Available%20where%20%60VC%60%20%3D%3D%20%60UINavigationController%60"></a>
+                <a name="//apple_ref/swift/Section/Available where `VC` == `UINavigationController`" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Available%20where%20%60VC%60%20%3D%3D%20%60UINavigationController%60"></a>
+                  <h3 class="section-name"><span>Available where <code>VC</code> == <code>UINavigationController</code></span>
+</h3>
+                </div>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer15DestinationStepVAASo22UINavigationControllerCRszrlE010navigationF0AA010NavigationfD0CyAEq_GvpZ"></a>
+                    <a name="//apple_ref/swift/Variable/navigationController" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer15DestinationStepVAASo22UINavigationControllerCRszrlE010navigationF0AA010NavigationfD0CyAEq_GvpZ">navigationController</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Default navigation container step</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">static</span> <span class="k">var</span> <span class="nv">navigationController</span><span class="p">:</span> <span class="kt"><a href="../Classes/NavigationControllerStep.html">NavigationControllerStep</a></span><span class="o">&lt;</span><span class="kt">UINavigationController</span><span class="p">,</span> <span class="kt"><a href="../Structs/DestinationStep.html#/s:13RouteComposer15DestinationStepV7Contexta">Context</a></span><span class="o">&gt;</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Available%20where%20%60VC%60%20%3D%3D%20%60UISplitViewController%60"></a>
+                <a name="//apple_ref/swift/Section/Available where `VC` == `UISplitViewController`" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Available%20where%20%60VC%60%20%3D%3D%20%60UISplitViewController%60"></a>
+                  <h3 class="section-name"><span>Available where <code>VC</code> == <code>UISplitViewController</code></span>
+</h3>
+                </div>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer15DestinationStepVAASo21UISplitViewControllerCRszrlE05splitfG0AA05SplitgD0CyAEq_GvpZ"></a>
+                    <a name="//apple_ref/swift/Variable/splitViewController" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer15DestinationStepVAASo21UISplitViewControllerCRszrlE05splitfG0AA05SplitgD0CyAEq_GvpZ">splitViewController</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Default split container step</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">static</span> <span class="k">var</span> <span class="nv">splitViewController</span><span class="p">:</span> <span class="kt"><a href="../Classes/SplitControllerStep.html">SplitControllerStep</a></span><span class="o">&lt;</span><span class="kt">UISplitViewController</span><span class="p">,</span> <span class="kt"><a href="../Structs/DestinationStep.html#/s:13RouteComposer15DestinationStepV7Contexta">Context</a></span><span class="o">&gt;</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Available%20where%20%60VC%60%20%3D%3D%20%60UITabBarController%60"></a>
+                <a name="//apple_ref/swift/Section/Available where `VC` == `UITabBarController`" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Available%20where%20%60VC%60%20%3D%3D%20%60UITabBarController%60"></a>
+                  <h3 class="section-name"><span>Available where <code>VC</code> == <code>UITabBarController</code></span>
+</h3>
+                </div>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer15DestinationStepVAASo18UITabBarControllerCRszrlE03tabfG0AA03TabfgD0CyAEq_GvpZ"></a>
+                    <a name="//apple_ref/swift/Variable/tabBarController" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer15DestinationStepVAASo18UITabBarControllerCRszrlE03tabfG0AA03TabfgD0CyAEq_GvpZ">tabBarController</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Default tab bar container step</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">static</span> <span class="k">var</span> <span class="nv">tabBarController</span><span class="p">:</span> <span class="kt"><a href="../Classes/TabBarControllerStep.html">TabBarControllerStep</a></span><span class="o">&lt;</span><span class="kt">UITabBarController</span><span class="p">,</span> <span class="kt"><a href="../Structs/DestinationStep.html#/s:13RouteComposer15DestinationStepV7Contexta">Context</a></span><span class="o">&gt;</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -800,8 +1090,8 @@ with any type of context passed to the router.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2023 <a class="link" href="https://github.com/ekazaev" target="_blank" rel="external noopener">Evgeny Kazaev</a>. All rights reserved. (Last updated: 2023-09-30)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+      <p>&copy; 2025 <a class="link" href="https://github.com/ekazaev" target="_blank" rel="external noopener">Evgeny Kazaev</a>. All rights reserved. (Last updated: 2025-09-18)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.15.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>
 </html>

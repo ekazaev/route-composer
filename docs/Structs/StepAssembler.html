@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>TabBarControllerAdapter Structure Reference</title>
+    <title>StepAssembler Structure Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset="utf-8">
@@ -14,9 +14,9 @@
   </head>
   <body>
 
-    <a name="//apple_ref/swift/Struct/TabBarControllerAdapter" class="dashAnchor"></a>
+    <a name="//apple_ref/swift/Struct/StepAssembler" class="dashAnchor"></a>
 
-    <a title="TabBarControllerAdapter Structure Reference"></a>
+    <a title="StepAssembler Structure Reference"></a>
 
     <header class="header">
       <p class="header-col header-col--primary">
@@ -40,7 +40,7 @@
       <img class="carat" src="../img/carat.png" alt=""/>
       <a class="breadcrumb" href="../Other%20Structs.html">Other Structures</a>
       <img class="carat" src="../img/carat.png" alt=""/>
-      TabBarControllerAdapter Structure Reference
+      StepAssembler Structure Reference
     </p>
 
     <div class="content-wrapper">
@@ -551,16 +551,32 @@
 
         <section class="section">
           <div class="section-content top-matter">
-            <h1>TabBarControllerAdapter</h1>
+            <h1>StepAssembler</h1>
               <div class="declaration">
                 <div class="language">
                   
                   <pre class="highlight swift"><code><span class="kd">@MainActor</span>
-<span class="kd">public</span> <span class="kd">struct</span> <span class="kt">TabBarControllerAdapter</span><span class="o">&lt;</span><span class="kt">VC</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ConcreteContainerAdapter.html">ConcreteContainerAdapter</a></span> <span class="k">where</span> <span class="kt">VC</span> <span class="p">:</span> <span class="kt">UITabBarController</span></code></pre>
+<span class="kd">public</span> <span class="kd">struct</span> <span class="kt">StepAssembler</span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">VC</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
 
                 </div>
               </div>
-            <p>Default <code><a href="../Protocols/ContainerAdapter.html">ContainerAdapter</a></code> for <code>UITabBarController</code></p>
+            <p>Builds a <code><a href="../Structs/DestinationStep.html">DestinationStep</a></code> instance with the correct settings into a chain of steps.</p>
+<h3 id='nb' class='heading'>NB</h3>
+
+<p>Both <code><a href="../Protocols/Finder.html">Finder</a></code> and <code><a href="../Protocols/Factory.html">Factory</a></code> instances should deal with the same type of <code>UIViewController</code> and <code>Context</code> instances.</p>
+<h3 id='usage' class='heading'>Usage</h3>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">productScreen</span> <span class="o">=</span> <span class="kt">StepAssembler</span><span class="o">&lt;</span><span class="kt">ProductViewController</span><span class="p">,</span> <span class="kt">ProductContext</span><span class="o">&gt;</span><span class="p">()</span>
+        <span class="o">.</span><span class="nf">finder</span><span class="p">(</span><span class="o">.</span><span class="n">classWithContextFinder</span><span class="p">)</span>
+        <span class="o">.</span><span class="nf">factory</span><span class="p">(</span><span class="o">.</span><span class="nf">storyboardFactory</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="s">"TabBar"</span><span class="p">,</span> <span class="nv">identifier</span><span class="p">:</span> <span class="s">"ProductViewController"</span><span class="p">))</span>
+        <span class="o">.</span><span class="nf">adding</span><span class="p">(</span><span class="kt">ContextSettingTask</span><span class="p">())</span>
+        <span class="o">.</span><span class="nf">using</span><span class="p">(</span><span class="o">.</span><span class="n">push</span><span class="p">)</span>
+        <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="o">.</span><span class="n">navigationController</span><span class="p">)</span>
+        <span class="o">.</span><span class="nf">using</span><span class="p">(</span><span class="o">.</span><span class="n">present</span><span class="p">)</span>
+        <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="o">.</span><span class="n">current</span><span class="p">)</span>
+        <span class="o">.</span><span class="nf">assemble</span><span class="p">()</span>
+</code></pre>
+
+<p>*Introduced by  <a href="https://github.com/Savva-Shuliatev">Savva Shuliatev</a> *</p>
 
           </div>
         </section>
@@ -581,9 +597,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer24ConcreteContainerAdapterP4withx0D0Qz_tcfc"></a>
-                    <a name="//apple_ref/swift/Method/init(with:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer24ConcreteContainerAdapterP4withx0D0Qz_tcfc">init(with:<wbr>)</a>
+                    <a name="/s:13RouteComposer13StepAssemblerVACyxq_Gycfc"></a>
+                    <a name="//apple_ref/swift/Method/init()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer13StepAssemblerVACyxq_Gycfc">init()</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -591,14 +607,15 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        
+                        <p>Constructor</p>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@MainActor</span>
-<span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">with</span> <span class="nv">navigationController</span><span class="p">:</span> <span class="kt">VC</span><span class="p">)</span></code></pre>
+<span class="kd">public</span> <span class="nf">init</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
@@ -608,9 +625,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer16ContainerAdapterP24containedViewControllersSaySo16UIViewControllerCGvp"></a>
-                    <a name="//apple_ref/swift/Property/containedViewControllers" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer16ContainerAdapterP24containedViewControllersSaySo16UIViewControllerCGvp">containedViewControllers</a>
+                    <a name="/s:13RouteComposer13StepAssemblerV6finderyAA0cD10WithFinderVyqd__Gqd__14ViewControllerQyd__Rsz7ContextQyd__Rs_AA0G0Rd__lF"></a>
+                    <a name="//apple_ref/swift/Method/finder(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer13StepAssemblerV6finderyAA0cD10WithFinderVyqd__Gqd__14ViewControllerQyd__Rsz7ContextQyd__Rs_AA0G0Rd__lF">finder(_:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -618,16 +635,97 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        
+                        <p>Sets a specific Finder instance</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@_disfavoredOverload</span>
+<span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="n">finder</span><span class="o">&lt;</span><span class="kt">F</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">finder</span><span class="p">:</span> <span class="kt">F</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/StepAssemblerWithFinder.html">StepAssemblerWithFinder</a></span><span class="o">&lt;</span><span class="kt">F</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">VC</span> <span class="o">==</span> <span class="kt">F</span><span class="o">.</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">C</span> <span class="o">==</span> <span class="kt">F</span><span class="o">.</span><span class="kt">Context</span><span class="p">,</span> <span class="kt">F</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/Finder.html">Finder</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>finder</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>UIViewController</code> <code><a href="../Protocols/Finder.html">Finder</a></code> instance.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Shorthands"></a>
+                <a name="//apple_ref/swift/Section/Shorthands" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Shorthands"></a>
+                  <h3 class="section-name"><span>Shorthands</span>
+</h3>
+                </div>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer13StepAssemblerV6finderyAA0cD10WithFinderVyAA05ClassG0Vyxq_GGAIF"></a>
+                    <a name="//apple_ref/swift/Method/finder(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer13StepAssemblerV6finderyAA0cD10WithFinderVyAA05ClassG0Vyxq_GGAIF">finder(_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets a specific Finder instance</p>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@MainActor</span>
-<span class="kd">public</span> <span class="k">var</span> <span class="nv">containedViewControllers</span><span class="p">:</span> <span class="p">[</span><span class="kt">UIViewController</span><span class="p">]</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+<span class="kd">func</span> <span class="nf">finder</span><span class="p">(</span><span class="n">_</span> <span class="nv">finder</span><span class="p">:</span> <span class="kt"><a href="../Structs/ClassFinder.html">ClassFinder</a></span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/StepAssemblerWithFinder.html">StepAssemblerWithFinder</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/ClassFinder.html">ClassFinder</a></span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;&gt;</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>finder</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>UIViewController</code> <code><a href="../Protocols/Finder.html">Finder</a></code> instance.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -635,9 +733,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer16ContainerAdapterP22visibleViewControllersSaySo16UIViewControllerCGvp"></a>
-                    <a name="//apple_ref/swift/Property/visibleViewControllers" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer16ContainerAdapterP22visibleViewControllersSaySo16UIViewControllerCGvp">visibleViewControllers</a>
+                    <a name="/s:13RouteComposer13StepAssemblerV6finderyAA0cD10WithFinderVyAA08InstanceG0Vyxq_GGAIF"></a>
+                    <a name="//apple_ref/swift/Method/finder(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer13StepAssemblerV6finderyAA0cD10WithFinderVyAA08InstanceG0Vyxq_GGAIF">finder(_:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -645,16 +743,36 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        
+                        <p>Sets a specific Finder instance</p>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@MainActor</span>
-<span class="kd">public</span> <span class="k">var</span> <span class="nv">visibleViewControllers</span><span class="p">:</span> <span class="p">[</span><span class="kt">UIViewController</span><span class="p">]</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+<span class="kd">func</span> <span class="nf">finder</span><span class="p">(</span><span class="n">_</span> <span class="nv">finder</span><span class="p">:</span> <span class="kt"><a href="../Structs/InstanceFinder.html">InstanceFinder</a></span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/StepAssemblerWithFinder.html">StepAssemblerWithFinder</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/InstanceFinder.html">InstanceFinder</a></span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;&gt;</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>finder</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>UIViewController</code> <code><a href="../Protocols/Finder.html">Finder</a></code> instance.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -662,9 +780,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer16ContainerAdapterP11makeVisible_8animated10completionySo16UIViewControllerC_SbyAA13RoutingResultOctF"></a>
-                    <a name="//apple_ref/swift/Method/makeVisible(_:animated:completion:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer16ContainerAdapterP11makeVisible_8animated10completionySo16UIViewControllerC_SbyAA13RoutingResultOctF">makeVisible(_:<wbr>animated:<wbr>completion:<wbr>)</a>
+                    <a name="/s:13RouteComposer13StepAssemblerV6finderyAA0cD10WithFinderVyAA03NilG0Vyxq_GGAIF"></a>
+                    <a name="//apple_ref/swift/Method/finder(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer13StepAssemblerV6finderyAA0cD10WithFinderVyAA03NilG0Vyxq_GGAIF">finder(_:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -672,16 +790,36 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        
+                        <p>Sets a specific Finder instance</p>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@MainActor</span>
-<span class="kd">public</span> <span class="kd">func</span> <span class="nf">makeVisible</span><span class="p">(</span><span class="n">_</span> <span class="nv">viewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Enums/RoutingResult.html">RoutingResult</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+<span class="kd">func</span> <span class="nf">finder</span><span class="p">(</span><span class="n">_</span> <span class="nv">finder</span><span class="p">:</span> <span class="kt"><a href="../Structs/NilFinder.html">NilFinder</a></span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/StepAssemblerWithFinder.html">StepAssemblerWithFinder</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/NilFinder.html">NilFinder</a></span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;&gt;</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>finder</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>UIViewController</code> <code><a href="../Protocols/Finder.html">Finder</a></code> instance.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -689,9 +827,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer16ContainerAdapterP27setContainedViewControllers_8animated10completionySaySo16UIViewControllerCG_SbyAA13RoutingResultOctF"></a>
-                    <a name="//apple_ref/swift/Method/setContainedViewControllers(_:animated:completion:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer16ContainerAdapterP27setContainedViewControllers_8animated10completionySaySo16UIViewControllerCG_SbyAA13RoutingResultOctF">setContainedViewControllers(_:<wbr>animated:<wbr>completion:<wbr>)</a>
+                    <a name="/s:13RouteComposer13StepAssemblerV6finderyAA0cD10WithFinderVyAA019UIHostingControllerf7ContextG0Vyqd__GGAI7SwiftUI0hI0Cyqd__GRsz0J0AA0J8CheckingPQyd__Rs_AaPRd__AK4ViewRd__lF"></a>
+                    <a name="//apple_ref/swift/Method/finder(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer13StepAssemblerV6finderyAA0cD10WithFinderVyAA019UIHostingControllerf7ContextG0Vyqd__GGAI7SwiftUI0hI0Cyqd__GRsz0J0AA0J8CheckingPQyd__Rs_AaPRd__AK4ViewRd__lF">finder(_:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -699,16 +837,99 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        
+                        <p>Sets a specific Finder instance</p>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@MainActor</span>
-<span class="kd">public</span> <span class="kd">func</span> <span class="nf">setContainedViewControllers</span><span class="p">(</span><span class="n">_</span> <span class="nv">containedViewControllers</span><span class="p">:</span> <span class="p">[</span><span class="kt">UIViewController</span><span class="p">],</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Enums/RoutingResult.html">RoutingResult</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+<span class="kd">func</span> <span class="n">finder</span><span class="o">&lt;</span><span class="kt">ContentView</span><span class="p">:</span> <span class="kt">View</span> <span class="o">&amp;</span> <span class="kt"><a href="../Protocols/ContextChecking.html">ContextChecking</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">finder</span><span class="p">:</span> <span class="kt"><a href="../Structs/UIHostingControllerWithContextFinder.html">UIHostingControllerWithContextFinder</a></span><span class="o">&lt;</span><span class="kt">ContentView</span><span class="o">&gt;</span><span class="p">)</span>
+    <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/StepAssemblerWithFinder.html">StepAssemblerWithFinder</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/UIHostingControllerWithContextFinder.html">UIHostingControllerWithContextFinder</a></span><span class="o">&lt;</span><span class="kt">ContentView</span><span class="o">&gt;&gt;</span>
+    <span class="k">where</span>
+    <span class="kt">UIHostingController</span><span class="o">&lt;</span><span class="kt">ContentView</span><span class="o">&gt;</span> <span class="o">==</span> <span class="kt">VC</span><span class="p">,</span> <span class="kt">ContentView</span><span class="o">.</span><span class="kt">Context</span> <span class="o">==</span> <span class="kt">C</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>finder</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>UIViewController</code> <code><a href="../Protocols/Finder.html">Finder</a></code> instance.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Available%20where%20%60VC%60%3A%20%60ContextChecking%60%2C%20%60C%60%20%3D%3D%20%60VC.Context%60"></a>
+                <a name="//apple_ref/swift/Section/Available where `VC`: `ContextChecking`, `C` == `VC.Context`" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Available%20where%20%60VC%60%3A%20%60ContextChecking%60%2C%20%60C%60%20%3D%3D%20%60VC.Context%60"></a>
+                  <h3 class="section-name"><span>Available where <code>VC</code>: <code><a href="../Protocols/ContextChecking.html">ContextChecking</a></code>, <code>C</code> == <code>VC.Context</code></span>
+</h3>
+                </div>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer13StepAssemblerVA2A15ContextCheckingRz0E0QzRs_rlE6finderyAA0cD10WithFinderVyAA05ClassheI0Vyxq_GGALF"></a>
+                    <a name="//apple_ref/swift/Method/finder(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer13StepAssemblerVA2A15ContextCheckingRz0E0QzRs_rlE6finderyAA0cD10WithFinderVyAA05ClassheI0Vyxq_GGALF">finder(_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets a specific Finder instance</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">func</span> <span class="nf">finder</span><span class="p">(</span><span class="n">_</span> <span class="nv">finder</span><span class="p">:</span> <span class="kt"><a href="../Structs/ClassWithContextFinder.html">ClassWithContextFinder</a></span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/StepAssemblerWithFinder.html">StepAssemblerWithFinder</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/ClassWithContextFinder.html">ClassWithContextFinder</a></span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>finder</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>UIViewController</code> <code><a href="../Protocols/Finder.html">Finder</a></code> instance.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>

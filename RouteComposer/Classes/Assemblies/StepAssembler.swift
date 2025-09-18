@@ -29,11 +29,13 @@ import UIKit
 ///         .from(.current)
 ///         .assemble()
 /// ```
+/// *Introduced by  [Savva Shuliatev](https://github.com/Savva-Shuliatev) *
 @MainActor
 public struct StepAssembler<VC: UIViewController, C> {
 
     // MARK: Methods
-
+    
+    /// Constructor
     public init() {}
 
     /// Sets a specific Finder instance
@@ -87,18 +89,34 @@ public struct StepAssembler<VC: UIViewController, C> {
 
 public extension StepAssembler {
 
+    /// Sets a specific Finder instance
+    ///
+    /// - Parameters:
+    ///   - finder: The `UIViewController` `Finder` instance.
     func finder(_ finder: ClassFinder<VC, C>) -> StepAssemblerWithFinder<ClassFinder<VC, C>> {
         getFinder(finder)
     }
 
+    /// Sets a specific Finder instance
+    ///
+    /// - Parameters:
+    ///   - finder: The `UIViewController` `Finder` instance.
     func finder(_ finder: InstanceFinder<VC, C>) -> StepAssemblerWithFinder<InstanceFinder<VC, C>> {
         getFinder(finder)
     }
 
+    /// Sets a specific Finder instance
+    ///
+    /// - Parameters:
+    ///   - finder: The `UIViewController` `Finder` instance.
     func finder(_ finder: NilFinder<VC, C>) -> StepAssemblerWithFinder<NilFinder<VC, C>> {
         getFinder(finder)
     }
 
+    /// Sets a specific Finder instance
+    ///
+    /// - Parameters:
+    ///   - finder: The `UIViewController` `Finder` instance.
     func finder<ContentView: View & ContextChecking>(_ finder: UIHostingControllerWithContextFinder<ContentView>)
         -> StepAssemblerWithFinder<UIHostingControllerWithContextFinder<ContentView>>
         where
@@ -108,6 +126,10 @@ public extension StepAssembler {
 }
 
 public extension StepAssembler where VC: ContextChecking, C == VC.Context {
+    /// Sets a specific Finder instance
+    ///
+    /// - Parameters:
+    ///   - finder: The `UIViewController` `Finder` instance.
     func finder(_ finder: ClassWithContextFinder<VC, C>) -> StepAssemblerWithFinder<ClassWithContextFinder<VC, C>> {
         getFinder(finder)
     }

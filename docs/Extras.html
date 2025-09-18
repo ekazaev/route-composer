@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="index.html">
-          RouteComposer 2.10.5 Docs
+          RouteComposer 2.21.0 Docs
         </a>
          (100% documented)
       </p>
@@ -36,7 +36,7 @@
     </header>
 
     <p class="breadcrumbs">
-      <a class="breadcrumb" href="index.html">RouteComposer Reference</a>
+      <a class="breadcrumb" href="index.html">RouteComposer</a>
       <img class="carat" src="img/carat.png" alt=""/>
       Extras  Reference
     </p>
@@ -257,9 +257,6 @@
                 <a class="nav-group-task-link" href="Structs/NavigationDelayingInterceptor.html">NavigationDelayingInterceptor</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Structs/NavigationDelayingInterceptor/Strategy.html">– Strategy</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Structs/SingleNavigationRouter.html">SingleNavigationRouter</a>
               </li>
               <li class="nav-group-task">
@@ -363,6 +360,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Enums/NavigationControllerActions/PushReplacingLastAction.html">– PushReplacingLastAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/NavigationDelayingInterceptorStrategy.html">NavigationDelayingInterceptorStrategy</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Enums/SplitViewControllerActions.html">SplitViewControllerActions</a>
@@ -530,6 +530,12 @@
                 <a class="nav-group-task-link" href="Structs/SplitControllerAdapter.html">SplitControllerAdapter</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/StepAssembler.html">StepAssembler</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/StepAssemblerWithFinder.html">StepAssemblerWithFinder</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Structs/StepChainAssembly.html">StepChainAssembly</a>
               </li>
               <li class="nav-group-task">
@@ -574,7 +580,8 @@ there is a need to wrap both values into a single DTO value.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Destination</span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">VC</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Destination</span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">VC</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
 
                         </div>
                       </div>
@@ -630,7 +637,8 @@ of <code>UIViewController</code> and the context of any type.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">InlineFactory</span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Factory.html">Factory</a></span> <span class="k">where</span> <span class="kt">VC</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="kd">struct</span> <span class="kt">InlineFactory</span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Factory.html">Factory</a></span> <span class="k">where</span> <span class="kt">VC</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
 
                         </div>
                       </div>
@@ -658,7 +666,8 @@ of <code>UIViewController</code> and the context of any type.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">InlineStackIteratingFinder</span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Protocols/StackIteratingFinder.html">StackIteratingFinder</a></span> <span class="k">where</span> <span class="kt">VC</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="kd">struct</span> <span class="kt">InlineStackIteratingFinder</span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Protocols/StackIteratingFinder.html">StackIteratingFinder</a></span> <span class="k">where</span> <span class="kt">VC</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
 
                         </div>
                       </div>
@@ -689,7 +698,8 @@ of <code>UIViewController</code> and the context of any type.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">InlineInterceptor</span><span class="o">&lt;</span><span class="kt">C</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Protocols/RoutingInterceptor.html">RoutingInterceptor</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="kd">struct</span> <span class="kt">InlineInterceptor</span><span class="o">&lt;</span><span class="kt">C</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Protocols/RoutingInterceptor.html">RoutingInterceptor</a></span></code></pre>
 
                         </div>
                       </div>
@@ -720,7 +730,8 @@ of <code>UIViewController</code> and the context of any type.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">InlineContextTask</span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Protocols/ContextTask.html">ContextTask</a></span> <span class="k">where</span> <span class="kt">VC</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="kd">struct</span> <span class="kt">InlineContextTask</span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Protocols/ContextTask.html">ContextTask</a></span> <span class="k">where</span> <span class="kt">VC</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
 
                         </div>
                       </div>
@@ -751,7 +762,8 @@ of <code>UIViewController</code> and the context of any type.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">InlinePostTask</span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Protocols/PostRoutingTask.html">PostRoutingTask</a></span> <span class="k">where</span> <span class="kt">VC</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="kd">struct</span> <span class="kt">InlinePostTask</span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Protocols/PostRoutingTask.html">PostRoutingTask</a></span> <span class="k">where</span> <span class="kt">VC</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
 
                         </div>
                       </div>
@@ -787,7 +799,8 @@ situations. The <code>.wait</code> strategy can be used only as a temporary solu
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">NavigationDelayingInterceptor</span><span class="o">&lt;</span><span class="kt">Context</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Protocols/RoutingInterceptor.html">RoutingInterceptor</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="kd">struct</span> <span class="kt">NavigationDelayingInterceptor</span><span class="o">&lt;</span><span class="kt">Context</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Protocols/RoutingInterceptor.html">RoutingInterceptor</a></span></code></pre>
 
                         </div>
                       </div>
@@ -818,7 +831,8 @@ situations. The <code>.wait</code> strategy can be used only as a temporary solu
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">SingleNavigationRouter</span><span class="o">&lt;</span><span class="kt">R</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Router.html">Router</a></span> <span class="k">where</span> <span class="kt">R</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Router.html">Router</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="kd">struct</span> <span class="kt">SingleNavigationRouter</span><span class="o">&lt;</span><span class="kt">R</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Router.html">Router</a></span> <span class="k">where</span> <span class="kt">R</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Router.html">Router</a></span></code></pre>
 <pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">SingleNavigationRouter</span><span class="p">:</span> <span class="kt"><a href="Protocols/InterceptableRouter.html">InterceptableRouter</a></span> <span class="k">where</span> <span class="kt">R</span><span class="p">:</span> <span class="kt"><a href="Protocols/InterceptableRouter.html">InterceptableRouter</a></span></code></pre>
 
                         </div>
@@ -850,7 +864,8 @@ executed before any work that <code><a href="Structs/DefaultRouter.html">Default
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">GlobalInterceptorRouter</span><span class="o">&lt;</span><span class="kt">R</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Router.html">Router</a></span> <span class="k">where</span> <span class="kt">R</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Router.html">Router</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="kd">struct</span> <span class="kt">GlobalInterceptorRouter</span><span class="o">&lt;</span><span class="kt">R</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Router.html">Router</a></span> <span class="k">where</span> <span class="kt">R</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Router.html">Router</a></span></code></pre>
 <pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">GlobalInterceptorRouter</span><span class="p">:</span> <span class="kt"><a href="Protocols/InterceptableRouter.html">InterceptableRouter</a></span> <span class="k">where</span> <span class="kt">R</span><span class="p">:</span> <span class="kt"><a href="Protocols/InterceptableRouter.html">InterceptableRouter</a></span></code></pre>
 
                         </div>
@@ -879,7 +894,8 @@ executed before any work that <code><a href="Structs/DefaultRouter.html">Default
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">PresentingFinder</span><span class="o">&lt;</span><span class="kt">C</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Finder.html">Finder</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="kd">struct</span> <span class="kt">PresentingFinder</span><span class="o">&lt;</span><span class="kt">C</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Finder.html">Finder</a></span></code></pre>
 
                         </div>
                       </div>
@@ -907,7 +923,8 @@ executed before any work that <code><a href="Structs/DefaultRouter.html">Default
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ContextSettingTask</span><span class="o">&lt;</span><span class="kt">VC</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Protocols/ContextTask.html">ContextTask</a></span> <span class="k">where</span> <span class="kt">VC</span> <span class="p">:</span> <span class="kt"><a href="Protocols/ContextAccepting.html">ContextAccepting</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ContextSettingTask</span><span class="o">&lt;</span><span class="kt">VC</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Protocols/ContextTask.html">ContextTask</a></span> <span class="k">where</span> <span class="kt">VC</span> <span class="p">:</span> <span class="kt"><a href="Protocols/ContextAccepting.html">ContextAccepting</a></span></code></pre>
 
                         </div>
                       </div>
@@ -935,7 +952,8 @@ executed before any work that <code><a href="Structs/DefaultRouter.html">Default
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">ContextAccepting</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">ContextAccepting</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
 
                         </div>
                       </div>
@@ -966,6 +984,7 @@ executed before any work that <code><a href="Structs/DefaultRouter.html">Default
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="n">iOS</span> <span class="mf">13.0</span><span class="p">,</span> <span class="n">macOS</span> <span class="mf">10.15</span><span class="p">,</span> <span class="n">tvOS</span> <span class="mf">13.0</span><span class="p">,</span> <span class="n">watchOS</span> <span class="mf">6.0</span><span class="p">,</span> <span class="o">*</span><span class="p">)</span>
+<span class="kd">@MainActor</span>
 <span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">ContextAcceptingView</span></code></pre>
 
                         </div>
@@ -995,6 +1014,7 @@ executed before any work that <code><a href="Structs/DefaultRouter.html">Default
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="n">iOS</span> <span class="mf">13.0</span><span class="p">,</span> <span class="n">macOS</span> <span class="mf">10.15</span><span class="p">,</span> <span class="n">tvOS</span> <span class="mf">13.0</span><span class="p">,</span> <span class="n">watchOS</span> <span class="mf">6.0</span><span class="p">,</span> <span class="o">*</span><span class="p">)</span>
+<span class="kd">@MainActor</span>
 <span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">ContextInstantiatable</span> <span class="p">:</span> <span class="kt">View</span></code></pre>
 
                         </div>
@@ -1026,7 +1046,8 @@ and its <code>Context</code> instance.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ClassWithContextFinder</span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Protocols/StackIteratingFinder.html">StackIteratingFinder</a></span> <span class="k">where</span> <span class="kt">VC</span> <span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="kt">VC</span> <span class="p">:</span> <span class="kt"><a href="Protocols/ContextChecking.html">ContextChecking</a></span><span class="p">,</span> <span class="kt">C</span> <span class="o">==</span> <span class="kt">VC</span><span class="o">.</span><span class="kt">Context</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ClassWithContextFinder</span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Protocols/StackIteratingFinder.html">StackIteratingFinder</a></span> <span class="k">where</span> <span class="kt">VC</span> <span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="kt">VC</span> <span class="p">:</span> <span class="kt"><a href="Protocols/ContextChecking.html">ContextChecking</a></span><span class="p">,</span> <span class="kt">C</span> <span class="o">==</span> <span class="kt">VC</span><span class="o">.</span><span class="kt">Context</span></code></pre>
 
                         </div>
                       </div>
@@ -1054,7 +1075,8 @@ and its <code>Context</code> instance.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">ContextChecking</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">ContextChecking</span></code></pre>
 
                         </div>
                       </div>
@@ -1085,7 +1107,8 @@ constructor.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DismissalMethodProvidingContextTask</span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Protocols/ContextTask.html">ContextTask</a></span> <span class="k">where</span> <span class="kt">VC</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Dismissible.html">Dismissible</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DismissalMethodProvidingContextTask</span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Protocols/ContextTask.html">ContextTask</a></span> <span class="k">where</span> <span class="kt">VC</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Dismissible.html">Dismissible</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1113,7 +1136,8 @@ constructor.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">Dismissible</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">Dismissible</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
 
                         </div>
                       </div>
@@ -1155,7 +1179,8 @@ constructor.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">DismissibleWithRuntimeStorage</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Dismissible.html">Dismissible</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">DismissibleWithRuntimeStorage</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Dismissible.html">Dismissible</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1183,7 +1208,8 @@ constructor.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DetailsNavigationFinder</span><span class="o">&lt;</span><span class="kt">C</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Finder.html">Finder</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DetailsNavigationFinder</span><span class="o">&lt;</span><span class="kt">C</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Finder.html">Finder</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1262,8 +1288,8 @@ do some to it or find it with a <code><a href="Protocols/Finder.html">Finder</a>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2023 <a class="link" href="https://github.com/ekazaev" target="_blank" rel="external noopener">Evgeny Kazaev</a>. All rights reserved. (Last updated: 2023-09-30)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+      <p>&copy; 2025 <a class="link" href="https://github.com/ekazaev" target="_blank" rel="external noopener">Evgeny Kazaev</a>. All rights reserved. (Last updated: 2025-09-18)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.15.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>
 </html>

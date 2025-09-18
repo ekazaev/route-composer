@@ -20,7 +20,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="index.html">
-          RouteComposer 2.10.5 Docs
+          RouteComposer 2.21.0 Docs
         </a>
          (100% documented)
       </p>
@@ -35,9 +35,7 @@
     </header>
 
     <p class="breadcrumbs">
-      <a class="breadcrumb" href="index.html">RouteComposer Reference</a>
-      <img class="carat" src="img/carat.png" alt=""/>
-      RouteComposer  Reference
+      <a class="breadcrumb" href="index.html">RouteComposer</a>
     </p>
 
     <div class="content-wrapper">
@@ -256,9 +254,6 @@
                 <a class="nav-group-task-link" href="Structs/NavigationDelayingInterceptor.html">NavigationDelayingInterceptor</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Structs/NavigationDelayingInterceptor/Strategy.html">– Strategy</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Structs/SingleNavigationRouter.html">SingleNavigationRouter</a>
               </li>
               <li class="nav-group-task">
@@ -362,6 +357,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Enums/NavigationControllerActions/PushReplacingLastAction.html">– PushReplacingLastAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/NavigationDelayingInterceptorStrategy.html">NavigationDelayingInterceptorStrategy</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Enums/SplitViewControllerActions.html">SplitViewControllerActions</a>
@@ -529,6 +527,12 @@
                 <a class="nav-group-task-link" href="Structs/SplitControllerAdapter.html">SplitControllerAdapter</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/StepAssembler.html">StepAssembler</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/StepAssemblerWithFinder.html">StepAssemblerWithFinder</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Structs/StepChainAssembly.html">StepChainAssembly</a>
               </li>
               <li class="nav-group-task">
@@ -602,7 +606,6 @@ and deep linking tasks in the iOS application. </p>
 <li><a href="#advanced-configuration">Advanced Configuration</a></li>
 <li><a href="#contributing">Contributing</a></li>
 <li><a href="#license">License</a></li>
-<li><a href="#sponsor-this-project">Sponsor this project</a></li>
 <li><a href="#articles">Articles</a></li>
 <li><a href="#author">Author</a></li>
 </ul>
@@ -901,18 +904,20 @@ You should implement <code><a href="Protocols/PostRoutingTask.html">PostRoutingT
 <h3 id='configuring-step' class='heading'>Configuring Step</h3>
 
 <p>Everything that the router does is configured using a <code><a href="Structs/DestinationStep.html">DestinationStep</a></code> instance. There is no need to create your own implementation of this protocol.
-Use <code><a href="Classes/StepAssembly.html">StepAssembly</a></code> provided by the library to configure any step that the router should execute during the routing.</p>
+Use <code><a href="Structs/StepAssembler.html">StepAssembler</a></code> provided by the library to configure any step that the router should execute during the routing.</p>
 
 <p><em>Example: A <code>ProductViewController</code> configuration that explains to the router that it should be boxed in UINavigationController
 which should be presented modally from any currently visible view controller.</em></p>
-<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">productScreen</span> <span class="o">=</span> <span class="kt">StepAssembly</span><span class="p">(</span><span class="nv">finder</span><span class="p">:</span> <span class="kt">ProductViewControllerFinder</span><span class="p">(),</span> <span class="nv">factory</span><span class="p">:</span> <span class="kt">ProductViewControllerFactory</span><span class="p">())</span>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">productScreen</span> <span class="o">=</span> <span class="kt">StepAssembler</span><span class="o">&lt;</span><span class="kt">ProductViewController</span><span class="p">,</span> <span class="kt">Any</span><span class="p">?</span><span class="o">&gt;</span><span class="p">()</span>
+        <span class="o">.</span><span class="nf">finder</span><span class="p">(</span><span class="kt">ProductViewControllerFinder</span><span class="p">())</span>
+        <span class="o">.</span><span class="nf">factory</span><span class="p">(</span><span class="kt">ProductViewControllerFactory</span><span class="p">())</span>
         <span class="o">.</span><span class="nf">add</span><span class="p">(</span><span class="kt">LoginInterceptor</span><span class="o">&lt;</span><span class="kt">UUID</span><span class="o">&gt;</span><span class="p">())</span> <span class="c1">// Have to specify the context type till https://bugs.swift.org/browse/SR-8719, https://bugs.swift.org/browse/SR-8705 are fixed</span>
         <span class="o">.</span><span class="nf">add</span><span class="p">(</span><span class="kt">ProductViewControllerContextTask</span><span class="p">())</span>
         <span class="o">.</span><span class="nf">add</span><span class="p">(</span><span class="kt">ProductViewControllerPostTask</span><span class="p">(</span><span class="nv">analyticsManager</span><span class="p">:</span> <span class="kt">AnalyticsManager</span><span class="o">.</span><span class="n">sharedInstance</span><span class="p">))</span>
-        <span class="o">.</span><span class="nf">using</span><span class="p">(</span><span class="kt">UINavigationController</span><span class="o">.</span><span class="nf">push</span><span class="p">())</span>
-        <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="kt">NavigationControllerStep</span><span class="p">())</span>
-        <span class="o">.</span><span class="nf">using</span><span class="p">(</span><span class="kt">GeneralActions</span><span class="o">.</span><span class="nf">presentModally</span><span class="p">())</span>
-        <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="kt">GeneralStep</span><span class="o">.</span><span class="nf">current</span><span class="p">())</span>
+        <span class="o">.</span><span class="nf">using</span><span class="p">(</span><span class="o">.</span><span class="n">push</span><span class="p">)</span>
+        <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="o">.</span><span class="n">navigationController</span><span class="p">)</span>
+        <span class="o">.</span><span class="nf">using</span><span class="p">(</span><span class="o">.</span><span class="n">present</span><span class="p">)</span>
+        <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="o">.</span><span class="n">current</span><span class="p">)</span>
         <span class="o">.</span><span class="nf">assemble</span><span class="p">()</span>
 </code></pre>
 
@@ -941,14 +946,16 @@ should be logged into see the product details.</em></p>
 <pre class="highlight swift"><code>
 <span class="kd">struct</span> <span class="kt">Configuration</span> <span class="p">{</span>
 
-    <span class="kd">static</span> <span class="k">let</span> <span class="nv">productScreen</span> <span class="o">=</span> <span class="kt">StepAssembly</span><span class="p">(</span><span class="nv">finder</span><span class="p">:</span> <span class="kt">ProductViewControllerFinder</span><span class="p">(),</span> <span class="nv">factory</span><span class="p">:</span> <span class="kt">ProductViewControllerFactory</span><span class="p">())</span>
+    <span class="kd">static</span> <span class="k">let</span> <span class="nv">productScreen</span> <span class="o">=</span> <span class="kt">StepAssembler</span><span class="o">&lt;</span><span class="kt">ProductViewController</span><span class="p">,</span> <span class="kt">Any</span><span class="p">?</span><span class="o">&gt;</span><span class="p">()</span>
+                <span class="o">.</span><span class="nf">finder</span><span class="p">(</span><span class="kt">ProductViewControllerFinder</span><span class="p">())</span>
+                <span class="o">.</span><span class="nf">factory</span><span class="p">(</span><span class="kt">ProductViewControllerFactory</span><span class="p">())</span>
                 <span class="o">.</span><span class="nf">add</span><span class="p">(</span><span class="kt">LoginInterceptor</span><span class="o">&lt;</span><span class="kt">UUID</span><span class="o">&gt;</span><span class="p">())</span>
                 <span class="o">.</span><span class="nf">add</span><span class="p">(</span><span class="kt">ProductViewControllerContextTask</span><span class="p">())</span>
                 <span class="o">.</span><span class="nf">add</span><span class="p">(</span><span class="kt">ProductViewControllerPostTask</span><span class="p">(</span><span class="nv">analyticsManager</span><span class="p">:</span> <span class="kt">AnalyticsManager</span><span class="o">.</span><span class="n">sharedInstance</span><span class="p">))</span>
-                <span class="o">.</span><span class="nf">using</span><span class="p">(</span><span class="kt">UINavigationController</span><span class="o">.</span><span class="nf">push</span><span class="p">())</span>
-                <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="kt">NavigationControllerStep</span><span class="p">())</span>
-                <span class="o">.</span><span class="nf">using</span><span class="p">(</span><span class="kt">GeneralActions</span><span class="o">.</span><span class="nf">presentModally</span><span class="p">())</span>
-                <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="kt">GeneralStep</span><span class="o">.</span><span class="nf">current</span><span class="p">())</span>
+                <span class="o">.</span><span class="nf">using</span><span class="p">(</span><span class="o">.</span><span class="n">push</span><span class="p">)</span>
+                <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="o">.</span><span class="n">navigationController</span><span class="p">)</span>
+                <span class="o">.</span><span class="nf">using</span><span class="p">(</span><span class="o">.</span><span class="n">present</span><span class="p">)</span>
+                <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="o">.</span><span class="n">current</span><span class="p">)</span>
                 <span class="o">.</span><span class="nf">assemble</span><span class="p">()</span>
 
 <span class="p">}</span>
@@ -1081,20 +1088,14 @@ and we will try to fix the issue as soon as possible.</p>
 
 <p>If you’d like to contribute to this repo, please
 read <a href="https://github.com/ekazaev/route-composer/blob/master/CONTRIBUTING.md">the contribution guidelines</a>.</p>
+
+<p>Big thank you to <a href="https://github.com/Savva-Shuliatev">Savva Shuliatev</a> for introducing a new and refreshing way to configure steps in version <strong>2.21.0</strong>.</p>
 <h2 id='license' class='heading'>License</h2>
 
 <p>RouteComposer is distributed under <a href="https://github.com/ekazaev/RouteComposer/blob/master/LICENSE">the MIT license</a>.</p>
 
 <p>RouteComposer is provided for your use, free-of-charge, on an as-is basis. We make no guarantees, promises or
 apologies. <em>Caveat developer.</em></p>
-<h2 id='sponsor-this-project' class='heading'>Sponsor this project</h2>
-
-<p>If you find this library useful, and especially if you are using it in production, please consider sponsoring this
-project <a href="https://github.com/sponsors/ekazaev">here</a>. I work on <code>RouteComposer</code> in my spare time, and your sponsorship would
-help me to continue developing and contributing to the Open Source community. Your support will enable me to dedicate
-more time and resources to this project, ensuring that it remains up-to-date and relevant for years to come.</p>
-
-<p>Thank you for your consideration!</p>
 <h2 id='articles' class='heading'>Articles</h2>
 
 <p>English:</p>
@@ -1111,6 +1112,7 @@ more time and resources to this project, ensuring that it remains up-to-date and
 <li><a href="https://habr.com/post/421097/">Композиция UIViewController-ов и навигация между ними</a></li>
 <li><a href="https://habr.com/post/428990/">Примеры конфигурации UIViewController-ов используя RouteComposer</a></li>
 <li><a href="https://habr.com/ru/post/446550/">Проблемы паттерна Координатор и при чем тут RouteComposer</a></li>
+<li><a href="https://www.youtube.com/watch?v=0fT_xyBDl0w">Декларативная навигация в iOS-приложении — Андрей Зонов, Тинькофф</a></li>
 </ul>
 <h2 id='author' class='heading'>Author</h2>
 
@@ -1127,8 +1129,8 @@ more time and resources to this project, ensuring that it remains up-to-date and
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2023 <a class="link" href="https://github.com/ekazaev" target="_blank" rel="external noopener">Evgeny Kazaev</a>. All rights reserved. (Last updated: 2023-09-30)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+      <p>&copy; 2025 <a class="link" href="https://github.com/ekazaev" target="_blank" rel="external noopener">Evgeny Kazaev</a>. All rights reserved. (Last updated: 2025-09-18)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.15.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>
 </html>

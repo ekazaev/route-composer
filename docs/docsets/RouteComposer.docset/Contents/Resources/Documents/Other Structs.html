@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="index.html">
-          RouteComposer 2.10.5 Docs
+          RouteComposer 2.21.0 Docs
         </a>
          (100% documented)
       </p>
@@ -36,7 +36,7 @@
     </header>
 
     <p class="breadcrumbs">
-      <a class="breadcrumb" href="index.html">RouteComposer Reference</a>
+      <a class="breadcrumb" href="index.html">RouteComposer</a>
       <img class="carat" src="img/carat.png" alt=""/>
       Other Structures  Reference
     </p>
@@ -257,9 +257,6 @@
                 <a class="nav-group-task-link" href="Structs/NavigationDelayingInterceptor.html">NavigationDelayingInterceptor</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Structs/NavigationDelayingInterceptor/Strategy.html">– Strategy</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Structs/SingleNavigationRouter.html">SingleNavigationRouter</a>
               </li>
               <li class="nav-group-task">
@@ -363,6 +360,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Enums/NavigationControllerActions/PushReplacingLastAction.html">– PushReplacingLastAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/NavigationDelayingInterceptorStrategy.html">NavigationDelayingInterceptorStrategy</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Enums/SplitViewControllerActions.html">SplitViewControllerActions</a>
@@ -530,6 +530,12 @@
                 <a class="nav-group-task-link" href="Structs/SplitControllerAdapter.html">SplitControllerAdapter</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/StepAssembler.html">StepAssembler</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/StepAssemblerWithFinder.html">StepAssemblerWithFinder</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Structs/StepChainAssembly.html">StepChainAssembly</a>
               </li>
               <li class="nav-group-task">
@@ -574,7 +580,8 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DefaultContainerAdapterLocator</span> <span class="p">:</span> <span class="kt"><a href="Protocols/ContainerAdapterLocator.html">ContainerAdapterLocator</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DefaultContainerAdapterLocator</span> <span class="p">:</span> <span class="kt"><a href="Protocols/ContainerAdapterLocator.html">ContainerAdapterLocator</a></span></code></pre>
 
                         </div>
                       </div>
@@ -602,7 +609,8 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">NavigationControllerAdapter</span><span class="o">&lt;</span><span class="kt">VC</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Protocols/ConcreteContainerAdapter.html">ConcreteContainerAdapter</a></span> <span class="k">where</span> <span class="kt">VC</span> <span class="p">:</span> <span class="kt">UINavigationController</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="kd">struct</span> <span class="kt">NavigationControllerAdapter</span><span class="o">&lt;</span><span class="kt">VC</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Protocols/ConcreteContainerAdapter.html">ConcreteContainerAdapter</a></span> <span class="k">where</span> <span class="kt">VC</span> <span class="p">:</span> <span class="kt">UINavigationController</span></code></pre>
 
                         </div>
                       </div>
@@ -630,7 +638,8 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">SplitControllerAdapter</span><span class="o">&lt;</span><span class="kt">VC</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Protocols/ConcreteContainerAdapter.html">ConcreteContainerAdapter</a></span> <span class="k">where</span> <span class="kt">VC</span> <span class="p">:</span> <span class="kt">UISplitViewController</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="kd">struct</span> <span class="kt">SplitControllerAdapter</span><span class="o">&lt;</span><span class="kt">VC</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Protocols/ConcreteContainerAdapter.html">ConcreteContainerAdapter</a></span> <span class="k">where</span> <span class="kt">VC</span> <span class="p">:</span> <span class="kt">UISplitViewController</span></code></pre>
 
                         </div>
                       </div>
@@ -658,7 +667,8 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">TabBarControllerAdapter</span><span class="o">&lt;</span><span class="kt">VC</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Protocols/ConcreteContainerAdapter.html">ConcreteContainerAdapter</a></span> <span class="k">where</span> <span class="kt">VC</span> <span class="p">:</span> <span class="kt">UITabBarController</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="kd">struct</span> <span class="kt">TabBarControllerAdapter</span><span class="o">&lt;</span><span class="kt">VC</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Protocols/ConcreteContainerAdapter.html">ConcreteContainerAdapter</a></span> <span class="k">where</span> <span class="kt">VC</span> <span class="p">:</span> <span class="kt">UITabBarController</span></code></pre>
 
                         </div>
                       </div>
@@ -686,7 +696,8 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ActionConnectingAssembly</span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">VC</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ActionConnectingAssembly</span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">VC</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
 
                         </div>
                       </div>
@@ -714,7 +725,8 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ContainerStepChainAssembly</span><span class="o">&lt;</span><span class="kt">AcceptableContainer</span><span class="p">,</span> <span class="kt">ViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">AcceptableContainer</span> <span class="p">:</span> <span class="kt"><a href="Protocols/ContainerViewController.html">ContainerViewController</a></span><span class="p">,</span> <span class="kt">ViewController</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ContainerStepChainAssembly</span><span class="o">&lt;</span><span class="kt">AcceptableContainer</span><span class="p">,</span> <span class="kt">ViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">AcceptableContainer</span> <span class="p">:</span> <span class="kt"><a href="Protocols/ContainerViewController.html">ContainerViewController</a></span><span class="p">,</span> <span class="kt">ViewController</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
 
                         </div>
                       </div>
@@ -742,7 +754,8 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">LastStepInChainAssembly</span><span class="o">&lt;</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">ViewController</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="kd">struct</span> <span class="kt">LastStepInChainAssembly</span><span class="o">&lt;</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">ViewController</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
 
                         </div>
                       </div>
@@ -770,7 +783,82 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">StepChainAssembly</span><span class="o">&lt;</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">ViewController</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="kd">struct</span> <span class="kt">StepChainAssembly</span><span class="o">&lt;</span><span class="kt">ViewController</span><span class="p">,</span> <span class="kt">Context</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">ViewController</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer13StepAssemblerV"></a>
+                    <a name="//apple_ref/swift/Struct/StepAssembler" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer13StepAssemblerV">StepAssembler</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Builds a <code><a href="Structs/DestinationStep.html">DestinationStep</a></code> instance with the correct settings into a chain of steps.</p>
+<h3 id='nb' class='heading'>NB</h3>
+
+<p>Both <code><a href="Protocols/Finder.html">Finder</a></code> and <code><a href="Protocols/Factory.html">Factory</a></code> instances should deal with the same type of <code>UIViewController</code> and <code>Context</code> instances.</p>
+<h3 id='usage' class='heading'>Usage</h3>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">productScreen</span> <span class="o">=</span> <span class="kt">StepAssembler</span><span class="o">&lt;</span><span class="kt">ProductViewController</span><span class="p">,</span> <span class="kt">ProductContext</span><span class="o">&gt;</span><span class="p">()</span>
+        <span class="o">.</span><span class="nf">finder</span><span class="p">(</span><span class="o">.</span><span class="n">classWithContextFinder</span><span class="p">)</span>
+        <span class="o">.</span><span class="nf">factory</span><span class="p">(</span><span class="o">.</span><span class="nf">storyboardFactory</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="s">"TabBar"</span><span class="p">,</span> <span class="nv">identifier</span><span class="p">:</span> <span class="s">"ProductViewController"</span><span class="p">))</span>
+        <span class="o">.</span><span class="nf">adding</span><span class="p">(</span><span class="kt">ContextSettingTask</span><span class="p">())</span>
+        <span class="o">.</span><span class="nf">using</span><span class="p">(</span><span class="o">.</span><span class="n">push</span><span class="p">)</span>
+        <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="o">.</span><span class="n">navigationController</span><span class="p">)</span>
+        <span class="o">.</span><span class="nf">using</span><span class="p">(</span><span class="o">.</span><span class="n">present</span><span class="p">)</span>
+        <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="o">.</span><span class="n">current</span><span class="p">)</span>
+        <span class="o">.</span><span class="nf">assemble</span><span class="p">()</span>
+</code></pre>
+
+<p>*Introduced by  <a href="https://github.com/Savva-Shuliatev">Savva Shuliatev</a> *</p>
+
+                        <a href="Structs/StepAssembler.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="kd">struct</span> <span class="kt">StepAssembler</span><span class="o">&lt;</span><span class="kt">VC</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">VC</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer23StepAssemblerWithFinderV"></a>
+                    <a name="//apple_ref/swift/Struct/StepAssemblerWithFinder" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer23StepAssemblerWithFinderV">StepAssemblerWithFinder</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Helper struct to build StepAssembly with chain StepAssembler -&gt; StepAssemblerWithFinder -&gt; StepAssembly.</p>
+
+                        <a href="Structs/StepAssemblerWithFinder.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="kd">struct</span> <span class="kt">StepAssemblerWithFinder</span><span class="o">&lt;</span><span class="kt">F</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">F</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Finder.html">Finder</a></span></code></pre>
 
                         </div>
                       </div>
@@ -798,7 +886,8 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ChildCoordinator</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ChildCoordinator</span></code></pre>
 
                         </div>
                       </div>
@@ -826,7 +915,8 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">CATransactionWrappedAction</span><span class="o">&lt;</span><span class="kt">A</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Core%20Entities.html#/s:13RouteComposer6ActionP">Action</a></span> <span class="k">where</span> <span class="kt">A</span> <span class="p">:</span> <span class="kt"><a href="Core%20Entities.html#/s:13RouteComposer6ActionP">Action</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="kd">struct</span> <span class="kt">CATransactionWrappedAction</span><span class="o">&lt;</span><span class="kt">A</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Core%20Entities.html#/s:13RouteComposer6ActionP">Action</a></span> <span class="k">where</span> <span class="kt">A</span> <span class="p">:</span> <span class="kt"><a href="Core%20Entities.html#/s:13RouteComposer6ActionP">Action</a></span></code></pre>
 
                         </div>
                       </div>
@@ -854,7 +944,8 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">CATransactionWrappedContainerAction</span><span class="o">&lt;</span><span class="kt">A</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Protocols/ContainerAction.html">ContainerAction</a></span> <span class="k">where</span> <span class="kt">A</span> <span class="p">:</span> <span class="kt"><a href="Protocols/ContainerAction.html">ContainerAction</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="kd">struct</span> <span class="kt">CATransactionWrappedContainerAction</span><span class="o">&lt;</span><span class="kt">A</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Protocols/ContainerAction.html">ContainerAction</a></span> <span class="k">where</span> <span class="kt">A</span> <span class="p">:</span> <span class="kt"><a href="Protocols/ContainerAction.html">ContainerAction</a></span></code></pre>
 
                         </div>
                       </div>
@@ -882,7 +973,8 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DispatchQueueWrappedAction</span><span class="o">&lt;</span><span class="kt">A</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Core%20Entities.html#/s:13RouteComposer6ActionP">Action</a></span> <span class="k">where</span> <span class="kt">A</span> <span class="p">:</span> <span class="kt"><a href="Core%20Entities.html#/s:13RouteComposer6ActionP">Action</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DispatchQueueWrappedAction</span><span class="o">&lt;</span><span class="kt">A</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Core%20Entities.html#/s:13RouteComposer6ActionP">Action</a></span> <span class="k">where</span> <span class="kt">A</span> <span class="p">:</span> <span class="kt"><a href="Core%20Entities.html#/s:13RouteComposer6ActionP">Action</a></span></code></pre>
 
                         </div>
                       </div>
@@ -910,7 +1002,8 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DispatchQueueWrappedContainerAction</span><span class="o">&lt;</span><span class="kt">A</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Protocols/ContainerAction.html">ContainerAction</a></span> <span class="k">where</span> <span class="kt">A</span> <span class="p">:</span> <span class="kt"><a href="Protocols/ContainerAction.html">ContainerAction</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DispatchQueueWrappedContainerAction</span><span class="o">&lt;</span><span class="kt">A</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Protocols/ContainerAction.html">ContainerAction</a></span> <span class="k">where</span> <span class="kt">A</span> <span class="p">:</span> <span class="kt"><a href="Protocols/ContainerAction.html">ContainerAction</a></span></code></pre>
 
                         </div>
                       </div>
@@ -939,7 +1032,8 @@ pre-populate the children view controllers instead of the <code><a href="Protoco
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">CompleteFactory</span><span class="o">&lt;</span><span class="kt">FC</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Protocols/ContainerFactory.html">ContainerFactory</a></span><span class="p">,</span> <span class="kt">CustomStringConvertible</span> <span class="k">where</span> <span class="kt">FC</span> <span class="p">:</span> <span class="kt"><a href="Protocols/ContainerFactory.html">ContainerFactory</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="kd">struct</span> <span class="kt">CompleteFactory</span><span class="o">&lt;</span><span class="kt">FC</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Protocols/ContainerFactory.html">ContainerFactory</a></span><span class="p">,</span> <span class="kd">@preconcurrency</span> <span class="kt">CustomStringConvertible</span> <span class="k">where</span> <span class="kt">FC</span> <span class="p">:</span> <span class="kt"><a href="Protocols/ContainerFactory.html">ContainerFactory</a></span></code></pre>
 
                         </div>
                       </div>
@@ -967,7 +1061,8 @@ pre-populate the children view controllers instead of the <code><a href="Protoco
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">CustomWindowProvider</span> <span class="p">:</span> <span class="kt"><a href="Protocols/WindowProvider.html">WindowProvider</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="kd">struct</span> <span class="kt">CustomWindowProvider</span> <span class="p">:</span> <span class="kt"><a href="Protocols/WindowProvider.html">WindowProvider</a></span></code></pre>
 
                         </div>
                       </div>
@@ -995,7 +1090,8 @@ pre-populate the children view controllers instead of the <code><a href="Protoco
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DefaultStackIterator</span> <span class="p">:</span> <span class="kt"><a href="Protocols/StackIterator.html">StackIterator</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DefaultStackIterator</span> <span class="p">:</span> <span class="kt"><a href="Protocols/StackIterator.html">StackIterator</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1023,7 +1119,8 @@ pre-populate the children view controllers instead of the <code><a href="Protoco
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">KeyWindowProvider</span> <span class="p">:</span> <span class="kt"><a href="Protocols/WindowProvider.html">WindowProvider</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="kd">struct</span> <span class="kt">KeyWindowProvider</span> <span class="p">:</span> <span class="kt"><a href="Protocols/WindowProvider.html">WindowProvider</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1079,7 +1176,8 @@ pre-populate the children view controllers instead of the <code><a href="Protoco
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DefaultRouter</span> <span class="p">:</span> <span class="kt"><a href="Protocols/InterceptableRouter.html">InterceptableRouter</a></span><span class="p">,</span> <span class="kt">MainThreadChecking</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DefaultRouter</span> <span class="p">:</span> <span class="kt"><a href="Protocols/InterceptableRouter.html">InterceptableRouter</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1107,7 +1205,8 @@ pre-populate the children view controllers instead of the <code><a href="Protoco
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DefaultStackPresentationHandler</span> <span class="p">:</span> <span class="kt"><a href="Protocols/StackPresentationHandler.html">StackPresentationHandler</a></span><span class="p">,</span> <span class="kt">MainThreadChecking</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DefaultStackPresentationHandler</span> <span class="p">:</span> <span class="kt"><a href="Protocols/StackPresentationHandler.html">StackPresentationHandler</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1135,7 +1234,7 @@ pre-populate the children view controllers instead of the <code><a href="Protoco
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">SearchOptions</span> <span class="p">:</span> <span class="kt">OptionSet</span><span class="p">,</span> <span class="kt">CaseIterable</span><span class="p">,</span> <span class="kt">CustomStringConvertible</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">SearchOptions</span> <span class="p">:</span> <span class="kt">OptionSet</span><span class="p">,</span> <span class="kt">CaseIterable</span><span class="p">,</span> <span class="kt">CustomStringConvertible</span><span class="p">,</span> <span class="kt">Sendable</span></code></pre>
 
                         </div>
                       </div>
@@ -1150,8 +1249,8 @@ pre-populate the children view controllers instead of the <code><a href="Protoco
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2023 <a class="link" href="https://github.com/ekazaev" target="_blank" rel="external noopener">Evgeny Kazaev</a>. All rights reserved. (Last updated: 2023-09-30)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+      <p>&copy; 2025 <a class="link" href="https://github.com/ekazaev" target="_blank" rel="external noopener">Evgeny Kazaev</a>. All rights reserved. (Last updated: 2025-09-18)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.15.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>
 </html>

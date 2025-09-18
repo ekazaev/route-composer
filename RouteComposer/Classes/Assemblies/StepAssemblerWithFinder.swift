@@ -23,7 +23,11 @@ public struct StepAssemblerWithFinder<F: Finder> {
     let finder: F
 
     // MARK: Methods
-
+    
+    /// Constructor
+    ///
+    /// - Parameters:
+    ///   - finder: The `UIViewController` `Finder` instance.
     public init(finder: F) {
         self.finder = finder
     }
@@ -83,6 +87,13 @@ public struct StepAssemblerWithFinder<F: Finder> {
         StepAssembly(finder: finder, factory: factory)
     }
 
+    /// Returns a StepAssembly from StepAssemblerWithFinder<F: Finder> with a specific `Factory` instance
+    ///
+    /// A @_spi method to integrate custom shorthands for custom factory.
+    ///
+    /// - Parameters:
+    ///   - factory: The `UIViewController` `ContainerFactory` instance.
+    ///
     @_spi(Advanced)
     public func getFactory<FC: ContainerFactory>(_ factory: FC) -> StepAssembly<F, FC> {
         StepAssembly(finder: finder, factory: factory)
@@ -93,27 +104,33 @@ public struct StepAssemblerWithFinder<F: Finder> {
 // MARK: Shorthands
 
 public extension StepAssemblerWithFinder {
+    /// Shorthand for different types of factories.
     func factory(_ factory: ClassFactory<F.ViewController, F.Context>) -> StepAssembly<F, ClassFactory<F.ViewController, F.Context>> {
         getFactory(factory)
     }
 
+    /// Shorthand for different types of factories.
     func factory<FC: Factory>(_ factory: FinderFactory<FC>) -> StepAssembly<F, FinderFactory<FC>> {
         getFactory(factory)
     }
 
+    /// Shorthand for different types of factories.
     func factory(_ factory: NilFactory<F.ViewController, F.Context>) -> StepAssembly<F, NilFactory<F.ViewController, F.Context>> {
         getFactory(factory)
     }
 
+    /// Shorthand for different types of factories.
     func factory(_ factory: StoryboardFactory<F.ViewController, F.Context>) -> StepAssembly<F, StoryboardFactory<F.ViewController, F.Context>> {
         getFactory(factory)
     }
 
+    /// Shorthand for different types of factories.
     func factory<ContentView: View & ContextChecking>(_ factory: UIHostingControllerFactory<ContentView, F.Context>)
     -> StepAssembly<F, UIHostingControllerFactory<ContentView, F.Context>> {
         getFactory(factory)
     }
 
+    /// Shorthand for different types of factories.
     func factory<ContentView: View & ContextChecking>(_ factory: UIHostingControllerWithContextFactory<ContentView>)
     -> StepAssembly<F, UIHostingControllerWithContextFactory<ContentView>> {
         getFactory(factory)
@@ -122,18 +139,21 @@ public extension StepAssemblerWithFinder {
 }
 
 public extension StepAssemblerWithFinder where F.ViewController == UINavigationController {
+    /// Shorthand for different types of factories.
     func factory(_ factory: NavigationControllerFactory<F.ViewController, F.Context>) -> StepAssembly<F, NavigationControllerFactory<F.ViewController, F.Context>> {
         getFactory(factory)
     }
 }
 
 public extension StepAssemblerWithFinder where F.ViewController == UISplitViewController {
+    /// Shorthand for different types of factories.
     func factory(_ factory: SplitControllerFactory<F.ViewController, F.Context>) -> StepAssembly<F, SplitControllerFactory<F.ViewController, F.Context>> {
         getFactory(factory)
     }
 }
 
 public extension StepAssemblerWithFinder where F.ViewController == UITabBarController {
+    /// Shorthand for different types of factories.
     func factory(_ factory: TabBarControllerFactory<F.ViewController, F.Context>) -> StepAssembly<F, TabBarControllerFactory<F.ViewController, F.Context>> {
         getFactory(factory)
     }

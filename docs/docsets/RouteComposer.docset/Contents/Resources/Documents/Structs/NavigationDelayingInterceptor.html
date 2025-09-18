@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          RouteComposer 2.10.5 Docs
+          RouteComposer 2.21.0 Docs
         </a>
          (100% documented)
       </p>
@@ -36,7 +36,9 @@
     </header>
 
     <p class="breadcrumbs">
-      <a class="breadcrumb" href="../index.html">RouteComposer Reference</a>
+      <a class="breadcrumb" href="../index.html">RouteComposer</a>
+      <img class="carat" src="../img/carat.png" alt=""/>
+      <a class="breadcrumb" href="../Extras.html">Extras</a>
       <img class="carat" src="../img/carat.png" alt=""/>
       NavigationDelayingInterceptor Structure Reference
     </p>
@@ -257,9 +259,6 @@
                 <a class="nav-group-task-link" href="../Structs/NavigationDelayingInterceptor.html">NavigationDelayingInterceptor</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Structs/NavigationDelayingInterceptor/Strategy.html">– Strategy</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/SingleNavigationRouter.html">SingleNavigationRouter</a>
               </li>
               <li class="nav-group-task">
@@ -363,6 +362,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/NavigationControllerActions/PushReplacingLastAction.html">– PushReplacingLastAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/NavigationDelayingInterceptorStrategy.html">NavigationDelayingInterceptorStrategy</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/SplitViewControllerActions.html">SplitViewControllerActions</a>
@@ -530,6 +532,12 @@
                 <a class="nav-group-task-link" href="../Structs/SplitControllerAdapter.html">SplitControllerAdapter</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/StepAssembler.html">StepAssembler</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/StepAssemblerWithFinder.html">StepAssemblerWithFinder</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/StepChainAssembly.html">StepChainAssembly</a>
               </li>
               <li class="nav-group-task">
@@ -547,7 +555,8 @@
               <div class="declaration">
                 <div class="language">
                   
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">NavigationDelayingInterceptor</span><span class="o">&lt;</span><span class="kt">Context</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/RoutingInterceptor.html">RoutingInterceptor</a></span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="kd">struct</span> <span class="kt">NavigationDelayingInterceptor</span><span class="o">&lt;</span><span class="kt">Context</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/RoutingInterceptor.html">RoutingInterceptor</a></span></code></pre>
 
                 </div>
               </div>
@@ -566,52 +575,6 @@ situations. The <code>.wait</code> strategy can be used only as a temporary solu
 
         <section class="section">
           <div class="section-content">
-            <div class="task-group">
-              <div class="task-name-container">
-                <a name="/Internal%20entities"></a>
-                <a name="//apple_ref/swift/Section/Internal entities" class="dashAnchor"></a>
-                <div class="section-name-container">
-                  <a class="section-name-link" href="#/Internal%20entities"></a>
-                  <h3 class="section-name"><span>Internal entities</span>
-</h3>
-                </div>
-              </div>
-              <ul class="item-container">
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:13RouteComposer29NavigationDelayingInterceptorV8StrategyO"></a>
-                    <a name="//apple_ref/swift/Enum/Strategy" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer29NavigationDelayingInterceptorV8StrategyO">Strategy</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>The strategy to be used by <code><a href="../Structs/NavigationDelayingInterceptor.html">NavigationDelayingInterceptor</a></code></p>
-
-<ul>
-<li>wait: Wait while some <code>UIViewController</code> is being presented or dismissed.</li>
-<li>abort:  Abort tha navigation if some <code>UIViewController</code> is being presented or dismissed.</li>
-</ul>
-
-                        <a href="../Structs/NavigationDelayingInterceptor/Strategy.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">Strategy</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
             <div class="task-group">
               <div class="task-name-container">
                 <a name="/Properties"></a>
@@ -643,7 +606,8 @@ situations. The <code>.wait</code> strategy can be used only as a temporary solu
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">windowProvider</span><span class="p">:</span> <span class="kt"><a href="../Protocols/WindowProvider.html">WindowProvider</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="k">let</span> <span class="nv">windowProvider</span><span class="p">:</span> <span class="kt"><a href="../Protocols/WindowProvider.html">WindowProvider</a></span></code></pre>
 
                         </div>
                       </div>
@@ -670,7 +634,8 @@ situations. The <code>.wait</code> strategy can be used only as a temporary solu
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">logger</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Logger.html">Logger</a></span><span class="p">?</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="k">let</span> <span class="nv">logger</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Logger.html">Logger</a></span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -680,9 +645,9 @@ situations. The <code>.wait</code> strategy can be used only as a temporary solu
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer29NavigationDelayingInterceptorV8strategyAC8StrategyOyx_Gvp"></a>
+                    <a name="/s:13RouteComposer29NavigationDelayingInterceptorV8strategyAA0cdE8StrategyOvp"></a>
                     <a name="//apple_ref/swift/Property/strategy" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer29NavigationDelayingInterceptorV8strategyAC8StrategyOyx_Gvp">strategy</a>
+                    <a class="token" href="#/s:13RouteComposer29NavigationDelayingInterceptorV8strategyAA0cdE8StrategyOvp">strategy</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -690,14 +655,15 @@ situations. The <code>.wait</code> strategy can be used only as a temporary solu
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Type of <code><a href="../Structs/NavigationDelayingInterceptor/Strategy.html">Strategy</a></code>.</p>
+                        <p>Type of <code><a href="../Enums/NavigationDelayingInterceptorStrategy.html">NavigationDelayingInterceptorStrategy</a></code>.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">strategy</span><span class="p">:</span> <span class="kt"><a href="../Structs/NavigationDelayingInterceptor/Strategy.html">Strategy</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="k">let</span> <span class="nv">strategy</span><span class="p">:</span> <span class="kt"><a href="../Enums/NavigationDelayingInterceptorStrategy.html">NavigationDelayingInterceptorStrategy</a></span></code></pre>
 
                         </div>
                       </div>
@@ -720,9 +686,9 @@ situations. The <code>.wait</code> strategy can be used only as a temporary solu
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13RouteComposer29NavigationDelayingInterceptorV14windowProvider8strategy6loggerACyxGAA06WindowG0_p_AC8StrategyOyx_GAA6Logger_pSgtcfc"></a>
-                    <a name="//apple_ref/swift/Method/init(windowProvider:strategy:logger:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13RouteComposer29NavigationDelayingInterceptorV14windowProvider8strategy6loggerACyxGAA06WindowG0_p_AC8StrategyOyx_GAA6Logger_pSgtcfc">init(windowProvider:<wbr>strategy:<wbr>logger:<wbr>)</a>
+                    <a name="/s:13RouteComposer29NavigationDelayingInterceptorV8strategy14windowProvider6loggerACyxGAA0cdE8StrategyO_AA06WindowH0_pAA6Logger_pSgtcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(strategy:windowProvider:logger:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer29NavigationDelayingInterceptorV8strategy14windowProvider6loggerACyxGAA0cdE8StrategyO_AA06WindowH0_pAA6Logger_pSgtcfc">init(strategy:<wbr>windowProvider:<wbr>logger:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -737,8 +703,9 @@ situations. The <code>.wait</code> strategy can be used only as a temporary solu
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">windowProvider</span><span class="p">:</span> <span class="kt"><a href="../Protocols/WindowProvider.html">WindowProvider</a></span> <span class="o">=</span> <span class="kt"><a href="../Classes/RouteComposerDefaults.html">RouteComposerDefaults</a></span><span class="o">.</span><span class="n">shared</span><span class="o">.</span><span class="n"><a href="../Structs/NavigationDelayingInterceptor.html#/s:13RouteComposer29NavigationDelayingInterceptorV14windowProviderAA06WindowG0_pvp">windowProvider</a></span><span class="p">,</span>
-            <span class="nv">strategy</span><span class="p">:</span> <span class="kt"><a href="../Structs/NavigationDelayingInterceptor/Strategy.html">Strategy</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">abort</span><span class="p">,</span>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">strategy</span><span class="p">:</span> <span class="kt"><a href="../Enums/NavigationDelayingInterceptorStrategy.html">NavigationDelayingInterceptorStrategy</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">abort</span><span class="p">,</span>
+            <span class="nv">windowProvider</span><span class="p">:</span> <span class="kt"><a href="../Protocols/WindowProvider.html">WindowProvider</a></span> <span class="o">=</span> <span class="kt"><a href="../Classes/RouteComposerDefaults.html">RouteComposerDefaults</a></span><span class="o">.</span><span class="n">shared</span><span class="o">.</span><span class="n"><a href="../Structs/NavigationDelayingInterceptor.html#/s:13RouteComposer29NavigationDelayingInterceptorV14windowProviderAA06WindowG0_pvp">windowProvider</a></span><span class="p">,</span>
             <span class="nv">logger</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Logger.html">Logger</a></span><span class="p">?</span> <span class="o">=</span> <span class="kt"><a href="../Classes/RouteComposerDefaults.html">RouteComposerDefaults</a></span><span class="o">.</span><span class="n">shared</span><span class="o">.</span><span class="n"><a href="../Structs/NavigationDelayingInterceptor.html#/s:13RouteComposer29NavigationDelayingInterceptorV6loggerAA6Logger_pSgvp">logger</a></span><span class="p">)</span></code></pre>
 
                         </div>
@@ -767,7 +734,7 @@ situations. The <code>.wait</code> strategy can be used only as a temporary solu
                               </td>
                               <td>
                                 <div>
-                                  <p>Type of <code><a href="../Structs/NavigationDelayingInterceptor/Strategy.html">Strategy</a></code> to be used.</p>
+                                  <p>Type of <code>Strategy</code> to be used.</p>
                                 </div>
                               </td>
                             </tr>
@@ -808,7 +775,8 @@ situations. The <code>.wait</code> strategy can be used only as a temporary solu
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">perform</span><span class="p">(</span><span class="n">with</span> <span class="nv">context</span><span class="p">:</span> <span class="kt">Context</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Enums/RoutingResult.html">RoutingResult</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">perform</span><span class="p">(</span><span class="n">with</span> <span class="nv">context</span><span class="p">:</span> <span class="kt">Context</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Enums/RoutingResult.html">RoutingResult</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -823,8 +791,8 @@ situations. The <code>.wait</code> strategy can be used only as a temporary solu
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2023 <a class="link" href="https://github.com/ekazaev" target="_blank" rel="external noopener">Evgeny Kazaev</a>. All rights reserved. (Last updated: 2023-09-30)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+      <p>&copy; 2025 <a class="link" href="https://github.com/ekazaev" target="_blank" rel="external noopener">Evgeny Kazaev</a>. All rights reserved. (Last updated: 2025-09-18)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.15.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>
 </html>

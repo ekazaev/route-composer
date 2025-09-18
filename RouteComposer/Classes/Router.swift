@@ -38,6 +38,12 @@ public protocol Router {
 @MainActor
 public extension Router {
 
+    /// Navigates the application to the view controller configured in `DestinationStep` with the `Context` provided.
+    ///
+    /// - Parameters:
+    ///   - step: `DestinationStep` instance.
+    ///   - context: `Context` instance.
+    ///   - animated: if true - the navigation should be animated where it is possible.
     @available(iOS 13.0.0, *)
     func navigate<Context>(to step: DestinationStep<some UIViewController, Context>,
                            with context: Context,
@@ -70,6 +76,11 @@ public extension Router {
         try navigate(to: step, with: nil, animated: animated, completion: completion)
     }
 
+    /// Navigates the application to the view controller configured in `DestinationStep` with the `Context` set to `Any?`.
+    ///
+    /// - Parameters:
+    ///   - step: `DestinationStep` instance.
+    ///   - animated: if true - the navigation should be animated where it is possible.
     @available(iOS 13.0.0, *)
     func navigate(to step: DestinationStep<some UIViewController, Any?>,
                   animated: Bool) async throws {
@@ -101,6 +112,11 @@ public extension Router {
         try navigate(to: step, with: (), animated: animated, completion: completion)
     }
 
+    /// Navigates the application to the view controller configured in `DestinationStep` with the `Context` set to `Void`.
+    ///
+    /// - Parameters:
+    ///   - step: `DestinationStep` instance.
+    ///   - animated: if true - the navigation should be animated where it is possible.
     @available(iOS 13.0.0, *)
     func navigate(to step: DestinationStep<some UIViewController, Void>,
                   animated: Bool) async throws {
