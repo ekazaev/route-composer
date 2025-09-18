@@ -40,3 +40,18 @@ public struct NilFactory<VC: UIViewController, C>: Factory, NilEntity {
     }
 
 }
+
+// MARK: Shorthands
+
+public extension NilFactory {
+
+    /// The dummy struct used to represent the `Factory` that does not build anything.
+    /// Its only purpose is to provide the type safety checks for the `StepAssembly`.
+    ///
+    /// For example, the `UIViewController` of the step was already loaded and integrated into a stack by a
+    /// storyboard in a previous step.
+    static var nilFactory: Self {
+        Self()
+    }
+
+}

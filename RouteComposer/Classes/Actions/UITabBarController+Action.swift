@@ -112,3 +112,30 @@ public enum TabBarControllerActions {
     }
 
 }
+
+// MARK: Shorthands
+
+public extension TabBarControllerActions.AddTabAction where ViewController == UITabBarController {
+    /// Adds a `UIViewController` to a `UITabBarController`
+    ///
+    ///   - tabIndex: index of a tab.
+    ///   - replacing: should be set to `true` if an existing view controller should be replaced.
+    ///     If condition has not been passed, a view controller
+    ///   will be added after the latest one.
+    static func addTab(at tabIndex: Int, replacing: Bool = false) -> Self {
+        Self(at: tabIndex, replacing: replacing)
+    }
+
+    /// Adds a `UIViewController` to a `UITabBarController`
+    ///
+    ///   - tabIndex: index of a tab.
+    ///     If condition has not been passed, a view controller
+    ///   will be added after the latest one.
+    static func addTab(at tabIndex: Int?) -> Self {
+        Self(at: tabIndex)
+    }
+
+    /// Adds a `UIViewController` to a `UITabBarController`
+    /// А view controller will be added after the latest one.
+    static var addTab: Self { Self.init() }
+}

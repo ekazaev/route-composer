@@ -29,9 +29,9 @@ enum InternalSearchConfiguration {
         .assemble()
 
     @MainActor
-    private static let mainScreenFromCircle = StepAssembly(
-        finder: NilFinder<UITabBarController, MainScreenContext>(),
-        factory: completeFactory)
+    private static let mainScreenFromCircle = StepAssembler<UITabBarController, MainScreenContext>()
+            .finder(.nilFinder)
+            .factory(completeFactory)
         // Comment `adding` and navigate to the Settings view controller to see the difference.
             .adding(InlineContextTask { (viewController: UITabBarController, context: MainScreenContext) in
                 // This block of code allows you to select necessary view controller according to the context passes at the moment when
@@ -41,21 +41,21 @@ enum InternalSearchConfiguration {
                     ClassWithContextFinder<AnyContextCheckingViewController<MainScreenContext>, MainScreenContext>(options: .currentAllStack, startingPoint: .custom(viewController)).getViewController(with: context) != nil
                 }) ?? 0
             })
-            .using(UINavigationController.push())
+            .using(.push)
             .from(ConfigurationHolder.configuration.circleScreen.expectingContainer())
             .assemble()
 
     @MainActor
-    static let home = Destination(to: StepAssembly(
-        finder: ClassWithContextFinder<HomeViewController, MainScreenContext>(),
-        factory: NilFactory())
+    static let home = Destination(to: StepAssembler<HomeViewController, MainScreenContext>()
+        .finder(.classWithContextFinder)
+        .factory(.nilFactory)
         .from(mainScreenFromCircle)
         .assemble(), with: .home)
 
     @MainActor
-    static let settings = Destination(to: StepAssembly(
-        finder: ClassWithContextFinder<SettingsViewController, MainScreenContext>(),
-        factory: NilFactory())
+  static let settings = Destination(to: StepAssembler<SettingsViewController, MainScreenContext>()
+        .finder(.classWithContextFinder)
+        .factory(.nilFactory)
         .from(mainScreenFromCircle)
         .assemble(), with: .settings)
 }

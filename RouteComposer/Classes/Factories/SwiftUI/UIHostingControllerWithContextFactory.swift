@@ -40,3 +40,11 @@ public struct UIHostingControllerWithContextFactory<ContentView: View & ContextI
 }
 
 #endif
+
+// MARK: Shorthands
+
+public extension UIHostingControllerWithContextFactory {
+    /// Builds `UIHostingController` with `ContentView` as a `UIHostingController.rootView` using the constructor
+    /// provided with `ContextInstantiatable` implementation.
+    static var hostingControllerWithContextFactory: Self { Self() }
+}

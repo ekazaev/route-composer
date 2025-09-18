@@ -96,8 +96,8 @@ class BoxTests: XCTestCase {
     func testNilEntitiesInStepAssembly() {
         let routingStep = StepAssembly(finder: NilFinder<UIViewController, Any?>(),
                                        factory: NilFactory<UIViewController, Any?>())
-            .using(ViewControllerActions.NilAction())
-            .from(GeneralStep.current())
+            .using(.nilAction)
+            .from(.current)
             .assemble()
         let step = routingStep.getPreviousStep(with: AnyContextBox(nil as Any?)) as? BaseStep
         XCTAssertNotNil(step)

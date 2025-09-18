@@ -70,3 +70,40 @@ public extension UIHostingControllerWithContextFinder {
 }
 
 #endif
+
+@available(iOS 13.0, OSX 10.15, tvOS 13.0, watchOS 6.0, *)
+public extension UIHostingControllerWithContextFinder {
+
+    /// A default implementation of the finder, that searches for a `UIHostingController` with a specific `View`
+    /// and its `Context` instance.
+    ///
+    /// The `View` should conform to the `ContextChecking` to be used with this finder.
+    ///
+    /// - Parameter iterator: A `StackIterator` is to be used by `ClassWithContextFinder`
+    static func hostingControllerWithContextFinder(iterator: StackIterator = RouteComposerDefaults.shared.stackIterator) -> Self {
+        Self(iterator: iterator)
+    }
+
+    /// A default implementation of the finder, that searches for a `UIHostingController` with a specific `View`
+    /// and its `Context` instance.
+    ///
+    /// The `View` should conform to the `ContextChecking` to be used with this finder.
+    static var hostingControllerWithContextFinder: UIHostingControllerWithContextFinder { Self() }
+
+    /// A default implementation of the finder, that searches for a `UIHostingController` with a specific `View`
+    /// and its `Context` instance.
+    ///
+    /// The `View` should conform to the `ContextChecking` to be used with this finder.
+    ///
+    /// Parameters
+    ///   - options: A combination of the `SearchOptions`
+    ///   - startingPoint: `DefaultStackIterator.StartingPoint` value
+    ///   - windowProvider: `WindowProvider` instance.
+    ///   - containerAdapterLocator: A `ContainerAdapterLocator` instance.
+    static func hostingControllerWithContextFinder(options: SearchOptions,
+                                                   startingPoint: DefaultStackIterator.StartingPoint = .topmost,
+                                                   windowProvider: WindowProvider = RouteComposerDefaults.shared.windowProvider,
+                                                   containerAdapterLocator: ContainerAdapterLocator = RouteComposerDefaults.shared.containerAdapterLocator) -> Self {
+        Self(options: options, startingPoint: startingPoint, windowProvider: windowProvider, containerAdapterLocator: containerAdapterLocator)
+    }
+}

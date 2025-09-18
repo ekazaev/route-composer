@@ -16,15 +16,15 @@ import UIKit
 
 enum WishListConfiguration {
     @MainActor
-    static let wishListScreen = StepAssembly(
-        finder: ClassFinder<WishListViewController, WishListContext>(),
-        factory: StoryboardFactory(name: "TabBar", identifier: "WishListViewController"))
+    static let wishListScreen = StepAssembler<WishListViewController, WishListContext>()
+        .finder(.classFinder)
+        .factory(.storyboardFactory(name: "TabBar", identifier: "WishListViewController"))
         .adding(LoginInterceptor())
         .adding(WishListContextTask())
-        .using(UINavigationController.push())
-        .from(NavigationControllerStep())
-        .using(GeneralAction.presentModally(presentationStyle: .formSheet))
-        .from(GeneralStep.current())
+        .using(.push)
+        .from(.navigationController)
+        .using(.present(presentationStyle: .formSheet))
+        .from(.current)
         .assemble()
 
     @MainActor

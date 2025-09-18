@@ -133,3 +133,20 @@ public enum NavigationControllerActions {
     }
 
 }
+
+// MARK: Shorthands
+
+public extension NavigationControllerActions.PushAction where ViewController == UINavigationController {
+    /// Pushes a child view controller into the `UINavigationController`'s children stack
+    static var push: Self { Self.init() }
+}
+
+public extension NavigationControllerActions.PushAsRootAction where ViewController == UINavigationController {
+    /// Replaces all the child view controllers in the `UINavigationController`'s children stack
+    static var pushAsRoot: Self { Self.init() }
+}
+
+public extension NavigationControllerActions.PushReplacingLastAction where ViewController == UINavigationController {
+    /// Pushes a view controller into the `UINavigationController`'s child stack replacing the last one
+    static var pushReplacingLast: Self { Self.init() }
+}

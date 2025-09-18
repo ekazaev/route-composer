@@ -12,7 +12,7 @@
 
 import Foundation
 import ImageDetailsController
-import RouteComposer
+@_spi(Advanced) import RouteComposer
 import UIKit
 
 class ImageDetailsFactory: Factory {
@@ -38,4 +38,16 @@ class ImageDetailsFactory: Factory {
         return viewController
     }
 
+}
+
+extension ImageDetailsFactory {
+    static func imageDetailsFactory(delegate: ImageDetailsControllerDelegate) -> ImageDetailsFactory {
+        ImageDetailsFactory(delegate: delegate)
+    }
+}
+
+extension StepAssemblerWithFinder where F.ViewController == ImageDetailsViewController, F.Context == String {
+    func factory(_ factory: ImageDetailsFactory) -> StepAssembly<F, ImageDetailsFactory> {
+        getFactory(factory)
+    }
 }

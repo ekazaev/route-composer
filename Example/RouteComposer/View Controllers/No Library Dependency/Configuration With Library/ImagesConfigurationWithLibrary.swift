@@ -20,21 +20,21 @@ import UIKit
 enum ImagesConfigurationWithLibrary {
 
     @MainActor
-    private static let imagesContainerStep = StepAssembly(
-        finder: ClassFinder<CustomContainerController, Any?>(),
-        factory: CustomContainerFactory(delegate: ImagesWithLibraryHandler.shared))
-        .using(UINavigationController.push())
-        .from(NavigationControllerStep())
-        .using(GeneralAction.presentModally())
-        .from(GeneralStep.current())
+    private static let imagesContainerStep = StepAssembler<CustomContainerController, Any?>()
+        .finder(.classFinder)
+        .factory(.customContainerFactory(delegate: ImagesWithLibraryHandler.shared)) // Or you can use `CustomContainerFactory(delegate: ImagesWithLibraryHandler.shared)`
+        .using(.push)
+        .from(.navigationController)
+        .using(.present)
+        .from(.current)
         .assemble()
 
     @MainActor
     static func images() -> Destination<ImagesViewController, Any?> {
-        let imagesStep = StepAssembly(
-            finder: ClassFinder(),
-            factory: ImagesFactory(delegate: ImagesWithLibraryHandler.shared))
-            .using(CustomContainerFactory<Any?>.ReplaceRoot())
+        let imagesStep = StepAssembler()
+            .finder(.classFinder)
+            .factory(.imagesFactory(delegate: ImagesWithLibraryHandler.shared))
+            .using(.customContainerReplaceRoot) // Or you can use `CustomContainerFactory<Any?>.ReplaceRoot()`
             .from(imagesContainerStep)
             .assemble()
         return Destination(to: imagesStep)
@@ -42,10 +42,10 @@ enum ImagesConfigurationWithLibrary {
 
     @MainActor
     static func imageDetails(for imageID: String) -> Destination<ImageDetailsViewController, String> {
-        let imageDetailsStep = StepAssembly(
-            finder: ClassFinder(),
-            factory: ImageDetailsFactory(delegate: ImagesWithLibraryHandler.shared))
-            .using(CustomContainerFactory<String>.ReplaceRoot())
+        let imageDetailsStep = StepAssembler()
+            .finder(.classFinder)
+            .factory(.imageDetailsFactory(delegate: ImagesWithLibraryHandler.shared))
+            .using(.customContainerReplaceRoot)
             .from(imagesContainerStep.adaptingContext())
             .assemble()
 

@@ -42,3 +42,13 @@ public struct InstanceFinder<VC: UIViewController, C>: Finder {
     }
 
 }
+
+// MARK: Shorthands
+
+public extension InstanceFinder {
+    /// The `Finder` that provides the `Router` a known instance of the `UIViewController`
+    ///
+    /// - Parameters:
+    ///   - instance: The `UIViewController` instance that `Finder` should provide to the `Router`
+    static func instanceFinder(instance: VC) -> Self { Self(instance: instance) }
+}

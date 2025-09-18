@@ -17,9 +17,9 @@ import UIKit
 class ProductConfiguration {
 
     @MainActor
-    static let productScreen = StepAssembly(
-        finder: ClassWithContextFinder<ProductViewController, ProductContext>(),
-        factory: StoryboardFactory(name: "TabBar", identifier: "ProductViewController"))
+    static let productScreen = StepAssembler<ProductViewController, ProductContext>()
+        .finder(.classWithContextFinder)
+        .factory(.storyboardFactory(name: "TabBar", identifier: "ProductViewController"))
         .adding(InlineInterceptor { (_: ProductContext) in
             print("On before navigation to Product view controller")
         })
@@ -30,14 +30,14 @@ class ProductConfiguration {
             print("After navigation to Produce view controller")
         })
         .adding(ContextSettingTask())
-        .using(UINavigationController.push())
+        .using(.push)
         .from(SwitchAssembly<UINavigationController, ProductContext>()
             // If this configuration is requested by a Universal Link (productURL != nil), then present modally.
             // Try in Mobile Safari dll://productView?product=123
             .addCase(when: { $0.productURL != nil },
                      from: ChainAssembly.from(NavigationControllerStep<UINavigationController, ProductContext>())
-                         .using(GeneralAction.presentModally())
-                         .from(GeneralStep.current())
+                         .using(.present)
+                         .from(.current)
                          .assemble())
             // If UINavigationController is visible on the screen - just push
             .addCase(from: ClassFinder<UINavigationController, ProductContext>(options: .currentVisibleOnly))
@@ -47,28 +47,28 @@ class ProductConfiguration {
 
     // This path is used to test the transactions in presentations. Does not have any other purposes
     @MainActor
-    static let productScreenFromCircle = StepAssembly(
-        finder: ClassWithContextFinder<ProductViewController, ProductContext>(),
-        factory: NilFactory())
+    static let productScreenFromCircle = StepAssembler<ProductViewController, ProductContext>()
+        .finder(.classWithContextFinder)
+        .factory(.nilFactory)
         .adding(ContextSettingTask())
         .from(SingleStep(
             finder: NilFinder(),
             factory: StoryboardFactory<ProductViewController, ProductContext>(name: "TabBar", identifier: "ProductViewController"))
             .adding(ContextSettingTask()))
-        .using(UINavigationController.push())
-        .from(NavigationControllerStep())
-        .using(GeneralAction.presentModally())
+        .using(.push)
+        .from(.navigationController)
+        .using(.present)
         .from(SingleStep(
             finder: ClassWithContextFinder<ProductViewController, ProductContext>(),
             factory: NilFactory())
             .adding(ContextSettingTask()))
-        .using(GeneralAction.nilAction())
+        .using(.nilAction)
         .from(SingleStep(
             finder: NilFinder(),
             factory: StoryboardFactory<ProductViewController, ProductContext>(name: "TabBar", identifier: "ProductViewController"))
             .adding(ContextSettingTask()))
 //            .using(DispatchQueue.delay(UINavigationController.push()))
-        .using(UINavigationController.push())
+        .using(.push)
         .from(ConfigurationHolder.configuration.circleScreen.expectingContainer())
         .assemble()
 

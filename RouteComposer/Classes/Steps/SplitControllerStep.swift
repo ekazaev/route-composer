@@ -23,3 +23,19 @@ public final class SplitControllerStep<VC: UISplitViewController, Context>: Sing
     }
 
 }
+
+// MARK: Shorthands
+
+public extension DestinationStep where VC == UISplitViewController {
+    /// Default split container step
+    static var splitViewController: SplitControllerStep<UISplitViewController, Context> {
+        SplitControllerStep()
+    }
+}
+
+public extension ActionToStepIntegrator where VC == UITabBarController {
+    /// Default split container step
+    static var splitViewController: SplitControllerStep<UISplitViewController, Context> {
+        SplitControllerStep()
+    }
+}

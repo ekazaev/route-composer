@@ -373,20 +373,22 @@ class ProductViewControllerPostTask: PostRoutingTask {
 ### Configuring Step
 
 Everything that the router does is configured using a `DestinationStep` instance. There is no need to create your own implementation of this protocol.
-Use `StepAssembly` provided by the library to configure any step that the router should execute during the routing.
+Use `StepAssembler` provided by the library to configure any step that the router should execute during the routing.
 
 *Example: A `ProductViewController` configuration that explains to the router that it should be boxed in UINavigationController
 which should be presented modally from any currently visible view controller.*
 
 ```swift
-let productScreen = StepAssembly(finder: ProductViewControllerFinder(), factory: ProductViewControllerFactory())
+let productScreen = StepAssembler<ProductViewController, Any?>()
+        .finder(ProductViewControllerFinder())
+        .factory(ProductViewControllerFactory())
         .add(LoginInterceptor<UUID>()) // Have to specify the context type till https://bugs.swift.org/browse/SR-8719, https://bugs.swift.org/browse/SR-8705 are fixed
         .add(ProductViewControllerContextTask())
         .add(ProductViewControllerPostTask(analyticsManager: AnalyticsManager.sharedInstance))
-        .using(UINavigationController.push())
-        .from(NavigationControllerStep())
-        .using(GeneralActions.presentModally())
-        .from(GeneralStep.current())
+        .using(.push)
+        .from(.navigationController)
+        .using(.present)
+        .from(.current)
         .assemble()
 ```
 
@@ -416,14 +418,16 @@ should be logged into see the product details.*
 
 struct Configuration {
 
-    static let productScreen = StepAssembly(finder: ProductViewControllerFinder(), factory: ProductViewControllerFactory())
+    static let productScreen = StepAssembler<ProductViewController, Any?>()
+                .finder(ProductViewControllerFinder())
+                .factory(ProductViewControllerFactory())
                 .add(LoginInterceptor<UUID>())
                 .add(ProductViewControllerContextTask())
                 .add(ProductViewControllerPostTask(analyticsManager: AnalyticsManager.sharedInstance))
-                .using(UINavigationController.push())
-                .from(NavigationControllerStep())
-                .using(GeneralActions.presentModally())
-                .from(GeneralStep.current())
+                .using(.push)
+                .from(.navigationController)
+                .using(.present)
+                .from(.current)
                 .assemble()
 
 }

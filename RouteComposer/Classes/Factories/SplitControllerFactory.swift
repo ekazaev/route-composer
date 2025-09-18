@@ -82,3 +82,24 @@ public struct SplitControllerFactory<VC: UISplitViewController, C>: ContainerFac
     }
 
 }
+
+// MARK: Shorthands
+
+public extension SplitControllerFactory {
+
+    ///  The `ContainerFactory` that creates a `UISplitController` instance.
+    static func splitControllerFactory(nibName nibNameOrNil: String? = nil,
+                                       bundle nibBundleOrNil: Bundle? = nil,
+                                       delegate: UISplitViewControllerDelegate? = nil,
+                                       presentsWithGesture: Bool? = nil,
+                                       preferredDisplayMode: UISplitViewController.DisplayMode? = nil,
+                                       configuration: ((_: VC) -> Void)? = nil) -> Self {
+        Self(nibName: nibNameOrNil,
+             bundle: nibBundleOrNil,
+             delegate: delegate,
+             presentsWithGesture: presentsWithGesture,
+             preferredDisplayMode: preferredDisplayMode,
+             configuration: configuration)
+    }
+
+}
