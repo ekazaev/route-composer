@@ -69,7 +69,7 @@ public extension StepAssembly where FC: Factory {
     /// - Parameter action: `Action` instance to be used with a step.
     @_disfavoredOverload
     final func using(_ action: some Action) -> StepChainAssembly<ViewController, Context> {
-      usingAction(action)
+        usingAction(action)
     }
 
     @_spi(Advanced)

@@ -372,17 +372,17 @@ public extension ViewControllerActions.PresentModallyAction {
                         isModalInPresentation: Bool? = nil,
                         popoverConfiguration: ((_: UIPopoverPresentationController) -> Void)? = nil) -> Self {
         ViewControllerActions.PresentModallyAction(startingFrom: presentationStartingPoint,
-                                                 presentationStyle: presentationStyle,
-                                                 transitionStyle: transitionStyle,
-                                                 transitioningDelegate: transitioningDelegate,
-                                                 preferredContentSize: preferredContentSize,
-                                                 isModalInPresentation: isModalInPresentation,
-                                                 presentationConfiguration: {
-        if let popoverController = $0 as? UIPopoverPresentationController,
-            let popoverConfiguration {
-                popoverConfiguration(popoverController)
-            }
-        })
+                                                   presentationStyle: presentationStyle,
+                                                   transitionStyle: transitionStyle,
+                                                   transitioningDelegate: transitioningDelegate,
+                                                   preferredContentSize: preferredContentSize,
+                                                   isModalInPresentation: isModalInPresentation,
+                                                   presentationConfiguration: {
+                                                       if let popoverController = $0 as? UIPopoverPresentationController,
+                                                          let popoverConfiguration {
+                                                           popoverConfiguration(popoverController)
+                                                       }
+                                                   })
     }
 
     /// Presents a view controller modally

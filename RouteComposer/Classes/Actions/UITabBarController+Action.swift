@@ -137,5 +137,5 @@ public extension TabBarControllerActions.AddTabAction where ViewController == UI
 
     /// Adds a `UIViewController` to a `UITabBarController`
     /// А view controller will be added after the latest one.
-    static var addTab: Self { Self.init() }
+    static var addTab: Self { Self() }
 }

@@ -30,20 +30,20 @@ enum InternalSearchConfiguration {
 
     @MainActor
     private static let mainScreenFromCircle = StepAssembler<UITabBarController, MainScreenContext>()
-            .finder(.nilFinder)
-            .factory(completeFactory)
+        .finder(.nilFinder)
+        .factory(completeFactory)
         // Comment `adding` and navigate to the Settings view controller to see the difference.
-            .adding(InlineContextTask { (viewController: UITabBarController, context: MainScreenContext) in
-                // This block of code allows you to select necessary view controller according to the context passes at the moment when
-                // the UITabBarController was just created. No mater if the child view controllers are wrapped in some other containers
-                // or tif they order will change. You can use this approach also in your own container factories.
-                viewController.selectedIndex = viewController.viewControllers?.firstIndex(where: { viewController in
-                    ClassWithContextFinder<AnyContextCheckingViewController<MainScreenContext>, MainScreenContext>(options: .currentAllStack, startingPoint: .custom(viewController)).getViewController(with: context) != nil
-                }) ?? 0
-            })
-            .using(.push)
-            .from(ConfigurationHolder.configuration.circleScreen.expectingContainer())
-            .assemble()
+        .adding(InlineContextTask { (viewController: UITabBarController, context: MainScreenContext) in
+            // This block of code allows you to select necessary view controller according to the context passes at the moment when
+            // the UITabBarController was just created. No mater if the child view controllers are wrapped in some other containers
+            // or tif they order will change. You can use this approach also in your own container factories.
+            viewController.selectedIndex = viewController.viewControllers?.firstIndex(where: { viewController in
+                ClassWithContextFinder<AnyContextCheckingViewController<MainScreenContext>, MainScreenContext>(options: .currentAllStack, startingPoint: .custom(viewController)).getViewController(with: context) != nil
+            }) ?? 0
+        })
+        .using(.push)
+        .from(ConfigurationHolder.configuration.circleScreen.expectingContainer())
+        .assemble()
 
     @MainActor
     static let home = Destination(to: StepAssembler<HomeViewController, MainScreenContext>()
@@ -53,7 +53,7 @@ enum InternalSearchConfiguration {
         .assemble(), with: .home)
 
     @MainActor
-  static let settings = Destination(to: StepAssembler<SettingsViewController, MainScreenContext>()
+    static let settings = Destination(to: StepAssembler<SettingsViewController, MainScreenContext>()
         .finder(.classWithContextFinder)
         .factory(.nilFactory)
         .from(mainScreenFromCircle)

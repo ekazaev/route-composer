@@ -3,19 +3,16 @@
 // StepAssembler.swift
 // https://github.com/ekazaev/route-composer
 //
-// Copyright (c) 2018-2025 Eugene Kazaev.
-// Distributed under the MIT License.
-//
-// Modified in a fork by Savva Shuliatev
-// https://github.com/Savva-Shuliatev
+// Created by Eugene Kazaev in 2018-2025.
+// Distributed under the MIT license.
 //
 // Become a sponsor:
 // https://github.com/sponsors/ekazaev
 //
 
 import Foundation
-import UIKit
 import SwiftUI
+import UIKit
 
 /// Builds a `DestinationStep` instance with the correct settings into a chain of steps.
 /// ### NB
@@ -88,21 +85,21 @@ public struct StepAssembler<VC: UIViewController, C> {
 
 // MARK: Shorthands
 
-extension StepAssembler {
+public extension StepAssembler {
 
-    public func finder(_ finder: ClassFinder<VC, C>) -> StepAssemblerWithFinder<ClassFinder<VC, C>> {
+    func finder(_ finder: ClassFinder<VC, C>) -> StepAssemblerWithFinder<ClassFinder<VC, C>> {
         getFinder(finder)
     }
 
-    public func finder(_ finder: InstanceFinder<VC, C>) -> StepAssemblerWithFinder<InstanceFinder<VC, C>> {
+    func finder(_ finder: InstanceFinder<VC, C>) -> StepAssemblerWithFinder<InstanceFinder<VC, C>> {
         getFinder(finder)
     }
 
-    public func finder(_ finder: NilFinder<VC, C>) -> StepAssemblerWithFinder<NilFinder<VC, C>> {
+    func finder(_ finder: NilFinder<VC, C>) -> StepAssemblerWithFinder<NilFinder<VC, C>> {
         getFinder(finder)
     }
 
-    public func finder<ContentView: View & ContextChecking>(_ finder: UIHostingControllerWithContextFinder<ContentView>)
+    func finder<ContentView: View & ContextChecking>(_ finder: UIHostingControllerWithContextFinder<ContentView>)
         -> StepAssemblerWithFinder<UIHostingControllerWithContextFinder<ContentView>>
         where
         UIHostingController<ContentView> == VC, ContentView.Context == C {
@@ -110,8 +107,8 @@ extension StepAssembler {
     }
 }
 
-extension StepAssembler where VC: ContextChecking, C == VC.Context {
-    public func finder(_ finder: ClassWithContextFinder<VC, C>) -> StepAssemblerWithFinder<ClassWithContextFinder<VC, C>> {
-            getFinder(finder)
-      }
+public extension StepAssembler where VC: ContextChecking, C == VC.Context {
+    func finder(_ finder: ClassWithContextFinder<VC, C>) -> StepAssemblerWithFinder<ClassWithContextFinder<VC, C>> {
+        getFinder(finder)
+    }
 }

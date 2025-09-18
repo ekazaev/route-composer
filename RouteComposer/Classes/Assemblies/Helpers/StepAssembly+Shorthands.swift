@@ -3,11 +3,8 @@
 // StepAssembly+Shorthands.swift
 // https://github.com/ekazaev/route-composer
 //
-// Copyright (c) 2018-2025 Eugene Kazaev.
-// Distributed under the MIT License.
-//
-// Modified in a fork by Savva Shuliatev
-// https://github.com/Savva-Shuliatev
+// Created by Eugene Kazaev in 2018-2025.
+// Distributed under the MIT license.
 //
 // Become a sponsor:
 // https://github.com/sponsors/ekazaev
@@ -62,13 +59,13 @@ public extension StepAssembly where FC: Factory {
 
     /// Enables shorthand `.using(.pushAsRoot)`
     final func using(_ action: NavigationControllerActions.PushAsRootAction<UINavigationController>)
-        -> ContainerStepChainAssembly<UINavigationController, ViewController, Context> {
+    -> ContainerStepChainAssembly<UINavigationController, ViewController, Context> {
         usingAction(action)
     }
 
     /// Enables shorthand `.using(.pushReplacingLast)`
     final func using(_ action: NavigationControllerActions.PushReplacingLastAction<UINavigationController>)
-        -> ContainerStepChainAssembly<UINavigationController, ViewController, Context> {
+    -> ContainerStepChainAssembly<UINavigationController, ViewController, Context> {
         usingAction(action)
     }
 }
@@ -81,13 +78,13 @@ public extension StepAssembly where FC: ContainerFactory {
 
     /// Enables shorthand `.using(.pushAsRoot)`
     final func using(_ action: NavigationControllerActions.PushAsRootAction<UINavigationController>)
-        -> ContainerStepChainAssembly<UINavigationController, ViewController, Context> {
+    -> ContainerStepChainAssembly<UINavigationController, ViewController, Context> {
         usingAction(action)
     }
 
     /// Enables shorthand `.using(.pushReplacingLast)`
     final func using(_ action: NavigationControllerActions.PushReplacingLastAction<UINavigationController>)
-        -> ContainerStepChainAssembly<UINavigationController, ViewController, Context> {
+    -> ContainerStepChainAssembly<UINavigationController, ViewController, Context> {
         usingAction(action)
     }
 }
@@ -105,7 +102,7 @@ public extension StepAssembly where FC: ContainerFactory {
     /// Enables shorthand `.using(.addTab)` by providing a concrete expected type.
     final func using(_ action: TabBarControllerActions.AddTabAction<UITabBarController>) -> ContainerStepChainAssembly<UITabBarController, ViewController, Context> {
         usingAction(action)
-  }
+    }
 }
 
 // MARK: SplitViewControllerActions shorthands
@@ -118,13 +115,13 @@ public extension StepAssembly where FC: Factory {
 
     /// Enables shorthand `.using(.pushToDetails)`
     final func using(_ action: SplitViewControllerActions.PushToDetailsAction<UISplitViewController>)
-        -> ContainerStepChainAssembly<UISplitViewController, ViewController, Context> {
+    -> ContainerStepChainAssembly<UISplitViewController, ViewController, Context> {
         usingAction(action)
     }
 
     /// Enables shorthand `.using(.pushOnToDetails)`
     final func using(_ action: SplitViewControllerActions.PushOnToDetailsAction<UISplitViewController>)
-        -> ContainerStepChainAssembly<UISplitViewController, ViewController, Context> {
+    -> ContainerStepChainAssembly<UISplitViewController, ViewController, Context> {
         usingAction(action)
     }
 }
@@ -137,13 +134,13 @@ public extension StepAssembly where FC: ContainerFactory {
 
     /// Enables shorthand `.using(.pushToDetails)`
     final func using(_ action: SplitViewControllerActions.PushToDetailsAction<UISplitViewController>)
-        -> ContainerStepChainAssembly<UISplitViewController, ViewController, Context> {
+    -> ContainerStepChainAssembly<UISplitViewController, ViewController, Context> {
         usingAction(action)
     }
 
     /// Enables shorthand `.using(.pushOnToDetails)`
     final func using(_ action: SplitViewControllerActions.PushOnToDetailsAction<UISplitViewController>)
-        -> ContainerStepChainAssembly<UISplitViewController, ViewController, Context> {
+    -> ContainerStepChainAssembly<UISplitViewController, ViewController, Context> {
         usingAction(action)
     }
 }

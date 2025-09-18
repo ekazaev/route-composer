@@ -128,14 +128,14 @@ extension ExampleScreenConfiguration {
             .from(.navigationController)
             .using( // `topmostParent` and `overCurrentContext` are set for the test purposes only
                 .present(startingFrom: .topmostParent,
-                                             presentationStyle: .overCurrentContext,
-                                             transitioningDelegate: transitionController))
+                         presentationStyle: .overCurrentContext,
+                         transitioningDelegate: transitionController))
             .from(routingSupportScreen)
             .assemble()
     }
 
     var welcomeScreen: DestinationStep<PromptViewController, Any?> {
-          StepAssembler<PromptViewController, Any?>()
+        StepAssembler<PromptViewController, Any?>()
             .finder(.classFinder)
             .factory(.storyboardFactory(name: "PromptScreen"))
             .adding(ExampleGenericContextTask<PromptViewController, Any?>())

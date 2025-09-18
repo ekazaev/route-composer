@@ -41,7 +41,7 @@ class ImagesFactory: Factory {
 
 extension ImagesFactory {
     static func imagesFactory(delegate: ImagesControllerDelegate) -> ImagesFactory {
-      ImagesFactory(delegate: delegate)
+        ImagesFactory(delegate: delegate)
     }
 }
 
