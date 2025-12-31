@@ -71,7 +71,6 @@
 		4BCA24CB1A2662073397078C8A292FFC /* Router+Destination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B30605ACD59AED2034E895CF13608CB /* Router+Destination.swift */; };
 		4C5A75422A964E6C7336A433C96E6BC6 /* ContainerStepChainAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03449E23774385C34511C3FE01EF63B1 /* ContainerStepChainAssembly.swift */; };
 		4D18002B48F271AD09746AD573266AAB /* CustomWindowProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFBE84729A2EC83630A428556BA0FC4 /* CustomWindowProvider.swift */; };
-		4D52528B2EDA4379003FFDA8 /* BuildFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D52528A2EDA4379003FFDA8 /* BuildFactory.swift */; };
 		4F0EC61E181805024E483592D70F6B75 /* InterceptableRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871CC2C15444EAEC9026A44D774157F4 /* InterceptableRouter.swift */; };
 		50CA29D5C03A6893E19D258E29074735 /* BaseStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B87F059B92C94C7CA38B5897EA78B38 /* BaseStep.swift */; };
 		512413FCB321195F36C36A8053C17E52 /* ContextAcceptingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290E9736121B17DCA36ACF846F437063 /* ContextAcceptingView.swift */; };
@@ -394,7 +393,6 @@
 		4B695C2123718E14DA0894B5081E40E4 /* TabBarControllerStep.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TabBarControllerStep.swift; sourceTree = "<group>"; };
 		4BBD6CCCEEA21444C9B7FB6990025A7D /* UISplitViewController+Action.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UISplitViewController+Action.swift"; sourceTree = "<group>"; };
 		4C413A578D6CFF4A66E59177553780C3 /* SingleNavigationRouter.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html.documentation; name = SingleNavigationRouter.html; path = docs/docsets/RouteComposer.docset/Contents/Resources/Documents/Structs/SingleNavigationRouter.html; sourceTree = "<group>"; };
-		4D52528A2EDA4379003FFDA8 /* BuildFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildFactory.swift; sourceTree = "<group>"; };
 		4D8A17D7971486AB1AEEF4FD1E2803FF /* NavigationControllerFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NavigationControllerFactory.swift; sourceTree = "<group>"; };
 		4DBE7587A726CE6DF5B9CC0D71D03778 /* jquery.min.js */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.javascript; name = jquery.min.js; path = docs/docsets/RouteComposer.docset/Contents/Resources/Documents/js/jquery.min.js; sourceTree = "<group>"; };
 		4DE9C722CBB7B06324548F4B0C2B563F /* Pods-RouteComposer_Example-RouteComposer_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-RouteComposer_Example-RouteComposer_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
@@ -1652,7 +1650,6 @@
 			isa = PBXGroup;
 			children = (
 				52756E8F76F81E9FE1BCDEE022A15EAC /* ClassFactory.swift */,
-				4D52528A2EDA4379003FFDA8 /* BuildFactory.swift */,
 				00368BB4B132ECE015C966B0F61423AE /* CompleteFactory.swift */,
 				C4AF7ED338FAFC20B7202F81F63B052D /* FinderFactory.swift */,
 				4D8A17D7971486AB1AEEF4FD1E2803FF /* NavigationControllerFactory.swift */,
@@ -2048,7 +2045,6 @@
 				79564429CAF9BE59AE227B02BAF869FD /* InlineInterceptor.swift in Sources */,
 				050CFB5C72011C48F4C725A1D67DD863 /* InlinePostTask.swift in Sources */,
 				ACD7EEA01EC79F62E5CAEF02E0A46257 /* InlineStackIteratingFinder.swift in Sources */,
-				4D52528B2EDA4379003FFDA8 /* BuildFactory.swift in Sources */,
 				B87528B3B360277C28147396F48269C2 /* InPlaceTransformingAnyContext.swift in Sources */,
 				7978A8300EED8547C3DB87EE8009038D /* InstanceFinder.swift in Sources */,
 				4F0EC61E181805024E483592D70F6B75 /* InterceptableRouter.swift in Sources */,
