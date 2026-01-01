@@ -3,7 +3,7 @@
 // BaseStep.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2025.
+// Created by Eugene Kazaev in 2018-2026.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -78,7 +78,7 @@ struct BaseStep: RoutingStep,
         previousStep = step
     }
 
-    public var description: String {
+    var description: String {
         var finderDescription = "None"
         var factoryDescription = "None"
         if let finder {

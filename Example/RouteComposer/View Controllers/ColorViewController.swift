@@ -3,7 +3,7 @@
 // ColorViewController.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2025.
+// Created by Eugene Kazaev in 2018-2026.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -20,9 +20,9 @@ class ColorViewControllerFinder: StackIteratingFinder {
 
     typealias Context = String
 
-    public let iterator: StackIterator = DefaultStackIterator(options: .currentAllStack,
-                                                              windowProvider: RouteComposerDefaults.shared.windowProvider,
-                                                              containerAdapterLocator: RouteComposerDefaults.shared.containerAdapterLocator)
+    let iterator: StackIterator = DefaultStackIterator(options: .currentAllStack,
+                                                       windowProvider: RouteComposerDefaults.shared.windowProvider,
+                                                       containerAdapterLocator: RouteComposerDefaults.shared.containerAdapterLocator)
 
     func isTarget(_ viewController: ColorViewController, with colorHex: String) -> Bool {
         viewController.colorHex = colorHex

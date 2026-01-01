@@ -3,7 +3,7 @@
 // DefaultRouter.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2025.
+// Created by Eugene Kazaev in 2018-2026.
 // Distributed under the MIT license.
 //
 // Become a sponsor:

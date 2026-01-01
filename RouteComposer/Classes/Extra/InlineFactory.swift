@@ -3,7 +3,7 @@
 // InlineFactory.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2025.
+// Created by Eugene Kazaev in 2018-2026.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -64,16 +64,16 @@ public struct InlineFactory<VC: UIViewController, C>: Factory {
 
 // MARK: Shorthands
 
-extension InlineFactory {
+public extension InlineFactory {
     /// Shorthand to be used as `.factory(.build(...))`
-    public static func build(_ buildBlock: @escaping (Context) -> ViewController) -> InlineFactory {
+    static func build(_ buildBlock: @escaping (Context) -> ViewController) -> InlineFactory {
         InlineFactory(buildBlock)
     }
 }
 
-extension StepAssemblerWithFinder {
+public extension StepAssemblerWithFinder {
     /// Shorthand to be used as `.factory(.build(...))`
-    public func factory(_ factory: InlineFactory<F.ViewController, F.Context>) -> StepAssembly<F, InlineFactory<F.ViewController, F.Context>> {
+    func factory(_ factory: InlineFactory<F.ViewController, F.Context>) -> StepAssembly<F, InlineFactory<F.ViewController, F.Context>> {
         return getFactory(factory)
     }
 }

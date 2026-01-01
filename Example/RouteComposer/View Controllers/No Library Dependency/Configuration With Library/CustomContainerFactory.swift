@@ -3,7 +3,7 @@
 // CustomContainerFactory.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2025.
+// Created by Eugene Kazaev in 2018-2026.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -81,18 +81,18 @@ struct CustomContainerControllerAdapter: ConcreteContainerAdapter {
         self.customContainerController = customContainerController
     }
 
-    public var containedViewControllers: [UIViewController] {
+    var containedViewControllers: [UIViewController] {
         guard let rootViewController = customContainerController?.rootViewController else {
             return []
         }
         return [rootViewController]
     }
 
-    public var visibleViewControllers: [UIViewController] {
+    var visibleViewControllers: [UIViewController] {
         containedViewControllers
     }
 
-    public func makeVisible(_ viewController: UIViewController, animated: Bool, completion: @escaping (_: RoutingResult) -> Void) {
+    func makeVisible(_ viewController: UIViewController, animated: Bool, completion: @escaping (_: RoutingResult) -> Void) {
         guard let customContainerController else {
             completion(.failure(RoutingError.compositionFailed(.init("CustomContainerController has been deallocated"))))
             return
@@ -104,7 +104,7 @@ struct CustomContainerControllerAdapter: ConcreteContainerAdapter {
         completion(.success)
     }
 
-    public func setContainedViewControllers(_ containedViewControllers: [UIViewController], animated: Bool, completion: @escaping (_: RoutingResult) -> Void) {
+    func setContainedViewControllers(_ containedViewControllers: [UIViewController], animated: Bool, completion: @escaping (_: RoutingResult) -> Void) {
         guard let customContainerController else {
             completion(.failure(RoutingError.compositionFailed(.init("CustomContainerController has been deallocated"))))
             return

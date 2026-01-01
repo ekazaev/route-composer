@@ -3,7 +3,7 @@
 // ContainerAdapter.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2025.
+// Created by Eugene Kazaev in 2018-2026.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -28,7 +28,7 @@ import UIKit
 public protocol ContainerAdapter {
 
     // MARK: Properties to implement
-    
+
     /// Provides an ability to override default parent. `nil` means use default parent of the `UIViewController`.
     var overriddenParentViewController: UIViewController? { get }
 
@@ -67,7 +67,7 @@ public protocol ContainerAdapter {
 
 @MainActor
 public extension ContainerAdapter {
-    
+
     /// Defaults to `nil`.
     var overriddenParentViewController: UIViewController? {
         return nil

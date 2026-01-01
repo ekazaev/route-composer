@@ -3,7 +3,7 @@
 // PostponedIntegrationFactory.swift
 // https://github.com/ekazaev/route-composer
 //
-// Created by Eugene Kazaev in 2018-2025.
+// Created by Eugene Kazaev in 2018-2026.
 // Distributed under the MIT license.
 //
 // Become a sponsor:
@@ -49,7 +49,7 @@ struct PostponedIntegrationFactory: @preconcurrency CustomStringConvertible {
         try factory.action.perform(embedding: viewController, in: &childViewControllers)
     }
 
-    public var description: String {
+    var description: String {
         String(describing: factory)
     }
 
