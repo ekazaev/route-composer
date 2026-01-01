@@ -21,12 +21,14 @@ public extension ContainerViewController where Self: UISplitViewController {
 
     /// Presents a view controller as a master in the `UISplitViewController`
     @MainActor
+    @available(iOS, deprecated: 14.0, message: "The new UISplitViewController styles are currently not supported. Please implement your own actions for the configurations you wish to support.")
     static func setAsMaster() -> SplitViewControllerActions.SetAsMasterAction<Self> {
         SplitViewControllerActions.SetAsMasterAction()
     }
 
     /// Presents a view controller as a detail in the `UISplitViewController`, *replacing* the previous detail.
     @MainActor
+    @available(iOS, deprecated: 14.0, message: "The new UISplitViewController styles are currently not supported. Please implement your own actions for the configurations you wish to support.")
     static func pushToDetails() -> SplitViewControllerActions.PushToDetailsAction<Self> {
         SplitViewControllerActions.PushToDetailsAction()
     }
@@ -34,6 +36,7 @@ public extension ContainerViewController where Self: UISplitViewController {
     /// Pushes a view controller *onto* the detail stack in the `UISplitViewController`. Requires the root detail view
     /// controller to be the `UINavigationController`
     @MainActor
+    @available(iOS, deprecated: 14.0, message: "The new UISplitViewController styles are currently not supported. Please implement your own actions for the configurations you wish to support.")
     static func pushOnToDetails() -> RouteComposer.SplitViewControllerActions.PushOnToDetailsAction<Self> {
         SplitViewControllerActions.PushOnToDetailsAction()
     }
@@ -164,16 +167,19 @@ public enum SplitViewControllerActions {
 
 public extension SplitViewControllerActions.SetAsMasterAction where ViewController == UISplitViewController {
     /// Presents a view controller as a master in the `UISplitViewController`
+    @available(iOS, deprecated: 14.0, message: "The new UISplitViewController styles are currently not supported. Please implement your own actions for the configurations you wish to support.")
     static var setAsPrimary: Self { Self() }
 }
 
 public extension SplitViewControllerActions.PushToDetailsAction where ViewController == UISplitViewController {
     /// Presents a view controller as a detail in the `UISplitViewController`, *replacing* the previous detail.
+    @available(iOS, deprecated: 14.0, message: "The new UISplitViewController styles are currently not supported. Please implement your own actions for the configurations you wish to support.")
     static var pushToDetails: Self { Self() }
 }
 
 public extension SplitViewControllerActions.PushOnToDetailsAction where ViewController == UISplitViewController {
     /// Pushes a view controller *onto* the detail stack in the `UISplitViewController`. Requires the root detail view
     /// controller to be the `UINavigationController`
+    @available(iOS, deprecated: 14.0, message: "The new UISplitViewController styles are currently not supported. Please implement your own actions for the configurations you wish to support.")
     static var pushOnToDetails: Self { Self() }
 }

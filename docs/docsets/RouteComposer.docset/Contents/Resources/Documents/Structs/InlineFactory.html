@@ -560,7 +560,20 @@
 
                 </div>
               </div>
-            <p><code>InlineFactory</code>. Might be useful for the configuration testing.</p>
+            <p>The <code><a href="../Protocols/Factory.html">Factory</a></code> that creates a <code>UIViewController</code> instance using build closure.</p>
+<h3 id='usage' class='heading'>Usage</h3>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">productScreen</span> <span class="o">=</span> <span class="kt">StepAssembler</span><span class="o">&lt;</span><span class="kt">ProductViewController</span><span class="p">,</span> <span class="kt">ProductContext</span><span class="o">&gt;</span><span class="p">()</span>
+        <span class="o">.</span><span class="nf">finder</span><span class="p">(</span><span class="o">.</span><span class="n">classWithContextFinder</span><span class="p">)</span>
+        <span class="o">.</span><span class="nf">factory</span><span class="p">(</span><span class="o">.</span><span class="n">build</span> <span class="p">{</span> <span class="kt">ProductViewController</span><span class="p">(</span><span class="nv">context</span><span class="p">:</span> <span class="nv">$0</span><span class="p">)</span> <span class="p">})</span>
+        <span class="o">.</span><span class="nf">adding</span><span class="p">(</span><span class="kt">ContextSettingTask</span><span class="p">())</span>
+        <span class="o">.</span><span class="nf">using</span><span class="p">(</span><span class="o">.</span><span class="n">push</span><span class="p">)</span>
+        <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="o">.</span><span class="n">navigationController</span><span class="p">)</span>
+        <span class="o">.</span><span class="nf">using</span><span class="p">(</span><span class="o">.</span><span class="n">present</span><span class="p">)</span>
+        <span class="o">.</span><span class="nf">from</span><span class="p">(</span><span class="o">.</span><span class="n">current</span><span class="p">)</span>
+        <span class="o">.</span><span class="nf">assemble</span><span class="p">()</span>
+</code></pre>
+
+<p>Might be useful for the configuration testing.</p>
 
           </div>
         </section>
@@ -768,13 +781,54 @@
                 </li>
               </ul>
             </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Shorthands"></a>
+                <a name="//apple_ref/swift/Section/Shorthands" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Shorthands"></a>
+                  <h3 class="section-name"><span>Shorthands</span>
+</h3>
+                </div>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13RouteComposer13InlineFactoryV5buildyACyxq_Gxq_cFZ"></a>
+                    <a name="//apple_ref/swift/Method/build(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13RouteComposer13InlineFactoryV5buildyACyxq_Gxq_cFZ">build(_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Shorthand to be used as <code>.factory(.build(...))</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">build</span><span class="p">(</span><span class="n">_</span> <span class="nv">buildBlock</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/InlineFactory.html#/s:13RouteComposer13InlineFactoryV7Contexta">Context</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/InlineFactory.html#/s:13RouteComposer13InlineFactoryV14ViewControllera">ViewController</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">InlineFactory</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
           </div>
         </section>
 
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2025 <a class="link" href="https://github.com/ekazaev" target="_blank" rel="external noopener">Evgeny Kazaev</a>. All rights reserved. (Last updated: 2025-09-18)</p>
+      <p>&copy; 2026 <a class="link" href="https://github.com/ekazaev" target="_blank" rel="external noopener">Evgeny Kazaev</a>. All rights reserved. (Last updated: 2026-01-01)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.15.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>
