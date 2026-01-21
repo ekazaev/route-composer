@@ -17,7 +17,6 @@ import SwiftUI
 import UIKit
 
 /// Builds `UIHostingController` with `ContentView` as a `UIHostingController.rootView` using the provided block.
-@available(iOS 13.0, OSX 10.15, tvOS 13.0, watchOS 6.0, *)
 public struct UIHostingControllerFactory<ContentView: View, Context>: Factory {
 
     // MARK: Associated types

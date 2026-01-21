@@ -184,13 +184,11 @@ class FactoryTest: XCTestCase {
     }
 
     func testUIHostingControllerFactory() {
-        if #available(iOS 13, *) {
-            let viewController = try? UIHostingControllerFactory<TestSwiftUIView, String> { context in
-                TestSwiftUIView(with: context)
-            }.execute(with: "test")
-            XCTAssertNotNil(viewController)
-            XCTAssertNotNil(viewController?.rootView.context == "test")
-        }
+        let viewController = try? UIHostingControllerFactory<TestSwiftUIView, String> { context in
+            TestSwiftUIView(with: context)
+        }.execute(with: "test")
+        XCTAssertNotNil(viewController)
+        XCTAssertNotNil(viewController?.rootView.context == "test")
     }
 
 }

@@ -6,7 +6,7 @@
 [![Swift Package Manager](https://img.shields.io/badge/SwiftPM-compatible-brightgreen.svg?style=flat)](https://github.com/apple/swift-package-manager)
 [![SwiftUI](https://img.shields.io/badge/SwiftUI-compatible-0AB42A.svg?style=flat)](https://developer.apple.com/xcode/swiftui/)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BA51D.svg?style=flat)](https://github.com/Carthage/Carthage)
-[![Swift 6.1](https://img.shields.io/badge/language-Swift6.1-orange.svg?style=flat)](https://developer.apple.com/swift)
+[![Swift 6.2](https://img.shields.io/badge/language-Swift6.2-orange.svg?style=flat)](https://developer.apple.com/swift)
 [![Platform iOS](https://img.shields.io/badge/platform-iOS%2015%20—%20iOS%2026-yellow.svg)](https://www.apple.com/ios)
 [![Documentation](https://ekazaev.github.io/route-composer/badge.svg)](https://ekazaev.github.io/route-composer)
 [![Code coverage](https://codecov.io/gh/ekazaev/route-composer/branch/master/graphs/badge.svg?style=flat)](https://ekazaev.github.io/route-composer/tests/index.html)
@@ -82,12 +82,6 @@ it, simply add the following line to your Podfile:
 
 ```ruby
 pod 'RouteComposer'
-```
-
-**For Xcode 10.1 / Swift 4.2 Support**
-
-```ruby
-pod 'RouteComposer', '~> 1.4'
 ```
 
 And then run `pod install`.

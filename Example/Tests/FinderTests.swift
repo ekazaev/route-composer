@@ -154,21 +154,17 @@ class FinderTest: XCTestCase {
     }
 
     func testUIHostingControllerWithContextFinder() {
-        if #available(iOS 13, *) {
-            let viewController = UIHostingController<TestSwiftUIView>(rootView: TestSwiftUIView(with: "123"))
-            let finder = UIHostingControllerWithContextFinder<TestSwiftUIView>(options: .currentAllStack, startingPoint: .custom(viewController))
-            XCTAssertEqual(try? finder.findViewController(with: "123"), viewController)
-            XCTAssertNil(try? finder.findViewController(with: "321"))
-        }
+        let viewController = UIHostingController<TestSwiftUIView>(rootView: TestSwiftUIView(with: "123"))
+        let finder = UIHostingControllerWithContextFinder<TestSwiftUIView>(options: .currentAllStack, startingPoint: .custom(viewController))
+        XCTAssertEqual(try? finder.findViewController(with: "123"), viewController)
+        XCTAssertNil(try? finder.findViewController(with: "321"))
     }
 
     func testContextInstantiatableConstructors() {
-        if #available(iOS 13, *) {
-            let voidView = TestSwiftUIAnyContextView<Void>()
-            let optionalAnyView = TestSwiftUIAnyContextView<Any?>()
-            XCTAssertTrue(voidView.context == ())
-            XCTAssertNil(optionalAnyView.context)
-        }
+        let voidView = TestSwiftUIAnyContextView<Void>()
+        let optionalAnyView = TestSwiftUIAnyContextView<Any?>()
+        XCTAssertTrue(voidView.context == ())
+        XCTAssertNil(optionalAnyView.context)
     }
 
 }

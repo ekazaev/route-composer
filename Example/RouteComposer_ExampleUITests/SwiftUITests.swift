@@ -27,21 +27,19 @@ class SwiftUITests: XCTestCase {
     }
 
     func testSwiftUIViewFromProduct() {
-        if #available(iOS 13, *) {
-            let app = XCUIApplication()
-            app.launchArguments.append("--uitesting")
-            app.launch()
-            XCTAssertTrue(app.otherElements["promptViewController"].exists)
-            app.buttons["Continue"].tap()
-            XCTAssertTrue(app.otherElements["homeViewController"].exists)
-            app.buttons["Go to Product 00"].tap()
-            XCTAssertTrue(app.otherElements["productViewController+00"].exists)
-            app.buttons["Go to SwiftUI"].tap()
-            XCTAssertTrue(app.buttons["SwiftUI+RouteComposer"].exists)
-            app.buttons["Go to Square Tab"].tap()
-            XCTAssertTrue(app.otherElements["squareViewController"].exists)
-            app.terminate()
-        }
+        let app = XCUIApplication()
+        app.launchArguments.append("--uitesting")
+        app.launch()
+        XCTAssertTrue(app.otherElements["promptViewController"].exists)
+        app.buttons["Continue"].tap()
+        XCTAssertTrue(app.otherElements["homeViewController"].exists)
+        app.buttons["Go to Product 00"].tap()
+        XCTAssertTrue(app.otherElements["productViewController+00"].exists)
+        app.buttons["Go to SwiftUI"].tap()
+        XCTAssertTrue(app.buttons["SwiftUI+RouteComposer"].exists)
+        app.buttons["Go to Square Tab"].tap()
+        XCTAssertTrue(app.otherElements["squareViewController"].exists)
+        app.terminate()
     }
 
 }

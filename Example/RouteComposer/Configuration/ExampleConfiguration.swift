@@ -154,10 +154,6 @@ extension ExampleScreenConfiguration {
     }
 
     var swiftUIScreen: DestinationStep<UIViewController, String> {
-        guard #available(iOS 13.0, *) else {
-            return starScreen.unsafelyRewrapped()
-        }
-
         return StepAssembler<UIHostingController<SwiftUIContentView>, String>()
             .finder(.hostingControllerWithContextFinder)
             .factory(.hostingControllerWithContextFactory)

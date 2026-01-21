@@ -2244,21 +2244,6 @@
 			};
 			name = Debug;
 		};
-		2B9B4FFEC0599168AD4B3878672A2426 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 648D81C8150A30FFE785A0543F29A014 /* SwiftFormat.release.xcconfig */;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
 		4200DEC4DE4041AA5D021ABD350AAE80 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8A7F8855E03EED6DDBF7A9D0C25A1C62 /* Pods-RouteComposer_Example.release.xcconfig */;
@@ -2325,6 +2310,22 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
+		};
+		639D73C087C684CF39145D9AB329A45D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 648D81C8150A30FFE785A0543F29A014 /* SwiftFormat.release.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
 		};
 		90D4D09BCB6A4660E43ACBE9ECB6FE9A /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -2525,14 +2526,15 @@
 			};
 			name = Debug;
 		};
-		EEE49C51BEAF7FB68B4772A03D1DF160 /* Debug */ = {
+		ED5FB1D3479E037B3204756641CBB908 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7433EEFC25C53325F55475D5F53BF878 /* SwiftFormat.debug.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2563,8 +2565,8 @@
 		6B2B7DF197DF6A7CA487150557230A41 /* Build configuration list for PBXAggregateTarget "SwiftFormat" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				EEE49C51BEAF7FB68B4772A03D1DF160 /* Debug */,
-				2B9B4FFEC0599168AD4B3878672A2426 /* Release */,
+				ED5FB1D3479E037B3204756641CBB908 /* Debug */,
+				639D73C087C684CF39145D9AB329A45D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

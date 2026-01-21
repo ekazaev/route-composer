@@ -16,7 +16,6 @@ import RouteComposer
 import SwiftUI
 #endif
 
-@available(iOS 13.0.0, *)
 struct TestSwiftUIView: View, ContextInstantiatable, ContextChecking {
 
     let context: String
@@ -35,7 +34,6 @@ struct TestSwiftUIView: View, ContextInstantiatable, ContextChecking {
 
 }
 
-@available(iOS 13.0.0, *)
 struct TestSwiftUIAnyContextView<Context>: View, ContextInstantiatable, ContextChecking {
 
     let context: Context

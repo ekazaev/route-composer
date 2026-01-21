@@ -121,9 +121,7 @@ class ActionTests: XCTestCase {
             XCTAssertEqual(viewController.modalTransitionStyle, UIModalTransitionStyle.crossDissolve)
             XCTAssertEqual(viewController.preferredContentSize.width, 100)
             XCTAssertEqual(viewController.preferredContentSize.height, 100)
-            if #available(iOS 13, *) {
-                XCTAssertEqual(viewController.isModalInPresentation, true)
-            }
+            XCTAssertEqual(viewController.isModalInPresentation, true)
             XCTAssertTrue(viewController.transitioningDelegate === transitionDelegate)
             if case .failure = result {
                 XCTAssert(false)
@@ -183,9 +181,7 @@ class ActionTests: XCTestCase {
             XCTAssertEqual(viewController.modalTransitionStyle, UIModalTransitionStyle.crossDissolve)
             XCTAssertEqual(viewController.preferredContentSize.width, 100)
             XCTAssertEqual(viewController.preferredContentSize.height, 100)
-            if #available(iOS 13, *) {
-                XCTAssertEqual(viewController.isModalInPresentation, true)
-            }
+            XCTAssertEqual(viewController.isModalInPresentation, true)
             XCTAssertTrue(viewController.transitioningDelegate === transitionDelegate)
             if case .failure = result {
                 XCTAssert(false)
@@ -219,7 +215,6 @@ class ActionTests: XCTestCase {
         XCTAssertTrue(wasInCompletion)
     }
 
-    @available(iOS 15, *)
     func testPresentModallyAction_sheetPresentationController() {
         class PresentingModallyController: UIViewController {
             override func present(_ viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)?) {

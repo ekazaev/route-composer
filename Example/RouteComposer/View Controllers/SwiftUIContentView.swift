@@ -17,7 +17,6 @@ import SwiftUI
 #endif
 
 // NB: This view exists for the demo purposes only.
-@available(iOS 13.0.0, *)
 @MainActor
 struct SwiftUIContentView: View, ContextInstantiatable, ContextChecking, ContextAcceptingView {
 

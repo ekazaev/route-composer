@@ -44,7 +44,6 @@ public extension Router {
     ///   - step: `DestinationStep` instance.
     ///   - context: `Context` instance.
     ///   - animated: if true - the navigation should be animated where it is possible.
-    @available(iOS 13.0.0, *)
     func navigate<Context>(to step: DestinationStep<some UIViewController, Context>,
                            with context: Context,
                            animated: Bool) async throws {
@@ -81,7 +80,6 @@ public extension Router {
     /// - Parameters:
     ///   - step: `DestinationStep` instance.
     ///   - animated: if true - the navigation should be animated where it is possible.
-    @available(iOS 13.0.0, *)
     func navigate(to step: DestinationStep<some UIViewController, Any?>,
                   animated: Bool) async throws {
         try await withCheckedThrowingContinuation { continuation in
@@ -117,7 +115,6 @@ public extension Router {
     /// - Parameters:
     ///   - step: `DestinationStep` instance.
     ///   - animated: if true - the navigation should be animated where it is possible.
-    @available(iOS 13.0.0, *)
     func navigate(to step: DestinationStep<some UIViewController, Void>,
                   animated: Bool) async throws {
         try await withCheckedThrowingContinuation { continuation in

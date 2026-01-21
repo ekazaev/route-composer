@@ -214,8 +214,7 @@ public enum ViewControllerActions {
                let presentationControllerConfigurationBlock {
                 presentationControllerConfigurationBlock(presentationController)
             }
-            if #available(iOS 13, *),
-               let isModalInPresentation {
+            if let isModalInPresentation {
                 viewController.isModalInPresentation = isModalInPresentation
             }
 

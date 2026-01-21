@@ -19,7 +19,6 @@ import UIKit
 /// The protocol for a `View` to make it compatible with `ContextSettingTask`.
 ///
 /// *Due to some current `swift` limitations protocol `ContextAccepting` can not be used directly.*
-@available(iOS 13.0, OSX 10.15, tvOS 13.0, watchOS 6.0, *)
 @MainActor
 public protocol ContextAcceptingView {
 
@@ -49,7 +48,6 @@ public protocol ContextAcceptingView {
 
 // MARK: Default implementation
 
-@available(iOS 13.0, OSX 10.15, tvOS 13.0, watchOS 6.0, *)
 public extension ContextAcceptingView {
 
     /// Default implementation does nothing.
@@ -58,7 +56,6 @@ public extension ContextAcceptingView {
 
 }
 
-@available(iOS 13.0, OSX 10.15, tvOS 13.0, watchOS 6.0, *)
 extension UIHostingController: ContextAccepting where Content: ContextAcceptingView {
 
     public static func checkCompatibility(with context: Content.Context) throws {

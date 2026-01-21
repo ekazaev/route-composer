@@ -20,7 +20,6 @@ import UIKit
 /// and its `Context` instance.
 ///
 /// The `View` should conform to the `ContextChecking` to be used with this finder.
-@available(iOS 13.0, OSX 10.15, tvOS 13.0, watchOS 6.0, *)
 public struct UIHostingControllerWithContextFinder<ContentView: View & ContextChecking>: StackIteratingFinder {
 
     // MARK: Associated types
@@ -50,7 +49,6 @@ public struct UIHostingControllerWithContextFinder<ContentView: View & ContextCh
 }
 
 /// Extension to use `DefaultStackIterator` as default iterator.
-@available(iOS 13.0, OSX 10.15, tvOS 13.0, watchOS 6.0, *)
 public extension UIHostingControllerWithContextFinder {
 
     /// Constructor
@@ -71,7 +69,6 @@ public extension UIHostingControllerWithContextFinder {
 
 #endif
 
-@available(iOS 13.0, OSX 10.15, tvOS 13.0, watchOS 6.0, *)
 public extension UIHostingControllerWithContextFinder {
 
     /// A default implementation of the finder, that searches for a `UIHostingController` with a specific `View`
