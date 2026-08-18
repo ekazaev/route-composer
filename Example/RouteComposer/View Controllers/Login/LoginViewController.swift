@@ -14,7 +14,7 @@ import Foundation
 import RouteComposer
 import UIKit
 
-// I do not want to create login service for demo so it is just a variable
+/// I do not want to create login service for demo so it is just a variable
 @MainActor
 var isLoggedIn: Bool = false
 
@@ -107,8 +107,7 @@ class LoginViewController: UIViewController, ExampleAnalyticsSupport {
             alertController.addAction(
                 UIAlertAction(title: "Ok", style: .default) { _ in
                     alertController.dismiss(animated: true)
-                }
-            )
+                })
             present(alertController, animated: true)
         }
     }

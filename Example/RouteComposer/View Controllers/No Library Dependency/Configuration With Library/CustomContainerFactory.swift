@@ -70,7 +70,9 @@ extension CustomContainerFactory {
 }
 
 extension CustomContainerFactory.ReplaceRoot {
-    static var customContainerReplaceRoot: Self { CustomContainerFactory.ReplaceRoot() }
+    static var customContainerReplaceRoot: Self {
+        CustomContainerFactory.ReplaceRoot()
+    }
 }
 
 struct CustomContainerControllerAdapter: ConcreteContainerAdapter {

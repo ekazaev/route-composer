@@ -60,37 +60,37 @@ class BoxTests: XCTestCase {
         XCTAssertThrowsError(try box?.build(with: AnyContextBox("Wrong Context Type")))
     }
 
-    func testContainerBoxChildrenScrape() {
+    func testContainerBoxChildrenScrape() throws {
         let factory = EmptyContainer()
         var box = ContainerFactoryBox(factory, action: ActionBox(ViewControllerActions.NilAction()))
         XCTAssertNotNil(box)
         var children: [AnyFactory] = []
-        children.append(FactoryBox(EmptyFactory(), action: ContainerActionBox(UINavigationController.push()))!)
-        children.append(FactoryBox(EmptyFactory(), action: ContainerActionBox(UINavigationController.push()))!)
-        children.append(FactoryBox(EmptyFactory(), action: ActionBox(ViewControllerActions.NilAction()))!)
+        try children.append(XCTUnwrap(FactoryBox(EmptyFactory(), action: ContainerActionBox(UINavigationController.push()))))
+        try children.append(XCTUnwrap(FactoryBox(EmptyFactory(), action: ContainerActionBox(UINavigationController.push()))))
+        try children.append(XCTUnwrap(FactoryBox(EmptyFactory(), action: ActionBox(ViewControllerActions.NilAction()))))
 
         let resultChildren = try? box?.scrapeChildren(from: children.map { (factory: $0, context: AnyContextBox(nil as Any?)) })
         XCTAssertEqual(resultChildren?.count, 1)
         XCTAssertEqual(box?.children.count, 2)
     }
 
-    func testContainerBoxChildrenScrapeChainedBySameAction() {
+    func testContainerBoxChildrenScrapeChainedBySameAction() throws {
         let factory = EmptyContainer()
         var box = ContainerFactoryBox(factory, action: ActionBox(ViewControllerActions.NilAction()))
         XCTAssertNotNil(box)
         var children: [AnyFactory] = []
-        children.append(FactoryBox(ClassFactory<UIViewController, Any?>(), action: ContainerActionBox(UINavigationController.push()))!)
-        children.append(FactoryBox(EmptyFactory(), action: ContainerActionBox(UINavigationController.push()))!)
-        children.append(ContainerFactoryBox(NavigationControllerFactory<UINavigationController, Any?>(), action: ActionBox(ViewControllerActions.PresentModallyAction()))!)
-        children.append(FactoryBox(EmptyFactory(), action: ContainerActionBox(UINavigationController.push()))!)
-        children.append(FactoryBox(ClassFactory<UIViewController, Any?>(), action: ContainerActionBox(UINavigationController.push()))!)
+        try children.append(XCTUnwrap(FactoryBox(ClassFactory<UIViewController, Any?>(), action: ContainerActionBox(UINavigationController.push()))))
+        try children.append(XCTUnwrap(FactoryBox(EmptyFactory(), action: ContainerActionBox(UINavigationController.push()))))
+        try children.append(XCTUnwrap(ContainerFactoryBox(NavigationControllerFactory<UINavigationController, Any?>(), action: ActionBox(ViewControllerActions.PresentModallyAction()))))
+        try children.append(XCTUnwrap(FactoryBox(EmptyFactory(), action: ContainerActionBox(UINavigationController.push()))))
+        try children.append(XCTUnwrap(FactoryBox(ClassFactory<UIViewController, Any?>(), action: ContainerActionBox(UINavigationController.push()))))
 
         let resultChildren = try? box?.scrapeChildren(from: children.map { (factory: $0, context: AnyContextBox(nil as Any?)) })
         XCTAssertEqual(resultChildren?.count, 3)
         XCTAssertEqual(box?.children.count, 2)
-        XCTAssertTrue(resultChildren?.first!.factory is ContainerFactoryBox<NavigationControllerFactory<UINavigationController, Any?>>)
-        XCTAssertTrue(box?.children.first!.factory.factory is FactoryBox<ClassFactory<UIViewController, Any?>>)
-        XCTAssertTrue(resultChildren?.last!.factory is FactoryBox<ClassFactory<UIViewController, Any?>>)
+        XCTAssertTrue(try XCTUnwrap(resultChildren?.first?.factory) is ContainerFactoryBox<NavigationControllerFactory<UINavigationController, Any?>>)
+        XCTAssertTrue(try XCTUnwrap(box?.children.first?.factory.factory) is FactoryBox<ClassFactory<UIViewController, Any?>>)
+        XCTAssertTrue(try XCTUnwrap(resultChildren?.last?.factory) is FactoryBox<ClassFactory<UIViewController, Any?>>)
     }
 
     func testNilEntitiesInStepAssembly() {

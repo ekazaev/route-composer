@@ -45,7 +45,7 @@ class ProductConfiguration {
             .assemble(default: ConfigurationHolder.configuration.circleScreen.expectingContainer()))
         .assemble()
 
-    // This path is used to test the transactions in presentations. Does not have any other purposes
+    /// This path is used to test the transactions in presentations. Does not have any other purposes
     @MainActor
     static let productScreenFromCircle = StepAssembler<ProductViewController, ProductContext>()
         .finder(.classWithContextFinder)

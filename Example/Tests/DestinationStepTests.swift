@@ -142,9 +142,9 @@ class DestinationStepTests: XCTestCase {
         XCTAssertNoThrow(try (step2.routingStep(with: ViewControllerActions.NilAction()) as? PerformableStep)?.perform(with: AnyContextBox(())))
     }
 
-    func testGeneralStepCurrentOnNoTopMostController() {
+    func testGeneralStepCurrentOnNoTopMostController() throws {
         var window: UIWindow? = UIWindow()
-        let step = GeneralStep.CurrentViewControllerStep(windowProvider: CustomWindowProvider(window: window!))
+        let step = try GeneralStep.CurrentViewControllerStep(windowProvider: CustomWindowProvider(window: XCTUnwrap(window)))
         window = nil
         XCTAssertThrowsError(try step.perform(with: AnyContextBox("Any context")))
     }

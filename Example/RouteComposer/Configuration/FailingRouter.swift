@@ -18,15 +18,11 @@ struct FailingRouterIgnoreError: Error {
 
     let underlyingError: Error
 
-    init(underlyingError: Error) {
-        self.underlyingError = underlyingError
-    }
-
 }
 
-// Simple wrapper to warn if something goes wrong
+/// Simple wrapper to warn if something goes wrong
 @MainActor
-struct FailingRouter<R>: Router where R: Router {
+struct FailingRouter<R: Router>: Router {
 
     var router: R
 

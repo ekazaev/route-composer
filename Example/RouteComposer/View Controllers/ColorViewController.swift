@@ -33,7 +33,9 @@ class ColorViewControllerFinder: StackIteratingFinder {
 
 extension ColorViewControllerFinder {
     /// Shorthand to be used as `.using(.colorViewControllerFinder)`
-    static var colorViewControllerFinder: ColorViewControllerFinder { ColorViewControllerFinder() }
+    static var colorViewControllerFinder: ColorViewControllerFinder {
+        ColorViewControllerFinder()
+    }
 }
 
 extension StepAssembler where VC == ColorViewController, C == String { // Add new finder method for shorthand .colorViewControllerFinder
@@ -61,7 +63,9 @@ class ColorViewControllerFactory: Factory {
 
 extension ColorViewControllerFactory {
     /// Shorthand to be used as `.using(.colorViewControllerFactory)`
-    static var colorViewControllerFactory: ColorViewControllerFactory { ColorViewControllerFactory() }
+    static var colorViewControllerFactory: ColorViewControllerFactory {
+        ColorViewControllerFactory()
+    }
 }
 
 extension StepAssemblerWithFinder where F.ViewController == ColorViewController, F.Context == String { // Add new factory method for shorthand .colorViewControllerFactory

@@ -34,7 +34,7 @@ class RouterTests: XCTestCase {
 
     }
 
-    // To fake modal presentation
+    /// To fake modal presentation
     class TestModalPresentableController: UIViewController {
 
         var fakePresentedViewController: UIViewController?
@@ -50,7 +50,7 @@ class RouterTests: XCTestCase {
         }
     }
 
-    // Fakes current view controller as we do not have an access to the key UIWindow
+    /// Fakes current view controller as we do not have an access to the key UIWindow
     class TestCurrentViewControllerStep<VC: UIViewController>: RoutingStep, PerformableStep {
 
         let currentViewController: VC
@@ -65,15 +65,15 @@ class RouterTests: XCTestCase {
 
     }
 
-    // ViewController that can not be dismissed
+    /// ViewController that can not be dismissed
     class TestRoutingControllingViewController: UIViewController, RoutingInterceptable {
         let canBeDismissed: Bool = false
     }
 
-    // View Controller to present
+    /// View Controller to present
     class TestViewController: UIViewController {}
 
-    // Factory that produces TestViewController
+    /// Factory that produces TestViewController
     struct TestViewControllerFactory<C>: Factory {
 
         typealias ViewController = TestViewController
@@ -86,7 +86,7 @@ class RouterTests: XCTestCase {
 
     }
 
-    // Factory that suppose to produce `TestViewController` but fails
+    /// Factory that suppose to produce `TestViewController` but fails
     struct TestViewControllerBrokenFactory: Factory {
 
         func build(with context: Any?) throws -> TestViewController {
@@ -95,7 +95,7 @@ class RouterTests: XCTestCase {
 
     }
 
-    // Fake finder that always finds a view controller in the stack
+    /// Fake finder that always finds a view controller in the stack
     struct FakeClassFinder<VC: UIViewController, C>: Finder {
 
         let currentViewController: VC
@@ -109,9 +109,9 @@ class RouterTests: XCTestCase {
         }
     }
 
-    // Fakes modal presentation action using `TestModalPresentableController`
+    /// Fakes modal presentation action using `TestModalPresentableController`
     struct FakePresentModallyAction: Action {
-        // We can not present modally on the view controllers that are not in the window hierarchy - so we will just fake this action
+        /// We can not present modally on the view controllers that are not in the window hierarchy - so we will just fake this action
         func perform(with viewController: UIViewController, on existingController: TestModalPresentableController, animated: Bool, completion: @escaping (RoutingResult) -> Void) {
             existingController.fakePresentedViewController = viewController
             completion(.success)
@@ -358,11 +358,11 @@ class RouterTests: XCTestCase {
         XCTAssertTrue(routingResult.isSuccessful)
     }
 
-    func testNavigateToWithDeallocatedViewController() {
+    func testNavigateToWithDeallocatedViewController() throws {
         let expectation = XCTestExpectation(description: "Animated root view controller replacement")
         let router: Router = DefaultRouter()
         var viewController: UIViewController? = UINavigationController()
-        let screenConfigVoid = StepAssembly(finder: NilFinder<UIViewController, Void>(), factory: NilFactory())
+        let screenConfigVoid = try StepAssembly(finder: NilFinder<UIViewController, Void>(), factory: NilFactory())
             .adding(InlineInterceptor { (_: Void, completion: @escaping (RoutingResult) -> Void) in
                 viewController = nil
                 let deadline = DispatchTime.now() + .milliseconds(100)
@@ -371,7 +371,7 @@ class RouterTests: XCTestCase {
                 }
 
             })
-            .from(.custom(using: InstanceFinder(instance: viewController!)))
+            .from(.custom(using: InstanceFinder(instance: XCTUnwrap(viewController))))
             .assemble()
         var wasInCompletion = false
         try? router.navigate(to: screenConfigVoid, animated: false, completion: { result in

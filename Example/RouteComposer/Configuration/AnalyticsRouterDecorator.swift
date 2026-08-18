@@ -13,15 +13,11 @@
 import Foundation
 import RouteComposer
 
-// Example that `Router` can be wrapped and you can add your functionality into navigation process
+/// Example that `Router` can be wrapped and you can add your functionality into navigation process
 @MainActor
 struct AnalyticsRouterDecorator: Router {
 
     let router: Router
-
-    init(router: Router) {
-        self.router = router
-    }
 
     func navigate<Context>(to step: DestinationStep<some UIViewController, Context>,
                            with context: Context,

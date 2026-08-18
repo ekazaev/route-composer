@@ -13,7 +13,7 @@
 import Foundation
 import RouteComposer
 
-// Enum to demo analytics
+/// Enum to demo analytics
 enum ExampleScreenTypes {
 
     case circle

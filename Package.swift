@@ -28,4 +28,4 @@ let package = Package(
             dependencies: ["RouteComposer"],
             path: "Example/Tests")
     ],
-    swiftLanguageModes: [.version("6.1")])
+    swiftLanguageModes: [.version("6.2")])

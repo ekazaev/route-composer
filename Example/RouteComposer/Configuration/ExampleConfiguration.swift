@@ -198,7 +198,7 @@ struct AlternativeExampleConfiguration: ExampleScreenConfiguration {
 
 enum ConfigurationHolder {
 
-    // Declared as static to avoid dependency injection in the Example app. So this variable is available everywhere.
+    /// Declared as static to avoid dependency injection in the Example app. So this variable is available everywhere.
     @MainActor
     static var configuration: ExampleScreenConfiguration = ExampleConfiguration()
 

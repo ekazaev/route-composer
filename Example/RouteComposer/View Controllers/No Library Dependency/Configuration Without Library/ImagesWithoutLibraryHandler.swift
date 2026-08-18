@@ -16,9 +16,9 @@ import ImageDetailsController
 import ImagesController
 import UIKit
 
-// This is an example how you can implement the same navigation configuration without the dependency to RouteComposer.
-// It may seem les complicated, but adding login/analytics/universal links support/navigation to the other parts of the app
-// will make this implementation much more complicated.
+/// This is an example how you can implement the same navigation configuration without the dependency to RouteComposer.
+/// It may seem les complicated, but adding login/analytics/universal links support/navigation to the other parts of the app
+/// will make this implementation much more complicated.
 class ImagesWithoutLibraryHandler: CustomViewControllerDelegate, ImagesControllerDelegate, ImageDetailsControllerDelegate {
 
     func dismissCustomContainer(controller: CustomContainerController) {

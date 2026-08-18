@@ -20,9 +20,9 @@ class ExtrasTest: XCTestCase {
 
     let router = SingleNavigationRouter(router: DefaultRouter(), lock: SingleNavigationLock())
 
-    // Fakes modal presentation action using `TestModalPresentableController`
+    /// Fakes modal presentation action using `TestModalPresentableController`
     struct FakeTimedPresentModallyAction: Action {
-        // We can not present modally on the view controllers that are not in the window hierarchy - so we will just fake this action
+        /// We can not present modally on the view controllers that are not in the window hierarchy - so we will just fake this action
         func perform(with viewController: UIViewController,
                      on existingController: RouterTests.TestModalPresentableController,
                      animated: Bool,
@@ -335,14 +335,14 @@ class ExtrasTest: XCTestCase {
         XCTAssertEqual(navigationController.viewControllers.last, newViewController)
     }
 
-    func testCATransactionalActionPerform() {
+    func testCATransactionalActionPerform() throws {
         let window = UIWindow()
         window.rootViewController = UINavigationController()
         let windowProvider = CustomWindowProvider(window: window)
         let action = CATransaction.wrap(GeneralAction.replaceRoot(windowProvider: windowProvider))
         var wasInCompletion = false
         let newViewController = UIViewController()
-        action.perform(with: newViewController, on: window.rootViewController!, animated: false, completion: { result in
+        try action.perform(with: newViewController, on: XCTUnwrap(window.rootViewController), animated: false, completion: { result in
             wasInCompletion = true
             XCTAssertTrue(result.isSuccessful)
         })
@@ -350,14 +350,14 @@ class ExtrasTest: XCTestCase {
         XCTAssertEqual(window.rootViewController, newViewController)
     }
 
-    func testDispatchQueueDelayActionPreform() {
+    func testDispatchQueueDelayActionPreform() throws {
         var window: UIWindow? = UIWindow()
         window?.rootViewController = UINavigationController()
-        let windowProvider = CustomWindowProvider(window: window!)
+        let windowProvider = try CustomWindowProvider(window: XCTUnwrap(window))
         let action = DispatchQueue.delay(GeneralAction.replaceRoot(windowProvider: windowProvider))
         let newViewController = UIViewController()
         var expectation = XCTestExpectation(description: "Action to finish")
-        action.perform(with: newViewController, on: window!.rootViewController!, animated: true, completion: { result in
+        try action.perform(with: newViewController, on: XCTUnwrap(window?.rootViewController), animated: true, completion: { result in
             expectation.fulfill()
             XCTAssertTrue(result.isSuccessful)
         })

@@ -14,10 +14,10 @@ import Foundation
 import RouteComposer
 import UIKit
 
-// Another example to provide a destination
+/// Another example to provide a destination
 class CitiesConfiguration {
 
-    // Split View Controller
+    /// Split View Controller
     @MainActor
     private static var city = StepAssembler<UISplitViewController, Void>() // Context type `Void` here is only used to demonstrate the possibility of context transformation.
         .finder(.classFinder)
@@ -27,7 +27,7 @@ class CitiesConfiguration {
         .from(.root)
         .assemble()
 
-    // Cities List
+    /// Cities List
     @MainActor
     private static var citiesList = StepAssembler<CitiesTableViewController, String?>()
         .finder(.classFinder)
@@ -36,7 +36,7 @@ class CitiesConfiguration {
         .from(city.adaptingContext(using: InlineContextTransformer { _ in () })) // We have to transform `String?` to `Void` to satisfy the requirements
         .assemble()
 
-    // City Details
+    /// City Details
     @MainActor
     private static var cityDetails = StepAssembler<CityDetailViewController, Int>()
         .finder(.classFinder)

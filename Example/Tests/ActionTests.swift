@@ -11,7 +11,6 @@
 //
 
 @testable import RouteComposer
-
 import UIKit
 import XCTest
 
@@ -82,9 +81,9 @@ class ActionTests: XCTestCase {
         XCTAssertEqual(window.rootViewController, newRootViewController)
     }
 
-    func testReplaceRootActionNoKeyWindow() {
+    func testReplaceRootActionNoKeyWindow() throws {
         var window: UIWindow? = UIWindow()
-        let action = ViewControllerActions.ReplaceRootAction(windowProvider: CustomWindowProvider(window: window!), animationOptions: .transitionCurlUp, duration: 0.3)
+        let action = try ViewControllerActions.ReplaceRootAction(windowProvider: CustomWindowProvider(window: XCTUnwrap(window)), animationOptions: .transitionCurlUp, duration: 0.3)
         window = nil
         let rootViewController = UIViewController()
         let newRootViewController = UIViewController()
@@ -277,7 +276,7 @@ class ActionTests: XCTestCase {
         XCTAssertTrue(wasInCompletion)
     }
 
-    func testPushReplacingLastAction() {
+    func testPushReplacingLastAction() throws {
         var viewControllerStack: [UIViewController] = []
         UINavigationController.pushReplacingLast().perform(embedding: UIViewController(), in: &viewControllerStack)
         XCTAssertEqual(viewControllerStack.count, 1)
@@ -285,7 +284,7 @@ class ActionTests: XCTestCase {
         UINavigationController.pushReplacingLast().perform(embedding: UINavigationController(),
                                                            in: &viewControllerStack)
         XCTAssertEqual(viewControllerStack.count, 1)
-        XCTAssert(viewControllerStack.first!.isKind(of: UINavigationController.self))
+        XCTAssert(try XCTUnwrap(viewControllerStack.first?.isKind(of: UINavigationController.self)))
 
         let testViewController = UIViewController()
         let navigationController = UINavigationController(rootViewController: UIViewController())
@@ -298,14 +297,14 @@ class ActionTests: XCTestCase {
         XCTAssertTrue(wasInCompletion)
     }
 
-    func testPushAsRootAction() {
+    func testPushAsRootAction() throws {
         var viewControllerStack: [UIViewController] = []
         UINavigationController.pushAsRoot().perform(embedding: UIViewController(), in: &viewControllerStack)
         XCTAssertEqual(viewControllerStack.count, 1)
 
         UINavigationController.pushAsRoot().perform(embedding: UINavigationController(), in: &viewControllerStack)
         XCTAssertEqual(viewControllerStack.count, 1)
-        XCTAssert(viewControllerStack.first!.isKind(of: UINavigationController.self))
+        XCTAssert(try XCTUnwrap(viewControllerStack.first?.isKind(of: UINavigationController.self)))
 
         var wasInCompletion = false
         let navigationController = UINavigationController(rootViewController: UIViewController())
@@ -321,7 +320,7 @@ class ActionTests: XCTestCase {
         XCTAssertTrue(navigationController.viewControllers[0] === newRootController)
     }
 
-    func testPushAction() {
+    func testPushAction() throws {
         var viewControllerStack: [UIViewController] = []
         UINavigationController.push().perform(embedding: UIViewController(), in: &viewControllerStack)
         XCTAssertEqual(viewControllerStack.count, 1)
@@ -329,8 +328,8 @@ class ActionTests: XCTestCase {
         UINavigationController.push().perform(embedding: UINavigationController(),
                                               in: &viewControllerStack)
         XCTAssertEqual(viewControllerStack.count, 2)
-        XCTAssert(viewControllerStack.last!.isKind(of: UINavigationController.self))
-        XCTAssert(viewControllerStack.first!.isKind(of: UIViewController.self))
+        XCTAssert(try XCTUnwrap(viewControllerStack.last?.isKind(of: UINavigationController.self)))
+        XCTAssert(try XCTUnwrap(viewControllerStack.first?.isKind(of: UIViewController.self)))
 
         var wasInCompletion = false
         let navigationController = UINavigationController(rootViewController: UIViewController())
@@ -346,15 +345,15 @@ class ActionTests: XCTestCase {
         XCTAssertTrue(navigationController.viewControllers.removeLast() === viewController)
     }
 
-    func testAddTabAction() {
+    func testAddTabAction() throws {
         var viewControllerStack: [UIViewController] = []
         UITabBarController.add().perform(embedding: UIViewController(), in: &viewControllerStack)
         XCTAssertEqual(viewControllerStack.count, 1)
 
         UITabBarController.add().perform(embedding: UINavigationController(), in: &viewControllerStack)
         XCTAssertEqual(viewControllerStack.count, 2)
-        XCTAssert(viewControllerStack.first!.isKind(of: UIViewController.self))
-        XCTAssert(viewControllerStack.last!.isKind(of: UINavigationController.self))
+        XCTAssert(try XCTUnwrap(viewControllerStack.first?.isKind(of: UIViewController.self)))
+        XCTAssert(try XCTUnwrap(viewControllerStack.last?.isKind(of: UINavigationController.self)))
 
         var wasInCompletion = false
         let tabBarController = UITabBarController()
@@ -371,15 +370,15 @@ class ActionTests: XCTestCase {
         XCTAssertTrue(tabBarController.viewControllers?.removeLast() === viewController)
     }
 
-    func testAddTabActionAtIndex() {
+    func testAddTabActionAtIndex() throws {
         var viewControllerStack: [UIViewController] = []
         UITabBarController.add(at: 1).perform(embedding: UIViewController(), in: &viewControllerStack)
         XCTAssertEqual(viewControllerStack.count, 1)
 
         UITabBarController.add(at: 0).perform(embedding: UINavigationController(), in: &viewControllerStack)
         XCTAssertEqual(viewControllerStack.count, 2)
-        XCTAssert(viewControllerStack.first!.isKind(of: UINavigationController.self))
-        XCTAssert(viewControllerStack.last!.isKind(of: UIViewController.self))
+        XCTAssert(try XCTUnwrap(viewControllerStack.first?.isKind(of: UINavigationController.self)))
+        XCTAssert(try XCTUnwrap(viewControllerStack.last?.isKind(of: UIViewController.self)))
 
         var wasInCompletion = false
         let tabBarController = UITabBarController()
@@ -396,7 +395,7 @@ class ActionTests: XCTestCase {
         XCTAssertTrue(tabBarController.viewControllers?.removeFirst() === viewController)
     }
 
-    func testAddTabActionReplacingAtIndex() {
+    func testAddTabActionReplacingAtIndex() throws {
         var viewControllerStack: [UIViewController] = []
         UITabBarController.add(at: 1, replacing: true).perform(embedding: UIViewController(),
                                                                in: &viewControllerStack)
@@ -405,7 +404,7 @@ class ActionTests: XCTestCase {
         UITabBarController.add(at: 0, replacing: true).perform(embedding: UINavigationController(),
                                                                in: &viewControllerStack)
         XCTAssertEqual(viewControllerStack.count, 1)
-        XCTAssert(viewControllerStack.first!.isKind(of: UINavigationController.self))
+        XCTAssert(try XCTUnwrap(viewControllerStack.first?.isKind(of: UINavigationController.self)))
 
         var wasInCompletion = false
         let tabBarController = UITabBarController()

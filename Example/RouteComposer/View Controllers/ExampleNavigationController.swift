@@ -14,7 +14,7 @@ import Foundation
 import RouteComposer
 import UIKit
 
-// Its only purpose is to demo that you can reuse built-in actions with your custom classes
+/// Its only purpose is to demo that you can reuse built-in actions with your custom classes
 class ExampleNavigationController: UINavigationController {
 
     override func viewDidLoad() {

@@ -15,7 +15,7 @@ import UIKit
 
 extension UIViewController {
 
-    // This class is needed just for the test purposes
+    /// This class is needed just for the test purposes
     @MainActor
     private final class TestInterceptor: RoutingInterceptor {
         let logger: RouteComposer.Logger?

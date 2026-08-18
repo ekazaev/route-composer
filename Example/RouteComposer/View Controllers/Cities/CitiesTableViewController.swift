@@ -16,8 +16,8 @@ import UIKit
 
 class CityTableContextTask: ContextTask {
 
-    // `CitiesTableViewController` can perfectly work with the `Context` object of type `Int?`, but to demonstrate the possibility of context conversion,
-    // we say that the actual context is `String?`. But it is done for demonstration and testing purposes only.
+    /// `CitiesTableViewController` can perfectly work with the `Context` object of type `Int?`, but to demonstrate the possibility of context conversion,
+    /// we say that the actual context is `String?`. But it is done for demonstration and testing purposes only.
     func perform(on viewController: CitiesTableViewController, with cityIdAsString: String?) throws {
         guard let cityIdAsString else {
             viewController.cityId = nil
@@ -94,8 +94,8 @@ class CitiesTableViewController: UITableViewController, ExampleAnalyticsSupport 
 
 }
 
-// To show the master view controller first in the compact mode
-// https://stackoverflow.com/questions/29506713/open-uisplitviewcontroller-to-master-view-rather-than-detail
+/// To show the master view controller first in the compact mode
+/// https://stackoverflow.com/questions/29506713/open-uisplitviewcontroller-to-master-view-rather-than-detail
 extension CitiesTableViewController: UISplitViewControllerDelegate {
 
     func splitViewController(
